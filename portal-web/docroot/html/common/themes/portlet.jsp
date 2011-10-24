@@ -93,23 +93,20 @@ boolean wsrp = ParamUtil.getBoolean(request, "wsrp");
 		<%@ include file="/html/common/themes/portlet_content_wrapper.jspf" %>
 	</c:when>
 	<c:when test="<%= themeDisplay.isStatePopUp() %>">
-		<div class="portlet-body">
-			<c:if test="<%= Validator.isNotNull(tilesPortletContent) %>">
-				<c:if test='<%= !tilesPortletContent.endsWith("/error.jsp") %>'>
-					<%@ include file="/html/common/themes/portlet_messages.jspf" %>
-				</c:if>
-
-				<liferay-util:include page="<%= StrutsUtil.TEXT_HTML_DIR + tilesPortletContent %>" />
+		<c:if test="<%= Validator.isNotNull(tilesPortletContent) %>">
+			<c:if test='<%= !tilesPortletContent.endsWith("/error.jsp") %>'>
+				<%@ include file="/html/common/themes/portlet_messages.jspf" %>
 			</c:if>
 
-			<c:if test="<%= Validator.isNull(tilesPortletContent) %>">
+			<liferay-util:include page="<%= StrutsUtil.TEXT_HTML_DIR + tilesPortletContent %>" />
+		</c:if>
 
-				<%
-				pageContext.getOut().print(renderRequest.getAttribute(WebKeys.PORTLET_CONTENT));
-				%>
+		<c:if test="<%= Validator.isNull(tilesPortletContent) %>">
 
-			</c:if>
-		</div>
+			<%
+			pageContext.getOut().print(renderRequest.getAttribute(WebKeys.PORTLET_CONTENT));
+			%>
+		</c:if>	
 	</c:when>
 	<c:otherwise>
 
