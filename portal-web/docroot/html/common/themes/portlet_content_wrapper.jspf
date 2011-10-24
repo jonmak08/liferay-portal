@@ -14,10 +14,6 @@
  */
 --%>
 
-<c:if test="<%= !themeDisplay.isStateExclusive() %>">
-	<div class="portlet-body">
-</c:if>
-
 <c:choose>
 	<c:when test="<%= portletDisplay.isActive() %>">
 		<c:choose>
@@ -49,7 +45,3 @@
 		<liferay-util:include page="/html/portal/portlet_inactive.jsp" />
 	</c:otherwise>
 </c:choose>
-
-<c:if test="<%= !themeDisplay.isStateExclusive() %>">
-	</div>
-</c:if>
