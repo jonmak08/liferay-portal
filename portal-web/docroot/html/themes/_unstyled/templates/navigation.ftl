@@ -5,24 +5,38 @@
 
 	<ul>
 		<#list nav_items as nav_item>
-			<#if nav_item.isSelected()>
-				<li class="selected">
-			<#else>
-				<li>
-			</#if>
+			<li>
+				<#assign nav_item_class = "">
+				<#if nav_item_index == 0 && !nav_item_has_next>
+					<#assign nav_item_class = nav_item_class + " first last only">
+				<#elseif nav_item_index == 0>
+					<#assign nav_item_class = nav_item_class + " first">
+				<#elseif !nav_item_has_next>
+					<#assign nav_item_class = nav_item_class + " last">
+				</#if>
+				<#if nav_child.isSelected()>
+					<#assign nav_item_class = nav_item_class + " selected">
+				</#if>
 
-				<a href="${nav_item.getURL()}" ${nav_item.getTarget()}><span>${nav_item.icon()} ${nav_item.getName()}</span></a>
+				<a class="${nav_item_class}" href="${nav_item.getURL()}" ${nav_item.getTarget()}><span>${nav_item.icon()} ${nav_item.getName()}</span></a>
 
 				<#if nav_item.hasChildren()>
 					<ul class="child-menu">
 						<#list nav_item.getChildren() as nav_child>
-							<#if nav_child.isSelected()>
-								<li class="selected">
-							<#else>
-								<li>
-							</#if>
-
-								<a href="${nav_child.getURL()}" ${nav_child.getTarget()}>${nav_child.getName()}</a>
+							<li>
+								<#assign nav_child_class = "">
+								<#if nav_item_index == 0 && !nav_item_has_next>
+									<#assign nav_item_class = nav_child_class + " first last only">
+								<#elseif nav_item_index == 0>
+									<#assign nav_child_class = nav_child_class + " first">
+								<#elseif !nav_item_has_next>
+									<#assign nav_child_class = nav_child_class + " last">
+								</#if>
+								<#if nav_child.isSelected()>
+									<#assign nav_child_class = nav_child_class + " selected">
+								</#if>
+								
+								<a class="${nav_child_class}" href="${nav_child.getURL()}" ${nav_child.getTarget()}>${nav_child.getName()}</a>
 							</li>
 						</#list>
 					</ul>

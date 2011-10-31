@@ -5,22 +5,36 @@
 
 	<ul>
 		#foreach ($nav_item in $nav_items)
-			#if ($nav_item.isSelected())
-				<li class="selected">
-			#else
-				<li>
-			#end
-				<a href="$nav_item.getURL()" $nav_item.getTarget()><span>$nav_item.icon() $nav_item.getName()</span></a>
+			<li>
+				#set($nav_item_class = "")
+				#if ($velocityCount == 1 && !$velocityHasNext)
+					#set($nav_item_class = $nav_item_class + " first last only")
+				#elseif ($velocityCount == 1)
+					#set($nav_item_class = $nav_item_class + " first")
+				#elseif (!$velocityHasNext)
+					#set($nav_item_class = $nav_item_class + " last")
+				#end
+				#if ($nav_item.isSelected())
+					#set($nav_item_class = $nav_item_class + " selected")
+				#end
+				<a class="$nav_item_class" href="$nav_item.getURL()" $nav_item.getTarget()><span>$nav_item.icon() $nav_item.getName()</span></a>
 
 				#if ($nav_item.hasChildren())
 					<ul class="child-menu">
 						#foreach ($nav_child in $nav_item.getChildren())
-							#if ($nav_child.isSelected())
-								<li class="selected">
-							#else
-								<li>
-							#end
-								<a href="$nav_child.getURL()" $nav_child.getTarget()>$nav_child.getName()</a>
+							<li>
+								#set($nav_child_class = "")
+								#if ($velocityCount == 1 && !$velocityHasNext)
+									#set($nav_child_class = $nav_child_class + " first last only")
+								#elseif ($velocityCount == 1)
+									#set($nav_child_class = $nav_child_class + " first")
+								#elseif (!$velocityHasNext)
+									#set($nav_child_class = $nav_child_class + " last")
+								#end
+								#if ($nav_child.isSelected())
+									#set($nav_child_class = $nav_child_class + " selected")
+								#end
+								<a class="$nav_child_class" href="$nav_child.getURL()" $nav_child.getTarget()>$nav_child.getName()</a>
 							</li>
 						#end
 					</ul>
