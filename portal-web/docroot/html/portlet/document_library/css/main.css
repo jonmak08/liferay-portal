@@ -553,6 +553,7 @@
 
 	.taglib-search-iterator {
 		table-layout: fixed;
+		width: 100%;
 	}
 
 	.taglib-webdav {
