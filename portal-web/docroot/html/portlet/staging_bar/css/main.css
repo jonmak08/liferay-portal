@@ -1,7 +1,8 @@
 .portlet-staging-bar {
 	.staging-tabview-list {
-		a, .taglib-text {
-			text-decoration: none
+		background-image: none;
+			a, .taglib-text {
+				text-decoration: none;
 		}
 	}
 
