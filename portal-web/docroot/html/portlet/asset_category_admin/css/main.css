@@ -212,7 +212,7 @@
 			}
 
 			.aui-tree-node-checkbox-container, .aui-tree-label {
-				display: inline-block;
+				display: inline;
 				position: relative;
 				top: 8px;
 				vertical-align: middle;
@@ -290,12 +290,11 @@
 
 	.yui3-widget-bd .aui-field.vocabulary-checkbox {
 		input {
-			width: 100%;
+			width: auto;
 		}
 
 		label {
-			margin: 1.8em 0;
-			display:inline-block;
+			display: block;
 		}
 	}
 }
