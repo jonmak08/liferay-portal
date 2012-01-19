@@ -1,3 +1,7 @@
+.controls-visible .top-links-navigation {
+	margin: 20px auto;
+}
+
 .portlet-boundary .top-links-container {
 	clear: both;
 	overflow: hidden;
