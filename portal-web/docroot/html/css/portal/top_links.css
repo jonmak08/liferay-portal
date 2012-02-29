@@ -27,3 +27,7 @@
 	display: inline-block;
 	list-style-type: none;
 }
+
+.ie .top-links-navigation li {
+	display: inline;
+}
