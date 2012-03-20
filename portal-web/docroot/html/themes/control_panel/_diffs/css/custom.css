@@ -685,6 +685,10 @@ body.portal-popup:after, body.portal-popup:before {
 	min-height: 20px;
 }
 
+.columns-max{
+	overflow-x: scroll;
+}
+
 .drop-zone {
 	background: #333;
 }
