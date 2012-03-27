@@ -11,6 +11,8 @@ AUI.add(
 
 		var CSS_NO_MATCHES = 'no-matches';
 
+		var CSS_NO_MATCHES_ESCAPE = '\"' + CSS_NO_MATCHES + '\"';
+
 		var CSS_POPUP = 'lfr-tag-selector-popup';
 
 		var CSS_TAGS_LIST = 'lfr-tags-selector-list';
@@ -43,6 +45,8 @@ AUI.add(
 			'~': 1
 		};
 
+		var TPL_BLANK = "''";
+
 		var TPL_CHECKED = ' checked="checked" ';
 
 		var TPL_INPUT = '<label title="{name}"><input type="checkbox" value="{name}" {checked} />{name}</label>';
@@ -54,6 +58,21 @@ AUI.add(
 		var TPL_URL_SUGGESTIONS = 'http://search.yahooapis.com/ContentAnalysisService/V1/termExtraction?appid=YahooDemo&output=json&context={context}';
 
 		var TPL_TAGS_CONTAINER = '<div class="' + CSS_TAGS_LIST + '"></div>';
+
+		var TPL_AC_CONTAINER = '<span class="aui-field-content aui-autocomplete-search-list-ac-container">';
+
+		var TPL_AC_INPUT = '<input class="aui-field-input aui-field-input-text" id="ac-input" type="text" name="test-input" value="Filter" autocomplete="false" onfocus="if(!this._haschanged){this.value=' + TPL_BLANK + '};this._haschanged=true;" class="aui-field-input aui-field-input-text"/></span>';
+
+		var TPL_CHECKED = ' checked="checked" ';
+
+		var TPL_TAG = new A.Template(
+			'<fieldset class="{[(!values.results || !values.results.length) ? ' + CSS_NO_MATCHES_ESCAPE + ' : \"\"]}">',
+				'<tpl for="results">',
+					'<label title="{text}"><input type="checkbox" value="{text}" {[values.checked ? "checked" : ""]} />{text}</label>',
+				'</tpl>',
+				'<div class="lfr-tag-message">{message}</div>',
+			'</fieldset>'
+		);
 
 		/**
 		 * OPTIONS
@@ -184,14 +203,6 @@ AUI.add(
 						instance._submitFormListener = A.Do.before(instance._onAddEntryClick, window, 'submitForm', instance);
 
 						instance.get('boundingBox').on('keypress', instance._onKeyPress, instance);
-					},
-
-					_formatEntry: function(item) {
-						var instance = this;
-
-						var input = Lang.sub(TPL_INPUT, item);
-
-						instance._buffer.push(input);
 					},
 
 					_getPopup: function() {
@@ -428,6 +439,22 @@ AUI.add(
 						}
 					},
 
+					_plugAutocompleteSearchList: function(data, iterator){
+						var instance = this;
+
+						var dataSource = instance.get('dataSource');
+
+						instance._selectPopup.plug(A.AutocompleteSearchList,{
+								initialResult: data,
+								message: Liferay.Language.get('no-tags-found'),
+								resultFilters: 'phraseMatch',
+								resultTextLocator: 'text',
+								source: dataSource,
+								tagSelector: instance,
+								template: TPL_TAG
+						});
+					},
+		
 					_renderIcons: function() {
 						var instance = this;
 
@@ -446,7 +473,53 @@ AUI.add(
 							{
 								handler: {
 									context: instance,
-									fn: instance._showSelectPopup
+									fn: function(event){
+										var instance = this;
+
+										if (!instance._selectPopup) {
+											var selectPopup = new A.Dialog(
+											{
+												bodyContent: TPL_LOADING,
+												constrain: true,
+												draggable: true,
+												hideClass: 'aui-helper-hidden-accessible',
+												preventOverlap: true,
+												stack: true,
+												title: '',
+												width: 320,
+												zIndex: 1000
+											}
+											);
+
+											instance._selectPopup = selectPopup;
+
+											selectPopup.render();
+
+											selectPopup.get('boundingBox').addClass(CSS_POPUP);
+
+											var bodyNode = selectPopup.bodyNode;
+
+											bodyNode.html('');
+
+											selectPopup.set('title', Liferay.Language.get('select'));
+
+											var dataSource = instance.get('dataSource');
+
+											instance._getEntries(
+												function(entries) {
+													instance._plugAutocompleteSearchList(entries);
+												}
+											);
+
+											if (event && event.currentTarget) {
+												var toolItem = event.currentTarget.get('boundingBox');
+												selectPopup.align(toolItem, ['bl', 'tl']);
+											}
+										}
+
+										instance._selectPopup.show();
+									},
+
 								},
 								icon: 'search',
 								id: 'select',
@@ -479,6 +552,29 @@ AUI.add(
 						instance.entryHolder.placeAfter(iconsBoundingBox);
 					},
 
+					_renderTemplate: function(data) {
+						var instance = this;
+
+						var popup = instance._popup;
+						
+						for (var i = 0; i < data.length; i++){
+							data[i].text = data[i].name;
+						}
+
+						var tplTag = TPL_TAG.render(
+							{
+								message: Liferay.Language.get('no-tags-found'),
+								results: data
+							},
+							popup.entriesNode
+						);
+
+						popup.searchField.resetValue();
+
+						popup.liveSearch.get('nodes').refresh();
+						popup.liveSearch.refreshIndex();
+					},
+
 					_showPopup: function(event) {
 						var instance = this;
 
@@ -493,20 +589,6 @@ AUI.add(
 						popup.entriesNode.html(TPL_LOADING);
 
 						popup.show();
-					},
-
-					_showSelectPopup: function(event) {
-						var instance = this;
-
-						instance._showPopup(event);
-
-						instance._popup.set('title', Liferay.Language.get('tags'));
-
-						instance._getEntries(
-							function(entries) {
-								instance._updateSelectList(entries, instance._entriesIterator);
-							}
-						);
 					},
 
 					_showSuggestionsPopup: function(event) {
@@ -587,7 +669,7 @@ AUI.add(
 						queue.after(
 							'complete',
 							function(event) {
-								instance._updateSelectList(AArray.unique(data), instance._suggestionsIterator);
+								instance._updateSuggestionsList(AArray.unique(data), instance._suggestionsIterator);
 							}
 						);
 
@@ -604,15 +686,9 @@ AUI.add(
 							name: item
 						};
 
-						instance._formatEntry(tag);
-					},
+						var input = Lang.sub(TPL_INPUT, tag);
 
-					_entriesIterator: function(item, index, collection) {
-						var instance = this;
-
-						item.checked = instance.entries.indexOfKey(item.name) > -1 ? TPL_CHECKED : '';
-
-						instance._formatEntry(item);
+						instance._buffer.push(input);
 					},
 
 					_updateHiddenInput: function(event) {
@@ -639,28 +715,21 @@ AUI.add(
 						}
 					},
 
-					_updateSelectList: function(data, iterator) {
+					_updateSuggestionsList: function(data) {
 						var instance = this;
 
-						var popup = instance._popup;
+						for (var i = 0; i < data.length; i++) {				
 
-						popup.searchField.resetValue();
+							var tag = {
+								name: data[i]
+							}
 
-						instance._buffer = ['<fieldset class="' + (!data || !data.length ? CSS_NO_MATCHES : '') + '">'];
+							tag.checked =  instance.entries.indexOfKey(tag.name) > -1 ? TPL_CHECKED : '';
 
-						A.each(data, iterator, instance);
+							data[i] = tag;
+						}
 
-						var buffer = instance._buffer;
-
-						var message = Lang.sub(TPL_MESSAGE, [Liferay.Language.get('no-tags-found')]);
-
-						buffer.push(message);
-						buffer.push('</fieldset>');
-
-						popup.entriesNode.html(buffer.join(''));
-
-						popup.liveSearch.get('nodes').refresh();
-						popup.liveSearch.refreshIndex();
+						instance._renderTemplate(data);
 					},
 
 					_buffer: []
@@ -672,6 +741,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['array-extras', 'async-queue', 'aui-autocomplete', 'aui-dialog', 'aui-io-request', 'aui-live-search', 'aui-textboxlist', 'aui-form-textfield', 'datasource-cache', 'liferay-service-datasource']
+		requires: ['aui-template', 'aui-autocomplete-search-list', 'array-extras', 'async-queue', 'aui-autocomplete', 'aui-dialog', 'aui-io-request', 'aui-live-search', 'aui-textboxlist', 'aui-form-textfield', 'datasource-cache', 'liferay-service-datasource']
 	}
 );
