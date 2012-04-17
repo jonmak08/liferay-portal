@@ -480,8 +480,9 @@ public class SitesUtil {
 
 			LayoutSetPrototype layoutSetPrototype =
 				LayoutSetPrototypeLocalServiceUtil.
-					getLayoutSetPrototypeByUuid(
-						layoutSet.getLayoutSetPrototypeUuid());
+					getLayoutSetPrototypeByUuidAndCompanyId(
+						layoutSet.getLayoutSetPrototypeUuid(),
+						layout.getCompanyId());
 
 			Group group = layoutSetPrototype.getGroup();
 
@@ -596,7 +597,8 @@ public class SitesUtil {
 
 			if (LayoutLocalServiceUtil.hasLayoutSetPrototypeLayout(
 					layoutSet.getLayoutSetPrototypeUuid(),
-					layout.getSourcePrototypeLayoutUuid())) {
+					layout.getSourcePrototypeLayoutUuid(),
+					layout.getCompanyId())) {
 
 				return false;
 			}
@@ -645,8 +647,9 @@ public class SitesUtil {
 		try {
 			LayoutSetPrototype layoutSetPrototype =
 				LayoutSetPrototypeLocalServiceUtil.
-					getLayoutSetPrototypeByUuid(
-						layoutSet.getLayoutSetPrototypeUuid());
+					getLayoutSetPrototypeByUuidAndCompanyId(
+						layoutSet.getLayoutSetPrototypeUuid(),
+						layoutSet.getCompanyId());
 
 			String layoutsUpdateable = layoutSetPrototype.getSettingsProperty(
 				"layoutsUpdateable");
@@ -755,8 +758,9 @@ public class SitesUtil {
 			typeSettingsProperties.getProperty("last-merge-time"));
 
 		LayoutPrototype layoutPrototype =
-			LayoutPrototypeLocalServiceUtil.getLayoutPrototypeByUuid(
-				layout.getLayoutPrototypeUuid());
+			LayoutPrototypeLocalServiceUtil.
+				getLayoutPrototypeByUuidAndCompanyId(
+					layout.getLayoutPrototypeUuid(), layout.getCompanyId());
 
 		Layout layoutPrototypeLayout = layoutPrototype.getLayout();
 
@@ -853,8 +857,10 @@ public class SitesUtil {
 			settingsProperties.getProperty("last-merge-time"));
 
 		LayoutSetPrototype layoutSetPrototype =
-			LayoutSetPrototypeLocalServiceUtil.getLayoutSetPrototypeByUuid(
-				layoutSet.getLayoutSetPrototypeUuid());
+			LayoutSetPrototypeLocalServiceUtil.
+				getLayoutSetPrototypeByUuidAndCompanyId(
+					layoutSet.getLayoutSetPrototypeUuid(),
+					layoutSet.getGroupId());
 
 		Date modifiedDate = layoutSetPrototype.getModifiedDate();
 

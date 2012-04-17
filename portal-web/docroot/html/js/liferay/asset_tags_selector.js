@@ -43,16 +43,18 @@ AUI.add(
 			'~': 1
 		};
 
+		var NODE = 'node';
+
 		var TPL_CHECKED = ' checked="checked" ';
 
 		var TPL_LOADING = '<div class="loading-animation" />';
 
 		var TPL_TAG = new A.Template(
-			'<fieldset class="{[(!values.tags || !values.tags.length) ? "', CSS_NO_MATCHES, '" : "', STR_BLANK ,'" ]}">',
-				'<tpl for="tags">',
-					'<label title="{name}"><input {checked} type="checkbox" value="{name}" />{name}</label>',
+			'<fieldset class="{[(!values.results || !values.results.length) ? "', CSS_NO_MATCHES, '" : "', STR_BLANK ,'" ]}">',
+				'<tpl for="results">',
+					'<label title="{text}"><input {[values.checked ? "checked" : ""]} type="checkbox" value="{text}" />{text}</label>',
 				'</tpl>',
-				'<div class="lfr-tag-message">{message}</div>',
+				'<div class="lfr-tag-message">{noResultsMessage}</div>',
 			'</fieldset>'
 		);
 
@@ -202,14 +204,17 @@ AUI.add(
 									bodyContent: TPL_LOADING,
 									constrain: true,
 									draggable: true,
+									height: 357,
 									hideClass: 'aui-helper-hidden-accessible',
 									preventOverlap: true,
 									stack: true,
-									title: '',
+									title: STR_BLANK,
 									width: 320,
 									zIndex: 1000
 								}
 							).render();
+
+							instance._popup = popup;
 
 							popup.get('boundingBox').addClass(CSS_POPUP);
 
@@ -222,16 +227,17 @@ AUI.add(
 									defaultValue: Liferay.Language.get('search'),
 									labelText: false
 								}
-							).render(bodyNode);
+							);
+
+							searchField.render(bodyNode);
 
 							var entriesNode = A.Node.create(TPL_TAGS_CONTAINER);
 
 							bodyNode.appendChild(entriesNode);
 
 							popup.searchField = searchField;
-							popup.entriesNode = entriesNode;
 
-							instance._popup = popup;
+							popup.entriesNode = entriesNode;
 
 							instance._initSearch();
 
@@ -330,6 +336,12 @@ AUI.add(
 						return dataSource;
 					},
 
+					_hideNode: function(node) {
+						if (node != null) {
+							node.hide();
+						}
+					},
+
 					_initSearch: function() {
 						var instance = this;
 
@@ -361,7 +373,7 @@ AUI.add(
 
 									return value.toLowerCase();
 								},
-								input: popup.searchField.get('node'),
+								input: popup.searchField.get(NODE),
 								nodes: '.' + CSS_TAGS_LIST + ' label'
 							}
 						);
@@ -404,11 +416,7 @@ AUI.add(
 						var checked = checkbox.get('checked');
 						var value = checkbox.val();
 
-						var action = 'remove';
-
-						if (checked) {
-							action = 'add';
-						}
+						var action = checked ? ADD : REMOVE;
 
 						instance[action](value);
 					},
@@ -428,6 +436,25 @@ AUI.add(
 						}
 					},
 
+					_plugAutocompleteSearchList: function(data, iterator) {
+						var instance = this;
+
+						var dataSource = instance.get('dataSource');
+
+						instance._popup.plug(
+							A.AutocompleteSearchList,
+							{
+								initialResult: data,
+								noResultsMessage: Liferay.Language.get('no-tags-found'),
+								resultFilters: 'phraseMatch',
+								resultTextLocator: 'text',
+								source: dataSource,
+								tagsSelector: instance,
+								template: TPL_TAG
+							}
+						);
+					},
+		
 					_renderIcons: function() {
 						var instance = this;
 
@@ -486,10 +513,8 @@ AUI.add(
 
 						var tplTag = TPL_TAG.render(
 							{
-								checked: data.checked,
-								message: Liferay.Language.get('no-tags-found'),
-								name: data.name,
-								tags: data
+								noResultsMessage: Liferay.Language.get('no-tags-found'),
+								results: data
 							},
 							popup.entriesNode
 						);
@@ -497,7 +522,6 @@ AUI.add(
 						popup.searchField.resetValue();
 
 						popup.liveSearch.get('nodes').refresh();
-
 						popup.liveSearch.refreshIndex();
 					},
 
@@ -512,36 +536,77 @@ AUI.add(
 							popup.align(toolItem, ['bl', 'tl']);
 						}
 
-						popup.entriesNode.html(TPL_LOADING);
+						if (instance.suggestionsFlag) {
+							popup.entriesNode.html(TPL_LOADING);
+						}
 
 						popup.show();
+					},
+
+					_showNode: function(node) {
+						if (node != null) {
+							node.show();
+						}
 					},
 
 					_showSelectPopup: function(event) {
 						var instance = this;
 
+						var popup = instance._getPopup();
+
+						var autocompleteSearchList = popup.AutocompleteSearchList;
+
 						instance._showPopup(event);
 
-						instance._popup.set('title', Liferay.Language.get('tags'));
+						popup.set('title', Liferay.Language.get('tags'));
 
 						instance._getEntries(
 							function(entries) {
-								instance._updateSelectList(entries);
+								if (!popup.AutocompleteSearchList) {
+									instance._plugAutocompleteSearchList(entries);
+								}
 							}
 						);
+
+						var searchFieldNode = popup.searchField.get(NODE);
+
+						instance._hideNode(searchFieldNode.ancestor());
+						instance._hideNode(popup.entriesNode);
+
+						if (autocompleteSearchList) {
+							instance._showNode(autocompleteSearchList.entriesNode);
+							instance._showNode(autocompleteSearchList.inputNode);
+						}
 					},
 
 					_showSuggestionsPopup: function(event) {
 						var instance = this;
 
+						var popup = instance._getPopup();
+
+						var autocompleteSearchList = popup.AutocompleteSearchList;
+
+						var searchFieldNode = popup.searchField.get(NODE);
+
+						instance._showNode(searchFieldNode.ancestor());
+						instance._hideNode(popup.entriesNode);
+
+						if (autocompleteSearchList) {
+							instance._hideNode(autocompleteSearchList.entriesNode);
+							instance._hideNode(autocompleteSearchList.inputNode);
+						}
+
+						instance.suggestionsFlag = true;
+
 						instance._showPopup(event);
 
-						instance._popup.set('title', Liferay.Language.get('suggestions'));
+						popup.entriesNode.show();
+
+						popup.set('title', Liferay.Language.get('suggestions'));
 
 						var contentCallback = instance.get('contentCallback');
 
 						var context = STR_BLANK;
-
 						var data = [];
 
 						if (contentCallback) {
@@ -573,7 +638,7 @@ AUI.add(
 											for (var i = 0; i < resultData.length; i++) {
 												data.push(
 													{
-														name: resultData[i]
+														text: resultData[i]
 													}
 												);
 											}
@@ -618,7 +683,7 @@ AUI.add(
 						queue.after(
 							'complete',
 							function(event) {
-								instance._updateSelectList(AArray.unique(data));
+								instance._updateSuggestionsList(AArray.unique(data));
 							}
 						);
 
@@ -649,13 +714,11 @@ AUI.add(
 						}
 					},
 
-					_updateSelectList: function(data) {
+					_updateSuggestionsList: function(data) {
 						var instance = this;
 
 						for (var i = 0; i < data.length; i++) {
-							var tag = data[i];
-
-							tag.checked = instance.entries.indexOfKey(tag.name) > -1 ? TPL_CHECKED : STR_BLANK;
+							data[i].checked =  instance.entries.indexOfKey(data[i].text) > -1 ? TPL_CHECKED : STR_BLANK;
 						}
 
 						instance._renderTemplate(data);
@@ -668,6 +731,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['array-extras', 'async-queue', 'aui-autocomplete', 'aui-dialog', 'aui-form-textfield', 'aui-io-request', 'aui-live-search', 'aui-template', 'aui-textboxlist', 'datasource-cache', 'liferay-service-datasource']
+		requires: ['aui-template', 'aui-autocomplete-search-list', 'array-extras', 'async-queue', 'aui-autocomplete', 'aui-dialog', 'aui-io-request', 'aui-live-search', 'aui-textboxlist', 'aui-form-textfield', 'datasource-cache', 'liferay-service-datasource']
 	}
 );

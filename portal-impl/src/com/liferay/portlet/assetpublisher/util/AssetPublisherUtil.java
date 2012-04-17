@@ -142,14 +142,17 @@ public class AssetPublisherUtil {
 		String assetEntryXml = _getAssetEntryXml(
 			assetEntryType, assetEntry.getClassUuid());
 
-		if (assetEntryOrder > -1) {
-			assetEntryXmls[assetEntryOrder] = assetEntryXml;
-		}
-		else {
-			assetEntryXmls = ArrayUtil.append(assetEntryXmls, assetEntryXml);
-		}
+		if (!ArrayUtil.contains(assetEntryXmls, assetEntryXml)) {
+			if (assetEntryOrder > -1) {
+				assetEntryXmls[assetEntryOrder] = assetEntryXml;
+			}
+			else {
+				assetEntryXmls = ArrayUtil.append(
+					assetEntryXmls, assetEntryXml);
+			}
 
-		portletPreferences.setValues("assetEntryXml", assetEntryXmls);
+			portletPreferences.setValues("assetEntryXml", assetEntryXmls);
+		}
 	}
 
 	public static void addUserAttributes(
