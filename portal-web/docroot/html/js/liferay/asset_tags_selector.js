@@ -118,12 +118,6 @@ AUI.add(
 					guid: {
 						value: ''
 					},
-					instanceVar: {
-						value: ''
-					},
-					portalModelResource: {
-						value: false
-					},
 					hiddenInput: {
 						setter: function(value) {
 							var instance = this;
@@ -131,8 +125,14 @@ AUI.add(
 							return A.one(value + instance.get('guid'));
 						}
 					},
+					instanceVar: {
+						value: ''
+					},
 					matchKey: {
 						value: 'value'
+					},
+					portalModelResource: {
+						value: false
 					},
 					schema: {
 						value: {
@@ -551,8 +551,6 @@ AUI.add(
 
 						instance._showPopup(event);
 
-						popup.set('title', Liferay.Language.get('tags'));
-
 						instance._getEntries(
 							function(entries) {
 								if (!autocompleteSearchList) {
@@ -561,7 +559,9 @@ AUI.add(
 							}
 						);
 
-						var searchFieldNode = popup.searchField.get(NODE);
+						popup.set('title', Liferay.Language.get('tags'));
+
+						var searchFieldNode = popup.searchField.get('node');
 
 						searchFieldNode.ancestor().hide();
 
@@ -581,7 +581,7 @@ AUI.add(
 
 						var autocompleteSearchList = popup.AutocompleteSearchList;
 
-						var searchFieldNode = popup.searchField.get(NODE);
+						var searchFieldNode = popup.searchField.get('node');
 
 						searchFieldNode.ancestor().show();
 
@@ -716,7 +716,9 @@ AUI.add(
 						var instance = this;
 
 						for (var i = 0; i < data.length; i++) {
-							data[i].checked = instance.entries.indexOfKey(data[i].text) > -1 ? TPL_CHECKED : STR_BLANK;
+							var tag = data[i]
+
+							tag.checked = instance.entries.indexOfKey(tag.text) > -1 ? TPL_CHECKED : STR_BLANK;
 						}
 
 						instance._renderTemplate(data);
@@ -729,6 +731,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-template', 'aui-autocomplete-search-list', 'array-extras', 'async-queue', 'aui-autocomplete', 'aui-dialog', 'aui-io-request', 'aui-live-search', 'aui-textboxlist', 'aui-form-textfield', 'datasource-cache', 'liferay-service-datasource']
+		requires: ['aui-autocomplete', 'aui-autocomplete-search-list', 'aui-dialog', 'aui-form-textfield', 'aui-io-request', 'aui-live-search', 'aui-template', 'aui-textboxlist', 'array-extras', 'async-queue', 'datasource-cache', 'liferay-service-datasource']
 	}
 );
