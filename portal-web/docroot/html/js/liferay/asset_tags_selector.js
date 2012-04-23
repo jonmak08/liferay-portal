@@ -556,6 +556,9 @@ AUI.add(
 								if (!autocompleteSearchList) {
 									instance._plugAutocompleteSearchList(entries);
 								}
+								else {
+									autocompleteSearchList.refreshEntries(instance.entries);
+								}
 							}
 						);
 
