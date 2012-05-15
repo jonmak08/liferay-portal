@@ -388,14 +388,15 @@ AUI.add(
 					bodyNode.on(
 						'key',
 						function(event) {
-							var activeTrigger = instance._activeTrigger;
-
-							if (activeTrigger) {
-								var anchor = activeTrigger.one(SELECTOR_ANCHOR);
+							if (instance._activeTrigger){
+								var anchor = instance._activeTrigger.one(SELECTOR_ANCHOR);
 
 								instance._closeActiveMenu();
 
 								anchor.focus();
+							}
+							else {
+								event.stopPropagation();
 							}
 						},
 						'down:27,9'
