@@ -8,6 +8,31 @@
 	<title>$the_title - $company_name</title>
 
 	$theme.include($top_head_include)
+
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" />
+
+	<script type="text/javascript" charset="utf-8" src="http://code.jquery.com/jquery-latest.js">
+	AUI().use('aui-viewport');
+
+	function setEqualHeight(columns)  
+ {  
+ var tallestcolumn = 0;  
+ columns.each(  
+ function()  
+ {  
+ currentHeight = $(this).height();  
+ if(currentHeight > tallestcolumn)  
+ {  
+ tallestcolumn  = currentHeight;  
+ }  
+ }  
+ );  
+ columns.height(tallestcolumn);  
+ }  
+$(document).ready(function() {  
+ setEqualHeight($(".aui-column"));  
+}); 
+	</script>
 </head>
 
 <body class="$css_class">
@@ -29,7 +54,8 @@
 		</div>
 	</header>
 
-	<div id="content">
+	<div id="content">	
+		
 		#if ($control_panel_category == "")
 			<nav class="site-breadcrumbs" id="breadcrumbs">
 		#else
