@@ -91,19 +91,9 @@ portletURL.setParameter("tag", StringPool.BLANK);
 					<aui:input name="breadcrumbsFolderId" type="hidden" value="<%= folderId %>" />
 					<aui:input name="searchFolderIds" type="hidden" value="<%= folderId %>" />
 
-					<span class="aui-search-bar">
-						<aui:input id="keywords1" inlineField="<%= true %>" label="" name="keywords" size="30" title="search-bookmarks" type="text" />
-
-						<aui:button type="submit" value="search" />
-					</span>
+					<aui:search-bar formName="searchFm" inputId="keywords1" inputTitle="search-bookmarks" useAutoFocus="<%= true %>" />
 				</aui:form>
 			</div>
 		</c:if>
 	</div>
 </div>
-
-<c:if test="<%= windowState.equals(WindowState.MAXIMIZED) %>">
-	<aui:script>
-		Liferay.Util.focusFormField(document.<portlet:namespace />searchFm.<portlet:namespace />keywords);
-	</aui:script>
-</c:if>
