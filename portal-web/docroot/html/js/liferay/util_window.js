@@ -157,6 +157,8 @@ AUI.add(
 				if (!dialog.get('visible')) {
 					dialog.show();
 
+					dialog.iframe.node.focus();
+
 					dialog.iframe.set('uri', uri);
 				}
 
