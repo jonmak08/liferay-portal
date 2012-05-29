@@ -23,11 +23,7 @@ boolean showAddButton = GetterUtil.getBoolean((String)request.getAttribute("life
 GroupDisplayTerms displayTerms = (GroupDisplayTerms)searchContainer.getDisplayTerms();
 %>
 
-<span class="aui-search-bar lfr-display-terms-search">
-	<aui:input inlineField="<%= true %>" label="" name="<%= displayTerms.NAME %>" size="30" type="text" value="<%= displayTerms.getName() %>" />
-
-	<aui:button type="submit" value="search" />
-</span>
+<aui:search-bar inputName="<%= displayTerms.NAME %>" inputValue="<%= displayTerms.getName() %>" useAutoFocus="<%= true %>" />
 
 <br />
 
@@ -42,8 +38,4 @@ GroupDisplayTerms displayTerms = (GroupDisplayTerms)searchContainer.getDisplayTe
 		document.<portlet:namespace />fm.method = 'post';
 		submitForm(document.<portlet:namespace />fm, '<portlet:renderURL><portlet:param name="struts_action" value="/sites_admin/edit_site" /><portlet:param name="redirect" value="<%= currentURL %>" /></portlet:renderURL>');
 	}
-
-	<c:if test="<%= windowState.equals(WindowState.MAXIMIZED) %>">
-		Liferay.Util.focusFormField(document.<portlet:namespace />fm.<portlet:namespace /><%= displayTerms.NAME %>);
-	</c:if>
 </aui:script>

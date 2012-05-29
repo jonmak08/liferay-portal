@@ -1,4 +1,3 @@
-<%--
 /**
  * Copyright (c) 2000-2012 Liferay, Inc. All rights reserved.
  *
@@ -12,8 +11,16 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
---%>
 
-<%@ include file="/html/portlet/document_library/init.jsp" %>
+package com.liferay.taglib.aui;
 
-<aui:search-bar cssClass="search-form" inputTitle="search-entries" />
+import com.liferay.taglib.aui.base.BaseSearchBarTag;
+
+/**
+ * @author Eduardo Lundgren
+ * @author Bruno Basto
+ * @author Nathan Cavanaugh
+ * @author Julio Camarero
+ */
+public class SearchBarTag extends BaseSearchBarTag {
+}

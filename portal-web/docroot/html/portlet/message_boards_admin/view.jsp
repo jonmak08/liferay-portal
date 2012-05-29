@@ -52,19 +52,9 @@ request.setAttribute("view.jsp-viewCategory", Boolean.TRUE.toString());
 				<aui:input name="breadcrumbsCategoryId" type="hidden" value="<%= categoryId %>" />
 				<aui:input name="searchCategoryId" type="hidden" value="<%= categoryId %>" />
 
-				<span class="aui-search-bar">
-					<aui:input id="keywords1" inlineField="<%= true %>" label="" name="keywords" size="30" title="search-messages" type="text" />
-
-					<aui:button type="submit" value="search" />
-				</span>
+				<aui:search-bar formName="searchFm" inputId="keywords1" inputTitle="search-messages" useAutoFocus="<%= true %>" />
 			</aui:form>
 		</div>
-
-		<c:if test="<%= windowState.equals(WindowState.MAXIMIZED) && !themeDisplay.isFacebook() %>">
-			<aui:script>
-				Liferay.Util.focusFormField(document.<portlet:namespace />searchFm.<portlet:namespace />keywords);
-			</aui:script>
-		</c:if>
 
 		<br />
 

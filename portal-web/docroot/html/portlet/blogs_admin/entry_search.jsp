@@ -16,10 +16,6 @@
 
 <%@ include file="/html/portlet/blogs_admin/init.jsp" %>
 
-<span class="aui-search-bar">
-	<aui:input inlineField="<%= true %>" label="" name="keywords" size="30" title="search-entries" type="text" />
-
-	<aui:button type="submit" value="search" />
-</span>
+<aui:search-bar inputTitle="search-entries" />
 
 <br /><br />

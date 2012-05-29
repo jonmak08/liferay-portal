@@ -22,14 +22,4 @@ UserGroupSearch searchContainer = (UserGroupSearch)request.getAttribute("liferay
 UserGroupDisplayTerms displayTerms = (UserGroupDisplayTerms)searchContainer.getDisplayTerms();
 %>
 
-<span class="aui-search-bar lfr-display-terms-search">
-	<aui:input inlineField="<%= true %>" label="" name="<%= displayTerms.KEYWORDS %>" size="30" type="text" />
-
-	<aui:button type="submit" value="search" />
-</span>
-
-<c:if test="<%= windowState.equals(WindowState.MAXIMIZED) %>">
-	<aui:script>
-		Liferay.Util.focusFormField(document.<portlet:namespace />fm.<portlet:namespace /><%= displayTerms.KEYWORDS %>);
-	</aui:script>
-</c:if>
+<aui:search-bar inputName="<%= displayTerms.KEYWORDS %>" useAutoFocus="<%= true %>" />

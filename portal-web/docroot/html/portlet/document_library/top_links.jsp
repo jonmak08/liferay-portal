@@ -105,19 +105,9 @@
 							<aui:input name="breadcrumbsFolderId" type="hidden" value="<%= folderId %>" />
 							<aui:input name="searchFolderIds" type="hidden" value="<%= folderId %>" />
 
-							<span class="aui-search-bar">
-								<aui:input id="keywords1" inlineField="<%= true %>" label="" name="keywords" size="30" title="search-documents" type="text" />
-
-								<aui:button type="submit" value="search" />
-							</span>
+							<aui:search-bar formName="searchFm" inputId="keywords1" inputTitle="search-documents" useAutoFocus="<%= true %>" />
 						</aui:form>
 					</div>
-
-					<c:if test="<%= windowState.equals(WindowState.MAXIMIZED) %>">
-						<aui:script>
-							Liferay.Util.focusFormField(document.<portlet:namespace />searchFm.<portlet:namespace />keywords);
-						</aui:script>
-					</c:if>
 				</c:if>
 			</div>
 		</div>

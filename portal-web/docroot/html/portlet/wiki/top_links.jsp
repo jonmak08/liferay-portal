@@ -177,19 +177,9 @@ if (categoryId > 0) {
 					<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
 					<aui:input name="nodeId" type="hidden" value="<%= node.getNodeId() %>" />
 
-					<span class="aui-search-bar">
-						<aui:input inlineField="<%= true %>" label="" name="keywords" size="30" title="search-pages" type="text" value="<%= keywords %>" />
-
-						<aui:button type="submit" value="search" />
-					</span>
+					<aui:search-bar formName="searchFm" inputTitle="search-pages" inputValue="<%= keywords %>" useAutoFocus="<%= true %>" />
 				</aui:form>
 			</div>
 		</div>
 	</div>
-
-	<c:if test="<%= windowState.equals(WindowState.MAXIMIZED) %>">
-		<aui:script>
-			Liferay.Util.focusFormField(document.<portlet:namespace />searchFm.<portlet:namespace />keywords);
-		</aui:script>
-	</c:if>
 </c:if>

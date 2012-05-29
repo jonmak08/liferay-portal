@@ -177,11 +177,7 @@ String keywords = ParamUtil.getString(request, "keywords");
 	%>
 
 
-		<span class="aui-search-bar">
-			<aui:input inlineField="<%= true %>" label="" name="keywords" size="30" title="search-messages" type="text" value="<%= keywords %>" />
-
-			<aui:button type="submit" value="search" />
-		</span>
+		<aui:search-bar inputTitle="search-messages" inputValue="<%= keywords %>" useAutoFocus="<%= true %>" />
 
 		<br /><br />
 
@@ -195,12 +191,6 @@ String keywords = ParamUtil.getString(request, "keywords");
 	%>
 
 </aui:form>
-
-<c:if test="<%= windowState.equals(WindowState.MAXIMIZED) && !themeDisplay.isFacebook() %>">
-	<aui:script>
-		Liferay.Util.focusFormField(document.<portlet:namespace />fm.<portlet:namespace />keywords);
-	</aui:script>
-</c:if>
 
 <%
 if (breadcrumbsCategoryId > 0) {
