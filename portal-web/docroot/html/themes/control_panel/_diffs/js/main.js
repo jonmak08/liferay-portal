@@ -2,7 +2,7 @@ Liferay.Util.portletTitleEdit = function() {
 };
 
 if (!themeDisplay.isStatePopUp()) {
-	AUI().ready('aui-io-request', 'aui-live-search', 'aui-viewport', 'aui-overlay-context-panel', 'event-mouseenter', 'liferay-message', 'liferay-panel', 'liferay-store', 'node-focusmanager', 'transition',
+	AUI().ready('aui-live-search', 'aui-io-request', 'aui-overlay-context-panel', 'aui-viewport', 'event-mouseenter', 'liferay-message', 'liferay-panel', 'liferay-store', 'node-focusmanager', 'transition',
 		function(A) {
 			var body = A.getBody();
 
@@ -115,15 +115,16 @@ if (!themeDisplay.isStatePopUp()) {
 					cancelSearch.on(
 						'click',
 						function(event) {
-								body.removeClass(CSS_SEARCH_PANEL_ACTIVE);
+							body.removeClass(CSS_SEARCH_PANEL_ACTIVE);
 
-								instance._searchPanelInput.val('').focus();
+							instance._searchPanelInput.val('').focus();
 
-								searchNodes.show();
+							searchNodes.show();
 
-								instance._searchActive = false;
+							instance._searchActive = false;
 						}
 					);
+					
 					showNavigationAnchor.on('click', function(event){
 								body.removeClass(CSS_SEARCH_PANEL_ACTIVE);
 
@@ -244,7 +245,7 @@ if (!themeDisplay.isStatePopUp()) {
 
 					var showNavigation = A.Node.create('<li class="show-navigation" />');
 					var showNavigationAnchor = A.Node.create('<a href="javascript:;"><span id="show-navigation"></span></a>');
-					
+
 					showNavigation.append(showNavigationAnchor);
 					showNavigationAnchor.on('click', function(event){
 						A.getBody().toggleClass('panels-minimized');
@@ -272,6 +273,7 @@ if (!themeDisplay.isStatePopUp()) {
 						else {
 							A.one("#styledselect").blur();
 							A.one("#site-select").blur();
+
 							A.getBody().removeClass('panels-minimized');
 						}
 					});
