@@ -8,6 +8,8 @@
 	<title>$the_title - $company_name</title>
 
 	$theme.include($top_head_include)
+
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" />
 </head>
 
 <body class="$css_class">
@@ -29,7 +31,8 @@
 		</div>
 	</header>
 
-	<div id="content">
+	<div id="content">	
+		
 		#if ($control_panel_category == "")
 			<nav class="site-breadcrumbs" id="breadcrumbs">
 		#else
