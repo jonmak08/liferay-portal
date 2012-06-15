@@ -96,6 +96,7 @@ AUI.add(
 			instance._initializeTagsSuggestionContent();
 			instance._initializePageLoadFieldInstances();
 			instance._attachEvents();
+			instance._updateOriginalStructureXSD();
 		};
 
 		Journal.prototype = {
@@ -373,6 +374,7 @@ AUI.add(
 				var editContainerWrapper = instance.getById('journalArticleEditFieldWrapper');
 
 				editContainerWrapper.removeClass('save-mode');
+
 				instance.editContainerModified = false;
 			},
 
@@ -382,6 +384,7 @@ AUI.add(
 				var editContainerWrapper = instance.getById('journalArticleEditFieldWrapper');
 
 				editContainerWrapper.addClass('save-mode');
+
 				instance.editContainerModified = true;
 			},
 
@@ -390,14 +393,10 @@ AUI.add(
 
 				A.getBody().addClass('portlet-journal-edit-mode');
 
-				var editStructureButton = instance.getById('editStructureButton');
 				var editStructureLink = instance.getById('editStructureLink');
 				var journalComponentList = instance.getById('journalComponentList');
-				var saveStructureButton = instance.getById('saveStructureButton');
 				var structureMessage = instance.getById('structureMessage');
 				var structureTree = instance.getById('structureTree');
-
-				var saveStructureTriggers = A.one('.journal-save-structure-trigger');
 
 				instance.editContainerNormalMode();
 
@@ -408,45 +407,15 @@ AUI.add(
 
 				instance.clearMessage(structureMessage);
 
+				var editStructureButton = instance.getById('editStructureButton');
+				var saveStructureButton = instance.getById('saveStructureButton');
+
 				if (editStructureButton) {
 					editStructureButton.ancestor('.aui-button').show();
-
-					editStructureButton.detach('click');
-
-					editStructureButton.on(
-						'click',
-						function(event) {
-							Liferay.reset('controlPanelSidebarHidden');
-
-							instance.disableEditMode();
-						}
-					);
 				}
 
 				if (saveStructureButton) {
 					saveStructureButton.ancestor('.aui-button').show();
-
-					saveStructureButton.detach('click');
-
-					saveStructureButton.on(
-						'click',
-						function() {
-							instance.openSaveStructureDialog();
-						}
-					);
-				}
-
-				if (saveStructureTriggers) {
-					saveStructureTriggers.detach('click');
-
-					saveStructureTriggers.on(
-						'click',
-						function(event) {
-							event.preventDefault();
-
-							saveStructureButton.simulate('click');
-						}
-					);
 				}
 
 				instance._attachEditStructureEvents();
@@ -1954,6 +1923,29 @@ AUI.add(
 					'img.journal-article-instructions-container'
 				);
 
+				var editContainerWrapper = instance.getById('journalArticleEditFieldWrapper');
+
+				if (editContainerWrapper) {
+					var editContainerSaveMode = instance.editContainerSaveMode;
+
+					editContainerWrapper.delegate('click', editContainerSaveMode,'input[type=checkbox]', instance);
+
+					var closeEditField = instance.closeEditFieldOptions;
+
+					editContainerWrapper.delegate('click', closeEditField, '.cancel-button .aui-button-input', instance);
+					editContainerWrapper.delegate('click', closeEditField, '.close-button .aui-button-input', instance);
+
+					editContainerWrapper.delegate(
+						'click',
+						function(event) {
+							var source = instance.getSelectedField();
+
+							instance.saveEditFieldOptions(source);
+						},
+						'.save-button .aui-button-input'
+					);
+				}
+
 				var variableNameSelector = '[name="' + instance.portletNamespace + 'variableName"]';
 
 				container.delegate('keypress', A.bind(instance._onKeypressVariableName, instance), variableNameSelector);
@@ -1972,42 +1964,17 @@ AUI.add(
 					var editContainerInputs = editContainerWrapper.all('input[type=text],select');
 					var editContainerTextareas = editContainerWrapper.all('textarea');
 
-					var editFieldCancelButton = editContainerWrapper.one('.cancel-button .aui-button-input');
-					var editFieldCloseButton = editContainerWrapper.one('.close-button .aui-button-input');
-					var editFieldSaveButton = editContainerWrapper.one('.save-button .aui-button-input');
-
-					var wrapper = instance.getById('journalArticleWrapper');
-
-					editContainerCheckboxes.detach('click');
 					editContainerInputs.detach('change');
 					editContainerInputs.detach('keypress');
 					editContainerTextareas.detach('change');
 					editContainerTextareas.detach('keypress');
-					editFieldCancelButton.detach('click');
-					editFieldCloseButton.detach('click');
-					editFieldSaveButton.detach('click');
 
 					var editContainerSaveMode = instance.editContainerSaveMode;
 
-					editContainerCheckboxes.on('click', editContainerSaveMode, instance);
-					editContainerInputs.on('change', editContainerSaveMode, instance);
-					editContainerInputs.on('keypress', editContainerSaveMode, instance);
-					editContainerTextareas.on('change', editContainerSaveMode, instance);
-					editContainerTextareas.on('keypress', editContainerSaveMode, instance);
+					var changeEvents = ['change', 'keypress'];
 
-					editFieldSaveButton.on(
-						'click',
-						function() {
-							var source = instance.getSelectedField();
-
-							instance.saveEditFieldOptions(source);
-						}
-					);
-
-					var closeEditField = instance.closeEditFieldOptions;
-
-					editFieldCancelButton.on('click', closeEditField, instance);
-					editFieldCloseButton.on('click', closeEditField, instance);
+					editContainerInputs.on(changeEvents, editContainerSaveMode, instance);
+					editContainerTextareas.on(changeEvents, editContainerSaveMode, instance);
 				}
 			},
 
@@ -2284,6 +2251,38 @@ AUI.add(
 				A.OverlayContextManager.remove(instance.editContainerContextPanel);
 
 				instance._attachEditStructureEvents = Lang.emptyFn;
+
+				var articleHeaderEdit = instance.getById('articleHeaderEdit');
+
+				var editStructureButton = instance.getById('editStructureButton');
+				var saveStructureButton = instance.getById('saveStructureButton');
+
+				var saveStructureTriggers = A.one('.journal-save-structure-trigger');
+
+				if (articleHeaderEdit) {
+					articleHeaderEdit.delegate(
+						'click',
+						function(event) {
+							Liferay.reset('controlPanelSidebarHidden');
+
+							instance.disableEditMode();
+						},
+						instance._getNamespacedId('editStructureButton')
+					);
+
+					articleHeaderEdit.delegate('click', instance.openSaveStructureDialog, instance._getNamespacedId('saveStructureButton'), instance);
+
+					articleHeaderEdit.delegate(
+						'click',
+						function(event) {
+							event.preventDefault();
+
+							instance.openSaveStructureDialog();
+						},
+						'.journal-save-structure-trigger',
+						instance
+					);
+				}
 			},
 
 			_attachEvents: function() {
@@ -2334,7 +2333,6 @@ AUI.add(
 
 							instance._attachDelegatedEvents();
 							instance._attachEditContainerEvents();
-							instance._updateOriginalStructureXSD();
 
 							instance.enableEditMode();
 						}
