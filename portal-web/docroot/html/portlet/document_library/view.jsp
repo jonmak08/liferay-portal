@@ -144,6 +144,8 @@ request.setAttribute("view.jsp-repositoryId", String.valueOf(repositoryId));
 						</c:when>
 						<c:otherwise>
 							<liferay-util:include page="/html/portlet/document_library/view_entries.jsp" />
+							<%@ include file="/html/portlet/document_library/invisible_file_entry_icon.jsp" %>
+							<%@ include file="/html/portlet/document_library/invisible_file_entry_descriptive.jsp" %>
 						</c:otherwise>
 					</c:choose>
 				</div>
@@ -263,7 +265,9 @@ if (folder != null) {
 				displayViews: ['<%= StringUtil.merge(displayViews, "','") %>']
 			},
 			syncMessageDisabled: <%= !PropsValues.DL_SHOW_LIFERAY_SYNC_MESSAGE %>,
-			syncMessageSuppressed: <%= !GetterUtil.getBoolean(SessionClicks.get(request, liferayPortletResponse.getNamespace() + "show-sync-message", "true")) %>
+			syncMessageSuppressed: <%= !GetterUtil.getBoolean(SessionClicks.get(request, liferayPortletResponse.getNamespace() + "show-sync-message", "true")) %>,
+			updateable: <%= DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.UPDATE) %>,
+			viewFileEntryUrl: '<portlet:renderURL><portlet:param name="struts_action" value="/document_library/view_file_entry" /></portlet:renderURL>'
 		}
 	);
 </aui:script>
