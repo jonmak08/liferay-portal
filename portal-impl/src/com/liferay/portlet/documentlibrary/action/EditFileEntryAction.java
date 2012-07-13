@@ -23,7 +23,7 @@ import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
-import com.liferay.portal.kernel.servlet.ServletResponseConstants;
+import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.upload.UploadException;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
@@ -126,7 +126,8 @@ public class EditFileEntryAction extends PortletAction {
 			}
 			else if (cmd.equals(Constants.ADD) ||
 					 cmd.equals(Constants.UPDATE) ||
-					 cmd.equals(Constants.UPDATE_AND_CHECKIN)) {
+					 cmd.equals(Constants.UPDATE_AND_CHECKIN) ||
+					 cmd.equals(Constants.ADD_DYNAMIC)) {
 
 				updateFileEntry(portletConfig, actionRequest, actionResponse);
 			}
@@ -222,33 +223,30 @@ public class EditFileEntryAction extends PortletAction {
 					return;
 				}
 
-				if (e instanceof DuplicateFileException) {
+				if (e instanceof DuplicateFileException ||
+					e instanceof FileExtensionException ||
+					e instanceof FileNameException ||
+					e instanceof FileSizeException) {
+
 					HttpServletResponse response =
 						PortalUtil.getHttpServletResponse(actionResponse);
 
-					response.setStatus(
-						ServletResponseConstants.SC_DUPLICATE_FILE_EXCEPTION);
-				}
-				else if (e instanceof FileExtensionException) {
-					HttpServletResponse response =
-						PortalUtil.getHttpServletResponse(actionResponse);
+					response.setStatus(200);
 
-					response.setStatus(
-						ServletResponseConstants.SC_FILE_EXTENSION_EXCEPTION);
-				}
-				else if (e instanceof FileNameException) {
-					HttpServletResponse response =
-						PortalUtil.getHttpServletResponse(actionResponse);
+					response.setContentType("text/html");
 
-					response.setStatus(
-						ServletResponseConstants.SC_FILE_NAME_EXCEPTION);
-				}
-				else if (e instanceof FileSizeException) {
-					HttpServletResponse response =
-						PortalUtil.getHttpServletResponse(actionResponse);
-
-					response.setStatus(
-						ServletResponseConstants.SC_FILE_SIZE_EXCEPTION);
+					if (e instanceof DuplicateFileException) {
+						new ServletResponseUtil().write(response, "file_error::duplicate file");
+					}
+					else if (e instanceof FileExtensionException) {
+						new ServletResponseUtil().write(response, "file_error::unsupported file extension");
+					}
+					else if (e instanceof FileNameException) {
+						new ServletResponseUtil().write(response, "file_error::invalid characters in file name");
+					}
+					else if (e instanceof FileSizeException) {
+						new ServletResponseUtil().write(response, "file_error::invalid file size");
+					}
 				}
 
 				SessionErrors.add(actionRequest, e.getClass());
@@ -755,7 +753,7 @@ public class EditFileEntryAction extends PortletAction {
 
 			FileEntry fileEntry = null;
 
-			if (cmd.equals(Constants.ADD)) {
+			if (cmd.equals(Constants.ADD) || cmd.equals(Constants.ADD_DYNAMIC)) {
 
 				// Add file entry
 
@@ -766,6 +764,14 @@ public class EditFileEntryAction extends PortletAction {
 				AssetPublisherUtil.addAndStoreSelection(
 					actionRequest, DLFileEntry.class.getName(),
 					fileEntry.getFileEntryId(), -1);
+
+				if (cmd.equals(Constants.ADD_DYNAMIC)) {
+					JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
+
+					jsonObject.put("fileEntryId", fileEntry.getFileEntryId());
+
+					writeJSON(actionRequest, actionResponse, jsonObject);
+				}
 			}
 			else if (cmd.equals(Constants.UPDATE_AND_CHECKIN)) {
 

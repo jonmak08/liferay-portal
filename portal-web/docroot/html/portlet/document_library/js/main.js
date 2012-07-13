@@ -32,6 +32,8 @@ AUI.add(
 
 		var CSS_RESULT_ROW = '.results-row';
 
+		var CSS_ROW_SELECTABLE = 'tr.selectable';
+
 		var CSS_SELECTED = 'selected';
 
 		var DATA_DIRECTION_RIGHT = 'data-direction-right';
@@ -170,7 +172,7 @@ AUI.add(
 
 		var DocumentLibrary = A.Component.create(
 			{
-				AUGMENTS: [Liferay.PortletBase],
+				AUGMENTS: [Liferay.PortletBase, Liferay.DocumentLibraryUpload],
 
 				EXTENDS: A.Base,
 
@@ -201,6 +203,7 @@ AUI.add(
 
 						instance._displayStyle = instance.ns('displayStyle');
 						instance._folderId = instance.ns(STR_FOLDER_ID);
+						instance.folderId = config.folderId;
 
 						instance._keywordsNode = instance.byId(STR_KEYWORDS);
 
@@ -235,7 +238,11 @@ AUI.add(
 								rowsPerPageOptions: config.entryRowsPerPageOptions,
 								total: config.entriesTotal
 							}
-						).render();
+						);
+
+						entryPaginator.addTarget(instance);
+
+						entryPaginator.render();
 
 						entryPaginator.on('changeRequest', instance._onEntryPaginatorChangeRequest, instance);
 
@@ -339,6 +346,8 @@ AUI.add(
 						instance._toggleSyncNotification();
 
 						instance._restoreState();
+
+						instance._initDLUpload();
 					},
 
 					destructor: function() {
@@ -530,6 +539,7 @@ AUI.add(
 
 						if (dataFolderId) {
 							requestParams[instance._folderId] = dataFolderId;
+							instance._updateUploaderFolderId(requestParams[instance._folderId]);
 						}
 
 						if (dataNavigation) {
@@ -956,6 +966,10 @@ AUI.add(
 							direction = 'right';
 						}
 
+						var folderId = event.currentTarget.attr(DATA_FOLDER_ID);
+
+						instance._updateUploaderFolderId(folderId);
+
 						instance._listView.set('direction', direction);
 
 						Liferay.fire(
@@ -997,7 +1011,7 @@ AUI.add(
 
 						var folderId = dropTarget.attr(DATA_FOLDER_ID);
 
-						var folderContainer = dropTarget.ancestor('.document-display-style');
+						var folderContainer = dropTarget.ancestor(CSS_DOCUMENT_DISPLAY_STYLE);
 
 						var selectedItems = instance._ddHandler.dd.get(STR_DATA).selectedItems;
 
@@ -1205,6 +1219,15 @@ AUI.add(
 						var instance = this;
 
 						instance._toggleEntriesSelection();
+
+						var overlayManager = instance._overlayManager;
+
+						overlayManager.each(
+							function(item, index, collection) {
+								item.fire('targetChange');
+							}
+						);
+
 					},
 
 					_onShowTab: function(event) {
@@ -1609,6 +1632,8 @@ AUI.add(
 								responseData: reponseData
 							}
 						);
+
+						instance.folderId = data[instance._folderId];
 					},
 
 					_sendMessage: function(type, message) {
@@ -1652,17 +1677,22 @@ AUI.add(
 
 						var selectAllCheckbox = instance._selectAllCheckbox;
 
-						Liferay.Util.checkAll(documentContainer, instance.ns(STR_ROW_IDS_FOLDER_CHECKBOX), selectAllCheckbox, CSS_RESULT_ROW);
-						Liferay.Util.checkAll(documentContainer, instance.ns(STR_ROW_IDS_FILE_ENTRY_CHECKBOX), selectAllCheckbox, CSS_RESULT_ROW);
-						Liferay.Util.checkAll(documentContainer, instance.ns(STR_ROW_IDS_FILE_SHORTCUT_CHECKBOX), selectAllCheckbox, CSS_RESULT_ROW);
+						if (instance._getDisplayStyle(DISPLAY_STYLE_LIST)) {
+							Liferay.Util.checkAll(documentContainer, instance.ns(STR_ROW_IDS_FOLDER_CHECKBOX), selectAllCheckbox, CSS_ROW_SELECTABLE);
+							Liferay.Util.checkAll(documentContainer, instance.ns(STR_ROW_IDS_FILE_ENTRY_CHECKBOX), selectAllCheckbox, CSS_ROW_SELECTABLE);
+							Liferay.Util.checkAll(documentContainer, instance.ns(STR_ROW_IDS_FILE_SHORTCUT_CHECKBOX), selectAllCheckbox, CSS_ROW_SELECTABLE);
+						}
+						else {
+							Liferay.Util.checkAll(documentContainer, instance.ns(STR_ROW_IDS_FOLDER_CHECKBOX), selectAllCheckbox, CSS_RESULT_ROW);
+							Liferay.Util.checkAll(documentContainer, instance.ns(STR_ROW_IDS_FILE_ENTRY_CHECKBOX), selectAllCheckbox, CSS_RESULT_ROW);
+							Liferay.Util.checkAll(documentContainer, instance.ns(STR_ROW_IDS_FILE_SHORTCUT_CHECKBOX), selectAllCheckbox, CSS_RESULT_ROW);
 
-						WIN[instance.ns(STR_TOGGLE_ACTIONS_BUTTON)]();
-
-						if (!instance._getDisplayStyle(DISPLAY_STYLE_LIST)) {
 							var documentDisplayStyle = A.all(CSS_DOCUMENT_DISPLAY_STYLE_SELECTABLE);
 
 							documentDisplayStyle.toggleClass(CSS_SELECTED, instance._selectAllCheckbox.attr(ATTR_CHECKED));
 						}
+
+						WIN[instance.ns(STR_TOGGLE_ACTIONS_BUTTON)]();
 					},
 
 					_toggleHovered: function(event) {
@@ -1828,6 +1858,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-paginator', 'dd-constrain', 'dd-delegate', 'dd-drag', 'dd-drop', 'dd-proxy', 'event-simulate', 'liferay-history-manager', 'liferay-list-view', 'liferay-message', 'liferay-portlet-base', 'querystring-parse-simple']
+		requires: ['aui-paginator', 'dd-constrain', 'dd-delegate', 'dd-drag', 'dd-drop', 'dd-proxy', 'document-library-upload', 'event-simulate', 'liferay-history-manager', 'liferay-list-view', 'liferay-message', 'liferay-portlet-base', 'querystring-parse-simple']
 	}
 );
