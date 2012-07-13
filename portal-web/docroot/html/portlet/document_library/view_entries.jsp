@@ -273,7 +273,7 @@ for (int i = 0; i < results.size(); i++) {
 						%>
 
 						<liferay-ui:icon
-							cssClass="document-display-style selectable"
+							cssClass="document-display-style"
 							data="<%= data %>"
 							image='<%= "../file_system/small/" + DLUtil.getFileIcon(fileEntry.getExtension()) %>'
 							label="<%= true %>"
@@ -314,7 +314,7 @@ for (int i = 0; i < results.size(); i++) {
 												row = new ResultRow(fileShortcut, fileShortcut.getFileShortcutId(), i);
 											}
 
-											row.setClassName("document-display-style");
+					row.setClassName("document-display-style selectable");
 
 											Map<String, Object> data = new HashMap<String, Object>();
 
@@ -433,7 +433,7 @@ for (int i = 0; i < results.size(); i++) {
 
 					ResultRow row = new ResultRow(curFolder, curFolder.getPrimaryKey(), i);
 
-					row.setClassName("document-display-style");
+					row.setClassName("document-display-style selectable");
 
 					Map<String, Object> data = new HashMap<String, Object>();
 
