@@ -1450,9 +1450,11 @@ public class PortalImpl implements Portal {
 
 				String[] facebookData = FacebookUtil.getFacebookData(request);
 
-				currentURL =
-					FacebookUtil.FACEBOOK_APPS_URL + facebookData[0] +
-						facebookData[2];
+				if (facebookData != null) {
+					currentURL =
+						FacebookUtil.FACEBOOK_APPS_URL + facebookData[0] +
+							facebookData[2];
+				}
 			}
 		}
 
@@ -4503,6 +4505,16 @@ public class PortalImpl implements Portal {
 			}
 
 			if (layoutTypePortlet.hasPortletId(checkPortletId)) {
+				return true;
+			}
+
+			String resourcePrimKey = PortletPermissionUtil.getPrimaryKey(
+				themeDisplay.getPlid(), portletId);
+
+			if (ResourcePermissionLocalServiceUtil.getResourcePermissionsCount(
+					themeDisplay.getCompanyId(), portlet.getPortletName(),
+					ResourceConstants.SCOPE_INDIVIDUAL, resourcePrimKey) > 0) {
+
 				return true;
 			}
 		}

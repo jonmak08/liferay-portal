@@ -118,10 +118,47 @@ portletURL.setParameter("tabs1", tabs1);
 			%>
 
 			<liferay-ui:search-container-column-text
-				href="<%= viewContentURLString %>"
 				name="name"
 			>
-				<liferay-ui:icon label="<%= true %>" message="<%= trashRenderer.getTitle(locale) %>" src="<%= trashRenderer.getIconPath(renderRequest) %>" />
+				<liferay-ui:icon label="<%= true %>" message="<%= trashRenderer.getTitle(locale) %>" src="<%= trashRenderer.getIconPath(renderRequest) %>" url="<%= viewContentURLString %>" />
+
+				<c:if test="<%= entry.getRootEntry() != null %>">
+
+					<%
+					TrashEntry rootEntry = entry.getRootEntry();
+
+					TrashHandler rootTrashHandler = TrashHandlerRegistryUtil.getTrashHandler(rootEntry.getClassName());
+
+					TrashRenderer rootTrashRenderer = rootTrashHandler.getTrashRenderer(rootEntry.getClassPK());
+
+					String viewRootContentURLString = null;
+
+					if (rootTrashRenderer != null) {
+						PortletURL viewContentURL = renderResponse.createRenderURL();
+
+						viewContentURL.setParameter("struts_action", "/trash/view_content");
+						viewContentURL.setParameter("redirect", currentURL);
+						viewContentURL.setParameter("entryId", String.valueOf(rootEntry.getEntryId()));
+						viewContentURL.setParameter("type", rootTrashRenderer.getType());
+						viewContentURL.setParameter("showActions", Boolean.FALSE.toString());
+						viewContentURL.setParameter("showAssetMetadata", Boolean.TRUE.toString());
+						viewContentURL.setParameter("showEditURL", Boolean.FALSE.toString());
+
+						viewRootContentURLString = viewContentURL.toString();
+					}
+					%>
+
+					<liferay-util:buffer var="rootEntryIcon">
+						<liferay-ui:icon
+							label="<%= true %>"
+							message="<%= rootTrashRenderer.getTitle(locale) %>"
+							src="<%= rootTrashRenderer.getIconPath(renderRequest) %>"
+							url="<%= viewRootContentURLString %>"
+						/>
+					</liferay-util:buffer>
+
+					<span class="trash-root-entry">(<liferay-ui:message arguments="<%= rootEntryIcon %>" key="deleted-in-x" />)</span>
+				</c:if>
 			</liferay-ui:search-container-column-text>
 
 			<liferay-ui:search-container-column-text
@@ -150,10 +187,17 @@ portletURL.setParameter("tabs1", tabs1);
 				value="<%= entry.getUserName() %>"
 			/>
 
-			<liferay-ui:search-container-column-jsp
-				align="right"
-				path="/html/portlet/trash/entry_action.jsp"
-			/>
+			<c:choose>
+				<c:when test="<%= entry.getRootEntry() == null || Validator.isNotNull(trashRenderer.renderActions(renderRequest, renderResponse)) %>">
+					<liferay-ui:search-container-column-jsp
+						align="right"
+						path='<%= entry.getRootEntry() == null ? "/html/portlet/trash/entry_action.jsp" : trashRenderer.renderActions(renderRequest, renderResponse) %>'
+					/>
+				</c:when>
+				<c:otherwise>
+					<liferay-ui:search-container-column-text> </liferay-ui:search-container-column-text>
+				</c:otherwise>
+			</c:choose>
 		</liferay-ui:search-container-row>
 
 		<div class="lfr-message-info">
