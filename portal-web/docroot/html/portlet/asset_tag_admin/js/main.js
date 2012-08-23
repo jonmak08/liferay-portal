@@ -1342,7 +1342,7 @@ AUI.add(
 						var selectedTagId;
 						var selectedTagName;
 
-						if (tags.length > 0) {
+						if (tags && tags.length > 0) {
 							var buffer = ['<ul>'];
 
 							instance._tags = tags;
