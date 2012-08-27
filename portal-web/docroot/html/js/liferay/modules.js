@@ -67,7 +67,7 @@
 			'layout-configuration': ['aui-live-search', 'dd', 'liferay-layout'],
 			'layout-freeform': ['aui-resize', 'liferay-layout-column'],
 			'list-view': ['aui-base', 'transition'],
-			'localizer': ['aui-base', 'aui-template', 'aui-overlay-context'],
+			'localizer': ['aui-base', 'aui-overlay-context', 'aui-template'],
 			'logo-editor': ['aui-image-cropper', 'aui-io-request', 'liferay-portlet-base'],
 			'logo-selector': ['aui-base'],
 			'look-and-feel': ['aui-color-picker', 'aui-dialog', 'aui-io-request', 'aui-tabs-base'],

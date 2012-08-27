@@ -35,26 +35,22 @@ String type = (String)request.getAttribute("liferay-ui:input-localized:type");
 
 Locale defaultLocale = null;
 
-final String LOCALIZER_CLASS = "lfr-localizer";
+String LOCALIZER_CLASS = "lfr-localizer";
+String LOCALIZER_NS = LOCALIZER_CLASS + "-";
+String LOCALIZER_CONTENT_BOX = randomNamespace + "languageSelections";
 
-final String LOCALIZER_NS = LOCALIZER_CLASS + "-";
+String INPUT_CLASS = LOCALIZER_NS + "input";
+String INPUT_ID_SUFFIX = StringPool.UNDERLINE + "display";
+String INPUT_SELECTOR_DISPLAYED_CLASS = LOCALIZER_NS + "selector-displayed";
 
-final String LOCALIZER_CONTENT_BOX = randomNamespace + "languageSelections";
+String COUNT_CLASS = LOCALIZER_NS + "locale-count";
+Integer COUNT_OFFSEST = 1;
 
-final String INPUT_ID_SUFFIX = StringPool.UNDERLINE + "display";
+String FLAG_CLASS = LOCALIZER_NS + "locale-flag";
+String FLAG_IMAGE_EXT = "png";
+String FLAG_IMAGES_PATH = themeDisplay.getPathThemeImages() + "/language/";
 
-final String INPUT_CLASS = LOCALIZER_NS + "input";
-
-final String INPUT_SELECTOR_DISPLAYED_CLASS = LOCALIZER_NS + "selector-displayed";
-
-final String COUNT_CLASS = LOCALIZER_NS + "locale-count";
-final Integer COUNT_OFFSEST = 1;
-
-final String FLAG_CLASS = LOCALIZER_NS + "locale-flag";
-final String FLAG_IMAGE_EXT = "png";
-final String FLAG_IMAGES_PATH = themeDisplay.getPathThemeImages() + "/language/";
-
-final String LOCALES_MAP = randomNamespace + "locales";
+String LOCALES_MAP = randomNamespace + "locales";
 
 if (Validator.isNotNull(defaultLanguageId)) {
 	defaultLocale = LocaleUtil.fromLanguageId(defaultLanguageId);
@@ -114,16 +110,14 @@ if (Validator.isNull(mainLanguageValue)) {
 	</c:choose>
 
 	<c:if test="<%= Validator.isNotNull(maxLength) %>">
-
 		<aui:script use="aui-char-counter">
 			new A.CharCounter(
 				{
-					input: '<%= StringPool.POUND %><portlet:namespace /><%= id + StringPool.UNDERLINE + INPUT_ID_SUFFIX %>',
+					input: '#<portlet:namespace /><%= id + StringPool.UNDERLINE + INPUT_ID_SUFFIX %>',
 					maxLength: <%= maxLength %>
 				}
 			);
 		</aui:script>
-
 	</c:if>
 
 	<c:if test="<%= displayLocaleSelector %>">
@@ -169,7 +163,7 @@ if (Validator.isNull(mainLanguageValue)) {
 				<aui:script use="aui-char-counter">
 					new A.CharCounter(
 						{
-							input: '<%= StringPool.POUND %><portlet:namespace /><%= id + StringPool.UNDERLINE + curLanguageId %>',
+							input: '#<portlet:namespace /><%= id + StringPool.UNDERLINE + curLanguageId %>',
 							maxLength: <%= maxLength %>
 						}
 					);
@@ -181,11 +175,7 @@ if (Validator.isNull(mainLanguageValue)) {
 
 		<liferay-util:buffer var="localizerLocaleStatus">
 			<span class="<%= COUNT_CLASS %>"><%= languageIds.size() + COUNT_OFFSEST %></span>
-				<img
-					alt="<%= defaultLocale.getDisplayName() %>"
-					class="<%= FLAG_CLASS %>"
-					src="<%= FLAG_IMAGES_PATH %><%= mainLanguageId %>.<%= FLAG_IMAGE_EXT %>"
-					title="<%= defaultLocale.getDisplayName() %>">
+				<img alt="<%= defaultLocale.getDisplayName() %>" class="<%= FLAG_CLASS %>" src="<%= FLAG_IMAGES_PATH %><%= mainLanguageId %>.<%= FLAG_IMAGE_EXT %>" title="<%= defaultLocale.getDisplayName() %>">
 		</liferay-util:buffer>
 
 		<c:choose>
@@ -225,7 +215,7 @@ if (Validator.isNull(mainLanguageValue)) {
 
 		new Liferay.Localizer(
 			{
-				contentBox: '<%= StringPool.POUND %><%= LOCALIZER_CONTENT_BOX %>',
+				contentBox: '#<%= LOCALIZER_CONTENT_BOX %>',
 				flagImagesPath: '<%= FLAG_IMAGES_PATH %>',
 				locales: <%= LOCALES_MAP %>,
 				namespace: '<portlet:namespace /><%= name + StringPool.UNDERLINE %>'
