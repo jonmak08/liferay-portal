@@ -623,8 +623,9 @@ public class EditFileEntryAction extends PortletAction {
 				 e instanceof SourceFileNameException ||
 				 e instanceof StorageFieldRequiredException) {
 
-			if (!cmd.equals(Constants.ADD_MULTIPLE) &&
-				!cmd.equals(Constants.ADD_TEMP)) {
+			if (!(cmd.equals(Constants.ADD_MULTIPLE) ||
+				cmd.equals(Constants.ADD_TEMP) ||
+				cmd.equals(Constants.ADD_DYNAMIC))) {
 
 				SessionErrors.add(actionRequest, e.getClass());
 
@@ -774,11 +775,11 @@ public class EditFileEntryAction extends PortletAction {
 
 			long size = uploadPortletRequest.getSize("file");
 
-			if (cmd.equals(Constants.ADD) && (size == 0)) {
+			if ((cmd.equals(Constants.ADD) || cmd.equals(Constants.ADD_DYNAMIC)) && (size == 0)) {
 				contentType = MimeTypesUtil.getContentType(title);
 			}
 
-			if (cmd.equals(Constants.ADD) || (size > 0)) {
+			if (cmd.equals(Constants.ADD) || cmd.equals(Constants.ADD_DYNAMIC) || (size > 0)) {
 				String portletName = portletConfig.getPortletName();
 
 				if (portletName.equals(PortletKeys.MEDIA_GALLERY_DISPLAY)) {
@@ -852,6 +853,20 @@ public class EditFileEntryAction extends PortletAction {
 
 			AssetPublisherUtil.addRecentFolderId(
 				actionRequest, DLFileEntry.class.getName(), folderId);
+		}
+		catch (Exception e) {
+
+			UploadException uploadException =
+					(UploadException)actionRequest.getAttribute(
+						WebKeys.UPLOAD_EXCEPTION);
+
+			if (uploadException != null && 
+				uploadException.isExceededSizeLimit()) {
+				
+				throw new FileSizeException(uploadException.getCause());
+			}
+				
+			throw e;
 		}
 		finally {
 			StreamUtil.cleanUp(inputStream);

@@ -1,7 +1,9 @@
 AUI.add(
 	'document-library-upload',
 	function(A) {
+		var AArray = A.Array;
 		var Lang = A.Lang;
+		var HistoryManager = Liferay.HistoryManager;
 		var UA = A.UA;
 
 		var BOUNDING_BOX = 'boundingBox';
@@ -10,11 +12,96 @@ AUI.add(
 
 		var CSS_ACTIVE_AREA = 'active-area';
 
-		var CSS_DOCUMENT_DISPLAY_STYLE = '.document-display-style';
+		var CSS_APP_VIEW_ENTRY = 'app-view-entry-taglib';
+
+		var CSS_COLUMN_CONTENT = '.aui-column-content';
+
+		var CSS_DATA_FOLDER_DATA_TITLE = '[data-folder="true][data-title]';
+
+		var CSS_DATA_FOLDER = '[data-folder="true]';
+
+		var CSS_DISPLAY_DESCRIPTIVE = '.display-descriptive';
+
+		var CSS_DISPLAY_ICON = '.display-icon';
+
+		var CSS_DOCUMENT_CONTAINER = '.document-container';
+
+		var CSS_DOCUMENT_ENTRIES_PAGINATOR = '.document-entries-paginator';
+
+		var CSS_DOT_ENTRY_DISPLAY_STYLE = '.entry-display-style';
+
+		var CSS_DOT_TAGLIB_ICON = '.taglib-icon';
+
+		var CSS_DRAG_HIGHLIGHT = 'drag-highlight';
+
+		var CSS_ENTRIES_EMPTY = '.entries-empty';
+
+		var CSS_ENTRY_DISPLAY_STYLE = 'entry-display-style';
+
+		var CSS_ENTRY_LINK = '.entry-link';
+
+		var CSS_ENTRY_THUMBNAIL = '.entry-thumbnail';
+
+		var CSS_ENTRY_TITLE = '.entry-title';
+
+		var CSS_ENTRY_ROW_CLASS = CSS_APP_VIEW_ENTRY + ' ' + CSS_ENTRY_DISPLAY_STYLE + ' results-row ';
+
+		var CSS_HEADER_ROW = '.lfr-header-row';
+
+		var CSS_HIDDEN = '.aui-helper-hidden';
+
+		var CSS_ICON = 'icon';
+
+		var CSS_IMAGE_ICON = 'img.icon';
+
+		var CSS_PORTLET_SECTION_HOVER = 'portlet-section-hover';
+
+		var CSS_PORTLET_SECTION_HOVER_ALT = 'alt portlet-section-alternate-hover';
+
+		var CSS_OVERLAY_MASK = '.aui-overlaymask';
+
+		var CSS_TAGLIB_ICON = 'taglib-icon';
+
+		var CSS_TAGLIB_TEXT = 'taglib-text';
+
+		var CSS_TEMPLATE_ROW = 'tr.lfr-template';
+
+		var CSS_SEARCH_CONTAINER = '.aui-searchcontainer';
+
+		var CSS_UPLOAD_ERROR = 'upload-error';
+
+		var CSS_UPLOAD_SUCCESS = 'upload-success';
 
 		var DATA_FOLDER_ID = 'data-folder-id';
 
-		var UPLOAD_MASK = 'lfr-upload-mask';
+		var FIRST = 'first';
+
+		var LIST = 'list';
+
+		var NAVIGATION_OVERLAY_BACKGROUND = '#FFF';
+
+		var TPL_ENTRY_ROW = new A.Template(
+			'<tpl>',
+				'<tpl if="column == \'title\'">',
+					'<span class="' + CSS_APP_VIEW_ENTRY + ' ' + CSS_ENTRY_DISPLAY_STYLE + '">',
+						'<a class="' + CSS_TAGLIB_ICON + '">',
+							'<img alt="" class="' + CSS_ICON + '" src="/html/themes/classic/images/file_system/small/page.png" />',
+							'<span class="' + CSS_TAGLIB_TEXT + '" id="' + A.guid() + '">{name}</span>',
+						'</a>',
+					'</span>',
+				'</tpl>',
+				'<tpl if="column == \'size\'">',
+					'{size}MB',
+				'</tpl>',
+				'<tpl if="column == \'downloads\'">',
+					'0',
+				'</tpl>',
+			'</tpl>'
+		);
+
+		var UPLOADER_TYPE = A.Uploader.TYPE || 'none';
+
+		var UPLOADING = A.Uploader.Queue.UPLOADING;
 
 		DocumentLibraryUpload = function() {};
 
@@ -24,280 +111,165 @@ AUI.add(
 			destructor: function() {
 				var instance = this;
 
-				A.Array.invoke(instance._subscriptions, 'detach');
-
-				if (instance._dataset) {
-					instance._dataset.destroy();
-				}
-
-				if (instance._overlayManager) {
-					instance._overlayManager.destroy();
-				}
-
 				if (instance._uploader) {
+					instance._dataset.destroy();
+
+					instance._overlayManager.destroy();
+
 					instance._uploader.destroy();
 				}
+
+				AArray.invoke(instance._subscriptions, 'detach');
 			},
 
-			_addEntry: function(file) {
+			_attachSubscriptions: function(data) {
 				var instance = this;
 
-				var displayStyle = instance._appViewSelect._getDisplayStyle();
-
-				var entriesContainer = instance._entriesContainer;
-
-				var emptyMessage = entriesContainer.one('.entries-empty');
-
-				var entryNode;
-
-				var title = file.name;
-
-				if (displayStyle === 'icon') {
-					entryNode = instance._invisibleIconEntry.clone();
-				}
-				else if (displayStyle === 'descriptive') {
-					entryNode = instance._invisibleDescriptiveEntry.clone();
-				}
-				else {
-					instance._createEntryListRow(file);
-
-					entryNode = entriesContainer.one('.lfr-search-container');
-				}
-
-				entryNode.attr('data-title', title);
-
-				var entryNodeId = A.guid();
-
-				entryNode.set('id', entryNodeId);
-
-				entryNode.show();
-
-				if (emptyMessage) {
-					emptyMessage.hide();
-				}
-
-				var errorMessage = file.errorMessage;
-
-				if (displayStyle == 'list') {
-					if (errorMessage) {
-						var icon = entryNode.one('img');
-
-						icon.set('src', '/html/themes/classic/images/common/close.png');
-					}
-
-					file.row = entryNode;
-				}
-				else {
-					entriesContainer.append(entryNode);
-
-					var entryDocumentLink = entryNode.one('.document-link');
-
-					entryDocumentLink.set('title', title);
-
-					if (errorMessage) {
-						instance._displayEntryError(entryDocumentLink);
-					}
-
-					var entryTitle = entryDocumentLink.one('.entry-title');
-
-					entryTitle.setContent(title);
-
-					file.entryDocumentLink = entryDocumentLink;
-				}
-
-				if (errorMessage) {
-					new A.Tooltip(
-						{
-							bodyContent: errorMessage,
-							constrain: true,
-							trigger: '#' + entryNodeId
-						}
-					).render();
-				}
-				else {
-					var overlay = instance._createOverlay(entryNode);
-
-					instance._overlayManager.register(overlay);
-
-					overlay.show();
-
-					var progressBar = instance._createProgressBar();
-
-					file.overlay = overlay;
-
-					file.progressBar = progressBar;
-				}
-			},
-
-			_attachSubscriptions: function(event) {
-				var instance = this;
-
-				var folderEntry = event.folderEntry;
+				var displayStyle = instance._getDisplayStyle();
 
 				var subscriptions = instance._subscriptions;
 
 				var uploader = instance._uploader;
 
-				if (folderEntry) {
-					var showFolderUploadStarting = uploader.on('uploadstart', instance._showFolderUploadStarting, instance);
-					var showFolderUploadProgress = uploader.on('totaluploadprogress', instance._showFolderUploadProgress, instance);
+				if (data.isFolderUpload) {
+					var detectFolderUploadError = uploader.on('uploadcomplete', instance._detectFolderUploadError, instance, data);
+					var showFolderUploadStarting = uploader.on('uploadstart', instance._showFolderUploadStarting, instance, data);
+					var showFolderUploadProgress = uploader.on('totaluploadprogress', instance._showFolderUploadProgress, instance, data);
+					var showFolderUploadComplete = uploader.on('alluploadscomplete', instance._showFolderUploadComplete, instance, data, displayStyle);
 
-					subscriptions.push(showFolderUploadStarting, showFolderUploadProgress);
+					subscriptions.push(detectFolderUploadError, showFolderUploadStarting, showFolderUploadProgress, showFolderUploadComplete);
 				}
 				else {
-					var showFileUploadStarting = uploader.after('fileuploadstart', instance._showFileUploadStarting, instance);
-					var showFileUploadProgress = uploader.on('uploadprogress', instance._showFileUploadProgress, instance);
-					var showFileUploadComplete = uploader.on('uploadcomplete', instance._showFileUploadComplete, instance);
+					var showEntryUploadStarting = uploader.after('fileuploadstart', instance._showEntryUploadStarting, instance);
+					var showEntryUploadProgress = uploader.on('uploadprogress', instance._showEntryUploadProgress, instance);
+					var showEntryUploadComplete = uploader.on('uploadcomplete', instance._showEntryUploadComplete, instance, displayStyle);
 
-					subscriptions.push(showFileUploadStarting, showFileUploadProgress, showFileUploadComplete);
+					subscriptions.push(showEntryUploadStarting, showEntryUploadProgress, showEntryUploadComplete);
 				}
 			},
 
 			_combineFileLists: function(fileList, queuedFiles) {
-				var combinedList = A.each(
+				var instance = this;
+
+				A.each(
 					queuedFiles,
 					function(item, index, collection) {
 						fileList.push(item);
 					}
 				);
-
-				return fileList;
-			},
-
-			_containsInvalidCharacters: function(fileName) {
-				var instance = this;
-
-				var invalidFileNameCharacters = [
-					'[',
-					']'
-				];
-
-				A.Array.map(
-					invalidFileNameCharacters,
-					function(item, index, collection) {
-						if (Lang.isString(fileName)) {
-							var invalidCharacterFound = fileName.indexOf(item);
-
-							if (invalidCharacterFound) {
-								return true;
-							}
-						}
-					}
-				);
-
-				return false;
 			},
 
 			_createEntries: function(files) {
 				var instance = this;
 
-				var validFiles = files.validFiles;
+				var displayStyle = instance._getDisplayStyle();
 
-				A.Array.map(
-					validFiles,
+				var overlayManager = instance._overlayManager;
+
+				var addEntry = function(file) {
+
+					var title = file.name;
+
+					var entryNode = instance._spawnEntryNode(displayStyle, file);
+
+					var errorMessage = file.errorMessage;
+
+					if (!!errorMessage) {
+						instance._displayEntryError(entryNode, errorMessage, displayStyle);
+					}
+					else {
+						var overlay = instance._createOverlay(entryNode);
+
+						var progressBar = instance._createProgressBar();
+
+						overlayManager.register(overlay);
+
+						overlay.show();
+
+						file.overlay = overlay;
+
+						file.progressBar = progressBar;
+					}
+
+					file.entryNode = entryNode;
+				};
+
+				AArray.map(
+					files.validFiles,
 					function(item, index, collection) {
-						instance._addEntry(item);
+						addEntry(item);
 					}
 				);
 
-				var invalidFiles = files.invalidFiles;
-
-				A.Array.map(
-					invalidFiles,
+				AArray.map(
+					files.invalidFiles,
 					function(item, index, collection) {
-						instance._addEntry(item);
+						addEntry(item);
 					}
 				);
 			},
 
-			_createEntryListRow: function(file) {
+			_createEntryRow: function(file) {
 				var instance = this;
 
-				var searchContainer = A.one('.aui-searchcontainer');
+				var entriesCount = instance._entriesCount += 1;
 
-				var templateRow = searchContainer.one('tr.lfr-template');
+				var fileSizeInMB = Math.round(file.size / Math.pow(1024, 2) * 10 ) / 10;
+
+				var hoverCSS = (entriesCount % 2) ? CSS_PORTLET_SECTION_HOVER_ALT : CSS_PORTLET_SECTION_HOVER;
+
+				var searchContainer = A.one(CSS_SEARCH_CONTAINER);
+
+				var templateRow = searchContainer.one(CSS_TEMPLATE_ROW);
 
 				var row = templateRow.clone();
 
-				var tableBody = searchContainer.one('tbody');
+				var column = row.one('td');
 
-				tableBody.append(row);
-
-				row.removeClass('lfr-template');
-
-				row.addClass('document-display-style');
-
-				var entriesCount = instance._getEntriesCount();
-
-				instance._entriesCount++;
-
-				var alternate = entriesCount % 2;
-
-				if (alternate) {
-					row.addClass('alt portlet-section-alternate-hover');
-				}
-				else {
-					row.addClass('portlet-section-hover');
-				}
-
-				row.attr('data-draggable', true);
-
-				var columnNames = instance._config.columnNames;
-
-				var td = row.one('td');
+				var columnNames = instance._columnNames;
 
 				A.each(
 					columnNames,
 					function(item, index, collection) {
-						td = td.next();
-
-						if (!td) {
-							td = A.Node.create('<td></td>');
-
-							row.append(td);
-						}
-
 						var columnName = item;
 
-						var rowNumber = entriesCount + 1;
-
-						instance.entriesCount = rowNumber;
-
-						if (item === 'name') {
+						if (columnName === 'name') {
 							columnName = 'title';
-
-							var ns_struts_action = instance.ns('struts_action=%2Fdocument_library%2Fview_file_entry');
-
-							var anchor = A.Node.create('<a class="taglib-icon" href="' + instance._config.viewFileEntryUrl + '" > ' + file.name + '</a>');
-
-							var icon = A.Node.create('<img alt="" class="icon" id="' + A.guid() + '" src="/html/themes/classic/images/file_system/small/page.png" />')
-
-							td.append(icon);
-
-							td.append(anchor);
-						}
-						else if (item ==='size') {
-							td.setContent('--');
-						}
-						else if (item === 'downloads') {
-							td.setContent('--');
-						}
-						else if (item === 'action') {
-							columnName = rowNumber;
-
-							td.set('id', instance.ns('ocerSearchContainer_col-5_row-1'));
-
-							td.addClass('last');
 						}
 
-						td.addClass('align-left col-' + columnName + ' valign-middle');
+						column = column.next();
 
-						td.attr('colspan', 1);
-						td.attr('headers', instance.ns('ocerSearchContainer_col-' + columnName));
+						column.attr(
+							{
+								colspan: 1,
+								headers: instance.ns('ocerSearchContainer_col-' + columnName),
+								id: instance.ns('ocerSearchContainer_col-' + columnName + '_row-' + entriesCount)
+							}
+						);
 
-						td.set('id', instance.ns('ocerSearchContainer_col-' + columnName + '_row-1'));
+						column.addClass('align-left col-' + columnName + ' valign-middle');
+
+						TPL_ENTRY_ROW.render(
+							{
+								column: columnName,
+								name: file.name,
+								size: fileSizeInMB
+							},
+							column
+						);
 					}
 				);
+
+				row.attr(
+					{
+						'className': CSS_ENTRY_ROW_CLASS + hoverCSS,
+						'data-draggable': true
+					}
+				);
+
+				var tableBody = searchContainer.one('tbody');
+
+				tableBody.append(row);
 
 				return row;
 			},
@@ -307,58 +279,47 @@ AUI.add(
 
 				var container = instance._entriesContainer;
 
-				var columnContent = container.ancestor('.aui-column-content');
+				var columnContent = container.ancestor(CSS_COLUMN_CONTENT);
 
-				var headerRow = columnContent.one('.lfr-header-row');
+				var documentEntriesPaginator = A.one(CSS_DOCUMENT_ENTRIES_PAGINATOR);
 
-				var headerRowOverlay = instance._createOverlay(headerRow, UPLOAD_MASK);
+				var documentEntriesPaginatorOverlay = instance._createOverlay(documentEntriesPaginator, NAVIGATION_OVERLAY_BACKGROUND);
 
-				var documentEntriesPaginator = A.one('.document-entries-paginator');
+				var headerRow = columnContent.one(CSS_HEADER_ROW);
 
-				var documentEntriesPaginatorOverlay = instance._createOverlay(documentEntriesPaginator, UPLOAD_MASK);
+				var headerRowOverlay = instance._createOverlay(headerRow, NAVIGATION_OVERLAY_BACKGROUND);
 
 				var navigationPane = instance.byId('listViewContainer');
 
-				var navigationPaneOverlay = instance._createOverlay(navigationPane, UPLOAD_MASK);
+				var navigationPaneOverlay = instance._createOverlay(navigationPane, NAVIGATION_OVERLAY_BACKGROUND);
 
-				var navigationOverlays = [];
-
-				navigationOverlays.push(headerRowOverlay, documentEntriesPaginatorOverlay, navigationPaneOverlay);
+				var navigationOverlays = [documentEntriesPaginatorOverlay, headerRowOverlay, navigationPaneOverlay];
 
 				var uploader = instance._uploader;
 
 				uploader.before(
 					'uploadstart',
 					function(event) {
-						A.Array.invoke(navigationOverlays, 'show');
+						AArray.invoke(navigationOverlays, 'show');
 					}
 				);
 
 				uploader.after(
 					'alluploadscomplete',
 					function(event) {
-						var dataset = instance._dataset;
-
-						if (!dataset.length) {
-							A.Array.invoke(navigationOverlays, 'hide');
-						}
+						AArray.invoke(navigationOverlays, 'hide');
 					}
 				);
+
+				instance._navigationOverlays = navigationOverlays;
 			},
 
-			_createOverlay: function(target, cssClass) {
+			_createOverlay: function(target, background) {
 				var instance = this;
-
-				var background = null;
-
-				if (cssClass) {
-					background = '#FFF';
-				}
 
 				var overlay = new A.OverlayMask(
 					{
-						background: background,
-						cssClass: cssClass || null,
+						background: background || null,
 						target: target
 					}
 				).render();
@@ -366,10 +327,18 @@ AUI.add(
 				return overlay;
 			},
 
-			_createProgressBar: function(height) {
+			_createProgressBar: function() {
+				var instance = this;
+
+				var dimensions = instance._dimensions;
+
+				var height = dimensions.height / 5;
+
+				var width = dimensions.width / 0.64;
+
 				return new A.ProgressBar(
 					{
-						height: height || 25,
+						height: height,
 						on: {
 							complete: function(event) {
 								this.set('label', 'complete!');
@@ -378,7 +347,7 @@ AUI.add(
 								this.set('label', event.newVal + '%');
 							}
 						},
-						width: 200
+						width: width
 					}
 				);
 			},
@@ -388,17 +357,100 @@ AUI.add(
 
 				var subscriptions = instance._subscriptions;
 
-				A.Array.invoke(subscriptions, 'detach');
+				AArray.invoke(subscriptions, 'detach');
 			},
 
-			_displayEntryError: function(entryNode) {
+			_detectFolderUploadError: function(event, data) {
 				var instance = this;
 
-				var entryThumbnailImage = entryNode.one('img');
+				var response = instance._getUploadResponse(event.data);
 
-				var entryErrorSrc = themeDisplay.getPathContext() + '/html/themes/classic/images/file_system/large/default_error.png';
+				if (response.error) {
+					var file = event.file;
 
-				entryThumbnailImage.set('src', entryErrorSrc);
+					file.errorMessage = response.message;
+
+					data.invalidFiles.push(file);
+				}
+			},
+
+			_displayEntryError: function(node, message, displayStyle) {
+				var instance = this;
+
+				var displayStyleIsList = (displayStyle === LIST);
+
+				if (displayStyleIsList) {
+					var imageIcon = node.one(CSS_IMAGE_ICON);
+
+					imageIcon.attr('src', '/html/themes/classic/images/common/close.png');
+				}
+				else {
+					node.one(CSS_ENTRY_THUMBNAIL).addClass(CSS_UPLOAD_ERROR);
+				}
+
+				new A.Tooltip(
+					{
+						constrain: true,
+						bodyContent: message,
+						trigger: node
+					}
+				).render();
+			},
+
+			_displayFolderError: function(folderEntry, invalidFiles) {
+				var instance = this;
+
+				var tooltip = folderEntry.tooltip;
+
+				var tooltipBodyContent = '';
+
+				AArray.map(
+					invalidFiles,
+					function(item, index, collection) {
+						tooltipBodyContent += '<p>' + item.name + ': ' + item.errorMessage + '</p>';
+					}
+				);
+
+				if (tooltip) {
+					tooltip.set('bodyContent', tooltipBodyContent);
+				}
+				else {
+					tooltip = new A.Tooltip(
+						{
+							constrain: true,
+							bodyContent: tooltipBodyContent,
+							trigger: folderEntry
+						}
+					);
+
+					folderEntry.tooltip = tooltip;
+				}
+
+				tooltip.render();
+			},
+
+			_getCurrentUploadData: function() {
+				var instance = this;
+
+				var dataset = instance._dataset;
+
+				var currentUploadData = dataset.get(FIRST);
+
+				return currentUploadData;
+			},
+
+			_getDisplayStyle: function(style) {
+				var instance = this;
+
+				var displayStyleNamespace = instance.ns('displayStyle');
+
+				var displayStyle = HistoryManager.get(displayStyleNamespace) || instance._config.displayStyle;
+
+				if (style) {
+					displayStyle = (style == displayStyle);
+				}
+
+				return displayStyle;
 			},
 
 			_getDragDropFiles: function(files) {
@@ -409,76 +461,73 @@ AUI.add(
 				A.each(
 					files,
 					function (item, index, collection) {
-						fileList.push(new A.FileHTML5(item));
+						var newFile = new A.FileHTML5(item);
+
+						fileList.push(newFile);
 					}
 				);
 
 				return fileList;
 			},
 
-			_getEntriesCount: function() {
-				var instance = this;
-
-				var entriesCount = instance._entriesCount;
-
-				if (!entriesCount) {
-					instance._entriesCount = instance._config.entriesTotal;
-				}
-
-				return entriesCount;
-			},
-
 			_getFolderEntry: function(target) {
 				var instance = this;
 
-				var folderEntry;
+				var getOverlayFolderEntry = function() {
 
-				var dataFolder = target.ancestor('[data-folder="true"]');
+					var overlayBoundingBox = target.ancestor(CSS_OVERLAY_MASK);
 
-				var overlayBoundingBox = target.ancestor('.aui-overlaymask');
+					var overlayFolderEntry = overlayBoundingBox ? overlayBoundingBox.folderEntry : null;
 
-				if (overlayBoundingBox) {
-					folderEntry = overlayBoundingBox.folderEntry || null;
-				}
-				else if (dataFolder) {
-					folderEntry = dataFolder;
+					return overlayFolderEntry;
+				};
 
-					folderEntry.id = dataFolder.attr(DATA_FOLDER_ID);
+				var getTargetFolderEntry = function() {
 
-					var displayIcon = target.ancestor(CSS_DOCUMENT_DISPLAY_STYLE);
+					var entryLink = target.ancestor('.entry-link' + CSS_DATA_FOLDER);
 
-					displayIcon.removeClass(CSS_ACTIVE_AREA);
+					var folderEntry;
 
-					var folderEntryOverlay = folderEntry.overlay;
+					var resultsRow = target.ancestor(CSS_DATA_FOLDER_DATA_TITLE);
 
-					if (folderEntryOverlay) {
-						folderEntryOverlay.show();
+					var targetIsDataFolder = (target.attr('data-folder') === "true");
+
+					if (entryLink) {
+						folderEntry = entryLink;
+					}
+					else if (resultsRow) {
+						folderEntry = resultsRow;
+					}
+					else if (targetIsDataFolder) {
+						folderEntry = target;
 					}
 					else {
-						var overlay = instance._createOverlay(displayIcon);
+						folderEntry = null;
+					}
+
+					if (folderEntry) {
+						var displayIcon = target.ancestor(CSS_DOT_ENTRY_DISPLAY_STYLE);
+
+						var overlay = folderEntry.overlay;
+
+						if (!overlay) {
+							overlay = instance._createOverlay(displayIcon);
+
+							overlay.get(BOUNDING_BOX).folderEntry = folderEntry;
+
+							folderEntry.overlay = overlay;
+							folderEntry.progressBar = instance._createProgressBar();
+						}
+
+						displayIcon.removeClass(CSS_ACTIVE_AREA);
 
 						overlay.show();
-
-						var overlayBoundingBox = overlay.get(BOUNDING_BOX);
-
-						overlayBoundingBox.folderEntry = folderEntry;
-
-						overlay.set(BOUNDING_BOX, overlayBoundingBox);
-
-						var progressBar = instance._createProgressBar();
-
-						folderEntry.overlay = overlay;
-						folderEntry.progressBar = progressBar;
 					}
-				}
 
-				return folderEntry;
-			},
+					return folderEntry;
+				};
 
-			_getFolderURL: function(folderId) {
-				var instance = this;
-
-				return themeDisplay.getPathContext() + '/web/guest/home?p_auth=u8fDMAbA&p_p_id=20&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-2&p_p_col_count=1&doAsUserId=' + themeDisplay.getDoAsUserIdEncoded() + '&_20_struts_action=%2Fdocument_library%2Fedit_file_entry&_20_cmd=add_dynamic&_20_repositoryId=' + themeDisplay.getScopeGroupId() + '&_20_folderId=' + folderId + '&ticketKey=96d78064-88d5-4de2-9930-3d2ea54d7f54&_20_groupPermissions=ADD_DISCUSSION&_20_guestPermissions=ADD_DISCUSSION&_20_groupPermissions=VIEW&_20_guestPermissions=VIEW&_20_inputPermissionsViewRole=Guest';
+				return getOverlayFolderEntry() || getTargetFolderEntry();
 			},
 
 			_getMediaThumbnail: function(fileName) {
@@ -486,145 +535,238 @@ AUI.add(
 
 				var extension = fileName.substring(fileName.length, fileName.lastIndexOf('.'));
 
-				extension = extension.toLowerCase();
+				var extensionPath;
 
-				if (extension === '.pdf') {
-					return '/html/themes/classic/images/file_system/large/pdf.png';
+				var lowerCaseExtension = extension.toLowerCase();
+
+				var imagePath;
+
+				if ((/\.(bmp|gif|jpeg|jpg|png|tiff)$/i).test(lowerCaseExtension)) {
+					imagePath = '/documents/' + themeDisplay.getScopeGroupId() + '/' + instance._folderId + '/' + fileName;
+				}
+				else if (lowerCaseExtension === '.pdf') {
+					extensionPath = 'pdf.png';
+				}
+				else if ((/\.(aac|auif|bwf|flac|mp3|mp4|m4a|wav|wma)$/i).test(lowerCaseExtension)) {
+					extensionPath = 'music.png';
+				}
+				else if ((/\.(avi|flv|mpe|mpg|mpeg|mov|m4v|ogg|wmv)$/i).test(lowerCaseExtension)) {
+					extensionPath = 'video.png';
+				}
+				else if ((/\.(dmg|gz|tar|tgz|zip)$/i).test(lowerCaseExtension)) {
+					extensionPath = 'compressed.png';
+				}
+				else {
+					extensionPath = 'default.png';
 				}
 
-				var musicExtensions = ['.mp3', '.wav', '.m4a', '.wma', '.aac', '.mp4', '.auif', '.bwf', '.flac'];
-
-				if (musicExtensions.indexOf(extension) > -1) {
-					return '/html/themes/classic/images/file_system/large/music.png';
-				}
-
-				var imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.tiff', '.bmp'];
-
-				if (imageExtensions.indexOf(extension) > -1) {
-					return '/documents/' + themeDisplay.getScopeGroupId() + '/' + instance.folderId + '/' + fileName;
-				}
-
-				var videoExtensions = ['.avi', '.flv', '.m4v', '.mov', '.mpeg', '.mpg', '.mpe', '.ogg', '.wmv'];
-
-				if (videoExtensions.indexOf(extension) > -1) {
-					return '/html/themes/classic/images/file_system/large/video.png';
-				}
-
-				var compressedExtensions = ['.gz', '.tar', '.zip','.tgz'];
-
-				if (compressedExtensions.indexOf(extension) > -1) {
-					return '/html/themes/classic/images/file_system/large/compressed.png';
-				}
-
-				return '/html/themes/classic/images/file_system/large/default.png'
+				return imagePath || '/html/themes/classic/images/file_system/large/' + extensionPath;
 			},
 
-			_getValidFiles: function(data) {
+			_getUploadResponse: function(response) {
 				var instance = this;
 
-				var invalidFiles = [];
-
-				var validFiles = A.Array.filter(
-					data,
-					function (item, index, collection) {
-						item.name = item.get('name');
-
-						item.size = item.get('size') || 0;
-
-						var maxFileSize = Math.floor(instance._maxFileSize.replace(/\D/g,''));
-
-						var maxFileNameLength = 240;
-
-						if (item.size > maxFileSize ) {
-							invalidFiles.push(item);
-
-							item.errorMessage = Lang.sub(instance._invalidFileSizeText, '240');
-
-							return;
-						}
-						else if (item.name.length > maxFileNameLength || instance._containsInvalidCharacters(item.name)) {
-							invalidFiles.push(item);
-
-							item.errorMessage = Lang.sub(instance._invalidFileNameText, maxFileNameLength);
-
-							return;
-						}
-						else if (!item.size) {
-							invalidFiles.push(item);
-
-							item.errorMessage = Lang.sub(instance._zeroByteFileText);
-
-							return;
-						}
-						else {
-							return item;
-						}
-					}
-				);
-
-				return {
-					validFiles: validFiles,
-					invalidFiles: invalidFiles
-				}
-			},
-
-			_handleDragLeave: function(event) {
-				var instance = this;
-
-				instance._entriesContainer.removeClass('drag-highlight');
-			},
-
-			_handleDragOver: function(event) {
-				var instance = this;
-
-				var entriesContainer = instance._entriesContainer;
-
-				entriesContainer.addClass('drag-highlight');
-
-				var syncNotificationContent = A.one('#' + instance.ns('syncNotificationContent'));
-
-				var syncNotificationAnchor = syncNotificationContent.one('a');
-
-				syncNotificationAnchor.setContent('Drop files here or on any folder to upload.');
+				var parsedResponseData;
 
 				try {
-					event._event.dataTransfer.dropEffect = 'copy';
+					parsedResponseData = A.JSON.parse(response);
 				}
-				catch (err) {
+				catch(err) {
 				}
 
-				event.stopPropagation();
-				event.preventDefault();
+				if (!!parsedResponseData) {
+					var errorCode = String(parsedResponseData);
+
+					var errorDetected = (errorCode.indexOf('49') === 0);
+
+					var errorMessage;
+
+					if (errorDetected) {
+						errorMessage = instance._errorMessages[parsedResponseData];
+					}
+					else {
+						errorMessage = instance.ns('fileEntryId=') + parsedResponseData.fileEntryId;
+					}
+
+					return {
+						message: errorMessage,
+						error: errorDetected
+					};
+				}
 			},
 
-			_initCallbacks: function() {
+			_getUploadURL: function(folderId) {
 				var instance = this;
 
+				var uploadURL = instance._uploadURL;
+
+				if (!instance._uploadURL) {
+					var config = instance._config;
+
+					var redirect = config.redirect;
+
+					uploadURL = unescape(config.uploadURL);
+
+					instance._uploadURL = Liferay.Util.addParams(
+						{
+							redirect: redirect,
+							ts: Lang.now()
+						},
+						uploadURL
+					);
+				}
+
+				return A.Lang.sub(uploadURL, {folderId: folderId});
+			},
+
+			_initDLUpload: function() {
+				var instance = this;
+
+				if (UPLOADER_TYPE && UPLOADER_TYPE === 'html5' && !UA.ios) {
+					var config = instance._config;
+
+					var documentContainer = A.one(CSS_DOCUMENT_CONTAINER);
+
+					var maxFileSize = config.maxFileSize;
+					var maxFileSizeInKB = Math.floor(maxFileSize / 1024);
+
+					instance._folderId = config.folders.defaultParentFolderId;
+
+					var uploader = instance._initUploader();
+
+					instance._initUploaderCallbacks(uploader);
+
+					instance._columnNames = config.columnNames;
+					instance._dataset = new A.DataSet();
+					instance._dimensions = config.folders.dimensions;
+					instance._entriesContainer = documentContainer;
+					instance._entriesCount = config.paginator.entriesTotal;
+					instance._invisibleDescriptiveEntry = documentContainer.one(CSS_HIDDEN + CSS_DOT_ENTRY_DISPLAY_STYLE + CSS_DISPLAY_DESCRIPTIVE);
+					instance._invisibleIconEntry = documentContainer.one(CSS_HIDDEN + CSS_DOT_ENTRY_DISPLAY_STYLE + CSS_DISPLAY_ICON);
+					instance._maxFileSize = maxFileSize;
+					instance._overlayManager = new A.OverlayManager();
+					instance._subscriptions = [];
+					instance._uploader = uploader;
+					instance._viewFileEntryUrl = config.viewFileEntryUrl;
+
+					// Upload Error Messages
+
+					var duplicateFileText = Liferay.Language.get('please-enter-a-unique-document-name');
+					var invalidFileExtensionText = Liferay.Language.get('document-names-must-end-with-one-of-the-following-extensions') + instance._allowedFileTypes;
+					var invalidFileNameText = Liferay.Language.get('please-enter-a-file-with-a-valid-file-name');
+
+					instance._invalidFileSizeText = Liferay.Language.get('please-enter-a-file-with-a-valid-file-size-no-larger-than-x');
+					instance._zeroByteFileText = Liferay.Language.get('the-file-contains-no-data-and-cannot-be-uploaded.-please-use-the-classic-uploader');
+
+					instance._errorMessages = {
+						'490': duplicateFileText,
+						'491': invalidFileExtensionText,
+						'492': invalidFileNameText,
+						'493': Lang.sub(instance._invalidFileSizeText, [maxFileSizeInKB])
+					};
+				}
+			},
+
+			_initUploader: function() {
+				var instance = this;
+
+				var folderId = instance._folderId;
+
+				var uploadURL = instance._getUploadURL(folderId);
+
+				var uploader = new A.Uploader(
+					{
+						appendNewFiles: false,
+						fileFieldName: 'file',
+						multipleFiles: true,
+						simLimit: 2,
+						swfURL: Liferay.Util.addParams('ts=' + Lang.now(), themeDisplay.getPathContext() + '/html/js/aui/uploader/assets/flashuploader.swf')
+					}
+				).render(A.getBody());
+
+				uploader.get('selectFilesButton').remove();
+
+				return uploader;
+			},
+
+			_initUploaderCallbacks: function(uploader) {
+				var instance = this;
+
+				var docElement = A.one(document.documentElement);
+
 				var entriesContainer = instance._entriesContainer;
-
-				var docElement = document.documentElement;
-
-				var docElementNode = A.one(docElement);
-
-				var uploader = instance._uploader;
 
 				A.getWin().on('beforeunload', instance._preventPageUnload, instance);
 
-				docElementNode.on('dragover', instance._handleDragOver, instance);
-				docElementNode.on('dragleave', instance._handleDragLeave, instance);
+				Liferay.before(
+					instance.ns('dataRequest'),
+					function(event) {
+						if (instance._isUploading()) {
+							event.halt();
+						}
+					},
+					instance
+				);
 
-				docElementNode.delegate(
+				Liferay.after(
+					'liferay-app-view-folders:dataRequest',
+					function(event) {
+						var requestParams = event.requestParams;
+
+						instance._folderId = requestParams[instance.ns('folderId')];
+					},
+					instance
+				);
+
+				docElement.on(
+					'dragover',
+					function(event) {
+						var originalEvent = event._event;
+
+						var dataTransfer = originalEvent.dataTransfer;
+
+						if (dataTransfer) {
+							event.halt();
+
+							var target = event.target;
+
+							var dropEffect = 'none';
+
+							if (true) {
+								dropEffect = 'copy';
+							}
+
+							dataTransfer.dropEffect = dropEffect;
+						}
+
+						entriesContainer.addClass(CSS_DRAG_HIGHLIGHT);
+					}
+				);
+
+				docElement.on(
+					'dragleave',
+					function() {
+						entriesContainer.removeClass(CSS_DRAG_HIGHLIGHT);
+					}
+				);
+
+				docElement.delegate(
 					'drop',
 					function(event) {
-						event.preventDefault();
-						event.stopPropagation();
+						var originalEvent = event._event;
 
-						if (event._event && event._event.dataTransfer) {
-							var files = event._event.dataTransfer.files;
+						var dataTransfer = originalEvent.dataTransfer;
+
+						var files = originalEvent.dataTransfer.files;
+
+						if (dataTransfer && AArray.indexOf(dataTransfer.types, 'Files') > -1) {
+							event.halt();
+
+							if (!instance._navigationOverlays) {
+								instance._createNavigationOverlays();
+							}
 
 							event.fileList = instance._getDragDropFiles(files);
-
-							instance._createNavigationOverlays();
 
 							uploader.fire('fileselect', {_EVT: event});
 						}
@@ -635,133 +777,35 @@ AUI.add(
 				entriesContainer.delegate(
 					'dragover',
 					function(event) {
-						var parentElement = event.target.ancestor(CSS_DOCUMENT_DISPLAY_STYLE);
+						var parentElement = event.target.ancestor(CSS_DOT_ENTRY_DISPLAY_STYLE);
 
 						parentElement.addClass(CSS_ACTIVE_AREA);
 					},
-					'[data-folder="true"]'
+					CSS_DATA_FOLDER
 				);
 
 				entriesContainer.delegate(
 					'dragleave',
 					function(event) {
-						var parentElement = event.target.ancestor(CSS_DOCUMENT_DISPLAY_STYLE);
+						var parentElement = event.target.ancestor(CSS_DOT_ENTRY_DISPLAY_STYLE);
 
 						parentElement.removeClass(CSS_ACTIVE_AREA);
 					},
-					'[data-folder="true"]'
+					CSS_DATA_FOLDER
 				);
-
-				uploader.after('fileselect', instance._queueUpload, instance);
-
-				uploader.on('alluploadscomplete', instance._onAllUploadsComplete, instance);
 
 				uploader.after('alluploadscomplete', instance._startNextUpload, instance);
-
-				Liferay.before(
-					instance.ns('dataRequest'),
-					function(event) {
-						var uploaderIsUploading = instance._isUploading();
-
-						if (uploaderIsUploading) {
-							event.halt();
-						}
-					},
-					instance
-				);
-			},
-
-			_initDLUpload: function() {
-				var instance = this;
-
-				if (themeDisplay.isSignedIn()) {
-					var uploader = instance._initUploader();
-
-					if (uploader) {
-						instance._dataset = new A.DataSet();
-						instance._maxFileSize = '314572800 B';
-						instance._overlayManager = new A.OverlayManager();
-						instance._subscriptions = [];
-
-						var documentContainer = A.one('.document-container');
-
-						var invisibleDescriptiveEntry = documentContainer.one('#invisible_descriptive');
-						var invisibleIconEntry = documentContainer.one('#invisible_icon');
-
-						var documentContainerParent = documentContainer.ancestor();
-
-						documentContainerParent.append(invisibleDescriptiveEntry);
-						documentContainerParent.append(invisibleIconEntry);
-
-						instance._entriesContainer = documentContainer;
-						instance._invisibleDescriptiveEntry = invisibleDescriptiveEntry;
-						instance._invisibleIconEntry = invisibleIconEntry;
-						instance._uploader = uploader;
-
-						instance._initCallbacks();
-
-						instance._invalidFileNameText = Liferay.Language.get('please-enter-a-file-with-a-valid-file-name');
-						instance._invalidFileSizeText = Liferay.Language.get('please-enter-a-file-with-a-valid-file-size-no-larger-than-x');
-						instance._zeroByteFileText = Liferay.Language.get('the-file-contains-no-data-and-cannot-be-uploaded.-please-use-the-classic-uploader');
-					}
-				}
-			},
-
-			_initUploader: function() {
-				var instance = this;
-
-				var uploaderType = A.Uploader.TYPE;
-
-				if (uploaderType && uploaderType === 'html5' && !UA.ios) {
-					var folderId = instance.folderId;
-
-					var uploadURL = instance._getFolderURL(folderId);
-
-					var uploader = new A.Uploader(
-						{
-							appendNewFiles: false,
-							fileFieldName: 'file',
-							multipleFiles: true,
-							simLimit: 2,
-							swfURL: Liferay.Util.addParams('ts=' + Lang.now(), themeDisplay.getPathContext() + '/html/js/aui/uploader/assets/flashuploader.swf'),
-							uploadURL: Liferay.Util.addParams('ts=' + Lang.now(), uploadURL)
-						}
-					);
-
-					uploader.render(A.getBody());
-
-					uploader.get('selectFilesButton').hide();
-
-					return uploader;
-				}
+				uploader.after('fileselect', instance._queueUpload, instance);
 			},
 
 			_isUploading: function() {
 				var instance = this;
 
-				var uploader = instance._uploader;
+				var queue = instance._uploader.queue;
 
-				var queue = uploader.queue;
+				var isUploading = !!(queue && queue._currentState == UPLOADING);
 
-				return (queue && queue._currentState && queue._currentState === 'uploading');
-			},
-
-			_onAllUploadsComplete: function(upload) {
-				var instance = this;
-
-				var dataset = instance._dataset;
-
-				var currentUpload = dataset.get('first') || upload;
-
-				var folderEntry = currentUpload.folderEntry;
-
-				if (folderEntry) {
-					var invalidFiles = currentUpload.invalidFiles;
-
-					instance._updateFolderEntry(folderEntry, invalidFiles);
-				}
-
-				instance._detachSubscriptions();
+				return isUploading;
 			},
 
 			_preventPageUnload: function(event) {
@@ -772,345 +816,377 @@ AUI.add(
 				}
 			},
 
-			_queueFilesToBottom: function(data) {
-				var instance = this;
-
-				var uploader = instance._uploader;
-
-				var queue = uploader.queue;
-
-				A.Array.map(
-					data,
-					function(item, index, collection) {
-						queue.addToQueueBottom(item);
-					}
-				);
-			},
-
 			_queueUpload: function(event) {
 				var instance = this;
 
-				var originalEvent = event._EVT;
+				var fileList = event._EVT.fileList;
 
-				var fileList = originalEvent.fileList;
+				var files = instance._validateFiles(fileList);
 
-				var files = instance._getValidFiles(fileList);
-
-				var validFileList = files.validFiles;
-
-				var validFileListLength = validFileList.length;
-
-				var target = originalEvent.target;
-
-				var folderEntry = instance._getFolderEntry(target);
+				var folderEntry = instance._getFolderEntry(event._EVT.target);
 
 				var folderId;
 
-				var overlay = null;
+				var invalidFiles = files.invalidFiles;
 
-				var progressBar = null;
+				var isFolderUpload = (folderEntry !== null);
 
-				if (folderEntry) {
-					folderId = folderEntry.id;
+				var overlay;
 
-					overlay = folderEntry.overlay || null;
+				var progressBar;
 
-					progressBar = folderEntry.progressBar || null;
+				var uploadData = instance._getCurrentUploadData();
+
+				if (isFolderUpload) {
+					folderId = folderEntry.attr(DATA_FOLDER_ID);
+
+					overlay = folderEntry.overlay;
+
+					progressBar = folderEntry.progressBar;
+
+					if (invalidFiles.length > 0) {
+						uploadData.invalidFiles = uploadData.invalidFiles.concat(invalidFiles);
+					}
 				}
 				else {
 					instance._createEntries(files);
 
-					folderId = instance.folderId;
+					folderId = instance._folderId;
 				}
+
+				var activeUpload = !!(uploadData && uploadData.folderId === folderId);
 
 				var dataset = instance._dataset;
 
+				var isUploading = instance._isUploading();
+
+				var pendingUploadData = dataset.item(folderId + '');
+
 				var uploader = instance._uploader;
 
-				var datasetFolderEntry = dataset.item(folderId + '');
-
-				var dataUploading = dataset.get('first') || null;
+				var validFiles = files.validFiles;
 
 				var queue = uploader.queue;
 
-				if (dataUploading && dataUploading.folderId === folderId) {
-					A.Array.map(
-						fileList,
+				if (isUploading && activeUpload) {
+					AArray.map(
+						validFiles,
 						function(item, index, collection) {
 							queue.addToQueueBottom(item);
 						}
 					);
 				}
-				else if (datasetFolderEntry && datasetFolderEntry.fileList) {
-					var combinedFileLists = instance._combineFileLists(datasetFolderEntry.fileList, fileList);
+				else if (isUploading && pendingUploadData) {
+					instance._combineFileLists(pendingUploadData.fileList, validFiles);
 
-					datasetFolderEntry.fileList = combinedFileLists;
-
-					dataset.replace(folderId, datasetFolderEntry);
+					dataset.replace(folderId, pendingUploadData);
 				}
 				else {
 					dataset.add(
 						folderId,
 						{
-							displayView: instance._appViewSelect._getDisplayStyle(),
-							fileList: validFileList,
+							fileList: validFiles,
 							folderEntry: folderEntry,
 							folderId: folderId,
-							invalidFiles: files.invalidFiles,
+							invalidFiles: invalidFiles,
+							isFolderUpload : isFolderUpload,
 							overlay: overlay,
 							progressBar: progressBar
 						}
 					);
 				}
 
-				if (!queue && !!dataset.length) {
-					var nextDatasetEntry = dataset.get('first');
+				if (!isUploading) {
+					var entriesContainer = instance._entriesContainer;
 
-					instance._startUpload(nextDatasetEntry);
+					var emptyMessage = entriesContainer.one(CSS_ENTRIES_EMPTY);
+
+					if (emptyMessage) {
+						emptyMessage.hide();
+					}
+
+					instance._startUpload();
 				}
 			},
 
-			_showFileUploadComplete: function(event) {
+			_showEntryUploadComplete: function(event, displayStyle) {
 				var instance = this;
 
 				var file = event.file;
 
-				var overlay = file.overlay;
+				var entryNode = file.entryNode;
 
-				overlay.hide();
+				var response = instance._getUploadResponse(event.data);
 
-				try {
-					var responseData = A.JSON.parse(event.data);
-
-					var fileEntryId = responseData.fileEntryId;
-
-					var displayStyle = instance._appViewSelect._getDisplayStyle();
-
-					if (displayStyle !== 'list') {
-						instance._updateIconLink(
-							fileEntryId,
-							{
-								entryDocumentLink: file.entryDocumentLink,
-								name: file.name
-							}
-						);
+				if (response) {
+					if (response.error) {
+						instance._displayEntryError(entryNode, response.message, displayStyle);
 					}
 					else {
-						instance._updateRowLink(fileEntryId, file.row);
+						var displayStyleIsList = (displayStyle === LIST);
+
+						if (!displayStyleIsList) {
+							instance._updateThumbnail(entryNode, file.name);
+						}
+
+						var responseFileEntryId = response.message;
+
+						var fileEntryId = instance.ns('fileEntryId=') + responseFileEntryId;
+
+						instance._updateEntryLink(entryNode, fileEntryId, displayStyleIsList);
 					}
 				}
-				catch(err) {
-				}
+
+				file.overlay.hide();
 			},
 
-			_showFileUploadProgress: function(event) {
+			_showEntryUploadProgress: function(event) {
 				var instance = this;
 
 				var file = event.file;
 
-				var progressBar = file.progressBar;
-
-				progressBar.set('value', event.percentLoaded);
-			},
-
-			_showFileUploadStarting: function(event) {
-				var instance = this;
-
-				var file = event.file;
-
-				var overlay = file.overlay;
+				var percentLoaded = event.percentLoaded;
 
 				var progressBar = file.progressBar;
-
-				var overlayContentBox = overlay.get(CONTENT_BOX);
-				var overlayBoundingBox = overlay.get(BOUNDING_BOX);
-
-				var progressBarBoundingBox = progressBar.get(BOUNDING_BOX);
-
-				progressBar.render(overlayBoundingBox);
-
-				progressBarBoundingBox.center(overlayContentBox);
-			},
-
-			_showFolderUploadProgress: function(event) {
-				var instance = this;
-
-				var dataset = instance._dataset;
-
-				var dataUploading = dataset.get('first');
-
-				var folderEntry = event.folderEntry || dataUploading;
-
-				var progressBar = dataUploading.progressBar;
-
-				var percentLoaded = Math.ceil(event.percentLoaded);
 
 				progressBar.set('value', percentLoaded);
 			},
 
-			_showFolderUploadStarting: function(event) {
+			_showEntryUploadStarting: function(event) {
 				var instance = this;
 
-				var dataset = instance._dataset;
+				var file = event.file;
 
-				var dataUploading = dataset.get('first');
+				var overlay = file.overlay;
 
-				var overlay = dataUploading.overlay;
-
-				var overlayBoundingBox = overlay.get(BOUNDING_BOX);
-
-				var progressBar = dataUploading.progressBar;
-
-				progressBar.render(overlayBoundingBox);
+				var progressBar = file.progressBar;
 
 				var overlayContentBox = overlay.get(CONTENT_BOX);
+				var overlayBoundingBox = overlay.get(BOUNDING_BOX);
 
 				var progressBarBoundingBox = progressBar.get(BOUNDING_BOX);
 
+				progressBar.render(overlayBoundingBox);
+
 				progressBarBoundingBox.center(overlayContentBox);
+			},
+
+			_showFolderUploadComplete: function(event, uploadData, displayStyle) {
+				var instance = this;
+
+				var displayStyleIsList = (displayStyle === LIST);
+
+				var folderEntry = uploadData.folderEntry;
+
+				var invalidFiles = uploadData.invalidFiles;
+
+				var selector = displayStyleIsList ? CSS_DOT_TAGLIB_ICON : CSS_ENTRY_THUMBNAIL;
+
+				var resultsNode = folderEntry.one(selector);
+
+				var uploadResultClass;
+
+				if (resultsNode) {
+					if (invalidFiles.length > 0) {
+						uploadResultClass = CSS_UPLOAD_ERROR;
+
+						instance._displayFolderError(folderEntry, invalidFiles);
+					}
+					else {
+						uploadResultClass = CSS_UPLOAD_SUCCESS;
+					}
+
+					resultsNode.addClass(uploadResultClass);
+
+					setTimeout(
+						function() {
+							resultsNode.removeClass(uploadResultClass);
+						},
+						5000
+					);
+				}
+
+				folderEntry.overlay.hide();
+			},
+
+			_showFolderUploadProgress: function(event, uploadData) {
+				var instance = this;
+
+				var percentLoaded = Math.ceil(event.percentLoaded);
+
+				var progressBar = uploadData.progressBar;
+
+				progressBar.set('value', percentLoaded);
+			},
+
+			_showFolderUploadStarting: function(event, uploadData) {
+				var instance = this;
+
+				var overlay = uploadData.overlay;
+
+				var overlayBoundingBox = overlay.get(BOUNDING_BOX);
+				var overlayContentBox = overlay.get(CONTENT_BOX);
+
+				var progressBar = uploadData.progressBar;
+
+				var progressBarBoundingBox = progressBar.get(BOUNDING_BOX);
+
+				progressBar.render(overlayBoundingBox);
+
+				progressBarBoundingBox.center(overlayContentBox);
+			},
+
+			_spawnEntryNode: function(displayStyle, file) {
+				var instance = this;
+
+				var entryNode;
+
+				var entriesContainer;
+
+				var title = file.name;
+
+				if (displayStyle === LIST) {
+					var searchContainer = A.one(CSS_SEARCH_CONTAINER);
+
+					entriesContainer = searchContainer.one('tbody');
+
+					entryNode = instance._createEntryRow(file);
+				}
+				else {
+					var invisibleEntry = displayStyle === CSS_ICON ? instance._invisibleIconEntry : instance._invisibleDescriptiveEntry;
+
+					entryNode = invisibleEntry.clone();
+
+					var entryLink = entryNode.one(CSS_ENTRY_LINK);
+
+					var entryTitle = entryLink.one(CSS_ENTRY_TITLE);
+
+					entriesContainer = instance._entriesContainer;
+
+					entryLink.attr('title', title);
+
+					entryTitle.setContent(title);
+				}
+
+				entryNode.attr(
+					{
+						'data-title': title,
+						id: A.guid()
+					}
+				);
+
+				entriesContainer.append(entryNode);
+
+				entryNode.show();
+
+				return entryNode;
 			},
 
 			_startNextUpload: function(event) {
 				var instance = this;
 
+				instance._detachSubscriptions();
+
 				var dataset = instance._dataset;
 
 				dataset.removeAt(0);
 
-				if (!!dataset.length) {
-					var nextDataUpload = dataset.get('first');
-
-					instance._startUpload(nextDataUpload);
+				if (dataset.length > 0) {
+					instance._startUpload();
 				}
 			},
 
-			_startUpload: function(data) {
+			_startUpload: function() {
 				var instance = this;
 
-				instance._attachSubscriptions(data);
+				var uploadData = instance._getCurrentUploadData();
 
-				var fileList = data.fileList;
-
-				var fileListLength = fileList.length;
+				var fileList = uploadData.fileList;
 
 				var uploader = instance._uploader;
 
-				if (!!fileListLength) {
-					var folderId = data.folderId || instance.folderId;
+				instance._attachSubscriptions(uploadData);
 
-					var url = instance._getFolderURL(folderId);
+				if (fileList.length > 0) {
+					var uploadURL = instance._getUploadURL(uploadData.folderId);
 
-					uploader.uploadThese(fileList, url);
+					uploader.uploadThese(fileList, uploadURL);
 				}
 				else {
-					uploader.fire('alluploadscomplete', {folderEntry: data.folderEntry});
+					uploader.fire('alluploadscomplete');
 				}
 			},
 
-			_updateFolderEntry: function(folderEntry, invalidFiles) {
+			_updateThumbnail: function(node, fileName) {
 				var instance = this;
 
-				var displayStyle = instance._appViewSelect._getDisplayStyle();
-
-				var imagePath;
-
-				if (invalidFiles.length) {
-					if (displayStyle === 'list') {
-						imagePath = themeDisplay.getPathContext() + '/html/themes/classic/images/common/close.png';
-					}
-					else {
-						imagePath = themeDisplay.getPathContext() + '/html/themes/classic/images/document_library/folder_exclamation.png';
-					}
-
-					var tooltipBodyContent = '';
-
-					A.Array.map(
-						invalidFiles,
-						function(item, index, collection) {
-							tooltipBodyContent = tooltipBodyContent.concat(item.name, ': ' + item.errorMessage + '<br /><br />');
-						}
-					);
-
-					new A.Tooltip(
-						{
-							bodyContent: tooltipBodyContent,
-							trigger: folderEntry,
-							constrain: true
-						}
-					).render();
-				}
-				else {
-					if (displayStyle === 'list') {
-						imagePath = themeDisplay.getPathContext() + '/html/themes/classic/images/common/checked.png';
-					}
-					else {
-						imagePath = themeDisplay.getPathContext() + '/html/themes/classic/images/document_library/folder_checkmark.png';
-					}
-				}
-
-				var folderImage = folderEntry.one('img');
-
-				if (folderImage) {
-					var src = folderImage.get('src');
-
-					folderImage.set('src', imagePath);
-
-					setTimeout(
-						function() {
-							folderImage.set('src', src);
-						},
-						3000
-					);
-				}
-
-				if (folderEntry.overlay) {
-					folderEntry.overlay.hide();
-				}
-			},
-
-			_updateIconLink: function(id, file) {
-				var instance = this;
-
-				var entryDocumentLink = file.entryDocumentLink;
-
-				var imageNode = entryDocumentLink.one('img');
-
-				var fileName = file.name;
+				var imageNode = node.one('img');
 
 				var thumbnailPath = instance._getMediaThumbnail(fileName);
 
-				imageNode.set('src', thumbnailPath);
-
-				var ns_fileEntryId = instance.ns('fileEntryId=') + id;
-
-				var href = entryDocumentLink.get('href');
-
-				var ns_struts_action = instance.ns('struts_action=%2Fdocument_library%2Fview_file_entry');
-
-				href = instance._config.viewFileEntryUrl + '&' + ns_fileEntryId;
-
-				entryDocumentLink.set('href', href);
+				imageNode.attr('src', thumbnailPath);
 			},
 
-			_updateRowLink: function(id, row) {
+			_updateEntryLink: function(node, id, displayStyleIsList) {
 				var instance = this;
 
-				var listRowDownload = instance.ns('ocerSearchContainer_col-title_row-1');
+				var link = displayStyleIsList ? node.one(CSS_DOT_ENTRY_DISPLAY_STYLE).one(CSS_DOT_TAGLIB_ICON) : node.one(CSS_ENTRY_LINK);
 
-				var anchor = row.one('#' + listRowDownload).one('a');
+				var href = Liferay.Util.addParams(id, instance._viewFileEntryUrl);
 
-				var ns_fileEntryId = instance.ns('fileEntryId=') + id;
+				link.attr('href', href);
+			},
 
-				var href = anchor.get('href') + '&' + ns_fileEntryId;
+			_validateFiles: function(data) {
+				var instance = this;
 
-				anchor.set('href', href);
+				var invalidFiles = [];
+
+				var maxFileSize = instance._maxFileSize;
+
+				var validFiles = AArray.filter(
+					data,
+					function(item, index, collection) {
+
+						var error;
+						var file;
+						var name = item.get('name');
+						var size = item.get('size') || 0;
+
+						if (size > maxFileSize) {
+							error = instance._invalidFileSizeText;
+						}
+						else if (size === 0) {
+							error = instance._zeroByteFileText;
+						}
+
+						if (error) {
+							item.errorMessage = error;
+
+							invalidFiles.push(item);
+						}
+						else {
+							file = item;
+						}
+
+						item.name = name;
+						item.size = size;
+
+						return file;
+					}
+				);
+
+				return {
+					validFiles: validFiles,
+					invalidFiles: invalidFiles
+				};
 			}
-		}
+		};
 
 		Liferay.DocumentLibraryUpload = DocumentLibraryUpload;
 	},
 	'',
 	{
-		requires: ['aui-data-set', 'aui-overlay-manager', 'aui-overlay-mask', 'aui-progressbar', 'aui-tooltip', 'liferay-app-view-folders', 'liferay-app-view-move', 'liferay-app-view-paginator', 'liferay-app-view-select', 'uploader', 'uploader-html5']
+		requires: ['aui-data-set', 'aui-overlay-manager', 'aui-overlay-mask', 'aui-progressbar', 'aui-template', 'aui-tooltip', 'liferay-app-view-folders', 'liferay-app-view-move', 'liferay-app-view-paginator', 'liferay-app-view-select', 'uploader']
 	}
 );

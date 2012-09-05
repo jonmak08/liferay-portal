@@ -193,7 +193,9 @@ AUI.add(
 
 						instance._toggleSyncNotification();
 
-						instance._initDLUpload();
+						if (themeDisplay.isSignedIn()) {
+							instance._initDLUpload();
+						}
 					},
 
 					destructor: function() {

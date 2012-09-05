@@ -66,18 +66,6 @@ if (Validator.isNotNull(orderByCol) && Validator.isNotNull(orderByType)) {
 	portalPreferences.setValue(PortletKeys.DOCUMENT_LIBRARY, "order-by-type", orderByType);
 }
 
-FileEntry fileEntry = (FileEntry) null;
-
-DLFileShortcut fileShortcut = null;
-
-boolean showCheckBox = false;
-
-PortletURL tempRowURL = liferayPortletResponse.createRenderURL();
-
-String thumbnailSrc = "/html/themes/classic/images/file_system/large/default.png";
-
-String thumbnailStyle = DLUtil.getThumbnailStyle();
-
 request.setAttribute("view.jsp-folder", folder);
 
 request.setAttribute("view.jsp-folderId", String.valueOf(folderId));
@@ -89,6 +77,19 @@ request.setAttribute("view.jsp-repositoryId", String.valueOf(repositoryId));
 	<portlet:param name="struts_action" value="/document_library/edit_entry" />
 	<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.RESTORE %>" />
 </portlet:actionURL>
+
+<liferay-util:buffer var="uploadURL">
+	<liferay-portlet:actionURL>
+		<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.ADD_DYNAMIC %>" />
+		<portlet:param name="folderId" value="{folderId}" />
+		<portlet:param name="repositoryId" value="<%= String.valueOf(repositoryId) %>" />
+		<portlet:param name="struts_action" value="/document_library/view_file_entry" />
+	</liferay-portlet:actionURL>
+</liferay-util:buffer>
+
+<liferay-util:buffer var="inputPermissions">
+	<liferay-ui:input-permissions-params modelName="<%= DLFileEntryConstants.getClassName() %>" />
+</liferay-util:buffer>
 
 <liferay-ui:trash-undo portletURL="<%= undoTrashURL %>" />
 
@@ -157,9 +158,7 @@ request.setAttribute("view.jsp-repositoryId", String.valueOf(repositoryId));
 						<c:otherwise>
 							<liferay-util:include page="/html/portlet/document_library/view_entries.jsp" />
 
-							<%@ include file="/html/portlet/document_library/invisible_file_entry_icon.jsp" %>
-
-							<%@ include file="/html/portlet/document_library/invisible_file_entry_descriptive.jsp" %>
+							<%@ include file="/html/portlet/document_library/file_entries_template.jsp" %>
 						</c:otherwise>
 					</c:choose>
 				</div>
@@ -222,9 +221,14 @@ if (folder != null) {
 					p_p_lifecycle: 0
 				},
 				defaultParentFolderId: '<%= DLFolderConstants.DEFAULT_PARENT_FOLDER_ID %>',
+				dimensions: {
+					height: '<%= PrefsPropsUtil.getLong(PropsKeys.DL_FILE_ENTRY_THUMBNAIL_MAX_HEIGHT) %>',
+					width: '<%= PrefsPropsUtil.getLong(PropsKeys.DL_FILE_ENTRY_THUMBNAIL_MAX_WIDTH) %>'
+				},
 				mainUrl: '<%= mainURL %>',
 				strutsAction: '/document_library/view'
 			},
+			maxFileSize: <%= PrefsPropsUtil.getLong(PropsKeys.DL_FILE_MAX_SIZE) %>,
 			move: {
 				allRowIds: '<%= RowChecker.ALL_ROW_IDS %>',
 				editEntryUrl: '<portlet:actionURL><portlet:param name="struts_action" value="/document_library/edit_entry" /></portlet:actionURL>',
@@ -253,6 +257,7 @@ if (folder != null) {
 			},
 			namespace: '<portlet:namespace />',
 			portletId: '<%= portletId %>',
+			redirect: encodeURIComponent('<%= currentURL %>'),
 			repositories: [
 				{
 					id: '<%= scopeGroupId %>',
@@ -281,8 +286,10 @@ if (folder != null) {
 			},
 			syncMessageDisabled: <%= !PropsValues.DL_SHOW_LIFERAY_SYNC_MESSAGE %>,
 			syncMessageSuppressed: <%= !GetterUtil.getBoolean(SessionClicks.get(request, liferayPortletResponse.getNamespace() + "show-sync-message", "true")) %>,
+			tempFolderURL: '',
 			updateable: <%= DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.UPDATE) %>,
-			viewFileEntryUrl: '<portlet:renderURL><portlet:param name="struts_action" value="/document_library/view_file_entry" /></portlet:renderURL>'
+			uploadURL: '<%= HtmlUtil.extractText(uploadURL + inputPermissions) %>',
+			viewFileEntryUrl: '<portlet:renderURL><portlet:param name="struts_action" value="/document_library/view_file_entry" /><portlet:param name="redirect" value="<%= currentURL %>" /></portlet:renderURL>'
 		}
 	);
 </aui:script>
