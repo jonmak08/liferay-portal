@@ -47,6 +47,68 @@ boolean showShardSelector = false;
 if (PropsValues.SHARD_SELECTOR.equals(ManualShardSelector.class.getName()) && (ShardUtil.getAvailableShardNames().length > 1)) {
 	showShardSelector = true;
 }
+
+/******************************************/
+/* Memory Chart Data */
+Runtime runtime = Runtime.getRuntime();
+
+long memoryTotal = runtime.totalMemory();
+long memoryTotalFree = runtime.freeMemory();
+long memoryTotalUsed = memoryTotal - memoryTotalFree;
+
+long memoryMax = runtime.maxMemory();
+long memoryMaxFree = memoryMax - memoryTotalUsed;
+long memoryMaxUsed = memoryTotalUsed;
+
+long memoryAllUsed = memoryTotalUsed;
+long memoryAllTotalFree = memoryTotalFree;
+long memoryAllMaxFree = memoryMax - memoryTotalUsed - memoryTotalFree;
+
+/******************************************/
+/* Format to MB */
+memoryTotal = convertBytesToMB(memoryTotal);
+memoryTotalFree = convertBytesToMB(memoryTotalFree);
+memoryTotalUsed = convertBytesToMB(memoryTotalUsed);
+
+memoryMax = convertBytesToMB(memoryMax);
+memoryMaxFree = convertBytesToMB(memoryMaxFree);
+memoryMaxUsed = convertBytesToMB(memoryMaxUsed);
+
+memoryAllUsed = convertBytesToMB(memoryAllUsed);
+memoryAllTotalFree = convertBytesToMB(memoryAllTotalFree);
+memoryAllMaxFree = convertBytesToMB(memoryAllMaxFree);
+
+/******************************************/
+/* SVG Zero Value Fix */
+memoryTotalFree = chartZeroValueFix(memoryTotalFree);
+memoryTotalUsed = chartZeroValueFix(memoryTotalUsed);
+
+memoryMaxFree = chartZeroValueFix(memoryMaxFree);
+memoryMaxUsed = chartZeroValueFix(memoryMaxUsed);
+
+memoryAllUsed = chartZeroValueFix(memoryAllUsed);
+memoryAllTotalFree = chartZeroValueFix(memoryAllTotalFree);
+memoryAllMaxFree = chartZeroValueFix(memoryAllMaxFree);
+%>
+
+<%!
+/******************************************/
+/* Memory Chart Methods */
+private long convertBytesToMB(long value) {
+	long binaryPrefix = 1024;
+
+	value = (value / binaryPrefix) / binaryPrefix;
+
+	return value;
+}
+
+private long chartZeroValueFix(long value) {
+	if (value == 0) {
+		value = 1;
+	}
+
+	return value;
+}
 %>
 
 <%@ include file="/html/portlet/admin/init-ext.jsp" %>
