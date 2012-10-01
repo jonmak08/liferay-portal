@@ -22,6 +22,10 @@ Folder folder = (Folder)request.getAttribute("view_entries.jsp-folder");
 String folderImage = (String)request.getAttribute("view_entries.jsp-folderImage");
 
 PortletURL tempRowURL = (PortletURL)request.getAttribute("view_entries.jsp-tempRowURL");
+
+String heightStyle = "height: " + PrefsPropsUtil.getLong(PropsKeys.DL_FILE_ENTRY_THUMBNAIL_MAX_HEIGHT) + ";";
+
+String widthStyle = "width: " + PrefsPropsUtil.getLong(PropsKeys.DL_FILE_ENTRY_THUMBNAIL_MAX_WIDTH) + ";";
 %>
 
 <liferay-ui:app-view-entry
@@ -32,9 +36,9 @@ PortletURL tempRowURL = (PortletURL)request.getAttribute("view_entries.jsp-tempR
 	rowCheckerId="<%= String.valueOf(folder.getFolderId()) %>"
 	rowCheckerName="<%= Folder.class.getSimpleName() %>"
 	showCheckbox="<%= DLFolderPermission.contains(permissionChecker, folder, ActionKeys.DELETE) || DLFolderPermission.contains(permissionChecker, folder, ActionKeys.UPDATE) %>"
-	thumbnailDivStyle="height: <%= PrefsPropsUtil.getLong(PropsKeys.DL_FILE_ENTRY_THUMBNAIL_MAX_HEIGHT) %>; width: <%= PrefsPropsUtil.getLong(PropsKeys.DL_FILE_ENTRY_THUMBNAIL_MAX_WIDTH) %>;"
+	thumbnailDivStyle="<%= heightStyle + StringPool.SPACE + widthStyle %>"
 	thumbnailSrc='<%= themeDisplay.getPathThemeImages() + "/file_system/large/" + folderImage + ".png" %>'
-	thumbnailStyle="height: <%= PrefsPropsUtil.getLong(PropsKeys.DL_FILE_ENTRY_THUMBNAIL_MAX_HEIGHT) %>; width: <%= PrefsPropsUtil.getLong(PropsKeys.DL_FILE_ENTRY_THUMBNAIL_MAX_WIDTH) %>;"
+	thumbnailStyle="<%= heightStyle + StringPool.SPACE + widthStyle %>"
 	title="<%= folder.getName() %>"
 	url="<%= tempRowURL.toString() %>"
 />
