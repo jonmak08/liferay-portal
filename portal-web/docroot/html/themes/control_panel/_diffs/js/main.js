@@ -14,7 +14,7 @@ if (!themeDisplay.isStatePopUp()) {
 
 			if (portletInformationEl) {
 				portletId = portletInformationEl.attr('data-portlet-id');
-				visible = (portletInformationEl.attr('data-visible-panel') == 'true');
+				visible = (portletInformationEl.attr('data-visible-panel') === 'true');
 			}
 
 			var sessionKey = 'show-portlet-description-' + portletId;

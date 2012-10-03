@@ -133,7 +133,7 @@ AUI.add(
 				Liferay.after(
 					'popupReady',
 					function(event) {
-						if (event.windowName == id) {
+						if (event.windowName === id) {
 							event.dialog = dialog;
 							event.details[0].dialog = dialog;
 

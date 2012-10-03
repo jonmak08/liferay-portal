@@ -51,7 +51,7 @@ AUI.add(
 
 						placeholderInputs.each(
 							function(item, index, collection) {
-								if (item.val() == item.attr(STR_PLACEHOLDER)) {
+								if (item.val() === item.attr(STR_PLACEHOLDER)) {
 									item.val(STR_BLANK);
 								}
 							}
@@ -68,8 +68,8 @@ AUI.add(
 						if (placeholder) {
 							var value = currentTarget.val();
 
-							if (event.type == 'focus') {
-								if (value == placeholder) {
+							if (event.type === 'focus') {
+								if (value === placeholder) {
 									currentTarget.val(STR_BLANK);
 
 									currentTarget.removeClass(PLACEHOLDER_TEXT_CLASS);

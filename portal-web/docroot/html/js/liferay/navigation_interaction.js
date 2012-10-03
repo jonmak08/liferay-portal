@@ -39,7 +39,7 @@ AUI.add(
 						Liferay.on(
 							['showNavigationMenu', 'hideNavigationMenu'],
 							function(event) {
-								var showMenu = event.type == 'showNavigationMenu';
+								var showMenu = event.type === 'showNavigationMenu';
 
 								event.menu.toggleClass('hover', showMenu);
 							}
@@ -157,7 +157,7 @@ AUI.add(
 					_onMouseToggle: function(event) {
 						var instance = this;
 
-						var showMenu = event.type == 'mouseenter';
+						var showMenu = event.type === 'mouseenter';
 						var eventType = 'hideNavigationMenu';
 
 						if (showMenu) {

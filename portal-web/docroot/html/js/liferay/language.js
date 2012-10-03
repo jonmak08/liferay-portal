@@ -5,7 +5,7 @@ Liferay.Language = {
 		var url = themeDisplay.getPathContext() + '/language/' + themeDisplay.getLanguageId() + '/' + key + '/';
 
 		if (extraParams) {
-			if (typeof extraParams == 'string') {
+			if (typeof extraParams === 'string') {
 				url += extraParams;
 			}
 			else if (Liferay.Util.isArray(extraParams)) {

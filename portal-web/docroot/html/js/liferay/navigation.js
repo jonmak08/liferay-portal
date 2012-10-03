@@ -778,7 +778,7 @@ AUI.add(
 							priority++;
 						}
 
-						return item == node;
+						return item === node;
 					}
 				);
 

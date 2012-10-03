@@ -108,7 +108,7 @@ AUI.add(
 						var logoURL = value;
 						var logoDisplay = instance._logoDisplay;
 
-						var deleteLogo = src == DELETE_LOGO;
+						var deleteLogo = src === DELETE_LOGO;
 
 						instance._avatar.attr('src', logoURL);
 

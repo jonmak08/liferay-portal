@@ -112,7 +112,7 @@ AUI.add(
 							instance._hoverHandle = instance.get('contentBox').delegate(
 								['mouseenter', 'mouseleave'],
 								function(event) {
-									var mouseenter = (event.type == 'mouseenter');
+									var mouseenter = (event.type === 'mouseenter');
 									var row = event.currentTarget;
 
 									var endAlternate = rowClassNameAlternateHover;
@@ -207,8 +207,8 @@ AUI.add(
 							var row = null;
 
 							instance._table.all('tr').some(
-								function (item, index, collection) {
-									if (!item.hasClass(CSS_TEMPLATE) && index == obj) {
+								function(item, index, collection) {
+									if (!item.hasClass(CSS_TEMPLATE) && index === obj) {
 										row = item;
 									}
 
@@ -266,7 +266,7 @@ AUI.add(
 						var instance = this;
 
 						if (ids) {
-							if (typeof ids == 'string') {
+							if (typeof ids === 'string') {
 								ids = ids.split(',');
 							}
 

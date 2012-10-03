@@ -142,7 +142,7 @@ AUI.add(
 
 						instance.set('timestamp');
 
-						if (event.src == SRC) {
+						if (event.src === SRC) {
 							instance._getExtendIO().start();
 						}
 					},
@@ -254,10 +254,10 @@ AUI.add(
 						var newVal = event.newVal;
 						var prevVal = event.prevVal;
 
-						if (prevVal == 'expired' && prevVal != newVal) {
+						if (prevVal === 'expired' && prevVal !== newVal) {
 							event.preventDefault();
 						}
-						else if (prevVal == 'active' && prevVal == newVal) {
+						else if (prevVal === 'active' && prevVal === newVal) {
 							instance._afterSessionStateChange(event);
 						}
 					},
@@ -293,8 +293,8 @@ AUI.add(
 
 								var extend = false;
 
-								var isExpirationMoment = (elapsed == sessionLength);
-								var isWarningMoment = (elapsed == warningTime);
+								var isExpirationMoment = (elapsed === sessionLength);
+								var isWarningMoment = (elapsed === warningTime);
 
 								var hasExpired = (elapsed >= sessionLength);
 								var hasWarned = (elapsed >= warningTime);
@@ -305,7 +305,7 @@ AUI.add(
 									if (isWarningMoment || isExpirationMoment) {
 										var timestamp = instance.get('timestamp');
 
-										if (timestamp == 'expired') {
+										if (timestamp === 'expired') {
 											isExpirationMoment = true;
 											hasExpired = true;
 										}

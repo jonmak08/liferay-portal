@@ -6,7 +6,7 @@ AUI.add(
 		var defaultAcceptFiles = DEFAULTS_FORM_VALIDATOR.RULES.acceptFiles;
 
 		var acceptFiles = function(val, node, ruleValue) {
-			if (ruleValue == '*') {
+			if (ruleValue === '*') {
 				return true;
 			}
 

@@ -46,10 +46,10 @@ AUI.add(
 
 						var scoreIndex = -1;
 
-						if (score == 1.0) {
+						if (score === 1.0) {
 							scoreIndex = 0;
 						}
-						else if (score == -1.0) {
+						else if (score === -1.0) {
 							scoreIndex = 1;
 						}
 
@@ -73,7 +73,7 @@ AUI.add(
 
 						var voteLabel = '';
 
-						if (totalEntries == 1) {
+						if (totalEntries === 1) {
 							voteLabel = Liferay.Language.get('vote');
 						}
 						else {
@@ -124,7 +124,7 @@ AUI.add(
 
 						var stars = ratingScore.get('selectedIndex') + 1;
 
-						if (stars == 1) {
+						if (stars === 1) {
 							message = Liferay.Language.get('star');
 						}
 						else {
@@ -179,7 +179,7 @@ AUI.add(
 
 					var ratings = Liferay.Ratings.StarRating;
 
-					if (config.type != 'stars') {
+					if (config.type !== 'stars') {
 						ratings = Liferay.Ratings.ThumbRating;
 					}
 

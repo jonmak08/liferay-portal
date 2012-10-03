@@ -43,7 +43,7 @@
 					context = this;
 				}
 
-				if (modules.length == 1) {
+				if (modules.length === 1) {
 					if (modules[0] in usedModules) {
 						Dependency._replaceMethod(obj, methodName, methodFn, context);
 
@@ -91,7 +91,7 @@
 
 			Dependency._replaceMethod(obj, methodName, methodFn, context);
 
-			while ((args = queue.next())) {
+			while (args === queue.next()) {
 				methodFn.apply(context, args);
 			}
 

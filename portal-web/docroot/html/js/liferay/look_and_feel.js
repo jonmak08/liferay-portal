@@ -41,7 +41,7 @@ AUI.add(
 								{
 									on: {
 										close: function() {
-											if (Browser.isIe() && Browser.getMajorVersion() == 6) {
+											if (Browser.isIe() && Browser.getMajorVersion() === 6) {
 												window.location.reload(true);
 											}
 										}
@@ -112,7 +112,7 @@ AUI.add(
 
 					var cssColor = color;
 
-					if ((color == '') || (color == '#')) {
+					if ((color === '') || (color === '#')) {
 						cssColor = 'transparent';
 						color = '';
 					}
@@ -509,7 +509,7 @@ AUI.add(
 						customStyles = customStyles.replace(/<\/?[^>]+>/gi, '');
 
 						if (styleEl.styleSheet) { // for IE only
-							if (customStyles == '') {
+							if (customStyles === '') {
 
 								// Do not modify. This is a workaround for an IE bug.
 
@@ -617,9 +617,9 @@ AUI.add(
 			_getSafeInteger: function(input) {
 				var instance = this;
 
-				var output = parseInt(input);
+				var output = parseInt(input, 10);
 
-				if (output == '' || isNaN(output)) {
+				if (output === '' || isNaN(output)) {
 					output = 0;
 				}
 
@@ -969,11 +969,11 @@ AUI.add(
 						var messageClass = '';
 						var type = 'success';
 
-						if (obj.statusText.toLowerCase() != 'ok') {
+						if (obj.statusText.toLowerCase() !== 'ok') {
 							type = 'error';
 						}
 
-						if (type == 'success') {
+						if (type === 'success') {
 							message = Liferay.Language.get('your-request-processed-successfully');
 							messageClass = 'portlet-msg-success';
 						}
@@ -1116,7 +1116,7 @@ AUI.add(
 
 							title = Lang.trim(customTitleInput.val());
 
-							if (title == '') {
+							if (title === '') {
 								title = (portletTitle && portletTitle.text()) || '';
 								title = Lang.trim(title);
 
@@ -1164,7 +1164,7 @@ AUI.add(
 
 							var portletLanguage = instance._portletLanguage.val();
 
-							if (portletLanguage == instance._currentLanguage) {
+							if (portletLanguage === instance._currentLanguage) {
 								portletTitle.html(cruft + value);
 							}
 
@@ -1221,7 +1221,7 @@ AUI.add(
 					key = instance._portletLanguage.val();
 				}
 
-				if (value == null) {
+				if (value === null) {
 					var portletTitle = portletTitles[key];
 
 					if (portletTitle) {
@@ -1233,7 +1233,7 @@ AUI.add(
 				else {
 					portletTitles[key] = value;
 
-					if (value == '') {
+					if (value === '') {
 						instance._languageClasses(key, null, true);
 					}
 					else {
@@ -1262,7 +1262,7 @@ AUI.add(
 				var spacingData = objData.spacingData;
 				var wapData = objData.wapData;
 
-				if (wapData == null) {
+				if (wapData === null) {
 					wapData = {
 						initialWindowState: 'NORMAL',
 						title: ''
@@ -1274,11 +1274,11 @@ AUI.add(
 				var fontStyle = false;
 				var fontWeight = false;
 
-				if (textData.fontStyle && textData.fontStyle != 'normal') {
+				if (textData.fontStyle && textData.fontStyle !== 'normal') {
 					fontStyle = true;
 				}
 
-				if (textData.fontWeight && textData.fontWeight != 'normal') {
+				if (textData.fontWeight && textData.fontWeight !== 'normal') {
 					fontWeight = true;
 				}
 
@@ -1383,7 +1383,7 @@ AUI.add(
 
 				var customStyles = customStyleBlock && customStyleBlock.html();
 
-				if (customStyles == '' || customStyles == null) {
+				if (customStyles === '' || customStyles === null) {
 					customStyles = objData.advancedData.customCSS;
 				}
 

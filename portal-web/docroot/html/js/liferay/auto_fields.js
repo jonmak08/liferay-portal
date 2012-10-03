@@ -117,7 +117,7 @@ AUI.add(
 									contentBox.append(formRow);
 								}
 
-								if (index == 0) {
+								if (index === 0) {
 									instance._rowTemplate = formRow.clone();
 									instance._clearForm(instance._rowTemplate);
 								}
@@ -179,7 +179,7 @@ AUI.add(
 
 						var deleteRow = (visibleRows > 1);
 
-						if (visibleRows == 1) {
+						if (visibleRows === 1) {
 							instance.addRow(node);
 
 							deleteRow = true;
@@ -286,13 +286,13 @@ AUI.add(
 								var type = item.getAttribute('type');
 								var tag = item.get('nodeName').toLowerCase();
 
-								if (type == 'text' || type == 'password' || tag == 'textarea') {
+								if (type === 'text' || type === 'password' || tag === 'textarea') {
 									item.val('');
 								}
-								else if (type == 'checkbox' || type == 'radio') {
+								else if (type === 'checkbox' || type === 'radio') {
 									item.set('checked', false);
 								}
-								else if (tag == 'select') {
+								else if (tag === 'select') {
 									item.set('selectedIndex', -1);
 								}
 							}
@@ -337,14 +337,14 @@ AUI.add(
 								var inputType = item.attr('type');
 								var inputNodeName = item.attr('nodeName');
 
-								if (inputType == 'radio') {
+								if (inputType === 'radio') {
 									oldName = item.attr('id');
 
 									item.attr('checked', '');
 									item.attr('value', guid);
 									item.attr('id', newName);
 								}
-								else if (inputNodeName == 'button' || inputNodeName == 'span') {
+								else if (inputNodeName === 'button' || inputNodeName === 'span') {
 									if (oldName) {
 										item.attr('id', newName);
 									}

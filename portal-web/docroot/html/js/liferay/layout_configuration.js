@@ -142,7 +142,7 @@
 												instance.categoryContainers.show();
 											}
 
-											if (this.query == '*') {
+											if (this.query === '*') {
 												instance.categories.show();
 												instance.categoryContainers.replaceClass('collapsed', 'expanded');
 												instance.categoryContainers.show();
@@ -268,7 +268,7 @@
 						var portletMetaData = portlet._LFR_portletMetaData;
 
 						if (!portletMetaData) {
-							var instanceable = (portlet.attr('instanceable') == 'true');
+							var instanceable = (portlet.attr('instanceable') === 'true');
 							var plid = portlet.attr('plid');
 							var portletId = portlet.attr('portletId');
 							var portletItemId = portlet.attr('portletItemId');

@@ -96,7 +96,7 @@ AUI.add(
 						var to = instance._rightBox;
 						var sort;
 
-						if (cssClass.indexOf('move-right') != -1) {
+						if (cssClass.indexOf('move-right') !== -1) {
 							from = instance._rightBox;
 							to = instance._leftBox;
 							sort = !instance.get('leftReorder');
@@ -123,7 +123,7 @@ AUI.add(
 
 						var direction = 1;
 
-						if (cssClass.indexOf('reorder-up') != -1) {
+						if (cssClass.indexOf('reorder-up') !== -1) {
 							direction = 0;
 						}
 

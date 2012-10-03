@@ -144,8 +144,8 @@ AUI.add(
 						var useFallback = (location.hash.indexOf(STR_PARAM_FALLBACK) > -1) && fallback;
 
 						if (useFallback ||
-							UPLOADER_TYPE == 'none' ||
-							(UPLOADER_TYPE == 'flash' && !A.SWFDetect.isFlashVersionAtLeast(10, 1))) {
+							UPLOADER_TYPE === 'none' ||
+							(UPLOADER_TYPE === 'flash' && !A.SWFDetect.isFlashVersionAtLeast(10, 1))) {
 
 							if (fallback) {
 								fallback.show();
@@ -912,10 +912,10 @@ AUI.add(
 								var selectedFilesText = Liferay.Language.get('no-files-selected');
 
 								if (hasSelectedFiles) {
-									if (selectedFilesCount == 1) {
+									if (selectedFilesCount === 1) {
 										selectedFilesText = selectedFileName;
 									}
-									else if (selectedFilesCount == totalFilesCount) {
+									else if (selectedFilesCount === totalFilesCount) {
 										selectedFilesText = Liferay.Language.get('all-files-selected');
 									}
 									else if (selectedFilesCount > 1) {

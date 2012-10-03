@@ -74,11 +74,11 @@ AUI.add(
 								var isStatic = activeDropNode.isStatic;
 
 								if (isStatic) {
-									var start = (isStatic == 'start');
+									var start = (isStatic === 'start');
 									var siblingPos = (start ? 'nextSibling' : 'previousSibling');
 
 									var siblingPortlet = Layout.findSiblingPortlet(activeDropNode, siblingPos);
-									var staticSibling = (siblingPortlet && (siblingPortlet.isStatic == isStatic));
+									var staticSibling = (siblingPortlet && (siblingPortlet.isStatic === isStatic));
 
 									if (staticSibling ||
 										(start && (quadrant <= 2)) ||
@@ -95,7 +95,7 @@ AUI.add(
 									var emptyColumn = Layout.EMPTY_COLUMNS[activeDropNodeId];
 
 									if (!emptyColumn) {
-										if (activeDropNode != lastActiveDropNode) {
+										if (activeDropNode !== lastActiveDropNode) {
 											var referencePortlet = Layout.getLastPortletNode(activeDropNode);
 
 											if (referencePortlet && referencePortlet.isStatic) {
@@ -123,7 +123,7 @@ AUI.add(
 									}
 								}
 
-								if (Layout.OVER_NESTED_PORTLET && (activeDropNode == lastActiveDropNode)) {
+								if (Layout.OVER_NESTED_PORTLET && (activeDropNode === lastActiveDropNode)) {
 									event.halt();
 								}
 							}
@@ -165,7 +165,7 @@ AUI.add(
 							var isStatic = dropNode.isStatic;
 
 							if (isStatic) {
-								var start = (isStatic == 'start');
+								var start = (isStatic === 'start');
 
 								portalLayout.quadrant = (start ? 4 : 1);
 							}

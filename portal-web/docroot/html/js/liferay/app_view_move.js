@@ -232,7 +232,7 @@ AUI.add(
 							ddHandler.on(
 								['drag:start', 'drag:end'],
 								function(event) {
-									trashLink.toggleClass('app-view-drop-active', (event.type == 'drag:start'));
+									trashLink.toggleClass('app-view-drop-active', (event.type === 'drag:start'));
 								}
 							);
 						}
@@ -317,7 +317,7 @@ AUI.add(
 
 							var selectedItems = instance._ddHandler.dd.get(STR_DATA).selectedItems;
 
-							if (selectedItems.indexOf(folderContainer) == -1) {
+							if (selectedItems.indexOf(folderContainer) === -1) {
 								instance._moveEntries(folderId);
 							}
 						}
@@ -421,7 +421,7 @@ AUI.add(
 
 						var redirectUrl = location.href;
 
-						if ((action === STR_DELETE || action == STR_MOVE_TO_TRASH) && !History.HTML5 && location.hash) {
+						if ((action === STR_DELETE || action === STR_MOVE_TO_TRASH) && !History.HTML5 && location.hash) {
 							redirectUrl = instance._updateFolderIdRedirectUrl(redirectUrl);
 						}
 

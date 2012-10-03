@@ -304,7 +304,7 @@ AUI.add(
 							if (confirm(MSG_DEACTIVATE_LANGUAGE)) {
 								instance.deleteAvailableLocale(locale);
 
-								if (locale == instance.get('editingLocale')) {
+								if (locale === instance.get('editingLocale')) {
 									instance._resetEditingLocale();
 								}
 							}
@@ -430,7 +430,7 @@ AUI.add(
 
 						var localeNode;
 
-						if (val == instance.get('defaultLocale')) {
+						if (val === instance.get('defaultLocale')) {
 							localeNode = defaultLocaleTextNode;
 						}
 						else {

@@ -122,7 +122,7 @@ AUI.add(
 						var imageCropper = instance._imageCropper;
 						var portraitPreviewImg = instance._portraitPreviewImg;
 
-						if (portraitPreviewImg.attr('src').indexOf('spacer.png') == -1) {
+						if (portraitPreviewImg.attr('src').indexOf('spacer.png') === -1) {
 							var cropHeight = portraitPreviewImg.height();
 							var cropWidth = portraitPreviewImg.width();
 
@@ -189,7 +189,7 @@ AUI.add(
 						}
 
 						if (exception) {
-							if (exception == 'FileSizeException') {
+							if (exception === 'FileSizeException') {
 								message = Lang.sub(
 									Liferay.Language.get('upload-images-no-larger-than-x-k'),
 									[instance.get('maxFileSize')]

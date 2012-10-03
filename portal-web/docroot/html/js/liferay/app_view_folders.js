@@ -487,7 +487,7 @@ AUI.add(
 
 						var eventType = instance._eventDataRetrieveSuccess;
 
-						if (event.type.indexOf(STR_SUCCESS) == -1) {
+						if (event.type.indexOf(STR_SUCCESS) === -1) {
 							eventType = instance._dataRetrieveFailure;
 						}
 
