@@ -830,7 +830,7 @@ serverURL.setParameter("tabs3", tabs3);
 						<aui:script use="liferay-admin-charts">
 							var STYLES_COLOR_MAX = '#EEE';
 							var STYLES_COLOR_TOTAL = '#C1CCD9';
-							var STYLES_COLOR_USED = '#3b7391';
+							var STYLES_COLOR_USED = '#3B7391';
 
 							/******************************************/
 							/* Total Memory */

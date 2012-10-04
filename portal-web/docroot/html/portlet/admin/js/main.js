@@ -103,10 +103,13 @@ AUI.add(
 					destructor: function() {
 						var instance = this;
 
+						instance.chart.destroy();
 					},
 
 					_createPieChart: function() {
 						var instance = this;
+
+						var config = A.clone(CONFIG);
 
 						var dataProvider = instance.get('dataProvider');
 
@@ -114,11 +117,8 @@ AUI.add(
 
 						var stylesColors = instance.get('stylesColors');
 
-						var configDataProvider = {
-							dataProvider: dataProvider
-						};
-
-						var configStylesColors = {
+						var instanceConfig = {
+							dataProvider: dataProvider,
 							seriesCollection: [
 								{
 									styles: {
@@ -130,10 +130,7 @@ AUI.add(
 							]
 						};
 
-						var config = A.clone(CONFIG);
-
-						A.mix(config, configDataProvider, true, null, 0, true);
-						A.mix(config, configStylesColors, true, null, 0, true);
+						A.mix(config, instanceConfig, true, null, 0, true);
 
 						var chart = new A.Chart(config).render(renderContainer);
 
