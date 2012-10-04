@@ -1360,6 +1360,15 @@ Please set the property "jdk.6.home" in build.properties.
 		<ant dir=".." target="deploy-properties" inheritAll="false" />
 	</target>
 
+	<target name="format-js">
+		<taskdef classname="com.googlecode.jslint4java.ant.JSLintTask" classpath="${project.dir}/lib/development/jslint4java.jar" name="jslint" />
+
+		<jslint options="bitwise,browser,es5,evil,newcap,node,nomen,plusplus,regexp,sloppy,undef,vars,white">
+			<formatter type="plain" />
+			<fileset dir="${project.dir}" includes="**/*.js" excludes="**/aui/**,**/editor/**,**/misc/**,**/VAADIN/**" />
+		</jslint>
+	</target>
+
 	<target name="war" depends="compile">
 		<antcall target="build-alloy" />
 		<antcall target="build-ckeditor" />

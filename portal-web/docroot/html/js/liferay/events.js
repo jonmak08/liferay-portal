@@ -12,7 +12,7 @@ Liferay.detach = function(){};
 		function(id, fn) {
 			var el = DOC.getElementById(id);
 
-			if (!el || el.id != id) {
+			if (!el || el.id !== id) {
 				return;
 			}
 

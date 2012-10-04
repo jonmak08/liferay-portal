@@ -118,8 +118,8 @@
 
 						var nodeType = target.get('type');
 
-						if (((tagName == 'input') && (/text|password/).test(nodeType)) ||
-							(tagName == 'textarea')) {
+						if (((tagName === 'input') && (/text|password/).test(nodeType)) ||
+							(tagName === 'textarea')) {
 
 							var action = 'addClass';
 
@@ -188,14 +188,14 @@
 					anchorHash = locationPieces[1];
 				}
 
-				if (loc.indexOf('?') == -1) {
+				if (loc.indexOf('?') === -1) {
 					params = '?' + params;
 				}
 				else {
 					params = '&' + params;
 				}
 
-				if (loc.indexOf(params) == -1) {
+				if (loc.indexOf(params) === -1) {
 					finalUrl = loc + params;
 
 					if (anchorHash) {
@@ -228,7 +228,7 @@
 		},
 
 		checkTab: function(box) {
-			if ((document.all) && (event.keyCode == 9)) {
+			if ((document.all) && (event.keyCode === 9)) {
 				box.selection = document.selection.createRange();
 
 				setTimeout(
@@ -245,7 +245,7 @@
 		},
 
 		disableEsc: function() {
-			if ((document.all) && (event.keyCode == 27)) {
+			if ((document.all) && (event.keyCode === 27)) {
 				event.returnValue = false;
 			}
 		},
@@ -274,10 +274,10 @@
 				function(match) {
 					var str = '';
 
-					if (match == ']]>') {
+					if (match === ']]>') {
 						str = ']]&gt;';
 					}
-					else if (match == '<![CDATA[') {
+					else if (match === '<![CDATA[') {
 						str = '&lt;![CDATA[';
 					}
 
@@ -381,9 +381,9 @@
 
 				var parentThemeDisplay;
 
-				while (parentWindow != window) {
+				while (parentWindow !== window) {
 					try {
-						if (typeof parentWindow.location.href == 'undefined') {
+						if (typeof parentWindow.location.href === 'undefined') {
 							break;
 						}
 					}
@@ -396,7 +396,7 @@
 					if (!parentThemeDisplay) {
 						break;
 					}
-					else if (!parentThemeDisplay.isStatePopUp() || (parentWindow == parentWindow.parent)) {
+					else if (!parentThemeDisplay.isStatePopUp() || (parentWindow === parentWindow.parent)) {
 						topWindow = parentWindow;
 
 						break;
@@ -456,7 +456,7 @@
 			if (x > -1) {
 				var y = url.lastIndexOf('/');
 
-				if (x + 1 == y) {
+				if (x + 1 === y) {
 					return url + '/' + sessionId;
 				}
 			}
@@ -465,7 +465,7 @@
 		},
 
 		isArray: function(object) {
-			return !!(window.Array && object.constructor == window.Array);
+			return !!(window.Array && object.constructor === window.Array);
 		},
 
 		isEditorPresent: function(editorImpl) {
@@ -488,7 +488,7 @@
 		},
 
 		randomInt: function() {
-			return (Math.ceil(Math.random() * (new Date).getTime()));
+			return (Math.ceil(Math.random() * (new Date()).getTime()));
 		},
 
 		randomMinMax: function(min, max) {

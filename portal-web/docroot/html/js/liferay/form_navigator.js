@@ -79,10 +79,10 @@ AUI.add(
 		};
 
 		FormNavigator.prototype = {
-			_addModifiedSection: function (section) {
+			_addModifiedSection: function(section) {
 				var instance = this;
 
-				if (A.Array.indexOf(instance._modifiedSectionsArray, section) == -1) {
+				if (A.Array.indexOf(instance._modifiedSectionsArray, section) === -1) {
 					instance._modifiedSectionsArray.push(section);
 				}
 			},
@@ -121,7 +121,7 @@ AUI.add(
 					id = '';
 				}
 
-				if (id && namespace && (id.indexOf(namespace) == -1)) {
+				if (id && namespace && (id.indexOf(namespace) === -1)) {
 					id = namespace + id;
 				}
 
@@ -158,7 +158,7 @@ AUI.add(
 				id = instance._getId(id);
 
 				if (id) {
-					id = id.charAt(0) != '#' ? '#' + id : id;
+					id = id.charAt(0) !== '#' ? '#' + id : id;
 
 					if (!currentNavItem) {
 						var link = instance._navigation.one('[href$=' + id + ']');

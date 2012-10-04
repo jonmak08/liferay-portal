@@ -523,7 +523,7 @@ AUI.add(
 						categoriesContainer.empty();
 
 						if (categories.length) {
-							if (renderMode == MODE_RENDER_FLAT) {
+							if (renderMode === MODE_RENDER_FLAT) {
 								instance._createCategoryFlatView(categories);
 							}
 							else {
@@ -694,10 +694,10 @@ AUI.add(
 
 						var url;
 
-						if (lifecycle == LIFECYCLE_RENDER) {
+						if (lifecycle === LIFECYCLE_RENDER) {
 							url = Liferay.PortletURL.createRenderURL();
 						}
-						else if (lifecycle == LIFECYCLE_PROCESS) {
+						else if (lifecycle === LIFECYCLE_PROCESS) {
 							url = Liferay.PortletURL.createActionURL();
 						}
 						else {
@@ -707,38 +707,38 @@ AUI.add(
 						url.setPortletId(instance.portletId);
 						url.setWindowState('exclusive');
 
-						if (type == TYPE_VOCABULARY) {
+						if (type === TYPE_VOCABULARY) {
 							path += 'edit_vocabulary';
 
-							if (action == ACTION_EDIT) {
+							if (action === ACTION_EDIT) {
 								url.setParameter(STR_VOCABULARY_ID, instance._selectedVocabularyId);
 							}
 						}
-						else if (type == CATEGORY) {
-							if (action == ACTION_ADD) {
+						else if (type === CATEGORY) {
+							if (action === ACTION_ADD) {
 								path += STR_EDIT_CATEGORY;
 
 								url.setParameter(STR_VOCABULARY_ID, instance._selectedVocabularyId);
 							}
-							else if (action == ACTION_ADD_SUBCATEGORY) {
+							else if (action === ACTION_ADD_SUBCATEGORY) {
 								path += STR_EDIT_CATEGORY;
 
 								url.setParameter(STR_PARENT_CATEGORY_ID, instance._selectedCategoryId);
 								url.setParameter(STR_VOCABULARY_ID, instance._selectedVocabularyId);
 							}
-							else if (action == ACTION_EDIT) {
+							else if (action === ACTION_EDIT) {
 								path += STR_EDIT_CATEGORY;
 
 								url.setParameter(STR_CATEGORY_ID, instance._selectedCategoryId);
 								url.setParameter(STR_VOCABULARY_ID, instance._selectedVocabularyId);
 							}
-							else if (action == ACTION_MOVE) {
+							else if (action === ACTION_MOVE) {
 								path += STR_EDIT_CATEGORY;
 
 								url.setParameter(STR_CATEGORY_ID, instance._selectedCategoryId);
 								url.setParameter('cmd', 'move');
 							}
-							else if (action == ACTION_VIEW) {
+							else if (action === ACTION_VIEW) {
 								path += 'view_category';
 
 								url.setParameter(STR_CATEGORY_ID, instance._selectedCategoryId);
@@ -2655,7 +2655,7 @@ AUI.add(
 				EXTENDS: A.Base,
 				NAME: 'livesearch',
 				prototype: {
-					initializer: function () {
+					initializer: function() {
 						this._bindUIACBase();
 						this._syncUIACBase();
 					}

@@ -61,5 +61,5 @@ Selenium.prototype.isPartialText = function(locator, value) {
 	var locationValue = this.getText(locator);
 	var index = locationValue.search(value);
 
-	return (index != -1);
+	return (index !== -1);
 };

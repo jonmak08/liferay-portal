@@ -269,7 +269,7 @@ AUI.add(
 
 						var groupIds = [];
 
-						if (!portalModelResource && (themeDisplay.getParentGroupId() != themeDisplay.getCompanyGroupId())) {
+						if (!portalModelResource && (themeDisplay.getParentGroupId() !== themeDisplay.getCompanyGroupId())) {
 							groupIds.push(themeDisplay.getParentGroupId());
 						}
 
@@ -300,7 +300,7 @@ AUI.add(
 										var term = event.request;
 										var key = term;
 
-										if (term == '*') {
+										if (term === '*') {
 											term = STR_BLANK;
 										}
 
@@ -421,7 +421,7 @@ AUI.add(
 
 						var charCode = event.charCode;
 
-						if (charCode == '44') {
+						if (charCode === '44') {
 							instance._onAddEntryClick();
 
 							event.preventDefault();
@@ -621,7 +621,7 @@ AUI.add(
 
 									suggestionsIO.start();
 								},
-								until: function () {
+								until: function() {
 									return length <= start;
 								}
 							}

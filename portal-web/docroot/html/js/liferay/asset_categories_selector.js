@@ -237,7 +237,7 @@ AUI.add(
 						var assetType = instance._getTreeNodeAssetType(treeNode);
 
 						if (Lang.isValue(assetId)) {
-							if (assetType == 'category') {
+							if (assetType === 'category') {
 								data.categoryId = assetId;
 							}
 							else {
@@ -267,7 +267,7 @@ AUI.add(
 							);
 						}
 						else {
-							if (!portalModelResource && (themeDisplay.getParentGroupId() != themeDisplay.getCompanyGroupId())) {
+							if (!portalModelResource && (themeDisplay.getParentGroupId() !== themeDisplay.getCompanyGroupId())) {
 								groupIds.push(themeDisplay.getParentGroupId());
 							}
 
@@ -546,7 +546,7 @@ AUI.add(
 						var vocabularyTitle = Liferay.Util.escapeHTML(item.titleCurrentValue);
 						var vocabularyId = item.vocabularyId;
 
-						if (item.groupId == themeDisplay.getCompanyGroupId()) {
+						if (item.groupId === themeDisplay.getCompanyGroupId()) {
 							vocabularyTitle += ' (' + Liferay.Language.get('global') + ')';
 						}
 

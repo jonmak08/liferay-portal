@@ -90,7 +90,7 @@ AUI.add(
 					var lastStatic = null;
 					var firstPortletStatic = firstPortlet.isStatic;
 
-					if (!firstPortletStatic || (firstPortletStatic == 'end')) {
+					if (!firstPortletStatic || (firstPortletStatic === 'end')) {
 						referencePortlet = firstPortlet;
 					}
 					else {
@@ -99,7 +99,7 @@ AUI.add(
 								var isStatic = item.isStatic;
 
 								if (!isStatic ||
-									(lastStatic && isStatic && (isStatic != lastStatic))) {
+									(lastStatic && isStatic && (isStatic !== lastStatic))) {
 									referencePortlet = item;
 								}
 
@@ -142,8 +142,8 @@ AUI.add(
 					var currentIndex = Layout.findIndex(dragNode);
 					var currentParent = dragNode.get('parentNode');
 
-					if ((curPortletInfo.originalParent != currentParent) ||
-						(curPortletInfo.originalIndex != currentIndex)) {
+					if ((curPortletInfo.originalParent !== currentParent) ||
+						(curPortletInfo.originalIndex !== currentIndex)) {
 						moved = true;
 					}
 				}

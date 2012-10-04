@@ -352,10 +352,10 @@ AUI.add(
 
 						var url;
 
-						if (lifecycle == LIFECYCLE_RENDER) {
+						if (lifecycle === LIFECYCLE_RENDER) {
 							url = Liferay.PortletURL.createRenderURL();
 						}
-						else if (lifecycle == LIFECYCLE_PROCESS) {
+						else if (lifecycle === LIFECYCLE_PROCESS) {
 							url = Liferay.PortletURL.createActionURL();
 						}
 						else {
@@ -365,15 +365,15 @@ AUI.add(
 						url.setPortletId(instance.portletId);
 						url.setWindowState('exclusive');
 
-						if (action == ACTION_ADD) {
+						if (action === ACTION_ADD) {
 							path += 'edit_tag';
 						}
-						else if (action == ACTION_EDIT) {
+						else if (action === ACTION_EDIT) {
 							path += 'edit_tag';
 
 							url.setParameter('tagId', instance._selectedTagId);
 						}
-						else if (action == ACTION_VIEW) {
+						else if (action === ACTION_VIEW) {
 							path += 'view_tag';
 
 							url.setParameter('tagId', instance._selectedTagId);
@@ -1651,7 +1651,7 @@ AUI.add(
 				EXTENDS: A.Base,
 				NAME: 'tagssearch',
 				prototype: {
-					initializer: function () {
+					initializer: function() {
 						this._bindUIACBase();
 						this._syncUIACBase();
 					}

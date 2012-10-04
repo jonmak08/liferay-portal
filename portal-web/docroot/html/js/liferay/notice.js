@@ -47,7 +47,7 @@ AUI.add(
 				instance._useToggleButton = true;
 			}
 
-			if (instance._noticeType == 'warning') {
+			if (instance._noticeType === 'warning') {
 				instance._noticeClass = 'popup-alert-warning';
 			}
 
@@ -164,7 +164,7 @@ AUI.add(
 						function(event) {
 							var text = showText;
 
-							if (visible == 0) {
+							if (visible === 0) {
 								text = hideText;
 
 								visible = 1;

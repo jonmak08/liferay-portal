@@ -24,7 +24,7 @@ AUI.add(
 				if (isObject(key)) {
 					method = 'setAll';
 				}
-				else if (arguments.length == 1) {
+				else if (arguments.length === 1) {
 					method = null;
 				}
 			}
@@ -95,7 +95,7 @@ AUI.add(
 
 					config.data.key = key;
 
-					if (cmd == 'getAll') {
+					if (cmd === 'getAll') {
 						config.dataType = 'json';
 					}
 

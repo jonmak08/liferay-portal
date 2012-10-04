@@ -492,6 +492,17 @@
 		</licenses>
 	</library>
 	<library>
+		<file-name>development/jslint4java.jar</file-name>
+		<version>2.0.2</version>
+		<project-name>jslint4java</project-name>
+		<project-url>http://code.google.com/p/jslint4java</project-url>
+		<licenses>
+			<license>
+				<license-name>BSD Style License</license-name>
+			</license>
+		</licenses>
+	</library>
+	<library>
 		<file-name>development/jsp-api.jar</file-name>
 		<version>2.1</version>
 		<project-name>JavaServer Pages</project-name>

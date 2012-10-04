@@ -159,7 +159,7 @@ AUI.add(
 
 							var action = 'append';
 
-							if (location == 'top') {
+							if (location === 'top') {
 								action = 'prepend';
 							}
 
@@ -189,7 +189,7 @@ AUI.add(
 						var actionEmpty = 'addClass';
 
 						if (itemsLeft > 0) {
-							if (itemsLeft == 1) {
+							if (itemsLeft === 1) {
 								actionSingle = 'addClass';
 							}
 

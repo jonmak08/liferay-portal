@@ -47,7 +47,7 @@ AUI.add(
 				if (Liferay.Browser.isIe()) {
 					instance._setSelectionRange();
 
-					if (content != null) {
+					if (content !== null) {
 						instance._selectionRange.text = begTag + content + endTag;
 					}
 					else {
@@ -59,7 +59,7 @@ AUI.add(
 
 					instance._selectionRange = null;
 				}
-				else if (field.selectionStart || field.selectionStart == 0) {
+				else if (field.selectionStart || field.selectionStart === 0) {
 					var startPos = field.selectionStart;
 					var endPos = field.selectionEnd;
 
@@ -69,7 +69,7 @@ AUI.add(
 
 					var caretPos = startPos + begTag.length;
 
-					if (content != null) {
+					if (content !== null) {
 						field.value = preSel + begTag + content + endTag + postSel;
 					}
 					else {
@@ -138,7 +138,7 @@ AUI.add(
 							var target = event.target;
 							var value = target.val();
 
-							if (value != Liferay.Language.get('font')) {
+							if (value !== Liferay.Language.get('font')) {
 								instance.insertTag('font', value);
 
 								target.set('selectedIndex', 0);
@@ -153,7 +153,7 @@ AUI.add(
 							var target = event.target;
 							var value = target.val();
 
-							if (value != Liferay.Language.get('size')) {
+							if (value !== Liferay.Language.get('size')) {
 								instance.insertTag('size', value);
 
 								target.set('selectedIndex', 0);
@@ -301,7 +301,7 @@ AUI.add(
 						var buttonClass = ' ' + (n.className || '');
 						var buttonText = n.text || '';
 
-						if (i != 'insert' && !n.options) {
+						if (i !== 'insert' && !n.options) {
 							var imagePath = themeDisplay.getPathThemeImages() + '/' + n.image;
 
 							html +=
@@ -388,8 +388,6 @@ AUI.add(
 
 				var colorpicker = instance._location.one('.use-colorpicker');
 
-				var colorpicker = instance._location.one('.use-colorpicker');
-
 				if (colorpicker) {
 					instance._fontColorInput.placeBefore(colorpicker);
 
@@ -451,7 +449,7 @@ AUI.add(
 
 					selection = instance._selectionRange.text;
 				}
-				else if (field.selectionStart || field.selectionStart == 0) {
+				else if (field.selectionStart || field.selectionStart === 0) {
 					selection = value.substring(field.selectionStart, field.selectionEnd);
 				}
 
@@ -473,7 +471,7 @@ AUI.add(
 
 					sel.text = emoticon;
 				}
-				else if (field.selectionStart || field.selectionStart == "0") {
+				else if (field.selectionStart || field.selectionStart === "0") {
 					var startPos = field.selectionStart;
 					var endPos = field.selectionEnd;
 
@@ -504,7 +502,7 @@ AUI.add(
 				var list = "\n";
 				var entry;
 
-				while (entry = prompt(Liferay.Language.get('enter-a-list-item-click-cancel-or-leave-blank-to-end-the-list'), '')) {
+				while (entry === prompt(Liferay.Language.get('enter-a-list-item-click-cancel-or-leave-blank-to-end-the-list'), '')) {
 					if (!entry) {
 						break;
 					}
@@ -512,7 +510,7 @@ AUI.add(
 					list += '[*]' + entry + '\n';
 				}
 
-				if (list != '\n') {
+				if (list !== '\n') {
 					instance._resetSelection();
 					instance.insertTag('list', ordered, list);
 				}
@@ -523,7 +521,7 @@ AUI.add(
 
 				var url = prompt(Liferay.Language.get('enter-an-address'), 'http://');
 
-				if (url != null) {
+				if (url !== null) {
 					var title;
 					var selection = instance._getSelection();
 
@@ -567,7 +565,7 @@ AUI.add(
 			_setSelectionRange: function() {
 				var instance = this;
 
-				if (Liferay.Browser.isIe() && (instance._selectionRange == null)) {
+				if (Liferay.Browser.isIe() && (instance._selectionRange === null)) {
 					instance._textarea.focus();
 
 					instance._selectionRange = document.selection.createRange();

@@ -113,7 +113,7 @@ AUI.add(
 
 					var alignPoints = DEFAULT_ALIGN_POINTS;
 
-					if (cssClass.indexOf(AUTO) == -1) {
+					if (cssClass.indexOf(AUTO) === -1) {
 						var directionMatch = cssClass.match(REGEX_DIRECTION);
 
 						var direction = (directionMatch && directionMatch[1]) || AUTO;
@@ -207,7 +207,7 @@ AUI.add(
 
 					listContainer.addClass('lfr-menu-list-overflow');
 
-					if (menuHeight != AUTO) {
+					if (menuHeight !== AUTO) {
 						listContainer.setStyle('maxHeight', menuHeight);
 					}
 				}
@@ -224,7 +224,7 @@ AUI.add(
 
 				var height = AUTO;
 
-				if (cssClass.indexOf('lfr-menu-expanded') == -1) {
+				if (cssClass.indexOf('lfr-menu-expanded') === -1) {
 					var params = REGEX_MAX_DISPLAY_ITEMS.exec(cssClass);
 
 					var maxDisplayItems = params && parseInt(params[1], 10);
@@ -407,7 +407,7 @@ AUI.add(
 
 					bodyNode.delegate(
 						'mouseenter',
-						function (event) {
+						function(event) {
 							if (focusManager.get('focused')) {
 								focusManager.focus(event.currentTarget.one(SELECTOR_ANCHOR));
 							}

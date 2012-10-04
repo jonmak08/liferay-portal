@@ -218,16 +218,16 @@ AUI.add(
 
 						var valid = true;
 
-						if (direction == STR_LEFT) {
+						if (direction === STR_LEFT) {
 							styles.left = targetRegion.width;
 						}
-						else if (direction == STR_RIGHT) {
+						else if (direction === STR_RIGHT) {
 							styles.left = -(targetRegion.width);
 						}
-						else if (direction == STR_TOP) {
+						else if (direction === STR_TOP) {
 							styles.top = -(targetRegion.height);
 						}
-						else if (direction == STR_BOTTOM) {
+						else if (direction === STR_BOTTOM) {
 							styles.top = targetRegion.height;
 						}
 						else {

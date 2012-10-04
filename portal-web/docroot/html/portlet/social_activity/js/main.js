@@ -255,7 +255,7 @@ AUI.add(
 								var checked = item.one(SELECTOR_FIELD_INPUT_CHOICE).attr('checked');
 								var node = item;
 
-								if (!checked && index == lastIndex) {
+								if (!checked && index === lastIndex) {
 									checked = true;
 
 									node = collection.item(0);

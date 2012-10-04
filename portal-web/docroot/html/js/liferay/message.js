@@ -175,7 +175,7 @@ AUI.add(
 					_onCloseButtonHover: function(event) {
 						var instance = this;
 
-						instance._hideNoticesControl.toggleClass('lfr-message-controls-hover', (event.type == 'mouseenter'));
+						instance._hideNoticesControl.toggleClass('lfr-message-controls-hover', (event.type === 'mouseenter'));
 					},
 
 					_onTriggerClick: function(event) {

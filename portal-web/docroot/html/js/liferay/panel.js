@@ -157,7 +157,7 @@ AUI.add(
 						if (toggler.size()) {
 							var title = Liferay.Language.get('expand');
 
-							if (state == 'open') {
+							if (state === 'open') {
 								title = Liferay.Language.get('collapse');
 							}
 
@@ -193,7 +193,7 @@ AUI.add(
 						);
 					},
 
-					_saveState: function (id, state) {
+					_saveState: function(id, state) {
 						var instance = this;
 
 						if (instance._persistState) {

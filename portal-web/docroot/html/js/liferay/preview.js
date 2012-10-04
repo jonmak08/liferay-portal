@@ -331,7 +331,7 @@ AUI.add(
 							displayedIndex = previewFileCountDown + 1;
 
 							MAP_IMAGE_DATA.displayedIndex = displayedIndex;
-							MAP_IMAGE_DATA.selectedCssClass = (previewFileCountDown == currentIndex ? CSS_IMAGE_SELECTED : '');
+							MAP_IMAGE_DATA.selectedCssClass = (previewFileCountDown === currentIndex ? CSS_IMAGE_SELECTED : '');
 							MAP_IMAGE_DATA.index = previewFileCountDown;
 							MAP_IMAGE_DATA.url = baseImageURL + displayedIndex;
 
@@ -423,7 +423,7 @@ AUI.add(
 							prevItem.removeClass(CSS_IMAGE_SELECTED);
 						}
 
-						if (src != STR_SCROLLER) {
+						if (src !== STR_SCROLLER) {
 							var newItem = nodeList.item(value);
 
 							if (newItem) {

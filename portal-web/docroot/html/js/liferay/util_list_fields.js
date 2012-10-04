@@ -45,7 +45,7 @@ AUI.add(
 					function(item, index, collection) {
 						var val = item.val();
 
-						if (val && item.get('name') != except && item.get('checked') && !item.get('disabled')) {
+						if (val && item.get('name') !== except && item.get('checked') && !item.get('disabled')) {
 							buffer.push(val);
 						}
 					}
@@ -60,7 +60,7 @@ AUI.add(
 
 			var selectList = '';
 
-			if (box != null) {
+			if (box !== null) {
 				var select = AUI().one(box);
 
 				if (select) {
@@ -77,7 +77,7 @@ AUI.add(
 					);
 				}
 
-				if (buffer[0] != '.none') {
+				if (buffer[0] !== '.none') {
 					selectList = buffer.join(delimeter || ',');
 				}
 			}
@@ -101,7 +101,7 @@ AUI.add(
 					function(item, index, collection) {
 						var val = item.val();
 
-						if (val && item.get('name') != except && !item.get('checked') && !item.get('disabled')) {
+						if (val && item.get('name') !== except && !item.get('checked') && !item.get('disabled')) {
 							buffer.push(val);
 						}
 					}
