@@ -178,9 +178,9 @@ html > .lfr-dockbar-pinned {
 
 		.site-type {
 		}
+	}
 
-		a:hover .site-type, .current-site a:hover {
-		}
+	a:hover .site-type, .current-site a:hover {
 	}
 
 	.site-name {
@@ -188,23 +188,19 @@ html > .lfr-dockbar-pinned {
 
 	.site-type {
 	}
-
-.ie7 .my-sites-menu .site-type {
 }
 
 .my-sites-menu a:hover .site-type {
 }
 
-.ie7 {
-	.my-sites-menu {
-		a {
-		}
+.ie7 .my-sites-menu {
+	a {
+	}
 
-		.site-name {
-		}
+	.site-name {
+	}
 
-		.site-type {
-		}
+	.site-type {
 	}
 }
 

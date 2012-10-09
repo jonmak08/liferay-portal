@@ -78,7 +78,7 @@ body.portlet {
 	.portlet-actions {
 	}
 
-	.portlet-title-default, .portlet-actions {
+	.portlet-actions, .portlet-title-default {
 	}
 
 	.portlet-action-separator {
@@ -397,7 +397,7 @@ body.portlet {
 .hover.restricted td {
 }
 
-.restricted, .alt.restricted {
+.alt.restricted, .restricted {
 	td.col-1 {
 	}
 }

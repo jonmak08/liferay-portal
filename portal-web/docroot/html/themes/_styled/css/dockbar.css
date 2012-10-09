@@ -323,10 +323,6 @@ html > .lfr-dockbar-pinned {
 	}
 }
 
-.ie7 .my-sites-menu .site-type {
-	float: none;
-}
-
 .my-sites-menu a:hover .site-type {
 	color: #FFF;
 }
@@ -500,12 +496,12 @@ html > .lfr-dockbar-pinned {
 
 	.page-customization-actions {
 		padding-left: 5em;
-	}
 
-	.page-customization-actions a {
-		color: #EEE;
-		font-size: 0.8em;
-		padding: 0 1em;
+		a {
+			color: #EEE;
+			font-size: 0.8em;
+			padding: 0 1em;
+		}
 	}
 
 	.reset-prototype {
