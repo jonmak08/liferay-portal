@@ -694,6 +694,8 @@ AUI.add(
 
 				var docElement = A.one(document.documentElement);
 
+				var documentLibraryContainer = A.oneNS(instance.NS, '#documentLibraryContainer');
+
 				var entriesContainer = instance._entriesContainer;
 
 				A.getWin().on('beforeunload', instance._preventPageUnload, instance);
@@ -730,9 +732,11 @@ AUI.add(
 
 							var target = event.target;
 
+							var inDropArea = target.compareTo(documentLibraryContainer) || documentLibraryContainer.contains(target);
+
 							var dropEffect = 'none';
 
-							if (true) {
+							if (inDropArea) {
 								dropEffect = 'copy';
 							}
 
