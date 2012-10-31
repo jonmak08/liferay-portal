@@ -23,10 +23,11 @@ select {
 }
 
 .display-panel-columns:after, .display-panel-columns:before {
-	position: fixed;
+	bottom: 0;
 	content: '';
 	display: block;
-	bottom: 0;
+	height: 1310px;
+	position: absolute;
 	top: 0;
 	width: 238px;
 	z-index: -1;
