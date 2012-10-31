@@ -19,6 +19,7 @@ import com.liferay.portal.ContactBirthdayException;
 import com.liferay.portal.ContactFirstNameException;
 import com.liferay.portal.ContactFullNameException;
 import com.liferay.portal.ContactLastNameException;
+import com.liferay.portal.DuplicateOpenIdException;
 import com.liferay.portal.DuplicateUserEmailAddressException;
 import com.liferay.portal.DuplicateUserScreenNameException;
 import com.liferay.portal.GroupFriendlyURLException;
@@ -69,6 +70,7 @@ import com.liferay.portal.kernel.util.KeyValuePair;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.UnicodeProperties;
@@ -116,6 +118,7 @@ import com.liferay.portal.security.permission.PermissionCacheUtil;
 import com.liferay.portal.security.pwd.PwdAuthenticator;
 import com.liferay.portal.security.pwd.PwdEncryptor;
 import com.liferay.portal.security.pwd.PwdToolkitUtil;
+import com.liferay.portal.security.pwd.RegExpToolkit;
 import com.liferay.portal.service.BaseServiceImpl;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.base.UserLocalServiceBaseImpl;
@@ -712,8 +715,8 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		validate(
 			companyId, userId, autoPassword, password1, password2,
-			autoScreenName, screenName, emailAddress, firstName, middleName,
-			lastName, organizationIds);
+			autoScreenName, screenName, emailAddress, openId, firstName,
+			middleName, lastName, organizationIds);
 
 		if (!autoPassword) {
 			if (Validator.isNull(password1) || Validator.isNull(password2)) {
@@ -1546,11 +1549,29 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		String password = null;
 
 		if (autoPassword) {
-			PasswordPolicy passwordPolicy =
-				passwordPolicyLocalService.getPasswordPolicy(
-					user.getCompanyId(), user.getOrganizationIds());
+			if (LDAPSettingsUtil.isPasswordPolicyEnabled(user.getCompanyId())) {
+				if (_log.isWarnEnabled()) {
+					StringBundler sb = new StringBundler(4);
 
-			password = PwdToolkitUtil.generate(passwordPolicy);
+					sb.append("When LDAP password policy is enabled, it is ");
+					sb.append("possible that portal generated passwords will ");
+					sb.append("not match the LDAP policy. Using ");
+					sb.append("RegExpToolkit to generate new password.");
+
+					_log.warn(sb.toString());
+				}
+
+				RegExpToolkit regExpToolkit = new RegExpToolkit();
+
+				password = regExpToolkit.generate(null);
+			}
+			else {
+				PasswordPolicy passwordPolicy =
+					passwordPolicyLocalService.getPasswordPolicy(
+						user.getCompanyId(), user.getOrganizationIds());
+
+				password = PwdToolkitUtil.generate(passwordPolicy);
+			}
 
 			user.setPassword(PwdEncryptor.encrypt(password));
 			user.setPasswordEncrypted(true);
@@ -2900,7 +2921,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		PasswordPolicy passwordPolicy = user.getPasswordPolicy();
 
-		if (passwordPolicy.getExpireable()) {
+		if ((passwordPolicy != null) && passwordPolicy.getExpireable()) {
 			Date now = new Date();
 
 			if (user.getPasswordModifiedDate() == null) {
@@ -2940,7 +2961,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		PasswordPolicy passwordPolicy = user.getPasswordPolicy();
 
-		if (passwordPolicy.isExpireable() &&
+		if ((passwordPolicy != null) && passwordPolicy.isExpireable() &&
 			(passwordPolicy.getWarningTime() > 0)) {
 
 			Date now = new Date();
@@ -3381,7 +3402,8 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		if (company.isSendPasswordResetLink()) {
 			Date expirationDate = null;
 
-			if (passwordPolicy.getResetTicketMaxAge() > 0) {
+			if ((passwordPolicy != null) &&
+				(passwordPolicy.getResetTicketMaxAge() > 0)) {
 				expirationDate = new Date(
 					System.currentTimeMillis() +
 						(passwordPolicy.getResetTicketMaxAge() * 1000));
@@ -3402,7 +3424,28 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			if (!PwdEncryptor.PASSWORDS_ENCRYPTION_ALGORITHM.equals(
 					PwdEncryptor.TYPE_NONE)) {
 
-				newPassword = PwdToolkitUtil.generate(passwordPolicy);
+				if (LDAPSettingsUtil.isPasswordPolicyEnabled(
+						user.getCompanyId())) {
+
+					if (_log.isWarnEnabled()) {
+						StringBundler sb = new StringBundler(5);
+
+						sb.append("When LDAP password policy is enabled, ");
+						sb.append("it is possible that portal generated ");
+						sb.append("passwords will not match the LDAP policy.");
+						sb.append("Using RegExpToolkit to generate new ");
+						sb.append("password.");
+
+						_log.warn(sb.toString());
+					}
+
+					RegExpToolkit regExpToolkit = new RegExpToolkit();
+
+					newPassword = regExpToolkit.generate(null);
+				}
+				else {
+					newPassword = PwdToolkitUtil.generate(passwordPolicy);
+				}
 
 				boolean passwordReset = false;
 
@@ -4006,8 +4049,8 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 			validate(
 				companyId, user.getUserId(), autoPassword, password1, password2,
-				autoScreenName, screenName, emailAddress, firstName, middleName,
-				lastName, null);
+				autoScreenName, screenName, emailAddress, openId, firstName,
+				middleName, lastName, null);
 
 			if (!autoPassword) {
 				if (Validator.isNull(password1) ||
@@ -4048,7 +4091,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 			PasswordPolicy passwordPolicy = defaultUser.getPasswordPolicy();
 
-			if (passwordPolicy.isChangeable() &&
+			if ((passwordPolicy != null) && passwordPolicy.isChangeable() &&
 				passwordPolicy.isChangeRequired()) {
 
 				user.setPasswordReset(true);
@@ -4570,7 +4613,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	public User updateReminderQuery(long userId, String question, String answer)
 		throws PortalException, SystemException {
 
-		validateReminderQuery(question, answer) ;
+		validateReminderQuery(question, answer);
 
 		User user = userPersistence.findByPrimaryKey(userId);
 
@@ -4756,8 +4799,8 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		}
 
 		validate(
-			userId, screenName, emailAddress, firstName, middleName, lastName,
-			smsSn);
+			userId, screenName, emailAddress, openId, firstName, middleName,
+			lastName, smsSn);
 
 		if (Validator.isNotNull(newPassword1) ||
 			Validator.isNotNull(newPassword2)) {
@@ -5714,8 +5757,8 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	protected void validate(
 			long companyId, long userId, boolean autoPassword, String password1,
 			String password2, boolean autoScreenName, String screenName,
-			String emailAddress, String firstName, String middleName,
-			String lastName, long[] organizationIds)
+			String emailAddress, String openId, String firstName,
+			String middleName, String lastName, long[] organizationIds)
 		throws PortalException, SystemException {
 
 		Company company = companyPersistence.findByPrimaryKey(companyId);
@@ -5755,6 +5798,8 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			}
 		}
 
+		validateOpenId(companyId, userId, openId);
+
 		validateFullName(companyId, firstName, middleName, lastName);
 
 		if (organizationIds != null) {
@@ -5770,7 +5815,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	}
 
 	protected void validate(
-			long userId, String screenName, String emailAddress,
+			long userId, String screenName, String emailAddress, String openId,
 			String firstName, String middleName, String lastName, String smsSn)
 		throws PortalException, SystemException {
 
@@ -5781,6 +5826,8 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		}
 
 		validateEmailAddress(user.getCompanyId(), emailAddress);
+
+		validateOpenId(user.getCompanyId(), userId, openId);
 
 		if (!user.isDefaultUser()) {
 			if (Validator.isNotNull(emailAddress) &&
@@ -5880,6 +5927,20 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 				companyId, firstName, middleName, lastName)) {
 
 			throw new ContactFullNameException();
+		}
+	}
+
+	protected void validateOpenId(long companyId, long userId, String openId)
+		throws PortalException, SystemException {
+
+		if (Validator.isNull(openId)) {
+			return;
+		}
+
+		User user = userPersistence.fetchByC_O(companyId, openId);
+
+		if ((user != null) && (user.getUserId() != userId)) {
+			throw new DuplicateOpenIdException();
 		}
 	}
 

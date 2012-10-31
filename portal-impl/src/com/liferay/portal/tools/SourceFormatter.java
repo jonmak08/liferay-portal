@@ -89,6 +89,7 @@ public class SourceFormatter {
 						_formatDDLStructuresXML();
 						_formatFriendlyURLRoutesXML();
 						_formatFTL();
+						_formatJS();
 						_formatPortalProperties();
 						_formatPortletXML();
 						_formatServiceXML();
@@ -1634,17 +1635,27 @@ public class SourceFormatter {
 					}
 
 					for (int x = -1;;) {
-						x = line.indexOf(StringPool.COMMA, x + 1);
+						int posComma = line.indexOf(StringPool.COMMA, x + 1);
+						int posSemicolon = line.indexOf(
+							StringPool.SEMICOLON, x + 1);
+
+						if ((posComma == -1) && (posSemicolon == -1)) {
+							break;
+						}
+
+						x = Math.min(posComma, posSemicolon);
 
 						if (x == -1) {
-							break;
+							x = Math.max(posComma, posSemicolon);
 						}
 
 						if (line.length() > (x + 1)) {
 							char nextChar = line.charAt(x + 1);
 
-							if ((nextChar != CharPool.SPACE) &&
-								(nextChar != CharPool.APOSTROPHE)) {
+							if ((nextChar != CharPool.APOSTROPHE) &&
+								(nextChar != CharPool.CLOSE_PARENTHESIS) &&
+								(nextChar != CharPool.SPACE) &&
+								(nextChar != CharPool.STAR)) {
 
 								line = StringUtil.insert(
 									line, StringPool.SPACE, x + 1);
@@ -1899,13 +1910,87 @@ public class SourceFormatter {
 		return newContent;
 	}
 
+	private static void _formatJS() throws IOException {
+		String basedir = "./";
+
+		DirectoryScanner directoryScanner = new DirectoryScanner();
+
+		directoryScanner.setBasedir(basedir);
+
+		String[] excludes = {
+			"**\\js\\aui\\**", "**\\js\\editor\\**", "**\\js\\misc\\**",
+			"**\\tools\\**", "**\\VAADIN\\**"
+		};
+
+		excludes = ArrayUtil.append(excludes, _excludes);
+
+		directoryScanner.setExcludes(excludes);
+
+		directoryScanner.setIncludes(new String[] {"**\\*.js"});
+
+		List<String> fileNames = _sourceFormatterHelper.scanForFiles(
+			directoryScanner);
+
+		for (String fileName : fileNames) {
+			File file = new File(basedir + fileName);
+
+			String content = _fileUtil.read(file);
+
+			String newContent = _trimContent(content);
+
+			newContent = StringUtil.replace(
+				newContent,
+				new String[] {
+					"else{", "for(", "function (", "if(", "while(", "){\n",
+					"= new Array();", "= new Object();"
+				},
+				new String[] {
+					"else {", "for (", "function(", "if (", "while (", ") {\n",
+					"= [];", "= {};"
+				});
+
+			Pattern pattern = Pattern.compile("\t+var \\w+\\, ");
+
+			for (;;) {
+				Matcher matcher = pattern.matcher(newContent);
+
+				if (!matcher.find()) {
+					break;
+				}
+
+				String match = newContent.substring(
+					matcher.start(), matcher.end());
+
+				int pos = match.indexOf("var ");
+
+				StringBundler sb = new StringBundler(4);
+
+				sb.append(match.substring(0, match.length() - 2));
+				sb.append(StringPool.SEMICOLON);
+				sb.append("\n");
+				sb.append(match.substring(0, pos + 4));
+
+				newContent = StringUtil.replace(
+					newContent, match, sb.toString());
+			}
+
+			if (newContent.endsWith("\n")) {
+				newContent = newContent.substring(0, newContent.length() - 1);
+			}
+
+			if ((newContent != null) && !content.equals(newContent)) {
+				_fileUtil.write(file, newContent);
+
+				_sourceFormatterHelper.printError(fileName, file);
+			}
+		}
+	}
+
 	private static void _formatJSP() throws IOException {
 		String basedir = "./";
 
 		String copyright = _getCopyright();
 		String oldCopyright = _getOldCopyright();
-
-		List<String> list = new ArrayList<String>();
 
 		DirectoryScanner directoryScanner = new DirectoryScanner();
 
@@ -1923,9 +2008,8 @@ public class SourceFormatter {
 		directoryScanner.setIncludes(
 			new String[] {"**\\*.jsp", "**\\*.jspf", "**\\*.vm"});
 
-		list.addAll(_sourceFormatterHelper.scanForFiles(directoryScanner));
-
-		String[] fileNames = list.toArray(new String[list.size()]);
+		List<String> fileNames = _sourceFormatterHelper.scanForFiles(
+			directoryScanner);
 
 		for (String fileName : fileNames) {
 			File file = new File(basedir + fileName);

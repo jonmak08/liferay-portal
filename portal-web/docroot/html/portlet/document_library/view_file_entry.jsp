@@ -28,7 +28,18 @@ String uploadProgressId = "dlFileEntryUploadProgress";
 FileEntry fileEntry = (FileEntry)request.getAttribute(WebKeys.DOCUMENT_LIBRARY_FILE_ENTRY);
 
 long fileEntryId = fileEntry.getFileEntryId();
+
 long folderId = fileEntry.getFolderId();
+
+if (Validator.isNull(redirect)) {
+	PortletURL portletURL = renderResponse.createRenderURL();
+
+	portletURL.setParameter("struts_action", "/document_library/view");
+	portletURL.setParameter("folderId", String.valueOf(folderId));
+
+	redirect = portletURL.toString();
+}
+
 String extension = fileEntry.getExtension();
 String title = fileEntry.getTitle();
 
@@ -61,7 +72,7 @@ Lock lock = fileEntry.getLock();
 
 String[] conversions = new String[0];
 
-if (PrefsPropsUtil.getBoolean(PropsKeys.OPENOFFICE_SERVER_ENABLED, PropsValues.OPENOFFICE_SERVER_ENABLED)) {
+if (PropsValues.DL_FILE_ENTRY_CONVERSIONS_ENABLED && PrefsPropsUtil.getBoolean(PropsKeys.OPENOFFICE_SERVER_ENABLED, PropsValues.OPENOFFICE_SERVER_ENABLED)) {
 	conversions = (String[])DocumentConversionUtil.getConversions(extension);
 }
 
