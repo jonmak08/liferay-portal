@@ -465,6 +465,8 @@
 									}
 								);
 							}
+
+							instance.appendNode = null;
 						},
 
 						_onDragStart: function() {
