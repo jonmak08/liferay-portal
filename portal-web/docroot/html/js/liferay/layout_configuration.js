@@ -461,12 +461,14 @@
 								instance._addPortlet(
 									portletNode,
 									{
-										item: instance.appendNode
+										item: appendNode
 									}
 								);
 							}
 
-							instance.appendNode = null;
+
+
+							appendNode = null;
 						},
 
 						_onDragStart: function() {
