@@ -451,9 +451,14 @@ if ((row == null) && (portletName.equals(PortletKeys.DOCUMENT_LIBRARY_DISPLAY) |
 </portlet:renderURL>
 
 <aui:script use="aui-dialog,aui-swf,uploader">
-	var swfDetect = (A.SWFDetect || A.SWF);
+	var swfDetect = A.SWFDetect || A.SWF;
+	var properFlashVersion = swfDetect.isFlashVersionAtLeast(9);
 
-	if (!A.UA.ios && (swfDetect.isFlashVersionAtLeast(9) || A.Uploader.TYPE == 'html5')) {
+	var ios = A.UA.ios;
+
+	var uploaderType = A.Uploader.TYPE;
+
+	if (!ios && (properFlashVersion || uploaderType == 'html5')) {
 		var uploadMultipleDocumentsIcon = A.all('.upload-multiple-documents:hidden');
 
 		uploadMultipleDocumentsIcon.show();
