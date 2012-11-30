@@ -6,7 +6,7 @@
 <#assign theme_timestamp = themeDisplay.getTheme().getTimestamp() />
 <#assign theme_settings = themeDisplay.getThemeSettings() />
 
-<#assign css_class = theme_display.getColorScheme().getCssClass() + " yui3-skin-sam" />
+<#assign css_class = theme_display.getColorScheme().getCssClass() />
 
 <#assign liferay_toggle_controls = sessionClicks.get(request, "liferay_toggle_controls", "visible") />
 
