@@ -15,23 +15,63 @@
 --%>
 
 <liferay-ui:search-container-column-text
-	buffer="buffer"
 	name="category"
 >
 
-	<%
-	buffer.append("<a href=\"");
-	buffer.append(rowURL);
-	buffer.append("\">");
-	buffer.append("<strong>");
-	buffer.append(curCategory.getName());
-	buffer.append("</strong>");
+<%
+List<MBCategory> ancestors = curCategory.getAncestors();
 
-	if (Validator.isNotNull(curCategory.getDescription())) {
-		buffer.append("<br />");
-		buffer.append(curCategory.getDescription());
+Collections.reverse(ancestors);
+
+int depth = 5;
+
+ancestors = ListUtil.subList(ancestors, 0, depth);
+
+ancestors.add(curCategory);
+
+StringBundler sb = new StringBundler();
+
+sb.append("<div class=\"site-breadcrumbs\" id=\"breadcrumbs\">");
+sb.append("<ul class=\"breadcrumbs breadcrumbs-horizontal lfr-component\">");
+
+for (int i = 0; i < ancestors.size(); i++) {
+	MBCategory ancestor = ancestors.get(i);
+
+	portletURL = PortletURLFactoryUtil.create(request, PortletKeys.MESSAGE_BOARDS, themeDisplay.getPlid(), PortletRequest.RENDER_PHASE);
+
+	portletURL.setParameter("struts_action", "/message_boards/view");
+	portletURL.setParameter("mbCategoryId", String.valueOf(ancestor.getCategoryId()));
+
+	sb.append("<li><span>");
+	sb.append("<a href=\"");
+	sb.append(HtmlUtil.escape(portletURL.toString()));
+	sb.append("\">");
+
+	if (i == (depth - 1)) {
+		sb.append("...");
 	}
-	%>
+	else {
+		sb.append(ancestor.getName());
+	}
+
+	sb.append("</a>");
+	sb.append("</span></li>");
+}
+
+sb.append("</ul>");
+sb.append("</div>");
+
+if (Validator.isNotNull(curCategory.getDescription())) {
+	sb.append(curCategory.getDescription());
+}
+
+String content = sb.toString();
+
+content = StringUtil.replaceFirst(content, "<li", "<li class=\"first\"");
+content = StringUtil.replaceLast(content, "<li", "<li class=\"last\"");
+%>
+
+<%= content %>
 
 </liferay-ui:search-container-column-text>
 
