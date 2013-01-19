@@ -219,6 +219,10 @@ body.portal-popup:after, body.portal-popup:before {
 	z-index: 5;
 }
 
+.ie7 .aui-field-inline {
+	vertical-align: bottom;
+}
+
 .search-panels .aui-field-content {
 	display: block;
 	line-height: 1;
