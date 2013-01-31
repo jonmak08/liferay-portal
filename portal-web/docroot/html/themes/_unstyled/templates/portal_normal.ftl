@@ -61,9 +61,9 @@ ${theme.include(body_top_include)}
 		<#if selectable>
 			${theme.include(content_include)}
 		<#else>
-			${portletDisplay.recycle()}
+			${portlet_display.recycle()}
 
-			${portletDisplay.setTitle(the_title)}
+			${portlet_display.setTitle(the_title)}
 
 			${theme.wrapPortlet("portlet.ftl", content_include)}
 		</#if>
