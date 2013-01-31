@@ -33,6 +33,8 @@ if (question != null) {
 	}
 }
 
+String name = "expirationDate";
+
 List choices = new ArrayList();
 
 int oldChoicesCount = 0;
@@ -88,10 +90,10 @@ if (choiceName > 0) {
 
 		<aui:input label="polls-question" name="description" />
 
-		<aui:input disabled="<%= neverExpire %>" name="expirationDate" />
+		<aui:input disabled="<%= neverExpire %>" name="<%= name %>" />
 
 		<%
-		String taglibNeverExpireOnClick = renderResponse.getNamespace() + "disableInputDate('expirationDate', this.checked);";
+		String taglibNeverExpireOnClick = (renderResponse.getNamespace() + "intitializeDatePicker();") + (renderResponse.getNamespace() + "disableInputDate('" + name + "', this.checked);");
 		%>
 
 		<aui:input name="neverExpire" onClick="<%= taglibNeverExpireOnClick %>" type="checkbox" value="<%= neverExpire %>" />
@@ -195,6 +197,14 @@ if (choiceName > 0) {
 			}
 		},
 		['aui-base']
+	);
+
+	Liferay.provide(
+		window,
+		'<portlet:namespace />intitializeDatePicker',
+		function() {
+			Liferay.component('<portlet:namespace /><%= name %>datePicker');
+		}
 	);
 
 	<c:if test="<%= windowState.equals(WindowState.MAXIMIZED) %>">
