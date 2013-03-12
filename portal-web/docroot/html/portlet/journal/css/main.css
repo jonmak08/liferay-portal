@@ -10,6 +10,10 @@
 		.lfr-meta-actions {
 			padding-top: 0;
 		}
+
+		.lfr-actions {
+			padding: 2px 0;
+		}
 	}
 
 	.add-permission-button-row {
