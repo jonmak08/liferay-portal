@@ -589,6 +589,8 @@ AUI.add(
 						}
 					}
 
+					console.log('uploadResultClass: ', uploadResultClass);
+
 					resultsNode.addClass(uploadResultClass);
 				}
 			},
@@ -1056,7 +1058,11 @@ AUI.add(
 					instance._displayResult(fileNode, displayStyle, hasErrors);
 				}
 
-				file.overlay.hide();
+				// Testing Section
+				window.file = file;
+				window.overlay = file.overlay;
+				// window.progressBar =
+				// file.overlay.hide();
 			},
 
 			_showFileUploadProgress: function(event) {
