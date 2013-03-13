@@ -830,6 +830,12 @@ AUI.add(
 						'alluploadscomplete',
 						function(event) {
 							AArray.invoke(navigationOverlays, 'hide');
+
+							var emptyMessage = instance._getEmptyMessage();
+
+							if (emptyMessage && !emptyMessage.hasClass('aui-helper-hidden')) {
+								emptyMessage.hide(true);
+							}
 						}
 					);
 
@@ -1018,12 +1024,6 @@ AUI.add(
 				}
 
 				if (!instance._isUploading()) {
-					var emptyMessage = instance._getEmptyMessage();
-
-					if (emptyMessage) {
-						emptyMessage.hide();
-					}
-
 					instance._startUpload();
 				}
 			},
