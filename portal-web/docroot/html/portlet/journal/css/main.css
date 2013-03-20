@@ -625,6 +625,14 @@
 	}
 }
 
+.chrome .portlet-journal .lfr-meta-actions .lfr-actions {
+	padding: 1px 0;
+}
+
+.firefox .portlet-journal .lfr-meta-actions .lfr-actions {
+	padding: 2px 0;
+}
+
 .journal-component {
 	background: transparent url() no-repeat scroll 3px 3px;
 }
