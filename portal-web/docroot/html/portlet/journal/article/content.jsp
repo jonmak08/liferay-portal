@@ -501,6 +501,8 @@ if (Validator.isNotNull(content)) {
 			</aui:input>
 		</div>
 
+		<div class="journal-article-container-content-paginator"></div>
+
 		<div class="journal-article-container" id="<portlet:namespace />journalArticleContainer">
 			<c:choose>
 				<c:when test="<%= ddmStructure == null %>">
@@ -573,6 +575,8 @@ if (Validator.isNotNull(content)) {
 				<aui:input label="searchable" name="indexable" />
 			</c:if>
 		</div>
+
+		<div class="journal-article-container-content-paginator paginator-bottom-controls"></div>
 	</td>
 
 	<c:choose>
@@ -741,7 +745,7 @@ if (Validator.isNotNull(content)) {
 	}
 </aui:script>
 
-<aui:script use="aui-base,aui-dialog-iframe,liferay-portlet-journal">
+<aui:script use="aui-base,aui-dialog-iframe,aui-paginator,liferay-portlet-journal">
 	var editDDMTemplate = A.one('#<portlet:namespace />editDDMTemplate');
 
 	if (editDDMTemplate) {
@@ -853,6 +857,41 @@ if (Validator.isNotNull(content)) {
 	Liferay.Portlet.Journal.PROXY.portletNamespace = '<portlet:namespace />';
 
 	window.<portlet:namespace />journalPortlet = new Liferay.Portlet.Journal(Liferay.Portlet.Journal.PROXY.portletNamespace, '<%= (article != null) ? HtmlUtil.escape(articleId) : StringPool.BLANK %>');
+
+	var pages = A.all('.page');
+
+	var total = pages.size();
+
+	var paginatorBottomControls = A.one('.journal-article-container-content-paginator.paginator-bottom-controls');
+
+	if (total) {
+		new A.Paginator(
+			{
+				containers: '.journal-article-container-content-paginator',
+				on: {
+					changeRequest: function(event) {
+						var instance = this;
+						var state = event.state;
+
+						pages.hide();
+
+						var page = pages.item(state.page - 1);
+
+						page.show();
+
+						paginatorBottomControls.toggleClass('hide-controls', page.getY() + page.height() < A.getWin().height());
+
+						instance.setState(state);
+					}
+				},
+				page: 1,
+				total: total,
+				TPL: {
+					defaultOutput: '{FirstPageLink} {PrevPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Total}',
+				}
+			}
+		).render();
+	}
 
 	var defaultLocaleSelector = A.one('#<portlet:namespace/>defaultLocale');
 
