@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.portalweb.socialofficehome.notifications.notification.sousviewnotificationannouncementsite;
+package com.liferay.portalweb.socialofficehome.privatemessaging.message.addpmmessageattachmentlarge;
 
 import com.liferay.portalweb.portal.BaseTestSuite;
 import com.liferay.portalweb.socialoffice.users.user.addsouser.AddSOUserTest;
@@ -25,9 +25,7 @@ import com.liferay.portalweb.socialoffice.users.user.signinso.SignInSOTest;
 import com.liferay.portalweb.socialoffice.users.user.signinso.SignOutSOTest;
 import com.liferay.portalweb.socialofficehome.contactscenter.contacts.sousaddasconnectionccuser.ConfirmNotificationsAddConnectionTest;
 import com.liferay.portalweb.socialofficehome.contactscenter.contacts.sousaddasconnectionccuser.SOUs_AddAsConnectionCCUserTest;
-import com.liferay.portalweb.socialofficehome.sites.site.addsitessite.AddSitesSiteTest;
-import com.liferay.portalweb.socialofficehome.sites.site.addsitessite.TearDownSOSitesTest;
-import com.liferay.portalweb.socialofficehome.sites.site.sousjoinsitessite.SOUs_JoinSitesSiteTest;
+import com.liferay.portalweb.socialofficehome.privatemessaging.message.addpmmessage.TearDownPMMessageTest;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -35,36 +33,20 @@ import junit.framework.TestSuite;
 /**
  * @author Brian Wing Shun Chan
  */
-public class SOUs_ViewNotificationAnnouncementSiteTests extends BaseTestSuite {
+public class AddPMMessageAttachmentLargeTests extends BaseTestSuite {
 	public static Test suite() {
 		TestSuite testSuite = new TestSuite();
 		testSuite.addTestSuite(AddSOUserTest.class);
 		testSuite.addTestSuite(SelectRegularRolesSOUserTest.class);
 		testSuite.addTestSuite(EditSOUserPasswordTest.class);
-		testSuite.addTestSuite(AddSitesSiteTest.class);
 		testSuite.addTestSuite(SignOutSOTest.class);
 		testSuite.addTestSuite(SOUs_SignInSOTest.class);
 		testSuite.addTestSuite(SOUs_AddAsConnectionCCUserTest.class);
 		testSuite.addTestSuite(SOUs_SignOutSOTest.class);
 		testSuite.addTestSuite(SignInSOTest.class);
 		testSuite.addTestSuite(ConfirmNotificationsAddConnectionTest.class);
-		testSuite.addTestSuite(SignOutSOTest.class);
-		testSuite.addTestSuite(SOUs_SignInSOTest.class);
-		testSuite.addTestSuite(SOUs_JoinSitesSiteTest.class);
-		testSuite.addTestSuite(SOUs_SignOutSOTest.class);
-		testSuite.addTestSuite(SignInSOTest.class);
-		testSuite.addTestSuite(AddAnnouncementSiteTest.class);
-		testSuite.addTestSuite(SignOutSOTest.class);
-		testSuite.addTestSuite(SOUs_SignInSOTest.class);
-		testSuite.addTestSuite(SOUs_ViewNotificationAnnouncementSiteTest.class);
-		testSuite.addTestSuite(SOUs_SignOutSOTest.class);
-		testSuite.addTestSuite(SOUs_SignInSOTest.class);
-		testSuite.addTestSuite(SOUs_ViewMarkReadNotificationAnnouncementSiteTest.class);
-		testSuite.addTestSuite(SOUs_SignOutSOTest.class);
-		testSuite.addTestSuite(SignInSOTest.class);
-		testSuite.addTestSuite(TearDownAnnouncementsEntrySOTest.class);
-		testSuite.addTestSuite(TearDownNotificationsTest.class);
-		testSuite.addTestSuite(TearDownSOSitesTest.class);
+		testSuite.addTestSuite(AddPMMessageAttachmentLargeTest.class);
+		testSuite.addTestSuite(TearDownPMMessageTest.class);
 		testSuite.addTestSuite(TearDownSOUserTest.class);
 
 		return testSuite;

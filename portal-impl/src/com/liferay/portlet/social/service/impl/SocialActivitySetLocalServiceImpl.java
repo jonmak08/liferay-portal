@@ -49,6 +49,7 @@ public class SocialActivitySetLocalServiceImpl
 		activitySet.setClassName(activity.getClassName());
 		activitySet.setClassPK(activity.getClassPK());
 		activitySet.setType(activity.getType());
+		activitySet.setActivityCount(1);
 
 		socialActivitySetPersistence.update(activitySet);
 
@@ -96,17 +97,25 @@ public class SocialActivitySetLocalServiceImpl
 	public void incrementActivityCount(long activitySetId, long activityId)
 		throws PortalException, SystemException {
 
+		// Activity Set
+
 		SocialActivitySet activitySet =
 			socialActivitySetPersistence.findByPrimaryKey(activitySetId);
-
-		activitySet.setActivityCount(activitySet.getActivityCount() + 1);
 
 		SocialActivity activity = socialActivityPersistence.findByPrimaryKey(
 			activityId);
 
 		activitySet.setModifiedDate(activity.getCreateDate());
 
+		activitySet.setActivityCount(activitySet.getActivityCount() + 1);
+
 		socialActivitySetPersistence.update(activitySet);
+
+		// Activity
+
+		activity.setActivitySetId(activitySetId);
+
+		socialActivityPersistence.update(activity);
 	}
 
 }
