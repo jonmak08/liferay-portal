@@ -1,4 +1,4 @@
-## ---------- Common variables ---------- ##
+### ---------- Common variables ---------- ##
 
 #set ($theme_display = $themeDisplay)
 #set ($portlet_display = $portletDisplay)
