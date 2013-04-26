@@ -1467,7 +1467,7 @@ AUI.add(
 							A.each(
 								tags,
 								function(item, index, collection) {
-									if (index == 0) {
+									if (index === 0) {
 										item.cssClassSelected = 'selected';
 									}
 									else {
@@ -1550,7 +1550,7 @@ AUI.add(
 
 						var tagId = instance._getTagId(tagItem);
 
-						selectedTag = instance._getStagedTag(tagId);
+						var selectedTag = instance._getStagedTag(tagId);
 
 						selectedTag.remove();
 
