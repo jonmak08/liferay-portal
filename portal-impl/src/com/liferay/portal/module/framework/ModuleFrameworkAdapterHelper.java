@@ -30,6 +30,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 
 import java.net.URL;
+import java.net.URLConnection;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,14 +47,15 @@ public class ModuleFrameworkAdapterHelper {
 		}
 
 		try {
+			File coreDir = new File(
+				PropsValues.LIFERAY_WEB_PORTAL_CONTEXT_TEMPDIR, "osgi");
+
 			_initDir(
 				"com/liferay/portal/deploy/dependencies/osgi/core",
-				PropsValues.MODULE_FRAMEWORK_CORE_DIR);
+				coreDir.getAbsolutePath());
 			_initDir(
 				"com/liferay/portal/deploy/dependencies/osgi/portal",
 				PropsValues.MODULE_FRAMEWORK_PORTAL_DIR);
-
-			File coreDir = new File(PropsValues.MODULE_FRAMEWORK_CORE_DIR);
 
 			File[] files = coreDir.listFiles();
 
@@ -138,23 +140,31 @@ public class ModuleFrameworkAdapterHelper {
 			fileUtil.setFile(new FileImpl());
 		}
 
-		if (FileUtil.exists(destinationPath)) {
-			return;
+		if (!FileUtil.exists(destinationPath)) {
+			FileUtil.mkdirs(destinationPath);
 		}
-
-		FileUtil.mkdirs(destinationPath);
 
 		ClassLoader classLoader = ClassLoaderUtil.getPortalClassLoader();
 
+		URL url = classLoader.getResource(sourcePath + "/jars.txt");
+
+		URLConnection urlConnection = url.openConnection();
+
 		String[] jarFileNames = StringUtil.split(
-			StringUtil.read(classLoader, sourcePath + "/jars.txt"));
+			StringUtil.read(urlConnection.getInputStream()));
 
 		for (String jarFileName : jarFileNames) {
-			byte[] bytes = FileUtil.getBytes(
-				classLoader.getResourceAsStream(
-					sourcePath + "/" + jarFileName));
+			File distinationFile = new File(destinationPath, jarFileName);
 
-			FileUtil.write(new File(destinationPath, jarFileName), bytes);
+			if (distinationFile.lastModified() <
+					urlConnection.getLastModified()) {
+
+				byte[] bytes = FileUtil.getBytes(
+					classLoader.getResourceAsStream(
+						sourcePath + "/" + jarFileName));
+
+				FileUtil.write(distinationFile, bytes);
+			}
 		}
 	}
 

@@ -38,6 +38,7 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.UniqueList;
 import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.module.framework.ModuleFramework;
 import com.liferay.portal.security.auth.PrincipalException;
 import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.security.permission.PermissionThreadLocal;
@@ -1019,7 +1020,8 @@ public class ModuleFrameworkImpl implements ModuleFramework {
 		public boolean isLoad(URL url) {
 			String path = url.getPath();
 
-			return path.contains(PropsValues.MODULE_FRAMEWORK_CORE_DIR);
+			return path.contains(
+				PropsValues.LIFERAY_WEB_PORTAL_CONTEXT_TEMPDIR);
 		}
 
 	}
