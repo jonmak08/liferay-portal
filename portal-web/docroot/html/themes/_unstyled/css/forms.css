@@ -26,7 +26,12 @@ fieldset {
 .aui-field-choice .aui-field-label {
 }
 
-.aui-field-date .aui-field-content {
+.aui-field-date {
+	.aui-field-content {
+	}
+
+	.aui-field-element .aui-field-content {
+	}
 }
 
 .aui-text-placeholder {

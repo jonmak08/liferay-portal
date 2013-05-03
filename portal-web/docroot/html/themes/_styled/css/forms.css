@@ -87,8 +87,15 @@ fieldset {
 	display: inline-block;
 }
 
-.aui-field-date .aui-field-content {
-	overflow: hidden;
+.aui-field-date {
+	.aui-field-content {
+		overflow: hidden;
+	}
+
+	.aui-field-element .aui-field-content {
+		clear: left;
+		float: left;
+	}
 }
 
 .aui-text-placeholder {
