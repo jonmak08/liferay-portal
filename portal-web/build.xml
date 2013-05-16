@@ -250,9 +250,13 @@
 					tofile="docroot/html/js/editor/ckeditor.tmp"
 				/>
 
-				<delete
-					dir="docroot/html/js/editor/ckeditor"
+				<move
+					file="docroot/html/js/editor/ckeditor"
+					preservelastmodified="true"
+					tofile="docroot/html/js/editor/ckeditor.del"
 				/>
+
+				<delete dir="docroot/html/js/editor/ckeditor.del" />
 
 				<move
 					file="docroot/html/js/editor/ckeditor.tmp"
