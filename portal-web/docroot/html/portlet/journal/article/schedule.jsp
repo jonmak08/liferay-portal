@@ -48,7 +48,7 @@ if (article != null) {
 <aui:fieldset>
 	<aui:input formName="fm1" name="displayDate" />
 
-	<aui:input disabled="<%= neverExpire %>" formName="fm1" name="expirationDate" />
+	<aui:input disabled="<%= neverExpire %>" formName="fm1" name="expirationDate" disableController="neverExpire" />
 
 	<%
 	String taglibNeverExpireOnClick = renderResponse.getNamespace() + "disableInputDate('expirationDate', this.checked);";
@@ -56,7 +56,7 @@ if (article != null) {
 
 	<aui:input label="never-auto-expire" name="neverExpire" onClick="<%= taglibNeverExpireOnClick %>" type="checkbox" value="<%= neverExpire %>" />
 
-	<aui:input disabled="<%= neverReview %>" formName="fm1" name="reviewDate" />
+	<aui:input disabled="<%= neverReview %>" formName="fm1" name="reviewDate" disableController="neverReview" />
 
 	<%
 	String taglibNeverReviewOnClick = renderResponse.getNamespace() + "disableInputDate('reviewDate', this.checked);";

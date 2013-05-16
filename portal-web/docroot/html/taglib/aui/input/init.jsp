@@ -68,6 +68,8 @@ java.lang.String type = GetterUtil.getString((java.lang.String)request.getAttrib
 boolean useNamespace = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:input:useNamespace")), true);
 java.lang.Object value = (java.lang.Object)request.getAttribute("aui:input:value");
 
+java.lang.String disableController = GetterUtil.getString((java.lang.String)request.getAttribute("aui:input:disableController"));
+
 _updateOptions(_options, "bean", bean);
 _updateOptions(_options, "changesContext", changesContext);
 _updateOptions(_options, "checked", checked);
@@ -102,6 +104,7 @@ _updateOptions(_options, "title", title);
 _updateOptions(_options, "type", type);
 _updateOptions(_options, "useNamespace", useNamespace);
 _updateOptions(_options, "value", value);
+_updateOptions(_options, "disableController", disableController);
 %>
 
 <%@ include file="/html/taglib/aui/input/init-ext.jspf" %>

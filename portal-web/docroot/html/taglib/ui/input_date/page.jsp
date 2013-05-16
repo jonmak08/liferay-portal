@@ -42,6 +42,8 @@ int firstDayOfWeek = GetterUtil.getInteger((String)request.getAttribute("liferay
 String imageInputId = GetterUtil.getString((String)request.getAttribute("liferay-ui:input-date:imageInputId"));
 boolean disabled = GetterUtil.getBoolean((String)request.getAttribute("liferay-ui:input-date:disabled"));
 
+String disableController = namespace + request.getAttribute("aui:input:disableController");
+
 if (Validator.isNull(imageInputId)) {
 	imageInputId = randomNamespace + "imageInputId";
 }
@@ -147,6 +149,17 @@ else if (yearNullable) {
 	var displayDatePickerHandle = displayDateNode.on(
 		['click', 'mousemove'],
 		function(event) {
+            var isChecked = <%= disabled %>;
+            <%
+                if (disableController != null && !disableController.isEmpty()) {
+            %>
+                    var checkboxNode = A.one("#<%= disableController %>Checkbox");
+                    if (checkboxNode != null) {
+                        isChecked = checkboxNode._node.checked;
+                    }
+            <%
+                }
+            %>
 			new A.DatePickerSelect(
 				{
 					after: {
@@ -164,6 +177,9 @@ else if (yearNullable) {
 							<c:if test="<%= yearEmpty %>">
 								instance.get('yearNode').val('-1');
 							</c:if>
+                            instance.get('yearNode')._node.disabled = isChecked;
+                            instance.get('monthNode')._node.disabled = isChecked;
+                            instance.get('dayNode')._node.disabled = isChecked;
 						}
 					},
 					appendOrder: '<%= dateFormatOrder %>',
@@ -201,7 +217,6 @@ else if (yearNullable) {
 						}
 					},
 					dayNode: '#<%= dayParam %>',
-					disabled: <%= disabled %>,
 					monthNode: '#<%= monthParam %>',
 					nullableDay: <%= dayNullable %>,
 					nullableMonth: <%= monthNullable %>,

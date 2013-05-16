@@ -26,7 +26,7 @@ import javax.servlet.jsp.JspException;
  */
 public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 
-	@Override
+    @Override
 	public int doStartTag() throws JspException {
 		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
 
@@ -373,6 +373,12 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		setScopedAttribute("value", value);
 	}
 
+    public void setDisableController(java.lang.String disableController) {
+        _disableController = disableController;
+
+        setScopedAttribute("disableController", disableController);
+    }
+
 	@Override
 	protected void cleanUp() {
 		_bean = null;
@@ -409,6 +415,7 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		_type = null;
 		_useNamespace = true;
 		_value = null;
+        _disableController = null;
 	}
 
 	@Override
@@ -452,6 +459,7 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		setNamespacedAttribute(request, "type", _type);
 		setNamespacedAttribute(request, "useNamespace", _useNamespace);
 		setNamespacedAttribute(request, "value", _value);
+		setNamespacedAttribute(request, "disableController", _disableController);
 	}
 
 	protected static final String _ATTRIBUTE_NAMESPACE = "aui:input:";
@@ -493,5 +501,6 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 	private java.lang.String _type = null;
 	private boolean _useNamespace = true;
 	private java.lang.Object _value = null;
+    private java.lang.String _disableController = null;
 
 }
