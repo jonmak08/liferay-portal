@@ -88,7 +88,7 @@ if (choiceName > 0) {
 
 		<aui:input label="polls-question" name="description" />
 
-		<aui:input disabled="<%= neverExpire %>" name="expirationDate" />
+		<aui:input disabled="<%= neverExpire %>" name="expirationDate" disableController="neverExpire" />
 
 		<%
 		String taglibNeverExpireOnClick = renderResponse.getNamespace() + "disableInputDate('expirationDate', this.checked);";
