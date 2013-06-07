@@ -95,26 +95,26 @@ portletURL.setParameter("fileShortcutId", String.valueOf(fileShortcutId));
 			<liferay-ui:message key="you-can-create-a-shortcut-to-any-document-that-you-have-read-access-for" />
 		</div>
 
-		<aui:field-wrapper label="site">
+		<aui:field-wrapper label="site" cssClass="input-append">
 
 			<%
 			String toGroupName = BeanPropertiesUtil.getString(toGroup, "name");
 			%>
 
-			<span id="<portlet:namespace />toGroupName">
+			<span id="<portlet:namespace />toGroupName" class="uneditable-input">
 			<%= toGroupName %>
 			</span>
 
 			<aui:button name="selectGroupButton" value="select" />
 		</aui:field-wrapper>
 
-		<aui:field-wrapper label="document">
+		<aui:field-wrapper label="document" cssClass="input-append">
 
 			<%
 			String toFileEntryTitle = BeanPropertiesUtil.getString(toFileEntry, "title");
 			%>
 
-			<span id="<portlet:namespace />toFileEntryTitle">
+			<span id="<portlet:namespace />toFileEntryTitle" class="uneditable-input">
 			<%= toFileEntryTitle %>
 			</span>
 

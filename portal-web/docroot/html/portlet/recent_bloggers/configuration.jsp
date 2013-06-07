@@ -45,7 +45,8 @@ if (organizationId > 0) {
 
 		<div id="<portlet:namespace />UsersSelectionOptions">
 			<aui:field-wrapper label="organization">
-				<span id="<portlet:namespace />organizationName"><%= HtmlUtil.escape(organizationName) %></span>
+				<span id="<portlet:namespace />organizationName" class="uneditable-input"><%= HtmlUtil.escape(organizationName) %></span>
+				<br />
 
 				<aui:button name="selectOrganizationButton" value="select" />
 

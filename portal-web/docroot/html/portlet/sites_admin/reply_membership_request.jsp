@@ -79,16 +79,22 @@ MembershipRequest membershipRequest = (MembershipRequest)request.getAttribute(We
 	<aui:fieldset>
 		<c:if test="<%= Validator.isNotNull(group.getDescription()) %>">
 			<aui:field-wrapper label="description">
-				<%= HtmlUtil.escape(group.getDescription()) %>
+				<span class="uneditable-input input-medium">
+					<%= HtmlUtil.escape(group.getDescription()) %>
+				</span>
 			</aui:field-wrapper>
 		</c:if>
 
 		<aui:field-wrapper label="user-name">
-			<%= HtmlUtil.escape(PortalUtil.getUserName(membershipRequest.getUserId(), StringPool.BLANK)) %>
+			<span class="uneditable-input input-medium">
+				<%= HtmlUtil.escape(PortalUtil.getUserName(membershipRequest.getUserId(), StringPool.BLANK)) %>
+			</span>
 		</aui:field-wrapper>
 
 		<aui:field-wrapper label="user-comments">
-			<%= HtmlUtil.escape(membershipRequest.getComments()) %>
+			<span class="uneditable-input">
+				<%= HtmlUtil.escape(membershipRequest.getComments()) %>
+			</span>
 		</aui:field-wrapper>
 
 		<aui:select autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" label="status" name="statusId">
