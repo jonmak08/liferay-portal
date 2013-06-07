@@ -197,6 +197,7 @@ portletURL.setParameter("target", target);
 			%>
 
 			<liferay-ui:search-container-column-text
+				autoFocus="<% true %>"
 				href="<%= rowHREF %>"
 				name="name"
 				value="<%= HtmlUtil.escape(group.getDescriptiveName(locale)) %>"
@@ -212,10 +213,6 @@ portletURL.setParameter("target", target);
 		<liferay-ui:search-iterator />
 	</liferay-ui:search-container>
 </aui:form>
-
-<aui:script>
-	Liferay.Util.focusFormField(document.<portlet:namespace />fm.<portlet:namespace />name);
-</aui:script>
 
 <%!
 private List<Group> _filterGroups(List<Group> groups, String filter) throws Exception {
