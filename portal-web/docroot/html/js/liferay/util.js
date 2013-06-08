@@ -44,6 +44,17 @@
 
 	var STR_RIGHT_SQUARE_BRACKET = ']';
 
+	var STR_COMMA = ',';
+	var STR_DOT = '.';
+	var STR_DISABLED_SUFFIX = '-disabled';
+	var STR_BUTTON_INPUT_PREFIX = 'btn';
+	var STR_BUTTON_INPUT_SELECTOR = STR_DOT + STR_BUTTON_INPUT_PREFIX;
+	var STR_FIELD_INPUT_PREFIX = 'field';
+	var STR_FIELD_INPUT_SELECTOR = STR_DOT + STR_FIELD_INPUT_PREFIX;
+	var STR_SELECT_INPUT_PREFIX = 'aui-field-select';
+	var STR_SELECT_INPUT_SELECTOR = STR_DOT + STR_SELECT_INPUT_PREFIX;
+	var STR_SELECTOR_INPUT = STR_BUTTON_INPUT_SELECTOR + STR_COMMA + STR_FIELD_INPUT_SELECTOR + STR_COMMA + STR_SELECT_INPUT_SELECTOR;
+
 	var REGEX_HTML_ESCAPE = new RegExp(STR_LEFT_SQUARE_BRACKET + htmlUnescapedValues.join('') + STR_RIGHT_SQUARE_BRACKET, 'g');
 
 	var REGEX_HTML_UNESCAPE = new RegExp(htmlEscapedValues.join('|'), 'gi');
@@ -1827,19 +1838,81 @@
 		['liferay-store']
 	);
 
+	/**
+	 * OPTIONS
+	 *
+	 * Required
+	 * element {string || node || nodelist}: The input(s) or parent element of input(s) to toggle disabled.
+	 *
+	 * Optional
+	 * disable {boolean}: True by default.  If true, toggle disabled; if false, toggle enabled.
+	 */
+
 	Liferay.provide(
 		Util,
 		'toggleDisabled',
-		function(button, state) {
-			if (!A.instanceOf(button, A.NodeList)) {
-				button = A.all(button);
+		function(field, force) {
+			var input;
+			var isDisabled;
+			var isHidden;
+			var isInput;
+			var toggle;
+			var yuid;
+
+			if (!A.instanceOf(field, A.NodeList)) {
+				var fieldStr;
+
+				if (A.Lang.isString(field)) {
+					if (field.indexOf(',') !== -1) {
+						fieldStr = field;
+
+						field = A.one(fieldStr);
+					}
+					else {
+						var inputs = {
+							'.btn': STR_BUTTON_INPUT_SELECTOR,
+							'.field': STR_FIELD_INPUT_SELECTOR,
+							'.aui-field-select': STR_SELECT_INPUT_SELECTOR
+						};
+
+						fieldStr = inputs[field];
+
+						field = A.one(fieldStr) || A.one(field);
+					}
+				}
+
+				isInput = (field.hasClass(STR_FIELD_INPUT_PREFIX) || field.hasClass(STR_BUTTON_INPUT_PREFIX) || field.hasClass(STR_SELECT_INPUT_PREFIX));
+				if (!isInput) {
+					field = field.all(STR_SELECTOR_INPUT);
+				}
+
+				if (!A.instanceOf(field, A.NodeList)) {
+					field = fieldStr ? A.all(fieldStr) : A.all(field);
+				}
 			}
 
-			button.each(
+			field.each(
 				function(item, index, collection) {
-					item.attr('disabled', state);
+					isInput = item.one(STR_SELECTOR_INPUT);
 
-					item.toggleClass('disabled', state);
+					if (!isInput) {
+						input = item;
+					}
+					else {
+						input = isInput;
+					}
+
+					if (input && (yuid !== input._yuid)) {
+						isHidden = (input.attr('type') == 'hidden') ? true : false;
+
+						if (!isHidden) {
+							isDisabled = input.attr('disabled') ? true : false;
+							toggle = (force !== undefined) ? force : !isDisabled;
+							input.attr('disabled', toggle);
+
+							yuid = input._yuid;
+						}
+					}
 				}
 			);
 		},
