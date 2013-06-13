@@ -24,6 +24,8 @@ PortletURL portletURL = renderResponse.createRenderURL();
 portletURL.setParameter("struts_action", "/shopping/view");
 portletURL.setParameter("tabs1", tabs1);
 portletURL.setParameter("categoryId", String.valueOf(categoryId));
+
+boolean windowMaximized = windowState.equals(WindowState.MAXIMIZED);
 %>
 
 <liferay-portlet:renderURL varImpl="searchURL">
@@ -115,7 +117,7 @@ portletURL.setParameter("categoryId", String.valueOf(categoryId));
 				<c:if test="<%= showAddCategoryButton || showPermissionsButton || showSearch %>">
 					<aui:fieldset>
 						<c:if test="<%= showSearch %>">
-							<aui:input autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" id="keywords1" label="search" name="keywords" size="30" type="text" />
+							<aui:input autoFocus="<%= windowMaximized %>" id="keywords1" label="search" name="keywords" size="30" type="text" />
 						</c:if>
 					</aui:fieldset>
 
@@ -323,7 +325,7 @@ portletURL.setParameter("categoryId", String.valueOf(categoryId));
 				<c:if test="<%= showAddItemButton || showSearch %>">
 					<aui:fieldset>
 						<c:if test="<%= showSearch %>">
-							<aui:input autoFocus="<% windowState.equals(WindowState.MAXIMIZED) %>" id="keyworkds2" label="search" name="keywords" size="30" type="text" />
+							<aui:input autoFocus="<%= windowMaximized %>" id="keywords2" label="search" name="keywords" size="30" type="text" />
 						</c:if>
 					</aui:fieldset>
 

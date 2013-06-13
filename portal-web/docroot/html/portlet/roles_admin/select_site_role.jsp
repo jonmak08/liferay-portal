@@ -93,7 +93,6 @@ if (step == 1) {
 				>
 
 					<liferay-ui:search-container-column-text
-						autoFocus="<%= true %>"
 						name="name"
 						value="<%= HtmlUtil.escape(group.getDescriptiveName(locale)) %>"
 					/>

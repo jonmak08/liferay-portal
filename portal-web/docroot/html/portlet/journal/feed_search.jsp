@@ -19,9 +19,9 @@
 <%
 FeedSearch searchContainer = (FeedSearch)request.getAttribute("liferay-ui:search:searchContainer");
 
-FeedDisplayTerms displayTerms = (FeedDisplayTerms)searchContainer.getDisplayTerms();
-
 boolean autoFocus = (windowState.equals(WindowState.MAXIMIZED) || windowState.equals(LiferayWindowState.POP_UP));
+
+FeedDisplayTerms displayTerms = (FeedDisplayTerms)searchContainer.getDisplayTerms();
 %>
 
 <liferay-ui:search-toggle

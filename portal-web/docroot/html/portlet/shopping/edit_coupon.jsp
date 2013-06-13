@@ -21,9 +21,9 @@ String redirect = ParamUtil.getString(request, "redirect");
 
 ShoppingCoupon coupon = (ShoppingCoupon)request.getAttribute(WebKeys.SHOPPING_COUPON);
 
-boolean windowMaximized = windowState.equals(WindowState.MAXIMIZED);
-
 long couponId = BeanParamUtil.getLong(coupon, request, "couponId");
+
+boolean windowMaximized = windowState.equals(WindowState.MAXIMIZED);
 
 String code = BeanParamUtil.getString(coupon, request, "code");
 

@@ -80,7 +80,6 @@ if (Validator.isNotNull(target)) {
 			modelVar="organization"
 		>
 			<liferay-ui:search-container-column-text
-				autoFocus="<%= true %>"
 				name="name"
 				orderable="<%= true %>"
 				property="name"

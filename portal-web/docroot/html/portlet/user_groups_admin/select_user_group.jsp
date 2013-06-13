@@ -77,7 +77,6 @@ portletURL.setParameter("eventName", eventName);
 			modelVar="userGroup"
 		>
 			<liferay-ui:search-container-column-text
-				autoFocus="<%= true %>"
 				name="name"
 				value="<%= HtmlUtil.escape(userGroup.getName()) %>"
 			/>

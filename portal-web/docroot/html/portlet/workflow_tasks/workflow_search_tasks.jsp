@@ -17,9 +17,9 @@
 <%@ include file="/html/portlet/workflow_tasks/init.jsp" %>
 
 <%
-WorkflowTaskDisplayTerms displayTerms = new WorkflowTaskDisplayTerms(renderRequest);
-
 boolean windowMaximized = windowState.equals(WindowState.MAXIMIZED);
+
+WorkflowTaskDisplayTerms displayTerms = new WorkflowTaskDisplayTerms(renderRequest);
 %>
 
 <liferay-ui:search-toggle

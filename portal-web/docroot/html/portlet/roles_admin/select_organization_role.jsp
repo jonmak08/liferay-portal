@@ -215,7 +215,6 @@ if (step == 1) {
 			%>
 
 			<liferay-ui:search-container
-				autoFocus="<%= true %>"
 				headerNames="name"
 				searchContainer="<%= new RoleSearch(renderRequest, portletURL) %>"
 			>

@@ -54,7 +54,6 @@
 <c:choose>
 	<c:when test='<%= (model != null) && type.equals("assetCategories") %>'>
 		<liferay-ui:asset-categories-selector
-			autoFocus="<%= autoFocus %>"
 			className="<%= model.getName() %>"
 			classPK="<%= _getClassPK(bean, classPK) %>"
 			contentCallback='<%= portletResponse.getNamespace() + "getSuggestionsContent" %>'

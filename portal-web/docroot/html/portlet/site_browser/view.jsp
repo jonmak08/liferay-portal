@@ -197,7 +197,6 @@ portletURL.setParameter("target", target);
 			%>
 
 			<liferay-ui:search-container-column-text
-				autoFocus="<% true %>"
 				href="<%= rowHREF %>"
 				name="name"
 				value="<%= HtmlUtil.escape(group.getDescriptiveName(locale)) %>"

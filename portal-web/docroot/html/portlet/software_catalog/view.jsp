@@ -244,7 +244,7 @@ portletURL.setParameter("tabs1", tabs1);
 		<div>
 			<label for="<portlet:namespace />keyword"><liferay-ui:message key="search" /></label>
 
-			<input autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" id="<portlet:namespace />keyword" name="<portlet:namespace />keywords" size="30" type="text" value="<%= HtmlUtil.escape(keywords) %>" />
+			<input id="<portlet:namespace />keyword" name="<portlet:namespace />keywords" size="30" type="text" value="<%= HtmlUtil.escape(keywords) %>" />
 
 			<select name="<portlet:namespace />type">
 				<option value=""></option>
@@ -660,6 +660,10 @@ portletURL.setParameter("tabs1", tabs1);
 		document.<portlet:namespace />fm.method = 'post';
 		submitForm(document.<portlet:namespace />fm, url);
 	}
+
+	<c:if test="<%= windowState.equals(WindowState.MAXIMIZED) %>">
+		Liferay.Util.focusFormField(document.<portlet:namespace />fm.<portlet:namespace />keywords);
+	</c:if>
 </aui:script>
 
 <%
