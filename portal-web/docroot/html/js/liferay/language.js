@@ -1,39 +1,58 @@
-Liferay.Language = {
-	get: function(key, extraParams) {
-		var instance = this;
+;(function(A, Liferay) {
+	A.use(
+		'cache',
+		'iobase',
+		function() {
+			Liferay.Language = {
+				get: function(key, extraParams) {
+					var instance = this;
 
-		var url = themeDisplay.getPathContext() + '/language/' + themeDisplay.getLanguageId() + '/' + key + '/';
+					var url = themeDisplay.getPathContext() + '/language/' + themeDisplay.getLanguageId() + '/' + key + '/';
 
-		if (extraParams) {
-			if (typeof extraParams == 'string') {
-				url += extraParams;
-			}
-			else if (Liferay.Util.isArray(extraParams)) {
-				url += extraParams.join('/');
-			}
-		}
-
-		var value = instance._cache[url];
-
-		if (!value) {
-			AUI().use('io-base').io(
-				url,
-				{
-					on: {
-						complete: function(i, o) {
-							value = o.responseText;
+					if (extraParams) {
+						if (typeof extraParams == 'string') {
+							url += extraParams;
 						}
-					},
-					sync: true,
-					type: 'GET'
-				}
-			);
+						else if (Liferay.Util.isArray(extraParams)) {
+							url += extraParams.join('/');
+						}
+					}
 
-			instance._cache[url] = value;
+					var value = instance._cache.retrieve(url);
+
+					if (!value) {
+						A.io(
+							url,
+							{
+								on: {
+									complete: function(i, o) {
+										value = o.responseText;
+									}
+								},
+								sync: true,
+								type: 'GET'
+							}
+						);
+
+						instance._cache.add(url, value);
+					}
+
+					return value;
+				},
+
+				_cache: new A.Cache(
+					{
+						max: 250,
+						on: {
+							complete: function(i, o) {
+								value = o.responseText;
+							}
+						},
+						sync: true,
+						type: 'GET'
+					}
+				)
+			};
 		}
-
-		return value;
-	},
-
-	_cache: {}
-};
+	);
+})(AUI(), Liferay);
