@@ -518,6 +518,8 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 	</div>
 
 	<%
+	formName = HtmlUtil.escapeJS(formName);
+
 	PortletURL loginURL = PortletURLFactoryUtil.create(request, PortletKeys.FAST_LOGIN, themeDisplay.getPlid(), PortletRequest.RENDER_PHASE);
 
 	loginURL.setParameter("saveLastPath", Boolean.FALSE.toString());
@@ -539,7 +541,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 		}
 
 		function <%= randomNamespace %>deleteMessage(i) {
-			eval("var messageId = document.<%= namespace %><%= formName %>.<%= namespace %>messageId" + i + ".value;");
+			eval("var messageId = document.<%= namespace %><%= escapedFormName %>.<%= namespace %>messageId" + i + ".value;");
 
 			document.<%= namespace %><%= formName %>.<%= namespace %><%= Constants.CMD %>.value = "<%= Constants.DELETE %>";
 			document.<%= namespace %><%= formName %>.<%= namespace %>messageId.value = messageId;
