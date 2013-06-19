@@ -741,6 +741,10 @@ public class SitesImpl implements Sites {
 	public List<Layout> getMergeFailFriendlyURLLayouts(LayoutSet layoutSet)
 		throws PortalException, SystemException {
 
+		if (layoutSet == null) {
+			return Collections.emptyList();
+		}
+
 		UnicodeProperties settingsProperties =
 			layoutSet.getSettingsProperties();
 
