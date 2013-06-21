@@ -17,20 +17,19 @@ package com.liferay.portal.kernel.workflow.comparator;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.workflow.WorkflowInstance;
 
-import java.util.Date;
-
 /**
- * @author Shuyang Zhou
+ * @author Brian Wing Shun Chan
  */
-public abstract class BaseWorkflowInstanceEndDateComparator
-	extends OrderByComparator {
+public class WorkflowInstanceStateComparator extends OrderByComparator {
 
-	public BaseWorkflowInstanceEndDateComparator() {
-		this(false);
-	}
+	public WorkflowInstanceStateComparator(
+		boolean ascending, String orderByAsc, String orderByDesc,
+		String[] orderByFields) {
 
-	public BaseWorkflowInstanceEndDateComparator(boolean ascending) {
 		_ascending = ascending;
+		_orderByAsc = orderByAsc;
+		_orderByDesc = orderByDesc;
+		_orderByFields = orderByFields;
 	}
 
 	@Override
@@ -38,10 +37,10 @@ public abstract class BaseWorkflowInstanceEndDateComparator
 		WorkflowInstance workflowInstance1 = (WorkflowInstance)obj1;
 		WorkflowInstance workflowInstance2 = (WorkflowInstance)obj2;
 
-		Date endDate1 = workflowInstance1.getEndDate();
-		Date endDate2 = workflowInstance2.getEndDate();
+		String state1 = workflowInstance1.getState();
+		String state2 = workflowInstance2.getState();
 
-		int value = endDate1.compareTo(endDate2);
+		int value = state1.compareTo(state2);
 
 		if (value == 0) {
 			Long workflowInstanceId1 =
@@ -61,10 +60,28 @@ public abstract class BaseWorkflowInstanceEndDateComparator
 	}
 
 	@Override
+	public String getOrderBy() {
+		if (isAscending()) {
+			return _orderByAsc;
+		}
+		else {
+			return _orderByDesc;
+		}
+	}
+
+	@Override
+	public String[] getOrderByFields() {
+		return _orderByFields;
+	}
+
+	@Override
 	public boolean isAscending() {
 		return _ascending;
 	}
 
 	private boolean _ascending;
+	private String _orderByAsc;
+	private String _orderByDesc;
+	private String[] _orderByFields;
 
 }

@@ -17,18 +17,21 @@ package com.liferay.portal.kernel.workflow.comparator;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.workflow.WorkflowTask;
 
+import java.util.Date;
+
 /**
  * @author Shuyang Zhou
  */
-public abstract class BaseWorkflowTaskUserIdComparator
-	extends OrderByComparator {
+public class WorkflowTaskCreateDateComparator extends OrderByComparator {
 
-	public BaseWorkflowTaskUserIdComparator() {
-		this(false);
-	}
+	public WorkflowTaskCreateDateComparator(
+		boolean ascending, String orderByAsc, String orderByDesc,
+		String[] orderByFields) {
 
-	public BaseWorkflowTaskUserIdComparator(boolean ascending) {
 		_ascending = ascending;
+		_orderByAsc = orderByAsc;
+		_orderByDesc = orderByDesc;
+		_orderByFields = orderByFields;
 	}
 
 	@Override
@@ -36,10 +39,10 @@ public abstract class BaseWorkflowTaskUserIdComparator
 		WorkflowTask workflowTask1 = (WorkflowTask)obj1;
 		WorkflowTask workflowTask2 = (WorkflowTask)obj2;
 
-		Long assigneeUserId1 = workflowTask1.getAssigneeUserId();
-		Long assigneeUserId2 = workflowTask2.getAssigneeUserId();
+		Date createDate1 = workflowTask1.getCreateDate();
+		Date createDate2 = workflowTask2.getCreateDate();
 
-		int value = assigneeUserId1.compareTo(assigneeUserId2);
+		int value = createDate1.compareTo(createDate2);
 
 		if (value == 0) {
 			Long workflowTaskId1 = workflowTask1.getWorkflowTaskId();
@@ -57,10 +60,28 @@ public abstract class BaseWorkflowTaskUserIdComparator
 	}
 
 	@Override
+	public String getOrderBy() {
+		if (isAscending()) {
+			return _orderByAsc;
+		}
+		else {
+			return _orderByDesc;
+		}
+	}
+
+	@Override
+	public String[] getOrderByFields() {
+		return _orderByFields;
+	}
+
+	@Override
 	public boolean isAscending() {
 		return _ascending;
 	}
 
 	private boolean _ascending;
+	private String _orderByAsc;
+	private String _orderByDesc;
+	private String[] _orderByFields;
 
 }

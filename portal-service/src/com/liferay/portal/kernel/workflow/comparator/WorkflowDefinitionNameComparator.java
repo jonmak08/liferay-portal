@@ -20,15 +20,16 @@ import com.liferay.portal.kernel.workflow.WorkflowDefinition;
 /**
  * @author Shuyang Zhou
  */
-public abstract class BaseWorkflowDefinitionNameComparator
-	extends OrderByComparator {
+public class WorkflowDefinitionNameComparator extends OrderByComparator {
 
-	public BaseWorkflowDefinitionNameComparator() {
-		this(false);
-	}
+	public WorkflowDefinitionNameComparator(
+		boolean ascending, String orderByAsc, String orderByDesc,
+		String[] orderByFields) {
 
-	public BaseWorkflowDefinitionNameComparator(boolean ascending) {
 		_ascending = ascending;
+		_orderByAsc = orderByAsc;
+		_orderByDesc = orderByDesc;
+		_orderByFields = orderByFields;
 	}
 
 	@Override
@@ -57,10 +58,28 @@ public abstract class BaseWorkflowDefinitionNameComparator
 	}
 
 	@Override
+	public String getOrderBy() {
+		if (isAscending()) {
+			return _orderByAsc;
+		}
+		else {
+			return _orderByDesc;
+		}
+	}
+
+	@Override
+	public String[] getOrderByFields() {
+		return _orderByFields;
+	}
+
+	@Override
 	public boolean isAscending() {
 		return _ascending;
 	}
 
 	private boolean _ascending;
+	private String _orderByAsc;
+	private String _orderByDesc;
+	private String[] _orderByFields;
 
 }
