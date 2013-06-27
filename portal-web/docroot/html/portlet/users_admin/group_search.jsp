@@ -19,16 +19,19 @@
 <%
 GroupSearch searchContainer = (GroupSearch)request.getAttribute("liferay-ui:search:searchContainer");
 
+boolean windowMaximized = windowState.equals(WindowState.MAXIMIZED);
+
 GroupDisplayTerms displayTerms = (GroupDisplayTerms)searchContainer.getDisplayTerms();
 %>
 
 <liferay-ui:search-toggle
+	autoFocus="<%= windowMaximized %>"
 	buttonLabel="search"
 	displayTerms="<%= displayTerms %>"
 	id="toggle_id_users_admin_group_search"
 >
 	<aui:fieldset>
-		<aui:input name="<%= displayTerms.NAME %>" size="30" value="<%= displayTerms.getName() %>" />
+		<aui:input autoFocus="<%= windowMaximized %>" name="<%= displayTerms.NAME %>" size="30" value="<%= displayTerms.getName() %>" />
 
 		<aui:input name="<%= displayTerms.DESCRIPTION %>" size="30" value="<%= displayTerms.getDescription() %>" />
 	</aui:fieldset>
