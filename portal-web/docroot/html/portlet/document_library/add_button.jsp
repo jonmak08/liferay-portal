@@ -25,26 +25,28 @@ long repositoryId = GetterUtil.getLong((String)request.getAttribute("view.jsp-re
 
 List<DLFileEntryType> fileEntryTypes = Collections.emptyList();
 
-if ((folder == null) || folder.isSupportsMetadata()) {
+boolean showAddFileEntryTypes = ((folder == null) || folder.isSupportsMetadata());
+
+if (showAddFileEntryTypes) {
 	fileEntryTypes = DLFileEntryTypeLocalServiceUtil.getFolderFileEntryTypes(PortalUtil.getSiteAndCompanyGroupIds(themeDisplay), folderId, true);
 }
 
-boolean addFolder = DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_FOLDER);
+boolean showAddFolder = DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_FOLDER);
 
-boolean addShortcut = ((folder == null) || folder.isSupportsShortcuts()) && DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_SHORTCUT);
+boolean showAddShortcut = ((folder == null) || folder.isSupportsShortcuts()) && DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_SHORTCUT);
 
-boolean addRepository = (folderId == DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) && (DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_REPOSITORY));
+boolean showAddRepository = (folderId == DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) && (DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_REPOSITORY));
 
-boolean addMultipleDocuments = ((folder == null) || folder.isSupportsMultipleUpload()) && DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_DOCUMENT);
+boolean showAddMultipleDocuments = ((folder == null) || folder.isSupportsMultipleUpload()) && DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_DOCUMENT);
 
-boolean addDocument = DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_DOCUMENT);
+boolean showAddDocument = DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_DOCUMENT) && (fileEntryTypesIsEmpty || showAddFileEntryTypes);
 
-boolean addDocumentSet = (fileEntryTypes.isEmpty() || ((folder == null) || folder.isSupportsMetadata()));
+boolean showAddDocumentSet = (fileEntryTypes.isEmpty() || ((folder == null) || folder.isSupportsMetadata()));
 %>
 
-<c:if test="<%= addFolder || addShortcut || addRepository || addMultipleDocuments || (addDocument && addDocumentSet) %>">
+<c:if test="<%= (showAddFolder || showAddShortcut || showAddRepository || showAddMultipleDocuments || showAddDocument) %>">
 	<aui:nav-item dropdown="<%= true %>" id="addButtonContainer" label="add">
-		<c:if test="<%= addFolder %>">
+		<c:if test="<%= showAddFolder %>">
 			<portlet:renderURL var="addFolderURL">
 				<portlet:param name="struts_action" value="/document_library/edit_folder" />
 				<portlet:param name="redirect" value="<%= currentURL %>" />
@@ -55,7 +57,7 @@ boolean addDocumentSet = (fileEntryTypes.isEmpty() || ((folder == null) || folde
 			<aui:nav-item href="<%= addFolderURL %>" iconClass="icon-folder-open" label='<%= (folder != null) ? "subfolder" : "folder" %>' />
 		</c:if>
 
-		<c:if test="<%= addShortcut %>">
+		<c:if test="<%= showAddShortcut %>">
 			<portlet:renderURL var="editFileShortcutURL">
 				<portlet:param name="struts_action" value="/document_library/edit_file_shortcut" />
 				<portlet:param name="redirect" value="<%= currentURL %>" />
@@ -66,7 +68,7 @@ boolean addDocumentSet = (fileEntryTypes.isEmpty() || ((folder == null) || folde
 			<aui:nav-item href="<%= editFileShortcutURL %>" label="shortcut" />
 		</c:if>
 
-		<c:if test="<%= addRepository %>">
+		<c:if test="<%= showAddRepository %>">
 			<portlet:renderURL var="addRepositoryURL">
 				<portlet:param name="struts_action" value="/document_library/edit_repository" />
 				<portlet:param name="redirect" value="<%= currentURL %>" />
@@ -75,7 +77,7 @@ boolean addDocumentSet = (fileEntryTypes.isEmpty() || ((folder == null) || folde
 			<aui:nav-item href="<%= addRepositoryURL %>" iconClass="icon-hdd" label="repository" />
 		</c:if>
 
-		<c:if test="<%= addMultipleDocuments %>">
+		<c:if test="<%= showAddMultipleDocuments %>">
 			<portlet:renderURL var="editFileEntryURL">
 				<portlet:param name="struts_action" value="/document_library/upload_multiple_file_entries" />
 				<portlet:param name="redirect" value="<%= currentURL %>" />
@@ -87,8 +89,8 @@ boolean addDocumentSet = (fileEntryTypes.isEmpty() || ((folder == null) || folde
 			<aui:nav-item href="<%= editFileEntryURL %>" label="multiple-documents" />
 		</c:if>
 
-		<c:if test="<%= addDocument %>">
-			<c:if test="<%= fileEntryTypes.isEmpty() %>">
+		<c:if test="<%= showAddDocument %>">
+			<c:if test="<%= fileEntryTypesIsEmpty %>">
 				<portlet:renderURL var="editFileEntryURL">
 					<portlet:param name="struts_action" value="/document_library/edit_file_entry" />
 					<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.ADD %>" />
@@ -101,7 +103,7 @@ boolean addDocumentSet = (fileEntryTypes.isEmpty() || ((folder == null) || folde
 				<aui:nav-item href="<%= editFileEntryURL %>" iconClass="icon-file" label="basic-document" />
 			</c:if>
 
-			<c:if test="<%= (folder == null) || folder.isSupportsMetadata() %>">
+			<c:if test="<%= showAddFileEntryTypes %>">
 
 				<%
 				for (DLFileEntryType fileEntryType : fileEntryTypes) {
