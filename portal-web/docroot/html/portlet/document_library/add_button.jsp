@@ -21,8 +21,6 @@ Folder folder = (Folder)request.getAttribute("view.jsp-folder");
 
 long folderId = GetterUtil.getLong((String)request.getAttribute("view.jsp-folderId"));
 
-long repositoryId = GetterUtil.getLong((String)request.getAttribute("view.jsp-repositoryId"));
-
 List<DLFileEntryType> fileEntryTypes = Collections.emptyList();
 
 boolean showAddFileEntryTypes = ((folder == null) || folder.isSupportsMetadata());
@@ -31,17 +29,19 @@ if (showAddFileEntryTypes) {
 	fileEntryTypes = DLFileEntryTypeLocalServiceUtil.getFolderFileEntryTypes(PortalUtil.getSiteAndCompanyGroupIds(themeDisplay), folderId, true);
 }
 
-boolean showAddFolder = DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_FOLDER);
+boolean fileEntryTypesIsEmpty = fileEntryTypes.isEmpty();
 
-boolean showAddShortcut = ((folder == null) || folder.isSupportsShortcuts()) && DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_SHORTCUT);
-
-boolean showAddRepository = (folderId == DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) && (DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_REPOSITORY));
-
-boolean showAddMultipleDocuments = ((folder == null) || folder.isSupportsMultipleUpload()) && DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_DOCUMENT);
+long repositoryId = GetterUtil.getLong((String)request.getAttribute("view.jsp-repositoryId"));
 
 boolean showAddDocument = DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_DOCUMENT) && (fileEntryTypesIsEmpty || showAddFileEntryTypes);
 
-boolean showAddDocumentSet = (fileEntryTypes.isEmpty() || ((folder == null) || folder.isSupportsMetadata()));
+boolean showAddFolder = DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_FOLDER);
+
+boolean showAddMultipleDocuments = ((folder == null) || folder.isSupportsMultipleUpload()) && DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_DOCUMENT);
+
+boolean showAddRepository = (folderId == DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) && (DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_REPOSITORY));
+
+boolean showAddShortcut = ((folder == null) || folder.isSupportsShortcuts()) && DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_SHORTCUT);
 %>
 
 <c:if test="<%= (showAddFolder || showAddShortcut || showAddRepository || showAddMultipleDocuments || showAddDocument) %>">
