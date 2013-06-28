@@ -90,41 +90,38 @@ boolean showAddShortcut = ((folder == null) || folder.isSupportsShortcuts()) && 
 		</c:if>
 
 		<c:if test="<%= showAddDocument %>">
-			<c:if test="<%= fileEntryTypesIsEmpty %>">
-				<portlet:renderURL var="editFileEntryURL">
-					<portlet:param name="struts_action" value="/document_library/edit_file_entry" />
-					<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.ADD %>" />
-					<portlet:param name="redirect" value="<%= currentURL %>" />
-					<portlet:param name="backURL" value="<%= currentURL %>" />
-					<portlet:param name="repositoryId" value="<%= String.valueOf(repositoryId) %>" />
-					<portlet:param name="folderId" value="<%= String.valueOf(folderId) %>" />
-				</portlet:renderURL>
-
-				<aui:nav-item href="<%= editFileEntryURL %>" iconClass="icon-file" label="basic-document" />
-			</c:if>
-
-			<c:if test="<%= showAddFileEntryTypes %>">
-
-				<%
-				for (DLFileEntryType fileEntryType : fileEntryTypes) {
-				%>
-
-					<portlet:renderURL var="addFileEntryTypeURL">
+			<c:choose>
+				<c:when test="<%= fileEntryTypesIsEmpty %>">
+					<portlet:renderURL var="editFileEntryURL">
 						<portlet:param name="struts_action" value="/document_library/edit_file_entry" />
 						<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.ADD %>" />
 						<portlet:param name="redirect" value="<%= currentURL %>" />
+						<portlet:param name="backURL" value="<%= currentURL %>" />
 						<portlet:param name="repositoryId" value="<%= String.valueOf(repositoryId) %>" />
 						<portlet:param name="folderId" value="<%= String.valueOf(folderId) %>" />
-						<portlet:param name="fileEntryTypeId" value="<%= String.valueOf(fileEntryType.getFileEntryTypeId()) %>" />
 					</portlet:renderURL>
 
-					<aui:nav-item href="<%= addFileEntryTypeURL %>" iconClass="icon-file" label="<%= HtmlUtil.escape(fileEntryType.getName(locale)) %>" />
+					<aui:nav-item href="<%= editFileEntryURL %>" iconClass="icon-file" label="basic-document" />
+				</c:when>
+				<c:when test="<%= showAddFileEntryTypes %>">
+					<%
+					for (DLFileEntryType fileEntryType : fileEntryTypes) {
+					%>
+						<portlet:renderURL var="addFileEntryTypeURL">
+							<portlet:param name="struts_action" value="/document_library/edit_file_entry" />
+							<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.ADD %>" />
+							<portlet:param name="redirect" value="<%= currentURL %>" />
+							<portlet:param name="repositoryId" value="<%= String.valueOf(repositoryId) %>" />
+							<portlet:param name="folderId" value="<%= String.valueOf(folderId) %>" />
+							<portlet:param name="fileEntryTypeId" value="<%= String.valueOf(fileEntryType.getFileEntryTypeId()) %>" />
+						</portlet:renderURL>
 
-				<%
-				}
-				%>
-
-			</c:if>
+						<aui:nav-item href="<%= addFileEntryTypeURL %>" iconClass="icon-file" label="<%= HtmlUtil.escape(fileEntryType.getName(locale)) %>" />
+					<%
+					}
+					%>
+				</c:when>
+			</c:choose>
 		</c:if>
 	</aui:nav-item>
 </c:if>
