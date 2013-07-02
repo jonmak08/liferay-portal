@@ -228,16 +228,20 @@
 
 	<target name="build-ckeditor">
 		<if>
-			<not>
-				<uptodate
-					srcfile="third-party/${ckeditor.file}"
-					targetfile="docroot/html/js/editor/ckeditor"
-				/>
-			</not>
+			<or>
+				<available file="docroot/html/js/editor/ckeditor_build_dev_flag" />
+				<not>
+					<uptodate
+						srcfile="third-party/${ckeditor.file}"
+						targetfile="docroot/html/js/editor/ckeditor"
+					/>
+				</not>
+			</or>
 			<then>
 				<delete dir="docroot/html/js/editor/ckeditor" />
+				<delete file="docroot/html/js/editor/ckeditor_build_dev_flag" />
 
-				<unzip src="third-party/${ckeditor.file}" dest="docroot/html/js/editor" />
+				<unzip src="third-party/${ckeditor.file}" dest="docroot/html/js/editor/ckeditor.build" />
 
 				<if>
 					<not>
@@ -245,10 +249,10 @@
 					</not>
 					<then>
 						<delete
-							dir="docroot/html/js/editor/ckeditor/dev/builder/release"
+							dir="docroot/html/js/editor/ckeditor.build/ckeditor/dev/builder/release"
 						/>
 
-						<replace file="docroot/html/js/editor/ckeditor/plugins/wysiwygarea/plugin.js">
+						<replace file="docroot/html/js/editor/ckeditor.build/ckeditor/plugins/wysiwygarea/plugin.js">
 							<replacetoken><![CDATA[var data = fullPage]]></replacetoken>
 							<replacevalue>
 								<![CDATA[
@@ -261,36 +265,38 @@
 							</replacevalue>
 						</replace>
 
+						<if>
+							<not>
+								<isset property="ckeditor.build.dev.unminified" />
+							</not>
+							<then>
+								<property name="ckeditor.build.dev.unminified" value="" />
+							</then>
+						</if>
+
 						<java
 							classname="ckbuilder.ckbuilder"
 							classpathref="project.classpath"
-							dir="${basedir}/docroot/html/js/editor/ckeditor/dev/builder"
+							dir="${basedir}/docroot/html/js/editor/ckeditor.build/ckeditor/dev/builder"
 							fork="true"
 							newenvironment="true"
 						>
 							<arg line="--build ../../" />
 							<arg line="release" />
 							<arg line="--version=&quot;4.0 STABLE&quot;" />
-							<arg line="--build-config ${basedir}/docroot/html/js/editor/ckeditor/dev/builder/build-config.js" />
+							<arg line="--build-config ${basedir}/docroot/html/js/editor/ckeditor.build/ckeditor/dev/builder/build-config.js" />
+							<arg line="${ckeditor.build.dev.unminified}" />
 						</java>
 					</then>
 				</if>
 
 				<move
-					file="docroot/html/js/editor/ckeditor/dev/builder/release/ckeditor"
-					preservelastmodified="true"
-					tofile="docroot/html/js/editor/ckeditor.tmp"
-				/>
-
-				<delete
-					dir="docroot/html/js/editor/ckeditor"
-				/>
-
-				<move
-					file="docroot/html/js/editor/ckeditor.tmp"
+					file="docroot/html/js/editor/ckeditor.build/ckeditor/dev/builder/release/ckeditor"
 					preservelastmodified="true"
 					tofile="docroot/html/js/editor/ckeditor"
 				/>
+
+				<delete dir="docroot/html/js/editor/ckeditor.build" />
 
 				<copy
 					file="docroot/html/js/editor/ckeditor/ckeditor.js"
@@ -321,6 +327,19 @@
 			<replacetoken><![CDATA[body = encodeURIComponent( email.body || '' );]]></replacetoken>
 			<replacevalue><![CDATA[body = email.body || ''; body = encodeURIComponent(body).replace(/%/g, '%25');]]></replacevalue>
 		</replace>
+	</target>
+
+	<target name="build-ckeditor-dev">
+		<delete dir="docroot/html/js/editor/ckeditor" />
+		<delete file="docroot/html/js/editor/ckeditor_diffs/ckeditor.js" />
+
+		<antcall target="build-ckeditor">
+			<param name="ckeditor.build.dev.unminified" value="--leave-css-unminified --leave-js-unminified" />
+		</antcall>
+
+		<delete file="docroot/html/js/editor/ckeditor_diffs/ckeditor.js" />
+
+		<touch file="docroot/html/js/editor/ckeditor_build_dev_flag" />
 	</target>
 
 	<target name="build-ckeditor-plugins-bbcode">
