@@ -134,19 +134,21 @@ if (Validator.isNotNull(structureAvailableFields)) {
 			<liferay-ui:panel collapsible="<%= true %>" defaultState="closed" extended="<%= false %>" id="templateDetailsSectionPanel" persistState="<%= true %>" title="details">
 				<c:if test="<%= ddmDisplay.isShowStructureSelector() %>">
 					<aui:field-wrapper helpMessage="structure-help" label="structure">
-						<c:choose>
-							<c:when test="<%= classPK == 0 %>">
-								<liferay-ui:icon
-									image="add"
-									label="<%= true %>"
-									message="select"
-									url='<%= "javascript:" + renderResponse.getNamespace() + "openDDMStructureSelector();" %>'
-								/>
-							</c:when>
-							<c:otherwise>
-								<%= (structure == null) ? "" : structure.getName(locale) %>
-							</c:otherwise>
-						</c:choose>
+						<span class="uneditable-input">
+							<c:choose>
+								<c:when test="<%= classPK == 0 %>">
+									<liferay-ui:icon
+										image="add"
+										label="<%= true %>"
+										message="select"
+										url='<%= "javascript:" + renderResponse.getNamespace() + "openDDMStructureSelector();" %>'
+									/>
+								</c:when>
+								<c:otherwise>
+									<%= (structure == null) ? "" : structure.getName(locale) %>
+								</c:otherwise>
+							</c:choose>
+						</span>
 					</aui:field-wrapper>
 				</c:if>
 
@@ -176,7 +178,9 @@ if (Validator.isNotNull(structureAvailableFields)) {
 
 				<c:if test="<%= template != null %>">
 					<aui:field-wrapper helpMessage="template-key-help" label="template-key">
-						<%= template.getTemplateKey() %>
+						<span class="uneditable-input">
+							<%= template.getTemplateKey() %>
+						</span>
 					</aui:field-wrapper>
 
 					<aui:field-wrapper label="url">
@@ -385,9 +389,6 @@ if (Validator.isNotNull(structureAvailableFields)) {
 					basePortletURL: '<%= PortletURLFactoryUtil.create(request, PortletKeys.DYNAMIC_DATA_MAPPING, themeDisplay.getPlid(), PortletRequest.RENDER_PHASE) %>',
 					classNameId: '<%= PortalUtil.getClassNameId(DDMStructure.class) %>',
 					classPK: 0,
-					dialog: {
-						zIndex: Liferay.zIndex.WINDOW + 2
-					},
 					eventName: '<portlet:namespace />selectStructure',
 					groupId: <%= groupId %>,
 					refererPortletName: '<%= PortletKeys.JOURNAL %>',

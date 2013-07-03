@@ -79,7 +79,9 @@ portletURL.setParameter("modelResource", modelResource);
 				<aui:field-wrapper helpMessage="custom-field-key-help" label="key">
 					<aui:input name="name" type="hidden" value="<%= column.getName() %>" />
 
-					<%= HtmlUtil.escape(column.getName()) %>
+					<span class="uneditable-input">
+						<%= HtmlUtil.escape(column.getName()) %>
+					</span>
 				</aui:field-wrapper>
 			</c:when>
 			<c:otherwise>
@@ -92,7 +94,9 @@ portletURL.setParameter("modelResource", modelResource);
 				<aui:field-wrapper label="type">
 					<aui:input name="type" type="hidden" value="<%= type %>" />
 
-					<liferay-ui:message key="<%= ExpandoColumnConstants.getTypeLabel(type) %>" />
+					<span class="uneditable-input">
+						<liferay-ui:message key="<%= ExpandoColumnConstants.getTypeLabel(type) %>" />
+					</span>
 				</aui:field-wrapper>
 			</c:when>
 			<c:otherwise>
@@ -275,6 +279,7 @@ portletURL.setParameter("modelResource", modelResource);
 <aui:script>
 	function <portlet:namespace />saveExpando(options) {
 		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = "<%= (column == null) ? Constants.ADD : Constants.UPDATE %>";
+
 		submitForm(document.<portlet:namespace />fm);
 	}
 </aui:script>

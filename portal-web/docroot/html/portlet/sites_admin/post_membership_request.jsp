@@ -53,7 +53,9 @@ MembershipRequest membershipRequest = (MembershipRequest)request.getAttribute(We
 	<aui:fieldset>
 		<c:if test="<%= Validator.isNotNull(group.getDescription()) %>">
 			<aui:field-wrapper label="description">
-				<%= HtmlUtil.escape(group.getDescription()) %>
+				<span class="uneditable-input">
+					<%= HtmlUtil.escape(group.getDescription()) %>
+				</span>
 			</aui:field-wrapper>
 		</c:if>
 

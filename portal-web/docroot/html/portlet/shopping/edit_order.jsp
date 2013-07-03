@@ -58,7 +58,7 @@ long orderId = BeanParamUtil.getLong(order, request, "orderId");
 		</c:otherwise>
 	</c:choose>
 
-	<table class="lfr-table">
+	<table class="lfr-table table">
 	<tr>
 		<td>
 			<liferay-ui:message key="order" /> #:
@@ -87,14 +87,14 @@ long orderId = BeanParamUtil.getLong(order, request, "orderId");
 
 	<br />
 
-	<table class="lfr-table">
+	<table class="lfr-table table">
 	<tr>
 		<td>
 			<strong><liferay-ui:message key="billing-address" /></strong>
 
 			<br /><br />
 
-			<table class="lfr-table">
+			<table class="lfr-table table">
 			<tr>
 				<td>
 					<liferay-ui:message key="first-name" />:
@@ -182,7 +182,7 @@ long orderId = BeanParamUtil.getLong(order, request, "orderId");
 
 			<br /><br />
 
-			<table class="lfr-table">
+			<table class="lfr-table table">
 			<tr>
 				<td>
 					<liferay-ui:message key="first-name" />:
@@ -313,7 +313,7 @@ long orderId = BeanParamUtil.getLong(order, request, "orderId");
 
 			<br /><br />
 
-			<table class="lfr-table">
+			<table class="lfr-table table">
 			<tr>
 				<td>
 					<liferay-ui:message key="full-name" />:
@@ -367,11 +367,11 @@ long orderId = BeanParamUtil.getLong(order, request, "orderId");
 	<c:if test="<%= Validator.isNotNull(order.getComments()) %>">
 		<strong><liferay-ui:message key="comments" /></strong>
 
-		<br /><br />
+		<div class="well">
 
 		<%= order.getComments() %>
 
-		<br /><br />
+		</div>
 	</c:if>
 
 	<%
@@ -597,17 +597,20 @@ long orderId = BeanParamUtil.getLong(order, request, "orderId");
 	function <portlet:namespace />deleteOrder() {
 		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = "<%= Constants.DELETE %>";
 		document.<portlet:namespace />fm.<portlet:namespace />redirect.value = "<%= HtmlUtil.escapeURL(redirect) %>";
+
 		submitForm(document.<portlet:namespace />fm);
 	}
 
 	function <portlet:namespace />saveOrder() {
 		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = "<%= Constants.UPDATE %>";
+
 		submitForm(document.<portlet:namespace />fm);
 	}
 
 	function <portlet:namespace />sendEmail(emailType) {
 		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = "sendEmail";
 		document.<portlet:namespace />fm.<portlet:namespace />emailType.value = emailType;
+
 		submitForm(document.<portlet:namespace />fm);
 	}
 </aui:script>

@@ -45,7 +45,8 @@ if (organizationId > 0) {
 
 		<div id="<portlet:namespace />usersSelectionOptions">
 			<aui:field-wrapper label="organization">
-				<span id="<portlet:namespace />organizationName"><%= HtmlUtil.escape(organizationName) %></span>
+				<span id="<portlet:namespace />organizationName" class="uneditable-input"><%= HtmlUtil.escape(organizationName) %></span>
+				<br />
 
 				<aui:button name="selectOrganizationButton" value="select" />
 
@@ -121,7 +122,6 @@ if (organizationId > 0) {
 					dialog: {
 						constrain: true,
 						modal: true,
-						zIndex: Liferay.zIndex.WINDOW + 2,
 						width: 600
 					},
 					id: '<portlet:namespace />selectOrganization',

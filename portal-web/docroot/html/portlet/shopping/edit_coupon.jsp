@@ -75,7 +75,9 @@ String discountType = BeanParamUtil.getString(coupon, request, "discountType");
 			</c:when>
 			<c:otherwise>
 				<aui:field-wrapper label="code">
-					<%= HtmlUtil.escape(code) %>
+					<span class="uneditable-input">
+						<%= HtmlUtil.escape(code) %>
+					</span>
 				</aui:field-wrapper>
 			</c:otherwise>
 		</c:choose>
@@ -161,6 +163,7 @@ String discountType = BeanParamUtil.getString(coupon, request, "discountType");
 <aui:script>
 	function <portlet:namespace />saveCoupon() {
 		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = "<%= (coupon == null) ? Constants.ADD : Constants.UPDATE %>";
+
 		submitForm(document.<portlet:namespace />fm);
 	}
 

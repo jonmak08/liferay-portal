@@ -61,7 +61,9 @@ if (group.isOrganization()) {
 	<aui:fieldset>
 		<c:if test="<%= team != null %>">
 			<aui:field-wrapper label="team-id">
-				<%= team.getTeamId() %>
+				<span class="uneditable-input">
+					<%= team.getTeamId() %>
+				</span>
 			</aui:field-wrapper>
 		</c:if>
 
@@ -80,6 +82,7 @@ if (group.isOrganization()) {
 <aui:script>
 	function <portlet:namespace />saveTeam() {
 		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = "<%= (team == null) ? Constants.ADD : Constants.UPDATE %>";
+
 		submitForm(document.<portlet:namespace />fm);
 	}
 </aui:script>

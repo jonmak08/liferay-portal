@@ -146,7 +146,9 @@ if (feed != null) {
 			</c:when>
 			<c:otherwise>
 				<aui:field-wrapper label="id">
-					<%= HtmlUtil.escape(feedId) %>
+					<span class="input-medium uneditable-input">
+						<%= HtmlUtil.escape(feedId) %>
+					</span>
 				</aui:field-wrapper>
 			</c:otherwise>
 		</c:choose>
@@ -354,8 +356,7 @@ if (feed != null) {
 				basePortletURL: '<%= PortletURLFactoryUtil.create(request, PortletKeys.DYNAMIC_DATA_MAPPING, themeDisplay.getPlid(), PortletRequest.RENDER_PHASE) %>',
 				classPK: <%= (ddmStructure != null) ? ddmStructure.getPrimaryKey(): 0 %>,
 				dialog: {
-					destroyOnHide: true,
-					zIndex: (++Liferay.zIndex.WINDOW)
+					destroyOnHide: true
 				},
 				eventName: '<portlet:namespace />selectStructure',
 				groupId: <%= groupId %>,

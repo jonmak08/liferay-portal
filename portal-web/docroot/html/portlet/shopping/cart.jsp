@@ -54,6 +54,7 @@ boolean minQuantityMultiple = PrefsPropsUtil.getBoolean(company.getCompanyId(), 
 	function <portlet:namespace />emptyCart() {
 		document.<portlet:namespace />fm.<portlet:namespace />itemIds.value = "";
 		document.<portlet:namespace />fm.<portlet:namespace />couponCodes.value = "";
+
 		submitForm(document.<portlet:namespace />fm);
 	}
 
@@ -82,6 +83,7 @@ boolean minQuantityMultiple = PrefsPropsUtil.getBoolean(company.getCompanyId(), 
 		%>
 
 		document.<portlet:namespace />fm.<portlet:namespace />itemIds.value = itemIds;
+
 		submitForm(document.<portlet:namespace />fm);
 	}
 </aui:script>
@@ -397,7 +399,9 @@ boolean minQuantityMultiple = PrefsPropsUtil.getBoolean(company.getCompanyId(), 
 
 		<aui:field-wrapper label="subtotal">
 			<c:if test="<%= subtotal == actualSubtotal %>">
-				<%= currencyFormat.format(subtotal) %>
+				<span class="uneditable-input">
+					<%= currencyFormat.format(subtotal) %>
+				</span>
 			</c:if>
 
 			<c:if test="<%= subtotal != actualSubtotal %>">
@@ -416,7 +420,9 @@ boolean minQuantityMultiple = PrefsPropsUtil.getBoolean(company.getCompanyId(), 
 		<c:choose>
 			<c:when test="<%= !shoppingPrefs.useAlternativeShipping() %>">
 				<aui:field-wrapper label="shipping">
-					<%= currencyFormat.format(ShoppingUtil.calculateShipping(items)) %>
+					<span class="uneditable-input">
+						<%= currencyFormat.format(ShoppingUtil.calculateShipping(items)) %>
+					</span>
 				</aui:field-wrapper>
 			</c:when>
 			<c:otherwise>
