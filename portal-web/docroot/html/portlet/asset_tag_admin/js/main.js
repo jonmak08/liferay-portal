@@ -117,14 +117,26 @@ AUI.add(
 						instance._stagedTagsWrapper = A.one('.selected-tags-wrapper');
 						instance._tagsList = A.one('.tags-admin-list');
 
-						instance._stagedTagsList = instance._stagedTagsWrapper.one('.tag-staging-area');
+						instance._stagedTagsList = instance._stagedTagsWrapper.one('.token-container');
+
+						instance._tokenList = new Liferay.TokenList(
+							{
+								after: {
+									close: function(event) {
+										var item = event.item;
+
+										instance._checkTag(item, false);
+
+										instance._toggleStagedTagsWrapper();
+									}
+								},
+								boundingBox: '.tag-staging-area',
+								contentBox: '.token-container'
+							}
+						).render();
 
 						instance._tagsMessageContainer = Node.create(TPL_TAGS_MESSAGES);
 						instance._portletMessageContainer = Node.create(TPL_PORTLET_MESSAGES);
-
-						instance._stagedTagsList.append(Node.create('<ul />'));
-
-						instance._stagedTagsList = instance._stagedTagsList.one('ul');
 
 						instance._container.placeBefore(instance._portletMessageContainer);
 
@@ -136,18 +148,6 @@ AUI.add(
 						};
 
 						instance._hideMessageTask = A.debounce('hide', 7000, instance._portletMessageContainer);
-
-						instance._stagedTagsList.delegate(
-							EVENT_CLICK,
-							function(event) {
-								var tagItem = event.target.ancestor('li');
-
-								instance._removeStagedTagItem(tagItem);
-
-								instance._checkTag(tagItem, false);
-							},
-							'.close'
-						);
 
 						instance._tagsList.on(EVENT_CLICK, instance._onTagsListClick, instance);
 						instance._tagsList.on('key', instance._onTagsListClick, 'up:13', instance);
@@ -344,7 +344,7 @@ AUI.add(
 					_checkTag: function(node, checked) {
 						var instance = this;
 
-						var tagId = instance._getTagId(node);
+						var tagId = node.attr('data-fieldValues');
 
 						var tagCheck = instance._getTagCheck(tagId);
 
@@ -517,7 +517,7 @@ AUI.add(
 
 						if (tagsNodes.size() > 0) {
 							if (confirm(Liferay.Language.get('are-you-sure-you-want-to-delete-the-selected-tags'))) {
-								var checkedItemsIds = tagsNodes.attr('data-tagId');
+								var checkedItemsIds = tagsNodes.attr('data-fieldValues');
 
 								if (checkedItemsIds.length > 0) {
 									Liferay.Service(
@@ -537,12 +537,6 @@ AUI.add(
 
 					_deleteTag: function(tagId, callback) {
 						var instance = this;
-
-						var deletedTag = instance._getTagCheck(tagId);
-
-						if (deletedTag.attr('checked')) {
-							instance._removeStagedTagItem(deletedTag);
-						}
 
 						Liferay.Service(
 							'/assettag/delete-tag',
@@ -716,13 +710,13 @@ AUI.add(
 					_getStagedTag: function(tagId) {
 						var instance = this;
 
-						return instance._stagedTagsList.one('li[data-tagId="' + tagId + '"]');
+						return instance._stagedTagsList.one('.lfr-token[data-fieldValues="' + tagId + '"]');
 					},
 
 					_getStagedTags: function() {
 						var instance = this;
 
-						return instance._stagedTagsList.all('li');
+						return instance._stagedTagsList.all('.lfr-token');
 					},
 
 					_getTag: function(tagId) {
@@ -1125,9 +1119,9 @@ AUI.add(
 
 									instance._selectTag(toTagId);
 
-									var fromTag = instance._getStagedTag(fromTagId);
-
-									instance._removeStagedTagItem(fromTag);
+									if (instance._getStagedTag(fromTagId)) {
+										instance._removeStagedTagItem(node);
+									}
 								}
 							);
 						}
@@ -1139,8 +1133,8 @@ AUI.add(
 						var selectedTagsNodes = instance._getStagedTags();
 
 						if (selectedTagsNodes.size() > 1) {
-							var checkedItemsIds = selectedTagsNodes.attr('data-tagId');
-							var checkedItemsName = selectedTagsNodes.attr('data-tag');
+							var checkedItemsIds = selectedTagsNodes.attr('data-fieldValues');
+							var checkedItemsName = selectedTagsNodes.attr('data-clearFields');
 
 							var tagPanelMerge = instance._getTagPanelMerge();
 
@@ -1541,19 +1535,9 @@ AUI.add(
 
 						var selectedTag = instance._getStagedTag(tagId);
 
-						selectedTag.transition(
-							{
-								duration: 0.25,
-								easing: 'ease-out',
-								opacity: 0
-							},
-							function() {
-								this.remove();
+						selectedTag.remove();
 
-								instance._stagedTagsWrapper.toggle(!!instance._getStagedTags().size());
-							}
-						);
-
+						instance._toggleStagedTagsWrapper();
 					},
 
 					_resetTagsProperties: function(event) {
@@ -1708,16 +1692,20 @@ AUI.add(
 
 						var tagName = instance._getTagName(tagItem.ancestor('li'));
 
-						var tagHTML = '<li class="" data-tagId="' + tagId +'" data-tag="' + tagName + '">' +
-							'<span>' + tagName + '</span>' +
-							'<button class="close" type="button">' +
-								'<icon class="icon-remove" />' +
-							'</button>' +
-						'</li>';
+						instance._tokenList.add(
+							{
+								clearFields: tagName,
+								fieldValues: tagId,
+								text: tagName
+							}
+						);
 
-						instance._stagedTagsList.append(Node.create(tagHTML));
-
-						instance._stagedTagsWrapper.toggle(!!instance._getStagedTags().size());
+						setTimeout(
+							function() {
+								instance._toggleStagedTagsWrapper();
+							},
+							100
+						);
 					},
 
 					_toggleStagedTagItem: function(tagItem) {
@@ -1731,6 +1719,12 @@ AUI.add(
 						else {
 							instance._removeStagedTagItem(tagItem);
 						}
+					},
+
+					_toggleStagedTagsWrapper: function() {
+						var instance = this;
+
+						instance._stagedTagsWrapper.toggle(!!instance._getStagedTags().size());
 					},
 
 					_updateMergeItemsTarget: function() {
@@ -1818,6 +1812,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-button', 'aui-dialog-iframe-deprecated', 'aui-io-plugin-deprecated', 'aui-loading-mask-deprecated', 'aui-pagination', 'aui-tree-view', 'autocomplete-base', 'dd', 'json', 'liferay-history-manager', 'liferay-portlet-url', 'liferay-util-window', 'transition']
+		requires: ['aui-button', 'aui-dialog-iframe-deprecated', 'aui-io-plugin-deprecated', 'aui-loading-mask-deprecated', 'aui-pagination', 'aui-tree-view', 'autocomplete-base', 'dd', 'json', 'liferay-history-manager', 'liferay-portlet-url', 'liferay-token-list', 'liferay-util-window']
 	}
 );
