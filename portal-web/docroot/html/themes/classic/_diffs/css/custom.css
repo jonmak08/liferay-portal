@@ -344,6 +344,15 @@ $dockbarOpenGradientStart: #00A0FF;
 		margin-bottom: 3px;
 	}
 
+	.lfr-icon-actions {
+		a:hover {
+			text-decoration: none;
+			span {
+				text-decoration: underline;
+			}
+		}
+	}
+
 	/* ---------- Extras ---------- */
 
 	#navigation {
