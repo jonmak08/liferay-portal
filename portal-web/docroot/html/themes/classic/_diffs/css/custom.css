@@ -513,4 +513,9 @@ $dockbarOpenGradientStart: #00A0FF;
 			}
 		}
 	}
+	
+	.input-localized .input-localized-content {
+		margin-left: 6px;
+		margin-top: 0;
+	}
 }
