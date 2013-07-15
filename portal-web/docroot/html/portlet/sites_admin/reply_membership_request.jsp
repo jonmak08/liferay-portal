@@ -76,26 +76,23 @@ MembershipRequest membershipRequest = (MembershipRequest)request.getAttribute(We
 
 	<aui:model-context bean="<%= membershipRequest %>" model="<%= MembershipRequest.class %>" />
 
-	<aui:fieldset>
-		<c:if test="<%= Validator.isNotNull(group.getDescription()) %>">
-			<aui:field-wrapper label="description">
-				<span class="uneditable-input input-medium">
-					<%= HtmlUtil.escape(group.getDescription()) %>
-				</span>
-			</aui:field-wrapper>
-		</c:if>
+	<c:if test="<%= Validator.isNotNull(group.getDescription()) %>">
+		<aui:field-wrapper>
+		<h4><liferay-ui:message key="description" /></h4>
+		<p>
+			<%= HtmlUtil.escape(group.getDescription()) %>
+		</p>
+	</aui:field-wrapper>
+	</c:if>
 
+	<aui:fieldset>
 		<aui:field-wrapper label="user-name">
-			<span class="uneditable-input input-medium">
+			<span class="uneditable-input">
 				<%= HtmlUtil.escape(PortalUtil.getUserName(membershipRequest.getUserId(), StringPool.BLANK)) %>
 			</span>
 		</aui:field-wrapper>
 
-		<aui:field-wrapper label="user-comments">
-			<span class="uneditable-input">
-				<%= HtmlUtil.escape(membershipRequest.getComments()) %>
-			</span>
-		</aui:field-wrapper>
+		<aui:input name="userComments" readonly="<%= true %>" type="textarea" value="<%= HtmlUtil.escape(membershipRequest.getComments()) %>" />
 
 		<aui:select autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" label="status" name="statusId">
 			<aui:option label="approve" value="<%= MembershipRequestConstants.STATUS_APPROVED %>" />

@@ -398,15 +398,19 @@ boolean minQuantityMultiple = PrefsPropsUtil.getBoolean(company.getCompanyId(), 
 		%>
 
 		<aui:field-wrapper label="subtotal">
-			<c:if test="<%= subtotal == actualSubtotal %>">
-				<span class="uneditable-input">
-					<%= currencyFormat.format(subtotal) %>
-				</span>
-			</c:if>
-
-			<c:if test="<%= subtotal != actualSubtotal %>">
-				<strike><%= currencyFormat.format(subtotal) %></strike> <div class="alert alert-success"><%= currencyFormat.format(actualSubtotal) %></div>
-			</c:if>
+			<c:choose>
+				<c:when test="<%= subtotal == actualSubtotal %>">
+					<span class="uneditable-input">
+						<%= currencyFormat.format(subtotal) %>
+					</span>
+				</c:when>
+				<c:otherwise>
+					<div class="alert alert-success">
+						<strike><%= currencyFormat.format(subtotal) %></strike>
+						<%= currencyFormat.format(actualSubtotal) %>
+					</div>
+				</c:otherwise>
+			</c:choose>
 		</aui:field-wrapper>
 
 		<c:if test="<%= subtotal != actualSubtotal %>">

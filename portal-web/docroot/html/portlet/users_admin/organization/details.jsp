@@ -114,7 +114,7 @@ User selUser = (User)request.getAttribute("user.selUser");
 
 	<c:if test="<%= organization != null %>">
 		<aui:field-wrapper label="site-id">
-			<span class="uneditable-input input-medium">
+			<span class="input-small uneditable-input">
 				<%= groupId %>
 			</span>
 		</aui:field-wrapper>
