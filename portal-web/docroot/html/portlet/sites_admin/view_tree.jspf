@@ -173,6 +173,8 @@ if (groupId != GroupConstants.DEFAULT_PARENT_GROUP_ID) {
 
 			<c:if test="<%= !results.isEmpty() %>">
 				<aui:button disabled="<%= true %>" name="delete" onClick='<%= renderResponse.getNamespace() + "deleteSites();" %>' value="delete" />
+				<br>
+				<br>
 			</c:if>
 
 			<liferay-ui:search-container-row
