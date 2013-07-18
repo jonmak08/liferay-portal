@@ -18,7 +18,7 @@
 
 <liferay-ui:icon-menu
 	cssClass="portlet-options"
-	direction="down"
+	direction="left"
 	extended="<%= false %>"
 	icon=""
 	message="options"
