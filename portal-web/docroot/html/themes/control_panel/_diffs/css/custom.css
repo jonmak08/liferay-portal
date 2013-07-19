@@ -781,6 +781,10 @@ $dockbarOpenGradientStart: #0EA6F9;
 		}
 	}
 
+	.lfr-search-container {
+		margin-top: 1em;
+	}
+
 	/* ---------- Media Queries ---------- */
 
 	@include respond-to(phone, tablet) {
