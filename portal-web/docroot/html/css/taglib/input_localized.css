@@ -9,10 +9,6 @@
 		@include opacity(1);
 	}
 
-	.input-localized-content {
-		margin-top: -8px;
-	}
-
 	&.input-localized-editor .input-localized-content {
 		margin-top: 0;
 	}
