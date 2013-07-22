@@ -14,15 +14,19 @@ AUI.add(
 
 		var ACTION_VIEW = 2;
 
+		var ADD_PANEL = 'addPanel';
+
 		var CSS_ACTIVE_AREA = 'active-area';
 
-		var CSS_MESSAGE_ERROR = 'alert alert-error';
+		var CSS_MESSAGE_ERROR = 'alert-error';
 
-		var CSS_MESSAGE_SUCCESS = 'alert alert-success';
+		var CSS_MESSAGE_SUCCESS = 'alert-success';
 
 		var CSS_TAG_DIALOG = 'portlet-asset-tag-admin-dialog';
 
 		var DRAG_NODE = 'dragNode';
+
+		var EDIT_PANEL = 'editPanel';
 
 		var EVENT_CLICK = 'click';
 
@@ -42,9 +46,9 @@ AUI.add(
 
 		var NODE = 'node';
 
-		var SELECTOR_TAG_MESSAGES_EDIT = '#tagMessagesEdit';
+		var TAG_MESSAGES = 'TagMessages';
 
-		var TPL_PORTLET_MESSAGES = '<div class="hide lfr-message-response" id="portletMessages" />';
+		var TPL_PORTLET_MESSAGES = '<div class="alert hide lfr-message-response" id="portletMessages" />';
 
 		var TPL_TAG_LIST_CONTAINER = '<ul class="nav nav-pills nav-stacked">';
 
@@ -99,6 +103,8 @@ AUI.add(
 			'</div>';
 
 		var TPL_TAG_MERGE_ITEM = '<option value="{value}" title="{name}" active>{name}</option>';
+
+		var TPL_TAG_PANEL_MESSAGES = '<div class="alert hide lfr-message-response" id="{namespace}{panel}TagMessages" />';
 
 		var TPL_TAGS_MESSAGES = '<div class="alert alert-info hide lfr-message-response" id="tagsMessages" />';
 
@@ -412,6 +418,20 @@ AUI.add(
 						);
 
 						return instance._tagPanelEdit;
+					},
+
+					_createTagPanelMessage: function(panel) {
+						var instance = this;
+
+						var tplValues = {
+							namespace: instance._prefixedPortletId,
+							panel: panel
+						};
+
+						var tagPanelMessageTpl = Lang.sub(TPL_TAG_PANEL_MESSAGES, tplValues);
+						var tagPanelMessage = Node.create(tagPanelMessageTpl);
+
+						return tagPanelMessage;
 					},
 
 					_createTagPanelPermissions: function() {
@@ -978,6 +998,10 @@ AUI.add(
 
 						var tagFormAdd = tagPanelAdd.get('contentBox').one('form.update-tag-form');
 
+						var tagPanelMessage = instance._createTagPanelMessage(ADD_PANEL);
+
+						tagFormAdd.prepend(tagPanelMessage);
+
 						tagFormAdd.detach(EVENT_SUBMIT);
 
 						tagFormAdd.on(EVENT_SUBMIT, instance._onTagFormSubmit, instance, tagFormAdd);
@@ -1019,6 +1043,10 @@ AUI.add(
 						var tagPanelEdit = instance._tagPanelEdit;
 
 						var tagFormEdit = tagPanelEdit.get('contentBox').one('form.update-tag-form');
+
+						var tagPanelMessage = instance._createTagPanelMessage(EDIT_PANEL);
+
+						tagFormEdit.prepend(tagPanelMessage);
 
 						tagFormEdit.detach(EVENT_SUBMIT);
 
@@ -1369,7 +1397,9 @@ AUI.add(
 					_onTagUpdateFailure: function(response) {
 						var instance = this;
 
-						instance._sendMessage(MESSAGE_TYPE_ERROR, Liferay.Language.get('your-request-failed-to-complete'), true, SELECTOR_TAG_MESSAGES_EDIT);
+						var containerSelector = '#' + instance._prefixedPortletId + instance._currentPanel + TAG_MESSAGES;
+
+						instance._sendMessage(MESSAGE_TYPE_ERROR, Liferay.Language.get('your-request-failed-to-complete'), true, containerSelector);
 					},
 
 					_onTagUpdateSuccess: function(response) {
@@ -1414,7 +1444,9 @@ AUI.add(
 								errorText = Liferay.Language.get('your-request-failed-to-complete');
 							}
 
-							instance._sendMessage(MESSAGE_TYPE_ERROR, errorText, autoHide, SELECTOR_TAG_MESSAGES_EDIT);
+							var containerSelector = '#' + instance._prefixedPortletId + instance._currentPanel + TAG_MESSAGES;
+
+							instance._sendMessage(MESSAGE_TYPE_ERROR, errorText, autoHide, containerSelector);
 						}
 					},
 
@@ -1597,7 +1629,7 @@ AUI.add(
 						var instance = this;
 
 						var output = A.one(container || instance._portletMessageContainer);
-						var typeClass = 'alert alert-' + type;
+						var typeClass = 'alert-' + type;
 
 						output.removeClass(CSS_MESSAGE_ERROR).removeClass(CSS_MESSAGE_SUCCESS);
 						output.addClass(typeClass);
@@ -1663,6 +1695,8 @@ AUI.add(
 
 							instance._focusTagPanelAdd();
 						}
+
+						instance._currentPanel = ADD_PANEL;
 					},
 
 					_showTagPanelEdit: function() {
@@ -1698,6 +1732,8 @@ AUI.add(
 						if (forceStart) {
 							tagPanelEdit.io.start();
 						}
+
+						instance._currentPanel = EDIT_PANEL;
 					},
 
 					_stageTagItem: function(tagItem) {
