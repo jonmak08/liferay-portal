@@ -57,6 +57,9 @@ AUI().ready(
 									if (!modal) {
 										redirectPage();
 									}
+									else {
+										Liferay.Util.focusFormField(modal.get('bodyContent').item(0).one(':text'));
+									}
 								}
 							}
 						}
