@@ -118,23 +118,52 @@ AUI.add(
 
 					_onImageLoad: function(event) {
 						var instance = this;
-
 						var imageCropper = instance._imageCropper;
 						var portraitPreviewImg = instance._portraitPreviewImg;
 
 						if (portraitPreviewImg.attr('src').indexOf('spacer.png') == -1) {
-							var cropHeight = portraitPreviewImg.height();
-							var cropWidth = portraitPreviewImg.width();
+							var cropWidth = portraitPreviewImg.get('clientWidth');
+							var cropHeight = portraitPreviewImg.get('scrollHeight');
+							var scrollHeight = A.one('#_2_fm').get('scrollHeight');
+							var winWidth = cropWidth + 200;
+							var winHeight = scrollHeight + 200;
+							var preserveRatio = false, newRatio = false;
 
-							if (cropHeight > 50) {
-								cropHeight *= 0.3;
+							if (cropWidth > 600) {
+								cropWidth *= 0.3, cropHeight *= 0.3;
 							}
 
-							if (cropWidth > 50) {
-								cropHeight *= 0.3;
+							if (cropHeight > cropWidth && cropHeight != cropWidth) {
+								preserveRatio = true;
+								cropHeight = cropWidth * 0.83;
 							}
 
 							if (imageCropper) {
+								portraitPreviewImg = instance._portraitPreviewImg;
+								preserveRatio = imageCropper.get('preserveRatio');
+								cropWidth = portraitPreviewImg.get('clientWidth');
+								cropHeight = portraitPreviewImg.get('scrollHeight');
+								winWidth = cropWidth + 200;
+
+								if (cropWidth > 600) {
+									cropWidth *= 0.3, cropHeight *= 0.3;
+								}
+
+								if (cropHeight > cropWidth && cropHeight != cropWidth) {
+									newRatio = true;
+								}
+								else {
+									newRatio = false;
+								}
+
+								if (newRatio) {
+									cropHeight = cropWidth * 0.83;
+								}
+
+								if (newRatio != preserveRatio) {
+									imageCropper._uiSetPreserveRatio(newRatio);
+								}
+
 								imageCropper.enable();
 
 								imageCropper.syncImageUI();
@@ -147,18 +176,22 @@ AUI.add(
 										y: 0
 									}
 								);
+
 							}
 							else {
 								imageCropper = new A.ImageCropper(
 									{
 										cropHeight: cropHeight,
 										cropWidth: cropWidth,
-										srcNode: portraitPreviewImg
+										srcNode: portraitPreviewImg,
+										preserveRatio: preserveRatio
 									}
 								).render();
 
 								instance._imageCropper = imageCropper;
 							}
+
+							window.resizeTo(winWidth, winHeight);
 
 							Liferay.Util.toggleDisabled(instance._submitButton, false);
 						}
