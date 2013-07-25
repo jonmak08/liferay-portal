@@ -19,13 +19,22 @@
 		font-family: monospace;
 		overflow-x: auto;
 		white-space: pre;
-	}
 
-	.code-lines {
-		border-right: 1px solid #CCC;
-		color: #000;
-		margin-right: 5px;
-		padding: 0px 5px 0px 5px;
+		.code-lines {
+			color: #000;
+			display: block;
+			text-align: right;
+		}
+
+		.code-table .code-row td {
+			background: #FFF;
+			border-width: 0;
+
+			&.line-nums {
+				border-right-width: 1px;
+				padding: 0 8px;
+			}
+		}
 	}
 
 	.quote {
