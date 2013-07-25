@@ -36,7 +36,7 @@ decimalFormat.setMinimumFractionDigits(2);
 
 <input type="submit" value="<liferay-ui:message key="convert" />" />
 
-<input autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" name="<portlet:namespace />number" size="3" type="text" value="<%= number %>" />
+<input <%= windowState.equals(WindowState.MAXIMIZED) ? "autoFocus" : StringPool.BLANK %> name="<portlet:namespace />number" size="3" type="text" value="<%= number %>" />
 
 <select name="<portlet:namespace />from">
 

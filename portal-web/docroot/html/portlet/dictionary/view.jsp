@@ -18,7 +18,7 @@
 
 <form name="<portlet:namespace />fm" onSubmit="window.open(document.<portlet:namespace />fm.<portlet:namespace />type[document.<portlet:namespace />fm.<portlet:namespace />type.selectedIndex].value + encodeURIComponent(document.<portlet:namespace />fm.<portlet:namespace />word.value)); return false;">
 
-<input autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" name="<portlet:namespace />word" size="30" type="text" />
+<input <%= windowState.equals(WindowState.MAXIMIZED) ? "autoFocus" : StringPool.BLANK %> name="<portlet:namespace />word" size="30" type="text" />
 
 <select name="<portlet:namespace />type">
 	<option value="http://dictionary.reference.com/search?q="><liferay-ui:message key="dictionary" /></option>

@@ -75,7 +75,7 @@ portletURL.setParameter("tag", StringPool.BLANK);
 					<aui:input name="searchFolderIds" type="hidden" value="<%= folderId %>" />
 
 					<div class="input-append">
-						<input autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" class="search-query span9" id="<portlet:namespace/>keywords1" name="<portlet:namespace/>keywords" placeholder="<liferay-ui:message key="keywords" />" type="text" />
+						<input <%= windowState.equals(WindowState.MAXIMIZED) ? "autoFocus" : StringPool.BLANK %> class="search-query span9" id="<portlet:namespace/>keywords1" name="<portlet:namespace/>keywords" placeholder="<liferay-ui:message key="keywords" />" type="text" />
 
 						<aui:button primary="<%= false %>" type="submit" value="search" />
 					</div>
