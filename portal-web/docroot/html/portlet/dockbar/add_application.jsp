@@ -186,6 +186,10 @@ refererURL.setParameter("updateLayout", "true");
 		}
 	);
 
+	addApplication.get('search').on('results', function(event) {
+		A.one('#addApplicationPanelContainer').all('.toggler-content-expanded .lfr-content-item [data-draggable="true"]').setAttribute('tabindex', 0);
+	});
+
 	addApplication.plug(
 		Liferay.Dockbar.PortletDragDrop,
 		{
@@ -202,4 +206,38 @@ refererURL.setParameter("updateLayout", "true");
 			srcNode: '#<portlet:namespace />applicationList'
 		}
 	);
+</aui:script>
+
+<aui:script use="node,simulate">
+	var CSS_CONTENT_ITEM = '.toggler-content-expanded .lfr-content-item [data-draggable="true"]';
+
+	var panelContainer = A.one('#addApplicationPanelContainer');
+
+	panelContainer.delegate(
+		'blur',
+		function(event) {
+			event.currentTarget.siblings().item(0).setStyle('display', 'none');
+		},
+		CSS_CONTENT_ITEM
+	);
+
+	panelContainer.delegate(
+		'focus',
+		function(event) {
+			event.currentTarget.siblings().item(0).setStyle('display', 'inline-block');
+		},
+		CSS_CONTENT_ITEM
+	);
+
+	panelContainer.delegate(
+		'keypress',
+		function(event) {
+			if (event.keyCode === 13) {
+				event.currentTarget.siblings().item(0).simulate('click');
+			}
+		},
+		CSS_CONTENT_ITEM
+	);
+
+	panelContainer.all(CSS_CONTENT_ITEM).setAttribute('tabindex', 0);
 </aui:script>

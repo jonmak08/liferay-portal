@@ -20,6 +20,12 @@ AUI.add(
 
 		var AddApplication = A.Component.create(
 			{
+				ATTRS: {
+					search: {
+						value: null
+					}
+				},
+
 				AUGMENTS: [Dockbar.AddApplicationSearch, Liferay.PortletBase],
 
 				EXTENDS: Dockbar.AddBase,

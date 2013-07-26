@@ -37,7 +37,7 @@ AUI.add(
 					}
 				);
 
-				instance._search = applicationSearch;
+				instance.set('search', applicationSearch);
 
 				instance._bindUISearch();
 			},
@@ -45,7 +45,7 @@ AUI.add(
 			_bindUISearch: function() {
 				var instance = this;
 
-				instance._search.on('results', instance._updateList, instance);
+				instance.get('search').on('results', instance._updateList, instance);
 
 				instance.get('inputNode').on('keydown', instance._onSearchInputKeyDown, instance);
 			},
