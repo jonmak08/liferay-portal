@@ -623,4 +623,8 @@
 	body.yui3-skin-sam .yui3-widget-mask {
 		@include opacity(0.8);
 	}
+
+	.lfr-search-container {
+		margin-top: 1em;
+	}
 }
