@@ -28,12 +28,4 @@ BlogsEntry entry = (BlogsEntry)request.getAttribute(WebKeys.BLOGS_ENTRY);
 	</div>
 </c:if>
 
-<%
-String summary = HtmlUtil.escape(entry.getDescription());
-
-if (Validator.isNull(summary)) {
-	summary = HtmlUtil.stripHtml(entry.getContent());
-}
-%>
-
-<%= StringUtil.shorten(summary, abstractLength) %>
+<%= StringUtil.shorten(entry.getContent(), abstractLength) %>
