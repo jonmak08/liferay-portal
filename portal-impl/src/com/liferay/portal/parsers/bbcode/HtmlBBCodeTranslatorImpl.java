@@ -235,7 +235,7 @@ public class HtmlBBCodeTranslatorImpl implements BBCodeTranslator {
 		sb.append("<div class=\"code\">");
 		sb.append("<table class=\"code-table\">");
 		sb.append("<tr class=\"code-row\">");
-		sb.append("<td class=\"line-nums\">");
+		sb.append("<td class=\"line-numbers\">");
 
 		String code = extractData(
 			bbCodeItems, marker, "code", BBCodeParser.TYPE_DATA, true);

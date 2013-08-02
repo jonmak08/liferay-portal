@@ -30,7 +30,7 @@
 			background: #FFF;
 			border-width: 0;
 
-			&.line-nums {
+			&.line-numbers {
 				border-right-width: 1px;
 				padding: 0 8px;
 			}
