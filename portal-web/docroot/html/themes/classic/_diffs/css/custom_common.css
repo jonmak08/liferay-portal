@@ -551,6 +551,16 @@
 		}
 	}
 
+	/* ---------- Tags ---------- */
+
+	.textboxlist-input-container input[type="text"]:focus {
+		@include box-shadow(none);
+	}
+
+	.textboxlistentry-holder li {
+		line-height: normal;
+	}
+
 	/* ---------- Extras ---------- */
 
 	$prefixes: ("-webkit-","-moz-", "-o-", "");
