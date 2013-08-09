@@ -53,6 +53,11 @@
 		margin-left: 2px;
 	}
 
+	.select-vocabularies-container label.checkbox {
+		height: 20px;
+		margin: 0;
+	}
+
 	.select-categories {
 		margin-left: 10px;
 	}
@@ -135,6 +140,10 @@
 					color: #FFB683;
 				}
 			}
+		}
+
+		.active a label {
+			color: #FFF;
 		}
 	}
 
@@ -326,8 +335,6 @@
 	}
 
 	.yui3-widget-bd .field.vocabulary-checkbox {
-		margin-top: 1.8em;
-
 		input {
 			width: auto;
 		}

@@ -51,6 +51,12 @@
 		}
 	}
 
+	.available-tags-wrapper label.checkbox {
+		display: inline-block;
+		height: 20px;
+		margin: 0;
+	}
+
 	.tag-item a {
 		display: block;
 		padding: 8px 20px 8px 25px;
@@ -111,6 +117,10 @@
 		.active {
 			a:hover {
 				color: #D9EDF7;
+			}
+
+			a label {
+				color: #FFF;
 			}
 		}
 
