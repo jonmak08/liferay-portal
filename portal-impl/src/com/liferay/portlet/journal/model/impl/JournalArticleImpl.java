@@ -23,6 +23,7 @@ import com.liferay.portal.kernel.util.LocaleThreadLocal;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.model.Image;
@@ -35,6 +36,7 @@ import com.liferay.portlet.journal.model.JournalFolder;
 import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.portlet.journal.service.JournalArticleResourceLocalServiceUtil;
 import com.liferay.portlet.journal.service.JournalFolderLocalServiceUtil;
+import com.liferay.portlet.journal.util.JournalUtil;
 import com.liferay.portlet.journal.util.LocaleTransformerListener;
 import com.liferay.portlet.trash.model.TrashEntry;
 import com.liferay.portlet.trash.service.TrashEntryLocalServiceUtil;
@@ -245,6 +247,24 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	@Override
 	public void prepareLocalizedFieldsForImport(Locale defaultImportLocale)
 		throws LocaleException {
+
+		// Title and Description
+
+		super.prepareLocalizedFieldsForImport(defaultImportLocale);
+
+		// Content
+
+		String content = StringPool.BLANK;
+
+		try {
+			content = JournalUtil.prepareLocalizedContentForImport(
+				getContent(), defaultImportLocale);
+		}
+		catch (Exception e) {
+			throw new LocaleException(LocaleException.TYPE_DEFAULT, e);
+		}
+
+		setContent(content);
 	}
 
 	@Override
