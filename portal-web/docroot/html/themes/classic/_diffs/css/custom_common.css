@@ -551,6 +551,22 @@
 		}
 	}
 
+	/* ---------- Tags ---------- */
+
+	.tagselector-content {
+		.textboxlistentry-holder {
+			margin-left: 0;
+
+			.lfr-tag-selector-input {
+				border-width: 0;
+
+				&:focus {
+					@include box-shadow(none);
+				}
+			}
+		}
+	}
+
 	/* ---------- Extras ---------- */
 
 	$prefixes: ("-webkit-","-moz-", "-o-", "");
