@@ -155,43 +155,32 @@ AUI.add(
 											instance.savePosition(node);
 										},
 										resize: function(event) {
-											var contentContainerNode = node.one('.portlet-content-container');
+											var portletContentContainerNode = node.one('.portlet-content-container');
 
-											if (contentContainerNode) {
-												var info = event.info;
+											if (portletContentContainerNode) {
+												var offsetHeight = event.info.offsetHeight;
 
-												var offsetHeight = info.offsetHeight;
+												var adjustOffsetHeight = function(childNode) {
+													if (childNode) {
+														offsetHeight -= (childNode.get('offsetHeight') - childNode.height());
+													}
+												};
 
-												var portletBody = node.one('.portlet-body');
-
-												if (portletBody) {
-													offsetHeight -= portletBody.getBorderWidth('tb');
-													offsetHeight -= portletBody.getPadding('tb');
-												}
-
-												var topperNode = node.one('.portlet-topper');
-
-												if (topperNode) {
-													offsetHeight -= topperNode.get('offsetHeight');
-												}
-
-												var contentNode = node.one('.portlet-content');
-
-												if (contentNode) {
-													offsetHeight -= contentNode.getPadding('tb');
-												}
-
+												var portletBodyNode = node.one('.portlet-body');
 												var portletNode = node.one('.portlet');
+												var portletTopperNode = node.one('.portlet-topper');
+												var portletContentNode = node.one('.portlet-content');
 
-												if (portletNode) {
-													offsetHeight -= portletNode.getBorderWidth('tb');
-													offsetHeight -= portletNode.getPadding('tb');
+												adjustOffsetHeight(portletBodyNode);
+												adjustOffsetHeight(portletNode);
+												adjustOffsetHeight(portletContentNode);
+												adjustOffsetHeight(portletContentContainerNode);
+
+												if (portletTopperNode) {
+													offsetHeight -= portletTopperNode.get('offsetHeight');
 												}
 
-												offsetHeight -= contentContainerNode.getBorderWidth('tb');
-												offsetHeight -= contentContainerNode.getPadding('tb');
-
-												contentContainerNode.setStyle('height', offsetHeight);
+												portletContentContainerNode.setStyle('height', offsetHeight);
 											}
 										}
 									},
