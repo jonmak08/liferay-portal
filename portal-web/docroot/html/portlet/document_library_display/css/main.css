@@ -1,6 +1,6 @@
 .portlet-document-library-display {
-	.form-search .input-append {
-		float: right;
+	.form-search {
+		text-align: right;
 	}
 
 	.entry-title {
