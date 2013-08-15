@@ -217,6 +217,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-resize-deprecated', 'liferay-layout-column']
+		requires: ['resize', 'liferay-layout-column']
 	}
 );
