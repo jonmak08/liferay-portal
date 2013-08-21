@@ -339,6 +339,12 @@ $dockbarOpenGradientStart: #0EA6F9;
 		margin-bottom: 3px;
 	}
 
+	.textboxlistentry-content .icon-close {
+		background-image: url(../images/application/close.png);
+		height: 16px;
+		width: 16px;
+	}
+
 	/* ---------- Extras ---------- */
 
 	#navigation {
