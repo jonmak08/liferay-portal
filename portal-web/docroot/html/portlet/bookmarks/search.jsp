@@ -208,8 +208,6 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(pageContext, "sea
 			<aui:button type="submit" value="search" />
 		</span>
 
-		<br /><br />
-
 		<liferay-ui:search-iterator type="more" />
 	</liferay-ui:search-container>
 </aui:form>
