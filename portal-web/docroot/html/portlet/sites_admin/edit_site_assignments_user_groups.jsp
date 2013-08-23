@@ -180,8 +180,6 @@ userGroupSearch.setEmptyResultsMessage(emptyResultsMessage);
 					<aui:button type="submit" value="search" />
 				</span>
 
-				<br /><br />
-
 				<liferay-ui:search-iterator paginate="<%= false %>" />
 
 				<c:if test="<%= total > userGroupSearch.getDelta() %>">

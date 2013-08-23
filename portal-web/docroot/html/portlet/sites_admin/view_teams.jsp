@@ -125,8 +125,6 @@ pageContext.setAttribute("portletURL", portletURL);
 		</portlet:renderURL>
 
 		<aui:button href="<%= addTeamURL %>" value="add-team" />
-
-		<br /><br />
 	</c:if>
 
 	<liferay-ui:search-iterator searchContainer="<%= searchContainer %>" />
