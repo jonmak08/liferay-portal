@@ -550,6 +550,12 @@
 		}
 	}
 
+	/* ---------- Textboxlist ---------- */
+
+	.textboxlistentry-holder li {
+		line-height: 1;
+	}
+
 	/* ---------- Extras ---------- */
 
 	$prefixes: ("-webkit-","-moz-", "-o-", "");
