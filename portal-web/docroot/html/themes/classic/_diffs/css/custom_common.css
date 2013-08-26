@@ -392,6 +392,11 @@
 		padding: 3px 15px 2px;
 
 		li {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			width: 100%;
+
 			span.divider {
 				color: #999;
 				font-weight: bold;
