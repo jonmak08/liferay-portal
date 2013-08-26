@@ -64,6 +64,14 @@ $dockbarOpenGradientStart: #0EA6F9;
 
 	.site-navigation {
 		margin-bottom: 6px;
+
+		span {
+			display: inline-block;
+			max-width: 300px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 
 	/* ---------- Dockbar ---------- */
