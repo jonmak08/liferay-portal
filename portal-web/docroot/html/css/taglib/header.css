@@ -4,6 +4,9 @@
 
 	.header-title {
 		margin: 0.1em;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	.header-back-to a {
