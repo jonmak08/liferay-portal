@@ -63,13 +63,12 @@
 					selectedTab = "page";
 				}
 
-				String cssClass = "nav-pills";
 				%>
 
 				<liferay-ui:tabs
 					names="<%= StringUtil.merge(tabs1Names) %>"
 					refresh="<%= false %>"
-					cssClass="<%= cssClass %>"
+					cssClass="nav-pills"
 					value="<%= selectedTab %>"
 				>
 					<c:if test="<%= hasAddContentPermission %>">
