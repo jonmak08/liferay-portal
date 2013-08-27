@@ -3,7 +3,6 @@
 .lfr-add-panel {
 	bottom: 0;
 	left: 0;
-	overflow: auto;
 	padding: 10px;
 	position: fixed;
 	top: 0;
@@ -12,10 +11,10 @@
 
 	.add-content-menu .lfr-add-page-toolbar {
 		bottom: 0;
-		margin-left: -10px;
+		margin: 0 -10px 0 0;
 		padding: 10px;
 		position: fixed;
-		width: 330px;
+		width: 295px;
 	}
 }
 
@@ -229,6 +228,13 @@
 	background-color: #FFF;
 
 	.add-content-menu {
+		height: 100%;
+
+		.lfr-tabs-section {
+			height: 100%;
+			overflow-y: auto;
+		}
+
 		.lfr-add-page-toolbar {
 			background-color: #FFF;
 		}
