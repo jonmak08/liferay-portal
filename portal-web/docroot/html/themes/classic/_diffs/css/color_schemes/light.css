@@ -1,6 +1,8 @@
 @import "compass";
 
 .aui .light {
+	background: #fafafa;
+
 	#navigation {
 		.navbar-inner {
 			background: #F6F6F6;
