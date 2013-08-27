@@ -245,7 +245,8 @@ if (workflowEnabled) {
 						</liferay-ui:search-container>
 
 						<liferay-ui:icon
-							cssClass="modify-link select-file-entry-type"
+							cssClass="btn modify-link select-file-entry-type"
+							iconClass="icon-search"
 							image="add"
 							label="<%= true %>"
 							message="select-document-type"
