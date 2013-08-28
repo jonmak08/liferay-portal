@@ -554,7 +554,8 @@ boolean hasUnlinkLayoutSetPrototypePermission = PortalPermissionUtil.contains(pe
 	</liferay-ui:search-container>
 
 	<liferay-ui:icon
-		cssClass="modify-link"
+		cssClass="btn modify-link"
+		iconClass="icon-search"
 		id="selectParentSiteLink"
 		image="add"
 		label="<%= true %>"
