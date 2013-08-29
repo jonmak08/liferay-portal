@@ -386,6 +386,10 @@ $dockbarOpenGradientStart: #0EA6F9;
 		.taglib-icon-help {
 			margin-left: -7px;
 		}
+
+	.portlet-title-text {
+		display: inline;
+		}
 	}
 
 	/* ---------- Panel Page Menu (Site Pages Side Navigation) ---------- */
