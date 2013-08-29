@@ -150,7 +150,7 @@ AUI.add(
 					_processFieldRule: function(rules, strings, rule) {
 						var instance = this;
 
-						var value = true;
+						var value = 0;
 
 						var fieldName = rule.fieldName;
 						var validatorName = rule.validatorName;
