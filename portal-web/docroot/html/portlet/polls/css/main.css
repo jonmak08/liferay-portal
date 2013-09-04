@@ -1,16 +1,9 @@
 .portlet-polls {
-	.choice, .add-choice{
-		clear: both;
-		display: block;
-	}
+	.choice {
+		margin-bottom: 30px;
 
-	.last-choice {
-		.btn-delete {
+		&.last-choice {
 			margin-bottom: 10px;
-		}
-
-		.control-group {
-			margin-bottom: 0;
 		}
 	}
 }
