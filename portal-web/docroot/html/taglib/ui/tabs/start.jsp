@@ -113,6 +113,7 @@ else {
 		</c:when>
 		<c:otherwise>
 			<input name="<%= namespace %><%= param %>TabsScroll" type="hidden" />
+
 			<ul class="<%= cssClass %>">
 		</c:otherwise>
 	</c:choose>
