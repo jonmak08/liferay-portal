@@ -40,13 +40,15 @@ public class TabsTag extends IncludeTag {
 
 			include(getEndPage());
 
-			request.removeAttribute("liferay-ui:tabs:names");
-			request.removeAttribute("liferay-ui:tabs:values");
+			request.removeAttribute("liferay-ui:tabs:backLabel");
+			request.removeAttribute("liferay-ui:tabs:backURL");
 			request.removeAttribute("liferay-ui:tabs:formName");
+			request.removeAttribute("liferay-ui:tabs:names");
+			request.removeAttribute("liferay-ui:tabs:onClick");
 			request.removeAttribute("liferay-ui:tabs:param");
-			request.removeAttribute("liferay-ui:tabs:value");
-			request.removeAttribute("liferay-ui:tabs:type");
 			request.removeAttribute("liferay-ui:tabs:portletURL");
+			request.removeAttribute("liferay-ui:tabs:refresh");
+			request.removeAttribute("liferay-ui:tabs:type");
 			request.removeAttribute("liferay-ui:tabs:url");
 			request.removeAttribute("liferay-ui:tabs:url0");
 			request.removeAttribute("liferay-ui:tabs:url1");
@@ -58,10 +60,8 @@ public class TabsTag extends IncludeTag {
 			request.removeAttribute("liferay-ui:tabs:url7");
 			request.removeAttribute("liferay-ui:tabs:url8");
 			request.removeAttribute("liferay-ui:tabs:url9");
-			request.removeAttribute("liferay-ui:tabs:backLabel");
-			request.removeAttribute("liferay-ui:tabs:backURL");
-			request.removeAttribute("liferay-ui:tabs:refresh");
-			request.removeAttribute("liferay-ui:tabs:onClick");
+			request.removeAttribute("liferay-ui:tabs:value");
+			request.removeAttribute("liferay-ui:tabs:values");
 
 			return EVAL_PAGE;
 		}
@@ -70,16 +70,19 @@ public class TabsTag extends IncludeTag {
 		}
 		finally {
 			if (!ServerDetector.isResin()) {
-				_startPage = null;
+				_backLabel = null;
+				_backURL = null;
 				_endPage = null;
+				_formName = StringPool.BLANK;
 				_names = null;
 				_namesPos = 0;
+				_onClick = null;
+				_param = "tabs1";
+				_portletURL = null;
+				_refresh = true;
+				_startPage = null;
 				_tabsValues = null;
 				_type = null;
-				_formName = StringPool.BLANK;
-				_param = "tabs1";
-				_value = null;
-				_portletURL = null;
 				_url = null;
 				_url0 = null;
 				_url1 = null;
@@ -91,10 +94,7 @@ public class TabsTag extends IncludeTag {
 				_url7 = null;
 				_url8 = null;
 				_url9 = null;
-				_backLabel = null;
-				_backURL = null;
-				_refresh = true;
-				_onClick = null;
+				_value = null;
 			}
 		}
 	}
@@ -108,11 +108,8 @@ public class TabsTag extends IncludeTag {
 				_tabsValues = _names;
 			}
 
-			request.setAttribute("liferay-ui:tabs:values", _tabsValues);
-
-			request.setAttribute("liferay-ui:tabs:formName", _formName);
 			request.setAttribute("liferay-ui:tabs:param", _param);
-			request.setAttribute("liferay-ui:tabs:type", _type);
+			request.setAttribute("liferay-ui:tabs:values", _tabsValues);
 
 			if (_value == null) {
 				if (_tabsValues.length > 0) {
@@ -145,8 +142,15 @@ public class TabsTag extends IncludeTag {
 				}
 			}
 
-			request.setAttribute("liferay-ui:tabs:value", _value);
+			request.setAttribute("liferay-ui:tabs:backLabel", _backLabel);
+			request.setAttribute("liferay-ui:tabs:backURL", _backURL);
+			request.setAttribute("liferay-ui:tabs:formName", _formName);
+			request.setAttribute(
+				"liferay-ui:tabs:onClick", String.valueOf(_onClick));
 			request.setAttribute("liferay-ui:tabs:portletURL", _portletURL);
+			request.setAttribute(
+				"liferay-ui:tabs:refresh", String.valueOf(_refresh));
+			request.setAttribute("liferay-ui:tabs:type", _type);
 			request.setAttribute("liferay-ui:tabs:url", _url);
 
 			if (_url0 != null) {
@@ -189,12 +193,7 @@ public class TabsTag extends IncludeTag {
 				request.setAttribute("liferay-ui:tabs:url9", _url9);
 			}
 
-			request.setAttribute("liferay-ui:tabs:backLabel", _backLabel);
-			request.setAttribute("liferay-ui:tabs:backURL", _backURL);
-			request.setAttribute(
-				"liferay-ui:tabs:refresh", String.valueOf(_refresh));
-			request.setAttribute(
-				"liferay-ui:tabs:onClick", String.valueOf(_onClick));
+			request.setAttribute("liferay-ui:tabs:value", _value);
 
 			include(getStartPage());
 
