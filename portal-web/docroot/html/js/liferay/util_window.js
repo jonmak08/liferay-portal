@@ -348,9 +348,12 @@ AUI.add(
 
 					var autoSizeNode = modal.get('autoSizeNode');
 
-					if (modal.get('autoHeight')) {
-						var height;
+					var height;
 
+					if (!autoSizeNode && modal._parentNode) {
+						height = 'auto';
+					}
+					else if (modal.get('autoHeight')) {
 						if (autoSizeNode) {
 							height = autoSizeNode.get('offsetHeight');
 						}
@@ -359,7 +362,9 @@ AUI.add(
 						}
 
 						height *= modal.get('autoHeightRatio');
+					}
 
+					if (height) {
 						modal.set('height', height);
 					}
 
