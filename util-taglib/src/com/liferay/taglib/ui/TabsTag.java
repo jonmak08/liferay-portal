@@ -45,7 +45,7 @@ public class TabsTag extends IncludeTag {
 			request.removeAttribute("liferay-ui:tabs:formName");
 			request.removeAttribute("liferay-ui:tabs:param");
 			request.removeAttribute("liferay-ui:tabs:value");
-			request.removeAttribute("liferay-ui:tabs:cssClass");
+			request.removeAttribute("liferay-ui:tabs:type");
 			request.removeAttribute("liferay-ui:tabs:portletURL");
 			request.removeAttribute("liferay-ui:tabs:url");
 			request.removeAttribute("liferay-ui:tabs:url0");
@@ -74,8 +74,8 @@ public class TabsTag extends IncludeTag {
 				_endPage = null;
 				_names = null;
 				_namesPos = 0;
-				_cssClass = "nav-tabs";
 				_tabsValues = null;
+				_type = null;
 				_formName = StringPool.BLANK;
 				_param = "tabs1";
 				_value = null;
@@ -112,7 +112,7 @@ public class TabsTag extends IncludeTag {
 
 			request.setAttribute("liferay-ui:tabs:formName", _formName);
 			request.setAttribute("liferay-ui:tabs:param", _param);
-			request.setAttribute("liferay-ui:tabs:cssClass", _cssClass);
+			request.setAttribute("liferay-ui:tabs:type", _type);
 
 			if (_value == null) {
 				if (_tabsValues.length > 0) {
@@ -250,10 +250,6 @@ public class TabsTag extends IncludeTag {
 		_backURL = backURL;
 	}
 
-	public void setCssClass(String cssClass) {
-		_cssClass = cssClass;
-	}
-
 	public void setEndPage(String endPage) {
 		_endPage = endPage;
 	}
@@ -288,6 +284,10 @@ public class TabsTag extends IncludeTag {
 
 	public void setTabsValues(String tabsValues) {
 		_tabsValues = StringUtil.split(tabsValues);
+	}
+
+	public void setType(String type) {
+		_type = type;
 	}
 
 	public void setUrl(String url) {
@@ -364,7 +364,6 @@ public class TabsTag extends IncludeTag {
 
 	private String _backLabel;
 	private String _backURL;
-	private String _cssClass = "nav-tabs";
 	private String _endPage;
 	private String _formName;
 	private String[] _names;
@@ -375,6 +374,7 @@ public class TabsTag extends IncludeTag {
 	private boolean _refresh = true;
 	private String _startPage;
 	private String[] _tabsValues;
+	private String _type;
 	private String _url;
 	private String _url0;
 	private String _url1;
