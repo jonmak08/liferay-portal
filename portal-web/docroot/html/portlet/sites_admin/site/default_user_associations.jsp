@@ -103,8 +103,6 @@ for (long defaultTeamId : defaultTeamIds) {
 	url="javascript:;"
 />
 
-<br /><br />
-
 <h3><liferay-ui:message key="teams" /> <liferay-ui:icon-help message="default-teams-assignment-help" /></h3>
 
 <liferay-ui:search-container

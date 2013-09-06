@@ -103,8 +103,6 @@ serverURL.setParameter("tabs3", tabs3);
 							<aui:button type="submit" value="search" />
 						</span>
 
-						<br /><br />
-
 						<%
 						List<String> headerNames = new ArrayList<String>();
 
@@ -200,8 +198,6 @@ serverURL.setParameter("tabs3", tabs3);
 
 						<liferay-ui:search-iterator searchContainer="<%= searchContainer %>" />
 
-						<br />
-
 						<aui:button-row>
 
 							<%
@@ -225,8 +221,6 @@ serverURL.setParameter("tabs3", tabs3);
 
 					<aui:button type="submit" value="search" />
 				</span>
-
-				<br /><br />
 
 				<%
 				List<String> headerNames = new ArrayList<String>();
@@ -789,8 +783,6 @@ serverURL.setParameter("tabs3", tabs3);
 					<b><liferay-ui:message key="output" /></b>
 
 					<pre><%= scriptOutput %></pre>
-
-					<br /><br />
 				</c:if>
 
 				<aui:button-row>
