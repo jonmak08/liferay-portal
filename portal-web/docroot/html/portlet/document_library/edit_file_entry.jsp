@@ -199,6 +199,7 @@ editFileEntryURL.setParameter("workflowAction", String.valueOf(WorkflowConstants
 <aui:form action="<%= editFileEntryURL %>" cssClass="lfr-dynamic-form" enctype="multipart/form-data" method="post" name="fm" onSubmit='<%= "event.preventDefault(); " + renderResponse.getNamespace() + "saveFileEntry(" + saveAsDraft + ");" %>'>
 	<aui:input name="<%= Constants.CMD %>" type="hidden" />
 	<aui:input name="uploadProgressId" type="hidden" value="<%= uploadProgressId %>" />
+	<aui:input name="folderId" type="hidden" value="<%= folderId %>" />
 
 	<liferay-ui:error exception="<%= DuplicateFileException.class %>" message="please-enter-a-unique-document-name" />
 	<liferay-ui:error exception="<%= DuplicateFolderNameException.class %>" message="please-enter-a-unique-document-name" />
@@ -267,16 +268,9 @@ editFileEntryURL.setParameter("workflowAction", String.valueOf(WorkflowConstants
 		}
 		%>
 
-		<portlet:renderURL var="viewFolderURL">
-			<portlet:param name="struts_action" value="/document_library/view" />
-			<portlet:param name="folderId" value="<%= String.valueOf(folderId) %>" />
-		</portlet:renderURL>
-
 		<aui:field-wrapper label="folder">
 			<div class="input-append">
-				<span class="uneditable-input">
-					<aui:a href="<%= viewFolderURL %>" id="folderName"><%= folderName %></aui:a>
-				</span>
+				<liferay-ui:input-resource id="folderName" url="<%= folderName %>" />
 
 				<c:if test="<%= referringPortletResourceRootPortletId.equals(PortletKeys.ASSET_PUBLISHER) && (fileEntryId == 0) %>">
 					<aui:button name="selectFolderButton" value="select" />
@@ -314,7 +308,7 @@ editFileEntryURL.setParameter("workflowAction", String.valueOf(WorkflowConstants
 											nameValue: event.foldername
 										};
 
-										Liferay.Util.selectFolder(folderData, '<liferay-portlet:renderURL portletName="<%= portletResource %>"><portlet:param name="struts_action" value='<%= "/document_library/view" %>' /></liferay-portlet:renderURL>', '<portlet:namespace />');
+										Liferay.Util.selectFolder(folderData, '<portlet:namespace />');
 									}
 								);
 							}

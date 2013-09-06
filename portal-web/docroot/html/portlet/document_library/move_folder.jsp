@@ -75,15 +75,8 @@ long parentFolderId = BeanParamUtil.getLong(folder, request, "parentFolderId", D
 			}
 			%>
 
-			<portlet:renderURL var="viewFolderURL">
-				<portlet:param name="struts_action" value="/document_library/view" />
-				<portlet:param name="folderId" value="<%= String.valueOf(parentFolderId) %>" />
-			</portlet:renderURL>
-
 			<div class="input-append">
-				<span class="uneditable-input">
-					<aui:a href="<%= viewFolderURL %>" id="parentFolderName"><%= parentFolderName %></aui:a>
-				</span>
+				<liferay-ui:input-resource id="parentFolderName" url="<%= parentFolderName %>" />
 
 				<aui:button name="selectFolderButton" value="select" />
 
@@ -91,7 +84,7 @@ long parentFolderId = BeanParamUtil.getLong(folder, request, "parentFolderId", D
 				String taglibRemoveFolder = "Liferay.Util.removeFolderSelection('parentFolderId', 'parentFolderName', '" + renderResponse.getNamespace() + "');";
 				%>
 
-				<aui:button name="removeFolderButton" onClick="<%= taglibRemoveFolder %>" value="remove" />
+				<aui:button disabled="<%= parentFolderId <= 0 %>" name="removeFolderButton" onClick="<%= taglibRemoveFolder %>" value="remove" />
 			</div>
 		</aui:field-wrapper>
 		<aui:button-row>
@@ -136,7 +129,7 @@ long parentFolderId = BeanParamUtil.getLong(folder, request, "parentFolderId", D
 						nameValue: event.foldername
 					};
 
-					Liferay.Util.selectFolder(folderData, '<portlet:renderURL><portlet:param name="struts_action" value="/document_library/view" /></portlet:renderURL>', '<portlet:namespace />');
+					Liferay.Util.selectFolder(folderData, '<portlet:namespace />');
 				}
 			);
 		}

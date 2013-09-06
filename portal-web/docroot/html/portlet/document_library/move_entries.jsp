@@ -313,16 +313,9 @@ for (DLFileShortcut curFileShortcut : fileShortcuts) {
 		}
 		%>
 
-		<portlet:renderURL var="viewFolderURL">
-			<portlet:param name="struts_action" value="/document_library/view" />
-			<portlet:param name="folderId" value="<%= String.valueOf(newFolderId) %>" />
-		</portlet:renderURL>
-
 		<aui:field-wrapper label="new-folder">
 			<div class="input-append">
-				<span class="uneditable-input">
-					<aui:a href="<%= viewFolderURL %>" id="folderName"><%= folderName %></aui:a>
-				</span>
+				<liferay-ui:input-resource id="folderName" url="<%= folderName %>" />
 
 				<aui:button name="selectFolderButton" value="select" />
 			</div>
@@ -364,7 +357,7 @@ for (DLFileShortcut curFileShortcut : fileShortcuts) {
 						nameValue: event.foldername
 					};
 
-					Liferay.Util.selectFolder(folderData, '<portlet:renderURL><portlet:param name="struts_action" value="/document_library/view" /></portlet:renderURL>', '<portlet:namespace />');
+					Liferay.Util.selectFolder(folderData, '<portlet:namespace />');
 				}
 			);
 		}

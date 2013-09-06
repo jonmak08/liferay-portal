@@ -100,15 +100,8 @@ String emailBody = PrefsParamUtil.getString(portletPreferences, request, emailBo
 				<liferay-ui:panel collapsible="<%= true %>" extended="<%= true %>" id="documentLibraryItemsListingPanel" persistState="<%= true %>" title="display-settings">
 					<aui:fieldset>
 						<aui:field-wrapper label="root-folder">
-							<portlet:renderURL var="viewFolderURL">
-								<portlet:param name="struts_action" value='<%= strutsAction + "/view" %>' />
-								<portlet:param name="folderId" value="<%= String.valueOf(rootFolderId) %>" />
-							</portlet:renderURL>
-
 							<div class="input-append">
-								<span class="uneditable-input">
-									<aui:a href="<%= viewFolderURL %>" id="rootFolderName"><%= rootFolderName %></aui:a>
-								</span>
+								<liferay-ui:input-resource id="rootFolderName" url="<%= rootFolderName %>" />
 
 								<aui:button name="selectFolderButton" value="select" />
 
@@ -255,7 +248,7 @@ String emailBody = PrefsParamUtil.getString(portletPreferences, request, emailBo
 									nameValue: event.foldername
 								};
 
-								Liferay.Util.selectFolder(folderData, '<liferay-portlet:renderURL portletName="<%= portletResource %>"><portlet:param name="struts_action" value='<%= strutsAction + "/view" %>' /></liferay-portlet:renderURL>', '<portlet:namespace />');
+								Liferay.Util.selectFolder(folderData, '<portlet:namespace />');
 							}
 						);
 					}

@@ -77,29 +77,15 @@ long folderId = BeanParamUtil.getLong(fileShortcut, request, "folderId");
 		}
 		%>
 
-		<portlet:renderURL var="viewFolderURL">
-			<portlet:param name="struts_action" value="/document_library/view" />
-			<portlet:param name="folderId" value="<%= String.valueOf(folderId) %>" />
-		</portlet:renderURL>
-
 		<c:if test="<%= !cmd.equals(Constants.MOVE_FROM_TRASH) %>">
 			<aui:field-wrapper label="current-folder">
-				<span class="uneditable-input">
-					<liferay-ui:icon
-						image="folder"
-						label="true"
-						message="<%= folderName %>"
-						url="<%= viewFolderURL %>"
-					/>
-				</span>
+				<liferay-ui:input-resource url="<%= folderName %>" />
 			</aui:field-wrapper>
 		</c:if>
 
 		<aui:field-wrapper label="new-folder">
 			<div class="input-append">
-				<span class="uneditable-input">
-					<aui:a href="<%= viewFolderURL %>" id="folderName"><%= folderName %></aui:a>
-				</span>
+				<liferay-ui:input-resource id="folderName" url="<%= folderName %>" />
 
 				<aui:button name="selectFolderButton" value="select" />
 			</div>
@@ -141,7 +127,7 @@ long folderId = BeanParamUtil.getLong(fileShortcut, request, "folderId");
 						nameValue: event.foldername
 					};
 
-					Liferay.Util.selectFolder(folderData, '<portlet:renderURL><portlet:param name="struts_action" value="/document_library/view" /></portlet:renderURL>', '<portlet:namespace />');
+					Liferay.Util.selectFolder(folderData, '<portlet:namespace />');
 				}
 			);
 		}

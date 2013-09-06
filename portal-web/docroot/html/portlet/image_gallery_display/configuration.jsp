@@ -99,15 +99,8 @@ String redirect = ParamUtil.getString(request, "redirect");
 		<liferay-ui:panel collapsible="<%= true %>" extended="<%= true %>" id="imageGalleryDisplayFoldersListingPanel" persistState="<%= true %>" title="folders-listing">
 			<aui:fieldset>
 				<aui:field-wrapper label="root-folder">
-					<portlet:renderURL var="viewFolderURL">
-						<portlet:param name="struts_action" value='<%= "/image_gallery_display/view" %>' />
-						<portlet:param name="folderId" value="<%= String.valueOf(rootFolderId) %>" />
-					</portlet:renderURL>
-
 					<div class="input-append">
-						<span class="uneditable-input">
-							<aui:a href="<%= viewFolderURL %>" id="rootFolderName"><%= rootFolderName %></aui:a>
-						</span>
+						<liferay-ui:input-resource id="rootFolderName" url="<%= rootFolderName %>" />
 
 						<aui:button name="openFolderSelectorButton" value="select" />
 
@@ -159,7 +152,7 @@ String redirect = ParamUtil.getString(request, "redirect");
 						nameValue: event.foldername
 					};
 
-					Liferay.Util.selectFolder(folderData, '<liferay-portlet:renderURL portletName="<%= portletResource %>"><portlet:param name="struts_action" value='<%= "/image_gallery_display/view" %>' /></liferay-portlet:renderURL>', '<portlet:namespace />');
+					Liferay.Util.selectFolder(folderData, '<portlet:namespace />');
 				}
 			);
 		}
