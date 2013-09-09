@@ -35,6 +35,11 @@ $dockbarOpenGradientStart: #0EA6F9;
 		}
 	}
 
+	.page-title {
+		overflow: hidden;
+		width: 50%;
+	}
+
 	#skip-to-content:focus {
 		clip: rect(auto auto auto auto);
 		margin-top: 35px;
