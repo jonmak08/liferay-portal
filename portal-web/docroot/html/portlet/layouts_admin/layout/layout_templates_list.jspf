@@ -14,29 +14,68 @@
  */
 --%>
 
-<aui:fieldset>
-	<aui:row cssClass="lfr-page-layouts">
+<aui:fieldset id="<portlet:namespace />layoutTemplates">
 
-		<%
-		layoutTemplates = PluginUtil.restrictPlugins(layoutTemplates, user);
+	<%
+	String value = "";
 
-		for (int i = 0; i < layoutTemplates.size(); i++) {
-			LayoutTemplate layoutTemplate = layoutTemplates.get(i);
-		%>
+	layoutTemplates = PluginUtil.restrictPlugins(layoutTemplates, user);
 
-			<div class="lfr-layout-template">
-				<label class="radio" for="<portlet:namespace /><%= layoutTemplateIdPrefix + "layoutTemplateId" + i %>">
-					<aui:input checked="<%= layoutTemplateId.equals(layoutTemplate.getLayoutTemplateId()) %>" id='<%= layoutTemplateIdPrefix + "layoutTemplateId" + i %>' label="" name="layoutTemplateId" type="radio" value="<%= layoutTemplate.getLayoutTemplateId() %>" />
+	for (int i = 0; i < layoutTemplates.size(); i++) {
+		LayoutTemplate layoutTemplate = layoutTemplates.get(i);
 
-					<img alt="" class="layout-template-entry modify-link <%= layoutTemplateId.equals(layoutTemplate.getLayoutTemplateId()) ? "layout-selected" : StringPool.BLANK %>" height="25" onclick="document.getElementById('<portlet:namespace /><%= layoutTemplateIdPrefix + "layoutTemplateId" + i %>').checked = true;" src="<%= layoutTemplate.getStaticResourcePath() %><%= layoutTemplate.getThumbnailPath() %>" width="25" />
+		String id = layoutTemplate.getLayoutTemplateId();
 
-					<span><%= layoutTemplate.getName() %></span>
-				</label>
-			</div>
-
-		<%
+		if (layoutTemplateId.equals(id)) {
+			value = id;
 		}
-		%>
+	%>
 
-	</aui:row>
+		<span>
+			<button class='btn <%= layoutTemplateId.equals(id) ? "btn-info" : "" %> lfr-button' data-id="<%= id %>" data-label="<%= layoutTemplate.getName() %>" type="button">
+				<img alt="" class="polaroid layout-template-entry modify-link <%= layoutTemplateId.equals(id) ? "layout-selected" : StringPool.BLANK %>" src="<%= layoutTemplate.getStaticResourcePath() %><%= layoutTemplate.getThumbnailPath() %>" />
+			</button>
+		</span>
+
+	<%
+	}
+	%>
+
+	<aui:input id="layoutTemplateId" name="layoutTemplateId" type="hidden" value="<%= value %>" />
 </aui:fieldset>
+
+<aui:script use="aui-tooltip,aui-node">
+	var layoutTemplates = A.one('#<portlet:namespace />layoutTemplates');
+
+	var layoutTemplateButtons = layoutTemplates.all('button');
+
+	var layoutTemplateId = layoutTemplates.one('#<portlet:namespace />layoutTemplateId');
+
+	layoutTemplates.delegate(
+		'click',
+		function(event){
+			layoutTemplateButtons.removeClass('btn-info');
+
+			this.addClass('btn-info');
+
+			layoutTemplateId.val(this.getData('id'));
+		},
+		'button'
+	);
+
+	new A.TooltipDelegate(
+		{
+			formatter: function() {
+				var tooltip = this;
+
+				tooltip.set('zIndex', 2);
+
+				var node = tooltip.get('trigger');
+
+				return node.attr('data-label');
+			},
+			trigger: '#<portlet:namespace />layoutTemplates button',
+			visible: false
+		}
+	);
+</aui:script>
