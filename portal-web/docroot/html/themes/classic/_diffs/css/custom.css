@@ -35,6 +35,11 @@ $dockbarOpenGradientStart: #0EA6F9;
 		}
 	}
 
+	.page-title {
+		overflow: hidden;
+		width: 50%;
+	}
+
 	#skip-to-content:focus {
 		clip: rect(auto auto auto auto);
 		margin-top: 35px;
@@ -64,6 +69,14 @@ $dockbarOpenGradientStart: #0EA6F9;
 
 	.site-navigation {
 		margin-bottom: 6px;
+
+		span {
+			display: inline-block;
+			max-width: 300px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 
 	/* ---------- Dockbar ---------- */
