@@ -81,7 +81,7 @@ int firstDayOfWeek = localeCal.getFirstDayOfWeek() - 1;
 	<div class="date" id="<portlet:namespace /><%= facet.getFieldId() %>PlaceHolder"></div>
 </div>
 
-<aui:script use="aui-calendar-deprecated">
+<aui:script use="aui-calendar-deprecated,intl">
 	var now = new Date();
 
 	var checkDateRange = function(event) {
@@ -109,6 +109,23 @@ int firstDayOfWeek = localeCal.getFirstDayOfWeek() - 1;
 
 		this._syncMonthDays();
 	};
+
+	A.Intl.add(
+		'calendar-base',
+		'<%= locale %>',
+		{
+			first_weekday: <%= firstDayOfWeek %>,
+			very_short_weekdays: [
+				'<liferay-ui:message key="sunday-abbreviation" />',
+				'<liferay-ui:message key="monday-abbreviation" />',
+				'<liferay-ui:message key="tuesday-abbreviation" />',
+				'<liferay-ui:message key="wednesday-abbreviation" />',
+				'<liferay-ui:message key="thursday-abbreviation" />',
+				'<liferay-ui:message key="friday-abbreviation" />',
+				'<liferay-ui:message key="saturday-abbreviation" />'
+			]
+		}
+	);
 
 	var dateSelection = new A.Calendar(
 		{
