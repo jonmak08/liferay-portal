@@ -164,6 +164,11 @@ AUI.add(
 							function(newFieldHTML) {
 								fieldNode.insert(newFieldHTML, 'after');
 
+								if(!fieldNode.hasClass('alt'))
+									fieldNode.next().addClass('alt');
+
+								instance._checkAlt(fieldNode.next());
+
 								instance.syncFieldsTreeUI();
 							}
 						);
@@ -172,7 +177,14 @@ AUI.add(
 					removeField: function(fieldNode) {
 						var instance = this;
 
+						var nextNode = fieldNode.next('[data-fieldname="'+fieldNode.getData('fieldName')+'"]');
+
 						fieldNode.remove();
+
+						while (nextNode) {
+							nextNode.toggleClass('alt');
+							nextNode = nextNode.next('[data-fieldname="'+fieldNode.getData('fieldName')+'"]');
+						}
 
 						instance.syncFieldsTreeUI();
 					},
@@ -227,6 +239,19 @@ AUI.add(
 						);
 
 						fieldsDisplayInput.val(fieldsDisplay.join());
+					},
+
+					_checkAlt: function(fieldNode) {
+						while (fieldNode.next('[data-fieldname="'+fieldNode.getData('fieldName')+'"]')) {
+							if (fieldNode.hasClass('alt') && fieldNode.next().hasClass('alt')) {
+								fieldNode.next().removeClass('alt');
+							}
+							else if (!fieldNode.hasClass('alt') && !fieldNode.next().hasClass('alt')) {
+								fieldNode.next().addClass('alt');
+							}
+
+							fieldNode = fieldNode.next();
+						}
 					},
 
 					_onClickRepeatableButton: function(event) {
