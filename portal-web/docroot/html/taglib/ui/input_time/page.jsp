@@ -85,7 +85,7 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 			var timePicker = new A.TimePicker<%= BrowserSnifferUtil.isMobile(request) ? "Native" : StringPool.BLANK %>(
 				{
 					container: '#<%= randomNamespace %>displayTime',
-					mask: '<%= DateUtil.isFormatAmPm(locale) ? "%I:%M %p" : "%H:%M" %>',
+					mask: '<%= DateUtil.isFormatAmPm(locale) ? "%I:%M%p" : "%H:%M" %>',
 					on: {
 						selectionChange: function(event) {
 							var instance = this;
@@ -159,13 +159,13 @@ private JSONArray _getHoursJSONArray(int minuteInterval, Locale locale) throws E
 	return hoursJSONArray;
 }
 
-private static final String _SIMPLE_DATE_FORMAT_PATTERN = "hh:mm a";
+private static final String _SIMPLE_DATE_FORMAT_PATTERN = "hh:mma";
 
 private static final String _SIMPLE_DATE_FORMAT_PATTERN_HTML5 = "HH:mm";
 
 private static final String _SIMPLE_DATE_FORMAT_PATTERN_ISO = "HH:mm";
 
-private static final String _PLACEHOLDER_DEFAULT = "h:mm am/pm";
+private static final String _PLACEHOLDER_DEFAULT = "h:mmam/pm";
 
 private static final String _PLACEHOLDER_ISO = "h:mm";
 %>
