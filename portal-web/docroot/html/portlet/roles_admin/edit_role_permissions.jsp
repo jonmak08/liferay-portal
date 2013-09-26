@@ -374,7 +374,10 @@ portletURL.setParameter("roleId", String.valueOf(role.getRoleId()));
 					animated: true,
 					container: <portlet:namespace />permissionNavigationDataContainer,
 					content: '.permission-navigation-item-content',
-					header: '.permission-navigation-item-header'
+					header: '.permission-navigation-item-header',
+					transition: {
+						duration: 0.3
+					}
 				}
 			);
 
