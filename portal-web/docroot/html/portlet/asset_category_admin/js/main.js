@@ -590,7 +590,9 @@ AUI.add(
 						instance._categoryPanelAdd = Liferay.Util.Window.getWindow(
 							{
 								dialog: {
-									cssClass: CSS_ADMIN_DIALOG
+									cssClass: CSS_ADMIN_DIALOG,
+									height: 800,
+									width: 600
 								},
 								title: Liferay.Language.get('add-category')
 							}
@@ -641,7 +643,9 @@ AUI.add(
 						instance._vocabularyPanelAdd = Liferay.Util.Window.getWindow(
 							{
 								dialog: {
-									cssClass: CSS_ADMIN_DIALOG
+									cssClass: CSS_ADMIN_DIALOG,
+									height: 700,
+									width: 600
 								},
 								title: Liferay.Language.get('add-vocabulary')
 							}
@@ -680,7 +684,9 @@ AUI.add(
 							{
 								dialog: {
 									align: instance._dialogAlignConfig,
-									cssClass: CSS_ADMIN_DIALOG
+									cssClass: CSS_ADMIN_DIALOG,
+									height: 700,
+									width: 600
 								},
 								title: Liferay.Language.get('edit-category')
 							}
@@ -717,6 +723,7 @@ AUI.add(
 									dialog: {
 										align: instance._dialogAlignConfig,
 										cssClass: 'portlet-asset-categories-admin-dialog permissions-change',
+										height: 700,
 										width: 600
 									},
 									title: Liferay.Language.get('edit-permissions'),
