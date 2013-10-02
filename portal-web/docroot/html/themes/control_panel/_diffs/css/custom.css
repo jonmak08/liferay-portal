@@ -602,6 +602,24 @@ $dockbarOpenGradientStart: #0EA6F9;
 		.lfr-meta-actions {
 			margin-right: 0;
 		}
+
+		.publish-link-container {
+			a {
+				font-weight: normal;
+			}
+
+			.btn {
+				border-width: 0;
+
+				&:focus, &:hover {
+					background-color: #0DB5E7;
+
+					@include background-image(linear-gradient(#0EBDF1, #0CAAD9));
+
+					@include filter-gradient(#0EBDF1, #0CAAD9, vertical);
+				}
+			}
+		}
 	}
 
 	/* ---------- Vocabularies select box in sites categories ---------- */
