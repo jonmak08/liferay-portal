@@ -17,13 +17,15 @@
 <%@ include file="/html/portlet/loan_calculator/init.jsp" %>
 
 <%
-String loanAmountString = ParamUtil.get(request, "loanAmount", "200000");
-String interestString = ParamUtil.get(request, "interest", "7.00");
+int loanAmount = ParamUtil.get(request, "loanAmount", 300000);
+double interest = ParamUtil.get(request, "interest", 7.00);
 int years = ParamUtil.get(request, "years", 30);
 int paymentsPerYear = ParamUtil.get(request, "paymentsPerYear", 12);
 
-int loanAmount = 0;
-double interest = 0.0;
+double tempValue = Math.pow((1 + (interest / 100 / paymentsPerYear)), (years * paymentsPerYear));
+double amountPerPayment = (loanAmount * tempValue * (interest / 100 / paymentsPerYear)) / (tempValue - 1);
+double totalPaid = amountPerPayment * years * paymentsPerYear;
+double interestPaid = totalPaid - loanAmount;
 
 NumberFormat doubleFormat = NumberFormat.getNumberInstance(locale);
 
@@ -34,47 +36,28 @@ NumberFormat integerFormat = NumberFormat.getNumberInstance(locale);
 
 integerFormat.setMaximumFractionDigits(0);
 integerFormat.setMinimumFractionDigits(0);
-
-try {
-	loanAmount = GetterUtil.getInteger(integerFormat.parse(loanAmountString));
-	interest = GetterUtil.getDouble(doubleFormat.parse(interestString));
-}
-catch (Exception e) {
-}
-
-double tempValue = Math.pow((1 + (interest / 100 / paymentsPerYear)), (years * paymentsPerYear));
-double amountPerPayment = (loanAmount * tempValue * (interest / 100 / paymentsPerYear)) / (tempValue - 1);
-double totalPaid = amountPerPayment * years * paymentsPerYear;
-double interestPaid = totalPaid - loanAmount;
 %>
 
-<form action="<liferay-portlet:renderURL windowState="<%= LiferayWindowState.EXCLUSIVE.toString() %>"><portlet:param name="struts_action" value="/loan_calculator/view" /></liferay-portlet:renderURL>" id="<portlet:namespace />fm" method="post" name="<portlet:namespace />fm">
+<portlet:actionURL windowState="<%= LiferayWindowState.EXCLUSIVE.toString() %>" var="viewLoanURL">
+	<portlet:param name="struts_action" value="/loan_calculator/view" />
+</portlet:actionURL>
+
+<aui:form action="<%= viewLoanURL %>" id="fm" method="post" name="fm">
+
+<aui:field-wrapper>
+
+<aui:input autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" label="loan-amount" name="loanAmount" value="<%= integerFormat.format(loanAmount) %>" />
+
+<aui:input label="interest-rate" name="interest" value="<%= doubleFormat.format(interest) %>" />
+
+<aui:input label="years" name="years" value="<%= years %>" />
+
+<aui:input name="monthly-payment" size="5" value="<%= integerFormat.format(amountPerPayment) %>" />
+
+</aui:field-wrapper>
 
 <table class="lfr-table">
-<tr>
-	<td>
-		<liferay-ui:message key="loan-amount" />
-	</td>
-	<td>
-		<input autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" name="<portlet:namespace />loanAmount" size="5" type="text" value="<%= integerFormat.format(loanAmount) %>" />
-	</td>
-</tr>
-<tr>
-	<td>
-		<liferay-ui:message key="interest-rate" />
-	</td>
-	<td>
-		<input name="<portlet:namespace />interest" size="5" type="text" value="<%= doubleFormat.format(interest) %>" />
-	</td>
-</tr>
-<tr>
-	<td>
-		<liferay-ui:message key="years" />
-	</td>
-	<td>
-		<input name="<portlet:namespace />years" size="5" type="text" value="<%= years %>" />
-	</td>
-</tr>
+
 <tr>
 	<td>
 		<liferay-ui:message key="monthly-payment" />
@@ -103,9 +86,9 @@ double interestPaid = totalPaid - loanAmount;
 
 <br />
 
-<input type="submit" value="<liferay-ui:message key="calculate" />" />
+<aui:button type="submit" value="calculate" />
 
-</form>
+</aui:form>
 
 <aui:script use="aui-io-request,aui-parse-content">
 	var form = A.one('#<portlet:namespace />fm');
