@@ -754,6 +754,28 @@ $dockbarOpenGradientStart: #0EA6F9;
 		}
 	}
 
+	/* ---------- Site Pages Staging Dropdown ---------- */
+
+	.staging-icon-menu {
+		&:hover {
+			@include background-image(linear-gradient(top, #0EBDF1, #0CAAD9));
+			@include filter-gradient(#0EBDF1, #0CAAD9, vertical);
+
+			a {
+				color: #FFF;
+			}
+		}
+
+		> ul {
+			margin-left: 21px;
+		}
+
+		a {
+			color: #333;
+			font-weight: normal;
+		}
+	}
+
 	/* ---------- Control panel general ---------- */
 
 	.control-panel-site-selector .caret {

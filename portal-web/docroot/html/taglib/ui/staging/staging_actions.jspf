@@ -134,12 +134,12 @@
 			<c:choose>
 				<c:when test="<%= groupType.isControlPanel() %>">
 					<li class="publish-link-container">
-						<aui:a cssClass="manage-layout-set-branches" href="<%= layoutSetBranchesURL %>" id="manageLayoutSetBranches" label="manage-site-pages-variations" />b
+						<aui:a cssClass="manage-layout-set-branches" href="<%= layoutSetBranchesURL %>" id="manageLayoutSetBranches" label="manage-site-pages-variations" />
 					</li>
 				</c:when>
 				<c:otherwise>
 					<div class="publish-link-container">
-						<aui:a cssClass="manage-layout-set-branches" href="<%= layoutSetBranchesURL %>" id="manageLayoutSetBranches" label="manage-site-pages-variations" />c
+						<aui:a cssClass="manage-layout-set-branches" href="<%= layoutSetBranchesURL %>" id="manageLayoutSetBranches" label="manage-site-pages-variations" />
 					</div>
 				</c:otherwise>
 			</c:choose>
