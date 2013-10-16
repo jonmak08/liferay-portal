@@ -138,7 +138,7 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 			</aui:field-wrapper>
 		</c:if>
 
-		<aui:input autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" name="name" />
+		<aui:input autoFocus="<%= true %>" name="name" />
 
 		<aui:input name="url" />
 

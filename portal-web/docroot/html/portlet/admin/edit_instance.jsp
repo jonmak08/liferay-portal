@@ -66,7 +66,7 @@ catch (Exception e) {
 				</aui:field-wrapper>
 			</c:when>
 			<c:otherwise>
-				<aui:input name="webId" />
+				<aui:input autoFocus="<%= true %>" name="webId" />
 			</c:otherwise>
 		</c:choose>
 
