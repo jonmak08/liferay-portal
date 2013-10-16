@@ -501,6 +501,8 @@ $dockbarOpenGradientStart: #0EA6F9;
 			}
 
 			> .active > a {
+				background-color: $dockbarGradientStart;
+
 				@include background-image(linear-gradient($dockbarGradientStart 0%, $dockbarGradientStart 47%, $dockbarGradientEnd 100%));
 				@include box-shadow(none);
 				@include filter-gradient($dockbarGradientStart, $dockbarGradientEnd, vertical);
@@ -576,6 +578,8 @@ $dockbarOpenGradientStart: #0EA6F9;
 			@include text-shadow(none);
 
 			@include respond-to(phone, tablet) {
+				background-color: $dockbarGradientStart;
+
 				@include background-image(linear-gradient($dockbarGradientStart, $dockbarGradientEnd));
 			}
 
@@ -589,6 +593,8 @@ $dockbarOpenGradientStart: #0EA6F9;
 					}
 
 					> .staging-link.dropdown-toggle {
+						background-color: #0279E1;
+
 						@include background-image(linear-gradient(#0279E1, #0264CC));
 					}
 				}
