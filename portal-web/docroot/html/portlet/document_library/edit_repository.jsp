@@ -53,7 +53,7 @@ long folderId = ParamUtil.getLong(request, "folderId");
 	<aui:model-context bean="<%= repository %>" model="<%= Repository.class %>" />
 
 	<aui:fieldset>
-		<aui:input name="name" />
+		<aui:input autoFocus="<%= true %>" name="name" />
 
 		<aui:input name="description" />
 
