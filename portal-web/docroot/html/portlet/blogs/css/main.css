@@ -3,12 +3,10 @@
 		background-color: #F5F5F5;
 		padding: 5px;
 
-			th {
-				padding: 5px;
-				white-space: nowrap;
-				width: 1%;
-			}
+		.lfr-blogs-small-image-type {
+			margin-bottom: 12px;
 		}
+	}
 
 	.lfr-blogs-small-image-content img {
 		margin-right: 1em;
