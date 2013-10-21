@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.process.ClassPathUtil;
 import com.liferay.portal.kernel.resiliency.mpi.MPIHelperUtil;
+import com.liferay.portal.kernel.resiliency.spi.SPIUtil;
 import com.liferay.portal.kernel.resiliency.spi.provider.SPIProvider;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.ClassUtil;
@@ -34,6 +35,7 @@ import java.io.File;
 
 import java.lang.reflect.Method;
 
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
@@ -78,7 +80,11 @@ public class SPIClassPathContextListener implements ServletContextListener {
 
 		Set<File> jarFiles = new LinkedHashSet<File>();
 
-		for (File file : spiEmbeddedLibDir.listFiles()) {
+		File[] files = spiEmbeddedLibDir.listFiles();
+
+		Arrays.sort(files);
+
+		for (File file : files) {
 			String fileName = file.getName();
 
 			if (fileName.endsWith(".jar")) {
@@ -99,7 +105,11 @@ public class SPIClassPathContextListener implements ServletContextListener {
 				return;
 			}
 
-			for (File file : spiEmbeddedLibExtDir.listFiles()) {
+			files = spiEmbeddedLibExtDir.listFiles();
+
+			Arrays.sort(files);
+
+			for (File file : files) {
 				String fileName = file.getName();
 
 				if (fileName.endsWith(".jar")) {
@@ -139,7 +149,11 @@ public class SPIClassPathContextListener implements ServletContextListener {
 
 			File jdbcDriverJarDir = new File(jdbcDriverJarDirName);
 
-			for (File file : jdbcDriverJarDir.listFiles()) {
+			files = jdbcDriverJarDir.listFiles();
+
+			Arrays.sort(files);
+
+			for (File file : files) {
 				String fileName = file.getName();
 
 				if (fileName.endsWith(".jar")) {
@@ -181,9 +195,17 @@ public class SPIClassPathContextListener implements ServletContextListener {
 		ClassLoader contextClassLoader = currentThread.getContextClassLoader();
 
 		try {
-			Class<SPIProvider> spiProviderClass =
-				(Class<SPIProvider>)loadClassDirectly(
+			Class<SPIProvider> spiProviderClass = null;
+
+			if (SPIUtil.isSPI()) {
+				spiProviderClass = (Class<SPIProvider>)loadClassDirectly(
 					contextClassLoader, spiProviderClassName);
+			}
+			else {
+				spiProviderClass =
+					(Class<SPIProvider>)contextClassLoader.loadClass(
+						spiProviderClassName);
+			}
 
 			SPIProvider spiProvider = spiProviderClass.newInstance();
 

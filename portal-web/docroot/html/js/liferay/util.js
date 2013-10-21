@@ -1983,7 +1983,7 @@
 				}
 
 				radioButton.on(
-					'change',
+					'click',
 					function() {
 						if (showBoxes) {
 							showBoxes.show();
