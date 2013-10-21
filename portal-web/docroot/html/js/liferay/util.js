@@ -1792,7 +1792,7 @@
 				}
 
 				radioButton.on(
-					'change',
+					'click',
 					function() {
 						if (showBox) {
 							showBox.show();
