@@ -36,6 +36,8 @@ if (stagedLocally) {
 }
 %>
 
+<h3><liferay-ui:message key="staging" /></h3>
+
 <c:if test="<%= stagedLocally && (BackgroundTaskLocalServiceUtil.getBackgroundTasksCount(liveGroupId, LayoutStagingBackgroundTaskExecutor.class.getName(), false) > 0) %>">
 	<liferay-portlet:renderURL portletName="<%= PortletKeys.LAYOUTS_ADMIN %>" var="publishProcessesURL" windowState="<%= LiferayWindowState.POP_UP.toString() %>">
 		<portlet:param name="<%= Constants.CMD %>" value="view_processes" />
