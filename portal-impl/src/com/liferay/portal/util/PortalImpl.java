@@ -534,7 +534,7 @@ public class PortalImpl implements Portal {
 		ListMergeable<String> titleListMergeable =
 			(ListMergeable<String>)request.getAttribute(WebKeys.PAGE_TITLE);
 
-		if (titleListMergeable != null) {
+		if (titleListMergeable == null) {
 			titleListMergeable = new ListMergeable<String>();
 
 			request.setAttribute(WebKeys.PAGE_TITLE, titleListMergeable);
@@ -6970,7 +6970,9 @@ public class PortalImpl implements Portal {
 		if (portletActions) {
 			Group layoutGroup = layout.getGroup();
 
-			if (layout.isPrivateLayout() && !layoutGroup.isLayoutPrototype()) {
+			if (layout.isPrivateLayout() && !layoutGroup.isLayoutPrototype() &&
+				!layoutGroup.isLayoutSetPrototype()) {
+
 				addGuestPermissions = false;
 			}
 		}

@@ -21,7 +21,7 @@ page import="com.liferay.portal.RequiredRoleException" %><%@
 page import="com.liferay.portal.RoleAssignmentException" %><%@
 page import="com.liferay.portal.RoleNameException" %><%@
 page import="com.liferay.portal.RolePermissionsException" %><%@
-page import="com.liferay.portal.kernel.portletdisplaytemplate.BasePortletDisplayTemplateHandler" %><%@
+page import="com.liferay.portal.kernel.template.comparator.TemplateHandlerComparator" %><%@
 page import="com.liferay.portal.security.membershippolicy.OrganizationMembershipPolicyUtil" %><%@
 page import="com.liferay.portal.security.membershippolicy.RoleMembershipPolicyUtil" %><%@
 page import="com.liferay.portal.security.membershippolicy.SiteMembershipPolicyUtil" %><%@
@@ -29,7 +29,6 @@ page import="com.liferay.portal.security.permission.PermissionConverterUtil" %><
 page import="com.liferay.portal.security.permission.comparator.ActionComparator" %><%@
 page import="com.liferay.portal.security.permission.comparator.ModelResourceWeightComparator" %><%@
 page import="com.liferay.portlet.rolesadmin.search.ResourceActionRowChecker" %><%@
-page import="com.liferay.portlet.rolesadmin.search.RoleDisplayTerms" %><%@
 page import="com.liferay.portlet.rolesadmin.search.RoleSearch" %><%@
 page import="com.liferay.portlet.rolesadmin.search.RoleSearchTerms" %>
 

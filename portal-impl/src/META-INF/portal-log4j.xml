@@ -758,6 +758,10 @@
 		<priority value="ERROR" />
 	</category>
 
+	<category name="com.liferay.portal.setup.SetupWizardSampleDataUtil">
+		<priority value="INFO" />
+	</category>
+
 	<category name="com.liferay.portal.sharepoint">
 		<priority value="ERROR" />
 	</category>

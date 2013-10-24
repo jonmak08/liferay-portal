@@ -90,6 +90,8 @@
 								</aui:select>
 
 								<aui:button cssClass="change-language" name="changeLanguageButton" value="change" />
+
+								<aui:input name="addSampleData" type="checkbox" value="<%= true %>" />
 							</aui:fieldset>
 
 							<aui:fieldset cssClass="column-last span6" label="administrator-user">
@@ -357,8 +359,6 @@
 				<c:otherwise>
 
 					<%
-					SetupWizardUtil.setSetupFinished(true);
-
 					boolean propertiesFileCreated = GetterUtil.getBoolean((Boolean)session.getAttribute(WebKeys.SETUP_WIZARD_PROPERTIES_FILE_CREATED));
 					%>
 
