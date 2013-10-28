@@ -105,6 +105,7 @@ if (Validator.isNotNull(className)) {
 					contentBox: '#<%= namespace + randomNamespace %>assetCategoriesSelector_<%= vocabulary.getVocabularyId() %>',
 					curEntries: '<%= HtmlUtil.escapeJS(categoryIdsTitles[1]) %>',
 					curEntryIds: '<%= categoryIdsTitles[0] %>',
+					escapedContent: true,
 					hiddenInput: '#<%= namespace + hiddenInput + StringPool.UNDERLINE + vocabulary.getVocabularyId() %>',
 					instanceVar: '<%= namespace + randomNamespace %>',
 					labelNode: '#<%= namespace %>assetCategoriesLabel_<%= vocabulary.getVocabularyId() %>',
