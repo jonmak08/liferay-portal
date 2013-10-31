@@ -523,6 +523,9 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 			}
 		}
 
+		List<WikiPage> versionPages = wikiPagePersistence.findByN_T(
+			page.getNodeId(), page.getTitle());
+
 		wikiPagePersistence.removeByN_T(page.getNodeId(), page.getTitle());
 
 		// References
@@ -559,9 +562,6 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 			page.getResourcePrimKey());
 
 		// Asset
-
-		List<WikiPage> versionPages = wikiPagePersistence.findByN_T(
-			page.getNodeId(), page.getTitle());
 
 		for (WikiPage versionPage : versionPages) {
 			assetEntryLocalService.deleteEntry(
@@ -602,16 +602,13 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 
 		// All versions
 
-		List<WikiPage> pages = wikiPagePersistence.findByN_T(
-			page.getNodeId(), page.getTitle());
-
-		for (WikiPage curPage : pages) {
+		for (WikiPage versionPage : versionPages) {
 
 			// Workflow
 
 			workflowInstanceLinkLocalService.deleteWorkflowInstanceLinks(
-				curPage.getCompanyId(), curPage.getGroupId(),
-				WikiPage.class.getName(), curPage.getPageId());
+				versionPage.getCompanyId(), versionPage.getGroupId(),
+				WikiPage.class.getName(), versionPage.getPageId());
 		}
 	}
 
