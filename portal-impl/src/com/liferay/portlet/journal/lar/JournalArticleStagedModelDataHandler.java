@@ -28,6 +28,7 @@ import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.util.CalendarFactoryUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.MapUtil;
@@ -36,8 +37,10 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.xml.Element;
+import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Image;
 import com.liferay.portal.model.User;
+import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.service.ImageLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.UserLocalServiceUtil;
@@ -233,7 +236,9 @@ public class JournalArticleStagedModelDataHandler
 			}
 
 			if (existingArticle == null) {
-				return false;
+				return validateParentMissingReference(
+					articleResourceUuid, articleArticleId,
+					portletDataContext.getScopeGroupId(), preloaded);
 			}
 
 			return true;
@@ -402,6 +407,34 @@ public class JournalArticleStagedModelDataHandler
 
 		boolean autoArticleId = false;
 
+		Element articleElement =
+			portletDataContext.getImportDataStagedModelElement(article);
+
+		long groupId = Long.parseLong(
+			articleElement.attributeValue("group-id"));
+
+		long previousGroupId = portletDataContext.getScopeGroupId();
+
+		if (previousGroupId != groupId) {
+			Group previousGroup = GroupLocalServiceUtil.getGroup(
+				previousGroupId);
+			Group group = GroupLocalServiceUtil.getGroup(groupId);
+
+			long liveGroupId = group.getGroupId();
+
+			if (group.isStagingGroup()) {
+				liveGroupId = group.getLiveGroupId();
+			}
+
+			List<Group> ancestors = previousGroup.getAncestors();
+
+			if (!ListUtil.isEmpty(ancestors) &&
+				previousGroup.hasAncestor(liveGroupId)) {
+
+				portletDataContext.setScopeGroupId(liveGroupId);
+			}
+		}
+
 		if (Validator.isNumber(articleId) ||
 			(JournalArticleLocalServiceUtil.fetchArticle(
 				portletDataContext.getScopeGroupId(), articleId,
@@ -426,9 +459,6 @@ public class JournalArticleStagedModelDataHandler
 		}
 
 		String content = article.getContent();
-
-		Element articleElement =
-			portletDataContext.getImportDataStagedModelElement(article);
 
 		content = ExportImportHelperUtil.replaceImportContentReferences(
 			portletDataContext, articleElement, content, true);
@@ -841,6 +871,39 @@ public class JournalArticleStagedModelDataHandler
 			articleDefaultLocale, articleAvailableLocales);
 
 		article.prepareLocalizedFieldsForImport(defaultImportLocale);
+	}
+
+	protected boolean validateParentMissingReference(
+			String articleResourceUuid, String articleArticleId, long groupId,
+			boolean preloaded)
+		throws Exception {
+
+		boolean valid = false;
+		Group group = GroupLocalServiceUtil.getGroup(groupId);
+
+		JournalArticle existingArticle = null;
+
+		for (Group parentGroup : group.getAncestors()) {
+			existingArticle = fetchExistingArticle(
+				articleResourceUuid, parentGroup.getGroupId(), articleArticleId,
+				null, 0.0, preloaded);
+
+			if (existingArticle == null) {
+				valid =
+					validateParentMissingReference(
+						articleResourceUuid, articleArticleId,
+						parentGroup.getGroupId(), preloaded);
+			}
+			else {
+				valid = true;
+			}
+
+			if (valid) {
+				break;
+			}
+		}
+
+		return valid;
 	}
 
 }
