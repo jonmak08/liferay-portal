@@ -137,6 +137,13 @@ public class AssetPublisherImpl implements AssetPublisher {
 			return;
 		}
 
+		String rootPortletId = PortletConstants.getRootPortletId(
+			referringPortletResource);
+
+		if (!rootPortletId.equals(PortletKeys.ASSET_PUBLISHER)) {
+			return;
+		}
+
 		ThemeDisplay themeDisplay = (ThemeDisplay)portletRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 

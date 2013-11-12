@@ -897,6 +897,7 @@ public class PortalImpl implements Portal {
 		throws PortalException, SystemException {
 
 		Layout layout = null;
+		String layoutQueryStringCompositeFriendlyURL = friendlyURL;
 		String queryString = StringPool.BLANK;
 
 		if (Validator.isNull(friendlyURL)) {
@@ -917,10 +918,13 @@ public class PortalImpl implements Portal {
 					requestContext);
 
 			layout = layoutQueryStringComposite.getLayout();
+			layoutQueryStringCompositeFriendlyURL =
+				layoutQueryStringComposite.getFriendlyURL();
 			queryString = layoutQueryStringComposite.getQueryString();
 		}
 
-		return new LayoutQueryStringComposite(layout, queryString);
+		return new LayoutQueryStringComposite(
+			layout, layoutQueryStringCompositeFriendlyURL, queryString);
 	}
 
 	@Override
@@ -2898,6 +2902,7 @@ public class PortalImpl implements Portal {
 					requestContext);
 
 			layout = layoutQueryStringComposite.getLayout();
+			layoutFriendlyURL = layoutQueryStringComposite.getFriendlyURL();
 		}
 
 		return new LayoutFriendlyURLComposite(layout, layoutFriendlyURL);
@@ -3388,7 +3393,8 @@ public class PortalImpl implements Portal {
 
 	@Override
 	public String getLocalizedFriendlyURL(
-			HttpServletRequest request, Layout layout, Locale locale)
+			HttpServletRequest request, Layout layout, Locale locale,
+			Locale originalLocale)
 		throws Exception {
 
 		String contextPath = getPathContext();
@@ -3410,25 +3416,30 @@ public class PortalImpl implements Portal {
 
 		String layoutFriendlyURL = null;
 
-		if ((x != -1) && ((x + 1) != path.length())) {
-			layoutFriendlyURL = path.substring(x);
-		}
+		if (originalLocale == null) {
+			if ((x != -1) && ((x + 1) != path.length())) {
+				layoutFriendlyURL = path.substring(x);
+			}
 
-		int y = layoutFriendlyURL.indexOf(
-			VirtualLayoutConstants.CANONICAL_URL_SEPARATOR);
+			int y = layoutFriendlyURL.indexOf(
+				VirtualLayoutConstants.CANONICAL_URL_SEPARATOR);
 
-		if (y != -1) {
-			y = layoutFriendlyURL.indexOf(CharPool.SLASH, 3);
+			if (y != -1) {
+				y = layoutFriendlyURL.indexOf(CharPool.SLASH, 3);
 
-			if ((y != -1) && ((y + 1) != layoutFriendlyURL.length())) {
-				layoutFriendlyURL = layoutFriendlyURL.substring(y);
+				if ((y != -1) && ((y + 1) != layoutFriendlyURL.length())) {
+					layoutFriendlyURL = layoutFriendlyURL.substring(y);
+				}
+			}
+
+			y = layoutFriendlyURL.indexOf(Portal.FRIENDLY_URL_SEPARATOR);
+
+			if (y != -1) {
+				layoutFriendlyURL = layoutFriendlyURL.substring(0, y);
 			}
 		}
-
-		y = layoutFriendlyURL.indexOf(Portal.FRIENDLY_URL_SEPARATOR);
-
-		if (y != -1) {
-			layoutFriendlyURL = layoutFriendlyURL.substring(0, y);
+		else {
+			layoutFriendlyURL = layout.getFriendlyURL(originalLocale);
 		}
 
 		if (requestURI.contains(layoutFriendlyURL)) {
@@ -4196,7 +4207,7 @@ public class PortalImpl implements Portal {
 		Layout layout = LayoutLocalServiceUtil.getFriendlyURLLayout(
 			groupId, privateLayout, friendlyURL);
 
-		return new LayoutQueryStringComposite(layout, queryString);
+		return new LayoutQueryStringComposite(layout, friendlyURL, queryString);
 	}
 
 	@Override

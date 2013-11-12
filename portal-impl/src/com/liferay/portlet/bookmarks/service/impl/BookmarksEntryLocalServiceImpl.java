@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.bookmarks.service.impl;
 
+import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
@@ -32,6 +33,7 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.TreePathUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.model.Group;
@@ -48,6 +50,8 @@ import com.liferay.portlet.bookmarks.EntryURLException;
 import com.liferay.portlet.bookmarks.model.BookmarksEntry;
 import com.liferay.portlet.bookmarks.model.BookmarksFolder;
 import com.liferay.portlet.bookmarks.model.BookmarksFolderConstants;
+import com.liferay.portlet.bookmarks.model.impl.BookmarksEntryModelImpl;
+import com.liferay.portlet.bookmarks.model.impl.BookmarksFolderModelImpl;
 import com.liferay.portlet.bookmarks.service.base.BookmarksEntryLocalServiceBaseImpl;
 import com.liferay.portlet.bookmarks.social.BookmarksActivityKeys;
 import com.liferay.portlet.bookmarks.util.BookmarksUtil;
@@ -428,16 +432,20 @@ public class BookmarksEntryLocalServiceImpl
 	}
 
 	@Override
-	public void rebuildTree(long companyId)
-		throws PortalException, SystemException {
+	public void rebuildTree(long companyId) throws SystemException {
+		bookmarksFolderLocalService.rebuildTree(companyId);
 
-		List<BookmarksEntry> entries = bookmarksEntryPersistence.findByC_NotS(
-			companyId, WorkflowConstants.STATUS_IN_TRASH);
+		Session session = bookmarksEntryPersistence.openSession();
 
-		for (BookmarksEntry entry : entries) {
-			entry.setTreePath(entry.buildTreePath());
+		try {
+			TreePathUtil.rebuildTree(
+				session, companyId, BookmarksEntryModelImpl.TABLE_NAME,
+				BookmarksFolderModelImpl.TABLE_NAME, "folderId", true);
+		}
+		finally {
+			bookmarksEntryPersistence.closeSession(session);
 
-			bookmarksEntryPersistence.update(entry);
+			bookmarksEntryPersistence.clearCache();
 		}
 	}
 

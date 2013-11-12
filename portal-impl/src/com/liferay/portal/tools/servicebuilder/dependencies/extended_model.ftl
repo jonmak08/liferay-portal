@@ -5,6 +5,7 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.util.Accessor;
 import com.liferay.portal.model.PermissionedModel;
 import com.liferay.portal.model.PersistedModel;
+import com.liferay.portal.model.TreeModel;
 
 /**
  * The extended model interface for the ${entity.name} service. Represents a row in the &quot;${entity.table}&quot; database table, with each column mapped to a property of this class.
@@ -23,11 +24,19 @@ import com.liferay.portal.model.PersistedModel;
 public interface ${entity.name} extends
 	${entity.name}Model
 
+	<#assign overrideColumnNames = []>
+
 	<#if entity.hasLocalService() && entity.hasColumns()>
 		<#if entity.isPermissionedModel()>
 			, PermissionedModel
 		<#else>
 			, PersistedModel
+		</#if>
+
+		<#if entity.isTreeModel()>
+			, TreeModel
+
+			<#assign overrideColumnNames = overrideColumnNames + ["buildTreePath", "updateTreePath"]>
 		</#if>
 	</#if>
 
@@ -84,6 +93,10 @@ public interface ${entity.name} extends
 					</#if>
 				</#if>
 			</#list>
+
+			<#if overrideColumnNames?seq_index_of(method.name) != -1>
+				@Override
+			</#if>
 
 			public ${serviceBuilder.getTypeGenericsName(method.returns)} ${method.name} (
 

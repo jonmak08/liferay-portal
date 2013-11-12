@@ -47,6 +47,7 @@
 	<command name="definePermissionCP">
 		<var name="key_roleName" value="${roleName}" />
 
+		<execute action="CPRoles#type" locator-key1="SEARCH_FIELD" value1="${roleName}" />
 		<execute action="CPRoles#assertClick" locator-key1="SEARCH_BUTTON" value1="Search" />
 		<execute action="CPRoles#assertTextEquals" locator-key1="ROLE_TABLE_TITLE" value1="${roleName}" />
 		<execute action="CPRoles#assertClick" locator-key1="ROLE_TABLE_ACTIONS" value1="Actions" />
@@ -82,7 +83,7 @@
 	</command>
 
 	<command name="definePermissionPG">
- 		<var name="key_roleName" value="${roleName?replace(' ', '-')}" />
+		<var name="key_roleName" value="${roleName?replace(' ', '-')}" />
 		<var name="key_roleName" value="${key_roleName?lowercase()}" />
 
 		<execute action="Permissions#check" locator-key1="${permissionDefinitionKey}" />
@@ -153,5 +154,13 @@
 
 		<execute action="CPRolesEdit#assertTextEquals" locator-key1="HEADER" value1="${roleName}" />
 		<execute action="CPRolesEdit#assertTextEquals" locator-key1="NAME_FIELD" value1="${roleName}" />
+	</command>
+
+	<command name="viewPermissionCP">
+		<var name="key_permissionNavigationValue" value="${permissionNavigationValue}" />
+		<var name="key_permissionDefinitionValue" value="${permissionDefinitionValue}" />
+
+		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_PERMISSIONS" value1="${permissionNavigationValue}" />
+		<execute action="CPRolesDefinepermissions#assertTextEquals" locator-key1="PERMISSION_TABLE_PERMISSIONS" value1="${permissionDefinitionValue}" />
 	</command>
 </definition>

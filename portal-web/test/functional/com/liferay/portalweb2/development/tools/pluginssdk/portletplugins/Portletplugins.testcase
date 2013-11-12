@@ -35,32 +35,8 @@
 		</execute>
 	</command>
 
-	<command name="AuditPortletSmoke" priority="5">
-		<var name="appName" value="Audit" />
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="Audit Reports" />
-		</execute>
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="App Manager" />
-		</execute>
-
-		<execute macro="AppManager#uninstallAppCP">
-			<var name="appName" value="${appName}" />
-		</execute>
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="App Manager" />
-		</execute>
-
-		<execute macro="AppManager#viewUninstallAppCP">
-			<var name="appName" value="${appName}" />
-		</execute>
-	</command>
-
 	<command name="CalendarPortletSmoke" priority="5">
-		<var name="appName" value="Enterprise Calendar" />
+		<var name="appName" value="Calendar" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Test Page" />
@@ -89,6 +65,14 @@
 
 	<command name="ChatPortletSmoke" priority="5">
 		<var name="appName" value="Chat" />
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="App Manager" />
+		</execute>
+
+		<execute macro="AppManager#deactivateAppCP">
+			<var name="appName" value="${appName}" />
+		</execute>
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="App Manager" />
@@ -247,54 +231,6 @@
 		</execute>
 	</command>
 
-	<command name="KaleoDesignerPortletSmoke" priority="5">
-		<var name="appName" value="Kaleo Designer" />
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="App Manager" />
-		</execute>
-
-		<execute macro="AppManager#uninstallAppCP">
-			<var name="appName" value="${appName}" />
-		</execute>
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="App Manager" />
-		</execute>
-
-		<execute macro="AppManager#viewUninstallAppCP">
-			<var name="appName" value="${appName}" />
-		</execute>
-	</command>
-
-	<command name="KaleoFormsPortletSmoke" priority="5">
-		<var name="appName" value="Kaleo Forms" />
-
-		<execute macro="Page#gotoPG">
-			<var name="pageName" value="Test Page" />
-		</execute>
-
-		<execute macro="Portlet#addPG">
-			<var name="portletName" value="Kaleo Forms" />
-		</execute>
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="App Manager" />
-		</execute>
-
-		<execute macro="AppManager#uninstallAppCP">
-			<var name="appName" value="${appName}" />
-		</execute>
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="App Manager" />
-		</execute>
-
-		<execute macro="AppManager#viewUninstallAppCP">
-			<var name="appName" value="${appName}" />
-		</execute>
-	</command>
-
 	<command name="KnowledgeBasePortletSmoke" priority="5">
 		<var name="appName" value="Knowledge Base" />
 
@@ -400,15 +336,7 @@
 	</command>
 
 	<command name="MarketplacePortletSmoke" priority="5">
-		<var name="appName" value="Marketplace Portlet" />
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="App Manager" />
-		</execute>
-
-		<execute macro="AppManager#uninstallAppCP">
-			<var name="appName" value="${appName}" />
-		</execute>
+		<var name="appName" value="Marketplace" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="App Manager" />
@@ -503,7 +431,7 @@
 		</execute>
 	</command>
 
-	<command name="NotificationsPortletPortletSmoke" priority="5">
+	<command name="NotificationsPortletSmoke" priority="5">
 		<var name="appName" value="Notifications" />
 
 		<execute macro="Page#gotoPG">
@@ -512,6 +440,14 @@
 
 		<execute macro="Portlet#addPG">
 			<var name="portletName" value="Notifications" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="App Manager" />
+		</execute>
+
+		<execute macro="AppManager#deactivateAppCP">
+			<var name="appName" value="${appName}" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -569,62 +505,6 @@
 
 	<command name="PluginsSecurityManagerPortletSmoke" priority="5">
 		<var name="appName" value="Plugins Security Manager" />
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="App Manager" />
-		</execute>
-
-		<execute macro="AppManager#uninstallAppCP">
-			<var name="appName" value="${appName}" />
-		</execute>
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="App Manager" />
-		</execute>
-
-		<execute macro="AppManager#viewUninstallAppCP">
-			<var name="appName" value="${appName}" />
-		</execute>
-	</command>
-
-	<command name="ReportsPortletSmoke" priority="5">
-		<var name="appName" value="Reports" />
-
-		<execute macro="Page#gotoPG">
-			<var name="pageName" value="Test Page" />
-		</execute>
-
-		<execute macro="Portlet#addPG">
-			<var name="portletName" value="Reports Display" />
-		</execute>
-
-		<execute macro="Page#gotoConfigurationCP">
-			<var name="portletName" value="Reports Admin" />
-		</execute>
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="App Manager" />
-		</execute>
-
-		<execute macro="AppManager#uninstallAppCP">
-			<var name="appName" value="${appName}" />
-		</execute>
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="App Manager" />
-		</execute>
-
-		<execute macro="AppManager#viewUninstallAppCP">
-			<var name="appName" value="${appName}" />
-		</execute>
-	</command>
-
-	<command name="SAMLPortletSmoke" priority="5">
-		<var name="appName" value="SAML" />
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="SAML Admin" />
-		</execute>
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="App Manager" />

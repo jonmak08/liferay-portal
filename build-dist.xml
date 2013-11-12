@@ -925,13 +925,22 @@ release was successful.</echo>
 			/>
 		</unzip>
 
+		<if>
+			<equals arg1="${java.security.manager.option}" arg2="" />
+			<then>
+				<var name="java.security.config" value="" />
+			</then>
+			<else>
+				<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy==@app.server.geronimo.dir@/etc/server.policy" />
+			</else>
+		</if>
+
 		<copy
 			file="tools/servers/geronimo/bin/setenv.bat"
 			tofile="${app.server.geronimo.bin.dir}/setenv.bat"
 		>
 			<filterset>
-				<filter token="app.server.geronimo.dir" value="${app.server.geronimo.dir}" />
-				<filter token="java.security.manager.option" value="${java.security.manager.option}" />
+				<filter token="java.security.config" value="${java.security.config}" />
 			</filterset>
 		</copy>
 
@@ -940,8 +949,7 @@ release was successful.</echo>
 			tofile="${app.server.geronimo.bin.dir}/setenv.sh"
 		>
 			<filterset>
-				<filter token="app.server.geronimo.dir" value="${app.server.geronimo.dir}" />
-				<filter token="java.security.manager.option" value="${java.security.manager.option}" />
+				<filter token="java.security.config" value="${java.security.config}" />
 			</filterset>
 		</copy>
 
@@ -1022,6 +1030,7 @@ release was successful.</echo>
 			</then>
 			<else>
 				<replace file="${app.server.glassfish.instance.dir}/config/domain.xml">
+					<replacefilter token="@java.security.manager.option@" value="${java.security.manager.option}" />
 					<replacetoken><![CDATA[<jvm-options>-Xmx512m</jvm-options>]]></replacetoken>
 					<replacevalue>
 						<![CDATA[
@@ -1033,7 +1042,6 @@ release was successful.</echo>
 							<jvm-options>-Xmx1024m</jvm-options>
 						]]>
 					</replacevalue>
-					<replacefilter token="@java.security.manager.option@" value="${java.security.manager.option}" />
 				</replace>
 			</else>
 		</if>
@@ -1217,9 +1225,19 @@ release was successful.</echo>
 					<replacevalue><![CDATA[JAVA_OPTS="]]></replacevalue>
 				</replace>
 
+				<if>
+					<equals arg1="${java.security.manager.option}" arg2="" />
+					<then>
+						<var name="java.security.config" value="" />
+					</then>
+					<else>
+						<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy==${app.server.jboss.dir}/bin/server.policy -Djboss.home.dir=${app.server.jboss.dir}" />
+					</else>
+				</if>
+
 				<echo file="${app.server.jboss.bin.dir}/standalone.conf" append="true">
 					<![CDATA[
-						JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true ${java.security.manager.option} -Djava.security.policy==${app.server.jboss.dir}/bin/server.policy -Djboss.home.dir=${app.server.jboss.dir} -Duser.timezone=GMT -Xmx1024m -XX:MaxPermSize=256m"
+						JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true ${java.security.config} -Duser.timezone=GMT -Xmx1024m -XX:MaxPermSize=256m"
 					]]>
 				</echo>
 
@@ -1229,16 +1247,15 @@ release was successful.</echo>
 				</replace>
 
 				<replace file="${app.server.jboss.bin.dir}/standalone.conf.bat">
+					<replacefilter token="@java.security.config@" value="${java.security.config}" />
 					<replacetoken><![CDATA[:JAVA_OPTS_SET]]></replacetoken>
 					<replacevalue>
 						<![CDATA[
-							set "JAVA_OPTS=%JAVA_OPTS% -Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true @java.security.manager.option@ -Djava.security.policy==@app.server.jboss.dir@/bin/server.policy -Djboss.home.dir=@app.server.jboss.dir@ -Duser.timezone=GMT -Xmx1024m -XX:MaxPermSize=256m"
+							set "JAVA_OPTS=%JAVA_OPTS% -Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true @java.security.config@ -Duser.timezone=GMT -Xmx1024m -XX:MaxPermSize=256m"
 
 							:JAVA_OPTS_SET
 						]]>
 					</replacevalue>
-					<replacefilter token="@app.server.jboss.dir@" value="${app.server.jboss.dir}" />
-					<replacefilter token="@java.security.manager.option@" value="${java.security.manager.option}" />
 				</replace>
 
 				<replace file="${app.server.jboss.instance.dir}/configuration/standalone.xml">
@@ -1423,13 +1440,22 @@ release was successful.</echo>
 			};
 		</echo>
 
+		<if>
+			<equals arg1="${java.security.manager.option}" arg2="" />
+			<then>
+				<var name="java.security.config" value="" />
+			</then>
+			<else>
+				<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy==${app.server.jetty.dir}/lib/policy/server.policy -Djetty.home=${app.server.jetty.dir}" />
+			</else>
+		</if>
+
 		<copy
 			file="tools/servers/jetty/bin/run.bat"
 			tofile="${app.server.jetty.bin.dir}/run.bat"
 		>
 			<filterset>
-				<filter token="app.server.jetty.dir" value="${app.server.jetty.dir}" />
-				<filter token="java.security.manager.option" value="${java.security.manager.option}" />
+				<filter token="java.security.config" value="${java.security.config}" />
 			</filterset>
 		</copy>
 
@@ -1451,8 +1477,7 @@ release was successful.</echo>
 			tofile="${app.server.jetty.bin.dir}/run.sh"
 		>
 			<filterset>
-				<filter token="app.server.jetty.dir" value="${app.server.jetty.dir}" />
-				<filter token="java.security.manager.option" value="${java.security.manager.option}" />
+				<filter token="java.security.config" value="${java.security.config}" />
 			</filterset>
 		</copy>
 
@@ -1598,28 +1623,38 @@ release was successful.</echo>
 			<replacevalue><![CDATA[javase-packages ${javase-${javase.version}}, com.sun.crypto.provider, com.sun.jmx.interceptor, com.sun.jmx.mbeanserver, org.apache.felix.framework]]></replacevalue>
 		</replace>
 
+		<if>
+			<equals arg1="${java.security.manager.option}" arg2="" />
+			<then>
+				<var name="java.security.config" value="" />
+			</then>
+			<else>
+				<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy==$JONAS_ROOT/conf/java.policy" />
+			</else>
+		</if>
+
 		<replace file="${app.server.jonas.bin.dir}/setenv">
+			<replacefilter token="@java.security.config@" value="${java.security.config}" />
 			<replacetoken><![CDATA[export JAVA_OPTS]]></replacetoken>
 			<replacevalue>
 				<![CDATA[
-					JAVA_OPTS="-Dfile.encoding=UTF8 -Djava.net.preferIPv4Stack=true @java.security.manager.option@ -Djava.security.policy==$JONAS_ROOT/conf/java.policy -Djonas.felix.configuration.file=\"$JONAS_ROOT/conf/felix-config.properties\" -Duser.timezone=GMT -Xmx1024m -XX:MaxPermSize=256m"
+					JAVA_OPTS="-Dfile.encoding=UTF8 -Djava.net.preferIPv4Stack=true @java.security.config@ -Djonas.felix.configuration.file=\"$JONAS_ROOT/conf/felix-config.properties\" -Duser.timezone=GMT -Xmx1024m -XX:MaxPermSize=256m"
 
 					export JAVA_OPTS
 				]]>
 			</replacevalue>
-			<replacefilter token="@java.security.manager.option@" value="${java.security.manager.option}" />
 		</replace>
 
 		<replace file="${app.server.jonas.bin.dir}/setenv.bat">
+			<replacefilter token="@java.security.config@" value="${java.security.config}" />
 			<replacetoken><![CDATA[set JONAS_CLASSPATH=%JONAS_BASE%\conf;%JONAS_CLASSPATH%]]></replacetoken>
 			<replacevalue>
 				<![CDATA[
 					set JONAS_CLASSPATH=%JONAS_BASE%\conf;%JONAS_CLASSPATH%
 
-					set "JAVA_OPTS=-Dfile.encoding=UTF8 -Djava.net.preferIPv4Stack=true @java.security.manager.option@ -Djava.security.policy==%JONAS_ROOT%/conf/java.policy -Djonas.felix.configuration.file=%JONAS_ROOT%/conf/felix-config.properties -Duser.timezone=GMT -Xmx1024m -XX:MaxPermSize=256m"
+					set "JAVA_OPTS=-Dfile.encoding=UTF8 -Djava.net.preferIPv4Stack=true @java.security.config@ -Djonas.felix.configuration.file=%JONAS_ROOT%/conf/felix-config.properties -Duser.timezone=GMT -Xmx1024m -XX:MaxPermSize=256m"
 				]]>
 			</replacevalue>
-			<replacefilter token="@java.security.manager.option@" value="${java.security.manager.option}" />
 		</replace>
 
 		<chmod perm="a+x">
@@ -1664,11 +1699,20 @@ release was successful.</echo>
 			};
 		</echo>
 
+		<if>
+			<equals arg1="${java.security.manager.option}" arg2="" />
+			<then>
+				<var name="java.security.config" value="" />
+			</then>
+			<else>
+				<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy==${app.server.resin.dir}/conf/server.policy" />
+			</else>
+		</if>
+
 		<replace file="${app.server.resin.dir}/conf/resin.properties">
+			<replacefilter token="@java.security.config@" value="${java.security.config}" />
 			<replacetoken><![CDATA[# jvm_args  : -Xmx2048m -XX:MaxPermSize=256m]]></replacetoken>
-			<replacevalue><![CDATA[jvm_args  : -Dfile.encoding=UTF-8 -Dcaucho.environment.class.loader=com.liferay.support.resin.EnvironmentClassLoader -Djava.net.preferIPv4Stack=true @java.security.manager.option@ -Djava.security.policy==@app.server.resin.dir@/conf/server.policy -Duser.timezone=GMT -Xmx1024m -XX:MaxPermSize=256m]]></replacevalue>
-			<replacefilter token="@app.server.resin.dir@" value="${app.server.resin.dir}" />
-			<replacefilter token="@java.security.manager.option@" value="${java.security.manager.option}" />
+			<replacevalue><![CDATA[jvm_args  : -Dfile.encoding=UTF-8 -Dcaucho.environment.class.loader=com.liferay.support.resin.EnvironmentClassLoader -Djava.net.preferIPv4Stack=true @java.security.config@ -Duser.timezone=GMT -Xmx1024m -XX:MaxPermSize=256m]]></replacevalue>
 		</replace>
 
 		<replace file="${app.server.resin.dir}/conf/resin.xml">
@@ -1769,12 +1813,22 @@ release was successful.</echo>
 			</then>
 		</if>
 
+		<if>
+			<equals arg1="${java.security.manager.option}" arg2="" />
+			<then>
+				<var name="java.security.config" value="" />
+			</then>
+			<else>
+				<var name="java.security.config" value="${java.security.manager.option} -Djava.security.policy===$CATALINA_BASE/conf/catalina.policy" />
+			</else>
+		</if>
+
 		<copy
 			file="tools/servers/tomcat/bin/setenv.bat"
 			tofile="${app.server.tomcat.bin.dir}/setenv.bat"
 		>
 			<filterset>
-				<filter token="java.security.manager.option" value="${java.security.manager.option}" />
+				<filter token="java.security.config" value="${java.security.config}" />
 				<filter token="java.version" value="${jdk.windows.version}" />
 			</filterset>
 		</copy>
@@ -1784,7 +1838,7 @@ release was successful.</echo>
 			tofile="${app.server.tomcat.bin.dir}/setenv.sh"
 		>
 			<filterset>
-				<filter token="java.security.manager.option" value="${java.security.manager.option}" />
+				<filter token="java.security.config" value="${java.security.config}" />
 			</filterset>
 		</copy>
 
@@ -1959,6 +2013,7 @@ closeTemplate()
 				</exec>
 
 				<replace file="${app.server.weblogic.instance.dir}/startWebLogic.cmd">
+					<replacefilter token="@java.security.manager.option@" value="${java.security.manager.option}" />
 					<replacetoken><![CDATA[SETLOCAL]]></replacetoken>
 					<replacevalue>
 						<![CDATA[
@@ -1971,8 +2026,6 @@ closeTemplate()
 							set "JAVA_OPTIONS=%JAVA_OPTIONS% -Dfile.encoding=UTF-8 @java.security.manager.option@ -da:org.apache.lucene... -da:org.aspectj..."
 						]]>
 					</replacevalue>
-					<replacefilter token="@app.server.weblogic.instance.dir@" value="${app.server.weblogic.instance.dir}" />
-					<replacefilter token="@java.security.manager.option@" value="${java.security.manager.option}" />
 				</replace>
 
 				<replace file="${app.server.weblogic.instance.dir}/startWebLogic.cmd">
@@ -2050,6 +2103,7 @@ closeTemplate()
 				</exec>
 
 				<replace file="${app.server.weblogic.instance.dir}/startWebLogic.sh">
+					<replacefilter token="@java.security.manager.option@" value="${java.security.manager.option}" />
 					<replacetoken><![CDATA[# Any changes to this script may be lost when adding extensions to this configuration.]]></replacetoken>
 					<replacevalue>
 						<![CDATA[
@@ -2062,8 +2116,6 @@ closeTemplate()
 							export JAVA_OPTIONS="${JAVA_OPTIONS} @java.security.manager.option@ -da:org.apache.lucene... -da:org.aspectj..."
 						]]>
 					</replacevalue>
-					<replacefilter token="@app.server.weblogic.instance.dir@" value="${app.server.weblogic.instance.dir}" />
-					<replacefilter token="@java.security.manager.option@" value="${java.security.manager.option}" />
 				</replace>
 
 				<replace file="${app.server.weblogic.instance.dir}/startWebLogic.sh">
@@ -2414,10 +2466,6 @@ plugins.includes=</echo>
 					<then>
 						<unzip dest="${zip.executable.dir}/.." src="${patching.tool.zip}" />
 
-						<chmod dir="${zip.executable.dir}/../patching-tool" perm="u+x">
-							<include name="**/*.sh" />
-						</chmod>
-
 						<if>
 							<contains string="${zip.executable.dir}" substring="glassfish" />
 							<then>
@@ -2452,6 +2500,13 @@ plugins.includes=</echo>
 						>
 							<zipfileset
 								dir="${zip.executable.dir}/../patching-tool"
+								excludes="**/*.sh"
+								prefix="liferay-portal-${lp.version}/patching-tool"
+							/>
+							<zipfileset
+								dir="${zip.executable.dir}/../patching-tool"
+								filemode="744"
+								includes="**/*.sh"
 								prefix="liferay-portal-${lp.version}/patching-tool"
 							/>
 						</zip>

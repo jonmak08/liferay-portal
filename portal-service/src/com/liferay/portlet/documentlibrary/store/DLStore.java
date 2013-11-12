@@ -123,6 +123,8 @@ public interface DLStore {
 			String versionLabel)
 		throws PortalException, SystemException;
 
+	public boolean isValidName(String name);
+
 	public void move(String srcDir, String destDir) throws SystemException;
 
 	public void updateFile(
@@ -176,5 +178,8 @@ public interface DLStore {
 			String fileName, String fileExtension, String sourceFileName,
 			boolean validateFileExtension, InputStream is)
 		throws PortalException, SystemException;
+
+	public void validateDirectoryName(String directoryName)
+		throws PortalException;
 
 }

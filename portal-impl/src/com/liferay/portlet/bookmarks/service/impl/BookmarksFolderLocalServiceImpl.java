@@ -15,6 +15,7 @@
 package com.liferay.portlet.bookmarks.service.impl;
 
 import com.liferay.portal.kernel.dao.orm.QueryDefinition;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
@@ -25,6 +26,8 @@ import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistryUtil;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
 import com.liferay.portal.kernel.util.ContentTypes;
+import com.liferay.portal.kernel.util.TreeModelFinder;
+import com.liferay.portal.kernel.util.TreePathUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.model.ResourceConstants;
@@ -38,6 +41,7 @@ import com.liferay.portlet.bookmarks.model.BookmarksEntry;
 import com.liferay.portlet.bookmarks.model.BookmarksFolder;
 import com.liferay.portlet.bookmarks.model.BookmarksFolderConstants;
 import com.liferay.portlet.bookmarks.service.base.BookmarksFolderLocalServiceBaseImpl;
+import com.liferay.portlet.bookmarks.util.comparator.FolderIdComparator;
 import com.liferay.portlet.social.model.SocialActivityConstants;
 import com.liferay.portlet.trash.model.TrashEntry;
 import com.liferay.portlet.trash.model.TrashVersion;
@@ -447,17 +451,25 @@ public class BookmarksFolderLocalServiceImpl
 	}
 
 	@Override
-	public void rebuildTree(long companyId)
-		throws PortalException, SystemException {
+	public void rebuildTree(long companyId) throws SystemException {
+		TreePathUtil.rebuildTree(
+			companyId, BookmarksFolderConstants.DEFAULT_PARENT_FOLDER_ID,
+			new TreeModelFinder<BookmarksFolder>() {
 
-		List<BookmarksFolder> folders = bookmarksFolderPersistence.findByC_NotS(
-			companyId, WorkflowConstants.STATUS_IN_TRASH);
+				@Override
+				public List<BookmarksFolder> findTreeModels(
+						long previousId, long companyId, long parentPrimaryKey,
+						int size)
+					throws SystemException {
 
-		for (BookmarksFolder folder : folders) {
-			folder.setTreePath(folder.buildTreePath());
+					return bookmarksFolderPersistence.findByF_C_P_NotS(
+						previousId, companyId, parentPrimaryKey,
+						WorkflowConstants.STATUS_IN_TRASH, QueryUtil.ALL_POS,
+						size, new FolderIdComparator());
+				}
 
-			bookmarksFolderPersistence.update(folder);
-		}
+			}
+		);
 	}
 
 	@Indexable(type = IndexableType.REINDEX)

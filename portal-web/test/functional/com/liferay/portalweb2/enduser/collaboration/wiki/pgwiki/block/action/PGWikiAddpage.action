@@ -23,5 +23,8 @@
 		<case locator-key1="BODY_FIELD">
 			<execute function="Type#typeFrameWaitForCKEditor" />
 		</case>
+		<case locator-key1="CK_EDITOR_SOURCE_FIELD">
+			<execute function="Type#type" />
+		</case>
 	</command>
 </definition>
