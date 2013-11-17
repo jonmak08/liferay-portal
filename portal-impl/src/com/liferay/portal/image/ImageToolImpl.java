@@ -243,7 +243,7 @@ public class ImageToolImpl implements ImageTool {
 	public RenderedImage crop(
 		RenderedImage renderedImage, int height, int width, int x, int y) {
 
-		Rectangle rectangle = new Rectangle(width, height);
+		Rectangle rectangle = new Rectangle(x, y, width, height);
 
 		Rectangle croppedRectangle = rectangle.intersection(
 			new Rectangle(renderedImage.getWidth(), renderedImage.getHeight()));
@@ -251,7 +251,8 @@ public class ImageToolImpl implements ImageTool {
 		BufferedImage bufferedImage = getBufferedImage(renderedImage);
 
 		return bufferedImage.getSubimage(
-			x, y, croppedRectangle.width, croppedRectangle.height);
+			croppedRectangle.x, croppedRectangle.y, croppedRectangle.width,
+			croppedRectangle.height);
 	}
 
 	@Override
