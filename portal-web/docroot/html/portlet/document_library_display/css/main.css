@@ -5,7 +5,10 @@
 		font-size: 1.15em;
 		font-weight: bold;
 		padding: 1.4em 0 0;
-		word-break: break-all;
+	}
+
+	.lfr-search-container .table-cell a {
+		word-break: break-word;
 	}
 
 	.view-folders .repository-error {

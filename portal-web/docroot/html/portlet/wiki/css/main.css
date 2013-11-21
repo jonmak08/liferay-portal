@@ -62,7 +62,7 @@
 	}
 
 	.portlet-body {
-		word-break: break-all;
+		word-break: break-word;
 	}
 
 	.portlet-body h2 a.hashlink,

@@ -51,8 +51,9 @@
 		display: block;
 		font-size: 1.2em;
 		margin-bottom: 0.2em;
-		overflow:hidden;
+		overflow: hidden;
 		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	.search-container {
