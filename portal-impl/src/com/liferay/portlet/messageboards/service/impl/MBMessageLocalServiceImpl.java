@@ -1179,7 +1179,7 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 
 		if (message.isApproved() && includePrevAndNext &&
 			(status == WorkflowConstants.STATUS_ANY ||
-				status == WorkflowConstants.STATUS_APPROVED)) {
+			 status == WorkflowConstants.STATUS_APPROVED)) {
 
 			ThreadLastPostDateComparator comparator =
 				new ThreadLastPostDateComparator(false);
