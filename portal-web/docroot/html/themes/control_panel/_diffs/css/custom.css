@@ -416,9 +416,8 @@ $dockbarOpenGradientStart: #0EA6F9;
 	/* ---------- General nav ---------- */
 
 	.portlet-topper-toolbar {
+		margin-right: 8px;
 		position: static;
-		right: auto;
-		top: auto;
 	}
 
 	.nav-list {
