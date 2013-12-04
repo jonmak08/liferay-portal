@@ -76,7 +76,7 @@ PortalLDAPUtil.getGroups(themeDisplay.getCompanyId(), ldapContext, new byte[0], 
 
 <br /><br />
 
-<table class="lfr-table" width="100%">
+<table class="lfr-table ldap-test-result" width="100%">
 
 <%
 boolean showMissingAttributeMessage = false;
