@@ -17,6 +17,8 @@
 				${theme.portletIconOptions()}
 			</#if>
 		</menu>
+
+		<div class="clearfix">&nbsp;</div>
 	</header>
 
 	<div class="portlet-content">
