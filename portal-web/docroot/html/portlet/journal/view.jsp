@@ -82,7 +82,7 @@ request.setAttribute("view.jsp-folderId", String.valueOf(folderId));
 			portletURL.setParameter("folderId", String.valueOf(folderId));
 			%>
 
-			<aui:form action="<%= portletURL.toString() %>" method="get" name="fm">
+			<aui:form action="<%= portletURL.toString() %>" autoComplete="off" method="get" name="fm">
 				<aui:input name="<%= Constants.CMD %>" type="hidden" />
 				<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
 				<aui:input name="folderIds" type="hidden" />
