@@ -125,7 +125,7 @@ request.setAttribute("view.jsp-repositoryId", String.valueOf(repositoryId));
 				<portlet:param name="struts_action" value="/document_library/edit_file_entry" />
 			</liferay-portlet:renderURL>
 
-			<aui:form action="<%= editFileEntryURL.toString() %>" method="get" name="fm2">
+			<aui:form action="<%= editFileEntryURL.toString() %>" autoComplete="off" method="get" name="fm2">
 				<aui:input name="<%= Constants.CMD %>" type="hidden" />
 				<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
 				<aui:input name="repositoryId" type="hidden" value="<%= repositoryId %>" />
