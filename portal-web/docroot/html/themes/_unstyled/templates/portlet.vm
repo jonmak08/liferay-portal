@@ -17,6 +17,8 @@
 				$theme.portletIconOptions()
 			#end
 		</menu>
+
+		<div class="clearfix">&nbsp;</div>
 	</header>
 
 	<div class="portlet-content">
