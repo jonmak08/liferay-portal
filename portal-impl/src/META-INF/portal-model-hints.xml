@@ -31,7 +31,7 @@
 	</model>
 	<model name="com.liferay.portal.model.Account">
 		<default-hints>
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 		</default-hints>
 		<field name="accountId" type="long" />
 		<field name="companyId" type="long" />
@@ -54,7 +54,7 @@
 	</model>
 	<model name="com.liferay.portal.model.Address">
 		<default-hints>
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 		</default-hints>
 		<field name="uuid" type="String" />
 		<field name="addressId" type="long" />
@@ -120,7 +120,7 @@
 	</model>
 	<model name="com.liferay.portal.model.Company">
 		<default-hints>
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 		</default-hints>
 		<field name="companyId" type="long" />
 		<field name="accountId" type="long" />
@@ -141,7 +141,7 @@
 	</model>
 	<model name="com.liferay.portal.model.Contact">
 		<default-hints>
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 		</default-hints>
 		<field name="contactId" type="long" />
 		<field name="companyId" type="long" />
@@ -204,7 +204,7 @@
 		<field name="classNameId" type="long" />
 		<field name="classPK" type="long" />
 		<field name="address" type="String">
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 			<validator name="email" />
 		</field>
 		<field name="typeId" type="int" />
@@ -223,7 +223,7 @@
 			<hint name="max-length">4000</hint>
 		</field>
 		<field name="name" type="String">
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 			<hint name="max-length">150</hint>
 			<validator name="required" />
 		</field>
@@ -264,12 +264,12 @@
 		<field name="layoutId" type="long" />
 		<field name="parentLayoutId" type="long" />
 		<field name="name" type="String" localized="true">
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 			<hint name="max-length">4000</hint>
 			<validator name="required" />
 		</field>
 		<field name="title" type="String" localized="true">
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 			<hint name="max-length">4000</hint>
 		</field>
 		<field name="description" type="String" localized="true">
@@ -290,7 +290,7 @@
 		</field>
 		<field name="hidden" type="boolean" />
 		<field name="friendlyURL" type="String">
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 			<hint name="max-length">255</hint>
 		</field>
 		<field name="iconImageId" type="long" />
@@ -525,7 +525,7 @@
 			<hint name="max-length">4000</hint>
 		</field>
 		<field name="name" type="String">
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 			<hint name="max-length">100</hint>
 			<validator name="required" />
 		</field>
@@ -585,22 +585,22 @@
 		<field name="checkSyntax" type="boolean" />
 		<field name="allowDictionaryWords" type="boolean" />
 		<field name="minAlphanumeric" type="int">
-			<hint name="display-width">20</hint>
+			<hint name="display-width">input-mini</hint>
 		</field>
 		<field name="minLength" type="int">
-			<hint name="display-width">20</hint>
+			<hint name="display-width">input-mini</hint>
 		</field>
 		<field name="minLowerCase" type="int">
-			<hint name="display-width">20</hint>
+			<hint name="display-width">input-mini</hint>
 		</field>
 		<field name="minNumbers" type="int">
-			<hint name="display-width">20</hint>
+			<hint name="display-width">input-mini</hint>
 		</field>
 		<field name="minSymbols" type="int">
-			<hint name="display-width">20</hint>
+			<hint name="display-width">input-mini</hint>
 		</field>
 		<field name="minUpperCase" type="int">
-			<hint name="display-width">20</hint>
+			<hint name="display-width">input-mini</hint>
 		</field>
 		<field name="regex" type="String" />
 		<field name="history" type="boolean" />
@@ -609,11 +609,11 @@
 		<field name="maxAge" type="long" />
 		<field name="warningTime" type="long" />
 		<field name="graceLimit" type="int">
-			<hint name="display-width">20</hint>
+			<hint name="display-width">input-mini</hint>
 		</field>
 		<field name="lockout" type="boolean" />
 		<field name="maxFailure" type="int">
-			<hint name="display-width">20</hint>
+			<hint name="display-width">input-mini</hint>
 		</field>
 		<field name="lockoutDuration" type="long" />
 		<field name="requireUnlock" type="boolean" />
@@ -643,10 +643,10 @@
 		<field name="classNameId" type="long" />
 		<field name="classPK" type="long" />
 		<field name="number" type="String">
-			<hint name="display-width">100</hint>
+			<hint name="display-width">input-medium</hint>
 		</field>
 		<field name="extension" type="String">
-			<hint name="display-width">50</hint>
+			<hint name="display-width">input-mini</hint>
 		</field>
 		<field name="typeId" type="int" />
 		<field name="primary" type="boolean" />
@@ -816,7 +816,7 @@
 		<field name="classNameId" type="long" />
 		<field name="classPK" type="long" />
 		<field name="name" type="String">
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 			<validator name="required" />
 		</field>
 		<field name="title" type="String" localized="true">
@@ -900,7 +900,7 @@
 	</model>
 	<model name="com.liferay.portal.model.User">
 		<default-hints>
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-small</hint>
 		</default-hints>
 		<field name="uuid" type="String" />
 		<field name="userId" type="long" />
@@ -929,7 +929,7 @@
 		<field name="ldapServerId" type="long" />
 		<field name="openId" type="String">
 			<hint name="max-length">1024</hint>
-			<hint name="display-width">400</hint>
+			<hint name="display-width">input-medium</hint>
 		</field>
 		<field name="portraitId" type="long" />
 		<field name="languageId" type="String" />
@@ -971,7 +971,7 @@
 		<field name="modifiedDate" type="Date" />
 		<field name="parentUserGroupId" type="long" />
 		<field name="name" type="String">
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-small</hint>
 			<validator name="required" />
 		</field>
 		<field name="description" type="String">
@@ -1046,7 +1046,7 @@
 	</model>
 	<model name="com.liferay.portal.model.VirtualHost">
 		<default-hints>
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-xxlarge</hint>
 		</default-hints>
 		<field name="virtualHostId" type="long" />
 		<field name="companyId" type="long" />
@@ -1078,7 +1078,7 @@
 		<field name="classPK" type="long" />
 		<field name="url" type="String">
 			<hint-collection name="URL" />
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-xxlarge</hint>
 			<validator name="url" />
 		</field>
 		<field name="typeId" type="int" />
@@ -1180,10 +1180,10 @@
 		<field name="modifiedDate" type="Date" />
 		<field name="categoryId" type="long" />
 		<field name="key" type="String">
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 		</field>
 		<field name="value" type="String">
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 		</field>
 	</model>
 	<model name="com.liferay.portlet.asset.model.AssetEntry">
@@ -1253,10 +1253,10 @@
 		<field name="modifiedDate" type="Date" />
 		<field name="tagId" type="long" />
 		<field name="key" type="String">
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 		</field>
 		<field name="value" type="String">
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 			<hint name="max-length">255</hint>
 		</field>
 	</model>
@@ -1320,7 +1320,7 @@
 		<field name="smallImageId" type="long" />
 		<field name="smallImageURL" type="String">
 			<hint-collection name="URL" />
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 		</field>
 		<field name="status" type="int" />
 		<field name="statusByUserId" type="long" />
@@ -1365,7 +1365,7 @@
 		</field>
 		<field name="visits" type="int" />
 		<field name="priority" type="int">
-			<hint name="display-width">20</hint>
+			<hint name="display-width">input-mini</hint>
 		</field>
 		<field name="status" type="int" />
 		<field name="statusByUserId" type="long" />
@@ -1916,7 +1916,7 @@
 		</field>
 		<field name="rendererTemplateId" type="String" />
 		<field name="delta" type="int">
-			<hint name="display-width">50</hint>
+			<hint name="display-width">input-mini</hint>
 		</field>
 		<field name="orderByCol" type="String" />
 		<field name="orderByType" type="String" />
@@ -2122,7 +2122,7 @@
 		<field name="classPK" type="long" />
 		<field name="ruleGroupInstanceId" type="long" />
 		<field name="name" type="String" localized="true">
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 			<hint name="max-length">255</hint>
 			<validator name="required" />
 		</field>
@@ -2147,7 +2147,7 @@
 		<field name="modifiedDate" type="Date" />
 		<field name="ruleGroupId" type="long" />
 		<field name="name" type="String" localized="true">
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 			<hint name="max-length">255</hint>
 			<validator name="required" />
 		</field>
@@ -2171,7 +2171,7 @@
 		<field name="createDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
 		<field name="name" type="String" localized="true">
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 			<hint name="max-length">255</hint>
 			<validator name="required" />
 		</field>
@@ -2353,7 +2353,7 @@
 		<field name="useShippingFormula" type="boolean" />
 		<field name="requiresShipping" type="boolean" />
 		<field name="stockQuantity" type="int">
-			<hint name="display-width">20</hint>
+			<hint name="display-width">input-mini</hint>
 		</field>
 		<field name="featured" type="boolean" />
 		<field name="sale" type="boolean" />
@@ -2377,7 +2377,7 @@
 		<field name="itemFieldId" type="long" />
 		<field name="itemId" type="long" />
 		<field name="name" type="String">
-			<hint name="display-width">100</hint>
+			<hint name="display-width">input-medium</hint>
 		</field>
 		<field name="values" type="String">
 			<hint-collection name="TEXTAREA" />
@@ -2392,7 +2392,7 @@
 	</model>
 	<model name="com.liferay.portlet.shopping.model.ShoppingItemPrice">
 		<default-hints>
-			<hint name="display-width">50</hint>
+			<hint name="display-width">input-mini</hint>
 		</default-hints>
 		<field name="itemPriceId" type="long" />
 		<field name="itemId" type="long" />
@@ -2407,7 +2407,7 @@
 	</model>
 	<model name="com.liferay.portlet.shopping.model.ShoppingOrder">
 		<default-hints>
-			<hint name="display-width">150</hint>
+			<hint name="display-width">input-large</hint>
 		</default-hints>
 		<field name="orderId" type="long" />
 		<field name="groupId" type="long" />
@@ -2452,7 +2452,7 @@
 		<field name="ccExpMonth" type="int" />
 		<field name="ccExpYear" type="int" />
 		<field name="ccVerNumber" type="String">
-			<hint name="display-width">30</hint>
+			<hint name="display-width">input-mini</hint>
 		</field>
 		<field name="comments" type="String">
 			<hint-collection name="TEXTAREA" />
@@ -2604,7 +2604,7 @@
 		</field>
 		<field name="active" type="boolean" />
 		<field name="priority" type="int">
-			<hint name="display-width">20</hint>
+			<hint name="display-width">input-mini</hint>
 		</field>
 	</model>
 	<model name="com.liferay.portlet.softwarecatalog.model.SCLicense">
@@ -2670,7 +2670,7 @@
 		<field name="modifiedDate" type="Date" />
 		<field name="productEntryId" type="long" />
 		<field name="version" type="String">
-			<hint name="display-width">50</hint>
+			<hint name="display-width">input-mini</hint>
 		</field>
 		<field name="changeLog" type="String">
 			<hint-collection name="TEXTAREA" />

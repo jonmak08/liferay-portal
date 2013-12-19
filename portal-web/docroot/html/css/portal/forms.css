@@ -131,11 +131,10 @@
 }
 
 .lfr-input-resource {
-	width: @model_hints_constants_text_display_width@px;
 }
 
 .lfr-input-text, .form .fieldset .field.lfr-input-text-container input {
-	max-width: @model_hints_constants_text_display_width@px;
+	max-width: 220px;
 	width: 100%;
 }
 
