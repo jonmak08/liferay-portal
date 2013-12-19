@@ -130,13 +130,11 @@ public class SassToCssBuilder {
 			content,
 			new String[] {
 				"@model_hints_constants_text_display_height@",
-				"@model_hints_constants_text_display_width@",
 				"@model_hints_constants_textarea_display_height@",
 				"@model_hints_constants_textarea_display_width@"
 			},
 			new String[] {
 				ModelHintsConstants.TEXT_DISPLAY_HEIGHT,
-				ModelHintsConstants.TEXT_DISPLAY_WIDTH,
 				ModelHintsConstants.TEXTAREA_DISPLAY_HEIGHT,
 				ModelHintsConstants.TEXTAREA_DISPLAY_WIDTH
 			});
