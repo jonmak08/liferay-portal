@@ -127,25 +127,27 @@ String modelName = (String)request.getAttribute("liferay-ui:input-permissions:mo
 		</p>
 
 		<table class="lfr-table <%= inputPermissionsShowOptions ? "" : "hide" %>" id="<%= uniqueNamespace %>inputPermissionsTable">
-		<tr>
-			<th>
-				<liferay-ui:message key="roles" />
-			</th>
-
-			<%
-			for (int i = 0; i < supportedActions.size(); i++) {
-				String action = (String)supportedActions.get(i);
-			%>
-
-				<th <%= (action.equals(ActionKeys.VIEW)) ? "class=\"hide\"" : "" %> style="text-align: center;">
-					<%= ResourceActionsUtil.getAction(pageContext, action) %>
+		<thead>
+			<tr>
+				<th>
+					<liferay-ui:message key="roles" />
 				</th>
 
-			<%
-			}
-			%>
+				<%
+				for (int i = 0; i < supportedActions.size(); i++) {
+					String action = (String)supportedActions.get(i);
+				%>
 
-		</tr>
+					<th <%= (action.equals(ActionKeys.VIEW)) ? "class=\"hide\"" : "" %> style="text-align: center;">
+						<%= ResourceActionsUtil.getAction(pageContext, action) %>
+					</th>
+
+				<%
+				}
+				%>
+
+			</tr>
+		</thead>
 
 		<%
 		for (String roleName : roleNames) {
