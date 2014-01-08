@@ -272,7 +272,7 @@ public class InvokerFilter extends BasePortalLifecycle implements Filter {
 			uri = uri.substring(_contextPath.length());
 		}
 
-		return HttpUtil.removeParameters(uri);
+		return HttpUtil.removePathParameters(uri);
 	}
 
 	protected String getURL(HttpServletRequest request) {
