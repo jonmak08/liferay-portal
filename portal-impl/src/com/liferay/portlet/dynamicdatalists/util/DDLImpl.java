@@ -346,6 +346,10 @@ public class DDLImpl implements DDL {
 			ddmTemplate.getLanguage());
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, with no direct replacement
+	 */
+	@Deprecated
 	@Override
 	public boolean isEditable(
 			HttpServletRequest request, String portletId, long groupId)
@@ -354,6 +358,10 @@ public class DDLImpl implements DDL {
 		return true;
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, with no direct replacement
+	 */
+	@Deprecated
 	@Override
 	public boolean isEditable(
 			PortletPreferences preferences, String portletId, long groupId)
