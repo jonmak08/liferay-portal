@@ -3600,6 +3600,10 @@ public class ServiceBuilder {
 		}
 
 		FileUtil.write(sqlFile, sb.toString(), true);
+
+		// indexes.properties
+
+		FileUtil.delete(_sqlDir + "/indexes.properties");
 	}
 
 	private void _createSQLMappingTables(
