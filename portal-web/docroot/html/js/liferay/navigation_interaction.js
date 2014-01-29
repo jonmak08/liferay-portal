@@ -35,7 +35,7 @@ AUI.add(
 						Liferay.on(
 							['hideNavigationMenu', 'showNavigationMenu'],
 							function(event) {
-								var showMenu = (event.type == 'showNavigationMenu');
+								var showMenu = (event.type === 'showNavigationMenu');
 
 								var menu = event.menu;
 
@@ -80,7 +80,7 @@ AUI.add(
 
 						var fallbackFirst = true;
 
-						if (direction == DIRECTION_LEFT) {
+						if (direction === DIRECTION_LEFT) {
 							item = parent.previous();
 
 							fallbackFirst = false;
@@ -208,7 +208,7 @@ AUI.add(
 
 						var eventType = 'hideNavigationMenu';
 
-						if (event.type == 'mouseenter') {
+						if (event.type === 'mouseenter') {
 							eventType = 'showNavigationMenu';
 						}
 
