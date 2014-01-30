@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -35,6 +35,7 @@ public class LicenseUtilAixTest extends BaseLicenseUtilTestCase {
 			"\\s((\\p{XDigit}{1,2}(\\.)){5}(\\p{XDigit}{1,2}))(?:\\s|$)");
 	}
 
+	@Override
 	protected void testMacAddresses(Set<String> macAddresses) {
 		Assert.assertEquals(macAddresses.size(), 2);
 		Assert.assertTrue(macAddresses.contains("66:da:90:6b:f1:17"));

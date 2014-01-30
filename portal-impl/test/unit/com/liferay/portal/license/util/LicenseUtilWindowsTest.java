@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -28,6 +28,7 @@ public class LicenseUtilWindowsTest extends BaseLicenseUtilTestCase {
 		return "windows";
 	}
 
+	@Override
 	protected void testMacAddresses(Set<String> macAddresses) {
 		Assert.assertEquals(macAddresses.size(), 3);
 		Assert.assertTrue(macAddresses.contains("08:00:27:62:4c:9d"));

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -28,6 +28,7 @@ public class LicenseUtilLinuxTest extends BaseLicenseUtilTestCase {
 		return "ubuntu";
 	}
 
+	@Override
 	protected void testMacAddresses(Set<String> macAddresses) {
 		Assert.assertEquals(macAddresses.size(), 2);
 		Assert.assertTrue(macAddresses.contains("5c:26:0a:33:b3:d5"));
