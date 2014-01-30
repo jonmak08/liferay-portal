@@ -35,7 +35,7 @@ AUI.add(
 						Liferay.on(
 							['hideNavigationMenu', 'showNavigationMenu'],
 							function(event) {
-								var showMenu = (event.type == 'showNavigationMenu');
+								var showMenu = (event.type === 'showNavigationMenu');
 
 								var menu = event.menu;
 
@@ -80,7 +80,7 @@ AUI.add(
 
 						var fallbackFirst = true;
 
-						if (direction == DIRECTION_LEFT) {
+						if (direction === DIRECTION_LEFT) {
 							item = parent.previous();
 
 							fallbackFirst = false;
@@ -135,19 +135,23 @@ AUI.add(
 						instance._handleKey(event, DIRECTION_RIGHT);
 					},
 
-					_handleShowNavigationMenu: function(menuNew, menuOld) {
+					_handleShowNavigationMenu: function(menuNew, menuOld, event) {
 						var instance = this;
 
-						var mapHover = instance.MAP_HOVER;
+						var focusedChange = (event.type.indexOf('focusedChange') !== -1);
 
-						if (!(instance._lastShownMenu && (event.type.indexOf('focusedChange') !== -1))) {
-							var updateMenu = (menuOld && (menuOld != menuNew));
+						var updateNavigationMenus = !(instance._lastShownMenu && focusedChange);
 
-							if (updateMenu) {
+						if (updateNavigationMenus) {
+							var mapHover = instance.MAP_HOVER;
+
+							var menuOldDistinct = (menuOld && (menuOld != menuNew));
+
+							if (menuOldDistinct) {
 								Liferay.fire('hideNavigationMenu', mapHover);
 							}
 
-							if (!menuOld || updateMenu) {
+							if (!menuOld || menuOldDistinct) {
 								mapHover.menu = menuNew;
 
 								Liferay.fire('showNavigationMenu', mapHover);
@@ -208,7 +212,7 @@ AUI.add(
 
 						var eventType = 'hideNavigationMenu';
 
-						if (event.type == 'mouseenter') {
+						if (event.type === 'mouseenter') {
 							eventType = 'showNavigationMenu';
 						}
 
@@ -240,7 +244,7 @@ AUI.add(
 
 							var menuNew = menuLink.ancestor(instance._directChildLi);
 
-							instance._handleShowNavigationMenu(menuNew, menuOld);
+							instance._handleShowNavigationMenu(menuNew, menuOld, event);
 						}
 						else if (menuOld) {
 							Liferay.fire('hideNavigationMenu', mapHover);
