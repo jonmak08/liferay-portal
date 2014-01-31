@@ -114,17 +114,47 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "organi
 </c:if>
 
 <aui:script use="liferay-search-container">
+	var Util = Liferay.Util;
+
 	var searchContainer = Liferay.SearchContainer.get('<portlet:namespace />organizationsSearchContainer');
 
-	searchContainer.get('contentBox').delegate(
+	var searchContainerContentBox = searchContainer.get('contentBox');
+
+	searchContainerContentBox.delegate(
 		'click',
 		function(event) {
 			var link = event.currentTarget;
-			var tr = link.ancestor('tr');
 
-			searchContainer.deleteRow(tr, link.getAttribute('data-rowId'));
+			var tr = link.ancestor('tr');
+			var rowId = link.attr('data-rowId');
+
+			var selectOrganization = Util.getWindow('<portlet:namespace />selectOrganization');
+
+			if (selectOrganization) {
+				var selectButton = selectOrganization.iframe.node.get('contentWindow.document').one('.selector-button[data-organizationid="' + rowId + '"]');
+
+				Util.toggleDisabled(selectButton, false);
+			}
+
+			searchContainer.deleteRow(tr, rowId);
 		},
 		'.modify-link'
+	);
+
+	Liferay.on(
+		'<portlet:namespace />enableRemovedOrganizations',
+		function(selectors) {
+			A.each(
+				selectors,
+				function(item, index, collection) {
+					var modifyLink = searchContainerContentBox.one('.modify-link[data-rowid="' + item.attr('data-organizationid') + '"]');
+
+					if (!modifyLink) {
+						Util.toggleDisabled(item, false);
+					}
+				}
+			);
+		}
 	);
 
 	var selectOrganizationLink = A.one('#<portlet:namespace />selectOrganizationLink');
@@ -133,7 +163,7 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "organi
 		selectOrganizationLink.on(
 			'click',
 			function(event) {
-				Liferay.Util.selectEntity(
+				Util.selectEntity(
 					{
 						dialog: {
 							constrain: true,

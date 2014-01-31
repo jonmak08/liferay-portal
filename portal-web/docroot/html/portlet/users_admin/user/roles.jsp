@@ -226,9 +226,13 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "roles"
 	</liferay-ui:search-container>
 
 	<aui:script use="liferay-search-container">
+		var Util = Liferay.Util;
+
 		var searchContainer = Liferay.SearchContainer.get('<portlet:namespace />organizationRolesSearchContainer');
 
-		searchContainer.get('contentBox').delegate(
+		var searchContainerContentBox = searchContainer.get('contentBox');
+
+		searchContainerContentBox.delegate(
 			'click',
 			function(event) {
 				var link = event.currentTarget;
@@ -237,11 +241,36 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "roles"
 				var groupId = link.getAttribute('data-groupId');
 				var rowId = link.getAttribute('data-rowId');
 
+				var selectOrganizationRole = Util.getWindow('<portlet:namespace />selectOrganizationRole');
+
+				if (selectOrganizationRole) {
+					var selectButton = selectOrganizationRole.iframe.node.get('contentWindow.document').one('.selector-button[data-groupid="' + groupId + '"][data-roleid="' + rowId + '"]');
+
+					Util.toggleDisabled(selectButton, false);
+				}
+
 				searchContainer.deleteRow(tr, rowId);
 
 				<portlet:namespace />deleteGroupRole(rowId, groupId);
 			},
 			'.modify-link'
+		);
+
+		Liferay.on(
+			'<portlet:namespace />syncOrganizationRoles',
+			function(selectors) {
+				A.each(
+					selectors,
+					function(item, index, collection) {
+						var groupId = item.attr('data-groupid');
+						var roleId = item.attr('data-roleid');
+
+						var modifyLink = searchContainerContentBox.one('.modify-link[data-groupid="' + groupId + '"][data-rowid="' + roleId + '"]');
+
+						Util.toggleDisabled(item, !!modifyLink);
+					}
+				);
+			}
 		);
 	</aui:script>
 </c:if>
@@ -354,9 +383,13 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "roles"
 			/>
 
 			<aui:script use="liferay-search-container">
+				var Util = Liferay.Util;
+
 				var searchContainer = Liferay.SearchContainer.get('<portlet:namespace />siteRolesSearchContainer');
 
-				searchContainer.get('contentBox').delegate(
+				var searchContainerContentBox = searchContainer.get('contentBox');
+
+				searchContainerContentBox.delegate(
 					'click',
 					function(event) {
 						var link = event.currentTarget;
@@ -365,6 +398,14 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "roles"
 						var groupId = link.getAttribute('data-groupId');
 						var rowId = link.getAttribute('data-rowId');
 
+						var selectSiteRole = Util.getWindow('<portlet:namespace />selectSiteRole');
+
+						if (selectSiteRole) {
+							var selectButton = selectSiteRole.iframe.node.get('contentWindow.document').one('.selector-button[data-groupid="' + groupId + '"][data-roleid="' + rowId + '"]');
+
+							Util.toggleDisabled(selectButton, false);
+						}
+
 						searchContainer.deleteRow(tr, rowId);
 
 						<portlet:namespace />deleteGroupRole(rowId, groupId);
@@ -372,10 +413,27 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "roles"
 					'.modify-link'
 				);
 
+				Liferay.on(
+					'<portlet:namespace />syncSiteRoles',
+					function(selectors) {
+						A.each(
+							selectors,
+							function(item, index, collection) {
+								var groupId = item.attr('data-groupid');
+								var roleId = item.attr('data-roleid');
+
+								var modifyLink = searchContainerContentBox.one('.modify-link[data-groupid="' + groupId + '"][data-rowid="' + roleId + '"]');
+
+								Util.toggleDisabled(item, !!modifyLink);
+							}
+						);
+					}
+				);
+
 				A.one('#<portlet:namespace />selectSiteRoleLink').on(
 					'click',
 					function(event) {
-						Liferay.Util.selectEntity(
+						Util.selectEntity(
 							{
 								dialog: {
 									constrain: true,
@@ -519,16 +577,46 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "roles"
 </aui:script>
 
 <aui:script use="liferay-search-container">
+	var Util = Liferay.Util;
+
 	var searchContainer = Liferay.SearchContainer.get('<portlet:namespace />rolesSearchContainer');
 
-	searchContainer.get('contentBox').delegate(
+	var searchContainerContentBox = searchContainer.get('contentBox');
+
+	searchContainerContentBox.delegate(
 		'click',
 		function(event) {
 			var link = event.currentTarget;
+
 			var tr = link.ancestor('tr');
+			var rowId = link.attr('data-rowId');
+
+			var selectRegularRole = Util.getWindow('<portlet:namespace />selectRegularRole');
+
+			if (selectRegularRole) {
+				var selectButton = selectRegularRole.iframe.node.get('contentWindow.document').one('.selector-button[data-roleid="' + rowId + '"]');
+
+				Util.toggleDisabled(selectButton, false);
+			}
 
 			searchContainer.deleteRow(tr, link.getAttribute('data-rowId'));
 		},
 		'.modify-link'
+	);
+
+	Liferay.on(
+		'<portlet:namespace />enableRemovedRegularRoles',
+		function(selectors) {
+			A.each(
+				selectors,
+				function(item, index, collection) {
+					var modifyLink = searchContainerContentBox.one('.modify-link[data-rowid="' + item.attr('data-roleid') + '"]');
+
+					if (!modifyLink) {
+						Util.toggleDisabled(item, false);
+					}
+				}
+			);
+		}
 	);
 </aui:script>
