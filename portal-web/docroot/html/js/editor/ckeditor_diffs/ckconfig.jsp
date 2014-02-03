@@ -107,6 +107,10 @@ String contentsLanguageDir = LanguageUtil.get(contentsLocale, "lang.dir");
 
 	config.language = '<%= languageId.replace("iw_", "he_") %>';
 
+	config.pasteFromWordRemoveFontStyles = false;
+
+	config.pasteFromWordRemoveStyles = false;
+
 	config.resize_enabled = <%= resizable %>;
 
 	<c:if test="<%= resizable %>">
