@@ -132,8 +132,9 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "userGr
 		function(event) {
 			var link = event.currentTarget;
 
-			var tr = link.ancestor('tr');
 			var rowId = link.attr('data-rowId');
+
+			var tr = link.ancestor('tr');
 
 			var selectUserGroup = Util.getWindow('<portlet:namespace />selectUserGroup');
 

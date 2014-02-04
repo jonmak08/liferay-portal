@@ -588,8 +588,9 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "roles"
 		function(event) {
 			var link = event.currentTarget;
 
-			var tr = link.ancestor('tr');
 			var rowId = link.attr('data-rowId');
+
+			var tr = link.ancestor('tr');
 
 			var selectRegularRole = Util.getWindow('<portlet:namespace />selectRegularRole');
 
