@@ -275,6 +275,8 @@ public class PortletContainerImpl implements PortletContainer {
 		long scopeGroupId = PortalUtil.getScopeGroupId(
 			request, portlet.getPortletId());
 
+		themeDisplay.setScopeGroupId(scopeGroupId);
+
 		long siteGroupId = 0;
 
 		if (layout.isTypeControlPanel()) {
@@ -284,7 +286,6 @@ public class PortletContainerImpl implements PortletContainer {
 			siteGroupId = PortalUtil.getSiteGroupId(layout.getGroupId());
 		}
 
-		themeDisplay.setScopeGroupId(scopeGroupId);
 		themeDisplay.setSiteGroupId(siteGroupId);
 
 		if (user != null) {
