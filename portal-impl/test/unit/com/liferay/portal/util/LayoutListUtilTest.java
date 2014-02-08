@@ -28,7 +28,6 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.impl.LayoutImpl;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
-import com.liferay.util.ContentUtil;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -71,20 +70,6 @@ public class LayoutListUtilTest extends PowerMockito {
 			null
 		);
 
-		mockStatic(PropsUtil.class);
-
-		when(
-			PropsUtil.get(Mockito.anyString())
-		).thenReturn(
-			StringPool.BLANK
-		);
-
-		when(
-			PropsUtil.getArray(Mockito.anyString())
-		).thenReturn(
-			new String[0]
-		);
-
 		mockStatic(LayoutLocalServiceUtil.class);
 
 		addLayouts(0, 0);
@@ -104,18 +89,35 @@ public class LayoutListUtilTest extends PowerMockito {
 			new LocalizationImpl()
 		);
 
-		String jsonData = ContentUtil.get(
-			"com/liferay/portal/util/dependencies/layout_view_list.json");
+		mockStatic(PropsUtil.class);
 
-		_expectedLayoutViewArray = ArrayUtil.toStringArray(
-			new JSONArrayImpl(jsonData));
+		when(
+			PropsUtil.get(Mockito.anyString())
+		).thenReturn(
+			StringPool.BLANK
+		);
 
-		_expectedLayoutViewArray = ArrayUtil.subset(
-			_expectedLayoutViewArray, 1, _expectedLayoutViewArray.length);
+		when(
+			PropsUtil.getArray(Mockito.anyString())
+		).thenReturn(
+			new String[0]
+		);
+
+		Class<?> clazz = getClass();
+
+		String json = StringUtil.read(
+			clazz.getClassLoader(),
+			"com/liferay/portal/util/dependencies/layout_list_util.json");
+
+		_layoutListUtilStrings = ArrayUtil.toStringArray(
+			new JSONArrayImpl(json));
+
+		_layoutListUtilStrings = ArrayUtil.subset(
+			_layoutListUtilStrings, 1, _layoutListUtilStrings.length);
 	}
 
 	@After
-	public void tearDownClass() {
+	public void tearDown() {
 		_layouts.clear();
 	}
 
@@ -137,41 +139,44 @@ public class LayoutListUtilTest extends PowerMockito {
 		if (_log.isDebugEnabled()) {
 			stopWatch.stop();
 
-			_log.debug("Runtime :" + stopWatch.getTime());
+			_log.debug(
+				"Retrieved layout descriptions in " + stopWatch.getTime() +
+					" ms");
 		}
 
-		List<String> actualLayoutViewList = new ArrayList<String>(
+		List<String> expectedLayoutDescriptionStrings = new ArrayList<String>(
+			_layoutListUtilStrings.length);
+
+		for (String layoutListUtilString : _layoutListUtilStrings) {
+			String[] layoutDescriptionStringParts = StringUtil.split(
+				layoutListUtilString, StringPool.PIPE);
+
+			String plid = layoutDescriptionStringParts[3];
+			String name = layoutDescriptionStringParts[4];
+			String depth = layoutDescriptionStringParts[6];
+
+			expectedLayoutDescriptionStrings.add(plid + name + depth);
+		}
+
+		List<String> actualLayoutDescriptionStrings = new ArrayList<String>(
 			layoutDescriptions.size() - 1);
 
-		for (Iterator<LayoutDescription> itr =
-			layoutDescriptions.listIterator(1); itr.hasNext();) {
+		Iterator<LayoutDescription> iterator = layoutDescriptions.listIterator(
+			1);
 
-			LayoutDescription layoutDescription = itr.next();
+		while (iterator.hasNext()) {
+			LayoutDescription layoutDescription = iterator.next();
 
-			actualLayoutViewList.add(
-					String.valueOf(layoutDescription.getPlid()) +
-					String.valueOf(layoutDescription.getName()) +
-					String.valueOf(layoutDescription.getDepth()));
+			actualLayoutDescriptionStrings.add(
+				layoutDescription.getPlid() + layoutDescription.getName() +
+					layoutDescription.getDepth());
 		}
 
-		List<String> expectedLayoutViewList = new ArrayList<String>(
-			_expectedLayoutViewArray.length);
-
-		for (String expectedLayoutView : _expectedLayoutViewArray) {
-			String[] nodeValues = StringUtil.split(
-				expectedLayoutView, StringPool.PIPE);
-
-			String plid = nodeValues[3];
-			String name = nodeValues[4];
-			String depth = nodeValues[6];
-
-			expectedLayoutViewList.add(plid + name + depth);
-		}
-
-		Assert.assertEquals(expectedLayoutViewList, actualLayoutViewList);
+		Assert.assertEquals(
+			expectedLayoutDescriptionStrings, actualLayoutDescriptionStrings);
 	}
 
-	protected static void addLayouts(int depth, long parentLayoutId) {
+	protected void addLayouts(int depth, long parentLayoutId) {
 		if (depth >= _DEPTH) {
 			return;
 		}
@@ -189,12 +194,12 @@ public class LayoutListUtilTest extends PowerMockito {
 		}
 	}
 
-	protected static Layout createLayout(long plid, long parentLayoutId) {
+	protected Layout createLayout(long plid, long parentLayoutId) {
 		Layout layout = new MockLayoutImpl();
 
+		layout.setPrimaryKey(plid);
 		layout.setLayoutId(plid);
 		layout.setParentLayoutId(parentLayoutId);
-		layout.setPrimaryKey(plid);
 
 		return layout;
 	}
@@ -205,9 +210,9 @@ public class LayoutListUtilTest extends PowerMockito {
 
 	private static Log _log = LogFactoryUtil.getLog(LayoutListUtilTest.class);
 
-	private static String[] _expectedLayoutViewArray;
-	private static List<Layout> _layouts = new ArrayList<Layout>();
-	private static long _plid = 0;
+	private String[] _layoutListUtilStrings;
+	private List<Layout> _layouts = new ArrayList<Layout>();
+	private long _plid;
 
 	private static class MockLayoutImpl extends LayoutImpl {
 
