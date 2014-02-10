@@ -88,6 +88,10 @@ public interface AssetRendererFactory {
 			WindowState windowState)
 		throws PortalException, SystemException;
 
+	public boolean hasAddPermission(
+			PermissionChecker permissionChecker, long groupId, long typeId)
+		throws Exception;
+
 	public boolean hasClassTypeFieldNames(long classTypeId, Locale locale)
 		throws Exception;
 
