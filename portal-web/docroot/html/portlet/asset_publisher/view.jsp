@@ -89,7 +89,7 @@ boolean hasAddPortletURLs = false;
 	for (long groupId : groupIds) {
 		addPortletURLs = AssetUtil.getAddPortletURLs(liferayPortletRequest, liferayPortletResponse, groupId, classNameIds, classTypeIds, allAssetCategoryIds, allAssetTagNames, null);
 
-		if (!addPortletURLs.isEmpty()) {
+		if ((addPortletURLs != null) && !addPortletURLs.isEmpty()) {
 			hasAddPortletURLs = true;
 		}
 	%>
