@@ -89,7 +89,7 @@ public interface AssetRendererFactory {
 		throws PortalException, SystemException;
 
 	public boolean hasAddPermission(
-			PermissionChecker permissionChecker, long groupId, long typeId)
+			PermissionChecker permissionChecker, long groupId, long classTypeId)
 		throws Exception;
 
 	public boolean hasClassTypeFieldNames(long classTypeId, Locale locale)
