@@ -147,7 +147,6 @@ public abstract class BaseAssetRendererFactory implements AssetRendererFactory {
 	}
 
 	@Override
-	@SuppressWarnings("unused")
 	public boolean hasAddPermission(
 			PermissionChecker permissionChecker, long groupId, long classTypeId)
 		throws Exception {
