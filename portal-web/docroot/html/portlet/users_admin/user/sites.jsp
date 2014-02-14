@@ -171,9 +171,8 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "sites"
 
 		Liferay.on(
 			'<portlet:namespace />enableRemovedSites',
-			function(selectors) {
-				A.each(
-					selectors,
+			function(event) {
+				event.selectors.each(
 					function(item, index, collection) {
 						var modifyLink = searchContainerContentBox.one('.modify-link[data-rowid="' + item.attr('data-groupid') + '"]');
 

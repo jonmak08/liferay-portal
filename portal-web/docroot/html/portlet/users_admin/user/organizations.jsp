@@ -144,9 +144,8 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "organi
 
 	Liferay.on(
 		'<portlet:namespace />enableRemovedOrganizations',
-		function(selectors) {
-			A.each(
-				selectors,
+		function(event) {
+			event.selectors.each(
 				function(item, index, collection) {
 					var modifyLink = searchContainerContentBox.one('.modify-link[data-rowid="' + item.attr('data-organizationid') + '"]');
 
