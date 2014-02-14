@@ -110,18 +110,16 @@ public class PermissionCacheUtil {
 		return null;
 	}
 
-	public static PermissionCheckerBag putBag(
+	public static void putBag(
 		long userId, long groupId, PermissionCheckerBag bag) {
 
 		if (bag == null) {
-			return null;
+			return;
 		}
 
 		BagKey bagKey = new BagKey(userId, groupId);
 
 		doPut(bagKey, bag, _permissionCheckerBagPortalCache);
-
-		return bag;
 	}
 
 	public static void putPermission(
@@ -134,12 +132,12 @@ public class PermissionCacheUtil {
 		doPut(permissionKey, value, _permissionPortalCache);
 	}
 
-	public static ResourceBlockIdsBag putResourceBlockIdsBag(
+	public static void putResourceBlockIdsBag(
 		long companyId, long groupId, long userId, String name,
 		ResourceBlockIdsBag resourceBlockIdsBag) {
 
 		if (resourceBlockIdsBag == null) {
-			return null;
+			return;
 		}
 
 		ResourceBlockIdsBagKey resourceBlockIdsBagKey =
@@ -148,8 +146,6 @@ public class PermissionCacheUtil {
 		doPut(
 			resourceBlockIdsBagKey, resourceBlockIdsBag,
 			_resourceBlockIdsBagCache);
-
-		return resourceBlockIdsBag;
 	}
 
 	protected static <K extends Serializable, V, C extends PortalCache<K, V>>
