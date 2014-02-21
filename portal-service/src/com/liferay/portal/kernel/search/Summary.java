@@ -56,8 +56,12 @@ public class Summary {
 		return _content;
 	}
 
-	public String getContent(boolean escape, boolean highlight) {
-		return _escapeAndHighlight(_content, escape, highlight);
+	public String getHighlightedContent() {
+		return _escapeAndHighlight(_content);
+	}
+
+	public String getHighlightedTitle() {
+		return _escapeAndHighlight(_title);
 	}
 
 	public String getHighlightedContent(String[] queryTerms) {
@@ -98,10 +102,6 @@ public class Summary {
 		}
 
 		return _title;
-	}
-
-	public String getTitle(boolean escape, boolean highlight) {
-		return _escapeAndHighlight(_title, escape, highlight);
 	}
 
 	public boolean isHighlight() {
@@ -148,35 +148,28 @@ public class Summary {
 		_title = title;
 	}
 
-	private String _escapeAndHighlight(
-		String s, boolean escape, boolean highlight) {
-
-		if (Validator.isNull(s) || ArrayUtil.isEmpty(_queryTerms)) {
-			return s;
+	private String _escapeAndHighlight(String text) {
+		if (Validator.isNull(text) || ArrayUtil.isEmpty(_queryTerms)) {
+			return text;
 		}
 
-		String result = s;
-
-		if (highlight) {
-			result = SearchUtil.highlight(
-				result, _queryTerms, ESCAPE_SAFE_HIGHLIGHT_1,
+		if (_highlight) {
+			text = SearchUtil.highlight(
+				text, _queryTerms, ESCAPE_SAFE_HIGHLIGHT_1,
 				ESCAPE_SAFE_HIGHLIGHT_2);
-		}
 
-		if (escape) {
-			result = HtmlUtil.escape(result);
-		}
+			text = HtmlUtil.escape(text);
 
-		if (highlight) {
-			result = StringUtil.replace(
-				result, new String[] {
-					ESCAPE_SAFE_HIGHLIGHT_1, ESCAPE_SAFE_HIGHLIGHT_2},
+			text = StringUtil.replace(
+				text,
+				new String[] {ESCAPE_SAFE_HIGHLIGHT_1, ESCAPE_SAFE_HIGHLIGHT_2},
 				new String[] {
 					SearchUtil.DEFAULT_HIGHLIGHT_1,
-					SearchUtil.DEFAULT_HIGHLIGHT_2});
+					SearchUtil.DEFAULT_HIGHLIGHT_2
+				});
 		}
 
-		return result;
+		return text;
 	}
 
 	private static final String ESCAPE_SAFE_HIGHLIGHT_1 = "[@HIGHLIGHT1@]";
