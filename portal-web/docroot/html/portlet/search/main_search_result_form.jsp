@@ -122,6 +122,7 @@ if (summary != null) {
 	boolean highlightEnabled = (Boolean)request.getAttribute("search.jsp-highlightEnabled");
 	String[] queryTerms = (String[])request.getAttribute("search.jsp-queryTerms");
 
+	summary.setHighlight(highlightEnabled);
 	summary.setQueryTerms(queryTerms);
 
 	PortletURL portletURL = (PortletURL)request.getAttribute("search.jsp-portletURL");
@@ -147,11 +148,11 @@ if (summary != null) {
 					<img alt="" src="<%= assetRenderer.getIconPath(renderRequest) %>" />
 				</c:if>
 
-				<%= summary.getTitle(true, highlightEnabled) %>
+				<%= summary.getHighlightedTitle() %>
 			</a>
 
 			<c:if test="<%= Validator.isNotNull(downloadURL) %>">
-				<liferay-ui:icon image="../arrows/01_down" label="<%= false %>" message='<%= LanguageUtil.format(pageContext, "download-x", summary.getTitle(true, false), false) %>' url="<%= downloadURL %>" />
+				<liferay-ui:icon image="../arrows/01_down" label="<%= false %>" message='<%= LanguageUtil.format(pageContext, "download-x", HtmlUtil.escape(summary.getTitle()), false) %>' url="<%= downloadURL %>" />
 			</c:if>
 		</span>
 
@@ -164,7 +165,7 @@ if (summary != null) {
 			<div class="asset-entry-content">
 				<c:if test="<%= Validator.isNotNull(summary.getContent()) %>">
 					<span class="asset-entry-summary">
-						<%= summary.getContent(true, highlightEnabled) %>
+						<%= summary.getHighlightedContent() %>
 					</span>
 				</c:if>
 
