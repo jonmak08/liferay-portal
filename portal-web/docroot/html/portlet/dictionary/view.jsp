@@ -30,9 +30,9 @@
 		</aui:nav-bar-search>
 	</aui:form>
 </aui:nav-bar>
-	
+
 <aui:script>
 	function <portlet:namespace />getDefinition() {
-		window.open(document.<portlet:namespace />fm.<portlet:namespace />type[document.<portlet:namespace />fm.<portlet:namespace />type.selectedIndex].value + encodeURIComponent(document.<portlet:namespace />fm.<portlet:namespace />word.value)); return false;
+		window.open(document.<portlet:namespace />fm.<portlet:namespace />type[document.<portlet:namespace />fm.<portlet:namespace />type.selectedIndex].value + encodeURIComponent(document.<portlet:namespace />fm.<portlet:namespace />word.value));
 	}
 </aui:script>
