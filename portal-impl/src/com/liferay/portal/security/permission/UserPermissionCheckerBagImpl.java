@@ -29,7 +29,7 @@ import java.util.List;
 public class UserPermissionCheckerBagImpl implements UserPermissionCheckerBag {
 
 	public UserPermissionCheckerBagImpl() {
-		this(UserConstants.DEFAULT_USER_ID);
+		this(UserConstants.USER_ID_DEFAULT);
 	}
 
 	public UserPermissionCheckerBagImpl(long userId) {
@@ -63,10 +63,9 @@ public class UserPermissionCheckerBagImpl implements UserPermissionCheckerBag {
 	}
 
 	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Group> getGroups() {
 		if (_groups == null) {
-			Collection[] groupsArray = new Collection[3];
+			Collection<Group>[] groupsArray = new Collection[3];
 
 			int groupsSize = 0;
 
