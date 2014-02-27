@@ -48,7 +48,7 @@ public class PermissionCacheUtil {
 		PermissionCacheUtil.class.getName() + "_RESOURCE_BLOCK_IDS_BAG";
 
 	public static final String USER_PERMISSION_CHECKER_BAG_CACHE_NAME =
-		PermissionCacheUtil.class.getName() + "_USER_PERMISSION_CHECKER";
+		PermissionCacheUtil.class.getName() + "_USER_PERMISSION_CHECKER_BAG";
 
 	public static final String USER_ROLE_CACHE_NAME =
 		PermissionCacheUtil.class.getName() + "_USER_ROLE";
