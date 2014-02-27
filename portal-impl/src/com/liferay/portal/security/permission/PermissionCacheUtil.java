@@ -80,7 +80,7 @@ public class PermissionCacheUtil {
 	public static PermissionCheckerBag getBag(long userId, long groupId) {
 		BagKey bagKey = new BagKey(userId, groupId);
 
-		return doGet(bagKey, _permissionCheckerBagPortalCache);
+		return get(bagKey, _permissionCheckerBagPortalCache);
 	}
 
 	public static Boolean getPermission(
@@ -90,7 +90,7 @@ public class PermissionCacheUtil {
 		PermissionKey permissionKey = new PermissionKey(
 			userId, signedIn, groupId, name, primKey, actionId);
 
-		return doGet(permissionKey, _permissionPortalCache);
+		return get(permissionKey, _permissionPortalCache);
 	}
 
 	public static ResourceBlockIdsBag getResourceBlockIdsBag(
@@ -99,11 +99,11 @@ public class PermissionCacheUtil {
 		ResourceBlockIdsBagKey resourceBlockIdsBagKey =
 			new ResourceBlockIdsBagKey(companyId, groupId, userId, name);
 
-		return doGet(resourceBlockIdsBagKey, _resourceBlockIdsBagCache);
+		return get(resourceBlockIdsBagKey, _resourceBlockIdsBagCache);
 	}
 
 	public static UserPermissionCheckerBag getUserBag(long userId) {
-		return doGet(userId, _userPermissionCheckerBagPortalCache);
+		return get(userId, _userPermissionCheckerBagPortalCache);
 	}
 
 	public static Boolean getUserRole(long userId, Role role) {
@@ -128,7 +128,7 @@ public class PermissionCacheUtil {
 
 		BagKey bagKey = new BagKey(userId, groupId);
 
-		doPut(bagKey, bag, _permissionCheckerBagPortalCache);
+		put(bagKey, bag, _permissionCheckerBagPortalCache);
 	}
 
 	public static void putPermission(
@@ -138,7 +138,7 @@ public class PermissionCacheUtil {
 		PermissionKey permissionKey = new PermissionKey(
 			userId, signedIn, groupId, name, primKey, actionId);
 
-		doPut(permissionKey, value, _permissionPortalCache);
+		put(permissionKey, value, _permissionPortalCache);
 	}
 
 	public static void putResourceBlockIdsBag(
@@ -152,7 +152,7 @@ public class PermissionCacheUtil {
 		ResourceBlockIdsBagKey resourceBlockIdsBagKey =
 			new ResourceBlockIdsBagKey(companyId, groupId, userId, name);
 
-		doPut(
+		put(
 			resourceBlockIdsBagKey, resourceBlockIdsBag,
 			_resourceBlockIdsBagCache);
 	}
@@ -160,13 +160,14 @@ public class PermissionCacheUtil {
 	public static void putUserBag(
 		long userId, UserPermissionCheckerBag userPermissionCheckerBag) {
 
-		doPut(
+		put(
 			userId, userPermissionCheckerBag,
 			_userPermissionCheckerBagPortalCache);
 	}
 
-	protected static <K extends Serializable, V, C extends PortalCache<K, V>>
-		V doGet(K key, C portalCache) {
+	protected static
+		<K extends Serializable, V, C extends PortalCache<K, V>> V get(
+			K key, C portalCache) {
 
 		V value = null;
 
@@ -183,8 +184,9 @@ public class PermissionCacheUtil {
 		return value;
 	}
 
-	protected static <K extends Serializable, V, C extends PortalCache<K, V>>
-		void doPut(K key, V value, C portalCache) {
+	protected static
+		<K extends Serializable, V, C extends PortalCache<K, V>> void put(
+			K key, V value, C portalCache) {
 
 		if (_localCacheAvailable) {
 			Map<K, V> localCache = _localCache.get();
