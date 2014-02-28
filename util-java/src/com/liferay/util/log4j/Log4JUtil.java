@@ -17,6 +17,7 @@ package com.liferay.util.log4j;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
 import com.liferay.portal.kernel.log.LogFactory;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.ServerDetector;
@@ -24,6 +25,7 @@ import com.liferay.portal.kernel.util.StreamUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
@@ -31,11 +33,14 @@ import java.io.StringReader;
 
 import java.net.URL;
 
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -57,6 +62,43 @@ import org.dom4j.io.SAXReader;
 public class Log4JUtil {
 
 	public static void configureLog4J(ClassLoader classLoader) {
+		if (_isLog4jCleanUp()) {
+			Runtime runtime = Runtime.getRuntime();
+
+			final File liferayHomeDir = new File(_getLiferayHome());
+
+			runtime.addShutdownHook(
+				new Thread() {
+
+					@Override
+					public void run() {
+						Queue<File> queue = new LinkedList<File>();
+
+						queue.offer(liferayHomeDir);
+
+						File file = null;
+
+						while ((file = queue.poll()) != null) {
+							if (file.isFile()) {
+								file.delete();
+							}
+							else if (file.isDirectory()) {
+								File[] files = file.listFiles();
+
+								if (files.length == 0) {
+									file.delete();
+								}
+								else {
+									queue.addAll(Arrays.asList(files));
+									queue.add(file);
+								}
+							}
+						}
+					}
+
+				});
+		}
+
 		configureLog4J(classLoader.getResource("META-INF/portal-log4j.xml"));
 
 		try {
@@ -309,8 +351,18 @@ public class Log4JUtil {
 		return urlContent;
 	}
 
+	private static boolean _isLog4jCleanUp() {
+		if (_log4jCleanUp == null) {
+			_log4jCleanUp = GetterUtil.getBoolean(
+				PropsUtil.get(PropsKeys.LOG4J_CLEAN_UP));
+		}
+
+		return _log4jCleanUp;
+	}
+
 	private static Map<String, String> _customLogSettings =
 		new ConcurrentHashMap<String, String>();
 	private static String _liferayHome;
+	private static Boolean _log4jCleanUp;
 
 }

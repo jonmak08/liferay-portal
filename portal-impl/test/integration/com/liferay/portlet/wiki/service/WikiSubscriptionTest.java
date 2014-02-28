@@ -15,11 +15,9 @@
 package com.liferay.portlet.wiki.service;
 
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
-import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.ServiceTestUtil;
-import com.liferay.portal.service.SubscriptionLocalServiceUtil;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
 import com.liferay.portal.test.MainServletExecutionTestListener;
 import com.liferay.portal.test.Sync;
@@ -28,7 +26,7 @@ import com.liferay.portal.util.BaseSubscriptionTestCase;
 import com.liferay.portal.util.TestPropsValues;
 import com.liferay.portlet.wiki.model.WikiNode;
 import com.liferay.portlet.wiki.model.WikiPage;
-import com.liferay.portlet.wiki.model.WikiPageConstants;
+import com.liferay.portlet.wiki.util.WikiTestUtil;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -36,6 +34,7 @@ import org.junit.runner.RunWith;
 
 /**
  * @author Sergio González
+ * @author Roberto Díaz
  */
 @ExecutionTestListeners(
 	listeners = {
@@ -45,52 +44,6 @@ import org.junit.runner.RunWith;
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
 @Sync
 public class WikiSubscriptionTest extends BaseSubscriptionTestCase {
-
-	@Override
-	public long addBaseModel(long containerModelId) throws Exception {
-		ServiceContext serviceContext = ServiceTestUtil.getServiceContext(
-			group.getGroupId());
-
-		serviceContext.setCommand(Constants.ADD);
-		serviceContext.setLayoutFullURL("http://localhost");
-
-		WikiPage page = WikiPageLocalServiceUtil.addPage(
-			TestPropsValues.getUserId(), containerModelId,
-			ServiceTestUtil.randomString(), WikiPageConstants.VERSION_DEFAULT,
-			ServiceTestUtil.randomString(50), ServiceTestUtil.randomString(),
-			false, WikiPageConstants.DEFAULT_FORMAT, true, StringPool.BLANK,
-			StringPool.BLANK, serviceContext);
-
-		return page.getResourcePrimKey();
-	}
-
-	@Override
-	public long addContainerModel(long containerModelId) throws Exception {
-		ServiceContext serviceContext = ServiceTestUtil.getServiceContext(
-			group.getGroupId());
-
-		WikiNode node = WikiNodeLocalServiceUtil.addNode(
-			TestPropsValues.getUserId(), ServiceTestUtil.randomString(),
-			StringPool.BLANK, serviceContext);
-
-		return node.getNodeId();
-	}
-
-	@Override
-	public void addSubscriptionBaseModel(long baseModelId) throws Exception {
-		SubscriptionLocalServiceUtil.addSubscription(
-			TestPropsValues.getUserId(), group.getGroupId(),
-			WikiPage.class.getName(), baseModelId);
-	}
-
-	@Override
-	public void addSubscriptionContainerModel(long containerModelId)
-		throws Exception {
-
-		SubscriptionLocalServiceUtil.addSubscription(
-			TestPropsValues.getUserId(), group.getGroupId(),
-			WikiNode.class.getName(), containerModelId);
-	}
 
 	@Ignore
 	@Override
@@ -129,21 +82,46 @@ public class WikiSubscriptionTest extends BaseSubscriptionTestCase {
 	}
 
 	@Override
-	public long updateEntry(long baseModelId) throws Exception {
-		WikiPage page = WikiPageLocalServiceUtil.getPage(baseModelId, true);
+	protected long addBaseModel(long containerModelId) throws Exception {
+		WikiPage page = WikiTestUtil.addPage(
+			TestPropsValues.getUserId(), group.getGroupId(), containerModelId,
+			ServiceTestUtil.randomString(), true);
 
+		return page.getResourcePrimKey();
+	}
+
+	@Override
+	protected long addContainerModel(long containerModelId) throws Exception {
 		ServiceContext serviceContext = ServiceTestUtil.getServiceContext(
 			group.getGroupId());
 
-		serviceContext.setCommand(Constants.ADD);
-		serviceContext.setLayoutFullURL("http://localhost");
-
-		page = WikiPageLocalServiceUtil.updatePage(
-			TestPropsValues.getUserId(), page.getNodeId(), page.getTitle(),
-			page.getVersion(), ServiceTestUtil.randomString(50),
-			ServiceTestUtil.randomString(), false,
-			WikiPageConstants.DEFAULT_FORMAT, StringPool.BLANK,
+		WikiNode node = WikiNodeLocalServiceUtil.addNode(
+			TestPropsValues.getUserId(), ServiceTestUtil.randomString(),
 			StringPool.BLANK, serviceContext);
+
+		return node.getNodeId();
+	}
+
+	@Override
+	protected void addSubscriptionBaseModel(long baseModelId) throws Exception {
+		WikiPage page = WikiPageLocalServiceUtil.getPage(baseModelId);
+
+		WikiPageLocalServiceUtil.subscribePage(
+			TestPropsValues.getUserId(), page.getNodeId(), page.getTitle());
+	}
+
+	@Override
+	protected void addSubscriptionContainerModel(long containerModelId)
+		throws Exception {
+
+		WikiNodeLocalServiceUtil.subscribeNode(
+			TestPropsValues.getUserId(), containerModelId);
+	}
+
+	@Override
+	protected long updateEntry(long baseModelId) throws Exception {
+		WikiPage page = WikiTestUtil.updatePage(
+			WikiPageLocalServiceUtil.getPage(baseModelId, true));
 
 		return page.getResourcePrimKey();
 	}

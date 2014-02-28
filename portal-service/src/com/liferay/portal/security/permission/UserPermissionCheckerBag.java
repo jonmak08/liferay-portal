@@ -12,20 +12,34 @@
  * details.
  */
 
-package com.liferay.portlet;
+package com.liferay.portal.security.permission;
+
+import aQute.bnd.annotation.ProviderType;
+
+import com.liferay.portal.model.Group;
+import com.liferay.portal.model.Organization;
+
+import java.io.Serializable;
+
+import java.util.List;
+import java.util.Set;
 
 /**
- * @author Raymond Augé
- * @author Jorge Ferrer
+ * @author László Csontos
  */
-public interface PortletSettings {
+@ProviderType
+public interface UserPermissionCheckerBag extends Serializable {
 
-	public String getValue(String key, String defaultValue);
+	public List<Group> getGroups();
 
-	public String[] getValues(String key, String[] defaultValue);
+	public Set<Group> getUserGroups();
 
-	public PortletSettings setValue(String key, String value);
+	public long getUserId();
 
-	public PortletSettings setValues(String key, String[] values);
+	public Set<Group> getUserOrgGroups();
+
+	public List<Organization> getUserOrgs();
+
+	public List<Group> getUserUserGroupGroups();
 
 }

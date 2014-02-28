@@ -145,6 +145,10 @@
 		}
 	}
 
+	.lfr-search .control-group {
+		margin-bottom: 0;
+	}
+
 	@include respond-to(phone) {
 		.form-search .input-append {
 			.btn {
@@ -360,10 +364,6 @@
 								border-width: 0;
 								margin: 0;
 
-								@include respond-to(phone, tablet) {
-									margin-top: 3px;
-								}
-
 								> li > a {
 									color: #FFF;
 									font-size: 0.9em;
@@ -523,26 +523,28 @@
 			display: none;
 		}
 
-		@include respond-to(phone, tablet) {
-			padding-left: 5px;
-			padding-right: 5px;
+		&.breadcrumb-horizontal {
+			@include respond-to(phone, tablet) {
+				padding-left: 5px;
+				padding-right: 5px;
 
-			li {
-				display: none;
+				li {
+					display: none;
 
-				&.only, &.first, &.last, &.current-parent {
-					display: inline-block;
-				}
-
-				&.breadcrumb-truncate {
-					&.only, &.first a, &.last a, &.active, &.current-parent a {
-						max-width: 65px;
+					&.only, &.first, &.last, &.current-parent {
+						display: inline-block;
 					}
 
-					&.current-parent:before {
-						color: #999;
-						content: " ... / ";
-						font-weight: bold;
+					&.breadcrumb-truncate {
+						&.only, &.first a, &.last a, &.active, &.current-parent a {
+							max-width: 65px;
+						}
+
+						&.current-parent:before {
+							color: #999;
+							content: ' ... / ';
+							font-weight: bold;
+						}
 					}
 				}
 			}
@@ -848,6 +850,17 @@
 			font-size: 26px;
 			font-weight: normal;
 			line-height: 26px;
+		}
+	}
+
+	.yui3-aclist-list {
+		.yui3-aclist-item-active {
+			background-color: #0AF;
+		}
+
+		.yui3-aclist-item-hover {
+			background-color: #EEE;
+			color: inherit;
 		}
 	}
 

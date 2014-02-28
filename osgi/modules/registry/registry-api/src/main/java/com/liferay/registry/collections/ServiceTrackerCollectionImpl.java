@@ -12,13 +12,23 @@
  * details.
  */
 
-package com.liferay.registry;
+package com.liferay.registry.collections;
 
+import com.liferay.registry.Filter;
+import com.liferay.registry.Registry;
+import com.liferay.registry.RegistryUtil;
+import com.liferay.registry.ServiceReference;
+import com.liferay.registry.ServiceRegistration;
+import com.liferay.registry.ServiceTracker;
+import com.liferay.registry.ServiceTrackerCustomizer;
+
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -26,34 +36,13 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
+ * Deliberately package private.
+ *
  * @author Raymond Augé
  */
-public class ServiceTrackerCollection<S> implements Collection<S> {
+public class ServiceTrackerCollectionImpl<S> implements ServiceTrackerList<S> {
 
-	public ServiceTrackerCollection(Class<S> clazz) {
-		this(clazz, (Filter)null, null, new HashMap<String, Object>());
-	}
-
-	public ServiceTrackerCollection(Class<S> clazz, Filter filter) {
-		this(clazz, filter, null, new HashMap<String, Object>());
-	}
-
-	public ServiceTrackerCollection(
-		Class<S> clazz, Filter filter, Map<String, Object> properties) {
-
-		this(clazz, filter, null, properties);
-	}
-
-	public ServiceTrackerCollection(
-		Class<S> clazz, Filter filter,
-		ServiceTrackerCustomizer<S, S> serviceTrackerCustomizer) {
-
-		this(
-			clazz, filter, serviceTrackerCustomizer,
-			new HashMap<String, Object>());
-	}
-
-	public ServiceTrackerCollection(
+	public ServiceTrackerCollectionImpl(
 		Class<S> clazz, Filter filter,
 		ServiceTrackerCustomizer<S, S> serviceTrackerCustomizer,
 		Map<String, Object> properties) {
@@ -80,78 +69,31 @@ public class ServiceTrackerCollection<S> implements Collection<S> {
 		_serviceTracker.open();
 	}
 
-	public ServiceTrackerCollection(
-		Class<S> clazz, Map<String, Object> properties) {
-
-		this(clazz, (Filter)null, null, properties);
-	}
-
-	public ServiceTrackerCollection(
-		Class<S> clazz,
-		ServiceTrackerCustomizer<S, S> serviceTrackerCustomizer) {
-
-		this(
-			clazz, (Filter)null, serviceTrackerCustomizer,
-			new HashMap<String, Object>());
-	}
-
-	public ServiceTrackerCollection(
-		Class<S> clazz, ServiceTrackerCustomizer<S, S> serviceTrackerCustomizer,
-		Map<String, Object> properties) {
-
-		this(clazz, (Filter)null, serviceTrackerCustomizer, properties);
-	}
-
-	public ServiceTrackerCollection(Class<S> clazz, String filterString) {
-		this(
-			clazz, _getFilter(filterString), null,
-			new HashMap<String, Object>());
-	}
-
-	public ServiceTrackerCollection(
-		Class<S> clazz, String filterString, Map<String, Object> properties) {
-
-		this(clazz, _getFilter(filterString), null, properties);
-	}
-
-	public ServiceTrackerCollection(
-		Class<S> clazz, String filterString,
-		ServiceTrackerCustomizer<S, S> serviceTrackerCustomizer) {
-
-		this(
-			clazz, _getFilter(filterString), serviceTrackerCustomizer,
-			new HashMap<String, Object>());
-	}
-
-	public ServiceTrackerCollection(
-		Class<S> clazz, String filterString,
-		ServiceTrackerCustomizer<S, S> serviceTrackerCustomizer,
-		Map<String, Object> properties) {
-
-		this(
-			clazz, _getFilter(filterString), serviceTrackerCustomizer,
-			properties);
+	@Override
+	public void add(int index, S service) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public boolean add(S element) {
-		Map<String, Object> properties = new HashMap<String, Object>(
-			_properties);
-
-		if ((_filter != null) && !_filter.matches(properties)) {
+	public boolean add(S service) {
+		if ((_filter != null) && !_filter.matches(_properties)) {
 			return false;
 		}
+
+		Map<String, Object> properties = new HashMap<String, Object>(
+			_properties);
 
 		Registry registry = RegistryUtil.getRegistry();
 
 		ServiceRegistration<S> serviceRegistration = registry.registerService(
-			_clazz, element, properties);
+			_clazz, service, properties);
 
-		_serviceRegistrations.put(element, serviceRegistration);
+		_serviceRegistrations.put(service, serviceRegistration);
 
 		return true;
 	}
 
+	@Override
 	public boolean add(S service, Map<String, Object> properties) {
 		properties = new HashMap<String, Object>(properties);
 
@@ -173,17 +115,12 @@ public class ServiceTrackerCollection<S> implements Collection<S> {
 
 	@Override
 	public boolean addAll(Collection<? extends S> services) {
-		if (this == services) {
-			return false;
-		}
+		throw new UnsupportedOperationException();
+	}
 
-		boolean modified = false;
-
-		for (S service : services) {
-			modified = add(service);
-		}
-
-		return modified;
+	@Override
+	public boolean addAll(int index, Collection<? extends S> services) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
@@ -211,17 +148,19 @@ public class ServiceTrackerCollection<S> implements Collection<S> {
 
 	@Override
 	public boolean containsAll(Collection<?> services) {
-		if (this == services) {
-			return true;
-		}
+		throw new UnsupportedOperationException();
+	}
 
-		for (Object element : services) {
-			if (!contains(element)) {
-				return false;
-			}
-		}
+	@Override
+	public S get(int index) {
+		EntryWrapper entryWrapper = _services.get(index);
 
-		return true;
+		return entryWrapper._service;
+	}
+
+	@Override
+	public int indexOf(Object service) {
+		return _services.indexOf(service);
 	}
 
 	@Override
@@ -231,7 +170,27 @@ public class ServiceTrackerCollection<S> implements Collection<S> {
 
 	@Override
 	public Iterator<S> iterator() {
-		return _services.iterator();
+		return new ServiceTrackerIterator(_services.listIterator());
+	}
+
+	@Override
+	public int lastIndexOf(Object service) {
+		return _services.lastIndexOf(service);
+	}
+
+	@Override
+	public ListIterator<S> listIterator() {
+		return new ServiceTrackerIterator(_services.listIterator());
+	}
+
+	@Override
+	public ListIterator<S> listIterator(int index) {
+		return new ServiceTrackerIterator(_services.listIterator(index));
+	}
+
+	@Override
+	public S remove(int index) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
@@ -250,17 +209,35 @@ public class ServiceTrackerCollection<S> implements Collection<S> {
 
 	@Override
 	public boolean removeAll(Collection<?> services) {
-		return false;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public boolean retainAll(Collection<?> services) {
-		return false;
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public S set(int index, S service) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public int size() {
 		return _services.size();
+	}
+
+	@Override
+	public List<S> subList(int fromIndex, int toIndex) {
+		List<S> list = new ArrayList<S>();
+
+		List<EntryWrapper> subList = _services.subList(fromIndex, toIndex);
+
+		for (EntryWrapper entryWrapper : subList) {
+			list.add(entryWrapper._service);
+		}
+
+		return list;
 	}
 
 	@Override
@@ -271,12 +248,6 @@ public class ServiceTrackerCollection<S> implements Collection<S> {
 	@Override
 	public <T> T[] toArray(T[] services) {
 		return _services.toArray(services);
-	}
-
-	private static Filter _getFilter(String filterString) {
-		Registry registry = RegistryUtil.getRegistry();
-
-		return registry.getFilter(filterString);
 	}
 
 	private Filter _getFilter(Filter filter, Class<S> clazz) {
@@ -306,7 +277,8 @@ public class ServiceTrackerCollection<S> implements Collection<S> {
 	private final Map<String, Object> _properties;
 	private final Map<S, ServiceRegistration<S>> _serviceRegistrations =
 		new ConcurrentHashMap<S, ServiceRegistration<S>>();
-	private final List<S> _services = new CopyOnWriteArrayList<S>();
+	private final List<EntryWrapper> _services =
+		new CopyOnWriteArrayList<EntryWrapper>();
 	private final ServiceTracker<S, S> _serviceTracker;
 
 	private class DefaultServiceTrackerCustomizer
@@ -332,7 +304,7 @@ public class ServiceTrackerCollection<S> implements Collection<S> {
 				service = registry.getService(serviceReference);
 			}
 
-			_services.add(service);
+			update(serviceReference, service, false);
 
 			return service;
 		}
@@ -345,6 +317,8 @@ public class ServiceTrackerCollection<S> implements Collection<S> {
 				_serviceTrackerCustomizer.modifiedService(
 					serviceReference, service);
 			}
+
+			update(serviceReference, service, false);
 		}
 
 		@Override
@@ -355,16 +329,118 @@ public class ServiceTrackerCollection<S> implements Collection<S> {
 				_serviceTrackerCustomizer.removedService(
 					serviceReference, service);
 			}
-			else {
-				Registry registry = RegistryUtil.getRegistry();
 
-				registry.ungetService(serviceReference);
+			update(serviceReference, service, true);
+
+			Registry registry = RegistryUtil.getRegistry();
+
+			registry.ungetService(serviceReference);
+		}
+
+		private void update(
+			ServiceReference<S> serviceReference, S service, boolean remove) {
+
+			if (service == null) {
+				return;
 			}
 
-			_services.remove(service);
+			EntryWrapper entryWrapper = new EntryWrapper(
+				serviceReference, service);
+
+			synchronized(_services) {
+				int index = Collections.binarySearch(_services, entryWrapper);
+
+				if (remove) {
+					if (index >= 0) {
+						_services.remove(index);
+					}
+				}
+				else if (index < 0) {
+					_services.add(((-index) - 1), entryWrapper);
+				}
+			}
 		}
 
 		private final ServiceTrackerCustomizer<S, S> _serviceTrackerCustomizer;
+
+	}
+
+	private class EntryWrapper implements Comparable<EntryWrapper> {
+
+		public EntryWrapper(ServiceReference<S> serviceReference, S service) {
+			_serviceReference = serviceReference;
+			_service = service;
+		}
+
+		@Override
+		public int compareTo(EntryWrapper entryWrapper) {
+
+			// The order is deliberately reversed
+
+			return entryWrapper._serviceReference.compareTo(_serviceReference);
+		}
+
+		private S _service;
+		private ServiceReference<S> _serviceReference;
+
+	}
+
+	private class ServiceTrackerIterator implements ListIterator<S> {
+
+		public ServiceTrackerIterator(ListIterator<EntryWrapper> listIterator) {
+			_listIterator = listIterator;
+		}
+
+		@Override
+		public void add(S service) {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public boolean hasNext() {
+			return _listIterator.hasNext();
+		}
+
+		@Override
+		public boolean hasPrevious() {
+			return _listIterator.hasPrevious();
+		}
+
+		@Override
+		public S next() {
+			EntryWrapper entryWrapper = _listIterator.next();
+
+			return entryWrapper._service;
+		}
+
+		@Override
+		public int nextIndex() {
+			return _listIterator.nextIndex();
+		}
+
+		@Override
+		public S previous() {
+			EntryWrapper entryWrapper = _listIterator.previous();
+
+			return entryWrapper._service;
+		}
+
+		@Override
+		public int previousIndex() {
+			return _listIterator.previousIndex();
+		}
+
+		@Override
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public void set(S service) {
+			throw new UnsupportedOperationException();
+		}
+
+		private ListIterator<EntryWrapper> _listIterator;
 
 	}
 
