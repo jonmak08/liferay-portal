@@ -1,4 +1,5 @@
 @import "compass";
+@import "mixins";
 
 .input-localized {
 	.palette-item-inner img {
@@ -23,6 +24,7 @@
 
 	.palette-item {
 		border-width: 0;
+		float: left;
 		padding: 0;
 	}
 
@@ -75,5 +77,11 @@
 .input-prepend, .input-append {
 	.input-localized .input-localized-content {
 		margin-top: 3px;
+	}
+}
+
+@include respond-to(phone, tablet) {
+	.input-localized .palette-item {
+		padding: 5px;
 	}
 }
