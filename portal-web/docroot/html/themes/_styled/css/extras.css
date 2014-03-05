@@ -138,6 +138,18 @@
 	.navbar .navbar-search .form-search .search-query {
 		@include border-radius(14px);
 	}
+
+	.portlet-journal {
+		.tabbable-content.taglib-form-navigator {
+			position: relative;
+		}
+
+		ul.form-navigator.well .button-holder {
+			padding-bottom: 20px;
+			position: absolute;
+			top: 100%;
+		}
+	}
 }
 
 .portlet-document-library, .portlet-dynamic-data-mapping {
