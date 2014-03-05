@@ -16,20 +16,16 @@
 
 <%@ include file="/html/portlet/dictionary/init.jsp" %>
 
-<aui:nav-bar>
-	<aui:form method="post" name="fm" onSubmit='<%= "event.preventDefault(); " + renderResponse.getNamespace() + "getDefinition();" %>'>
-		<aui:nav-bar-search>
-			<div class="form-search">
-				<liferay-ui:input-search autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" name="word" placeholder='<%= LanguageUtil.get(locale, "Word") %>' />
-			</div>
+<aui:form method="post" name="fm" onSubmit='<%= "event.preventDefault(); " + renderResponse.getNamespace() + "getDefinition();" %>'>
+	<div class="form-search">
+		<liferay-ui:input-search autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" name="word" placeholder='<%= LanguageUtil.get(locale, "Word") %>' />
+	</div>
 
-			<aui:select label="" name="type">
-				<aui:option label="dictionary" value="http://dictionary.reference.com/search?q=" />
-				<aui:option label="thesaurus" value="http://thesaurus.reference.com/search?q=" />
-			</aui:select>
-		</aui:nav-bar-search>
-	</aui:form>
-</aui:nav-bar>
+	<aui:select label="" name="type">
+		<aui:option label="dictionary" value="http://dictionary.reference.com/search?q=" />
+		<aui:option label="thesaurus" value="http://thesaurus.reference.com/search?q=" />
+	</aui:select>
+</aui:form>
 
 <aui:script>
 	function <portlet:namespace />getDefinition() {
