@@ -83,8 +83,19 @@
 	.image-title {
 		clear: both;
 		display: block;
-		padding: 0 10px;
-		word-wrap: break-word;
+
+		@include ellipsis;
+
+		padding: 0 6px;
+	}
+}
+
+
+.image-gallery {
+	.image-viewer-caption {
+		@include ellipsis;
+
+		max-width: 300px;
 	}
 }
 
