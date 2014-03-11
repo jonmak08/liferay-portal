@@ -505,7 +505,7 @@ $editLayoutPanelWidth: 460px;
 
 			.info-button {
 				right: 12px;
-				top: 9px;
+				top: 10px;
 
 				a {
 					color: #FFF;
@@ -555,10 +555,6 @@ $editLayoutPanelWidth: 460px;
 
 			.divider-vertical {
 				display: none;
-			}
-
-			.info-button {
-				top: $diamondSize;
 			}
 
 			.info-items {
