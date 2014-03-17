@@ -61,7 +61,6 @@ public class InputResourceTag extends IncludeTag {
 
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
-
 		FieldWrapperTag parentFieldWrapperTag =
 			(FieldWrapperTag)findAncestorWithClass(this, FieldWrapperTag.class);
 
