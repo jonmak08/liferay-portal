@@ -1,85 +1,62 @@
 @import "mixins";
 
-.input-permissions {
-	&.lfr-table {
-		thead th, tbody td {
+.permissions-table-container {
+	overflow: auto;
+
+	table {
+		tbody td {
 			text-align: center;
-			word-break: normal;
+
+			&:first-child {
+				text-align: left;
+			}
 		}
-	}
 
-	@include respond-to(phone, tablet) {
-		&.lfr-table {
-			display: block;
-			position: relative;
-			width: 100%;
+		thead th {
+			text-align: center;
 
-			&:after {
-				clear: both;
-			}
-
-			thead {
-				float: left;
-				margin-right: 10px;
-
-				&:after {
-					clear: both;
-				}
-
-				th {
-					display: block;
-					margin-bottom: 20px;
-					text-align: right;
-				}
-			}
-
-			tbody {
-				display: block;
-				overflow-x: auto;
-				white-space: nowrap;
-
-				tr {
-					display: inline-block;
-
-					td {
-						display: block;
-						margin-bottom: 20px;
-					}
-				}
+			&:first-child {
+				text-align: left;
 			}
 		}
 	}
 }
 
-.ie9, .ie8, .ie7, .ie6 {
-	.input-permissions {
-		&.lfr-table {
-			display: table;
-			position: static;
-			width: auto;
+@include respond-to(phone, tablet) {
+	.permissions-table-container {
+		table {
+			tbody td {
+				text-align: center;
 
-			thead {
-				display: table-header-group;
-				float: none;
-				margin-right: auto;
-
-				th {
-					display: table-cell;
-					margin-bottom: auto;
+				&:first-child {
+					text-align: center;
 				}
 			}
 
-			tbody {
-				display: table-row-group;
-				overflow-x: auto;
-				position: static;
+			thead th {
+				text-align: right;
 
-				tr {
-					display: table-row;
+				&:first-child {
+					text-align: right;
+				}
+			}
 
-					td {
-						display: table-cell;
-						margin-bottom: auto;
+			label.hidden-label {
+				display: block;
+				overflow: hidden;
+				width: 10px;
+			}
+		}
+	}
+
+	.ie9, .ie8, .ie7, .ie6 {
+		.permissions-table-container {
+			table {
+				thead th {
+					text-align: center;
+
+					&:first-child {
+						text-align: left;
 					}
 				}
 			}
