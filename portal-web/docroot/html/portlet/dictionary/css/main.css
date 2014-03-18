@@ -1,0 +1,21 @@
+@import "compass";
+@import "mixins";
+
+.portlet-dictionary {
+	.form {
+		&, .form-search, div.control-group {
+			display: inline-block;
+			margin: 0 5px 0 0;
+
+			.input-append {
+				padding: 0;
+			}
+
+			@include respond-to(tablet) {
+				.input-append .btn {
+					padding-bottom: 5px;
+				}
+			}
+		}
+	}
+}
