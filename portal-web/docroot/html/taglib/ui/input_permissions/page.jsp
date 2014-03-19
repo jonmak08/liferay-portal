@@ -129,7 +129,7 @@ String modelName = (String)request.getAttribute("liferay-ui:input-permissions:mo
 		</c:if>
 
 		<div class="permissions-table-container">
-			<table class="input-permissions lfr-table responsive-table-horizontal <%= (inputPermissionsShowOptions || !supportedActions.contains(ActionKeys.VIEW)) ? "" : "hide" %>" id="<%= uniqueNamespace %>inputPermissionsTable">
+			<table class="lfr-table responsive-table-horizontal <%= (inputPermissionsShowOptions || !supportedActions.contains(ActionKeys.VIEW)) ? "" : "hide" %>" id="<%= uniqueNamespace %>inputPermissionsTable">
 			<thead>
 				<tr>
 					<th>
