@@ -17,6 +17,7 @@
 <%@ include file="/html/taglib/ui/ratings/init.jsp" %>
 
 <%
+String portletNamespace = portletDisplay.getNamespace();
 String randomNamespace = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page") + StringPool.UNDERLINE;
 
 String className = (String)request.getAttribute("liferay-ui:ratings:className");
@@ -83,7 +84,7 @@ int totalEntries = ratingsStats.getTotalEntries();
 									String label = LanguageUtil.format(pageContext, (yourScore == i) ? "you-have-rated-this-x-stars-out-of-x" : "rate-this-x-stars-out-of-x", new Object[] {i, numberOfStars}, false);
 
 									starsSB.append("<label for=\"" + ratingId + "\">" + label + "</label>");
-									starsSB.append("<input checked=\"" + (i == yourScore) + "\" class=\"rating-input\" id=\"" + ratingId + "\" name=\"" + portletDisplay.getNamespace() + "rating\" type=\"radio\" value=\"" + i + "\">");
+									starsSB.append("<input checked=\"" + (i == yourScore) + "\" class=\"rating-input\" id=\"" + ratingId + "\" name=\"" + portletNamespace + "rating\" type=\"radio\" value=\"" + i + "\">");
 									starsSB.append("</div>");
 								}
 
@@ -157,12 +158,12 @@ int totalEntries = ratingsStats.getTotalEntries();
 									String ratingId = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page_rating");
 
 									thumbSB.append("<label for=\"" + ratingId + "\">" + LanguageUtil.get(pageContext, (yourScore > 0) ? "you-have-rated-this-as-good" : "rate-this-as-good") + "</label>");
-									thumbSB.append("<input class=\"rating-input\" id=\"" + ratingId + "\" name=\"" + portletDisplay.getNamespace() + "ratingThumb\" type=\"radio\" value=\"up\">");
+									thumbSB.append("<input class=\"rating-input\" id=\"" + ratingId + "\" name=\"" + portletNamespace + "ratingThumb\" type=\"radio\" value=\"up\">");
 
 									ratingId = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page_rating");
 
 									thumbSB.append("<label for=\"" + ratingId + "\">" + LanguageUtil.get(pageContext, (yourScore > 0) ? "you-have-rated-this-as-bad" : "rate-this-as-bad") + "</label>");
-									thumbSB.append("<input class=\"rating-input\" id=\"" + ratingId + "\" name=\"" + portletDisplay.getNamespace() + "ratingThumb\" type=\"radio\" value=\"down\">");
+									thumbSB.append("<input class=\"rating-input\" id=\"" + ratingId + "\" name=\"" + portletNamespace + "ratingThumb\" type=\"radio\" value=\"down\">");
 									thumbSB.append("</div>");
 								}
 
