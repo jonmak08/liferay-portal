@@ -137,10 +137,10 @@ int totalEntries = ratingsStats.getTotalEntries();
 									thumbSB.append("0");
 								}
 								else {
-									thumbSB.append(((averageScore > 0) ? "+" : StringPool.BLANK) + ((int)(averageScore * totalEntries)));
+									thumbSB.append(((averageScore > 0) ? "+" : StringPool.BLANK) + (int)(averageScore * totalEntries));
 								}
 
-								thumbSB.append(totalEntries + " " + LanguageUtil.get(pageContext, (totalEntries == 1) ? "vote" : "votes") + ")");
+								thumbSB.append(" (" + totalEntries + " " + LanguageUtil.get(pageContext, (totalEntries == 1) ? "vote" : "votes") + ")");
 								thumbSB.append("</div>");
 
 								String thumbsUpCssClass = "rating-element rating-" + ((yourScore > 0) ? "on" : "off") + " rating-thumb-up icon-thumbs-up";
