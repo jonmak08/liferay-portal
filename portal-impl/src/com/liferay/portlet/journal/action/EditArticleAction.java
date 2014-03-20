@@ -159,6 +159,12 @@ public class EditArticleAction extends PortletAction {
 			else if (cmd.equals(Constants.MOVE_TO_TRASH)) {
 				deleteArticles(actionRequest, true);
 			}
+			else if (cmd.equals(Constants.SUBSCRIBE)) {
+				subscribeStructure(actionRequest);
+			}
+			else if (cmd.equals(Constants.UNSUBSCRIBE)) {
+				unsubscribeStructure(actionRequest);
+			}
 
 			String redirect = ParamUtil.getString(actionRequest, "redirect");
 
@@ -189,9 +195,6 @@ public class EditArticleAction extends PortletAction {
 				}
 			}
 
-			ThemeDisplay themeDisplay =
-				(ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
-
 			if (cmd.equals(Constants.DELETE) &&
 				!ActionUtil.hasArticle(actionRequest)) {
 
@@ -206,6 +209,10 @@ public class EditArticleAction extends PortletAction {
 					return;
 				}
 				else {
+					ThemeDisplay themeDisplay =
+						(ThemeDisplay)actionRequest.getAttribute(
+							WebKeys.THEME_DISPLAY);
+
 					PortletURL portletURL = PortletURLFactoryUtil.create(
 						actionRequest, portletConfig.getPortletName(),
 						themeDisplay.getPlid(), PortletRequest.RENDER_PHASE);
@@ -238,11 +245,7 @@ public class EditArticleAction extends PortletAction {
 			else {
 				WindowState windowState = actionRequest.getWindowState();
 
-				Layout layout = themeDisplay.getLayout();
-
-				if (!windowState.equals(LiferayWindowState.POP_UP) &&
-					layout.isTypeControlPanel()) {
-
+				if (!windowState.equals(LiferayWindowState.POP_UP)) {
 					sendRedirect(actionRequest, actionResponse, redirect);
 				}
 				else {
@@ -473,6 +476,34 @@ public class EditArticleAction extends PortletAction {
 			JournalArticleServiceUtil.removeArticleLocale(
 				groupId, articleId, version, languageId);
 		}
+	}
+
+	protected void subscribeStructure(ActionRequest actionRequest)
+		throws Exception {
+
+		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		long ddmStructureId = ParamUtil.getLong(
+			actionRequest, "ddmStructureId");
+
+		JournalArticleServiceUtil.subscribeStructure(
+			themeDisplay.getScopeGroupId(), themeDisplay.getUserId(),
+			ddmStructureId);
+	}
+
+	protected void unsubscribeStructure(ActionRequest actionRequest)
+		throws Exception {
+
+		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		long ddmStructureId = ParamUtil.getLong(
+			actionRequest, "ddmStructureId");
+
+		JournalArticleServiceUtil.unsubscribeStructure(
+			themeDisplay.getScopeGroupId(), themeDisplay.getUserId(),
+			ddmStructureId);
 	}
 
 	protected Object[] updateArticle(ActionRequest actionRequest)
