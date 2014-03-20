@@ -74,14 +74,17 @@ int totalEntries = ratingsStats.getTotalEntries();
 								StringBundler starsSB = new StringBundler(5 * numberOfStars);
 
 								for (int i = 1; i <= numberOfStars; i++) {
-									String ratingId = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page_rating");
+									String yourStarCssClass = "rating-element " + ((i <= yourScore) ? "icon-star" : "icon-star-empty");
 
-									starsSB.append("<a class=\"rating-element" + ((i <= yourScore) ? "icon-star" : "icon-star-empty") + "\" href=\"javascript:;\"></a>");
+									starsSB.append("<a class=\"" + yourStarCssClass + "\" href=\"javascript:;\"></a>");
 									starsSB.append("<div class=\"rating-input-container\">");
-									starsSB.append("<label for=\"" + ratingId + "\">" + LanguageUtil.format(pageContext, (yourScore == i) ? "you-have-rated-this-x-stars-out-of-x" : "rate-this-x-stars-out-of-x", new Object[] {i, numberOfStars}, false) + "</label>");
+
+									String ratingId = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page_rating");
+									String label = LanguageUtil.format(pageContext, (yourScore == i) ? "you-have-rated-this-x-stars-out-of-x" : "rate-this-x-stars-out-of-x", new Object[] {i, numberOfStars}, false);
+
+									starsSB.append("<label for=\"" + ratingId + "\">" + label + "</label>");
 									starsSB.append("<input checked=\"" + (i == yourScore) + "\" class=\"rating-input\" id=\"" + ratingId + "\" name=\"" + portletDisplay.getNamespace() + "rating\" type=\"radio\" value=\"" + i + "\">");
 									starsSB.append("</div>");
-
 								}
 
 								String starsRating = starsSB.toString();
@@ -105,9 +108,10 @@ int totalEntries = ratingsStats.getTotalEntries();
 						StringBundler avgStarsSB = new StringBundler(numberOfStars);
 
 						for (int i = 1; i <= numberOfStars; i++) {
+							String averageStarCssClass = "rating-element " + ((i <= averageScore) ? "icon-star" : "icon-star-empty");
+							String title = isInTrash ? isInTrashMessage : ((i == 1) ? LanguageUtil.format(pageContext, "the-average-rating-is-x-stars-out-of-x", new Object[] {averageScore, numberOfStars}, false) : StringPool.BLANK);
 
-							avgStarsSB.append("<span class=\"rating-element " + ((i <= averageScore) ? "icon-star" : "icon-star-empty") + "\" title=\"" + (isInTrash ? isInTrashMessage : ((i == 1) ? LanguageUtil.format(pageContext, "the-average-rating-is-x-stars-out-of-x", new Object[] {averageScore, numberOfStars}, false) : StringPool.BLANK)) + "\"></span>");
-
+							avgStarsSB.append("<span class=\"" + averageStarCssClass + "\" title=\"" + title + "\"></span>");
 						}
 
 						String averageStarsRating = avgStarsSB.toString();
@@ -138,14 +142,16 @@ int totalEntries = ratingsStats.getTotalEntries();
 								thumbSB.append(totalEntries + " " + LanguageUtil.get(pageContext, (totalEntries == 1) ? "vote" : "votes") + ")");
 								thumbSB.append("</div>");
 
-								if (isInTrash) {
-									thumbSB.append("<span class=\"rating-element rating-" + ((yourScore > 0) ? "on" : "off") + "rating-thumb-up\" title=\"" + isInTrashMessage + "\"></span>");
+								String thumbsUpCssClass = "rating-element rating-" + ((yourScore > 0) ? "on" : "off") + " rating-thumb-up icon-thumbs-up";
+								String thumbsDownCssClass = "rating-element rating-" + ((yourScore < 0) ? "on" : "off") + " rating-thumb-down icon-thumbs-down";
 
-									thumbSB.append("<span class=\"rating-element rating-" + ((yourScore < 0) ? "on" : "off") + "rating-thumb-down\" title=\"" + isInTrashMessage = "\"></span>");
+								if (isInTrash) {
+									thumbSB.append("<span class=\"" + thumbsUpCssClass + "\" title=\"" + isInTrashMessage + "\"></span>");
+									thumbSB.append("<span class=\"" + thumbsDownCssClass + "\" title=\"" + isInTrashMessage + "\"></span>");
 								}
 								else {
-									thumbSB.append("<a class=\"rating-element rating-" + ((yourScore > 0) ? "on" : "off") + "rating-thumb-up icon-thumbs-up\" href=\"javascript:;\"></a>");
-									thumbSB.append("<a class=\"rating-element rating-" + ((yourScore < 0) ? "on" : "off") + "rating-thumb-down icon-thumbs-down\" href=\"javascript:;\"></a>");
+									thumbSB.append("<a class=\"" + thumbsUpCssClass + "\" href=\"javascript:;\"></a>");
+									thumbSB.append("<a class=\"" + thumbsDownCssClass + "\" href=\"javascript:;\"></a>");
 									thumbSB.append("<div class=\"rating-input-container\">");
 
 									String ratingId = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page_rating");
