@@ -110,50 +110,50 @@ if (ratingsEntry != null) {
 					<c:when test="<%= themeDisplay.isSignedIn() %>">
 						<div class="thumbrating liferay-rating-vote" id="<%= randomNamespace %>ratingThumb">
 							<div class="helper-clearfix rating-content thumbrating-content" id="<%= randomNamespace %>ratingThumbContent">
+								
+								<%
 								<div class="rating-label">
-									<c:choose>
-										<c:when test="<%= (ratingsStats.getAverageScore() * ratingsStats.getTotalEntries() == 0) %>">
-											0
-										</c:when>
-										<c:otherwise>
-											<%= (ratingsStats.getAverageScore() > 0) ? "+" : StringPool.BLANK %><%= (int)(ratingsStats.getAverageScore() * ratingsStats.getTotalEntries()) %>
-										</c:otherwise>
-									</c:choose>
+									if (ratingsStats.getAverageScore() * ratingsStats.getTotalEntries() == 0) {
+										0
+									}
+									else {
+										<%= (ratingsStats.getAverageScore() > 0) ? "+" : StringPool.BLANK %><%= (int)(ratingsStats.getAverageScore() * ratingsStats.getTotalEntries()) %>
+									}
 
 									(<%= ratingsStats.getTotalEntries() %> <liferay-ui:message key='<%= (ratingsStats.getTotalEntries() == 1) ? "vote" : "votes" %>' />)
 								</div>
 
-								<c:choose>
-									<c:when test="<%= TrashUtil.isInTrash(className, classPK) %>">
-										<span class="rating-element rating-<%= (yourScore > 0) ? "on" : "off" %> rating-thumb-up" title="<liferay-ui:message key="ratings-are-disabled-because-this-entry-is-in-the-recycle-bin" />"></span>
+								if (TrashUtil.isInTrash(className, classPK)) {
+									<span class="rating-element rating-<%= (yourScore > 0) ? "on" : "off" %> rating-thumb-up" title="<liferay-ui:message key="ratings-are-disabled-because-this-entry-is-in-the-recycle-bin" />"></span>
 
-										<span class="rating-element rating-<%= (yourScore < 0) ? "on" : "off" %> rating-thumb-down" title="<liferay-ui:message key="ratings-are-disabled-because-this-entry-is-in-the-recycle-bin" />"></span>
-									</c:when>
-									<c:otherwise>
-										<a class="rating-element rating-<%= (yourScore > 0) ? "on" : "off" %> rating-thumb-up icon-thumbs-up" href="javascript:;"></a>
+									<span class="rating-element rating-<%= (yourScore < 0) ? "on" : "off" %> rating-thumb-down" title="<liferay-ui:message key="ratings-are-disabled-because-this-entry-is-in-the-recycle-bin" />"></span>
+								}
+								else {
+									<a class="rating-element rating-<%= (yourScore > 0) ? "on" : "off" %> rating-thumb-up icon-thumbs-up" href="javascript:;"></a>
 
-										<a class="rating-element rating-<%= (yourScore < 0) ? "on" : "off" %> rating-thumb-down icon-thumbs-down" href="javascript:;"></a>
+									<a class="rating-element rating-<%= (yourScore < 0) ? "on" : "off" %> rating-thumb-down icon-thumbs-down" href="javascript:;"></a>
 
-										<div class="rating-input-container">
+									<div class="rating-input-container">
 
-											<%
-											String ratingId = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page_rating");
-											%>
+										<%
+										String ratingId = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page_rating");
+										%>
 
-											<label for="<%= ratingId %>"><liferay-ui:message key='<%= (yourScore > 0) ? "you-have-rated-this-as-good" : "rate-this-as-good" %>' /></label>
+										<label for="<%= ratingId %>"><liferay-ui:message key='<%= (yourScore > 0) ? "you-have-rated-this-as-good" : "rate-this-as-good" %>' /></label>
 
-											<input class="rating-input" id="<%= ratingId %>" name="<portlet:namespace />ratingThumb" type="radio" value="up">
+										<input class="rating-input" id="<%= ratingId %>" name="<portlet:namespace />ratingThumb" type="radio" value="up">
 
-											<%
-											ratingId = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page_rating");
-											%>
+										<%
+										ratingId = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page_rating");
+										%>
 
-											<label for="<%= ratingId %>"><liferay-ui:message key='<%= (yourScore > 0) ? "you-have-rated-this-as-bad" : "rate-this-as-bad" %>' /></label>
+										<label for="<%= ratingId %>"><liferay-ui:message key='<%= (yourScore > 0) ? "you-have-rated-this-as-bad" : "rate-this-as-bad" %>' /></label>
 
-											<input class="rating-input" id="<%= ratingId %>" name="<portlet:namespace />ratingThumb" type="radio" value="down">
-										</div>
-									</c:otherwise>
-								</c:choose>
+										<input class="rating-input" id="<%= ratingId %>" name="<portlet:namespace />ratingThumb" type="radio" value="down">
+									</div>
+								}
+								%>
+
 							</div>
 						</div>
 					</c:when>
