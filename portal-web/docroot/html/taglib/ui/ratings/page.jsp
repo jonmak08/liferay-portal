@@ -72,19 +72,41 @@ int totalEntries = ratingsStats.getTotalEntries();
 								<div class="rating-label"><liferay-ui:message key="your-rating" /></div>
 
 								<%
-								StringBundler sb = new StringBundler(5 * numberOfStars);
+								StringBundler sb = new StringBundler(19 * numberOfStars);
 
 								for (int i = 1; i <= numberOfStars; i++) {
-									String yourStarCssClass = "rating-element " + ((i <= yourScore) ? "icon-star" : "icon-star-empty");
+									sb.append("<a class=\"rating-element ");
 
-									sb.append("<a class=\"" + yourStarCssClass + "\" href=\"javascript:;\"></a>");
+									String yourStarCssClass = "icon-star-empty";
+
+									if (i <= yourScore) {
+										yourStarCssClass = "icon-star";
+									}
+
+									sb.append(yourStarCssClass);
+									sb.append("\" href=\"javascript:;\"></a>");
 									sb.append("<div class=\"rating-input-container\">");
+									sb.append("<label for=\"");
 
 									String ratingId = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page_rating");
+
+									sb.append(ratingId);
+									sb.append("\">");
+
 									String label = LanguageUtil.format(pageContext, (yourScore == i) ? "you-have-rated-this-x-stars-out-of-x" : "rate-this-x-stars-out-of-x", new Object[] {i, numberOfStars}, false);
 
-									sb.append("<label for=\"" + ratingId + "\">" + label + "</label>");
-									sb.append("<input checked=\"" + (i == yourScore) + "\" class=\"rating-input\" id=\"" + ratingId + "\" name=\"" + portletNamespace + "rating\" type=\"radio\" value=\"" + i + "\">");
+									sb.append(label);
+
+									sb.append("</label>");
+									sb.append("<input checked=\"");
+									sb.append(i == yourScore);
+									sb.append("\" class=\"rating-input\" id=\"");
+									sb.append(ratingId);
+									sb.append("\" name=\"");
+									sb.append(portletNamespace);
+									sb.append("rating\" type=\"radio\" value=\"");
+									sb.append(i);
+									sb.append("\">");
 									sb.append("</div>");
 								}
 
@@ -106,13 +128,31 @@ int totalEntries = ratingsStats.getTotalEntries();
 						</div>
 
 						<%
-						StringBundler sb = new StringBundler(numberOfStars);
+						StringBundler sb = new StringBundler(5 * numberOfStars);
 
 						for (int i = 1; i <= numberOfStars; i++) {
-							String averageStarCssClass = "rating-element " + ((i <= averageScore) ? "icon-star" : "icon-star-empty");
-							String title = isInTrash ? isInTrashMessage : ((i == 1) ? LanguageUtil.format(pageContext, "the-average-rating-is-x-stars-out-of-x", new Object[] {averageScore, numberOfStars}, false) : StringPool.BLANK);
+							sb.append("<span class=\"rating-element ");
 
-							sb.append("<span class=\"" + averageStarCssClass + "\" title=\"" + title + "\"></span>");
+							String averageStarCssClass = "icon-star-empty";
+
+							if (i <= averageScore) {
+								averageStarCssClass = "icon-star";
+							}
+
+							sb.append(averageStarCssClass);
+							sb.append("\" title=\"");
+
+							String title = StringPool.BLANK;
+
+							if (isInTrash) {
+								title = isInTrashMessage;
+							}
+							else if (i == 1) {
+								title = LanguageUtil.format(pageContext, "the-average-rating-is-x-stars-out-of-x", new Object[] {averageScore, numberOfStars}, false);
+							}
+
+							sb.append(title);
+							sb.append("\"></span>");
 						}
 
 						String averageStarsRating = sb.toString();
@@ -133,37 +173,134 @@ int totalEntries = ratingsStats.getTotalEntries();
 
 								sb.append("<div class=\"rating-label\">");
 
-								if (averageScore * totalEntries == 0) {
-									sb.append("0");
-								}
-								else {
-									sb.append(((averageScore > 0) ? "+" : StringPool.BLANK) + (int)(averageScore * totalEntries));
+								String totalScore = "0";
+
+								if (averageScore * totalEntries != 0) {
+									if (averageScore > 0) {
+										totalScore = "+";
+									}
+									else {
+										totalScore = StringPool.BLANK;
+									}
+
+									totalScore += (int)(averageScore * totalEntries);
 								}
 
-								sb.append(" (" + totalEntries + " " + LanguageUtil.get(pageContext, (totalEntries == 1) ? "vote" : "votes") + ")");
+								sb.append(totalScore);
+								sb.append(" (");
+								sb.append(totalEntries);
+								sb.append(StringPool.SPACE);
+
+								String ratingLabel = LanguageUtil.get(pageContext, "votes");
+
+								if (totalEntries == 1) {
+									ratingLabel = LanguageUtil.get(pageContext, "vote");
+								}
+
+								sb.append(ratingLabel);
+								sb.append(")");
 								sb.append("</div>");
 
-								String thumbsUpCssClass = "rating-element rating-" + ((yourScore > 0) ? "on" : "off") + " rating-thumb-up icon-thumbs-up";
-								String thumbsDownCssClass = "rating-element rating-" + ((yourScore < 0) ? "on" : "off") + " rating-thumb-down icon-thumbs-down";
-
 								if (isInTrash) {
-									sb.append("<span class=\"" + thumbsUpCssClass + "\" title=\"" + isInTrashMessage + "\"></span>");
-									sb.append("<span class=\"" + thumbsDownCssClass + "\" title=\"" + isInTrashMessage + "\"></span>");
+									sb.append("<span class=\"rating-element rating-");
 								}
 								else {
-									sb.append("<a class=\"" + thumbsUpCssClass + "\" href=\"javascript:;\"></a>");
-									sb.append("<a class=\"" + thumbsDownCssClass + "\" href=\"javascript:;\"></a>");
+									sb.append("<a class=\"rating-element rating-");
+								}
+
+								String thumbsUpCssClass = "rating-element rating-";
+
+								if (yourScore > 0) {
+									thumbsUpCssClass += "on";
+								}
+								else {
+									thumbsUpCssClass += "off";
+								}
+
+								thumbsUpCssClass += " rating-thumb-up icon-thumbs-up";
+
+								sb.append(thumbsUpCssClass);
+
+								if (isInTrash) {
+									sb.append("\" title=\"");
+									sb.append(isInTrashMessage);
+									sb.append("\"></span>");
+								}
+								else {
+									sb.append("\" href=\"javascript:;\"></a>");
+								}
+
+								if (isInTrash) {
+									sb.append("<span class=\"rating-element rating-");
+								}
+								else {
+									sb.append("<a class=\"rating-element rating-");
+								}
+
+								String thumbsDownCssClass = "rating-element rating-";
+
+								if (yourScore < 0) {
+									thumbsDownCssClass += "on";
+								}
+								else {
+									thumbsDownCssClass += "off";
+								}
+
+								thumbsDownCssClass += " rating-thumb-down icon-thumbs-down";
+
+								sb.append(thumbsDownCssClass);
+
+								if (isInTrash) {
+									sb.append("\" title=\"");
+									sb.append(isInTrashMessage);
+									sb.append("\"></span>");
+								}
+								else {
+									sb.append("\" href=\"javascript:;\"></a>");
+								}
+
+								if (!isInTrash) {
 									sb.append("<div class=\"rating-input-container\">");
+									sb.append("<label for=\"");
 
 									String ratingId = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page_rating");
 
-									sb.append("<label for=\"" + ratingId + "\">" + LanguageUtil.get(pageContext, (yourScore > 0) ? "you-have-rated-this-as-good" : "rate-this-as-good") + "</label>");
-									sb.append("<input class=\"rating-input\" id=\"" + ratingId + "\" name=\"" + portletNamespace + "ratingThumb\" type=\"radio\" value=\"up\">");
+									sb.append(ratingId);
+									sb.append("\">");
+
+									String goodRatingLabel = LanguageUtil.get(pageContext, "rate-this-as-good");
+
+									if (yourScore > 0) {
+										goodRatingLabel = LanguageUtil.get(pageContext, "you-have-rated-this-as-good");
+									}
+
+									sb.append(goodRatingLabel);
+									sb.append("</label>");
+									sb.append("<input class=\"rating-input\" id=\"");
+									sb.append(ratingId);
+									sb.append("\" name=\"");
+									sb.append(portletNamespace);
+									sb.append("ratingThumb\" type=\"radio\" value=\"up\">");
+									sb.append("<label for=\"");
 
 									ratingId = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page_rating");
 
-									sb.append("<label for=\"" + ratingId + "\">" + LanguageUtil.get(pageContext, (yourScore > 0) ? "you-have-rated-this-as-bad" : "rate-this-as-bad") + "</label>");
-									sb.append("<input class=\"rating-input\" id=\"" + ratingId + "\" name=\"" + portletNamespace + "ratingThumb\" type=\"radio\" value=\"down\">");
+									sb.append(ratingId);
+									sb.append("\">");
+
+									String badRatingLabel = LanguageUtil.get(pageContext, "rate-this-as-bad");
+
+									if (yourScore > 0) {
+										badRatingLabel = LanguageUtil.get(pageContext, "you-have-rated-this-as-bad");
+									}
+
+									sb.append(badRatingLabel);
+									sb.append("</label>");
+									sb.append("<input class=\"rating-input\" id=\"");
+									sb.append(ratingId);
+									sb.append("\" name=\"");
+									sb.append(portletNamespace);
+									sb.append("ratingThumb\" type=\"radio\" value=\"down\">");
 									sb.append("</div>");
 								}
 
