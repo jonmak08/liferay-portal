@@ -1033,6 +1033,7 @@ public class AssetPublisherImpl implements AssetPublisher {
 		return key;
 	}
 
+	@Override
 	public long getSubscriptionClassPK(long plid, String portletId)
 		throws PortalException, SystemException {
 
