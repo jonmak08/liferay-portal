@@ -358,15 +358,21 @@ $dockbarOpenGradientStart: #0EA6F9;
 		}
 	}
 
-	.modify-pages .delete-tab {
-		background: #555;
-		border: 2px solid #FFF;
-		color: #FFF;
-		font-size: 16px;
-		padding: 4px;
-		right: -10px;
-		top: 0;
-		z-index: 300;
+	.modify-pages {
+		.delete-tab {
+			background: #555;
+			border: 2px solid #FFF;
+			color: #FFF;
+			font-size: 16px;
+			padding: 4px;
+			right: -10px;
+			top: 0;
+			z-index: 300;
+		}
+
+		.drag-handle {
+			color: #1273C7;
+		}
 	}
 
 	/* ---------- Breadcrumbs ---------- */
