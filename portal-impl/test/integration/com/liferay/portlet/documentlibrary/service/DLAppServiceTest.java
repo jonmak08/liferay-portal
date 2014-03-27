@@ -79,7 +79,7 @@ public class DLAppServiceTest extends BaseDLAppTestCase {
 		super.setUp();
 
 		_fileEntry = DLAppTestUtil.addFileEntry(
-			group.getGroupId(), parentFolder.getFolderId(), false,
+			group.getGroupId(), parentFolder.getFolderId(),
 			"Test DLAppService.txt");
 
 		_userIds = new long[ServiceTestUtil.THREAD_COUNT];
@@ -421,7 +421,7 @@ public class DLAppServiceTest extends BaseDLAppTestCase {
 		String fileName = "TestVersion.txt";
 
 		FileEntry fileEntry = DLAppTestUtil.addFileEntry(
-			group.getGroupId(), parentFolder.getFolderId(), false, fileName);
+			group.getGroupId(), parentFolder.getFolderId(), fileName);
 
 		Assert.assertEquals(
 			"Version label incorrect after add", "1.0", fileEntry.getVersion());
@@ -567,7 +567,7 @@ public class DLAppServiceTest extends BaseDLAppTestCase {
 		protected void doRun() throws Exception {
 			try {
 				FileEntry fileEntry = DLAppTestUtil.addFileEntry(
-					group.getGroupId(), parentFolder.getFolderId(), false,
+					group.getGroupId(), parentFolder.getFolderId(),
 					"Test-" + _index + ".txt");
 
 				_fileEntryIds[_index] = fileEntry.getFileEntryId();
