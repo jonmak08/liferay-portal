@@ -45,7 +45,7 @@
 		</aui:nav>
 
 		<aui:nav-bar-search cssClass="pull-right">
-			<aui:select cssClass="categories-admin-select-search" label="" name="categoriesAdminSelectSearch">
+			<aui:select cssClass="select-search" label="" name="categoriesAdminSelectSearch">
 				<aui:option label="categories" />
 				<aui:option label="vocabularies" selected="<%= true %>" />
 			</aui:select>
