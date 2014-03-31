@@ -104,11 +104,12 @@ public class SelectTag extends BaseSelectTag {
 		boolean hideLabel = getHideLabel();
 		String label = getLabel();
 
-		if ((label == null) || label.equals(StringPool.BLANK)) {
+		if (label == null) {
 			label = TextFormatter.format(name, TextFormatter.K);
 		}
+		else if (label.equals(StringPool.BLANK)) {
+			label = TextFormatter.format(name, TextFormatter.K);
 
-		if (label.equals(StringPool.BLANK)) {
 			hideLabel = true;
 		}
 
