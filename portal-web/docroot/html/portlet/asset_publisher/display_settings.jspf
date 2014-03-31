@@ -102,9 +102,11 @@
 			for (String conversion : conversions) {
 			%>
 
-			<aui:field-wrapper inlineField="<%= true %>" inlineLabel="left" label="<%= StringUtil.toUpperCase(conversion) %>" name='<%= "extensions" + conversion %>'>
-				<input <%= ArrayUtil.contains(assetPublisherDisplayContext.getExtensions(), conversion) ? "checked": "" %> <%= !assetPublisherDisplayContext.isOpenOfficeServerEnabled() ? "disabled" : "" %> id="<portlet:namespace />extensions<%= conversion %>" name="<portlet:namespace />extensions" type="checkbox" value="<%= conversion %>" />
-			</aui:field-wrapper>
+				<label class="checkbox inline">
+					<input <%= ArrayUtil.contains(assetPublisherDisplayContext.getExtensions(), conversion) ? "checked": "" %> <%= assetPublisherDisplayContext.isOpenOfficeServerEnabled() ? "" : "disabled" %> id="<portlet:namespace />extensions<%= conversion %>" name="<portlet:namespace />extensions" type="checkbox" value="<%= conversion %>" />
+
+					<%= StringUtil.toUpperCase(conversion) %>
+				</label>
 
 			<%
 			}
