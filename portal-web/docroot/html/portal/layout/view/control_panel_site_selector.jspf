@@ -37,7 +37,11 @@ Group siteGroup = themeDisplay.getSiteGroup();
 
 manageableSiteGroups.remove(siteGroup);
 
-String switchGroupURL = HttpUtil.setParameter(PortalUtil.getCurrentURL(request), "switchGroup", "1");
+String currentURL = PortalUtil.getCurrentURL(request);
+
+currentURL = HttpUtil.removeParameter(currentURL, PortalUtil.getPortletNamespace(ppid) + "struts_action");
+
+String switchGroupURL = HttpUtil.setParameter(currentURL, "switchGroup", "1");
 %>
 
 <c:choose>
