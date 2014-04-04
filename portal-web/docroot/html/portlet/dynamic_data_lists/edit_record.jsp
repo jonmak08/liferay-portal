@@ -239,9 +239,23 @@ if (translating) {
 		<aui:button-row>
 			<c:choose>
 				<c:when test="<%= translating %>">
-					<aui:button name="saveTranslationButton" onClick='<%= renderResponse.getNamespace() + "setWorkflowAction(false);" %>' type="submit" value="add-translation" />
+					<aui:button name="saveTranslationButton" onClick='<%= renderResponse.getNamespace() + "saveTranslation(event);" %>' type="submit" value="add-translation" />
 
 					<aui:button href="<%= redirect %>" name="cancelButton" type="cancel" />
+
+					<aui:script>
+						function <portlet:namespace />saveTranslation (event) {
+								var A = Liferay.Util.getTop().AUI();
+								var translationManager = A.one('#<portlet:namespace />translationManager .lfr-translation-manager-add-menu');
+								var translationMessage = A.Node.create('<div class="alert alert-info"><liferay-ui:message key="the-changes-in-your-translations-will-be-available-once-the-content-is-published" /></div>');
+								var window = Liferay.Util.getWindow('<%= languageId %>');
+
+								<portlet:namespace />setWorkflowAction(false);
+								window.hide();
+								translationManager.insert(translationMessage, 'after');
+						}
+					</aui:script>
+
 				</c:when>
 				<c:otherwise>
 
