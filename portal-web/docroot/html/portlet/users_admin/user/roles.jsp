@@ -102,8 +102,7 @@ userGroupRoles.addAll(siteRoles);
 					{
 						dialog: {
 							constrain: true,
-							modal: true,
-							width: 600
+							modal: true
 						},
 						id: '<portlet:namespace />selectRegularRole',
 						title: '<liferay-ui:message arguments="regular-role" key="select-x" />',
@@ -438,8 +437,7 @@ for (Group group : allGroups) {
 							{
 								dialog: {
 									constrain: true,
-									modal: true,
-									width: 600
+									modal: true
 								},
 								id: '<portlet:namespace />selectSiteRole',
 								title: '<liferay-ui:message arguments="site-role" key="select-x" />',
