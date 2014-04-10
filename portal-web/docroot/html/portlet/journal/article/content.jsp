@@ -243,7 +243,7 @@ if (Validator.isNotNull(content)) {
 
 									<c:if test="<%= ddmTemplate != null %>">
 										<c:if test="<%= ddmTemplate.isSmallImage() %>">
-											<img class="article-template-image" id="<portlet:namespace />templateImage" src="<%= HtmlUtil.escapeAttribute(_getTemplateImage(themeDisplay, ddmTemplate)) %>" />
+											<img alt="" class="article-template-image" id="<portlet:namespace />templateImage" src="<%= HtmlUtil.escapeAttribute(_getTemplateImage(themeDisplay, ddmTemplate)) %>" />
 										</c:if>
 
 										<c:if test="<%= DDMTemplatePermission.contains(permissionChecker, ddmTemplate, PortletKeys.JOURNAL, ActionKeys.UPDATE) %>">
@@ -286,7 +286,7 @@ if (Validator.isNotNull(content)) {
 
 								<a href="javascript:;" id="<portlet:namespace />changeLanguageId"><liferay-ui:message key="change" /></a>
 
-								<aui:select cssClass="hide" id="defaultLocale" inlineField="<%= true %>" label="" name="defaultLanguageId">
+								<aui:select cssClass="hide" hideLabel="<%= true %>" id="defaultLocale" inlineField="<%= true %>" label="default-language" name="defaultLanguageId">
 
 									<%
 									Locale[] locales = LanguageUtil.getAvailableLocales(themeDisplay.getSiteGroupId());
