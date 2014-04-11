@@ -23,23 +23,21 @@
 		}
 	}
 
-	.lfr-input-localized-default a {
-		margin-right: 14px;
-	}
-
 	.palette-item {
 		border-width: 0;
+		line-height: 1.5em;
 		padding: 0;
 	}
 
 	.palette-item-inner {
 		border: 1px solid #666;
-		margin-right: 4px;
 		width: 16px;
+	}
 
-		img {
-			display: block;
-		}
+	.palette-items-container {
+		font-size: 14px;
+		margin: 0;
+		white-space: normal;
 	}
 
 	.palette-item, .palette-item-inner, .palette-item-hover, .palette-item-hover .palette-item-inner {
@@ -47,9 +45,10 @@
 	}
 
 	.lfr-input-localized-state {
-		height: 4px;
-		margin: 3px 5px;
-		width: 4px;
+		bottom: -10px;
+		display: inline-block;
+		left: -15px;
+		position: relative;
 	}
 
 	.lfr-input-localized .lfr-input-localized-state {
@@ -68,11 +67,12 @@
 		.palette-item-selected .lfr-input-localized-state {
 			height: 6px;
 			width: 6px;
+			margin-right: -6px;
 		}
 	}
 
 	.palette-item-inner {
-		display: block;
+		display: inline;
 		height: 16px;
 		width: 16px;
 	}
