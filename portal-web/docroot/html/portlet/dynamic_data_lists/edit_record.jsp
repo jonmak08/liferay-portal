@@ -239,9 +239,20 @@ if (translating) {
 		<aui:button-row>
 			<c:choose>
 				<c:when test="<%= translating %>">
-					<aui:button name="saveTranslationButton" onClick='<%= renderResponse.getNamespace() + "setWorkflowAction(false);" %>' type="submit" value="add-translation" />
+					<aui:button name="saveTranslationButton" onClick='<%= renderResponse.getNamespace() + "saveTranslation(event);" %>' type="submit" value="add-translation" />
 
 					<aui:button href="<%= redirect %>" name="cancelButton" type="cancel" />
+
+					<aui:script>
+						function <portlet:namespace />saveTranslation (event) {
+								var window = Liferay.Util.getWindow('<%= languageId %>');
+
+								<portlet:namespace />setWorkflowAction(false);
+
+								window.hide();
+						}
+					</aui:script>
+
 				</c:when>
 				<c:otherwise>
 
