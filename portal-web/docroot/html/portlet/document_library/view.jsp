@@ -269,7 +269,8 @@ if (!defaultFolderView && (folder != null) && portletName.equals(PortletKeys.DOC
 				folderId: <%= folderId %>,
 				folderRowsPerPage: <%= folderEnd - folderStart %>,
 				folderStart: <%= folderStart %>,
-				foldersTotal: <%= foldersTotal %>
+				foldersTotal: <%= foldersTotal %>,
+				numberOfPages: 7
 			},
 			namespace: '<portlet:namespace />',
 			portletId: '<%= HtmlUtil.escapeJS(portletId) %>',

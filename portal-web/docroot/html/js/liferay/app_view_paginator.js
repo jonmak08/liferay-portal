@@ -120,6 +120,11 @@ AUI.add(
 						validator: Lang.isString
 					},
 
+					numberOfPages: {
+						validator: Lang.isNumber,
+						value: 5
+					},
+
 					paginationData: {
 						validator: Lang.isObject
 					}
@@ -202,6 +207,8 @@ AUI.add(
 							Liferay.on('liferay-app-view-folders:afterDataRequest', instance._afterDataRequest, instance),
 							instance.after('paginationDataChange', instance._afterPaginationDataChange, instance)
 						];
+
+						instance._showPages(entryPagination, entryPagination.get('page'));
 					},
 
 					destructor: function() {
@@ -296,6 +303,8 @@ AUI.add(
 							pagination.set('visible', !!(total && total > rowsPerPage));
 
 							pagination.setState(state);
+
+							instance._showPages(pagination, state.page);
 						}
 					},
 
@@ -375,6 +384,78 @@ AUI.add(
 									page: 1
 								}
 							);
+						}
+					},
+
+					_showPages: function(pagination, page) {
+						var instance = this;
+
+						var numberOfPages = instance.get('numberOfPages');
+
+						var pageCounter = page;
+
+						var shift_index = pagination._paginationContentNode.all('.pagination-control').size() / 2;
+
+						var listItems = pagination.get('items').slice(shift_index, pagination.get('total') + shift_index);
+
+						if (page%numberOfPages === 1) {
+							A.each(
+								listItems,
+								function(node, index) {
+									if ((index >= (page - 1)) && (index <= (page + numberOfPages - 2))) {
+										node.show();
+									}
+									else {
+										node.hide();
+									}
+								}
+							);
+						}
+						else if (page%numberOfPages === 0) {
+							A.each(
+								listItems,
+								function(node, index) {
+									if ((index >= (page - numberOfPages)) && (index <= (page - 1))) {
+										node.show();
+									}
+									else {
+										node.hide();
+									}
+								}
+							);
+						}
+						else {
+							A.each(
+								listItems,
+								function(node) {
+									node.hide();
+								}
+							);
+
+							while (pageCounter%numberOfPages > 0) {
+								listItems.item(pageCounter - 1).show();
+								pageCounter--;
+							}
+
+							pageCounter = page;
+
+							while (pageCounter%numberOfPages > 0) {
+								if (listItems.item(pageCounter - 1)) {
+									listItems.item(pageCounter - 1).show();
+								}
+
+								pageCounter++;
+
+								if (pageCounter%numberOfPages === 0) {
+									if (listItems.item(pageCounter - 1)) {
+										listItems.item(pageCounter - 1).show();
+									}
+								}
+							}
+						}
+
+						if (!listItems.item(page - 1).hasClass('active')) {
+							listItems.item(page - 1).addClass('active');
 						}
 					},
 
