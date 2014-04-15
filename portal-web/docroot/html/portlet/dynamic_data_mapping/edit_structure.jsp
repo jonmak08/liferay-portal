@@ -194,14 +194,6 @@ if (Validator.isNotNull(requestEditStructureURL)) {
 					<div class="input-append">
 						<c:choose>
 							<c:when test="<%= (structure == null) || Validator.isNotNull(parentStructureId) %>">
-								<portlet:renderURL var="parentStructureURL">
-									<portlet:param name="struts_action" value="/dynamic_data_mapping/edit_structure" />
-									<portlet:param name="redirect" value="<%= currentURL %>" />
-									<portlet:param name="groupId" value="<%= String.valueOf(scopeGroupId) %>" />
-									<portlet:param name="classNameId" value="<%= String.valueOf(classNameId) %>" />
-									<portlet:param name="classPK" value="<%= String.valueOf(parentStructureId) %>" />
-								</portlet:renderURL>
-
 								<aui:input name="parentStructureName" type="resource" value="<%= parentStructureName %>" />
 							</c:when>
 							<c:otherwise>
