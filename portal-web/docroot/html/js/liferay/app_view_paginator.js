@@ -296,6 +296,8 @@ AUI.add(
 							pagination.set('visible', !!(total && total > rowsPerPage));
 
 							pagination.setState(state);
+
+							pagination._uiSetPage(state.page);
 						}
 					},
 
