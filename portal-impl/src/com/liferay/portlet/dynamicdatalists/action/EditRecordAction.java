@@ -68,7 +68,16 @@ public class EditRecordAction extends PortletAction {
 			}
 
 			if (Validator.isNotNull(cmd)) {
-				sendRedirect(actionRequest, actionResponse);
+				if (cmd.equals(Constants.TRANSLATE)) {
+					updateRecord(actionRequest);
+
+					setForward(
+						actionRequest,
+						"portlet.dynamic_data_lists.update_translation_redirect");
+				}
+				else {
+					sendRedirect(actionRequest, actionResponse);
+				}
 			}
 		}
 		catch (Exception e) {
