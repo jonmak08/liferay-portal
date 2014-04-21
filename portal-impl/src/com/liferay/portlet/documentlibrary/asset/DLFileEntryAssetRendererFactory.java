@@ -33,6 +33,7 @@ import com.liferay.portlet.asset.model.BaseAssetRendererFactory;
 import com.liferay.portlet.assetpublisher.util.AssetPublisherUtil;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryType;
+import com.liferay.portlet.documentlibrary.model.DLFileEntryTypeConstants;
 import com.liferay.portlet.documentlibrary.service.DLAppLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryTypeLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryTypeServiceUtil;
@@ -138,13 +139,22 @@ public class DLFileEntryAssetRendererFactory extends BaseAssetRendererFactory {
 
 		Map<Long, String> classTypes = new HashMap<Long, String>();
 
+		DLFileEntryType dlFileEntryType =
+			DLFileEntryTypeLocalServiceUtil.fetchDLFileEntryType(
+				DLFileEntryTypeConstants.FILE_ENTRY_TYPE_ID_BASIC_DOCUMENT);
+
+		classTypes.put(
+			dlFileEntryType.getFileEntryTypeId(),
+			LanguageUtil.get(
+				locale, DLFileEntryTypeConstants.NAME_BASIC_DOCUMENT));
+
 		List<DLFileEntryType> dlFileEntryTypes =
 			DLFileEntryTypeServiceUtil.getFileEntryTypes(groupIds);
 
-		for (DLFileEntryType dlFileEntryType : dlFileEntryTypes) {
+		for (DLFileEntryType curDLFileEntryType : dlFileEntryTypes) {
 			classTypes.put(
-				dlFileEntryType.getFileEntryTypeId(),
-				dlFileEntryType.getName(locale));
+				curDLFileEntryType.getFileEntryTypeId(),
+				curDLFileEntryType.getName(locale));
 		}
 
 		return classTypes;
