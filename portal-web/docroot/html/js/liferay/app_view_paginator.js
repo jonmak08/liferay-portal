@@ -120,8 +120,29 @@ AUI.add(
 						validator: Lang.isString
 					},
 
+					numberOfPages: {
+						validator: Lang.isNumber,
+						value: 5
+					},
+
 					paginationData: {
 						validator: Lang.isObject
+					},
+
+					showControls: {
+						value: true
+					},
+
+					strings: {
+						validator: Lang.isObject,
+						value: {
+							first: '&laquo;',
+							last: '&raquo;',
+							next: Liferay.Language.get('next'),
+							nextPages: '...',
+							prev: Liferay.Language.get('prev'),
+							prevPages: '...'
+						}
 					}
 				},
 
@@ -142,6 +163,7 @@ AUI.add(
 						var entryEnd = instance.get(STR_ENTRY_END);
 
 						var entriesTotal = instance.get('entriesTotal');
+						var showControls = instance.get('showControls');
 
 						var entryRowsPerPage = instance.get(ENTRY_ROWS_PER_PAGE);
 
@@ -158,8 +180,11 @@ AUI.add(
 								itemsPerPage: entryRowsPerPage,
 								itemsPerPageList: instance.get('entryRowsPerPageOptions'),
 								namespace: instance.NS,
+								numberOfPages: instance.get('numberOfPages'),
 								page: entryPage,
 								results: entriesTotal,
+								showControls: showControls,
+								strings: instance.get('strings'),
 								total: totalEntryPages,
 								visible: totalEntryPages > 1
 							}
@@ -204,6 +229,12 @@ AUI.add(
 							Liferay.on('liferay-app-view-folders:afterDataRequest', instance._afterDataRequest, instance),
 							instance.after('paginationDataChange', instance._afterPaginationDataChange, instance)
 						];
+
+						if (showControls) {
+							instance._hidePaginationPageNodes(entryPagination);
+
+							instance._displayPages(entryPagination, entryPagination.get('page'));
+						}
 					},
 
 					destructor: function() {
@@ -282,20 +313,65 @@ AUI.add(
 					_afterPaginationDataChange: function(event) {
 						var instance = this;
 
-						var paginationData = event.newVal;
+						var paginationDataNewVal = event.newVal;
 
-						var pagination = instance['_' + paginationData.name];
+						var pagination = instance['_' + paginationDataNewVal.name];
 
 						if (A.instanceOf(pagination, Liferay.Pagination)) {
-							var state = paginationData.state;
+							var state = paginationDataNewVal.state;
 
-							pagination.set('results', state.total);
-							pagination.set('total', instance._getTotalPages(state.total, state.rowsPerPage));
-							pagination.set('visible', (state.total > state.rowsPerPage));
+							var rowsPerPage = state.rowsPerPage;
+							var total = state.total;
+
+							pagination.set('results', total);
+							pagination.set('total', instance._getTotalPages(total, rowsPerPage));
+							pagination.set('visible', (total > rowsPerPage));
 
 							pagination.setState(state);
 
-							pagination._syncResults();
+							var paginationDataPrevVal = event.prevVal;
+
+							if (instance.get('showControls')) {
+								if ((paginationDataPrevVal && (paginationDataPrevVal.state.rowsPerPage !== rowsPerPage)) || !paginationDataPrevVal) {
+									instance._hidePaginationPageNodes(pagination);
+
+									pagination._paginationContentNode.setData('oldPages', null);
+								}
+
+								instance._displayPages(pagination, state.page);
+							}
+						}
+					},
+
+					_displayPages: function(pagination, page) {
+						var instance = this;
+
+						var pageNodes = instance._getPaginationPageNodes(pagination);
+
+						var numberOfPages = instance.get('numberOfPages');
+
+						var pageNodeSize = pageNodes.size();
+
+						numberOfPages = (pageNodeSize < numberOfPages) ? pageNodeSize : numberOfPages;
+
+						var paginationContentNode = pagination._paginationContentNode;
+
+						instance._syncPrevNextPagesControls(pageNodes, paginationContentNode, page);
+
+						var visiblePages = [];
+
+						var oldPages = paginationContentNode.getData('oldPages');
+
+						visiblePages = instance._showVisiblePages(numberOfPages, oldPages, page, pageNodes, visiblePages);
+
+						paginationContentNode.setData('oldPages', visiblePages);
+
+						var lastPage = (page - 1);
+
+						var lastPageNode = pageNodes.item(lastPage);
+
+						if (lastPageNode && !lastPageNode.hasClass('active')) {
+							lastPageNode.addClass('active');
 						}
 					},
 
@@ -337,6 +413,18 @@ AUI.add(
 						return params;
 					},
 
+					_getPaginationPageNodes: function(pagination) {
+						var instance = this;
+
+						var paginationControlSize = pagination._paginationContentNode.all('.pagination-control').size();
+
+						var shiftIndex =  (paginationControlSize / 2);
+
+						var newIndex = (pagination.get('total') + shiftIndex);
+
+						return pagination.get('items').slice(shiftIndex, newIndex);
+					},
+
 					_getResultsStartEnd: function(pagination, rowsPerPage, page) {
 						var instance = this;
 
@@ -362,6 +450,14 @@ AUI.add(
 						return Math.ceil(totalRows / rowsPerPage);
 					},
 
+					_hidePaginationPageNodes: function(pagination) {
+						var instance = this;
+
+						var pageNodes = instance._getPaginationPageNodes(pagination);
+
+						pageNodes.hide();
+					},
+
 					_onDataRequest: function(event) {
 						var instance = this;
 
@@ -375,6 +471,126 @@ AUI.add(
 									page: 1
 								}
 							);
+						}
+					},
+
+					_showVisiblePages: function(numberOfPages, oldPages, page, pageNodes, visiblePages) {
+						var instance = this;
+
+						var pageCounter = page;
+
+						if (oldPages) {
+							do {
+								visiblePages.unshift(pageCounter - 1);
+
+								pageCounter--;
+							} while ((pageCounter % numberOfPages) > 0);
+
+							pageCounter = page;
+
+							while ((pageCounter % numberOfPages) > 0) {
+								visiblePages.push(pageCounter);
+
+								pageCounter ++;
+							}
+
+							var pageLength = (page - 1);
+
+							if ((oldPages.indexOf(pageLength) === -1)) {
+								for (var i = 0; i < numberOfPages; i++) {
+									var visiblePageNode = pageNodes.item(visiblePages[i]);
+
+									if (visiblePageNode) {
+										visiblePageNode.show();
+									}
+
+									var oldPageNode = pageNodes.item(oldPages[i]);
+
+									if (oldPageNode) {
+										oldPageNode.hide();
+									}
+								}
+							}
+						}
+						else {
+							do {
+								var pageCounterLength = (pageCounter - 1);
+
+								pageNodes.item(pageCounterLength).show();
+
+								visiblePages.unshift(pageCounterLength);
+
+								pageCounter--;
+							} while ((pageCounter % numberOfPages) > 0);
+
+							pageCounter = page;
+
+							while ((pageCounter % numberOfPages) > 0) {
+								var pageCounterLength = (pageCounter - 1);
+
+								var currentPageNode = pageNodes.item(pageCounterLength);
+
+								if (pageNodes.item(currentPageNode)) {
+									pageNodes.item(currentPageNode).show();
+								}
+
+								visiblePages.push(pageCounter);
+
+								pageCounter++;
+
+								if ((pageCounter % numberOfPages) === 0) {
+									var updatedPageCounterLength = (pageCounter - 1);
+
+									var firstPageNode = pageNodes.item(updatedPageCounterLength);
+
+									if (firstPageNode) {
+										firstPageNode.show();
+									}
+								}
+							}
+						}
+
+						return visiblePages;
+					},
+
+					_syncPrevNextPagesControls: function(pageNodes, paginationContentNode, page) {
+						var instance = this;
+
+						var strings = instance.get('strings');
+
+						if (strings.prevPages && strings.nextPages) {
+							var numberOfPages = instance.get('numberOfPages');
+
+							var totalPages = pageNodes.size();
+
+							var nextPages = paginationContentNode.one('.next-pages');
+							var prevPages = paginationContentNode.one('.prev-pages');
+
+							if (totalPages <= numberOfPages) {
+								prevPages.addClass('hide');
+								nextPages.addClass('hide');
+							}
+							else if ((page >= 1) && (page <= numberOfPages)) {
+								prevPages.addClass('hide');
+								nextPages.removeClass('hide');
+							}
+
+							var modNumberOfPages = (totalPages % numberOfPages);
+
+							var deltaTotalPages = (totalPages - modNumberOfPages);
+
+							if ((page > numberOfPages) && (page <= deltaTotalPages)) {
+								prevPages.removeClass('hide');
+								nextPages.removeClass('hide');
+							}
+
+							if ((page > deltaTotalPages) && (page <= totalPages) && (deltaTotalPages !== 0)) {
+								prevPages.removeClass('hide');
+							}
+
+							if (((page > deltaTotalPages) && (page <= totalPages)) || (page === totalPages)) {
+								nextPages.addClass('hide');
+							}
 						}
 					},
 

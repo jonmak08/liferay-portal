@@ -94,6 +94,8 @@ String[] displayViews = StringUtil.split(PrefsParamUtil.getString(portletPrefere
 
 long rootFolderId = PrefsParamUtil.getLong(portletPreferences, request, "rootFolderId", DLFolderConstants.DEFAULT_PARENT_FOLDER_ID);
 
+int paginationNumberOfPages = PrefsParamUtil.getInteger(portletPreferences, request, "paginationNumberOfPages", PropsValues.SEARCH_CONTAINER_PAGINATION_DEFAULT_NUMBER_OF_PAGES);
+
 String rootFolderName = StringPool.BLANK;
 
 if (rootFolderId != DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) {

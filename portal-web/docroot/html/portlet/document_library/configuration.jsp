@@ -124,6 +124,20 @@ String emailBody = PrefsParamUtil.getString(portletPreferences, request, emailBo
 
 						</aui:select>
 
+						<aui:select label="maximum-pagination-pages-to-display" name="preferences--paginationNumberOfPages--">
+
+							<%
+							for (int paginationNumberOfPagesValue : PropsValues.SEARCH_CONTAINER_PAGINATION_NUMBER_OF_PAGES_VALUES) {
+							%>
+
+								<aui:option label="<%= paginationNumberOfPagesValue %>" selected="<%= paginationNumberOfPages == paginationNumberOfPagesValue %>" />
+
+							<%
+							}
+							%>
+
+						</aui:select>
+
 						<aui:input name="preferences--enableRelatedAssets--" type="checkbox" value="<%= enableRelatedAssets %>" />
 
 						<aui:field-wrapper label="display-style-views">
