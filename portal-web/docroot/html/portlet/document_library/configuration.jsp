@@ -75,6 +75,20 @@ DLConfigurationDisplayContext dlConfigurationDisplayContext = new DLConfiguratio
 
 						</aui:select>
 
+						<aui:select label="pagination-number-of-pages-to-display" name="preferences--numberOfPages--">
+
+							<%
+							for (int numberOfPagesValue : PropsValues.SEARCH_CONTAINER_PAGINATION_NUMBER_OF_PAGES_VALUES) {
+							%>
+
+								<aui:option label="<%= numberOfPagesValue %>" selected="<%= numberOfPages == numberOfPagesValue %>" />
+
+							<%
+							}
+							%>
+
+						</aui:select>
+
 						<aui:input name="preferences--enableRelatedAssets--" type="checkbox" value="<%= dlPortletInstanceSettings.getEnableRelatedAssets() %>" />
 
 						<aui:field-wrapper label="display-style-views">

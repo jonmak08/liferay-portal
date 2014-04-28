@@ -120,8 +120,29 @@ AUI.add(
 						validator: Lang.isString
 					},
 
+					numberOfPages: {
+						validator: Lang.isNumber,
+						value: 5
+					},
+
 					paginationData: {
 						validator: Lang.isObject
+					},
+
+					showControls: {
+						value: true
+					},
+
+					strings: {
+						validator: Lang.isObject,
+						value: {
+							first: '&laquo;',
+							last: '&raquo;',
+							next: 'Next',
+							nextPages: '...',
+							prev: 'Prev',
+							prevPages: '...'
+						}
 					}
 				},
 
@@ -157,8 +178,11 @@ AUI.add(
 								circular: false,
 								itemsPerPage: entryRowsPerPage,
 								namespace: instance.NS,
+								numberOfPages: instance.get('numberOfPages'),
 								page: entryPage,
 								results: entriesTotal,
+								showControls: instance.get('showControls'),
+								strings: instance.get('strings'),
 								total: totalEntryPages,
 								visible: totalEntryPages > 1
 							}
@@ -202,6 +226,12 @@ AUI.add(
 							Liferay.on('liferay-app-view-folders:afterDataRequest', instance._afterDataRequest, instance),
 							instance.after('paginationDataChange', instance._afterPaginationDataChange, instance)
 						];
+
+						if (instance.get('showControls')) {
+							instance._hidePaginationPageNodes(entryPagination);
+
+							instance._displayPages(entryPagination, entryPagination.get('page'));
+						}
 					},
 
 					destructor: function() {
@@ -282,6 +312,8 @@ AUI.add(
 
 						var paginationData = event.newVal;
 
+						var paginationDataPrev = event.prevVal;
+
 						var pagination = instance['_' + paginationData.name];
 
 						if (A.instanceOf(pagination, Liferay.Pagination)) {
@@ -296,6 +328,40 @@ AUI.add(
 							pagination.set('visible', !!(total && total > rowsPerPage));
 
 							pagination.setState(state);
+
+							if (instance.get('showControls')) {
+								if ((paginationDataPrev && (paginationDataPrev.state.rowsPerPage !== rowsPerPage)) || !paginationDataPrev) {
+									instance._hidePaginationPageNodes(pagination);
+
+									pagination._paginationContentNode.setData('oldPages', null);
+								}
+
+								instance._displayPages(pagination, state.page);
+							}
+						}
+					},
+
+					_displayPages: function(pagination, page) {
+						var instance = this;
+
+						var pageNodes = instance._getPaginationPageNodes(pagination);
+
+						var paginationContentNode = pagination._paginationContentNode;
+
+						var numberOfPages = (pageNodes.size() < instance.get('numberOfPages')) ? pageNodes.size() : instance.get('numberOfPages');
+
+						var oldPages = paginationContentNode.getData('oldPages');
+
+						var visiblePages = [];
+
+						instance._syncPrevNextPagesControls(pageNodes, paginationContentNode, page);
+
+						visiblePages = instance._showVisiblePages(numberOfPages, oldPages, page, pageNodes, visiblePages);
+
+						paginationContentNode.setData('oldPages', visiblePages);
+
+						if (pageNodes.item(page - 1) && !pageNodes.item(page - 1).hasClass('active')) {
+							pageNodes.item(page - 1).addClass('active');
 						}
 					},
 
@@ -337,6 +403,18 @@ AUI.add(
 						return params;
 					},
 
+					_getPaginationPageNodes: function(pagination) {
+						var instance = this;
+
+						var paginationContentNode = pagination._paginationContentNode;
+
+						var shift_index = paginationContentNode.all('.pagination-control').size() / 2;
+
+						var pageNodes = pagination.get('items').slice(shift_index, pagination.get('total') + shift_index);
+
+						return pageNodes;
+					},
+
 					_getResultsStartEnd: function(pagination, rowsPerPage, page) {
 						var instance = this;
 
@@ -362,6 +440,14 @@ AUI.add(
 						return Math.ceil(totalRows / rowsPerPage);
 					},
 
+					_hidePaginationPageNodes: function(pagination) {
+						var instance = this;
+
+						var pageNodes = instance._getPaginationPageNodes(pagination);
+
+						pageNodes.hide();
+					},
+
 					_onDataRequest: function(event) {
 						var instance = this;
 
@@ -375,6 +461,105 @@ AUI.add(
 									page: 1
 								}
 							);
+						}
+					},
+
+					_showVisiblePages: function(numberOfPages, oldPages, page, pageNodes, visiblePages) {
+						var instance = this;
+
+						var pageCounter = page;
+
+						if (oldPages) {
+							do {
+								visiblePages.unshift(pageCounter - 1);
+
+								pageCounter--;
+							} while (pageCounter % numberOfPages > 0);
+
+							pageCounter = page;
+
+							while (pageCounter % numberOfPages > 0) {
+								visiblePages.push(pageCounter);
+
+								pageCounter ++;
+							}
+
+							if ((oldPages.indexOf(page - 1) === -1)) {
+								for (var i = 0; i < numberOfPages; i++) {
+									if (pageNodes.item(visiblePages[i])) {
+										pageNodes.item(visiblePages[i]).show();
+									}
+
+									if (pageNodes.item(oldPages[i])) {
+										pageNodes.item(oldPages[i]).hide();
+									}
+								}
+							}
+						}
+						else {
+							do {
+								pageNodes.item(pageCounter - 1).show();
+
+								visiblePages.unshift(pageCounter - 1);
+
+								pageCounter--;
+							} while (pageCounter % numberOfPages > 0);
+
+							pageCounter = page;
+
+							while (pageCounter % numberOfPages > 0) {
+								if (pageNodes.item(pageCounter - 1)) {
+									pageNodes.item(pageCounter - 1).show();
+								}
+
+								visiblePages.push(pageCounter);
+
+								pageCounter++;
+
+								if (pageCounter % numberOfPages === 0) {
+									if (pageNodes.item(pageCounter - 1)) {
+										pageNodes.item(pageCounter - 1).show();
+									}
+								}
+							}
+						}
+
+						return visiblePages;
+					},
+
+					_syncPrevNextPagesControls: function(pageNodes, paginationContentNode, page) {
+						var instance = this;
+
+						var nextPages = paginationContentNode.one('.next-pages');
+
+						var numberOfPages = instance.get('numberOfPages');
+
+						var prevPages = paginationContentNode.one('.prev-pages');
+
+						var totalPages = pageNodes.size();
+
+						if (instance.get('strings').prevPages && instance.get('strings').nextPages) {
+							if (totalPages <= numberOfPages) {
+								prevPages.addClass('disabled');
+								nextPages.addClass('disabled');
+							}
+							else if (page >= 1 && page <= numberOfPages) {
+								prevPages.addClass('disabled');
+								nextPages.removeClass('disabled');
+							}
+
+							if (page > numberOfPages && page <= totalPages - totalPages % numberOfPages) {
+								prevPages.removeClass('disabled');
+								nextPages.removeClass('disabled');
+							}
+
+							if (page > totalPages - totalPages % numberOfPages && page <= totalPages && ((totalPages - totalPages % numberOfPages) !== 0)) {
+								prevPages.removeClass('disabled');
+							}
+
+							if ((page > totalPages - totalPages % numberOfPages && page <= totalPages) || page === totalPages) {
+								nextPages.addClass('disabled');
+							}
 						}
 					},
 

@@ -85,6 +85,10 @@ public class DLPortletInstanceSettings extends BaseServiceSettings {
 		return typedSettings.getValues("mimeTypes", _MIME_TYPES_DEFAULT);
 	}
 
+	public int getNumberOfPages() {
+		return typedSettings.getIntegerValue("numberOfPages");
+	}
+
 	public long getRootFolderId() {
 		return typedSettings.getLongValue(
 			"rootFolderId", DLFolderConstants.DEFAULT_PARENT_FOLDER_ID);
@@ -132,6 +136,8 @@ public class DLPortletInstanceSettings extends BaseServiceSettings {
 		_fallbackKeys.add(
 			"fileEntriesPerPage",
 			PropsKeys.SEARCH_CONTAINER_PAGE_DEFAULT_DELTA);
+		_fallbackKeys.add(
+			"numberOfPages", PropsKeys.SEARCH_CONTAINER_PAGINATION_DEFAULT_NUMBER_OF_PAGES);
 		_fallbackKeys.add(
 			"showFoldersSearch", PropsKeys.DL_FOLDERS_SEARCH_VISIBLE);
 		_fallbackKeys.add(
