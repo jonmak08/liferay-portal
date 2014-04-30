@@ -80,6 +80,8 @@ MBThread thread = message.getThread();
 			/>
 		</c:if>
 
+		div
+
 		<c:if test="<%= MBMessagePermission.contains(permissionChecker, message, ActionKeys.SUBSCRIBE) && (mbSettings.isEmailMessageAddedEnabled() || mbSettings.isEmailMessageUpdatedEnabled()) %>">
 			<c:choose>
 				<c:when test="<%= (threadSubscriptionClassPKs != null) && threadSubscriptionClassPKs.contains(message.getThreadId()) %>">
@@ -160,6 +162,8 @@ MBThread thread = message.getThread();
 			url="<%= moveThreadURL %>"
 		/>
 	</c:if>
+
+	s
 
 	<c:if test="<%= MBMessagePermission.contains(permissionChecker, message, ActionKeys.DELETE) && !thread.isLocked() %>">
 		<portlet:actionURL var="deleteURL">

@@ -245,9 +245,11 @@ AUI.add(
 									cache: false,
 									dialog: A.merge(DIALOG_DEFAULTS, dialogConfig),
 									dialogIframe: DIALOG_IFRAME_DEFAULTS,
+									height: dialogConfig.height,
 									id: instance._dialogId,
 									iframeId: 'devicePreviewIframe',
-									uri: WIN.location.href
+									uri: WIN.location.href,
+									width: dialogConfig.width
 								},
 								function(dialogWindow) {
 									var dialogBoundingBox = dialogWindow.get(STR_BOUNDING_BOX);
