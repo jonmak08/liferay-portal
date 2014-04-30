@@ -353,21 +353,12 @@ AUI.add(
 						var instance = this;
 
 						var eventInfo = event.info;
+						var target = event.target;
 
-						var offsetHeight = eventInfo.offsetHeight;
-						var offsetWidth = eventInfo.offsetWidth;
+						var offsetHeight = eventInfo.offsetHeight - target.totalHSurrounding;
+						var offsetWidth = eventInfo.offsetWidth - target.totalVSurrounding;
 
-						var inputHeight = instance.get(STR_INPUT_HEIGHT);
-
-						if (inputHeight) {
-							inputHeight.val(offsetHeight);
-						}
-
-						var inputWidth = instance.get(STR_INPUT_WIDTH);
-
-						if (inputWidth) {
-							inputWidth.val(offsetWidth);
-						}
+						instance._updateSizeInputFields(offsetHeight, offsetWidth);
 
 						var info = Lang.sub(
 							TPL_DEVICE_SIZE_INFO,
@@ -382,6 +373,14 @@ AUI.add(
 
 					_onResizeEnd: function(event) {
 						var instance = this;
+
+						var eventInfo = event.info;
+						var target = event.target;
+
+						var offsetHeight = eventInfo.offsetHeight - target.totalHSurrounding;
+						var offsetWidth = eventInfo.offsetWidth - target.totalVSurrounding;
+
+						instance._updateSizeInputFields(offsetHeight, offsetWidth);
 
 						instance._sizeStatus.hide();
 					},
@@ -434,6 +433,22 @@ AUI.add(
 								width: Lang.toInt(instance.get(STR_INPUT_WIDTH).val())
 							}
 						);
+					},
+
+					_updateSizeInputFields: function(offsetHeight, offsetWidth) {
+						var instance = this;
+
+						var inputHeight = instance.get(STR_INPUT_HEIGHT);
+
+						if (inputHeight) {
+							inputHeight.val(offsetHeight);
+						}
+
+						var inputWidth = instance.get(STR_INPUT_WIDTH);
+
+						if (inputWidth) {
+							inputWidth.val(offsetWidth);
+						}
 					}
 				}
 			}
