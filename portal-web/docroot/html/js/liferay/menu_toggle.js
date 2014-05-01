@@ -53,9 +53,9 @@ AUI.add(
 
 						if (instance._triggerNode) {
 							instance._triggerNode.on(
-								['gesturemovestart', 'keyup'],
+								['keyup', 'tap'],
 								function(event) {
-									if ((event.type == 'gesturemovestart') || event.isKeyInSet('ENTER', 'SPACE')) {
+									if ((event.type == 'tap') || event.isKeyInSet('ENTER', 'SPACE')) {
 										instance._toggleMenu(event, event.currentTarget);
 									}
 								}
@@ -66,8 +66,13 @@ AUI.add(
 					_getEventOutside: function(event) {
 						var eventOutside = event._event.type;
 
-						if (eventOutside == 'MSPointerUp') {
+						eventOutside = eventOutside.toLowerCase();
+
+						if (eventOutside.indexOf('pointerup') > -1) {
 							eventOutside = 'mouseup';
+						}
+						else if (eventOutside.indexOf('touchend') > -1) {
+							eventOutside = 'mouseover';
 						}
 
 						eventOutside = eventOutside + 'outside';
@@ -158,6 +163,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-node', 'event-move', 'event-outside', 'liferay-store']
+		requires: ['aui-node', 'event-tap', 'event-outside', 'liferay-store']
 	}
 );
