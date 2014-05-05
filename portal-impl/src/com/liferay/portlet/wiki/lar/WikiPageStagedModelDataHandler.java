@@ -32,6 +32,7 @@ import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portlet.documentlibrary.NoSuchFileException;
 import com.liferay.portlet.documentlibrary.lar.FileEntryUtil;
+import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.wiki.NoSuchPageException;
 import com.liferay.portlet.wiki.model.WikiNode;
 import com.liferay.portlet.wiki.model.WikiPage;
@@ -190,7 +191,7 @@ public class WikiPageStagedModelDataHandler
 		if (page.isHead()) {
 			List<Element> attachmentElements =
 				portletDataContext.getReferenceDataElements(
-					pageElement, FileEntry.class,
+					pageElement, DLFileEntry.class,
 					PortletDataContext.REFERENCE_TYPE_WEAK);
 
 			for (Element attachmentElement : attachmentElements) {
