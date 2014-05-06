@@ -1326,6 +1326,13 @@
 				<outputType>boolean</outputType>
 				<defaultValue>true</defaultValue>
 			</attribute>
+			<attribute>
+				<description>Sets a CSS class for styling the <![CDATA[<code>div</code>]]> that wraps the input component.</description>
+				<name>wrapperCssClass</name>
+				<required>false</required>
+				<rtexprvalue>true</rtexprvalue>
+				<type>java.lang.String</type>
+			</attribute>
 		</attributes>
 	</component>
 	<component name="Spacer" dynamicAttributes="false" parentClass="com.liferay.portal.kernel.servlet.taglib.TagSupport" writeBaseClass="false" writeJSP="false">
