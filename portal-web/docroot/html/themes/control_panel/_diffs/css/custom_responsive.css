@@ -8,11 +8,11 @@
 
 			padding: 0 5px;
 
-			#_145_navAddControlsNavbarBtn, #_145_navSiteNavigationNavbarBtn {
+			.nav-add-controls-btn {
 				display: none;
 			}
 
-			#_145_navAccountControls {
+			.nav-account-controls {
 				float: right;
 				text-align: top;
 			}
