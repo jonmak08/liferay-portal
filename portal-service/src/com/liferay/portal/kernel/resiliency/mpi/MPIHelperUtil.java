@@ -327,6 +327,8 @@ public class MPIHelperUtil {
 					SPI spi = entry.getValue();
 
 					try {
+						spi.stop();
+
 						spi.destroy();
 
 						if (_log.isInfoEnabled()) {
