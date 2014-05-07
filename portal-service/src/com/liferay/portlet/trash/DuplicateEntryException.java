@@ -1,4 +1,3 @@
-<%--
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
@@ -12,16 +11,22 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
---%>
 
-<%@ include file="/html/taglib/ui/tabs/init.jsp" %>
+package com.liferay.portlet.trash;
 
-<%
-String errorSection = (String)request.getAttribute("errorSection");
-%>
+/**
+ * @author Brian Wing Shun Chan
+ *
+ *
+ * @deprecated As of 7.0.0, renamed to {@link RestoreEntryException}
+ */
+@Deprecated
+public class DuplicateEntryException extends RestoreEntryException {
 
-<c:if test="<%= !themeDisplay.isFacebook() %>">
-	<aui:script>
-		Liferay.Portal.Tabs.show('<%= namespace + param %>', <%= namesJS %>, '<%= UnicodeFormatter.toString((errorSection == null) ? value : errorSection) %>');
-	</aui:script>
-</c:if>
+	public int getType() {
+		return _type;
+	}
+
+	private int _type = RestoreEntryException.DUPLICATE;
+
+}
