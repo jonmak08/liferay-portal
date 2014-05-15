@@ -248,11 +248,7 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	public void prepareLocalizedFieldsForImport(Locale defaultImportLocale)
 		throws LocaleException {
 
-		// Title and Description
-
 		super.prepareLocalizedFieldsForImport(defaultImportLocale);
-
-		// Content
 
 		String content = StringPool.BLANK;
 
