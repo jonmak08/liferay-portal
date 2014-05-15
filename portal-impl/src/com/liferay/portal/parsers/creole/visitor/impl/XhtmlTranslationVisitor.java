@@ -157,7 +157,7 @@ public class XhtmlTranslationVisitor implements ASTVisitor {
 	@Override
 	public void visit(ImageNode imageNode) {
 		append("<img src=\"");
-		append(HtmlUtil.escape(imageNode.getLink()));
+		append(HtmlUtil.escapeAttribute(imageNode.getLink()));
 		append("\" ");
 
 		if (imageNode.hasAltCollectionNode()) {

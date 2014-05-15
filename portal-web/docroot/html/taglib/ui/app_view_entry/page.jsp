@@ -88,11 +88,11 @@ if (showLinkTitle) {
 				<img alt="" border="0" src="<%= HtmlUtil.escapeAttribute(thumbnailSrc) %>" style="<%= thumbnailStyle %>" />
 
 				<c:if test="<%= shortcut %>">
-					<img alt="<liferay-ui:message key="shortcut" />" class="shortcut-icon" src="<%= themeDisplay.getPathThemeImages() %>/file_system/large/overlay_link.png" />
+					<img alt="<%= HtmlUtil.escapeAttribute(LanguageUtil.get((shortcut)) %>" class="shortcut-icon" src="<%= themeDisplay.getPathThemeImages() %>/file_system/large/overlay_link.png" />
 				</c:if>
 
 				<c:if test="<%= locked %>">
-					<img alt="<liferay-ui:message key="locked" />" class="locked-icon" src="<%= themeDisplay.getPathThemeImages() %>/file_system/large/overlay_lock.png" />
+					<img alt="<%= HtmlUtil.escapeAttribute(LanguageUtil.get(locked)) %>" class="locked-icon" src="<%= themeDisplay.getPathThemeImages() %>/file_system/large/overlay_lock.png" />
 				</c:if>
 
 				<c:if test="<%= !folder && ((status != WorkflowConstants.STATUS_ANY) && (status != WorkflowConstants.STATUS_APPROVED)) %>">
@@ -133,11 +133,11 @@ if (showLinkTitle) {
 				<img alt="" border="0" class="img-polaroid" src="<%= HtmlUtil.escapeAttribute(thumbnailSrc) %>" style="<%= thumbnailStyle %>" />
 
 				<c:if test="<%= shortcut %>">
-					<img alt="<liferay-ui:message key="shortcut" />" class="shortcut-icon" src="<%= themeDisplay.getPathThemeImages() %>/file_system/large/overlay_link.png" />
+					<img alt="<%= HtmlUtil.escapeAttribute(LanguageUtil.get((shortcut)) %>" class="shortcut-icon" src="<%= themeDisplay.getPathThemeImages() %>/file_system/large/overlay_link.png" />
 				</c:if>
 
 				<c:if test="<%= locked %>">
-					<img alt="<liferay-ui:message key="locked" />" class="locked-icon" src="<%= themeDisplay.getPathThemeImages() %>/file_system/large/overlay_lock.png" />
+					<img alt="<%= HtmlUtil.escapeAttribute(LanguageUtil.get(locked)) %>" class="locked-icon" src="<%= themeDisplay.getPathThemeImages() %>/file_system/large/overlay_lock.png" />
 				</c:if>
 
 				<c:if test="<%= !folder && (status != WorkflowConstants.STATUS_ANY) && (status != WorkflowConstants.STATUS_APPROVED) %>">

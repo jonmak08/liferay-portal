@@ -193,7 +193,7 @@ public class Logger {
 		sb.append("&nbsp;&nbsp;&nbsp;&nbsp;");
 		sb.append("&nbsp;&nbsp;&nbsp;&nbsp;");
 		sb.append("<img alt=\"");
-		sb.append(_screenshotCount);
+		sb.append(HtmlUtil.escapeAttribute(_screenshotCount));
 		sb.append("\" height=\"450\" src=\"screenshots/");
 		sb.append(_screenshotCount);
 		sb.append(".jpg\" width=\"630\" />");
@@ -271,7 +271,7 @@ public class Logger {
 		sb.append("&nbsp;&nbsp;&nbsp;&nbsp;");
 		sb.append("&nbsp;&nbsp;&nbsp;&nbsp;");
 		sb.append("<img alt=\"");
-		sb.append(_screenshotCount);
+		sb.append(HtmlUtil.escapeAttribute(_screenshotCount));
 		sb.append("\" height=\"450\" src=\"screenshots/");
 		sb.append(_screenshotCount);
 		sb.append(".jpg\" width=\"630\" />");

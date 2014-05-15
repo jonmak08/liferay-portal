@@ -344,10 +344,10 @@ serverURL.setParameter("tabs3", tabs3);
 						sb.append("')\"><img alt=\"");
 
 						if (overriddenPropertyValue) {
-							sb.append(LanguageUtil.get(pageContext, "the-value-of-this-property-was-overridden-using-the-control-panel-and-is-stored-in-the-database"));
+							sb.append(HtmlUtil.escapeAttribute(LanguageUtil.get(pageContext, "the-value-of-this-property-was-overridden-using-the-control-panel-and-is-stored-in-the-database")));
 						}
 						else {
-							sb.append(LanguageUtil.get(pageContext, "the-value-of-this-property-is-read-from-a-portal.properties-file-or-one-of-its-extension-files"));
+							sb.append(HtmlUtil.escapeAttribute(LanguageUtil.get(pageContext, "the-value-of-this-property-is-read-from-a-portal.properties-file-or-one-of-its-extension-files")));
 						}
 
 						sb.append("\" src=\"");
@@ -854,7 +854,7 @@ serverURL.setParameter("tabs3", tabs3);
 						<portlet:param name="usedMemory" value="<%= String.valueOf(usedMemory) %>" />
 					</portlet:resourceURL>
 
-					<img alt="<liferay-ui:message key="memory-used-vs-total-memory" />" border="0" src="<%= totalMemoryChartURL %>" />
+					<img alt="<%= HtmlUtil.escapeAttribute(LanguageUtil.get(memory-used-vs-total-memory)) %>" border="0" src="<%= totalMemoryChartURL %>" />
 
 					<portlet:resourceURL var="maxMemoryChartURL">
 						<portlet:param name="struts_action" value="/admin_server/view_chart" />
@@ -863,7 +863,7 @@ serverURL.setParameter("tabs3", tabs3);
 						<portlet:param name="usedMemory" value="<%= String.valueOf(usedMemory) %>" />
 					</portlet:resourceURL>
 
-					<img alt="<liferay-ui:message key="memory-used-vs-max-memory" />" border="0" src="<%= maxMemoryChartURL %>" />
+					<img alt="<%= HtmlUtil.escapeAttribute(LanguageUtil.get(memory-used-vs-max-memory)) %>" border="0" src="<%= maxMemoryChartURL %>" />
 				</div>
 
 				<br />

@@ -51,7 +51,7 @@ summary.setQueryTerms(queryTerms);
 				<img alt="" border="0" class="img-polaroid" src="<%= HtmlUtil.escapeAttribute(thumbnailSrc) %>" />
 
 				<c:if test="<%= locked %>">
-					<img alt="<liferay-ui:message key="locked" />" class="locked-icon" src="<%= themeDisplay.getPathThemeImages() %>/file_system/large/overlay_lock.png" />
+					<img alt="<%= HtmlUtil.escapeAttribute(LanguageUtil.get(locked)) %>" class="locked-icon" src="<%= themeDisplay.getPathThemeImages() %>/file_system/large/overlay_lock.png" />
 				</c:if>
 			</div>
 		</c:if>
@@ -133,7 +133,7 @@ summary.setQueryTerms(queryTerms);
 			<div class="entry-attachment">
 				<aui:a class="lfr-discussion-details" href="<%= url %>">
 					<div class="image">
-						<img alt="<%= fileEntry.getTitle() %>" class="attachment" src="<%= DLUtil.getThumbnailSrc(fileEntry, null, themeDisplay) %>" />
+						<img alt="<%= HtmlUtil.escapeAttribute(fileEntry.getTitle()) %>" class="attachment" src="<%= DLUtil.getThumbnailSrc(fileEntry, null, themeDisplay) %>" />
 					</div>
 
 						<span class="title">
