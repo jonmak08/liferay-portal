@@ -725,7 +725,7 @@ public class DLImpl implements DL {
 
 		StringBundler sb = new StringBundler(5);
 
-		sb.append("<img style=\"border-width: 0; text-align: left;\" src=\"");
+		sb.append("<img src=\" style=\"border-width: 0; text-align: left;\"");
 		sb.append(themeDisplay.getPathThemeImages());
 		sb.append("/file_system/small/");
 		sb.append(fileEntry.getIcon());

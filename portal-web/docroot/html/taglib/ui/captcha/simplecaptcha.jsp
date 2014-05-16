@@ -36,7 +36,7 @@ catch (CaptchaMaxChallengesException cmce) {
 
 <c:if test="<%= captchaEnabled %>">
 	<div class="taglib-captcha">
-		<img alt="<liferay-ui:message key="text-to-identify" />" class="captcha" id="<portlet:namespace />captcha" src="<%= url %>" />
+		<img alt="<%= HtmlUtil.escapeAttribute(LanguageUtil.get(text-to-identify)) %>" class="captcha" id="<portlet:namespace />captcha" src="<%= url %>" />
 
 		<liferay-ui:icon cssClass="refresh" id="refreshCaptcha" image="../portlet/refresh" label="<%= false %>" localizeMessage="<%= true %>" message="refresh-captcha" url="javascript:;" />
 

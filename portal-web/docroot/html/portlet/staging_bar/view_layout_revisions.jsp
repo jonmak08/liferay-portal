@@ -95,7 +95,7 @@ List<LayoutRevision> rootLayoutRevisions = LayoutRevisionLocalServiceUtil.getChi
 
 						if (curLayoutRevision.getLayoutRevisionId() == currentLayoutRevisionId) {
 							buffer.append("<div class=\"current-version-pointer\"><img alt=\"");
-							buffer.append(LanguageUtil.get(pageContext, "current-version"));
+							buffer.append(HtmlUtil.escapeAttribute(LanguageUtil.get(pageContext, "current-version")));
 							buffer.append("\" src=\"");
 							buffer.append(themeDisplay.getPathThemeImages());
 							buffer.append("/arrows/01_right.png\" title=\"");

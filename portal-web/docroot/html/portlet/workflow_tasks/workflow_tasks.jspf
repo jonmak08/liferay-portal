@@ -68,7 +68,7 @@ else if (type.equals("assigned-to-my-roles")) {
 					User assigneeUser = UserLocalServiceUtil.getUser(workflowTask.getAssigneeUserId());
 
 					buffer.append("<img alt=\"");
-					buffer.append(HtmlUtil.escape(assigneeUser.getFullName()));
+					buffer.append(HtmlUtil.escapeAttribute(assigneeUser.getFullName()));
 					buffer.append("\" class=\"user-avatar\" src=\"");
 					buffer.append(assigneeUser.getPortraitURL(themeDisplay));
 					buffer.append("\" title=\"");

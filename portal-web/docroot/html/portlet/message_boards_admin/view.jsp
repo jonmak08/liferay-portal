@@ -255,7 +255,7 @@ if ((category != null) && layout.isTypeControlPanel()) {
 
 								if ((threadPriority != null) && (thread.getPriority() > 0)) {
 									buffer.append("<img class=\"thread-priority\" alt=\"");
-									buffer.append(threadPriority[0]);
+									buffer.append(HtmlUtil.escapeAttribute(threadPriority[0]));
 									buffer.append("\" src=\"");
 									buffer.append(threadPriority[1]);
 									buffer.append("\" title=\"");
@@ -265,7 +265,7 @@ if ((category != null) && layout.isTypeControlPanel()) {
 
 								if (thread.isLocked()) {
 									buffer.append("<img class=\"thread-priority\" alt=\"");
-									buffer.append(LanguageUtil.get(pageContext, "thread-locked"));
+									buffer.append(HtmlUtil.escapeAttribute(LanguageUtil.get(pageContext, "thread-locked")));
 									buffer.append("\" src=\"");
 									buffer.append(themeDisplay.getPathThemeImages() + "/common/lock.png");
 									buffer.append("\" title=\"");
@@ -477,7 +477,7 @@ if ((category != null) && layout.isTypeControlPanel()) {
 
 						if ((threadPriority != null) && (thread.getPriority() > 0)) {
 							buffer.append("<img class=\"thread-priority\" alt=\"");
-							buffer.append(threadPriority[0]);
+							buffer.append(HtmlUtil.escapeAttribute(threadPriority[0]));
 							buffer.append("\" src=\"");
 							buffer.append(threadPriority[1]);
 							buffer.append("\" title=\"");
@@ -487,7 +487,7 @@ if ((category != null) && layout.isTypeControlPanel()) {
 
 						if (thread.isLocked()) {
 							buffer.append("<img class=\"thread-priority\" alt=\"");
-							buffer.append(LanguageUtil.get(pageContext, "thread-locked"));
+							buffer.append(HtmlUtil.escapeAttribute(LanguageUtil.get(pageContext, "thread-locked")));
 							buffer.append("\" src=\"");
 							buffer.append(themeDisplay.getPathThemeImages() + "/common/lock.png");
 							buffer.append("\" title=\"");
