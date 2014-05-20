@@ -62,7 +62,7 @@ Collections.sort(customAttributesDisplays, new CustomAttributesDisplayComparator
 
 			<%
 			buffer.append("<img alt=\"");
-			buffer.append(LanguageUtil.get(locale, "icon"));
+			buffer.append(HtmlUtil.escapeAttribute(LanguageUtil.get(locale, "icon")));
 			buffer.append("\" class=\"custom-attribute-icon\" src=\"");
 			buffer.append(customAttributesDisplay.getIconPath(themeDisplay));
 			buffer.append("\">");
