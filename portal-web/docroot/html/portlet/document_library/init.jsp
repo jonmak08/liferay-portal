@@ -98,6 +98,8 @@ if (portletId.equals(PortletKeys.PORTLET_CONFIGURATION)) {
 DLPortletInstanceSettings dlPortletInstanceSettings = DLUtil.getDLPortletInstanceSettings(layout, portletId);
 DLSettings dlSettings = DLUtil.getDLSettings(scopeGroupId);
 
+int numberOfPages = dlPortletInstanceSettings.getNumberOfPages();
+
 long rootFolderId = dlPortletInstanceSettings.getRootFolderId();
 String rootFolderName = StringPool.BLANK;
 

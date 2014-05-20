@@ -39,6 +39,11 @@ AUI.add(
 						validator: Lang.isString
 					},
 
+					numberOfPages: {
+						validator: Lang.isNumber,
+						value: 5
+					},
+
 					results: {
 						validator: Lang.isNumber,
 						value: 0
@@ -47,6 +52,14 @@ AUI.add(
 					selectedItem: {
 						validator: Lang.isNumber,
 						value: 0
+					},
+
+					shift: {
+						validator: Lang.isNumber
+					},
+
+					showControls: {
+						value: false
 					},
 
 					strings: {
@@ -63,7 +76,11 @@ AUI.add(
 								}
 							);
 						},
-						validator: Lang.isObject
+						validator: Lang.isObject,
+						value: {
+								next: 'Next',
+								prev: 'Prev'
+						}
 					},
 
 					visible: {
@@ -104,6 +121,8 @@ AUI.add(
 					TPL_RESULTS_MESSAGE: '{showing} {from} - {to} {of} {x} {results}.',
 
 					TPL_RESULTS_MESSAGE_SHORT: '{showing} {x} {results}.',
+
+					TOTAL_CONTROLS: 4,
 
 					renderUI: function() {
 						var instance = this;
@@ -213,10 +232,41 @@ AUI.add(
 						(new A.EventHandle(instance._eventHandles)).detach();
 					},
 
+					getItem: function(i) {
+						var instance = this;
+
+						if (Lang.isNumber(i)) {
+							var items = instance.get('items');
+
+							if (items) {
+								i = items.item(i + instance.get('shift'));
+							}
+						}
+
+						return i;
+					},
+
 					_afterResultsChange: function(event) {
 						var instance = this;
 
 						instance._syncResults();
+					},
+
+					_countPaginationControls: function(items) {
+						var instance = this;
+
+						var controlCount = 0;
+
+						A.each(
+							items,
+							function(node, index) {
+								if (node.hasClass('pagination-control')) {
+									controlCount++;
+								}
+							}
+						);
+
+						return controlCount;
 					},
 
 					_dispatchRequest: function(state) {
@@ -227,6 +277,23 @@ AUI.add(
 						}
 
 						Pagination.superclass._dispatchRequest.call(instance, state);
+					},
+
+					_getActiveNodeIndex: function(items) {
+						var instance = this;
+
+						var activeNodeIndex;
+
+						A.each(
+							items,
+							function(node, index) {
+								if (node.hasClass('active')) {
+									activeNodeIndex = items.indexOf(node) - instance.get('shift');
+								}
+							}
+						);
+
+						return activeNodeIndex;
 					},
 
 					_getLabelContent: function(itemsPerPage) {
@@ -289,6 +356,50 @@ AUI.add(
 						return Lang.sub(tpl, values);
 					},
 
+					_jumpToPage: function(index, controlItem) {
+						var instance = this;
+
+						var items = instance.get('items');
+
+						var currentIndex = instance._getActiveNodeIndex(items);
+
+						var numberOfPages = instance.get('numberOfPages');
+
+						var pagesStart = currentIndex % numberOfPages ? (currentIndex % numberOfPages - 1) : (numberOfPages - 1);
+
+						if (controlItem.hasClass('first')) {
+							instance._dispatchRequest({
+								page: 1
+							});
+						}
+						else if (controlItem.hasClass('prev')) {
+							instance.prev();
+						}
+						else if (controlItem.hasClass('prev-pages')) {
+							instance._dispatchRequest({
+								page: currentIndex - numberOfPages - pagesStart
+							});
+						}
+						else if (controlItem.hasClass('next-pages')) {
+							instance._dispatchRequest({
+								page: currentIndex + numberOfPages - pagesStart
+							});
+						}
+						else if (controlItem.hasClass('next')) {
+							instance.next();
+						}
+						else if (controlItem.hasClass('last')) {
+							instance._dispatchRequest({
+								page: index - instance.TOTAL_CONTROLS + 1
+							});
+						}
+						else {
+							instance._dispatchRequest({
+								page: index - instance.get('shift')
+							});
+						}
+					},
+
 					_onChangeRequest: function(event) {
 						var instance = this;
 
@@ -299,6 +410,47 @@ AUI.add(
 
 						instance._syncLabel(itemsPerPage);
 						instance._syncResults(page, itemsPerPage);
+					},
+
+					_onClickItem: function(event) {
+						var instance = this;
+
+						var item = event.currentTarget;
+						var items = instance.get('items');
+
+						var index = items.indexOf(item);
+
+						var lastIndex = items.size() - 1;
+
+						event.preventDefault();
+
+						if (item.hasClass('disabled') || item.hasClass('active')) {
+							return;
+						}
+
+						if (index === 0) {
+							instance._jumpToPage(index, items.item(0));
+						}
+						else if (index === 1) {
+							instance._jumpToPage(index, items.item(1));
+						}
+						else if (index === 2) {
+							instance._jumpToPage(index, items.item(2));
+						}
+						else if (index === lastIndex - 2) {
+							instance._jumpToPage(index, items.item(lastIndex - 2));
+						}
+						else if (index === lastIndex - 1) {
+							instance._jumpToPage(index, items.item(lastIndex - 1));
+						}
+						else if (index === lastIndex) {
+							instance._jumpToPage(index, items.item(lastIndex));
+						}
+						else {
+							instance._dispatchRequest({
+								page: index - instance.get('shift')
+							});
+						}
 					},
 
 					_onItemClick: function(event) {
@@ -328,6 +480,100 @@ AUI.add(
 						instance.set('visible', !!(results && results > itemsPerPage));
 					},
 
+					_renderItemsUI: function(total) {
+						var instance = this;
+
+						var tpl = instance.ITEM_TEMPLATE;
+
+						var formatter = instance.get('formatter');
+
+						var offset = instance.get('offset');
+
+						var stringFirst = instance.getString('first');
+
+						var stringLast = instance.getString('last');
+
+						var stringNext = instance.getString('next');
+
+						var stringNextPages = instance.getString('nextPages');
+
+						var stringPrev = instance.getString('prev');
+
+						var stringPrevPages = instance.getString('prevPages');
+
+						var i;
+
+						var buffer = '';
+
+						if (stringFirst) {
+							buffer += Lang.sub(tpl, {
+								content: stringFirst,
+								cssClass: 'pagination-control first'
+							});
+						}
+
+						if (stringPrev) {
+							buffer += Lang.sub(tpl, {
+								content: stringPrev,
+								cssClass: 'pagination-control prev'
+							});
+						}
+
+						if (stringPrevPages) {
+							buffer += Lang.sub(tpl, {
+								content: stringPrevPages,
+								cssClass: 'pagination-control prev-pages'
+							});
+						}
+
+						for (i = offset; i <= (offset + total - 1); i++) {
+							buffer += formatter.apply(instance, [i]);
+						}
+
+						if (stringNextPages) {
+							buffer += Lang.sub(tpl, {
+								content: stringNextPages,
+								cssClass: 'pagination-control next-pages'
+							});
+						}
+
+						if (stringNext) {
+							buffer += Lang.sub(tpl, {
+								content: stringNext,
+								cssClass: 'pagination-control next'
+							});
+						}
+
+						if (stringLast) {
+							buffer += Lang.sub(tpl, {
+								content: stringLast,
+								cssClass: 'pagination-control last'
+							});
+						}
+
+						var items = A.NodeList.create(buffer);
+
+						instance.TOTAL_CONTROLS = instance._countPaginationControls(items);
+
+						if (!instance.get('shift')) {
+							instance.set('shift', instance.TOTAL_CONTROLS / 2 - 1);
+						}
+
+						instance.set('items', items);
+						instance.get('contentBox').setContent(items);
+
+						if (!instance.get('showControls')) {
+							A.each(
+								items,
+								function(node) {
+									if (node.hasClass('pagination-control')) {
+										node.remove();
+									}
+								}
+							);
+						}
+					},
+
 					_syncLabel: function(itemsPerPage) {
 						var instance = this;
 
@@ -337,12 +583,51 @@ AUI.add(
 						instance._deltaSelector.one('.lfr-icon-menu-text').html(results.title);
 					},
 
+					_syncNavigationUI: function() {
+						var instance = this;
+
+						var items = instance.get('items');
+
+						var nextToLastItem = items.indexOf(items.last()) - 1;
+
+						if (!instance.get('circular')) {
+							items.item(1).toggleClass(
+								'disabled', instance.get('page') === 1);
+
+							items.item(nextToLastItem).toggleClass(
+								'disabled', instance.get('page') === instance.get('total'));
+
+						}
+
+						items.first().toggleClass(
+							'disabled', instance.get('page') === 1);
+
+						items.last().toggleClass(
+							'disabled', instance.get('page') === instance.get('total'));
+					},
+
 					_syncResults: function(page, itemsPerPage) {
 						var instance = this;
 
 						var result = instance._getResultsContent(page, itemsPerPage);
 
 						instance._searchResults.html(result);
+					},
+
+					_uiSetPage: function(val) {
+						var instance = this;
+
+						instance._syncNavigationUI();
+
+						if (val === 0 || val === instance.getTotalItems()) {
+							return;
+						}
+
+						var item = instance.getItem(val);
+
+						if (item) {
+							item.addClass('active');
+						}
 					},
 
 					_uiSetVisible: function(val) {

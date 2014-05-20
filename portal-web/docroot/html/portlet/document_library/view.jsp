@@ -69,6 +69,8 @@ int entryEnd = ParamUtil.getInteger(request, "entryEnd", dlPortletInstanceSettin
 int folderStart = ParamUtil.getInteger(request, "folderStart");
 int folderEnd = ParamUtil.getInteger(request, "folderEnd", SearchContainer.DEFAULT_DELTA);
 
+int paginationNumberOfPages = ParamUtil.getInteger(request, "numberOfPages", numberOfPages);
+
 int total = DLAppServiceUtil.getFoldersAndFileEntriesAndFileShortcutsCount(repositoryId, folderId, WorkflowConstants.STATUS_APPROVED, false);
 
 boolean showSelectAll = false;
@@ -281,7 +283,9 @@ if (!defaultFolderView && (folder != null) && (portletName.equals(PortletKeys.DO
 				folderId: <%= folderId %>,
 				folderRowsPerPage: <%= folderEnd - folderStart %>,
 				folderStart: <%= folderStart %>,
-				foldersTotal: <%= foldersTotal %>
+				foldersTotal: <%= foldersTotal %>,
+				numberOfPages: <%= paginationNumberOfPages %>,
+				showControls: true
 			},
 			namespace: '<portlet:namespace />',
 			portletId: '<%= HtmlUtil.escapeJS(portletId) %>',
