@@ -614,7 +614,7 @@ AUI.add(
 
 				A.each(
 					requiredFields,
-					function(item, index, collection) {
+					function(item, index) {
 						var fieldInstance = instance.getFieldInstance(item);
 						var content = fieldInstance.getContent(item);
 
@@ -652,7 +652,7 @@ AUI.add(
 
 				A.each(
 					children,
-					function(item, index, collection) {
+					function(item, index) {
 						instance._appendStructureTypeElementAndMetaData(item, buffer, generateArticleContent);
 					}
 				);
@@ -842,7 +842,7 @@ AUI.add(
 				if (optionsList) {
 					A.each(
 						optionsList,
-						function(item, index, collection) {
+						function(item, index) {
 							var optionKey = item.text();
 							var optionValue = item.val();
 
@@ -1103,7 +1103,7 @@ AUI.add(
 
 				A.each(
 					attributeMap || {},
-					function(item, index, collection) {
+					function(item, index) {
 						if (item !== undefined) {
 							attrs.push([index, '="', item, '" '].join(''));
 						}
@@ -1404,7 +1404,7 @@ AUI.add(
 
 						A.each(
 							instance.cloneableAttrs,
-							function(item, index, collection) {
+							function(item, index) {
 								instance.after(item + 'Change', propagateAttr);
 							}
 						);
@@ -1457,7 +1457,7 @@ AUI.add(
 
 						A.each(
 							instance.cloneableAttrs,
-							function(item, index, collection) {
+							function(item, index) {
 								options[item] = instance.get(item);
 							}
 						);
