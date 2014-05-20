@@ -77,9 +77,9 @@ public class AssetPublisherHelperImpl implements AssetPublisherHelper {
 				"urlTitle", assetRenderer.getUrlTitle());
 		}
 
-		String currentURL = PortalUtil.getCurrentURL(liferayPortletRequest);
-
 		String viewURL = null;
+
+		String currentURL = PortalUtil.getCurrentURL(liferayPortletRequest);
 
 		if (viewInContext) {
 			String viewFullContentURLString = viewFullContentURL.toString();
