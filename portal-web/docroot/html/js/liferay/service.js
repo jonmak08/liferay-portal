@@ -11,6 +11,8 @@ AUI.add(
 
 		var REGEX_METHOD_GET = /^get$/i;
 
+		var URL_INVOKE = themeDisplay.getPathContext() + '/api/jsonws/invoke';
+
 		A.mix(
 			A.namespace('config.io'),
 			{
@@ -34,19 +36,17 @@ AUI.add(
 		 * exceptionCallback {function}: A function to execute when the response from the server contains a service exception. It receives a the exception message as it's first parameter.
 		 */
 
-		var Service = function() {
+		var Service = function(payload, ioConfig) {
 			var instance = this;
 
 			var args = Service.parseInvokeArgs(arguments);
 
-			Service.invoke.apply(Service, args);
+			return Service.invoke.apply(Service, args);
 		};
 
 		A.mix(
 			Service,
 			{
-				URL_INVOKE: themeDisplay.getPathContext() + '/api/jsonws/invoke',
-
 				bind: function() {
 					var instance = this;
 
@@ -60,18 +60,55 @@ AUI.add(
 				invoke: function(payload, ioConfig) {
 					var instance = this;
 
-					A.io.request(
-						instance.URL_INVOKE,
-						A.merge(
-							{
+					var cmd;
+
+					try {
+						cmd = A.JSON.stringify(payload);
+					}
+					catch (e) {
+						cmd = '';
+
+						Y.error('Service payload error.', e, payload);
+					}
+
+					return new A.Promise(
+						function(resolve, reject) {
+							var request = {
 								data: {
-									cmd: A.JSON.stringify(payload),
+									cmd: cmd,
 									p_auth: Liferay.authToken
 								},
-								dataType: 'JSON'
-							},
-							ioConfig
-						)
+								dataType: 'JSON',
+								on: {
+									success: function (id, response) {
+										var responseText;
+
+										try {
+											responseText = A.JSON.parse(response.responseText);
+										}
+										catch (e) {
+											reject(e);
+										}
+
+										if (responseText) {
+											if (responseText.exception) {
+												reject(responseText.exception);
+											}
+											else {
+												resolve(responseText);
+											}
+										}
+									},
+									failure: function (id, response) {
+										reject(Y.error('Service response failure.', e, payload));
+									}
+								}
+							};
+
+							A.mix(request, ioConfig, true);
+
+							A.io(URL_INVOKE, request);
+						}
 					);
 				},
 
@@ -106,34 +143,6 @@ AUI.add(
 
 					delete payload.io;
 
-					if (!(ioConfig.on && ioConfig.on.success)) {
-						var callbacks = A.Array.filter(args, Lang.isFunction);
-
-						var callbackSuccess = callbacks[0];
-						var callbackException = callbacks[1];
-
-						if (!callbackException) {
-							callbackException = callbackSuccess;
-						}
-
-						A.namespace.call(ioConfig, 'on');
-
-						ioConfig.on.success = function(event) {
-							var responseData = this.get('responseData');
-
-							if ((responseData !== null) && !owns(responseData, 'exception')) {
-								if (callbackSuccess) {
-									callbackSuccess.call(this, responseData);
-								}
-							}
-							else if (callbackException) {
-								var exception = responseData ? responseData.exception : 'The server returned an empty response';
-
-								callbackException.call(this, exception, responseData);
-							}
-						};
-					}
-
 					if (!owns(ioConfig, 'cache') && REGEX_METHOD_GET.test(ioConfig.method)) {
 						ioConfig.cache = false;
 					}
@@ -165,7 +174,7 @@ AUI.add(
 
 					var config = args[1];
 
-					if (!Lang.isFunction(config) && !isNode(config)) {
+					if (config && !Lang.isFunction(config) && !isNode(config)) {
 						params = config;
 					}
 
@@ -200,6 +209,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['array-extras', 'aui-io-request', 'json']
+		requires: ['io', 'json', 'promise']
 	}
 );
