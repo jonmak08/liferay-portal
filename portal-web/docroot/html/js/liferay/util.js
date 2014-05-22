@@ -63,41 +63,6 @@
 	var Util = {
 		submitCountdown: 0,
 
-		actsAsAspect: function(object) {
-			object.yield = null;
-			object.rv = {};
-
-			object.before = function(method, f) {
-				var original = eval('this.' + method);
-
-				this[method] = function() {
-					f.apply(this, arguments);
-
-					return original.apply(this, arguments);
-				};
-			};
-
-			object.after = function(method, f) {
-				var original = eval('this.' + method);
-
-				this[method] = function() {
-					this.rv[method] = original.apply(this, arguments);
-
-					return f.apply(this, arguments);
-				};
-			};
-
-			object.around = function(method, f) {
-				var original = eval('this.' + method);
-
-				this[method] = function() {
-					this.yield = original;
-
-					return f.apply(this, arguments);
-				};
-			};
-		},
-
 		addInputCancel: function() {
 			A.use(
 				'aui-button-search-cancel',
@@ -222,23 +187,6 @@
 			}
 		},
 
-		camelize: function(value, separator) {
-			var regex = REGEX_DASH;
-
-			if (separator) {
-				regex = new RegExp(separator + '([a-z])', 'gi');
-			}
-
-			value = value.replace(
-				regex,
-				function(match0, match1) {
-					return match1.toUpperCase();
-				}
-			);
-
-			return value;
-		},
-
 		checkTab: function(box) {
 			if ((document.all) && (event.keyCode == 9)) {
 				box.selection = document.selection.createRange();
@@ -250,10 +198,6 @@
 					0
 				);
 			}
-		},
-
-		clamp: function(value, min, max) {
-			return Math.min(Math.max(value, min), max);
 		},
 
 		disableEsc: function() {
@@ -285,10 +229,6 @@
 			inputs.setStyle('opacity', 1);
 		},
 
-		endsWith: function(str, x) {
-			return (str.lastIndexOf(x) === (str.length - x.length));
-		},
-
 		escapeCDATA: function(str) {
 			return str.replace(
 				/<!\[CDATA\[|\]\]>/gi,
@@ -305,38 +245,6 @@
 					return str;
 				}
 			);
-		},
-
-		escapeHTML: function(str, preventDoubleEscape, entities) {
-			var result;
-
-			var regex = REGEX_HTML_ESCAPE;
-
-			var entitiesList = [];
-
-			var entitiesValues;
-
-			if (Lang.isObject(entities)) {
-				entitiesValues = [];
-
-				AObject.each(
-					entities,
-					function(item, index) {
-						entitiesList.push(index);
-
-						entitiesValues.push(item);
-					}
-				);
-
-				regex = new RegExp(STR_LEFT_SQUARE_BRACKET + AString.escapeRegEx(entitiesList.join('')) + STR_RIGHT_SQUARE_BRACKET, 'g');
-			}
-			else {
-				entities = MAP_HTML_CHARS_ESCAPED;
-
-				entitiesValues = htmlEscapedValues;
-			}
-
-			return str.replace(regex, A.bind('_escapeHTML', Util, !!preventDoubleEscape, entities, entitiesValues));
 		},
 
 		getAttributes: function(el, attributeGetter) {
@@ -531,14 +439,6 @@
 			return url + sessionId;
 		},
 
-		isArray: function(object) {
-			return !!(window.Array && object.constructor == window.Array);
-		},
-
-		isEditorPresent: function(editorImpl) {
-			return Liferay.EDITORS && Liferay.EDITORS[editorImpl];
-		},
-
 		isPhone: function() {
 			var instance = this;
 
@@ -614,10 +514,6 @@
 			return (Math.ceil(Math.random() * (new Date()).getTime()));
 		},
 
-		randomMinMax: function(min, max) {
-			return (Math.round(Math.random() * (max - min))) + min;
-		},
-
 		selectAndCopy: function(el) {
 			el.focus();
 			el.select();
@@ -627,18 +523,6 @@
 
 				textRange.execCommand('copy');
 			}
-		},
-
-		setBox: function(oldBox, newBox) {
-			for (var i = oldBox.length - 1; i > -1; i--) {
-				oldBox.options[i] = null;
-			}
-
-			for (i = 0; i < newBox.length; i++) {
-				oldBox.options[i] = new Option(newBox[i].value, i);
-			}
-
-			oldBox.options[0].selected = true;
 		},
 
 		setCursorPosition: function(el, position) {
@@ -668,20 +552,6 @@
 				textRange.moveEnd('character', selectionStart);
 
 				textRange.select();
-			}
-		},
-
-		showCapsLock: function(event, span) {
-			var keyCode = event.keyCode ? event.keyCode : event.which;
-			var shiftKey = event.shiftKey ? event.shiftKey : ((keyCode == 16) ? true : false);
-
-			if (((keyCode >= 65 && keyCode <= 90) && !shiftKey) ||
-				((keyCode >= 97 && keyCode <= 122) && shiftKey)) {
-
-				document.getElementById(span).style.display = '';
-			}
-			else {
-				document.getElementById(span).style.display = 'none';
 			}
 		},
 
@@ -752,40 +622,6 @@
 			return parseInt(value, 10) || 0;
 		},
 
-		uncamelize: function(value, separator) {
-			separator = separator || ' ';
-
-			value = value.replace(/([a-zA-Z][a-zA-Z])([A-Z])([a-z])/g, '$1' + separator + '$2$3');
-			value = value.replace(/([a-z])([A-Z])/g, '$1' + separator + '$2');
-
-			return value;
-		},
-
-		unescapeHTML: function(str, entities) {
-			var regex = REGEX_HTML_UNESCAPE;
-
-			var entitiesMap = MAP_HTML_CHARS_UNESCAPED;
-
-			if (entities) {
-				var entitiesValues = [];
-
-				entitiesMap = {};
-
-				AObject.each(
-					entities,
-					function(item, index) {
-						entitiesMap[item] = index;
-
-						entitiesValues.push(item);
-					}
-				);
-
-				regex = new RegExp(entitiesValues.join('|'), 'gi');
-			}
-
-			return str.replace(regex, A.bind('_unescapeHTML', Util, entitiesMap));
-		},
-
 		_defaultPreviewArticleFn: function(event) {
 			var instance = this;
 
@@ -851,35 +687,6 @@
 
 				form.attr('target', '');
 			}
-		},
-
-		_escapeHTML: function(preventDoubleEscape, entities, entitiesValues, match) {
-			var result;
-
-			if (preventDoubleEscape) {
-				var arrayArgs = AArray(arguments);
-
-				var length = arrayArgs.length;
-
-				var string = arrayArgs[length - 1];
-				var offset = arrayArgs[length - 2];
-
-				var nextSemicolonIndex = string.indexOf(';', offset);
-
-				if (nextSemicolonIndex >= 0) {
-					var entity = string.substring(offset, nextSemicolonIndex + 1);
-
-					if (AArray.indexOf(entitiesValues, entity) >= 0) {
-						result = match;
-					}
-				}
-			}
-
-			if (!result) {
-				result = entities[match];
-			}
-
-			return result;
 		},
 
 		_getEditableInstance: function(title) {
@@ -951,10 +758,6 @@
 				return value;
 			}
 		),
-
-		_unescapeHTML: function(entities, match) {
-			return entities[match];
-		},
 
 		MAP_HTML_CHARS_ESCAPED: MAP_HTML_CHARS_ESCAPED
 	};
@@ -1216,51 +1019,6 @@
 
 	Liferay.provide(
 		Util,
-		'disableSelectBoxes',
-		function(toggleBoxId, value, selectBoxId) {
-			var selectBox = A.one('#' + selectBoxId);
-			var toggleBox = A.one('#' + toggleBoxId);
-
-			if (selectBox && toggleBox) {
-				var dynamicValue = Lang.isFunction(value);
-
-				var disabled = function() {
-					var currentValue = selectBox.val();
-
-					var visible = (value == currentValue);
-
-					if (dynamicValue) {
-						visible = value(currentValue, value);
-					}
-
-					toggleBox.set('disabled', !visible);
-				};
-
-				disabled();
-
-				selectBox.on('change', disabled);
-			}
-		},
-		['aui-base']
-	);
-
-	Liferay.provide(
-		Util,
-		'disableTextareaTabs',
-		function(textarea) {
-			textarea = A.one(textarea);
-
-			if (textarea && textarea.attr('textareatabs') != 'enabled') {
-				textarea.attr('textareatabs', 'disabled');
-
-				textarea.detach('keydown', Util.textareaTabs);
-			}
-		},
-		['aui-base']
-	);
-
-	Liferay.provide(
-		Util,
 		'disableToggleBoxes',
 		function(checkBoxId, toggleBoxId, checkDisabled) {
 			var checkBox = A.one('#' + checkBoxId);
@@ -1348,38 +1106,6 @@
 				submitForm(document.hrefFm, url, !newWindow);
 
 				Util._submitLocked = null;
-			}
-		},
-		['aui-base']
-	);
-
-	Liferay.provide(
-		Util,
-		'moveItem',
-		function(fromBox, toBox, sort) {
-			fromBox = A.one(fromBox);
-			toBox = A.one(toBox);
-
-			var selectedIndex = fromBox.get('selectedIndex');
-
-			var selectedOption;
-
-			if (selectedIndex >= 0) {
-				var options = fromBox.all('option');
-
-				selectedOption = options.item(selectedIndex);
-
-				options.each(
-					function(item, index, collection) {
-						if (item.get('selected')) {
-							toBox.append(item);
-						}
-					}
-				);
-			}
-
-			if (selectedOption && selectedOption.text() !== '' && sort === true) {
-				Util.sortBox(toBox);
 			}
 		},
 		['aui-base']
@@ -1646,95 +1372,6 @@
 
 	Liferay.provide(
 		Util,
-		'resizeTextarea',
-		function(elString, usingRichEditor) {
-			var el = A.one('#' + elString);
-
-			if (!el) {
-				el = A.one('textarea[name=' + elString + STR_RIGHT_SQUARE_BRACKET);
-			}
-
-			if (el) {
-				var pageBody = A.getBody();
-
-				var diff;
-
-				var resize = function(event) {
-					var pageBodyHeight = pageBody.get('winHeight');
-
-					if (usingRichEditor) {
-						try {
-							if (el.get('nodeName').toLowerCase() != 'iframe') {
-								el = window[elString];
-							}
-						}
-						catch (e) {
-						}
-					}
-
-					if (!diff) {
-						var buttonRow = pageBody.one('.button-holder');
-						var templateEditor = pageBody.one('.lfr-template-editor');
-
-						if (buttonRow && templateEditor) {
-							var region = templateEditor.getXY();
-
-							diff = (buttonRow.outerHeight(true) + region[1]) + 25;
-						}
-						else {
-							diff = 170;
-						}
-					}
-
-					el = A.one(el);
-
-					var styles = {
-						width: '98%'
-					};
-
-					if (event) {
-						styles.height = (pageBodyHeight - diff);
-					}
-
-					if (usingRichEditor) {
-						if (!el || !A.DOM.inDoc(el)) {
-							A.on(
-								'available',
-								function(event) {
-									el = A.one(window[elString]);
-
-									if (el) {
-										el.setStyles(styles);
-									}
-								},
-								'#' + elString + '_cp'
-							);
-
-							return;
-						}
-					}
-
-					if (el) {
-						el.setStyles(styles);
-					}
-				};
-
-				resize();
-
-				var dialog = Liferay.Util.getWindow();
-
-				if (dialog) {
-					var resizeEventHandle = dialog.iframe.after('resizeiframe:heightChange', resize);
-
-					A.getWin().on('unload', resizeEventHandle.detach, resizeEventHandle);
-				}
-			}
-		},
-		['aui-base']
-	);
-
-	Liferay.provide(
-		Util,
 		'savePortletTitle',
 		function(params) {
 			A.mix(
@@ -1841,79 +1478,6 @@
 			}
 		},
 		['aui-base', 'liferay-node']
-	);
-
-	Liferay.provide(
-		Util,
-		'setSelectedValue',
-		function(col, value) {
-			var option = A.one(col).one('option[value=' + value + STR_RIGHT_SQUARE_BRACKET);
-
-			if (option) {
-				option.set('selected', true);
-			}
-		},
-		['aui-base']
-	);
-
-	Liferay.provide(
-		Util,
-		'sortBox',
-		function(box) {
-			var newBox = [];
-
-			var options = box.all('option');
-
-			for (var i = 0; i < options.size(); i++) {
-				newBox[i] = [options.item(i).val(), options.item(i).text()];
-			}
-
-			newBox.sort(Util.sortByAscending);
-
-			var boxObj = A.one(box);
-
-			boxObj.all('option').remove(true);
-
-			A.each(
-				newBox,
-				function(item, index, collection) {
-					boxObj.append('<option value="' + item[0] + '">' + item[1] + '</option>');
-				}
-			);
-
-			if (Browser.isIe()) {
-				var currentWidth = boxObj.getStyle('width');
-
-				if (currentWidth == 'auto') {
-					boxObj.setStyle('width', 'auto');
-				}
-			}
-		},
-		['aui-base']
-	);
-
-	/**
-	 * OPTIONS
-	 *
-	 * Required
-	 * uri {string}: The url to open that sets the editor.
-	 */
-
-	Liferay.provide(
-		Util,
-		'switchEditor',
-		function(options) {
-			var uri = options.uri;
-
-			var windowName = Liferay.Util.getWindowName();
-
-			var dialog = Liferay.Util.getWindow(windowName);
-
-			if (dialog) {
-				dialog.iframe.set('uri', uri);
-			}
-		},
-		['aui-io']
 	);
 
 	Liferay.provide(
