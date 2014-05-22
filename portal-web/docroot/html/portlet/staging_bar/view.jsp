@@ -219,8 +219,8 @@ if (layout != null) {
 					groupId: '<%= liveGroup.getGroupId() %>',
 					taskExecutorClassName: '<%= LayoutStagingBackgroundTaskExecutor.class.getName() %>',
 					completed: false
-				},
-				function(obj) {
+				}
+			).then(function(obj) {
 					var incomplete = obj > 0;
 
 					if (stagingLink) {
@@ -234,8 +234,7 @@ if (layout != null) {
 					if (incomplete) {
 						setTimeout(checkBackgroundTasks, 5000);
 					}
-				}
-			);
+			});
 		};
 
 		checkBackgroundTasks();

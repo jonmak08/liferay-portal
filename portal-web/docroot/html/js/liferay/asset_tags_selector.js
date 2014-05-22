@@ -249,9 +249,8 @@ AUI.add(
 							'/assettag/get-groups-tags',
 							{
 								groupIds: instance.get('groupIds')
-							},
-							callback
-						);
+							}
+						).then(callback);
 					},
 
 					_getPopup: function() {

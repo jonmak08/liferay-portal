@@ -812,9 +812,8 @@ AUI.add(
 							'/assetcategory/delete-category',
 							{
 								categoryId: categoryId
-							},
-							callback
-						);
+							}
+						).then(callback);
 					},
 
 					_deleteSelected: function(event) {
@@ -857,9 +856,8 @@ AUI.add(
 											failOnPortalException: false
 										}
 									)
-								},
-								A.bind('_processCategoryDeletion', instance, instance._selectedVocabularyId, categoryIds)
-							);
+								}
+							).then(A.bind('_processCategoryDeletion', instance, instance._selectedVocabularyId, categoryIds));
 						}
 					},
 
@@ -878,9 +876,8 @@ AUI.add(
 										}
 									),
 									vocabularyIds: vocabularyIds
-								},
-								A.bind('_processVocabularyDeletion', instance)
-							);
+								}
+							).then(A.bind('_processVocabularyDeletion', instance));
 						}
 					},
 
@@ -891,9 +888,8 @@ AUI.add(
 							'/assetvocabulary/delete-vocabulary',
 							{
 								vocabularyId: vocabularyId
-							},
-							A.bind(callback, instance)
-						);
+							}
+						).then(A.bind(callback, instance));
 					},
 
 					_destroyFloatingPanels: function(autoFieldsInstance) {
@@ -1535,9 +1531,8 @@ AUI.add(
 											'@categoryId': '$display.categories.categoryId'
 										}
 									}
-								},
-								callback
-							);
+								}
+							).then(callback);
 						}
 						else {
 							Liferay.Service(
@@ -1550,9 +1545,8 @@ AUI.add(
 											'@categoryId': '$display.categories.categoryId'
 										}
 									}
-								},
-								callback
-							);
+								}
+							).then(callback);
 						}
 					},
 
