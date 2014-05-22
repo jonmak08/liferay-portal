@@ -910,7 +910,8 @@ AUI.add(
 								name: instance._tagsSearch.get('query'),
 								start: start
 							}
-						).then(function(result) {
+						).then(
+							function(result) {
 								var total = result.total;
 
 								instance._restartSearch = false;
@@ -923,7 +924,8 @@ AUI.add(
 								if (callback) {
 									callback.apply(instance, arguments);
 								}
-						});
+							}
+						);
 					},
 
 					_getTagsPagination: function() {

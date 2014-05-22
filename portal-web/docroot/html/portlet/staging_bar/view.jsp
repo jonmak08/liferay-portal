@@ -220,8 +220,9 @@ if (layout != null) {
 					taskExecutorClassName: '<%= LayoutStagingBackgroundTaskExecutor.class.getName() %>',
 					completed: false
 				}
-			).then(function(obj) {
-					var incomplete = obj > 0;
+			).then(
+				function(result) {
+					var incomplete = result > 0;
 
 					if (stagingLink) {
 						stagingLink.toggle(!incomplete);
@@ -234,7 +235,8 @@ if (layout != null) {
 					if (incomplete) {
 						setTimeout(checkBackgroundTasks, 5000);
 					}
-			});
+				}
+			);
 		};
 
 		checkBackgroundTasks();
