@@ -35,6 +35,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-base', 'datasource-local']
+		requires: ['aui-base', 'datasource-local', 'liferay-service']
 	}
 );
