@@ -451,16 +451,15 @@ String signature = ParamUtil.getString(request, "signature");
 
 					var formEl = form.getDOM();
 
-					Liferay.Service(
-						'<%= invocationPath %>',
-						formEl
-					).then(function(obj) {
-							serviceOutput.html(A.JSON.stringify(obj, null, 2));
+					Liferay.Service('<%= invocationPath %>', formEl).then(
+						function(result) {
+							serviceOutput.html(A.JSON.stringify(result, null, 2));
 
 							output.removeClass('loading-results');
 
 							location.hash = '#serviceResults';
-					});
+						}
+					);
 
 					var formQueryString = A.IO.prototype._serialize(formEl);
 

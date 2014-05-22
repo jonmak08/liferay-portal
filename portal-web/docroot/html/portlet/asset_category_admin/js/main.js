@@ -1397,7 +1397,8 @@ AUI.add(
 										'@vocabularyId': '$display.vocabularies.vocabularyId'
 									}
 								}
-							},
+							}
+						).then(
 							function(result) {
 								var total = result.total;
 
