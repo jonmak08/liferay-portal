@@ -11,8 +11,6 @@ AUI.add(
 
 		var REGEX_METHOD_GET = /^get$/i;
 
-		Liferay.namespace = A.namespace;
-
 		A.mix(
 			A.namespace('config.io'),
 			{
