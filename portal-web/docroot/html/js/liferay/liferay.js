@@ -32,6 +32,8 @@ Liferay = window.Liferay || {};
 	Liferay._components = components;
 	Liferay._componentsFn = components;
 
+	Liferay.namespace = A.namespace;
+
 	Liferay.Template = {
 		PORTLET: '<div class="portlet"><div class="portlet-topper"><div class="portlet-title"></div></div><div class="portlet-content"></div><div class="forbidden-action"></div></div>'
 	};
