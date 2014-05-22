@@ -392,9 +392,8 @@ AUI.add(
 										userId: themeDisplay.getUserId()
 									}
 								)
-							},
-							callback
-						);
+							}
+						).then(callback);
 					},
 
 					_afterActiveCellIndexChange: function(event) {
@@ -598,9 +597,8 @@ AUI.add(
 									workflowAction: Liferay.Workflow.ACTION_PUBLISH
 								}
 							)
-						},
-						callback
-					);
+						}
+					).then(callback);
 				},
 
 				buildDataTableColumns: function(columns, structure, editable) {
@@ -883,9 +881,8 @@ AUI.add(
 									workflowAction: Liferay.Workflow.ACTION_PUBLISH
 								}
 							)
-						},
-						callback
-					);
+						}
+					).then(callback);
 				}
 			}
 		);
@@ -901,9 +898,8 @@ AUI.add(
 					{
 						groupId: fileJSON.groupId,
 						uuid: fileJSON.uuid
-					},
-					callback
-				);
+					}
+				).then(callback);
 			},
 
 			getFileEntryURL: function(fileEntry) {

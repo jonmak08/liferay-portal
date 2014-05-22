@@ -47,11 +47,10 @@
 							userId: themeDisplay.getUserId()
 						}
 					)
-				},
-				function(response, xhr) {
-					<portlet:namespace />updateRuleGroupInstances();
 				}
-			);
+			).then(function(response, xhr) {
+					<portlet:namespace />updateRuleGroupInstances();
+			});
 		},
 		['aui-loading-mask-deprecated', 'liferay-service']
 	);
@@ -75,11 +74,10 @@
 							userId: themeDisplay.getUserId()
 						}
 					)
-				},
-				function(response, xhr) {
-					<portlet:namespace />updateRuleGroupInstances();
 				}
-			);
+			).then(function(response, xhr) {
+					<portlet:namespace />updateRuleGroupInstances();
+			});
 		},
 		['aui-loading-mask-deprecated', 'liferay-service']
 	);

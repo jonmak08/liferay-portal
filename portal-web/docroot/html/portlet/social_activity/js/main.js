@@ -323,9 +323,8 @@ AUI.add(
 							{
 								groupId: groupId,
 								className: modelName
-							},
-							callback
-						);
+							}
+						).then(callback);
 					},
 
 					_onSocialActivityFormSubmit: function(event) {
