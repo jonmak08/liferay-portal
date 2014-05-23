@@ -458,6 +458,13 @@ String signature = ParamUtil.getString(request, "signature");
 							output.removeClass('loading-results');
 
 							location.hash = '#serviceResults';
+						},
+						function(messageError) {
+							serviceOutput.html(messageError);
+
+							output.removeClass('loading-results');
+
+							location.hash = '#serviceResults';
 						}
 					);
 
