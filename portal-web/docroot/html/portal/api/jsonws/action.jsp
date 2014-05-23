@@ -453,7 +453,7 @@ String signature = ParamUtil.getString(request, "signature");
 
 					Liferay.Service('<%= invocationPath %>', formEl).then(
 						function(result) {
-							serviceOutput.html(A.JSON.stringify(result, null, 2));
+							serviceOutput.html(result);
 
 							output.removeClass('loading-results');
 
