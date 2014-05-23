@@ -365,6 +365,14 @@
 							'aui-base'
 						]
 					},
+					'liferay-events': {
+						path: 'events.js',
+						requires: [
+							'attribute',
+							'liferay-dependency',
+							'oop'
+						]
+					},
 					'liferay-form': {
 						path: 'form.js',
 						requires: [
