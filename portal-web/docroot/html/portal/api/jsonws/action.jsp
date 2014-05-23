@@ -549,15 +549,18 @@ String signature = ParamUtil.getString(request, "signature");
 		</aui:script>
 
 <textarea class="hide" id="scriptTpl">
-Liferay.Service(
-  '<%= invocationPath %>',
-  <tpl if="data.length">{
-<%= StringPool.FOUR_SPACES %><tpl for="data">{key}: {[this.formatDataType(values.key, values.value)]}<tpl if="!$last">,
-<%= StringPool.FOUR_SPACES %></tpl></tpl>
-  }
-).then(</tpl>function(obj) {
-<%= StringPool.FOUR_SPACES %>console.log(obj);
- });
+AUI().use('liferay-service', function(A) {
+  Liferay.Service(
+    '<%= invocationPath %>'<tpl if="data.length">, {
+  <%= StringPool.FOUR_SPACES %><tpl for="data">{key}: {[this.formatDataType(values.key, values.value)]}<tpl if="!$last">,
+  <%= StringPool.FOUR_SPACES %></tpl></tpl>
+    }</tpl>
+  ).then(
+    function(result) {
+    <%= StringPool.FOUR_SPACES %>console.log(result);
+    }
+  );
+});
 </textarea>
 
 <textarea class="hide" id="curlTpl">
