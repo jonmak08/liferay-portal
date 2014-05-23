@@ -451,17 +451,13 @@ String signature = ParamUtil.getString(request, "signature");
 
 					var formEl = form.getDOM();
 
-					Liferay.Service(
-						'<%= invocationPath %>',
-						formEl,
-						function(obj) {
-							serviceOutput.html(A.JSON.stringify(obj, null, 2));
+					Liferay.Service('<%= invocationPath %>', formEl).then(function(result) {
+						serviceOutput.html(result);
 
-							output.removeClass('loading-results');
+						output.removeClass('loading-results');
 
-							location.hash = '#serviceResults';
-						}
-					);
+						location.hash = '#serviceResults';
+					});
 
 					var formQueryString = A.IO.prototype._serialize(formEl);
 
@@ -556,11 +552,10 @@ Liferay.Service(
   <tpl if="data.length">{
 <%= StringPool.FOUR_SPACES %><tpl for="data">{key}: {[this.formatDataType(values.key, values.value)]}<tpl if="!$last">,
 <%= StringPool.FOUR_SPACES %></tpl></tpl>
-  },
-  </tpl>function(obj) {
-<%= StringPool.FOUR_SPACES %>console.log(obj);
   }
-);
+).then(</tpl>function(obj) {
+<%= StringPool.FOUR_SPACES %>console.log(obj);
+ });
 </textarea>
 
 <textarea class="hide" id="curlTpl">

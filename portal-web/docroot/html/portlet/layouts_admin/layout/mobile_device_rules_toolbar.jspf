@@ -47,13 +47,12 @@
 							userId: themeDisplay.getUserId()
 						}
 					)
-				},
-				function(response, xhr) {
-					<portlet:namespace />updateRuleGroupInstances();
 				}
-			);
+			).then(function(result) {
+				<portlet:namespace />updateRuleGroupInstances();
+			});
 		},
-		['aui-loading-mask-deprecated']
+		['aui-loading-mask-deprecated', 'liferay-service']
 	);
 
 	Liferay.provide(
@@ -75,13 +74,12 @@
 							userId: themeDisplay.getUserId()
 						}
 					)
-				},
-				function(response, xhr) {
-					<portlet:namespace />updateRuleGroupInstances();
 				}
-			);
+			).then(function(result) {
+				<portlet:namespace />updateRuleGroupInstances();
+			});
 		},
-		['aui-loading-mask-deprecated']
+		['aui-loading-mask-deprecated', 'liferay-service']
 	);
 
 	Liferay.provide(

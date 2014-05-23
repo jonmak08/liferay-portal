@@ -969,7 +969,7 @@ AUI.add(
 								);
 							}
 							else {
-								tempFileURL.method(tempFileURL.params, A.bind('_formatTempFiles', instance));
+								tempFileURL.method(tempFileURL.params).then(A.bind('_formatTempFiles', instance));
 							}
 						}
 

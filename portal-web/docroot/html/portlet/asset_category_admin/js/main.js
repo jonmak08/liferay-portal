@@ -812,9 +812,8 @@ AUI.add(
 							'/assetcategory/delete-category',
 							{
 								categoryId: categoryId
-							},
-							callback
-						);
+							}
+						).then(callback);
 					},
 
 					_deleteSelected: function(event) {
@@ -857,9 +856,8 @@ AUI.add(
 											failOnPortalException: false
 										}
 									)
-								},
-								A.bind('_processCategoryDeletion', instance, instance._selectedVocabularyId, categoryIds)
-							);
+								}
+							).then(A.bind('_processCategoryDeletion', instance, instance._selectedVocabularyId, categoryIds));
 						}
 					},
 
@@ -878,9 +876,8 @@ AUI.add(
 											failOnPortalException: false
 										}
 									)
-								},
-								A.bind('_processVocabularyDeletion', instance)
-							);
+								}
+							).then(A.bind('_processVocabularyDeletion', instance));
 						}
 					},
 
@@ -891,9 +888,8 @@ AUI.add(
 							'/assetvocabulary/delete-vocabulary',
 							{
 								vocabularyId: vocabularyId
-							},
-							A.bind(callback, instance)
-						);
+							}
+						).then(A.bind(callback, instance));
 					},
 
 					_destroyFloatingPanels: function(autoFieldsInstance) {
@@ -1491,22 +1487,21 @@ AUI.add(
 										'@vocabularyId': '$display.vocabularies.vocabularyId'
 									}
 								}
-							},
-							function(result) {
-								var total = result.total;
-
-								instance._restartSearch = false;
-
-								pagination.set('total', Math.ceil(total / itemsPerPage));
-								pagination.set('visible', (total > itemsPerPage));
-
-								pagination.setState(result);
-
-								if (callback) {
-									callback.apply(instance, arguments);
-								}
 							}
-						);
+						).then(function(result) {
+							var total = result.total;
+
+							instance._restartSearch = false;
+
+							pagination.set('total', Math.ceil(total / itemsPerPage));
+							pagination.set('visible', (total > itemsPerPage));
+
+							pagination.setState(result);
+
+							if (callback) {
+								callback.apply(instance, arguments);
+							}
+						});
 					},
 
 					_getVocabulary: function(vocabularyId) {
@@ -1535,9 +1530,8 @@ AUI.add(
 											'@categoryId': '$display.categories.categoryId'
 										}
 									}
-								},
-								callback
-							);
+								}
+							).then(callback);
 						}
 						else {
 							Liferay.Service(
@@ -1550,9 +1544,8 @@ AUI.add(
 											'@categoryId': '$display.categories.categoryId'
 										}
 									}
-								},
-								callback
-							);
+								}
+							).then(callback);
 						}
 					},
 
@@ -3010,6 +3003,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-dialog-iframe-deprecated', 'aui-io-plugin-deprecated', 'aui-live-search-deprecated', 'aui-modal', 'aui-pagination', 'autocomplete-base', 'aui-tree-view', 'dd', 'escape', 'json', 'liferay-form', 'liferay-history-manager', 'liferay-portlet-url', 'liferay-util-window']
+		requires: ['aui-dialog-iframe-deprecated', 'aui-io-plugin-deprecated', 'aui-live-search-deprecated', 'aui-modal', 'aui-pagination', 'autocomplete-base', 'aui-tree-view', 'dd', 'escape', 'json', 'liferay-form', 'liferay-history-manager', 'liferay-portlet-url', 'liferay-service', 'liferay-util-window']
 	}
 );
