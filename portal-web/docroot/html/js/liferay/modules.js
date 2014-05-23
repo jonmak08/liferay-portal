@@ -652,6 +652,14 @@
 							'json'
 						]
 					},
+					'liferay-portlet': {
+						path: 'portlet.js',
+						requires: [
+							'liferay-dependency',
+							'liferay-events',
+							'liferay-util'
+						]
+					},
 					'liferay-portlet-base': {
 						path: 'portlet_base.js',
 						requires: [
