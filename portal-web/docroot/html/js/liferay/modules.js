@@ -225,6 +225,12 @@
 							'aui-parse-content'
 						]
 					},
+					'liferay-dependency': {
+						path: 'dependency.js',
+						requires: [
+							'oop'
+						]
+					},
 					'liferay-dockbar': {
 						path: 'dockbar.js',
 						requires: [
