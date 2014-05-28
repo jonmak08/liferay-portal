@@ -457,6 +457,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-base', 'aui-modal', 'aui-overlay-mask-deprecated', 'aui-toolbar', 'liferay-widget-zindex']
+		requires: ['aui-base', 'aui-modal', 'aui-overlay-mask-deprecated', 'aui-toolbar', 'liferay-language','liferay-widget-zindex']
 	}
 );

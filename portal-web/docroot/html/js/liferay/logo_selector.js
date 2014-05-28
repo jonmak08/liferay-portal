@@ -156,6 +156,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-base', 'liferay-util-window']
+		requires: ['aui-base', 'liferay-language', 'liferay-util-window']
 	}
 );

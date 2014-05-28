@@ -32,7 +32,7 @@ Liferay.provide(
 			}
 		);
 	},
-	['aui-io-plugin-deprecated', 'liferay-portlet-url', 'liferay-util-window']
+	['aui-io-plugin-deprecated', 'liferay-language', 'liferay-portlet-url', 'liferay-util-window']
 );
 
 Liferay.provide(
@@ -67,5 +67,5 @@ Liferay.provide(
 			}
 		);
 	},
-	['aui-io-plugin-deprecated', 'liferay-portlet-url', 'liferay-util-window']
+	['aui-io-plugin-deprecated', 'liferay-language', 'liferay-portlet-url', 'liferay-util-window']
 );

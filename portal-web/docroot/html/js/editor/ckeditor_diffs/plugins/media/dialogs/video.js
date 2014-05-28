@@ -113,82 +113,91 @@ CKEDITOR.dialog.add(
 			}
 		}
 
-		return {
-			minHeight: 200,
-			minWidth: 400,
+		var config = {};
 
-			contents: [
-				{
-					elements:
-					[
+		AUI().use(
+			'liferay-language',
+			function(A) {
+				config = {
+					minHeight: 200,
+					minWidth: 400,
+
+					contents: [
 						{
-							children: [
+							elements:
+							[
 								{
-									commit: commitValue,
-									id: 'poster',
-									label: Liferay.Language.get('video'),
-									setup: loadValue,
-									type: 'text'
+									children: [
+										{
+											commit: commitValue,
+											id: 'poster',
+											label: Liferay.Language.get('video'),
+											setup: loadValue,
+											type: 'text'
+										},
+										{
+											filebrowser:
+											{
+												action: 'Browse',
+												target: 'info:poster',
+												url: editor.config.filebrowserBrowseUrl + '&Type=Video'
+											},
+											hidden: 'true',
+											id: 'browse',
+											label: editor.lang.common.browseServer,
+											style: 'display:inline-block;margin-top:10px;',
+											type: 'button'
+										}
+									],
+									type: 'hbox',
+									widths: [ '', '100px']
 								},
 								{
-									filebrowser:
-									{
-										action: 'Browse',
-										target: 'info:poster',
-										url: editor.config.filebrowserBrowseUrl + '&Type=Video'
-									},
-									hidden: 'true',
-									id: 'browse',
-									label: editor.lang.common.browseServer,
-									style: 'display:inline-block;margin-top:10px;',
-									type: 'button'
+									children: [
+										{
+											commit: commitValue,
+											'default': 400,
+											id: 'width',
+											label: editor.lang.common.width,
+											setup: loadValue,
+											type: 'text',
+											validate: CKEDITOR.dialog.validate.notEmpty(Liferay.Language.get('width-field-cannot-be-empty'))
+										},
+										{
+											commit: commitValue,
+											'default': 300,
+											id: 'height',
+											label: editor.lang.common.height,
+											setup: loadValue,
+											type: 'text',
+											validate: CKEDITOR.dialog.validate.notEmpty(Liferay.Language.get('height-field-cannot-be-empty'))
+										}
+									],
+									type: 'hbox',
+									widths: [ '50%', '50%']
 								}
 							],
-							type: 'hbox',
-							widths: [ '', '100px']
-						},
-						{
-							children: [
-								{
-									commit: commitValue,
-									'default': 400,
-									id: 'width',
-									label: editor.lang.common.width,
-									setup: loadValue,
-									type: 'text',
-									validate: CKEDITOR.dialog.validate.notEmpty(Liferay.Language.get('width-field-cannot-be-empty'))
-								},
-								{
-									commit: commitValue,
-									'default': 300,
-									id: 'height',
-									label: editor.lang.common.height,
-									setup: loadValue,
-									type: 'text',
-									validate: CKEDITOR.dialog.validate.notEmpty(Liferay.Language.get('height-field-cannot-be-empty'))
-								}
-							],
-							type: 'hbox',
-							widths: [ '50%', '50%']
+							id: 'info'
 						}
 					],
-					id: 'info'
-				}
-			],
 
-			title: Liferay.Language.get('video-properties'),
+					title: Liferay.Language.get('video-properties'),
 
-			onShow: function() {
-				var instance = this;
+					onShow: function() {
+						var instance = this;
 
-				editor.plugins.media.onShowCallback(instance, editor, 'video');
-			},
+						editor.plugins.media.onShowCallback(instance, editor, 'video');
+					},
 
-			onOk: function() {
-				var instance = this;
+					onOk: function() {
+						var instance = this;
 
-				editor.plugins.media.onOkCallback(instance, editor, 'video');
+						editor.plugins.media.onOkCallback(instance, editor, 'video');
+					}
+				};
 			}
-		};
+		);
+
+		return config;
 	}
 );

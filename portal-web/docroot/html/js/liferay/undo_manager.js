@@ -209,6 +209,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-data-set-deprecated', 'base']
+		requires: ['aui-data-set-deprecated', 'base', 'liferay-language']
 	}
 );

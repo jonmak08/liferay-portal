@@ -2056,6 +2056,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-color-picker-popover', 'aui-io-plugin-deprecated', 'aui-io-request', 'aui-tabview',  'liferay-util-window', 'liferay-widget-zindex']
+		requires: ['aui-color-picker-popover', 'aui-io-plugin-deprecated', 'aui-io-request', 'aui-tabview',  'liferay-language', 'liferay-util-window', 'liferay-widget-zindex']
 	}
 );

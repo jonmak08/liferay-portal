@@ -285,6 +285,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-base', 'aui-overlay-base-deprecated']
+		requires: ['aui-base', 'aui-overlay-base-deprecated', 'liferay-language']
 	}
 );

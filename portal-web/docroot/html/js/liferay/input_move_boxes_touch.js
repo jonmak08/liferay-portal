@@ -295,6 +295,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-base', 'aui-template-deprecated', 'dd-constrain', 'dd-scroll', 'liferay-input-move-boxes', 'sortable']
+		requires: ['aui-base', 'aui-template-deprecated', 'dd-constrain', 'dd-scroll', 'liferay-input-move-boxes', 'liferay-language', 'sortable']
 	}
 );

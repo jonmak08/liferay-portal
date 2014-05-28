@@ -341,6 +341,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-base']
+		requires: ['aui-base', 'liferay-language']
 	}
 );

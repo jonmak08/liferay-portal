@@ -219,6 +219,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-base', 'aui-io-request', 'aui-overlay-mask-deprecated', 'liferay-portlet-base']
+		requires: ['aui-base', 'aui-io-request', 'aui-overlay-mask-deprecated', 'liferay-language', 'liferay-portlet-base']
 	}
 );

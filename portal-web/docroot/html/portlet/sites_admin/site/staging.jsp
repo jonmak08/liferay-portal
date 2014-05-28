@@ -77,7 +77,7 @@ BackgroundTask lastCompletedInitialPublicationBackgroundTask = BackgroundTaskLoc
 		<a id="<portlet:namespace />publishProcessesLink"><liferay-ui:message key="the-status-of-the-publication-can-be-checked-on-the-publish-screen" /></a>
 	</div>
 
-	<aui:script use="aui-base">
+	<aui:script use="aui-base,liferay-language">
 		var publishProcessesLink = A.one('#<portlet:namespace />publishProcessesLink');
 
 		publishProcessesLink.on(

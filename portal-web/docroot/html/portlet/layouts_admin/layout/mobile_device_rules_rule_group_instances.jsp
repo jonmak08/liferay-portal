@@ -56,7 +56,7 @@ PortletURL portletURL = (PortletURL)request.getAttribute("mobile_device_rules_he
 	<liferay-ui:search-iterator type="more" />
 </liferay-ui:search-container>
 
-<aui:script>
+<aui:script use="liferay-language">
 	function <portlet:namespace />mobileDeviceActionHandler(href) {
 		<portlet:namespace />mobileDeviceOpenWindow(
 			{

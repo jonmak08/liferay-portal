@@ -129,6 +129,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-base', 'liferay-portlet-base']
+		requires: ['aui-base', 'liferay-language', 'liferay-portlet-base']
 	}
 );

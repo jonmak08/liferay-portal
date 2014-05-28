@@ -61,58 +61,67 @@ CKEDITOR.dialog.add(
 			}
 		}
 
-		return {
-			minHeight: 200,
-			minWidth: 400,
+		var config = {};
 
-			contents: [
-				{
-					elements:
-					[
+		AUI().use(
+			'liferay-language',
+			function(A) {
+				config = {
+					minHeight: 200,
+					minWidth: 400,
+
+					contents: [
 						{
-							children: [
+							elements:
+							[
 								{
-									commit: commitValue,
-									id: 'url',
-									label: Liferay.Language.get('audio'),
-									setup: loadValue,
-									type: 'text'
-								},
-								{
-									filebrowser:
-									{
-										action: 'Browse',
-										target: 'info:url',
-										url: editor.config.filebrowserBrowseUrl + '&Type=Audio'
-									},
-									hidden: 'true',
-									id: 'browse',
-									label: editor.lang.common.browseServer,
-									style: 'display:inline-block;margin-top:10px;',
-									type: 'button'
+									children: [
+										{
+											commit: commitValue,
+											id: 'url',
+											label: Liferay.Language.get('audio'),
+											setup: loadValue,
+											type: 'text'
+										},
+										{
+											filebrowser:
+											{
+												action: 'Browse',
+												target: 'info:url',
+												url: editor.config.filebrowserBrowseUrl + '&Type=Audio'
+											},
+											hidden: 'true',
+											id: 'browse',
+											label: editor.lang.common.browseServer,
+											style: 'display:inline-block;margin-top:10px;',
+											type: 'button'
+										}
+									],
+									type: 'hbox',
+									widths: [ '', '100px']
 								}
 							],
-							type: 'hbox',
-							widths: [ '', '100px']
+							id: 'info'
 						}
 					],
-					id: 'info'
-				}
-			],
 
-			title: Liferay.Language.get('audio-properties'),
+					title: Liferay.Language.get('audio-properties'),
 
-			onShow: function() {
-				var instance = this;
+					onShow: function() {
+						var instance = this;
 
-				editor.plugins.media.onShowCallback(instance, editor, 'audio');
-			},
+						editor.plugins.media.onShowCallback(instance, editor, 'audio');
+					},
 
-			onOk: function() {
-				var instance = this;
+					onOk: function() {
+						var instance = this;
 
-				editor.plugins.media.onOkCallback(instance, editor, 'audio');
+						editor.plugins.media.onOkCallback(instance, editor, 'audio');
+					}
+				};
 			}
-		};
+		);
+
+		return config;
 	}
 );
