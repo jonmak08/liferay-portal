@@ -814,6 +814,13 @@
 							'uploader'
 						]
 					},
+					'liferay-util': {
+						path: 'util.js',
+						requires: [
+							'aui-base-lang',
+							'liferay-dependency'
+						]
+					},
 					'liferay-util-list-fields': {
 						path: 'util_list_fields.js',
 						requires: [
