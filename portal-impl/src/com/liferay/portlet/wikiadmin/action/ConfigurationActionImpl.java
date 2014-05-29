@@ -12,22 +12,23 @@
  * details.
  */
 
-package com.liferay.portlet.blogs.action;
+package com.liferay.portlet.wikiadmin.action;
 
 import com.liferay.portal.kernel.portlet.SettingsConfigurationAction;
-import com.liferay.portal.kernel.util.Constants;
-import com.liferay.portal.kernel.util.ParamUtil;
-import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portlet.wiki.WikiSettings;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletConfig;
 
 /**
- * @author Jorge Ferrer
- * @author Thiago Moreira
+ * @author Iván Zaera
  */
 public class ConfigurationActionImpl extends SettingsConfigurationAction {
+
+	public ConfigurationActionImpl() {
+		addMultiValuedKeys(WikiSettings.MULTI_VALUED_KEYS);
+	}
 
 	@Override
 	public void processAction(
@@ -35,13 +36,9 @@ public class ConfigurationActionImpl extends SettingsConfigurationAction {
 			ActionResponse actionResponse)
 		throws Exception {
 
-		String cmd = ParamUtil.getString(actionRequest, Constants.CMD);
-
-		if (Validator.isNotNull(cmd)) {
-			validateEmail(actionRequest, "emailEntryAdded");
-			validateEmail(actionRequest, "emailEntryUpdated");
-			validateEmailFrom(actionRequest);
-		}
+		validateEmail(actionRequest, "emailPageAdded");
+		validateEmail(actionRequest, "emailPageUpdated");
+		validateEmailFrom(actionRequest);
 
 		super.processAction(portletConfig, actionRequest, actionResponse);
 	}

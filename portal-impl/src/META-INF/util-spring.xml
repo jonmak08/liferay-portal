@@ -246,6 +246,16 @@
 	<bean id="com.liferay.portal.kernel.portlet.PortletContainerUtil" class="com.liferay.portal.kernel.portlet.PortletContainerUtil">
 		<property name="portletContainer" ref="com.liferay.portlet.RestrictPortletContainerWrapper" />
 	</bean>
+	<bean id="com.liferay.portal.kernel.repository.LocalRepositoryFactoryUtil" class="com.liferay.portal.kernel.repository.LocalRepositoryFactoryUtil">
+		<property name="localRepositoryFactory">
+			<bean class="com.liferay.portal.repository.LocalRepositoryFactoryImpl" depends-on="com.liferay.portal.model.ModelHintsUtil" />
+		</property>
+	</bean>
+	<bean id="com.liferay.portal.kernel.repository.RepositoryFactoryUtil" class="com.liferay.portal.kernel.repository.RepositoryFactoryUtil">
+		<property name="repositoryFactory">
+			<bean class="com.liferay.portal.repository.RepositoryFactoryImpl" depends-on="com.liferay.portal.model.ModelHintsUtil" />
+		</property>
+	</bean>
 	<bean id="com.liferay.portal.kernel.resiliency.spi.SPIRegistryUtil" class="com.liferay.portal.kernel.resiliency.spi.SPIRegistryUtil">
 		<property name="sPIRegistry">
 			<bean class="com.liferay.portal.resiliency.spi.SPIRegistryImpl">
@@ -901,6 +911,11 @@
 	<bean id="com.liferay.portlet.dynamicdatamapping.storage.query.ConditionFactoryUtil" class="com.liferay.portlet.dynamicdatamapping.storage.query.ConditionFactoryUtil">
 		<property name="conditionFactory">
 			<bean class="com.liferay.portlet.dynamicdatamapping.storage.query.ConditionFactoryImpl" />
+		</property>
+	</bean>
+	<bean id="com.liferay.portlet.dynamicdatamapping.util.DDMFormXSDSerializerUtil" class="com.liferay.portlet.dynamicdatamapping.util.DDMFormXSDSerializerUtil">
+		<property name="DDMFormXSDSerializer">
+			<bean class="com.liferay.portlet.dynamicdatamapping.util.DDMFormXSDSerializerImpl" />
 		</property>
 	</bean>
 	<bean id="com.liferay.portlet.dynamicdatamapping.util.DDMIndexerUtil" class="com.liferay.portlet.dynamicdatamapping.util.DDMIndexerUtil">

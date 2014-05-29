@@ -17,6 +17,7 @@ package com.liferay.portlet.wiki.action;
 import com.liferay.portal.kernel.portlet.SettingsConfigurationAction;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portlet.wiki.WikiPortletInstanceSettings;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -27,6 +28,10 @@ import javax.portlet.PortletConfig;
  */
 public class ConfigurationActionImpl extends SettingsConfigurationAction {
 
+	public ConfigurationActionImpl() {
+		addMultiValuedKeys(WikiPortletInstanceSettings.MULTI_VALUED_KEYS);
+	}
+
 	@Override
 	public void processAction(
 			PortletConfig portletConfig, ActionRequest actionRequest,
@@ -34,9 +39,6 @@ public class ConfigurationActionImpl extends SettingsConfigurationAction {
 		throws Exception {
 
 		validateDisplaySettings(actionRequest);
-		validateEmail(actionRequest, "emailPageAdded");
-		validateEmail(actionRequest, "emailPageUpdated");
-		validateEmailFrom(actionRequest);
 
 		super.processAction(portletConfig, actionRequest, actionResponse);
 	}
