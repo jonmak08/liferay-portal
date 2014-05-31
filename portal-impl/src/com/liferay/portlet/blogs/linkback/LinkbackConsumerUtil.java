@@ -1,4 +1,3 @@
-<%--
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
@@ -12,18 +11,19 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
---%>
 
-<%@ include file="/html/portlet/journal/init.jsp" %>
+package com.liferay.portlet.blogs.linkback;
 
-<%
-JournalArticle article = (JournalArticle)request.getAttribute(WebKeys.JOURNAL_ARTICLE);
+/**
+ * @author André de Oliveira
+ */
+public class LinkbackConsumerUtil {
 
-String ddmTemplateKey = ParamUtil.getString(request, "ddmTemplateKey", article.getTemplateId());
-%>
+	public static LinkbackConsumer getLinkbackConsumer() {
+		return _linkbackConsumer;
+	}
 
-<div class="preview-article-content">
-	<%= JournalArticleLocalServiceUtil.getArticleContent(article, ddmTemplateKey, null, themeDisplay.getLanguageId(), new PortletRequestModel(renderRequest, renderResponse), themeDisplay) %>
-</div>
+	private static LinkbackConsumer _linkbackConsumer =
+		new LinkbackConsumerImpl();
 
-<liferay-util:include page="/html/common/themes/bottom.jsp" />
+}
