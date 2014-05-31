@@ -128,6 +128,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['liferay-poller', 'liferay-portlet-base']
+		requires: ['liferay-language', 'liferay-poller', 'liferay-portlet-base']
 	}
 );

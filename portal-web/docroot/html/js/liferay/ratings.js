@@ -420,6 +420,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-io-request', 'aui-rating']
+		requires: ['aui-io-request', 'aui-rating', 'liferay-language']
 	}
 );

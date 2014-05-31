@@ -197,6 +197,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-debounce', 'aui-io-request', 'aui-popover', 'event-mouseenter']
+		requires: ['aui-debounce', 'aui-io-request', 'aui-popover', 'event-mouseenter', 'liferay-language']
 	}
 );

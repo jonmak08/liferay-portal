@@ -467,11 +467,14 @@
 							'sortable'
 						]
 					},
+					'liferay-language': {
+						path: 'language.js',
+						requires: [
+							'io-base'
+						]
+					},
 					'liferay-layout': {
 						path: 'layout.js'
-					},
-					'liferay-language': {
-						path: 'language.js'
 					},
 					'liferay-layout-column': {
 						path: 'layout_column.js',

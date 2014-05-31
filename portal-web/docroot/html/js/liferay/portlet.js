@@ -354,7 +354,7 @@
 				}
 			);
 		},
-		['aui-io-request', 'aui-parse-content']
+		['aui-io-request', 'aui-parse-content', 'liferay-language']
 	);
 
 	Liferay.provide(
@@ -379,7 +379,7 @@
 				A.config.win.focus();
 			}
 		},
-		['aui-io-request']
+		['aui-io-request', 'liferay-language']
 	);
 
 	Liferay.provide(
@@ -466,7 +466,7 @@
 				}
 			}
 		},
-		['aui-io', 'aui-parse-content', 'node-load', 'querystring-stringify']
+		['aui-io', 'aui-parse-content', 'liferay-language', 'node-load', 'querystring-stringify']
 	);
 
 	Liferay.provide(
@@ -623,7 +623,7 @@
 				}
 			}
 		},
-		['aui-base', 'querystring-parse']
+		['aui-base', 'liferay-language', 'querystring-parse']
 	);
 
 	Liferay.provide(

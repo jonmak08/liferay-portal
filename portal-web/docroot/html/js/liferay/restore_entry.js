@@ -244,6 +244,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-io-plugin-deprecated', 'aui-io-request', 'liferay-portlet-base', 'liferay-util-window']
+		requires: ['aui-io-plugin-deprecated', 'aui-io-request', 'liferay-language', 'liferay-portlet-base', 'liferay-util-window']
 	}
 );

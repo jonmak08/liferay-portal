@@ -1162,6 +1162,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-io-request', 'aui-template-deprecated', 'collection', 'liferay-portlet-base', 'liferay-storage-formatter', 'uploader']
+		requires: ['aui-io-request', 'aui-template-deprecated', 'collection', 'liferay-language', 'liferay-portlet-base', 'liferay-storage-formatter', 'uploader']
 	}
 );
