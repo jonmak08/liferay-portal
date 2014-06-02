@@ -232,6 +232,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-base', 'aui-form-validator']
+		requires: ['aui-base', 'aui-form-validator', 'liferay-language']
 	}
 );

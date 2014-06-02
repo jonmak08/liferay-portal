@@ -82,6 +82,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['liferay-util-window']
+		requires: ['liferay-util-window', 'liferay-language']
 	}
 );

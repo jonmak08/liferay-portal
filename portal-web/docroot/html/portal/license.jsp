@@ -454,7 +454,7 @@ dateFormatDateTime.setTimeZone(timeZone);
 						}
 					);
 				},
-				['aui-io-request']
+				['aui-io-request', 'liferay-language']
 			);
 
 			<%

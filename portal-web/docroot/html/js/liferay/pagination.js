@@ -374,6 +374,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-pagination']
+		requires: ['aui-pagination', 'liferay-language']
 	}
 );

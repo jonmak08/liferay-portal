@@ -175,6 +175,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['liferay-staging']
+		requires: ['liferay-staging', 'liferay-language']
 	}
 );

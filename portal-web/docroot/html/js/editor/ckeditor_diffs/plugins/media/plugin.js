@@ -175,73 +175,55 @@ CKEDITOR.plugins.add(
 		init: function(editor) {
 			var instance = this;
 
-			CKEDITOR.dialog.add('audio', instance.path + 'dialogs/audio.js');
-			CKEDITOR.dialog.add('video', instance.path + 'dialogs/video.js');
+			AUI().use(
+				'liferay-language',
+				function(A) {
+					CKEDITOR.dialog.add('audio', instance.path + 'dialogs/audio.js');
+					CKEDITOR.dialog.add('video', instance.path + 'dialogs/video.js');
 
-			editor.addCommand('Audio', new CKEDITOR.dialogCommand('audio'));
-			editor.addCommand('Video', new CKEDITOR.dialogCommand('video'));
+					editor.addCommand('Audio', new CKEDITOR.dialogCommand('audio'));
+					editor.addCommand('Video', new CKEDITOR.dialogCommand('video'));
 
-			editor.ui.addButton(
-				'Audio',
-				{
-					command: 'Audio',
-					icon: instance.path + 'icons/icon_audio.png',
-					label: Liferay.Language.get('audio')
-				}
-			);
-
-			editor.ui.addButton(
-				'Video',
-				{
-					command: 'Video',
-					icon: instance.path + 'icons/icon_video.png',
-					label: Liferay.Language.get('video')
-				}
-			);
-
-			if (editor.addMenuItems) {
-				editor.addMenuItems(
-					{
-						audio: {
+					editor.ui.addButton(
+						'Audio',
+						{
 							command: 'Audio',
-							group: 'flash',
-							label: Liferay.Language.get('edit-audio')
-						},
-						video: {
-							command: 'Video',
-							group: 'flash',
-							label: Liferay.Language.get('edit-video')
+							icon: instance.path + 'icons/icon_audio.png',
+							label: Liferay.Language.get('audio')
 						}
+					);
+
+					editor.ui.addButton(
+						'Video',
+						{
+							command: 'Video',
+							icon: instance.path + 'icons/icon_video.png',
+							label: Liferay.Language.get('video')
+						}
+					);
+
+					if (editor.addMenuItems) {
+						editor.addMenuItems(
+							{
+								audio: {
+									command: 'Audio',
+									group: 'flash',
+									label: Liferay.Language.get('edit-audio')
+								},
+								video: {
+									command: 'Video',
+									group: 'flash',
+									label: Liferay.Language.get('edit-video')
+								}
+							}
+						);
 					}
-				);
-			}
 
-			editor.on(
-				'doubleclick',
-				function(event) {
-					var element = event.data.element;
+					editor.on(
+						'doubleclick',
+						function(event) {
+							var element = event.data.element;
 
-					var type;
-
-					if (instance.isElementType(element, 'audio')) {
-						type = 'audio';
-					}
-					else if (instance.isElementType(element, 'video')) {
-						type = 'video';
-					}
-
-					if (type) {
-						event.data.dialog = type;
-					}
-				}
-			);
-
-			if (editor.contextMenu) {
-				editor.contextMenu.addListener(
-					function(element, selection) {
-						var value = {};
-
-						if (!element.isReadOnly()) {
 							var type;
 
 							if (instance.isElementType(element, 'audio')) {
@@ -252,17 +234,40 @@ CKEDITOR.plugins.add(
 							}
 
 							if (type) {
-								value[type] = CKEDITOR.TRISTATE_OFF;
+								event.data.dialog = type;
 							}
 						}
+					);
 
-						return value;
+					if (editor.contextMenu) {
+						editor.contextMenu.addListener(
+							function(element, selection) {
+								var value = {};
+
+								if (!element.isReadOnly()) {
+									var type;
+
+									if (instance.isElementType(element, 'audio')) {
+										type = 'audio';
+									}
+									else if (instance.isElementType(element, 'video')) {
+										type = 'video';
+									}
+
+									if (type) {
+										value[type] = CKEDITOR.TRISTATE_OFF;
+									}
+								}
+
+								return value;
+							}
+						);
 					}
-				);
-			}
 
-			editor.lang.fakeobjects.audio = Liferay.Language.get('audio');
-			editor.lang.fakeobjects.video = Liferay.Language.get('video');
+					editor.lang.fakeobjects.audio = Liferay.Language.get('audio');
+					editor.lang.fakeobjects.video = Liferay.Language.get('video');
+				}
+			);
 		},
 
 		isElementType: function(el, type) {

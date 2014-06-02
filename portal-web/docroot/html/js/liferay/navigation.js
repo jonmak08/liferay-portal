@@ -929,6 +929,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-component', 'event-mouseenter']
+		requires: ['aui-component', 'event-mouseenter', 'liferay-language']
 	}
 );

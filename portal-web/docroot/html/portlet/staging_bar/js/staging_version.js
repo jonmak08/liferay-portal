@@ -258,6 +258,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-button', 'liferay-staging']
+		requires: ['aui-button', 'liferay-language', 'liferay-staging']
 	}
 );

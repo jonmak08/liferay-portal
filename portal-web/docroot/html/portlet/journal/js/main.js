@@ -378,6 +378,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-base', 'aui-dialog-iframe-deprecated', 'aui-tooltip', 'liferay-portlet-base', 'liferay-util-window']
+		requires: ['aui-base', 'aui-dialog-iframe-deprecated', 'aui-tooltip', 'liferay-language', 'liferay-portlet-base', 'liferay-util-window']
 	}
 );
