@@ -11,14 +11,3 @@
 		border-width: 0;
 	}
 }
-
-/* Skin */
-
-.taglib-language-option {
-	background-position: 0 50%;
-	background-repeat: no-repeat;
-}
-
-.taglib-language-list-text {
-	border-right-color: #CCC;
-}
