@@ -1,71 +1,76 @@
-Liferay.namespace('PortletSharing');
+AUI().use(
+	'liferay-liferay',
+	function(A) {
+		Liferay.namespace('PortletSharing');
 
-Liferay.provide(
-	Liferay.PortletSharing,
-	'showNetvibesInfo',
-	function(netvibesURL, basePortletURL) {
-		var A = AUI();
+		Liferay.provide(
+			Liferay.PortletSharing,
+			'showNetvibesInfo',
+			function(netvibesURL, basePortletURL) {
+				var A = AUI();
 
-		var portletURL = Liferay.PortletURL.createResourceURL();
+				var portletURL = Liferay.PortletURL.createResourceURL();
 
-		if (basePortletURL) {
-			portletURL = Liferay.PortletURL.createURL(basePortletURL);
-		}
+				if (basePortletURL) {
+					portletURL = Liferay.PortletURL.createURL(basePortletURL);
+				}
 
-		portletURL.setPortletId(133);
+				portletURL.setPortletId(133);
 
-		portletURL.setParameter('netvibesURL', netvibesURL);
+				portletURL.setParameter('netvibesURL', netvibesURL);
 
-		var dialog = Liferay.Util.Window.getWindow(
-			{
-				dialog: {
-					destroyOnHide: true
-				},
-				title: Liferay.Language.get('add-to-netvibes')
-			}
+				var dialog = Liferay.Util.Window.getWindow(
+					{
+						dialog: {
+							destroyOnHide: true
+						},
+						title: Liferay.Language.get('add-to-netvibes')
+					}
+				);
+
+				dialog.plug(
+					A.Plugin.IO,
+					{
+						uri: portletURL.toString()
+					}
+				);
+			},
+			['aui-io-plugin-deprecated', 'liferay-language', 'liferay-portlet-url', 'liferay-util-window']
 		);
 
-		dialog.plug(
-			A.Plugin.IO,
-			{
-				uri: portletURL.toString()
-			}
-		);
-	},
-	['aui-io-plugin-deprecated', 'liferay-language', 'liferay-portlet-url', 'liferay-util-window']
-);
+		Liferay.provide(
+			Liferay.PortletSharing,
+			'showWidgetInfo',
+			function(widgetURL, basePortletURL) {
+				var A = AUI();
 
-Liferay.provide(
-	Liferay.PortletSharing,
-	'showWidgetInfo',
-	function(widgetURL, basePortletURL) {
-		var A = AUI();
+				var portletURL = Liferay.PortletURL.createResourceURL();
 
-		var portletURL = Liferay.PortletURL.createResourceURL();
+				if (basePortletURL) {
+					portletURL = Liferay.PortletURL.createURL(basePortletURL);
+				}
 
-		if (basePortletURL) {
-			portletURL = Liferay.PortletURL.createURL(basePortletURL);
-		}
+				portletURL.setPortletId(133);
 
-		portletURL.setPortletId(133);
+				portletURL.setParameter('widgetURL', widgetURL);
 
-		portletURL.setParameter('widgetURL', widgetURL);
+				var dialog = Liferay.Util.Window.getWindow(
+					{
+						dialog: {
+							destroyOnHide: true
+						},
+						title: Liferay.Language.get('add-to-any-website')
+					}
+				);
 
-		var dialog = Liferay.Util.Window.getWindow(
-			{
-				dialog: {
-					destroyOnHide: true
-				},
-				title: Liferay.Language.get('add-to-any-website')
-			}
-		);
-
-		dialog.plug(
-			A.Plugin.IO,
-			{
-				uri: portletURL.toString()
-			}
-		);
-	},
-	['aui-io-plugin-deprecated', 'liferay-language', 'liferay-portlet-url', 'liferay-util-window']
+				dialog.plug(
+					A.Plugin.IO,
+					{
+						uri: portletURL.toString()
+					}
+				);
+			},
+			['aui-io-plugin-deprecated', 'liferay-language', 'liferay-portlet-url', 'liferay-util-window']
+		);	
+	}
 );
