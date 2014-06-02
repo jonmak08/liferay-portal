@@ -579,6 +579,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-color-picker-deprecated', 'aui-io-request', 'aui-overlay-context-deprecated', 'liferay-language']
+		requires: ['aui-color-picker-deprecated', 'aui-io-request', 'aui-overlay-context-deprecated', 'liferay-language', 'liferay-liferay']
 	}
 );

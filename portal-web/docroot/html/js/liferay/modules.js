@@ -523,6 +523,9 @@
 							'resize'
 						]
 					},
+					'liferay-liferay': {
+						path: 'liferay.js'
+					},
 					'liferay-list-view': {
 						path: 'list_view.js',
 						requires: [
