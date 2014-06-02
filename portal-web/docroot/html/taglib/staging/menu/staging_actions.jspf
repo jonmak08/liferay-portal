@@ -22,7 +22,7 @@
 			url="<%= publishRenderURL.toString() %>"
 		/>
 
-		<aui:script use="aui-base">
+		<aui:script use="aui-base, liferay-layout-exporter">
 			var publishGlobalLink = A.one('#<portlet:namespace /><%= groupId + "publishGlobalLink" %>');
 
 			if (publishGlobalLink) {
@@ -110,7 +110,7 @@
 				</c:otherwise>
 			</c:choose>
 
-			<aui:script use="aui-base">
+			<aui:script use="aui-base, liferay-layout-exporter">
 				var publishLink = A.one('#<portlet:namespace /><%= layoutSetBranchId + "publishLink" %>');
 
 				if (publishLink) {
