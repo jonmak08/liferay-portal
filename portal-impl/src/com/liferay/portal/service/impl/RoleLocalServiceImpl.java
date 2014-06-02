@@ -1157,6 +1157,21 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 		return roleFinder.findByUserGroupGroupRole(userId, groupId);
 	}
 
+	@Override
+	public List<Role> getUserGroupGroupRoles(
+			long userId, long groupId, int start, int end)
+		throws SystemException {
+
+		return roleFinder.findByUserGroupGroupRole(userId, groupId, start, end);
+	}
+
+	@Override
+	public int getUserGroupGroupRolesCount(long userId, long groupId)
+		throws SystemException {
+
+		return roleFinder.countByUserGroupGroupRole(userId, groupId);
+	}
+
 	/**
 	 * Returns all the user's roles within the user group.
 	 *
