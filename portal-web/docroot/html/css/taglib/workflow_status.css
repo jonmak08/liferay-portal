@@ -22,15 +22,3 @@
 		padding-left: 0;
 	}
 }
-
-/* Skin */
-
-.taglib-workflow-status {
-	.workflow-id, .workflow-version, .workflow-status {
-		color: #999;
-	}
-
-	.workflow-status-icon {
-		background: url(@theme_image_path@/common/recent_changes.png) no-repeat 0 50%;
-	}
-}
