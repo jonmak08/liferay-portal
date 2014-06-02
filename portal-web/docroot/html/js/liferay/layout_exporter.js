@@ -5,13 +5,9 @@ AUI.add(
 			icons: {
 				minus: themeDisplay.getPathThemeImages() + '/arrows/01_minus.png',
 				plus: themeDisplay.getPathThemeImages() + '/arrows/01_plus.png'
-			}
-		};
+			},
 
-		Liferay.provide(
-			LayoutExporter,
-			'all',
-			function(options) {
+			all: function(options) {
 				options = options || {};
 
 				var obj = options.obj;
@@ -25,13 +21,8 @@ AUI.add(
 					}
 				}
 			},
-			['aui-base']
-		);
 
-		Liferay.provide(
-			LayoutExporter,
-			'details',
-			function(options) {
+			details: function(options) {
 				options = options || {};
 
 				var detail = A.one(options.detail);
@@ -51,8 +42,46 @@ AUI.add(
 					img.attr('src', icon);
 				}
 			},
-			['aui-base']
-		);
+
+			publishToLive: function(options) {
+				options = options || {};
+
+				Liferay.Util.openWindow(
+					{
+						dialog: {
+							constrain: true,
+							modal: true,
+							on: {
+								visibleChange: function(event) {
+									var instance = this;
+
+									if (!event.newVal) {
+										instance.destroy();
+									}
+								}
+							}
+						},
+						title: options.title,
+						uri: options.url
+					}
+				);
+			},
+
+			selected: function(options) {
+				options = options || {};
+
+				var obj = options.obj;
+				var pane = options.pane;
+
+				if (obj && obj.checked) {
+					pane = A.one(pane);
+
+					if (pane) {
+						pane.show();
+					}
+				}
+			}
+		};
 
 		Liferay.provide(
 			LayoutExporter,
@@ -102,58 +131,10 @@ AUI.add(
 			['liferay-util-window']
 		);
 
-		Liferay.provide(
-			LayoutExporter,
-			'publishToLive',
-			function(options) {
-				options = options || {};
-
-				Liferay.Util.openWindow(
-					{
-						dialog: {
-							constrain: true,
-							modal: true,
-							on: {
-								visibleChange: function(event) {
-									var instance = this;
-
-									if (!event.newVal) {
-										instance.destroy();
-									}
-								}
-							}
-						},
-						title: options.title,
-						uri: options.url
-					}
-				);
-			}
-		);
-
-		Liferay.provide(
-			LayoutExporter,
-			'selected',
-			function(options) {
-				options = options || {};
-
-				var obj = options.obj;
-				var pane = options.pane;
-
-				if (obj && obj.checked) {
-					pane = A.one(pane);
-
-					if (pane) {
-						pane.show();
-					}
-				}
-			},
-			['aui-base']
-		);
-
 		Liferay.LayoutExporter = LayoutExporter;		
 	},
 	'',
 	{
-		requires: []
+		requires: ['aui-base']
 	}
 );
