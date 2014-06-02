@@ -489,6 +489,12 @@
 							'liferay-portlet-base'
 						]
 					},
+					'liferay-layout-exporter': {
+						path: 'layout_exporter.js',
+						requires: [
+							'aui-base'
+						]
+					},
 					'liferay-layout-freeform': {
 						path: 'layout_freeform.js',
 						requires: [
