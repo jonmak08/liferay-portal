@@ -486,7 +486,10 @@
 						]
 					},
 					'liferay-language': {
-						path: 'language.js'
+						path: 'language.js',
+						requires: [
+							'io-base'
+						]
 					},
 					'liferay-layout': {
 						path: 'layout.js'
