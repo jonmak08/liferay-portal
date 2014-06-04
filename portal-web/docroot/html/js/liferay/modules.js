@@ -225,6 +225,12 @@
 							'aui-parse-content'
 						]
 					},
+					'liferay-dependency': {
+						path: 'dependency.js',
+						requires: [
+							'oop'
+						]
+					},
 					'liferay-dockbar': {
 						path: 'dockbar.js',
 						requires: [
@@ -357,6 +363,13 @@
 						path: 'dynamic_select.js',
 						requires: [
 							'aui-base'
+						]
+					},
+					'liferay-events': {
+						path: 'events.js',
+						requires: [
+							'attribute',
+							'oop'
 						]
 					},
 					'liferay-form': {
@@ -638,6 +651,14 @@
 							'json'
 						]
 					},
+					'liferay-portlet': {
+						path: 'portlet.js',
+						requires: [
+							'liferay-dependency',
+							'liferay-events',
+							'liferay-util'
+						]
+					},
 					'liferay-portlet-base': {
 						path: 'portlet_base.js',
 						requires: [
@@ -790,6 +811,13 @@
 							'liferay-portlet-base',
 							'liferay-storage-formatter',
 							'uploader'
+						]
+					},
+					'liferay-util': {
+						path: 'util.js',
+						requires: [
+							'aui-base-lang',
+							'liferay-dependency'
 						]
 					},
 					'liferay-util-list-fields': {

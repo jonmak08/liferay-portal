@@ -367,16 +367,18 @@
 			}
 			%>
 
-			<c:choose>
-				<c:when test="<%= (sb.index() > 0) && !layoutTypePortlet.hasStateMax() %>">
-					Liferay.Portlet.list = ['<%= sb.toString() %>'];
-				</c:when>
-				<c:otherwise>
-					<c:if test="<%= layoutTypePortlet.hasStateMax() %>">
-						Liferay.Portlet.list = ['<%= layoutTypePortlet.getStateMaxPortletId() %>'];
-					</c:if>
-				</c:otherwise>
-			</c:choose>
+			<aui:script>
+				<c:choose>
+					<c:when test="<%= (sb.index() > 0) && !layoutTypePortlet.hasStateMax() %>">
+						Liferay.Portlet.list = ['<%= sb.toString() %>'];
+					</c:when>
+					<c:otherwise>
+						<c:if test="<%= layoutTypePortlet.hasStateMax() %>">
+							Liferay.Portlet.list = ['<%= layoutTypePortlet.getStateMaxPortletId() %>'];
+						</c:if>
+					</c:otherwise>
+				</c:choose>
+			</aui:script>
 		</c:if>
 
 		<%
