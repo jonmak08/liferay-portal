@@ -334,14 +334,6 @@
 			return index;
 		},
 
-		_isLastItemNewLine: function() {
-			var instance = this;
-
-			var endResult = instance._endResult;
-
-			return (endResult && REGEX_LASTCHAR_NEWLINE_WHITESPACE.test(endResult.slice(-1)));
-		},
-
 		_handle: function(node) {
 			var instance = this;
 
@@ -537,6 +529,12 @@
 			}
 		},
 
+		_handleLineThrough: function(element, listTagsIn, listTagsOut) {
+			listTagsIn.push('[s]');
+
+			listTagsOut.push('[/s]');
+		},
+
 		_handleLink: function(element, listTagsIn, listTagsOut) {
 			var hrefAttribute = element.getAttribute('href');
 
@@ -561,12 +559,6 @@
 			}
 
 			listTagsIn.push('[*]');
-		},
-
-		_handleLineThrough: function(element, listTagsIn, listTagsOut) {
-			listTagsIn.push('[s]');
-
-			listTagsOut.push('[/s]');
 		},
 
 		_handleOrderedList: function(element, listTagsIn, listTagsOut) {
@@ -824,6 +816,14 @@
 			listTagsIn.push('[list]');
 
 			listTagsOut.push('[/list]');
+		},
+
+		_isLastItemNewLine: function() {
+			var instance = this;
+
+			var endResult = instance._endResult;
+
+			return (endResult && REGEX_LASTCHAR_NEWLINE_WHITESPACE.test(endResult.slice(-1)));
 		},
 
 		_pushTagList: function(tagsList) {
