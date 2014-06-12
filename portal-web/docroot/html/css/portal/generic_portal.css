@@ -161,6 +161,10 @@ img.icon {
 	margin-left: 0.3em;
 }
 
+.emphasized {
+	text-decoration: underline;
+}
+
 .ie6 {
 	.popup-alert-notice, .popup-alert-warning {
 		bottom: auto;
