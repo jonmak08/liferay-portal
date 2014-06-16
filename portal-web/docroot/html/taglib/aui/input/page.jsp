@@ -33,7 +33,7 @@
 </liferay-util:buffer>
 
 <c:if test='<%= !choiceField && !type.equals("hidden") && !wrappedField %>'>
-	<div class="<%= controlGroupCssClass %>">
+	<div class="<%= controlGroupCssClass %><%= sliderWrapperCssClass %>">
 </c:if>
 
 <c:if test='<%= !type.equals("assetCategories") && !type.equals("hidden") && Validator.isNotNull(label) %>'>
@@ -140,6 +140,12 @@
 	</c:when>
 	<c:when test='<%= type.equals("resource") %>'>
 		<liferay-ui:input-resource id="<%= id %>" title="<%= title %>" url="<%= String.valueOf(value) %>" />
+	</c:when>
+	<c:when test='<%= type.equals("horizontalSlider") %>'>
+		<input class="lfr-slider-input lfr-slider-input-horizontal" id="<%= namespace + id %>HorizontalSliderInput" type="text" value="<%= value %>">
+	</c:when>
+	<c:when test='<%= type.equals("verticalSlider") %>'>
+		<input class="lfr-slider-input lfr-slider-input-vertical" id="<%= namespace + id %>VerticalSliderInput" type="text" value="<%= value %>">
 	</c:when>
 	<c:when test='<%= type.equals("timeZone") %>'>
 
@@ -256,6 +262,46 @@
 			<span class="<%= helpTextCssClass %>"><liferay-ui:message key="<%= suffix %>" /></span>
 		</c:if>
 	</div>
+</c:if>
+
+<c:if test='<%= type.equals("horizontalSlider") || type.equals("verticalSlider")%>'>
+	<p class="lfr-slider lfr-slider-<%= orientation.toLowerCase() %>" id="<%= namespace + id %><%= orientation %>Slider"></p>
+
+	<c:if test='<%= Validator.isNull(value) %>'>
+		<%
+			value = 0; 
+		%>
+	</c:if>
+
+	<aui:script use="slider">
+		var inputNode = A.one('#<%= namespace + id %><%= orientation %>SliderInput');
+
+		var sliderLength = 215;
+
+		var auiInputSlider = new A.Slider(
+			{
+				axis: '<%= axisValue %>',
+				length: sliderLength + 'px',
+				max: <%= max %>,
+				min: <%= min %>,
+				value: <%= value %>
+			}
+		);
+
+		auiInputSlider.render('#<%= namespace + id %><%= orientation %>Slider');
+
+		if (inputNode) {
+			inputNode.set('value', auiInputSlider.get('value'));
+		}
+
+		auiInputSlider.after(
+			'valueChange',
+			function(event) {
+				this.set('value', event.newVal);
+			},
+			inputNode
+		);
+	</aui:script>
 </c:if>
 
 <c:if test='<%= !type.equals("assetCategories") && !type.equals("hidden") && Validator.isNotNull(label) %>'>
