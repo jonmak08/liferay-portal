@@ -158,6 +158,30 @@
 	width: 100%;
 }
 
+.slider-horizontal-wrapper {
+	width: 215px;
+
+	label {
+		float: left;
+	}
+
+	.lfr-slider-input-horizontal {
+		float: right;
+		width: 30px;
+	}
+}
+
+.slider-vertical-wrapper {
+	.lfr-slider {
+		margin: 0 10px;
+	}
+
+	.lfr-slider-input-vertical {
+		text-align: center;
+		width: 30px;
+	}
+}
+
 .aui {
 	input[type=file] {
 		max-width: 220px;
