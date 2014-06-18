@@ -123,7 +123,7 @@ if (Validator.isNull(srcHover) && Validator.isNotNull(imageHover)) {
 String details = null;
 
 if (alt != null) {
-	details = " alt=\"" + LanguageUtil.get(pageContext, alt) + "\"";
+	details = " alt=\"" + HtmlUtil.escapeAttribute(LanguageUtil.get(pageContext, alt)) + "\"";
 }
 else if (label) {
 	details = " alt=\"\"";
@@ -132,7 +132,7 @@ else {
 	StringBundler sb = new StringBundler(6);
 
 	sb.append(" alt=\"");
-	sb.append(LanguageUtil.get(pageContext, message));
+	sb.append(HtmlUtil.escapeAttribute(LanguageUtil.get(pageContext, message)));
 	sb.append("\"");
 
 	if (toolTip) {
