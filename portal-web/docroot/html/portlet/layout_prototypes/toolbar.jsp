@@ -21,7 +21,7 @@ String toolbarItem = ParamUtil.getString(request, "toolbarItem");
 %>
 
 <aui:nav-bar>
-	<aui:nav cssClass="navbar-nav">
+	<aui:nav collapsible="<%= false %>" cssClass="navbar-nav single-navbar-button-link">
 		<c:if test="<%= PortalPermissionUtil.contains(permissionChecker, ActionKeys.ADD_LAYOUT_PROTOTYPE) %>">
 			<portlet:renderURL var="viewLayoutPrototypesURL">
 				<portlet:param name="struts_action" value="/layout_prototypes/view" />

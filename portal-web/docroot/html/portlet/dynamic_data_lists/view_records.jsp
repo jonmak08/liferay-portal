@@ -76,7 +76,7 @@ portletURL.setParameter("recordSetId", String.valueOf(recordSet.getRecordSetId()
 	>
 
 		<aui:nav-bar>
-			<aui:nav cssClass="navbar-nav" searchContainer="<%= searchContainer %>">
+			<aui:nav collapsible="<%= false %>" cssClass="navbar-nav single-navbar-button-link" searchContainer="<%= searchContainer %>">
 				<c:if test="<%= showAddRecordButton %>">
 					<portlet:renderURL var="addRecordURL">
 						<portlet:param name="struts_action" value="/dynamic_data_lists/edit_record" />

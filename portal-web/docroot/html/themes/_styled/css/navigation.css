@@ -166,6 +166,49 @@
 	}
 }
 
+.single-navbar-button-link {
+	position: absolute;
+	top: 0;
+	width: 70%;
+}
+
+.single-navbar-button-dropdown {
+	@include respond-to(phone) {
+		&.navbar-nav, .navbar-nav {
+			.dropdown-menu {
+				display: block;
+				position: static;
+				float: none;
+				width: auto;
+				margin-top: 0;
+				background-color: transparent;
+				border: 0;
+				box-shadow: none;
+
+				> li > a {
+					padding: 5px 15px 5px 15px;
+				}
+			}
+		}
+
+		&.nav, .nav {
+			> li > a.dropdown-toggle {
+				display: none;
+			}
+
+			.dropdown-menu > li > a {
+				font-size: 14px;
+				font-weight: 300;
+
+				&:focus, &:hover {
+					background-color: transparent;
+					color: #009AE5;
+				}
+			}
+		}
+	}
+}
+
 /* ---------- Navigation portlet ---------- */
 
 .nav-menu {

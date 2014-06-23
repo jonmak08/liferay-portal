@@ -65,7 +65,7 @@ pageContext.setAttribute("portletURL", portletURL);
 		%>
 
 		<aui:nav-bar>
-			<aui:nav>
+			<aui:nav collapsible="<%= false %>" cssClass="navbar-nav single-navbar-button-link">
 				<c:if test="<%= GroupPermissionUtil.contains(permissionChecker, group, ActionKeys.MANAGE_TEAMS) %>">
 					<portlet:renderURL var="addTeamURL">
 						<portlet:param name="struts_action" value="/sites_admin/edit_team" />
@@ -77,8 +77,8 @@ pageContext.setAttribute("portletURL", portletURL);
 				</c:if>
 			</aui:nav>
 
-			<aui:nav-bar-search cssClass="pull-right">
-				<liferay-ui:input-search name="<%= searchTerms.NAME %>" />
+			<aui:nav-bar-search>
+				<liferay-ui:input-search cssClass="form-search" name="<%= searchTerms.NAME %>" />
 			</aui:nav-bar-search>
 		</aui:nav-bar>
 

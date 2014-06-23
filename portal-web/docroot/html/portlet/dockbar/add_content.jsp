@@ -62,25 +62,22 @@ String displayStyle = ParamUtil.getString(request, "displayStyle", displayStyleD
 			/>
 		</aui:nav>
 
-		<span class="add-content-button">
+		<%
+		long groupId = scopeGroupId;
 
-			<%
-			long groupId = scopeGroupId;
+		long[] groupIds = new long[] {scopeGroupId};
 
-			long[] groupIds = new long[] {scopeGroupId};
+		boolean defaultAssetPublisher = false;
 
-			boolean defaultAssetPublisher = false;
+		PortletURL redirectURL = liferayPortletResponse.createLiferayPortletURL(themeDisplay.getPlid(), portletDisplay.getId(), PortletRequest.RENDER_PHASE, false);
 
-			PortletURL redirectURL = liferayPortletResponse.createLiferayPortletURL(themeDisplay.getPlid(), portletDisplay.getId(), PortletRequest.RENDER_PHASE, false);
+		redirectURL.setParameter("struts_action", "/dockbar/add_content_redirect");
+		redirectURL.setWindowState(LiferayWindowState.POP_UP);
 
-			redirectURL.setParameter("struts_action", "/dockbar/add_content_redirect");
-			redirectURL.setWindowState(LiferayWindowState.POP_UP);
+		Map<String, PortletURL> addPortletURLs = AssetUtil.getAddPortletURLs(liferayPortletRequest, liferayPortletResponse, scopeGroupId, AssetRendererFactoryRegistryUtil.getClassNameIds(company.getCompanyId()), new long[0], new long[0], new String[0], redirectURL.toString());
+		%>
 
-			Map<String, PortletURL> addPortletURLs = AssetUtil.getAddPortletURLs(liferayPortletRequest, liferayPortletResponse, scopeGroupId, AssetRendererFactoryRegistryUtil.getClassNameIds(company.getCompanyId()), new long[0], new long[0], new String[0], redirectURL.toString());
-			%>
-
-			<%@ include file="/html/portlet/asset_publisher/add_asset.jspf" %>
-		</span>
+		<%@ include file="/html/portlet/asset_publisher/add_asset.jspf" %>
 	</aui:nav-bar>
 
 	<div id="<portlet:namespace />entriesContainer">

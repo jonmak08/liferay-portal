@@ -17,69 +17,64 @@
 <%@ include file="/html/portlet/users_admin/init.jsp" %>
 
 <%
-SearchContainer searchContainer = (SearchContainer)request.getAttribute(WebKeys.SEARCH_CONTAINER);
-
 String toolbarItem = ParamUtil.getString(request, "toolbarItem", "browse");
 
 String usersListView = ParamUtil.get(request, "usersListView", UserConstants.LIST_VIEW_TREE);
 %>
 
-<aui:nav cssClass="navbar-nav" searchContainer="<%= searchContainer %>">
+<%
+boolean hasAddOrganizationPermission = PortalPermissionUtil.contains(permissionChecker, ActionKeys.ADD_ORGANIZATION);
+boolean hasAddUserPermission = PortalPermissionUtil.contains(permissionChecker, ActionKeys.ADD_USER);
+%>
 
-	<%
-	boolean hasAddOrganizationPermission = PortalPermissionUtil.contains(permissionChecker, ActionKeys.ADD_ORGANIZATION);
-	boolean hasAddUserPermission = PortalPermissionUtil.contains(permissionChecker, ActionKeys.ADD_USER);
-	%>
+<c:if test="<%= hasAddOrganizationPermission || hasAddUserPermission %>">
+	<aui:nav-item dropdown="<%= true %>" iconCssClass="icon-plus" label="add" selected='<%= toolbarItem.equals("add") %>'>
+		<portlet:renderURL var="viewUsersURL">
+			<portlet:param name="struts_action" value="/users_admin/view" />
+			<portlet:param name="sitesListView" value="<%= usersListView %>" />
+		</portlet:renderURL>
 
-	<c:if test="<%= hasAddOrganizationPermission || hasAddUserPermission %>">
-		<aui:nav-item dropdown="<%= true %>" iconCssClass="icon-plus" label="add" selected='<%= toolbarItem.equals("add") %>'>
-			<portlet:renderURL var="viewUsersURL">
-				<portlet:param name="struts_action" value="/users_admin/view" />
-				<portlet:param name="sitesListView" value="<%= usersListView %>" />
+		<c:if test="<%= hasAddUserPermission %>">
+			<portlet:renderURL var="addUserURL">
+				<portlet:param name="struts_action" value="/users_admin/edit_user" />
+				<portlet:param name="redirect" value="<%= viewUsersURL %>" />
 			</portlet:renderURL>
 
-			<c:if test="<%= hasAddUserPermission %>">
-				<portlet:renderURL var="addUserURL">
-					<portlet:param name="struts_action" value="/users_admin/edit_user" />
+			<aui:nav-item href="<%= addUserURL %>" iconCssClass="icon-user" label="user" />
+		</c:if>
+
+		<aui:nav-item cssClass="divider" />
+
+		<c:if test="<%= hasAddOrganizationPermission %>">
+
+			<%
+			for (String organizationType : PropsValues.ORGANIZATIONS_TYPES) {
+			%>
+
+				<portlet:renderURL var="addOrganizationURL">
+					<portlet:param name="struts_action" value="/users_admin/edit_organization" />
 					<portlet:param name="redirect" value="<%= viewUsersURL %>" />
+					<portlet:param name="type" value="<%= organizationType %>" />
 				</portlet:renderURL>
 
-				<aui:nav-item href="<%= addUserURL %>" iconCssClass="icon-user" label="user" />
-			</c:if>
+				<aui:nav-item href="<%= addOrganizationURL %>" iconCssClass="icon-globe" label="<%= LanguageUtil.get(request, organizationType) %>" />
 
-			<aui:nav-item cssClass="divider" />
+			<%
+			}
+			%>
 
-			<c:if test="<%= hasAddOrganizationPermission %>">
+		</c:if>
+	</aui:nav-item>
+</c:if>
 
-				<%
-				for (String organizationType : PropsValues.ORGANIZATIONS_TYPES) {
-				%>
-
-					<portlet:renderURL var="addOrganizationURL">
-						<portlet:param name="struts_action" value="/users_admin/edit_organization" />
-						<portlet:param name="redirect" value="<%= viewUsersURL %>" />
-						<portlet:param name="type" value="<%= organizationType %>" />
-					</portlet:renderURL>
-
-					<aui:nav-item href="<%= addOrganizationURL %>" iconCssClass="icon-globe" label="<%= LanguageUtil.get(request, organizationType) %>" />
-
-				<%
-				}
-				%>
-
-			</c:if>
-		</aui:nav-item>
-	</c:if>
-
-	<c:choose>
-		<c:when test="<%= PortalPermissionUtil.contains(permissionChecker, ActionKeys.EXPORT_USER) %>">
-			<aui:nav-item href='<%= "javascript:" + renderResponse.getNamespace() + "exportUsers();" %>' label="export-users" selected='<%= toolbarItem.equals("export-users") %>' />
-		</c:when>
-		<c:when test="<%= PortletPermissionUtil.contains(permissionChecker, PortletKeys.USERS_ADMIN, ActionKeys.EXPORT_USER) %>">
-			<aui:nav-item href='<%= "javascript:" + renderResponse.getNamespace() + "exportUsers();" %>' label="export-organization-users" selected='<%= toolbarItem.equals("export-organization-users") %>' />
-		</c:when>
-	</c:choose>
-</aui:nav>
+<c:choose>
+	<c:when test="<%= PortalPermissionUtil.contains(permissionChecker, ActionKeys.EXPORT_USER) %>">
+		<aui:nav-item href='<%= "javascript:" + renderResponse.getNamespace() + "exportUsers();" %>' label="export-users" selected='<%= toolbarItem.equals("export-users") %>' />
+	</c:when>
+	<c:when test="<%= PortletPermissionUtil.contains(permissionChecker, PortletKeys.USERS_ADMIN, ActionKeys.EXPORT_USER) %>">
+		<aui:nav-item href='<%= "javascript:" + renderResponse.getNamespace() + "exportUsers();" %>' label="export-organization-users" selected='<%= toolbarItem.equals("export-organization-users") %>' />
+	</c:when>
+</c:choose>
 
 <aui:script>
 	function <portlet:namespace />exportUsers() {

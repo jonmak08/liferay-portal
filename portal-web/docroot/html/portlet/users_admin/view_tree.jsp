@@ -91,7 +91,9 @@ if (organization != null) {
 	</aui:nav>
 
 	<aui:nav-bar>
-		<liferay-util:include page="/html/portlet/users_admin/toolbar.jsp" />
+		<aui:nav cssClass="navbar-nav">
+			<liferay-util:include page="/html/portlet/users_admin/toolbar.jsp" />
+		</aui:nav>
 
 		<aui:nav-bar-search>
 			<div class="col-xs-12 form-search">

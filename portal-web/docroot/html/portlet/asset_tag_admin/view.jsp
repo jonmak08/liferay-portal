@@ -22,7 +22,7 @@
 		rowChecker="<%= new RowChecker(renderResponse) %>"
 	>
 		<aui:nav-bar>
-			<aui:nav cssClass="navbar-nav">
+			<aui:nav collapsible="<%= false %>" cssClass="navbar-nav single-navbar-button-link" icon="plus" >
 				<c:if test="<%= AssetPermission.contains(permissionChecker, themeDisplay.getSiteGroupId(), ActionKeys.ADD_TAG) %>">
 					<portlet:renderURL var="editTagURL">
 						<portlet:param name="struts_action" value="/asset_tag_admin/edit_tag" />

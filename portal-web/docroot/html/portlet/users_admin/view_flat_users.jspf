@@ -159,7 +159,9 @@ if (!ParamUtil.getBoolean(renderRequest, "advancedSearch")) {
 			request.setAttribute(WebKeys.SEARCH_CONTAINER, userSearchContainer);
 			%>
 
-			<liferay-util:include page="/html/portlet/users_admin/toolbar.jsp" />
+			<aui:nav cssClass="navbar-nav" searchContainer="<%= searchContainer %>">
+				<liferay-util:include page="/html/portlet/users_admin/toolbar.jsp" />
+			</aui:nav>
 
 			<c:if test="<%= userOrganization == null %>">
 				<aui:nav-bar-search cssClass="navbar-search-advanced" file="/html/portlet/users_admin/user_search.jsp" searchContainer="<%= userSearchContainer %>" />
