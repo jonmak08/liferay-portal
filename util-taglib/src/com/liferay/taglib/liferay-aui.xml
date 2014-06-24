@@ -1080,6 +1080,12 @@
 				<outputType>java.lang.Object</outputType>
 			</attribute>
 			<attribute>
+				<name>localizeLabel</name>
+				<inputType>boolean</inputType>
+				<outputType>boolean</outputType>
+				<defaultValue>true</defaultValue>
+			</attribute>
+			<attribute>
 				<description>Sets whether the option is selected when the component loads. The default value is <![CDATA[<code>false</code>]]>.</description>
 				<name>selected</name>
 				<inputType>boolean</inputType>
