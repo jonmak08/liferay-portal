@@ -48,6 +48,12 @@
 				<outputType>java.lang.String</outputType>
 			</attribute>
 			<attribute>
+				<name>localizeLabel</name>
+				<inputType>boolean</inputType>
+				<outputType>boolean</outputType>
+				<defaultValue>true</defaultValue>
+			</attribute>
+			<attribute>
 				<description>Sets the language of the anchor component, to assist search engines and web browsers in finding and rendering the anchor appropriately.</description>
 				<name>lang</name>
 				<inputType>java.lang.String</inputType>
