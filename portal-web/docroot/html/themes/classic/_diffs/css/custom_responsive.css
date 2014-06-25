@@ -208,11 +208,3 @@
 		}
 	}
 }
-
-@include respond-to(phone) {
-	.aui {
-		#wrapper {
-			margin: 0 15px;
-		}
-	}
-}
