@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.deploy.auto.AutoDeployException;
 import com.liferay.portal.kernel.deploy.auto.AutoDeployListener;
 import com.liferay.portal.kernel.deploy.auto.context.AutoDeploymentContext;
 import com.liferay.portal.kernel.deploy.hot.DependencyManagementThreadLocal;
+import com.liferay.portal.kernel.io.FileFilter;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.plugin.PluginPackage;
@@ -71,6 +72,8 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.depend.DependencyVisitor;
@@ -205,6 +208,17 @@ public class WabProcessor {
 		}
 		finally {
 			DependencyManagementThreadLocal.setEnabled(enabled);
+		}
+	}
+
+	protected void formatDocument(File file, Document document)
+		throws IOException {
+
+		try {
+			FileUtil.write(file, DDMXMLUtil.formatXML(document));
+		}
+		catch (Exception e) {
+			throw new IOException(e);
 		}
 	}
 
@@ -390,6 +404,65 @@ public class WabProcessor {
 		return packageNames;
 	}
 
+	protected void processDeclarativeReferences() throws IOException {
+		processDefaultServletPackages();
+		processTLDDependencies();
+
+		processXMLDependencies(
+			"WEB-INF/liferay-hook.xml",
+			new String[] {
+				"indexer-post-processor-impl", "service-impl",
+				"servlet-filter-impl", "struts-action-impl"
+			},
+			null, null);
+
+		processXMLDependencies(
+			"WEB-INF/liferay-portlet.xml",
+			new String[] {
+				"asset-renderer-factory", "atom-collection-adapter",
+				"configuration-action-class", "control-panel-entry-class",
+				"custom-attributes-display", "friendly-url-mapper-class",
+				"indexer-class", "open-search-class", "permission-propagator",
+				"poller-processor-class", "pop-message-listener-class",
+				"portlet-data-handler-class", "portlet-layout-listener-class",
+				"portlet-url-class", "social-activity-interpreter-class",
+				"social-request-interpreter-class", "url-encoder-class",
+				"webdav-storage-class", "workflow-handler",
+				"xml-rpc-method-class"
+			},
+			null, null);
+
+		processXMLDependencies(
+			"WEB-INF/portlet.xml",
+			new String[] {
+				"x:filter-class", "x:listener-class", "x:portlet-class",
+				"x:resource-bundle"
+			},
+			"x", "http:java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd");
+
+		processXMLDependencies(
+			"WEB-INF/web.xml",
+			new String[] {
+				"x:filter-class", "x:listener-class","x:servlet-class"
+			},
+			"x", "http:java.sun.com/xml/ns/j2ee");
+	}
+
+	protected void processDefaultServletPackages() {
+		for (String value :
+				PropsValues.
+					MODULE_FRAMEWORK_WEB_EXTENDER_DEFAULT_SERVLET_PACKAGES) {
+
+			int index = value.indexOf(StringPool.SEMICOLON);
+
+			if (index != -1) {
+				value = value.substring(0, index);
+			}
+
+			_importPackageNames.add(value.trim());
+		}
+	}
+
 	protected void processExtraHeaders(Analyzer analyzer) {
 		String bundleSymbolicName = analyzer.getProperty(
 			Constants.BUNDLE_SYMBOLICNAME);
@@ -533,6 +606,37 @@ public class WabProcessor {
 		return packageNames;
 	}
 
+	protected void processLiferayPortletXML() throws IOException {
+		File file = new File(_file, "WEB-INF/liferay-portlet.xml");
+
+		if (!file.exists()) {
+			return;
+		}
+
+		Document document = readDocument(file);
+
+		Element rootElement = document.getRootElement();
+
+		for (Element element : rootElement.elements("portlet")) {
+			Element strutsPathElement = element.element("struts-path");
+
+			if (strutsPathElement == null) {
+				continue;
+			}
+
+			String strutsPath = strutsPathElement.getTextTrim();
+
+			if (!strutsPath.startsWith(StringPool.SLASH)) {
+				strutsPath = StringPool.SLASH.concat(strutsPath);
+			}
+
+			strutsPathElement.setText(
+				Portal.PATH_MODULE.substring(1) + _context + strutsPath);
+		}
+
+		formatDocument(file, document);
+	}
+
 	protected void processManifestVersion(Analyzer analyzer) {
 		String manifestVersion = MapUtil.getString(
 			_parameters, Constants.BUNDLE_MANIFESTVERSION);
@@ -552,16 +656,7 @@ public class WabProcessor {
 			return;
 		}
 
-		String content = FileUtil.read(file);
-
-		Document document = null;
-
-		try {
-			document = SAXReaderUtil.read(content);
-		}
-		catch (DocumentException de) {
-			throw new IOException(de);
-		}
+		Document document = readDocument(file);
 
 		Element rootElement = document.getRootElement();
 
@@ -571,14 +666,7 @@ public class WabProcessor {
 			processPortletXML(element, rootElement.getQName());
 		}
 
-		try {
-			content = DDMXMLUtil.formatXML(document);
-
-			FileUtil.write(file, content);
-		}
-		catch (Exception e) {
-			throw new IOException(e);
-		}
+		formatDocument(file, document);
 	}
 
 	protected void processPortletXML(Element element, QName qName) {
@@ -661,6 +749,39 @@ public class WabProcessor {
 		}
 	}
 
+	protected void processTLDDependencies() throws IOException {
+		File dir = new File(_file, "WEB-INF/tld");
+
+		if (!dir.exists() || !dir.isDirectory()) {
+			return;
+		}
+
+		File[] files = dir.listFiles(new FileFilter(".*\\.tld"));
+
+		for (File file : files) {
+			String content = FileUtil.read(file);
+
+			DependencyVisitor dependencyVisitor = new DependencyVisitor();
+
+			Matcher matcher = _tldPackagesPattern.matcher(content);
+
+			while (matcher.find()) {
+				String value = matcher.group(1);
+
+				value = value.trim();
+
+				processClass(
+					new ClassLoaderSource(_classLoader), dependencyVisitor,
+					getFileName(value));
+			}
+
+			for (String global : dependencyVisitor.getGlobals()) {
+				_importPackageNames.add(
+					global.replaceAll(StringPool.SLASH, StringPool.PERIOD));
+			}
+		}
+	}
+
 	protected boolean processWebXML(Element element, Class<?> clazz) {
 		String elementText = element.getTextTrim();
 
@@ -696,16 +817,7 @@ public class WabProcessor {
 			return;
 		}
 
-		String content = FileUtil.read(file);
-
-		Document document = null;
-
-		try {
-			document = SAXReaderUtil.read(content);
-		}
-		catch (DocumentException de) {
-			throw new IOException(de);
-		}
+		Document document = readDocument(file);
 
 		Element rootElement = document.getRootElement();
 
@@ -729,13 +841,57 @@ public class WabProcessor {
 			}
 		}
 
-		try {
-			content = DDMXMLUtil.formatXML(document);
+		formatDocument(file, document);
+	}
 
-			FileUtil.write(file, content);
+	protected void processXMLDependencies(
+			String fileName, String[] xPathExpressions, String prefix,
+			String namespace)
+		throws IOException {
+
+		File file = new File(_file, fileName);
+
+		if (!file.exists()) {
+			return;
 		}
-		catch (Exception e) {
-			throw new IOException(e);
+
+		Document document = readDocument(file);
+
+		Element rootElement = document.getRootElement();
+
+		DependencyVisitor dependencyVisitor = new DependencyVisitor();
+
+		for (String xPathExpression : xPathExpressions) {
+			XPath xPath = SAXReaderUtil.createXPath(
+				"//" + xPathExpression, prefix, namespace);
+
+			List<Node> nodes = xPath.selectNodes(rootElement);
+
+			for (Node node : nodes) {
+				String text = node.getText();
+
+				text = text.trim();
+
+				processClass(
+					new ClassLoaderSource(_classLoader), dependencyVisitor,
+					getFileName(text));
+			}
+		}
+
+		for (String global : dependencyVisitor.getGlobals()) {
+			_importPackageNames.add(
+				global.replaceAll(StringPool.SLASH, StringPool.PERIOD));
+		}
+	}
+
+	protected Document readDocument(File file) throws IOException {
+		String content = FileUtil.read(file);
+
+		try {
+			return SAXReaderUtil.read(content);
+		}
+		catch (DocumentException de) {
+			throw new IOException(de);
 		}
 	}
 
@@ -753,10 +909,12 @@ public class WabProcessor {
 
 		processManifestVersion(analyzer);
 
+		processLiferayPortletXML();
 		processPortletXML();
-
 		processWebXML("WEB-INF/web.xml");
 		processWebXML("WEB-INF/liferay-web.xml");
+
+		processDeclarativeReferences();
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(WabProcessor.class);
@@ -774,5 +932,7 @@ public class WabProcessor {
 	private File _pluginDir;
 	private PluginPackage _pluginPackage;
 	private String _servicePackageName;
+	private Pattern _tldPackagesPattern = Pattern.compile(
+		"<[^>]+?-class>\\p{Space}*?(.*?)\\p{Space}*?</[^>]+?-class>");
 
 }
