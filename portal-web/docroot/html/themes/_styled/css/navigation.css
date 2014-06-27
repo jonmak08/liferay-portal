@@ -3,10 +3,6 @@
 
 /* ---------- Add/remove page ---------- */
 
-.mobile .modify-pages .lfr-nav-sortable > a > span {
-		padding-left: 28px;
-	}
-
 .modify-pages {
 	li {
 		position: relative;
@@ -118,6 +114,10 @@
 	.drag-handle {
 		display: none;
 	}
+}
+
+.touch .modify-pages .lfr-nav-sortable > a > span {
+	padding-left: 28px;
 }
 
 .nav {
