@@ -1524,7 +1524,7 @@ public class PortletDataContextImpl implements PortletDataContext {
 		List<MBMessage> messages = _commentsMap.get(
 			getPrimaryKeyString(clazz, classPK));
 
-		if (messages == null) {
+		if ((messages == null) || messages.isEmpty()) {
 			return;
 		}
 
