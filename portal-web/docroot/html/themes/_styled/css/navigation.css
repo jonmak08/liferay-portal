@@ -38,10 +38,6 @@
 		}
 	}
 
-	.lfr-nav-sortable > a > span {
-		padding-left: 28px;
-	}
-
 	.drag-handle {
 		background-color: #555;
 
@@ -118,6 +114,10 @@
 	.drag-handle {
 		display: none;
 	}
+}
+
+.touch .modify-pages .lfr-nav-sortable > a > span {
+	padding-left: 28px;
 }
 
 .nav {
