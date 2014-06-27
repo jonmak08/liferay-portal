@@ -1767,7 +1767,7 @@ public class PortletDataContextImpl implements PortletDataContext {
 		List<RatingsEntry> ratingsEntries = _ratingsEntriesMap.get(
 			getPrimaryKeyString(clazz, classPK));
 
-		if (ratingsEntries == null) {
+		if ((ratingsEntries == null) || ratingsEntries.isEmpty()) {
 			return;
 		}
 
