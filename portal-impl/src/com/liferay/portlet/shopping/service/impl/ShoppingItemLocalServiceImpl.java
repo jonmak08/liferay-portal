@@ -601,11 +601,11 @@ public class ShoppingItemLocalServiceImpl
 		return StringUtil.replace(
 			value,
 			new String[] {
-				"\"", "&", "'", ".", "=", "|"
+				"\"", "&", "'", "=", "|"
 			},
 			new String[] {
 				StringPool.BLANK, StringPool.BLANK, StringPool.BLANK,
-				StringPool.BLANK, StringPool.BLANK, StringPool.BLANK
+				StringPool.BLANK, StringPool.BLANK
 			}
 		);
 	}
