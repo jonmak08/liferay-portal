@@ -111,12 +111,12 @@
 	.staging-toggle .variations-options {
 		position: relative;
 
-		@include respond-to (tablet) {
-			padding: 0;
-		}
-
 		@include respond-to(phone) {
 			padding: 0 10px;
+		}
+
+		@include respond-to(tablet) {
+			padding: 0;
 		}
 
 		.staging-variation-selector {
