@@ -410,18 +410,18 @@ $editLayoutPanelWidth: 460px;
 					padding: 10px;
 				}
 
-				&.active a, > a {
+				&.active > a {
 					color: #555;
 				}
 
 				> a {
-					line-height: 27px;
+					color: #FFF;
 					margin: 0 5px 0 0;
-					padding: 4px 10px;
+					padding: 6px 10px;
+				}
 
-					&:focus, &:hover {
-						background-color: #2FA4F5;
-					}
+				&.dropdown.open ul.dropdown-menu {
+					padding: 5px 0;
 				}
 			}
 
@@ -613,11 +613,6 @@ $editLayoutPanelWidth: 460px;
 			.info-items {
 				left: auto;
 				position: static;
-			}
-
-			.nav > li.staging-toggle > a {
-				color: #FFF;
-				padding: 6px 10px;
 			}
 
 			.container, .container-fluid {

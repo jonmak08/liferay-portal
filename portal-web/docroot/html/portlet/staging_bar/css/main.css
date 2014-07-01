@@ -112,6 +112,10 @@
 
 		@include respond-to(phone) {
 			padding: 0 10px;
+
+			.taglib-icon {
+				padding: 3px 6px;
+			}
 		}
 
 		@include respond-to(tablet) {
@@ -158,10 +162,6 @@
 
 			@include respond-to(phone) {
 				position: static;
-			}
-
-			@include respond-to(tablet) {
-				bottom: 10px;
 			}
 		}
 

@@ -190,8 +190,16 @@ $dockbarOpenGradientStart: #0EA6F9;
 				}
 			}
 
-			.staging-toggle {
+			li.staging-toggle {
 				color: #FFF;
+
+				> a {
+					line-height: 27px;
+
+					&:focus, &:hover {
+						background-color: #2FA4F5;
+					}
+				}
 
 				li a {
 					color: #FFF;
