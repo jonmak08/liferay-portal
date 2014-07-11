@@ -36,10 +36,6 @@ if (folder != null) {
 
 	if (parentFolderId != JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
 		JournalFolder parentFolder = JournalFolderServiceUtil.fetchFolder(folderId);
-
-		if (parentFolder != null) {
-			parentFolderId = JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID;
-		}
 	}
 }
 
@@ -87,9 +83,9 @@ else {
 
 <div id="<portlet:namespace />listViewContainer">
 	<div id="<portlet:namespace />folderContainer">
-		<aui:nav cssClass="list-group">
+		<aui:nav cssClass="list-group panel-default">
 			<c:if test="<%= Validator.isNotNull(parentTitle) %>">
-				<li class="dropdown-header list-group-item">
+				<li class="list-group-item panel-heading">
 					<%= HtmlUtil.escape(parentTitle) %>
 				</li>
 			</c:if>
