@@ -120,6 +120,12 @@
 	max-width: 200px;
 }
 
+/* ---------- Portal Form Builder ---------- */
+
+.form-builder-field .btn-group > .btn {
+	width: auto;
+}
+
 /* ---------- Tags ---------- */
 
 .tagselector-content {
