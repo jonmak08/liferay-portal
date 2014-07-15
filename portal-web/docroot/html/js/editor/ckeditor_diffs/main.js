@@ -50,6 +50,22 @@ AUI.add(
 						instance.after('destroy', instance._destructor, instance);
 
 						instance.after(['saveFailure', 'saveSuccess'], instance._updateNoticePosition, instance);
+
+						// LPS-46847. Follow a link in edit mode.
+
+						A.one('#' + instance.get(EDITOR_NAME)).delegate(
+							'click',
+							function(event) {
+								if (event.shiftKey) {
+									var clone = event.currentTarget.clone();
+
+									A.getBody().append(clone);
+
+									clone.simulate('click');
+								}
+							},
+							'a'
+						);
 					},
 
 					isContentDirty: function() {
@@ -191,6 +207,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['array-invoke', 'liferay-inline-editor-base', 'overlay', 'yui-later']
+		requires: ['array-invoke', 'liferay-inline-editor-base', 'overlay', 'node-event-simulate', 'yui-later']
 	}
 );
