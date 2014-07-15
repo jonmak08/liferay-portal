@@ -116,7 +116,7 @@ List<Group> mySiteGroups = user.getMySiteGroups(classNames, includeControlPanel,
 						}
 						%>
 
-						<c:if test="<%= showPublicSite && ((mySiteGroup.getPublicLayoutsPageCount() > 0) || showPublicSiteStaging) %>">
+						<c:if test="<%= showPublicSite && ((mySiteGroup.getPublicLayoutsPageCount() >= 0) || showPublicSiteStaging) %>">
 
 							<%
 							if (showPublicSiteStaging) {
