@@ -61,7 +61,7 @@ AUI.add(
 
 		var DocumentLibrary = A.Component.create(
 			{
-				AUGMENTS: [Liferay.PortletBase, Liferay.DocumentLibraryUpload, Liferay.StorageFormatter],
+				AUGMENTS: [Liferay.PortletBase],
 
 				EXTENDS: A.Base,
 
@@ -168,7 +168,10 @@ AUI.add(
 
 						instance._appViewFolders = new Liferay.AppViewFolders(foldersConfig);
 
+						instance._folderId = foldersConfig.defaultParentFolderId;
+
 						var eventHandles = [
+							Liferay.after('liferay-app-view-folders:dataRequest', instance._afterDataRequest ,instance),
 							Liferay.on(instance._eventDataRetrieveSuccess, instance._onDataRetrieveSuccess, instance),
 							Liferay.on(instance._eventOpenDocument, instance._openDocument, instance),
 							Liferay.on(instance._eventPageLoaded, instance._onPageLoaded, instance),
@@ -194,6 +197,18 @@ AUI.add(
 						instance._toggleSyncNotification();
 
 						instance._toggleTrashAction();
+
+						var Win = A.config.win;
+
+						var html5 = (Win && Win.File && Win.FormData && Win.XMLHttpRequest);
+
+						var permission = (themeDisplay.isSignedIn() && instance.one('#addButtonContainer'));
+
+						if (html5 && permission && instance._entriesContainer.inDoc()) {
+							config.appViewEntryTemplates = instance.byId('appViewEntryTemplates');
+
+							A.getDoc().once('dragenter', instance._plugUpload, instance, config);
+						}
 					},
 
 					destructor: function() {
@@ -207,6 +222,12 @@ AUI.add(
 						instance._appViewSelect.destroy();
 
 						instance._documentLibraryContainer.purge(true);
+					},
+
+					_afterDataRequest: function(event) {
+						var instance = this;
+
+						instance._folderId = event.requestParams[instance.ns('folderId')];
 					},
 
 					_afterStateChange: function(event) {
@@ -274,6 +295,28 @@ AUI.add(
 						}
 
 						return repositoryName;
+					},
+
+					_plugUpload: function(event, config) {
+						var instance = this;
+
+						instance.plug(
+							Liferay.DocumentLibraryUpload,
+							{
+								appViewEntryTemplates: config.appViewEntryTemplates,
+								appViewMove: instance._appViewMove,
+								columnNames: config.columnNames,
+								dimensions: config.folders.dimensions,
+								displayStyle: config.displayStyle,
+								entriesContainer: instance._entriesContainer,
+								folderId: instance._folderId,
+								listViewContainer: instance.byId('listViewContainer'),
+								maxFileSize: config.maxFileSize,
+								redirect: config.redirect,
+								uploadURL: config.uploadURL,
+								viewFileEntryURL: config.viewFileEntryURL
+							}
+						);
 					},
 
 					_onChangeSearchFolder: function(event) {
@@ -617,6 +660,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-loading-mask-deprecated', 'aui-parse-content', 'document-library-upload', 'event-simulate', 'liferay-app-view-folders', 'liferay-app-view-move', 'liferay-app-view-paginator', 'liferay-app-view-select', 'liferay-history-manager', 'liferay-message', 'liferay-portlet-base', 'liferay-storage-formatter', 'querystring-parse-simple']
+		requires: ['aui-loading-mask-deprecated', 'document-library-upload', 'event-simulate', 'liferay-app-view-folders', 'liferay-app-view-move', 'liferay-app-view-paginator', 'liferay-app-view-select', 'liferay-history-manager', 'liferay-message', 'liferay-portlet-base']
 	}
 );
