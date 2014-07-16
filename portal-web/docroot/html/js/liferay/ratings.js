@@ -267,6 +267,8 @@ AUI.add(
 						var uri = instance.get(STR_URI);
 						var score = instance.ratings.get('selectedIndex') + 1;
 
+						instance._updateScore(instance.ratings.get('contentBox'), score);
+
 						instance._sendVoteRequest(uri, score, instance._saveCallback);
 					},
 
@@ -318,12 +320,20 @@ AUI.add(
 
 						ratingScore.one('.rating-label').html(label);
 
-						ratingScore.all(SELECTOR_RATING_ELEMENT).each(
+						instance._updateScore(ratingScore, averageScore);
+
+						instance._updateAverageScoreText(averageScore);
+					},
+
+					_updateScore: function(rating, score) {
+						var instance = this;
+
+						rating.all(SELECTOR_RATING_ELEMENT).each(
 							function(item, index) {
 								var fromCssClass = CSS_ICON_STAR;
 								var toCssClass = CSS_ICON_STAR_EMPTY;
 
-								if (index < averageIndex) {
+								if (index < score) {
 									fromCssClass = CSS_ICON_STAR_EMPTY;
 									toCssClass = CSS_ICON_STAR;
 								}
@@ -331,8 +341,6 @@ AUI.add(
 								item.replaceClass(fromCssClass, toCssClass);
 							}
 						);
-
-						instance._updateAverageScoreText(averageScore);
 					}
 				}
 			}
