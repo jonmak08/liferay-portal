@@ -412,12 +412,22 @@ $editLayoutPanelWidth: 460px;
 			}
 
 			> li.staging-toggle {
-				&.active a, > a {
+				@include respond-to(phone, tablet) {
+					padding: 10px;
+				}
+
+				&.active > a {
 					color: #555;
 				}
 
 				> a {
-					padding: 4px 10px;
+					color: #FFF;
+					margin: 0 5px 0 0;
+					padding: 6px 10px;
+				}
+
+				&.dropdown.open ul.dropdown-menu {
+					padding: 5px 0;
 				}
 			}
 
@@ -609,11 +619,6 @@ $editLayoutPanelWidth: 460px;
 			.info-items {
 				left: auto;
 				position: static;
-			}
-
-			.nav > li.staging-toggle > a {
-				color: #FFF;
-				padding: 6px 10px;
 			}
 
 			.container, .container-fluid {
@@ -1366,7 +1371,7 @@ $editLayoutPanelWidth: 460px;
 
 		.portlet-staging-bar .layout-revision-actions {
 			a.taglib-icon {
-				padding: 9px 15px;
+				padding: 9px 10px;
 			}
 
 			[class^="icon-"] {
@@ -1382,12 +1387,6 @@ $editLayoutPanelWidth: 460px;
 				margin: 0;
 				padding: 10px;
 			}
-		}
-	}
-
-	@include respond-to(phone) {
-		.portlet-staging-bar .layout-revision-actions a.taglib-icon {
-			margin-left: -5px;
 		}
 	}
 }
