@@ -461,6 +461,13 @@ public class CompanyLocalServiceImpl extends CompanyLocalServiceBaseImpl {
 	}
 
 	@Override
+	public Company deleteCompany(Company company)
+		throws PortalException, SystemException {
+
+		return deleteCompany(company.getCompanyId());
+	}
+
+	@Override
 	public Company deleteCompany(long companyId)
 		throws PortalException, SystemException {
 
