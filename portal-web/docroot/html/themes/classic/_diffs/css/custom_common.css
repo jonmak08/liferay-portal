@@ -329,7 +329,6 @@ $dockbarOpenGradientStart: #0EA6F9;
 						}
 
 						&:focus, &:hover {
-							background-color: #2FA4F5;
 							color: #FFF;
 						}
 					}

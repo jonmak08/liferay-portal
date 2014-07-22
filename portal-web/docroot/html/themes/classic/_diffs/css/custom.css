@@ -159,7 +159,7 @@ $dockbarOpenGradientStart: #0EA6F9;
 		}
 
 		.staging-bar {
-			margin: 10px 0;
+			margin: 6px 0 0;
 
 			> li {
 				background: transparent;

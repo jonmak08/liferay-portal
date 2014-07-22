@@ -141,7 +141,7 @@ if (layout != null) {
 										</div>
 
 										<c:if test="<%= group.isStagingGroup() || group.isStagedRemotely() %>">
-											<liferay-staging:menu cssClass="publish-link" extended="<%= false %>" onlyActions="<%= true %>" />
+											<liferay-staging:menu cssClass="col-sm-12 publish-link" extended="<%= false %>" onlyActions="<%= true %>" />
 										</c:if>
 									</c:otherwise>
 								</c:choose>
