@@ -275,8 +275,14 @@ public class MBCategoryLocalServiceImpl extends MBCategoryLocalServiceBaseImpl {
 
 		// Trash
 
-		trashEntryLocalService.deleteEntry(
-			MBCategory.class.getName(), category.getCategoryId());
+		if (category.isInTrashExplicitly()) {
+			trashEntryLocalService.deleteEntry(
+				MBCategory.class.getName(), category.getCategoryId());
+		}
+		else {
+			trashVersionLocalService.deleteTrashVersion(
+				0, MBCategory.class.getName(), category.getCategoryId());
+		}
 
 		// Category
 
