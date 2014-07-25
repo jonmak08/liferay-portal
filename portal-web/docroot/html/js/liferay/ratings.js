@@ -3,9 +3,9 @@ AUI.add(
 	function(A) {
 		var Lang = A.Lang;
 
-		var CSS_ICON_STAR = 'icon-star';
+		var CSS_ICON_STAR = 'glyphicon-star';
 
-		var CSS_ICON_STAR_EMPTY = 'icon-star-empty';
+		var CSS_ICON_STAR_EMPTY = 'glyphicon-star-empty';
 
 		var EMPTY_FN = Lang.emptyFn;
 
@@ -149,7 +149,7 @@ AUI.add(
 
 						var message = '';
 
-						var stars = instance._ratingScoreNode.all('.icon-star').size();
+						var stars = instance._ratingScoreNode.all('.' + CSS_ICON_STAR).size();
 
 						if (stars == 1) {
 							message = Liferay.Language.get('star');

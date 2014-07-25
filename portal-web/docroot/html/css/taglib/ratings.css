@@ -43,7 +43,12 @@
 	}
 
 	.rating-element {
+		font-size: 20px;
 		padding-right: 4px;
+
+		&:hover {
+			text-decoration: none;
+		}
 	}
 
 	.rating-input-container .rating-input {
