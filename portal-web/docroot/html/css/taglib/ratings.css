@@ -9,6 +9,15 @@
 			padding-left: 15px;
 		}
 
+		.rating-element {
+			font-size: 1em;
+			top: auto;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
 		.liferay-rating-vote, .liferay-rating-score {
 			float: left;
 		}
