@@ -421,7 +421,8 @@ public class HtmlBBCodeTranslatorImpl implements BBCodeTranslator {
 			String attributeName = matcher.group(1);
 
 			if (Validator.isNotNull(attributeName) &&
-				_imageAttributes.contains(attributeName.toLowerCase())) {
+				_imageAttributes.contains(
+					StringUtil.toLowerCase(attributeName))) {
 
 				String attributeValue = matcher.group(2);
 
