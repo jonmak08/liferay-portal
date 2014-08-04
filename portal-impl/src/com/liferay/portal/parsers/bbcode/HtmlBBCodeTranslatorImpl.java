@@ -26,10 +26,13 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -86,18 +89,10 @@ public class HtmlBBCodeTranslatorImpl implements BBCodeTranslator {
 					image + "\" >";
 		}
 
-		_imageAttributes = new HashMap<String, Integer>();
-
-		_imageAttributes.put("alt", 1);
-		_imageAttributes.put("class", 1);
-		_imageAttributes.put("dir", 1);
-		_imageAttributes.put("height", 1);
-		_imageAttributes.put("id", 1);
-		_imageAttributes.put("lang", 1);
-		_imageAttributes.put("longdesc", 1);
-		_imageAttributes.put("style", 1);
-		_imageAttributes.put("title", 1);
-		_imageAttributes.put("width", 1);
+		_imageAttributes = new HashSet<String>(
+			Arrays.asList(
+				"alt", "class", "dir", "height", "id", "lang", "longdesc",
+				"style", "title", "width"));
 	}
 
 	@Override
@@ -424,7 +419,7 @@ public class HtmlBBCodeTranslatorImpl implements BBCodeTranslator {
 		while (matcher.find()) {
 			String attributeName = matcher.group(1);
 
-			if (Validator.isNotNull(_imageAttributes.get(attributeName))) {
+			if (_imageAttributes.contains(attributeName.toLowerCase())) {
 				String attributeValue = matcher.group(2);
 
 				sb.append(StringPool.SPACE);
@@ -759,7 +754,7 @@ public class HtmlBBCodeTranslatorImpl implements BBCodeTranslator {
 	private String[] _emoticonSymbols = new String[_EMOTICONS.length];
 	private Map<String, Integer> _excludeNewLineTypes;
 	private int[] _fontSizes = {10, 12, 16, 18, 24, 32, 48};
-	private Map<String, Integer> _imageAttributes;
+	private Set<String> _imageAttributes;
 	private Pattern _imagePattern = Pattern.compile(
 		"^(?:https?://|/)[-;/?:@&=+$,_.!~*'()%0-9a-z]{1,512}$",
 		Pattern.CASE_INSENSITIVE);
