@@ -382,24 +382,6 @@
 			instance._handleData(node.data, node);
 		},
 
-		_handleImageAttributes: function(element) {
-			var attrs = '';
-
-			var length = MAP_IMAGE_ATTRIBUTES.length;
-
-			for (var i = 0; i < length; i++) {
-				var attrName = MAP_IMAGE_ATTRIBUTES[i];
-
-				var attrValue = element.getAttribute(attrName);
-
-				if (attrValue) {
-					attrs += ' ' + attrName + '="' + attrValue + '"';
-				}
-			}
-
-			return attrs;
-		},
-
 		_handleBreak: function(element, listTagsIn, listTagsOut) {
 			var instance = this;
 
@@ -540,6 +522,24 @@
 
 				listTagsOut.push('[/img]');
 			}
+		},
+
+		_handleImageAttributes: function(element) {
+			var attrs = '';
+
+			var length = MAP_IMAGE_ATTRIBUTES.length;
+
+			for (var i = 0; i < length; i++) {
+				var attrName = MAP_IMAGE_ATTRIBUTES[i];
+
+				var attrValue = element.getAttribute(attrName);
+
+				if (attrValue) {
+					attrs += ' ' + attrName + '="' + attrValue + '"';
+				}
+			}
+
+			return attrs;
 		},
 
 		_handleLineThrough: function(element, listTagsIn, listTagsOut) {
@@ -737,23 +737,6 @@
 			}
 		},
 
-		_handleStyleTextDecoration: function(element, stylesTagsIn, stylesTagsOut) {
-			var style = element.style;
-
-			var textDecoration = style.textDecoration.toLowerCase();
-
-			if (textDecoration == 'line-through') {
-				stylesTagsIn.push('[s]');
-
-				stylesTagsOut.push('[/s]');
-			}
-			else if (textDecoration == 'underline') {
-				stylesTagsIn.push('[u]');
-
-				stylesTagsOut.push('[/u]');
-			}
-		},
-
 		_handleStyles: function(element, stylesTagsIn, stylesTagsOut) {
 			var instance = this;
 
@@ -770,6 +753,23 @@
 				instance._handleStyleFontSize(element, stylesTagsIn, stylesTagsOut);
 				instance._handleStyleItalic(element, stylesTagsIn, stylesTagsOut);
 				instance._handleStyleTextDecoration(element, stylesTagsIn, stylesTagsOut);
+			}
+		},
+
+		_handleStyleTextDecoration: function(element, stylesTagsIn, stylesTagsOut) {
+			var style = element.style;
+
+			var textDecoration = style.textDecoration.toLowerCase();
+
+			if (textDecoration == 'line-through') {
+				stylesTagsIn.push('[s]');
+
+				stylesTagsOut.push('[/s]');
+			}
+			else if (textDecoration == 'underline') {
+				stylesTagsIn.push('[u]');
+
+				stylesTagsOut.push('[/u]');
 			}
 		},
 
