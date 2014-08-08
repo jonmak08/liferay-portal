@@ -35,7 +35,7 @@ String portletURLString = portletURL.toString();
 		searchContainer="<%= new RoleSearch(renderRequest, portletURL) %>"
 	>
 		<aui:nav-bar>
-			<aui:nav cssClass="navbar-nav">
+			<aui:nav cssClass="navbar-nav single-navbar-button-dropdown" icon="plus">
 				<c:if test="<%= PortalPermissionUtil.contains(permissionChecker, ActionKeys.ADD_ROLE) %>">
 					<portlet:renderURL var="viewRolesURL">
 						<portlet:param name="struts_action" value="/roles_admin/view" />

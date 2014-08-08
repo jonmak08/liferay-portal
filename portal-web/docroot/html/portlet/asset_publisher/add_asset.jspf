@@ -14,7 +14,7 @@
  */
 --%>
 
-<aui:nav cssClass="navbar-nav">
+<aui:nav cssClass="navbar-nav single-navbar-button-dropdown" icon="plus">
 	<c:choose>
 		<c:when test="<%= addPortletURLs.size() == 1 %>">
 

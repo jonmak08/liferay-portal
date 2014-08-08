@@ -1,3 +1,5 @@
+@import "mixins";
+
 .portlet-asset-publisher {
 	.asset-abstract {
 		border-bottom: 1px solid #DDD;
@@ -173,7 +175,11 @@
 	}
 
 	.single-item-button {
-		display: inline-block;
+		display: block;
+
+		@include respond-to(desktop) {
+			display: inline-block;
+		}
 	}
 
 	.subscribe-action {

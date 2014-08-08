@@ -15,7 +15,7 @@
 --%>
 
 <aui:nav-bar>
-	<aui:nav cssClass="navbar-nav" searchContainer="<%= searchContainer %>">
+	<aui:nav cssClass="navbar-nav single-navbar-button-dropdown" icon="plus" searchContainer="<%= searchContainer %>">
 		<%@ include file="/html/portlet/sites_admin/toolbar_content.jspf" %>
 	</aui:nav>
 

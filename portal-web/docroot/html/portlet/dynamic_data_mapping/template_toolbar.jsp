@@ -17,6 +17,8 @@
 <%@ include file="/html/portlet/dynamic_data_mapping/init.jsp" %>
 
 <%
+Group group = layout.getGroup();
+
 SearchContainer searchContainer = (SearchContainer)request.getAttribute(WebKeys.SEARCH_CONTAINER);
 
 String toolbarItem = ParamUtil.getString(request, "toolbarItem");
@@ -29,7 +31,18 @@ long classPK = ParamUtil.getLong(request, "classPK");
 %>
 
 <aui:nav-bar>
-	<aui:nav cssClass="navbar-nav" searchContainer="<%= searchContainer %>">
+	<%
+	String navClass = "navbar-nav";
+
+	if (group.isControlPanel()) {
+		navClass = navClass.concat(" single-navbar-button-dropdown");
+	}
+	else {
+		navClass = navClass.concat(" single-navbar-button-link");
+	}
+	%>
+
+	<aui:nav cssClass="navbar-nav single-navbar-button-dropdown" icon="plus" searchContainer="<%= searchContainer %>">
 
 		<%
 		String message = "add";
