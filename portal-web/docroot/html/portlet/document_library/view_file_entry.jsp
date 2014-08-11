@@ -898,41 +898,43 @@ request.setAttribute("view_file_entry.jsp-fileEntry", fileEntry);
 
 		</c:if>
 
-		<c:if test="<%= DLFileEntryPermission.contains(permissionChecker, fileEntry, ActionKeys.UPDATE) && (!fileEntry.isCheckedOut() || fileEntry.hasLock()) %>">
-			fileEntryButtonGroup.push(
-				{
+		<c:if test="<%= DLFileEntryPermission.contains(permissionChecker, fileEntry, ActionKeys.UPDATE) && (!fileEntry.isCheckedOut() || fileEntry.hasLock() || DLFileEntryPermission.contains(permissionChecker, fileEntry.getFileEntryId(), ActionKeys.OVERRIDE_CHECKOUT)) %>">
+			<c:if test="<%= !fileEntry.isCheckedOut() ||fileEntry.hasLock() %>">
+				fileEntryButtonGroup.push(
+					{
 
-					<portlet:renderURL var="editURL">
-						<portlet:param name="struts_action" value="/document_library/edit_file_entry" />
-						<portlet:param name="redirect" value="<%= currentURL %>" />
-						<portlet:param name="fileEntryId" value="<%= String.valueOf(fileEntry.getFileEntryId()) %>" />
-					</portlet:renderURL>
+						<portlet:renderURL var="editURL">
+							<portlet:param name="struts_action" value="/document_library/edit_file_entry" />
+							<portlet:param name="redirect" value="<%= currentURL %>" />
+							<portlet:param name="fileEntryId" value="<%= String.valueOf(fileEntry.getFileEntryId()) %>" />
+						</portlet:renderURL>
 
-					icon: 'icon-pencil',
-					label: '<%= UnicodeLanguageUtil.get(pageContext, "edit") %>',
-					on: {
-						click: function(event) {
-							location.href = '<%= editURL.toString() %>';
+						icon: 'icon-pencil',
+						label: '<%= UnicodeLanguageUtil.get(pageContext, "edit") %>',
+						on: {
+							click: function(event) {
+								location.href = '<%= editURL.toString() %>';
+							}
+						}
+					},
+					{
+
+						<portlet:renderURL var="moveURL">
+							<portlet:param name="struts_action" value="/document_library/move_file_entry" />
+							<portlet:param name="redirect" value="<%= redirect %>" />
+							<portlet:param name="fileEntryId" value="<%= String.valueOf(fileEntry.getFileEntryId()) %>" />
+						</portlet:renderURL>
+
+						icon: 'icon-move',
+						label: '<%= UnicodeLanguageUtil.get(pageContext, "move") %>',
+						on: {
+							click: function(event) {
+								location.href = '<%= moveURL.toString() %>';
+							}
 						}
 					}
-				},
-				{
-
-					<portlet:renderURL var="moveURL">
-						<portlet:param name="struts_action" value="/document_library/move_file_entry" />
-						<portlet:param name="redirect" value="<%= redirect %>" />
-						<portlet:param name="fileEntryId" value="<%= String.valueOf(fileEntry.getFileEntryId()) %>" />
-					</portlet:renderURL>
-
-					icon: 'icon-move',
-					label: '<%= UnicodeLanguageUtil.get(pageContext, "move") %>',
-					on: {
-						click: function(event) {
-							location.href = '<%= moveURL.toString() %>';
-						}
-					}
-				}
-			);
+				);
+			</c:if>
 
 			<c:if test="<%= !fileEntry.isCheckedOut() %>">
 				fileEntryButtonGroup.push(
@@ -950,31 +952,37 @@ request.setAttribute("view_file_entry.jsp-fileEntry", fileEntry);
 				);
 			</c:if>
 
-			<c:if test="<%= fileEntry.isCheckedOut() && fileEntry.hasLock() %>">
-				fileEntryButtonGroup.push(
-					{
+			<c:if test="<%= fileEntry.isCheckedOut() %>">
+				<c:if test="<%= fileEntry.hasLock() || DLFileEntryPermission.contains(permissionChecker, fileEntry.getFileEntryId(), ActionKeys.OVERRIDE_CHECKOUT) %>">
+					fileEntryButtonGroup.push(
+						{
 
-						icon: 'icon-undo',
-						label: '<%= UnicodeLanguageUtil.get(pageContext, "cancel-checkout[document]") %>',
-						on: {
-							click: function(event) {
-								document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = '<%= Constants.CANCEL_CHECKOUT %>';
-								submitForm(document.<portlet:namespace />fm);
+							icon: 'icon-undo',
+							label: '<%= UnicodeLanguageUtil.get(pageContext, "cancel-checkout[document]") %>',
+							on: {
+								click: function(event) {
+									document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = '<%= Constants.CANCEL_CHECKOUT %>';
+									submitForm(document.<portlet:namespace />fm);
+								}
 							}
 						}
-					},
-					{
+					);
+				</c:if>
+				<c:if test="<%= fileEntry.hasLock() %>">
+					fileEntryButtonGroup.push(
+						{
 
-						icon: 'icon-unlock',
-						label: '<%= UnicodeLanguageUtil.get(pageContext, "checkin") %>',
-						on: {
-							click: function(event) {
-								document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = '<%= Constants.CHECKIN %>';
-								submitForm(document.<portlet:namespace />fm);
+							icon: 'icon-unlock',
+							label: '<%= UnicodeLanguageUtil.get(pageContext, "checkin") %>',
+							on: {
+								click: function(event) {
+									document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = '<%= Constants.CHECKIN %>';
+									submitForm(document.<portlet:namespace />fm);
+								}
 							}
 						}
-					}
-				);
+					);
+				</c:if>
 			</c:if>
 		</c:if>
 
