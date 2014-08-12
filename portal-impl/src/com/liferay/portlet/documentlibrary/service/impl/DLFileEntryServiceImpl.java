@@ -82,7 +82,10 @@ public class DLFileEntryServiceImpl extends DLFileEntryServiceBaseImpl {
 
 		try {
 			if (!hasFileEntryLock(fileEntryId) &&
-				!_hasOverrideCheckoutPermission(fileEntryId)) {
+				!DLFileEntryPermission.contains(
+					getPermissionChecker(), fileEntryId,
+					ActionKeys.OVERRIDE_CHECKOUT)) {
+
 				throw new PrincipalException();
 			}
 		}
@@ -99,8 +102,7 @@ public class DLFileEntryServiceImpl extends DLFileEntryServiceBaseImpl {
 		throws PortalException, SystemException {
 
 		try {
-			if (!hasFileEntryLock(fileEntryId) &&
-				!_hasOverrideCheckoutPermission(fileEntryId)) {
+			if (!hasFileEntryLock(fileEntryId)) {
 				throw new PrincipalException();
 			}
 		}
@@ -128,8 +130,7 @@ public class DLFileEntryServiceImpl extends DLFileEntryServiceBaseImpl {
 		throws PortalException, SystemException {
 
 		try {
-			if (!hasFileEntryLock(fileEntryId) &&
-				!_hasOverrideCheckoutPermission(fileEntryId)) {
+			if (!hasFileEntryLock(fileEntryId)) {
 				throw new PrincipalException();
 			}
 		}
@@ -722,13 +723,6 @@ public class DLFileEntryServiceImpl extends DLFileEntryServiceBaseImpl {
 
 		return dlFileEntryLocalService.verifyFileEntryLock(
 			fileEntryId, lockUuid);
-	}
-
-	private boolean _hasOverrideCheckoutPermission(long fileEntryId)
-		throws PortalException, PrincipalException, SystemException {
-
-		return DLFileEntryPermission.contains(
-			getPermissionChecker(), fileEntryId, ActionKeys.OVERRIDE_CHECKOUT);
 	}
 
 }
