@@ -1107,7 +1107,15 @@
 
 			form = A.one(form);
 
-			form.all(selector).attr(STR_CHECKED, A.one(allBox).get(STR_CHECKED));
+			var allBoxChecked = A.one(allBox).get(STR_CHECKED);
+
+			form.all(selector).each(
+				function(item, index) {
+					if (!item.attr('disabled')) {
+						item.attr(STR_CHECKED, allBoxChecked);
+					}
+				}
+			)
 
 			if (selectClassName) {
 				form.all(selectClassName).toggleClass('info', A.one(allBox).get(STR_CHECKED));
