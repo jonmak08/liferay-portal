@@ -50,25 +50,21 @@ request.setAttribute("search.jsp-returnToFullPageURL", portletDisplay.getURLBack
 	<portlet:param name="struts_action" value="/search/search" />
 </liferay-portlet:renderURL>
 
-<aui:form action="<%= searchURL %>" method="get" name="fm" onSubmit="event.preventDefault();">
+<aui:form action="<%= searchURL %>" cssClass="form-inline" method="get" name="fm" onSubmit="event.preventDefault();">
 	<liferay-portlet:renderURLParams varImpl="searchURL" />
 	<aui:input name="<%= SearchContainer.DEFAULT_CUR_PARAM %>" type="hidden" value="<%= ParamUtil.getInteger(request, SearchContainer.DEFAULT_CUR_PARAM, SearchContainer.DEFAULT_CUR) %>" />
 	<aui:input name="format" type="hidden" value="<%= format %>" />
 
 	<aui:fieldset id="searchContainer">
-		<aui:input autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" inlineField="<%= true %>" label="" name="keywords" size="30" title="search" value="<%= HtmlUtil.escape(keywords) %>" />
-
-		<liferay-ui:icon
-			iconCssClass="icon-search"
-			id="searchButton"
-			url="javascript:;"
-		/>
-
-		<liferay-ui:icon
-			iconCssClass="icon-remove"
-			id="clearSearch"
-			url="javascript:;"
-		/>
+		<div class="form-group search">
+			<div class="form-search">
+				<liferay-ui:input-search
+					title="search"
+					showSearchCancel="true"
+					useNamespace="true"
+				/>
+			</div>
+		</div>
 	</aui:fieldset>
 
 	<div class="lfr-token-list" id="<portlet:namespace />searchTokens">
@@ -124,21 +120,10 @@ request.setAttribute("search.jsp-returnToFullPageURL", portletDisplay.getURLBack
 <aui:script use="aui-base">
 	A.one('#<portlet:namespace />searchContainer').delegate(
 		'click',
-		function(event) {
-			var targetId = event.currentTarget.get('id');
-
-			if (targetId === '<portlet:namespace />searchButton') {
-				<portlet:namespace />search();
-			}
-			else if (targetId === '<portlet:namespace />clearSearch') {
-				<portlet:renderURL copyCurrentRenderParameters="<%= false %>" var="clearSearchURL">
-					<portlet:param name="groupId" value="0" />
-				</portlet:renderURL>
-
-				window.location.href = '<%= clearSearchURL %>';
-			}
+		function() {
+			<portlet:namespace />search();
 		},
-		'a'
+		'button'
 	);
 
 	A.one('#<portlet:namespace />keywords').on(

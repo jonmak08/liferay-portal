@@ -3,6 +3,22 @@
 		margin: 3px 0 0;
 	}
 
+	.form-group {
+		&.search {
+			width: 50%;
+		}
+
+		@media (max-width: 769px) {
+			&.search, &.select {
+				width: 100%;
+			}
+
+			&.select {
+				margin-bottom: 0;
+			}
+		}
+	}
+
 	.menu-column .search-layout-content {
 		padding-left: 24em;
 

@@ -100,19 +100,20 @@
 			};
 		},
 
-		addInputCancel: function() {
+		addInputCancel: function(trigger) {
 			A.use(
 				'aui-button-search-cancel',
 				function(A) {
-					new A.ButtonSearchCancel(
+					Liferay.ButtonSearchCancel = new A.ButtonSearchCancel(
 						{
-							trigger: 'input[type=password], input[type=search], input.clearable, input.search-query'
+							trigger: trigger
 						}
 					);
 				}
 			);
 
 			Util.addInputCancel = function(){};
+			return true;
 		},
 
 		addInputFocus: function() {
