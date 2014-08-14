@@ -53,6 +53,8 @@
 </aui:script>
 
 <aui:script use="aui-base">
+	var trigger = '';
+
 	Liferay.Util.addInputType();
 
 	Liferay.Portlet.ready(
@@ -62,7 +64,13 @@
 	);
 
 	if (A.UA.mobile) {
-		Liferay.Util.addInputCancel();
+		trigger = 'input[type=password], input[type=search], input.clearable, input.search-query';
+	}
+
+	var addInputCancel = Liferay.Util.addInputCancel(trigger);
+
+	if (addInputCancel) {
+		Liferay.fire('liferayInputCancel:added');
 	}
 </aui:script>
 

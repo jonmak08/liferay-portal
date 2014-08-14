@@ -24,6 +24,7 @@ String id = GetterUtil.getString((String)request.getAttribute("liferay-ui:input-
 String name = GetterUtil.getString((String)request.getAttribute("liferay-ui:input-search:name"));
 String placeholder = GetterUtil.getString((String)request.getAttribute("liferay-ui:input-search:placeholder"));
 boolean showButton = GetterUtil.getBoolean(request.getAttribute("liferay-ui:input-search:showButton"));
+boolean showSearchCancel = GetterUtil.getBoolean(request.getAttribute("liferay-ui:input-search:showSearchCancel"));
 String title = GetterUtil.getString((String)request.getAttribute("liferay-ui:input-search:title"));
 boolean useNamespace = GetterUtil.getBoolean(request.getAttribute("liferay-ui:input-search:useNamespace"), true);
 
@@ -51,5 +52,26 @@ String value = ParamUtil.getString(request, name);
 <c:if test="<%= autoFocus %>">
 	<aui:script>
 		Liferay.Util.focusFormField('#<%= namespace %><%= id %>');
+	</aui:script>
+</c:if>
+
+<c:if test="<%= showSearchCancel %>">
+	<aui:script use="aui-button-search-cancel">
+		if (!A.UA.mobile) {
+			var updateTriggers = function() {
+				var buttonSearchCancel = Liferay.ButtonSearchCancel;
+
+				if(buttonSearchCancel) {
+					buttonSearchCancel.addTriggers('input#<%= namespace + id %>');
+				}
+			}
+
+			if (Liferay.ButtonSearchCancel) {
+				updateTriggers()
+			}
+			else {
+				Liferay.on('liferayInputCancel:added', updateTriggers, Liferay);
+			}
+		}
 	</aui:script>
 </c:if>

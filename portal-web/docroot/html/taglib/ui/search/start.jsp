@@ -42,11 +42,18 @@ portletURL.setWindowState(WindowState.MAXIMIZED);
 pageContext.setAttribute("portletURL", portletURL);
 %>
 
-<form action="<%= HtmlUtil.escapeAttribute(portletURL.toString()) %>" method="get" name="<%= randomNamespace %><%= namespace %>fm" onSubmit="<%= randomNamespace %><%= namespace %>search(); return false;">
+<form action="<%= HtmlUtil.escapeAttribute(portletURL.toString()) %>" class="form-inline" method="get" name="<%= randomNamespace %><%= namespace %>fm" onSubmit="<%= randomNamespace %><%= namespace %>search(); return false;">
 	<liferay-portlet:renderURLParams varImpl="portletURL" />
 
 	<aui:fieldset>
-		<aui:input inlineField="<%= true %>" label="" name='<%= namespace + "keywords" %>' size="30" title="search" type="text" useNamespace="<%= false %>" value="<%= HtmlUtil.escapeAttribute(keywords) %>" />
+		<div class="form-group search">
+			<div class="form-search">
+				<liferay-ui:input-search
+					title="search"
+					useNamespace="true"
+				/>
+			</div>
+		</div>
 
 		<%
 		String taglibOnClick = "Liferay.Util.focusFormField('#" + namespace + "keywords');";
@@ -54,19 +61,13 @@ pageContext.setAttribute("portletURL", portletURL);
 
 		<liferay-ui:quick-access-entry label="skip-to-search" onClick="<%= taglibOnClick %>" />
 
-		<aui:select inlineField="<%= true %>" label="" name='<%= namespace + "groupId" %>' title="scope" useNamespace="<%= false %>">
+		<aui:select inlineField="<%= true %>" label="" name='<%= namespace + "groupId" %>' title="scope" useNamespace="<%= false %>" wrapperCssClass="select">
 			<c:if test="<%= !group.isStagingGroup() %>">
 				<aui:option label="everything" selected="<%= (groupId == 0) %>" value="0" />
 			</c:if>
 
 			<aui:option label='<%= "this-" + (group.isOrganization() ? "organization" : "site") %>' selected="<%= (groupId != 0) %>" value="<%= group.getGroupId() %>" />
 		</aui:select>
-
-		<liferay-ui:icon
-			iconCssClass="icon-search"
-			onClick='<%= randomNamespace + namespace + "search();" %>'
-			url="javascript:;"
-		/>
 	</aui:fieldset>
 
 	<aui:script>

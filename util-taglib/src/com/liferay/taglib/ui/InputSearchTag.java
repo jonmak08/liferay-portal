@@ -54,6 +54,10 @@ public class InputSearchTag extends IncludeTag {
 		_showButton = showButton;
 	}
 
+	public void setShowSearchCancel(boolean showSearchCancel) {
+		_showSearchCancel = showSearchCancel;
+	}
+
 	public void setTitle(String title) {
 		_title = title;
 	}
@@ -73,6 +77,7 @@ public class InputSearchTag extends IncludeTag {
 		_name = null;
 		_placeholder = null;
 		_showButton = true;
+		_showSearchCancel=false;
 		_title = null;
 		_useNamespace = true;
 	}
@@ -126,6 +131,8 @@ public class InputSearchTag extends IncludeTag {
 		request.setAttribute(
 			"liferay-ui:input-search:placeholder", placeholder);
 		request.setAttribute("liferay-ui:input-search:showButton", _showButton);
+		request.setAttribute(
+			"liferay-ui:input-search:showSearchCancel", _showSearchCancel);
 		request.setAttribute("liferay-ui:input-search:title", title);
 		request.setAttribute(
 			"liferay-ui:input-search:useNamespace", _useNamespace);
@@ -140,6 +147,7 @@ public class InputSearchTag extends IncludeTag {
 	private String _name;
 	private String _placeholder;
 	private boolean _showButton = true;
+	private boolean _showSearchCancel = false;
 	private String _title;
 	private boolean _useNamespace = true;
 
