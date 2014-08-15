@@ -749,7 +749,8 @@
 		},
 
 		textareaTabs: function(event) {
-			var el = event.currentTarget.getDOM();
+			var currentTarget = event.currentTarget;
+			var el = currentTarget.getDOM();
 			var pressedKey = event.keyCode;
 
 			if (event.isKey('TAB')) {
@@ -777,6 +778,32 @@
 				}
 
 				el.scrollTop = oldscroll;
+
+				return false;
+			}
+			else if (event.isKey('ESC')) {
+				event.stopPropagation();
+
+				var tabbableList = A.all('a, button, input, textarea');
+
+				var index = tabbableList.indexOf(currentTarget);
+
+				var escapeNode = tabbableList.item(index + 1);
+
+				if (!escapeNode) {
+					var formAncestor = currentTarget.ancestor('form');
+
+					if (formAncestor) {
+						var formTabbables = formAncestor.all('a, button, input, textarea');
+
+						escapeNode = formTabbables.last();
+					}
+					else {
+						escapeNode = A.getBody();
+					}
+				}
+
+				escapeNode.focus();
 
 				return false;
 			}
