@@ -108,10 +108,6 @@ $dockbarOpenGradientStart: #0EA6F9;
 								}
 							}
 						}
-
-						&.staging-toggle .dropdown-menu {
-							background-color: #55B8EC;
-						}
 					}
 				}
 			}
@@ -163,7 +159,7 @@ $dockbarOpenGradientStart: #0EA6F9;
 		}
 
 		.staging-bar {
-			margin: 10px 0;
+			margin: 6px 0 0;
 
 			> li {
 				background: transparent;
@@ -194,8 +190,16 @@ $dockbarOpenGradientStart: #0EA6F9;
 				}
 			}
 
-			.staging-toggle {
+			li.staging-toggle {
 				color: #FFF;
+
+				> a {
+					line-height: 27px;
+
+					&:focus, &:hover {
+						background-color: #2FA4F5;
+					}
+				}
 
 				li a {
 					color: #FFF;

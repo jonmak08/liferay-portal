@@ -169,11 +169,13 @@ $editLayoutPanelWidth: 460px;
 					@include respond-to(phone, tablet) {
 						> a {
 							display: inline-block;
+							line-height: 31px;
 							margin: 0;
-							padding: 0;
+							padding: 6px 15px;
 							position: relative;
 							text-align: center;
 							width: 45px;
+
 
 							> .nav-item-label {
 								display: none;
@@ -412,12 +414,17 @@ $editLayoutPanelWidth: 460px;
 			}
 
 			> li.staging-toggle {
-				&.active a, > a {
+				&.active > a {
 					color: #555;
 				}
 
 				> a {
-					padding: 4px 10px;
+					margin: 0 5px 0 0;
+					padding: 6px 10px;
+				}
+
+				&.dropdown.open ul.dropdown-menu {
+					padding: 5px 0;
 				}
 			}
 
@@ -485,7 +492,11 @@ $editLayoutPanelWidth: 460px;
 		}
 
 		.staging-bar {
-			margin: 6px 0 0;
+			margin: 9px 0 0;
+
+			@include respond-to(phone, tablet) {
+				margin: 6px 0 0;
+			}
 
 			&, li.staging-toggle {
 				position: static;
@@ -537,10 +548,14 @@ $editLayoutPanelWidth: 460px;
 
 	.dockbar-split {
 		.dockbar {
+			background-color: transparent;
+			border-color: transparent;
 			height: 0;
 			position: absolute;
 
 			@include respond-to(phone, tablet) {
+				background-color: #F3F3F3;
+				border-color: #DDDDDD;
 				height: auto;
 				position: relative;
 			}
@@ -594,26 +609,33 @@ $editLayoutPanelWidth: 460px;
 
 			.staging-controls {
 				.staging-bar {
+					margin: 6px 0 0;
+
 					li.dropdown .dropdown-menu {
 						left: 0;
 						margin-left: 0;
 						width: 100%;
 					}
-				}
-			}
 
-			.divider-vertical {
-				display: none;
+					.staging-toggle {
+						> a {
+							color: #FFF;
+
+							@include respond-to(phone, tablet) {
+								color: inherit;
+							}
+						}
+
+						&.active > a {
+							color: #000;
+						}
+					}
+				}
 			}
 
 			.info-items {
 				left: auto;
 				position: static;
-			}
-
-			.nav > li.staging-toggle > a {
-				color: #FFF;
-				padding: 6px 10px;
 			}
 
 			.container, .container-fluid {
@@ -769,7 +791,11 @@ $editLayoutPanelWidth: 460px;
 							padding: 6px 15px;
 
 							@include respond-to(phone, tablet) {
-								color: inherit;
+								color: #555;
+
+								&:active, &:hover {
+									color: #FFF;
+								}
 							}
 						}
 
@@ -1369,7 +1395,7 @@ $editLayoutPanelWidth: 460px;
 
 		.portlet-staging-bar .layout-revision-actions {
 			a.taglib-icon {
-				padding: 9px 15px;
+				padding: 9px 10px;
 			}
 
 			[class^="icon-"] {
@@ -1385,12 +1411,6 @@ $editLayoutPanelWidth: 460px;
 				margin: 0;
 				padding: 10px;
 			}
-		}
-	}
-
-	@include respond-to(phone) {
-		.portlet-staging-bar .layout-revision-actions a.taglib-icon {
-			margin-left: -5px;
 		}
 	}
 }
