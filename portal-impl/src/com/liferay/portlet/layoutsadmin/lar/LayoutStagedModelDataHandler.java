@@ -80,6 +80,7 @@ import com.liferay.portlet.sites.util.SitesUtil;
 import java.io.IOException;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -444,6 +445,10 @@ public class LayoutStagedModelDataHandler
 			sb.append(parentLayoutId);
 
 			_log.debug(sb.toString());
+		}
+
+		if (layout.getLayoutPrototypeUuid() != null) {
+			importedLayout.setModifiedDate(new Date());
 		}
 
 		importedLayout.setCompanyId(portletDataContext.getCompanyId());
