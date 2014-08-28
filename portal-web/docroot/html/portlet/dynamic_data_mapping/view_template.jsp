@@ -145,7 +145,7 @@ String title = ddmDisplay.getViewTemplatesTitle(structure, controlPanel, locale)
 				<liferay-ui:search-container-column-text
 					href="<%= rowHREF %>"
 					name="name"
-					value="<%= HtmlUtil.escape(LanguageUtil.get(pageContext, template.getName(locale))) %>"
+					value="<%= HtmlUtil.escape(template.getName(locale)) %>"
 				/>
 			</c:if>
 

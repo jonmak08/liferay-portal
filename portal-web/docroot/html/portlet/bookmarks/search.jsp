@@ -125,6 +125,7 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(pageContext, "sea
 						<liferay-ui:icon
 							image="../ratings/star_hover"
 							label="<%= true %>"
+							localizeMessage="<%= false %>"
 							message="<%= entry.getName() %>"
 							target="_blank"
 							url="<%= rowHREF %>"
@@ -174,6 +175,7 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(pageContext, "sea
 						<liferay-ui:icon
 							image='<%= (BookmarksFolderLocalServiceUtil.getFoldersAndEntriesCount(folder.getGroupId(), folder.getFolderId(), WorkflowConstants.STATUS_ANY) > 0) ? "folder_full_document" : "folder_empty" %>'
 							label="<%= true %>"
+							localizeMessage="<%= false %>"
 							message="<%= HtmlUtil.escape(folder.getName()) %>"
 							url="<%= rowURL %>"
 						/>
