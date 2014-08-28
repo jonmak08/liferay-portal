@@ -56,15 +56,6 @@ public class TreePathUtil {
 			TreeModelFinder<?> treeModelFinder)
 		throws PortalException, SystemException {
 
-		if (parentTreePath.equals(StringPool.SLASH)) {
-			treeModelFinder.rebuildDependentModelsTreePaths(
-				parentPrimaryKey, "/0/");
-		}
-		else {
-			treeModelFinder.rebuildDependentModelsTreePaths(
-				parentPrimaryKey, parentTreePath);
-		}
-
 		List<TreeModel> modifiedTreeModels = new ArrayList<TreeModel>();
 
 		int size = GetterUtil.getInteger(
@@ -81,6 +72,15 @@ public class TreePathUtil {
 			Long curParentPrimaryKey = (Long)trace[0];
 			String curParentTreePath = (String)trace[1];
 			Long previousPrimaryKey = (Long)trace[2];
+
+			if (curParentTreePath.equals(StringPool.SLASH)) {
+				treeModelFinder.rebuildDependentModelsTreePaths(
+					curParentPrimaryKey, "/0/");
+			}
+			else {
+				treeModelFinder.rebuildDependentModelsTreePaths(
+					curParentPrimaryKey, curParentTreePath);
+			}
 
 			List<? extends TreeModel> treeModels =
 				treeModelFinder.findTreeModels(
@@ -104,9 +104,6 @@ public class TreePathUtil {
 						StringPool.SLASH);
 
 				treeModel.updateTreePath(treePath);
-
-				treeModelFinder.rebuildDependentModelsTreePaths(
-					(Long)treeModel.getPrimaryKeyObj(), treePath);
 
 				traces.push(
 					new Object[] {treeModel.getPrimaryKeyObj(), treePath, 0L});
