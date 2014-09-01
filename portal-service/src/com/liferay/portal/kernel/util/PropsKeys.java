@@ -667,6 +667,8 @@ public interface PropsKeys {
 
 	public static final String DL_EMAIL_FROM_NAME = "dl.email.from.name";
 
+	public static final String DL_FILE_ENTRY_CHECK_LEGACY_IG_REQUESTS_ENABLED = "dl.file.entry.check.legacy.ig.requests.enabled";
+
 	public static final String DL_FILE_ENTRY_COMMENTS_ENABLED = "dl.file.entry.comments.enabled";
 
 	public static final String DL_FILE_ENTRY_CONVERSIONS_ENABLED = "dl.file.entry.conversions.enabled";
