@@ -580,7 +580,7 @@ public class JournalFolderLocalServiceImpl
 					throws PortalException, SystemException {
 
 					journalArticleLocalService.setTreePaths(
-						parentPrimaryKey, treePath);
+						parentPrimaryKey, treePath, false);
 			}
 
 				@Override

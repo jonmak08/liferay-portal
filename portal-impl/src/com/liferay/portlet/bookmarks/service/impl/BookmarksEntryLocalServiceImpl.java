@@ -508,7 +508,8 @@ public class BookmarksEntryLocalServiceImpl
 	}
 
 	@Override
-	public void setTreePaths(final long folderId, final String treePath)
+	public void setTreePaths(
+			final long folderId, final String treePath, final boolean reindex)
 		throws PortalException, SystemException {
 
 		final Indexer indexer = IndexerRegistryUtil.getIndexer(
