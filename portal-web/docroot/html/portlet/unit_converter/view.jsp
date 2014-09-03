@@ -43,62 +43,62 @@ Conversion conversion = ConverterUtil.getConversion(type, fromId, toId, fromValu
 			<aui:col md="5">
 				<aui:select label="" name="fromId">
 					<c:if test="<%= type == 0 %>">
-						<aui:option selected="<%= (fromId == 0) %>" value="0" label="meter"/>
-						<aui:option selected="<%= (fromId == 1) %>" value="1" label="millimeter" />
-						<aui:option selected="<%= (fromId == 2) %>" value="2" label="centimeter" />
-						<aui:option selected="<%= (fromId == 3) %>" value="3" label="kilometer" />
-						<aui:option selected="<%= (fromId == 4) %>" value="4" label="foot" />
-						<aui:option selected="<%= (fromId == 5) %>" value="5" label="inch" />
-						<aui:option selected="<%= (fromId == 6) %>" value="6" label="yard" />
-						<aui:option selected="<%= (fromId == 7) %>" value="7" label="mile" />
-						<aui:option selected="<%= (fromId == 8) %>" value="8" label="cubit" />
-						<aui:option selected="<%= (fromId == 9) %>" value="9" label="talent" />
-						<aui:option selected="<%= (fromId == 10) %>" value="10" label="handbreath" />
+						<aui:option label="meter" selected="<%= (fromId == 0) %>" value="0" />
+						<aui:option label="millimeter" selected="<%= (fromId == 1) %>" value="1" />
+						<aui:option label="centimeter" selected="<%= (fromId == 2) %>" value="2" />
+						<aui:option label="kilometer" selected="<%= (fromId == 3) %>" value="3" />
+						<aui:option label="foot" selected="<%= (fromId == 4) %>" value="4" />
+						<aui:option label="inch" selected="<%= (fromId == 5) %>" value="5" />
+						<aui:option label="yard" selected="<%= (fromId == 6) %>" value="6" />
+						<aui:option label="mile" selected="<%= (fromId == 7) %>" value="7" />
+						<aui:option label="cubit" selected="<%= (fromId == 8) %>" value="8" />
+						<aui:option label="talent" selected="<%= (fromId == 9) %>" value="9" />
+						<aui:option label="handbreath" selected="<%= (fromId == 10) %>" value="10" />
 					</c:if>
 					<c:if test="<%= type == 1 %>">
-						<aui:option selected="<%= (fromId == 0) %>" value="0" label="square-kilometer" />
-						<aui:option selected="<%= (fromId == 1) %>" value="1" label="square-meter" />
-						<aui:option selected="<%= (fromId == 2) %>" value="2" label="square-centimeter" />
-						<aui:option selected="<%= (fromId == 3) %>" value="3" label="square-millimeter" />
-						<aui:option selected="<%= (fromId == 4) %>" value="4" label="square-foot" />
-						<aui:option selected="<%= (fromId == 5) %>" value="5" label="square-inch" />
-						<aui:option selected="<%= (fromId == 6) %>" value="6" label="square-yard" />
-						<aui:option selected="<%= (fromId == 7) %>" value="7" label="square-mile" />
-						<aui:option selected="<%= (fromId == 8) %>" value="8" label="hectare" />
-						<aui:option selected="<%= (fromId == 9) %>" value="9" label="acre" />
+						<aui:option label="square-kilometer" selected="<%= (fromId == 0) %>" value="0" />
+						<aui:option label="square-meter" selected="<%= (fromId == 1) %>" value="1" />
+						<aui:option label="square-centimeter" selected="<%= (fromId == 2) %>" value="2" />
+						<aui:option label="square-millimeter" selected="<%= (fromId == 3) %>" value="3" />
+						<aui:option label="square-foot" selected="<%= (fromId == 4) %>" value="4" />
+						<aui:option label="square-inch" selected="<%= (fromId == 5) %>" value="5" />
+						<aui:option label="square-yard" selected="<%= (fromId == 6) %>" value="6" />
+						<aui:option label="square-mile" selected="<%= (fromId == 7) %>" value="7" />
+						<aui:option label="hectare" selected="<%= (fromId == 8) %>" value="8" />
+						<aui:option label="acre" selected="<%= (fromId == 9) %>" value="9" />
 					</c:if>
 					<c:if test="<%= type == 2 %>">
-						<aui:option selected="<%= (fromId == 0) %>" value="0" label="Liter" />
-						<aui:option selected="<%= (fromId == 1) %>" value="1" label="Cubic Centimeter" />
-						<aui:option selected="<%= (fromId == 2) %>" value="2" label="Cubic Inch (Liquid Measure)" />
-						<aui:option selected="<%= (fromId == 3) %>" value="3" label="Pint (Dry Measure)" />
-						<aui:option selected="<%= (fromId == 4) %>" value="4" label="Cor (Homer)" />
-						<aui:option selected="<%= (fromId == 5) %>" value="5" label="Lethek" />
-						<aui:option selected="<%= (fromId == 6) %>" value="6" label="Ephah" />
-						<aui:option selected="<%= (fromId == 7) %>" value="7" label="Seah" />
-						<aui:option selected="<%= (fromId == 8) %>" value="8" label="Omer" />
-						<aui:option selected="<%= (fromId == 9) %>" value="9" label="Cab" />
-						<aui:option selected="<%= (fromId == 10) %>" value="10" label="Bath" />
-						<aui:option selected="<%= (fromId == 11) %>" value="11" label="Hin" />
-						<aui:option selected="<%= (fromId == 12) %>" value="12" label="Log" />
+						<aui:option label="Liter" selected="<%= (fromId == 0) %>" value="0" />
+						<aui:option label="Cubic Centimeter" selected="<%= (fromId == 1) %>" value="1" />
+						<aui:option label="Cubic Inch (Liquid Measure)" selected="<%= (fromId == 2) %>" value="2" />
+						<aui:option label="Pint (Dry Measure)" selected="<%= (fromId == 3) %>" value="3" />
+						<aui:option label="Cor (Homer)" selected="<%= (fromId == 4) %>" value="4" />
+						<aui:option label="Lethek" selected="<%= (fromId == 5) %>" value="5" />
+						<aui:option label="Ephah" selected="<%= (fromId == 6) %>" value="6" />
+						<aui:option label="Seah" selected="<%= (fromId == 7) %>" value="7" />
+						<aui:option label="Omer" selected="<%= (fromId == 8) %>" value="8" />
+						<aui:option label="Cab" selected="<%= (fromId == 9) %>" value="9" />
+						<aui:option label="Bath" selected="<%= (fromId == 10) %>" value="10" />
+						<aui:option label="Hin" selected="<%= (fromId == 11) %>" value="11" />
+						<aui:option label="Log" selected="<%= (fromId == 12) %>" value="12" />
 					</c:if>
 					<c:if test="<%= type == 3 %>">
-						<aui:option selected="<%= (fromId == 0) %>" value="0" label="kilogram" />
-						<aui:option selected="<%= (fromId == 1) %>" value="1" label="pound" />
-						<aui:option selected="<%= (fromId == 2) %>" value="2" label="ton" />
-						<aui:option selected="<%= (fromId == 3) %>" value="3" label="talent" />
-						<aui:option selected="<%= (fromId == 4) %>" value="4" label="mina" />
-						<aui:option selected="<%= (fromId == 5) %>" value="5" label="shekel" />
-						<aui:option selected="<%= (fromId == 6) %>" value="6" label="pim" />
-						<aui:option selected="<%= (fromId == 7) %>" value="7" label="beka" />
-						<aui:option selected="<%= (fromId == 8) %>" value="8" label="gerah" />
+						<aui:option label="kilogram" selected="<%= (fromId == 0) %>" value="0" />
+						<aui:option label="pound" selected="<%= (fromId == 1) %>" value="1" />
+						<aui:option label="ton" selected="<%= (fromId == 2) %>" value="2" />
+						<aui:option label="talent" selected="<%= (fromId == 3) %>" value="3" />
+						<aui:option label="mina" selected="<%= (fromId == 4) %>" value="4" />
+						<aui:option label="shekel" selected="<%= (fromId == 5) %>" value="5" />
+						<aui:option label="pim" selected="<%= (fromId == 6) %>" value="6" />
+						<aui:option label="beka" selected="<%= (fromId == 7) %>" value="7" />
+						<aui:option label="gerah" selected="<%= (fromId == 8) %>" value="8" />
 					</c:if>
 					<c:if test="<%= type == 4 %>">
-						<aui:option selected="<%= (fromId == 0) %>" value="0" label="Kelvin" />
-						<aui:option selected="<%= (fromId == 1) %>" value="1" label="Celcius" />
-						<aui:option selected="<%= (fromId == 2) %>" value="2" label="Fahrenheit" />
-						<aui:option selected="<%= (fromId == 3) %>" value="3" label="Rankine" />
-						<aui:option selected="<%= (fromId == 4) %>" value="4" label="Réaumure" />
+						<aui:option label="Kelvin" selected="<%= (fromId == 0) %>" value="0" />
+						<aui:option label="Celcius" selected="<%= (fromId == 1) %>" value="1" />
+						<aui:option label="Fahrenheit" selected="<%= (fromId == 2) %>" value="2" />
+						<aui:option label="Rankine" selected="<%= (fromId == 3) %>" value="3" />
+						<aui:option label="Réaumure" selected="<%= (fromId == 4) %>" value="4" />
 					</c:if>
 				</aui:select>
 			</aui:col>
@@ -116,62 +116,62 @@ Conversion conversion = ConverterUtil.getConversion(type, fromId, toId, fromValu
 			<aui:col md="5">
 				<aui:select label="" name="toId">
 					<c:if test="<%= type == 0 %>">
-						<aui:option selected="<%= (toId == 0) %>" value="0" label="meter"/>
-						<aui:option selected="<%= (toId == 1) %>" value="1" label="millimeter" />
-						<aui:option selected="<%= (toId == 2) %>" value="2" label="centimeter" />
-						<aui:option selected="<%= (toId == 3) %>" value="3" label="kilometer" />
-						<aui:option selected="<%= (toId == 4) %>" value="4" label="foot" />
-						<aui:option selected="<%= (toId == 5) %>" value="5" label="inch" />
-						<aui:option selected="<%= (toId == 6) %>" value="6" label="yard" />
-						<aui:option selected="<%= (toId == 7) %>" value="7" label="mile" />
-						<aui:option selected="<%= (toId == 8) %>" value="8" label="cubit" />
-						<aui:option selected="<%= (toId == 9) %>" value="9" label="talent" />
-						<aui:option selected="<%= (toId == 10) %>" value="10" label="handbreath" />
+						<aui:option label="meter" selected="<%= (toId == 0) %>" value="0" />
+						<aui:option label="millimeter" selected="<%= (toId == 1) %>" value="1" />
+						<aui:option label="centimeter" selected="<%= (toId == 2) %>" value="2" />
+						<aui:option label="kilometer" selected="<%= (toId == 3) %>" value="3" />
+						<aui:option label="foot" selected="<%= (toId == 4) %>" value="4" />
+						<aui:option label="inch" selected="<%= (toId == 5) %>" value="5" />
+						<aui:option label="yard" selected="<%= (toId == 6) %>" value="6" />
+						<aui:option label="mile" selected="<%= (toId == 7) %>" value="7" />
+						<aui:option label="cubit" selected="<%= (toId == 8) %>" value="8" />
+						<aui:option label="talent" selected="<%= (toId == 9) %>" value="9" />
+						<aui:option label="handbreath" selected="<%= (toId == 10) %>" value="10" />
 					</c:if>
 					<c:if test="<%= type == 1 %>">
-						<aui:option selected="<%= (toId == 0) %>" value="0" label="square-kilometer" />
-						<aui:option selected="<%= (toId == 1) %>" value="1" label="square-meter" />
-						<aui:option selected="<%= (toId == 2) %>" value="2" label="square-centimeter" />
-						<aui:option selected="<%= (toId == 3) %>" value="3" label="square-millimeter" />
-						<aui:option selected="<%= (toId == 4) %>" value="4" label="square-foot" />
-						<aui:option selected="<%= (toId == 5) %>" value="5" label="square-inch" />
-						<aui:option selected="<%= (toId == 6) %>" value="6" label="square-yard" />
-						<aui:option selected="<%= (toId == 7) %>" value="7" label="square-mile" />
-						<aui:option selected="<%= (toId == 8) %>" value="8" label="hectare" />
-						<aui:option selected="<%= (toId == 9) %>" value="9" label="acre" />
+						<aui:option label="square-kilometer" selected="<%= (toId == 0) %>" value="0" />
+						<aui:option label="square-meter" selected="<%= (toId == 1) %>" value="1" />
+						<aui:option label="square-centimeter" selected="<%= (toId == 2) %>" value="2" />
+						<aui:option label="square-millimeter" selected="<%= (toId == 3) %>" value="3" />
+						<aui:option label="square-foot" selected="<%= (toId == 4) %>" value="4" />
+						<aui:option label="square-inch" selected="<%= (toId == 5) %>" value="5" />
+						<aui:option label="square-yard" selected="<%= (toId == 6) %>" value="6" />
+						<aui:option label="square-mile" selected="<%= (toId == 7) %>" value="7" />
+						<aui:option label="hectare" selected="<%= (toId == 8) %>" value="8" />
+						<aui:option label="acre" selected="<%= (toId == 9) %>" value="9" />
 					</c:if>
 					<c:if test="<%= type == 2 %>">
-						<aui:option selected="<%= (toId == 0) %>" value="0" label="Liter" />
-						<aui:option selected="<%= (toId == 1) %>" value="1" label="Cubic Centimeter" />
-						<aui:option selected="<%= (toId == 2) %>" value="2" label="Cubic Inch (Liquid Measure)" />
-						<aui:option selected="<%= (toId == 3) %>" value="3" label="Pint (Dry Measure)" />
-						<aui:option selected="<%= (toId == 4) %>" value="4" label="Cor (Homer)" />
-						<aui:option selected="<%= (toId == 5) %>" value="5" label="Lethek" />
-						<aui:option selected="<%= (toId == 6) %>" value="6" label="Ephah" />
-						<aui:option selected="<%= (toId == 7) %>" value="7" label="Seah" />
-						<aui:option selected="<%= (toId == 8) %>" value="8" label="Omer" />
-						<aui:option selected="<%= (toId == 9) %>" value="9" label="Cab" />
-						<aui:option selected="<%= (toId == 10) %>" value="10" label="Bath" />
-						<aui:option selected="<%= (toId == 11) %>" value="11" label="Hin" />
-						<aui:option selected="<%= (toId == 12) %>" value="12" label="Log" />
+						<aui:option label="Liter" selected="<%= (toId == 0) %>" value="0" />
+						<aui:option label="Cubic Centimeter" selected="<%= (toId == 1) %>" value="1" />
+						<aui:option label="Cubic Inch (Liquid Measure)" selected="<%= (toId == 2) %>" value="2" />
+						<aui:option label="Pint (Dry Measure)" selected="<%= (toId == 3) %>" value="3" />
+						<aui:option label="Cor (Homer)" selected="<%= (toId == 4) %>" value="4" />
+						<aui:option label="Lethek" selected="<%= (toId == 5) %>" value="5" />
+						<aui:option label="Ephah" selected="<%= (toId == 6) %>" value="6" />
+						<aui:option label="Seah" selected="<%= (toId == 7) %>" value="7" />
+						<aui:option label="Omer" selected="<%= (toId == 8) %>" value="8" />
+						<aui:option label="Cab" selected="<%= (toId == 9) %>" value="9" />
+						<aui:option label="Bath" selected="<%= (toId == 10) %>" value="10" />
+						<aui:option label="Hin" selected="<%= (toId == 11) %>" value="11" />
+						<aui:option label="Log" selected="<%= (toId == 12) %>" value="12" />
 					</c:if>
 					<c:if test="<%= type == 3 %>">
-						<aui:option selected="<%= (toId == 0) %>" value="0" label="kilogram" />
-						<aui:option selected="<%= (toId == 1) %>" value="1" label="pound" />
-						<aui:option selected="<%= (toId == 2) %>" value="2" label="ton" />
-						<aui:option selected="<%= (toId == 3) %>" value="3" label="talent" />
-						<aui:option selected="<%= (toId == 4) %>" value="4" label="mina" />
-						<aui:option selected="<%= (toId == 5) %>" value="5" label="shekel" />
-						<aui:option selected="<%= (toId == 6) %>" value="6" label="pim" />
-						<aui:option selected="<%= (toId == 7) %>" value="7" label="beka" />
-						<aui:option selected="<%= (toId == 8) %>" value="8" label="gerah" />
+						<aui:option label="kilogram" selected="<%= (toId == 0) %>" value="0" />
+						<aui:option label="pound" selected="<%= (toId == 1) %>" value="1" />
+						<aui:option label="ton" selected="<%= (toId == 2) %>" value="2" />
+						<aui:option label="talent" selected="<%= (toId == 3) %>" value="3" />
+						<aui:option label="mina" selected="<%= (toId == 4) %>" value="4" />
+						<aui:option label="shekel" selected="<%= (toId == 5) %>" value="5" />
+						<aui:option label="pim" selected="<%= (toId == 6) %>" value="6" />
+						<aui:option label="beka" selected="<%= (toId == 7) %>" value="7" />
+						<aui:option label="gerah" selected="<%= (toId == 8) %>" value="8" />
 					</c:if>
 					<c:if test="<%= type == 4 %>">
-						<aui:option selected="<%= (toId == 0) %>" value="0" label="Kelvin" />
-						<aui:option selected="<%= (toId == 1) %>" value="1" label="Celcius" />
-						<aui:option selected="<%= (toId == 2) %>" value="2" label="Fahrenheit" />
-						<aui:option selected="<%= (toId == 3) %>" value="3" label="Rankine" />
-						<aui:option selected="<%= (toId == 4) %>" value="4" label="Réaumure" />
+						<aui:option label="Kelvin" selected="<%= (toId == 0) %>" value="0" />
+						<aui:option label="Celcius" selected="<%= (toId == 1) %>" value="1" />
+						<aui:option label="Fahrenheit" selected="<%= (toId == 2) %>" value="2" />
+						<aui:option label="Rankine" selected="<%= (toId == 3) %>" value="3" />
+						<aui:option label="Réaumure" selected="<%= (toId == 4) %>" value="4" />
 					</c:if>
 				</aui:select>
 			</aui:col>
@@ -183,22 +183,21 @@ Conversion conversion = ConverterUtil.getConversion(type, fromId, toId, fromValu
 			</aui:col>
 
 			<aui:col md="6">
-				<aui:select label="" name="type" id="type">
-					<aui:option selected="<%= (type == 0) %>" value="0" label="length" />
-					<aui:option selected="<%= (type == 1) %>" value="1" label="area" />
-					<aui:option selected="<%= (type == 2) %>" value="2" label="volume" />
-					<aui:option selected="<%= (type == 3) %>" value="3" label="mass" />
-					<aui:option selected="<%= (type == 4) %>" value="4" label="temperature" />
+				<aui:select id="type" label="" name="type">
+					<aui:option label="length" selected="<%= (type == 0) %>" value="0" />
+					<aui:option label="area" selected="<%= (type == 1) %>" value="1" />
+					<aui:option label="volume" selected="<%= (type == 2) %>" value="2" />
+					<aui:option label="mass" selected="<%= (type == 3) %>" value="3" />
+					<aui:option label="temperature" selected="<%= (type == 4) %>" value="4" />
 				</aui:select>
 			</aui:col>
 		</aui:row>
 
 		<aui:button type="submit" value="convert" />
-		
 	</aui:container>
 </aui:form>
 
-<aui:script>
+<aui:script use="aui-node">
 	var lengthArray = [
 		new Option(0, '<%= UnicodeLanguageUtil.get(request, "meter") %>'),
 		new Option(1, '<%= UnicodeLanguageUtil.get(request, "millimeter") %>'),
@@ -262,6 +261,36 @@ Conversion conversion = ConverterUtil.getConversion(type, fromId, toId, fromValu
 		new Option(4, 'Réaumure')
 	];
 
+	var selectType = A.one('#<portlet:namespace />type');
+
+	selectType.on(
+		'change',
+		function(event) {
+			var selectTypeTarget = event.currentTarget;
+
+			if (selectTypeTarget.get('value') == 0) {
+				Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />fromId, lengthArray);
+				Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />toId, lengthArray);
+			}
+			else if (selectTypeTarget.get('value') == 1) {
+				Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />fromId, areaArray);
+				Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />toId, areaArray);
+			}
+			else if (selectTypeTarget.get('value') == 2) {
+				Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />fromId, volumeArray);
+				Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />toId, volumeArray);
+			}
+			else if (selectTypeTarget.get('value') == 3) {
+				Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />fromId, massArray);
+				Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />toId, massArray);
+			}
+			else if (selectTypeTarget.get('value') == 4) {
+				Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />fromId, temperatureArray);
+				Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />toId, temperatureArray);
+			}
+		}
+	);
+
 	<c:if test="<%= windowState.equals(WindowState.MAXIMIZED) %>">
 		Liferay.Util.focusFormField(document.<portlet:namespace />fm.<portlet:namespace />fromValue);
 	</c:if>
@@ -297,37 +326,4 @@ Conversion conversion = ConverterUtil.getConversion(type, fromId, toId, fromValu
 			event.halt();
 		}
 	);
-</aui:script>
-
-<aui:script use="aui-node">
-	var selectType = A.one('#<portlet:namespace />type');
-
-	selectType.on(
-		'change',
-		function(event) {
-			var selectTypeTarget = event.currentTarget;
-
-				if (selectTypeTarget.get('value') == 0) {
-					Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />fromId, lengthArray);
-					Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />toId, lengthArray);
-				}
-				else if (selectTypeTarget.get('value') == 1) {
-					Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />fromId, areaArray);
-					Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />toId, areaArray);
-				}
-				else if (selectTypeTarget.get('value') == 2) {
-					Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />fromId, volumeArray);
-					Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />toId, volumeArray);
-				}
-				else if (selectTypeTarget.get('value') == 3) {
-					Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />fromId, massArray);
-					Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />toId, massArray);
-				}
-				else if (selectTypeTarget.get('value') == 4) {
-					Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />fromId, temperatureArray);
-					Liferay.Util.setBox(document.<portlet:namespace />fm.<portlet:namespace />toId, temperatureArray);
-				}
-			}
-		);
-
 </aui:script>
