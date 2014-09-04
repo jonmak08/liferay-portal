@@ -270,7 +270,7 @@ public class SubscriptionSender implements Serializable {
 				PortalUtil.getUserName(userId, StringPool.BLANK));
 		}
 
-		if (addUniqueMailId) {
+		if (uniqueMailId) {
 			ArrayUtil.append(_mailIdIds, PortalUUIDUtil.generate());
 		}
 
@@ -278,8 +278,8 @@ public class SubscriptionSender implements Serializable {
 			company.getMx(), _mailIdPopPortletPrefix, _mailIdIds);
 	}
 
-	public void setAddUniqueMailId(boolean addUniqueMailId) {
-		this.addUniqueMailId = addUniqueMailId;
+	public void setUniqueMailId(boolean uniqueMailId) {
+		this.uniqueMailId = uniqueMailId;
 	}
 
 	public void setBody(String body) {
@@ -698,7 +698,7 @@ public class SubscriptionSender implements Serializable {
 		MailServiceUtil.sendEmail(mailMessage);
 	}
 
-	protected boolean addUniqueMailId = true;
+	protected boolean uniqueMailId = true;
 	protected String body;
 	protected boolean bulk;
 	protected long companyId;
