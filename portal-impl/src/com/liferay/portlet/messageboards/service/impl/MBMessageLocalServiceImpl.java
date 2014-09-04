@@ -2035,9 +2035,12 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 			userName, "[$CONTENT_URL$]", contentURL);
 		subscriptionSender.setFrom(fromAddress, fromName);
 		subscriptionSender.setHtmlFormat(true);
+
+		Date modifiedDate = message.getModifiedDate();
+
 		subscriptionSender.setMailId(
 			"mb_discussion", message.getCategoryId(), message.getMessageId(),
-			message.getModifiedDate().getTime());
+			modifiedDate.getTime());
 		subscriptionSender.setScopeGroupId(message.getGroupId());
 		subscriptionSender.setServiceContext(serviceContext);
 		subscriptionSender.setSubject(subject);
@@ -2201,10 +2204,12 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 			MBMessage parentMessage = mbMessageLocalService.getMessage(
 				message.getParentMessageId());
 
+			Date modifiedDate = parentMessage.getModifiedDate();
+
 			inReplyTo = PortalUtil.getMailId(
 				company.getMx(), MBUtil.MESSAGE_POP_PORTLET_PREFIX,
 				message.getCategoryId(), parentMessage.getMessageId(),
-				parentMessage.getModifiedDate().getTime());
+				modifiedDate.getTime());
 		}
 
 		String entryURL = getMessageURL(message, serviceContext);
@@ -2228,9 +2233,12 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		subscriptionSenderPrototype.setFrom(fromAddress, fromName);
 		subscriptionSenderPrototype.setHtmlFormat(htmlFormat);
 		subscriptionSenderPrototype.setInReplyTo(inReplyTo);
+
+		Date modifiedDate = message.getModifiedDate();
+
 		subscriptionSenderPrototype.setMailId(
 			MBUtil.MESSAGE_POP_PORTLET_PREFIX, message.getCategoryId(),
-			message.getMessageId(), message.getModifiedDate().getTime());
+			message.getMessageId(), modifiedDate.getTime());
 		subscriptionSenderPrototype.setPortletId(PortletKeys.MESSAGE_BOARDS);
 		subscriptionSenderPrototype.setReplyToAddress(replyToAddress);
 		subscriptionSenderPrototype.setScopeGroupId(message.getGroupId());
