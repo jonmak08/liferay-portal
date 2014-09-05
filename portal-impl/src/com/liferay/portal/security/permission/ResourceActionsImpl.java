@@ -1020,6 +1020,12 @@ public class ResourceActionsImpl implements ResourceActions {
 
 		checkModelActions(supportsActions);
 
+		if (_log.isWarnEnabled() && (supportsActions.size() > 64)) {
+			_log.warn(
+				"There are too many action keys for resource " + name +
+					". 64 keys per resource is the maximum number supported.");
+		}
+
 		setActions(_modelResourceActions, name, supportsActions);
 
 		readGroupDefaultActions(
@@ -1077,6 +1083,12 @@ public class ResourceActionsImpl implements ResourceActions {
 
 		if (!name.equals(PortletKeys.PORTAL)) {
 			checkPortletActions(name, supportsActions);
+		}
+
+		if (_log.isWarnEnabled() && (supportsActions.size() > 64)) {
+			_log.warn(
+				"There are too many action keys for resource " + name +
+					". 64 keys per resource is the maximum number supported.");
 		}
 
 		supportsActions = setActions(
