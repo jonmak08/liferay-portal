@@ -447,11 +447,12 @@ public class LayoutStagedModelDataHandler
 			_log.debug(sb.toString());
 		}
 
+		importedLayout.setCompanyId(portletDataContext.getCompanyId());
+
 		if (layout.getLayoutPrototypeUuid() != null) {
 			importedLayout.setModifiedDate(new Date());
 		}
 
-		importedLayout.setCompanyId(portletDataContext.getCompanyId());
 		importedLayout.setParentLayoutId(parentLayoutId);
 		importedLayout.setName(layout.getName());
 		importedLayout.setTitle(layout.getTitle());
