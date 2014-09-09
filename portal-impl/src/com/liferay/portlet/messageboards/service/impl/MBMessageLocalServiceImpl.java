@@ -2026,7 +2026,6 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 
 		SubscriptionSender subscriptionSender = new SubscriptionSender();
 
-		subscriptionSender.setUniqueMailId(false);
 		subscriptionSender.setBody(body);
 		subscriptionSender.setCompanyId(message.getCompanyId());
 		subscriptionSender.setContextAttribute(
@@ -2045,6 +2044,7 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		subscriptionSender.setScopeGroupId(message.getGroupId());
 		subscriptionSender.setServiceContext(serviceContext);
 		subscriptionSender.setSubject(subject);
+		subscriptionSender.setUniqueMailId(false);
 		subscriptionSender.setUserId(message.getUserId());
 
 		String className = (String)serviceContext.getAttribute("className");
@@ -2218,7 +2218,6 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		SubscriptionSender subscriptionSenderPrototype =
 			new MBSubscriptionSender();
 
-		subscriptionSenderPrototype.setUniqueMailId(false);
 		subscriptionSenderPrototype.setBody(body);
 		subscriptionSenderPrototype.setBulk(
 			PropsValues.MESSAGE_BOARDS_EMAIL_BULK);
@@ -2245,6 +2244,7 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		subscriptionSenderPrototype.setScopeGroupId(message.getGroupId());
 		subscriptionSenderPrototype.setServiceContext(serviceContext);
 		subscriptionSenderPrototype.setSubject(subject);
+		subscriptionSenderPrototype.setUniqueMailId(false);
 		subscriptionSenderPrototype.setUserId(message.getUserId());
 
 		serviceContext.setAttribute("entryURL", entryURL);
