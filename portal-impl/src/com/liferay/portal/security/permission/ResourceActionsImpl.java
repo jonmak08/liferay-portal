@@ -1022,8 +1022,8 @@ public class ResourceActionsImpl implements ResourceActions {
 
 		if (_log.isWarnEnabled() && (supportsActions.size() > 64)) {
 			_log.warn(
-				"There are too many action keys for resource " + name +
-					". 64 keys per resource is the maximum number supported.");
+				"There are too many action keys for resource " + name + ". " +
+					"64 keys per resource is the maximum number supported.");
 		}
 
 		setActions(_modelResourceActions, name, supportsActions);
@@ -1087,8 +1087,8 @@ public class ResourceActionsImpl implements ResourceActions {
 
 		if (_log.isWarnEnabled() && (supportsActions.size() > 64)) {
 			_log.warn(
-				"There are too many action keys for resource " + name +
-					". 64 keys per resource is the maximum number supported.");
+				"There are too many action keys for resource " + name + ". " +
+					"64 keys per resource is the maximum number supported.");
 		}
 
 		supportsActions = setActions(
