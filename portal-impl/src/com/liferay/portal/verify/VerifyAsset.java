@@ -15,7 +15,9 @@
 package com.liferay.portal.verify;
 
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
+import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil;
+import com.liferay.portlet.journal.model.JournalArticle;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,6 +31,67 @@ public class VerifyAsset extends VerifyProcess {
 	@Override
 	protected void doVerify() throws Exception {
 		rebuildTree();
+
+		updateAssetClassTypeId();
+	}
+
+	protected long getDDMStructureId(String structureKey) throws Exception {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			con = DataAccess.getUpgradeOptimizedConnection();
+
+			ps = con.prepareStatement(
+				"select structureId from DDMStructure where structureKey = ?");
+
+			ps.setString(1, structureKey);
+
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				return rs.getLong("structureId");
+			}
+
+			return 0;
+		}
+		finally {
+			DataAccess.cleanUp(con, ps, rs);
+		}
+	}
+
+	protected void updateAssetClassTypeId() throws Exception {
+		long classNameId = PortalUtil.getClassNameId(JournalArticle.class);
+
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			con = DataAccess.getUpgradeOptimizedConnection();
+
+			ps = con.prepareStatement(
+				"select resourcePrimKey, structureId from JournalArticle " +
+					"where structureId != ''");
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				long resourcePrimKey = rs.getLong("resourcePrimKey");
+				String structureId = rs.getString("structureId");
+
+				long ddmStructureId = getDDMStructureId(structureId);
+
+				runSQL(
+					"update AssetEntry set classTypeId = " + ddmStructureId +
+						" where classNameId = " + classNameId +
+							" and classPK = " + resourcePrimKey);
+			}
+		}
+		finally {
+			DataAccess.cleanUp(con, ps, rs);
+		}
 	}
 
 	protected void rebuildTree() throws Exception {
