@@ -820,6 +820,10 @@ $dockbarOpenGradientStart: #0EA6F9;
 		}
 	}
 
+	.yui3-resize-proxy {
+		z-index: auto;
+	}
+
 	/* ---------- Quick access ---------- */
 
 	.quick-access-nav {
