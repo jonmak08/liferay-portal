@@ -41,6 +41,10 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		return _autoSize;
 	}
 
+	public java.lang.String getAxis() {
+		return _axis;
+	}
+
 	public java.lang.Object getBean() {
 		return _bean;
 	}
@@ -223,6 +227,12 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		_autoSize = autoSize;
 
 		setScopedAttribute("autoSize", autoSize);
+	}
+
+	public void setAxis(java.lang.String axis) {
+		_axis = axis;
+
+		setScopedAttribute("axis", axis);
 	}
 
 	public void setBean(java.lang.Object bean) {
@@ -487,6 +497,7 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 	protected void cleanUp() {
 		_autoFocus = false;
 		_autoSize = false;
+		_axis = null;
 		_bean = null;
 		_changesContext = false;
 		_checked = false;
@@ -541,6 +552,7 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 	protected void setAttributes(HttpServletRequest request) {
 		setNamespacedAttribute(request, "autoFocus", _autoFocus);
 		setNamespacedAttribute(request, "autoSize", _autoSize);
+		setNamespacedAttribute(request, "axis", _axis);
 		setNamespacedAttribute(request, "bean", _bean);
 		setNamespacedAttribute(request, "changesContext", _changesContext);
 		setNamespacedAttribute(request, "checked", _checked);
@@ -593,6 +605,7 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 
 	private boolean _autoFocus = false;
 	private boolean _autoSize = false;
+	private java.lang.String _axis = null;
 	private java.lang.Object _bean = null;
 	private boolean _changesContext = false;
 	private boolean _checked = false;

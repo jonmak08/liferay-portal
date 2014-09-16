@@ -459,6 +459,18 @@
 							'sortable'
 						]
 					},
+					'liferay-input-range-fallback': {
+						condition: {
+							name: 'liferay-input-range-fallback',
+							trigger: 'liferay-form'
+						},
+						path: 'input_range_fallback.js',
+						requres: [
+							'aui-base',
+							'aui-node',
+							'slider'
+						]
+					},
 					'liferay-language': {
 						path: 'language.js'
 					},

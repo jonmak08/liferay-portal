@@ -21,6 +21,7 @@
 <%
 boolean autoFocus = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:input:autoFocus")));
 boolean autoSize = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:input:autoSize")));
+java.lang.String axis = GetterUtil.getString((java.lang.String)request.getAttribute("aui:input:axis"));
 java.lang.Object bean = (java.lang.Object)request.getAttribute("aui:input:bean");
 boolean changesContext = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:input:changesContext")));
 boolean checked = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:input:checked")));

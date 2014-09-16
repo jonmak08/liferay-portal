@@ -167,6 +167,29 @@
 			value="<%= value.toString() %>"
 		/>
 	</c:when>
+	<c:when test='<%= type.equals("range") %>'>
+
+		<c:if test='<%= onChange.isEmpty() %>'>
+			<%
+				onChange = "AUI().use('aui-node', function(A) { A.one('#" + namespace + id + "Output').val(A.one('#" + namespace + id +"').val());});";
+			%>
+		</c:if>
+
+		<input id="<%= namespace + id %>" max="<%= max %>" min="<%= min %>" onchange="<%= onChange %>" oninput="<%= onChange %>" step="1" type="range" value="<%= value %>" />
+		<output id="<%= namespace + id %>Output"><%= value %></output>
+
+		<aui:script use="liferay-input-range-fallback">
+			new Liferay.InputRangeFallback({
+				axis: "<%= axis %>",
+				max: <%= max %>,
+				min: <%= min %>,
+				outNode: "#<%= namespace + id %>Output",
+				srcNode: "#<%= namespace + id %>",
+				value: <%= value %>
+			}).render();
+		</aui:script>
+
+	</c:when>
 	<c:otherwise>
 
 		<%
