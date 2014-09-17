@@ -126,7 +126,7 @@ AUI.add(
 			setClosing: function() {
 				var instance = this;
 
-				var alerts = A.all('.popup-alert-notice, .popup-alert-warning');
+				var alerts = A.all('.popup-alert-notice, .popup-alert-danger');
 
 				if (alerts.size()) {
 					instance._useCloseButton = true;

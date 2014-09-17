@@ -444,7 +444,7 @@ AUI.add(
 			_restoreNodePosition: function(response) {
 				var instance = this;
 
-				instance._displayNotice(response.message, 'warning', 10000, true);
+				instance._displayNotice(response.message, 'danger', 10000, true);
 
 				var nodeId = A.Lang.sub(
 					NODE_ID_TPL,

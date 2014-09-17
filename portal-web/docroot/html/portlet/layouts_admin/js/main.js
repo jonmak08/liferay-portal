@@ -1257,7 +1257,7 @@ AUI.add(
 									content: message + '<button type="button" class="close">&times;</button>',
 									timeout: 10000,
 									toggleText: false,
-									type: 'warning'
+									type: 'danger'
 								}
 							);
 
