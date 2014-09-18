@@ -32,7 +32,7 @@
 	</c:if>
 </liferay-util:buffer>
 
-<c:if test='<%= !type.equals("hidden") && !wrappedField && (radioField && Validator.isNotNull(label)) %>'>
+<c:if test='<%= !type.equals("hidden") && !wrappedField && useInputWrapper %>'>
 	<div class="<%= inputWrapperClass %>">
 </c:if>
 
@@ -280,7 +280,7 @@ boolean choiceField = checkboxField || radioField;
 	</c:if>
 </c:if>
 
-<c:if test='<%= !type.equals("hidden") && !wrappedField && (radioField && Validator.isNotNull(label)) %>'>
+<c:if test='<%= !type.equals("hidden") && !wrappedField && useInputWrapper %>'>
 	</div>
 </c:if>
 
