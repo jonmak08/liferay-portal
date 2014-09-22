@@ -13,7 +13,7 @@ AUI.add(
 
 		var FIELDS_DISPLAY_NAME = '_fieldsDisplay';
 
-		var JSON = A.JSON;
+		var AJSON = A.JSON;
 
 		var STR_DASH = '-';
 
@@ -381,7 +381,8 @@ AUI.add(
 							{
 								recordSetId: recordsetId,
 								minDisplayRows: minDisplayRows,
-								serviceContext: JSON.stringify(
+								recordSetId: recordsetId,
+								serviceContext: AJSON.stringify(
 									{
 										scopeGroupId: themeDisplay.getScopeGroupId(),
 										userId: themeDisplay.getUserId()
@@ -441,14 +442,14 @@ AUI.add(
 
 									delete value.name;
 
-									value = JSON.stringify(value);
+									value = AJSON.stringify(value);
 								}
 								else if ((type === 'radio') || (type === 'select')) {
 									if (!Lang.isArray(value)) {
 										value = AArray(value);
 									}
 
-									value = JSON.stringify(value);
+									value = AJSON.stringify(value);
 								}
 
 								normalized[item.name] = instance._normalizeValue(value);
@@ -552,7 +553,7 @@ AUI.add(
 
 						var randomString = random.toString(36);
 
-						return randomString.substring(length)
+						return randomString.substring(length);
 					},
 
 					_setDataStableSort: function(data) {
@@ -598,8 +599,10 @@ AUI.add(
 							groupId: themeDisplay.getScopeGroupId(),
 							recordSetId: recordsetId,
 							displayIndex: displayIndex,
-							fieldsMap: JSON.stringify(fieldsMap),
-							serviceContext: JSON.stringify(
+							fieldsMap: AJSON.stringify(fieldsMap),
+							groupId: themeDisplay.getScopeGroupId(),
+							recordSetId: recordsetId,
+							serviceContext: AJSON.stringify(
 								{
 									scopeGroupId: themeDisplay.getScopeGroupId(),
 									userId: themeDisplay.getUserId(),
@@ -885,9 +888,10 @@ AUI.add(
 						{
 							recordId: recordId,
 							displayIndex: displayIndex,
-							fieldsMap: JSON.stringify(fieldsMap),
+							fieldsMap: AJSON.stringify(fieldsMap),
 							mergeFields: merge,
-							serviceContext: JSON.stringify(
+							recordId: recordId,
+							serviceContext: AJSON.stringify(
 								{
 									scopeGroupId: themeDisplay.getScopeGroupId(),
 									userId: themeDisplay.getUserId(),
