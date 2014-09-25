@@ -4388,6 +4388,11 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
+			<name>tabsUrls</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
 			<description>Tab values that must follow the same order as the <![CDATA[<code>names</code>]]> attribute. Each value must be separated by a comma with no spaces.</description>
 			<name>tabsValues</name>
 			<required>false</required>

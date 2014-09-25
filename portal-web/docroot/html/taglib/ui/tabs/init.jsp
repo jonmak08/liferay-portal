@@ -46,4 +46,6 @@ String value = (String)request.getAttribute("liferay-ui:tabs:value");
 if (value == null) {
 	value = ParamUtil.getString(request, param, values[0]);
 }
+
+String[] tabsUrls = (String[])request.getAttribute("liferay-ui:tabs:tabsUrls");
 %>
