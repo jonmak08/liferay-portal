@@ -4388,11 +4388,6 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
-			<name>tabsUrls</name>
-			<required>false</required>
-			<rtexprvalue>true</rtexprvalue>
-		</attribute>
-		<attribute>
 			<description>Tab values that must follow the same order as the <![CDATA[<code>names</code>]]> attribute. Each value must be separated by a comma with no spaces.</description>
 			<name>tabsValues</name>
 			<required>false</required>
@@ -4407,6 +4402,11 @@
 		<attribute>
 			<description>A URL to which all the tabs are linked when clicked. You can also set each tab's URL individually using <![CDATA[<code>url[number]</code>]]> attribute.</description>
 			<name>url</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>urls</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>

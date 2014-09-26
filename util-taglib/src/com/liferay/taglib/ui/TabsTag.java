@@ -49,9 +49,9 @@ public class TabsTag extends IncludeTag {
 			request.removeAttribute("liferay-ui:tabs:param");
 			request.removeAttribute("liferay-ui:tabs:portletURL");
 			request.removeAttribute("liferay-ui:tabs:refresh");
-			request.removeAttribute("liferay-ui:tabs:tabsUrls");
 			request.removeAttribute("liferay-ui:tabs:type");
 			request.removeAttribute("liferay-ui:tabs:url");
+			request.removeAttribute("liferay-ui:tabs:urls");
 			request.removeAttribute("liferay-ui:tabs:value");
 			request.removeAttribute("liferay-ui:tabs:values");
 
@@ -74,10 +74,10 @@ public class TabsTag extends IncludeTag {
 				_portletURL = null;
 				_refresh = true;
 				_startPage = null;
-				_tabsUrls = null;
 				_tabsValues = null;
 				_type = null;
 				_url = null;
+				_urls = null;
 				_value = null;
 			}
 		}
@@ -134,10 +134,9 @@ public class TabsTag extends IncludeTag {
 				"liferay-ui:tabs:onClick", String.valueOf(_onClick));
 			request.setAttribute("liferay-ui:tabs:portletURL", _portletURL);
 			request.setAttribute("liferay-ui:tabs:refresh", String.valueOf(_refresh));
-			request.setAttribute("liferay-ui:tabs:tabsUrls", _tabsUrls);
 			request.setAttribute("liferay-ui:tabs:type", _type);
 			request.setAttribute("liferay-ui:tabs:url", _url);
-
+			request.setAttribute("liferay-ui:tabs:urls", _urls);
 
 			request.setAttribute("liferay-ui:tabs:value", _value);
 
@@ -231,10 +230,6 @@ public class TabsTag extends IncludeTag {
 		_startPage = startPage;
 	}
 
-	public void setTabsUrls(String tabsUrls) {
-		_tabsUrls = StringUtil.split(tabsUrls);
-	}
-
 	public void setTabsValues(String tabsValues) {
 		_tabsValues = StringUtil.split(tabsValues);
 	}
@@ -245,6 +240,10 @@ public class TabsTag extends IncludeTag {
 
 	public void setUrl(String url) {
 		_url = url;
+	}
+
+	public void setUrls(String urls) {
+		_urls = StringUtil.split(urls);
 	}
 
 	public void setValue(String value) {
@@ -288,9 +287,9 @@ public class TabsTag extends IncludeTag {
 	private boolean _refresh = true;
 	private String _startPage;
 	private String[] _tabsValues;
-	private String[] _tabsUrls;
 	private String _type;
 	private String _url;
+	private String[] _urls;
 	private String _value;
 
 }
