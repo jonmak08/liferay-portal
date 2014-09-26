@@ -581,8 +581,7 @@ public class ${entity.name}Clp extends BaseModelImpl<${entity.name}> implements 
 
 					Object[] parameterValues = new Object[0];
 
-					return (String)invokeOnRemoteModel(
-						"buildTreePath", parameterTypes, parameterValues);
+					return (String)invokeOnRemoteModel("buildTreePath", parameterTypes, parameterValues);
 				}
 				catch (Exception e) {
 					throw new UnsupportedOperationException(e);
@@ -599,8 +598,7 @@ public class ${entity.name}Clp extends BaseModelImpl<${entity.name}> implements 
 
 				Object[] parameterValues = new Object[] { treePath };
 
-				invokeOnRemoteModel(
-					"updateTreePath", parameterTypes, parameterValues);
+				invokeOnRemoteModel("updateTreePath", parameterTypes, parameterValues);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
