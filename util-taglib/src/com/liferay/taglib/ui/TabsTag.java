@@ -242,8 +242,8 @@ public class TabsTag extends IncludeTag {
 		_url = url;
 	}
 
-	public void setUrls(String urls) {
-		_urls = StringUtil.split(urls);
+	public void setUrls(String[] urls) {
+		_urls = urls;
 	}
 
 	public void setValue(String value) {
