@@ -53,10 +53,8 @@ catch (Exception e) {
 		<liferay-ui:message key="numbers" />
 	</td>
 	<td>
-		<select name="<portlet:namespace />numbers">
-			<option <%= numbers ? "selected" : "" %> value="1"><liferay-ui:message key="yes" /></option>
-			<option <%= !numbers ? "selected" : "" %> value="0"><liferay-ui:message key="no" /></option>
-		</select>
+		<aui:input type="hidden" name="numbers" value="<%= numbers %>"/>
+		<liferay-ui:input-checkbox defaultValue="<%= numbers %>" param="numbersCheckbox" onClick='<%= renderResponse.getNamespace() +  "toggleParameterCheckbox(this);" %>' />
 	</td>
 </tr>
 <tr>
@@ -64,7 +62,8 @@ catch (Exception e) {
 		<liferay-ui:message key="lower-case-letters" />
 	</td>
 	<td>
-		<liferay-ui:input-checkbox defaultValue="<%= lowerCaseLetters %>" param="lowerCaseLetters" />
+		<aui:input type="hidden" name="lowerCaseLetters" value="<%= lowerCaseLetters %>"/>
+		<liferay-ui:input-checkbox defaultValue="<%= lowerCaseLetters %>" param="lowerCaseLettersCheckbox" onClick='<%= renderResponse.getNamespace() +  "toggleParameterCheckbox(this);" %>' />
 	</td>
 </tr>
 <tr>
@@ -72,7 +71,8 @@ catch (Exception e) {
 		<liferay-ui:message key="upper-case-letters" />
 	</td>
 	<td>
-		<liferay-ui:input-checkbox defaultValue="<%= upperCaseLetters %>" param="upperCaseLetters" />
+		<aui:input type="hidden" name="upperCaseLetters" value="<%= upperCaseLetters %>"/>
+		<liferay-ui:input-checkbox defaultValue="<%= upperCaseLetters %>" param="upperCaseLettersCheckbox" onClick='<%= renderResponse.getNamespace() +  "toggleParameterCheckbox(this);" %>' />
 	</td>
 </tr>
 <tr>
@@ -136,5 +136,18 @@ catch (Exception e) {
 
 			event.halt();
 		}
+	);
+
+	Liferay.provide(
+		window,
+		'<portlet:namespace />toggleParameterCheckbox',
+		function(checkbox) {
+			checkbox = A.one(checkbox);
+
+			var checked = checkbox.attr('checked');
+
+			checkbox.previous().val(checked);
+		},
+		['aui-base']
 	);
 </aui:script>
