@@ -202,7 +202,8 @@ public class TabsTag extends IncludeTag {
 			request.setAttribute(
 				"liferay-ui:tabs:onClick", String.valueOf(_onClick));
 			request.setAttribute("liferay-ui:tabs:portletURL", _portletURL);
-			request.setAttribute("liferay-ui:tabs:refresh", String.valueOf(_refresh));
+			request.setAttribute(
+				"liferay-ui:tabs:refresh", String.valueOf(_refresh));
 			request.setAttribute("liferay-ui:tabs:type", _type);
 			request.setAttribute("liferay-ui:tabs:url", _url);
 			request.setAttribute("liferay-ui:tabs:urls", _urls);
