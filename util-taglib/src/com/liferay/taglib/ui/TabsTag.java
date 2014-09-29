@@ -77,6 +77,16 @@ public class TabsTag extends IncludeTag {
 				_tabsValues = null;
 				_type = null;
 				_url = null;
+				_url0 = null;
+				_url1 = null;
+				_url2 = null;
+				_url3 = null;
+				_url4 = null;
+				_url5 = null;
+				_url6 = null;
+				_url7 = null;
+				_url8 = null;
+				_url9 = null;
 				_urls = null;
 				_value = null;
 			}
@@ -94,6 +104,65 @@ public class TabsTag extends IncludeTag {
 
 			request.setAttribute("liferay-ui:tabs:param", _param);
 			request.setAttribute("liferay-ui:tabs:values", _tabsValues);
+
+			if (_urls == null) {
+				String[] urlsArray = new String[10];
+				boolean urlsArrayInitialized = false;
+
+				if (_url0 != null) {
+					urlsArray[0] = _url0;
+					urlsArrayInitialized = true;
+				}
+
+				if (_url1 != null) {
+					urlsArray[1] = _url1;
+					urlsArrayInitialized = true;
+				}
+
+				if (_url2 != null) {
+					urlsArray[2] = _url2;
+					urlsArrayInitialized = true;
+				}
+
+				if (_url3 != null) {
+					urlsArray[3] = _url3;
+					urlsArrayInitialized = true;
+				}
+
+				if (_url4 != null) {
+					urlsArray[4] = _url4;
+					urlsArrayInitialized = true;
+				}
+
+				if (_url5 != null) {
+					urlsArray[5] = _url5;
+					urlsArrayInitialized = true;
+				}
+
+				if (_url6 != null) {
+					urlsArray[6] = _url6;
+					urlsArrayInitialized = true;
+				}
+
+				if (_url7 != null) {
+					urlsArray[7] = _url7;
+					urlsArrayInitialized = true;
+				}
+
+				if (_url8 != null) {
+					urlsArray[8] = _url8;
+					urlsArrayInitialized = true;
+				}
+
+				if (_url9 != null) {
+					urlsArray[9] = _url9;
+					urlsArrayInitialized = true;
+				}
+
+				if (urlsArrayInitialized) {
+					_urls = urlsArray;
+				}
+			}
 
 			if (_value == null) {
 				if (_tabsValues.length > 0) {
@@ -242,6 +311,46 @@ public class TabsTag extends IncludeTag {
 		_url = url;
 	}
 
+	public void setUrl0(String url0) {
+		_url0 = url0;
+	}
+
+	public void setUrl1(String url1) {
+		_url1 = url1;
+	}
+
+	public void setUrl2(String url2) {
+		_url2 = url2;
+	}
+
+	public void setUrl3(String url3) {
+		_url3 = url3;
+	}
+
+	public void setUrl4(String url4) {
+		_url4 = url4;
+	}
+
+	public void setUrl5(String url5) {
+		_url5 = url5;
+	}
+
+	public void setUrl6(String url6) {
+		_url6 = url6;
+	}
+
+	public void setUrl7(String url7) {
+		_url7 = url7;
+	}
+
+	public void setUrl8(String url8) {
+		_url8 = url8;
+	}
+
+	public void setUrl9(String url9) {
+		_url9 = url9;
+	}
+
 	public void setUrls(String[] urls) {
 		_urls = urls;
 	}
@@ -289,6 +398,16 @@ public class TabsTag extends IncludeTag {
 	private String[] _tabsValues;
 	private String _type;
 	private String _url;
+	private String _url0 = null;
+	private String _url1 = null;
+	private String _url2 = null;
+	private String _url3 = null;
+	private String _url4 = null;
+	private String _url5 = null;
+	private String _url6 = null;
+	private String _url7 = null;
+	private String _url8 = null;
+	private String _url9 = null;
 	private String[] _urls;
 	private String _value;
 
