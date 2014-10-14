@@ -4040,7 +4040,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 			contactPersistence.update(contact);
 		}
-		else {
+		else if (!emailAddress1.equals(user.getEmailAddress())) {
 			sendEmailAddressVerification(user, emailAddress1, serviceContext);
 		}
 
@@ -5048,7 +5048,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			setEmailAddress(
 				user, password, firstName, middleName, lastName, emailAddress);
 		}
-		else {
+		else if (!emailAddress.equals(user.getEmailAddress())) {
 			sendEmailAddressVerification = true;
 		}
 
