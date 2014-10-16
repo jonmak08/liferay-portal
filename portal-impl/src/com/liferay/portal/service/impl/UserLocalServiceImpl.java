@@ -4027,7 +4027,13 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		Company company = companyPersistence.findByPrimaryKey(
 			user.getCompanyId());
 
-		if (!company.isStrangersVerify()) {
+		if (company.isStrangersVerify() &&
+			!StringUtil.equalsIgnoreCase(
+				emailAddress1, user.getEmailAddress())) {
+
+			sendEmailAddressVerification(user, emailAddress1, serviceContext);
+		}
+		else {
 			setEmailAddress(
 				user, password, user.getFirstName(), user.getMiddleName(),
 				user.getLastName(), emailAddress1);
@@ -4039,9 +4045,6 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			contact.setEmailAddress(user.getEmailAddress());
 
 			contactPersistence.update(contact);
-		}
-		else if (!emailAddress1.equals(user.getEmailAddress())) {
-			sendEmailAddressVerification(user, emailAddress1, serviceContext);
 		}
 
 		return user;
@@ -5044,12 +5047,15 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		boolean sendEmailAddressVerification = false;
 
-		if (!company.isStrangersVerify()) {
+		if (company.isStrangersVerify() &&
+			!StringUtil.equalsIgnoreCase(
+				emailAddress, user.getEmailAddress())) {
+
+			sendEmailAddressVerification = true;
+		}
+		else {
 			setEmailAddress(
 				user, password, firstName, middleName, lastName, emailAddress);
-		}
-		else if (!emailAddress.equals(user.getEmailAddress())) {
-			sendEmailAddressVerification = true;
 		}
 
 		if (serviceContext != null) {
