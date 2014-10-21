@@ -2,6 +2,10 @@
 @import "mixins";
 
 .app-view-taglib {
+	.button-holder .btn-group {
+		white-space: normal;
+	}
+
 	.display-style .icon {
 		background-image: url(@theme_image_path@/application/layouts.png);
 		background-repeat: no-repeat;
