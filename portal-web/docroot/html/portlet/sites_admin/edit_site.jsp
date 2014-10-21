@@ -258,10 +258,10 @@ String[][] categorySections = {mainSections, seoSections, advancedSections, misc
 
 		if (ok) {
 			if (forceDisable) {
-				document.<portlet:namespace />fm.<portlet:namespace />redirect.value = '<%= forceDisableRedirectURL %>';
 				document.<portlet:namespace />fm.<portlet:namespace />forceDisable.value = true;
-				document.<portlet:namespace />fm.<portlet:namespace />none.checked = true;
 				document.<portlet:namespace />fm.<portlet:namespace />local.checked = false;
+				document.<portlet:namespace />fm.<portlet:namespace />none.checked = true;
+				document.<portlet:namespace />fm.<portlet:namespace />redirect.value = '<%= forceDisableRedirectURL %>';
 				document.<portlet:namespace />fm.<portlet:namespace />remote.checked = false;
 			}
 

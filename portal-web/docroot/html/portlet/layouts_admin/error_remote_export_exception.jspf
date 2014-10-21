@@ -47,9 +47,10 @@
 	var forceDisableLink = A.one('#<portlet:namespace />forceDisableLink');
 
 	if (forceDisableLink) {
-		forceDisableLink.on('click',
+		forceDisableLink.on(
+			'click',
 			function() {
 				<portlet:namespace />saveGroup(true);
-		});
+			});
 	}
 </aui:script>
