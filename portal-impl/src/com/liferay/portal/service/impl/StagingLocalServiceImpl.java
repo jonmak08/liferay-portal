@@ -192,8 +192,6 @@ public class StagingLocalServiceImpl extends StagingLocalServiceBaseImpl {
 		UnicodeProperties typeSettingsProperties =
 			liveGroup.getTypeSettingsProperties();
 
-		boolean forceDisable = GetterUtil.getBoolean(
-			serviceContext.getAttribute("forceDisable"));
 		boolean stagedRemotely = GetterUtil.getBoolean(
 			typeSettingsProperties.getProperty("stagedRemotely"));
 
@@ -203,6 +201,8 @@ public class StagingLocalServiceImpl extends StagingLocalServiceBaseImpl {
 
 			long remoteGroupId = GetterUtil.getLong(
 				typeSettingsProperties.getProperty("remoteGroupId"));
+			boolean forceDisable = GetterUtil.getBoolean(
+				serviceContext.getAttribute("forceDisable"));
 
 			disableRemoteStaging(remoteURL, remoteGroupId, forceDisable);
 		}
@@ -619,7 +619,7 @@ public class StagingLocalServiceImpl extends StagingLocalServiceBaseImpl {
 	}
 
 	protected void disableRemoteStaging(
-			String remoteURL, long remoteGroupId, boolean force)
+			String remoteURL, long remoteGroupId, boolean forceDisable)
 		throws PortalException {
 
 		PermissionChecker permissionChecker =
@@ -653,7 +653,7 @@ public class StagingLocalServiceImpl extends StagingLocalServiceBaseImpl {
 			throw rae;
 		}
 		catch (SystemException se) {
-			if (!force) {
+			if (!forceDisable) {
 				RemoteExportException ree = new RemoteExportException(
 					RemoteExportException.BAD_CONNECTION);
 
@@ -663,7 +663,7 @@ public class StagingLocalServiceImpl extends StagingLocalServiceBaseImpl {
 			}
 
 			if (_log.isWarnEnabled()) {
-				_log.warn("Force disabling remote staging");
+				_log.warn("Forcibly disable remote staging");
 			}
 		}
 	}
