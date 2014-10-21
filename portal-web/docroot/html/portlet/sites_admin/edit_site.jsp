@@ -181,11 +181,6 @@ String[][] categorySections = {mainSections, seoSections, advancedSections, misc
 	<portlet:param name="struts_action" value="/sites_admin/edit_site" />
 </portlet:actionURL>
 
-<portlet:renderURL var="forceDisableRedirectURL">
-	<portlet:param name="struts_action" value="/sites_admin/edit_site" />
-	<portlet:param name="historyKey" value='<%= renderResponse.getNamespace() + "staging" %>' />
-</portlet:renderURL>
-
 <aui:form action="<%= editSiteURL %>" method="post" name="fm" onSubmit='<%= "event.preventDefault(); " + renderResponse.getNamespace() + "saveGroup();" %>'>
 	<aui:input name="<%= Constants.CMD %>" type="hidden" />
 	<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
@@ -215,6 +210,11 @@ String[][] categorySections = {mainSections, seoSections, advancedSections, misc
 		showButtons="<%= true %>"
 	/>
 </aui:form>
+
+<portlet:renderURL var="forceDisableRedirectURL">
+	<portlet:param name="struts_action" value="/sites_admin/edit_site" />
+	<portlet:param name="historyKey" value='<%= renderResponse.getNamespace() + "staging" %>' />
+</portlet:renderURL>
 
 <aui:script>
 	function <portlet:namespace />saveGroup(forceDisable) {
