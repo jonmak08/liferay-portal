@@ -211,11 +211,6 @@ String[][] categorySections = {mainSections, seoSections, advancedSections, misc
 	/>
 </aui:form>
 
-<portlet:renderURL var="forceDisableRedirectURL">
-	<portlet:param name="struts_action" value="/sites_admin/edit_site" />
-	<portlet:param name="historyKey" value='<%= renderResponse.getNamespace() + "staging" %>' />
-</portlet:renderURL>
-
 <aui:script>
 	function <portlet:namespace />saveGroup(forceDisable) {
 		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = '<%= (group == null) ? Constants.ADD : Constants.UPDATE %>';
@@ -261,7 +256,7 @@ String[][] categorySections = {mainSections, seoSections, advancedSections, misc
 				document.<portlet:namespace />fm.<portlet:namespace />forceDisable.value = true;
 				document.<portlet:namespace />fm.<portlet:namespace />local.checked = false;
 				document.<portlet:namespace />fm.<portlet:namespace />none.checked = true;
-				document.<portlet:namespace />fm.<portlet:namespace />redirect.value = '<%= forceDisableRedirectURL %>';
+				document.<portlet:namespace />fm.<portlet:namespace />redirect.value = '<portlet:renderURL><portlet:param name="struts_action" value="/sites_admin/edit_site" /><portlet:param name="historyKey" value='<%= renderResponse.getNamespace() + "staging" %>' /></portlet:renderURL>';
 				document.<portlet:namespace />fm.<portlet:namespace />remote.checked = false;
 			}
 
