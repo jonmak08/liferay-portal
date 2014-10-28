@@ -115,6 +115,19 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 								container.one('#<%= monthParamId %>').val(date.getMonth());
 								container.one('#<%= yearParamId %>').val(date.getFullYear());
 							}
+						},
+						enterKey: function(event) {
+							var instance = this;
+
+							var input = event.currentTarget.get('activeInput');
+
+							var container = instance.get('container');
+
+							var date = instance.getParsedDatesFromInputValue(input._node.value)[0];
+
+							container.one('#<%= dayParamId %>').val(date.getDate());
+							container.one('#<%= monthParamId %>').val(date.getMonth());
+							container.one('#<%= yearParamId %>').val(date.getFullYear());
 						}
 					},
 					popover: {
@@ -131,6 +144,16 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 
 				return new Date(container.one('#<%= yearParamId %>').val(), container.one('#<%= monthParamId %>').val(), container.one('#<%= dayParamId %>').val());
 			};
+
+			datePicker.handleKeypress = function(event) {
+				if (event.isKey('ENTER')) {
+					datePicker.fire('enterKey');
+				}
+			};
+
+			datePicker.inputField = A.one('#<%= randomNamespace %>displayDate');
+
+			datePicker.inputField.on('keypress', datePicker.handleKeypress);
 
 			return datePicker;
 		}
