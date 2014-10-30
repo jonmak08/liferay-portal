@@ -1186,7 +1186,7 @@ public class CMISRepository extends BaseCmisRepository {
 
 			String mimeType = oldVersion.getContentStreamMimeType();
 			String changeLog = LanguageUtil.format(
-				serviceContext.getLocale(), "reverted-to-x", version);
+				serviceContext.getLocale(), "reverted-to-x", version, false);
 			String title = oldVersion.getName();
 			ContentStream contentStream = oldVersion.getContentStream();
 
