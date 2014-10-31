@@ -58,7 +58,8 @@ public class ZipWriterImpl implements ZipWriter {
 		_file.mkdir();
 
 		FinalizeManager.register(
-			_file, new DeleteFileFinalizeAction(_file.getAbsolutePath()));
+			_file.getDelegate(),
+			new DeleteFileFinalizeAction(_file.getAbsolutePath()));
 	}
 
 	public ZipWriterImpl(java.io.File file) {
