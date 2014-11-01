@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
+import com.liferay.portal.kernel.util.Accessor;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.Tuple;
 import com.liferay.portal.model.Address;
@@ -34,6 +35,7 @@ import com.liferay.portal.model.Website;
 import com.liferay.portal.security.permission.PermissionChecker;
 
 import java.util.List;
+import java.util.Locale;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.PortletRequest;
@@ -220,6 +222,12 @@ public class UsersAdminUtil {
 
 		return getUsersAdmin().getRoleOrderByComparator(
 			orderByCol, orderByType);
+	}
+
+	public static <T> String getUserColumnText(
+		Locale locale, List<T> list, Accessor<T, String> accessor, int count) {
+
+		return getUsersAdmin().getUserColumnText(locale, list, accessor, count);
 	}
 
 	public static long[] getUserGroupIds(PortletRequest portletRequest)

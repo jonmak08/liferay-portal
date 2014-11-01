@@ -17,6 +17,7 @@ package com.liferay.portlet.usersadmin.util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.search.Hits;
+import com.liferay.portal.kernel.util.Accessor;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.Tuple;
 import com.liferay.portal.model.Address;
@@ -33,6 +34,7 @@ import com.liferay.portal.model.Website;
 import com.liferay.portal.security.permission.PermissionChecker;
 
 import java.util.List;
+import java.util.Locale;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.PortletRequest;
@@ -132,6 +134,9 @@ public interface UsersAdmin {
 
 	public OrderByComparator getRoleOrderByComparator(
 		String orderByCol, String orderByType);
+
+	public <T> String getUserColumnText(
+		Locale locale, List<T> list, Accessor<T, String> accessor, int count);
 
 	public long[] getUserGroupIds(PortletRequest portletRequest)
 		throws PortalException, SystemException;
