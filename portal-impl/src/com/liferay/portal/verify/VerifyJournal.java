@@ -88,6 +88,7 @@ public class VerifyJournal extends VerifyProcess {
 		verifyContent();
 		verifyCreateDate();
 		verifyDynamicElements();
+		verifyModifiedDate();
 		verifyOracleNewLine();
 		verifyPermissionsAndAssets();
 		verifySearch();
@@ -518,6 +519,59 @@ public class VerifyJournal extends VerifyProcess {
 		updateDynamicElements(rootElement.elements("dynamic-element"));
 
 		article.setContent(document.asXML());
+
+		JournalArticleLocalServiceUtil.updateJournalArticle(article);
+	}
+
+	protected void verifyModifiedDate() throws Exception {
+		ActionableDynamicQuery actionableDynamicQuery =
+			JournalArticleResourceLocalServiceUtil.getActionableDynamicQuery();
+
+		actionableDynamicQuery.setPerformActionMethod(
+			new ActionableDynamicQuery.PerformActionMethod() {
+
+				@Override
+				public void performAction(Object object) {
+					JournalArticleResource articleResource =
+						(JournalArticleResource)object;
+
+					verifyModifiedDate(articleResource);
+				}
+
+			});
+
+		actionableDynamicQuery.performActions();
+
+		if (_log.isDebugEnabled()) {
+			_log.debug("Modified dates verified for articles");
+		}
+	}
+
+	protected void verifyModifiedDate(JournalArticleResource articleResource) {
+		JournalArticle article =
+			JournalArticleLocalServiceUtil.fetchLatestArticle(
+				articleResource.getResourcePrimKey(),
+				WorkflowConstants.STATUS_APPROVED, true);
+
+		if (article == null) {
+			return;
+		}
+
+		AssetEntry assetEntry =
+			AssetEntryLocalServiceUtil.fetchEntry(
+				articleResource.getGroupId(), articleResource.getUuid());
+
+		if (assetEntry == null) {
+			return;
+		}
+
+		Date articleModifiedDate = article.getModifiedDate();
+
+		if (articleModifiedDate.equals(assetEntry.getModifiedDate())) {
+			return;
+		}
+
+		article.setModifiedDate(assetEntry.getModifiedDate());
 
 		JournalArticleLocalServiceUtil.updateJournalArticle(article);
 	}
