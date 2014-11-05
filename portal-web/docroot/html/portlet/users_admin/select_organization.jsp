@@ -127,7 +127,7 @@ if (Validator.isNotNull(target)) {
 
 			<liferay-ui:search-container-column-text
 				name="country"
-				property="address.country.name"
+				value="<%= UsersAdmin.ORGANIZATION_COUNTRY_NAME_ACCESSOR.get(organization) %>"
 			/>
 
 			<liferay-ui:search-container-column-text>
