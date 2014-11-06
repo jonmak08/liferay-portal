@@ -275,7 +275,7 @@ AUI.add(
 
 							setTimeout(
 								function() {
-									input.addClass(animateClass).focus();
+									input.addClass(animateClass);
 								},
 								0
 							);
