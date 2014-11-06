@@ -83,8 +83,20 @@ String usersListView = ParamUtil.get(request, "usersListView", UserConstants.LIS
 
 <aui:script>
 	function <portlet:namespace />exportUsers() {
+		var searchForm = AUI.$('#<portlet:namespace />keywords');
+		var searchVal = searchForm.val();
+		var hasSearchVal = (searchVal != '');
+
+		if (hasSearchVal) {
+			searchForm.val('');
+		}
+
 		document.<portlet:namespace />fm.method = 'post';
 
 		submitForm(document.<portlet:namespace />fm, '<portlet:actionURL><portlet:param name="struts_action" value="/users_admin/export_users" /></portlet:actionURL>&compress=0&etag=0&strip=0', false);
+
+		if (hasSearchVal) {
+			searchForm.val(searchVal);
+		}
 	}
 </aui:script>
