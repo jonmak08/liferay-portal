@@ -145,6 +145,27 @@ public class ChannelHubManagerImpl implements ChannelHubManager {
 	}
 
 	@Override
+	public void destroyClusterChannel(long companyId, long userId)
+		throws ChannelException {
+
+		destroyChannel(companyId, userId);
+
+		MethodHandler methodHandler = new MethodHandler(
+			_destroyChannelMethodKey, companyId, userId);
+
+		ClusterRequest clusterRequest = ClusterRequest.createMulticastRequest(
+			methodHandler, true);
+
+		try {
+			ClusterExecutorUtil.execute(clusterRequest);
+		}
+		catch (Exception e) {
+			throw new ChannelException(
+				"Unable to destroy channel across cluster", e);
+		}
+	}
+
+	@Override
 	public ChannelHub fetchChannelHub(long companyId) throws ChannelException {
 		return fetchChannelHub(companyId, false);
 	}
@@ -371,6 +392,10 @@ public class ChannelHubManagerImpl implements ChannelHubManager {
 		channelHub.unregisterChannelListener(userId, channelListener);
 	}
 
+	private static final MethodKey _destroyChannelMethodKey =
+		new MethodKey(
+			ChannelHubManagerUtil.class, "destroyChannel", long.class,
+			long.class);
 	private static final MethodKey _storeNotificationEventMethodKey =
 		new MethodKey(
 			ChannelHubManagerUtil.class, "storeNotificationEvent", long.class,
