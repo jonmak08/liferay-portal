@@ -17,4 +17,9 @@
 	.lfr-panel-content {
 		overflow: auto;
 	}
+
+	.lfr-asset-downloads .last {
+		line-height: 14px
+	}
+}
 }
