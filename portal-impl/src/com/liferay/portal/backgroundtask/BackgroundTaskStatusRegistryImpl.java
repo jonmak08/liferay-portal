@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.backgroundtask.BackgroundTaskStatus;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskStatusRegistry;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskStatusRegistryUtil;
 import com.liferay.portal.kernel.cluster.ClusterMasterExecutorUtil;
+import com.liferay.portal.kernel.cluster.ClusterNodeResponse;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
@@ -107,10 +108,12 @@ public class BackgroundTaskStatusRegistryImpl
 					"getBackgroundTaskStatus", long.class),
 				backgroundTaskId);
 
-			Future<BackgroundTaskStatus> future =
+			Future<ClusterNodeResponse> future =
 				ClusterMasterExecutorUtil.executeOnMaster(methodHandler);
 
-			return future.get();
+			ClusterNodeResponse clusterNodeResponse = future.get();
+			
+			return (BackgroundTaskStatus) clusterNodeResponse.getResult();
 		}
 		catch (Exception e) {
 			_log.error("Uanble to retrieve status from master node", e);
