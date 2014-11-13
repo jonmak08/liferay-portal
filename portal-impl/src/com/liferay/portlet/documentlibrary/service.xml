@@ -166,6 +166,10 @@
 			<finder-column name="groupId" />
 			<finder-column name="folderId" arrayable-operator="OR" />
 		</finder>
+		<finder name="R_F" return-type="Collection">
+			<finder-column name="repositoryId" />
+			<finder-column name="folderId" />
+		</finder>
 		<finder name="G_U_F" return-type="Collection">
 			<finder-column name="groupId" />
 			<finder-column name="userId" />
@@ -541,6 +545,9 @@
 			<finder-column name="companyId" />
 		</finder>
 		<finder name="RepositoryId" return-type="DLFolder">
+			<finder-column name="repositoryId" />
+		</finder>
+		<finder name="RepositoryIdList" return-type="Collection">
 			<finder-column name="repositoryId" />
 		</finder>
 		<finder name="G_P" return-type="Collection">

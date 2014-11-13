@@ -48,7 +48,6 @@ import com.liferay.portal.model.SystemEventConstants;
 import com.liferay.portal.model.User;
 import com.liferay.portal.model.WorkflowDefinitionLink;
 import com.liferay.portal.repository.liferayrepository.model.LiferayFolder;
-import com.liferay.portal.service.RepositoryLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portlet.documentlibrary.DuplicateFileException;
 import com.liferay.portlet.documentlibrary.DuplicateFolderNameException;
@@ -171,10 +170,17 @@ public class DLFolderLocalServiceImpl extends DLFolderLocalServiceBaseImpl {
 			description, false, serviceContext);
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #deleteAllByGroup(long)}
+	 */
 	@Override
 	public void deleteAll(long groupId)
 		throws PortalException, SystemException {
+		deleteAllByGroup(groupId);
+	}
 
+	@Override
+	public void deleteAllByGroup(long groupId) throws PortalException, SystemException {
 		Group group = groupLocalService.getGroup(groupId);
 
 		List<DLFolder> dlFolders = dlFolderPersistence.findByGroupId(groupId);
@@ -194,6 +200,51 @@ public class DLFolderLocalServiceImpl extends DLFolderLocalServiceBaseImpl {
 		try {
 			DLStoreUtil.deleteDirectory(
 				group.getCompanyId(), groupId, StringPool.BLANK);
+		}
+		catch (NoSuchDirectoryException nsde) {
+			if (_log.isDebugEnabled()) {
+				_log.debug(nsde.getMessage());
+			}
+		}
+	}
+
+	@Override
+	public void deleteAllByRepository(long repositoryId)
+		throws PortalException, SystemException {
+
+		Repository repository = repositoryLocalService.fetchRepository(
+			repositoryId);
+
+		long groupId = repositoryId;
+
+		if (repository != null) {
+			groupId = repository.getGroupId();
+		}
+
+		Group group = groupLocalService.getGroup(groupId);
+
+		List<DLFolder> dlFolders = dlFolderPersistence.findByRepositoryIdList(
+			repositoryId);
+
+		for (DLFolder dlFolder : dlFolders) {
+			dlFolderLocalService.deleteFolder(dlFolder);
+		}
+
+		if (repository != null) {
+			dlFileEntryLocalService.deleteRepositoryFileEntries(
+				repository.getRepositoryId(), repository.getDlFolderId());
+		}
+		else {
+			dlFileEntryLocalService.deleteFileEntries(
+				groupId, DLFolderConstants.DEFAULT_PARENT_FOLDER_ID);
+
+			dlFileShortcutLocalService.deleteFileShortcuts(
+				groupId, DLFolderConstants.DEFAULT_PARENT_FOLDER_ID);
+		}
+
+		try {
+			DLStoreUtil.deleteDirectory(
+				group.getCompanyId(), repositoryId, StringPool.BLANK);
 		}
 		catch (NoSuchDirectoryException nsde) {
 			if (_log.isDebugEnabled()) {
@@ -1190,7 +1241,7 @@ public class DLFolderLocalServiceImpl extends DLFolderLocalServiceBaseImpl {
 		if ((parentDLFolder.getRepositoryId() != repositoryId) &&
 			(parentDLFolder.getRepositoryId() != groupId)) {
 
-			Repository repository = RepositoryLocalServiceUtil.getRepository(
+			Repository repository = repositoryLocalService.getRepository(
 				repositoryId);
 
 			if (repository.getGroupId() != parentDLFolder.getGroupId()) {

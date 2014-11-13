@@ -111,13 +111,12 @@ import com.liferay.portlet.expando.model.ExpandoTable;
 import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
 
 import java.awt.image.RenderedImage;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
-
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -885,6 +884,39 @@ public class DLFileEntryLocalServiceImpl
 		}
 
 		return null;
+	}
+
+	@Override
+	public void deleteRepositoryFileEntries(long repositoryId, long folderId)
+		throws PortalException, SystemException {
+
+		deleteRepositoryFileEntries(repositoryId, folderId, true);
+	}
+
+	@Override
+	public void deleteRepositoryFileEntries(
+			long repositoryId, long folderId, boolean includeTrashedEntries)
+		throws PortalException, SystemException {
+
+		int count = dlFileEntryPersistence.countByR_F(repositoryId, folderId);
+
+		int pages = count / _DELETE_INTERVAL;
+
+		for (int i = 0; i <= pages; i++) {
+			int start = (i * _DELETE_INTERVAL);
+			int end = start + _DELETE_INTERVAL;
+
+			List<DLFileEntry> dlFileEntries = dlFileEntryPersistence.findByR_F(
+				repositoryId, folderId, start, end);
+
+			for (DLFileEntry dlFileEntry : dlFileEntries) {
+				if (includeTrashedEntries ||
+					!dlFileEntry.isInTrashExplicitly()) {
+
+					dlFileEntryLocalService.deleteFileEntry(dlFileEntry);
+				}
+			}
+		}
 	}
 
 	@Override
