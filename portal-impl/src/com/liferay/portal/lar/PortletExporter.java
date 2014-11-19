@@ -197,7 +197,7 @@ public class PortletExporter {
 
 		Date startDate = originalStartDate;
 
-		if (range.equals("last-publish-date")) {
+		if (range.equals("fromLastPublishDate")) {
 			Date lastPublishDate = StagingUtil.getLastPublishDate(
 				jxPortletPreferences);
 

@@ -229,7 +229,7 @@ public class BasePortletExportImportTestCase extends BaseExportImportTestCase {
 		exportParameterMap.put(
 			PortletDataHandlerKeys.UPDATE_LAST_PUBLISH_DATE,
 			new String[] {String.valueOf(true)});
-		exportParameterMap.put("range", new String[] {"last-publish-date"});
+		exportParameterMap.put("range", new String[] {"fromLastPublishDate"});
 
 		Map<String, String[]> importParameterMap =
 			new LinkedHashMap<String, String[]>();
