@@ -488,7 +488,9 @@ public abstract class DLPreviewableProcessor implements DLProcessor {
 			return;
 		}
 
-		portletDataContext.addZipEntry(binPath, is);
+		if (portletDataContext.isPathNotProcessed(binPath)) {
+			portletDataContext.addZipEntry(binPath, is);
+		}
 	}
 
 	protected void exportPreview(

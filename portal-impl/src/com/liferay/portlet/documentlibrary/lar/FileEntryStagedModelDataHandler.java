@@ -191,7 +191,9 @@ public class FileEntryStagedModelDataHandler
 				String binPath = ExportImportPathUtil.getModelPath(
 					fileEntry, fileEntry.getVersion());
 
-				portletDataContext.addZipEntry(binPath, is);
+				if (portletDataContext.isPathNotProcessed(binPath)) {
+					portletDataContext.addZipEntry(binPath, is);
+				}
 
 				fileEntryElement.addAttribute("bin-path", binPath);
 			}
