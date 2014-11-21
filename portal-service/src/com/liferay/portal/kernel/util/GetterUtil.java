@@ -338,7 +338,7 @@ public class GetterUtil {
 
 		return defaultValue;
 	}
-	
+
 	public static float get(String value, float defaultValue) {
 		if (value == null) {
 			return defaultValue;
@@ -364,6 +364,7 @@ public class GetterUtil {
 	public static double get(String value, Locale locale, double defaultValue) {
 		if (value != null) {
 			NumberFormat format = NumberFormat.getInstance(locale);
+
 			try {
 				return format.parse(value.trim()).doubleValue();
 			}
