@@ -290,7 +290,7 @@ int priceId = ParamUtil.getInteger(request, "priceId", -1);
 						}
 					}
 
-					double price = ParamUtil.getDouble(request, "price" + curPriceId);
+					double price = ParamUtil.getDouble(request, "price" + curPriceId, locale);
 					String priceParam = request.getParameter("price" + curPriceId);
 					if ((priceParam == null) || priceParam.equals(StringPool.NULL)) {
 						if (itemPrices[curPriceId] != null) {
@@ -298,7 +298,7 @@ int priceId = ParamUtil.getInteger(request, "priceId", -1);
 						}
 					}
 
-					double discount = ParamUtil.getDouble(request, "discount" + curPriceId) / 100;
+					double discount = ParamUtil.getDouble(request, "discount" + curPriceId, locale) / 100;
 					String discountParam = request.getParameter("discount" + curPriceId);
 					if ((discountParam == null) || discountParam.equals(StringPool.NULL)) {
 						if (itemPrices[curPriceId] != null) {
@@ -314,7 +314,7 @@ int priceId = ParamUtil.getInteger(request, "priceId", -1);
 						}
 					}
 
-					double shipping = ParamUtil.getDouble(request, "shipping" + curPriceId);
+					double shipping = ParamUtil.getDouble(request, "shipping" + curPriceId, locale);
 					String shippingParam = request.getParameter("shipping" + curPriceId);
 					if ((shippingParam == null) || shippingParam.equals(StringPool.NULL)) {
 						if (itemPrices[curPriceId] != null) {
