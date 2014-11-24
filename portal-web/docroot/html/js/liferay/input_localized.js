@@ -275,7 +275,11 @@ AUI.add(
 
 							setTimeout(
 								function() {
-									input.addClass(animateClass).focus();
+									input.addClass(animateClass);
+
+									if (!Liferay.Browser.isIe() || Liferay.Browser.getMajorVersion() > 9) {
+										input.focus();
+									}
 								},
 								0
 							);
