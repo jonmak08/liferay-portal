@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
+import com.liferay.portal.kernel.portlet.PortletRequestModel;
 import com.liferay.portal.kernel.trash.TrashRenderer;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
@@ -139,7 +140,8 @@ public class JournalArticleAssetRenderer
 				JournalArticleDisplay articleDisplay =
 					JournalArticleLocalServiceUtil.getArticleDisplay(
 						_article, null, null,
-						LanguageUtil.getLanguageId(locale), 1, null, null);
+						LanguageUtil.getLanguageId(locale), 1,
+						(PortletRequestModel)null, null);
 
 				summary = StringUtil.shorten(
 					HtmlUtil.stripHtml(articleDisplay.getContent()), 200);
