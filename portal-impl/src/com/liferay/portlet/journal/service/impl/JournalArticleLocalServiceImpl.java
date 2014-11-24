@@ -1632,8 +1632,7 @@ public class JournalArticleLocalServiceImpl
 		throws PortalException, SystemException {
 
 		return getArticleContent(
-			article, ddmTemplateKey, viewMode, languageId,
-			(PortletRequestModel)null, themeDisplay);
+			article, ddmTemplateKey, viewMode, languageId, null, themeDisplay);
 	}
 
 	public String getArticleContent(
@@ -1681,7 +1680,7 @@ public class JournalArticleLocalServiceImpl
 
 		return getArticleContent(
 			groupId, articleId, version, viewMode, ddmTemplateKey, languageId,
-			(PortletRequestModel)null, themeDisplay);
+			null, themeDisplay);
 	}
 
 	/**
@@ -1747,8 +1746,8 @@ public class JournalArticleLocalServiceImpl
 		throws PortalException, SystemException {
 
 		return getArticleContent(
-			groupId, articleId, viewMode, ddmTemplateKey, languageId,
-			(PortletRequestModel)null, themeDisplay);
+			groupId, articleId, viewMode, ddmTemplateKey, languageId, null,
+			themeDisplay);
 	}
 
 	/**
