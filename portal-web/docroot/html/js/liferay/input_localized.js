@@ -275,7 +275,11 @@ AUI.add(
 
 							setTimeout(
 								function() {
-									input.addClass(animateClass).focus();
+									input.addClass(animateClass);
+
+									if (!Browser.isIe() || Browser.getMajorVersion() > 9) {
+										input.focus();
+									}
 								},
 								0
 							);
