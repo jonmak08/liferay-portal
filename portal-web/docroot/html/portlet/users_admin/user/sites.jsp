@@ -115,6 +115,7 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "sites"
 	</portlet:renderURL>
 
 	<aui:script use="escape,liferay-search-container">
+		var AArray = A.Array;
 		var Util = Liferay.Util;
 
 		var addGroupIds = [];
@@ -151,7 +152,7 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "sites"
 
 						addGroupIds.push(event.groupid);
 
-						A.Array.removeItem(deleteGroupIds, event.groupid);
+						AArray.removeItem(deleteGroupIds, event.groupid);
 
 						document.<portlet:namespace />fm.<portlet:namespace />addGroupIds.value = addGroupIds.join(',');
 						document.<portlet:namespace />fm.<portlet:namespace />deleteGroupIds.value = deleteGroupIds.join(',');
@@ -178,7 +179,7 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "sites"
 
 				searchContainer.deleteRow(tr, rowId);
 
-				A.Array.removeItem(addGroupIds, event.rowId);
+				AArray.removeItem(addGroupIds, event.rowId);
 
 				deleteGroupIds.push(rowId);
 
@@ -193,7 +194,9 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "sites"
 			function(event) {
 				event.selectors.each(
 					function(item, index, collection) {
-						if (A.Array.indexOf(deleteGroupIds, item.attr('data-groupid')) != -1) {
+						var groupId = item.attr('data-groupid');
+
+						if (AArray.indexOf(deleteGroupIds, groupId) != -1) {
 							Util.toggleDisabled(item, false);
 						}
 					}
