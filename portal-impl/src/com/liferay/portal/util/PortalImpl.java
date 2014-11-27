@@ -2471,18 +2471,8 @@ public class PortalImpl implements Portal {
 		String inputPermissionsShowOptions = request.getParameter(
 			"inputPermissionsShowOptions");
 
-		if ((groupPermissions == null) &&
-			(inputPermissionsShowOptions == null)) {
-
-			List<String> groupDefaultActions =
-				ResourceActionsUtil.getModelResourceGroupDefaultActions(
-					className);
-
-			groupPermissions = groupDefaultActions.toArray(
-				new String[groupDefaultActions.size()]);
-		}
-
-		return groupPermissions;
+		return getGroupPermissions(
+			groupPermissions, className, inputPermissionsShowOptions);
 	}
 
 	@Override
@@ -2500,18 +2490,8 @@ public class PortalImpl implements Portal {
 		String inputPermissionsShowOptions = portletRequest.getParameter(
 			"inputPermissionsShowOptions");
 
-		if ((groupPermissions == null) &&
-			(inputPermissionsShowOptions == null)) {
-
-			List<String> groupDefaultActions =
-				ResourceActionsUtil.getModelResourceGroupDefaultActions(
-					className);
-
-			groupPermissions = groupDefaultActions.toArray(
-				new String[groupDefaultActions.size()]);
-		}
-
-		return groupPermissions;
+		return getGroupPermissions(
+			groupPermissions, className, inputPermissionsShowOptions);
 	}
 
 	@Override
@@ -2529,18 +2509,8 @@ public class PortalImpl implements Portal {
 		String inputPermissionsShowOptions = request.getParameter(
 			"inputPermissionsShowOptions");
 
-		if ((guestPermissions == null) &&
-			(inputPermissionsShowOptions == null)) {
-
-			List<String> guestDefaultActions =
-				ResourceActionsUtil.getModelResourceGuestDefaultActions(
-					className);
-
-			guestPermissions = guestDefaultActions.toArray(
-				new String[guestDefaultActions.size()]);
-		}
-
-		return guestPermissions;
+		return getGuestPermissions(
+			guestPermissions, className, inputPermissionsShowOptions);
 	}
 
 	@Override
@@ -2558,18 +2528,8 @@ public class PortalImpl implements Portal {
 		String inputPermissionsShowOptions = portletRequest.getParameter(
 			"inputPermissionsShowOptions");
 
-		if ((guestPermissions == null) &&
-			(inputPermissionsShowOptions == null)) {
-
-			List<String> guestDefaultActions =
-				ResourceActionsUtil.getModelResourceGuestDefaultActions(
-					className);
-
-			guestPermissions = guestDefaultActions.toArray(
-				new String[guestDefaultActions.size()]);
-		}
-
-		return guestPermissions;
+		return getGuestPermissions(
+			guestPermissions, className, inputPermissionsShowOptions);
 	}
 
 	@Override
@@ -7812,6 +7772,40 @@ public class PortalImpl implements Portal {
 		sb.append(group.getFriendlyURL());
 
 		return sb.toString();
+	}
+
+	protected String[] getGroupPermissions(
+		String[] groupPermissions, String className,
+		String inputPermissionsShowOptions) {
+
+		if ((groupPermissions != null) ||
+			(inputPermissionsShowOptions != null)) {
+
+			return groupPermissions;
+		}
+
+		List<String> groupDefaultActions =
+			ResourceActionsUtil.getModelResourceGroupDefaultActions(className);
+
+		return groupDefaultActions.toArray(
+			new String[groupDefaultActions.size()]);
+	}
+
+	protected String[] getGuestPermissions(
+		String[] guestPermissions, String className,
+		String inputPermissionsShowOptions) {
+
+		if ((guestPermissions != null) ||
+			(inputPermissionsShowOptions != null)) {
+
+			return guestPermissions;
+		}
+
+		List<String> guestDefaultActions =
+			ResourceActionsUtil.getModelResourceGuestDefaultActions(className);
+
+		return guestDefaultActions.toArray(
+			new String[guestDefaultActions.size()]);
 	}
 
 	protected String getPortletParam(HttpServletRequest request, String name) {
