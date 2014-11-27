@@ -212,60 +212,60 @@ public abstract class BaseAssetSearchTestCase {
 
 	@Test
 	public void testAllAssetTags1() throws Exception {
-		String[] allTags = {"liferay"};
+		String[] allTagNames = {"liferay"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				_group1.getGroupId(), getBaseModelClassName(), null, null,
-				allTags, null);
+				allTagNames, null);
 
 		testAssetCategorization(assetEntryQuery, 2);
 	}
 
 	@Test
 	public void testAllAssetTags2() throws Exception {
-		String[] allTags = {"liferay", "architecture"};
+		String[] allTagNames = {"liferay", "architecture"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				_group1.getGroupId(), getBaseModelClassName(), null, null,
-				allTags, null);
+				allTagNames, null);
 
 		testAssetCategorization(assetEntryQuery, 2);
 	}
 
 	@Test
 	public void testAllAssetTags3() throws Exception {
-		String[] allTags = {"liferay", "architecture", "services"};
+		String[] allTagNames = {"liferay", "architecture", "services"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				_group1.getGroupId(), getBaseModelClassName(), null, null,
-				allTags, null);
+				allTagNames, null);
 
 		testAssetCategorization(assetEntryQuery, 1);
 	}
 
 	@Test
 	public void testAllAssetTags4() throws Exception {
-		String[] allTags = {"liferay", "architecture", "services", "osgi"};
+		String[] allTagNames = {"liferay", "architecture", "services", "osgi"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				_group1.getGroupId(), getBaseModelClassName(), null, null,
-				allTags, null);
+				allTagNames, null);
 
 		testAssetCategorization(assetEntryQuery, 0);
 	}
 
 	@Test
 	public void testAllAssetTagsMultiGroups1() throws Exception {
-		String[] allTags = {"liferay"};
+		String[] allTagNames = {"liferay"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				new long[] {_group1.getGroupId(), _group2.getGroupId()},
-				getBaseModelClassName(), null, null, allTags, null);
+				getBaseModelClassName(), null, null, allTagNames, null);
 
 		testAssetCategorization(
 			new Group[] {_group1, _group2}, assetEntryQuery, 4);
@@ -273,12 +273,12 @@ public abstract class BaseAssetSearchTestCase {
 
 	@Test
 	public void testAllAssetTagsMultiGroups2() throws Exception {
-		String[] allTags = {"liferay", "architecture"};
+		String[] allTagNames = {"liferay", "architecture"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				new long[] {_group1.getGroupId(), _group2.getGroupId()},
-				getBaseModelClassName(), null, null, allTags, null);
+				getBaseModelClassName(), null, null, allTagNames, null);
 
 		testAssetCategorization(
 			new Group[] {_group1, _group2}, assetEntryQuery, 4);
@@ -286,12 +286,12 @@ public abstract class BaseAssetSearchTestCase {
 
 	@Test
 	public void testAllAssetTagsMultiGroups3() throws Exception {
-		String[] allTags = {"liferay", "architecture", "services"};
+		String[] allTagNames = {"liferay", "architecture", "services"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				new long[] {_group1.getGroupId(), _group2.getGroupId()},
-				getBaseModelClassName(), null, null, allTags, null);
+				getBaseModelClassName(), null, null, allTagNames, null);
 
 		testAssetCategorization(
 			new Group[] {_group1, _group2}, assetEntryQuery, 2);
@@ -299,12 +299,12 @@ public abstract class BaseAssetSearchTestCase {
 
 	@Test
 	public void testAllAssetTagsMultiGroups4() throws Exception {
-		String[] allTags = {"liferay", "architecture", "services", "osgi"};
+		String[] allTagNames = {"liferay", "architecture", "services", "osgi"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				new long[] {_group1.getGroupId(), _group2.getGroupId()},
-				getBaseModelClassName(), null, null, allTags, null);
+				getBaseModelClassName(), null, null, allTagNames, null);
 
 		testAssetCategorization(
 			new Group[] {_group1, _group2}, assetEntryQuery, 0);
@@ -361,48 +361,48 @@ public abstract class BaseAssetSearchTestCase {
 
 	@Test
 	public void testAnyAssetTags1() throws Exception {
-		String[] anyTags = {"liferay"};
+		String[] anyTagNames = {"liferay"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				_group1.getGroupId(), getBaseModelClassName(), null, null, null,
-				anyTags);
+				anyTagNames);
 
 		testAssetCategorization(assetEntryQuery, 2);
 	}
 
 	@Test
 	public void testAnyAssetTags2() throws Exception {
-		String[] anyTags = {"liferay", "architecture"};
+		String[] anyTagNames = {"liferay", "architecture"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				_group1.getGroupId(), getBaseModelClassName(), null, null, null,
-				anyTags);
+				anyTagNames);
 
 		testAssetCategorization(assetEntryQuery, 2);
 	}
 
 	@Test
 	public void testAnyAssetTags3() throws Exception {
-		String[] anyTags = {"liferay", "architecture", "services"};
+		String[] anyTagNames = {"liferay", "architecture", "services"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				_group1.getGroupId(), getBaseModelClassName(), null, null, null,
-				anyTags);
+				anyTagNames);
 
 		testAssetCategorization(assetEntryQuery, 2);
 	}
 
 	@Test
 	public void testAnyAssetTags4() throws Exception {
-		String[] anyTags = {"modularity", "osgi"};
+		String[] anyTagNames = {"modularity", "osgi"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				_group1.getGroupId(), getBaseModelClassName(), null, null, null,
-				anyTags);
+				anyTagNames);
 
 		testAssetCategorization(assetEntryQuery, 1);
 	}
@@ -490,78 +490,78 @@ public abstract class BaseAssetSearchTestCase {
 
 	@Test
 	public void testAssetTagsAllAndAny() throws Exception {
-		String[] allTags = {"liferay", "architecture", "services"};
-		String[] anyTags = {"liferay"};
+		String[] allTagNames = {"liferay", "architecture", "services"};
+		String[] anyTagNames = {"liferay"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				_group1.getGroupId(), getBaseModelClassName(), null, null,
-				allTags, anyTags);
+				allTagNames, anyTagNames);
 
 		testAssetCategorization(assetEntryQuery, 1);
 	}
 
 	@Test
 	public void testAssetTagsNotAllAndAll() throws Exception {
-		String[] notAllTags = {"osgi", "modularity"};
-		String[] allTags = {"liferay", "architecture", "services"};
+		String[] notAllTagNames = {"osgi", "modularity"};
+		String[] allTagNames = {"liferay", "architecture", "services"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
-				_group1.getGroupId(), getBaseModelClassName(), notAllTags, null,
-				allTags, null);
+				_group1.getGroupId(), getBaseModelClassName(), notAllTagNames,
+				null, allTagNames, null);
 
 		testAssetCategorization(assetEntryQuery, 1);
 	}
 
 	@Test
 	public void testAssetTagsNotAllAndAny() throws Exception {
-		String[] notAllTags = {"services"};
-		String[] anyTags = {"liferay", "architecture"};
+		String[] notAllTagNames = {"services"};
+		String[] anyTagNames = {"liferay", "architecture"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
-				_group1.getGroupId(), getBaseModelClassName(), notAllTags, null,
-				null, anyTags);
+				_group1.getGroupId(), getBaseModelClassName(), notAllTagNames,
+				null, null, anyTagNames);
 
 		testAssetCategorization(assetEntryQuery, 1);
 	}
 
 	@Test
 	public void testAssetTagsNotAllAndNotAny() throws Exception {
-		String[] notAllTags = {"osgi", "modularity"};
-		String[] notAnyTags = {"services"};
+		String[] notAllTagNames = {"osgi", "modularity"};
+		String[] notAnyTagNames = {"services"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
-				_group1.getGroupId(), getBaseModelClassName(), notAllTags,
-				notAnyTags, null, null);
+				_group1.getGroupId(), getBaseModelClassName(), notAllTagNames,
+				notAnyTagNames, null, null);
 
 		testAssetCategorization(assetEntryQuery, 0);
 	}
 
 	@Test
 	public void testAssetTagsNotAnyAndAll() throws Exception {
-		String[] notAnyTags = {"modularity"};
-		String[] allTags = {"liferay", "architecture"};
+		String[] notAnyTagNames = {"modularity"};
+		String[] allTagNames = {"liferay", "architecture"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
-				_group1.getGroupId(), getBaseModelClassName(), null, notAnyTags,
-				allTags, null);
+				_group1.getGroupId(), getBaseModelClassName(), null,
+				notAnyTagNames, allTagNames, null);
 
 		testAssetCategorization(assetEntryQuery, 1);
 	}
 
 	@Test
 	public void testAssetTagsNotAnyAndAny() throws Exception {
-		String[] notAnyTags = {"modularity", "osgi"};
-		String[] anyTags = {"liferay", "architecture", "services"};
+		String[] notAnyTagNames = {"modularity", "osgi"};
+		String[] anyTagNames = {"liferay", "architecture", "services"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
-				_group1.getGroupId(), getBaseModelClassName(), null, notAnyTags,
-				null, anyTags);
+				_group1.getGroupId(), getBaseModelClassName(), null,
+				notAnyTagNames, null, anyTagNames);
 
 		testAssetCategorization(assetEntryQuery, 1);
 	}
@@ -698,60 +698,61 @@ public abstract class BaseAssetSearchTestCase {
 
 	@Test
 	public void testNotAllAssetTags1() throws Exception {
-		String[] notAllTags = {"liferay"};
+		String[] notAllTagNames = {"liferay"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
-				_group1.getGroupId(), getBaseModelClassName(), notAllTags, null,
-				null, null);
+				_group1.getGroupId(), getBaseModelClassName(), notAllTagNames,
+				null, null, null);
 
 		testAssetCategorization(assetEntryQuery, 0);
 	}
 
 	@Test
 	public void testNotAllAssetTags2() throws Exception {
-		String[] notAllTags = {"liferay", "architecture"};
+		String[] notAllTagNames = {"liferay", "architecture"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
-				_group1.getGroupId(), getBaseModelClassName(), notAllTags, null,
-				null, null);
+				_group1.getGroupId(), getBaseModelClassName(), notAllTagNames,
+				null, null, null);
 
 		testAssetCategorization(assetEntryQuery, 0);
 	}
 
 	@Test
 	public void testNotAllAssetTags3() throws Exception {
-		String[] notAllTags = {"liferay", "architecture", "services"};
+		String[] notAllTagNames = {"liferay", "architecture", "services"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
-				_group1.getGroupId(), getBaseModelClassName(), notAllTags, null,
-				null, null);
+				_group1.getGroupId(), getBaseModelClassName(), notAllTagNames,
+				null, null, null);
 
 		testAssetCategorization(assetEntryQuery, 1);
 	}
 
 	@Test
 	public void testNotAllAssetTags4() throws Exception {
-		String[] notAllTags = {"liferay", "architecture", "services", "osgi"};
+		String[] notAllTagNames =
+			{"liferay", "architecture", "services", "osgi"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
-				_group1.getGroupId(), getBaseModelClassName(), notAllTags, null,
-				null, null);
+				_group1.getGroupId(), getBaseModelClassName(), notAllTagNames,
+				null, null, null);
 
 		testAssetCategorization(assetEntryQuery, 2);
 	}
 
 	@Test
 	public void testNotAllAssetTagsMultiGroups1() throws Exception {
-		String[] notAllTags = {"liferay"};
+		String[] notAllTagNames = {"liferay"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				new long[] {_group1.getGroupId(), _group2.getGroupId()},
-				getBaseModelClassName(), notAllTags, null, null, null);
+				getBaseModelClassName(), notAllTagNames, null, null, null);
 
 		testAssetCategorization(
 			new Group[] {_group1, _group2}, assetEntryQuery, 0);
@@ -759,12 +760,12 @@ public abstract class BaseAssetSearchTestCase {
 
 	@Test
 	public void testNotAllAssetTagsMultiGroups2() throws Exception {
-		String[] notAllTags = {"liferay", "architecture"};
+		String[] notAllTagNames = {"liferay", "architecture"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				new long[] {_group1.getGroupId(), _group2.getGroupId()},
-				getBaseModelClassName(), notAllTags, null, null, null);
+				getBaseModelClassName(), notAllTagNames, null, null, null);
 
 		testAssetCategorization(
 			new Group[] {_group1, _group2}, assetEntryQuery, 0);
@@ -772,12 +773,12 @@ public abstract class BaseAssetSearchTestCase {
 
 	@Test
 	public void testNotAllAssetTagsMultiGroups3() throws Exception {
-		String[] notAllTags = {"liferay", "architecture", "services"};
+		String[] notAllTagNames = {"liferay", "architecture", "services"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				new long[] {_group1.getGroupId(), _group2.getGroupId()},
-				getBaseModelClassName(), notAllTags, null, null, null);
+				getBaseModelClassName(), notAllTagNames, null, null, null);
 
 		testAssetCategorization(
 			new Group[] {_group1, _group2}, assetEntryQuery, 2);
@@ -785,12 +786,13 @@ public abstract class BaseAssetSearchTestCase {
 
 	@Test
 	public void testNotAllAssetTagsMultiGroups4() throws Exception {
-		String[] notAllTags = {"liferay", "architecture", "services", "osgi"};
+		String[] notAllTagNames =
+			{"liferay", "architecture", "services", "osgi"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
 				new long[] {_group1.getGroupId(), _group2.getGroupId()},
-				getBaseModelClassName(), notAllTags, null, null, null);
+				getBaseModelClassName(), notAllTagNames, null, null, null);
 
 		testAssetCategorization(
 			new Group[] {_group1, _group2}, assetEntryQuery, 4);
@@ -847,48 +849,48 @@ public abstract class BaseAssetSearchTestCase {
 
 	@Test
 	public void testNotAnyAssetTags1() throws Exception {
-		String[] notAnyTags = {"liferay"};
+		String[] notAnyTagNames = {"liferay"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
-				_group1.getGroupId(), getBaseModelClassName(), null, notAnyTags,
-				null, null);
+				_group1.getGroupId(), getBaseModelClassName(), null,
+				notAnyTagNames, null, null);
 
 		testAssetCategorization(assetEntryQuery, 0);
 	}
 
 	@Test
 	public void testNotAnyAssetTags2() throws Exception {
-		String[] notAnyTags = {"liferay", "architecture"};
+		String[] notAnyTagNames = {"liferay", "architecture"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
-				_group1.getGroupId(), getBaseModelClassName(), null, notAnyTags,
-				null, null);
+				_group1.getGroupId(), getBaseModelClassName(), null,
+				notAnyTagNames, null, null);
 
 		testAssetCategorization(assetEntryQuery, 0);
 	}
 
 	@Test
 	public void testNotAnyAssetTags3() throws Exception {
-		String[] notAnyTags = {"liferay", "architecture", "services"};
+		String[] notAnyTagNames = {"liferay", "architecture", "services"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
-				_group1.getGroupId(), getBaseModelClassName(), null, notAnyTags,
-				null, null);
+				_group1.getGroupId(), getBaseModelClassName(), null,
+				notAnyTagNames, null, null);
 
 		testAssetCategorization(assetEntryQuery, 0);
 	}
 
 	@Test
 	public void testNotAnyAssetTags4() throws Exception {
-		String[] notAnyTags = {"modularity", "osgi"};
+		String[] notAnyTagNames = {"modularity", "osgi"};
 
 		AssetEntryQuery assetEntryQuery =
 			AssetEntryQueryTestUtil.createAssetEntryQuery(
-				_group1.getGroupId(), getBaseModelClassName(), null, notAnyTags,
-				null, null);
+				_group1.getGroupId(), getBaseModelClassName(), null,
+				notAnyTagNames, null, null);
 
 		testAssetCategorization(assetEntryQuery, 1);
 	}
