@@ -259,7 +259,7 @@ public abstract class BaseAssetSearchTestCase {
 	}
 
 	@Test
-	public void testAllAssetTagsMultiGroups1() throws Exception {
+	public void testAllAssetTagsMultipleGroups1() throws Exception {
 		String[] allTagNames = {"liferay"};
 
 		AssetEntryQuery assetEntryQuery =
@@ -272,7 +272,7 @@ public abstract class BaseAssetSearchTestCase {
 	}
 
 	@Test
-	public void testAllAssetTagsMultiGroups2() throws Exception {
+	public void testAllAssetTagsMultipleGroups2() throws Exception {
 		String[] allTagNames = {"liferay", "architecture"};
 
 		AssetEntryQuery assetEntryQuery =
@@ -285,7 +285,7 @@ public abstract class BaseAssetSearchTestCase {
 	}
 
 	@Test
-	public void testAllAssetTagsMultiGroups3() throws Exception {
+	public void testAllAssetTagsMultipleGroups3() throws Exception {
 		String[] allTagNames = {"liferay", "architecture", "services"};
 
 		AssetEntryQuery assetEntryQuery =
@@ -298,7 +298,7 @@ public abstract class BaseAssetSearchTestCase {
 	}
 
 	@Test
-	public void testAllAssetTagsMultiGroups4() throws Exception {
+	public void testAllAssetTagsMultipleGroups4() throws Exception {
 		String[] allTagNames = {"liferay", "architecture", "services", "osgi"};
 
 		AssetEntryQuery assetEntryQuery =
@@ -746,7 +746,7 @@ public abstract class BaseAssetSearchTestCase {
 	}
 
 	@Test
-	public void testNotAllAssetTagsMultiGroups1() throws Exception {
+	public void testNotAllAssetTagsMultipleGroups1() throws Exception {
 		String[] notAllTagNames = {"liferay"};
 
 		AssetEntryQuery assetEntryQuery =
@@ -759,7 +759,7 @@ public abstract class BaseAssetSearchTestCase {
 	}
 
 	@Test
-	public void testNotAllAssetTagsMultiGroups2() throws Exception {
+	public void testNotAllAssetTagsMultipleGroups2() throws Exception {
 		String[] notAllTagNames = {"liferay", "architecture"};
 
 		AssetEntryQuery assetEntryQuery =
@@ -772,7 +772,7 @@ public abstract class BaseAssetSearchTestCase {
 	}
 
 	@Test
-	public void testNotAllAssetTagsMultiGroups3() throws Exception {
+	public void testNotAllAssetTagsMultipleGroups3() throws Exception {
 		String[] notAllTagNames = {"liferay", "architecture", "services"};
 
 		AssetEntryQuery assetEntryQuery =
@@ -785,7 +785,7 @@ public abstract class BaseAssetSearchTestCase {
 	}
 
 	@Test
-	public void testNotAllAssetTagsMultiGroups4() throws Exception {
+	public void testNotAllAssetTagsMultipleGroups4() throws Exception {
 		String[] notAllTagNames =
 			{"liferay", "architecture", "services", "osgi"};
 
