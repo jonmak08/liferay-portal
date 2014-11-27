@@ -2474,12 +2474,12 @@ public class PortalImpl implements Portal {
 		if ((groupPermissions == null) &&
 			(inputPermissionsShowOptions == null)) {
 
-			List<String> defaultGroupPermissions =
+			List<String> groupDefaultActions =
 				ResourceActionsUtil.getModelResourceGroupDefaultActions(
 					className);
 
-			groupPermissions = defaultGroupPermissions.toArray(
-				new String[defaultGroupPermissions.size()]);
+			groupPermissions = groupDefaultActions.toArray(
+				new String[groupDefaultActions.size()]);
 		}
 
 		return groupPermissions;
@@ -2503,12 +2503,12 @@ public class PortalImpl implements Portal {
 		if ((groupPermissions == null) &&
 			(inputPermissionsShowOptions == null)) {
 
-			List<String> defaultGroupPermissions =
+			List<String> groupDefaultActions =
 				ResourceActionsUtil.getModelResourceGroupDefaultActions(
 					className);
 
-			groupPermissions = defaultGroupPermissions.toArray(
-				new String[defaultGroupPermissions.size()]);
+			groupPermissions = groupDefaultActions.toArray(
+				new String[groupDefaultActions.size()]);
 		}
 
 		return groupPermissions;
@@ -2532,12 +2532,12 @@ public class PortalImpl implements Portal {
 		if ((guestPermissions == null) &&
 			(inputPermissionsShowOptions == null)) {
 
-			List<String> defaultGuestPermissions =
+			List<String> guestDefaultActions =
 				ResourceActionsUtil.getModelResourceGuestDefaultActions(
 					className);
 
-			guestPermissions = defaultGuestPermissions.toArray(
-				new String[defaultGuestPermissions.size()]);
+			guestPermissions = guestDefaultActions.toArray(
+				new String[guestDefaultActions.size()]);
 		}
 
 		return guestPermissions;
@@ -2561,12 +2561,12 @@ public class PortalImpl implements Portal {
 		if ((guestPermissions == null) &&
 			(inputPermissionsShowOptions == null)) {
 
-			List<String> defaultGuestPermissions =
+			List<String> guestDefaultActions =
 				ResourceActionsUtil.getModelResourceGuestDefaultActions(
 					className);
 
-			guestPermissions = defaultGuestPermissions.toArray(
-				new String[defaultGuestPermissions.size()]);
+			guestPermissions = guestDefaultActions.toArray(
+				new String[guestDefaultActions.size()]);
 		}
 
 		return guestPermissions;
