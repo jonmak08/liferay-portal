@@ -51,8 +51,23 @@
 					);
 				</aui:script>
 			</c:when>
+			<c:when test='<%= displayStyle.equals("horizontal") || displayStyle.equals("simple") %>'>
+				<span id="<%= horizontalID %>">
+					<%
+					for (int i = 0; i < typesArray.length; i++) {
+						String styleClass = "taglib-social-bookmark-" + typesArray[i];
+					%>
+						<span class="<%= styleClass %>">
+							<liferay-ui:social-bookmark contentId="<%= contentId %>" displayStyle="<%= displayStyle %>"  target="<%= target %>" title="<%= title %>" type="<%= typesArray[i] %>" url="<%= url %>" />
+						</span>
+					<%
+					}
+					%>
+
+				</span>
+			</c:when>
 			<c:otherwise>
-				<ul class="list-unstyled">
+				<ul class="list-unstyled" id="vertical-social-bookmarks">
 
 					<%
 					for (int i = 0; i < typesArray.length; i++) {

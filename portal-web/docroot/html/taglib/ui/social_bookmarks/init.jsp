@@ -33,4 +33,13 @@ if (Validator.isNotNull(types)) {
 else {
 	typesArray = PropsUtil.getArray(PropsKeys.SOCIAL_BOOKMARK_TYPES);
 }
+
+String horizontalIdTag = "_horizontal";
+
+if (displayStyle.equals("simple")) {
+	horizontalIdTag = "_simple";
+}
+
+String horizontalID = "horizontal-social-bookmarks" + horizontalIdTag;
+
 %>

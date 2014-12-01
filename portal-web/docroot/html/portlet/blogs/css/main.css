@@ -197,6 +197,32 @@
 
 	.taglib-social-bookmarks {
 		float: right;
+
+		span[id^='horizontal-social-bookmarks'] > span {
+			display: inline-block;
+			margin-right: 10px;
+			margin-top: 5px;
+			max-width: 300px;
+			vertical-align: top;
+
+			:last-child {
+				margin-right: 0;
+			}
+
+			img {
+				vertical-align: baseline;
+			}
+		}
+
+		#horizontal-social-bookmarks_horizontal {
+			.taglib-social-bookmark-twitter {
+				width: 78px;
+			}
+
+			.taglib-social-bookmark-plusone {
+				width: 60px;
+			}
+		}
 	}
 
 	.form-search:after {
