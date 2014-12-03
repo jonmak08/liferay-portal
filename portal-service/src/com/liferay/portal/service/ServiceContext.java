@@ -420,6 +420,7 @@ public class ServiceContext implements Cloneable, Serializable {
 	 * @return the the map of request header name/value pairs
 	 * @see    com.liferay.portal.kernel.servlet.HttpHeaders
 	 */
+	@JSON(include = false)
 	public Map<String, String> getHeaders() {
 		return _headers;
 	}
@@ -1489,7 +1490,7 @@ public class ServiceContext implements Cloneable, Serializable {
 	private Date _formDate;
 	private String[] _groupPermissions;
 	private String[] _guestPermissions;
-	private Map<String, String> _headers;
+	private transient Map<String, String> _headers;
 	private boolean _indexingEnabled = true;
 	private String _languageId;
 	private String _layoutFullURL;
