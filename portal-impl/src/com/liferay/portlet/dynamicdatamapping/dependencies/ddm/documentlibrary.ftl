@@ -93,6 +93,7 @@
 			function(event) {
 				var portletURL = Liferay.PortletURL.createURL('${portletURLFactory.create(request, "166", themeDisplay.getPlid(), "RENDER_PHASE")}');
 
+				portletURL.setParameter('eventName', '${portletNamespace}selectDocumentLibrary');
 				portletURL.setParameter('struts_action', '/dynamic_data_mapping/select_document_library');
 
 				portletURL.setPlid(${controlPanelPlid?c});
@@ -101,14 +102,21 @@
 
 				portletURL.setWindowState('pop_up');
 
-				Liferay.Util.openWindow(
+				Liferay.Util.selectEntity(
 					{
+						dialog: {
+							constrain: true,
+							destroyOnHide: true,
+							modal: true
+						},
+						eventName: '${portletNamespace}selectDocumentLibrary',
 						id: '${portletNamespace}selectDocumentLibrary',
 						uri: portletURL.toString()
+					},
+					function(event) {
+						window['${portletNamespace}${namespacedFieldName}setFileEntry'](event.url, event.uuid, event.groupid, event.title, event.version);
 					}
 				);
-
-				window['${portalUtil.getPortletNamespace("166")}selectDocumentLibrary'] = window['${portletNamespace}${namespacedFieldName}setFileEntry'];
 			}
 		);
 	}

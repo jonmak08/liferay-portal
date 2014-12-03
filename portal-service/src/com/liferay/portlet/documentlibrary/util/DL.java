@@ -139,6 +139,8 @@ public interface DL {
 
 	public List<Object> getEntries(Hits hits);
 
+	public List<FileEntry> getFileEntries(Hits hits);
+
 	public String getFileEntryImage(
 		FileEntry fileEntry, ThemeDisplay themeDisplay);
 
