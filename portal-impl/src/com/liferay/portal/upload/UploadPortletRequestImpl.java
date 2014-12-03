@@ -24,7 +24,6 @@ import com.liferay.portal.kernel.util.Validator;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
@@ -32,6 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.portlet.PortletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
 /**
@@ -42,10 +42,13 @@ public class UploadPortletRequestImpl
 	extends HttpServletRequestWrapper implements UploadPortletRequest {
 
 	public UploadPortletRequestImpl(
-		UploadServletRequest uploadServletRequest, String namespace) {
+		PortletRequest portletRequest,
+		UploadServletRequest uploadServletRequest,
+		String namespace) {
 
 		super(uploadServletRequest);
 
+		_portletRequest = portletRequest;
 		_uploadServletRequest = uploadServletRequest;
 		_namespace = namespace;
 	}
@@ -206,6 +209,11 @@ public class UploadPortletRequestImpl
 	}
 
 	@Override
+	public PortletRequest getPortletRequest() {
+		return _portletRequest;
+	}
+
+	@Override
 	public String getParameter(String name) {
 		String parameter = _uploadServletRequest.getParameter(
 			_namespace.concat(name));
@@ -325,6 +333,7 @@ public class UploadPortletRequestImpl
 	}
 
 	private String _namespace;
+	private PortletRequest _portletRequest;
 	private UploadServletRequest _uploadServletRequest;
 
 }

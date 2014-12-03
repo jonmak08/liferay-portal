@@ -5177,6 +5177,7 @@ public class PortalImpl implements Portal {
 			requestWrapper);
 
 		return new UploadPortletRequestImpl(
+			portletRequestImpl,
 			uploadServletRequest,
 			getPortletNamespace(portletRequestImpl.getPortletName()));
 	}
