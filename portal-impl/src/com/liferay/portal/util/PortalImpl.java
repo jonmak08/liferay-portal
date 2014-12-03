@@ -487,8 +487,6 @@ public class PortalImpl implements Portal {
 		_servletContextName =
 			PortalContextLoaderListener.getPortalServlerContextName();
 
-		_validPortalDomainCheckDisabled = false;
-
 		if (ArrayUtil.isEmpty(PropsValues.VIRTUAL_HOSTS_VALID_HOSTS) ||
 			ArrayUtil.contains(
 				PropsValues.VIRTUAL_HOSTS_VALID_HOSTS, StringPool.STAR)) {
