@@ -305,9 +305,10 @@ if (inlineEdit && Validator.isNotNull(inlineEditSaveURL)) {
 			}
 		);
 	</c:if>
+
 	var currentToolbarSet;
 
-	var formatToolbarValue = '<%= TextFormatter.format(HtmlUtil.escapeJS(toolbarSet), TextFormatter.M) %>';
+	var initialToolbarSet = '<%= TextFormatter.format(HtmlUtil.escapeJS(toolbarSet), TextFormatter.M) %>';
 
 	function getToolbarSet(toolbarSet) {
 		var Util = Liferay.Util;
@@ -329,9 +330,6 @@ if (inlineEdit && Validator.isNotNull(inlineEditSaveURL)) {
 		editorNode.setAttribute('contenteditable', true);
 
 		editorNode.addClass('lfr-editable');
-
-
-		currentToolbarSet = getToolbarSet(formatToolbarValue);
 
 		function initData() {
 			<c:if test="<%= Validator.isNotNull(initMethod) && !(inlineEdit && Validator.isNotNull(inlineEditSaveURL)) %>">
@@ -358,6 +356,8 @@ if (inlineEdit && Validator.isNotNull(inlineEditSaveURL)) {
 
 			window['<%= name %>'].instanceReady = true;
 		}
+
+		currentToolbarSet = getToolbarSet(initialToolbarSet);
 
 		<c:choose>
 			<c:when test="<%= inlineEdit %>">
@@ -614,15 +614,32 @@ if (inlineEdit && Validator.isNotNull(inlineEditSaveURL)) {
 		}
 	};
 
-	A.getWin().on(
-		'resize', 
-		A.debounce(function() {
-			if (currentToolbarSet != getToolbarSet(formatToolbarValue)) {
-				CKEDITOR.instances.<%= name %>.destroy();
-				createEditor();
-			}
-		}, 250, this)
-	);
+	<c:if test="<%= !(inlineEdit && Validator.isNotNull(inlineEditSaveURL)) %>">
+		A.getWin().on(
+			'resize',
+			A.debounce(
+				function() {
+					if (currentToolbarSet != getToolbarSet(initialToolbarSet)) {
+						var ckeditorInstance = CKEDITOR.instances['<%= name %>'];
+
+						if (ckeditorInstance) {
+							ckeditorInstance.destroy();
+
+							ckeditorInstance = null;
+
+							var editorNode = A.one('#<%= name %>');
+
+							editorNode.removeAttribute('contenteditable');
+							editorNode.removeClass('lfr-editable');
+
+							createEditor();
+						}
+					}
+				},
+				250
+			)
+		);
+	</c:if>
 </aui:script>
 
 <%!
