@@ -528,11 +528,6 @@ for (int i = 0; i < results.size(); i++) {
 							folderImage = "folder_full_document";
 						}
 
-						Map<String, Object> data = new HashMap<String, Object>();
-
-						data.put("folder", true);
-						data.put("folder-id", curFolder.getFolderId());
-
 						PortletURL rowURL = liferayPortletResponse.createRenderURL();
 
 						rowURL.setParameter("struts_action", "/document_library/view");
@@ -541,7 +536,6 @@ for (int i = 0; i < results.size(); i++) {
 						%>
 
 						<liferay-ui:app-view-entry
-							data="<%= data %>"
 							displayStyle="list"
 							folder="<%= true %>"
 							showCheckbox="<%= false %>"
