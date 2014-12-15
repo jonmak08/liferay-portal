@@ -201,7 +201,6 @@ public class WikiPageStagedModelDataHandler
 					(FileEntry)portletDataContext.getZipEntryAsObject(path);
 
 				InputStream inputStream = null;
-				String mimeType = null;
 
 				try {
 					String binPath = attachmentElement.attributeValue(
@@ -233,13 +232,10 @@ public class WikiPageStagedModelDataHandler
 						continue;
 					}
 
-					mimeType = MimeTypesUtil.getContentType(
-						inputStream, fileEntry.getTitle());
-
 					WikiPageLocalServiceUtil.addPageAttachment(
 						userId, importedPage.getNodeId(),
 						importedPage.getTitle(), fileEntry.getTitle(),
-						inputStream, mimeType);
+						inputStream, null);
 				}
 				finally {
 					StreamUtil.cleanUp(inputStream);
