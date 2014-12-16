@@ -1645,6 +1645,9 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 						userId, messageId, fileEntry.getTitle());
 				}
 			}
+			else {
+				deleteMessageAttachments(message.getMessageId());
+			}
 		}
 
 		message.setExpandoBridgeAttributes(serviceContext);
