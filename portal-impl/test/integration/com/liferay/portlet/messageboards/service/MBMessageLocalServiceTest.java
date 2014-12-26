@@ -75,13 +75,12 @@ public class MBMessageLocalServiceTest {
 		TrashUtil.disableTrash(_group);
 
 		User user = TestPropsValues.getUser();
-
-		ServiceContext serviceContext =
-			ServiceContextTestUtil.getServiceContext(_group.getGroupId());
-
 		List<ObjectValuePair<String, InputStream>> objectValuePairs =
 			MBTestUtil.getInputStreamOVPs(
 				"attachment.txt", getClass(), StringPool.BLANK);
+
+		ServiceContext serviceContext =
+			ServiceContextTestUtil.getServiceContext(_group.getGroupId());
 
 		MBMessage message = MBMessageLocalServiceUtil.addMessage(
 			user.getUserId(), user.getFullName(), _group.getGroupId(),
@@ -90,15 +89,11 @@ public class MBMessageLocalServiceTest {
 			MBMessageConstants.DEFAULT_FORMAT, objectValuePairs, false, 0,
 			false, serviceContext);
 
-		List<ObjectValuePair<String, InputStream>> emptyObjectValuePairs =
-			Collections.emptyList();
-		List<String> emptyExistingFiles = Collections.emptyList();
-
 		MBMessageLocalServiceUtil.updateMessage(
 			user.getUserId(), message.getMessageId(),
 			RandomTestUtil.randomString(), RandomTestUtil.randomString(),
-			emptyObjectValuePairs, emptyExistingFiles, 0, false,
-			serviceContext);
+			Collections.<ObjectValuePair<String, InputStream>>emptyList(),
+			Collections.<String>emptyList(), 0, false, serviceContext);
 
 		Assert.assertEquals(
 			0,
@@ -113,13 +108,12 @@ public class MBMessageLocalServiceTest {
 		throws Exception {
 
 		User user = TestPropsValues.getUser();
-
-		ServiceContext serviceContext =
-			ServiceContextTestUtil.getServiceContext(_group.getGroupId());
-
 		List<ObjectValuePair<String, InputStream>> objectValuePairs =
 			MBTestUtil.getInputStreamOVPs(
 				"attachment.txt", getClass(), StringPool.BLANK);
+
+		ServiceContext serviceContext =
+			ServiceContextTestUtil.getServiceContext(_group.getGroupId());
 
 		MBMessage message = MBMessageLocalServiceUtil.addMessage(
 			user.getUserId(), user.getFullName(), _group.getGroupId(),
@@ -128,15 +122,11 @@ public class MBMessageLocalServiceTest {
 			MBMessageConstants.DEFAULT_FORMAT, objectValuePairs, false, 0,
 			false, serviceContext);
 
-		List<ObjectValuePair<String, InputStream>> emptyObjectValuePairs =
-			Collections.emptyList();
-		List<String> emptyExistingFiles = Collections.emptyList();
-
 		MBMessageLocalServiceUtil.updateMessage(
 			user.getUserId(), message.getMessageId(),
 			RandomTestUtil.randomString(), RandomTestUtil.randomString(),
-			emptyObjectValuePairs, emptyExistingFiles, 0, false,
-			serviceContext);
+			Collections.<ObjectValuePair<String, InputStream>>emptyList(),
+			Collections.<String>emptyList(), 0, false, serviceContext);
 
 		List<FileEntry> fileEntries =
 			PortletFileRepositoryUtil.getPortletFileEntries(
