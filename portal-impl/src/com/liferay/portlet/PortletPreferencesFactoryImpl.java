@@ -45,6 +45,7 @@ import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.service.permission.LayoutPermissionUtil;
 import com.liferay.portal.service.permission.PortletPermissionUtil;
 import com.liferay.portal.theme.ThemeDisplay;
+import com.liferay.portal.util.LayoutTypePortletFactoryUtil;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portal.util.WebKeys;
@@ -504,8 +505,22 @@ public class PortletPreferencesFactoryImpl
 			String defaultPreferences)
 		throws SystemException {
 
+		boolean strictMode = true;
+
+		try {
+			LayoutTypePortlet layoutTypePortlet =
+				LayoutTypePortletFactoryUtil.create(layout);
+
+			if (layoutTypePortlet.hasPortletId(portletId)) {
+				strictMode = false;
+			}
+		}
+		catch (Exception e) {
+			throw new SystemException(e);
+		}
+
 		return getPortletSetup(
-			scopeGroupId, layout, portletId, defaultPreferences, false);
+			scopeGroupId, layout, portletId, defaultPreferences, strictMode);
 	}
 
 	@Override
