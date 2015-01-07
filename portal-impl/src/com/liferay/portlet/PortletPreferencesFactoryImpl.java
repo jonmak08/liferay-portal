@@ -505,21 +505,20 @@ public class PortletPreferencesFactoryImpl
 			String defaultPreferences)
 		throws SystemException {
 
-		boolean strictMode = true;
-
 		try {
 			LayoutTypePortlet layoutTypePortlet =
 				LayoutTypePortletFactoryUtil.create(layout);
 
 			if (layoutTypePortlet.hasPortletId(portletId)) {
-				strictMode = false;
+				return getPortletSetup(
+					scopeGroupId, layout, portletId, defaultPreferences, false);
 			}
 		}
-		catch (Exception e) {
+		catch (PortalException pe) {
 		}
 
 		return getPortletSetup(
-			scopeGroupId, layout, portletId, defaultPreferences, strictMode);
+			scopeGroupId, layout, portletId, defaultPreferences, true);
 	}
 
 	@Override
