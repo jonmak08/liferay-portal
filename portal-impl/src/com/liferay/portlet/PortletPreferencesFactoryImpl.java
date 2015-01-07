@@ -516,7 +516,6 @@ public class PortletPreferencesFactoryImpl
 			}
 		}
 		catch (Exception e) {
-			throw new SystemException(e);
 		}
 
 		return getPortletSetup(
