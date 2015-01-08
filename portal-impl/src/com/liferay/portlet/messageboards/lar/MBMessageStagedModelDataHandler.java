@@ -136,6 +136,9 @@ public class MBMessageStagedModelDataHandler
 			PortletDataContext portletDataContext, MBMessage message)
 		throws Exception {
 
+		StagedModelDataHandlerUtil.importReferenceStagedModels(
+			portletDataContext, message, MBMessage.class);
+
 		long userId = portletDataContext.getUserId(message.getUserUuid());
 
 		String userName = message.getUserName();
