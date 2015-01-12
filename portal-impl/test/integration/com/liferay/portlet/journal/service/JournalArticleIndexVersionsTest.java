@@ -175,7 +175,7 @@ public class JournalArticleIndexVersionsTest {
 	}
 
 	@Test
-	public void testIndexableCheck() throws Exception {
+	public void testIndexableArticle() throws Exception {
 		long initialSearchCount = searchCount();
 
 		JournalArticle article = JournalTestUtil.addArticle(
@@ -194,7 +194,7 @@ public class JournalArticleIndexVersionsTest {
 
 		article.setIndexable(true);
 
-		article = JournalTestUtil.updateArticle(
+		JournalTestUtil.updateArticle(
 			article, article.getTitle(), article.getContent(), true, true,
 			ServiceContextTestUtil.getServiceContext());
 
