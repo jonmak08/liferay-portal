@@ -294,6 +294,8 @@
 				</copy>
 			</else>
 		</if>
+
+		<antcall target="build-fckeditor" />
 	</target>
 
 	<target name="build-ckeditor-plugins-bbcode">
@@ -1470,7 +1472,6 @@ Please set the property "jdk.6.home" in build.properties.
 		<antcall target="build-alloy" />
 		<antcall target="build-ckeditor" />
 		<antcall target="build-dtd" />
-		<antcall target="build-fckeditor" />
 		<antcall target="build-tinymce" />
 		<antcall target="build-vaadin" />
 
@@ -1578,7 +1579,6 @@ Please set the property "jdk.6.home" in build.properties.
 		<antcall target="build-alloy" />
 		<antcall target="build-ckeditor" />
 		<antcall target="build-dtd" />
-		<antcall target="build-fckeditor" />
 		<antcall target="build-tinymce" />
 		<antcall target="build-vaadin" />
 
