@@ -227,7 +227,7 @@ public class UpgradeJournal extends BaseUpgradePortletPreferences {
 		updateStructures();
 		updateTemplates();
 
-		updateAssetClassTypeId();
+		updateAssetEntryClassTypeId();
 
 		super.doUpgrade();
 	}
@@ -274,7 +274,7 @@ public class UpgradeJournal extends BaseUpgradePortletPreferences {
 		};
 	}
 
-	protected void updateAssetClassTypeId() throws Exception {
+	protected void updateAssetEntryClassTypeId() throws Exception {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
