@@ -589,8 +589,7 @@ public class S3Store extends BaseStore {
 	protected Jets3tProperties getJets3tProperties() {
 		Jets3tProperties jets3tProperties = new Jets3tProperties();
 
-		jets3tProperties.loadAndReplaceProperties(
-			_jets3tProperties, "liferay");
+		jets3tProperties.loadAndReplaceProperties(_jets3tProperties, "liferay");
 
 		if (_log.isInfoEnabled()) {
 			_log.info("Jets3t properties: " + jets3tProperties.getProperties());
@@ -750,9 +749,6 @@ public class S3Store extends BaseStore {
 	private static final String _BUCKET_NAME = PropsUtil.get(
 		PropsKeys.DL_STORE_S3_BUCKET_NAME);
 
-	private static final Properties _jets3tProperties =
-		PropsUtil.getProperties(PropsKeys.DL_STORE_S3_JETS3T, true);
-
 	private static final long _PART_SIZE = GetterUtil.getLong(
 		PropsUtil.get(PropsKeys.DL_STORE_S3_PART_SIZE));
 
@@ -764,6 +760,9 @@ public class S3Store extends BaseStore {
 	private static final String _TEMP_DIR_PATTERN = "/yyyy/MM/dd/HH/";
 
 	private static Log _log = LogFactoryUtil.getLog(S3Store.class);
+
+	private static final Properties _jets3tProperties = PropsUtil.getProperties(
+		PropsKeys.DL_STORE_S3_JETS3T, true);
 
 	private int _calledGetFileCount;
 	private S3Bucket _s3Bucket;
