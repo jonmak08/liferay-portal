@@ -208,7 +208,7 @@ int mountFoldersCount = DLAppServiceUtil.getMountFoldersCount(scopeGroupId, DLFo
 					<%
 					String folderImage = "folder_empty_document";
 
-					if (DLAppServiceUtil.getFoldersAndFileEntriesAndFileShortcutsCount(folder.getRepositoryId(), folder.getFolderId(), WorkflowConstants.STATUS_APPROVED, true) > 0) {
+					if (PropsValues.DL_FOLDER_VISIBLE_CONTENT_ICON_ENABLED && (DLAppServiceUtil.getFoldersAndFileEntriesAndFileShortcutsCount(folder.getRepositoryId(), folder.getFolderId(), WorkflowConstants.STATUS_APPROVED, true) > 0)) {
 						folderImage = "folder_full_document";
 					}
 

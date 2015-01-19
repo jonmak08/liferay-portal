@@ -430,6 +430,12 @@ else {
 						request.setAttribute("view_entries.jsp-folderId", String.valueOf(curFolder.getFolderId()));
 						request.setAttribute("view_entries.jsp-folderSelected", String.valueOf(folderId == curFolder.getFolderId()));
 						request.setAttribute("view_entries.jsp-repositoryId", String.valueOf(curFolder.getRepositoryId()));
+
+						String iconCssClass = "icon-folder-close";
+
+						if (PropsValues.DL_FOLDER_VISIBLE_CONTENT_ICON_ENABLED && (DLAppServiceUtil.getFoldersAndFileEntriesAndFileShortcutsCount(curFolder.getRepositoryId(), curFolder.getFolderId(), WorkflowConstants.STATUS_APPROVED, true) > 0)) {
+							iconCssClass = "icon-folder-open";
+						}
 					%>
 
 						<liferay-portlet:renderURL varImpl="viewURL">
@@ -454,7 +460,7 @@ else {
 							actionJsp="/html/portlet/document_library/folder_action.jsp"
 							dataView="<%= dataView %>"
 							entryTitle="<%= curFolder.getName() %>"
-							iconImage='<%= (DLAppServiceUtil.getFoldersAndFileEntriesAndFileShortcutsCount(curFolder.getRepositoryId(), curFolder.getFolderId(), WorkflowConstants.STATUS_APPROVED, true) > 0) ? "icon-folder-open" : "icon-folder-close" %>'
+							iconImage="<%= iconCssClass %>"
 							selected="<%= (curFolder.getFolderId() == folderId) %>"
 							viewURL="<%= viewURL.toString() %>"
 						/>
