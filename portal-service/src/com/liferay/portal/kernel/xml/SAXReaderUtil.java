@@ -125,7 +125,8 @@ public class SAXReaderUtil {
 	}
 
 	public static SAXReader getUnsecureSAXReader() {
-		PortalRuntimePermission.checkGetBeanProperty(SAXReaderUtil.class);
+		PortalRuntimePermission.checkGetBeanProperty(
+			SAXReaderUtil.class, "unsecureSAXReader");
 
 		return _unsecureSAXReader;
 	}
