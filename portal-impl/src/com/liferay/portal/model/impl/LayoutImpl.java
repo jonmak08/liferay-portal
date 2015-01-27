@@ -335,6 +335,17 @@ public class LayoutImpl extends LayoutBaseImpl {
 	public String getFriendlyURLsXML() throws SystemException {
 		Map<Locale, String> friendlyURLMap = getFriendlyURLMap();
 
+		Locale defaultSiteLocale = LocaleUtil.getSiteDefault();
+
+		if (Validator.isNull(friendlyURLMap.get(defaultSiteLocale))) {
+			Locale defaultLocale = LocaleUtil.fromLanguageId(
+				getDefaultLanguageId());
+
+			String defaultFriendlyURL = friendlyURLMap.get(defaultLocale);
+
+			friendlyURLMap.put(defaultSiteLocale, defaultFriendlyURL);
+		}
+
 		return LocalizationUtil.updateLocalization(
 			friendlyURLMap, StringPool.BLANK, "FriendlyURL",
 			LocaleUtil.toLanguageId(LocaleUtil.getSiteDefault()));
