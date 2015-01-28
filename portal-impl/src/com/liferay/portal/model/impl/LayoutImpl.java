@@ -328,18 +328,11 @@ public class LayoutImpl extends LayoutBaseImpl {
 				layoutFriendlyURL.getFriendlyURL());
 		}
 
-		return friendlyURLMap;
-	}
-
-	@Override
-	public String getFriendlyURLsXML() throws SystemException {
-		Map<Locale, String> friendlyURLMap = getFriendlyURLMap();
-
-		Locale defaultSiteLocale = LocaleUtil.getSiteDefault();
-
 		// If the site/portal default language changes, there may not exist a
 		// value for the new default language. In this situation, we will use
 		// the value from the previous default language
+
+		Locale defaultSiteLocale = LocaleUtil.getSiteDefault();
 
 		if (Validator.isNull(friendlyURLMap.get(defaultSiteLocale))) {
 			Locale defaultLocale = LocaleUtil.fromLanguageId(
@@ -349,6 +342,13 @@ public class LayoutImpl extends LayoutBaseImpl {
 
 			friendlyURLMap.put(defaultSiteLocale, defaultFriendlyURL);
 		}
+
+		return friendlyURLMap;
+	}
+
+	@Override
+	public String getFriendlyURLsXML() {
+		Map<Locale, String> friendlyURLMap = getFriendlyURLMap();
 
 		return LocalizationUtil.updateLocalization(
 			friendlyURLMap, StringPool.BLANK, "FriendlyURL",
