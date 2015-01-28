@@ -1125,6 +1125,10 @@ public class LayoutImporter {
 
 				Layout layout = layouts.get(layoutId);
 
+				if (layout == null) {
+					continue;
+				}
+
 				int layoutPriority = GetterUtil.getInteger(
 					layoutElement.attributeValue("layout-priority"));
 
