@@ -330,7 +330,7 @@ public class LayoutImpl extends LayoutBaseImpl {
 
 		// If the site/portal default language changes, there may not exist a
 		// value for the new default language. In this situation, we will use
-		// the value from the previous default language
+		// the value from the previous default language.
 
 		Locale defaultSiteLocale = LocaleUtil.getSiteDefault();
 
