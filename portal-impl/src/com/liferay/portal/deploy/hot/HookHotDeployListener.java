@@ -1258,9 +1258,7 @@ public class HookHotDeployListener
 		String portalWebDir = PortalUtil.getPortalWebDir();
 
 		for (String customJsp : customJsps) {
-			int pos = customJsp.indexOf(customJspDir);
-
-			String portalJsp = customJsp.substring(pos + customJspDir.length());
+			String portalJsp = getPortalJspName(customJsp, customJspDir);
 
 			if (customJspGlobal) {
 				File portalJspFile = new File(portalWebDir + portalJsp);
@@ -2832,10 +2830,8 @@ public class HookHotDeployListener
 		Set<String> currentCustomJsps = new HashSet<>();
 
 		for (String currentCustomJsp : currentCustomJspBag.getCustomJsps()) {
-			int pos = currentCustomJsp.indexOf(currentCustomJspDir);
-
-			String portalJsp = currentCustomJsp.substring(
-				pos + currentCustomJspDir.length());
+			String portalJsp = getPortalJspName(
+				currentCustomJsp, currentCustomJspDir);
 
 			currentCustomJsps.add(portalJsp);
 		}
@@ -2857,10 +2853,7 @@ public class HookHotDeployListener
 			List<String> customJsps = customJspBag.getCustomJsps();
 
 			for (String customJsp : customJsps) {
-				int pos = customJsp.indexOf(customJspDir);
-
-				String portalJsp = customJsp.substring(
-					pos + customJspDir.length());
+				String portalJsp = getPortalJspName(customJsp, customJspDir);
 
 				if (currentCustomJsps.contains(portalJsp)) {
 					collidingCustomJsps.put(portalJsp, servletContextName);
