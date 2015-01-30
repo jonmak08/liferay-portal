@@ -73,7 +73,7 @@ boolean useInputWrapper = true;
 
 String inputWrapperClass = controlGroupCssClass;
 
-if (radioField || checkboxField) {
+if (checkboxField || radioField) {
 	inputWrapperClass += StringPool.SPACE + StringPool.PERIOD + baseTypeCssClass;
 
 	if (Validator.isNull(label)) {

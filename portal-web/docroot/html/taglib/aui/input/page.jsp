@@ -81,13 +81,9 @@
 	<div class="<%= inputWrapperClass %>">
 </c:if>
 
-<%
-boolean choiceField = checkboxField || radioField;
-%>
-
 <c:if test='<%= !type.equals("assetCategories") && !type.equals("hidden") && Validator.isNotNull(labelContent) %>'>
 	<label <%= labelTag %>>
-		<c:if test='<%=!inlineLabel.equals("right") %>'>
+		<c:if test='<%= !inlineLabel.equals("right") %>'>
 				<%= labelContent %>
 			</label>
 		</c:if>
