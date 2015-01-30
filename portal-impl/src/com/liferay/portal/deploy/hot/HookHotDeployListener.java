@@ -1323,16 +1323,21 @@ public class HookHotDeployListener
 			customJspDir, customJspGlobal, customJsps);
 
 		if (_log.isDebugEnabled()) {
-			StringBundler sb = new StringBundler(customJsps.size() * 2 + 1);
+			StringBundler sb = new StringBundler(customJsps.size() * 2);
 
 			sb.append("Custom JSP files:\n");
 
+			int i = 0;
+
 			for (String customJsp : customJsps) {
 				sb.append(customJsp);
-				sb.append(StringPool.NEW_LINE);
-			}
 
-			sb.setIndex(sb.index() - 1);
+				if ((i + 1) < customJsps.size()) {
+					sb.append(StringPool.NEW_LINE);
+				}
+
+				i++;
+			}
 
 			_log.debug(sb.toString());
 		}
@@ -2872,11 +2877,13 @@ public class HookHotDeployListener
 			Log log = SanitizerLogWrapper.allowCRLF(_log);
 
 			StringBundler sb = new StringBundler(
-				collidingCustomJsps.size() * 4 + 3);
+				collidingCustomJsps.size() * 4 + 2);
 
 			sb.append("Colliding JSP files in ");
 			sb.append(servletContextName);
 			sb.append(StringPool.NEW_LINE);
+
+			int i = 0;
 
 			for (Map.Entry<String, String> entry :
 					collidingCustomJsps.entrySet()) {
@@ -2884,10 +2891,13 @@ public class HookHotDeployListener
 				sb.append((String)entry.getKey());
 				sb.append(" with ");
 				sb.append((String)entry.getValue());
-				sb.append(StringPool.NEW_LINE);
-			}
 
-			sb.setIndex(sb.index() - 1);
+				if ((i + 1) < collidingCustomJsps.size()) {
+					sb.append(StringPool.NEW_LINE);
+				}
+
+				i++;
+			}
 
 			log.debug(sb.toString());
 		}
