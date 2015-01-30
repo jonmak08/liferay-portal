@@ -1337,7 +1337,11 @@ public class HookHotDeployListener
 			_log.debug(sb.toString());
 		}
 
-		verifyCustomJsps(servletContextName, customJspBag);
+		if (customJspGlobal && !_customJspBagsMap.isEmpty() &&
+			!_customJspBagsMap.containsKey(servletContextName)) {
+
+			verifyCustomJsps(servletContextName, customJspBag);
+		}
 
 		_customJspBagsMap.put(servletContextName, customJspBag);
 
@@ -2818,13 +2822,6 @@ public class HookHotDeployListener
 	protected void verifyCustomJsps(
 			String currentServletContextName, CustomJspBag currentCustomJspBag)
 		throws DuplicateCustomJspException {
-
-		if (_customJspBagsMap.isEmpty() ||
-			_customJspBagsMap.containsKey(currentServletContextName) ||
-			!currentCustomJspBag.isCustomJspGlobal()) {
-
-			return;
-		}
 
 		String currentCustomJspDir = currentCustomJspBag.getCustomJspDir();
 		Set<String> currentCustomJsps = new HashSet<>();
