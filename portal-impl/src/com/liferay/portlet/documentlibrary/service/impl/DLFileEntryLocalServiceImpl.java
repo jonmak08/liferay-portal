@@ -2275,7 +2275,7 @@ public class DLFileEntryLocalServiceImpl
 				fileEntryId, !checkedOut);
 
 		boolean autoCheckIn = false;
-		
+
 		if (!checkedOut && dlFileVersion.isApproved() &&
 			!Validator.equals(
 				dlFileVersion.getUuid(), serviceContext.getUuid())) {
