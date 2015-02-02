@@ -496,7 +496,7 @@ public class DLFileEntryFinderImpl
 	@Override
 	public List<DLFileEntry> findByG_R_F(
 		long groupId, List<Long> repositoryIds, List<Long> folderIds,
-		QueryDefinition queryDefinition) {
+		QueryDefinition queryDefinition) throws SystemException {
 
 		return doFindByG_U_R_F_M(
 			groupId, 0, repositoryIds, folderIds, null, queryDefinition, false);
@@ -505,7 +505,7 @@ public class DLFileEntryFinderImpl
 	@Override
 	public List<DLFileEntry> findByG_U_F(
 		long groupId, long userId, List<Long> folderIds,
-		QueryDefinition queryDefinition) {
+		QueryDefinition queryDefinition) throws SystemException {
 
 		List<Long> repositoryIds = Collections.emptyList();
 
@@ -516,8 +516,9 @@ public class DLFileEntryFinderImpl
 
 	@Override
 	public List<DLFileEntry> findByG_U_R_F(
-		long groupId, long userId, List<Long> repositoryIds,
-		List<Long> folderIds, QueryDefinition queryDefinition) {
+			long groupId, long userId, List<Long> repositoryIds,
+			List<Long> folderIds, QueryDefinition queryDefinition)
+		throws SystemException {
 
 		return doFindByG_U_R_F_M(
 			groupId, userId, repositoryIds, folderIds, null, queryDefinition,
