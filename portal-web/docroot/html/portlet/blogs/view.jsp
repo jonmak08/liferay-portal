@@ -67,10 +67,6 @@ portletURL.setParameter("struts_action", "/blogs/view");
 	else {
 		int status = WorkflowConstants.STATUS_APPROVED;
 
-		if (BlogsPermission.contains(permissionChecker, scopeGroupId, ActionKeys.ADD_ENTRY)) {
-			status = WorkflowConstants.STATUS_ANY;
-		}
-
 		total = BlogsEntryServiceUtil.getGroupEntriesCount(scopeGroupId, status);
 
 		searchContainer.setTotal(total);
