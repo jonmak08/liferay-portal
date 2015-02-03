@@ -867,18 +867,21 @@
 		<execute action="PGMessageboardsThread#assertTextEquals" locator-key1="MESSAGE_SUBJECT_1" value1="${threadSubject}" />
 		<execute action="PGMessageboardsThread#assertTextEquals" locator-key1="MESSAGE_BODY_1" value1="${threadBody}" />
 		<execute action="PGMessageboardsThread#assertTextEquals" locator-key1="MESSAGE_USERNAME_1" value1="${userName}" />
-		<execute action="PGMessageboardsThread#assertTextEquals" locator-key1="MESSAGE_RATING_1" value1="0 (0 Votes)" />
 		<execute action="PGMessageboardsThread#assertTextEquals" locator-key1="MESSAGE_SUBJECT_2" value1="RE: ${threadSubject}" />
 		<execute action="PGMessageboardsThread#assertTextEquals" locator-key1="MESSAGE_BODY_2" value1="${threadReplyBody}" />
 
 		<if>
-			<equals arg1="${guestReply}" arg2="false" />
+			<equals arg1="${guestReply}" arg2="true" />
 			<then>
-				<execute action="PGMessageboardsThread#assertTextEquals" locator-key1="MESSAGE_USERNAME_2" value1="${userName}" />
+				<execute action="PGMessageboardsThread#assertTextEquals" locator-key1="MESSAGE_RATING_GUEST_VIEW_1" value1="0 (0 Votes)" />
+				<execute action="PGMessageboardsThread#assertTextEquals" locator-key1="MESSAGE_RATING_GUEST_VIEW_2" value1="0 (0 Votes)" />
 			</then>
+			<else>
+				<execute action="PGMessageboardsThread#assertTextEquals" locator-key1="MESSAGE_USERNAME_2" value1="${userName}" />
+				<execute action="PGMessageboardsThread#assertTextEquals" locator-key1="MESSAGE_RATING_1" value1="0 (0 Votes)" />
+				<execute action="PGMessageboardsThread#assertTextEquals" locator-key1="MESSAGE_RATING_2" value1="0 (0 Votes)" />
+			</else>
 		</if>
-
-		<execute action="PGMessageboardsThread#assertTextEquals" locator-key1="MESSAGE_RATING_2" value1="0 (0 Votes)" />
 	</command>
 
 	<command name="viewSplitThreadPG">
