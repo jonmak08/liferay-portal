@@ -495,8 +495,9 @@ public class DLFileEntryFinderImpl
 
 	@Override
 	public List<DLFileEntry> findByG_R_F(
-		long groupId, List<Long> repositoryIds, List<Long> folderIds,
-		QueryDefinition queryDefinition) throws SystemException {
+			long groupId, List<Long> repositoryIds, List<Long> folderIds,
+			QueryDefinition queryDefinition)
+		throws SystemException {
 
 		return doFindByG_U_R_F_M(
 			groupId, 0, repositoryIds, folderIds, null, queryDefinition, false);
@@ -504,8 +505,9 @@ public class DLFileEntryFinderImpl
 
 	@Override
 	public List<DLFileEntry> findByG_U_F(
-		long groupId, long userId, List<Long> folderIds,
-		QueryDefinition queryDefinition) throws SystemException {
+			long groupId, long userId, List<Long> folderIds,
+			QueryDefinition queryDefinition)
+		throws SystemException {
 
 		List<Long> repositoryIds = Collections.emptyList();
 
@@ -736,7 +738,7 @@ public class DLFileEntryFinderImpl
 			closeSession(session);
 		}
 	}
-	
+
 	protected String getDDMStructureIds(long[] ddmStructureIds) {
 		StringBundler sb = new StringBundler(
 			(ddmStructureIds.length * 2 - 1) + 2);
@@ -760,8 +762,9 @@ public class DLFileEntryFinderImpl
 		String id, long groupId, List<Long> folderIds, String[] mimeTypes,
 		QueryDefinition queryDefinition, boolean inlineSQLHelper) {
 
-		return getFileEntriesSQL(id, groupId, null, folderIds, mimeTypes,
-				queryDefinition, inlineSQLHelper);
+		return getFileEntriesSQL(
+			id, groupId, null, folderIds, mimeTypes, queryDefinition,
+			inlineSQLHelper);
 	}
 
 	protected String getFileEntriesSQL(
@@ -804,7 +807,7 @@ public class DLFileEntryFinderImpl
 				sb.append(StringPool.CLOSE_PARENTHESIS);
 			}
 
-			if ((folderIds !=null) && !folderIds.isEmpty()) {
+			if ((folderIds != null) && !folderIds.isEmpty()) {
 				sb.append(WHERE_AND);
 				sb.append(StringPool.OPEN_PARENTHESIS);
 				sb.append(getFolderIds(folderIds, tableName));

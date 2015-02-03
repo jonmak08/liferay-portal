@@ -176,11 +176,14 @@ public class DLFolderLocalServiceImpl extends DLFolderLocalServiceBaseImpl {
 	@Override
 	public void deleteAll(long groupId)
 		throws PortalException, SystemException {
+
 		deleteAllByGroup(groupId);
 	}
 
 	@Override
-	public void deleteAllByGroup(long groupId) throws PortalException, SystemException {
+	public void deleteAllByGroup(long groupId)
+		throws PortalException, SystemException {
+
 		Group group = groupLocalService.getGroup(groupId);
 
 		List<DLFolder> dlFolders = dlFolderPersistence.findByGroupId(groupId);
