@@ -583,8 +583,6 @@ public class DDMImpl implements DDM {
 	protected String getImageFieldValue(
 		UploadRequest uploadRequest, String fieldNameValue) {
 
-		String imageFieldValue = StringPool.BLANK;
-
 		try {
 			byte[] bytes = getImageBytes(uploadRequest, fieldNameValue);
 
@@ -595,13 +593,13 @@ public class DDMImpl implements DDM {
 					"alt", uploadRequest.getParameter(fieldNameValue + "Alt"));
 				jsonObject.put("data", UnicodeFormatter.bytesToHex(bytes));
 
-				imageFieldValue = jsonObject.toString();
+				return jsonObject.toString();
 			}
 		}
 		catch (Exception e) {
 		}
 
-		return imageFieldValue;
+		return StringPool.BLANK;
 	}
 
 }
