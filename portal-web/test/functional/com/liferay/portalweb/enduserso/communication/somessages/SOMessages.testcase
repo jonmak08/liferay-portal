@@ -1540,7 +1540,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageAccess" value="Private" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${adminScreenName}" />
+			<var name="siteName" value="${userScreenName}" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2461,7 +2461,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageAccess" value="Private" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${adminScreenName}" />
+			<var name="siteName" value="${userScreenName}" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2521,7 +2521,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageAccess" value="Private" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${adminScreenName}" />
+			<var name="siteName" value="${userScreenName}" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2543,7 +2543,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageAccess" value="Private" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${adminScreenName}" />
+			<var name="siteName" value="${userScreenName}" />
 			<var name="siteURL" value="true" />
 		</execute>
 
