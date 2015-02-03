@@ -124,17 +124,17 @@
 <!--SOCIAL_BOOKMARKS-->
 <tr>
 	<td>SOCIAL_BOOKMARKS_TWITTER_CHECKBOX</td>
-	<td>//div[contains(.,'Twitter')]/label/input[@id='_86_socialBookmarksTypesCheckbox']</td>
+	<td>//div[contains(.,'Twitter')]/label/input[@id='_86_socialBookmarksTypestwitterCheckbox']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>SOCIAL_BOOKMARKS_FACEBOOK_CHECKBOX</td>
-	<td>//div[contains(.,'Facebook')]/label/input[@id='_86_socialBookmarksTypesCheckbox']</td>
+	<td>//div[contains(.,'Facebook')]/label/input[@id='_86_socialBookmarksTypesfacebookCheckbox']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>SOCIAL_BOOKMARKS_GOOGLE_PLUS_ONE_CHECKBOX</td>
-	<td>//div[contains(.,'plusone')]/label/input[@id='_86_socialBookmarksTypesCheckbox']</td>
+	<td>//div[contains(.,'Google')]/label/input[@id='_86_socialBookmarksTypesplusoneCheckbox']</td>
 	<td></td>
 </tr>
 <tr>
