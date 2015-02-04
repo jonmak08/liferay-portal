@@ -101,20 +101,20 @@ public class SchedulerEventMessageListenerWrapper implements MessageListener {
 
 				String jobName = message.getString(SchedulerEngine.JOB_NAME);
 				String groupName = message.getString(
-						SchedulerEngine.GROUP_NAME);
+					SchedulerEngine.GROUP_NAME);
 				StorageType storageType = (StorageType)message.get(
-						SchedulerEngine.STORAGE_TYPE);
+					SchedulerEngine.STORAGE_TYPE);
 
 				try {
 					SchedulerEngineHelperUtil.delete(
-							jobName, groupName, storageType);
+						jobName, groupName, storageType);
 				}
 				catch (SchedulerException se) {
 					if (_log.isInfoEnabled()) {
 						_log.info(
-								"Unable to delete job " + jobName +
-										" in group " + groupName,
-								se);
+							"Unable to delete job " + jobName + " in group " +
+								groupName,
+							se);
 					}
 				}
 			}

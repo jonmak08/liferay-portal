@@ -588,18 +588,20 @@ public class QuartzSchedulerEngineTest {
 			trigger, StringPool.BLANK, _TEST_DESTINATION_NAME, message);
 
 		SchedulerResponse schedulerResponse =
-				_quartzSchedulerEngine.getScheduledJob(
-						testJobName, _MEMORY_TEST_GROUP_NAME);
+			_quartzSchedulerEngine.getScheduledJob(
+				testJobName, _MEMORY_TEST_GROUP_NAME);
 
 		_assertTriggerState(schedulerResponse, TriggerState.NORMAL);
+
 		Assert.assertEquals(1, _testDestination.getMessageListenerCount());
 
 		_quartzSchedulerEngine.unschedule(testJobName, _MEMORY_TEST_GROUP_NAME);
 
 		schedulerResponse = _quartzSchedulerEngine.getScheduledJob(
-				testJobName, _MEMORY_TEST_GROUP_NAME);
+			testJobName, _MEMORY_TEST_GROUP_NAME);
 
 		_assertTriggerState(schedulerResponse, TriggerState.UNSCHEDULED);
+
 		Assert.assertEquals(0, _testDestination.getMessageListenerCount());
 	}
 

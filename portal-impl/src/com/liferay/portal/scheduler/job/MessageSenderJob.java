@@ -86,7 +86,7 @@ public class MessageSenderJob implements Job {
 		JobState jobState = JobStateSerializeUtil.deserialize(jobStateMap);
 
 		StorageType storageType = StorageType.valueOf(
-				jobDataMap.getString(SchedulerEngine.STORAGE_TYPE));
+			jobDataMap.getString(SchedulerEngine.STORAGE_TYPE));
 
 		if (jobExecutionContext.getNextFireTime() == null) {
 			message.put(SchedulerEngine.DISABLE, true);
