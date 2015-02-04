@@ -589,8 +589,7 @@ public class QuartzSchedulerEngineTest {
 
 		SchedulerResponse schedulerResponse =
 				_quartzSchedulerEngine.getScheduledJob(
-						testJobName, _MEMORY_TEST_GROUP_NAME,
-						StorageType.MEMORY);
+						testJobName, _MEMORY_TEST_GROUP_NAME);
 
 		_assertTriggerState(schedulerResponse, TriggerState.NORMAL);
 		Assert.assertEquals(1, _testDestination.getMessageListenerCount());
@@ -598,7 +597,7 @@ public class QuartzSchedulerEngineTest {
 		_quartzSchedulerEngine.unschedule(testJobName, _MEMORY_TEST_GROUP_NAME);
 
 		schedulerResponse = _quartzSchedulerEngine.getScheduledJob(
-				testJobName, _MEMORY_TEST_GROUP_NAME, StorageType.MEMORY);
+				testJobName, _MEMORY_TEST_GROUP_NAME);
 
 		_assertTriggerState(schedulerResponse, TriggerState.UNSCHEDULED);
 		Assert.assertEquals(0, _testDestination.getMessageListenerCount());
