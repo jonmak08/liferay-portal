@@ -99,6 +99,14 @@ if (assetEntryId > 0) {
 					String urlViewInContext = assetRenderer.getURLViewInContext((LiferayPortletRequest)portletRequest, (LiferayPortletResponse)portletResponse, viewFullContentURLString);
 
 					urlViewInContext = HttpUtil.setParameter(urlViewInContext, "inheritRedirect", true);
+
+					String method = null;
+					String target = "_self";
+
+					if (themeDisplay.isStatePopUp()) {
+						method = "get";
+						target = "_blank";
+					}
 			%>
 
 					<li class="asset-links-list-item">
@@ -106,6 +114,8 @@ if (assetEntryId > 0) {
 							label="<%= true %>"
 							message="<%= asseLinktEntryTitle %>"
 							src="<%= assetRenderer.getIconPath(portletRequest) %>"
+							method="<%= method %>"
+							target="<%= target %>"
 							url="<%= urlViewInContext %>"
 						/>
 					</li>
