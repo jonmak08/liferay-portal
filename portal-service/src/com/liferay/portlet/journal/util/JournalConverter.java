@@ -33,4 +33,6 @@ public interface JournalConverter {
 
 	public String getJournalXSD(String ddmXSD) throws Exception;
 
+	public String updateDynamicElements(String content) throws Exception;
+
 }

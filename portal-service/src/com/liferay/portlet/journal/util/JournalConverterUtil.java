@@ -51,6 +51,12 @@ public class JournalConverterUtil {
 		return getJournalConverter().getJournalXSD(ddmXSD);
 	}
 
+	public static String updateDynamicElements(String content)
+		throws Exception {
+
+		return getJournalConverter().updateDynamicElements(content);
+	}
+
 	public void setJournalConverter(JournalConverter journalConverter) {
 		PortalRuntimePermission.checkSetBeanProperty(getClass());
 

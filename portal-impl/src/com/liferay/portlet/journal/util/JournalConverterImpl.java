@@ -231,6 +231,30 @@ public class JournalConverterImpl implements JournalConverter {
 		return DDMXMLUtil.formatXML(document);
 	}
 
+	public String updateDynamicElements(String content) throws Exception {
+		Document document = SAXReaderUtil.read(content);
+
+		Element rootElement = document.getRootElement();
+
+		List<Element> dynamicElements = rootElement.elements("dynamic-element");
+
+		if ((dynamicElements == null) || dynamicElements.isEmpty()) {
+			return content;
+		}
+
+		Element firstElement = dynamicElements.get(0);
+
+		if (Validator.isNotNull(firstElement.attributeValue("instance-id"))) {
+			return content;
+		}
+
+		for (Element dynamicElement : dynamicElements) {
+			updateElement(dynamicElement);
+		}
+
+		return document.asXML();
+	}
+
 	protected static void addMetadataEntry(
 		Element metadataElement, String name, String value) {
 
@@ -1017,6 +1041,21 @@ public class JournalConverterImpl implements JournalConverter {
 		}
 		else {
 			dynamicContentElement.addCDATA(fieldValue);
+		}
+	}
+
+	protected void updateElement(Element element) {
+		List<Element> dynamicElementElements = element.elements(
+			"dynamic-element");
+
+		for (Element dynamicElementElement : dynamicElementElements) {
+			updateElement(dynamicElementElement);
+		}
+
+		String instanceId = element.attributeValue("instance-id");
+
+		if (Validator.isNull(instanceId)) {
+			element.addAttribute("instance-id", StringUtil.randomString(4));
 		}
 	}
 
