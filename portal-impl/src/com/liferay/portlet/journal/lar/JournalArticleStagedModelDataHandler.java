@@ -55,6 +55,7 @@ import com.liferay.portlet.journal.model.JournalFolderConstants;
 import com.liferay.portlet.journal.service.JournalArticleImageLocalServiceUtil;
 import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.portlet.journal.service.JournalArticleResourceLocalServiceUtil;
+import com.liferay.portlet.journal.util.JournalConverterUtil;
 
 import java.io.File;
 
@@ -431,6 +432,8 @@ public class JournalArticleStagedModelDataHandler
 
 		content = ExportImportHelperUtil.replaceImportContentReferences(
 			portletDataContext, articleElement, content, true);
+
+		content = JournalConverterUtil.updateDynamicElements(content);
 
 		article.setContent(content);
 
