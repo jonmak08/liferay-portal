@@ -55,6 +55,7 @@ import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.portlet.journal.service.JournalContentSearchLocalServiceUtil;
 import com.liferay.portlet.journal.service.JournalFolderLocalServiceUtil;
 import com.liferay.portlet.journal.service.persistence.JournalArticleActionableDynamicQuery;
+import com.liferay.portlet.journal.util.JournalConverterUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -77,6 +78,7 @@ public class VerifyJournal extends VerifyProcess {
 
 	@Override
 	protected void doVerify() throws Exception {
+		verifyArticleContents();
 		verifyContent();
 		verifyDynamicElements();
 		updateFolderAssets();
@@ -270,6 +272,24 @@ public class VerifyJournal extends VerifyProcess {
 		}
 		finally {
 			DataAccess.cleanUp(con, ps);
+		}
+	}
+
+	protected void verifyArticleContents() throws Exception {
+		List<JournalArticle> articles = 
+			JournalArticleLocalServiceUtil.getArticles();
+
+		for (JournalArticle article : articles) {
+			String content = JournalConverterUtil.updateDynamicElements(
+				article.getContent());
+
+			if (content.equals(article.getContent())) {
+				continue;
+			}
+
+			article.setContent(content);
+
+			JournalArticleLocalServiceUtil.updateJournalArticle(article);
 		}
 	}
 
