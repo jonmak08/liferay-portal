@@ -22,6 +22,7 @@ import com.liferay.portal.model.PortletPreferences;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portal.service.SubscriptionLocalServiceUtil;
 import com.liferay.portal.util.PortletKeys;
+import com.liferay.portlet.asset.util.AssetUtil;
 import com.liferay.portlet.assetpublisher.util.AssetPublisherUtil;
 import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 
@@ -46,8 +47,12 @@ public class AssetPublisherPortletLayoutListener
 		try {
 			Layout layout = LayoutLocalServiceUtil.getLayout(plid);
 
-			JournalArticleLocalServiceUtil.deleteLayoutArticleReferences(
-				layout.getGroupId(), layout.getUuid());
+			if (AssetUtil.isDefaultAssetPublisher(
+					layout, portletId, StringPool.BLANK)) {
+
+				JournalArticleLocalServiceUtil.deleteLayoutArticleReferences(
+					layout.getGroupId(), layout.getUuid());
+			}
 
 			long ownerId = PortletKeys.PREFS_OWNER_ID_DEFAULT;
 			int ownerType = PortletKeys.PREFS_OWNER_TYPE_LAYOUT;
