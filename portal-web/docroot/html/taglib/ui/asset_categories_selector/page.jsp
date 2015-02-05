@@ -37,7 +37,11 @@ if (!ArrayUtil.contains(groupIds, themeDisplay.getCompanyGroupId())) {
 	groupIds = ArrayUtil.append(groupIds, themeDisplay.getCompanyGroupId());
 }
 
-List<AssetVocabulary> vocabularies = AssetVocabularyServiceUtil.getGroupsVocabularies(groupIds);
+List<AssetVocabulary> vocabularies = new ArrayList<AssetVocabulary>();
+
+for (int i = 0; i < groupIds.length; i++) {
+	vocabularies.addAll(AssetVocabularyServiceUtil.getGroupVocabularies(groupIds[i], false));
+}
 
 if (Validator.isNotNull(className)) {
 	long classNameId = PortalUtil.getClassNameId(className);
