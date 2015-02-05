@@ -166,7 +166,7 @@
 		<execute macro="SODashboard#viewLinkTasks" />
 	</command>
 
-	<command known-issues="SOS-2463" name="ViewProfilePicture" priority="4" >
+	<command name="ViewProfilePicture" priority="4" >
 		<var name="imageFileName1" value="Document_4.jpg" />
 		<var name="imageFileName2" value="Document_3.jpg" />
 		<var name="imageFileName3" value="Document_1.jpg" />
