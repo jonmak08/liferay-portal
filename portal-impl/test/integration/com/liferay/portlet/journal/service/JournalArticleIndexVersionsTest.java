@@ -187,7 +187,7 @@ public class JournalArticleIndexVersionsTest {
 		article.setIndexable(false);
 
 		article = JournalTestUtil.updateArticle(
-			article, article.getTitle(), article.getContent(),
+			article, article.getTitle(), article.getContent(), true, true,
 			ServiceContextTestUtil.getServiceContext());
 
 		Assert.assertEquals(initialSearchCount, searchCount());
@@ -195,7 +195,7 @@ public class JournalArticleIndexVersionsTest {
 		article.setIndexable(true);
 
 		JournalTestUtil.updateArticle(
-			article, article.getTitle(), article.getContent(),
+			article, article.getTitle(), article.getContent(), true, true,
 			ServiceContextTestUtil.getServiceContext());
 
 		Assert.assertEquals(initialSearchCount + 1, searchCount());
