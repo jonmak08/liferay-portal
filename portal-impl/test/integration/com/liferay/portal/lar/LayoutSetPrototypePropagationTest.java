@@ -23,6 +23,7 @@ import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.LayoutConstants;
+import com.liferay.portal.model.LayoutSet;
 import com.liferay.portal.model.LayoutSetPrototype;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.model.ResourceConstants;
@@ -30,6 +31,7 @@ import com.liferay.portal.model.Role;
 import com.liferay.portal.model.RoleConstants;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
+import com.liferay.portal.service.LayoutSetLocalServiceUtil;
 import com.liferay.portal.service.LayoutSetPrototypeLocalServiceUtil;
 import com.liferay.portal.service.PortletLocalServiceUtil;
 import com.liferay.portal.service.ResourcePermissionLocalServiceUtil;
@@ -54,6 +56,7 @@ import com.liferay.portlet.sites.util.SitesUtil;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.portlet.PortletPreferences;
@@ -145,6 +148,35 @@ public class LayoutSetPrototypePropagationTest
 				ResourceConstants.SCOPE_INDIVIDUAL,
 				String.valueOf(layout.getPrimaryKey()), role.getRoleId(),
 				ActionKeys.CUSTOMIZE));
+	}
+
+	@Test
+	public void testLayoutPropagationWithFriendlyURLConflict()
+		throws Exception {
+
+		LayoutSet layoutSet = group.getPublicLayoutSet();
+
+		List<Layout> initialMergeFailFriendlyURLLayouts =
+			SitesUtil.getMergeFailFriendlyURLLayouts(layoutSet);
+
+		setLinkEnabled(true);
+
+		LayoutTestUtil.addLayout(group.getGroupId(), "testpage", false);
+
+		LayoutTestUtil.addLayout(
+			_layoutSetPrototypeGroup.getGroupId(), "testpage", true);
+
+		propagateChanges(group);
+
+		layoutSet = LayoutSetLocalServiceUtil.getLayoutSet(
+			layoutSet.getLayoutSetId());
+
+		List<Layout> mergeFailFriendlyURLLayouts =
+			SitesUtil.getMergeFailFriendlyURLLayouts(layoutSet);
+
+		Assert.assertEquals(
+			initialMergeFailFriendlyURLLayouts.size() + 1,
+			mergeFailFriendlyURLLayouts.size());
 	}
 
 	@Test
