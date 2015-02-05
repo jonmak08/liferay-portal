@@ -36,6 +36,7 @@ import com.liferay.portal.kernel.util.InetAddressUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WeakValueConcurrentHashMap;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 import com.liferay.portal.util.PortalPortEventListener;
@@ -97,7 +98,9 @@ public class ClusterExecutorImpl
 		_secure = StringUtil.equalsIgnoreCase(
 			Http.HTTPS, PropsValues.WEB_SERVER_PROTOCOL);
 
-		if (_secure) {
+		if (_secure || Validator.isNotNull(
+			PropsValues.PORTAL_INSTANCE_HTTPS_PORT)) {
+			
 			_port = PropsValues.PORTAL_INSTANCE_HTTPS_PORT;
 		}
 		else {
@@ -306,7 +309,7 @@ public class ClusterExecutorImpl
 
 		return _clusterNodeAddresses.containsKey(clusterNodeId);
 	}
-
+	
 	@Override
 	public void portalPortConfigured(int port) {
 		if (!isEnabled() || (_localClusterNode.getPort() == _port)) {
@@ -326,6 +329,18 @@ public class ClusterExecutorImpl
 		catch (Exception e) {
 			_log.error("Unable to determine configure node port", e);
 		}
+	}
+
+	@Override
+	public void portalPortConfigured(int port, boolean secure) {
+		if (secure) {
+			_localClusterNode.setPortalProtocol(Http.HTTPS);
+		}
+		else {
+			_localClusterNode.setPortalProtocol(Http.HTTP);
+		}
+		
+		portalPortConfigured(port);
 	}
 
 	@Override
@@ -432,6 +447,9 @@ public class ClusterExecutorImpl
 		}
 
 		localClusterNode.setPort(port);
+		
+		localClusterNode.setPortalProtocol(
+			PropsValues.PORTAL_INSTANCE_PROTOCOL);
 
 		_localClusterNode = localClusterNode;
 	}
