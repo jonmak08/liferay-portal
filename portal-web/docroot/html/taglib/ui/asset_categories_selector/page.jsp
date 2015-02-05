@@ -37,6 +37,8 @@ if (!ArrayUtil.contains(groupIds, themeDisplay.getCompanyGroupId())) {
 	groupIds = ArrayUtil.append(groupIds, themeDisplay.getCompanyGroupId());
 }
 
+groupIds = ArrayUtil.unique(groupIds);
+
 List<AssetVocabulary> vocabularies = new ArrayList<AssetVocabulary>();
 
 for (int i = 0; i < groupIds.length; i++) {
