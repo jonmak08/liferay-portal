@@ -3916,9 +3916,7 @@ if (ppstate.equals("normal")) {
 			<![CDATA[
 				import org.apache.tools.ant.DirectoryScanner;
 
-				Set getPluginNames() {
-					Set pluginNames = new TreeSet();
-
+				List getPluginNames() {
 					DirectoryScanner directoryScanner = new DirectoryScanner();
 
 					directoryScanner.setBasedir(project.getProperty("lp.plugins.dir"));
@@ -3928,7 +3926,7 @@ if (ppstate.equals("normal")) {
 
 					String[] fileNames = directoryScanner.getIncludedFiles();
 
-					Arrays.sort(fileNames);
+					List pluginNames = new ArrayList();
 
 					for (String fileName : fileNames) {
 						int x = fileName.indexOf("/");
@@ -3943,6 +3941,8 @@ if (ppstate.equals("normal")) {
 
 						pluginNames.add(pluginName);
 					}
+
+					Collections.sort(pluginNames);
 
 					return pluginNames;
 				}
