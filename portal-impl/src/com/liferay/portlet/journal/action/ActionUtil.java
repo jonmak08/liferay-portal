@@ -78,8 +78,7 @@ public class ActionUtil {
 			ActionRequest actionRequest, String deleteArticleId)
 		throws Exception {
 
-		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
-			WebKeys.THEME_DISPLAY);
+		long groupId = ParamUtil.getLong(actionRequest, "groupId");
 
 		String articleId = deleteArticleId;
 		String articleURL = ParamUtil.getString(actionRequest, "articleURL");
@@ -92,8 +91,7 @@ public class ActionUtil {
 			EditArticleAction.VERSION_SEPARATOR);
 
 		if (pos == -1) {
-			JournalArticleServiceUtil.deleteArticle(
-				themeDisplay.getScopeGroupId(), articleId, articleURL,
+			JournalArticleServiceUtil.deleteArticle(groupId, articleId, articleURL,
 				serviceContext);
 		}
 		else {
@@ -103,8 +101,7 @@ public class ActionUtil {
 					pos + EditArticleAction.VERSION_SEPARATOR.length()));
 
 			JournalArticleServiceUtil.deleteArticle(
-				themeDisplay.getScopeGroupId(), articleId, version, articleURL,
-				serviceContext);
+				groupId, articleId, version, articleURL, serviceContext);
 		}
 
 		JournalUtil.removeRecentArticle(actionRequest, articleId, version);
