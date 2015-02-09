@@ -57,7 +57,7 @@
 			'submitForm',
 			function(event) {
 				if (event.form.compareTo(form)) {
-					field.val(window.${portletNamespace}${namespacedFieldName}Editor.getHTML());
+					field.val(window['${portletNamespace}${namespacedFieldName}Editor'].getHTML());
 				}
 			}
 		);
