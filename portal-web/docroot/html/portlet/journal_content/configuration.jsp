@@ -32,7 +32,10 @@ try {
 		article = article.toEscapedModel();
 
 		articleGroupId = article.getGroupId();
-		type = article.getType();
+
+		if (Validator.isNull(type)) {
+			type = article.getType();
+		}
 	}
 }
 catch (NoSuchArticleException nsae) {
