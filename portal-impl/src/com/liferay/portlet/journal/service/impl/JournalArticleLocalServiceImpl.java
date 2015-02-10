@@ -5637,7 +5637,7 @@ public class JournalArticleLocalServiceImpl
 	protected void checkArticlesByReviewDate(Date reviewDate)
 		throws PortalException, SystemException {
 
-		List<JournalArticle> latestArticles = new ArrayList<>();
+		List<JournalArticle> latestArticles = new ArrayList<JournalArticle>();
 
 		List<JournalArticle> articles = journalArticleFinder.findByReviewDate(
 			JournalArticleConstants.CLASSNAME_ID_DEFAULT, reviewDate,
