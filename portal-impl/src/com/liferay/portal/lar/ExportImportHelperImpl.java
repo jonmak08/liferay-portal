@@ -1244,6 +1244,11 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 
 		Matcher matcher = _importLinksToLayoutPattern.matcher(content);
 
+		String layoutsImportMode = MapUtil.getString(
+			portletDataContext.getParameterMap(),
+			PortletDataHandlerKeys.LAYOUTS_IMPORT_MODE,
+			PortletDataHandlerKeys.LAYOUTS_IMPORT_MODE_MERGE_BY_LAYOUT_UUID);
+
 		while (matcher.find()) {
 			long oldGroupId = GetterUtil.getLong(matcher.group(7));
 
@@ -1260,8 +1265,10 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 			String layoutUuid = matcher.group(4);
 			String friendlyURL = matcher.group(5);
 
+			Layout layout = null;
+
 			try {
-				Layout layout =
+				layout =
 					LayoutLocalServiceUtil.fetchLayoutByUuidAndGroupId(
 						layoutUuid, portletDataContext.getScopeGroupId(),
 						privateLayout);
@@ -1323,6 +1330,15 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 				oldLinkToLayout,
 				new String[] {sb.toString(), String.valueOf(oldLayoutId)},
 				new String[] {StringPool.BLANK, String.valueOf(newLayoutId)});
+
+			if ((layout != null) && layout.isPublicLayout() &&
+				layoutsImportMode.equals(
+					PortletDataHandlerKeys.
+						LAYOUTS_IMPORT_MODE_CREATED_FROM_PROTOTYPE)) {
+
+				newLinkToLayout = StringUtil.replace(
+					newLinkToLayout, "private-group", "public");
+			}
 
 			if ((oldGroupId != 0) && (oldGroupId != newGroupId)) {
 				newLinkToLayout = StringUtil.replaceLast(
