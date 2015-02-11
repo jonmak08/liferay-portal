@@ -78,7 +78,7 @@ public abstract class JSONAction extends Action {
 			json = getJSON(actionMapping, actionForm, request, response);
 
 			if (Validator.isNotNull(callback)) {
-				json = callback + "(" + json + ");";
+				json = "/**/" + callback + "(" + json + ");";
 			}
 			else if (Validator.isNotNull(instance)) {
 				json = "var " + instance + "=" + json + ";";
