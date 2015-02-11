@@ -58,8 +58,7 @@ public class UrlRewriteFilter extends BasePortalFilter {
 		}
 	}
 
-	private static final Log _log = LogFactoryUtil.getLog(
-		UrlRewriteFilter.class);
+	private static Log _log = LogFactoryUtil.getLog(UrlRewriteFilter.class);
 
 	private org.tuckey.web.filters.urlrewrite.UrlRewriteFilter
 		_urlRewriteFilter;
