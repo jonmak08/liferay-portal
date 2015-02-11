@@ -17,11 +17,12 @@ package com.liferay.portlet.dynamicdatamapping.util;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.Localization;
 import com.liferay.portal.kernel.util.LocalizationUtil;
+import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
-import com.liferay.portal.kernel.xml.SAXReader;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.util.LocalizationImpl;
+import com.liferay.portal.util.PropsImpl;
 import com.liferay.portal.xml.SAXReaderImpl;
 
 import java.util.Map;
@@ -40,13 +41,20 @@ import org.springframework.mock.web.MockPageContext;
 /**
  * @author Pablo Carvalho
  */
-@PrepareForTest({LocalizationUtil.class, SAXReaderUtil.class})
+@PrepareForTest({LocalizationUtil.class})
 @RunWith(PowerMockRunner.class)
 public class DDMXSDImplTest extends PowerMockito {
 
 	@Before
 	public void setUp() {
 		setUpMocks();
+
+		PropsUtil.setProps(new PropsImpl());
+
+		SAXReaderUtil saxReaderUtil = new SAXReaderUtil();
+
+		saxReaderUtil.setSecureSAXReader(new SAXReaderImpl());
+		saxReaderUtil.setUnsecureSAXReader(new SAXReaderImpl());
 
 		_document = createSampleDocument();
 
@@ -163,14 +171,6 @@ public class DDMXSDImplTest extends PowerMockito {
 		).thenReturn(
 			_localization
 		);
-
-		spy(SAXReaderUtil.class);
-
-		when(
-			SAXReaderUtil.getSecureSAXReader()
-		).thenReturn(
-			_saxReader
-		);
 	}
 
 	private static final String _NAMESPACE = "_namespace_";
@@ -182,6 +182,5 @@ public class DDMXSDImplTest extends PowerMockito {
 	private String _fieldsContextKey;
 	private Localization _localization = new LocalizationImpl();
 	private MockPageContext _mockPageContext = new MockPageContext();
-	private SAXReader _saxReader = new SAXReaderImpl();
 
 }

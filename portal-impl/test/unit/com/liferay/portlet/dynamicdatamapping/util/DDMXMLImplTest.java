@@ -15,12 +15,14 @@
 package com.liferay.portlet.dynamicdatamapping.util;
 
 import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.xml.Attribute;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.Node;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
+import com.liferay.portal.util.PropsImpl;
 import com.liferay.portal.xml.SAXReaderImpl;
 
 import java.io.IOException;
@@ -42,19 +44,18 @@ import org.powermock.modules.junit4.PowerMockRunner;
 /**
  * @author Manuel de la Peña
  */
-@PrepareForTest({DDMXMLUtil.class, SAXReaderUtil.class})
+@PrepareForTest({DDMXMLUtil.class})
 @RunWith(PowerMockRunner.class)
 public class DDMXMLImplTest extends PowerMockito {
 
 	@Before
 	public void setUp() {
-		spy(SAXReaderUtil.class);
+		PropsUtil.setProps(new PropsImpl());
 
-		when(
-			SAXReaderUtil.getSecureSAXReader()
-		).thenReturn(
-			_saxReader
-		);
+		SAXReaderUtil saxReaderUtil = new SAXReaderUtil();
+
+		saxReaderUtil.setSecureSAXReader(new SAXReaderImpl());
+		saxReaderUtil.setUnsecureSAXReader(new SAXReaderImpl());
 
 		spy(DDMXMLUtil.class);
 
@@ -173,6 +174,5 @@ public class DDMXMLImplTest extends PowerMockito {
 	}
 
 	private DDMXMLImpl _ddmXML = new DDMXMLImpl();
-	private SAXReaderImpl _saxReader = new SAXReaderImpl();
 
 }
