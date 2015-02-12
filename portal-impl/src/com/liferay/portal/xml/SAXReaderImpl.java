@@ -659,8 +659,6 @@ public class SAXReaderImpl implements SAXReader {
 
 	private static Log _log = LogFactoryUtil.getLog(SAXReaderImpl.class);
 
-	private final DocumentFactory _documentFactory =
-		DocumentFactory.getInstance();
 	private boolean _secure;
 	private SecureXMLFactoryProvider _secureXMLFactoryProvider =
 		new SecureXMLFactoryProviderImpl();
