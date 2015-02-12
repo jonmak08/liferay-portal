@@ -117,6 +117,9 @@ public class SAXReaderUtil {
 			xPathExpression, prefix, namespace);
 	}
 
+	/**
+	 * @deprecated As of 6.2.0, renamed to {@link #getSecureSAXReader}
+	 */
 	public static SAXReader getSAXReader() {
 		return getSecureSAXReader();
 	}

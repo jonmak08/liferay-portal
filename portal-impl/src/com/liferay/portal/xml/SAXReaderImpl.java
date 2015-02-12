@@ -58,6 +58,13 @@ import org.dom4j.DocumentHelper;
 @DoPrivileged
 public class SAXReaderImpl implements SAXReader {
 
+	/**
+	 * @deprecated As of 6.2.0, with no direct replacement
+	 */
+	public static SAXReaderImpl getInstance() {
+		return new SAXReaderImpl();
+	}
+
 	public static List<Attribute> toNewAttributes(
 		List<org.dom4j.Attribute> oldAttributes) {
 
