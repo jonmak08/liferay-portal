@@ -73,13 +73,10 @@ public class EditUserPortraitAction extends EditCompanyLogoAction {
 			}
 			else if (e instanceof FileSizeException ||
 					 e instanceof ImageTypeException ||
-					 e instanceof UserPortraitTypeException) {
-
-				SessionErrors.add(actionRequest, e.getClass());
-			}
-			else if (e instanceof NoSuchFileException ||
+					 e instanceof NoSuchFileException ||
+					 e instanceof UploadException ||
 					 e instanceof UserPortraitSizeException ||
-					 e instanceof UploadException) {
+					 e instanceof UserPortraitTypeException) {
 
 				SessionErrors.add(actionRequest, e.getClass());
 			}
