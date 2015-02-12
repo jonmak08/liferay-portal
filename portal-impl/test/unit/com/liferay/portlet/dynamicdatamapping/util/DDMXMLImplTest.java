@@ -51,7 +51,7 @@ public class DDMXMLImplTest extends PowerMockito {
 		spy(SAXReaderUtil.class);
 
 		when(
-			SAXReaderUtil.getSAXReader()
+			SAXReaderUtil.getSecureSAXReader()
 		).thenReturn(
 			_saxReader
 		);
