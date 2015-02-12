@@ -476,7 +476,7 @@ public class XMLSourceProcessor extends BaseSourceProcessor {
 
 		newContent = fixAntXMLProjectName(fileName, newContent);
 
-		Document document = saxReaderUtil.read(newContent);
+		Document document = saxReader.read(newContent);
 
 		Element rootElement = document.getRootElement();
 
@@ -524,7 +524,7 @@ public class XMLSourceProcessor extends BaseSourceProcessor {
 	}
 
 	protected String formatDDLStructuresXML(String content) throws Exception {
-		Document document = saxReaderUtil.read(content);
+		Document document = saxReader.read(content);
 
 		Element rootElement = document.getRootElement();
 
@@ -563,7 +563,7 @@ public class XMLSourceProcessor extends BaseSourceProcessor {
 			return content;
 		}
 
-		Document document = saxReaderUtil.read(content);
+		Document document = saxReader.read(content);
 
 		Element rootElement = document.getRootElement();
 
@@ -693,7 +693,7 @@ public class XMLSourceProcessor extends BaseSourceProcessor {
 	}
 
 	protected String formatPortletXML(String content) throws Exception {
-		Document document = saxReaderUtil.read(content);
+		Document document = saxReader.read(content);
 
 		Element rootElement = document.getRootElement();
 
@@ -737,7 +737,7 @@ public class XMLSourceProcessor extends BaseSourceProcessor {
 	protected void formatServiceXML(String fileName, String content)
 		throws Exception {
 
-		Document document = saxReaderUtil.read(content);
+		Document document = saxReader.read(content);
 
 		Element rootElement = document.getRootElement();
 
@@ -770,7 +770,7 @@ public class XMLSourceProcessor extends BaseSourceProcessor {
 	protected void formatStrutsConfigXML(String fileName, String content)
 		throws Exception {
 
-		Document document = saxReaderUtil.read(content);
+		Document document = saxReader.read(content);
 
 		Element rootElement = document.getRootElement();
 
@@ -798,7 +798,7 @@ public class XMLSourceProcessor extends BaseSourceProcessor {
 	protected void formatTilesDefsXML(String fileName, String content)
 		throws Exception {
 
-		Document document = saxReaderUtil.read(content);
+		Document document = saxReader.read(content);
 
 		Element rootElement = document.getRootElement();
 
