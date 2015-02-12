@@ -117,9 +117,12 @@ public class SAXReaderUtil {
 			xPathExpression, prefix, namespace);
 	}
 
+	public static SAXReader getSAXReader() {
+		return getSecureSAXReader();
+	}
+
 	public static SAXReader getSecureSAXReader() {
-		PortalRuntimePermission.checkGetBeanProperty(
-			SAXReaderUtil.class, "secureSAXReader");
+		PortalRuntimePermission.checkGetBeanProperty(SAXReaderUtil.class);
 
 		return _saxReader;
 	}
@@ -222,8 +225,7 @@ public class SAXReaderUtil {
 	}
 
 	public void setSecureSAXReader(SAXReader saxReader) {
-		PortalRuntimePermission.checkSetBeanProperty(
-			getClass(), "secureSAXReader");
+		PortalRuntimePermission.checkSetBeanProperty(getClass());
 
 		_saxReader = saxReader;
 	}
