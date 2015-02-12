@@ -181,6 +181,10 @@ public class PortletExporter {
 
 		String path = sb.toString();
 
+		Element portletDataElement = parentElement.addElement("portlet-data");
+
+		portletDataElement.addAttribute("path", path);
+
 		if (portletDataContext.isPathProcessed(path)) {
 			return;
 		}
@@ -238,10 +242,6 @@ public class PortletExporter {
 
 			return;
 		}
-
-		Element portletDataElement = parentElement.addElement("portlet-data");
-
-		portletDataElement.addAttribute("path", path);
 
 		portletDataContext.addZipEntry(path, data);
 
@@ -1020,30 +1020,9 @@ public class PortletExporter {
 				PortletPreferencesFactoryUtil.getStrictPortletSetup(
 					layout, portletId);
 
-			if (!portlet.isPreferencesUniquePerLayout()) {
-				StringBundler sb = new StringBundler(5);
-
-				sb.append(portletId);
-				sb.append(StringPool.AT);
-				sb.append(portletDataContext.getScopeType());
-				sb.append(StringPool.AT);
-				sb.append(portletDataContext.getScopeLayoutUuid());
-
-				String dataKey = sb.toString();
-
-				if (!portletDataContext.hasNotUniquePerLayout(dataKey)) {
-					portletDataContext.putNotUniquePerLayout(dataKey);
-
-					exportPortletData(
-						portletDataContext, portlet, layout,
-						jxPortletPreferences, portletElement);
-				}
-			}
-			else {
-				exportPortletData(
-					portletDataContext, portlet, layout, jxPortletPreferences,
-					portletElement);
-			}
+			exportPortletData(
+				portletDataContext, portlet, layout, jxPortletPreferences,
+				portletElement);
 		}
 
 		// Portlet preferences
