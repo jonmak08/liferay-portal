@@ -1652,7 +1652,7 @@ public class PortalUtil {
 	}
 
 	/**
-	 * @deprecated As of 6.2.0 with no direct replacement
+	 * @deprecated As of 6.2.0, with no direct replacement
 	 */
 	public static boolean isAllowAddPortletDefaultResource(
 			HttpServletRequest request, Portlet portlet)
