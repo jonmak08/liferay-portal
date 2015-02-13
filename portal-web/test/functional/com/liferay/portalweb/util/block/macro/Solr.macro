@@ -1,0 +1,11 @@
+<definition>
+	<command name="viewAdminDashboard">
+		<description message="The Solr Admin Dashboard is accessible only if the Solr server is successfully running." />
+
+		<execute function="Open" locator1="http://localhost:8983/solr" />
+
+		<execute function="AssertElementPresent#assertVisible" locator1="SolrAdminDashboard#LOGO" />
+		<execute function="AssertTextEquals" locator1="SolrAdminDashboard#VERSIONS_SOLR_SPEC" value1="${solrVersion}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="SolrAdminDashboard#VERSIONS_SOLR_IMPL" value1="${solrVersion}" />
+	</command>
+</definition>
