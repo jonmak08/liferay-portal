@@ -1342,7 +1342,8 @@ public class PortalLDAPImporterImpl implements PortalLDAPImporter {
 
 	private static final String[] _USER_PROPERTY_NAMES = {
 		"comments", "emailAddress", "firstName", "greeting", "jobTitle",
-		"languageId", "lastName", "middleName", "openId", "timeZoneId"
+		"languageId", "lastName", "middleName", "openId", "portraitId",
+		"timeZoneId"
 	};
 
 	private static Log _log = LogFactoryUtil.getLog(
