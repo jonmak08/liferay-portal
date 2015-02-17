@@ -74,6 +74,7 @@ import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portlet.PortletPreferencesFactoryUtil;
+import com.liferay.portlet.asset.NoSuchTagException;
 import com.liferay.portlet.asset.model.AssetCategory;
 import com.liferay.portlet.asset.model.AssetCategoryConstants;
 import com.liferay.portlet.asset.model.AssetCategoryProperty;
@@ -737,11 +738,18 @@ public class PortletExporter {
 			assetElement.addAttribute(
 				"tags", StringUtil.merge(entry.getValue()));
 
-			List<AssetTag> assetTags = AssetTagLocalServiceUtil.getTags(
-				className, GetterUtil.getLong(classPK));
+			for (String tagName : entry.getValue()) {
+				try {
+					AssetTag assetTag = AssetTagLocalServiceUtil.getTag(
+						portletDataContext.getScopeGroupId(), tagName);
 
-			for (AssetTag assetTag : assetTags) {
-				exportAssetTag(portletDataContext, assetTag, rootElement);
+					exportAssetTag(portletDataContext, assetTag, rootElement);
+				}
+				catch (NoSuchTagException nste) {
+					if (_log.isWarnEnabled()) {
+						_log.warn("Unable to export tag " + tagName);
+					}
+				}
 			}
 		}
 
