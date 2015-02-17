@@ -221,7 +221,7 @@ public class VerifyPermission extends VerifyProcess {
 	}
 
 	private static final List<String> _DEPRECATED_ORGANIZATION_ACTION_IDS =
-		new ArrayList<>();
+		new ArrayList<String>();
 
 	private static Log _log = LogFactoryUtil.getLog(VerifyPermission.class);
 
