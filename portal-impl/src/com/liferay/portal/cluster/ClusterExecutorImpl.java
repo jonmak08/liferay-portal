@@ -98,9 +98,7 @@ public class ClusterExecutorImpl
 		_secure = StringUtil.equalsIgnoreCase(
 			Http.HTTPS, PropsValues.WEB_SERVER_PROTOCOL);
 
-		if (_secure || Validator.isNotNull(
-			PropsValues.PORTAL_INSTANCE_HTTPS_PORT)) {
-			
+		if (Validator.isNotNull(PropsValues.PORTAL_INSTANCE_HTTPS_PORT)) {
 			_port = PropsValues.PORTAL_INSTANCE_HTTPS_PORT;
 		}
 		else {
@@ -309,10 +307,40 @@ public class ClusterExecutorImpl
 
 		return _clusterNodeAddresses.containsKey(clusterNodeId);
 	}
-	
+
+	/**
+	 * @deprecated As of 6.2.0, replaced by {@link
+	 *             #portalPortProtocolConfigured(int, Boolean)}
+	 */
 	@Override
 	public void portalPortConfigured(int port) {
-		if (!isEnabled() || (_localClusterNode.getPort() == _port)) {
+		portalPortProtocolConfigured(port, null);
+	}
+
+	@Override
+	public void portalPortProtocolConfigured(int port, Boolean secure) {
+		if (!isEnabled()) {
+			return;
+		}
+
+		if (Validator.isNotNull(secure)) {
+			String portalProtocol = _localClusterNode.getPortalProtocol();
+
+			if (((secure && portalProtocol.equals(Http.HTTPS)) ||
+				 (!secure && portalProtocol.equals(Http.HTTP))) &&
+				(_localClusterNode.getPort() == _port)) {
+
+				return;
+			}
+
+			if (secure) {
+				_localClusterNode.setPortalProtocol(Http.HTTPS);
+			}
+			else {
+				_localClusterNode.setPortalProtocol(Http.HTTP);
+			}
+		}
+		else if (_localClusterNode.getPort() == _port) {
 			return;
 		}
 
@@ -329,18 +357,6 @@ public class ClusterExecutorImpl
 		catch (Exception e) {
 			_log.error("Unable to determine configure node port", e);
 		}
-	}
-
-	@Override
-	public void portalPortConfigured(int port, boolean secure) {
-		if (secure) {
-			_localClusterNode.setPortalProtocol(Http.HTTPS);
-		}
-		else {
-			_localClusterNode.setPortalProtocol(Http.HTTP);
-		}
-		
-		portalPortConfigured(port);
 	}
 
 	@Override
@@ -447,7 +463,7 @@ public class ClusterExecutorImpl
 		}
 
 		localClusterNode.setPort(port);
-		
+
 		localClusterNode.setPortalProtocol(
 			PropsValues.PORTAL_INSTANCE_PROTOCOL);
 

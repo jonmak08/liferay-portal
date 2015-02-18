@@ -6708,7 +6708,7 @@ public class PortalImpl implements Portal {
 	@Override
 	public void setPortalPort(HttpServletRequest request) {
 		boolean secure = request.isSecure();
-		
+
 		if (secure) {
 			if (_securePortalPort.get() == -1) {
 				int securePortalPort = request.getServerPort();
@@ -7795,13 +7795,18 @@ public class PortalImpl implements Portal {
 		return false;
 	}
 
+	protected void notifyPortalPortEventListeners(int portalPort) {
+		notifyPortalPortEventListeners(portalPort, null);
+	}
+
 	protected void notifyPortalPortEventListeners(
-		int portalPort, boolean secure) {
-		
+		int portalPort, Boolean secure) {
+
 		for (PortalPortEventListener portalPortEventListener :
 				_portalPortEventListeners) {
 
-			portalPortEventListener.portalPortConfigured(portalPort, secure);
+			portalPortEventListener.portalPortProtocolConfigured(
+				portalPort, secure);
 		}
 	}
 
