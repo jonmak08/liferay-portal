@@ -27,6 +27,7 @@ import com.liferay.portal.kernel.executor.PortalExecutorManagerUtil;
 import com.liferay.portal.kernel.test.CaptureHandler;
 import com.liferay.portal.kernel.test.CodeCoverageAssertor;
 import com.liferay.portal.kernel.test.JDKLoggerTestUtil;
+import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.ReflectionUtil;
@@ -1002,13 +1003,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 
 			ClusterNode clusterNode = clusterExecutorImpl.getLocalClusterNode();
 
-			Assert.assertEquals(
-				SetPortalPortAdvice.PORTAL_PORT, clusterNode.getPort());
+			Assert.assertEquals(-1, clusterNode.getPort());
 
 			clusterExecutorImpl.portalPortConfigured(81);
 
 			Assert.assertEquals(
-				SetPortalPortAdvice.PORTAL_PORT, clusterNode.getPort());
+				SetPortalPortAdvice.SECURE_PORTAL_PORT, clusterNode.getPort());
 		}
 		finally {
 			if (clusterExecutorImpl != null) {
@@ -1033,13 +1033,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 
 			ClusterNode clusterNode = clusterExecutorImpl.getLocalClusterNode();
 
-			Assert.assertEquals(
-				SetPortalPortAdvice.SECURE_PORTAL_PORT, clusterNode.getPort());
+			Assert.assertEquals(-1, clusterNode.getPort());
 
 			clusterExecutorImpl.portalPortConfigured(80);
 
 			Assert.assertEquals(
-				SetPortalPortAdvice.SECURE_PORTAL_PORT, clusterNode.getPort());
+				SetPortalPortAdvice.PORTAL_PORT, clusterNode.getPort());
 		}
 		finally {
 			if (clusterExecutorImpl != null) {
@@ -1057,6 +1056,143 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 			clusterExecutorImpl = getClusterExecutorImpl(false, false);
 
 			clusterExecutorImpl.portalPortConfigured(80);
+		}
+		finally {
+			if (clusterExecutorImpl != null) {
+				clusterExecutorImpl.destroy();
+			}
+		}
+	}
+
+	@AdviseWith(adviceClasses = {EnableClusterLinkAdvice.class})
+	@Test
+	public void testPortalProtocolConfigured1() throws Exception {
+		ClusterExecutorImpl clusterExecutorImpl1 = null;
+		ClusterExecutorImpl clusterExecutorImpl2 = null;
+
+		try {
+			clusterExecutorImpl1 = getClusterExecutorImpl(false, false);
+
+			MockClusterEventListener mockClusterEventListener =
+				new MockClusterEventListener();
+
+			clusterExecutorImpl1.addClusterEventListener(
+				mockClusterEventListener);
+
+			clusterExecutorImpl2 = getClusterExecutorImpl(false, false);
+
+			ClusterNode clusterNode2 =
+				clusterExecutorImpl2.getLocalClusterNode();
+
+			ClusterEvent clusterEvent =
+				mockClusterEventListener.waitJoinMessage();
+
+			assertClusterEvent(
+				clusterEvent, ClusterEventType.JOIN, clusterNode2);
+
+			updateView(clusterExecutorImpl1);
+
+			clusterEvent = mockClusterEventListener.waitDepartMessage();
+
+			assertClusterEvent(
+				clusterEvent, ClusterEventType.DEPART, clusterNode2);
+
+			Assert.assertEquals("", clusterNode2.getPortalProtocol());
+
+			clusterExecutorImpl2.portalPortProtocolConfigured(80, false);
+
+			Assert.assertEquals(Http.HTTP, clusterNode2.getPortalProtocol());
+
+			clusterEvent = mockClusterEventListener.waitJoinMessage();
+
+			assertClusterEvent(
+				clusterEvent, ClusterEventType.JOIN, clusterNode2);
+		}
+		finally {
+			if (clusterExecutorImpl1 != null) {
+				clusterExecutorImpl1.destroy();
+			}
+
+			if (clusterExecutorImpl2 != null) {
+				clusterExecutorImpl2.destroy();
+			}
+		}
+	}
+
+	@AdviseWith(
+		adviceClasses = {
+			EnableClusterLinkAdvice.class, SetPortalProtocolHttpAdvice.class
+		}
+
+	)
+	@Test
+	public void testPortalProtocolConfigured2() throws Exception {
+		ClusterExecutorImpl clusterExecutorImpl = null;
+
+		try {
+			clusterExecutorImpl = getClusterExecutorImpl(false, false);
+
+			ClusterNode clusterNode = clusterExecutorImpl.getLocalClusterNode();
+
+			Assert.assertEquals(
+				SetPortalProtocolHttpAdvice.PORTAL_PROTOCOL,
+				clusterNode.getPortalProtocol());
+
+			clusterExecutorImpl.portalPortProtocolConfigured(80,  true);
+
+			Assert.assertEquals(
+				SetPortalProtocolHttpsAdvice.SECURE_PORTAL_PROTOCOL,
+				clusterNode.getPortalProtocol());
+		}
+		finally {
+			if (clusterExecutorImpl != null) {
+				clusterExecutorImpl.destroy();
+			}
+		}
+	}
+
+	@AdviseWith(
+		adviceClasses = {
+			EnableClusterLinkAdvice.class, SetPortalProtocolHttpsAdvice.class,
+			SetWebServerProtocolAdvice.class
+		}
+
+	)
+	@Test
+	public void testPortalProtocolConfigured3() throws Exception {
+		ClusterExecutorImpl clusterExecutorImpl = null;
+
+		try {
+			clusterExecutorImpl = getClusterExecutorImpl(false, false);
+
+			ClusterNode clusterNode = clusterExecutorImpl.getLocalClusterNode();
+
+			Assert.assertEquals(
+				SetPortalProtocolHttpsAdvice.SECURE_PORTAL_PROTOCOL,
+				clusterNode.getPortalProtocol());
+
+			clusterExecutorImpl.portalPortProtocolConfigured(80, false);
+
+			Assert.assertEquals(
+				SetPortalProtocolHttpAdvice.PORTAL_PROTOCOL,
+				clusterNode.getPortalProtocol());
+		}
+		finally {
+			if (clusterExecutorImpl != null) {
+				clusterExecutorImpl.destroy();
+			}
+		}
+	}
+
+	@AdviseWith(adviceClasses = {DisableClusterLinkAdvice.class})
+	@Test
+	public void testPortalProtocolConfigured4() throws Exception {
+		ClusterExecutorImpl clusterExecutorImpl = null;
+
+		try {
+			clusterExecutorImpl = getClusterExecutorImpl(false, false);
+
+			clusterExecutorImpl.portalPortProtocolConfigured(80, false);
 		}
 		finally {
 			if (clusterExecutorImpl != null) {

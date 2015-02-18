@@ -32,6 +32,7 @@ import com.liferay.portal.kernel.concurrent.ThreadPoolExecutor;
 import com.liferay.portal.kernel.executor.PortalExecutorManager;
 import com.liferay.portal.kernel.executor.PortalExecutorManagerUtil;
 import com.liferay.portal.kernel.portlet.PortletClassLoaderUtil;
+import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
@@ -148,18 +149,38 @@ public abstract class BaseClusterExecutorImplTestCase
 
 			return proceedingJoinPoint.proceed(new Object[] {PORTAL_PORT});
 		}
+	}
+
+	@Aspect
+	public static class SetPortalProtocolHttpAdvice {
+
+		public static final String PORTAL_PROTOCOL = Http.HTTP;
 
 		@Around(
 			"set(* com.liferay.portal.util.PropsValues." +
-				"PORTAL_INSTANCE_HTTPS_PORT)")
-		public Object setSecurePortalPort(
+				"PORTAL_INSTANCE_PROTOCOL)")
+		public Object setPortalProtocol(ProceedingJoinPoint proceedingJoinPoint)
+			throws Throwable {
+
+			return proceedingJoinPoint.proceed(new Object[] {PORTAL_PROTOCOL});
+		}
+	}
+
+	@Aspect
+	public static class SetPortalProtocolHttpsAdvice {
+
+		public static final String SECURE_PORTAL_PROTOCOL = Http.HTTPS;
+
+		@Around(
+			"set(* com.liferay.portal.util.PropsValues." +
+				"PORTAL_INSTANCE_PROTOCOL)")
+		public Object setPortalProtocolSecure(
 				ProceedingJoinPoint proceedingJoinPoint)
 			throws Throwable {
 
 			return proceedingJoinPoint.proceed(
-				new Object[] {SECURE_PORTAL_PORT});
+				new Object[] {SECURE_PORTAL_PROTOCOL});
 		}
-
 	}
 
 	@Aspect
