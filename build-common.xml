@@ -623,6 +623,10 @@ Please set the environment variable ANT_OPTS to the recommended value of
 					<then>
 						<compile-test-cmd
 							test.type="unit"
+							src.path="${project.dir}/portal-service/"
+						/>
+						<compile-test-cmd
+							test.type="unit"
 						/>
 					</then>
 				</elseif>
@@ -644,6 +648,7 @@ Please set the environment variable ANT_OPTS to the recommended value of
 
 	<macrodef name="compile-test-cmd">
 		<attribute name="test.type" />
+		<attribute name="src.path" default="." />
 
 		<sequential>
 			<if>
@@ -670,7 +675,7 @@ Please set the environment variable ANT_OPTS to the recommended value of
 						encoding="${javac.encoding}"
 						includeAntRuntime="false"
 						nowarn="${javac.nowarn}"
-						srcdir="test/@{test.type}"
+						srcdir="@{src.path}/test/@{test.type}"
 					/>
 				</then>
 			</if>
