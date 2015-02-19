@@ -96,7 +96,7 @@
 
 		<liferay-ui:panel collapsible="<%= true %>" extended="<%= true %>" id="imageGalleryDisplayFoldersListingPanel" persistState="<%= true %>" title="folders-listing">
 			<aui:fieldset>
-				<aui:field-wrapper label="root-folder">
+				<aui:field-wrapper>
 					<div class="control-group">
 						<aui:input label="root-folder" name="rootFolderName" type="resource" value="<%= rootFolderName %>" />
 
