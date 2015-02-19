@@ -140,7 +140,7 @@ definePermissionsURL.setRefererPlid(plid);
 %>
 
 <div class="edit-permissions">
-	<aui:form action="<%= actionPortletURL.toString() %>" method="post" name="fm">
+	<aui:form method="post" name="fm">
 		<aui:input name="<%= Constants.CMD %>" type="hidden" value="role_permissions" />
 		<aui:input name="resourceId" type="hidden" value="<%= resource.getResourceId() %>" />
 
@@ -408,6 +408,17 @@ definePermissionsURL.setRefererPlid(plid);
 			var currentTarget = $(event.currentTarget);
 
 			Liferay.Portal.ToolTip.show(currentTarget, currentTarget.data('message'));
+		}
+	);
+
+	$('#<portlet:namespace />fm').on(
+		'submit',
+		function(event) {
+			var form = $(document.<portlet:namespace />fm)
+
+			form.find('input[disabled]').removeAttr('disabled');
+
+			submitForm(form, '<%= actionPortletURL.toString() %>');
 		}
 	);
 </aui:script>
