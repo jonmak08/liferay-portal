@@ -280,6 +280,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>SUGGESTION_CONTENT_DUPLICATE</td>
+	<td>xpath=(//div[@class='kb-article-comment']//div[contains(.,'${kbSuggestionBody}')])[2]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>SUGGESTION_STATUS</td>
 	<td>//div[@class='kb-article-comment']//td[contains(.,'${kbSuggestionBody}')]/div[@class='kb-article-comment-date']/span[@class='taglib-workflow-status']</td>
 	<td></td>

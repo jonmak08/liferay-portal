@@ -59,6 +59,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>CONTENT_BODY</td>
+	<td>//body[contains(@class,'cke_editable')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>CONTENT_BODY_SOURCE_ON</td>
 	<td>//textarea[contains(@class,'cke_editable')]</td>
 	<td></td>
