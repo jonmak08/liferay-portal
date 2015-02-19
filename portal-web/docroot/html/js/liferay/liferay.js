@@ -138,6 +138,10 @@ Liferay = window.Liferay || {};
 					A.namespace.call(ioConfig, 'form');
 
 					ioConfig.form.id = form._node || form;
+
+					if (ioConfig.form.id.enctype == 'multipart/form-data') {
+						ioConfig.form.upload = true;
+					}
 				}
 			},
 
