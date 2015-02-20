@@ -95,6 +95,21 @@
 			</then>
 		</if>
 
+		<if>
+			<isset var="kbArticleAttachment" />
+			<then>
+				<if>
+					<condition action="CPKnowledgebaseadminAddarticle#isElementNotPresent" locator-key1="ATTACHMENTS_HEADER_EXPANDED" />
+					<then>
+						<execute action="CPKnowledgebaseadminAddarticle#click" locator-key1="ATTACHMENTS_HEADER_COLLAPSED" />
+					</then>
+				</if>
+
+				<execute action="CPKnowledgebaseadminAddarticle#assertClick" locator-key1="ATTACHMENTS_SELECT_FILES_BUTTON" value1="Select Files" />
+				<execute action="OS#sikuliUploadCommonFile" locator-key1="FILE_DIALOG_BOX_FILE_NAME_FIELD_PNG" value1="${kbArticleAttachment}" />
+			</then>
+		</if>
+
 		<execute action="CPKnowledgebaseadminAddarticle#assertClick" locator-key1="PUBLISH_BUTTON" value1="Publish" />
 
 		<if>
@@ -362,6 +377,22 @@
 		<execute action="CPKnowledgebaseadminAddarticle#assertTextEquals" locator-key1="INFO_MESSAGE" value1="A new version will be created automatically if this content is modified." />
 		<execute action="CPKnowledgebaseadminAddarticle#type" locator-key1="TITLE_FIELD" value1="${kbArticleTitleEdit}" />
 		<execute action="CPKnowledgebaseadminAddarticle#type" locator-key1="CONTENT_FIELD" value1="${kbArticleContentEdit}" />
+
+		<if>
+			<isset var="kbArticleAttachment" />
+			<then>
+				<if>
+					<condition action="CPKnowledgebaseadminAddarticle#isElementNotPresent" locator-key1="ATTACHMENTS_HEADER_EXPANDED" />
+					<then>
+						<execute action="CPKnowledgebaseadminAddarticle#click" locator-key1="ATTACHMENTS_HEADER_COLLAPSED" />
+					</then>
+				</if>
+
+				<execute action="CPKnowledgebaseadminAddarticle#assertClick" locator-key1="ATTACHMENTS_SELECT_FILES_BUTTON" value1="Select Files" />
+				<execute action="OS#sikuliUploadCommonFile" locator-key1="FILE_DIALOG_BOX_FILE_NAME_FIELD_PNG" value1="${kbArticleAttachment}" />
+			</then>
+		</if>
+
 		<execute action="CPKnowledgebaseadminAddarticle#assertClick" locator-key1="PUBLISH_BUTTON" value1="Publish" />
 
 		<execute action="CPKnowledgebaseadmin#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -937,6 +968,29 @@
 
 		<execute action="CPKnowledgebaseadmin#assertTextEquals" locator-key1="ARTICLE_TABLE_TITLE" value1="${kbArticleTitle}" />
 		<execute action="CPKnowledgebaseadmin#assertTextEquals" locator-key1="ARTICLE_TABLE_PRIORITY" value1="${kbPriority}" />
+	</command>
+
+	<command name="viewKBArticleWithAttachmentCP">
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+
+		<execute action="CPKnowledgebaseadmin#assertClick" locator-key1="ARTICLE_TABLE_ACTIONS" value1="Actions" />
+		<execute action="CPKnowledgebaseadmin#assertClick" locator-key1="ARTICLE_MENULIST_EDIT" value1="Edit" />
+
+		<execute action="CPKnowledgebaseadminAddarticle#assertTextEquals" locator-key1="INFO_MESSAGE" value1="A new version will be created automatically if this content is modified." />
+		<execute action="CPKnowledgebaseadminAddarticle#assertTextEquals" locator-key1="TITLE_FIELD" value1="${kbArticleTitle}" />
+
+		<execute action="CPKnowledgebaseadminAddarticle#selectFrame" locator-key1="CONTENT_FIELD" />
+		<execute action="CPKnowledgebaseadminAddarticle#assertTextEquals" locator-key1="CONTENT_BODY" value1="${kbArticleContent}" />
+		<execute action="PGKnowledgebasearticleConfiguration#selectFrame" value1="relative=top" />
+
+		<if>
+			<condition action="CPKnowledgebaseadminAddarticle#isElementNotPresent" locator-key1="ATTACHMENTS_HEADER_EXPANDED" />
+			<then>
+				<execute action="CPKnowledgebaseadminAddarticle#click" locator-key1="ATTACHMENTS_HEADER_COLLAPSED" />
+			</then>
+		</if>
+
+		<execute action="CPKnowledgebaseadminAddarticle#assertTextEquals" locator-key1="ATTACHMENTS_SAVED_ATTACHMENTS_CONTAINER" value1="${kbArticleAttachment}" />
 	</command>
 
 	<command name="viewKBDisplayPG">
