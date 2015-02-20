@@ -1047,6 +1047,10 @@ public class HttpImpl implements Http {
 			}
 		}
 
+		if (sb.length() == 0) {
+			return StringPool.SLASH;
+		}
+
 		return sb.toString();
 	}
 
