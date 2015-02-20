@@ -202,28 +202,35 @@
 	</command>
 
 	<command name="configureKBArticleDisplay">
-		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
-
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
 		</execute>
 
 		<execute action="PGKnowledgebasedisplayConfiguration#selectFrame" locator-key1="CONFIGURATION_IFRAME" />
-
 		<execute action="PGKnowledgebasedisplayConfiguration#assertClick" locator-key1="SELECT_BUTTON" value1="Select" />
-
 		<execute action="PGKnowledgebasedisplayConfiguration#selectFrame" value1="relative=top" />
 
+		<var name="key_kbFolderName" value="${kbFolderName}" />
+
+		<if>
+			<isset var="kbFolderName" />
+			<then>
+				<execute action="PGKnowledgebasedisplaySelectParentArticleDisplay#selectFrame" locator-key1="SELECT_PARENT_DISPLAY_IFRAME" />
+				<execute action="PGKnowledgebasedisplaySelectParentArticleDisplay#assertClick" locator-key1="FOLDER_TITLE_LINK" value1="${kbFolderName}" />
+
+				<execute action="PGKnowledgebasedisplayConfiguration#selectFrame" value1="relative=top" />
+			</then>
+		</if>
+
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+
 		<execute action="PGKnowledgebasedisplaySelectParentArticleDisplay#selectFrame" locator-key1="SELECT_PARENT_DISPLAY_IFRAME" />
-
-		<execute action="PGKnowledgebasedisplaySelectParentArticleDisplay#assertClick" locator-key1="CHOOSE_BUTTON" value1="Choose" />
-
+		<execute action="PGKnowledgebasedisplaySelectParentArticleDisplay#click" locator-key1="CHOOSE_BUTTON" />
 		<execute action="PGKnowledgebasedisplaySelectParentArticleDisplay#selectFrame" value1="relative=top" />
 
 		<execute action="PGKnowledgebasedisplayConfiguration#selectFrame" locator-key1="CONFIGURATION_IFRAME" />
-
+		<execute action="PGKnowledgebasedisplayConfiguration#assertTextEquals" locator-key1="ARTICLE_OR_FOLDER_FIELD" value1="${kbArticleTitle}" />
 		<execute action="PGKnowledgebasedisplayConfiguration#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
-
 		<execute action="PGKnowledgebasedisplayConfiguration#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
 
@@ -279,11 +286,35 @@
 		<execute action="PGKnowledgebasedisplayConfigurationDisplaysettings#selectFrame" value1="relative=top" />
 	</command>
 
+	<command name="configureKBFolderDisplay">
+		<var name="key_kbFolderName" value="${kbFolderName}" />
+
+		<execute macro="Portlet#gotoPortletOptions">
+			<var name="portletOption" value="Configuration" />
+		</execute>
+
+		<execute action="PGKnowledgebasedisplayConfiguration#selectFrame" locator-key1="CONFIGURATION_IFRAME" />
+		<execute action="PGKnowledgebasedisplayConfiguration#assertClick" locator-key1="SELECT_BUTTON" value1="Select" />
+		<execute action="PGKnowledgebasedisplayConfiguration#selectFrame" value1="relative=top" />
+
+		<execute action="PGKnowledgebasedisplaySelectParentArticleDisplay#selectFrame" locator-key1="SELECT_PARENT_DISPLAY_IFRAME" />
+		<execute action="PGKnowledgebasedisplaySelectParentArticleDisplay#click" locator-key1="FOLDER_CHOOSE_BUTTON" />
+		<execute action="PGKnowledgebasedisplaySelectParentArticleDisplay#selectFrame" value1="relative=top" />
+
+		<execute action="PGKnowledgebasedisplayConfiguration#selectFrame" locator-key1="CONFIGURATION_IFRAME" />
+		<execute action="PGKnowledgebasedisplayConfiguration#assertTextEquals" locator-key1="ARTICLE_OR_FOLDER_FIELD" value1="${kbFolderName}" />
+		<execute action="PGKnowledgebasedisplayConfiguration#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+		<execute action="PGKnowledgebasedisplayConfiguration#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+
+		<execute action="PGKnowledgebasedisplayConfiguration#assertClick" locator-key1="DISPLAY_SETTINGS" value1="Display Settings" />
+	</command>
+
 	<command name="configureKBRatingTypePG">
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
 		</execute>
 
+		<execute action="PGKnowledgebasedisplayConfiguration#selectFrame" locator-key1="CONFIGURATION_IFRAME" />
 		<execute action="PGKnowledgebasedisplayConfiguration#assertClick" locator-key1="DISPLAY_SETTINGS" value1="Display Settings" />
 
 		<if>
@@ -301,26 +332,6 @@
 
 		<execute action="PGKnowledgebasedisplayConfiguration#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
 		<execute action="PGKnowledgebasedisplayConfiguration#assertClick" locator-key1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
-	</command>
-		
-	<command name="configureKBFolderDisplay">
-		<var name="key_kbFolderName" value="${kbFolderName}" />
-
-		<execute macro="Portlet#gotoPortletOptions">
-			<var name="portletOption" value="Configuration" />
-		</execute>
-
-		<execute action="PGKnowledgebasedisplayConfiguration#selectFrame" locator-key1="CONFIGURATION_IFRAME" />
-		<execute action="PGKnowledgebasedisplayConfiguration#assertClick" locator-key1="SELECT_BUTTON" value1="Select" />
-		<execute action="PGKnowledgebasedisplayConfiguration#selectFrame" value1="relative=top" />
-
-		<execute action="PGKnowledgebasedisplaySelectParentArticleDisplay#selectFrame" locator-key1="SELECT_PARENT_DISPLAY_IFRAME" />
-		<execute action="PGKnowledgebasedisplaySelectParentArticleDisplay#assertClick" locator-key1="FOLDER_CHOOSE_BUTTON" value1="Choose" />
-		<execute action="PGKnowledgebasedisplaySelectParentArticleDisplay#selectFrame" value1="relative=top" />
-
-		<execute action="PGKnowledgebasedisplayConfiguration#selectFrame" locator-key1="CONFIGURATION_IFRAME" />
-		<execute action="PGKnowledgebasedisplayConfiguration#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
-		<execute action="PGKnowledgebasedisplayConfiguration#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
 
 	<command name="configureKBSection">
@@ -441,12 +452,20 @@
 	<command name="gotoViaKBDisplayHierarchyNavigationPG">
 		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
 		<var name="key_kbChildArticleTitle" value="${kbChildArticleTitle}" />
+		<var name="key_kbGrandchildArticleTitle" value="${kbGrandchildArticleTitle}" />
 
 		<if>
 			<isset var="kbChildArticleTitle" />
 			<then>
 				<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_NAVIGATION" value1="${kbArticleTitle}" />
 				<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_NAVIGATION_CHILD" value1="${kbChildArticleTitle}" />
+
+				<if>
+					<isset var="kbGrandchildArticleTitle" />
+					<then>
+						<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_NAVIGATION_GRANDCHILD" value1="${kbGrandchildArticleTitle}" />
+					</then>
+				</if>
 			</then>
 			<else>
 				<execute action="PGKnowledgebasedisplay#assertTextEquals" locator-key1="ARTICLE_NAVIGATION" value1="${kbArticleTitle}" />
@@ -639,12 +658,18 @@
 			<var name="portletName" value="Knowledge Base" />
 		</execute>
 
-		<execute action="CPKnowledgebaseadmin#check" locator-key1="SELECT_ALL_CHECKBOX" />
-		<execute action="CPKnowledgebaseadmin#assertClick" locator-key1="ACTIONS_BUTTON" value1="Actions" />
-		<execute action="CPKnowledgebaseadmin#assertClickNoError" locator-key1="ACTIONS_MENULIST_DELETE" value1="Delete" />
-		<execute action="CPKnowledgebaseadmin#confirm" locator-key1="CONFIRMATION" value1="Are you sure you want to delete the selected articles?" />
-		<execute action="CPKnowledgebaseadmin#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
-		<execute action="CPKnowledgebaseadmin#assertTextEquals" locator-key1="INFO_MESSAGE" value1="No articles were found." />
+		<if>
+			<condition action="CPKnowledgebaseadmin#isElementPresent" locator-key1="SELECT_ALL_CHECKBOX" />
+
+			<then>
+				<execute action="CPKnowledgebaseadmin#check" locator-key1="SELECT_ALL_CHECKBOX" />
+				<execute action="CPKnowledgebaseadmin#assertClick" locator-key1="ACTIONS_BUTTON" value1="Actions" />
+				<execute action="CPKnowledgebaseadmin#assertClickNoError" locator-key1="ACTIONS_MENULIST_DELETE" value1="Delete" />
+				<execute action="CPKnowledgebaseadmin#confirm" locator-key1="CONFIRMATION" value1="Are you sure you want to delete the selected articles?" />
+				<execute action="CPKnowledgebaseadmin#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
+				<execute action="CPKnowledgebaseadmin#assertTextEquals" locator-key1="INFO_MESSAGE" value1="No articles were found." />
+			</then>
+		</if>
 	</command>
 
 	<command name="viewArticle1StarRatingPG">
@@ -767,6 +792,11 @@
 				<execute action="CPKnowledgebaseadminArticle#assertTextEquals" locator-key1="RELATED_ASSETS_LINKS" value1="${kbArticleRelatedAssetTitle}" />
 			</then>
 		</if>
+	</command>
+
+	<command name="viewDefaultCP">
+		<execute action="CPKnowledgebaseadmin#assertTextEquals" locator-key1="INFO_MESSAGE" value1="No articles were found." />
+		<execute action="CPKnowledgebaseadmin#assertElementNotPresent" locator-key1="ARTICLE_TABLE_TITLE_GENERIC" />
 	</command>
 
 	<command name="viewDefaultKBDisplaySettingsPG">
