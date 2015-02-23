@@ -1,0 +1,203 @@
+<html>
+<head>
+<title>LCSServerMetrics</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSServerMetrics</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>LCSServerMetrics</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>TOOLBAR_NOTIFICATIONS_BUTTON</td>
+	<td>//div[@class='lcs-toolbar']//div[@class='item notifications ']//a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TOOLBAR_METRICS_BUTTON</td>
+	<td>//div[@class='lcs-toolbar']//div[@class='item metrics ']//a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TOOLBAR_SERVER_DETAILS_BUTTON</td>
+	<td>//div[@class='lcs-toolbar']//div[@class='item settings ']//a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>INFO_MESSAGE</td>
+	<td>//div[contains(@class,'alert-info')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ERROR_MESSAGE</td>
+	<td>//div[contains(@class,'alert-error')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_STATUS_ALERT_MESSAGE</td>
+	<td>//div[@class='portlet-msg-alert']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--NAVIGATION-->
+<tr>
+	<td>NAVIGATION_APPLICATION</td>
+	<td>//ul[contains(@class,'nav-tabs')]//a[contains(.,'Application')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_JVM</td>
+	<td>//ul[contains(@class,'nav-tabs')]//a[contains(.,'JVM')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_SERVER</td>
+	<td>//ul[contains(@class,'nav-tabs')]//a[contains(.,'Server')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--APPLICATION-->
+<tr>
+	<td>APPLICATION_PAGES_PAGE</td>
+	<td>//tr[contains(.,'${key_pageLink}')]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>APPLICATION_PAGES_FREQUENCY</td>
+	<td>//tr[contains(.,'${key_pageLink}')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>APPLICATION_PAGES_AVERAGE_LOAD_TIME</td>
+	<td>//tr[contains(.,'${key_pageLink}')]/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>APPLICATION_PORTLETS_NAME</td>
+	<td>//tr[contains(.,'${key_portletName}')]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>APPLICATION_PORTLETS_FREQUENCY</td>
+	<td>//tr[contains(.,'${key_portletName}')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>APPLICATION_PORTLETS_AVERAGE_LOAD_TIME</td>
+	<td>//tr[contains(.,'${key_portletName}')]/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>APPLICATION_CACHE_SINGLE_VM_METRICS_NAME</td>
+	<td>//div[contains(@class,'lcs-singlevm-container-content')]//tr[contains(.,'${key_metricName}')]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>APPLICATION_CACHE_SINGLE_VM_METRICS_CACHE_HITS</td>
+	<td>//div[contains(@class,'lcs-singlevm-container-content')]//tr[contains(.,'${key_metricName}')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>APPLICATION_CACHE_SINGLE_VM_METRICS_CACHE_MISSES</td>
+	<td>//div[contains(@class,'lcs-singlevm-container-content')]//tr[contains(.,'${key_metricName}')]/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>APPLICATION_CACHE_SINGLE_VM_METRICS_HIT_RATIO</td>
+	<td>//div[contains(@class,'lcs-singlevm-container-content')]//tr[contains(.,'${key_metricName}')]/td[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>APPLICATION_CACHE_SINGLE_VM_METRICS_MISS_RATIO</td>
+	<td>//div[contains(@class,'lcs-singlevm-container-content')]//tr[contains(.,'${key_metricName}')]/td[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>APPLICATION_CACHE_SINGLE_VM_METRICS_OBJECT_COUNT</td>
+	<td>//div[contains(@class,'lcs-singlevm-container-content')]//tr[contains(.,'${key_metricName}')]/td[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>APPLICATION_CACHE_HIBERNATE_METRICS_NAME</td>
+	<td>//div[@class='column-content ' and contains(.,'Hibernate Metrics')]//tr[contains(.,'${key_metricName}')]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>APPLICATION_CACHE_HIBERNATE_METRICS_TIME</td>
+	<td>//div[@class='column-content ' and contains(.,'Hibernate Metrics')]//tr[contains(.,'${key_metricName}')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--JVM-->
+<tr>
+	<td>JVM_GARBAGE_COLLECTOR_METRICS_NAME</td>
+	<td>//div[@class='lcs-garbage-collector-metrics-container']//tr[contains(.,'${key_metricName}')]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>JVM_GARBAGE_COLLECTOR_METRICS_RUNS</td>
+	<td>//div[@class='lcs-garbage-collector-metrics-container']//tr[contains(.,'${key_metricName}')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>JVM_GARBAGE_COLLECTOR_METRICS_TOTAL_TIME</td>
+	<td>//div[@class='lcs-garbage-collector-metrics-container']//tr[contains(.,'${key_metricName}')]/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>JVM_GARBAGE_COLLECTOR_METRICS_AVERAGE_TIME</td>
+	<td>//div[@class='lcs-garbage-collector-metrics-container']//tr[contains(.,'${key_metricName}')]/td[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>JVM_MEMORY_METRICS_CHART</td>
+	<td>//div[@class='lcs-memory-chart']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--SERVER-->
+<tr>
+	<td>SERVER_CURRENT_THREADS_BAR_CHART</td>
+	<td>//div[contains(@id,'currentThreadsChartContainer')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_JDBC_CONNECTION_POOLS_BAR_CHART</td>
+	<td>//div[contains(@id,'jdbcChartContainer')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

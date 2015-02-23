@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>LCSEnvironmentsEnvironmentDetails</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSEnvironmentsEnvironmentDetails</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>LCSEnvironmentsEnvironmentDetails</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_NAME</td>
+	<td>//div[contains(@class,'control-group') and contains(.,'Name')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_DESCRIPTION</td>
+	<td>//div[contains(@class,'control-group') and contains(.,'Description')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_LOCATION</td>
+	<td>//div[contains(@class,'control-group') and contains(.,'Location')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_TYPE</td>
+	<td>//div[contains(@class,'control-group') and contains(.,'Type')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ACTIVATE_BUTTON</td>
+	<td>//button[contains(.,'Activate')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EDIT_BUTTON</td>
+	<td>//button[contains(.,'Edit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>DELETE_BUTTON</td>
+	<td>//button[contains(.,'Delete')]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>LCSAddEnvironment</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSAddEnvironment</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>LCSAddEnvironment</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUCCESS_MESSAGE</td>
+	<td>//div[@class='alert alert-success']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAME_FIELD</td>
+	<td>//div[contains(.,'New Environment')]//input[contains(@id,'name')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>DESCRIPTION_FIELD</td>
+	<td>//div[contains(.,'New Environment')]//input[contains(@id,'description')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LOCATION_FIELD</td>
+	<td>//div[contains(.,'New Environment')]//input[contains(@id,'location')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CREATE_BUTTON</td>
+	<td>//button[contains(.,'Create')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BACK_BUTTON</td>
+	<td>//button[contains(.,'Back')]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

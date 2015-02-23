@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>LCSDashboard</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSDashboard</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>LCSDashboard</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>INFO_MESSAGE</td>
+	<td>//div[@class='portlet-msg-info']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LCS_CLIENT_DOWNLOAD_LINK</td>
+	<td>//div[@class='download-content']//a[contains(.,'Liferay Portal ${key_portalVersion')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--FIX_PACKS-->
+<tr>
+	<td>FIX_PACKS_DOWNLOAD_BUTTON</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//button[contains(.,'Download')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_TABLE_CHECKBOX_ALL</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr/th/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_TABLE_CHECKBOX</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[1]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_TABLE_NAME</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_TABLE_STATUS</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_TABLE_ENVIRONMENT</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_TABLE_SERVER_LINK</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[5]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_TABLE_LOCATION</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_TABLE_DOWNLOAD_LINK</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[7]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--ALERTS-->
+<tr>
+	<td>ALERTS_ALERT</td>
+	<td>//div[@class='lcs-alerts-container']//tr[contains(.,'${key_environmentName}') and contains(.,'${key_serverName}')]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ALERTS_ENVIRONMENT</td>
+	<td>//div[@class='lcs-alerts-container']//tr[contains(.,'${key_environmentName}') and contains(.,'${key_serverName}')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ALERTS_SERVER_LINK</td>
+	<td>//div[@class='lcs-alerts-container']//tr[contains(.,'${key_environmentName}') and contains(.,'${key_serverName}')]/td[3]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ALERTS_LOCATION</td>
+	<td>//div[@class='lcs-alerts-container']//tr[contains(.,'${key_environmentName}') and contains(.,'${key_serverName}')]/td[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

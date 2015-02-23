@@ -1,0 +1,138 @@
+<html>
+<head>
+<title>LCSServer</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSServer</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>LCSServer</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>TOOLBAR_NOTIFICATIONS_BUTTON</td>
+	<td>//div[@class='lcs-toolbar']//div[@class='item notifications ']//a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TOOLBAR_METRICS_BUTTON</td>
+	<td>//div[@class='lcs-toolbar']//div[@class='item metrics ']//a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TOOLBAR_SERVER_DETAILS_BUTTON</td>
+	<td>//div[@class='lcs-toolbar']//div[@class='item settings ']//a</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--FIX_PACKS_NAVIGATION-->
+<tr>
+	<td>FIX_PACKS_NAVIGATION_AVAILABLE</td>
+	<td>//ul[contains(@class,'nav-tabs')]//a[contains(.,'Available')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_NAVIGATION_INSTALLED</td>
+	<td>//ul[contains(@class,'nav-tabs')]//a[contains(.,'Installed')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--FIX_PACKS_AVAILABLE-->
+<tr>
+	<td>FIX_PACKS_AVAILABLE_INFO_MESSAGE</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//div[contains(@class,'alert-info')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_AVAILABLE_DOWNLOAD_BUTTON</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//button[contains(.,'Download')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_AVAILABLE_TABLE_CHECKBOX_ALL</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr/th/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_AVAILABLE_TABLE_CHECKBOX</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[1]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_AVAILABLE_TABLE_NAME</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_AVAILABLE_TABLE_STATUS</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_AVAILABLE_TABLE_DOWNLOAD_LINK</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[4]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--FIX_PACKS_INSTALLED-->
+<tr>
+	<td>FIX_PACKS_INSTALLED_INFO_MESSAGE</td>
+	<td>//div[@class='lcs-fix-packs-container']//div[contains(@class,'alert-info')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_INSTALLED_TABLE_NAME</td>
+	<td>//div[@class='lcs-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--ALERTS-->
+<tr>
+	<td>ALERTS_ALERT_1</td>
+	<td>//div[@class='lcs-alerts-container']//tr[1]/td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ALERTS_ALERT_2</td>
+	<td>//div[@class='lcs-alerts-container']//tr[2]/td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ALERTS_ALERT_3</td>
+	<td>//div[@class='lcs-alerts-container']//tr[3]/td</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

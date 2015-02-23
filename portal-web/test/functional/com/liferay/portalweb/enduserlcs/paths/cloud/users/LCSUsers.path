@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>LCSUsers</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSUsers</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>LCSUsers</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>PROJECT_MEMBERS_EMAIL_ADDRESS</td>
+	<td>//div[contains(.,'Project Members')]//tr[contains(.,'${key_userName}')]//td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PROJECT_MEMBERS_FULL_NAME</td>
+	<td>//div[contains(.,'Project Members')]//tr[contains(.,'${key_userName}')]//td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PROJECT_MEMBERS_MANAGE_LINK</td>
+	<td>//div[contains(.,'Project Members')]//tr[contains(.,'${key_userName}')]//td[3]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>INVITE_BUTTON</td>
+	<td>//button[contains(.,'Invite')]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

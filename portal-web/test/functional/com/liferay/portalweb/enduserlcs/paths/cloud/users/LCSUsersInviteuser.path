@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>LCSUsersInviteuser</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSUsersInviteuser</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>LCSUsersInviteuser</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>EMAIL_ADDRESS_FIELD</td>
+	<td>//form[contains(@id,'inviteFm')]//input[contains(@id,'emailAddress')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>INVITATION_MENU_FIELD</td>
+	<td>//form[contains(@id,'inviteFm')]//textarea[contains(@id,'invitationMessage')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ROLE_SELECT</td>
+	<td>//form[contains(@id,'inviteFm')]//select[contains(@id,'role')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_SELECT</td>
+	<td>//form[contains(@id,'inviteFm')]//select[contains(@id,'lcsClusterEntryId')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SEND_EMAIL_BUTTON</td>
+	<td>//button[contains(.,'Send Email')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CANCEL_BUTTON</td>
+	<td>//button[contains(.,'Cancel')]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

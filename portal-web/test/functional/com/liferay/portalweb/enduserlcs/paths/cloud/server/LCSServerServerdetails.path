@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>LCSServerServerdetails</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSServerServerdetails</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>LCSServerServerdetails</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_STATUS_ALERT_MESSAGE</td>
+	<td>//div[@class='portlet-msg-alert']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_NAME</td>
+	<td>//div[contains(@class,'control-group') and contains(.,'Name')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_DESCRIPTION</td>
+	<td>//div[contains(@class,'control-group') and contains(.,'Description')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_LOCATION</td>
+	<td>//div[contains(@class,'control-group') and contains(.,'Location')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EDIT_BUTTON</td>
+	<td>//button[contains(.,'Edit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>UNREGISTER_BUTTON</td>
+	<td>//button[contains(.,'Unregister')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--NAVIGATION-->
+<tr>
+	<td>NAVIGATION_SERVER_SETTINGS</td>
+	<td>//ul[contains(@class,'nav-tabs')]//a[contains(.,'Server Settings')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_SERVER_PROPERTIES</td>
+	<td>//ul[contains(@class,'nav-tabs')]//a[contains(.,'Server Properties')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--SERVER_PROPERTIES-->
+<tr>
+	<td>SERVER_PROPERTIES_ERROR_MESSAGE</td>
+	<td>//div[contains(@class,'lcs-server-details')]/div[@class='portlet-msg-error']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_SOFTWARE_PORTAL_BUILD_NUMBER</td>
+	<td>//div[@class='lcs-about-software']//tr[contains(.,'Portal Build Number')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_SOFTWARE_PORTAL_EDITION</td>
+	<td>//div[@class='lcs-about-software']//tr[contains(.,'Portal Edition')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_SOFTWARE_PATCHING_TOOL_VERSION</td>
+	<td>//div[@class='lcs-about-software']//tr[contains(.,'Patching Tool Version')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_SOFTWARE_PROPERTY_NAME</td>
+	<td>//div[@class='lcs-about-software']//tr[contains(.,'${key_serverPropertyName}')]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_SOFTWARE_PROPERTY_VALUE</td>
+	<td>//div[@class='lcs-about-software']//tr[contains(.,'${key_serverPropertyName}')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_HARDWARE_PROPERTY_NAME</td>
+	<td>//div[@class='lcs-about-hardware']//tr[contains(.,'${key_serverPropertyName}')]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_HARDWARE_PROPERTY_VALUE</td>
+	<td>//div[@class='lcs-about-hardware']//tr[contains(.,'${key_serverPropertyName}')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

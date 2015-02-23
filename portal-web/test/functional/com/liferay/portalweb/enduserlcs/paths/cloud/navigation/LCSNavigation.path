@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>LCSNavigation</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSNavigation</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>LCSNavigation</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_MENU_BACK</td>
+	<td>//div[@class='lcs-navigation-header']//div[contains(.,'Back')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_MENU_DASHBOARD</td>
+	<td>//div[@class='lcs-navigation-header']//div[contains(.,'Dashboard')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_MENU_USERS</td>
+	<td>//div[@class='lcs-navigation-header']//div[contains(.,'Users')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_MENU_ADD_ENVIRONMENT</td>
+	<td>//div[@class='lcs-navigation-submenu']//div[contains(@class,'environments-titlebar')]//a[contains(.,'Add Environment')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_MENU_ENVIRONMENT</td>
+	<td>//div[@class='lcs-navigation-submenu']//a[contains(.,'${key_environmentName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_MENU_ENVIRONMENT_OFFLINE_ICON</td>
+	<td>//div[@class='lcs-navigation-submenu']//a[contains(.,'${key_environmentName}')]/span[contains(@class,'lcs-content-type-icon group offline')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_MENU_ENVIRONMENT_ONLINE_ICON</td>
+	<td>//div[@class='lcs-navigation-submenu']//a[contains(.,'${key_environmentName}')]/span[contains(@class,'lcs-content-type-icon group online')]</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>NAVIGATION_MENU_ENVIRONMENT_PATCHES_COUNT</td>
+	<td>//div[@class='lcs-navigation-submenu']//a[contains(.,'${key_environmentName}')]//span[@class='patches-count']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_MENU_SERVER</td>
+	<td>//div[@class='lcs-navigation-submenu']//a[contains(.,'${key_serverName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_MENU_SERVER_OFFLINE_ICON</td>
+	<td>//div[@class='lcs-navigation-submenu']//a[contains(.,'${key_serverName}')]/span[contains(@class,'lcs-content-type-icon server offline')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_MENU_SERVER_ONLINE_ICON</td>
+	<td>//div[@class='lcs-navigation-submenu']//a[contains(.,'${key_serverName}')]/span[contains(@class,'lcs-content-type-icon server online')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--BREADCRUMB-->
+<tr>
+	<td>BREADCRUMB_PROJECT_NAME</td>
+	<td>//div[@class='lcs-breadcrumb']//li[contains(.,'${key_projectName}')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BREADCRUMB_PROJECT_NAME_SELECT_ICON</td>
+	<td>//div[@class='lcs-breadcrumb']//li[contains(.,'${key_projectName}')]/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BREADCRUMB_ENVIRONMENT_NAME</td>
+	<td>//div[@class='lcs-breadcrumb']//li[contains(.,'${key_environmentName}')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BREADCRUMB_ENVIRONMENT_NAME_SELECT_ICON</td>
+	<td>//div[@class='lcs-breadcrumb']//li[contains(.,'${key_environmentName}')]/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BREADCRUMB_SERVER_NAME</td>
+	<td>//div[@class='lcs-breadcrumb']//li[contains(.,'${key_serverName}')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BREADCRUMB_SERVER_NAME_SELECT_ICON</td>
+	<td>//div[@class='lcs-breadcrumb']//li[contains(.,'${key_serverName}')]/div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

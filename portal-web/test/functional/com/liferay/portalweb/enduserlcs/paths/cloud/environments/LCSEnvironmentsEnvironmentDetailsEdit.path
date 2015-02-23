@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>LCSEnvironmentsEnvironmentDetailsEdit</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSEnvironmentsEnvironmentDetailsEdit</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>LCSEnvironmentsEnvironmentDetailsEdit</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_NAME</td>
+	<td>//div[contains(@class,'control-group') and contains(.,'Name')]//input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_DESCRIPTION</td>
+	<td>//div[contains(@class,'control-group') and contains(.,'Description')]//textarea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_LOCATION</td>
+	<td>//div[contains(@class,'control-group') and contains(.,'Location')]//input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>UPDATE_BUTTON</td>
+	<td>//button[contains(.,'Update')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BACK_BUTTON</td>
+	<td>//button[contains(.,'Back')]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

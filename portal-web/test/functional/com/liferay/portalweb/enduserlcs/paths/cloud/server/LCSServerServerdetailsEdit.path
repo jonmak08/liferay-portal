@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>LCSServerServerdetailsEdit</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSServerServerdetailsEdit</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>LCSServerServerdetailsEdit</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAME_FIELD</td>
+	<td>//form[contains(@action,'updateLCSClusterNode')]//input[contains(@id,'_name')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>DESCRIPTION_FIELD</td>
+	<td>//form[contains(@action,'updateLCSClusterNode')]//textarea[contains(@id,'_description')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LOCATION_FIELD</td>
+	<td>//form[contains(@action,'updateLCSClusterNode')]//input[contains(@id,'_location')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_SELECT</td>
+	<td>//form[contains(@action,'updateLCSClusterNode')]//select[contains(@id,'_lcsClusterEntryId')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>UPDATE_BUTTON</td>
+	<td>//button[contains(.,'Update')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BACK_BUTTON</td>
+	<td>//button[contains(.,'Back')]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
