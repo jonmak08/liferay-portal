@@ -7,8 +7,6 @@
 			<var name="userLoginFullName" value="Test Test" />
 		</execute>
 
-		<execute macro="Role#tearDownCP" />
-
 		<execute macro="Site#tearDownCP" />
 	</tear-down>
 
@@ -1005,6 +1003,8 @@
 			<var name="toAll" value="true" />
 			<var name="userSegmentName" value="Male Users" />
 		</execute>
+
+		<execute macro="UserSegmentContentDisplayPortlet#savePG" />
 
 		<execute macro="Page#gotoPG">
 			<var name="nodePort" value="9080" />

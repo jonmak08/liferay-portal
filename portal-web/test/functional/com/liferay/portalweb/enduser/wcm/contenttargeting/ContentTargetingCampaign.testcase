@@ -33,8 +33,6 @@
 			<var name="userLoginFullName" value="Test Test" />
 		</execute>
 
-		<execute macro="Role#tearDownCP" />
-
 		<execute macro="Site#tearDownCP" />
 	</tear-down>
 
