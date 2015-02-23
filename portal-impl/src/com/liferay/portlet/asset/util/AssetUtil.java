@@ -52,6 +52,7 @@ import com.liferay.portal.service.PortletLocalServiceUtil;
 import com.liferay.portal.theme.PortletDisplay;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
+import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.WebKeys;
 import com.liferay.portlet.asset.AssetRendererFactoryRegistryUtil;
 import com.liferay.portlet.asset.NoSuchTagException;
@@ -219,6 +220,10 @@ public class AssetUtil {
 		throws PortalException, SystemException {
 
 		List<Long> viewableTagIds = new ArrayList<Long>();
+
+		if (!PropsValues.ASSET_TAG_PERMISSIONS_ENABLED) {
+			return tagIds;
+		}
 
 		for (long tagId : tagIds) {
 			AssetTag tag = AssetTagLocalServiceUtil.fetchAssetTag(tagId);
