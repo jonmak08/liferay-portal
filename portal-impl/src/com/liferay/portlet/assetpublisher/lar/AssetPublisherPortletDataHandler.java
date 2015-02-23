@@ -196,8 +196,10 @@ public class AssetPublisherPortletDataHandler
 			else if (name.startsWith("queryName") &&
 					 StringUtil.equalsIgnoreCase(value, "assetTags")) {
 
+				String index = name.substring(9);
+
 				String[] assetTagNames = portletPreferences.getValues(
-					"queryValues" + name.substring(9), null);
+					"queryValues" + index, null);
 
 				if (ArrayUtil.isEmpty(assetTagNames)) {
 					continue;
