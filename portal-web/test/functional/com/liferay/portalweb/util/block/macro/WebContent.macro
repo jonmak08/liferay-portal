@@ -743,6 +743,10 @@
 		<execute action="PGWebcontentdisplay#assertElementNotPresent" locator-key1="EDIT_WEB_CONTENT" />
 	</command>
 
+	<command name="viewNotPresentCP">
+		<execute action="CPWebcontentEditwebcontent#assertTextNotPresent" locator-key1="TITLE_FIELD" value1="${webContentTitle}" />
+	</command>
+
 	<command name="viewPGViaAP">
 		<var name="key_assetTitle" value="${webContentTitle}" />
 
