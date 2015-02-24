@@ -732,7 +732,7 @@ public class HttpImpl implements Http {
 		String[] uriParts = StringUtil.split(
 			path.substring(1), StringPool.SLASH);
 
-		List<String> parts = new ArrayList<>(uriParts.length);
+		List<String> parts = new ArrayList<String>(uriParts.length);
 
 		for (int i = 0; i < uriParts.length; i++) {
 			String curUriPart = URLCodec.decodeURL(uriParts[i]);
