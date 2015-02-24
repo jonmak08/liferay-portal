@@ -287,7 +287,7 @@
 	</target>
 
 	<target name="build-ckeditor-plugins-creole">
-		<get
+		<mirrors-get
 			dest="docroot/html/js/editor/ckeditor_diffs/plugins/creole/creole_parser.js"
 			src="http://www.ivan.fomichev.name/2008/04/javascript-creole-10-wiki-markup-parser.html"
 		/>
@@ -383,7 +383,7 @@
 				<available file="third-party/${scayt.file}" />
 			</not>
 			<then>
-				<get
+				<mirrors-get
 					dest="third-party/${scayt.file}"
 					src="http://download.ckeditor.com/scayt/releases/${scayt.file}"
 				/>
@@ -402,7 +402,7 @@
 				<available file="third-party/${wsc.file}" />
 			</not>
 			<then>
-				<get
+				<mirrors-get
 					dest="third-party/${wsc.file}"
 					src="http://download.ckeditor.com/wsc/releases/${wsc.file}"
 				/>

@@ -38,7 +38,7 @@ svn://svn.liferay.com/repos/public/alloy/trunk/sandbox/taglibs.
 	</target>
 
 	<target name="build-axis-jar">
-		<get
+		<mirrors-get
 			dest="axis-1.4-sources.zip"
 			src="http://search.maven.org/remotecontent?filepath=axis/axis/1.4/axis-1.4-sources.jar"
 		/>
@@ -99,7 +99,7 @@ svn://svn.liferay.com/repos/public/alloy/trunk/sandbox/taglibs.
 			<param name="javac.srcdir" value="${tstamp.value}" />
 		</antcall>
 
-		<get
+		<mirrors-get
 			dest="${project.dir}/lib/portal/axis.jar.new"
 			src="http://search.maven.org/remotecontent?filepath=axis/axis/1.4/axis-1.4.jar"
 		/>
@@ -136,7 +136,7 @@ svn://svn.liferay.com/repos/public/alloy/trunk/sandbox/taglibs.
 	</target>-->
 
 	<target name="build-bobo-browse-jar">
-		<get dest="release-3.2.0.zip" src="https://codeload.github.com/senseidb/bobo/zip/release-3.2.0" />
+		<mirrors-get dest="release-3.2.0.zip" src="https://codeload.github.com/senseidb/bobo/zip/release-3.2.0" />
 
 		<tstamp>
 			<format property="tstamp.value" pattern="yyyyMMddkkmmssSSS" />
@@ -226,7 +226,7 @@ public class Creole10Parser]]></replacevalue>
 	</target>
 
 	<target name="build-freemarker-jar">
-		<get
+		<mirrors-get
 			dest="freemarker-2.3.17-sources.zip"
 			src="http://search.maven.org/remotecontent?filepath=org/freemarker/freemarker/2.3.17/freemarker-2.3.17-sources.jar"
 		/>
@@ -264,7 +264,7 @@ public class Creole10Parser]]></replacevalue>
 			<param name="javac.srcdir" value="${tstamp.value}" />
 		</antcall>
 
-		<get
+		<mirrors-get
 			dest="${project.dir}/lib/portal/freemarker.jar.new"
 			src="http://search.maven.org/remotecontent?filepath=org/freemarker/freemarker/2.3.17/freemarker-2.3.17.jar"
 		/>
@@ -335,7 +335,7 @@ public class Creole10Parser]]></replacevalue>
 	</target>
 
 	<target name="build-json-java-jar">
-		<get
+		<mirrors-get
 			dest="json-java.zip"
 			src="https://github.com/douglascrockford/JSON-java/zipball/master"
 		/>
@@ -422,7 +422,7 @@ public class Creole10Parser]]></replacevalue>
 				<available file="${jdk.src.dir}/jdk-src.jar" />
 			</not>
 			<then>
-				<get
+				<mirrors-get
 					dest="${jdk.src.dir}/jdk-src.jar"
 					src="http://www.java.net/download/jdk6/6u21/promoted/b05/jdk-6u21-ea-src-b05-jrl-29_may_2010.jar"
 					verbose="true"
@@ -513,7 +513,7 @@ public class Creole10Parser]]></replacevalue>
 
 		<mkdir dir="${tstamp.value}/compass" />
 
-		<get
+		<mirrors-get
 			dest="${tstamp.value}/compass/compass-0.12.2.gem"
 			src="http://rubygems.org/downloads/compass-0.12.2.gem"
 		/>
@@ -560,7 +560,7 @@ public class Creole10Parser]]></replacevalue>
 	</target>
 
 	<target name="build-selenium-java-jar">
-		<get
+		<mirrors-get
 			dest="selenium-firefox-driver-2.42.2-sources.jar"
 			src="http://search.maven.org/remotecontent?filepath=org/seleniumhq/selenium/selenium-firefox-driver/2.42.2/selenium-firefox-driver-2.42.2-sources.jar"
 		/>
@@ -983,7 +983,7 @@ public class Creole10Parser]]></replacevalue>
 	</target>
 
 	<target name="build-struts-jar">
-		<get
+		<mirrors-get
 			dest="struts-1.2.9-sources.zip"
 			src="http://search.maven.org/remotecontent?filepath=struts/struts/1.2.9/struts-1.2.9-sources.jar"
 		/>
@@ -1013,7 +1013,7 @@ public class Creole10Parser]]></replacevalue>
 			<param name="javac.srcdir" value="${tstamp.value}" />
 		</antcall>
 
-		<get
+		<mirrors-get
 			dest="${project.dir}/lib/portal/struts.jar.new"
 			src="http://search.maven.org/remotecontent?filepath=struts/struts/1.2.9/struts-1.2.9.jar"
 		/>
