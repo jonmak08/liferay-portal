@@ -4675,6 +4675,10 @@ public class PortalImpl implements Portal {
 
 			groups.add(siteGroup);
 
+			// Descendant sites
+
+			groups.addAll(siteGroup.getChildren(true));
+
 			// Layout scopes
 
 			groups.addAll(
@@ -4701,10 +4705,6 @@ public class PortalImpl implements Portal {
 					companyId, null, null, groupParams, QueryUtil.ALL_POS,
 					QueryUtil.ALL_POS, null));
 		}
-
-		// Descendant sites
-
-		groups.addAll(siteGroup.getChildren(true));
 
 		// Ancestor sites and global site
 
