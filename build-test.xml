@@ -1685,6 +1685,8 @@ ${marketplace.portlet.properties}</echo>
 		Deploy plugin files to the deploy directory.
 		-->
 
+		<get-testcase-property property.name="hook.plugins.includes" />
+
 		<if>
 			<isset property="hook.plugins.includes" />
 			<then>
@@ -1695,6 +1697,8 @@ ${marketplace.portlet.properties}</echo>
 			</then>
 		</if>
 
+		<get-testcase-property property.name="layouttpl.plugins.includes" />
+
 		<if>
 			<isset property="layouttpl.plugins.includes" />
 			<then>
@@ -1704,6 +1708,8 @@ ${marketplace.portlet.properties}</echo>
 				</ant>
 			</then>
 		</if>
+
+		<get-testcase-property property.name="portlet.plugins.includes" />
 
 		<if>
 			<isset property="portlet.plugins.includes" />
@@ -1725,6 +1731,8 @@ ${marketplace.portlet.properties}</echo>
 			</then>
 		</if>
 
+		<get-testcase-property property.name="theme.plugins.includes" />
+
 		<if>
 			<isset property="theme.plugins.includes" />
 			<then>
@@ -1734,6 +1742,8 @@ ${marketplace.portlet.properties}</echo>
 				</ant>
 			</then>
 		</if>
+
+		<get-testcase-property property.name="web.plugins.includes" />
 
 		<if>
 			<isset property="web.plugins.includes" />
