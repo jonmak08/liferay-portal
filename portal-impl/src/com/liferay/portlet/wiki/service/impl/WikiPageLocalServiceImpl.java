@@ -774,10 +774,23 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 	}
 
 	@Override
+	public WikiPage fetchPage(long nodeId, String title)
+		throws SystemException {
+
+		return wikiPagePersistence.fetchByN_T_H_First(
+			nodeId, title, true, null);
+	}
+
+	@Override
 	public WikiPage fetchPage(long nodeId, String title, double version)
 		throws SystemException {
 
-		return wikiPagePersistence.fetchByN_T_V(nodeId, title, version);
+		if (version == 0) {
+			return fetchPage(nodeId, title);
+		}
+		else {
+			return wikiPagePersistence.fetchByN_T_V(nodeId, title, version);
+		}
 	}
 
 	@Override
@@ -992,11 +1005,10 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 	public WikiPage getPage(long nodeId, String title)
 		throws PortalException, SystemException {
 
-		List<WikiPage> pages = wikiPagePersistence.findByN_T_H(
-			nodeId, title, true, 0, 1);
+		WikiPage page = fetchPage(nodeId, title);
 
-		if (!pages.isEmpty()) {
-			return pages.get(0);
+		if (page != null) {
+			return page;
 		}
 		else {
 			StringBundler sb = new StringBundler(5);
