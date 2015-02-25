@@ -261,7 +261,7 @@
 		<execute action="CPPortalsettingsAuthentication#assertTextEquals" locator-key1="AUTHENTICATION_NTLM_SERVICE_ACCOUNT_HEADER" value1="Service Account" />
 		<execute action="CPPortalsettingsAuthentication#assertTextEquals" locator-key1="AUTHENTICATION_NTLM_SERVICE_ACCOUNT_FIELD" value1="LIFERAY$@EXAMPLE.COM" />
 		<execute action="CPPortalsettingsAuthentication#assertTextEquals" locator-key1="AUTHENTICATION_NTLM_SERVICE_PASSWORD_HEADER" value1="Service Password" />
-		<execute action="CPPortalsettingsAuthentication#assertTextEquals" locator-key1="AUTHENTICATION_NTLM_SERVICE_PASSWORD_FIELD" value1="test" />
+		<execute action="CPPortalsettingsAuthentication#assertTextEquals" locator-key1="AUTHENTICATION_NTLM_SERVICE_PASSWORD_FIELD" value1="TEMP_OBFUSCATION_VALUE" />
 	</command>
 
 	<command name="viewAuthenticationOpenIDCP">
