@@ -45,8 +45,8 @@ public class JournalPermission {
 		PermissionChecker permissionChecker, long groupId, String actionId) {
 
 		Boolean hasPermission = StagingPermissionUtil.hasPermission(
-				permissionChecker, groupId, RESOURCE_NAME, groupId,
-				PortletKeys.JOURNAL, actionId);
+			permissionChecker, groupId, RESOURCE_NAME, groupId,
+			PortletKeys.JOURNAL, actionId);
 
 		if (hasPermission != null) {
 			return hasPermission.booleanValue();
@@ -54,16 +54,15 @@ public class JournalPermission {
 
 		try {
 			int count =
-					ResourcePermissionLocalServiceUtil.
-						getResourcePermissionsCount(
-							permissionChecker.getCompanyId(), RESOURCE_NAME,
-							ResourceConstants.SCOPE_INDIVIDUAL,
-							String.valueOf(groupId));
+				ResourcePermissionLocalServiceUtil.getResourcePermissionsCount(
+					permissionChecker.getCompanyId(), RESOURCE_NAME,
+					ResourceConstants.SCOPE_INDIVIDUAL,
+					String.valueOf(groupId));
 
 			if (count == 0) {
 				ResourceLocalServiceUtil.addResources(
-						permissionChecker.getCompanyId(), groupId, 0,
-						RESOURCE_NAME, groupId, false, true, true);
+					permissionChecker.getCompanyId(), groupId, 0, RESOURCE_NAME,
+					groupId, false, true, true);
 			}
 		}
 		catch (Exception e) {
@@ -73,7 +72,7 @@ public class JournalPermission {
 		}
 
 		return permissionChecker.hasPermission(
-				groupId, RESOURCE_NAME, groupId, actionId);
+			groupId, RESOURCE_NAME, groupId, actionId);
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(JournalPermission.class);
