@@ -277,10 +277,9 @@ public class WikiPageTrashHandlerTest extends BaseTrashHandlerTestCase {
 			TestPropsValues.getUserId(), getTrashEntryClassPK(page));
 
 		Assert.assertEquals(
-			initialBaseModelsCount + 2, getNotInTrashBaseModelsCount(node));
+			initialBaseModelsCount + 4, getNotInTrashBaseModelsCount(node));
 		Assert.assertEquals(
-			initialTrashEntriesCount + 2,
-			getTrashEntriesCount(group.getGroupId()));
+			initialTrashEntriesCount, getTrashEntriesCount(group.getGroupId()));
 	}
 
 	@Test
