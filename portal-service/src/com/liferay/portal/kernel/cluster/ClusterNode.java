@@ -50,7 +50,7 @@ public class ClusterNode implements Comparable<ClusterNode>, Serializable {
 		if (value != 0) {
 			return value;
 		}
-		
+
 		if ((_portalProtocol == null) ||
 			(clusterNode._portalProtocol == null)) {
 
@@ -111,7 +111,7 @@ public class ClusterNode implements Comparable<ClusterNode>, Serializable {
 	public int getPort() {
 		return _port;
 	}
-	
+
 	public String getPortalProtocol() {
 		return _portalProtocol;
 	}
@@ -124,7 +124,7 @@ public class ClusterNode implements Comparable<ClusterNode>, Serializable {
 	public void setPort(int port) {
 		_port = port;
 	}
-	
+
 	public void setPortalProtocol(String portalProtocol) {
 		_portalProtocol = portalProtocol;
 	}
