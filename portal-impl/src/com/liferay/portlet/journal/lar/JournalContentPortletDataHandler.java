@@ -263,7 +263,7 @@ public class JournalContentPortletDataHandler
 				portletDataContext.getPlid());
 
 			JournalContentSearchLocalServiceUtil.updateContentSearch(
-				portletDataContext.getScopeGroupId(), layout.isPrivateLayout(),
+				layout.getGroupId(), layout.isPrivateLayout(),
 				layout.getLayoutId(), portletId, articleId, true);
 		}
 		else {
