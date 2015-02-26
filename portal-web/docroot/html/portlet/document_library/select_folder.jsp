@@ -39,7 +39,7 @@ if (folder != null) {
 		title="home"
 	/>
 
-	<liferay-ui:breadcrumb showGuestGroup="<%= false %>" showLayout="<%= false %>" showParentGroups="<%= false %>" />
+	<liferay-ui:breadcrumb showCurrentGroup="<%= false %>" showGuestGroup="<%= false %>" showLayout="<%= false %>" showParentGroups="<%= false %>" />
 
 	<aui:button-row>
 		<c:if test="<%= showAddFolderButton && DLFolderPermission.contains(permissionChecker, repositoryId, folderId, ActionKeys.ADD_FOLDER) %>">
