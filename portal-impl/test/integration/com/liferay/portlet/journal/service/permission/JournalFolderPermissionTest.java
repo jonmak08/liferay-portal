@@ -15,11 +15,14 @@
 package com.liferay.portlet.journal.service.permission;
 
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
+import com.liferay.portal.model.ResourceConstants;
+import com.liferay.portal.model.RoleConstants;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.service.ServiceTestUtil;
 import com.liferay.portal.service.permission.BasePermissionTestCase;
 import com.liferay.portal.test.EnvironmentExecutionTestListener;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
+import com.liferay.portal.util.RoleTestUtil;
 import com.liferay.portlet.journal.model.JournalFolder;
 import com.liferay.portlet.journal.util.JournalTestUtil;
 
@@ -67,6 +70,16 @@ public class JournalFolderPermissionTest extends BasePermissionTestCase {
 	@Override
 	protected String getResourceName() {
 		return JournalPermission.RESOURCE_NAME;
+	}
+
+	@Override
+	protected void removePortletModelViewPermission() throws Exception {
+		super.removePortletModelViewPermission();
+
+		RoleTestUtil.removeResourcePermission(
+			RoleConstants.GUEST, getResourceName(),
+			ResourceConstants.SCOPE_INDIVIDUAL,
+			String.valueOf(group.getGroupId()), ActionKeys.VIEW);
 	}
 
 	private JournalFolder _folder;
