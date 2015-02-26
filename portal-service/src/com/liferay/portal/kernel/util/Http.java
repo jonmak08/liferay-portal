@@ -122,8 +122,6 @@ public interface Http {
 
 	public boolean isSecure(String url);
 
-	public String normalizePath(String uri);
-
 	public Map<String, String[]> parameterMapFromString(String queryString);
 
 	public String parameterMapToString(Map<String, String[]> parameterMap);
@@ -144,8 +142,6 @@ public interface Http {
 	public String removeDomain(String url);
 
 	public String removeParameter(String url, String name);
-
-	public String removePathParameters(String uri);
 
 	public String removeProtocol(String url);
 
