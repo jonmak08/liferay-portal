@@ -12,23 +12,22 @@
  * details.
  */
 
-package com.liferay.asset.publisher.web.portlet.route;
+package com.liferay.asset.tags.admin.web.portlet.route;
 
-import com.liferay.asset.publisher.web.constants.AssetPublisherPortletKeys;
+import com.liferay.asset.tags.admin.web.constants.AssetTagsAdminPortletKeys;
+import com.liferay.portal.kernel.portlet.DefaultFriendlyURLMapper;
 import com.liferay.portal.kernel.portlet.FriendlyURLMapper;
 
 import org.osgi.service.component.annotations.Component;
 
 /**
- * @author Eudaldo Alonso
+ * @author Jürgen Kappler
  */
 @Component(
-	immediate = true,
 	property = {
-		"javax.portlet.name=" + AssetPublisherPortletKeys.RELATED_ASSETS
+		"javax.portlet.name=" + AssetTagsAdminPortletKeys.ASSET_TAGS_ADMIN
 	},
 	service = FriendlyURLMapper.class
 )
-public class RelatedAssetsFriendlyURLMapper
-	extends AssetPublisherFriendlyURLMapper {
+public class AssetTagsAdminFriendlyURLMapper extends DefaultFriendlyURLMapper {
 }
