@@ -23,7 +23,9 @@ String redirect = ParamUtil.getString(request, "redirect");
 
 JournalArticle article = null;
 
-String type = ParamUtil.getString(request, "type","-1");
+String defaultValue = "-1";
+
+String type = ParamUtil.getString(request, "type", defaultValue);
 
 try {
 	if (Validator.isNotNull(articleId)) {
@@ -33,11 +35,11 @@ try {
 
 		articleGroupId = article.getGroupId();
 
-		if ("-1".equals(type)) {
+		if (type.equals(defaultValue)) {
 			type = article.getType();
 		}
 	}
-	else if("-1".equals(type)) {
+	else if (type.equals(defaultValue)) {
 		type = StringPool.BLANK;
 	}
 }
