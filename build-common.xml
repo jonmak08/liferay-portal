@@ -623,8 +623,9 @@ Please set the environment variable ANT_OPTS to the recommended value of
 					<then>
 						<compile-test-cmd
 							test.type="unit"
-							src.path="${project.dir}/portal-service/"
+							src.path="${project.dir}/portal-service"
 						/>
+
 						<compile-test-cmd
 							test.type="unit"
 						/>
