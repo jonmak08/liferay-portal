@@ -24,7 +24,6 @@ import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.model.AssetRenderer;
 import com.liferay.portlet.asset.model.AssetRendererFactory;
-import com.liferay.portlet.asset.util.AssetUtil;
 
 import javax.portlet.PortletURL;
 
@@ -101,8 +100,19 @@ public class AssetPublisherHelperImpl implements AssetPublisherHelper {
 			viewURL = viewFullContentURL.toString();
 		}
 
-		viewURL = AssetUtil.checkViewURL(
-			assetEntry, viewInContext, viewURL, currentURL, themeDisplay);
+		if (Validator.isNotNull(viewURL)) {
+			Layout layout = themeDisplay.getLayout();
+
+			String assetEntryLayoutUuid = assetEntry.getLayoutUuid();
+
+			if (!viewInContext ||
+				(Validator.isNotNull(assetEntryLayoutUuid) &&
+				 !assetEntryLayoutUuid.equals(layout.getUuid()))) {
+
+				viewURL = HttpUtil.setParameter(
+					viewURL, "redirect", currentURL);
+			}
+		}
 
 		return viewURL;
 	}
