@@ -424,6 +424,8 @@ public class LayoutExporter {
 		portletDataContext.setPortetDataContextListener(
 			new PortletDataContextListenerImpl(portletDataContext));
 
+		portletDataContext.setPrivateLayout(privateLayout);
+
 		Document document = SAXReaderUtil.createDocument();
 
 		Element rootElement = document.addElement("root");
