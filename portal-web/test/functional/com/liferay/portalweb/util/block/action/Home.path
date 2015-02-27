@@ -34,6 +34,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>GUEST_URL_SPANISH</td>
+	<td>/es/web/guest/home/</td>
+	<td></td>
+</tr>
+<tr>
 	<td>GUEST_PRIVATE_URL</td>
 	<td>/group/guest/home/</td>
 	<td></td>
@@ -416,6 +421,27 @@
 <tr>
 	<td>SITE_ADMINISTRATION_USERS_SITE_MEMBERSHIPS</td>
 	<td>//ul[@class='category-portlets']/li[contains(.,'Site Memberships')]/a | //ul[@class='category-portlets']/li/span[contains(.,'Site Memberships')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--SITE_LOCALIZATION-->
+<tr>
+	<td>PORTAL_LOCALIZATION_INFO_MESSAGE</td>
+	<td>//div[contains(@class,'portal-message') and contains(@class,'alert-info')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PORTAL_LOCALIZATION_CONFIRMATION_MESSAGE</td>
+	<td>//div[@id='portalMessageContainer']/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PORTAL_LOCALIZATION_PREFERRED_MESSAGE</td>
+	<td>//div[@id='portalMessageContainer']/a[2]</td>
 	<td></td>
 </tr>
 </tbody>
