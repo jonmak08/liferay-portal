@@ -43,11 +43,11 @@ public class AnnouncementsEntryServiceImpl
 	@Override
 	public AnnouncementsEntry addEntry(
 			long plid, long classNameId, long classPK, String title,
-			String content, String url, String type, int displayDateMonth,
-			int displayDateDay, int displayDateYear, int displayDateHour,
-			int displayDateMinute, boolean displayImmediately,
-			int expirationDateMonth, int expirationDateDay,
-			int expirationDateYear, int expirationDateHour,
+			String content, String url, String type, String borderColor,
+			int displayDateMonth, int displayDateDay, int displayDateYear,
+			int displayDateHour, int displayDateMinute,
+			boolean displayImmediately,	int expirationDateMonth,
+			int expirationDateDay, int expirationDateYear, int expirationDateHour,
 			int expirationDateMinute, int priority, boolean alert)
 		throws PortalException {
 
@@ -125,10 +125,10 @@ public class AnnouncementsEntryServiceImpl
 
 		return announcementsEntryLocalService.addEntry(
 			getUserId(), classNameId, classPK, title, content, url, type,
-			displayDateMonth, displayDateDay, displayDateYear, displayDateHour,
-			displayDateMinute, displayImmediately, expirationDateMonth,
-			expirationDateDay, expirationDateYear, expirationDateHour,
-			expirationDateMinute, priority, alert);
+			borderColor, displayDateMonth, displayDateDay, displayDateYear,
+			displayDateHour, displayDateMinute, displayImmediately,
+			expirationDateMonth, expirationDateDay, expirationDateYear,
+			expirationDateHour, expirationDateMinute, priority, alert);
 	}
 
 	/**
@@ -140,9 +140,9 @@ public class AnnouncementsEntryServiceImpl
 	@Override
 	public AnnouncementsEntry addEntry(
 			long plid, long classNameId, long classPK, String title,
-			String content, String url, String type, int displayDateMonth,
-			int displayDateDay, int displayDateYear, int displayDateHour,
-			int displayDateMinute, int expirationDateMonth,
+			String content, String url, String type, String borderColor,
+			int displayDateMonth, int displayDateDay, int displayDateYear,
+			int displayDateHour, int displayDateMinute, int expirationDateMonth,
 			int expirationDateDay, int expirationDateYear,
 			int expirationDateHour, int expirationDateMinute, int priority,
 			boolean alert)
@@ -150,10 +150,10 @@ public class AnnouncementsEntryServiceImpl
 
 		return addEntry(
 			plid, classNameId, classPK, title, content, url, type,
-			displayDateMonth, displayDateDay, displayDateYear, displayDateHour,
-			displayDateMinute, false, expirationDateMonth, expirationDateDay,
-			expirationDateYear, expirationDateHour, expirationDateMinute,
-			priority, alert);
+			borderColor, displayDateMonth, displayDateDay, displayDateYear,
+			displayDateHour, displayDateMinute, false, expirationDateMonth,
+			expirationDateDay, expirationDateYear, expirationDateHour,
+			expirationDateMinute, priority, alert);
 	}
 
 	@Override
@@ -177,7 +177,7 @@ public class AnnouncementsEntryServiceImpl
 
 	@Override
 	public AnnouncementsEntry updateEntry(
-			long entryId, String title, String content, String url, String type,
+			long entryId, String title, String content, String url, String type, String borderColor,
 			int displayDateMonth, int displayDateDay, int displayDateYear,
 			int displayDateHour, int displayDateMinute,
 			boolean displayImmediately, int expirationDateMonth,
@@ -189,11 +189,11 @@ public class AnnouncementsEntryServiceImpl
 			getPermissionChecker(), entryId, ActionKeys.UPDATE);
 
 		return announcementsEntryLocalService.updateEntry(
-			getUserId(), entryId, title, content, url, type, displayDateMonth,
-			displayDateDay, displayDateYear, displayDateHour, displayDateMinute,
-			displayImmediately, expirationDateMonth, expirationDateDay,
-			expirationDateYear, expirationDateHour, expirationDateMinute,
-			priority);
+			getUserId(), entryId, title, content, url, type,
+			borderColor, displayDateMonth, displayDateDay, displayDateYear,
+			displayDateHour, displayDateMinute, displayImmediately,
+			expirationDateMonth, expirationDateDay, expirationDateYear,
+			expirationDateHour, expirationDateMinute, priority);
 	}
 
 }

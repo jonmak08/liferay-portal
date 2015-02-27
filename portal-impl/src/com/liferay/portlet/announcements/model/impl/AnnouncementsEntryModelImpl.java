@@ -86,12 +86,13 @@ public class AnnouncementsEntryModelImpl extends BaseModelImpl<AnnouncementsEntr
 			{ "content", Types.CLOB },
 			{ "url", Types.VARCHAR },
 			{ "type_", Types.VARCHAR },
+			{ "borderColor", Types.VARCHAR },
 			{ "displayDate", Types.TIMESTAMP },
 			{ "expirationDate", Types.TIMESTAMP },
 			{ "priority", Types.INTEGER },
 			{ "alert", Types.BOOLEAN }
 		};
-	public static final String TABLE_SQL_CREATE = "create table AnnouncementsEntry (uuid_ VARCHAR(75) null,entryId LONG not null primary key,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,classNameId LONG,classPK LONG,title VARCHAR(75) null,content TEXT null,url STRING null,type_ VARCHAR(75) null,displayDate DATE null,expirationDate DATE null,priority INTEGER,alert BOOLEAN)";
+	public static final String TABLE_SQL_CREATE = "create table AnnouncementsEntry (uuid_ VARCHAR(75) null,entryId LONG not null primary key,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,classNameId LONG,classPK LONG,title VARCHAR(75) null,content TEXT null,url STRING null,type_ VARCHAR(75) null,borderColor VARCHAR(75) null,displayDate DATE null,expirationDate DATE null,priority INTEGER,alert BOOLEAN)";
 	public static final String TABLE_SQL_DROP = "drop table AnnouncementsEntry";
 	public static final String ORDER_BY_JPQL = " ORDER BY announcementsEntry.priority ASC, announcementsEntry.modifiedDate ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY AnnouncementsEntry.priority ASC, AnnouncementsEntry.modifiedDate ASC";
@@ -142,6 +143,7 @@ public class AnnouncementsEntryModelImpl extends BaseModelImpl<AnnouncementsEntr
 		model.setContent(soapModel.getContent());
 		model.setUrl(soapModel.getUrl());
 		model.setType(soapModel.getType());
+		model.setBorderColor(soapModel.getBorderColor());
 		model.setDisplayDate(soapModel.getDisplayDate());
 		model.setExpirationDate(soapModel.getExpirationDate());
 		model.setPriority(soapModel.getPriority());
@@ -224,6 +226,7 @@ public class AnnouncementsEntryModelImpl extends BaseModelImpl<AnnouncementsEntr
 		attributes.put("content", getContent());
 		attributes.put("url", getUrl());
 		attributes.put("type", getType());
+		attributes.put("borderColor", getBorderColor());
 		attributes.put("displayDate", getDisplayDate());
 		attributes.put("expirationDate", getExpirationDate());
 		attributes.put("priority", getPriority());
@@ -313,6 +316,12 @@ public class AnnouncementsEntryModelImpl extends BaseModelImpl<AnnouncementsEntr
 
 		if (type != null) {
 			setType(type);
+		}
+
+		String borderColor = (String)attributes.get("borderColor");
+
+		if (borderColor != null) {
+			setBorderColor(borderColor);
 		}
 
 		Date displayDate = (Date)attributes.get("displayDate");
@@ -609,6 +618,22 @@ public class AnnouncementsEntryModelImpl extends BaseModelImpl<AnnouncementsEntr
 
 	@JSON
 	@Override
+	public String getBorderColor() {
+		if (_borderColor == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _borderColor;
+		}
+	}
+
+	@Override
+	public void setBorderColor(String borderColor) {
+		_borderColor = borderColor;
+	}
+
+	@JSON
+	@Override
 	public Date getDisplayDate() {
 		return _displayDate;
 	}
@@ -720,6 +745,7 @@ public class AnnouncementsEntryModelImpl extends BaseModelImpl<AnnouncementsEntr
 		announcementsEntryImpl.setContent(getContent());
 		announcementsEntryImpl.setUrl(getUrl());
 		announcementsEntryImpl.setType(getType());
+		announcementsEntryImpl.setBorderColor(getBorderColor());
 		announcementsEntryImpl.setDisplayDate(getDisplayDate());
 		announcementsEntryImpl.setExpirationDate(getExpirationDate());
 		announcementsEntryImpl.setPriority(getPriority());
@@ -904,6 +930,14 @@ public class AnnouncementsEntryModelImpl extends BaseModelImpl<AnnouncementsEntr
 			announcementsEntryCacheModel.type = null;
 		}
 
+		announcementsEntryCacheModel.borderColor = getBorderColor();
+
+		String borderColor = announcementsEntryCacheModel.borderColor;
+
+		if ((borderColor != null) && (borderColor.length() == 0)) {
+			announcementsEntryCacheModel.borderColor = null;
+		}
+
 		Date displayDate = getDisplayDate();
 
 		if (displayDate != null) {
@@ -931,7 +965,7 @@ public class AnnouncementsEntryModelImpl extends BaseModelImpl<AnnouncementsEntr
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(35);
+		StringBundler sb = new StringBundler(37);
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -959,6 +993,8 @@ public class AnnouncementsEntryModelImpl extends BaseModelImpl<AnnouncementsEntr
 		sb.append(getUrl());
 		sb.append(", type=");
 		sb.append(getType());
+		sb.append(", borderColor=");
+		sb.append(getBorderColor());
 		sb.append(", displayDate=");
 		sb.append(getDisplayDate());
 		sb.append(", expirationDate=");
@@ -974,7 +1010,7 @@ public class AnnouncementsEntryModelImpl extends BaseModelImpl<AnnouncementsEntr
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(55);
+		StringBundler sb = new StringBundler(58);
 
 		sb.append("<model><model-name>");
 		sb.append("com.liferay.portlet.announcements.model.AnnouncementsEntry");
@@ -1033,6 +1069,10 @@ public class AnnouncementsEntryModelImpl extends BaseModelImpl<AnnouncementsEntr
 		sb.append(getType());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>borderColor</column-name><column-value><![CDATA[");
+		sb.append(getBorderColor());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>displayDate</column-name><column-value><![CDATA[");
 		sb.append(getDisplayDate());
 		sb.append("]]></column-value></column>");
@@ -1080,6 +1120,7 @@ public class AnnouncementsEntryModelImpl extends BaseModelImpl<AnnouncementsEntr
 	private String _content;
 	private String _url;
 	private String _type;
+	private String _borderColor;
 	private Date _displayDate;
 	private Date _expirationDate;
 	private int _priority;

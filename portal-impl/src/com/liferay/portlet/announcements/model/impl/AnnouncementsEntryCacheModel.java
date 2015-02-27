@@ -66,7 +66,7 @@ public class AnnouncementsEntryCacheModel implements CacheModel<AnnouncementsEnt
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(35);
+		StringBundler sb = new StringBundler(37);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -94,6 +94,8 @@ public class AnnouncementsEntryCacheModel implements CacheModel<AnnouncementsEnt
 		sb.append(url);
 		sb.append(", type=");
 		sb.append(type);
+		sb.append(", borderColor=");
+		sb.append(borderColor);
 		sb.append(", displayDate=");
 		sb.append(displayDate);
 		sb.append(", expirationDate=");
@@ -174,6 +176,13 @@ public class AnnouncementsEntryCacheModel implements CacheModel<AnnouncementsEnt
 			announcementsEntryImpl.setType(type);
 		}
 
+		if (borderColor == null) {
+			announcementsEntryImpl.setBorderColor(StringPool.BLANK);
+		}
+		else {
+			announcementsEntryImpl.setBorderColor(borderColor);
+		}
+
 		if (displayDate == Long.MIN_VALUE) {
 			announcementsEntryImpl.setDisplayDate(null);
 		}
@@ -211,6 +220,7 @@ public class AnnouncementsEntryCacheModel implements CacheModel<AnnouncementsEnt
 		content = objectInput.readUTF();
 		url = objectInput.readUTF();
 		type = objectInput.readUTF();
+		borderColor = objectInput.readUTF();
 		displayDate = objectInput.readLong();
 		expirationDate = objectInput.readLong();
 		priority = objectInput.readInt();
@@ -271,6 +281,13 @@ public class AnnouncementsEntryCacheModel implements CacheModel<AnnouncementsEnt
 			objectOutput.writeUTF(type);
 		}
 
+		if (borderColor == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(borderColor);
+		}
+
 		objectOutput.writeLong(displayDate);
 		objectOutput.writeLong(expirationDate);
 		objectOutput.writeInt(priority);
@@ -290,6 +307,7 @@ public class AnnouncementsEntryCacheModel implements CacheModel<AnnouncementsEnt
 	public String content;
 	public String url;
 	public String type;
+	public String borderColor;
 	public long displayDate;
 	public long expirationDate;
 	public int priority;
