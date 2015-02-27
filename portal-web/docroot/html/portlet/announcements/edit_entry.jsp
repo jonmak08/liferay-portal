@@ -23,6 +23,8 @@ AnnouncementsEntry entry = (AnnouncementsEntry)request.getAttribute(WebKeys.ANNO
 
 long entryId = BeanParamUtil.getLong(entry, request, "entryId");
 
+String borderColor = BeanParamUtil.getString(entry, request, "borderColor");
+
 String content = BeanParamUtil.getString(entry, request, "content");
 
 boolean displayImmediately = ParamUtil.getBoolean(request, "displayImmediately");
@@ -114,6 +116,10 @@ if (entry == null) {
 			<aui:option label="important" selected="<%= (entry != null) && (entry.getPriority() == 1) %>" value="1" />
 		</aui:select>
 
+		<c:if test="<%= portletName.equals(PortletKeys.ALERTS) %>">
+			<aui:input cssClass="border-color" name="borderColor" type="text" />
+		</c:if>
+
 		<aui:input dateTogglerCheckboxLabel="display-immediately" disabled="<%= displayImmediately %>" name="displayDate" />
 
 		<aui:input name="expirationDate" />
@@ -151,6 +157,73 @@ if (entry == null) {
 	}
 </aui:script>
 
+<aui:script use="aui-base,aui-char-counter,aui-color-picker-popover">
+	var borderColorInput = A.one('#<portlet:namespace/>borderColor');
+
+
+	if (borderColorInput) {
+
+		var setBorderColor = function(color) {
+			var textColor = '#000';
+
+			if (color.match(/^#[0-5]/)) {
+				textColor = '#FFF';
+			}
+
+			borderColorInput.setStyles(
+				{
+					backgroundColor: color,
+					color: textColor
+				}
+			);
+
+			borderColorInput.val(color);
+		}
+
+		setBorderColor('<%= borderColor %>');
+
+		new A.CharCounter(
+			{
+				input: borderColorInput,
+				maxLength: 7
+			}
+		);
+
+		borderColorInput.on('input',
+			function() {
+				var instance = this,
+				hexColor = instance.val(),
+				borderColorField = borderColorInput.get('parentNode');
+
+				if (hexColor.match(/^#[a-f0-9]{3}$|^#[a-f0-9]{6}$|^$/i)){
+					borderColorField.addClass('has-success');
+					borderColorField.removeClass('has-error');
+					setBorderColor(hexColor);
+				}
+				else {
+					borderColorField.addClass('has-error');
+					borderColorField.removeClass('has-success');
+				}
+			}
+		);
+
+		var pickBorderColor = new A.ColorPickerPopover(
+			{
+				trigger: borderColorInput,
+				zIndex: 2
+			}
+		).render();
+
+		pickBorderColor.on('select',
+			function(event) {
+				setBorderColor(event.color)
+				submitForm(document.<portlet:namespace />fm);
+			}
+		);
+
+		borderColorInput.on('click', pickBorderColor);
+	}
+</aui:script>
 <%!
 public static final String EDITOR_WYSIWYG_IMPL_KEY = "editor.wysiwyg.portal-web.docroot.html.portlet.announcements.edit_entry.jsp";
 %>

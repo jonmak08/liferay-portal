@@ -17,6 +17,8 @@
 <%@ include file="/html/portlet/announcements/init.jsp" %>
 
 <%
+String borderColor = ParamUtil.getString(request, "borderColor");
+
 String tabs1 = "preview";
 
 AnnouncementsEntry entry = (AnnouncementsEntry)request.getAttribute(WebKeys.ANNOUNCEMENTS_ENTRY);
