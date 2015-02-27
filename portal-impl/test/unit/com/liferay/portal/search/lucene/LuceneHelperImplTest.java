@@ -31,6 +31,7 @@ import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
 import com.liferay.portal.kernel.test.CaptureHandler;
 import com.liferay.portal.kernel.test.JDKLoggerTestUtil;
+import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.kernel.util.ObjectValuePair;
@@ -54,16 +55,13 @@ import java.io.InputStream;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.io.OutputStream;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-
 import java.net.InetAddress;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLStreamHandler;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -79,11 +77,9 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.store.Directory;
-
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -163,6 +159,7 @@ public class LuceneHelperImplTest {
 	public void testGetBootupClusterNodeObjectValuePair() throws Exception {
 		_mockClusterExecutor.setNodeNumber(1);
 		_mockClusterExecutor.setPort(1);
+		_mockClusterExecutor.setProtocol(Http.HTTP);
 
 		Method method = LuceneHelperImpl.class.getDeclaredMethod(
 			"_getBootupClusterNodeObjectValuePair", Address.class);
@@ -334,6 +331,7 @@ public class LuceneHelperImplTest {
 	public void testLoadIndexFromCluster() throws Exception {
 		_mockClusterExecutor.setNodeNumber(2);
 		_mockClusterExecutor.setPort(1);
+		_mockClusterExecutor.setProtocol(Http.HTTP);
 
 		List<LogRecord> logRecords = _captureHandler.resetLogLevel(Level.INFO);
 
@@ -460,6 +458,7 @@ public class LuceneHelperImplTest {
 
 		_mockClusterExecutor.setNodeNumber(2);
 		_mockClusterExecutor.setPort(1024);
+		_mockClusterExecutor.setProtocol(Http.HTTP);
 
 		logRecords = _captureHandler.resetLogLevel(Level.FINE);
 
@@ -482,6 +481,7 @@ public class LuceneHelperImplTest {
 		_mockClusterExecutor.setNodeNumber(2);
 		_mockClusterExecutor.setInvokeMethodThrowException(true);
 		_mockClusterExecutor.setPort(1024);
+		_mockClusterExecutor.setProtocol(Http.HTTP);
 
 		logRecords = _captureHandler.resetLogLevel(Level.FINE);
 
@@ -501,6 +501,7 @@ public class LuceneHelperImplTest {
 		_mockClusterExecutor.setNodeNumber(2);
 		_mockClusterExecutor.setInvokeMethodThrowException(true);
 		_mockClusterExecutor.setPort(1024);
+		_mockClusterExecutor.setProtocol(Http.HTTP);
 
 		logRecords = _captureHandler.resetLogLevel(Level.INFO);
 
@@ -837,7 +838,8 @@ public class LuceneHelperImplTest {
 					_localhostInetAddress);
 
 				clusterNode.setPort(_port);
-
+				clusterNode.setPortalProtocol(_protocol);
+				
 				clusterNodeResponse.setClusterNode(clusterNode);
 
 				try {
@@ -954,6 +956,7 @@ public class LuceneHelperImplTest {
 			_autoResponse = true;
 			_invokeMethodThrowException = false;
 			_port = -1;
+			_protocol = StringPool.BLANK;
 		}
 
 		public void setAutoResponse(boolean autoResponse) {
@@ -968,6 +971,11 @@ public class LuceneHelperImplTest {
 
 		public void setPort(int port) {
 			_port = port;
+		}
+		
+
+		public void setProtocol(String protocol) {
+			_protocol = protocol;
 		}
 
 		public void setNodeNumber(int nodeNumber) {
@@ -1007,6 +1015,7 @@ public class LuceneHelperImplTest {
 			LuceneHelperUtil.class, "getLastGeneration", long.class);
 		private boolean _invokeMethodThrowException = false;
 		private int _port = 0;
+		private String _protocol = StringPool.BLANK;
 
 	}
 
