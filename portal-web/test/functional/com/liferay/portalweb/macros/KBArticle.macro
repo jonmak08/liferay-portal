@@ -133,7 +133,6 @@
 			<isset var="emailFrom" />
 			<then>
 				<execute action="CPKnowledgebaseadminConfiguration#assertClick" locator-key1="NAVIGATION_EMAIL_FROM_TAB" value1="Email From" />
-
 				<execute action="CPKnowledgebaseadminConfiguration#type" locator-key1="EMAIL_FROM_NAME_FIELD" value1="${userName}" />
 				<execute action="CPKnowledgebaseadminConfiguration#type" locator-key1="EMAIL_FROM_ADDRESS_FIELD" value1="${userEmailAddress}" />
 			</then>
@@ -143,12 +142,7 @@
 			<isset var="suggestionReceived" />
 			<then>
 				<execute action="CPKnowledgebaseadminConfiguration#assertClick" locator-key1="NAVIGATION_SUGGESTION_RECEIVED_TAB" value1="Suggestion Received Email" />
-
 				<execute action="CPKnowledgebaseadminConfiguration#type" locator-key1="SUGGESTION_RECEIVED_EMAIL_BODY_FIELD" value1="[$COMMENT_CREATE_DATE$] &lt;a href=&quot;[$ARTICLE_URL$]&quot;&gt;Article Link &lt;/a&gt;" />
-
-				<execute action="CPKnowledgebaseadminConfiguration#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
-
-				<execute action="CPKnowledgebaseadminConfiguration#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 			</then>
 		</if>
 
@@ -156,12 +150,7 @@
 			<isset var="suggestionInProgress" />
 			<then>
 				<execute action="CPKnowledgebaseadminConfiguration#assertClick" locator-key1="NAVIGATION_SUGGESTION_IN_PROGRESS_TAB" value1="Suggestion in Progress Email" />
-
 				<execute action="CPKnowledgebaseadminConfiguration#type" locator-key1="SUGGESTION_IN_PROGRESS_EMAIL_BODY_FIELD" value1="[$COMMENT_CREATE_DATE$] &lt;a href=&quot;[$ARTICLE_URL$]&quot;&gt;Article Link &lt;/a&gt;" />
-
-				<execute action="CPKnowledgebaseadminConfiguration#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
-
-				<execute action="CPKnowledgebaseadminConfiguration#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 			</then>
 		</if>
 
@@ -169,39 +158,16 @@
 			<isset var="suggestionResolved" />
 			<then>
 				<execute action="CPKnowledgebaseadminConfiguration#assertClick" locator-key1="NAVIGATION_SUGGESTION_RESOLVED_TAB" value1="Suggestion Resolved Email" />
-
 				<execute action="CPKnowledgebaseadminConfiguration#type" locator-key1="SUGGESTION_RESOLVED_EMAIL_BODY_FIELD" value1="[$COMMENT_CREATE_DATE$] &lt;a href=&quot;[$ARTICLE_URL$]&quot;&gt;Article Link &lt;/a&gt;" />
-
-				<execute action="CPKnowledgebaseadminConfiguration#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
-
-				<execute action="CPKnowledgebaseadminConfiguration#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 			</then>
 		</if>
 
+		<execute action="CPKnowledgebaseadminConfiguration#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+		<execute action="CPKnowledgebaseadminConfiguration#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 		<execute action="CPKnowledgebaseadminConfiguration#selectFrame" value1="relative=top" />
 	</command>
 
-	<command name="configureKBArticle">
-		<execute action="PGKnowledgebasearticle#assertClick" locator-key1="CONFIGURE_INFO_MESSAGE" value1="Please configure this portlet to make it visible to all users." />
-
-		<execute action="PGKnowledgebasearticleConfiguration#selectFrame" locator-key1="CONFIGURATION_IFRAME" />
-		<execute action="PGKnowledgebasearticleConfiguration#assertClick" locator-key1="SELECT_BUTTON" value1="Select" />
-
-		<execute action="PGKnowledgebasearticleConfigurationArticle#selectWindow" locator1="title=Knowledge Base Article" />
-
-		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
-
-		<execute action="PGKnowledgebasearticleConfigurationArticle#assertClick" locator-key1="ARTICLE_TABLE_CHOOSE_BUTTON" value1="Choose" />
-		<execute action="PGKnowledgebasearticleConfigurationArticle#pause" locator1="5000" />
-
-		<execute action="PGKnowledgebasearticleConfiguration#selectWindow" locator1="title=${pageName} - Liferay" />
-		<execute action="PGKnowledgebasearticleConfiguration#selectFrame" value1="relative=top" />
-		<execute action="PGKnowledgebasearticleConfiguration#selectFrame" locator-key1="CONFIGURATION_IFRAME" />
-		<execute action="PGKnowledgebasearticleConfiguration#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
-		<execute action="PGKnowledgebasearticleConfiguration#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
-	</command>
-
-	<command name="configureKBArticleDisplay">
+	<command name="configureKBArticleDisplayPG">
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
 		</execute>
@@ -232,6 +198,26 @@
 		<execute action="PGKnowledgebasedisplayConfiguration#assertTextEquals" locator-key1="ARTICLE_OR_FOLDER_FIELD" value1="${kbArticleTitle}" />
 		<execute action="PGKnowledgebasedisplayConfiguration#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
 		<execute action="PGKnowledgebasedisplayConfiguration#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+	</command>
+
+	<command name="configureKBArticlePG">
+		<execute action="PGKnowledgebasearticle#assertClick" locator-key1="CONFIGURE_INFO_MESSAGE" value1="Please configure this portlet to make it visible to all users." />
+
+		<execute action="PGKnowledgebasearticleConfiguration#selectFrame" locator-key1="CONFIGURATION_IFRAME" />
+		<execute action="PGKnowledgebasearticleConfiguration#assertClick" locator-key1="SELECT_BUTTON" value1="Select" />
+
+		<execute action="PGKnowledgebasearticleConfigurationArticle#selectWindow" locator1="title=Knowledge Base Article" />
+
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+
+		<execute action="PGKnowledgebasearticleConfigurationArticle#assertClick" locator-key1="ARTICLE_TABLE_CHOOSE_BUTTON" value1="Choose" />
+		<execute action="PGKnowledgebasearticleConfigurationArticle#pause" locator1="5000" />
+
+		<execute action="PGKnowledgebasearticleConfiguration#selectWindow" locator1="title=${pageName} - Liferay" />
+		<execute action="PGKnowledgebasearticleConfiguration#selectFrame" value1="relative=top" />
+		<execute action="PGKnowledgebasearticleConfiguration#selectFrame" locator-key1="CONFIGURATION_IFRAME" />
+		<execute action="PGKnowledgebasearticleConfiguration#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+		<execute action="PGKnowledgebasearticleConfiguration#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
 
 	<command name="configureKBDisplaySettingsPG">
@@ -305,8 +291,6 @@
 		<execute action="PGKnowledgebasedisplayConfiguration#assertTextEquals" locator-key1="ARTICLE_OR_FOLDER_FIELD" value1="${kbFolderName}" />
 		<execute action="PGKnowledgebasedisplayConfiguration#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
 		<execute action="PGKnowledgebasedisplayConfiguration#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
-
-		<execute action="PGKnowledgebasedisplayConfiguration#assertClick" locator-key1="DISPLAY_SETTINGS" value1="Display Settings" />
 	</command>
 
 	<command name="configureKBRatingTypePG">
@@ -334,7 +318,7 @@
 		<execute action="PGKnowledgebasedisplayConfiguration#assertClick" locator-key1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
 
-	<command name="configureKBSection">
+	<command name="configureKBSectionPG">
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletName" value="Knowledge Base Section" />
 			<var name="portletOption" value="Configuration" />
@@ -396,6 +380,30 @@
 
 	<command name="goBackCP">
 		<execute action="CPKnowledgebaseadminArticle#assertClick" locator-key1="BACK_TO_ICON" value1="Back" />
+	</command>
+
+	<command name="gotoKBArticleViaKBDisplayHierarchyNavigationPG">
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+
+		<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_NAVIGATION" value1="${kbArticleTitle}" />
+	</command>
+
+	<command name="gotoKBChildArticleViaKBDisplayHierarchyNavigationPG">
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+		<var name="key_kbChildArticleTitle" value="${kbChildArticleTitle}" />
+
+		<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_NAVIGATION" value1="${kbArticleTitle}" />
+		<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_NAVIGATION_CHILD" value1="${kbChildArticleTitle}" />
+	</command>
+
+	<command name="gotoKBGrandchildArticleViaKBDisplayHierarchyNavigationPG">
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+		<var name="key_kbChildArticleTitle" value="${kbChildArticleTitle}" />
+		<var name="key_kbGrandchildArticleTitle" value="${kbGrandchildArticleTitle}" />
+
+		<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_NAVIGATION" value1="${kbArticleTitle}" />
+		<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_NAVIGATION_CHILD" value1="${kbChildArticleTitle}" />
+		<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_NAVIGATION_GRANDCHILD" value1="${kbGrandchildArticleTitle}" />
 	</command>
 
 	<command name="gotoPGViaKBSearchResult">
@@ -470,17 +478,6 @@
 			<else>
 				<execute action="PGKnowledgebasedisplay#assertTextEquals" locator-key1="ARTICLE_NAVIGATION" value1="${kbArticleTitle}" />
 			</else>
-		</if>
-	</command>
-
-	<command name="gotoViaKBDisplayPG">
-		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
-
-		<if>
-			<condition action="PGKnowledgebasedisplay#isElementPresent" locator-key1="ARTICLE_NAVIGATION" />
-			<then>
-				<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_NAVIGATION" value1="${kbArticleTitle}" />
-			</then>
 		</if>
 	</command>
 
@@ -643,7 +640,6 @@
 
 	<command name="subscribeCP">
 		<execute action="CPKnowledgebaseadmin#assertClick" locator-key1="SUBSCRIBE_BUTTON" value1="Subscribe" />
-
 		<execute action="CPKnowledgebaseadmin#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute action="CPKnowledgebaseadmin#assertTextNotEquals" locator-key1="UNSUBSCRIBE_BUTTON" />
 	</command>
@@ -660,7 +656,6 @@
 
 		<if>
 			<condition action="CPKnowledgebaseadmin#isElementPresent" locator-key1="SELECT_ALL_CHECKBOX" />
-
 			<then>
 				<execute action="CPKnowledgebaseadmin#check" locator-key1="SELECT_ALL_CHECKBOX" />
 				<execute action="CPKnowledgebaseadmin#assertClick" locator-key1="ACTIONS_BUTTON" value1="Actions" />
@@ -674,7 +669,6 @@
 
 	<command name="viewArticle1StarRatingPG">
 		<execute action="PGKnowledgebasedisplay#assertTextEquals" locator-key1="AVERAGE_LABEL" value1="Average (1 Vote)" />
-
 		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="YOUR_RATING_STAR_EMPTY_1" />
 		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="YOUR_RATING_STAR_EMPTY_2" />
 		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="YOUR_RATING_STAR_EMPTY_3" />
@@ -682,7 +676,6 @@
 		<execute action="PGKnowledgebasedisplay#assertElementNotPresent" locator-key1="YOUR_RATING_STAR_EMPTY_5" />
 		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="YOUR_RATING_STAR_1" />
 		<execute action="PGKnowledgebasedisplay#assertElementNotPresent" locator-key1="YOUR_RATING_STAR_2" />
-
 		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="AVERAGE_STAR_EMPTY_1" />
 		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="AVERAGE_STAR_EMPTY_2" />
 		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="AVERAGE_STAR_EMPTY_3" />

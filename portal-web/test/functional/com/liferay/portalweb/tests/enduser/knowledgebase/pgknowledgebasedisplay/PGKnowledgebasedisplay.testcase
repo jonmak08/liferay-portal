@@ -46,7 +46,7 @@
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
 
-		<execute macro="KBArticle#gotoViaKBDisplayPG">
+		<execute macro="KBArticle#gotoKBArticleViaKBDisplayHierarchyNavigationPG">
 			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
 		</execute>
 
@@ -61,7 +61,7 @@
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
 
-		<execute macro="KBArticle#gotoViaKBDisplayPG">
+		<execute macro="KBArticle#gotoKBArticleViaKBDisplayHierarchyNavigationPG">
 			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
 		</execute>
 
@@ -101,7 +101,7 @@
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
 
-		<execute macro="KBArticle#gotoViaKBDisplayPG">
+		<execute macro="KBArticle#gotoKBArticleViaKBDisplayHierarchyNavigationPG">
 			<var name="kbArticleTitle" value="Knowledge Base Article Title Child" />
 		</execute>
 
@@ -191,7 +191,7 @@
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
 
-		<execute macro="KBArticle#gotoViaKBDisplayPG">
+		<execute macro="KBArticle#gotoKBArticleViaKBDisplayHierarchyNavigationPG">
 			<var name="kbArticleTitle" value="Knowledge Base Article Title Child" />
 		</execute>
 
@@ -521,7 +521,7 @@
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
 
-		<execute macro="KBArticle#gotoViaKBDisplayPG">
+		<execute macro="KBArticle#gotoKBArticleViaKBDisplayHierarchyNavigationPG">
 			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
 		</execute>
 
@@ -539,7 +539,7 @@
 			<var name="kbArticleTitle3" value="Knowledge Base Article3 Title" />
 		</execute>
 
-		<execute macro="KBArticle#gotoViaKBDisplayHierarchyNavigationPG">
+		<execute macro="KBArticle#gotoKBChildArticleViaKBDisplayHierarchyNavigationPG">
 			<var name="kbArticleTitle" value="Knowledge Base Article2 Title" />
 			<var name="kbChildArticleTitle" value="Knowledge Base Child Article2 Title" />
 		</execute>
@@ -656,7 +656,7 @@
 			<var name="kbArticleTitle1" value="Knowledge Base Article1 Title" />
 		</execute>
 
-		<execute macro="KBArticle#gotoViaKBDisplayPG">
+		<execute macro="KBArticle#gotoKBArticleViaKBDisplayHierarchyNavigationPG">
 			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
 		</execute>
 
