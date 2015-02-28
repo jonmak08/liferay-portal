@@ -55,13 +55,16 @@ import java.io.InputStream;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.io.OutputStream;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
 import java.net.InetAddress;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLStreamHandler;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -77,9 +80,11 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.store.Directory;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -839,7 +844,7 @@ public class LuceneHelperImplTest {
 
 				clusterNode.setPort(_port);
 				clusterNode.setPortalProtocol(_protocol);
-				
+
 				clusterNodeResponse.setClusterNode(clusterNode);
 
 				try {
@@ -972,7 +977,6 @@ public class LuceneHelperImplTest {
 		public void setPort(int port) {
 			_port = port;
 		}
-		
 
 		public void setProtocol(String protocol) {
 			_protocol = protocol;
