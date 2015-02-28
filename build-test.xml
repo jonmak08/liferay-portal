@@ -2392,6 +2392,8 @@ custom.sql.function.isnotnull=CONVERT(VARCHAR,?) IS NOT NULL</echo>
 			</elseif>
 		</if>
 
+		<get-testcase-property property.name="custom.properties" />
+
 		<if>
 			<isset property="custom.properties" />
 			<then>
