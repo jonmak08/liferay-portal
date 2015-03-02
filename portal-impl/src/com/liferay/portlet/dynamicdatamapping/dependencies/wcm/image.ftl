@@ -58,7 +58,6 @@
 
 			var disabled = true;
 
-			var imageAltInputNode = A.one('#${portletNamespace}${namespacedFieldName}Alt');
 			var imageFileInputNode = A.one('#${portletNamespace}${namespacedFieldName}');
 			var imageURLInputNode = A.one('#${portletNamespace}${namespacedFieldName}URL');
 
@@ -70,7 +69,6 @@
 
 			A.one('#${portletNamespace}${namespacedFieldName}DeleteImage').setContent(buttonText);
 
-			imageAltInputNode.attr('disabled', disabled);
 			imageFileInputNode.attr('disabled', disabled);
 			imageURLInputNode.attr('disabled', disabled);
 
