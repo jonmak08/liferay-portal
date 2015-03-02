@@ -50,7 +50,7 @@
 </tr>
 <tr>
 	<td>CHECKBOX_ALL</td>
-	<td>//input[@title='Select All']</td>
+	<td>//input[@title='Select All'] | //input[contains(@name,'allRowIds')]</td>
 	<td></td>
 </tr>
 <tr>
