@@ -137,44 +137,32 @@ public class HttpImplTest extends PowerMockito {
 	@Test
 	public void testNormalizePath() {
 		Assert.assertEquals("/api/axis", HttpUtil.normalizePath("/api/%61xis"));
-
 		Assert.assertEquals(
 			"/api/%2561xis", HttpUtil.normalizePath("/api/%2561xis"));
-
 		Assert.assertEquals(
 			"/api/ax%3Fs", HttpUtil.normalizePath("/api/ax%3fs"));
-
 		Assert.assertEquals(
 			"/api/%2F/axis",
 			HttpUtil.normalizePath("/api/%2f/;x=aaa_%2f_y/axis"));
-
 		Assert.assertEquals(
 			"/api/axis", HttpUtil.normalizePath("/api/;x=aaa_%2f_y/axis"));
-
 		Assert.assertEquals(
 			"/api/axis", HttpUtil.normalizePath("/api/;x=aaa_%5b_y/axis"));
-
 		Assert.assertEquals(
 			"/api/axis",
 			HttpUtil.normalizePath("/api/;x=aaa_LIFERAY_TEMP_SLASH_y/axis"));
-
 		Assert.assertEquals(
 			"/api/axis", HttpUtil.normalizePath("/api///////%2e/../;x=y/axis"));
-
 		Assert.assertEquals(
 			"/api/axis",
 			HttpUtil.normalizePath("/////api///////%2e/a/../;x=y/axis"));
-
 		Assert.assertEquals(
 			"/api/axis",
 			HttpUtil.normalizePath("/////api///////%2e/../;x=y/axis"));
-
 		Assert.assertEquals(
 			"/api/axis", HttpUtil.normalizePath("/api///////%2e/axis"));
-
 		Assert.assertEquals(
 			"/api/axis", HttpUtil.normalizePath("./api///////%2e/axis"));
-
 		Assert.assertEquals(
 			"/api/axis?foo=bar&bar=foo",
 			HttpUtil.normalizePath("./api///////%2e/axis?foo=bar&bar=foo"));
