@@ -668,21 +668,21 @@
 	</command>
 
 	<command name="viewArticle1StarRatingPG">
-		<execute action="PGKnowledgebasedisplay#assertTextEquals" locator-key1="AVERAGE_LABEL" value1="Average (1 Vote)" />
-		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="YOUR_RATING_STAR_EMPTY_1" />
-		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="YOUR_RATING_STAR_EMPTY_2" />
-		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="YOUR_RATING_STAR_EMPTY_3" />
-		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="YOUR_RATING_STAR_EMPTY_4" />
-		<execute action="PGKnowledgebasedisplay#assertElementNotPresent" locator-key1="YOUR_RATING_STAR_EMPTY_5" />
-		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="YOUR_RATING_STAR_1" />
-		<execute action="PGKnowledgebasedisplay#assertElementNotPresent" locator-key1="YOUR_RATING_STAR_2" />
-		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="AVERAGE_STAR_EMPTY_1" />
-		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="AVERAGE_STAR_EMPTY_2" />
-		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="AVERAGE_STAR_EMPTY_3" />
-		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="AVERAGE_STAR_EMPTY_4" />
-		<execute action="PGKnowledgebasedisplay#assertElementNotPresent" locator-key1="AVERAGE_STAR_EMPTY_5" />
-		<execute action="PGKnowledgebasedisplay#assertElementPresent" locator-key1="AVERAGE_STAR_1" />
-		<execute action="PGKnowledgebasedisplay#assertElementNotPresent" locator-key1="AVERAGE_STAR_2" />
+		<execute action="Ratings#assertTextEquals" locator-key1="AVERAGE_LABEL" value1="Average (1 Vote)" />
+		<execute action="Ratings#assertElementPresent" locator-key1="YOUR_RATING_STAR_EMPTY_1" />
+		<execute action="Ratings#assertElementPresent" locator-key1="YOUR_RATING_STAR_EMPTY_2" />
+		<execute action="Ratings#assertElementPresent" locator-key1="YOUR_RATING_STAR_EMPTY_3" />
+		<execute action="Ratings#assertElementPresent" locator-key1="YOUR_RATING_STAR_EMPTY_4" />
+		<execute action="Ratings#assertElementNotPresent" locator-key1="YOUR_RATING_STAR_EMPTY_5" />
+		<execute action="Ratings#assertElementPresent" locator-key1="YOUR_RATING_STAR_1" />
+		<execute action="Ratings#assertElementNotPresent" locator-key1="YOUR_RATING_STAR_2" />
+		<execute action="Ratings#assertElementPresent" locator-key1="AVERAGE_STAR_EMPTY_1" />
+		<execute action="Ratings#assertElementPresent" locator-key1="AVERAGE_STAR_EMPTY_2" />
+		<execute action="Ratings#assertElementPresent" locator-key1="AVERAGE_STAR_EMPTY_3" />
+		<execute action="Ratings#assertElementPresent" locator-key1="AVERAGE_STAR_EMPTY_4" />
+		<execute action="Ratings#assertElementNotPresent" locator-key1="AVERAGE_STAR_EMPTY_5" />
+		<execute action="Ratings#assertElementPresent" locator-key1="AVERAGE_STAR_1" />
+		<execute action="Ratings#assertElementNotPresent" locator-key1="AVERAGE_STAR_2" />
 	</command>
 
 	<command name="viewArticleHistoryPG">
