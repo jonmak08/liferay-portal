@@ -1279,6 +1279,16 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 						friendlyURL);
 				}
 
+				if (layout == null && privateLayout &&
+						layoutsImportMode.equals(
+							PortletDataHandlerKeys.
+								LAYOUTS_IMPORT_MODE_CREATED_FROM_PROTOTYPE)) {
+					layout =
+						LayoutLocalServiceUtil.fetchLayoutByUuidAndGroupId(
+							layoutUuid, portletDataContext.getScopeGroupId(),
+							false);
+				}
+
 				if (layout == null) {
 					if (_log.isWarnEnabled()) {
 						StringBundler sb = new StringBundler(9);
