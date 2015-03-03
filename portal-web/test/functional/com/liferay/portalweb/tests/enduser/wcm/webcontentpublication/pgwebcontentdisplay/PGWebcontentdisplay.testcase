@@ -226,7 +226,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LIFERAYQA-9807" name="AddWebContentViaAddContentPanel" priority="5">
+	<command name="AddWebContentViaAddContentPanel" priority="5">
 		<var name="pageName" value="Web Content Page" />
 		<var name="webContentContent" value="WC WebContent Content" />
 		<var name="webContentTitle" value="WC WebContent Title" />

@@ -36,7 +36,7 @@
 		<execute macro="Site#tearDownCP" />
 	</tear-down>
 
-	<command known-issues="BPR-526" name="PublishCustomPortletTitle" priority="5">
+	<command name="PublishCustomPortletTitle" priority="5">
 		<execute test-case="super#AddSitePagesVariation" />
 
 		<var name="portletName" value="Sites Directory" />
