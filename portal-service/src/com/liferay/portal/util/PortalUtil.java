@@ -124,6 +124,13 @@ public class PortalUtil {
 		getPortal().addPortalPortEventListener(portalPortEventListener);
 	}
 
+	public static void addPortalPortProtocolEventListener(
+			PortalPortProtocolEventListener portalPortProtocolEventListener) {
+
+			getPortal().addPortalPortProtocolEventListener(
+					portalPortProtocolEventListener);
+	}
+
 	public static void addPortletBreadcrumbEntry(
 		HttpServletRequest request, String title, String url) {
 

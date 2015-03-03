@@ -15,10 +15,10 @@
 package com.liferay.portal.util;
 
 /**
- * @author Michael C. Han
+ * @author Juan Gonzalez
  */
-public interface PortalPortEventListener {
+public interface PortalPortProtocolEventListener {
 
-	public void portalPortConfigured(int port);
+	public void portalPortProtocolConfigured(int port, Boolean secure);
 
 }

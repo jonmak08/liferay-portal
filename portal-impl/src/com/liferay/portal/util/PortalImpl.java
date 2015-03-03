@@ -565,6 +565,18 @@ public class PortalImpl implements Portal {
 	}
 
 	@Override
+	public void addPortalPortProtocolEventListener(
+		PortalPortProtocolEventListener portalPortProtocolEventListener) {
+
+		if (!_portalPortProtocolEventListeners.contains(
+				portalPortProtocolEventListener)) {
+
+			_portalPortProtocolEventListeners.add(
+					portalPortProtocolEventListener);
+		}
+	}
+
+	@Override
 	public void addPortletBreadcrumbEntry(
 		HttpServletRequest request, String title, String url) {
 
@@ -6717,7 +6729,9 @@ public class PortalImpl implements Portal {
 					StringUtil.equalsIgnoreCase(
 						Http.HTTPS, PropsValues.WEB_SERVER_PROTOCOL)) {
 
-					notifyPortalPortEventListeners(securePortalPort, true);
+					notifyPortalPortEventListeners(securePortalPort);
+					notifyPortalPortProtocolEventListeners(
+							securePortalPort, true);
 				}
 			}
 		}
@@ -6726,7 +6740,8 @@ public class PortalImpl implements Portal {
 				int portalPort = request.getServerPort();
 
 				if (_portalPort.compareAndSet(-1, portalPort)) {
-					notifyPortalPortEventListeners(portalPort, false);
+					notifyPortalPortEventListeners(portalPort);
+					notifyPortalPortProtocolEventListeners(portalPort, false);
 				}
 			}
 		}
@@ -7796,16 +7811,20 @@ public class PortalImpl implements Portal {
 	}
 
 	protected void notifyPortalPortEventListeners(int portalPort) {
-		notifyPortalPortEventListeners(portalPort, null);
-	}
-
-	protected void notifyPortalPortEventListeners(
-		int portalPort, Boolean secure) {
-
 		for (PortalPortEventListener portalPortEventListener :
 				_portalPortEventListeners) {
 
-			portalPortEventListener.portalPortProtocolConfigured(
+			portalPortEventListener.portalPortConfigured(portalPort);
+		}
+	}
+
+	protected void notifyPortalPortProtocolEventListeners(
+		int portalPort, Boolean secure) {
+
+		for (PortalPortProtocolEventListener portalPortProtocolEventListener :
+				_portalPortProtocolEventListeners) {
+
+			portalPortProtocolEventListener.portalPortProtocolConfigured(
 				portalPort, secure);
 		}
 	}
@@ -7917,6 +7936,9 @@ public class PortalImpl implements Portal {
 	private final AtomicInteger _portalPort = new AtomicInteger(-1);
 	private List<PortalPortEventListener> _portalPortEventListeners =
 		new ArrayList<PortalPortEventListener>();
+	private List<PortalPortProtocolEventListener>
+			_portalPortProtocolEventListeners =
+				new ArrayList<PortalPortProtocolEventListener>();
 	private Set<String> _reservedParams;
 	private final AtomicInteger _securePortalPort = new AtomicInteger(-1);
 	private final String _servletContextName;

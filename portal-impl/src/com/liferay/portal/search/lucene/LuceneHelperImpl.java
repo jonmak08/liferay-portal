@@ -848,6 +848,19 @@ public class LuceneHelperImpl implements LuceneHelper {
 				throw new Exception(sb.toString());
 			}
 
+			String protocol = clusterNode.getPortalProtocol();
+
+			if (Validator.isNull(protocol)) {
+				StringBundler sb = new StringBundler(4);
+
+				sb.append("Cluster node protocol is empty.");
+				sb.append("The protocol is set by the first request or ");
+				sb.append("configured in portal.properties by the property ");
+				sb.append("\"portal.instance.protocol\"");
+
+				throw new Exception(sb.toString());
+			}
+
 			InetAddress inetAddress = clusterNode.getInetAddress();
 
 			String fileName = PortalUtil.getPathContext();
@@ -859,8 +872,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 			fileName = fileName.concat("lucene/dump");
 
 			URL url = new URL(
-				clusterNode.getPortalProtocol(), inetAddress.getHostAddress(),
-				port, fileName);
+				protocol, inetAddress.getHostAddress(), port, fileName);
 
 			String transientToken = (String)clusterNodeResponse.getResult();
 
