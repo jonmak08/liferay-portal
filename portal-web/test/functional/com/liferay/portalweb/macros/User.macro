@@ -120,7 +120,7 @@
 		</if>
 
 		<execute action="CPUsersandorganizationsAdduser#type" locator-key1="DETAILS_LAST_NAME_FIELD" value1="${userLastName}" />
-		<execute action="CPUsersandorganizationsAdduser#assertClick" locator-key1="SAVE" value1="Save" />
+		<execute action="CPUsersandorganizationsAdduser#assertClickNoError" locator-key1="SAVE" value1="Save" />
 
 		<if>
 			<equals arg1="${userEmailAddressVariation}" arg2="Invalid" />

@@ -286,6 +286,8 @@
 		</execute>
 
 		<execute action="CPSitepages#assertClick" locator-key1="TOOLBAR_EXPORT" value1="Export" />
+
+		<execute action="CPSitepagesExport#selectFrame" locator-key1="EXPORT_IFRAME" />
 	</command>
 
 	<command name="gotoImportSiteCmd">
