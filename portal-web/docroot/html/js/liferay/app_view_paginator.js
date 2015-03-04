@@ -162,7 +162,13 @@ AUI.add(
 								total: totalEntryPages,
 								visible: totalEntryPages > 1
 							}
-						).render();
+						);
+
+						if (config.entryRowsPerPageOptions) {
+							entryPagination.set('itemsPerPageList', config.entryRowsPerPageOptions);
+						}
+
+						entryPagination.render();
 
 						entryPagination.after(STR_CHANGE_REQUEST, instance._afterEntryPaginationChangeRequest, instance);
 
@@ -191,7 +197,13 @@ AUI.add(
 								total: totalFolderPages,
 								visible: totalFolderPages > 1
 							}
-						).render();
+						);
+
+						if (config.folderRowsPerPageOptions) {
+							entryPagination.set('itemsPerPageList', config.folderRowsPerPageOptions);
+						}
+
+						folderPagination.render();
 
 						folderPagination.after(STR_CHANGE_REQUEST, instance._afterFolderPaginationChangeRequest, instance);
 
