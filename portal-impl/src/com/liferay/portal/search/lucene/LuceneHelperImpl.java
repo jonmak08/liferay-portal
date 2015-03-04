@@ -853,9 +853,9 @@ public class LuceneHelperImpl implements LuceneHelper {
 			if (Validator.isNull(protocol)) {
 				StringBundler sb = new StringBundler(4);
 
-				sb.append("Cluster node protocol is empty.");
-				sb.append("The protocol is set by the first request or ");
-				sb.append("configured in portal.properties by the property ");
+				sb.append("Cluster node protocol is empty. The protocol is ");
+				sb.append("set by the first request or configured in ");
+				sb.append("portal.properties by the property ");
 				sb.append("\"portal.instance.protocol\"");
 
 				throw new Exception(sb.toString());

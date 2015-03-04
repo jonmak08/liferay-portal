@@ -164,6 +164,7 @@ public abstract class BaseClusterExecutorImplTestCase
 
 			return proceedingJoinPoint.proceed(new Object[] {PORTAL_PROTOCOL});
 		}
+
 	}
 
 	@Aspect
@@ -181,6 +182,7 @@ public abstract class BaseClusterExecutorImplTestCase
 			return proceedingJoinPoint.proceed(
 				new Object[] {SECURE_PORTAL_PROTOCOL});
 		}
+
 	}
 
 	@Aspect

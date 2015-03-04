@@ -125,10 +125,10 @@ public class PortalUtil {
 	}
 
 	public static void addPortalPortProtocolEventListener(
-			PortalPortProtocolEventListener portalPortProtocolEventListener) {
+		PortalPortProtocolEventListener portalPortProtocolEventListener) {
 
-			getPortal().addPortalPortProtocolEventListener(
-					portalPortProtocolEventListener);
+		getPortal().addPortalPortProtocolEventListener(
+			portalPortProtocolEventListener);
 	}
 
 	public static void addPortletBreadcrumbEntry(

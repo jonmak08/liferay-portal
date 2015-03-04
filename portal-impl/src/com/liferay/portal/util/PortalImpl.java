@@ -6731,7 +6731,7 @@ public class PortalImpl implements Portal {
 
 					notifyPortalPortEventListeners(securePortalPort);
 					notifyPortalPortProtocolEventListeners(
-							securePortalPort, true);
+						securePortalPort, true);
 				}
 			}
 		}
