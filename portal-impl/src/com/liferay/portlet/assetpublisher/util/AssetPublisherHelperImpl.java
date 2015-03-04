@@ -42,8 +42,7 @@ public class AssetPublisherHelperImpl implements AssetPublisherHelper {
 			liferayPortletRequest, liferayPortletResponse, assetEntry, false);
 	}
 
-	@Override
-	public String getAssetViewURL(
+	public static String getAssetViewURL(
 		LiferayPortletRequest liferayPortletRequest,
 		LiferayPortletResponse liferayPortletResponse, AssetEntry assetEntry,
 		boolean viewInContext) {

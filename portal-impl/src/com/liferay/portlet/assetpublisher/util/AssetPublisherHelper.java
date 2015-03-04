@@ -27,9 +27,4 @@ public interface AssetPublisherHelper {
 		LiferayPortletRequest liferayPortletRequest,
 		LiferayPortletResponse liferayPortletResponse, AssetEntry assetEntry);
 
-	public String getAssetViewURL(
-		LiferayPortletRequest liferayPortletRequest,
-		LiferayPortletResponse liferayPortletResponse, AssetEntry assetEntry,
-		boolean viewInContext);
-
 }
