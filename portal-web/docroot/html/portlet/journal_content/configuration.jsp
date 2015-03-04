@@ -160,6 +160,7 @@ catch (NoSuchArticleException nsae) {
 
 	headerNames.add("id");
 	headerNames.add("title");
+	headerNames.add("status");
 	headerNames.add("modified-date");
 	headerNames.add("display-date");
 	headerNames.add("author");
@@ -217,6 +218,10 @@ catch (NoSuchArticleException nsae) {
 		// Title
 
 		row.addText(HtmlUtil.escape(curArticle.getTitle(locale)), rowHREF);
+
+		// Status
+
+		row.addStatus(curArticle.getStatus(), curArticle.getStatusByUserId(), curArticle.getStatusDate());
 
 		// Modified date
 
