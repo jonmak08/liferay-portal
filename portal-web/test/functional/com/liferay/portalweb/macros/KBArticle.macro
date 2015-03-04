@@ -102,7 +102,15 @@
 			</then>
 		</if>
 
-		<execute action="CPKnowledgebaseadminAddarticle#assertClick" locator-key1="PUBLISH_BUTTON" value1="Publish" />
+		<if>
+			<equals arg1="${kbWorkflowAction}" arg2="Submit for Publication" />
+			<then>
+				<execute function="AssertClick" locator1="CPKnowledgebaseadminAddarticle#SUBMIT_FOR_PUBLICATION_BUTTON" value1="Submit for Publication" />
+			</then>
+			<else>
+				<execute function="AssertClick" locator1="CPKnowledgebaseadminAddarticle#PUBLISH_BUTTON" value1="Publish" />
+			</else>
+		</if>
 
 		<if>
 			<equals arg1="${kbArticleInvalidTitle}" arg2="true" />
@@ -790,6 +798,14 @@
 		<execute action="CPKnowledgebaseadmin#assertTextEquals" locator-key1="ARTICLE_TABLE_PRIORITY" value1="${kbPriority}" />
 		<execute action="CPKnowledgebaseadmin#assertTextEquals" locator-key1="ARTICLE_TABLE_TITLE" value1="${kbArticleTitle}" />
 		<execute action="CPKnowledgebaseadmin#assertTextEquals" locator-key1="ARTICLE_TABLE_AUTHOR" value1="${kbAuthor}" />
+
+		<if>
+			<equals arg1="${kbWorkflowStatus}" arg2="Pending" />
+			<then>
+				<execute function="AssertTextEquals" locator1="CPKnowledgebaseadmin#ARTICLE_TABLE_STATUS" value1="Pending" />
+			</then>
+		</if>
+
 		<execute action="CPKnowledgebaseadmin#click" locator-key1="ARTICLE_TABLE_ACTIONS" />
 		<execute action="CPKnowledgebaseadmin#assertClick" locator-key1="ARTICLE_MENULIST_VIEW" value1="View" />
 
