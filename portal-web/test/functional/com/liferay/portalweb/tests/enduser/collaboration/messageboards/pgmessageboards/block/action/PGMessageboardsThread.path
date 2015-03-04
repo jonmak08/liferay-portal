@@ -308,6 +308,16 @@
 	<td></td>
 </tr>
 <tr>
+	<td>MESSAGE_RATING_GUEST_SIGN_IN_1</td>
+	<td>xpath=(//div/a[contains(.,'Sign in to vote.')])[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MESSAGE_RATING_GUEST_SIGN_IN_2</td>
+	<td>xpath=(//div/a[contains(.,'Sign in to vote.')])[2]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>MESSAGE_RATING_1</td>
 	<td>xpath=(//div[contains(@id,'ratingThumbContent')]/div)[1]</td>
 	<td></td>

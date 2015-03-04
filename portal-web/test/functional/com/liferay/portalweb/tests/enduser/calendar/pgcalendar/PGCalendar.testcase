@@ -89,7 +89,7 @@
 			<var name="eventTitle" value="${eventTitle}" />
 			<var name="eventType" value="${eventType}" />
 			<var name="site" value="${site}" />
-			<var name="user" value="${user}" />
+			<var name="user" value="Test Test" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -102,7 +102,7 @@
 			<var name="eventTitle" value="${eventTitle}" />
 			<var name="eventType" value="${eventType}" />
 			<var name="site" value="${site}" />
-			<var name="user" value="${user}" />
+			<var name="user" value="Test Test" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -337,7 +337,7 @@
 			<var name="eventTitle" value="${eventTitle}" />
 			<var name="eventType" value="${eventType}" />
 			<var name="site" value="${site}" />
-			<var name="user" value="${user}" />
+			<var name="user" value="Test Test" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -350,7 +350,7 @@
 			<var name="eventTitle" value="${eventTitle}" />
 			<var name="eventType" value="${eventType}" />
 			<var name="site" value="${site}" />
-			<var name="user" value="${user}" />
+			<var name="user" value="Test Test" />
 		</execute>
 
 		<execute macro="Page#gotoPG">

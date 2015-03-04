@@ -228,7 +228,6 @@
 			<elseif>
 				<equals arg1="${eventType}" arg2="Repeating" />
 				<then>
-
 					<var locator-key="END_DATE" name="endDate" path="PGCalendarAddevent" />
 					<var locator-key="END_DATE_TIME" name="endDateTime" path="PGCalendarAddevent" />
 					<var locator-key="START_DATE" name="startDate" path="PGCalendarAddevent" />
