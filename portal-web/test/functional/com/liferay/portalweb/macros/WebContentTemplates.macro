@@ -230,7 +230,7 @@
 		<if>
 			<isset var="templateScript" />
 			<then>
-				<execute function="AssertTextEquals" locator1="CPWebcontentTemplatesEdittemplate#SCRIPT_CONTENT_TEXT_LAYER" value1="${templateScript}" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="CPWebcontentTemplatesEdittemplate#SCRIPT_CONTENT_TEXT_LAYER" value1="${templateScript}" />
 			</then>
 		</if>
 	</command>
