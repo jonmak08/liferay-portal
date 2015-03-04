@@ -98,15 +98,7 @@
 		<if>
 			<isset var="kbArticleAttachment" />
 			<then>
-				<if>
-					<condition action="CPKnowledgebaseadminAddarticle#isElementNotPresent" locator-key1="ATTACHMENTS_HEADER_EXPANDED" />
-					<then>
-						<execute action="CPKnowledgebaseadminAddarticle#click" locator-key1="ATTACHMENTS_HEADER_COLLAPSED" />
-					</then>
-				</if>
-
-				<execute action="CPKnowledgebaseadminAddarticle#assertClick" locator-key1="ATTACHMENTS_SELECT_FILES_BUTTON" value1="Select Files" />
-				<execute action="OS#sikuliUploadCommonFile" locator-key1="FILE_DIALOG_BOX_FILE_NAME_FIELD_PNG" value1="${kbArticleAttachment}" />
+				<execute macro="KBArticle#selectAttachmentCP" />
 			</then>
 		</if>
 
@@ -381,15 +373,7 @@
 		<if>
 			<isset var="kbArticleAttachment" />
 			<then>
-				<if>
-					<condition action="CPKnowledgebaseadminAddarticle#isElementNotPresent" locator-key1="ATTACHMENTS_HEADER_EXPANDED" />
-					<then>
-						<execute action="CPKnowledgebaseadminAddarticle#click" locator-key1="ATTACHMENTS_HEADER_COLLAPSED" />
-					</then>
-				</if>
-
-				<execute action="CPKnowledgebaseadminAddarticle#assertClick" locator-key1="ATTACHMENTS_SELECT_FILES_BUTTON" value1="Select Files" />
-				<execute action="OS#sikuliUploadCommonFile" locator-key1="FILE_DIALOG_BOX_FILE_NAME_FIELD_PNG" value1="${kbArticleAttachment}" />
+				<execute macro="KBArticle#selectAttachmentCP" />
 			</then>
 		</if>
 
@@ -590,6 +574,19 @@
 		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
 
 		<execute action="CPKnowledgebaseadmin#check" locator-key1="ARTICLE_TABLE_CHECKBOX" />
+	</command>
+
+	<command name="selectAttachmentCP">
+		<if>
+			<condition action="CPKnowledgebaseadminAddarticle#isElementNotPresent" locator-key1="ATTACHMENTS_HEADER_EXPANDED" />
+			<then>
+				<execute action="CPKnowledgebaseadminAddarticle#click" locator-key1="ATTACHMENTS_HEADER_COLLAPSED" />
+			</then>
+		</if>
+
+		<execute action="CPKnowledgebaseadminAddarticle#assertClick" locator-key1="ATTACHMENTS_SELECT_FILES_BUTTON" value1="Select Files" />
+
+		<execute action="OS#sikuliUploadCommonFile" locator-key1="FILE_DIALOG_BOX_FILE_NAME_FIELD_PNG" value1="${kbArticleAttachment}" />
 	</command>
 
 	<command name="selectParentArticleCP">

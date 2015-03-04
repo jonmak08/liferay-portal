@@ -1179,7 +1179,7 @@
 			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 		</execute>
 
-		<execute macro="KBArticleSuggestion#add">
+		<execute macro="KBArticleSuggestion#addPG">
 			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 			<var name="kbSuggestionBody" value="Knowledge Base Article Suggestion" />
 		</execute>
@@ -1394,7 +1394,7 @@
 			<var name="portletName" value="Knowledge Base Display" />
 		</execute>
 
-		<execute macro="KBArticleSuggestion#add">
+		<execute macro="KBArticleSuggestion#addPG">
 			<var name="kbArticleTitle" value="${kbArticleTitle}" />
 			<var name="kbSuggestionBody" value="${kbSuggestionBody}" />
 		</execute>

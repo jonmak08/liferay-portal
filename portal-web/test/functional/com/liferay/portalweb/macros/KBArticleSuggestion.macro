@@ -1,25 +1,21 @@
 <definition>
-	<command name="add">
+	<command name="addPG">
 		<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_DO_YOU_HAVE_ANY_SUGGESTIONS_LINK" value1="Do you have any suggestions?" />
 		<execute action="PGKnowledgebasedisplay#type" locator-key1="SUGGESTION_CONTENT_FIELD" value1="${kbSuggestionBody}" />
 		<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="SUGGESTION_SUBMIT_BUTTON" value1="Submit" />
 		<execute action="PGKnowledgebasedisplay#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Suggestion saved successfully." />
 	</command>
 
-	<command name="cancelSuggestion">
+	<command name="cancelSuggestionPG">
 		<execute action="PGKnowledgebasearticle#assertTextEquals" locator-key1="ARTICLE_TITLE" value1="${kbArticleTitle}" />
 		<execute action="PGKnowledgebasearticle#assertTextEquals" locator-key1="ARTICLE_CONTENT" value1="${kbArticleContent}" />
+
+		<var name="key_kbSuggestionBody" value="${kbSuggestionBody}" />
 
 		<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_DO_YOU_HAVE_ANY_SUGGESTIONS_LINK" value1="Do you have any suggestions?" />
 		<execute action="PGKnowledgebasedisplay#type" locator-key1="SUGGESTION_CONTENT_FIELD" value1="${kbSuggestionBody}" />
 		<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="SUGGESTION_CANCEL_BUTTON" value1="Cancel" />
-
 		<execute action="PGKnowledgebasedisplay#assertNotVisible" locator-key1="SUGGESTION_CONTENT_FIELD" />
-
-		<execute action="PGKnowledgebasedisplay#assertNotVisible" locator-key1="SUGGESTION_CONTENT_FIELD" />
-
-		<var name="key_kbSuggestionBody" value="${kbSuggestionBody}" />
-
 		<execute action="PGKnowledgebasedisplay#assertElementNotPresent" locator-key1="SUGGESTION_CONTENT" value1="${kbSuggestionBody}" />
 	</command>
 
@@ -140,14 +136,13 @@
 		</if>
 	</command>
 
-	<command name="viewNoDuplicateSuggestion">
+	<command name="viewNoDuplicatePG">
 		<var name="key_kbSuggestionBody" value="${kbSuggestionBody}" />
 
 		<execute action="PGKnowledgebasedisplay#assertTextEquals" locator-key1="ARTICLE_THERE_ARE_SUGGESTIONS_LINK" value1="${kbThereAreSuggestionsLink}" />
 		<execute action="PGKnowledgebasedisplay#assertTextEquals" locator-key1="SUGGESTION_USER_NAME" value1="${userName}" />
 		<execute action="PGKnowledgebasedisplay#assertTextEquals" locator-key1="SUGGESTION_CONTENT" value1="${kbSuggestionBody}" />
 		<execute action="PGKnowledgebasedisplay#assertTextEquals" locator-key1="SUGGESTION_STATUS" value1="Status: ${status}" />
-
 		<execute action="PGKnowledgebasedisplay#assertElementNotPresent" locator-key1="SUGGESTION_CONTENT_DUPLICATE" value1="${kbSuggestionBody}" />
 	</command>
 
