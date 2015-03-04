@@ -27,6 +27,7 @@ page import="com.liferay.portlet.asset.model.AssetTagProperty" %><%@
 page import="com.liferay.portlet.asset.service.AssetTagPropertyLocalServiceUtil" %><%@
 page import="com.liferay.portlet.assetpublisher.search.AssetDisplayTerms" %><%@
 page import="com.liferay.portlet.assetpublisher.search.AssetSearch" %><%@
+page import="com.liferay.portlet.assetpublisher.util.AssetPublisherHelperImpl" %><%@
 page import="com.liferay.portlet.assetpublisher.util.AssetPublisherHelperUtil" %><%@
 page import="com.liferay.portlet.assetpublisher.util.AssetPublisherUtil" %><%@
 page import="com.liferay.portlet.dynamicdatamapping.util.DDMImpl" %><%@

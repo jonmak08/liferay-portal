@@ -35,7 +35,7 @@ boolean show = ((Boolean)request.getAttribute("view.jsp-show")).booleanValue();
 
 request.setAttribute("view.jsp-showIconLabel", false);
 
-String viewURL = AssetPublisherHelperUtil.getAssetViewURL(liferayPortletRequest, liferayPortletResponse, assetEntry, viewInContext);
+String viewURL = AssetPublisherHelperImpl.getAssetViewURL(liferayPortletRequest, liferayPortletResponse, assetEntry, viewInContext);
 %>
 
 	<c:if test="<%= assetEntryIndex == 0 %>">

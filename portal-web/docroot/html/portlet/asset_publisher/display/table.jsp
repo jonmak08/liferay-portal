@@ -40,7 +40,7 @@ boolean show = ((Boolean)request.getAttribute("view.jsp-show")).booleanValue();
 
 PortletURL editPortletURL = assetRenderer.getURLEdit(liferayPortletRequest, liferayPortletResponse);
 
-String viewURL = AssetPublisherHelperUtil.getAssetViewURL(liferayPortletRequest, liferayPortletResponse, assetEntry, viewInContext);
+String viewURL = AssetPublisherHelperImpl.getAssetViewURL(liferayPortletRequest, liferayPortletResponse, assetEntry, viewInContext);
 
 request.setAttribute("view.jsp-showIconLabel", false);
 %>
