@@ -1,7 +1,0 @@
-<definition>
-	<command name="click">
-		<case locator-key1="MAX_ENTRIES_DISPLAY_DROPDOWN">
-			<execute function="Click#clickAt" />
-		</case>
-	</command>
-</definition>

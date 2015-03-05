@@ -1,7 +1,0 @@
-<definition>
-	<command name="assertTextEquals">
-		<case locator-key1="SPI_CONFIGURATIONS_SPI_APPLICATIONS_CURRENT_SELECT">
-			<execute function="AssertTextEquals#assertValue" />
-		</case>
-	</command>
-</definition>
