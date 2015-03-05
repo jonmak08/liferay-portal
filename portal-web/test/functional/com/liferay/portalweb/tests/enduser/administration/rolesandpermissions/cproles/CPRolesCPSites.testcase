@@ -377,7 +377,7 @@
 		<execute function="AssertClick" locator1="CPSites#SITE_MENULIST_ADD_CHILD_SITE" value1="Add Child Site" />
 
 		<execute function="Type" locator1="CPSitesAdd#DETAILS_NAME" value1="${childSiteName2}" />
-		<execute function="Click#textClickAtAndWait" locator1="CPSitesAdd#MENU_SAVE" />
+		<execute function="Click#textClickAtAndWait" locator1="CPSitesAdd#MENU_SAVE" value1="Save" />
 
 		<execute function="AssertClick" locator1="CPSitesEdit#SAVE_BUTTON" value1="Save" />
 		<execute function="AssertTextEquals#assertText" locator1="CPSitesEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />

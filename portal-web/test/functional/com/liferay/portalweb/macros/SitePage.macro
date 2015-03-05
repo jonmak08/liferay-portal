@@ -10,12 +10,12 @@
 		<if>
 			<equals arg1="${sitePagePrivacy}" arg2="Private" />
 			<then>
-				<execute function="Click#textClickAtAndWait" locator1="CPSitepages#NAVIGATION_PRIVATE_PAGES" />
+				<execute function="Click#textClickAtAndWait" locator1="CPSitepages#NAVIGATION_PRIVATE_PAGES" value1="Private Pages" />
 			</then>
 			<elseif>
 				<equals arg1="${sitePagePrivacy}" arg2="Public" />
 				<then>
-					<execute function="Click#textClickAtAndWait" locator1="CPSitepages#NAVIGATION_PUBLIC_PAGES" />
+					<execute function="Click#textClickAtAndWait" locator1="CPSitepages#NAVIGATION_PUBLIC_PAGES" value1="Public Pages" />
 				</then>
 			</elseif>
 			<else>
@@ -26,10 +26,10 @@
 		<execute macro="SitePage#expandRootCP" />
 
 		<execute function="Click" locator1="CPSitepages#PAGE_TREE_PAGE_LINK_1" />
-		<execute function="Click#textClickAt" locator1="CPSitepages#TOOLBAR_ADD_CHILD_PAGE" />
+		<execute function="Click#textClickAt" locator1="CPSitepages#TOOLBAR_ADD_CHILD_PAGE" value1="Add Child Page" />
 
 		<execute function="Type#clickAtSendKeys" locator1="CPSitepagesAddpage#ADD_PAGE_NAME_FIELD" value1="${siteChildPageName}" />
-		<execute function="Click#textClickAtAndWait" locator1="CPSitepagesAddpage#ADD_PAGE_BUTTON" />
+		<execute function="Click#textClickAtAndWait" locator1="CPSitepagesAddpage#ADD_PAGE_BUTTON" value1="Add Page" />
 		<execute function="AssertTextEquals#assertText" locator1="CPSitepages#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -51,12 +51,12 @@
 		<if>
 			<equals arg1="${sitePagePrivacy}" arg2="Private" />
 			<then>
-				<execute function="Click#textClickAtAndWait" locator1="CPSitepages#NAVIGATION_PRIVATE_PAGES" />
+				<execute function="Click#textClickAtAndWait" locator1="CPSitepages#NAVIGATION_PRIVATE_PAGES" value1="Private Pages" />
 			</then>
 			<elseif>
 				<equals arg1="${sitePagePrivacy}" arg2="Public" />
 				<then>
-					<execute function="Click#textClickAtAndWait" locator1="CPSitepages#NAVIGATION_PUBLIC_PAGES" />
+					<execute function="Click#textClickAtAndWait" locator1="CPSitepages#NAVIGATION_PUBLIC_PAGES" value1="Public Pages" />
 				</then>
 			</elseif>
 			<else>
@@ -64,7 +64,7 @@
 			</else>
 		</if>
 
-		<execute function="Click#textClickAt" locator1="CPSitepages#TOOLBAR_ADD_PAGE" />
+		<execute function="Click#textClickAt" locator1="CPSitepages#TOOLBAR_ADD_PAGE" value1="Add Page" />
 
 		<execute function="Type#clickAtSendKeys" locator1="CPSitepagesAddpage#ADD_PAGE_NAME_FIELD" value1="${sitePageName}" />
 
@@ -90,7 +90,7 @@
 			</then>
 		</if>
 
-		<execute function="Click#textClickAtAndWait" locator1="CPSitepagesAddpage#ADD_PAGE_BUTTON" />
+		<execute function="Click#textClickAtAndWait" locator1="CPSitepagesAddpage#ADD_PAGE_BUTTON" value1="Add Page" />
 
 		<execute function="AssertTextEquals#assertText" locator1="CPSitepages#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
