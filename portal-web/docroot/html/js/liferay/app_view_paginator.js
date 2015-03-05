@@ -156,19 +156,14 @@ AUI.add(
 								boundingBox: instance.get('entryPaginationContainer'),
 								circular: false,
 								itemsPerPage: entryRowsPerPage,
+								itemsPerPageList: instance.get('entryRowsPerPageOptions'),
 								namespace: instance.NS,
 								page: entryPage,
 								results: entriesTotal,
 								total: totalEntryPages,
 								visible: totalEntryPages > 1
 							}
-						);
-
-						if (config.entryRowsPerPageOptions) {
-							entryPagination.set('itemsPerPageList', config.entryRowsPerPageOptions);
-						}
-
-						entryPagination.render();
+						).render();
 
 						entryPagination.after(STR_CHANGE_REQUEST, instance._afterEntryPaginationChangeRequest, instance);
 
@@ -191,19 +186,14 @@ AUI.add(
 								boundingBox: instance.get('folderPaginationContainer'),
 								circular: false,
 								itemsPerPage: folderRowsPerPage,
+								itemsPerPageList: instance.get('folderRowsPerPageOptions'),
 								namespace: instance.NS,
 								page: folderPage,
 								results: foldersTotal,
 								total: totalFolderPages,
 								visible: totalFolderPages > 1
 							}
-						);
-
-						if (config.folderRowsPerPageOptions) {
-							entryPagination.set('itemsPerPageList', config.folderRowsPerPageOptions);
-						}
-
-						folderPagination.render();
+						).render();
 
 						folderPagination.after(STR_CHANGE_REQUEST, instance._afterFolderPaginationChangeRequest, instance);
 
