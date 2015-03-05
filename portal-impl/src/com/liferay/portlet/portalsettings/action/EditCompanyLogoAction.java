@@ -29,10 +29,13 @@ import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.upload.UploadException;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
+import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.Constants;
+import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.MimeTypesUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StreamUtil;
+import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.TempFileUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Company;
@@ -50,7 +53,9 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 
+import java.io.File;
 import java.io.InputStream;
+import java.io.PushbackInputStream;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -142,8 +147,27 @@ public class EditCompanyLogoAction extends PortletAction {
 				FileEntry tempFileEntry = getTempImageFileEntry(
 					resourceRequest);
 
-				serveTempImageFile(
-					resourceResponse, tempFileEntry.getContentStream());
+				InputStream inputStream = tempFileEntry.getContentStream();
+
+				PushbackInputStream pushbackInputStream =
+					new PushbackInputStream(inputStream, 3);
+
+				byte[] magicBytes = new byte[3];
+
+				pushbackInputStream.read(magicBytes);
+
+				pushbackInputStream.unread(magicBytes);
+
+				inputStream = pushbackInputStream;
+
+				if (ArrayUtil.containsAll(_FLASH_MAGIC_BYTES[0], magicBytes) ||
+					ArrayUtil.containsAll(_FLASH_MAGIC_BYTES[1], magicBytes) ||
+					ArrayUtil.containsAll(_FLASH_MAGIC_BYTES[2], magicBytes)) {
+
+					return;
+				}
+
+				serveTempImageFile(resourceResponse, inputStream);
 			}
 		}
 		catch (NoSuchFileEntryException nsfee) {
@@ -164,6 +188,18 @@ public class EditCompanyLogoAction extends PortletAction {
 
 		String contentType = uploadPortletRequest.getContentType("fileName");
 
+		String fileName = uploadPortletRequest.getFileName("fileName");
+
+		File file = uploadPortletRequest.getFile("fileName");
+
+		String mimeType = MimeTypesUtil.getContentType(file, fileName);
+
+		if (!StringUtil.equalsIgnoreCase(
+				ContentTypes.APPLICATION_OCTET_STREAM, mimeType)) {
+
+			contentType = mimeType;
+		}
+
 		if (!MimeTypesUtil.isWebImage(contentType)) {
 			throw new ImageTypeException();
 		}
@@ -176,19 +212,10 @@ public class EditCompanyLogoAction extends PortletAction {
 		catch (Exception e) {
 		}
 
-		InputStream inputStream = null;
-
-		try {
-			inputStream = uploadPortletRequest.getFileAsStream("fileName");
-
-			TempFileUtil.addTempFile(
-				themeDisplay.getScopeGroupId(), themeDisplay.getUserId(),
-				getTempImageFileName(portletRequest), getTempImageFolderName(),
-				inputStream, contentType);
-		}
-		finally {
-			StreamUtil.cleanUp(inputStream);
-		}
+		TempFileUtil.addTempFile(
+			themeDisplay.getScopeGroupId(), themeDisplay.getUserId(),
+			getTempImageFileName(portletRequest), getTempImageFolderName(),
+			file, contentType);
 	}
 
 	protected RenderedImage getCroppedRenderedImage(
@@ -319,6 +346,9 @@ public class EditCompanyLogoAction extends PortletAction {
 
 		PortletResponseUtil.write(mimeResponse, bytes);
 	}
+
+	private static final byte[][] _FLASH_MAGIC_BYTES =
+		{{0x46, 0x57, 0x53}, {0x43, 0x57, 0x53}, {0x5a, 0x57, 0x53}};
 
 	private static Log _log = LogFactoryUtil.getLog(
 		EditCompanyLogoAction.class);
