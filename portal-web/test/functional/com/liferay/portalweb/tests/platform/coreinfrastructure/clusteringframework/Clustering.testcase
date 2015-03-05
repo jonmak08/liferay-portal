@@ -116,7 +116,7 @@
 			<var name="portletName" value="Recycle Bin" />
 		</execute>
 
-		<execute action="Home#pause" locator1="3000" />
+		<execute function="#pause" locator1="3000" />
 
 		<execute macro="RecycleBin#emptyCP" />
 

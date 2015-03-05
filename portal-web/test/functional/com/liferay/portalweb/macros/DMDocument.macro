@@ -154,7 +154,7 @@
 					<var name="key_dmDocumentFile" value="${dmDocumentFile}" />
 
 					<execute action="PGDocumentsandmediaAddmultipledocuments#assertClick" locator-key1="SELECT_FILES_BUTTON" value1="Select Files" />
-					<execute action="PGDocumentsandmediaAddmultipledocuments#pause" locator1="15000" />
+					<execute function="#pause" locator1="15000" />
 
 					<if>
 						<equals arg1="${uploadTempFile}" arg2="true" />
@@ -759,7 +759,7 @@
 		<if>
 			<equals arg1="${checkedOut}" arg2="true" />
 			<then>
-				<execute action="PGDocumentsandmedia#assertTextEquals" locator1="//h3[@class='header-title']" value1="Error" />
+				<execute function="#assertTextEquals" locator1="//h3[@class='header-title']" value1="Error" />
 				<execute action="PGDocumentsandmedia#assertTextEquals" locator-key1="ERROR_MESSAGE" value1="You cannot modify this document because it was locked by ${userName}" />
 			</then>
 			<else>
@@ -802,7 +802,7 @@
 			</else>
 		</if>
 
-		<execute action="CPDocumentsandmediaMovedocument#selectFrame" locator1="relative=top" />
+		<execute function="#selectFrame" locator1="relative=top" />
 
 		<execute action="CPDocumentsandmediaMovedocument#assertTextEquals" locator-key1="PARENT_FOLDER" value1="${dmFolderName}" />
 		<execute action="CPDocumentsandmediaMovedocument#assertClick" locator-key1="MOVE_BUTTON" value1="Move" />

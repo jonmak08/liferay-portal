@@ -77,9 +77,9 @@
 			<var name="spiName" value="SPI Name" />
 		</execute>
 
-		<execute action="BaseLiferay#antCommand" locator1="build-test.xml" value1="stop-app-server" />
+		<execute function="#antCommand" locator1="build-test.xml" value1="stop-app-server" />
 
-		<execute action="BaseLiferay#antCommand" locator1="build-test.xml" value1="start-app-server" />
+		<execute function="#antCommand" locator1="build-test.xml" value1="start-app-server" />
 
 		<execute macro="User#firstLoginPG" />
 
@@ -87,7 +87,7 @@
 			<var name="portletName" value="SPI Administration" />
 		</execute>
 
-		<execute action="SPIAdministration#pause" locator1="90000" />
+		<execute function="#pause" locator1="90000" />
 
 		<execute action="Home#refresh" />
 
@@ -150,9 +150,9 @@
 			<var name="notificationRecipients" property-value="email.address.2" />
 		</execute>
 
-		<execute action="BaseLiferay#antCommand" locator1="build-test.xml" value1="shutdown-spi" />
+		<execute function="#antCommand" locator1="build-test.xml" value1="shutdown-spi" />
 
-		<execute action="BaseLiferay#pause" locator1="30000" />
+		<execute function="#pause" locator1="30000" />
 
 		<execute macro="Gmail#login">
 			<var name="userEmailAddress" property-value="email.address.2" />
@@ -171,7 +171,7 @@
 			<var name="gmailMessageTitle" value="Sandbox Status Notification: SPI Name" />
 		</execute>
 
-		<execute action="BaseLiferay#pause" locator1="30000" />
+		<execute function="#pause" locator1="30000" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="SPI Administration" />
@@ -181,9 +181,9 @@
 			<var name="spiName" value="SPI Name" />
 		</execute>
 
-		<execute action="BaseLiferay#antCommand" locator1="build-test.xml" value1="shutdown-spi" />
+		<execute function="#antCommand" locator1="build-test.xml" value1="shutdown-spi" />
 
-		<execute action="BaseLiferay#pause" locator1="30000" />
+		<execute function="#pause" locator1="30000" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="SPI Administration" />

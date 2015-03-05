@@ -55,7 +55,7 @@
 			</then>
 		</if>
 
-		<execute action="Mobiledockbar#assertClick" locator1="${portletLocator}" value1="Add" />
+		<execute function="#assertClick" locator1="${portletLocator}" value1="Add" />
 
 		<echo message="Adding ${portletName} portlet..." />
 
@@ -66,7 +66,7 @@
 				<equals arg1="${portletName}" arg2="Media Gallery" />
 			</or>
 			<then>
-				<execute action="Mobiledockbar#pause" locator1="30000" />
+				<execute function="#pause" locator1="30000" />
 			</then>
 		</if>
 	</command>

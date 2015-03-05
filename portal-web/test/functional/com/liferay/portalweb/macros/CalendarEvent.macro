@@ -1237,16 +1237,16 @@
 		<var name="i" value="1" />
 
 		<while>
-			<condition action="PGCalendarAgendaView#isElementPresent" locator1="xpath=(//div[contains(@class,'scheduler-view-agenda-event') and contains(@data-clientid,'scheduler-event')])[${i}]" />
+			<condition function="#isElementPresent" locator1="xpath=(//div[contains(@class,'scheduler-view-agenda-event') and contains(@data-clientid,'scheduler-event')])[${i}]" />
 			<then>
-				<execute action="PGCalendarAgendaView#click" locator1="xpath=(//div[contains(@class,'scheduler-view-agenda-event') and contains(@data-clientid,'scheduler-event')])[${i}]" />
+				<execute function="#click" locator1="xpath=(//div[contains(@class,'scheduler-view-agenda-event') and contains(@data-clientid,'scheduler-event')])[${i}]" />
 
 				<if>
 					<condition action="PGCalendarAgendaView#isElementNotPresent" locator-key1="SCHEDULER_EVENT_DIALOG_BOX_DELETE_BUTTON" />
 					<then>
 						<var name="i" value="${i?increment()}" />
 
-						<execute action="PGCalendarAgendaView#click" locator1="xpath=(//div[contains(@class,'scheduler-view-agenda-event') and contains(@data-clientid,'scheduler-event')])[${i}]" />
+						<execute function="#click" locator1="xpath=(//div[contains(@class,'scheduler-view-agenda-event') and contains(@data-clientid,'scheduler-event')])[${i}]" />
 					</then>
 				</if>
 			</then>

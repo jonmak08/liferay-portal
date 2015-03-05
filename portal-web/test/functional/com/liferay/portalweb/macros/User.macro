@@ -262,22 +262,22 @@
 
 	<command name="addProfilePictureViaMyAccount">
 		<execute action="Myaccount#click" locator-key1="DETAILS_PICTURE_CHANGE_BUTTON" />
-		<execute action="Myaccount#pause" locator1="1000" />
+		<execute function="#pause" locator1="1000" />
 		<execute action="Myaccount#selectFrame" value1="relative=top" />
 
 		<execute action="MyaccountUploadimage#selectFrame" locator-key1="UPLOAD_IMAGE_IFRAME" />
 		<execute action="MyaccountUploadimage#uploadCommonFile" locator-key1="BROWSE_BUTTON" value1="${imageFileName}" />
-		<execute action="MyaccountUploadimage#pause" locator1="1000" />
+		<execute function="#pause" locator1="1000" />
 		<execute action="MyaccountUploadimage#selectFrame" value1="relative=top" />
 		<execute action="MyaccountUploadimage#selectFrame" locator-key1="UPLOAD_IMAGE_IFRAME" />
 		<execute action="MyaccountUploadimage#click" locator-key1="SAVE_BUTTON" />
-		<execute action="MyaccountUploadimage#pause" locator1="1000" />
+		<execute function="#pause" locator1="1000" />
 		<execute action="MyaccountUploadimage#selectFrame" value1="relative=top" />
 
 		<execute action="Myaccount#selectFrame" locator-key1="MY_ACCOUNT_IFRAME" />
 		<execute action="Myaccount#click" locator-key1="SAVE_BUTTON" />
 		<execute action="Myaccount#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
-		<execute action="Myaccount#pause" locator1="1000" />
+		<execute function="#pause" locator1="1000" />
 		<execute action="Myaccount#selectFrame" value1="relative=top" />
 	</command>
 
@@ -1262,7 +1262,7 @@
 		<execute action="CPUsersandorganizationsViewusers#click" locator-key1="USER_TABLE_ACTIONS" value1="Actions" />
 		<execute action="CPUsersandorganizationsViewusers#assertClick" locator-key1="USER_MENULIST_IMPERSONATE_USER" value1="Impersonate User (Opens New Window)" />
 
-		<execute action="Home#selectWindow" locator1="title=Welcome - Liferay" />
+		<execute function="#selectWindow" locator1="title=Welcome - Liferay" />
 
 		<execute action="Dockbar#assertElementPresent" locator-key1="ADMIN_SITE_ADMINISTRATION_IMPERSONATE_USER_ICON" />
 		<execute action="Dockbar#assertClick" locator-key1="ADMIN_SITE_ADMINISTRATION_IMPERSONATE_USER_ICON" />

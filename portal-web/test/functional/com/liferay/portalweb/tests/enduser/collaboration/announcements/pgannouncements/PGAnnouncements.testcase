@@ -82,7 +82,7 @@
 		<execute action="PGAnnouncementsAddentry#type" locator-key1="CONTENT_FIELD" value1="${entryContent}" />
 
 		<execute action="PGAnnouncementsAddentry#uncheck" locator-key1="DISPLAY_DATE_DISPLAY_IMMEDIATELY_CHECKBOX" />
-		<execute action="PGAnnouncementsAddentry#pause" locator1="5000" />
+		<execute function="#pause" locator1="5000" />
 
 		<var attribute="value" locator="//input[@id='_84_displayDateHour']" name="displayDateHour" />
 		<var name="displayDateHourLength" value="${displayDateHour?length()}" />
@@ -113,7 +113,7 @@
 		<var name="displayDate" value="${displayDateHour}:${displayDateMinuteFuture} ${displayDateAMPM}" />
 
 		<execute action="PGAnnouncementsAddentry#type" locator-key1="DISPLAY_DATE_TIME_INPUT" value1="${displayDate}" />
-		<execute action="PGAnnouncementsAddentry#pause" locator1="5000" />
+		<execute function="#pause" locator1="5000" />
 		<execute action="PGAnnouncementsAddentry#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
 
 		<execute macro="Page#gotoPG">
@@ -121,7 +121,7 @@
 		</execute>
 
 		<execute action="PGAnnouncements#assertTextNotPresent" value1="${entryTitle}" />
-		<execute action="PGAnnouncements#pause" locator1="120000" />
+		<execute function="#pause" locator1="120000" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />

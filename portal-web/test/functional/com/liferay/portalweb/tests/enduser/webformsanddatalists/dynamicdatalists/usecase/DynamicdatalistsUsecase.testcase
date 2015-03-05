@@ -532,35 +532,35 @@
 
 		<execute macro="DDLRecord#publishViaDDLDisplayPG" />
 
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[1]" value1="Employee" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[2]" value1="Age" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[3]" value1="Department" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[4]" value1="Start Date" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[5]" value1="Salary" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[6]" value1="Profile Picture" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[7]" value1="Name" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[8]" value1="Resume" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[9]" value1="Weekly Hours" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[10]" value1="Description" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[11]" value1="Years Worked" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[12]" value1="Status" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[13]" value1="Modified Date" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[14]" value1="Author" />
+		<execute function="#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[1]" value1="Employee" />
+		<execute function="#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[2]" value1="Age" />
+		<execute function="#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[3]" value1="Department" />
+		<execute function="#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[4]" value1="Start Date" />
+		<execute function="#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[5]" value1="Salary" />
+		<execute function="#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[6]" value1="Profile Picture" />
+		<execute function="#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[7]" value1="Name" />
+		<execute function="#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[8]" value1="Resume" />
+		<execute function="#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[9]" value1="Weekly Hours" />
+		<execute function="#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[10]" value1="Description" />
+		<execute function="#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[11]" value1="Years Worked" />
+		<execute function="#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[12]" value1="Status" />
+		<execute function="#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[13]" value1="Modified Date" />
+		<execute function="#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[14]" value1="Author" />
 
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[1]/a | //tbody[@class='table-data']/tr/td[1]" value1="true" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[2]/a | //tbody[@class='table-data']/tr/td[2]" value1="30" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[3]/a | //tbody[@class='table-data']/tr/td[3]" value1="QA Engineer" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[4]/a | //tbody[@class='table-data']/tr/td[4]" value1="4/1/15" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[5]/a | //tbody[@class='table-data']/tr/td[5]" value1="35000.0" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[6]" value1="" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[7]/a | //tbody[@class='table-data']/tr/td[7]" value1="Joe Engineer" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[8]/a | //tbody[@class='table-data']/tr/td[8]" value1="Document Title" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[9]/a | //tbody[@class='table-data']/tr/td[9]" value1="40" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[10]/a | //tbody[@class='table-data']/tr/td[10]" value1="Joe Engineer works in QA" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[11]/a | //tbody[@class='table-data']/tr/td[11]" value1="5+" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[12]/span/span/span/strong" value1="Approved" />
-		<execute action="PGDynamicdatalists#assertElementPresent" locator1="//tbody[@class='table-data']/tr/td[13]/a | //tbody[@class='table-data']/tr/td[13]" value1="Modified Date" />
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[14]/a | //tbody[@class='table-data']/tr/td[14]" value1="Test Test" />
+		<execute function="#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[1]/a | //tbody[@class='table-data']/tr/td[1]" value1="true" />
+		<execute function="#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[2]/a | //tbody[@class='table-data']/tr/td[2]" value1="30" />
+		<execute function="#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[3]/a | //tbody[@class='table-data']/tr/td[3]" value1="QA Engineer" />
+		<execute function="#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[4]/a | //tbody[@class='table-data']/tr/td[4]" value1="4/1/15" />
+		<execute function="#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[5]/a | //tbody[@class='table-data']/tr/td[5]" value1="35000.0" />
+		<execute function="#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[6]" value1="" />
+		<execute function="#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[7]/a | //tbody[@class='table-data']/tr/td[7]" value1="Joe Engineer" />
+		<execute function="#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[8]/a | //tbody[@class='table-data']/tr/td[8]" value1="Document Title" />
+		<execute function="#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[9]/a | //tbody[@class='table-data']/tr/td[9]" value1="40" />
+		<execute function="#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[10]/a | //tbody[@class='table-data']/tr/td[10]" value1="Joe Engineer works in QA" />
+		<execute function="#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[11]/a | //tbody[@class='table-data']/tr/td[11]" value1="5+" />
+		<execute function="#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[12]/span/span/span/strong" value1="Approved" />
+		<execute function="#assertElementPresent" locator1="//tbody[@class='table-data']/tr/td[13]/a | //tbody[@class='table-data']/tr/td[13]" value1="Modified Date" />
+		<execute function="#assertTextEquals" locator1="//tbody[@class='table-data']/tr/td[14]/a | //tbody[@class='table-data']/tr/td[14]" value1="Test Test" />
 
 		<execute macro="DDLTemplate#editFormTemplateViaDDLDisplayPG">
 			<var name="ddlFormTemplateNameEdit" value="Template Rev" />
@@ -574,7 +574,7 @@
 
 		<execute macro="DDLTemplate#saveFormTemplateViaDDLDisplayPG" />
 
-		<execute action="PGDynamicdatalists#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[5]" value1="Pay" />
+		<execute function="#assertTextEquals" locator1="//thead[@class='table-columns']/tr/th[5]" value1="Pay" />
 
 		<execute macro="DDLTemplate#editFormTemplateViaDDLDisplayPG">
 			<var name="ddlFormTemplateNameEdit" value="Template Rev" />

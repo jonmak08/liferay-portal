@@ -9,7 +9,7 @@
 			<then>
 				<execute action="PGCalendar#click" locator-key1="MY_CALENDARS_MENULIST_ARROW" />
 				<execute action="PGCalendar#assertClick" locator-key1="MY_CALENDARS_MENULIST_ADD_CALENDAR" value1="Add Calendar" />
-				<execute action="PGCalendar#pause" locator1="1000" />
+				<execute function="#pause" locator1="1000" />
 
 				<if>
 					<condition action="PGCalendarAddcalendar#isElementPresent" locator-key1="ADD_CALENDAR_IFRAME" />
@@ -29,7 +29,7 @@
 				<then>
 					<execute action="PGCalendar#click" locator-key1="CURRENT_SITE_CALENDARS_MENULIST_ARROW" />
 					<execute action="PGCalendar#assertClick" locator-key1="CURRENT_SITE_CALENDARS_MENULIST_ADD_CALENDAR" value1="Add Calendar" />
-					<execute action="PGCalendar#pause" locator1="1000" />
+					<execute function="#pause" locator1="1000" />
 
 					<if>
 						<condition action="PGCalendarAddcalendar#isElementPresent" locator-key1="ADD_CALENDAR_IFRAME" />
@@ -52,7 +52,7 @@
 
 					<var name="key_calendarName" value="${calendarName}" />
 
-					<execute action="PGCalendar#pause" locator1="5000" />
+					<execute function="#pause" locator1="5000" />
 					<execute action="PGCalendar#assertClick" locator-key1="OTHER_CALENDARS_SEARCH_LIST_RESULT" value1="${calendarName}" />
 					<execute action="PGCalendar#assertTextEquals" locator-key1="OTHER_CALENDARS_CALENDAR" value1="${calendarName}" />
 				</then>

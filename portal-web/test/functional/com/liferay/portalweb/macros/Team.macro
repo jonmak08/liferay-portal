@@ -72,10 +72,10 @@
 	</command>
 
 	<command name="definePermissionPG">
-		<execute action="Permissions#check" locator1="//tr[contains(.,'${teamName}')]/td/input[contains(@id,'${permissionDefinitionKey}')]" />
+		<execute function="#check" locator1="//tr[contains(.,'${teamName}')]/td/input[contains(@id,'${permissionDefinitionKey}')]" />
 		<execute action="Permissions#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
 		<execute action="Permissions#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
-		<execute action="Permissions#assertChecked" locator1="//tr[contains(.,'${teamName}')]/td/input[contains(@id,'${permissionDefinitionKey}')]" />
+		<execute function="#assertChecked" locator1="//tr[contains(.,'${teamName}')]/td/input[contains(@id,'${permissionDefinitionKey}')]" />
 	</command>
 
 	<command name="deleteCP">
@@ -104,10 +104,10 @@
 	</command>
 
 	<command name="removePermissionPG">
-		<execute action="Permissions#uncheck" locator1="//tr[contains(.,'${teamName}')]/td/input[contains(@id,'${permissionDefinitionKey}')]" />
+		<execute function="#uncheck" locator1="//tr[contains(.,'${teamName}')]/td/input[contains(@id,'${permissionDefinitionKey}')]" />
 		<execute action="Permissions#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
 		<execute action="Permissions#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
-		<execute action="Permissions#assertNotChecked" locator1="//tr[contains(.,'${teamName}')]/td/input[contains(@id,'${permissionDefinitionKey}')]" />
+		<execute function="#assertNotChecked" locator1="//tr[contains(.,'${teamName}')]/td/input[contains(@id,'${permissionDefinitionKey}')]" />
 	</command>
 
 	<command name="tearDownCP">

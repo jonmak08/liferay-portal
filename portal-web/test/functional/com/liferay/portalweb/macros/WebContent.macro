@@ -69,7 +69,7 @@
 		<execute action="CPWebcontentAddwebcontent#assertClick" locator-key1="PUBLISH_BUTTON" value1="Publish" />
 
 		<if>
-			<condition action="CPWebcontentAddwebcontent#isElementPresent" locator1="//div[@class='journal-article-body-content']/div[@class='alert alert-error']"  />
+			<condition function="#isElementPresent" locator1="//div[@class='journal-article-body-content']/div[@class='alert alert-error']"  />
 			<then>
 				<execute action="CPWebcontentAddwebcontent#assertTextEquals" locator-key1="ERROR_MESSAGE" value1="Your request failed to complete." />
 				<execute action="CPWebcontentAddwebcontent#assertTextEquals" locator-key1="ERROR_MESSAGE_INVALID_NAME" value1="Please enter a valid name." />
@@ -94,14 +94,14 @@
 				<execute action="PGAssetpublisherAddnewwebcontent#assertClick" locator-key1="SAVE_AS_DRAFT_BUTTON" value1="Save as Draft" />
 				<execute action="PGAssetpublisherAddnewwebcontent#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
-				<execute action="PGAssetpublisher#pause" locator1="5000" />
+				<execute function="#pause" locator1="5000" />
 				<execute action="PGAssetpublisher#selectFrame" value1="relative=top" />
 				<execute action="PGAssetpublisher#assertElementNotPresent" locator-key1="ASSET_ABSTRACT_GENERIC" />
 			</then>
 			<else>
 				<execute action="PGAssetpublisherAddnewwebcontent#assertClick" locator-key1="PUBLISH_BUTTON" value1="Publish" />
 
-				<execute action="PGAssetpublisher#pause" locator1="5000" />
+				<execute function="#pause" locator1="5000" />
 				<execute action="PGAssetpublisher#selectFrame" value1="relative=top" />
 
 				<var name="key_assetTitle" value="${webContentTitle}" />
@@ -117,7 +117,7 @@
 		<execute action="PGWebcontentdisplayAddwebcontent#type" locator-key1="TITLE_FIELD" value1="${webContentTitle}" />
 		<execute action="PGWebcontentdisplayAddwebcontent#type" locator-key1="CONTENT_FIELD" value1="${webContentContent}" />
 		<execute action="PGWebcontentdisplayAddwebcontent#assertClick" locator-key1="PUBLISH_BUTTON" value1="Publish" />
-		<execute action="PGWebcontentdisplayAddwebcontent#pause" locator1="5000" />
+		<execute function="#pause" locator1="5000" />
 
 		<execute action="PGWebcontentdisplay#selectFrame" value1="relative=top" />
 
@@ -134,7 +134,7 @@
 		<if>
 			<equals arg1="${webContentJavascript}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplay#assertTextEquals" locator1="//div[@class='journal-content-article']//span[contains(@class,'portlet-title-text')]" value1="${embeddedPortletTitle}" />
+				<execute function="#assertTextEquals" locator1="//div[@class='journal-content-article']//span[contains(@class,'portlet-title-text')]" value1="${embeddedPortletTitle}" />
 			</then>
 			<else>
 				<execute action="PGWebcontentdisplay#assertTextEquals" locator-key1="WEB_CONTENT_CONTENT" value1="${webContentContent}" />
@@ -401,7 +401,7 @@
 		<execute action="PGAssetpublisherAddnewwebcontent#type" locator-key1="TITLE_FIELD" value1="${webContentTitle}" />
 		<execute action="PGAssetpublisherAddnewwebcontent#type" locator-key1="CONTENT_FIELD" value1="${webContentContent}" />
 		<execute action="PGAssetpublisherAddnewwebcontent#assertClick" locator-key1="SUBMIT_FOR_PUBLICATION_BUTTON" value1="Submit for Publication" />
-		<execute action="PGAssetpublisherAddnewwebcontent#pause" locator1="5000" />
+		<execute function="#pause" locator1="5000" />
 
 		<execute action="PGAssetpublisher#selectFrame" />
 		<execute action="PGAssetpublisher#assertTextEquals" locator-key1="INFO_MESSAGE" value1="There are no results." />
@@ -506,7 +506,7 @@
 		<execute action="CPWebcontentAddwebcontent#assertClick" locator-key1="PUBLISH_BUTTON" value1="Publish" />
 
 		<if>
-			<condition action="CPWebcontentAddwebcontent#isElementPresent" locator1="//div[@class='journal-article-body-content']/div[@class='alert alert-error']"  />
+			<condition function="#isElementPresent" locator1="//div[@class='journal-article-body-content']/div[@class='alert alert-error']"  />
 			<then>
 				<execute action="CPWebcontentAddwebcontent#assertTextEquals" locator-key1="ERROR_MESSAGE" value1="Your request failed to complete." />
 				<execute action="CPWebcontentAddwebcontent#assertTextEquals" locator-key1="ERROR_MESSAGE_INVALID_NAME" value1="Please enter a valid name." />
@@ -527,7 +527,7 @@
 		<if>
 			<equals arg1="${webContentJavascript}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplay#assertTextEquals" locator1="//div[@class='journal-content-article']//span[contains(@class,'portlet-title-text')]" value1="${embeddedPortletTitle}" />
+				<execute function="#assertTextEquals" locator1="//div[@class='journal-content-article']//span[contains(@class,'portlet-title-text')]" value1="${embeddedPortletTitle}" />
 			</then>
 			<else>
 				<execute action="PGWebcontentdisplay#assertTextEquals" locator-key1="WEB_CONTENT_CONTENT" value1="${webContentContentEdit}" />
@@ -561,7 +561,7 @@
 		<execute action="CPWebcontent#assertClick" locator-key1="ENTRY_DESCRIPTIVE_TITLE" value1="${webContentTitle}" />
 
 		<execute action="CPWebcontentEditwebcontent#assertTextEquals" locator-key1="TITLE_FIELD" value1="${webContentTitle}" />
-		<execute action="CPWebcontentEditwebcontent#assertTextEquals" locator1="//input[contains(@id,'_15_Text') and @type='text']" value1="${webContentText}" />
+		<execute function="#assertTextEquals" locator1="//input[contains(@id,'_15_Text') and @type='text']" value1="${webContentText}" />
 		<execute action="CPWebcontentEditwebcontent#assertClick" locator-key1="BASIC_PREVIEW_BUTTON" value1="Basic Preview" />
 
 		<execute action="CPWebcontentPreview#selectFrame" locator-key1="PREVIEW_IFRAME" />

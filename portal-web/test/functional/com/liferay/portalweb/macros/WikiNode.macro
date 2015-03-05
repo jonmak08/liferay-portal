@@ -57,9 +57,9 @@
 		</execute>
 
 		<while>
-			<condition action="CPWiki#isElementPresent" locator1="xpath=(//a[@title='Actions'])[2]" />
+			<condition function="#isElementPresent" locator1="xpath=(//a[@title='Actions'])[2]" />
 			<then>
-				<execute action="CPWiki#assertClick" locator1="xpath=(//a[@title='Actions'])[2]" value1="Actions" />
+				<execute function="#assertClick" locator1="xpath=(//a[@title='Actions'])[2]" value1="Actions" />
 				<execute action="CPWiki#assertClick" locator-key1="WIKI_NODE_MENULIST_RECYCLE_BIN" value1="Move to the Recycle Bin" />
 				<execute action="CPWiki#assertTextEquals" locator-key1="SUCCESS_MESSAGE_RECYCLE_BIN" value1="The ${assetType}" />
 				<execute action="CPWiki#assertTextEquals" locator-key1="SUCCESS_MESSAGE_RECYCLE_BIN" value1="moved to the Recycle Bin. Undo" />

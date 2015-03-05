@@ -645,10 +645,10 @@
 
 		<execute action="SOMicroblogs#assertClick" locator-key1="MICROBLOGS_ENTRY_COMMENT_LINK" value1="Comment" />
 
-		<execute action="SOMicroblogs#click" locator1="xpath=(//div[contains(@id,'_1_WAR_microblogsportlet_autocompleteContent')])[3]" />
-		<execute action="SOMicroblogs#click" locator1="xpath=(//textarea[contains(@name,'contentInput')])[2]" />
-		<execute action="SOMicroblogs#type" locator1="xpath=(//textarea[contains(@name,'contentInput')])[2]" value1="${microblogsEntryCommentContent}" />
-		<execute action="SOMicroblogs#click" locator1="xpath=(//button[contains(.,'Post')])[3]" />
+		<execute function="#click" locator1="xpath=(//div[contains(@id,'_1_WAR_microblogsportlet_autocompleteContent')])[3]" />
+		<execute function="#click" locator1="xpath=(//textarea[contains(@name,'contentInput')])[2]" />
+		<execute function="#type" locator1="xpath=(//textarea[contains(@name,'contentInput')])[2]" value1="${microblogsEntryCommentContent}" />
+		<execute function="#click" locator1="xpath=(//button[contains(.,'Post')])[3]" />
 
 		<var name="key_microblogsEntryCommentContent" value="${microblogsEntryCommentContent}" />
 
@@ -3954,8 +3954,8 @@
 			<var name="soDashboard" value="true" />
 		</execute>
 
-		<execute action="SOMicroblogs#assertClick" locator1="//ul[contains(@class,'nav nav-tabs')]/li[contains(.,'Tijdlijn')]/a" value1="Tijdlijn" />
-		<execute action="SOMicroblogs#pause" locator1="1000" />
+		<execute function="#assertClick" locator1="//ul[contains(@class,'nav nav-tabs')]/li[contains(.,'Tijdlijn')]/a" value1="Tijdlijn" />
+		<execute function="#pause" locator1="1000" />
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent1}" />
 

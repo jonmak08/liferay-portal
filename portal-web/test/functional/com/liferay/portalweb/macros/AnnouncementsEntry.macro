@@ -19,9 +19,9 @@
 		<if>
 			<isset var="expirationDate" />
 			<then>
-				<execute action="PGAnnouncementsAddentry#pause" locator1="3000" />
+				<execute function="#pause" locator1="3000" />
 				<execute action="PGAnnouncementsAddentry#type" locator-key1="EXPIRATION_DATE_DATE_INPUT" value1="${expirationDate}" />
-				<execute action="PGAnnouncementsAddentry#pause" locator1="3000" />
+				<execute function="#pause" locator1="3000" />
 			</then>
 		</if>
 

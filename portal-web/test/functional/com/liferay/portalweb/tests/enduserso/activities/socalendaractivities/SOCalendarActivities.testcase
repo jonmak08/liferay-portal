@@ -747,7 +747,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute action="SOActivities#pause" locator1="60000" />
+		<execute function="#pause" locator1="60000" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Calendar" />

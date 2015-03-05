@@ -353,7 +353,7 @@
 		<var name="key_siteName" value="${siteName}" />
 
 		<execute action="SOUserBarSitesDirectory#type" locator-key1="SITE_SEARCH_FIELD" value1="${siteName}" />
-		<execute action="SOUserBarSitesDirectory#pause" locator1="1000" />
+		<execute function="#pause" locator1="1000" />
 		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_NAME_LINK" value1="${siteName}" />
 		<execute action="SOUserBarSitesDirectory#assertElementNotPresent" locator-key1="DELETE_SITE_ICON" />
 		<execute action="SOUserBarSitesDirectory#clickNoError" locator-key1="DELETE_SITE_ICON_DISABLED" />
@@ -1357,11 +1357,11 @@
 			<var name="userLoginFullName" value="${userName}" />
 		</execute>
 
-		<execute action="SOUserBar#click" locator1="//a[contains(text(),'Tableau de bord')]" />
-		<execute action="SOUserBar#pause" locator1="1000" />
+		<execute function="#click" locator1="//a[contains(text(),'Tableau de bord')]" />
+		<execute function="#pause" locator1="1000" />
 		<execute action="SOUserBar#selectFrameTop" />
 		<execute action="SOUserBar#click" locator-key1="GO_TO" />
-		<execute action="SOUserBar#click" locator1="//button[contains(.,'Annuaire des sites')]" />
+		<execute function="#click" locator1="//button[contains(.,'Annuaire des sites')]" />
 
 		<execute action="SOUserBarSitesDirectory#select" locator-key1="SITE_CATEGORY_SELECT" value1="Tous les sites" />
 
@@ -1399,11 +1399,11 @@
 			<var name="userLoginFullName" value="${userName}" />
 		</execute>
 
-		<execute action="SOUserBar#click" locator1="//a[contains(text(),'Tauler de control')]" />
-		<execute action="SOUserBar#pause" locator1="1000" />
+		<execute function="#click" locator1="//a[contains(text(),'Tauler de control')]" />
+		<execute function="#pause" locator1="1000" />
 		<execute action="SOUserBar#selectFrameTop" />
 		<execute action="SOUserBar#click" locator-key1="GO_TO" />
-		<execute action="SOUserBar#click" locator1="//button[contains(.,'Directori de llocs')]" />
+		<execute function="#click" locator1="//button[contains(.,'Directori de llocs')]" />
 
 		<execute action="SOUserBarSitesDirectory#select" locator-key1="SITE_CATEGORY_SELECT" value1="Tots els llocs web" />
 

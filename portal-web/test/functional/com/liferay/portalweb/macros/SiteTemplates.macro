@@ -112,8 +112,8 @@
 		<execute action="CPSitetemplates#assertTextEquals" locator-key1="SITE_TEMPLATE_TABLE_NAME" value1="${siteTemplateName}" />
 		<execute action="CPSitetemplates#assertClick" locator-key1="SITE_TEMPLATE_TABLE_ACTIONS" value1="Actions" />
 		<execute action="CPSitetemplates#assertClick" locator-key1="SITE_TEMPLATE_MENULIST_VIEW_PAGES" value1="View Pages" />
-		<execute action="CPSitetemplates#pause" locator1="5000" />
-		<execute action="CPSitetemplates#selectWindow" locator1="home - Liferay" />
+		<execute function="#pause" locator1="5000" />
+		<execute function="#selectWindow" locator1="home - Liferay" />
 	</command>
 
 	<command name="tearDownCP">

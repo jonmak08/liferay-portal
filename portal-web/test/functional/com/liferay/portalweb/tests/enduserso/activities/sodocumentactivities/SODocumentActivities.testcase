@@ -1717,7 +1717,7 @@
 			<var name="timeStampValue" value="About a minute ago." />
 		</execute>
 
-		<execute action="SOActivities#pause" locator1="60000" />
+		<execute function="#pause" locator1="60000" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Documents" />
