@@ -249,6 +249,7 @@ if (selUser != null) {
 	</liferay-util:buffer>
 
 	<liferay-util:buffer var="htmlBottom">
+
 		<%
 		boolean isLockout = false;
 
