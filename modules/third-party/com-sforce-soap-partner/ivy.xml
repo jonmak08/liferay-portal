@@ -17,6 +17,7 @@
 	</publications>
 
 	<dependencies defaultconf="default">
-		<dependency name="org.osgi.core" org="org.osgi" rev="5.0.0" />
+		<dependency name="axis" org="axis" rev="1.4" />
+		<dependency name="axis-jaxrpc" org="org.apache.axis" rev="1.4" />
 	</dependencies>
 </ivy-module>
