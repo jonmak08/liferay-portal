@@ -655,6 +655,8 @@
 	</command>
 
 	<command name="ViewImportedKBArticleWithSourceURLMetadata" priority="5">
+		<property name="portlet.properties.knowledge-base-portlet" value="knowledge.base.source.url.enabled=true" />
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
@@ -680,8 +682,8 @@
 			<var name="kbArticleTitle" value="Liferay UI Taglibs" />
 		</execute>
 
-		<execute macro="KBArticle#gotoKBArticleViaKBDisplayHierarchyNavigationPG">
-			<var name="kbArticleTitle" value="Application Display Templates" />
+		<execute macro="KBArticle#gotoViaKBAdminCP">
+			<var name="kbArticleTitle" value="Using Liferay UI Tabs and Sections" />
 		</execute>
 
 		<execute macro="KBArticle#viewSourceURLCP">
@@ -700,6 +702,8 @@
 	</command>
 
 	<command name="ViewKBArticleGitHubSourceURL" priority="3">
+		<property name="portlet.properties.knowledge-base-portlet" value="knowledge.base.source.url.enabled=true" />
+
 		<var name="history" value="true" />
 		<var name="kbArticleSourceURL" value="https://www.google.com/?gws_rd=ssl" />
 		<var name="print" value="true" />
