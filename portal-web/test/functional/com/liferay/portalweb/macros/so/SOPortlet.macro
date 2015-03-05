@@ -5,9 +5,9 @@
 			<var name="portletOption" value="Look and Feel" />
 		</execute>
 
-		<execute action="BasePortlet#select" locator1="PORTLET_CONFIGURATION_SHOW_BORDERS_SELECT" value1="No" />
-		<execute action="BasePortlet#assertClick" locator1="PORTLET_CONFIGURATION_SAVE_BUTTON" value1="Save" />
-		<execute action="BasePortlet#assertTextEquals" locator1="PORTLET_CONFIGURATION_SUCCESS_MESSAGE" value1="Your request processed successfully." />
+		<execute function="#select" locator1="BasePortlet#PORTLET_CONFIGURATION_SHOW_BORDERS_SELECT" value1="No" />
+		<execute function="#assertClick" locator1="BasePortlet#PORTLET_CONFIGURATION_SAVE_BUTTON" value1="Save" />
+		<execute function="#assertTextEquals" locator1="BasePortlet#PORTLET_CONFIGURATION_SUCCESS_MESSAGE" value1="Your request processed successfully." />
 		<execute action="BasePortlet#selectFrameTop" />
 	</command>
 
@@ -17,9 +17,9 @@
 			<var name="portletOption" value="Look and Feel" />
 		</execute>
 
-		<execute action="BasePortlet#select" locator1="PORTLET_CONFIGURATION_SHOW_BORDERS_SELECT" value1="Yes" />
-		<execute action="BasePortlet#assertClick" locator1="PORTLET_CONFIGURATION_SAVE_BUTTON" value1="Save" />
-		<execute action="BasePortlet#assertTextEquals" locator1="PORTLET_CONFIGURATION_SUCCESS_MESSAGE" value1="Your request processed successfully." />
+		<execute function="#select" locator1="BasePortlet#PORTLET_CONFIGURATION_SHOW_BORDERS_SELECT" value1="Yes" />
+		<execute function="#assertClick" locator1="BasePortlet#PORTLET_CONFIGURATION_SAVE_BUTTON" value1="Save" />
+		<execute function="#assertTextEquals" locator1="BasePortlet#PORTLET_CONFIGURATION_SUCCESS_MESSAGE" value1="Your request processed successfully." />
 		<execute action="BasePortlet#selectFrameTop" />
 	</command>
 
@@ -31,43 +31,43 @@
 		<if>
 			<equals arg1="${portletName}" arg2="Blogs" />
 			<then>
-				<execute action="SOBlogs#makeVisible" locator1="BLOGS_PORTLET_CONFIGURATION_BAR" />
-				<execute action="SOBlogs#click" locator1="BLOGS_PORTLET_OPTIONS_ICON" />
+				<execute function="#makeVisible" locator1="SOBlogs#BLOGS_PORTLET_CONFIGURATION_BAR" />
+				<execute function="#click" locator1="SOBlogs#BLOGS_PORTLET_OPTIONS_ICON" />
 			</then>
 			<elseif>
 				<equals arg1="${portletName}" arg2="Members" />
 				<then>
-					<execute action="SOMembersPortlet#makeVisible" locator1="MEMBERS_PORTLET_CONFIGURATION_BAR" />
-					<execute action="SOMembersPortlet#click" locator1="MEMBERS_PORTLET_OPTIONS_ICON" />
+					<execute function="#makeVisible" locator1="SOMembersPortlet#MEMBERS_PORTLET_CONFIGURATION_BAR" />
+					<execute function="#click" locator1="SOMembersPortlet#MEMBERS_PORTLET_OPTIONS_ICON" />
 				</then>
 			</elseif>
 			<elseif>
-				<condition action="BasePortlet#isElementPresent" locator1="SPECIFIC_PORTLET_BORDERLESS_BAR" />
+				<condition function="#isElementPresent" locator1="BasePortlet#SPECIFIC_PORTLET_BORDERLESS_BAR" />
 				<then>
-					<execute action="BasePortlet#makeVisible" locator1="SPECIFIC_PORTLET_BORDERLESS_BAR" />
-					<execute action="BasePortlet#click" locator1="SPECIFIC_PORTLET_BORDERLESS_OPTIONS_ICON" />
+					<execute function="#makeVisible" locator1="BasePortlet#SPECIFIC_PORTLET_BORDERLESS_BAR" />
+					<execute function="#click" locator1="BasePortlet#SPECIFIC_PORTLET_BORDERLESS_OPTIONS_ICON" />
 				</then>
 			</elseif>
 			<else>
-				<execute action="BasePortlet#assertClick" locator1="SPECIFIC_PORTLET_OPTIONS_ICON" value1="Options" />
+				<execute function="#assertClick" locator1="BasePortlet#SPECIFIC_PORTLET_OPTIONS_ICON" value1="Options" />
 			</else>
 		</if>
 
 		<if>
 			<equals arg1="${portletOption}" arg2="Look and Feel" />
 			<then>
-				<execute action="BasePortlet#assertClick" locator1="OPTIONS_MENULIST_LOOK_AND_FEEL" value1="Look and Feel" />
+				<execute function="#assertClick" locator1="BasePortlet#OPTIONS_MENULIST_LOOK_AND_FEEL" value1="Look and Feel" />
 			</then>
 			<elseif>
 				<equals arg1="${portletOption}" arg2="Configuration" />
 				<then>
-					<execute action="BasePortlet#assertClick" locator1="OPTIONS_MENULIST_CONFIGURATION" value1="Configuration" />
+					<execute function="#assertClick" locator1="BasePortlet#OPTIONS_MENULIST_CONFIGURATION" value1="Configuration" />
 				</then>
 			</elseif>
 			<elseif>
 				<equals arg1="${portletOption}" arg2="Export / Import" />
 				<then>
-					<execute action="BasePortlet#assertClick" locator1="OPTIONS_MENULIST_EXPORT_IMPORT" value1="Export / Import" />
+					<execute function="#assertClick" locator1="BasePortlet#OPTIONS_MENULIST_EXPORT_IMPORT" value1="Export / Import" />
 				</then>
 			</elseif>
 			<else>

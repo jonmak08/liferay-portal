@@ -129,8 +129,8 @@
 			<var name="contentBody" value="Bookmark Name" />
 		</execute>
 
-		<execute action="PGBookmarksBookmark#assertTextEquals" locator1="BOOKMARK_HEADER" value1="Bookmark Name" />
-		<execute action="PGBookmarksBookmark#assertTextEquals" locator1="BOOKMARK_URL" value1="http://www.liferay.com" />
+		<execute function="#assertTextEquals" locator1="PGBookmarksBookmark#BOOKMARK_HEADER" value1="Bookmark Name" />
+		<execute function="#assertTextEquals" locator1="PGBookmarksBookmark#BOOKMARK_URL" value1="http://www.liferay.com" />
 
 		<execute macro="Notifications#viewCount">
 			<var name="notificationCount" value="0" />
@@ -232,8 +232,8 @@
 			<var name="contentBody" value="Bookmark Name Edit" />
 		</execute>
 
-		<execute action="PGBookmarksBookmark#assertTextEquals" locator1="BOOKMARK_HEADER" value1="Bookmark Name Edit" />
-		<execute action="PGBookmarksBookmark#assertTextEquals" locator1="BOOKMARK_URL" value1="http://www.liferay.com" />
+		<execute function="#assertTextEquals" locator1="PGBookmarksBookmark#BOOKMARK_HEADER" value1="Bookmark Name Edit" />
+		<execute function="#assertTextEquals" locator1="PGBookmarksBookmark#BOOKMARK_URL" value1="http://www.liferay.com" />
 
 		<execute macro="Notifications#viewCount">
 			<var name="notificationCount" value="0" />

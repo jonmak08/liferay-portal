@@ -1214,7 +1214,7 @@
 			<var name="userFullName" value="${userFirstName}" />
 		</execute>
 
-		<execute action="PGBlogsEntry#assertElementPresent" locator1="COMMENTS_ADD" value1="Add Comment" />
+		<execute function="#assertElementPresent" locator1="PGBlogsEntry#COMMENTS_ADD" value1="Add Comment" />
 
 		<execute macro="User#loginUserPG">
 			<var name="password" value="${password}" />
@@ -1244,7 +1244,7 @@
 			<var name="userFullName" value="${userFirstName}" />
 		</execute>
 
-		<execute action="PGBlogsEntry#assertElementNotPresent" locator1="COMMENTS_ADD" value1="Add Comment" />
+		<execute function="#assertElementNotPresent" locator1="PGBlogsEntry#COMMENTS_ADD" value1="Add Comment" />
 
 		<execute macro="User#loginUserPG">
 			<var name="password" value="${password}" />

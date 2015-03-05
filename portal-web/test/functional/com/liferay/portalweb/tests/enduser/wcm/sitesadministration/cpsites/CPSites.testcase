@@ -735,7 +735,7 @@
 			<var name="siteName" value="${childChildSiteName2}" />
 		</execute>
 
-		<execute action="PGSitesdirectory#assertTextEquals" locator1="BREADCRUMB" value1="Site Name/Child Site1Name/Site Page" />
+		<execute function="#assertTextEquals" locator1="PGSitesdirectory#BREADCRUMB" value1="Site Name/Child Site1Name/Site Page" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${sitePageName}" />
@@ -807,7 +807,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute action="PGSitesdirectory#assertTextEquals" locator1="INFO_MESSAGE" value1="No sites were found." />
-		<execute action="PGSitesdirectory#assertTextEquals" locator1="BREADCRUMB" value1="Site Name/Child Site1Name/Child ChildSite1Name/Site Page" />
+		<execute function="#assertTextEquals" locator1="PGSitesdirectory#INFO_MESSAGE" value1="No sites were found." />
+		<execute function="#assertTextEquals" locator1="PGSitesdirectory#BREADCRUMB" value1="Site Name/Child Site1Name/Child ChildSite1Name/Site Page" />
 	</command>
 </definition>

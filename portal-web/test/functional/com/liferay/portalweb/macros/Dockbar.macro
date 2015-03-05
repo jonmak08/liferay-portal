@@ -3,7 +3,7 @@
 		<if>
 			<condition function="#isElementNotPresent" locator1="//div[@id='_145_${fieldLabel}Content']" value1="${fieldName}" />
 			<then>
-				<execute action="Dockbar#assertClick" locator1="EDIT_${fieldKey}" value1="${fieldName}" />
+				<execute function="#assertClick" locator1="Dockbar#EDIT_${fieldKey}" value1="${fieldName}" />
 			</then>
 		</if>
 
@@ -13,6 +13,6 @@
 	<command name="viewSitesViaMySitesDropDown">
 		<var name="key_siteName" value="${siteName}" />
 
-		<execute action="Dockbar#assertTextEquals" locator1="MY_SITES_PUBLIC_SITE" value1="${siteName}" />
+		<execute function="#assertTextEquals" locator1="Dockbar#MY_SITES_PUBLIC_SITE" value1="${siteName}" />
 	</command>
 </definition>

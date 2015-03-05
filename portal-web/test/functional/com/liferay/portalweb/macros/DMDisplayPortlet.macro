@@ -2,15 +2,15 @@
 	<command name="configureDocumentListingsDocumentsPerPage">
 		<var name="key_documentsPerPage" value="${documentsPerPage}" />
 
-		<execute action="PGDocumentlibrarydisplayConfiguration#selectFrame" locator1="DOCUMENTS_AND_MEDIA_DISPLAY_IFRAME" />
-		<execute action="PGDocumentlibrarydisplayConfiguration#type" locator1="SETUP_DOCUMENTS_LISTING_DOCUMENTS_PER_PAGE_FIELD" value1="${documentsPerPage}" />
-		<execute action="PGDocumentlibrarydisplayConfiguration#assertClick" locator1="SAVE_BUTTON" value1="Save" />
-		<execute action="PGDocumentlibrarydisplayConfiguration#assertTextEquals" locator1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+		<execute function="#selectFrame" locator1="PGDocumentlibrarydisplayConfiguration#DOCUMENTS_AND_MEDIA_DISPLAY_IFRAME" />
+		<execute function="#type" locator1="PGDocumentlibrarydisplayConfiguration#SETUP_DOCUMENTS_LISTING_DOCUMENTS_PER_PAGE_FIELD" value1="${documentsPerPage}" />
+		<execute function="#assertClick" locator1="PGDocumentlibrarydisplayConfiguration#SAVE_BUTTON" value1="Save" />
+		<execute function="#assertTextEquals" locator1="PGDocumentlibrarydisplayConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 		<execute action="PGDocumentlibrarydisplayConfiguration#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="viewPaginationControlsPG">
-		<execute action="PGDocumentlibrarydisplay#assertTextEquals" locator1="PAGINATION_NEXT" value1="Next" />
-		<execute action="PGDocumentlibrarydisplay#assertTextEquals" locator1="PAGINATION_PREVIOUS" value1="Previous" />
+		<execute function="#assertTextEquals" locator1="PGDocumentlibrarydisplay#PAGINATION_NEXT" value1="Next" />
+		<execute function="#assertTextEquals" locator1="PGDocumentlibrarydisplay#PAGINATION_PREVIOUS" value1="Previous" />
 	</command>
 </definition>

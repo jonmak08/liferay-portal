@@ -42,14 +42,14 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute action="PGMessageboards#click" locator1="POST_NEW_THREAD_BUTTON" />
+		<execute function="#click" locator1="PGMessageboards#POST_NEW_THREAD_BUTTON" />
 
 		<var name="key_portletName" value="${portlet1Name}" />
 
-		<execute action="CKEditor#assertTextEquals" locator1="CKEDITOR_TOOLBAR_FONT_BUTTON_PORTLET" value1="Font" />
-		<execute action="CKEditor#assertTextEquals" locator1="CKEDITOR_TOOLBAR_SIZE_BUTTON_PORTLET" value1="Size" />
-		<execute action="CKEditor#assertClick" locator1="CKEDITOR_TOOLBAR_FORMAT_BUTTON_PORTLET" value1="Format" />
-		<execute action="CKEditor#selectFrame" locator1="CKEDITOR_TOOLBAR_FORMAT_IFRAME" />
+		<execute function="#assertTextEquals" locator1="CKEditor#CKEDITOR_TOOLBAR_FONT_BUTTON_PORTLET" value1="Font" />
+		<execute function="#assertTextEquals" locator1="CKEditor#CKEDITOR_TOOLBAR_SIZE_BUTTON_PORTLET" value1="Size" />
+		<execute function="#assertClick" locator1="CKEditor#CKEDITOR_TOOLBAR_FORMAT_BUTTON_PORTLET" value1="Format" />
+		<execute function="#selectFrame" locator1="CKEditor#CKEDITOR_TOOLBAR_FORMAT_IFRAME" />
 
 		<for list="${ckEditorFormatOptionsValid},${ckEditorFormatOptionsInvalid}" param="optionList" >
 			<var name="key_format" value="${optionList}" />
@@ -57,22 +57,22 @@
 			<if>
 				<contains string="${optionList}" substring="${invalidSubstring}" />
 				<then>
-					<execute action="CKEditor#assertElementNotPresent" locator1="CKEDITOR_TOOLBAR_FORMAT_MENULIST" value1="${optionList}" />
+					<execute function="#assertElementNotPresent" locator1="CKEditor#CKEDITOR_TOOLBAR_FORMAT_MENULIST" value1="${optionList}" />
 				</then>
 				<else>
-					<execute action="CKEditor#assertTextEquals" locator1="CKEDITOR_TOOLBAR_FORMAT_MENULIST" value1="${optionList}" />
+					<execute function="#assertTextEquals" locator1="CKEditor#CKEDITOR_TOOLBAR_FORMAT_MENULIST" value1="${optionList}" />
 				</else>
 			</if>
 		</for>
 
 		<execute action="CKEditor#selectFrame" value1="relative=top" />
 
-		<execute action="PGWiki#assertClick" locator1="ADD_FRONTPAGE" value1="This page is empty. Edit it to add some text." />
+		<execute function="#assertClick" locator1="PGWiki#ADD_FRONTPAGE" value1="This page is empty. Edit it to add some text." />
 
-		<execute action="CKEditor#assertTextEquals" locator1="CKEDITOR_TOOLBAR_FONT_BUTTON_PORTLET" value1="Font" />
-		<execute action="CKEditor#assertTextEquals" locator1="CKEDITOR_TOOLBAR_SIZE_BUTTON_PORTLET" value1="Size" />
-		<execute action="CKEditor#assertClick" locator1="CKEDITOR_TOOLBAR_FORMAT_BUTTON_PORTLET" value1="Format" />
-		<execute action="CKEditor#selectFrame" locator1="CKEDITOR_TOOLBAR_FORMAT_IFRAME" />
+		<execute function="#assertTextEquals" locator1="CKEditor#CKEDITOR_TOOLBAR_FONT_BUTTON_PORTLET" value1="Font" />
+		<execute function="#assertTextEquals" locator1="CKEditor#CKEDITOR_TOOLBAR_SIZE_BUTTON_PORTLET" value1="Size" />
+		<execute function="#assertClick" locator1="CKEditor#CKEDITOR_TOOLBAR_FORMAT_BUTTON_PORTLET" value1="Format" />
+		<execute function="#selectFrame" locator1="CKEditor#CKEDITOR_TOOLBAR_FORMAT_IFRAME" />
 
 		<for list="${ckEditorFormatOptionsValid},${ckEditorFormatOptionsInvalid}" param="optionList" >
 			<var name="key_format" value="${optionList}" />
@@ -80,10 +80,10 @@
 			<if>
 				<contains string="${optionList}" substring="${invalidSubstring}" />
 				<then>
-					<execute action="CKEditor#assertElementNotPresent" locator1="CKEDITOR_TOOLBAR_FORMAT_MENULIST" value1="${optionList}" />
+					<execute function="#assertElementNotPresent" locator1="CKEditor#CKEDITOR_TOOLBAR_FORMAT_MENULIST" value1="${optionList}" />
 				</then>
 				<else>
-					<execute action="CKEditor#assertTextEquals" locator1="CKEDITOR_TOOLBAR_FORMAT_MENULIST" value1="${optionList}" />
+					<execute function="#assertTextEquals" locator1="CKEditor#CKEDITOR_TOOLBAR_FORMAT_MENULIST" value1="${optionList}" />
 				</else>
 			</if>
 		</for>

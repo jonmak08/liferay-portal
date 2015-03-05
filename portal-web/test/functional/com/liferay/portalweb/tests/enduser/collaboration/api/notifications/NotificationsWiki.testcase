@@ -117,8 +117,8 @@
 			<var name="contentBody" value="Wiki Page Title" />
 		</execute>
 
-		<execute action="PGWiki#assertTextEquals" locator1="WIKI_PAGE_TITLE" value1="Wiki Page Title" />
-		<execute action="PGWiki#assertTextEquals" locator1="WIKI_PAGE_BODY" value1="Wiki Page Content" />
+		<execute function="#assertTextEquals" locator1="PGWiki#WIKI_PAGE_TITLE" value1="Wiki Page Title" />
+		<execute function="#assertTextEquals" locator1="PGWiki#WIKI_PAGE_BODY" value1="Wiki Page Content" />
 
 		<execute macro="Notifications#viewCount">
 			<var name="notificationCount" value="0" />
@@ -209,8 +209,8 @@
 			<var name="contentBody" value="Wiki Page Title" />
 		</execute>
 
-		<execute action="PGWiki#assertTextEquals" locator1="WIKI_PAGE_TITLE" value1="Wiki Page Title" />
-		<execute action="PGWiki#assertTextEquals" locator1="WIKI_PAGE_BODY" value1="Wiki Page Content Edit" />
+		<execute function="#assertTextEquals" locator1="PGWiki#WIKI_PAGE_TITLE" value1="Wiki Page Title" />
+		<execute function="#assertTextEquals" locator1="PGWiki#WIKI_PAGE_BODY" value1="Wiki Page Content Edit" />
 
 		<execute macro="Notifications#viewCount">
 			<var name="notificationCount" value="1" />

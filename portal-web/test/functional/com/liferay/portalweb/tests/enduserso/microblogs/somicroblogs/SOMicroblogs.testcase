@@ -171,8 +171,8 @@
 			<var name="soDashboard" value="true" />
 		</execute>
 
-		<execute action="SOMicroblogs#assertClick" locator1="TAB_MENTIONS" value1="Mentions" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="INFO_MESSAGE" value1="You do not have any microblog entries." />
+		<execute function="#assertClick" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#INFO_MESSAGE" value1="You do not have any microblog entries." />
 		<execute action="SOMicroblogs#assertTextNotPresent" value1="${microblogsEntryContent1}" />
 		<execute action="SOMicroblogs#assertTextNotPresent" value1="${microblogsEntryContent2}" />
 		<execute action="SOMicroblogs#assertTextNotPresent" value1="${microblogsEntryContent3}" />
@@ -532,10 +532,10 @@
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent2}" />
 		<var name="key_microblogsEntryTagValue" value="${microblogsEntryTagValue1}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_AUTHOR" value1="${userName2}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="TAB_TAG_VALUE" value1="${microblogsEntryTagValue1}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent2}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT_TAG" value1="${microblogsEntryTagValue1}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_AUTHOR" value1="${userName2}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#TAB_TAG_VALUE" value1="${microblogsEntryTagValue1}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent2}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT_TAG" value1="${microblogsEntryTagValue1}" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryViewableByEveryoneTag">
 			<var name="microblogsEntryAuthorName" value="${userName2}" />
@@ -546,10 +546,10 @@
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent1}" />
 		<var name="key_microblogsEntryTagValue" value="${microblogsEntryTagValue1}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_AUTHOR" value1="${userName1}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="TAB_TAG_VALUE" value1="${microblogsEntryTagValue1}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent1}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT_TAG" value1="${microblogsEntryTagValue1}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_AUTHOR" value1="${userName1}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#TAB_TAG_VALUE" value1="${microblogsEntryTagValue1}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent1}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT_TAG" value1="${microblogsEntryTagValue1}" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryViewableByEveryoneTag">
 			<var name="microblogsEntryAuthorName" value="${userName3}" />
@@ -560,10 +560,10 @@
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent4}" />
 		<var name="key_microblogsEntryTagValue" value="${microblogsEntryTagValue2}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_AUTHOR" value1="${userName4}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="TAB_TAG_VALUE" value1="${microblogsEntryTagValue2}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent4}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT_TAG" value1="${microblogsEntryTagValue2}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_AUTHOR" value1="${userName4}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#TAB_TAG_VALUE" value1="${microblogsEntryTagValue2}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent4}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT_TAG" value1="${microblogsEntryTagValue2}" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryViewableByEveryoneTag">
 			<var name="microblogsEntryAuthorName" value="${userName4}" />
@@ -574,10 +574,10 @@
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent3}" />
 		<var name="key_microblogsEntryTagValue" value="${microblogsEntryTagValue2}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_AUTHOR" value1="${userName3}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="TAB_TAG_VALUE" value1="${microblogsEntryTagValue2}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent3}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT_TAG" value1="${microblogsEntryTagValue2}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_AUTHOR" value1="${userName3}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#TAB_TAG_VALUE" value1="${microblogsEntryTagValue2}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent3}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT_TAG" value1="${microblogsEntryTagValue2}" />
 	</command>
 
 	<command name="AddMicroblogsEntry150Characters" priority="4">
@@ -638,12 +638,12 @@
 			<var name="soDashboard" value="true" />
 		</execute>
 
-		<execute action="SOMicroblogs#makeVisible" locator1="MICROBLOGS_ENTRY_EDIT" />
-		<execute action="SOMicroblogs#click" locator1="MICROBLOGS_ENTRY_EDIT_LINK" />
+		<execute function="#makeVisible" locator1="SOMicroblogs#MICROBLOGS_ENTRY_EDIT" />
+		<execute function="#click" locator1="SOMicroblogs#MICROBLOGS_ENTRY_EDIT_LINK" />
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent}" />
 
-		<execute action="SOMicroblogs#assertClick" locator1="MICROBLOGS_ENTRY_COMMENT_LINK" value1="Comment" />
+		<execute function="#assertClick" locator1="SOMicroblogs#MICROBLOGS_ENTRY_COMMENT_LINK" value1="Comment" />
 
 		<execute function="#click" locator1="xpath=(//div[contains(@id,'_1_WAR_microblogsportlet_autocompleteContent')])[3]" />
 		<execute function="#click" locator1="xpath=(//textarea[contains(@name,'contentInput')])[2]" />
@@ -652,7 +652,7 @@
 
 		<var name="key_microblogsEntryCommentContent" value="${microblogsEntryCommentContent}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_COMMENT_CONTENT" value1="${microblogsEntryCommentContent}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_COMMENT_CONTENT" value1="${microblogsEntryCommentContent}" />
 	</command>
 
 	<command name="AddMicroblogsEntryHashtagWithNumber" priority="3">
@@ -1355,15 +1355,15 @@
 			<var name="soDashboard" value="true" />
 		</execute>
 
-		<execute action="SOMicroblogs#assertClick" locator1="TAB_MENTIONS" value1="Mentions" />
+		<execute function="#assertClick" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
 
 		<var name="microblogsEntryContent" value="${microblogsEntryContent1} ${adminName}" />
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_AUTHOR" value1="${userName1}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_AUTHOR" value1="${userName1}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent1} ${adminName}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent1} ${adminName}" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryCommentLink" />
 
@@ -1371,9 +1371,9 @@
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_AUTHOR" value1="${userName2}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_AUTHOR" value1="${userName2}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent2} ${adminName}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent2} ${adminName}" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryCommentLink" />
 
@@ -1381,9 +1381,9 @@
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_AUTHOR" value1="${userName3}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_AUTHOR" value1="${userName3}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent3} ${adminName}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent3} ${adminName}" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryCommentLink" />
 	</command>
@@ -1510,7 +1510,7 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOActivities#assertClick" locator1="NAVIGATION_CONNECTIONS" value1="Connections" />
+		<execute function="#assertClick" locator1="SOActivities#NAVIGATION_CONNECTIONS" value1="Connections" />
 
 		<execute macro="SOActivities#viewMicroblogsNotViewableByEveryoneActivityEntry">
 			<var name="microblogsEntryAuthorFirstName" value="${adminFirstName}" />
@@ -1571,7 +1571,7 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SODashboard#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SODashboard#NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#addMicroblogsEntryComment">
 			<var name="microblogsEntryAuthorName" value="${adminName}" />
@@ -1666,7 +1666,7 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SODashboard#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SODashboard#NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#addMicroblogsEntryComment">
 			<var name="microblogsEntryAuthorName" value="${adminName}" />
@@ -1811,9 +1811,9 @@
 
 		<var name="profileScreenName" value="${adminScreenName}" />
 
-		<execute action="SOProfile#open" locator1="PROFILE_URL" />
+		<execute function="#open" locator1="SOProfile#PROFILE_URL" />
 
-		<execute action="SOProfile#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SOProfile#NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#addMicroblogsEntryComment">
 			<var name="microblogsEntryAuthorName" value="${adminName}" />
@@ -1897,9 +1897,9 @@
 
 		<var name="profileScreenName" value="${adminScreenName}" />
 
-		<execute action="SOProfile#open" locator1="PROFILE_URL" />
+		<execute function="#open" locator1="SOProfile#PROFILE_URL" />
 
-		<execute action="SOProfile#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SOProfile#NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#addMicroblogsEntryCommentMention">
 			<var name="mentionUserEmailAddress" value="${adminEmailAddress}" />
@@ -1928,9 +1928,9 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SODashboard#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SODashboard#NAVIGATION_MICROBLOGS" />
 
-		<execute action="SOMicroblogs#assertClick" locator1="TAB_MENTIONS" value1="Mentions" />
+		<execute function="#assertClick" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryAuthor">
 			<var name="microblogsEntryAuthorName" value="${userName}" />
@@ -1939,8 +1939,8 @@
 		<var name="key_mentionUserName" value="${adminName}" />
 		<var name="key_microblogsEntryContent" value="${microblogsEntryCommentContent} ${adminName}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryCommentContent} ${adminName}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT_MENTION" value1="${adminName}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryCommentContent} ${adminName}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT_MENTION" value1="${adminName}" />
 	</command>
 
 	<command name="AddMicroblogsEntryViewableByEveryoneCommentViaProfile" priority="4">
@@ -2127,7 +2127,7 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOActivities#assertClick" locator1="NAVIGATION_FOLLOWING" value1="Following" />
+		<execute function="#assertClick" locator1="SOActivities#NAVIGATION_FOLLOWING" value1="Following" />
 
 		<execute macro="SOActivities#viewMicroblogsNotViewableByEveryoneActivityEntry">
 			<var name="microblogsEntryAuthorFirstName" value="${adminFirstName}" />
@@ -2189,7 +2189,7 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SODashboard#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SODashboard#NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#addMicroblogsEntryComment">
 			<var name="microblogsEntryAuthorName" value="${adminName}" />
@@ -2257,14 +2257,14 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SODashboard#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SODashboard#NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#deleteMicroblogsEntry" />
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="INFO_MESSAGE" value1="You do not have any microblog entries." />
-		<execute action="SOMicroblogs#assertElementNotPresent" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#INFO_MESSAGE" value1="You do not have any microblog entries." />
+		<execute function="#assertElementNotPresent" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
 	</command>
 
 	<command name="DeleteMicroblogsEntryMention" priority="4">
@@ -2332,7 +2332,7 @@
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent2}" />
 
-		<execute action="SOMicroblogs#assertElementNotPresent" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent2}" />
+		<execute function="#assertElementNotPresent" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent2}" />
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="${userEmailAddress}" />
@@ -2344,7 +2344,7 @@
 			<var name="soDashboard" value="true" />
 		</execute>
 
-		<execute action="SOMicroblogs#assertClick" locator1="TAB_MENTIONS" value1="Mentions" />
+		<execute function="#assertClick" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
 
 		<execute action="SOMicroblogs#assertTextNotPresent" value1="${microblogsEntryContent2}" />
 	</command>
@@ -2391,7 +2391,7 @@
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent3}" />
 
-		<execute action="SOMicroblogs#assertElementNotPresent" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent3}" />
+		<execute function="#assertElementNotPresent" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent3}" />
 
 		<execute macro="SOMicroblogs#viewOwnMicroblogsEntryTag">
 			<var name="microblogsEntryAuthorName" value="${adminName}" />
@@ -2427,14 +2427,14 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SODashboard#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SODashboard#NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#deleteMicroblogsEntryViaProfile" />
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent}" />
 
-		<execute action="SOMicroblogsProfile#assertTextEquals" locator1="INFO_MESSAGE" value1="You do not have any microblog entries." />
-		<execute action="SOMicroblogsProfile#assertElementNotPresent" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogsProfile#INFO_MESSAGE" value1="You do not have any microblog entries." />
+		<execute function="#assertElementNotPresent" locator1="SOMicroblogsProfile#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Microblogs" />
@@ -2442,8 +2442,8 @@
 			<var name="soPage" value="true" />
 		</execute>
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="INFO_MESSAGE" value1="You do not have any microblog entries." />
-		<execute action="SOMicroblogs#assertElementNotPresent" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#INFO_MESSAGE" value1="You do not have any microblog entries." />
+		<execute function="#assertElementNotPresent" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
 	</command>
 
 	<command name="DeleteMicroblogsEntryViewableByEveryoneComment" priority="4">
@@ -2481,18 +2481,18 @@
 
 		<var name="profileScreenName" value="${adminScreenName}" />
 
-		<execute action="SOProfile#open" locator1="PROFILE_URL" />
+		<execute function="#open" locator1="SOProfile#PROFILE_URL" />
 
-		<execute action="SOProfile#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SOProfile#NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#addMicroblogsEntryComment">
 			<var name="microblogsEntryAuthorName" value="${adminName}" />
 			<var name="microblogsEntryCommentContent" value="${microblogsEntryCommentContent}" />
 		</execute>
 
-		<execute action="SOProfile#open" locator1="PROFILE_URL" />
+		<execute function="#open" locator1="SOProfile#PROFILE_URL" />
 
-		<execute action="SOProfile#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SOProfile#NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#deleteMicroblogsEntryComment">
 			<var name="microblogsEntryCommentContent" value="${microblogsEntryCommentContent}" />
@@ -2515,18 +2515,18 @@
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent}" />
 
 		<execute action="SOMicroblogs#assertTextNotPresent" value1="1 Comment" />
-		<execute action="SOMicroblogs#assertClick" locator1="MICROBLOGS_ENTRY_COMMENT_LINK" value1="Comment" />
+		<execute function="#assertClick" locator1="SOMicroblogs#MICROBLOGS_ENTRY_COMMENT_LINK" value1="Comment" />
 		<execute action="SOMicroblogs#assertTextNotPresent" value1="${microblogsEntryCommentContent}" />
 
-		<execute action="SOUserBar#assertClick" locator1="NOTIFICATION_MENU_COUNT" value1="1" />
-		<execute action="SOUserBar#assertElementNotPresent" locator1="NOTIFICATION_MENU_NOTIFICATION_ENTRY_CONTENT" />
-		<execute action="SOUserBar#assertElementNotPresent" locator1="NOTIFICATION_MENU_NOTIFICATION_ENTRY_SUBCONTENT" />
+		<execute function="#assertClick" locator1="SOUserBar#NOTIFICATION_MENU_COUNT" value1="1" />
+		<execute function="#assertElementNotPresent" locator1="SOUserBar#NOTIFICATION_MENU_NOTIFICATION_ENTRY_CONTENT" />
+		<execute function="#assertElementNotPresent" locator1="SOUserBar#NOTIFICATION_MENU_NOTIFICATION_ENTRY_SUBCONTENT" />
 		<execute action="SOUserBar#assertTextNotPresent" value1="${microblogsEntryCommentAuthorName} commented on your post." />
 		<execute action="SOUserBar#assertTextNotPresent" value1="${microblogsEntryCommentContent}" />
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOUserBar#assertTextEquals" locator1="NOTIFICATION_MENU_COUNT" value1="0" />
+		<execute function="#assertTextEquals" locator1="SOUserBar#NOTIFICATION_MENU_COUNT" value1="0" />
 	</command>
 
 	<command name="DeleteRepostMicroblogsEntry" priority="4">
@@ -2582,8 +2582,8 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOActivities#assertClick" locator1="NAVIGATION_ME" value1="Me" />
-		<execute action="SOActivities#assertTextEquals" locator1="NO_ACTIVITIES" value1="There are no activities." />
+		<execute function="#assertClick" locator1="SOActivities#NAVIGATION_ME" value1="Me" />
+		<execute function="#assertTextEquals" locator1="SOActivities#NO_ACTIVITIES" value1="There are no activities." />
 		<execute action="SOActivities#assertTextNotPresent" value1="${microblogsEntryContent}" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryNone" />
@@ -2693,7 +2693,7 @@
 			<var name="soDashboard" value="true" />
 		</execute>
 
-		<execute action="SOMicroblogs#assertClick" locator1="TAB_MENTIONS" value1="Mentions" />
+		<execute function="#assertClick" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
 
 		<execute action="SOMicroblogs#assertTextNotPresent" value1="${microblogsEntryContent2}" />
 
@@ -2707,7 +2707,7 @@
 			<var name="soDashboard" value="true" />
 		</execute>
 
-		<execute action="SOMicroblogs#assertClick" locator1="TAB_MENTIONS" value1="Mentions" />
+		<execute function="#assertClick" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
 
 		<execute action="SOMicroblogs#assertTextNotPresent" value1="${microblogsEntryContent1}" />
 	</command>
@@ -2858,7 +2858,7 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOActivities#assertClick" locator1="NAVIGATION_CONNECTIONS" value1="Connections" />
+		<execute function="#assertClick" locator1="SOActivities#NAVIGATION_CONNECTIONS" value1="Connections" />
 
 		<execute macro="SOActivities#viewMicroblogsNotViewableByEveryoneActivityEntry">
 			<var name="microblogsEntryAuthorFirstName" value="${adminFirstName}" />
@@ -3049,7 +3049,7 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOActivities#assertClick" locator1="NAVIGATION_FOLLOWING" value1="Following" />
+		<execute function="#assertClick" locator1="SOActivities#NAVIGATION_FOLLOWING" value1="Following" />
 
 		<execute macro="SOActivities#viewMicroblogsNotViewableByEveryoneActivityEntry">
 			<var name="microblogsEntryAuthorFirstName" value="${adminFirstName}" />
@@ -3117,7 +3117,7 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOActivities#assertClick" locator1="NAVIGATION_ME" value1="Me" />
+		<execute function="#assertClick" locator1="SOActivities#NAVIGATION_ME" value1="Me" />
 
 		<execute macro="SOActivities#viewMicroblogsRepostActivityEntry">
 			<var name="microblogsEntryAuthorFirstName" value="${adminFirstName}" />
@@ -3154,7 +3154,7 @@
 			<var name="profileScreenName" value="${userScreenName}" />
 		</execute>
 
-		<execute action="SOProfile#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SOProfile#NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryAuthor">
 			<var name="microblogsEntryAuthorName" value="${adminName}" />
@@ -3163,7 +3163,7 @@
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
 	</command>
 
 	<command name="ViewMicroblogsEntries" priority="4">
@@ -3275,26 +3275,26 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOActivities#assertClick" locator1="NAVIGATION_CONNECTIONS" value1="Connections" />
+		<execute function="#assertClick" locator1="SOActivities#NAVIGATION_CONNECTIONS" value1="Connections" />
 
 		<var name="key_row" value="01" />
 
-		<execute action="SOActivities#assertElementPresent" locator1="ACTIVITIES_TIME_STAMP" />
-		<execute action="SOActivities#assertTextEquals" locator1="ACTIVITIES_ACTION" value1="${microblogsEntryContent3}" />
-		<execute action="SOActivities#assertTextEquals" locator1="ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
-		<execute action="SOActivities#assertTextEquals" locator1="ACTIVITIES_COMMENT" value1="Comment" />
-		<execute action="SOActivities#assertElementPresent" locator1="ACTIVITIES_COMMENT_FIELD" />
+		<execute function="#assertElementPresent" locator1="SOActivities#ACTIVITIES_TIME_STAMP" />
+		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_ACTION" value1="${microblogsEntryContent3}" />
+		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
+		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_COMMENT" value1="Comment" />
+		<execute function="#assertElementPresent" locator1="SOActivities#ACTIVITIES_COMMENT_FIELD" />
 
 		<var name="key_row" value="02" />
 
-		<execute action="SOActivities#assertElementPresent" locator1="ACTIVITIES_TIME_STAMP" />
-		<execute action="SOActivities#assertTextEquals" locator1="ACTIVITIES_ACTION" value1="${microblogsEntryContent1}" />
-		<execute action="SOActivities#assertTextEquals" locator1="ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
-		<execute action="SOActivities#assertTextEquals" locator1="ACTIVITIES_COMMENT" value1="Comment" />
-		<execute action="SOActivities#assertElementPresent" locator1="ACTIVITIES_COMMENT_FIELD" />
+		<execute function="#assertElementPresent" locator1="SOActivities#ACTIVITIES_TIME_STAMP" />
+		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_ACTION" value1="${microblogsEntryContent1}" />
+		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
+		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_COMMENT" value1="Comment" />
+		<execute function="#assertElementPresent" locator1="SOActivities#ACTIVITIES_COMMENT_FIELD" />
 		<execute action="SOActivities#assertTextNotPresent" value1="${microblogsEntryContent2}" />
-		<execute action="SOActivities#assertClick" locator1="NAVIGATION_FOLLOWING" value1="Following" />
-		<execute action="SOActivities#assertTextEquals" locator1="NO_ACTIVITIES" value1="There are no activities." />
+		<execute function="#assertClick" locator1="SOActivities#NAVIGATION_FOLLOWING" value1="Following" />
+		<execute function="#assertTextEquals" locator1="SOActivities#NO_ACTIVITIES" value1="There are no activities." />
 		<execute action="SOActivities#assertTextNotPresent" value1="${microblogsEntryContent2}" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryNotViewableByEveryone">
@@ -3306,7 +3306,7 @@
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent3}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent3}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent3}" />
 		<execute action="SOMicroblogs#assertTextNotPresent" value1="${microblogsEntryContent2}" />
 
 		<execute macro="User#logoutAndLoginPG">
@@ -3316,26 +3316,26 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOActivities#assertClick" locator1="NAVIGATION_CONNECTIONS" value1="Connections" />
-		<execute action="SOActivities#assertTextEquals" locator1="NO_ACTIVITIES" value1="There are no activities." />
+		<execute function="#assertClick" locator1="SOActivities#NAVIGATION_CONNECTIONS" value1="Connections" />
+		<execute function="#assertTextEquals" locator1="SOActivities#NO_ACTIVITIES" value1="There are no activities." />
 		<execute action="SOActivities#assertTextNotPresent" value1="${microblogsEntryContent1}" />
-		<execute action="SOActivities#assertClick" locator1="NAVIGATION_FOLLOWING" value1="Following" />
+		<execute function="#assertClick" locator1="SOActivities#NAVIGATION_FOLLOWING" value1="Following" />
 
 		<var name="key_row" value="01" />
 
-		<execute action="SOActivities#assertElementPresent" locator1="ACTIVITIES_TIME_STAMP" />
-		<execute action="SOActivities#assertTextEquals" locator1="ACTIVITIES_ACTION" value1="${microblogsEntryContent3}" />
-		<execute action="SOActivities#assertTextEquals" locator1="ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
-		<execute action="SOActivities#assertTextEquals" locator1="ACTIVITIES_COMMENT" value1="Comment" />
-		<execute action="SOActivities#assertElementPresent" locator1="ACTIVITIES_COMMENT_FIELD" />
+		<execute function="#assertElementPresent" locator1="SOActivities#ACTIVITIES_TIME_STAMP" />
+		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_ACTION" value1="${microblogsEntryContent3}" />
+		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
+		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_COMMENT" value1="Comment" />
+		<execute function="#assertElementPresent" locator1="SOActivities#ACTIVITIES_COMMENT_FIELD" />
 
 		<var name="key_row" value="02" />
 
-		<execute action="SOActivities#assertElementPresent" locator1="ACTIVITIES_TIME_STAMP" />
-		<execute action="SOActivities#assertTextEquals" locator1="ACTIVITIES_ACTION" value1="${microblogsEntryContent2}" />
-		<execute action="SOActivities#assertTextEquals" locator1="ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
-		<execute action="SOActivities#assertTextEquals" locator1="ACTIVITIES_COMMENT" value1="Comment" />
-		<execute action="SOActivities#assertElementPresent" locator1="ACTIVITIES_COMMENT_FIELD" />
+		<execute function="#assertElementPresent" locator1="SOActivities#ACTIVITIES_TIME_STAMP" />
+		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_ACTION" value1="${microblogsEntryContent2}" />
+		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
+		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_COMMENT" value1="Comment" />
+		<execute function="#assertElementPresent" locator1="SOActivities#ACTIVITIES_COMMENT_FIELD" />
 		<execute action="SOActivities#assertTextNotPresent" value1="${microblogsEntryContent1}" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryNotViewableByEveryone">
@@ -3347,7 +3347,7 @@
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent3}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent3}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent3}" />
 		<execute action="SOMicroblogs#assertTextNotPresent" value1="${microblogsEntryContent1}" />
 
 		<execute macro="User#logoutAndLoginPG">
@@ -3357,20 +3357,20 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOActivities#assertClick" locator1="NAVIGATION_CONNECTIONS" value1="Connections" />
-		<execute action="SOActivities#assertTextEquals" locator1="NO_ACTIVITIES" value1="There are no activities." />
+		<execute function="#assertClick" locator1="SOActivities#NAVIGATION_CONNECTIONS" value1="Connections" />
+		<execute function="#assertTextEquals" locator1="SOActivities#NO_ACTIVITIES" value1="There are no activities." />
 		<execute action="SOActivities#assertTextNotPresent" value1="${microblogsEntryContent1}" />
 		<execute action="SOActivities#assertTextNotPresent" value1="${microblogsEntryContent2}" />
 		<execute action="SOActivities#assertTextNotPresent" value1="${microblogsEntryContent3}" />
-		<execute action="SOActivities#assertClick" locator1="NAVIGATION_FOLLOWING" value1="Following" />
-		<execute action="SOActivities#assertTextEquals" locator1="NO_ACTIVITIES" value1="There are no activities." />
+		<execute function="#assertClick" locator1="SOActivities#NAVIGATION_FOLLOWING" value1="Following" />
+		<execute function="#assertTextEquals" locator1="SOActivities#NO_ACTIVITIES" value1="There are no activities." />
 		<execute action="SOActivities#assertTextNotPresent" value1="${microblogsEntryContent1}" />
 		<execute action="SOActivities#assertTextNotPresent" value1="${microblogsEntryContent2}" />
 		<execute action="SOActivities#assertTextNotPresent" value1="${microblogsEntryContent3}" />
 
-		<execute action="SODashboard#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SODashboard#NAVIGATION_MICROBLOGS" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="INFO_MESSAGE" value1="You do not have any microblog entries." />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#INFO_MESSAGE" value1="You do not have any microblog entries." />
 		<execute action="SOMicroblogs#assertTextNotPresent" value1="${microblogsEntryContent1}" />
 		<execute action="SOMicroblogs#assertTextNotPresent" value1="${microblogsEntryContent2}" />
 		<execute action="SOMicroblogs#assertTextNotPresent" value1="${microblogsEntryContent3}" />
@@ -3429,9 +3429,9 @@
 
 		<var name="profileScreenName" value="${adminScreenName}" />
 
-		<execute action="SOProfile#open" locator1="PROFILE_URL" />
+		<execute function="#open" locator1="SOProfile#PROFILE_URL" />
 
-		<execute action="SOProfile#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SOProfile#NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#addMicroblogsEntryComment">
 			<var name="microblogsEntryAuthorName" value="${adminName}" />
@@ -3439,9 +3439,9 @@
 			<var name="microblogsEntryContent" value="${microblogsEntryContent1}" />
 		</execute>
 
-		<execute action="SOProfile#open" locator1="PROFILE_URL" />
+		<execute function="#open" locator1="SOProfile#PROFILE_URL" />
 
-		<execute action="SOProfile#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SOProfile#NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#addMicroblogsEntryComment">
 			<var name="microblogsEntryAuthorName" value="${adminName}" />
@@ -3449,9 +3449,9 @@
 			<var name="microblogsEntryContent" value="${microblogsEntryContent2}" />
 		</execute>
 
-		<execute action="SOProfile#open" locator1="PROFILE_URL" />
+		<execute function="#open" locator1="SOProfile#PROFILE_URL" />
 
-		<execute action="SOProfile#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SOProfile#NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#addMicroblogsEntryComment">
 			<var name="commentCount" value="1" />
@@ -3512,8 +3512,8 @@
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent1}" />
 
-		<execute action="SOMicroblogs#assertClick" locator1="MICROBLOGS_ENTRY_COMMENT_LINK" value1="1 Comment" />
-		<execute action="SOMicroblogs#sikuliAssertElementPresent" locator1="SCREENSHOTS_MICROBLOGS_ENTRY_COMMENT_THREADING_PNG" />
+		<execute function="#assertClick" locator1="SOMicroblogs#MICROBLOGS_ENTRY_COMMENT_LINK" value1="1 Comment" />
+		<execute function="#sikuliAssertElementPresent" locator1="SOMicroblogs#SCREENSHOTS_MICROBLOGS_ENTRY_COMMENT_THREADING_PNG" />
 	</command>
 
 	<command name="ViewMicroblogsEntryMentionDropdown" priority="4">
@@ -3552,14 +3552,14 @@
 			<var name="soDashboard" value="true" />
 		</execute>
 
-		<execute action="SOMicroblogs#click" locator1="MICROBLOGS_CONTENT_FIELD" />
+		<execute function="#click" locator1="SOMicroblogs#MICROBLOGS_CONTENT_FIELD" />
 		<execute action="SOMicroblogs#selectFrameTop" />
-		<execute action="SOMicroblogs#click" locator1="MICROBLOGS_CONTENT_INPUT_FIELD" />
-		<execute action="SOMicroblogs#type" locator1="MICROBLOGS_CONTENT_INPUT_FIELD" value1="@${userFirstName}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_CONTENT_AUTOCOMPLETE_USERNAME" value1="${userName}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_CONTENT_AUTOCOMPLETE_EMAIL" value1="${userEmailAddress}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_CONTENT_AUTOCOMPLETE_JOB_TITLE" value1="${userJobTitle}" />
-		<execute action="SOMicroblogs#sikuliAssertElementPresent" locator1="SCREENSHOTS_MICROBLOGS_MENTION_DROPDOWN_PNG" />
+		<execute function="#click" locator1="SOMicroblogs#MICROBLOGS_CONTENT_INPUT_FIELD" />
+		<execute function="#type" locator1="SOMicroblogs#MICROBLOGS_CONTENT_INPUT_FIELD" value1="@${userFirstName}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_CONTENT_AUTOCOMPLETE_USERNAME" value1="${userName}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_CONTENT_AUTOCOMPLETE_EMAIL" value1="${userEmailAddress}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_CONTENT_AUTOCOMPLETE_JOB_TITLE" value1="${userJobTitle}" />
+		<execute function="#sikuliAssertElementPresent" locator1="SOMicroblogs#SCREENSHOTS_MICROBLOGS_MENTION_DROPDOWN_PNG" />
 	</command>
 
 	<command name="ViewMicroblogsEntryMentionViaProfile" priority="4">
@@ -3697,10 +3697,10 @@
 			<var name="microblogsEntryContent" value="${microblogsEntryContent}" />
 		</execute>
 
-		<execute action="Dockbar#click" locator1="USER_NAME" />
-		<execute action="Dockbar#click" locator1="USER_MY_PROFILE" value1="My Profile" />
+		<execute function="#click" locator1="Dockbar#USER_NAME" />
+		<execute function="#click" locator1="Dockbar#USER_MY_PROFILE" value1="My Profile" />
 
-		<execute action="SOProfile#click" locator1="NAVIGATION_MICROBLOGS" value1="Microblogs" />
+		<execute function="#click" locator1="SOProfile#NAVIGATION_MICROBLOGS" value1="Microblogs" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryTagViaProfile">
 			<var name="microblogsEntryAuthorName" value="${adminName}" />
@@ -3843,29 +3843,29 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SODashboard#click" locator1="NAVIGATION_MICROBLOGS" />
+		<execute function="#click" locator1="SODashboard#NAVIGATION_MICROBLOGS" />
 
-		<execute action="SOMicroblogs#assertClick" locator1="TAB_TIMELINE" value1="Timeline" />
+		<execute function="#assertClick" locator1="SOMicroblogs#TAB_TIMELINE" value1="Timeline" />
 
 		<execute action="SOMicroblogs#pause" value1="1000" />
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent1}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_AUTHOR" value1="${adminName}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent1}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_COMMENT_LINK" value1="Comment" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_AUTHOR" value1="${adminName}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent1}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_COMMENT_LINK" value1="Comment" />
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent2}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_AUTHOR" value1="${adminName}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent2}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_COMMENT_LINK" value1="Comment" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_AUTHOR" value1="${adminName}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent2}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_COMMENT_LINK" value1="Comment" />
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent3}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_AUTHOR" value1="${adminName}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent3}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_COMMENT_LINK" value1="Comment" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_AUTHOR" value1="${adminName}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent3}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_COMMENT_LINK" value1="Comment" />
 	</command>
 
 	<command name="ViewMicroblogsTimelineLocalized" priority="3">
@@ -3959,20 +3959,20 @@
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent1}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_AUTHOR" value1="${userName}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent1}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_COMMENT_LINK" value1="Reactie" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_AUTHOR" value1="${userName}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent1}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_COMMENT_LINK" value1="Reactie" />
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent2}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_AUTHOR" value1="${userName}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent2}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_COMMENT_LINK" value1="Reactie" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_AUTHOR" value1="${userName}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent2}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_COMMENT_LINK" value1="Reactie" />
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent3}" />
 
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_AUTHOR" value1="${userName}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent3}" />
-		<execute action="SOMicroblogs#assertTextEquals" locator1="MICROBLOGS_ENTRY_COMMENT_LINK" value1="Reactie" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_AUTHOR" value1="${userName}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent3}" />
+		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_COMMENT_LINK" value1="Reactie" />
 	</command>
 </definition>

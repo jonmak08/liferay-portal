@@ -59,8 +59,8 @@
 
 		<execute macro="Page#gotoCP" />
 
-		<execute action="CPUsersandorganizations#assertElementNotPresent" locator1="ADD" />
-		<execute action="CPUsersandorganizations#assertTextEquals" locator1="INFO_MESSAGE" value1="You do not belong to an organization and are not allowed to view other organizations." />
+		<execute function="#assertElementNotPresent" locator1="CPUsersandorganizations#ADD" />
+		<execute function="#assertTextEquals" locator1="CPUsersandorganizations#INFO_MESSAGE" value1="You do not belong to an organization and are not allowed to view other organizations." />
 
 		<execute macro="Permissions#definePermissionLoginUserCP">
 			<var name="permissionDefinitionKey" value="${permissionDefinition1Key}" />
@@ -91,7 +91,7 @@
 
 		<execute macro="Page#gotoCP" />
 
-		<execute action="CPUsersandorganizations#assertElementNotPresent" locator1="ADD" />
+		<execute function="#assertElementNotPresent" locator1="CPUsersandorganizations#ADD" />
 	</command>
 
 	<command name="AddUserRegRole" priority="5">
@@ -135,8 +135,8 @@
 
 		<execute macro="Page#gotoCP" />
 
-		<execute action="CPUsersandorganizations#assertTextEquals" locator1="INFO_MESSAGE" value1="You do not belong to an organization and are not allowed to view other organizations." />
-		<execute action="CPUsersandorganizations#assertElementNotPresent" locator1="ADD" />
+		<execute function="#assertTextEquals" locator1="CPUsersandorganizations#INFO_MESSAGE" value1="You do not belong to an organization and are not allowed to view other organizations." />
+		<execute function="#assertElementNotPresent" locator1="CPUsersandorganizations#ADD" />
 
 		<execute macro="Permissions#definePermissionLoginUserCP">
 			<var name="permissionDefinitionKey" value="${permissionDefinition1Key}" />
@@ -169,7 +169,7 @@
 
 		<execute macro="Page#gotoCP" />
 
-		<execute action="CPUsersandorganizations#assertTextEquals" locator1="INFO_MESSAGE" value1="You do not belong to an organization and are not allowed to view other organizations." />
-		<execute action="CPUsersandorganizations#assertElementNotPresent" locator1="ADD" />
+		<execute function="#assertTextEquals" locator1="CPUsersandorganizations#INFO_MESSAGE" value1="You do not belong to an organization and are not allowed to view other organizations." />
+		<execute function="#assertElementNotPresent" locator1="CPUsersandorganizations#ADD" />
 	</command>
 </definition>

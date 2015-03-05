@@ -4,16 +4,16 @@
 			<var name="portletOption" value="Configuration" />
 		</execute>
 
-		<execute action="PGWebcontentdisplayConfiguration#selectFrame" locator1="CONFIGURATION_IFRAME" />
-		<execute action="PGWebcontentdisplayConfiguration#assertClick" locator1="NAVIGATION_SCOPE" value1="Scope" />
+		<execute function="#selectFrame" locator1="PGWebcontentdisplayConfiguration#CONFIGURATION_IFRAME" />
+		<execute function="#assertClick" locator1="PGWebcontentdisplayConfiguration#NAVIGATION_SCOPE" value1="Scope" />
 
 		<var name="key_scopeSelection" value="${scopeSelection}" />
 
-		<execute action="PGWebcontentdisplayConfigurationScope#click" locator1="SCOPE_MENULIST" />
-		<execute action="PGWebcontentdisplayConfigurationScope#assertClick" locator1="SCOPE_MENULIST_SELECTION" value1="${scopeSelection}" />
+		<execute function="#click" locator1="PGWebcontentdisplayConfigurationScope#SCOPE_MENULIST" />
+		<execute function="#assertClick" locator1="PGWebcontentdisplayConfigurationScope#SCOPE_MENULIST_SELECTION" value1="${scopeSelection}" />
 
-		<execute action="PGWebcontentdisplayConfigurationScope#assertTextEquals" locator1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
-		<execute action="PGWebcontentdisplayConfigurationScope#assertTextEquals" locator1="SCOPE_MENULIST" value1="${scopeSelection}" />
+		<execute function="#assertTextEquals" locator1="PGWebcontentdisplayConfigurationScope#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+		<execute function="#assertTextEquals" locator1="PGWebcontentdisplayConfigurationScope#SCOPE_MENULIST" value1="${scopeSelection}" />
 	</command>
 
 	<command name="configureSetupPG">
@@ -21,17 +21,17 @@
 			<var name="portletOption" value="Configuration" />
 		</execute>
 
-		<execute action="PGWebcontentdisplayConfiguration#selectFrame" locator1="CONFIGURATION_IFRAME" />
+		<execute function="#selectFrame" locator1="PGWebcontentdisplayConfiguration#CONFIGURATION_IFRAME" />
 
 		<if>
 			<equals arg1="${wcdPortletShowAvailableLocales}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#check" locator1="SHOW_AVAILABLE_LOCALES_CHECKBOX" />
+				<execute function="#check" locator1="PGWebcontentdisplayConfiguration#SHOW_AVAILABLE_LOCALES_CHECKBOX" />
 			</then>
 			<elseif>
 				<equals arg1="${wcdPortletShowAvailableLocales}" arg2="false" />
 				<then>
-					<execute action="PGWebcontentdisplayConfiguration#uncheck" locator1="SHOW_AVAILABLE_LOCALES_CHECKBOX" />
+					<execute function="#uncheck" locator1="PGWebcontentdisplayConfiguration#SHOW_AVAILABLE_LOCALES_CHECKBOX" />
 				</then>
 			</elseif>
 		</if>
@@ -39,12 +39,12 @@
 		<if>
 			<equals arg1="${wcdPortletEnablePrint}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#check" locator1="ENABLE_PRINT_CHECKBOX" />
+				<execute function="#check" locator1="PGWebcontentdisplayConfiguration#ENABLE_PRINT_CHECKBOX" />
 			</then>
 			<elseif>
 				<equals arg1="${wcdPortletEnablePrint}" arg2="false" />
 				<then>
-					<execute action="PGWebcontentdisplayConfiguration#uncheck" locator1="ENABLE_PRINT_CHECKBOX" />
+					<execute function="#uncheck" locator1="PGWebcontentdisplayConfiguration#ENABLE_PRINT_CHECKBOX" />
 				</then>
 			</elseif>
 		</if>
@@ -52,12 +52,12 @@
 		<if>
 			<equals arg1="${wcdPortletEnableRelatedAssets}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#check" locator1="ENABLE_RELATED_ASSETS_CHECKBOX" />
+				<execute function="#check" locator1="PGWebcontentdisplayConfiguration#ENABLE_RELATED_ASSETS_CHECKBOX" />
 			</then>
 			<elseif>
 				<equals arg1="${wcdPortletEnableRelatedAssets}" arg2="false" />
 				<then>
-					<execute action="PGWebcontentdisplayConfiguration#uncheck" locator1="ENABLE_RELATED_ASSETS_CHECKBOX" />
+					<execute function="#uncheck" locator1="PGWebcontentdisplayConfiguration#ENABLE_RELATED_ASSETS_CHECKBOX" />
 				</then>
 			</elseif>
 		</if>
@@ -65,12 +65,12 @@
 		<if>
 			<equals arg1="${wcdPortletEnableRatings}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#check" locator1="ENABLE_RATINGS_CHECKBOX" />
+				<execute function="#check" locator1="PGWebcontentdisplayConfiguration#ENABLE_RATINGS_CHECKBOX" />
 			</then>
 			<elseif>
 				<equals arg1="${wcdPortletEnableRatings}" arg2="false" />
 				<then>
-					<execute action="PGWebcontentdisplayConfiguration#uncheck" locator1="ENABLE_RATINGS_CHECKBOX" />
+					<execute function="#uncheck" locator1="PGWebcontentdisplayConfiguration#ENABLE_RATINGS_CHECKBOX" />
 				</then>
 			</elseif>
 		</if>
@@ -78,12 +78,12 @@
 		<if>
 			<equals arg1="${wcdPortletEnableComments}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#check" locator1="ENABLE_COMMENTS_CHECKBOX" />
+				<execute function="#check" locator1="PGWebcontentdisplayConfiguration#ENABLE_COMMENTS_CHECKBOX" />
 			</then>
 			<elseif>
 				<equals arg1="${wcdPortletEnableComments}" arg2="false" />
 				<then>
-					<execute action="PGWebcontentdisplayConfiguration#uncheck" locator1="ENABLE_COMMENTS_CHECKBOX" />
+					<execute function="#uncheck" locator1="PGWebcontentdisplayConfiguration#ENABLE_COMMENTS_CHECKBOX" />
 				</then>
 			</elseif>
 		</if>
@@ -91,12 +91,12 @@
 		<if>
 			<equals arg1="${wcdPortletEnableCommentRatings}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#check" locator1="ENABLE_COMMENT_RATINGS_CHECKBOX" />
+				<execute function="#check" locator1="PGWebcontentdisplayConfiguration#ENABLE_COMMENT_RATINGS_CHECKBOX" />
 			</then>
 			<elseif>
 				<equals arg1="${wcdPortletEnableCommentRatings}" arg2="false" />
 				<then>
-					<execute action="PGWebcontentdisplayConfiguration#uncheck" locator1="ENABLE_COMMENT_RATINGS_CHECKBOX" />
+					<execute function="#uncheck" locator1="PGWebcontentdisplayConfiguration#ENABLE_COMMENT_RATINGS_CHECKBOX" />
 				</then>
 			</elseif>
 		</if>
@@ -104,28 +104,28 @@
 		<if>
 			<equals arg1="${wcdPortletEnableViewCountIncrement}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#check" locator1="ENABLE_VIEW_COUNT_INCREMENT_CHECKBOX" />
+				<execute function="#check" locator1="PGWebcontentdisplayConfiguration#ENABLE_VIEW_COUNT_INCREMENT_CHECKBOX" />
 			</then>
 			<elseif>
 				<equals arg1="${wcdPortletEnableViewCountIncrement}" arg2="false" />
 				<then>
-					<execute action="PGWebcontentdisplayConfiguration#uncheck" locator1="ENABLE_VIEW_COUNT_INCREMENT_CHECKBOX" />
+					<execute function="#uncheck" locator1="PGWebcontentdisplayConfiguration#ENABLE_VIEW_COUNT_INCREMENT_CHECKBOX" />
 				</then>
 			</elseif>
 		</if>
 
-		<execute action="PGWebcontentdisplayConfiguration#assertClick" locator1="SAVE_BUTTON" value1="Save" />
-		<execute action="PGWebcontentdisplayConfigurationScope#assertTextEquals" locator1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+		<execute function="#assertClick" locator1="PGWebcontentdisplayConfiguration#SAVE_BUTTON" value1="Save" />
+		<execute function="#assertTextEquals" locator1="PGWebcontentdisplayConfigurationScope#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 
 		<if>
 			<equals arg1="${wcdPortletShowAvailableLocales}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#assertChecked" locator1="SHOW_AVAILABLE_LOCALES_CHECKBOX" />
+				<execute function="#assertChecked" locator1="PGWebcontentdisplayConfiguration#SHOW_AVAILABLE_LOCALES_CHECKBOX" />
 			</then>
 			<elseif>
 				<equals arg1="${wcdPortletShowAvailableLocales}" arg2="false" />
 				<then>
-					<execute action="PGWebcontentdisplayConfiguration#assertNotChecked" locator1="SHOW_AVAILABLE_LOCALES_CHECKBOX" />
+					<execute function="#assertNotChecked" locator1="PGWebcontentdisplayConfiguration#SHOW_AVAILABLE_LOCALES_CHECKBOX" />
 				</then>
 			</elseif>
 		</if>
@@ -133,12 +133,12 @@
 		<if>
 			<equals arg1="${wcdPortletEnablePrint}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#assertChecked" locator1="ENABLE_PRINT_CHECKBOX" />
+				<execute function="#assertChecked" locator1="PGWebcontentdisplayConfiguration#ENABLE_PRINT_CHECKBOX" />
 			</then>
 			<elseif>
 				<equals arg1="${wcdPortletEnablePrint}" arg2="false" />
 				<then>
-					<execute action="PGWebcontentdisplayConfiguration#assertNotChecked" locator1="ENABLE_PRINT_CHECKBOX" />
+					<execute function="#assertNotChecked" locator1="PGWebcontentdisplayConfiguration#ENABLE_PRINT_CHECKBOX" />
 				</then>
 			</elseif>
 		</if>
@@ -146,12 +146,12 @@
 		<if>
 			<equals arg1="${wcdPortletEnableRelatedAssets}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#assertChecked" locator1="ENABLE_RELATED_ASSETS_CHECKBOX" />
+				<execute function="#assertChecked" locator1="PGWebcontentdisplayConfiguration#ENABLE_RELATED_ASSETS_CHECKBOX" />
 			</then>
 			<elseif>
 				<equals arg1="${wcdPortletEnableRelatedAssets}" arg2="false" />
 				<then>
-					<execute action="PGWebcontentdisplayConfiguration#assertNotChecked" locator1="ENABLE_RELATED_ASSETS_CHECKBOX" />
+					<execute function="#assertNotChecked" locator1="PGWebcontentdisplayConfiguration#ENABLE_RELATED_ASSETS_CHECKBOX" />
 				</then>
 			</elseif>
 		</if>
@@ -159,12 +159,12 @@
 		<if>
 			<equals arg1="${wcdPortletEnableRatings}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#assertChecked" locator1="ENABLE_RATINGS_CHECKBOX" />
+				<execute function="#assertChecked" locator1="PGWebcontentdisplayConfiguration#ENABLE_RATINGS_CHECKBOX" />
 			</then>
 			<elseif>
 				<equals arg1="${wcdPortletEnableRatings}" arg2="false" />
 				<then>
-					<execute action="PGWebcontentdisplayConfiguration#assertNotChecked" locator1="ENABLE_RATINGS_CHECKBOX" />
+					<execute function="#assertNotChecked" locator1="PGWebcontentdisplayConfiguration#ENABLE_RATINGS_CHECKBOX" />
 				</then>
 			</elseif>
 		</if>
@@ -172,12 +172,12 @@
 		<if>
 			<equals arg1="${wcdPortletEnableComments}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#assertChecked" locator1="ENABLE_COMMENTS_CHECKBOX" />
+				<execute function="#assertChecked" locator1="PGWebcontentdisplayConfiguration#ENABLE_COMMENTS_CHECKBOX" />
 			</then>
 			<elseif>
 				<equals arg1="${wcdPortletEnableComments}" arg2="false" />
 				<then>
-					<execute action="PGWebcontentdisplayConfiguration#assertNotChecked" locator1="ENABLE_COMMENTS_CHECKBOX" />
+					<execute function="#assertNotChecked" locator1="PGWebcontentdisplayConfiguration#ENABLE_COMMENTS_CHECKBOX" />
 				</then>
 			</elseif>
 		</if>
@@ -185,12 +185,12 @@
 		<if>
 			<equals arg1="${wcdPortletEnableCommentRatings}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#assertChecked" locator1="ENABLE_COMMENT_RATINGS_CHECKBOX" />
+				<execute function="#assertChecked" locator1="PGWebcontentdisplayConfiguration#ENABLE_COMMENT_RATINGS_CHECKBOX" />
 			</then>
 			<elseif>
 				<equals arg1="${wcdPortletEnableCommentRatings}" arg2="false" />
 				<then>
-					<execute action="PGWebcontentdisplayConfiguration#assertNotChecked" locator1="ENABLE_COMMENT_RATINGS_CHECKBOX" />
+					<execute function="#assertNotChecked" locator1="PGWebcontentdisplayConfiguration#ENABLE_COMMENT_RATINGS_CHECKBOX" />
 				</then>
 			</elseif>
 		</if>
@@ -198,12 +198,12 @@
 		<if>
 			<equals arg1="${wcdPortletEnableViewCountIncrement}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#assertChecked" locator1="ENABLE_VIEW_COUNT_INCREMENT_CHECKBOX" />
+				<execute function="#assertChecked" locator1="PGWebcontentdisplayConfiguration#ENABLE_VIEW_COUNT_INCREMENT_CHECKBOX" />
 			</then>
 			<elseif>
 				<equals arg1="${wcdPortletEnableViewCountIncrement}" arg2="false" />
 				<then>
-					<execute action="PGWebcontentdisplayConfiguration#assertNotChecked" locator1="ENABLE_VIEW_COUNT_INCREMENT_CHECKBOX" />
+					<execute function="#assertNotChecked" locator1="PGWebcontentdisplayConfiguration#ENABLE_VIEW_COUNT_INCREMENT_CHECKBOX" />
 				</then>
 			</elseif>
 		</if>
@@ -214,31 +214,31 @@
 			<var name="portletOption" value="Configuration" />
 		</execute>
 
-		<execute action="PGWebcontentdisplayConfiguration#selectFrame" locator1="CONFIGURATION_IFRAME" />
+		<execute function="#selectFrame" locator1="PGWebcontentdisplayConfiguration#CONFIGURATION_IFRAME" />
 
 		<if>
 			<isset var="webContentSearchValue" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#type" locator1="SEARCH_FIELD" value1="${webContentSearchValue}" />
+				<execute function="#type" locator1="PGWebcontentdisplayConfiguration#SEARCH_FIELD" value1="${webContentSearchValue}" />
 			</then>
 			<else>
-				<execute action="PGWebcontentdisplayConfiguration#type" locator1="SEARCH_FIELD" value1="${webContentTitle}" />
+				<execute function="#type" locator1="PGWebcontentdisplayConfiguration#SEARCH_FIELD" value1="${webContentTitle}" />
 			</else>
 		</if>
 
-		<execute action="PGWebcontentdisplayConfiguration#assertClick" locator1="SEARCH_BUTTON" value1="Search" />
+		<execute function="#assertClick" locator1="PGWebcontentdisplayConfiguration#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_webContentTitle" value="${webContentTitle}" />
 
-		<execute action="PGWebcontentdisplayConfiguration#assertTextEquals" locator1="WEB_CONTENT_TABLE_TITLE" value1="${webContentTitle}" />
+		<execute function="#assertTextEquals" locator1="PGWebcontentdisplayConfiguration#WEB_CONTENT_TABLE_TITLE" value1="${webContentTitle}" />
 
 		<if>
 			<equals arg1="${addSearchedContent}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplayConfiguration#assertClick" locator1="WEB_CONTENT_TABLE_TITLE" value1="${webContentTitle}" />
-				<execute action="PGWebcontentdisplayConfiguration#assertTextEquals" locator1="INFO_MESSAGE_ARTICLE" value1="${webContentTitle} (Modified)" />
-				<execute action="PGWebcontentdisplayConfiguration#assertClick" locator1="SAVE_BUTTON" value1="Save" />
-				<execute action="PGWebcontentdisplayConfiguration#assertTextEquals" locator1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+				<execute function="#assertClick" locator1="PGWebcontentdisplayConfiguration#WEB_CONTENT_TABLE_TITLE" value1="${webContentTitle}" />
+				<execute function="#assertTextEquals" locator1="PGWebcontentdisplayConfiguration#INFO_MESSAGE_ARTICLE" value1="${webContentTitle} (Modified)" />
+				<execute function="#assertClick" locator1="PGWebcontentdisplayConfiguration#SAVE_BUTTON" value1="Save" />
+				<execute function="#assertTextEquals" locator1="PGWebcontentdisplayConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 			</then>
 		</if>
 
@@ -250,14 +250,14 @@
 			<var name="portletOption" value="Configuration" />
 		</execute>
 
-		<execute action="PGWebcontentdisplayConfiguration#selectFrame" locator1="CONFIGURATION_IFRAME" />
+		<execute function="#selectFrame" locator1="PGWebcontentdisplayConfiguration#CONFIGURATION_IFRAME" />
 
-		<execute action="PGWebcontentdisplayConfiguration#type" locator1="SEARCH_FIELD" value1="${webContentTitle}" />
-		<execute action="PGWebcontentdisplayConfiguration#assertClick" locator1="SEARCH_BUTTON" value1="Search" />
+		<execute function="#type" locator1="PGWebcontentdisplayConfiguration#SEARCH_FIELD" value1="${webContentTitle}" />
+		<execute function="#assertClick" locator1="PGWebcontentdisplayConfiguration#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_webContentTitle" value="${webContentTitle}" />
 
-		<execute action="PGWebcontentdisplayConfiguration#assertElementNotPresent" locator1="WEB_CONTENT_TABLE_TITLE" value1="${webContentTitle}" />
+		<execute function="#assertElementNotPresent" locator1="PGWebcontentdisplayConfiguration#WEB_CONTENT_TABLE_TITLE" value1="${webContentTitle}" />
 		<execute action="PGWebcontentdisplayConfiguration#selectFrame" value1="relative=top" />
 	</command>
 
@@ -266,14 +266,14 @@
 			<var name="portletOption" value="Configuration" />
 		</execute>
 
-		<execute action="PGWebcontentdisplayConfiguration#selectFrame" locator1="CONFIGURATION_IFRAME" />
+		<execute function="#selectFrame" locator1="PGWebcontentdisplayConfiguration#CONFIGURATION_IFRAME" />
 
 		<var name="key_webContentTitle" value="${webContentTitle}" />
 
-		<execute action="PGWebcontentdisplayConfiguration#assertClick" locator1="WEB_CONTENT_TABLE_TITLE" value1="${webContentTitle}" />
-		<execute action="PGWebcontentdisplayConfiguration#assertTextEquals" locator1="INFO_MESSAGE_ARTICLE" value1="${webContentTitle} (Modified)" />
-		<execute action="PGWebcontentdisplayConfiguration#assertClick" locator1="SAVE_BUTTON" value1="Save" />
-		<execute action="PGWebcontentdisplayConfiguration#assertTextEquals" locator1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+		<execute function="#assertClick" locator1="PGWebcontentdisplayConfiguration#WEB_CONTENT_TABLE_TITLE" value1="${webContentTitle}" />
+		<execute function="#assertTextEquals" locator1="PGWebcontentdisplayConfiguration#INFO_MESSAGE_ARTICLE" value1="${webContentTitle} (Modified)" />
+		<execute function="#assertClick" locator1="PGWebcontentdisplayConfiguration#SAVE_BUTTON" value1="Save" />
+		<execute function="#assertTextEquals" locator1="PGWebcontentdisplayConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 		<execute action="PGWebcontentdisplayConfiguration#selectFrame" value1="relative=top" />
 	</command>
 
@@ -287,10 +287,10 @@
 		<if>
 			<equals arg1="${scopeSelectionDefault}" arg2="true" />
 			<then>
-				<execute action="PGWebcontentdisplay#assertTextEquals" locator1="TITLE" value1="Web Content Display" />
+				<execute function="#assertTextEquals" locator1="PGWebcontentdisplay#TITLE" value1="Web Content Display" />
 			</then>
 			<else>
-				<execute action="PGWebcontentdisplay#assertTextEquals" locator1="TITLE" value1="Web Content Display (${scopeSelection})" />
+				<execute function="#assertTextEquals" locator1="PGWebcontentdisplay#TITLE" value1="Web Content Display (${scopeSelection})" />
 			</else>
 		</if>
 
@@ -298,8 +298,8 @@
 			<var name="portletOption" value="Configuration" />
 		</execute>
 
-		<execute action="PGWebcontentdisplayConfiguration#selectFrame" locator1="CONFIGURATION_IFRAME" />
-		<execute action="PGWebcontentdisplayConfiguration#assertClick" locator1="NAVIGATION_SCOPE" value1="Scope" />
-		<execute action="PGWebcontentdisplayConfigurationScope#assertTextEquals" locator1="SCOPE_MENULIST" value1="${scopeSelection}" />
+		<execute function="#selectFrame" locator1="PGWebcontentdisplayConfiguration#CONFIGURATION_IFRAME" />
+		<execute function="#assertClick" locator1="PGWebcontentdisplayConfiguration#NAVIGATION_SCOPE" value1="Scope" />
+		<execute function="#assertTextEquals" locator1="PGWebcontentdisplayConfigurationScope#SCOPE_MENULIST" value1="${scopeSelection}" />
 	</command>
 </definition>
