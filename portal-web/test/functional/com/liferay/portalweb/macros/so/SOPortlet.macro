@@ -8,7 +8,7 @@
 		<execute function="#select" locator1="BasePortlet#PORTLET_CONFIGURATION_SHOW_BORDERS_SELECT" value1="No" />
 		<execute function="#assertClick" locator1="BasePortlet#PORTLET_CONFIGURATION_SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="BasePortlet#PORTLET_CONFIGURATION_SUCCESS_MESSAGE" value1="Your request processed successfully." />
-		<execute action="BasePortlet#selectFrameTop" />
+		<execute function="#selectFrameTop" />
 	</command>
 
 	<command name="enablePortletBorders">
@@ -20,7 +20,7 @@
 		<execute function="#select" locator1="BasePortlet#PORTLET_CONFIGURATION_SHOW_BORDERS_SELECT" value1="Yes" />
 		<execute function="#assertClick" locator1="BasePortlet#PORTLET_CONFIGURATION_SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="BasePortlet#PORTLET_CONFIGURATION_SUCCESS_MESSAGE" value1="Your request processed successfully." />
-		<execute action="BasePortlet#selectFrameTop" />
+		<execute function="#selectFrameTop" />
 	</command>
 
 	<command name="gotoPortletOptions">

@@ -703,7 +703,7 @@
 			<var name="dmDocumentVersionNumber" value="1.0" />
 		</execute>
 
-		<execute action="PGDocumentsandmediaDocument#assertTextNotPresent" value1="${commentContent}" />
+		<execute function="#assertTextNotPresent" value1="${commentContent}" />
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName}" />
@@ -724,7 +724,7 @@
 			<var name="dmDocumentVersionNumber" value="1.0" />
 		</execute>
 
-		<execute action="PGDocumentsandmediaDocument#assertTextNotPresent" value1="${commentContent}" />
+		<execute function="#assertTextNotPresent" value1="${commentContent}" />
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName}" />
@@ -745,7 +745,7 @@
 			<var name="dmDocumentVersionNumber" value="1.0" />
 		</execute>
 
-		<execute action="PGDocumentsandmediaDocument#assertTextNotPresent" value1="${commentContent}" />
+		<execute function="#assertTextNotPresent" value1="${commentContent}" />
 	</command>
 
 	<command name="DeleteDocumentComment" priority="5">
@@ -808,7 +808,7 @@
 			<var name="userName" value="${adminFirstName}" />
 		</execute>
 
-		<execute action="SOActivities#assertTextNotPresent" value1="1 Comment" />
+		<execute function="#assertTextNotPresent" value1="1 Comment" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Documents" />
@@ -822,7 +822,7 @@
 			<var name="dmDocumentVersionNumber" value="${dmDocumentVersionNumber}" />
 		</execute>
 
-		<execute action="PGDocumentsandmediaDocument#assertTextNotPresent" value1="${commentContent}" />
+		<execute function="#assertTextNotPresent" value1="${commentContent}" />
 	</command>
 
 	<command name="EditDocumentComment" priority="5">
@@ -1051,7 +1051,7 @@
 			<var name="dmDocumentVersionNumber" value="1.0" />
 		</execute>
 
-		<execute action="PGDocumentsandmediaDocument#assertTextNotPresent" value1="${commentContentEdit}" />
+		<execute function="#assertTextNotPresent" value1="${commentContentEdit}" />
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName}" />
@@ -1072,7 +1072,7 @@
 			<var name="dmDocumentVersionNumber" value="1.0" />
 		</execute>
 
-		<execute action="PGDocumentsandmediaDocument#assertTextNotPresent" value1="${commentContentEdit}" />
+		<execute function="#assertTextNotPresent" value1="${commentContentEdit}" />
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName}" />
@@ -1093,7 +1093,7 @@
 			<var name="dmDocumentVersionNumber" value="1.0" />
 		</execute>
 
-		<execute action="PGDocumentsandmediaDocument#assertTextNotPresent" value1="${commentContentEdit}" />
+		<execute function="#assertTextNotPresent" value1="${commentContentEdit}" />
 	</command>
 
 	<command name="ViewDMFolderDocumentActivities" priority="5">
@@ -1582,9 +1582,9 @@
 			<var name="userName" value="Test" />
 		</execute>
 
-		<execute action="SOActivities#assertTextNotPresent" value1="1 Comment" />
-		<execute action="SOActivities#assertTextNotPresent" value1="2 Comments" />
-		<execute action="SOActivities#assertTextNotPresent" value1="3 Comments" />
+		<execute function="#assertTextNotPresent" value1="1 Comment" />
+		<execute function="#assertTextNotPresent" value1="2 Comments" />
+		<execute function="#assertTextNotPresent" value1="3 Comments" />
 	</command>
 
 	<command name="ViewDMFolderImageThumbnailActivities" priority="5">
@@ -2315,10 +2315,10 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentDescription2}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentSize2}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentSizeSO2}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentTitle2}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentDescription2}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentSize2}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentSizeSO2}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentTitle2}" />
 	</command>
 
 	<command known-issues="LPS-45435" name="ViewRemoveFolderViewPermissionsActivities" priority="4">
@@ -2441,11 +2441,11 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmFolderName2}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentDescription2}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentSize2}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentSizeSO2}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentTitle2}" />
+		<execute function="#assertTextNotPresent" value1="${dmFolderName2}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentDescription2}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentSize2}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentSizeSO2}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentTitle2}" />
 	</command>
 
 	<command name="ViewRemoveFolderViewPermissionsViaAddFolderActivities" priority="3">
@@ -2559,10 +2559,10 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmFolderName2}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentDescription2}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentSize2}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentSizeSO2}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentTitle2}" />
+		<execute function="#assertTextNotPresent" value1="${dmFolderName2}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentDescription2}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentSize2}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentSizeSO2}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentTitle2}" />
 	</command>
 </definition>

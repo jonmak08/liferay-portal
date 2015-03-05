@@ -41,7 +41,7 @@
 		<execute function="#assertClick" locator1="Dynamicdatamapping#FIELDS_LINK" value1="Fields" />
 		<execute function="#click" locator1="Dynamicdatamapping#NAME_FIELD" />
 
-		<execute action="Dynamicdatamapping#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="addFieldFormTemplateSpecific">
@@ -86,7 +86,7 @@
 		<execute function="#assertClick" locator1="Dynamicdatamapping#FIELDS_LINK" value1="Fields" />
 		<execute function="#click" locator1="Dynamicdatamapping#NAME_FIELD" />
 
-		<execute action="Dynamicdatamapping#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="deleteField">
@@ -99,7 +99,7 @@
 		<execute function="#clickNoError" locator1="Dynamicdatamapping#FORM_FIELD_DELETE_ICON" />
 		<execute function="#confirm" locator1="Dynamicdatamapping#CONFIRMATION" value1="Are you sure you want to delete the selected entries? They will be deleted immediately." />
 
-		<execute action="Dynamicdatamapping#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="editField">
@@ -132,7 +132,7 @@
 		<execute function="#assertClick" locator1="Dynamicdatamapping#FIELDS_LINK" value1="Fields" />
 		<execute function="#click" locator1="Dynamicdatamapping#NAME_FIELD" />
 
-		<execute action="Dynamicdatamapping#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="editFieldIndexable">
@@ -148,7 +148,7 @@
 		<execute function="#assertClick" locator1="Dynamicdatamapping#FIELDS_LINK" value1="Fields" />
 		<execute function="#click" locator1="Dynamicdatamapping#NAME_FIELD" />
 
-		<execute action="Dynamicdatamapping#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="editFieldOptions">
@@ -189,7 +189,7 @@
 		<execute function="#assertClick" locator1="Dynamicdatamapping#FIELDS_LINK" value1="Fields" />
 		<execute function="#click" locator1="Dynamicdatamapping#NAME_FIELD" />
 
-		<execute action="Dynamicdatamapping#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="editFieldPredefinedValue">
@@ -255,7 +255,7 @@
 		<execute function="#assertClick" locator1="Dynamicdatamapping#FIELDS_LINK" value1="Fields" />
 		<execute function="#click" locator1="Dynamicdatamapping#NAME_FIELD" />
 
-		<execute action="Dynamicdatamapping#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="editFieldShowLabel">
@@ -289,7 +289,7 @@
 		<execute function="#assertClick" locator1="Dynamicdatamapping#FIELDS_LINK" value1="Fields" />
 		<execute function="#click" locator1="Dynamicdatamapping#NAME_FIELD" />
 
-		<execute action="Dynamicdatamapping#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="editFieldStyle">
@@ -304,7 +304,7 @@
 		<execute function="#assertClick" locator1="Dynamicdatamapping#SETTINGS_CELL_EDITOR_SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="Dynamicdatamapping#SETTINGS_STYLE" value1="${fieldStyle}" />
 
-		<execute action="Dynamicdatamapping#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="editFieldText">
@@ -319,7 +319,7 @@
 		<execute function="#assertClick" locator1="Dynamicdatamapping#SETTINGS_CELL_EDITOR_SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="Dynamicdatamapping#SETTINGS_TEXT" value1="${fieldText}" />
 
-		<execute action="Dynamicdatamapping#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="editFieldTip">
@@ -337,7 +337,7 @@
 		<execute function="#assertClick" locator1="Dynamicdatamapping#FIELDS_LINK" value1="Fields" />
 		<execute function="#click" locator1="Dynamicdatamapping#NAME_FIELD" />
 
-		<execute action="Dynamicdatamapping#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="selectDynamicDataMappingFrame">
@@ -356,7 +356,7 @@
 
 		<execute function="#assertTextEquals" locator1="Dynamicdatamapping#FIELDS_FIELD" value1="${field}" />
 
-		<execute action="Dynamicdatamapping#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="viewCannotAddField">
@@ -366,7 +366,7 @@
 
 		<execute function="#assertTextEquals" locator1="Dynamicdatamapping#FIELDS_FIELD_UNSELECTABLE" value1="${field}" />
 
-		<execute action="Dynamicdatamapping#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="viewField">
@@ -435,7 +435,7 @@
 			</then>
 		</if>
 
-		<execute action="Dynamicdatamapping#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="viewFieldFormTemplateSpecific">
@@ -463,7 +463,7 @@
 			</elseif>
 		</if>
 
-		<execute action="Dynamicdatamapping#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="viewFieldOptionsCmd">

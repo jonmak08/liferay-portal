@@ -2787,8 +2787,8 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute action="PGBlogsEntry#assertTextNotPresent" value1="${entryTitle2}" />
-		<execute action="PGBlogsEntry#assertTextNotPresent" value1="${entryContent2}" />
+		<execute function="#assertTextNotPresent" value1="${entryTitle2}" />
+		<execute function="#assertTextNotPresent" value1="${entryContent2}" />
 
 		<execute macro="SOBlogs#viewBlogsEntryRecentBlogs">
 			<var name="entryContent" value="${entryContent1}" />
@@ -2800,8 +2800,8 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute action="PGBlogsEntry#assertTextNotPresent" value1="${entryTitle1}" />
-		<execute action="PGBlogsEntry#assertTextNotPresent" value1="${entryContent1}" />
+		<execute function="#assertTextNotPresent" value1="${entryTitle1}" />
+		<execute function="#assertTextNotPresent" value1="${entryContent1}" />
 
 		<execute macro="SOBlogs#viewBlogsEntryRecentBlogs">
 			<var name="entryAuthorFirstName" value="${userFirstName}" />
@@ -2821,8 +2821,8 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute action="PGBlogsEntry#assertTextNotPresent" value1="${entryTitle2}" />
-		<execute action="PGBlogsEntry#assertTextNotPresent" value1="${entryContent2}" />
+		<execute function="#assertTextNotPresent" value1="${entryTitle2}" />
+		<execute function="#assertTextNotPresent" value1="${entryContent2}" />
 
 		<execute macro="SOBlogs#viewBlogsEntryRecentBlogs">
 			<var name="entryContent" value="${entryContent1}" />
@@ -2866,8 +2866,8 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute action="PGBlogsEntry#assertTextNotPresent" value1="${entryTitle1}" />
-		<execute action="PGBlogsEntry#assertTextNotPresent" value1="${entryContent1}" />
+		<execute function="#assertTextNotPresent" value1="${entryTitle1}" />
+		<execute function="#assertTextNotPresent" value1="${entryContent1}" />
 
 		<execute macro="SOBlogs#viewBlogsEntryRecentBlogs">
 			<var name="entryAuthorFirstName" value="${userFirstName}" />

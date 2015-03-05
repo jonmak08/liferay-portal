@@ -95,14 +95,14 @@
 				<execute function="#assertTextEquals" locator1="PGAssetpublisherAddnewwebcontent#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 				<execute function="#pause" locator1="5000" />
-				<execute action="PGAssetpublisher#selectFrame" value1="relative=top" />
+				<execute function="#selectFrame" value1="relative=top" />
 				<execute function="#assertElementNotPresent" locator1="PGAssetpublisher#ASSET_ABSTRACT_GENERIC" />
 			</then>
 			<else>
 				<execute function="#assertClick" locator1="PGAssetpublisherAddnewwebcontent#PUBLISH_BUTTON" value1="Publish" />
 
 				<execute function="#pause" locator1="5000" />
-				<execute action="PGAssetpublisher#selectFrame" value1="relative=top" />
+				<execute function="#selectFrame" value1="relative=top" />
 
 				<var name="key_assetTitle" value="${webContentTitle}" />
 
@@ -119,7 +119,7 @@
 		<execute function="#assertClick" locator1="PGWebcontentdisplayAddwebcontent#PUBLISH_BUTTON" value1="Publish" />
 		<execute function="#pause" locator1="5000" />
 
-		<execute action="PGWebcontentdisplay#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 
 		<execute function="#assertTextEquals" locator1="PGWebcontentdisplay#WEB_CONTENT_CONTENT" value1="${webContentContent}" />
 	</command>
@@ -201,7 +201,7 @@
 
 		<execute function="#assertClick" locator1="CPWebcontentEditwebcontentAddtranslation#SAVE_BUTTON" value1="Save" />
 
-		<execute action="CPWebcontentEditwebcontent#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 		<execute function="#assertClick" locator1="CPWebcontentEditwebcontent#PUBLISH_BUTTON" value1="Publish" />
 	</command>
 
@@ -216,7 +216,7 @@
 		<execute function="#type" locator1="PGWebcontentdisplayEditwebcontent#WEB_CONTENT_TRANSLATION_IFRAME_TITLE_FIELD" value1="${webContentTranslationTitle}" />
 		<execute function="#type" locator1="PGWebcontentdisplayEditwebcontent#WEB_CONTENT_TRANSLATION_IFRAME_CONTENT_FIELD" value1="${webContentTranslationContent}" />
 		<execute function="#assertClick" locator1="PGWebcontentdisplayEditwebcontent#WEB_CONTENT_TRANSLATION_IFRAME_SAVE_BUTTON" value1="Save" />
-		<execute action="PGWebcontentdisplayEditwebcontent#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 		<execute function="#assertTextEquals" locator1="PGWebcontentdisplayEditwebcontent#AVAILABLE_TRANSLATION" value1="${webContentTranslationLanguage}" />
 		<execute function="#assertClick" locator1="PGWebcontentdisplayAddwebcontent#PUBLISH_BUTTON" value1="Publish" />
 	</command>
@@ -403,7 +403,7 @@
 		<execute function="#assertClick" locator1="PGAssetpublisherAddnewwebcontent#SUBMIT_FOR_PUBLICATION_BUTTON" value1="Submit for Publication" />
 		<execute function="#pause" locator1="5000" />
 
-		<execute action="PGAssetpublisher#selectFrame" />
+		<execute function="#selectFrame" />
 		<execute function="#assertTextEquals" locator1="PGAssetpublisher#INFO_MESSAGE" value1="There are no results." />
 	</command>
 
@@ -452,7 +452,7 @@
 			<var name="portletName" value="Web Content" />
 		</execute>
 
-		<execute action="CPWebcontent#assertTextNotPresent" value1="${webContentTitle}" />
+		<execute function="#assertTextNotPresent" value1="${webContentTitle}" />
 	</command>
 
 	<command name="editCP">
@@ -631,7 +631,7 @@
 		<execute function="#assertTextEquals" locator1="CPWebcontentEditwebcontent#TITLE_FIELD" value1="${webContentTitle}" />
 		<execute function="#selectFrame" locator1="CPWebcontentEditwebcontent#CONTENT_FIELD" />
 		<execute function="#assertTextEquals" locator1="CPWebcontentEditwebcontent#BODY_FIELD" value1="${webContentContent}" />
-		<execute action="CPWebcontentEditwebcontent#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 
 		<if>
 			<isset var="expirationDate" />
@@ -688,7 +688,7 @@
 		<execute function="#selectFrame" locator1="CPWebcontentEditwebcontent#CONTENT_FIELD" />
 		<execute function="#assertTextEquals" locator1="CPWebcontentEditwebcontent#BODY_FIELD" value1="${webContentContent}" />
 
-		<execute action="CPWebcontentEditwebcontent#selectFrameTop" />
+		<execute function="#selectFrameTop" />
 	</command>
 
 	<command name="viewCPStatus">
@@ -704,7 +704,7 @@
 		<execute function="#selectFrame" locator1="CPWebcontentAddwebcontent#CONTENT_FIELD" />
 		<execute function="#assertTextEquals" locator1="CPWebcontentAddwebcontent#BODY_FIELD" value1="${webContentContent}" />
 
-		<execute action="CPWebcontentAddwebcontent#selectFrameTop" />
+		<execute function="#selectFrameTop" />
 	</command>
 
 	<command name="viewDefaultCP">
@@ -788,7 +788,7 @@
 		<execute function="#selectFrame" locator1="CPWebcontentEditwebcontentAddtranslation#CONTENT_FIELD" />
 		<execute function="#assertTextEquals" locator1="CPWebcontentEditwebcontentAddtranslation#BODY_FIELD" value1="${localizedContent}" />
 
-		<execute action="CPWebcontentEditwebcontent#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="viewWithWorkflowCP">
@@ -804,11 +804,11 @@
 		<execute function="#selectFrame" locator1="CPWebcontentAddwebcontent#CONTENT_FIELD" />
 		<execute function="#assertTextEquals" locator1="CPWebcontentAddwebcontent#BODY_FIELD" value1="${webContentContent}" />
 
-		<execute action="CPWebcontentAddwebcontent#selectFrameTop" />
+		<execute function="#selectFrameTop" />
 	</command>
 
 	<command name="viewWithWorkflowPGViaAP">
-		<execute action="PGAssetpublisher#assertTextNotPresent" value1="${webContentTitle}" />
+		<execute function="#assertTextNotPresent" value1="${webContentTitle}" />
 	</command>
 
 	<command name="viewWithWorkflowPGViaWCD">
@@ -819,6 +819,6 @@
 		<execute function="#assertTextEquals" locator1="PGWebcontentdisplayEditwebcontent#TITLE_FIELD" value1="${webContentTitle}" />
 		<execute function="#selectFrame" locator1="PGWebcontentdisplayEditwebcontent#CONTENT_FIELD" />
 		<execute function="#assertTextEquals" locator1="PGWebcontentdisplayEditwebcontent#BODY_FIELD" value1="${webContentContent}" />
-		<execute action="PGWebcontentdisplayEditwebcontent#selectFrameTop" />
+		<execute function="#selectFrameTop" />
 	</command>
 </definition>

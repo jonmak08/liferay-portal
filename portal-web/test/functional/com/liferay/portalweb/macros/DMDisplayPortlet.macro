@@ -6,7 +6,7 @@
 		<execute function="#type" locator1="PGDocumentlibrarydisplayConfiguration#SETUP_DOCUMENTS_LISTING_DOCUMENTS_PER_PAGE_FIELD" value1="${documentsPerPage}" />
 		<execute function="#assertClick" locator1="PGDocumentlibrarydisplayConfiguration#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="PGDocumentlibrarydisplayConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
-		<execute action="PGDocumentlibrarydisplayConfiguration#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="viewPaginationControlsPG">

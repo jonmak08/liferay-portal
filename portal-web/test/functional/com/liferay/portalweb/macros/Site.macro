@@ -92,7 +92,7 @@
 
 				<var name="key_parentSiteName" value="${parentSiteName}" />
 
-				<execute action="CPSitesAdd#selectFrame" value1="relative=top" />
+				<execute function="#selectFrame" value1="relative=top" />
 				<execute function="#assertTextEquals" locator1="CPSitesAdd#PARENT_SITE_TABLE_NAME" value1="${parentSiteName}" />
 			</then>
 		</if>
@@ -323,7 +323,7 @@
 		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SITES_SELECT_SEARCH_BUTTON" value1="Search" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SITES_SELECT_TABLE_NAME" value1="${siteName}" />
 		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SITES_SELECT_CHOOSE_BUTTON" value1="Choose" />
-		<execute action="CPUsersandorganizationsUser#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
@@ -362,7 +362,7 @@
 
 		<execute function="#assertTextEquals" locator1="CPSites#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="#assertTextEquals" locator1="CPSites#INFO_MESSAGE" value1="No sites were found." />
-		<execute action="CPSites#assertTextNotPresent" value1="${siteName}" />
+		<execute function="#assertTextNotPresent" value1="${siteName}" />
 	</command>
 
 	<command name="editCP">
@@ -821,7 +821,7 @@
 		<execute function="#assertTextEquals" locator1="Home#BREADCRUMB_1" value1="${siteName}" />
 		<execute function="#assertTextEquals" locator1="Home#BREADCRUMB_2" value1="${sitePageName}" />
 		<execute function="#assertTextEquals" locator1="Home#SITE_NAME" value1="${siteName}" />
-		<execute action="Home#assertLocation" value1="${sitePageURL}" />
+		<execute function="#assertLocation" value1="${sitePageURL}" />
 	</command>
 
 	<command name="viewSitePG">
@@ -833,7 +833,7 @@
 		<execute function="#assertTextEquals" locator1="Home#BREADCRUMB_2" value1="${childSiteName}" />
 		<execute function="#assertTextEquals" locator1="Home#BREADCRUMB_3" value1="${sitePageName}" />
 		<execute function="#assertTextEquals" locator1="Home#SITE_NAME" value1="${childSiteName}" />
-		<execute action="Home#assertLocation" value1="${sitePageURL}" />
+		<execute function="#assertLocation" value1="${sitePageURL}" />
 	</command>
 
 	<command name="viewVirtualHostsURLPG">
@@ -844,6 +844,6 @@
 		<execute function="#assertTextEquals" locator1="Home#BREADCRUMB_1" value1="${siteName}" />
 		<execute function="#assertTextEquals" locator1="Home#BREADCRUMB_2" value1="${sitePageName}" />
 
-		<execute action="Home#assertLocation" value1="${sitePageURL}" />
+		<execute function="#assertLocation" value1="${sitePageURL}" />
 	</command>
 </definition>

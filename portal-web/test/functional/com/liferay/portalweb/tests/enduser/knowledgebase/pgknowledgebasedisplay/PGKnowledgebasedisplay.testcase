@@ -644,7 +644,7 @@
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
 
-		<execute action="PGKnowledgebasedisplay#assertAlertNotPresent" />
+		<execute function="#assertAlertNotPresent" />
 
 		<execute macro="KBArticle#viewViaKBDisplayPG">
 			<var name="kbArticleContent" value="Knowledge Base Article Content" />
@@ -705,7 +705,7 @@
 			<var name="kbSuggestionBody" value="Knowledge Base Article Suggestion" />
 		</execute>
 
-		<execute action="Home#refresh" />
+		<execute function="#refresh" />
 
 		<execute macro="KBArticleSuggestion#viewPG">
 			<var name="kbSuggestionBody" value="Knowledge Base Article Suggestion" />

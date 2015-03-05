@@ -1164,6 +1164,6 @@
 			<var name="portletName" value="Categories" />
 		</execute>
 
-		<execute action="CPCategories#assertTextNotPresent" value1="${vocabularyName}" />
+		<execute function="#assertTextNotPresent" value1="${vocabularyName}" />
 	</command>
 </definition>

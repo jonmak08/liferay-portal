@@ -156,7 +156,7 @@
 		<execute function="#confirm" locator1="CPCategories#CONFIRMATION" value1="Are you sure you want to delete the selected categories?" />
 		<execute function="#assertTextEquals" locator1="CPCategories#SUCCESS_MESSAGE" value1="Your request processed successfully." />
 		<execute function="#assertTextEquals" locator1="CPCategories#INFO_MESSAGE" value1="There are no categories." />
-		<execute action="CPCategories#assertTextNotPresent" value1="${categoryName}" />
+		<execute function="#assertTextNotPresent" value1="${categoryName}" />
 	</command>
 
 	<command name="deleteByDetailsCP">
@@ -169,7 +169,7 @@
 		<execute function="#confirm" locator1="CPCategories#CONFIRMATION" value1="Are you sure you want to delete this category?" />
 		<execute function="#assertTextEquals" locator1="CPCategories#SUCCESS_MESSAGE" value1="Your request processed successfully." />
 		<execute function="#assertTextEquals" locator1="CPCategories#INFO_MESSAGE" value1="There are no categories." />
-		<execute action="CPCategories#assertTextNotPresent" value1="${categoryName}" />
+		<execute function="#assertTextNotPresent" value1="${categoryName}" />
 	</command>
 
 	<command name="deleteCategoriesCP">
@@ -324,7 +324,7 @@
 			</elseif>
 		</if>
 
-		<execute action="CPCategories#selectFrameTop" value1="relative=top" />
+		<execute function="#selectFrameTop" value1="relative=top" />
 	</command>
 
 	<command name="viewCP">

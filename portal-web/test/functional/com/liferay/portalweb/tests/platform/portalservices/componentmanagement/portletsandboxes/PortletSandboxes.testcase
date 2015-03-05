@@ -45,7 +45,7 @@
 			<var name="spiName" value="SPI Name" />
 		</execute>
 
-		<execute action="Home#assertConsoleTextNotPresent" value1="Error" />
+		<execute function="#assertConsoleTextNotPresent" value1="Error" />
 	</command>
 
 	<command name="AutomaticStartup" priority="5">
@@ -89,7 +89,7 @@
 
 		<execute function="#pause" locator1="90000" />
 
-		<execute action="Home#refresh" />
+		<execute function="#refresh" />
 
 		<execute macro="SPIAdministration#viewStartCP">
 			<var name="spiName" value="SPI Name" />

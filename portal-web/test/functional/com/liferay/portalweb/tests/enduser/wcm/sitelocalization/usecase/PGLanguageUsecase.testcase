@@ -31,19 +31,19 @@
 			<var name="language" value="English (United States)" />
 		</execute>
 
-		<execute action="Home#assertLocation" value1="http://localhost:8080/web/guest/language-test-page" />
+		<execute function="#assertLocation" value1="http://localhost:8080/web/guest/language-test-page" />
 
 		<execute macro="LanguagePortlet#selectLanguagePG">
 			<var name="language" value="Spanish (Spain)" />
 		</execute>
 
-		<execute action="Home#assertLocation" value1="http://localhost:8080/web/guest/language-test-page" />
+		<execute function="#assertLocation" value1="http://localhost:8080/web/guest/language-test-page" />
 
 		<execute macro="LanguagePortlet#selectLanguagePG">
 			<var name="language" value="Japanese (Japan)" />
 		</execute>
 
-		<execute action="Home#assertLocation" value1="http://localhost:8080/web/guest/language-test-page" />
+		<execute function="#assertLocation" value1="http://localhost:8080/web/guest/language-test-page" />
 
 		<execute macro="LanguagePortlet#selectLanguagePG">
 			<var name="language" value="English (United States)" />
@@ -76,19 +76,19 @@
 			<var name="language" value="English (United States)" />
 		</execute>
 
-		<execute action="Home#assertLocation" value1="http://localhost:8080/web/guest/language-test-page" />
+		<execute function="#assertLocation" value1="http://localhost:8080/web/guest/language-test-page" />
 
 		<execute macro="LanguagePortlet#selectLanguagePG">
 			<var name="language" value="Spanish (Spain)" />
 		</execute>
 
-		<execute action="Home#assertLocation" value1="http://localhost:8080/es/web/guest/language-test-page" />
+		<execute function="#assertLocation" value1="http://localhost:8080/es/web/guest/language-test-page" />
 
 		<execute macro="LanguagePortlet#selectLanguagePG">
 			<var name="language" value="Japanese (Japan)" />
 		</execute>
 
-		<execute action="Home#assertLocation" value1="http://localhost:8080/ja/web/guest/language-test-page" />
+		<execute function="#assertLocation" value1="http://localhost:8080/ja/web/guest/language-test-page" />
 
 		<execute macro="LanguagePortlet#selectLanguagePG">
 			<var name="language" value="English (United States)" />
@@ -121,19 +121,19 @@
 			<var name="language" value="English (United States)" />
 		</execute>
 
-		<execute action="Home#assertLocation" value1="http://localhost:8080/en/web/guest/language-test-page" />
+		<execute function="#assertLocation" value1="http://localhost:8080/en/web/guest/language-test-page" />
 
 		<execute macro="LanguagePortlet#selectLanguagePG">
 			<var name="language" value="Spanish (Spain)" />
 		</execute>
 
-		<execute action="Home#assertLocation" value1="http://localhost:8080/es/web/guest/language-test-page" />
+		<execute function="#assertLocation" value1="http://localhost:8080/es/web/guest/language-test-page" />
 
 		<execute macro="LanguagePortlet#selectLanguagePG">
 			<var name="language" value="Japanese (Japan)" />
 		</execute>
 
-		<execute action="Home#assertLocation" value1="http://localhost:8080/ja/web/guest/language-test-page" />
+		<execute function="#assertLocation" value1="http://localhost:8080/ja/web/guest/language-test-page" />
 
 		<execute macro="LanguagePortlet#selectLanguagePG">
 			<var name="language" value="English (United States)" />

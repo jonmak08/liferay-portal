@@ -246,7 +246,7 @@
 		<execute function="#assertElementPresent" locator1="SOAnnouncementsManage#ANNOUNCEMENTS_ENTRY_EXPIRATION_DATE" />
 		<execute function="#assertTextEquals" locator1="SOAnnouncementsManage#ANNOUNCEMENTS_ENTRY_EDIT_LINK" value1="Edit"  />
 		<execute function="#assertTextEquals" locator1="SOAnnouncementsManage#ANNOUNCEMENTS_ENTRY_DELETE_LINK" value1="Delete"  />
-		<execute action="SOAnnouncementsManage#selectFrameTop" />
+		<execute function="#selectFrameTop" />
 	</command>
 
 	<command name="ViewSODashboardMessagesContent" priority="5">
@@ -377,7 +377,7 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOUserBar#selectFrameTop" />
+		<execute function="#selectFrameTop" />
 		<execute function="#click" locator1="SOUserBar#GO_TO" />
 		<execute function="#click" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
 
@@ -436,7 +436,7 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOUserBar#selectFrameTop" />
+		<execute function="#selectFrameTop" />
 		<execute function="#click" locator1="SOUserBar#GO_TO" />
 		<execute function="#click" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
 
@@ -452,7 +452,7 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOUserBar#selectFrameTop" />
+		<execute function="#selectFrameTop" />
 		<execute function="#click" locator1="SOUserBar#GO_TO" />
 		<execute function="#click" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
 
@@ -468,7 +468,7 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOUserBar#selectFrameTop" />
+		<execute function="#selectFrameTop" />
 		<execute function="#click" locator1="SOUserBar#GO_TO" />
 		<execute function="#click" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
 		<execute function="#select" locator1="SOUserBarSitesDirectory#SITE_CATEGORY_SELECT" value1="My Sites" />
@@ -503,7 +503,7 @@
 		<execute function="#assertElementPresent" locator1="SOAnnouncementsManage#ANNOUNCEMENTS_ENTRY_EXPIRATION_DATE" />
 		<execute function="#assertTextEquals" locator1="SOAnnouncementsManage#ANNOUNCEMENTS_ENTRY_EDIT_LINK" value1="Edit"  />
 		<execute function="#assertTextEquals" locator1="SOAnnouncementsManage#ANNOUNCEMENTS_ENTRY_DELETE_LINK" value1="Delete"  />
-		<execute action="SOAnnouncementsManage#selectFrameTop" />
+		<execute function="#selectFrameTop" />
 	</command>
 
 	<command name="ViewSOSiteContentBlogs" priority="5">
@@ -670,7 +670,7 @@
 
 		<var name="key_eventTitle" value="${eventTitle}" />
 
-		<execute action="PGCalendarDayView#pause" value1="1000" />
+		<execute function="#pause" value1="1000" />
 		<execute function="#assertElementPresent" locator1="PGCalendarDayView#SCHEDULER_EVENT_SPECIFIC" />
 		<execute function="#assertTextEquals" locator1="PGCalendarDayView#SCHEDULER_EVENT_SPECIFIC" value1="${eventTitle}" />
 

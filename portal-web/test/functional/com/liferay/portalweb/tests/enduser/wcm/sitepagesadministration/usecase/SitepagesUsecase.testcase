@@ -206,7 +206,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute action="Home#assertLocation" value1="https://www.google.com/" />
+		<execute function="#assertLocation" value1="https://www.google.com/" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${sitePage3Name}" />
@@ -214,11 +214,11 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute action="Home#assertLocation" value1="http://localhost:8080/web/page-type-test-site-name/embedded-page" />
+		<execute function="#assertLocation" value1="http://localhost:8080/web/page-type-test-site-name/embedded-page" />
 
 		<execute function="#selectFrame" locator1="PGEmbedded#EMBEDDED_IFRAME" />
 		<execute function="#assertTextEquals" locator1="PGEmbedded#EMBEDDED_LIFERAY_COPYRIGHT_TEXT" value1="© 2015 LIFERAY INC. ALL RIGHTS RESERVED" />
-		<execute action="PGEmbedded#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${sitePage4Name}" />

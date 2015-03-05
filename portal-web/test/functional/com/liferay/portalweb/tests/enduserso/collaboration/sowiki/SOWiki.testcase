@@ -1602,10 +1602,10 @@
 			<var name="wikiPageUsername" value="${adminName}" />
 		</execute>
 
-		<execute action="PGWiki#assertTextNotPresent" value1="${wikiChildPageTitle2}" />
+		<execute function="#assertTextNotPresent" value1="${wikiChildPageTitle2}" />
 		<execute function="#assertClick" locator1="PGWiki#NAVIGATION_ALL_PAGES" value1="All Pages" />
 
-		<execute action="PGWikiAllpages#assertTextNotPresent" value1="${wikiChildPageTitle2}" />
+		<execute function="#assertTextNotPresent" value1="${wikiChildPageTitle2}" />
 	</command>
 
 	<command name="LinkSOWikiOrphanPageToPageHTML" priority="4">
@@ -2620,10 +2620,10 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute action="PGWiki#assertTextNotPresent" value1="${wikiChildPageTitle2}" />
+		<execute function="#assertTextNotPresent" value1="${wikiChildPageTitle2}" />
 		<execute function="#assertClick" locator1="PGWiki#NAVIGATION_ALL_PAGES" value1="All Pages" />
 
-		<execute action="PGWikiAllpages#assertTextNotPresent" value1="${wikiChildPageTitle2}" />
+		<execute function="#assertTextNotPresent" value1="${wikiChildPageTitle2}" />
 	</command>
 
 	<command name="ViewSOWikiPageViewCount" priority="3">

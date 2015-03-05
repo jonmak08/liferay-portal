@@ -55,7 +55,7 @@
 		<execute function="#type" locator1="SPIAdministrationConfiguration#RECOVERY_OPTIONS_RESTART_OPTIONS_MAX_RESTART_ATTEMPTS_FIELD" value1="${maxRestartAttempts}" />
 		<execute function="#assertClick" locator1="SPIAdministrationConfiguration#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="SPIAdministrationConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
-		<execute action="SPIAdministrationConfiguration#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="startCP">
@@ -85,7 +85,7 @@
 
 		<execute function="#pause" locator1="90000" />
 
-		<execute action="Home#refresh" />
+		<execute function="#refresh" />
 
 		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="Stopped" />
 	</command>

@@ -10,7 +10,7 @@
 		<execute function="#type" locator1="PGPollsdisplayPollsquestion#CHOICE_B_FIELD" value1="${pollsQuestionChoiceB}" />
 		<execute function="#assertClick" locator1="PGPollsdisplayPollsquestion#SAVE_BUTTON" value1="Save" />
 
-		<execute action="BasePortlet#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="viewQuestionPG">

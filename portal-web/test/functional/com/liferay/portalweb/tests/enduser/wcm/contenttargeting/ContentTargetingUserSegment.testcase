@@ -75,7 +75,7 @@
 			<var name="portletName" value="User Segment Content Display" />
 		</execute>
 
-		<execute action="Home#refresh" />
+		<execute function="#refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -179,7 +179,7 @@
 			<var name="portletName" value="User Segment Content Display" />
 		</execute>
 
-		<execute action="Home#refresh" />
+		<execute function="#refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -1069,7 +1069,7 @@
 			<var name="portletName" value="User Segment Content Display" />
 		</execute>
 
-		<execute action="Home#refresh" />
+		<execute function="#refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -1171,7 +1171,7 @@
 			<var name="portletName" value="User Segment Content Display" />
 		</execute>
 
-		<execute action="Home#refresh" />
+		<execute function="#refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />

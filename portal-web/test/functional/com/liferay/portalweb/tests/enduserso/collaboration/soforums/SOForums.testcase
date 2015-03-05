@@ -1495,7 +1495,7 @@
 			<var name="categoryName" value="${categoryName}" />
 		</execute>
 
-		<execute action="PGMessageboards#assertTextNotPresent" value1="${threadSubject2}" />
+		<execute function="#assertTextNotPresent" value1="${threadSubject2}" />
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="${userEmailAddress2}" />
@@ -1853,7 +1853,7 @@
 		<execute function="#assertClick" locator1="PGMessageboardsCategory#SUBCATEGORY_TABLE_CATEGORY" value1="${subCategoryName}" />
 
 		<execute function="#assertTextEquals" locator1="PGMessageboardsCategory#INFO_MESSAGE_THREAD" value1="There are no threads in this category." />
-		<execute action="PGMessageboardsCategory#assertTextNotPresent" value1="${threadSubject}" />
+		<execute function="#assertTextNotPresent" value1="${threadSubject}" />
 	</command>
 
 	<command name="DeleteMBCategoryThread" priority="5">
@@ -1911,7 +1911,7 @@
 		<execute function="#assertClick" locator1="PGMessageboards#CATEGORY_TABLE_CATEGORY" value1="${categoryName}" />
 
 		<execute function="#assertTextEquals" locator1="PGMessageboards#INFO_MESSAGE_THREAD" value1="There are no threads in this category." />
-		<execute action="PGMessageboards#assertTextNotPresent" value1="${threadSubject}" />
+		<execute function="#assertTextNotPresent" value1="${threadSubject}" />
 	</command>
 
 	<command name="EditMBCategorySubcategoryThread" priority="5">
@@ -2449,7 +2449,7 @@
 			<var name="categoryName" value="${categoryName1}" />
 		</execute>
 
-		<execute action="PGMessageboards#assertTextNotPresent" value1="${threadSubject}" />
+		<execute function="#assertTextNotPresent" value1="${threadSubject}" />
 	</command>
 
 	<command name="MoveCategoryThreadToHome" priority="4">
@@ -2511,7 +2511,7 @@
 			<var name="categoryName" value="${categoryName}" />
 		</execute>
 
-		<execute action="PGMessageboards#assertTextNotPresent" value1="${threadSubject}" />
+		<execute function="#assertTextNotPresent" value1="${threadSubject}" />
 	</command>
 
 	<command name="PreviewMBCategoryThread" priority="4">
@@ -2552,7 +2552,7 @@
 			<var name="categoryName" value="${categoryName}" />
 		</execute>
 
-		<execute action="PGMessageboards#assertTextNotPresent" value1="${threadSubject}" />
+		<execute function="#assertTextNotPresent" value1="${threadSubject}" />
 
 		<execute macro="MessageboardsThread#editViaMyPosts">
 			<var name="threadSubject" value="${threadSubject}" />
@@ -2627,7 +2627,7 @@
 			<var name="categoryName" value="${categoryName}" />
 		</execute>
 
-		<execute action="PGMessageboards#assertTextNotPresent" value1="${threadSubject}" />
+		<execute function="#assertTextNotPresent" value1="${threadSubject}" />
 
 		<execute macro="MessageboardsThread#editViaMyPosts">
 			<var name="threadSubject" value="${threadSubject}" />
@@ -2873,7 +2873,7 @@
 			<var name="categoryName" value="${categoryName}" />
 		</execute>
 
-		<execute action="PGMessageboards#assertTextNotPresent" value1="${threadSubject}" />
+		<execute function="#assertTextNotPresent" value1="${threadSubject}" />
 
 		<execute macro="MessageboardsThread#editViaMyPosts">
 			<var name="threadSubject" value="${threadSubject}" />
@@ -2948,7 +2948,7 @@
 			<var name="categoryName" value="${categoryName}" />
 		</execute>
 
-		<execute action="PGMessageboards#assertTextNotPresent" value1="${threadSubject}" />
+		<execute function="#assertTextNotPresent" value1="${threadSubject}" />
 
 		<execute macro="MessageboardsThread#editViaMyPosts">
 			<var name="threadSubject" value="${threadSubject}" />
@@ -3378,8 +3378,8 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute action="PGMessageboards#assertTextNotPresent" value1="${categoryName2}" />
-		<execute action="PGMessageboards#assertTextNotPresent" value1="${threadSubject2}" />
+		<execute function="#assertTextNotPresent" value1="${categoryName2}" />
+		<execute function="#assertTextNotPresent" value1="${threadSubject2}" />
 	</command>
 
 	<command known-issues="LPS-25584" name="ViewMBCategoryThreadAsGuest" priority="4">
@@ -3485,7 +3485,7 @@
 			<var name="categoryName" value="${categoryName}" />
 		</execute>
 
-		<execute action="PGMessageboards#assertTextNotPresent" value1="${threadSubject2}" />
+		<execute function="#assertTextNotPresent" value1="${threadSubject2}" />
 	</command>
 
 	<command name="ViewMessageBoardsCategoriesStatistics" priority="3">

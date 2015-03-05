@@ -41,7 +41,7 @@
 
 	<command name="AssertLoginURLRedirectsToDashboard" priority="4">
 		<execute function="#open" locator1="http://localhost:8080/login" />
-		<execute action="Home#assertLocation" value1="http://localhost:8080/user/test/so/dashboard" />
+		<execute function="#assertLocation" value1="http://localhost:8080/user/test/so/dashboard" />
 
 		<execute function="#assertTextEquals" locator1="SODashboard#NAVIGATION_DASHBOARD" value1="Dashboard" />
 		<execute function="#assertTextEquals" locator1="SODashboard#NAVIGATION_CONTACTS_CENTER" value1="Contacts Center" />
@@ -569,13 +569,13 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmFolderName}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmFolderDescription}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentTitle}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentDescription}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentFile}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${taskDescription1}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${taskDescription2}" />
+		<execute function="#assertTextNotPresent" value1="${dmFolderName}" />
+		<execute function="#assertTextNotPresent" value1="${dmFolderDescription}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentTitle}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentDescription}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentFile}" />
+		<execute function="#assertTextNotPresent" value1="${taskDescription1}" />
+		<execute function="#assertTextNotPresent" value1="${taskDescription2}" />
 
 		<execute function="#assertClick" locator1="SOActivities#NAVIGATION_FOLLOWING" value1="Following" />
 		<execute function="#assertTextEquals" locator1="SOActivities#NO_ACTIVITIES" value1="There are no activities." />
@@ -604,13 +604,13 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmFolderName}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmFolderDescription}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentTitle}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentDescription}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentFile}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${taskDescription1}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${taskDescription2}" />
+		<execute function="#assertTextNotPresent" value1="${dmFolderName}" />
+		<execute function="#assertTextNotPresent" value1="${dmFolderDescription}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentTitle}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentDescription}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentFile}" />
+		<execute function="#assertTextNotPresent" value1="${taskDescription1}" />
+		<execute function="#assertTextNotPresent" value1="${taskDescription2}" />
 
 		<execute function="#assertClick" locator1="SOActivities#NAVIGATION_FOLLOWING" value1="Following" />
 
@@ -638,13 +638,13 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmFolderName}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmFolderDescription}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentTitle}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentDescription}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${dmDocumentFile}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${taskDescription1}" />
-		<execute action="SOActivities#assertTextNotPresent" value1="${taskDescription2}" />
+		<execute function="#assertTextNotPresent" value1="${dmFolderName}" />
+		<execute function="#assertTextNotPresent" value1="${dmFolderDescription}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentTitle}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentDescription}" />
+		<execute function="#assertTextNotPresent" value1="${dmDocumentFile}" />
+		<execute function="#assertTextNotPresent" value1="${taskDescription1}" />
+		<execute function="#assertTextNotPresent" value1="${taskDescription2}" />
 
 		<execute macro="SOContactsCenter#disconnectFromConnection">
 			<var name="userEmailAddress" value="${userEmailAddress1}" />
@@ -686,7 +686,7 @@
 
 	<command name="SetHomeURL" priority="4">
 		<execute function="#open" locator1="http://localhost:8080/" />
-		<execute action="Home#assertLocation" value1="http://localhost:8080/" />
+		<execute function="#assertLocation" value1="http://localhost:8080/" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Portal Settings" />
@@ -696,7 +696,7 @@
 		<execute function="#assertClick" locator1="CPPortalsettings#SAVE_BUTTON" value1="Save" />
 
 		<execute function="#open" locator1="http://localhost:8080/" />
-		<execute action="Home#assertLocation" value1="http://localhost:8080/user/test/so/dashboard" />
+		<execute function="#assertLocation" value1="http://localhost:8080/user/test/so/dashboard" />
 
 		<execute function="#assertTextEquals" locator1="SODashboard#NAVIGATION_DASHBOARD" value1="Dashboard" />
 		<execute function="#assertTextEquals" locator1="SODashboard#NAVIGATION_CONTACTS_CENTER" value1="Contacts Center" />
@@ -1119,7 +1119,7 @@
 			<var name="soPage" value="true" />
 		</execute>
 
-		<execute action="SOMembersPortlet#assertTextNotPresent" value1="${eventTitle1}" />
+		<execute function="#assertTextNotPresent" value1="${eventTitle1}" />
 
 		<execute macro="SOEvents#viewTodaysEventSiteEvent">
 			<var name="eventTitle" value="${eventTitle2}" />
@@ -1131,7 +1131,7 @@
 			<var name="soPage" value="true" />
 		</execute>
 
-		<execute action="SOMembersPortlet#assertTextNotPresent" value1="${eventTitle2}" />
+		<execute function="#assertTextNotPresent" value1="${eventTitle2}" />
 
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Calendar Test Page" />
@@ -1158,7 +1158,7 @@
 			<var name="soPage" value="true" />
 		</execute>
 
-		<execute action="SOMembersPortlet#assertTextNotPresent" value1="${eventTitle3}" />
+		<execute function="#assertTextNotPresent" value1="${eventTitle3}" />
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName1}" />

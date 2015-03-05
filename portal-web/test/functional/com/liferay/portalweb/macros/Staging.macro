@@ -66,7 +66,7 @@
 		</if>
 
 		<execute function="#pause" locator1="5000" />
-		<execute action="Home#refresh" />
+		<execute function="#refresh" />
 	</command>
 
 	<command name="addEventRepeatDaily">
@@ -93,7 +93,7 @@
 		<execute function="#assertTextEquals" locator1="PGStagingPublishtolivenow#SCHEDULED_TABLE_TITLE" value1="${scheduleTitleName}" />
 		<execute function="#assertTextEquals" locator1="PGStagingPublishtolivenow#SCHEDULED_TABLE_END_DATE" value1="No End Date" />
 
-		<execute action="PGStagingPublishtolivenow#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="addPageVariationPG">
@@ -209,10 +209,10 @@
 		<execute function="#assertClick" locator1="PGStagingManagesitepagesvariations#SITE_PAGES_VARIATIONS_TABLE_ACTIONS_MENULIST_EDIT" value1="Edit" />
 		<execute function="#type" locator1="PGStagingManagesitepagesvariations#EDIT_SITE_PAGES_VARIATION_NAME_FIELD" value1="${sitePagesVariationName} Edit" />
 		<execute function="#assertClick" locator1="PGStagingManagesitepagesvariations#EDIT_SITE_PAGES_VARIATION_UPDATE_BUTTON" value1="Update" />
-		<execute action="PGStagingManagesitepagesvariations#selectFrameTop" value1="relative=top" />
+		<execute function="#selectFrameTop" value1="relative=top" />
 		<execute function="#selectFrame" locator1="PGStagingManagesitepagesvariations#MANAGE_SITE_PAGES_VARIATIONS_IFRAME" />
 		<execute function="#assertTextEquals" locator1="PGStagingManagesitepagesvariations#SUCCESS_MESSAGE" value1="Site page variation was updated." />
-		<execute action="PGStagingManagesitepagesvariations#selectFrameTop" value1="relative=top" />
+		<execute function="#selectFrameTop" value1="relative=top" />
 	</command>
 
 	<command name="enablePageInSitePagesVariation">
@@ -270,7 +270,7 @@
 		<execute function="#assertTextEquals" locator1="PGStagingManagesitepagesvariations#MERGE_SITE_PAGES_VARIATION_TABLE_BRANCH" value1="${sitePagesVariationMergeName}" />
 		<execute function="#assertClickNoError" locator1="PGStagingManagesitepagesvariations#MERGE_SITE_PAGES_VARIATION_TABLE_SELECT_LINK" value1="Select" />
 		<execute function="#confirm" locator1="PGStagingManagesitepagesvariations#MERGE_SITE_PAGES_VARIATION_TABLE_CONFIRMATION" value1="Are you sure you want to merge changes from ${sitePagesVariationMergeName}?" />
-		<execute action="PGStagingManagesitepagesvariations#selectFrameTop" value1="relative=top" />
+		<execute function="#selectFrameTop" value1="relative=top" />
 		<execute function="#selectFrame" locator1="PGStagingManagesitepagesvariations#MANAGE_SITE_PAGES_VARIATIONS_IFRAME" />
 		<execute function="#assertTextEquals" locator1="PGStagingManagesitepagesvariations#SUCCESS_MESSAGE" value1="Site page variation was merged." />
 	</command>
@@ -379,10 +379,10 @@
 		<execute function="#assertClickNoError" locator1="PGStagingPublishtolivenow#PUBLISH_BUTTON" value1="Publish" />
 		<execute function="#confirm" locator1="PGStagingPublishtolivenow#CONFIRMATION" value1="Are you sure you want to publish these pages?" />
 		<execute function="#assertTextEquals" locator1="PGStagingPublishtolivenow#CURRENT_AND_PREVIOUS_TABLE_STATUS" value1="Successful" />
-		<execute action="PGStagingPublishtolivenow#selectFrameTop" value1="relative=top" />
+		<execute function="#selectFrameTop" value1="relative=top" />
 
 		<execute function="#pause" locator1="5000" />
-		<execute action="Home#refresh" />
+		<execute function="#refresh" />
 	</command>
 
 	<command name="redoStagingPageVersioningPG">
@@ -487,10 +487,10 @@
 		<execute function="#type" locator1="PGStagingPublishtolivenow#DATE_SCHEDULE_TIME_INPUT" value1="${displayDate}" />
 		<execute function="#assertClick" locator1="PGStagingPublishtolivenow#ADD_EVENT_BUTTON" value1="Add Event" />
 		<execute function="#assertTextEquals" locator1="PGStagingPublishtolivenow#SUCCESS_MESSAGE" value1="Your request completed successfully." />
-		<execute action="PGStagingPublishtolivenow#selectFrameTop" value1="relative=top" />
+		<execute function="#selectFrameTop" value1="relative=top" />
 
 		<execute function="#pause" locator1="5000" />
-		<execute action="Home#refresh" />
+		<execute function="#refresh" />
 	</command>
 
 	<command name="setContentDateRange">

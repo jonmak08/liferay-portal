@@ -136,7 +136,7 @@
 		<execute function="#confirm" locator1="CPCategories#CONFIRMATION" value1="Are you sure you want to delete the selected vocabularies?" />
 		<execute function="#assertTextEquals" locator1="CPCategories#SUCCESS_MESSAGE" value1="Your request processed successfully." />
 		<execute function="#assertTextEquals" locator1="CPCategories#INFO_MESSAGE" value1="There are no categories." />
-		<execute action="CPCategories#assertTextNotPresent" value1="${vocabularyName}" />
+		<execute function="#assertTextNotPresent" value1="${vocabularyName}" />
 	</command>
 
 	<command name="deleteByDetailsCP">
@@ -228,7 +228,7 @@
 			</elseif>
 		</if>
 
-		<execute action="CPCategories#selectFrameTop" value1="relative=top" />
+		<execute function="#selectFrameTop" value1="relative=top" />
 	</command>
 
 	<command name="viewWithAssociatedAssetTypeCP">

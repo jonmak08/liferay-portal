@@ -822,7 +822,7 @@
 			<var name="sitePagesVariationName" value="Christmas Variation" />
 		</execute>
 
-		<execute action="Home#refresh" />
+		<execute function="#refresh" />
 
 		<execute macro="Staging#enablePageInSitePagesVariation">
 			<var name="pageName" value="Test Page Name" />

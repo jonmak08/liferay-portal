@@ -6,7 +6,7 @@
 		<execute function="#select" locator1="PGDocumentlibraryConfiguration#DROPDOWN_SELECT_OPTION" value1="${documentsPerPage}" />
 		<execute function="#assertClick" locator1="PGDocumentlibraryConfiguration#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="PGDocumentlibraryConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
-		<execute action="PGDocumentlibraryConfiguration#selectFrame" value1="relative=top" />
+		<execute function="#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="viewDefaultPG">
