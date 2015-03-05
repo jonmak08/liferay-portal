@@ -481,13 +481,13 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute action="PGWebcontentdisplay#click" locator-key1="LANGUAGE_MENU_CHINESE" />
+		<execute action="PGWebcontentdisplay#click" locator1="LANGUAGE_MENU_CHINESE" />
 
 		<execute macro="WebContent#viewPGViaWCD">
 			<var name="webContentContent" value="${webContentTranslationContent}" />
 		</execute>
 
-		<execute action="PGWebcontentdisplay#click" locator-key1="LANGUAGE_MENU_ENGLISH" />
+		<execute action="PGWebcontentdisplay#click" locator1="LANGUAGE_MENU_ENGLISH" />
 
 		<execute macro="WebContent#viewPGViaWCD">
 			<var name="webContentContent" value="${webContentContent}" />

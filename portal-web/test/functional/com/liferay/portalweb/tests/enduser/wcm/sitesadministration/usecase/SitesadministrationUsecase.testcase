@@ -205,7 +205,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute action="Home#assertTextEquals" locator-key1="ERROR_MESSAGE_ALERT_INFO" value1="This site is inactive. Please contact the administrator." />
+		<execute action="Home#assertTextEquals" locator1="ERROR_MESSAGE_ALERT_INFO" value1="This site is inactive. Please contact the administrator." />
 
 		<execute macro="User#firstLoginPG">
 			<var name="password" value="test" />
@@ -236,8 +236,8 @@
 			<var name="siteScopeName" value="${site1Name}" />
 		</execute>
 
-		<execute action="CPSitesettings#select" locator-key1="APPLICATION_ADAPTER_SELECT" value1="Sample Application Adapter EE Hook" />
-		<execute action="CPSitesettings#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+		<execute action="CPSitesettings#select" locator1="APPLICATION_ADAPTER_SELECT" value1="Sample Application Adapter EE Hook" />
+		<execute action="CPSitesettings#assertClick" locator1="SAVE_BUTTON" value1="Save" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
@@ -261,7 +261,7 @@
 
 		<var name="key_portletName" value="Navigation" />
 
-		<execute action="PGNavigation#assertTextEquals" locator-key1="PORTLET_BODY" value1="This was modified by the Sample Application Adapter." />
+		<execute action="PGNavigation#assertTextEquals" locator1="PORTLET_BODY" value1="This was modified by the Sample Application Adapter." />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
@@ -293,15 +293,15 @@
 
 		<var name="key_portletName" value="Navigation" />
 
-		<execute action="PGNavigation#assertTextNotPresent" locator-key1="PORTLET_BODY" value1="This was modified by the Sample Application Adapter." />
+		<execute action="PGNavigation#assertTextNotPresent" locator1="PORTLET_BODY" value1="This was modified by the Sample Application Adapter." />
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
 			<var name="siteScopeName" value="${site2Name}" />
 		</execute>
 
-		<execute action="CPSitesettings#select" locator-key1="APPLICATION_ADAPTER_SELECT" value1="Sample Application Adapter EE Hook" />
-		<execute action="CPSitesettings#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+		<execute action="CPSitesettings#select" locator1="APPLICATION_ADAPTER_SELECT" value1="Sample Application Adapter EE Hook" />
+		<execute action="CPSitesettings#assertClick" locator1="SAVE_BUTTON" value1="Save" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${site2PageName}" />
@@ -311,15 +311,15 @@
 
 		<var name="key_portletName" value="Navigation" />
 
-		<execute action="PGNavigation#assertTextEquals" locator-key1="PORTLET_BODY" value1="This was modified by the Sample Application Adapter." />
+		<execute action="PGNavigation#assertTextEquals" locator1="PORTLET_BODY" value1="This was modified by the Sample Application Adapter." />
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
 			<var name="siteScopeName" value="${site2Name}" />
 		</execute>
 
-		<execute action="CPSitesettings#select" locator-key1="APPLICATION_ADAPTER_SELECT" value1="None" />
-		<execute action="CPSitesettings#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
+		<execute action="CPSitesettings#select" locator1="APPLICATION_ADAPTER_SELECT" value1="None" />
+		<execute action="CPSitesettings#assertClick" locator1="SAVE_BUTTON" value1="Save" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${site2PageName}" />
@@ -329,7 +329,7 @@
 
 		<var name="key_portletName" value="Navigation" />
 
-		<execute action="PGNavigation#assertTextNotPresent" locator-key1="PORTLET_BODY" value1="This was modified by the Sample Application Adapter." />
+		<execute action="PGNavigation#assertTextNotPresent" locator1="PORTLET_BODY" value1="This was modified by the Sample Application Adapter." />
 	</command>
 
 	<command name="SiteTeams" priority="4">
@@ -641,7 +641,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute action="Home#assertElementNotPresent" locator-key1="PAGE_2" />
+		<execute action="Home#assertElementNotPresent" locator1="PAGE_2" />
 
 		<execute macro="User#firstLoginPG">
 			<var name="password" value="test" />

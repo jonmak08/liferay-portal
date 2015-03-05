@@ -1,13 +1,13 @@
 <definition>
 	<command name="viewTableOfContentsPG">
-		<execute action="PGWiki#assertClick" locator-key1="NAVIGATION_ALL_PAGES" value1="All Pages" />
+		<execute action="PGWiki#assertClick" locator1="NAVIGATION_ALL_PAGES" value1="All Pages" />
 
 		<var name="key_wikiPageTitle" value="${wikiPageTitle}" />
 
-		<execute action="PGWikiAllpages#assertClick" locator-key1="WIKI_PAGE_TABLE_PAGE" value1="${wikiPageTitle}" />
+		<execute action="PGWikiAllpages#assertClick" locator1="WIKI_PAGE_TABLE_PAGE" value1="${wikiPageTitle}" />
 
-		<execute action="PGWiki#assertTextEquals" locator-key1="WIKI_PAGE_TITLE" value1="${wikiPageTitle}" />
+		<execute action="PGWiki#assertTextEquals" locator1="WIKI_PAGE_TITLE" value1="${wikiPageTitle}" />
 
-		<execute action="PGWikiWikipage#sikuliAssertElementPresent" locator-key1="SCREENSHOTS_SOCIAL_OFFICE_WIKI_WIKI_PAGE_TABLE_OF_CONTENTS_PNG" />
+		<execute action="PGWikiWikipage#sikuliAssertElementPresent" locator1="SCREENSHOTS_SOCIAL_OFFICE_WIKI_WIKI_PAGE_TABLE_OF_CONTENTS_PNG" />
 	</command>
 </definition>

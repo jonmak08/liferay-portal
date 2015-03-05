@@ -4,7 +4,7 @@
 
 	<command name="Condition" priority="5">
 		<if>
-			<condition action="Conditional#isElementPresent" locator-key1="TITLE_ELEMENT" />
+			<condition action="Conditional#isElementPresent" locator1="TITLE_ELEMENT" />
 			<then>
 				<execute macro="TestUtils#pass">
 					<var name="message" value="Webpage title element was found: PASS" />
@@ -18,7 +18,7 @@
 		</if>
 
 		<if>
-			<condition action="Conditional#isElementNotPresent" locator-key1="TITLE_ELEMENT" />
+			<condition action="Conditional#isElementNotPresent" locator1="TITLE_ELEMENT" />
 			<then>
 				<execute macro="TestUtils#fail">
 					<var name="message" value="Webpage title element was not found: FAIL" />
@@ -32,7 +32,7 @@
 		</if>
 
 		<if>
-			<condition action="Conditional#isElementPresent" locator-key1="LIST_ELEMENT" />
+			<condition action="Conditional#isElementPresent" locator1="LIST_ELEMENT" />
 			<then>
 				<execute macro="TestUtils#pass">
 					<var name="message" value="Webpage list element was found: PASS" />
@@ -46,7 +46,7 @@
 		</if>
 
 		<if>
-			<condition action="Conditional#isElementNotPresent" locator-key1="LIST_ELEMENT" />
+			<condition action="Conditional#isElementNotPresent" locator1="LIST_ELEMENT" />
 			<then>
 				<execute macro="TestUtils#fail">
 					<var name="message" value="Webpage list element was not found: FAIL" />
@@ -60,7 +60,7 @@
 		</if>
 
 		<if>
-			<condition action="Conditional#isTextEqual" locator-key1="TITLE_ELEMENT_NAME" value1="Status Codes" />
+			<condition action="Conditional#isTextEqual" locator1="TITLE_ELEMENT_NAME" value1="Status Codes" />
 			<then>
 				<execute macro="TestUtils#pass">
 					<var name="message" value="Matched webpage title value: PASS" />
@@ -74,7 +74,7 @@
 		</if>
 
 		<if>
-			<condition action="Conditional#isTextEqual" locator-key1="TITLE_ELEMENT_NAME" value1="Not real title" />
+			<condition action="Conditional#isTextEqual" locator1="TITLE_ELEMENT_NAME" value1="Not real title" />
 			<then>
 				<execute macro="TestUtils#fail">
 					<var name="message" value="Matched incorrect webpage title value: FAIL" />
@@ -88,7 +88,7 @@
 		</if>
 
 		<if>
-			<condition action="Conditional#isTextNotEqual" locator-key1="TITLE_ELEMENT_NAME" value1="Status Codes" />
+			<condition action="Conditional#isTextNotEqual" locator1="TITLE_ELEMENT_NAME" value1="Status Codes" />
 			<then>
 				<execute macro="TestUtils#fail">
 					<var name="message" value="Did not match webpage title value: FAIL" />
@@ -102,7 +102,7 @@
 		</if>
 
 		<if>
-			<condition action="Conditional#isTextNotEqual" locator-key1="TITLE_ELEMENT_NAME" value1="Not real title" />
+			<condition action="Conditional#isTextNotEqual" locator1="TITLE_ELEMENT_NAME" value1="Not real title" />
 			<then>
 				<execute macro="TestUtils#pass">
 					<var name="message" value="Did not match incorrect webpage title value: PASS" />

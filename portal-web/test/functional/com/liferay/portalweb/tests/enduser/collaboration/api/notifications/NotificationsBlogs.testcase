@@ -293,8 +293,8 @@
 			<var name="contentBody" value="Blogs Entry Title" />
 		</execute>
 
-		<execute action="PGBlogsEntry#assertTextEquals" locator-key1="ENTRY_TITLE" value1="Blogs Entry Title" />
-		<execute action="PGBlogsEntry#assertTextEquals" locator-key1="ENTRY_CONTENT" value1="Blogs Entry Content" />
+		<execute action="PGBlogsEntry#assertTextEquals" locator1="ENTRY_TITLE" value1="Blogs Entry Title" />
+		<execute action="PGBlogsEntry#assertTextEquals" locator1="ENTRY_CONTENT" value1="Blogs Entry Content" />
 
 		<execute macro="Notifications#viewCount">
 			<var name="notificationCount" value="0" />
@@ -376,8 +376,8 @@
 			<var name="contentBody" value="Blogs Entry Title Edit" />
 		</execute>
 
-		<execute action="PGBlogsEntry#assertTextEquals" locator-key1="ENTRY_TITLE" value1="Blogs Entry Title Edit" />
-		<execute action="PGBlogsEntry#assertTextEquals" locator-key1="ENTRY_CONTENT" value1="Blogs Entry Content Edit" />
+		<execute action="PGBlogsEntry#assertTextEquals" locator1="ENTRY_TITLE" value1="Blogs Entry Title Edit" />
+		<execute action="PGBlogsEntry#assertTextEquals" locator1="ENTRY_CONTENT" value1="Blogs Entry Content Edit" />
 
 		<execute macro="Notifications#viewCount">
 			<var name="notificationCount" value="0" />

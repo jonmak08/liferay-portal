@@ -638,7 +638,7 @@
 			<var name="portletName" value="Documents and Media" />
 		</execute>
 
-		<execute action="CPDocumentsandmedia#assertTextEquals" locator-key1="INFO_MESSAGE" value1="There are no documents or media files in this folder." />
+		<execute action="CPDocumentsandmedia#assertTextEquals" locator1="INFO_MESSAGE" value1="There are no documents or media files in this folder." />
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Knowledge Base" />
@@ -1220,8 +1220,8 @@
 			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 		</execute>
 
-		<execute action="CPKnowledgebaseadminArticle#assertTextEquals" locator-key1="HEADER_TITLE" value1="Knowledge Base Article Title" />
-		<execute action="CPKnowledgebaseadminArticle#assertTextEquals" locator-key1="CONTENT" value1="Knowledge Base Article Content" />
+		<execute action="CPKnowledgebaseadminArticle#assertTextEquals" locator1="HEADER_TITLE" value1="Knowledge Base Article Title" />
+		<execute action="CPKnowledgebaseadminArticle#assertTextEquals" locator1="CONTENT" value1="Knowledge Base Article Content" />
 
 		<execute macro="KBArticle#goBackCP" />
 

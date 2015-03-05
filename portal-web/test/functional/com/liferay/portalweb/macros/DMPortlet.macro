@@ -2,25 +2,25 @@
 	<command name="configureDisplaySettingsMaximumEntriesToDisplay">
 		<var name="key_documentsPerPage" value="${documentsPerPage}" />
 
-		<execute action="PGDocumentlibraryConfiguration#selectFrame" locator-key1="DOCUMENT_LIBRARY_IFRAME" />
-		<execute action="PGDocumentlibraryConfiguration#select" locator-key1="DROPDOWN_SELECT_OPTION" value1="${documentsPerPage}" />
-		<execute action="PGDocumentlibraryConfiguration#assertClick" locator-key1="SAVE_BUTTON" value1="Save" />
-		<execute action="PGDocumentlibraryConfiguration#assertTextEquals" locator-key1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+		<execute action="PGDocumentlibraryConfiguration#selectFrame" locator1="DOCUMENT_LIBRARY_IFRAME" />
+		<execute action="PGDocumentlibraryConfiguration#select" locator1="DROPDOWN_SELECT_OPTION" value1="${documentsPerPage}" />
+		<execute action="PGDocumentlibraryConfiguration#assertClick" locator1="SAVE_BUTTON" value1="Save" />
+		<execute action="PGDocumentlibraryConfiguration#assertTextEquals" locator1="SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 		<execute action="PGDocumentlibraryConfiguration#selectFrame" value1="relative=top" />
 	</command>
 
 	<command name="viewDefaultPG">
-		<execute action="PGDocumentsandmedia#assertTextEquals" locator-key1="PORTLET_TITLE" value1="Documents and Media" />
-		<execute action="PGDocumentsandmedia#assertTextEquals" locator-key1="INFO_MESSAGE" value1="There are no documents or media files in this folder." />
+		<execute action="PGDocumentsandmedia#assertTextEquals" locator1="PORTLET_TITLE" value1="Documents and Media" />
+		<execute action="PGDocumentsandmedia#assertTextEquals" locator1="INFO_MESSAGE" value1="There are no documents or media files in this folder." />
 	</command>
 
 	<command name="viewNoPermissionCP">
-		<execute action="CPDocumentsandmedia#assertTextEquals" locator-key1="PORTLET_TITLE" value1="Documents and Media" />
-		<execute action="CPDocumentsandmedia#assertTextEquals" locator-key1="INFO_MESSAGE" value1="There are no documents or media files in this folder." />
+		<execute action="CPDocumentsandmedia#assertTextEquals" locator1="PORTLET_TITLE" value1="Documents and Media" />
+		<execute action="CPDocumentsandmedia#assertTextEquals" locator1="INFO_MESSAGE" value1="There are no documents or media files in this folder." />
 	</command>
 
 	<command name="viewPaginationControlsPG">
-		<execute action="PGDocumentsandmedia#assertTextEquals" locator-key1="PAGINATION_NEXT" value1="Next" />
-		<execute action="PGDocumentsandmedia#assertTextEquals" locator-key1="PAGINATION_PREVIOUS" value1="Prev" />
+		<execute action="PGDocumentsandmedia#assertTextEquals" locator1="PAGINATION_NEXT" value1="Next" />
+		<execute action="PGDocumentsandmedia#assertTextEquals" locator1="PAGINATION_PREVIOUS" value1="Prev" />
 	</command>
 </definition>

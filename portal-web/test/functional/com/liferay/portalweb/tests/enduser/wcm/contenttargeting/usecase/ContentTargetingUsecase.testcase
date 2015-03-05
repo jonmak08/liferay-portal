@@ -1029,11 +1029,11 @@
 
 		<execute macro="LAR#configureExportSiteCP" />
 
-		<execute action="CPSitepagesExport#assertClick" locator-key1="EXPORT_BUTTON" value1="Export" />
+		<execute action="CPSitepagesExport#assertClick" locator1="EXPORT_BUTTON" value1="Export" />
 
 		<var name="key_larFileName" value="${larFileName}" />
 
-		<execute action="CPSitepagesExport#assertTextEquals" locator-key1="CURRENT_AND_PREVIOUS_STATUS" value1="Successful" />
+		<execute action="CPSitepagesExport#assertTextEquals" locator1="CURRENT_AND_PREVIOUS_STATUS" value1="Successful" />
 
 		<var method="selenium#getText(&quot;//tr/td[5]/span/a&quot;)" name="valueName" />
 
@@ -1043,7 +1043,7 @@
 
 		<echo message="lar file name ${larFileName}" />
 
-		<execute action="CPSitepagesExport#click" locator-key1="CURRENT_AND_PREVIOUS_DOWNLOAD" />
+		<execute action="CPSitepagesExport#click" locator1="CURRENT_AND_PREVIOUS_DOWNLOAD" />
 		<execute action="CPSitepagesExport#downloadTempFile" />
 		<execute action="CPSitepagesExport#selectFrame" value1="relative=top" />
 
@@ -1156,11 +1156,11 @@
 			<var name="uncheckContentNameList" value="Audience Targeting" />
 		</execute>
 
-		<execute action="CPSitepagesExport#assertClick" locator-key1="EXPORT_BUTTON" value1="Export" />
+		<execute action="CPSitepagesExport#assertClick" locator1="EXPORT_BUTTON" value1="Export" />
 
 		<var name="key_larFileName" value="${larFileName}" />
 
-		<execute action="CPSitepagesExport#assertTextEquals" locator-key1="CURRENT_AND_PREVIOUS_STATUS" value1="Successful" />
+		<execute action="CPSitepagesExport#assertTextEquals" locator1="CURRENT_AND_PREVIOUS_STATUS" value1="Successful" />
 
 		<var method="selenium#getText(&quot;//tr/td[5]/span/a&quot;)" name="valueName" />
 
@@ -1170,7 +1170,7 @@
 
 		<echo message="lar file name ${larFileName}" />
 
-		<execute action="CPSitepagesExport#click" locator-key1="CURRENT_AND_PREVIOUS_DOWNLOAD" />
+		<execute action="CPSitepagesExport#click" locator1="CURRENT_AND_PREVIOUS_DOWNLOAD" />
 		<execute action="CPSitepagesExport#downloadTempFile" />
 		<execute action="CPSitepagesExport#selectFrame" value1="relative=top" />
 
@@ -1244,11 +1244,11 @@
 			<var name="uncheckContentNameList" value="Audience Targeting,Web Content" />
 		</execute>
 
-		<execute action="CPSitepagesExport#assertClick" locator-key1="EXPORT_BUTTON" value1="Export" />
+		<execute action="CPSitepagesExport#assertClick" locator1="EXPORT_BUTTON" value1="Export" />
 
 		<var name="key_larFileName" value="${larFileName}" />
 
-		<execute action="CPSitepagesExport#assertTextEquals" locator-key1="CURRENT_AND_PREVIOUS_STATUS" value1="Successful" />
+		<execute action="CPSitepagesExport#assertTextEquals" locator1="CURRENT_AND_PREVIOUS_STATUS" value1="Successful" />
 
 		<var method="selenium#getText(&quot;//tr/td[5]/span/a&quot;)" name="valueName" />
 
@@ -1258,7 +1258,7 @@
 
 		<echo message="lar file name ${larFileName}" />
 
-		<execute action="CPSitepagesExport#click" locator-key1="CURRENT_AND_PREVIOUS_DOWNLOAD" />
+		<execute action="CPSitepagesExport#click" locator1="CURRENT_AND_PREVIOUS_DOWNLOAD" />
 		<execute action="CPSitepagesExport#downloadTempFile" />
 		<execute action="CPSitepagesExport#selectFrame" value1="relative=top" />
 
@@ -2296,7 +2296,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute action="PGUsersegmentcontentdisplay#sikuliClick" locator-key1="PREVIEW_DOCUMENT_1_PNG" />
+		<execute action="PGUsersegmentcontentdisplay#sikuliClick" locator1="PREVIEW_DOCUMENT_1_PNG" />
 	</command>
 
 	<command name="UserSegmentAddWithDoesNotBelongViaUserSegmentContentDisplayPortlet" priority="5">

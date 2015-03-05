@@ -184,7 +184,7 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SODashboard#click" locator-key1="NAVIGATION_MICROBLOGS" />
+		<execute action="SODashboard#click" locator1="NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryCommentTag">
 			<var name="commentCount" value="1" />
@@ -199,7 +199,7 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SODashboard#click" locator-key1="NAVIGATION_MICROBLOGS" />
+		<execute action="SODashboard#click" locator1="NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#viewOwnMicroblogsEntryMention">
 			<var name="commentCount" value="1" />
@@ -211,7 +211,7 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SODashboard#click" locator-key1="NAVIGATION_MICROBLOGS" />
+		<execute action="SODashboard#click" locator1="NAVIGATION_MICROBLOGS" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryCommentTag">
 			<var name="commentCount" value="1" />
@@ -234,18 +234,18 @@
 
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute action="SOAnnouncements#assertClick" locator-key1="ANNOUNCEMENTS_MANAGE_ENTRIES_BUTTON" value1="Manage Entries" />
+		<execute action="SOAnnouncements#assertClick" locator1="ANNOUNCEMENTS_MANAGE_ENTRIES_BUTTON" value1="Manage Entries" />
 
-		<execute action="SOAnnouncementsManage#selectFrame" locator-key1="MANAGE_ENTRY_IFRAME" />
-		<execute action="SOAnnouncementsManage#select" locator-key1="DISTRIBUTION_SCOPE_SELECT" value1="${distributionScope}" />
-		<execute action="SOAnnouncementsManage#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_TITLE" value1="${entryTitle}" />
-		<execute action="SOAnnouncementsManage#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_AUTHOR" value1="Test Test" />
-		<execute action="SOAnnouncementsManage#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_TYPE" value1="General" />
-		<execute action="SOAnnouncementsManage#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_MODIFIED_DATE" />
-		<execute action="SOAnnouncementsManage#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_DISPLAY_DATE" />
-		<execute action="SOAnnouncementsManage#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_EXPIRATION_DATE" />
-		<execute action="SOAnnouncementsManage#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_EDIT_LINK" value1="Edit"  />
-		<execute action="SOAnnouncementsManage#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_DELETE_LINK" value1="Delete"  />
+		<execute action="SOAnnouncementsManage#selectFrame" locator1="MANAGE_ENTRY_IFRAME" />
+		<execute action="SOAnnouncementsManage#select" locator1="DISTRIBUTION_SCOPE_SELECT" value1="${distributionScope}" />
+		<execute action="SOAnnouncementsManage#assertTextEquals" locator1="ANNOUNCEMENTS_ENTRY_TITLE" value1="${entryTitle}" />
+		<execute action="SOAnnouncementsManage#assertTextEquals" locator1="ANNOUNCEMENTS_ENTRY_AUTHOR" value1="Test Test" />
+		<execute action="SOAnnouncementsManage#assertTextEquals" locator1="ANNOUNCEMENTS_ENTRY_TYPE" value1="General" />
+		<execute action="SOAnnouncementsManage#assertElementPresent" locator1="ANNOUNCEMENTS_ENTRY_MODIFIED_DATE" />
+		<execute action="SOAnnouncementsManage#assertElementPresent" locator1="ANNOUNCEMENTS_ENTRY_DISPLAY_DATE" />
+		<execute action="SOAnnouncementsManage#assertElementPresent" locator1="ANNOUNCEMENTS_ENTRY_EXPIRATION_DATE" />
+		<execute action="SOAnnouncementsManage#assertTextEquals" locator1="ANNOUNCEMENTS_ENTRY_EDIT_LINK" value1="Edit"  />
+		<execute action="SOAnnouncementsManage#assertTextEquals" locator1="ANNOUNCEMENTS_ENTRY_DELETE_LINK" value1="Delete"  />
 		<execute action="SOAnnouncementsManage#selectFrameTop" />
 	</command>
 
@@ -378,105 +378,105 @@
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute action="SOUserBar#selectFrameTop" />
-		<execute action="SOUserBar#click" locator-key1="GO_TO" />
-		<execute action="SOUserBar#click" locator-key1="GO_TO_SITES_DIRECTORY_BUTTON" />
+		<execute action="SOUserBar#click" locator1="GO_TO" />
+		<execute action="SOUserBar#click" locator1="GO_TO_SITES_DIRECTORY_BUTTON" />
 
-		<execute action="SOUserBarSitesDirectory#select" locator-key1="SITE_CATEGORY_SELECT" value1="All Sites" />
+		<execute action="SOUserBarSitesDirectory#select" locator1="SITE_CATEGORY_SELECT" value1="All Sites" />
 
 		<var name="key_siteName" value="${siteName1}" />
 
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_NAME_LINK" value1="${siteName1}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_DESCRIPTION" value1="${siteDescription1}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_NAME_LINK" value1="${siteName1}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_DESCRIPTION" value1="${siteDescription1}" />
 
 		<var name="key_siteName" value="${siteName2}" />
 
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_NAME_LINK" value1="${siteName2}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_DESCRIPTION" value1="${siteDescription2}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_NAME_LINK" value1="${siteName2}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_DESCRIPTION" value1="${siteDescription2}" />
 
 		<var name="key_siteName" value="${siteName3}" />
 
-		<execute action="SOUserBarSitesDirectory#assertElementNotPresent" locator-key1="SITE_NAME_LINK" value1="${siteName3}" />
-		<execute action="SOUserBarSitesDirectory#assertElementNotPresent" locator-key1="SITE_DESCRIPTION" value1="${siteDescription3}" />
+		<execute action="SOUserBarSitesDirectory#assertElementNotPresent" locator1="SITE_NAME_LINK" value1="${siteName3}" />
+		<execute action="SOUserBarSitesDirectory#assertElementNotPresent" locator1="SITE_DESCRIPTION" value1="${siteDescription3}" />
 
 		<var name="key_siteName" value="${siteName4}" />
 
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_NAME_LINK" value1="${siteName4}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_DESCRIPTION" value1="${siteDescription4}" />
-		<execute action="SOUserBarSitesDirectory#select" locator-key1="SITE_CATEGORY_SELECT" value1="My Sites" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_NAME_LINK" value1="${siteName4}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_DESCRIPTION" value1="${siteDescription4}" />
+		<execute action="SOUserBarSitesDirectory#select" locator1="SITE_CATEGORY_SELECT" value1="My Sites" />
 
 		<var name="key_siteName" value="${siteName1}" />
 
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_NAME_LINK" value1="${siteName1}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_DESCRIPTION" value1="${siteDescription1}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_NAME_LINK" value1="${siteName1}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_DESCRIPTION" value1="${siteDescription1}" />
 
 		<var name="key_siteName" value="${siteName2}" />
 
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_NAME_LINK" value1="${siteName2}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_DESCRIPTION" value1="${siteDescription2}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_NAME_LINK" value1="${siteName2}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_DESCRIPTION" value1="${siteDescription2}" />
 
 		<var name="key_siteName" value="${siteName3}" />
 
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_NAME_LINK" value1="${siteName3}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_DESCRIPTION" value1="${siteDescription3}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_NAME_LINK" value1="${siteName3}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_DESCRIPTION" value1="${siteDescription3}" />
 
 		<var name="key_siteName" value="${siteName4}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_NAME_LINK" value1="${siteName4}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_DESCRIPTION" value1="${siteDescription4}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_NAME_LINK" value1="${siteName4}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_DESCRIPTION" value1="${siteDescription4}" />
 
 		<var name="key_siteName" value="${siteName1}" />
 
-		<execute action="SOUserBarSitesDirectory#type" locator-key1="SITE_SEARCH_FIELD" value1="${siteName1}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_NAME_LINK" value1="${siteName1}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_DESCRIPTION" value1="${siteDescription1}" />
-		<execute action="SOUserBarSitesDirectory#click" locator-key1="SITE_NAME_LINK" value1="${siteName1}" />
+		<execute action="SOUserBarSitesDirectory#type" locator1="SITE_SEARCH_FIELD" value1="${siteName1}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_NAME_LINK" value1="${siteName1}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_DESCRIPTION" value1="${siteDescription1}" />
+		<execute action="SOUserBarSitesDirectory#click" locator1="SITE_NAME_LINK" value1="${siteName1}" />
 
-		<execute action="SOSite#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName1}" />
+		<execute action="SOSite#assertTextEquals" locator1="SITE_NAME" value1="${siteName1}" />
 
 		<var name="key_siteName" value="${siteName2}" />
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute action="SOUserBar#selectFrameTop" />
-		<execute action="SOUserBar#click" locator-key1="GO_TO" />
-		<execute action="SOUserBar#click" locator-key1="GO_TO_SITES_DIRECTORY_BUTTON" />
+		<execute action="SOUserBar#click" locator1="GO_TO" />
+		<execute action="SOUserBar#click" locator1="GO_TO_SITES_DIRECTORY_BUTTON" />
 
-		<execute action="SOUserBarSitesDirectory#select" locator-key1="SITE_CATEGORY_SELECT" value1="My Sites" />
-		<execute action="SOUserBarSitesDirectory#type" locator-key1="SITE_SEARCH_FIELD" value1="${siteName2}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_NAME_LINK" value1="${siteName2}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_DESCRIPTION" value1="${siteDescription2}" />
-		<execute action="SOUserBarSitesDirectory#click" locator-key1="SITE_NAME_LINK" value1="${siteName2}" />
+		<execute action="SOUserBarSitesDirectory#select" locator1="SITE_CATEGORY_SELECT" value1="My Sites" />
+		<execute action="SOUserBarSitesDirectory#type" locator1="SITE_SEARCH_FIELD" value1="${siteName2}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_NAME_LINK" value1="${siteName2}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_DESCRIPTION" value1="${siteDescription2}" />
+		<execute action="SOUserBarSitesDirectory#click" locator1="SITE_NAME_LINK" value1="${siteName2}" />
 
-		<execute action="SOSite#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName2}" />
+		<execute action="SOSite#assertTextEquals" locator1="SITE_NAME" value1="${siteName2}" />
 
 		<var name="key_siteName" value="${siteName3}" />
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute action="SOUserBar#selectFrameTop" />
-		<execute action="SOUserBar#click" locator-key1="GO_TO" />
-		<execute action="SOUserBar#click" locator-key1="GO_TO_SITES_DIRECTORY_BUTTON" />
+		<execute action="SOUserBar#click" locator1="GO_TO" />
+		<execute action="SOUserBar#click" locator1="GO_TO_SITES_DIRECTORY_BUTTON" />
 
-		<execute action="SOUserBarSitesDirectory#select" locator-key1="SITE_CATEGORY_SELECT" value1="My Sites" />
-		<execute action="SOUserBarSitesDirectory#type" locator-key1="SITE_SEARCH_FIELD" value1="${siteName3}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_NAME_LINK" value1="${siteName3}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_DESCRIPTION" value1="${siteDescription3}" />
-		<execute action="SOUserBarSitesDirectory#click" locator-key1="SITE_NAME_LINK" value1="${siteName3}" />
+		<execute action="SOUserBarSitesDirectory#select" locator1="SITE_CATEGORY_SELECT" value1="My Sites" />
+		<execute action="SOUserBarSitesDirectory#type" locator1="SITE_SEARCH_FIELD" value1="${siteName3}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_NAME_LINK" value1="${siteName3}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_DESCRIPTION" value1="${siteDescription3}" />
+		<execute action="SOUserBarSitesDirectory#click" locator1="SITE_NAME_LINK" value1="${siteName3}" />
 
-		<execute action="SOSite#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName3}" />
+		<execute action="SOSite#assertTextEquals" locator1="SITE_NAME" value1="${siteName3}" />
 
 		<var name="key_siteName" value="${siteName4}" />
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute action="SOUserBar#selectFrameTop" />
-		<execute action="SOUserBar#click" locator-key1="GO_TO" />
-		<execute action="SOUserBar#click" locator-key1="GO_TO_SITES_DIRECTORY_BUTTON" />
-		<execute action="SOUserBarSitesDirectory#select" locator-key1="SITE_CATEGORY_SELECT" value1="My Sites" />
-		<execute action="SOUserBarSitesDirectory#type" locator-key1="SITE_SEARCH_FIELD" value1="${siteName4}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_NAME_LINK" value1="${siteName4}" />
-		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator-key1="SITE_DESCRIPTION" value1="${siteDescription4}" />
-		<execute action="SOUserBarSitesDirectory#click" locator-key1="SITE_NAME_LINK" value1="${siteName4}" />
-		<execute action="SOSite#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName4}" />
+		<execute action="SOUserBar#click" locator1="GO_TO" />
+		<execute action="SOUserBar#click" locator1="GO_TO_SITES_DIRECTORY_BUTTON" />
+		<execute action="SOUserBarSitesDirectory#select" locator1="SITE_CATEGORY_SELECT" value1="My Sites" />
+		<execute action="SOUserBarSitesDirectory#type" locator1="SITE_SEARCH_FIELD" value1="${siteName4}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_NAME_LINK" value1="${siteName4}" />
+		<execute action="SOUserBarSitesDirectory#assertTextEquals" locator1="SITE_DESCRIPTION" value1="${siteDescription4}" />
+		<execute action="SOUserBarSitesDirectory#click" locator1="SITE_NAME_LINK" value1="${siteName4}" />
+		<execute action="SOSite#assertTextEquals" locator1="SITE_NAME" value1="${siteName4}" />
 	</command>
 
 	<command name="ViewSOSiteContentAnnouncements" priority="5">
@@ -491,18 +491,18 @@
 
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute action="SOAnnouncements#assertClick" locator-key1="ANNOUNCEMENTS_MANAGE_ENTRIES_BUTTON" value1="Manage Entries" />
+		<execute action="SOAnnouncements#assertClick" locator1="ANNOUNCEMENTS_MANAGE_ENTRIES_BUTTON" value1="Manage Entries" />
 
-		<execute action="SOAnnouncementsManage#selectFrame" locator-key1="MANAGE_ENTRY_IFRAME" />
-		<execute action="SOAnnouncementsManage#select" locator-key1="DISTRIBUTION_SCOPE_SELECT" value1="${siteName1}" />
-		<execute action="SOAnnouncementsManage#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_TITLE" value1="${entryTitle}" />
-		<execute action="SOAnnouncementsManage#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_AUTHOR" value1="Test Test" />
-		<execute action="SOAnnouncementsManage#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_TYPE" value1="General" />
-		<execute action="SOAnnouncementsManage#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_MODIFIED_DATE" />
-		<execute action="SOAnnouncementsManage#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_DISPLAY_DATE" />
-		<execute action="SOAnnouncementsManage#assertElementPresent" locator-key1="ANNOUNCEMENTS_ENTRY_EXPIRATION_DATE" />
-		<execute action="SOAnnouncementsManage#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_EDIT_LINK" value1="Edit"  />
-		<execute action="SOAnnouncementsManage#assertTextEquals" locator-key1="ANNOUNCEMENTS_ENTRY_DELETE_LINK" value1="Delete"  />
+		<execute action="SOAnnouncementsManage#selectFrame" locator1="MANAGE_ENTRY_IFRAME" />
+		<execute action="SOAnnouncementsManage#select" locator1="DISTRIBUTION_SCOPE_SELECT" value1="${siteName1}" />
+		<execute action="SOAnnouncementsManage#assertTextEquals" locator1="ANNOUNCEMENTS_ENTRY_TITLE" value1="${entryTitle}" />
+		<execute action="SOAnnouncementsManage#assertTextEquals" locator1="ANNOUNCEMENTS_ENTRY_AUTHOR" value1="Test Test" />
+		<execute action="SOAnnouncementsManage#assertTextEquals" locator1="ANNOUNCEMENTS_ENTRY_TYPE" value1="General" />
+		<execute action="SOAnnouncementsManage#assertElementPresent" locator1="ANNOUNCEMENTS_ENTRY_MODIFIED_DATE" />
+		<execute action="SOAnnouncementsManage#assertElementPresent" locator1="ANNOUNCEMENTS_ENTRY_DISPLAY_DATE" />
+		<execute action="SOAnnouncementsManage#assertElementPresent" locator1="ANNOUNCEMENTS_ENTRY_EXPIRATION_DATE" />
+		<execute action="SOAnnouncementsManage#assertTextEquals" locator1="ANNOUNCEMENTS_ENTRY_EDIT_LINK" value1="Edit"  />
+		<execute action="SOAnnouncementsManage#assertTextEquals" locator1="ANNOUNCEMENTS_ENTRY_DELETE_LINK" value1="Delete"  />
 		<execute action="SOAnnouncementsManage#selectFrameTop" />
 	</command>
 
@@ -629,12 +629,12 @@
 
 		<var name="key_bookmarksEntryName" value="${bookmarksEntryName}" />
 
-		<execute action="SOBookmarks#assertClick" locator-key1="BOOKMARKS_ENTRY_ACTIONS" value1="Actions" />
-		<execute action="SOBookmarks#assertClick" locator-key1="BOOKMARKS_ACTIONS_MENULIST_EDIT" value1="Edit" />
+		<execute action="SOBookmarks#assertClick" locator1="BOOKMARKS_ENTRY_ACTIONS" value1="Actions" />
+		<execute action="SOBookmarks#assertClick" locator1="BOOKMARKS_ACTIONS_MENULIST_EDIT" value1="Edit" />
 
 		<var name="key_tagName" value="${tagName}" />
 
-		<execute action="SOBookmarksAdd#assertTextEquals" locator-key1="TAG" value1="${tagName}" />
+		<execute action="SOBookmarksAdd#assertTextEquals" locator1="TAG" value1="${tagName}" />
 	</command>
 
 	<command name="ViewSOSiteContentCalendar" priority="5">
@@ -658,9 +658,9 @@
 		</execute>
 
 		<while>
-			<condition action="PGCalendar#isTextNotEqual" locator-key1="VIEW_DATE" value1="January 2016" />
+			<condition action="PGCalendar#isTextNotEqual" locator1="VIEW_DATE" value1="January 2016" />
 			<then>
-				<execute action="PGCalendar#click" locator-key1="VIEW_NEXT_BUTTON" />
+				<execute action="PGCalendar#click" locator1="VIEW_NEXT_BUTTON" />
 			</then>
 		</while>
 
@@ -671,8 +671,8 @@
 		<var name="key_eventTitle" value="${eventTitle}" />
 
 		<execute action="PGCalendarDayView#pause" value1="1000" />
-		<execute action="PGCalendarDayView#assertElementPresent" locator-key1="SCHEDULER_EVENT_SPECIFIC" />
-		<execute action="PGCalendarDayView#assertTextEquals" locator-key1="SCHEDULER_EVENT_SPECIFIC" value1="${eventTitle}" />
+		<execute action="PGCalendarDayView#assertElementPresent" locator1="SCHEDULER_EVENT_SPECIFIC" />
+		<execute action="PGCalendarDayView#assertTextEquals" locator1="SCHEDULER_EVENT_SPECIFIC" value1="${eventTitle}" />
 
 		<execute macro="CalendarEvent#changeViewPG">
 			<var name="viewType" value="Week" />
@@ -680,14 +680,14 @@
 
 		<var name="key_eventTitle" value="${eventTitle}" />
 
-		<execute action="PGCalendar#assertElementPresent" locator-key1="SCHEDULER_EVENT_SPECIFIC" />
-		<execute action="PGCalendar#assertTextEquals" locator-key1="SCHEDULER_EVENT_SPECIFIC" value1="${eventTitle}" />
+		<execute action="PGCalendar#assertElementPresent" locator1="SCHEDULER_EVENT_SPECIFIC" />
+		<execute action="PGCalendar#assertTextEquals" locator1="SCHEDULER_EVENT_SPECIFIC" value1="${eventTitle}" />
 
 		<execute macro="CalendarEvent#changeViewPG">
 			<var name="viewType" value="Month" />
 		</execute>
 
-		<execute action="PGCalendarMonthView#assertElementPresent" locator-key1="SCHEDULER_EVENT_MONTH_VIEW_GENERIC" />
+		<execute action="PGCalendarMonthView#assertElementPresent" locator1="SCHEDULER_EVENT_MONTH_VIEW_GENERIC" />
 
 		<execute macro="CalendarEvent#changeViewPG">
 			<var name="viewType" value="Agenda" />
@@ -695,9 +695,9 @@
 
 		<var name="key_eventTitle" value="${eventTitle}" />
 
-		<execute action="PGCalendarAgendaView#assertElementPresent" locator-key1="SCHEDULER_EVENT_SPECIFIC" />
-		<execute action="PGCalendarAgendaView#assertTextEquals" locator-key1="SCHEDULER_EVENT_SPECIFIC" value1="${eventTitle}" />
-		<execute action="PGCalendarAgendaView#assertTextNotPresent" locator-key1="EMPTY_MESSAGE" value1="No events." />
+		<execute action="PGCalendarAgendaView#assertElementPresent" locator1="SCHEDULER_EVENT_SPECIFIC" />
+		<execute action="PGCalendarAgendaView#assertTextEquals" locator1="SCHEDULER_EVENT_SPECIFIC" value1="${eventTitle}" />
+		<execute action="PGCalendarAgendaView#assertTextNotPresent" locator1="EMPTY_MESSAGE" value1="No events." />
 	</command>
 
 	<command name="ViewSOSiteContentDocuments" priority="5">
@@ -750,7 +750,7 @@
 
 		<var name="key_dmDocumentTitle" value="${dmDocumentTitle}" />
 
-		<execute action="SORecentDownloads#assertTextEquals" locator-key1="RECENT_DOWNLOADS_DOCUMENT_TITLE_LINK" value1="${dmDocumentTitle}" />
+		<execute action="SORecentDownloads#assertTextEquals" locator1="RECENT_DOWNLOADS_DOCUMENT_TITLE_LINK" value1="${dmDocumentTitle}" />
 	</command>
 
 	<command name="ViewSOSiteContentForums" priority="5">
@@ -950,6 +950,6 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute action="SOWelcome#assertTextEquals" locator-key1="WELCOME_PORTLET_CONTENT" value1="${welcomeContent}" />
+		<execute action="SOWelcome#assertTextEquals" locator1="WELCOME_PORTLET_CONTENT" value1="${welcomeContent}" />
 	</command>
 </definition>

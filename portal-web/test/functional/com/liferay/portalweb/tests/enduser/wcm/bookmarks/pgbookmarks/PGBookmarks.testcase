@@ -302,11 +302,11 @@
 
 		<var name="key_folderName" value="Test Folder Name 2" />
 
-		<execute action="PGBookmarks#assertClick" locator-key1="FOLDERS_TABLE_FOLDER_NAME" value1="Test Folder Name 2" />
+		<execute action="PGBookmarks#assertClick" locator1="FOLDERS_TABLE_FOLDER_NAME" value1="Test Folder Name 2" />
 
 		<var name="key_bookmarkName" value="Test Bookmark Name" />
 
-		<execute action="PGBookmarksFolder#assertTextEquals" locator-key1="BOOKMARKS_TABLE_NAME" value1="Test Bookmark Name" />
+		<execute action="PGBookmarksFolder#assertTextEquals" locator1="BOOKMARKS_TABLE_NAME" value1="Test Bookmark Name" />
 	</command>
 
 	<command name="RemoveBookmarkPortlet" priority="5">

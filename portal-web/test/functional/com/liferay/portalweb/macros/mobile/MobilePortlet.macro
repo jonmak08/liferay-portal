@@ -12,7 +12,7 @@
 		<while>
 			<not>
 				<or>
-					<condition action="Home#isElementPresent" locator-key1="${portletTypeKey}" />
+					<condition action="Home#isElementPresent" locator1="${portletTypeKey}" />
 					<equals arg1="${i}" arg2="3" />
 				</or>
 			</not>
@@ -29,16 +29,16 @@
 			</then>
 		</while>
 
-		<execute action="Home#assertElementPresent" locator-key1="${portletTypeKey}" />
+		<execute action="Home#assertElementPresent" locator1="${portletTypeKey}" />
 	</command>
 
 	<command name="addPGCmd">
 		<description message="Add a ${portletName} portlet." />
 
-		<execute action="Mobiledockbar#click" locator-key1="PENCIL_ICON" />
-		<execute action="Mobiledockbar#click" locator-key1="ADD" value1="Add" />
-		<execute action="Mobiledockbar#assertClick" locator-key1="ADD_APPLICATION_LINK" value1="Applications" />
-		<execute action="Mobiledockbar#type" locator-key1="ADD_APPLICATION_SEARCH_FIELD" value1="${portletName}" />
+		<execute action="Mobiledockbar#click" locator1="PENCIL_ICON" />
+		<execute action="Mobiledockbar#click" locator1="ADD" value1="Add" />
+		<execute action="Mobiledockbar#assertClick" locator1="ADD_APPLICATION_LINK" value1="Applications" />
+		<execute action="Mobiledockbar#type" locator1="ADD_APPLICATION_SEARCH_FIELD" value1="${portletName}" />
 
 		<var name="portletLocator" value="//span[@data-title=&quot;${portletName}&quot; and contains(@class,'add-content-item')]" />
 

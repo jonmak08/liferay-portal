@@ -64,7 +64,7 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SOSite#assertElementNotPresent" locator-key1="SITE_NAME" />
+		<execute action="SOSite#assertElementNotPresent" locator1="SITE_NAME" />
 	</command>
 
 	<command name="ViewAllDaySiteEvent" priority="4">
@@ -143,7 +143,7 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SOSite#assertElementNotPresent" locator-key1="SITE_NAME" />
+		<execute action="SOSite#assertElementNotPresent" locator1="SITE_NAME" />
 	</command>
 
 	<command known-issues="LPS-51944" name="ViewDashboardEvent2DaysIntoFuture" priority="3">
@@ -216,9 +216,9 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_NO_EVENTS_MESSAGE" value1="There are no more events today." />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_GENERIC" />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE_GENERIC" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_NO_EVENTS_MESSAGE" value1="There are no more events today." />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_GENERIC" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE_GENERIC" />
 		<execute action="SOEvents#assertTextNotPresent" value1="${eventTitle3}" />
 
 		<execute macro="SOEvents#configureEventsPortletDisplayDays">
@@ -231,7 +231,7 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_GENERIC" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_GENERIC" />
 	</command>
 
 	<command known-issues="LPS-51944" name="ViewDashboardEvent6DaysIntoFuture" priority="3">
@@ -384,18 +384,18 @@
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_NO_EVENTS_MESSAGE" value1="There are no more events today." />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_GENERIC" />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE_GENERIC" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_NO_EVENTS_MESSAGE" value1="There are no more events today." />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_GENERIC" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE_GENERIC" />
 		<execute action="SOEvents#assertTextNotPresent" value1="${eventTitle6}" />
 
 		<execute macro="SOEvents#configureEventsPortletDisplayDays">
 			<var name="maxDisplayDays" value="5" />
 		</execute>
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_NO_EVENTS_MESSAGE" value1="There are no more events today." />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_GENERIC" />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE_GENERIC" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_NO_EVENTS_MESSAGE" value1="There are no more events today." />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_GENERIC" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE_GENERIC" />
 		<execute action="SOEvents#assertTextNotPresent" value1="${eventTitle6}" />
 	</command>
 
@@ -464,7 +464,7 @@
 			<var name="userName" value="${userName}" />
 		</execute>
 
-		<execute action="SOSite#assertElementNotPresent" locator-key1="SITE_NAME" />
+		<execute action="SOSite#assertElementNotPresent" locator1="SITE_NAME" />
 	</command>
 
 	<command name="ViewDashboardEvents" priority="4">
@@ -528,7 +528,7 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SOSite#assertElementNotPresent" locator-key1="SITE_NAME" />
+		<execute action="SOSite#assertElementNotPresent" locator1="SITE_NAME" />
 
 		<execute macro="SOEvents#viewTodaysEventDashboardEvent">
 			<var name="eventTitle" value="${eventTitle2}" />
@@ -536,7 +536,7 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SOSite#assertElementNotPresent" locator-key1="SITE_NAME" />
+		<execute action="SOSite#assertElementNotPresent" locator1="SITE_NAME" />
 
 		<execute macro="SOEvents#viewTodaysEventDashboardEvent">
 			<var name="eventTitle" value="${eventTitle3}" />
@@ -544,7 +544,7 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SOSite#assertElementNotPresent" locator-key1="SITE_NAME" />
+		<execute action="SOSite#assertElementNotPresent" locator1="SITE_NAME" />
 	</command>
 
 	<command name="ViewDashboardEventsPagination" priority="4">
@@ -846,175 +846,175 @@
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
 
 		<var name="key_eventTitle" value="${eventTitle3}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
 
 		<var name="key_eventTitle" value="${eventTitle4}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
 
 		<var name="key_eventTitle" value="${eventTitle5}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
 
 		<var name="key_eventTitle" value="${eventTitle6}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
 
 		<var name="key_eventTitle" value="${eventTitle7}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle7}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle7}" />
 
 		<var name="key_eventTitle" value="${eventTitle8}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle8}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle8}" />
 
 		<var name="key_eventTitle" value="${eventTitle9}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle9}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle9}" />
 
 		<var name="key_eventTitle" value="${eventTitle10}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle10}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle10}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
 
 		<var name="key_eventTitle" value="${eventTitle11}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle11}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle11}" />
 
 		<var name="key_eventTitle" value="${eventTitle12}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle12}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle12}" />
 
 		<var name="key_eventTitle" value="${eventTitle13}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle13}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle13}" />
 
 		<var name="key_eventTitle" value="${eventTitle14}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle14}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle14}" />
 
 		<var name="key_eventTitle" value="${eventTitle15}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle15}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle15}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
 
 		<var name="key_eventTitle" value="${eventTitle16}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle16}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle16}" />
 
 		<var name="key_eventTitle" value="${eventTitle17}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle17}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle17}" />
 
 		<var name="key_eventTitle" value="${eventTitle18}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle18}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle18}" />
 
 		<var name="key_eventTitle" value="${eventTitle19}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle19}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle19}" />
 
 		<var name="key_eventTitle" value="${eventTitle20}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle20}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle20}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
 
 		<var name="key_eventTitle" value="${eventTitle21}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle21}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle21}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
 
 		<var name="key_eventTitle" value="${eventTitle16}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle16}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle16}" />
 
 		<var name="key_eventTitle" value="${eventTitle17}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle17}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle17}" />
 
 		<var name="key_eventTitle" value="${eventTitle18}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle18}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle18}" />
 
 		<var name="key_eventTitle" value="${eventTitle19}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle19}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle19}" />
 
 		<var name="key_eventTitle" value="${eventTitle20}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle20}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle20}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
 
 		<var name="key_eventTitle" value="${eventTitle11}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle11}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle11}" />
 
 		<var name="key_eventTitle" value="${eventTitle12}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle12}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle12}" />
 
 		<var name="key_eventTitle" value="${eventTitle13}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle13}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle13}" />
 
 		<var name="key_eventTitle" value="${eventTitle14}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle14}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle14}" />
 
 		<var name="key_eventTitle" value="${eventTitle15}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle15}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle15}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
 
 		<var name="key_eventTitle" value="${eventTitle6}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
 
 		<var name="key_eventTitle" value="${eventTitle7}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle7}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle7}" />
 
 		<var name="key_eventTitle" value="${eventTitle8}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle8}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle8}" />
 
 		<var name="key_eventTitle" value="${eventTitle9}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle9}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle9}" />
 
 		<var name="key_eventTitle" value="${eventTitle10}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle10}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle10}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
 
 		<var name="key_eventTitle" value="${eventTitle3}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
 
 		<var name="key_eventTitle" value="${eventTitle4}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
 
 		<var name="key_eventTitle" value="${eventTitle5}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
 
 		<execute macro="SOEvents#configureEventsPortletDisplayEvents">
 			<var name="maxDisplayEvents" value="10" />
@@ -1024,43 +1024,43 @@
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
 
 		<var name="key_eventTitle" value="${eventTitle3}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
 
 		<var name="key_eventTitle" value="${eventTitle4}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
 
 		<var name="key_eventTitle" value="${eventTitle5}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
 
 		<var name="key_eventTitle" value="${eventTitle6}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
 
 		<var name="key_eventTitle" value="${eventTitle7}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle7}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle7}" />
 
 		<var name="key_eventTitle" value="${eventTitle8}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle8}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle8}" />
 
 		<var name="key_eventTitle" value="${eventTitle9}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle9}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle9}" />
 
 		<var name="key_eventTitle" value="${eventTitle10}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle10}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle10}" />
 	</command>
 
 	<command name="ViewDashboardEventStartTimeEndTime" priority="5">
@@ -1105,7 +1105,7 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute action="SOSite#assertElementNotPresent" locator-key1="SITE_NAME" />
+		<execute action="SOSite#assertElementNotPresent" locator1="SITE_NAME" />
 	</command>
 
 	<command known-issues="LPS-51944" name="ViewDeletedDashboardEvent" priority="4">
@@ -1273,29 +1273,29 @@
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle3}" />
 
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 		<execute action="SOEvents#assertTextNotPresent" value1="${eventTitle3}" />
 
 		<var name="key_eventTitle" value="${eventTitle4}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle5}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="${userEmailAddress}" />
@@ -1309,29 +1309,29 @@
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle3}" />
 
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 		<execute action="SOEvents#assertTextNotPresent" value1="${eventTitle3}" />
 
 		<var name="key_eventTitle" value="${eventTitle4}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle5}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 	</command>
 
 	<command known-issues="LPS-51944" name="ViewDeletedSiteEventViaDashboard" priority="4">
@@ -1589,28 +1589,28 @@
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle3Edit}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3Edit}" />
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" value1="${startDateTimeEdit}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3Edit}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" value1="${startDateTimeEdit}" />
 
 		<var name="key_eventTitle" value="${eventTitle4}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle5}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<execute macro="SOEvents#viewUpcomingEventSiteEvent">
 			<var name="endDateTime" value="${endDateTimeEdit}" />
@@ -1631,28 +1631,28 @@
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle3Edit}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3Edit}" />
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" value1="${startDateTimeEdit}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3Edit}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" value1="${startDateTimeEdit}" />
 
 		<var name="key_eventTitle" value="${eventTitle4}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle5}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<execute macro="SOEvents#viewUpcomingEventSiteEvent">
 			<var name="endDateTime" value="${endDateTimeEdit}" />
@@ -1821,18 +1821,18 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_NO_EVENTS_MESSAGE" value1="There are no more events today." />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_GENERIC" />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE_GENERIC" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_NO_EVENTS_MESSAGE" value1="There are no more events today." />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_GENERIC" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE_GENERIC" />
 		<execute action="SOEvents#assertTextNotPresent" value1="${eventTitle6}" />
 
 		<execute macro="SOEvents#configureEventsPortletDisplayDays">
 			<var name="maxDisplayDays" value="5" />
 		</execute>
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_NO_EVENTS_MESSAGE" value1="There are no more events today." />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_GENERIC" />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE_GENERIC" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_NO_EVENTS_MESSAGE" value1="There are no more events today." />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_GENERIC" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE_GENERIC" />
 		<execute action="SOEvents#assertTextNotPresent" value1="${eventTitle6}" />
 	</command>
 
@@ -1916,9 +1916,9 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_NO_EVENTS_MESSAGE" value1="There are no more events today." />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_GENERIC" />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE_GENERIC" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_NO_EVENTS_MESSAGE" value1="There are no more events today." />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_GENERIC" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE_GENERIC" />
 		<execute action="SOEvents#assertTextNotPresent" value1="${eventTitle}" />
 	</command>
 
@@ -1986,7 +1986,7 @@
 			<var name="schedulerEventDialogBox" value="true" />
 		</execute>
 
-		<execute action="SOSite#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName}" />
+		<execute action="SOSite#assertTextEquals" locator1="SITE_NAME" value1="${siteName}" />
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName}" />
@@ -1998,7 +1998,7 @@
 			<var name="schedulerEventDialogBox" value="true" />
 		</execute>
 
-		<execute action="SOSite#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName}" />
+		<execute action="SOSite#assertTextEquals" locator1="SITE_NAME" value1="${siteName}" />
 	</command>
 
 	<command known-issues="LPS-51944" name="ViewSiteEvents" priority="5">
@@ -2120,18 +2120,18 @@
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle3}" />
 
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<execute macro="SOEvents#viewTodaysEventSiteEvent">
 			<var name="eventTitle" value="${eventTitle1}" />
@@ -2164,23 +2164,23 @@
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle3}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle4}" />
 
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<execute macro="SOEvents#viewUpcomingEventSiteEvent">
 			<var name="eventTitle" value="${eventTitle3}" />
@@ -2203,28 +2203,28 @@
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle3}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle4}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle5}" />
 
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<execute macro="SOEvents#viewUpcomingEventSiteEvent">
 			<var name="eventTitle" value="${eventTitle4}" />
@@ -2247,33 +2247,33 @@
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle3}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle4}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle5}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle6}" />
 
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
-		<execute action="SOEvents#assertElementNotPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
+		<execute action="SOEvents#assertElementNotPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<execute macro="SOEvents#viewUpcomingEventSiteEvent">
 			<var name="eventTitle" value="${eventTitle5}" />
@@ -2296,33 +2296,33 @@
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle3}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle4}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle5}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle6}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<execute macro="SOEvents#viewUpcomingEventSiteEvent">
 			<var name="eventTitle" value="${eventTitle6}" />
@@ -2341,33 +2341,33 @@
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle3}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle4}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle5}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<var name="key_eventTitle" value="${eventTitle6}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
-		<execute action="SOEvents#assertElementPresent" locator-key1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
+		<execute action="SOEvents#assertElementPresent" locator1="EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 
 		<execute macro="SOEvents#viewUpcomingEventSiteEvent">
 			<var name="eventTitle" value="${eventTitle6}" />
@@ -2695,175 +2695,175 @@
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
 
 		<var name="key_eventTitle" value="${eventTitle3}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
 
 		<var name="key_eventTitle" value="${eventTitle4}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
 
 		<var name="key_eventTitle" value="${eventTitle5}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
 
 		<var name="key_eventTitle" value="${eventTitle6}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
 
 		<var name="key_eventTitle" value="${eventTitle7}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle7}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle7}" />
 
 		<var name="key_eventTitle" value="${eventTitle8}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle8}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle8}" />
 
 		<var name="key_eventTitle" value="${eventTitle9}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle9}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle9}" />
 
 		<var name="key_eventTitle" value="${eventTitle10}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle10}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle10}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
 
 		<var name="key_eventTitle" value="${eventTitle11}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle11}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle11}" />
 
 		<var name="key_eventTitle" value="${eventTitle12}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle12}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle12}" />
 
 		<var name="key_eventTitle" value="${eventTitle13}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle13}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle13}" />
 
 		<var name="key_eventTitle" value="${eventTitle14}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle14}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle14}" />
 
 		<var name="key_eventTitle" value="${eventTitle15}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle15}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle15}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
 
 		<var name="key_eventTitle" value="${eventTitle16}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle16}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle16}" />
 
 		<var name="key_eventTitle" value="${eventTitle17}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle17}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle17}" />
 
 		<var name="key_eventTitle" value="${eventTitle18}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle18}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle18}" />
 
 		<var name="key_eventTitle" value="${eventTitle19}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle19}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle19}" />
 
 		<var name="key_eventTitle" value="${eventTitle20}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle20}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle20}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_NEXT" value1="Next" />
 
 		<var name="key_eventTitle" value="${eventTitle21}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle21}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle21}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
 
 		<var name="key_eventTitle" value="${eventTitle16}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle16}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle16}" />
 
 		<var name="key_eventTitle" value="${eventTitle17}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle17}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle17}" />
 
 		<var name="key_eventTitle" value="${eventTitle18}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle18}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle18}" />
 
 		<var name="key_eventTitle" value="${eventTitle19}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle19}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle19}" />
 
 		<var name="key_eventTitle" value="${eventTitle20}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle20}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle20}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
 
 		<var name="key_eventTitle" value="${eventTitle11}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle11}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle11}" />
 
 		<var name="key_eventTitle" value="${eventTitle12}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle12}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle12}" />
 
 		<var name="key_eventTitle" value="${eventTitle13}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle13}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle13}" />
 
 		<var name="key_eventTitle" value="${eventTitle14}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle14}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle14}" />
 
 		<var name="key_eventTitle" value="${eventTitle15}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle15}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle15}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
 
 		<var name="key_eventTitle" value="${eventTitle6}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
 
 		<var name="key_eventTitle" value="${eventTitle7}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle7}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle7}" />
 
 		<var name="key_eventTitle" value="${eventTitle8}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle8}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle8}" />
 
 		<var name="key_eventTitle" value="${eventTitle9}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle9}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle9}" />
 
 		<var name="key_eventTitle" value="${eventTitle10}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle10}" />
-		<execute action="SOEvents#assertClick" locator-key1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle10}" />
+		<execute action="SOEvents#assertClick" locator1="EVENTS_DISPLAY_NAVIGATION_PREVIOUS" value1="Previous" />
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
 
 		<var name="key_eventTitle" value="${eventTitle3}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
 
 		<var name="key_eventTitle" value="${eventTitle4}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
 
 		<var name="key_eventTitle" value="${eventTitle5}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
 
 		<execute macro="SOEvents#configureEventsPortletDisplayEvents">
 			<var name="maxDisplayEvents" value="10" />
@@ -2876,43 +2876,43 @@
 
 		<var name="key_eventTitle" value="${eventTitle1}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle1}" />
 
 		<var name="key_eventTitle" value="${eventTitle2}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle2}" />
 
 		<var name="key_eventTitle" value="${eventTitle3}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle3}" />
 
 		<var name="key_eventTitle" value="${eventTitle4}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle4}" />
 
 		<var name="key_eventTitle" value="${eventTitle5}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle5}" />
 
 		<var name="key_eventTitle" value="${eventTitle6}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle6}" />
 
 		<var name="key_eventTitle" value="${eventTitle7}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle7}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle7}" />
 
 		<var name="key_eventTitle" value="${eventTitle8}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle8}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle8}" />
 
 		<var name="key_eventTitle" value="${eventTitle9}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle9}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle9}" />
 
 		<var name="key_eventTitle" value="${eventTitle10}" />
 
-		<execute action="SOEvents#assertTextEquals" locator-key1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle10}" />
+		<execute action="SOEvents#assertTextEquals" locator1="EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE" value1="${eventTitle10}" />
 	</command>
 
 	<command name="ViewSiteEventStartTimeEndTime" priority="5">
@@ -3001,7 +3001,7 @@
 			<var name="startDateTime" value="${startDateTime}" />
 		</execute>
 
-		<execute action="SOSite#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName}" />
+		<execute action="SOSite#assertTextEquals" locator1="SITE_NAME" value1="${siteName}" />
 	</command>
 
 	<command name="ViewSiteEventsViaDashboard" priority="4">
@@ -3067,7 +3067,7 @@
 			<var name="schedulerEventDialogBox" value="true" />
 		</execute>
 
-		<execute action="SOSite#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName}" />
+		<execute action="SOSite#assertTextEquals" locator1="SITE_NAME" value1="${siteName}" />
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
@@ -3076,7 +3076,7 @@
 			<var name="schedulerEventDialogBox" value="true" />
 		</execute>
 
-		<execute action="SOSite#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName}" />
+		<execute action="SOSite#assertTextEquals" locator1="SITE_NAME" value1="${siteName}" />
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
@@ -3085,7 +3085,7 @@
 			<var name="schedulerEventDialogBox" value="true" />
 		</execute>
 
-		<execute action="SOSite#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName}" />
+		<execute action="SOSite#assertTextEquals" locator1="SITE_NAME" value1="${siteName}" />
 	</command>
 
 	<command name="ViewSiteEventViaDashboard" priority="5">
@@ -3123,6 +3123,6 @@
 			<var name="schedulerEventDialogBox" value="true" />
 		</execute>
 
-		<execute action="SOSite#assertTextEquals" locator-key1="SITE_NAME" value1="${siteName}" />
+		<execute action="SOSite#assertTextEquals" locator1="SITE_NAME" value1="${siteName}" />
 	</command>
 </definition>

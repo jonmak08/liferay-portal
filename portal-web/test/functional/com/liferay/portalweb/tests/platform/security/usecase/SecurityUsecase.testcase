@@ -18,10 +18,10 @@
 
 		<var name="key_pageName" value="Welcome" />
 
-		<execute action="Home#assertElementPresent" locator-key1="PAGE" value1="Welcome" />
+		<execute action="Home#assertElementPresent" locator1="PAGE" value1="Welcome" />
 
-		<execute action="PGHelloworld#assertTextEquals" locator-key1="PORTLET_TITLE" value1="Hello World" />
-		<execute action="PGHelloworld#assertElementPresent" locator-key1="PORTLET_CONTENT" value1="Welcome to Liferay Portal" />
+		<execute action="PGHelloworld#assertTextEquals" locator1="PORTLET_TITLE" value1="Hello World" />
+		<execute action="PGHelloworld#assertElementPresent" locator1="PORTLET_CONTENT" value1="Welcome to Liferay Portal" />
 
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Test" />
@@ -31,7 +31,7 @@
 
 		<var name="key_pageName" value="Test" />
 
-		<execute action="Home#assertElementPresent" locator-key1="PAGE" value1="Test" />
+		<execute action="Home#assertElementPresent" locator1="PAGE" value1="Test" />
 	</command>
 
 	<command known-issues="LPS-28957" name="ViewExternalWebappsPG" priority="5">
@@ -55,6 +55,6 @@
 			<var name="pageName" value="External Webapps Test Page" />
 		</execute>
 
-		<execute action="PGOpensocialgadget#assertTextEquals" locator-key1="PORTLET_TITLE" value1="To-Do List" />
+		<execute action="PGOpensocialgadget#assertTextEquals" locator1="PORTLET_TITLE" value1="To-Do List" />
 	</command>
 </definition>
