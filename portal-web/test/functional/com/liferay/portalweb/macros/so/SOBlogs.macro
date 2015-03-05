@@ -191,7 +191,7 @@
 			</else>
 		</if>
 
-		<execute function="#assertTextEquals" locator1="PGBlogsEntry#COMMENTS" value1="Comments" />
+		<execute function="AssertTextEquals#assertTextWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENTS" value1="Comments" />
 	</command>
 
 	<command name="viewBlogsEntryTitleAndAuthorViaRecentBlogs">

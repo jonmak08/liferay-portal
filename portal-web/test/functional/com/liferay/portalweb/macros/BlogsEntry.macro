@@ -749,7 +749,7 @@
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
 
-		<execute function="#click" locator1="CPBlogsEntry#YOUR_RATING_STAR_EMPTY_4" />
+		<execute function="Click#clickWaitForInlineCKEditor" locator1="CPBlogsEntry#YOUR_RATING_STAR_EMPTY_4" />
 	</command>
 
 	<command name="rate4StarsPG">
@@ -757,7 +757,7 @@
 
 		<execute function="#assertClick" locator1="PGBlogs#ENTRY_TITLE" value1="${entryTitle}" />
 
-		<execute function="#click" locator1="PGBlogsEntry#YOUR_RATING_STAR_EMPTY_4" />
+		<execute function="Click#clickWaitForInlineCKEditorNoMouseOver" locator1="PGBlogsEntry#YOUR_RATING_STAR_EMPTY_4" />
 	</command>
 
 	<command name="removeViewPermissionsPG">
@@ -937,7 +937,7 @@
 		<execute function="#assertTextEquals" locator1="PGBlogsEntry#YOUR_RATING" value1="Your Rating" />
 		<execute function="#assertTextEquals" locator1="PGBlogsEntry#PREVIOUS" value1="Previous" />
 		<execute function="#assertTextEquals" locator1="PGBlogsEntry#NEXT" value1="Next" />
-		<execute function="#assertTextEquals" locator1="PGBlogsEntry#COMMENTS" value1="Comments" />
+		<execute function="AssertTextEquals#assertTextWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENTS" value1="Comments" />
 	</command>
 
 	<command name="viewDraftCP">
@@ -1331,7 +1331,7 @@
 		<execute function="#assertTextEquals" locator1="PGBlogsEntry#ENTRY_TITLE" value1="${entryTitle}" />
 		<execute function="#assertTextEquals" locator1="PGBlogsEntry#ENTRY_CONTENT" value1="${entryContent}" />
 		<execute function="#assertTextEquals" locator1="PGBlogsEntry#ENTRY_STATS_COMMENTS" value1="1 Comment" />
-		<execute function="#assertTextEquals" locator1="PGBlogsEntry#COMMENT_1" value1="[...] ${entryContent2} [...] Read More" />
+		<execute function="AssertTextEquals#assertTextWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENT_1" value1="[...] ${entryContent2} [...] Read More" />
 		<execute function="AssertClick#assertTextClickAndWait" locator1="PGBlogsEntry#COMMENT_READ_MORE_1" value1="Read More" />
 
 		<execute function="#assertTextEquals" locator1="PGBlogsEntry#ENTRY_TITLE" value1="${entryTitle2}" />

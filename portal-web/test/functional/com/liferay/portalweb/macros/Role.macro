@@ -477,7 +477,7 @@
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPRoles#SEARCH_BUTTON" value1="Search" />
 
 		<while>
-			<condition function="#isElementPresent" locator1="CPRoles#ROLE_TABLE_ACTIONS_1" />
+			<condition function="IsElementPresent#pauseIsElementPresent" locator1="CPRoles#ROLE_TABLE_ACTIONS_1" />
 			<then>
 				<execute function="#assertClick" locator1="CPRoles#ROLE_TABLE_ACTIONS_1" value1="Actions" />
 				<execute function="#assertClickNoError" locator1="CPRoles#ROLE_MENULIST_DELETE" value1="Delete" />

@@ -163,7 +163,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute function="#assertClick" locator1="PGDocumentsandmedia#TOOLBAR_ADD" value1="Add" />
+		<execute function="AssertClick#waitForDMHomeAssertTextEqualsClick" locator1="PGDocumentsandmedia#TOOLBAR_ADD" value1="Add" />
 		<execute function="#assertElementNotPresent" locator1="PGDocumentsandmedia#ADD_MENULIST_BASIC_DOCUMENT" value1="Basic Document" />
 
 		<execute macro="User#logoutAndLoginPG">
@@ -255,7 +255,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute function="#assertClick" locator1="PGDocumentsandmedia#TOOLBAR_ADD" value1="Add" />
+		<execute function="AssertClick#waitForDMHomeAssertTextEqualsClick" locator1="PGDocumentsandmedia#TOOLBAR_ADD" value1="Add" />
 		<execute function="#assertElementNotPresent" locator1="PGDocumentsandmedia#ADD_MENULIST_BASIC_DOCUMENT" value1="Basic Document" />
 
 		<execute macro="Permissions#definePermissionLoginUserCP">
@@ -295,7 +295,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute function="#assertClick" locator1="PGDocumentsandmedia#TOOLBAR_ADD" value1="Add" />
+		<execute function="AssertClick#waitForDMHomeAssertTextEqualsClick" locator1="PGDocumentsandmedia#TOOLBAR_ADD" value1="Add" />
 		<execute function="#assertElementNotPresent" locator1="PGDocumentsandmedia#ADD_MENULIST_BASIC_DOCUMENT" value1="Basic Document" />
 	</command>
 

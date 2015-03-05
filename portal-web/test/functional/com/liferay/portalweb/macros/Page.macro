@@ -304,7 +304,7 @@
 
 		<var name="key_portletName" value="${portletName}" />
 
-		<execute function="#assertClick" locator1="Home#SITE_ADMINISTRATION_NAVIGATION" value1="${portletName}" />
+		<execute function="AssertClick#assertPartialTextClickAtCPNavigation" locator1="Home#SITE_ADMINISTRATION_NAVIGATION" value1="${portletName}" />
 	</command>
 
 	<command name="gotoUsersCP">

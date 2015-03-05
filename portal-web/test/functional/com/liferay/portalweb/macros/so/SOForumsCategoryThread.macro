@@ -263,7 +263,7 @@
 				<execute function="#assertTextNotEquals" locator1="PGMessageboardsMyposts#THREAD_TABLE_LAST_POST" value1="By: ${userName}" />
 			</then>
 			<else>
-				<execute function="#assertTextEquals" locator1="PGMessageboardsMyposts#THREAD_TABLE_LAST_POST" value1="By: ${userName}" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="PGMessageboardsMyposts#THREAD_TABLE_LAST_POST" value1="By: ${userName}" />
 			</else>
 		</if>
 
@@ -447,7 +447,7 @@
 				<execute function="#assertTextNotEquals" locator1="PGMessageboardsMyposts#THREAD_TABLE_LAST_POST" value1="By: ${userName}" />
 			</then>
 			<else>
-				<execute function="#assertTextEquals" locator1="PGMessageboardsMyposts#THREAD_TABLE_LAST_POST" value1="By: ${userName}" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="PGMessageboardsMyposts#THREAD_TABLE_LAST_POST" value1="By: ${userName}" />
 			</else>
 		</if>
 

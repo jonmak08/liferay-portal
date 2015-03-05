@@ -303,8 +303,8 @@
 
 		<execute function="AssertClick#assertPartialTextClickAt" locator1="CPSites#SITE_TABLE_NAME" value1="${siteName}" />
 
-		<execute function="#assertClick" locator1="Home#SITE_ADMINISTRATION_USERS" value1="Users" />
-		<execute function="#assertClick" locator1="Home#SITE_ADMINISTRATION_USERS_SITE_MEMBERSHIPS" value1="Site Memberships" />
+		<execute function="AssertClick#assertPartialTextClickAtCPNavigation" locator1="Home#SITE_ADMINISTRATION_USERS" value1="Users" />
+		<execute function="AssertClick#assertPartialTextClickAtCPNavigation" locator1="Home#SITE_ADMINISTRATION_USERS_SITE_MEMBERSHIPS" value1="Site Memberships" />
 
 		<var name="key_userScreenName" value="usersn3" />
 

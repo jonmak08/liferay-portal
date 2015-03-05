@@ -18,7 +18,7 @@
 		<execute function="#assertTextEquals" locator1="CPDynamicdatalists#LIST_TABLE_NAME_1" value1="${ddlListName}" />
 		<execute function="#click" locator1="CPDynamicdatalists#LIST_TABLE_NAME_1" value1="${ddlListName}" />
 
-		<execute function="#assertClick" locator1="CPDynamicdatalistsList#RECORD_TABLE_ACTIONS_1" value1="Actions" />
+		<execute function="AssertClick#assertTextClickAt" locator1="CPDynamicdatalistsList#RECORD_TABLE_ACTIONS_1" value1="Actions" />
 		<execute function="#assertClickNoError" locator1="CPDynamicdatalistsList#RECORD_MENULIST_DELETE" value1="Delete" />
 		<execute function="#confirm" locator1="CPDynamicdatalistsList#CONFIRMATION" value1="Are you sure you want to delete this? It will be deleted immediately." />
 		<execute function="#assertTextEquals" locator1="CPDynamicdatalistsList#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -26,7 +26,7 @@
 	</command>
 
 	<command name="deleteViaDDLDisplayPG">
-		<execute function="#assertClick" locator1="PGDynamicdatalists#RECORD_TABLE_ACTIONS_1" value1="Actions" />
+		<execute function="AssertClick#assertTextClickAt" locator1="PGDynamicdatalists#RECORD_TABLE_ACTIONS_1" value1="Actions" />
 		<execute function="#assertClickNoError" locator1="PGDynamicdatalists#RECORD_MENULIST_DELETE" value1="Delete" />
 		<execute function="#confirm" locator1="PGDynamicdatalists#CONFIRMATION" value1="Are you sure you want to delete this? It will be deleted immediately." />
 		<execute function="#assertTextEquals" locator1="PGDynamicdatalists#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -39,12 +39,12 @@
 		<execute function="#assertTextEquals" locator1="CPDynamicdatalists#LIST_TABLE_NAME_1" value1="${ddlListName}" />
 		<execute function="#click" locator1="CPDynamicdatalists#LIST_TABLE_NAME_1" value1="${ddlListName}" />
 
-		<execute function="#assertClick" locator1="CPDynamicdatalistsList#RECORD_TABLE_ACTIONS_1" value1="Actions" />
+		<execute function="AssertClick#assertTextClickAt" locator1="CPDynamicdatalistsList#RECORD_TABLE_ACTIONS_1" value1="Actions" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPDynamicdatalistsList#RECORD_MENULIST_EDIT" value1="Edit" />
 	</command>
 
 	<command name="editViaDDLDisplayPG">
-		<execute function="#assertClick" locator1="PGDynamicdatalists#RECORD_TABLE_ACTIONS_1" value1="Actions" />
+		<execute function="AssertClick#assertTextClickAt" locator1="PGDynamicdatalists#RECORD_TABLE_ACTIONS_1" value1="Actions" />
 		<execute function="#assertClick" locator1="PGDynamicdatalists#RECORD_MENULIST_EDIT" value1="Edit" />
 	</command>
 
@@ -54,14 +54,14 @@
 		<execute function="#assertTextEquals" locator1="CPDynamicdatalists#LIST_TABLE_NAME_1" value1="${ddlListName}" />
 		<execute function="#click" locator1="CPDynamicdatalists#LIST_TABLE_NAME_1" value1="${ddlListName}" />
 
-		<execute function="#assertClick" locator1="CPDynamicdatalistsList#RECORD_TABLE_ACTIONS_1" value1="Actions" />
+		<execute function="AssertClick#assertTextClickAt" locator1="CPDynamicdatalistsList#RECORD_TABLE_ACTIONS_1" value1="Actions" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPDynamicdatalistsList#RECORD_MENULIST_VIEW" value1="View" />
 
 		<execute function="#assertClick" locator1="CPDynamicdatalistsListRecord#EDIT_BUTTON" value1="Edit" />
 	</command>
 
 	<command name="editViaRecordViewPG">
-		<execute function="#assertClick" locator1="PGDynamicdatalists#RECORD_TABLE_ACTIONS_1" value1="Actions" />
+		<execute function="AssertClick#assertTextClickAt" locator1="PGDynamicdatalists#RECORD_TABLE_ACTIONS_1" value1="Actions" />
 		<execute function="#assertClick" locator1="PGDynamicdatalists#RECORD_MENULIST_VIEW" value1="View" />
 
 		<execute function="#assertClick" locator1="PGDynamicdatalistsDisplayrecord#EDIT_BUTTON" value1="Edit" />
@@ -252,7 +252,7 @@
 		<execute function="#assertTextEquals" locator1="CPDynamicdatalistsList#HEADER_TITLE" value1="${ddlListName}" />
 		<execute function="#assertTextEquals" locator1="CPDynamicdatalistsList#RECORD_TABLE_COLUMN_ONE_NAME" value1="Text" />
 		<execute function="#assertTextEquals" locator1="CPDynamicdatalistsList#RECORD_TABLE_COLUMN_ONE_RECORD_1" value1="${ddlRecordText}" />
-		<execute function="#assertClick" locator1="CPDynamicdatalistsList#RECORD_TABLE_ACTIONS_1" value1="Actions" />
+		<execute function="AssertClick#assertTextClickAt" locator1="CPDynamicdatalistsList#RECORD_TABLE_ACTIONS_1" value1="Actions" />
 		<execute function="#click" locator1="CPDynamicdatalistsList#RECORD_MENULIST_VIEW" />
 
 		<execute function="#assertTextEquals" locator1="CPDynamicdatalistsListRecord#FIELD_1" value1="Text ${ddlRecordText}" />
@@ -409,7 +409,7 @@
 			</else>
 		</if>
 
-		<execute function="#assertClick" locator1="CPDynamicdatalistsList#RECORD_TABLE_ACTIONS_1" value1="Actions" />
+		<execute function="AssertClick#assertTextClickAt" locator1="CPDynamicdatalistsList#RECORD_TABLE_ACTIONS_1" value1="Actions" />
 		<execute function="#click" locator1="CPDynamicdatalistsList#RECORD_MENULIST_VIEW" />
 
 		<if>
@@ -483,7 +483,7 @@
 		<execute function="#assertTextEquals" locator1="PGDynamicdatalists#HEADER_TITLE" value1="${ddlListName}" />
 		<execute function="#assertTextEquals" locator1="PGDynamicdatalists#RECORD_TABLE_COLUMN_ONE_NAME" value1="${fieldFieldLabel}" />
 		<execute function="#assertTextEquals" locator1="PGDynamicdatalists#RECORD_TABLE_COLUMN_ONE_RECORD_1" value1="${ddlRecordFieldData}" />
-		<execute function="#assertClick" locator1="PGDynamicdatalists#RECORD_TABLE_ACTIONS_1" value1="Actions" />
+		<execute function="AssertClick#assertTextClickAt" locator1="PGDynamicdatalists#RECORD_TABLE_ACTIONS_1" value1="Actions" />
 		<execute function="#assertClick" locator1="PGDynamicdatalists#RECORD_MENULIST_VIEW" value1="View" />
 
 		<execute function="#assertTextEquals" locator1="PGDynamicdatalistsDisplayrecord#FIELD_1" value1="Text ${ddlRecordFieldData}" />

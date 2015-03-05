@@ -2,7 +2,7 @@
 	<command name="addCategoryPGViaWCD">
 		<execute function="#click" locator1="PGWebcontentdisplay#EDIT_WEB_CONTENT" value1="Edit" />
 
-		<execute function="#assertClick" locator1="PGWebcontentdisplayEditwebcontent#MENU_CATEGORIZATION" value1="Categorization" />
+		<execute function="AssertClick#assertTextClickAtViewHistory" locator1="PGWebcontentdisplayEditwebcontent#MENU_CATEGORIZATION" value1="Categorization" />
 
 		<var name="key_categoryName" value="${categoryName}" />
 		<var name="key_vocabularyName" value="${vocabularyName}" />
@@ -146,7 +146,7 @@
 		<execute function="#click" locator1="PGWebcontentdisplay#EDIT_WEB_CONTENT" value1="Edit" />
 
 		<execute function="#assertElementPresent" locator1="PGWebcontentdisplayEditwebcontent#TOOLBAR_BASIC_PREVIEW" />
-		<execute function="#assertClick" locator1="PGWebcontentdisplayEditwebcontent#MENU_CATEGORIZATION" value1="Categorization" />
+		<execute function="AssertClick#assertTextClickAtViewHistory" locator1="PGWebcontentdisplayEditwebcontent#MENU_CATEGORIZATION" value1="Categorization" />
 
 		<var name="key_tagName" value="${tagName}" />
 
@@ -210,8 +210,8 @@
 
 		<var name="key_webContentTranslationLanguage" value="${webContentTranslationLanguage}" />
 
-		<execute function="#assertClick" locator1="PGWebcontentdisplayEditwebcontent#ADD_TRANSLATION_MENULIST" value1="Add Translation" />
-		<execute function="#assertClick" locator1="PGWebcontentdisplayEditwebcontent#ADD_TRANSLATION_MENULIST_LANGUAGE" value1="${webContentTranslationLanguage}" />
+		<execute function="AssertClick#assertTextClickAtCKEditor" locator1="PGWebcontentdisplayEditwebcontent#ADD_TRANSLATION_MENULIST" value1="Add Translation" />
+		<execute function="AssertClick#assertTextClickAtCKEditor" locator1="PGWebcontentdisplayEditwebcontent#ADD_TRANSLATION_MENULIST_LANGUAGE" value1="${webContentTranslationLanguage}" />
 		<execute function="#selectFrame" locator1="PGWebcontentdisplayEditwebcontent#WEB_CONTENT_TRANSLATION_IFRAME" />
 		<execute function="Type#typeWaitForCKEditor" locator1="PGWebcontentdisplayEditwebcontent#WEB_CONTENT_TRANSLATION_IFRAME_TITLE_FIELD" value1="${webContentTranslationTitle}" />
 		<execute function="Type#typeFrameWaitForCKEditor" locator1="PGWebcontentdisplayEditwebcontent#WEB_CONTENT_TRANSLATION_IFRAME_CONTENT_FIELD" value1="${webContentTranslationContent}" />

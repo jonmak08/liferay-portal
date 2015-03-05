@@ -1,6 +1,6 @@
 <definition>
 	<command name="addCP">
-		<execute function="#assertClick" locator1="CPDocumentsandmedia#TOOLBAR_MANAGE" value1="Manage" />
+		<execute function="AssertClick#waitForDMHomeAssertTextEqualsClick" locator1="CPDocumentsandmedia#TOOLBAR_MANAGE" value1="Manage" />
 		<execute function="#assertClick" locator1="CPDocumentsandmedia#MANAGE_MENULIST_DOCUMENT_TYPES" value1="Document Types" />
 
 		<execute macro="DMDocumentType#selectDocumentTypeFrame" />
@@ -161,12 +161,12 @@
 	</command>
 
 	<command name="gotoCP">
-		<execute function="#assertClick" locator1="CPDocumentsandmedia#TOOLBAR_MANAGE" value1="Manage" />
+		<execute function="AssertClick#waitForDMHomeAssertTextEqualsClick" locator1="CPDocumentsandmedia#TOOLBAR_MANAGE" value1="Manage" />
 		<execute function="#assertClick" locator1="CPDocumentsandmedia#MANAGE_MENULIST_DOCUMENT_TYPES" value1="Document Types" />
 	</command>
 
 	<command name="gotoPG">
-		<execute function="#assertClick" locator1="PGDocumentsandmedia#TOOLBAR_MANAGE" value1="Manage" />
+		<execute function="AssertClick#waitForDMHomeAssertTextEqualsClick" locator1="PGDocumentsandmedia#TOOLBAR_MANAGE" value1="Manage" />
 		<execute function="#assertClick" locator1="PGDocumentsandmedia#MANAGE_MENULIST_DOCUMENT_TYPES" value1="Document Types" />
 	</command>
 
@@ -219,7 +219,7 @@
 	<command name="viewPGAddMenulist">
 		<var name="key_dmDocumentTypeName" value="${dmDocumentTypeName}" />
 
-		<execute function="#assertClick" locator1="PGDocumentsandmedia#TOOLBAR_ADD" value1="Add" />
+		<execute function="AssertClick#waitForDMHomeAssertTextEqualsClick" locator1="PGDocumentsandmedia#TOOLBAR_ADD" value1="Add" />
 		<execute function="#assertTextEquals" locator1="PGDocumentsandmedia#ADD_MENULIST_DOCUMENT_TYPE" value1="${dmDocumentTypeName}" />
 	</command>
 </definition>

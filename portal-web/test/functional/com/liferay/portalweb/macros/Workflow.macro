@@ -8,7 +8,7 @@
 		<execute function="#assertElementPresent" locator1="CPMyworkflowtasks#ASSIGNED_TO_ME_TABLE_LAST_ACTIVITY_DATE" />
 		<execute function="#assertElementPresent" locator1="CPMyworkflowtasks#ASSIGNED_TO_ME_TABLE_DUE_DATE" />
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="CPMyworkflowtasks#ASSIGNED_TO_ME_TABLE_ACTIONS" value1="Actions" />
-		<execute function="#assertClick" locator1="CPMyworkflowtasks#ASSIGNED_TO_ME_MENULIST_APPROVE" value1="Approve" />
+		<execute function="AssertClick#pauseAssertTextClickAt" locator1="CPMyworkflowtasks#ASSIGNED_TO_ME_MENULIST_APPROVE" value1="Approve" />
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="CPMyworkflowtasks#DIALOG_BOX_OK_BUTTON" value1="OK" />
 		<execute function="#assertTextEquals" locator1="CPMyworkflowtasks#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="#pause" locator1="1000" />
@@ -196,7 +196,7 @@
 		<execute function="#assertElementPresent" locator1="CPMyworkflowtasks#ASSIGNED_TO_ME_TABLE_DUE_DATE" />
 
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="CPMyworkflowtasks#ASSIGNED_TO_ME_TABLE_ACTIONS" value1="Actions" />
-		<execute function="#assertClick" locator1="CPMyworkflowtasks#ASSIGNED_TO_ME_MENULIST_REJECT" value1="Reject" />
+		<execute function="AssertClick#pauseAssertTextClickAt" locator1="CPMyworkflowtasks#ASSIGNED_TO_ME_MENULIST_REJECT" value1="Reject" />
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="CPMyworkflowtasks#DIALOG_BOX_OK_BUTTON" value1="OK" />
 		<execute function="#assertTextEquals" locator1="CPMyworkflowtasks#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
@@ -257,7 +257,7 @@
 		<execute function="#assertElementPresent" locator1="CPMyworkflowtasks#ASSIGNED_TO_ME_TABLE_DUE_DATE" />
 
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="CPMyworkflowtasks#ASSIGNED_TO_ME_TABLE_ACTIONS" value1="Actions" />
-		<execute function="#assertClick" locator1="CPMyworkflowtasks#ASSIGNED_TO_ME_MENULIST_RESUBMIT" value1="Resubmit" />
+		<execute function="AssertClick#pauseAssertTextClickAt" locator1="CPMyworkflowtasks#ASSIGNED_TO_ME_MENULIST_RESUBMIT" value1="Resubmit" />
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="CPMyworkflowtasks#DIALOG_BOX_OK_BUTTON" value1="OK" />
 		<execute function="#assertTextEquals" locator1="CPMyworkflowtasks#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 

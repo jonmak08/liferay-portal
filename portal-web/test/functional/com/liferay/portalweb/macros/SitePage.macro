@@ -147,9 +147,9 @@
 		<execute macro="Page#openURL" />
 
 		<while>
-			<condition function="#isElementPresent" locator1="Home#PAGE_2" />
+			<condition function="IsElementPresent#isElementPresentClickNavigation" locator1="Home#PAGE_2" />
 			<then>
-				<execute function="#mouseOver" locator1="Home#PAGE_2" />
+				<execute function="MouseOver#mouseOverClickNavigation" locator1="Home#PAGE_2" />
 				<execute function="#clickNoError" locator1="Home#PAGE_DELETE" />
 				<execute function="Confirm#waitForConfirmation" locator1="Home#PAGE_CONFIRM" value1="Are you sure you want to delete this page?" />
 				<execute function="AssertElementNotPresent#assertElementNotPresentClickDockbar" locator1="Home#PAGE_DELETE" />
@@ -239,7 +239,7 @@
 		<if>
 			<equals arg1="${childPageCount}" arg2="1" />
 			<then>
-				<execute function="#mouseOver" locator1="Home#PAGE_1" value1="${sitePageName}" />
+				<execute function="MouseOver#mouseOverClickNavigation" locator1="Home#PAGE_1" value1="${sitePageName}" />
 				<execute function="#assertClick" locator1="Home#PAGE_1_CHILD_PAGE_1" value1="${siteChildPageName}" />
 				<execute function="#assertTextEquals" locator1="Home#BREADCRUMB_1" value1="${siteName}" />
 				<execute function="#assertTextEquals" locator1="Home#BREADCRUMB_2" value1="${sitePageName}" />
@@ -253,7 +253,7 @@
 						<equals arg1="${i}" arg2="${childPageCount}" />
 					</not>
 					<then>
-						<execute function="#mouseOver" locator1="Home#PAGE_1" value1="${sitePageName}" />
+						<execute function="MouseOver#mouseOverClickNavigation" locator1="Home#PAGE_1" value1="${sitePageName}" />
 						<execute function="#assertClick" locator1="Home#PAGE_1_CHILD_PAGE_${childPageCounter}" value1="Site Child Page ${childPageCounter}" />
 						<execute function="#assertTextEquals" locator1="Home#BREADCRUMB_1" value1="${siteName}" />
 						<execute function="#assertTextEquals" locator1="Home#BREADCRUMB_2" value1="${sitePageName}" />

@@ -145,7 +145,7 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
-		<execute function="#assertElementNotPresent" locator1="//div[@id='workflowMyRolesTasksPanelContent']//tr[3]/td" />
+		<execute function="AssertNotVisible" locator1="//div[@id='workflowMyRolesTasksPanelContent']//tr[3]/td" />
 	</command>
 
 	<command name="ViewWebContentConfigurationCP" priority="4">

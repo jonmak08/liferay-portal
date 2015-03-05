@@ -57,7 +57,7 @@
 			</or>
 			<then>
 				<execute function="#check" locator1="PGDocumentsandmedia#TOOLBAR_SELECT_ALL_CHECKBOX" />
-				<execute function="#assertClick" locator1="PGDocumentsandmedia#TOOLBAR_ACTIONS" value1="Actions" />
+				<execute function="AssertClick#waitForDMHomeAssertTextEqualsClick" locator1="PGDocumentsandmedia#TOOLBAR_ACTIONS" value1="Actions" />
 				<execute function="#assertElementPresent" locator1="PGDocumentsandmedia#ACTIONS_MENULIST_MOVE_TO_THE_RECYCLE_BIN" />
 				<execute function="#assertClick" locator1="PGDocumentsandmedia#ACTIONS_MENULIST_MOVE_TO_THE_RECYCLE_BIN" value1="Move to the Recycle Bin" />
 				<execute function="AssertTextEquals#assertPartialText" locator1="PGDocumentsandmedia#SUCCESS_MESSAGE" value1="moved to the Recycle Bin. Undo" />
