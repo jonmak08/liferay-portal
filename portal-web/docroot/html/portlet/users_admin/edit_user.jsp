@@ -251,19 +251,19 @@ if (selUser != null) {
 	<liferay-util:buffer var="htmlBottom">
 
 		<%
-		boolean isLockout = false;
+		boolean lockedOut = false;
 
 		if ((selUser != null) && (passwordPolicy != null)) {
 			try {
 				UserLocalServiceUtil.checkLockout(selUser);
 			}
-			catch (PortalException pe) {
-				isLockout = true;
+			catch (UserLockoutException.PasswordPolicyLockout ule) {
+				lockedOut = true;
 			}
 		}
 		%>
 
-		<c:if test="<%= isLockout %>">
+		<c:if test="<%= lockedOut %>">
 			<aui:button-row>
 				<div class="alert alert-block"><liferay-ui:message key="this-user-account-has-been-locked-due-to-excessive-failed-login-attempts" /></div>
 
