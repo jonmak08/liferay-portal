@@ -187,7 +187,7 @@
 
 		<execute function="#assertClick" locator1="PGDocumentsandmedia#ENTRY_ICON_DOCUMENT_TITLE" value1="${dmDocumentTitleEdit1}" />
 
-		<execute function="#assertClick" locator1="PGDocumentsandmediaDocument#TOOLBAR_EDIT_BUTTON" value1="Edit" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGDocumentsandmediaDocument#TOOLBAR_EDIT_BUTTON" value1="Edit" />
 
 		<while>
 			<condition function="#isElementPresent" locator1="PGDocumentsandmediaEditdocument#CATEGORIZATION_TAGS_REMOVE_ICON_GENERIC" />
@@ -379,7 +379,7 @@
 
 		<execute function="#assertClick" locator1="PGDocumentsandmedia#ENTRY_ICON_DOCUMENT_TITLE" value1="${dmDocumentTitle}" />
 
-		<execute function="#assertClick" locator1="PGDocumentsandmediaDocument#TOOLBAR_EDIT_BUTTON" value1="Edit" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGDocumentsandmediaDocument#TOOLBAR_EDIT_BUTTON" value1="Edit" />
 
 		<var name="key_categoryName" value="${categoryName}" />
 

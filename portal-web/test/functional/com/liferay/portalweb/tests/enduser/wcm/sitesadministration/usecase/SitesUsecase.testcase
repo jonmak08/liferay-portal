@@ -194,7 +194,7 @@
 
 		<execute function="#type" locator1="PGLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
 		<execute function="#type" locator1="PGLogin#PASSWORD_FIELD" value1="${password}" />
-		<execute function="#click" locator1="PGLogin#SIGN_IN_BUTTON" value1="Sign In" />
+		<execute function="Click#clickAtAndWait" locator1="PGLogin#SIGN_IN_BUTTON" value1="Sign In" />
 
 		<execute macro="PermissionsInline#gotoConfigurationPG" >
 			<var name="portletName" value="${portlet1Name}" />

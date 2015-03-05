@@ -171,7 +171,7 @@
 			<var name="soDashboard" value="true" />
 		</execute>
 
-		<execute function="#assertClick" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
 		<execute function="#assertTextEquals" locator1="SOMicroblogs#INFO_MESSAGE" value1="You do not have any microblog entries." />
 		<execute function="#assertTextNotPresent" value1="${microblogsEntryContent1}" />
 		<execute function="#assertTextNotPresent" value1="${microblogsEntryContent2}" />
@@ -639,7 +639,7 @@
 		</execute>
 
 		<execute function="#makeVisible" locator1="SOMicroblogs#MICROBLOGS_ENTRY_EDIT" />
-		<execute function="#click" locator1="SOMicroblogs#MICROBLOGS_ENTRY_EDIT_LINK" />
+		<execute function="Click#makeVisibleClickAt" locator1="SOMicroblogs#MICROBLOGS_ENTRY_EDIT_LINK" />
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent}" />
 
@@ -1355,7 +1355,7 @@
 			<var name="soDashboard" value="true" />
 		</execute>
 
-		<execute function="#assertClick" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
 
 		<var name="microblogsEntryContent" value="${microblogsEntryContent1} ${adminName}" />
 
@@ -1930,7 +1930,7 @@
 
 		<execute function="#click" locator1="SODashboard#NAVIGATION_MICROBLOGS" />
 
-		<execute function="#assertClick" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryAuthor">
 			<var name="microblogsEntryAuthorName" value="${userName}" />
@@ -2344,7 +2344,7 @@
 			<var name="soDashboard" value="true" />
 		</execute>
 
-		<execute function="#assertClick" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
 
 		<execute function="#assertTextNotPresent" value1="${microblogsEntryContent2}" />
 	</command>
@@ -2693,7 +2693,7 @@
 			<var name="soDashboard" value="true" />
 		</execute>
 
-		<execute function="#assertClick" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
 
 		<execute function="#assertTextNotPresent" value1="${microblogsEntryContent2}" />
 
@@ -2707,7 +2707,7 @@
 			<var name="soDashboard" value="true" />
 		</execute>
 
-		<execute function="#assertClick" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="SOMicroblogs#TAB_MENTIONS" value1="Mentions" />
 
 		<execute function="#assertTextNotPresent" value1="${microblogsEntryContent1}" />
 	</command>
@@ -3555,7 +3555,7 @@
 		<execute function="#click" locator1="SOMicroblogs#MICROBLOGS_CONTENT_FIELD" />
 		<execute function="#selectFrameTop" />
 		<execute function="#click" locator1="SOMicroblogs#MICROBLOGS_CONTENT_INPUT_FIELD" />
-		<execute function="#type" locator1="SOMicroblogs#MICROBLOGS_CONTENT_INPUT_FIELD" value1="@${userFirstName}" />
+		<execute function="Type#sendKeys" locator1="SOMicroblogs#MICROBLOGS_CONTENT_INPUT_FIELD" value1="@${userFirstName}" />
 		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_CONTENT_AUTOCOMPLETE_USERNAME" value1="${userName}" />
 		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_CONTENT_AUTOCOMPLETE_EMAIL" value1="${userEmailAddress}" />
 		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_CONTENT_AUTOCOMPLETE_JOB_TITLE" value1="${userJobTitle}" />
@@ -3845,7 +3845,7 @@
 
 		<execute function="#click" locator1="SODashboard#NAVIGATION_MICROBLOGS" />
 
-		<execute function="#assertClick" locator1="SOMicroblogs#TAB_TIMELINE" value1="Timeline" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="SOMicroblogs#TAB_TIMELINE" value1="Timeline" />
 
 		<execute function="#pause" value1="1000" />
 

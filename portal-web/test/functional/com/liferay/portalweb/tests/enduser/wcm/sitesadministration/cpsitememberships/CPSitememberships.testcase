@@ -274,7 +274,7 @@
 		<var name="key_siteName" value="${siteName}" />
 
 		<execute function="#type" locator1="CPSites#BASIC_SEARCH_FIELD" value1="Liferay" />
-		<execute function="#assertClick" locator1="CPSites#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPSites#BASIC_SEARCH_BUTTON" value1="Search" />
 
 		<execute function="#assertTextEquals" locator1="CPSites#SITE_TABLE_NAME" value1="${siteName}" />
 		<execute function="#assertElementPresent" locator1="CPSites#SITE_TABLE_CHECKBOX_DISABLED" />
@@ -551,7 +551,7 @@
 			<var name="siteScopeName" value="${orgName1}" />
 		</execute>
 
-		<execute function="#assertTextEquals" locator1="CPSitememberships#USER_TABLE_LABEL" value1="1 User" />
+		<execute function="AssertTextEquals#assertText" locator1="CPSitememberships#USER_TABLE_LABEL" value1="1 User" />
 
 		<execute macro="Site#viewMemberOrganizationCP">
 			<var name="orgName" value="${orgName1}" />
@@ -692,7 +692,7 @@
 
 		<execute macro="Page#openURL" />
 
-		<execute function="#assertClick" locator1="Dockbar#ADMIN" value1="Admin" />
+		<execute function="AssertClick#assertTextClickAtClickDockbar" locator1="Dockbar#ADMIN" value1="Admin" />
 		<execute function="#assertElementNotPresent" locator1="Dockbar#ADMIN_SITE_ADMINISTRATION_USERS" value1="Users" />
 	</command>
 

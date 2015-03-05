@@ -237,7 +237,7 @@
 		</execute>
 
 		<execute function="#select" locator1="CPSitesettings#APPLICATION_ADAPTER_SELECT" value1="Sample Application Adapter EE Hook" />
-		<execute function="#assertClick" locator1="CPSitesettings#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPSitesettings#SAVE_BUTTON" value1="Save" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
@@ -261,7 +261,7 @@
 
 		<var name="key_portletName" value="Navigation" />
 
-		<execute function="#assertTextEquals" locator1="PGNavigation#PORTLET_BODY" value1="This was modified by the Sample Application Adapter." />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGNavigation#PORTLET_BODY" value1="This was modified by the Sample Application Adapter." />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
@@ -301,7 +301,7 @@
 		</execute>
 
 		<execute function="#select" locator1="CPSitesettings#APPLICATION_ADAPTER_SELECT" value1="Sample Application Adapter EE Hook" />
-		<execute function="#assertClick" locator1="CPSitesettings#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPSitesettings#SAVE_BUTTON" value1="Save" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${site2PageName}" />
@@ -311,7 +311,7 @@
 
 		<var name="key_portletName" value="Navigation" />
 
-		<execute function="#assertTextEquals" locator1="PGNavigation#PORTLET_BODY" value1="This was modified by the Sample Application Adapter." />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGNavigation#PORTLET_BODY" value1="This was modified by the Sample Application Adapter." />
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
@@ -319,7 +319,7 @@
 		</execute>
 
 		<execute function="#select" locator1="CPSitesettings#APPLICATION_ADAPTER_SELECT" value1="None" />
-		<execute function="#assertClick" locator1="CPSitesettings#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPSitesettings#SAVE_BUTTON" value1="Save" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${site2PageName}" />

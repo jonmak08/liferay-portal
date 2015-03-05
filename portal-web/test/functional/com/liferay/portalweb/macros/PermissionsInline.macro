@@ -168,7 +168,7 @@
 			</then>
 		</if>
 
-		<execute function="#click" locator1="Dockbar#EDIT" />
+		<execute function="Click#clickAtSidebarClickAt" locator1="Dockbar#EDIT" />
 		<execute function="#click" locator1="Dockbar#EDIT_PERMISSIONS" />
 
 		<execute function="#selectFrame" locator1="Permissions#PERMISSIONS_IFRAME" />

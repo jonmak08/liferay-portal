@@ -42,7 +42,7 @@
 			<var name="portletName" value="Message Boards" />
 		</execute>
 
-		<execute function="#close" locator1="home - Liferay" />
+		<execute function="Close#closeWindow" locator1="home - Liferay" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
@@ -136,7 +136,7 @@
 			<var name="portletName" value="Documents and Media" />
 		</execute>
 
-		<execute function="#close" locator1="home - Liferay" />
+		<execute function="Close#closeWindow" locator1="home - Liferay" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Site Templates" />
@@ -156,7 +156,7 @@
 			<var name="portletName" value="Tasks" />
 		</execute>
 
-		<execute function="#close" locator1="home - Liferay" />
+		<execute function="Close#closeWindow" locator1="home - Liferay" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />

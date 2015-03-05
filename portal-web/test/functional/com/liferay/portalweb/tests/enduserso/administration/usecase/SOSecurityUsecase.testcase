@@ -92,13 +92,13 @@
 		<var name="key_userScreenName" value="${adminScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${adminScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${adminScreenName}" />
 		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${adminScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsUser#DETAILS_FIRST_NAME_FIELD" value1="${adminFirstName}" />
 		<execute function="#type" locator1="CPUsersandorganizationsUser#DETAILS_LAST_NAME_FIELD" value1="${adminLastName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 		<execute macro="SOContactsCenter#addConnection">
@@ -830,13 +830,13 @@
 		<var name="key_userScreenName" value="${adminScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${adminScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${adminScreenName}" />
 		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${adminScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsUser#DETAILS_FIRST_NAME_FIELD" value1="${adminFirstName}" />
 		<execute function="#type" locator1="CPUsersandorganizationsUser#DETAILS_LAST_NAME_FIELD" value1="${adminLastName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 		<execute macro="SOContactsCenter#addConnection">
@@ -1020,13 +1020,13 @@
 		<var name="key_userScreenName" value="${adminScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${adminScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${adminScreenName}" />
 		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${adminScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsUser#DETAILS_FIRST_NAME_FIELD" value1="${adminFirstName}" />
 		<execute function="#type" locator1="CPUsersandorganizationsUser#DETAILS_LAST_NAME_FIELD" value1="${adminLastName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 		<execute macro="SOUser#addUserWithSORole">

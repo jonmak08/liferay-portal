@@ -14,7 +14,7 @@
 
 					<execute function="#select" locator1="SPIAdministrationAdd#SPI_CONFIGURATIONS_SPI_APPLICATIONS_AVAILABLE_SELECT" value1="${portletName}" />
 					<execute function="#click" locator1="SPIAdministrationAdd#SPI_CONFIGURATIONS_SPI_APPLICATIONS_MOVE_SELECTED_ITEMS_FROM_AVAILABLE_TO_CURRENT_BUTTON" />
-					<execute function="#assertTextEquals" locator1="SPIAdministrationAdd#SPI_CONFIGURATIONS_SPI_APPLICATIONS_CURRENT_SELECT" value1="${portletName}" />
+					<execute function="AssertTextEquals#assertValue" locator1="SPIAdministrationAdd#SPI_CONFIGURATIONS_SPI_APPLICATIONS_CURRENT_SELECT" value1="${portletName}" />
 				</for>
 			</then>
 		</if>
@@ -117,7 +117,7 @@
 			<isset var="spiApplications" />
 			<then>
 				<for list="${spiApplications}" param="portletName">
-					<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_APPLICATIONS" value1="${portletName}" />
+					<execute function="AssertTextEquals#assertPartialText" locator1="SPIAdministration#SPI_TABLE_APPLICATIONS" value1="${portletName}" />
 				</for>
 			</then>
 		</if>
@@ -126,7 +126,7 @@
 			<isset var="spiCoreApplications" />
 			<then>
 				<for list="${spiCoreApplications}" param="portletName">
-					<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_APPLICATIONS" value1="${portletName}" />
+					<execute function="AssertTextEquals#assertPartialText" locator1="SPIAdministration#SPI_TABLE_APPLICATIONS" value1="${portletName}" />
 				</for>
 			</then>
 		</if>

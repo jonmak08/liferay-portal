@@ -2,25 +2,25 @@
 	<var name="assetType" value="Message Boards Category" />
 
 	<command name="addCP">
-		<execute function="#click" locator1="CPMessageboards#ADD_CATEGORY_BUTTON" />
+		<execute function="Click#textClickAtAndWait" locator1="CPMessageboards#ADD_CATEGORY_BUTTON" />
 
 		<execute function="#type" locator1="CPMessageboardsAddcategory#NAME_FIELD" value1="${categoryName}" />
-		<execute function="#click" locator1="CPMessageboardsAddcategory#SAVE_BUTTON" />
+		<execute function="Click#textClickAtAndWait" locator1="CPMessageboardsAddcategory#SAVE_BUTTON" />
 
-		<execute function="#assertTextEquals" locator1="CPMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute function="AssertTextEquals#assertText" locator1="CPMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="addNullPG">
-		<execute function="#click" locator1="PGMessageboards#ADD_CATEGORY_BUTTON" />
+		<execute function="Click#textClickAtAndWait" locator1="PGMessageboards#ADD_CATEGORY_BUTTON" />
 
 		<execute function="#type" locator1="PGMessageboardsAddcategory#NAME_FIELD" value1="${categoryNullName}" />
 		<execute function="#type" locator1="PGMessageboardsAddcategory#DESCRIPTION_FIELD" value1="${categoryDescription}" />
-		<execute function="#click" locator1="PGMessageboardsAddcategory#SAVE_BUTTON" />
+		<execute function="Click#textClickAtAndWait" locator1="PGMessageboardsAddcategory#SAVE_BUTTON" />
 		<execute function="#assertTextEquals" locator1="PGMessageboardsAddcategory#REQUIRED_ALERT" value1="This field is required." />
 	</command>
 
 	<command name="addPG">
-		<execute function="#click" locator1="PGMessageboards#ADD_CATEGORY_BUTTON" />
+		<execute function="Click#textClickAtAndWait" locator1="PGMessageboards#ADD_CATEGORY_BUTTON" />
 
 		<execute function="#type" locator1="PGMessageboardsAddcategory#NAME_FIELD" value1="${categoryName}" />
 
@@ -44,9 +44,9 @@
 			</elseif>
 		</if>
 
-		<execute function="#click" locator1="PGMessageboardsAddcategory#SAVE_BUTTON" />
+		<execute function="Click#textClickAtAndWait" locator1="PGMessageboardsAddcategory#SAVE_BUTTON" />
 
-		<execute function="#assertTextEquals" locator1="PGMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute function="AssertTextEquals#assertText" locator1="PGMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="addSubcategoryCP">
@@ -59,9 +59,9 @@
 
 		<execute function="#type" locator1="CPMessageboardsAddcategory#NAME_FIELD" value1="${subCategoryName}" />
 		<execute function="#type" locator1="CPMessageboardsAddcategory#DESCRIPTION_FIELD" value1="${subCategoryDescription}" />
-		<execute function="#click" locator1="CPMessageboardsAddcategory#SAVE_BUTTON" />
+		<execute function="Click#textClickAtAndWait" locator1="CPMessageboardsAddcategory#SAVE_BUTTON" />
 
-		<execute function="#assertTextEquals" locator1="CPMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute function="AssertTextEquals#assertText" locator1="CPMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="addSubcategoryNullCP">
@@ -101,9 +101,9 @@
 
 		<execute function="#type" locator1="PGMessageboardsAddcategory#NAME_FIELD" value1="${subCategoryName}" />
 		<execute function="#type" locator1="PGMessageboardsAddcategory#DESCRIPTION_FIELD" value1="${subCategoryDescription}" />
-		<execute function="#click" locator1="PGMessageboardsAddcategory#SAVE_BUTTON" />
+		<execute function="Click#textClickAtAndWait" locator1="PGMessageboardsAddcategory#SAVE_BUTTON" />
 
-		<execute function="#assertTextEquals" locator1="PGMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute function="AssertTextEquals#assertText" locator1="PGMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="addSubcategoryToSubcategoryPG">
@@ -117,7 +117,7 @@
 		<execute function="#type" locator1="PGMessageboardsAddcategory#DESCRIPTION_FIELD" value1="${subCategoryDescription}" />
 		<execute function="#assertClick" locator1="PGMessageboardsAddcategory#SAVE_BUTTON" value1="Save" />
 
-		<execute function="#assertTextEquals" locator1="PGMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute function="AssertTextEquals#assertText" locator1="PGMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="deletePG">
@@ -125,8 +125,8 @@
 
 		<execute function="#assertTextEquals" locator1="PGMessageboards#CATEGORY_TABLE_CATEGORY" value1="${categoryName}" />
 		<execute function="#click" locator1="PGMessageboards#CATEGORY_TABLE_ACTIONS" />
-		<execute function="#click" locator1="PGMessageboards#CATEGORY_MENULIST_RECYCLE_BIN" />
-		<execute function="#assertTextEquals" locator1="PGMessageboards#SUCCESS_MESSAGE_RECYCLE_BIN" value1="The ${assetType} ${categoryName} was moved to the Recycle Bin. Undo" />
+		<execute function="Click#textClickAtAndWait" locator1="PGMessageboards#CATEGORY_MENULIST_RECYCLE_BIN" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGMessageboards#SUCCESS_MESSAGE_RECYCLE_BIN" value1="The ${assetType} ${categoryName} was moved to the Recycle Bin. Undo" />
 		<execute function="#assertElementNotPresent" locator1="PGMessageboards#CATEGORY_TABLE_CATEGORY" />
 
 		<execute macro="RecycleBin#emptyCP" />
@@ -140,9 +140,9 @@
 		<execute function="#click" locator1="PGMessageboards#CATEGORY_MENULIST_EDIT" />
 
 		<execute function="#type" locator1="PGMessageboardsAddcategory#NAME_FIELD" value1="${categoryNameEdit}" />
-		<execute function="#click" locator1="PGMessageboardsAddcategory#SAVE_BUTTON" value1="Save" />
+		<execute function="Click#textClickAtAndWait" locator1="PGMessageboardsAddcategory#SAVE_BUTTON" value1="Save" />
 
-		<execute function="#assertTextEquals" locator1="PGMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute function="AssertTextEquals#assertText" locator1="PGMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="#assertTextEquals" locator1="PGMessageboards#CATEGORY_TABLE_CATEGORY" value1="${categoryNameEdit}" />
 	</command>
 
@@ -193,7 +193,7 @@
 		<execute function="#assertTextEquals" locator1="PGMessageboards#CATEGORY_TABLE_CATEGORY" value1="${categoryName}" />
 		<execute function="#click" locator1="PGMessageboards#CATEGORY_TABLE_ACTIONS" />
 		<execute function="#assertClick" locator1="PGMessageboards#CATEGORY_MENULIST_SUBSCRIBE" value1="Subscribe" />
-		<execute function="#assertTextEquals" locator1="PGMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute function="AssertTextEquals#assertText" locator1="PGMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="tearDownCP">
@@ -205,8 +205,8 @@
 			<condition function="#isElementPresent" locator1="CPMessageboards#CATEGORY_TABLE_ALL_CHECKBOX" />
 			<then>
 				<execute function="#click" locator1="CPMessageboards#CATEGORY_TABLE_ALL_CHECKBOX" />
-				<execute function="#click" locator1="CPMessageboards#CATEGORIES_RECYCLE_BIN_BUTTON" />
-				<execute function="#assertTextEquals" locator1="CPMessageboards#SUCCESS_MESSAGE_RECYCLE_BIN" value1="moved to the Recycle Bin. Undo" />
+				<execute function="Click#textClickAtAndWait" locator1="CPMessageboards#CATEGORIES_RECYCLE_BIN_BUTTON" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="CPMessageboards#SUCCESS_MESSAGE_RECYCLE_BIN" value1="moved to the Recycle Bin. Undo" />
 			</then>
 		</while>
 
@@ -236,7 +236,7 @@
 		<execute function="#assertTextEquals" locator1="CPMessageboards#CATEGORY_TABLE_CATEGORIES" value1="0" />
 		<execute function="#assertTextEquals" locator1="CPMessageboards#CATEGORY_TABLE_THREADS" value1="0" />
 		<execute function="#assertTextEquals" locator1="CPMessageboards#CATEGORY_TABLE_POSTS" value1="0" />
-		<execute function="#assertTextEquals" locator1="CPMessageboards#CATEGORY_TABLE_ACTIONS" value1="Actions" />
+		<execute function="AssertTextEquals#assertText" locator1="CPMessageboards#CATEGORY_TABLE_ACTIONS" value1="Actions" />
 		<execute function="#click" locator1="CPMessageboards#CATEGORY_TABLE_CATEGORY" value1="${categoryName}" />
 
 		<execute function="#assertTextEquals" locator1="CPMessageboardsCategory#NAME_HEADER" value1="${categoryName}" />
@@ -333,7 +333,7 @@
 
 		<execute function="#assertTextEquals" locator1="PGMessageboardsCategory#NAME_HEADER" value1="${categoryName}" />
 		<execute function="#assertTextEquals" locator1="PGMessageboardsCategory#SUBCATEGORY_TABLE_CATEGORY" value1="${subCategoryName}" />
-		<execute function="#assertTextEquals" locator1="PGMessageboardsCategory#SUBCATEGORY_TABLE_CATEGORY_DESCRIPTION" value1="${subCategoryDescription}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGMessageboardsCategory#SUBCATEGORY_TABLE_CATEGORY_DESCRIPTION" value1="${subCategoryDescription}" />
 		<execute function="#assertTextEquals" locator1="PGMessageboardsCategory#SUBCATEGORY_TABLE_THREADS" value1="0" />
 		<execute function="#assertTextEquals" locator1="PGMessageboardsCategory#SUBCATEGORY_TABLE_POSTS" value1="0" />
 		<execute function="#assertElementPresent" locator1="PGMessageboardsCategory#SUBCATEGORY_TABLE_ACTIONS" />
@@ -348,7 +348,7 @@
 		<execute function="#assertClick" locator1="PGMessageboards#CATEGORY_TABLE_CATEGORY" value1="${categoryName}" />
 
 		<execute function="#assertTextEquals" locator1="PGMessageboardsCategory#SUBCATEGORY_TABLE_CATEGORY" value1="${subCategoryName}" />
-		<execute function="#assertTextEquals" locator1="PGMessageboardsCategory#SUBCATEGORY_TABLE_CATEGORY_DESCRIPTION" value1="${subCategoryDescription}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGMessageboardsCategory#SUBCATEGORY_TABLE_CATEGORY_DESCRIPTION" value1="${subCategoryDescription}" />
 		<execute function="#assertTextEquals" locator1="PGMessageboardsCategory#SUBCATEGORY_TABLE_THREADS" value1="0" />
 		<execute function="#assertTextEquals" locator1="PGMessageboardsCategory#SUBCATEGORY_TABLE_POSTS" value1="0" />
 		<execute function="#assertElementPresent" locator1="PGMessageboardsCategory#SUBCATEGORY_TABLE_ACTIONS" />

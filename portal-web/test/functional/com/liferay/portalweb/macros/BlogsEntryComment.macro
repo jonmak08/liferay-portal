@@ -2,7 +2,7 @@
 	<command name="addCP">
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="CPBlogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
 		<execute function="#pause" value1="1000" />
 
 		<var name="key_entryComment" value="${entryComment}" />
@@ -72,14 +72,14 @@
 	<command name="deleteCP">
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="CPBlogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
 
 		<var name="key_entryComment" value="${entryComment}" />
 
 		<execute function="#assertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
 		<execute function="#mouseOver" locator1="CPBlogsEntry#COMMENT" />
 		<execute function="#assertClickNoError" locator1="CPBlogsEntry#COMMENT_DELETE_1" value1="Delete" />
-		<execute function="#confirm" locator1="CPBlogsEntry#CONFIRMATION" value1="Are you sure you want to delete this? It will be deleted immediately." />
+		<execute function="Confirm#waitForConfirmation" locator1="CPBlogsEntry#CONFIRMATION" value1="Are you sure you want to delete this? It will be deleted immediately." />
 		<execute function="#assertTextEquals" locator1="CPBlogsEntry#COMMENTS_SUCCESS" value1="Your request processed successfully." />
 		<execute function="#assertTextNotPresent" value1="${entryComment}" />
 	</command>
@@ -110,7 +110,7 @@
 	<command name="editCP">
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="CPBlogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
 
 		<var name="key_entryComment" value="${entryComment}" />
 
@@ -166,7 +166,7 @@
 		<execute function="#assertTextEquals" locator1="PGBlogsSearch#SEARCH_RESULTS_ENTRY_TITLE" value1="${entryTitle}" />
 		<execute function="#assertTextEquals" locator1="PGBlogsSearch#SEARCH_RESULTS_ENTRY_DESCRIPTION" value1="${entryContent}" />
 		<execute function="#assertTextEquals" locator1="PGBlogsSearch#SEARCH_RESULTS_HIGHLIGHTED" value1="${entrySearchTerm}" />
-		<execute function="#assertTextEquals" locator1="PGBlogsSearch#SEARCH_RESULTS_ENTRY_COMMENT" value1="${entryComment}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGBlogsSearch#SEARCH_RESULTS_ENTRY_COMMENT" value1="${entryComment}" />
 	</command>
 
 	<command name="subscribePG">
@@ -177,7 +177,7 @@
 	<command name="viewCP">
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="CPBlogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
 
 		<var name="key_entryComment" value="${entryComment}" />
 
@@ -190,13 +190,13 @@
 	<command name="viewDefaultCP">
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="CPBlogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
 
 		<var name="key_entryComment" value="${entryComment}" />
 
 		<execute function="#assertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
 		<execute function="#assertTextEquals" locator1="CPBlogsEntry#ENTRY_STATS_COMMENTS" value1="0 Comments" />
-		<execute function="#assertTextEquals" locator1="CPBlogsEntry#COMMENTS_NO_COMMENTS_YET" value1="No comments yet." />
+		<execute function="AssertTextEquals#assertPartialText" locator1="CPBlogsEntry#COMMENTS_NO_COMMENTS_YET" value1="No comments yet." />
 		<execute function="#assertTextEquals" locator1="CPBlogsEntry#COMMENTS_BE_THE_FIRST" value1="Be the first." />
 		<execute function="#assertTextNotPresent" value1="${entryComment}" />
 	</command>

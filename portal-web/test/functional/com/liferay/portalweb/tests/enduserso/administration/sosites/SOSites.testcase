@@ -63,10 +63,10 @@
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
 		<execute function="#select" locator1="SOUserBar#GO_TO_SITE_CATEGORY_SELECT" value1="My Sites" />
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
 		<execute function="#type" locator1="SOUserBar#GO_TO_SEARCH_FIELD" value1="${siteName}" />
 		<execute function="#assertTextEquals" locator1="SOUserBar#GO_TO_SITE_NAME" value1="${siteName}" />
 		<execute function="#assertElementNotPresent" locator1="SOUserBar#GO_TO_SITE_NAME_LINK" value1="${siteName}" />
@@ -347,8 +347,8 @@
 		</execute>
 
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
-		<execute function="#click" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
 
 		<var name="key_siteName" value="${siteName}" />
 
@@ -1047,8 +1047,8 @@
 		<var name="siteName" value="Open Site Name" />
 
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
-		<execute function="#click" locator1="SOUserBar#GO_TO_ADD_SITE_BUTTON" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO_ADD_SITE_BUTTON" />
 
 		<execute function="#selectFrameTop" />
 		<execute function="#type" locator1="SOUserBarAddSite#DESCRIPTION_FIELD" value1="${siteDescription}" />
@@ -1056,9 +1056,9 @@
 
 		<execute function="#sikuliAssertElementPresent" locator1="SOUserBar#SCREENSHOTS_USERBAR_GO_TO_MENU_ADD_SITE_SITE_NAME_REQUIRED_PNG" />
 
-		<execute function="#type" locator1="SOUserBarAddSite#NAME_FIELD" value1="${siteName}" />
+		<execute function="Type#clickAtSendKeys" locator1="SOUserBarAddSite#NAME_FIELD" value1="${siteName}" />
 		<execute function="#click" locator1="SOUserBarAddSite#SAVE_BUTTON" />
-		<execute function="#assertElementNotPresent" locator1="SOUserBarAddSite#SAVE_BUTTON" />
+		<execute function="AssertElementNotPresent#assertNotVisible" locator1="SOUserBarAddSite#SAVE_BUTTON" />
 	</command>
 
 	<command name="ViewSOSiteOpenPrivatePages" priority="4">
@@ -1088,7 +1088,7 @@
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
 
 		<var name="key_pageName" value="${pageName}" />
 		<var name="key_siteName" value="${siteName}" />
@@ -1109,8 +1109,8 @@
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
-		<execute function="#click" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
 
 		<execute function="#assertClick" locator1="SOUserBarSitesDirectory#SITE_NAME_PRIVATE_PAGES_LINK" value1="(Private Pages)" />
 
@@ -1186,8 +1186,8 @@
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
-		<execute function="#click" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
 
 		<execute function="#select" locator1="SOUserBarSitesDirectory#SITE_CATEGORY_SELECT" value1="All Sites" />
 
@@ -1255,8 +1255,8 @@
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
-		<execute function="#click" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
 
 		<execute function="#select" locator1="SOUserBarSitesDirectory#SITE_CATEGORY_SELECT" value1="My Sites" />
 		<execute function="#type" locator1="SOUserBarSitesDirectory#SITE_SEARCH_FIELD" value1="${siteName2}" />
@@ -1271,8 +1271,8 @@
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
-		<execute function="#click" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
 
 		<execute function="#select" locator1="SOUserBarSitesDirectory#SITE_CATEGORY_SELECT" value1="My Sites" />
 		<execute function="#type" locator1="SOUserBarSitesDirectory#SITE_SEARCH_FIELD" value1="${siteName3}" />
@@ -1287,8 +1287,8 @@
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
-		<execute function="#click" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO_SITES_DIRECTORY_BUTTON" />
 
 		<execute function="#select" locator1="SOUserBarSitesDirectory#SITE_CATEGORY_SELECT" value1="My Sites" />
 		<execute function="#type" locator1="SOUserBarSitesDirectory#SITE_SEARCH_FIELD" value1="${siteName4}" />
@@ -1360,7 +1360,7 @@
 		<execute function="#click" locator1="//a[contains(text(),'Tableau de bord')]" />
 		<execute function="#pause" locator1="1000" />
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
 		<execute function="#click" locator1="//button[contains(.,'Annuaire des sites')]" />
 
 		<execute function="#select" locator1="SOUserBarSitesDirectory#SITE_CATEGORY_SELECT" value1="Tous les sites" />
@@ -1402,7 +1402,7 @@
 		<execute function="#click" locator1="//a[contains(text(),'Tauler de control')]" />
 		<execute function="#pause" locator1="1000" />
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
 		<execute function="#click" locator1="//button[contains(.,'Directori de llocs')]" />
 
 		<execute function="#select" locator1="SOUserBarSitesDirectory#SITE_CATEGORY_SELECT" value1="Tots els llocs web" />
@@ -1493,10 +1493,10 @@
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
 		<execute function="#select" locator1="SOUserBar#GO_TO_SITE_CATEGORY_SELECT" value1="All Sites" />
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
 		<execute function="#sikuliAssertElementPresent" locator1="SOUserBar#SCREENSHOTS_USERBAR_GO_TO_MENU_VIEW_ALL_LINK_PNG" />
 		<execute function="#assertClick" locator1="SOUserBar#GO_TO_VIEW_ALL" value1="View All (12)" />
 
@@ -1615,10 +1615,10 @@
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
 		<execute function="#select" locator1="SOUserBar#GO_TO_SITE_CATEGORY_SELECT" value1="My Sites" />
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
 		<execute function="#sikuliAssertElementPresent" locator1="SOUserBar#SCREENSHOTS_USERBAR_GO_TO_MENU_VIEW_ALL_LINK_PNG" />
 		<execute function="#assertTextEquals" locator1="SOUserBar#GO_TO_VIEW_ALL" value1="View All (12)" />
 	</command>
@@ -1739,7 +1739,7 @@
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
 		<execute function="#select" locator1="SOUserBar#GO_TO_SITE_CATEGORY_SELECT" value1="All Sites" />
 
 		<var name="key_siteName" value="${siteName1}" />
@@ -1792,7 +1792,7 @@
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
 		<execute function="#select" locator1="SOUserBar#GO_TO_SITE_CATEGORY_SELECT" value1="My Sites" />
 		<execute function="#type" locator1="SOUserBar#GO_TO_SEARCH_FIELD" value1="${siteName2}" />
 		<execute function="#assertClick" locator1="SOUserBar#GO_TO_SITE_NAME_LINK" value1="${siteName2}" />
@@ -1804,7 +1804,7 @@
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
 		<execute function="#select" locator1="SOUserBar#GO_TO_SITE_CATEGORY_SELECT" value1="My Sites" />
 		<execute function="#type" locator1="SOUserBar#GO_TO_SEARCH_FIELD" value1="${siteName3}" />
 		<execute function="#assertClick" locator1="SOUserBar#GO_TO_SITE_NAME_LINK" value1="${siteName3}" />
@@ -1816,7 +1816,7 @@
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
 		<execute function="#select" locator1="SOUserBar#GO_TO_SITE_CATEGORY_SELECT" value1="My Sites" />
 		<execute function="#type" locator1="SOUserBar#GO_TO_SEARCH_FIELD" value1="${siteName4}" />
 		<execute function="#assertClick" locator1="SOUserBar#GO_TO_SITE_NAME_LINK" value1="${siteName4}" />
@@ -1884,7 +1884,7 @@
 
 		<var name="key_siteName" value="${siteName}" />
 
-		<execute function="#click" locator1="Dockbar#MY_SITES" />
+		<execute function="Click#textClickAtClickDockbar" locator1="Dockbar#MY_SITES" />
 		<execute function="#assertClick" locator1="Dockbar#MY_SITES_PUBLIC_SITE" value1="${siteName}" />
 
 		<execute function="#assertTextEquals" locator1="SOSite#SITE_NAME" value1="${siteName}" />

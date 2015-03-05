@@ -3,7 +3,7 @@
 		<execute function="#assertClick" locator1="PGBlogs#ADD_ENTRY_BUTTON" value1="Add Blog Entry" />
 
 		<execute function="#type" locator1="PGBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
-		<execute function="#type" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
+		<execute function="Type#typeFrameWaitForCKEditor" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
 
 		<if>
 			<condition function="#isElementNotPresent" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" />
@@ -14,10 +14,10 @@
 
 		<var name="key_tagName" value="${tagName}" />
 
-		<execute function="#type" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" value1="tag" />
+		<execute function="Type#clickAtSendKeys" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" value1="tag" />
 		<execute function="#assertTextEquals" locator1="PGBlogsAdd#CATEGORIZATION_TAG_AUTOCOMPLETE" value1="${tagName3}" />
 		<execute function="#assertClick" locator1="PGBlogsAdd#CATEGORIZATION_TAG_AUTOCOMPLETE" value1="${tagName3}" />
-		<execute function="#assertClick" locator1="PGBlogsAdd#PUBLISH_BUTTON" value1="Publish" />
+		<execute function="AssertClick#assertTextClickAtAndWaitCKEditor" locator1="PGBlogsAdd#PUBLISH_BUTTON" value1="Publish" />
 
 		<var name="key_tagName" value="${tagName}" />
 
@@ -75,7 +75,7 @@
 	<command name="addFrontPageTagPG">
 		<execute function="#assertClick" locator1="PGWiki#ADD_FRONTPAGE" value1="This page is empty. Edit it to add some text." />
 
-		<execute function="#type" locator1="PGWikiAddpage#BODY_FIELD" value1="${wikiPageContent}" />
+		<execute function="Type#typeFrameWaitForCKEditor" locator1="PGWikiAddpage#BODY_FIELD" value1="${wikiPageContent}" />
 		<execute function="#assertClick" locator1="PGWikiAddpage#CATEGORIZATION_DROPDOWN" value1="Categorization" />
 		<execute function="#type" locator1="PGWikiAddpage#TAGS_FIELD" value1="${wikiTagName}" />
 		<execute function="#assertClick" locator1="PGWikiAddpage#PUBLISH_BUTTON" value1="Publish" />
@@ -95,7 +95,7 @@
 		<execute function="#assertClick" locator1="PGBlogs#ADD_ENTRY_BUTTON" value1="Add Blog Entry" />
 
 		<execute function="#type" locator1="PGBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
-		<execute function="#type" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
+		<execute function="Type#typeFrameWaitForCKEditor" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
 
 		<if>
 			<condition function="#isElementNotPresent" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" />
@@ -105,11 +105,11 @@
 		</if>
 
 		<for list="${tagNameList}" param="tagName">
-			<execute function="#type" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" value1="${tagName}" />
+			<execute function="Type#clickAtSendKeys" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" value1="${tagName}" />
 			<execute function="#click" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_ADD_BUTTON" />
 		</for>
 
-		<execute function="#assertClick" locator1="PGBlogsAdd#PUBLISH_BUTTON" value1="Publish" />
+		<execute function="AssertClick#assertTextClickAtAndWaitCKEditor" locator1="PGBlogsAdd#PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="#assertTextEquals" locator1="PGBlogs#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
@@ -125,7 +125,7 @@
 		<execute function="#assertClick" locator1="PGBlogs#ADD_ENTRY_BUTTON" value1="Add Blog Entry" />
 
 		<execute function="#type" locator1="PGBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
-		<execute function="#type" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
+		<execute function="Type#typeFrameWaitForCKEditor" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
 
 		<if>
 			<condition function="#isElementNotPresent" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" />
@@ -134,7 +134,7 @@
 			</then>
 		</if>
 
-		<execute function="#assertClick" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_SELECT_BUTTON" value1="Select" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_SELECT_BUTTON" value1="Select" />
 
 		<var name="key_tagName" value="${tagName1}" />
 
@@ -145,7 +145,7 @@
 		<execute function="#check" locator1="PGBlogsAddSelectTag#TAG_ENTRY_CHECKBOX" />
 		<execute function="#click" locator1="PGBlogsAddSelectTag#CLOSE_BUTTON" />
 
-		<execute function="#assertClick" locator1="PGBlogsAdd#PUBLISH_BUTTON" value1="Publish" />
+		<execute function="AssertClick#assertTextClickAtAndWaitCKEditor" locator1="PGBlogsAdd#PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="#assertTextEquals" locator1="PGBlogs#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
@@ -176,7 +176,7 @@
 		<execute function="#assertClick" locator1="PGBlogs#ADD_ENTRY_BUTTON" value1="Add Blog Entry" />
 
 		<execute function="#type" locator1="PGBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
-		<execute function="#type" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
+		<execute function="Type#typeFrameWaitForCKEditor" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
 
 		<if>
 			<condition function="#isElementNotPresent" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" />
@@ -185,8 +185,8 @@
 			</then>
 		</if>
 
-		<execute function="#type" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" value1="${tagName}" />
-		<execute function="#assertClick" locator1="PGBlogsAdd#PUBLISH_BUTTON" value1="Publish" />
+		<execute function="Type#clickAtSendKeys" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" value1="${tagName}" />
+		<execute function="AssertClick#assertTextClickAtAndWaitCKEditor" locator1="PGBlogsAdd#PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="#assertTextEquals" locator1="PGBlogs#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
@@ -233,7 +233,7 @@
 	<command name="removeSelectTagViaBlogsPG">
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="PGBlogs#ENTRY_EDIT" value1="Edit" />
+		<execute function="AssertClick#assertTextClickAndWait" locator1="PGBlogs#ENTRY_EDIT" value1="Edit" />
 
 		<if>
 			<condition function="#isElementNotPresent" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" />
@@ -242,7 +242,7 @@
 			</then>
 		</if>
 
-		<execute function="#assertClick" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_SELECT_BUTTON" value1="Select" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_SELECT_BUTTON" value1="Select" />
 
 		<var name="key_tagName" value="${tagName1}" />
 
@@ -253,7 +253,7 @@
 		<execute function="#uncheck" locator1="PGBlogsAddSelectTag#TAG_ENTRY_CHECKBOX" />
 		<execute function="#click" locator1="PGBlogsAddSelectTag#CLOSE_BUTTON" />
 
-		<execute function="#assertClick" locator1="PGBlogsAdd#PUBLISH_BUTTON" value1="Publish" />
+		<execute function="AssertClick#assertTextClickAtAndWaitCKEditor" locator1="PGBlogsAdd#PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="#assertTextEquals" locator1="PGBlogs#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
@@ -269,12 +269,12 @@
 	<command name="removeTagViaBlogsPG">
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="PGBlogs#ENTRY_EDIT" value1="Edit" />
+		<execute function="AssertClick#assertTextClickAndWait" locator1="PGBlogs#ENTRY_EDIT" value1="Edit" />
 
 		<var name="key_tagName" value="${tagName1}" />
 
 		<execute function="#click" locator1="PGBlogsEdit#CATEGORIZATION_TAG_REMOVE" />
-		<execute function="#assertClick" locator1="PGBlogsEdit#PUBLISH_BUTTON" value1="Publish" />
+		<execute function="AssertClick#assertTextClickAtAndWaitCKEditor" locator1="PGBlogsEdit#PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="#assertTextEquals" locator1="PGBlogs#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
@@ -316,13 +316,13 @@
 	</command>
 
 	<command name="searchTagCP">
-		<execute function="#type" locator1="CPTags#SEARCH_FIELD" value1="3" />
+		<execute function="Type#typePause" locator1="CPTags#SEARCH_FIELD" value1="3" />
 
 		<var name="key_tagName" value="${tagName3}" />
 
 		<execute function="#assertTextEquals" locator1="CPTags#TAG_ENTRY_NAME" value1="${tagName3}" />
 
-		<execute function="#type" locator1="CPTags#SEARCH_FIELD" value1="tag" />
+		<execute function="Type#typePause" locator1="CPTags#SEARCH_FIELD" value1="tag" />
 
 		<var name="key_tagName" value="${tagName1}" />
 

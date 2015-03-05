@@ -231,7 +231,7 @@
 
 		<execute macro="Page#openURL" />
 
-		<execute function="#click" locator1="Dockbar#MY_SITES" />
+		<execute function="Click#textClickAtClickDockbar" locator1="Dockbar#MY_SITES" />
 		<execute function="#assertTextNotPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 1" />
 		<execute function="#assertTextNotPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 2" />
 
@@ -246,13 +246,13 @@
 			<var name="userScreenName" value="test" />
 		</execute>
 
-		<execute function="#click" locator1="Dockbar#MY_SITES" />
+		<execute function="Click#textClickAtClickDockbar" locator1="Dockbar#MY_SITES" />
 		<execute function="#assertTextNotPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 1" />
 		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 2" />
 
 		<var name="key_siteName" value="${siteName}" />
 
-		<execute function="#click" locator1="Dockbar#MY_SITES" />
+		<execute function="Click#textClickAtClickDockbar" locator1="Dockbar#MY_SITES" />
 		<execute function="#assertClick" locator1="Dockbar#MY_SITES_PUBLIC_SITE" value1="${siteName}" />
 
 		<execute function="#click" locator1="Home#PAGE_NAVIGATION_BAR" />
@@ -520,7 +520,7 @@
 			<var name="siteName" value="Site Name I" />
 		</execute>
 
-		<execute function="#click" locator1="Dockbar#MY_SITES" />
+		<execute function="Click#textClickAtClickDockbar" locator1="Dockbar#MY_SITES" />
 		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name A" />
 		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name B" />
 		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name C" />
@@ -551,7 +551,7 @@
 			<var name="userScreenName" value="test" />
 		</execute>
 
-		<execute function="#click" locator1="Dockbar#MY_SITES" />
+		<execute function="Click#textClickAtClickDockbar" locator1="Dockbar#MY_SITES" />
 		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name I" />
 	</command>
 

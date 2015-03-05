@@ -20,7 +20,7 @@
 
 		<execute function="#assertElementPresent" locator1="Home#PAGE" value1="Welcome" />
 
-		<execute function="#assertTextEquals" locator1="PGHelloworld#PORTLET_TITLE" value1="Hello World" />
+		<execute function="AssertTextEquals#assertText" locator1="PGHelloworld#PORTLET_TITLE" value1="Hello World" />
 		<execute function="#assertElementPresent" locator1="PGHelloworld#PORTLET_CONTENT" value1="Welcome to Liferay Portal" />
 
 		<execute macro="Page#addPG">

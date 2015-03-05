@@ -15,7 +15,7 @@
 			</else>
 		</if>
 
-		<execute function="#assertClick" locator1="PGDynamicdatalistsConfiguration#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGDynamicdatalistsConfiguration#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="PGDynamicdatalistsConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
 </definition>

@@ -23,7 +23,7 @@
 		<execute function="#assertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
 
 		<if>
-			<condition function="#isElementPresent" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
+			<condition function="IsElementPresent#isVisible" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			<then>
 				<execute function="#click" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			</then>
@@ -49,7 +49,7 @@
 		<execute function="#assertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
 
 		<if>
-			<condition function="#isElementPresent" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
+			<condition function="IsElementPresent#isVisible" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			<then>
 				<execute function="#click" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			</then>
@@ -74,7 +74,7 @@
 		<execute function="#assertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
 
 		<if>
-			<condition function="#isElementPresent" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
+			<condition function="IsElementPresent#isVisible" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			<then>
 				<execute function="#click" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			</then>
@@ -105,7 +105,7 @@
 		<execute function="#assertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
 
 		<if>
-			<condition function="#isElementPresent" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
+			<condition function="IsElementPresent#isVisible" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			<then>
 				<execute function="#click" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			</then>

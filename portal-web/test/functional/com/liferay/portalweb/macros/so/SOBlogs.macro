@@ -89,7 +89,7 @@
 		<var name="key_entryTitle" value="${entryTitle}" />
 
 		<execute function="#assertTextEquals" locator1="SOBlogs#RECENT_BLOGS_ENTRY_ABSTRACT" value1="${entryAbstractDescription}" />
-		<execute function="#assertTextEquals" locator1="SOBlogs#RECENT_BLOGS_ENTRY_READ_MORE_LINK" value1="Read More" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="SOBlogs#RECENT_BLOGS_ENTRY_READ_MORE_LINK" value1="Read More" />
 	</command>
 
 	<command name="viewBlogsEntryAuthorImageViaRecentBlogs">
@@ -109,7 +109,7 @@
 	<command name="viewBlogsEntryQuoteViaRecentBlogs">
 		<var name="key_entryQuote" value="${entryQuote}" />
 
-		<execute function="#assertTextEquals" locator1="SOBlogs#RECENT_BLOGS_ENTRY_QUOTE" value1="${entryQuote}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="SOBlogs#RECENT_BLOGS_ENTRY_QUOTE" value1="${entryQuote}" />
 	</command>
 
 	<command name="viewBlogsEntryRecentBlogs">
@@ -125,23 +125,23 @@
 				</and>
 			</not>
 			<then>
-				<execute function="#assertTextEquals" locator1="SOBlogs#RECENT_BLOGS_ENTRY_AUTHOR" value1="By Test Test" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="SOBlogs#RECENT_BLOGS_ENTRY_AUTHOR" value1="By Test Test" />
 			</then>
 			<else>
 				<if>
 					<isset var="entryAuthorMiddleName" />
 					<then>
-						<execute function="#assertTextEquals" locator1="SOBlogs#RECENT_BLOGS_ENTRY_AUTHOR" value1="By ${entryAuthorFirstName} ${entryAuthorMiddleName} ${entryAuthorLastName}" />
+						<execute function="AssertTextEquals#assertPartialText" locator1="SOBlogs#RECENT_BLOGS_ENTRY_AUTHOR" value1="By ${entryAuthorFirstName} ${entryAuthorMiddleName} ${entryAuthorLastName}" />
 					</then>
 					<else>
-						<execute function="#assertTextEquals" locator1="SOBlogs#RECENT_BLOGS_ENTRY_AUTHOR" value1="By ${entryAuthorFirstName} ${entryAuthorLastName}" />
+						<execute function="AssertTextEquals#assertPartialText" locator1="SOBlogs#RECENT_BLOGS_ENTRY_AUTHOR" value1="By ${entryAuthorFirstName} ${entryAuthorLastName}" />
 					</else>
 				</if>
 			</else>
 		</if>
 
 		<execute function="#assertElementPresent" locator1="SOBlogs#RECENT_BLOGS_ENTRY_DATE" />
-		<execute function="#assertClick" locator1="SOBlogs#RECENT_BLOGS_ENTRY_READ_MORE_LINK" value1="Read More" />
+		<execute function="AssertClick#assertPartialTextClickAt" locator1="SOBlogs#RECENT_BLOGS_ENTRY_READ_MORE_LINK" value1="Read More" />
 
 		<execute function="#assertTextEquals" locator1="PGBlogsEntry#ENTRY_TITLE" value1="${entryTitle}" />
 		<execute function="#assertTextEquals" locator1="PGBlogsEntry#ENTRY_CONTENT" value1="${entryContent}" />
@@ -207,16 +207,16 @@
 				</and>
 			</not>
 			<then>
-				<execute function="#assertTextEquals" locator1="SOBlogs#RECENT_BLOGS_ENTRY_AUTHOR" value1="By Test Test" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="SOBlogs#RECENT_BLOGS_ENTRY_AUTHOR" value1="By Test Test" />
 			</then>
 			<else>
 				<if>
 					<isset var="entryAuthorMiddleName" />
 					<then>
-						<execute function="#assertTextEquals" locator1="SOBlogs#RECENT_BLOGS_ENTRY_AUTHOR" value1="By ${entryAuthorFirstName} ${entryAuthorMiddleName} ${entryAuthorLastName}" />
+						<execute function="AssertTextEquals#assertPartialText" locator1="SOBlogs#RECENT_BLOGS_ENTRY_AUTHOR" value1="By ${entryAuthorFirstName} ${entryAuthorMiddleName} ${entryAuthorLastName}" />
 					</then>
 					<else>
-						<execute function="#assertTextEquals" locator1="SOBlogs#RECENT_BLOGS_ENTRY_AUTHOR" value1="By ${entryAuthorFirstName} ${entryAuthorLastName}" />
+						<execute function="AssertTextEquals#assertPartialText" locator1="SOBlogs#RECENT_BLOGS_ENTRY_AUTHOR" value1="By ${entryAuthorFirstName} ${entryAuthorLastName}" />
 					</else>
 				</if>
 			</else>

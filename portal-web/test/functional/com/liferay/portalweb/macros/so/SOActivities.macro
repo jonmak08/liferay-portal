@@ -495,8 +495,8 @@
 				<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_COMMENT_DELETE" value1="Delete" />
 			</then>
 			<else>
-				<execute function="#assertElementNotPresent" locator1="SOActivities#ACTIVITIES_COMMENT_EDIT" />
-				<execute function="#assertElementNotPresent" locator1="SOActivities#ACTIVITIES_COMMENT_DELETE" />
+				<execute function="AssertElementNotPresent#assertNotVisible" locator1="SOActivities#ACTIVITIES_COMMENT_EDIT" />
+				<execute function="AssertElementNotPresent#assertNotVisible" locator1="SOActivities#ACTIVITIES_COMMENT_DELETE" />
 			</else>
 		</if>
 
@@ -582,7 +582,7 @@
 		<execute function="#assertElementPresent" locator1="SOActivities#ACTIVITIES_TIME_STAMP" />
 		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_ACTION" value1="${action}" />
 		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_TITLE" value1="${entryTitle}" />
-		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_CONTENT" value1="${entryContent}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="SOActivities#ACTIVITIES_CONTENT" value1="${entryContent}" />
 
 		<if>
 			<isset var="commentCount" />
@@ -632,7 +632,7 @@
 		<execute function="#assertElementPresent" locator1="SOActivities#ACTIVITIES_TIME_STAMP" />
 		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_ACTION" value1="${action}" />
 		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_TITLE" value1="${bookmarksEntryName}" />
-		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_CONTENT" value1="${bookmarksEntryDescription}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="SOActivities#ACTIVITIES_CONTENT" value1="${bookmarksEntryDescription}" />
 
 		<if>
 			<isset var="commentCount" />
@@ -791,7 +791,7 @@
 		<execute function="#assertElementPresent" locator1="SOActivities#ACTIVITIES_TIME_STAMP" />
 		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_ACTION" value1="${action}" />
 		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_TITLE" value1="${threadSubject}" />
-		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_CONTENT" value1="${threadBody}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="SOActivities#ACTIVITIES_CONTENT" value1="${threadBody}" />
 		<execute function="#assertElementNotPresent" locator1="SOActivities#ACTIVITIES_COMMENT" />
 	</command>
 
@@ -1127,7 +1127,7 @@
 		<execute function="#assertTextEquals" locator1="SOMicroblogs#TAB_TAG_VALUE" value1="${microblogsEntryTagValue}" />
 		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
 		<execute function="#assertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT_TAG" value1="${microblogsEntryTagValue}" />
-		<execute function="#assertClick" locator1="SOMicroblogs#TAB_TAG_VALUE" value1="${microblogsEntryTagValue}" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="SOMicroblogs#TAB_TAG_VALUE" value1="${microblogsEntryTagValue}" />
 
 		<execute macro="SOMicroblogs#viewMicroblogsEntryAuthor" />
 
@@ -1237,7 +1237,7 @@
 			</else>
 		</if>
 
-		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_CONTENT" value1="${microblogsEntryContent}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="SOActivities#ACTIVITIES_CONTENT" value1="${microblogsEntryContent}" />
 		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
 
 		<if>
@@ -1320,7 +1320,7 @@
 			</else>
 		</if>
 
-		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_CONTENT" value1="${microblogsEntryContent}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="SOActivities#ACTIVITIES_CONTENT" value1="${microblogsEntryContent}" />
 		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
 
 		<if>
@@ -1534,21 +1534,21 @@
 		<execute function="#assertElementPresent" locator1="SOActivities#ACTIVITIES_TIME_STAMP" />
 		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_ACTION" value1="${action}" />
 		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_TITLE" value1="${taskDescription}" />
-		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_CONTENT" value1="Assigned to: ${taskAssignee}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="SOActivities#ACTIVITIES_CONTENT" value1="Assigned to: ${taskAssignee}" />
 
 		<if>
 			<equals arg1="${dueDate}" arg2="true" />
 			<then>
-				<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_CONTENT" value1="Due Date: 3/16/16" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="SOActivities#ACTIVITIES_CONTENT" value1="Due Date: 3/16/16" />
 			</then>
 			<elseif>
 				<equals arg1="${dueDateEdit}" arg2="true" />
 				<then>
-					<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_CONTENT" value1="Due Date: 4/17/17" />
+					<execute function="AssertTextEquals#assertPartialText" locator1="SOActivities#ACTIVITIES_CONTENT" value1="Due Date: 4/17/17" />
 				</then>
 			</elseif>
 			<else>
-				<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_CONTENT" value1="Due Date: None" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="SOActivities#ACTIVITIES_CONTENT" value1="Due Date: None" />
 			</else>
 		</if>
 
@@ -1600,7 +1600,7 @@
 		<execute function="#assertElementPresent" locator1="SOActivities#ACTIVITIES_TIME_STAMP" />
 		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_ACTION" value1="${action}" />
 		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_TITLE" value1="${wikiPageTitle}" />
-		<execute function="#assertTextEquals" locator1="SOActivities#ACTIVITIES_CONTENT" value1="${wikiPageContent}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="SOActivities#ACTIVITIES_CONTENT" value1="${wikiPageContent}" />
 
 		<if>
 			<not>

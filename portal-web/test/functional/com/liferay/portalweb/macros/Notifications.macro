@@ -10,7 +10,7 @@
 	<command name="navigateToContent">
 		<var name="key_contentBody" value="${contentBody}" />
 
-		<execute function="#assertClick" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT" value1="${contentBody}" />
+		<execute function="Click#partialTextClickAtAndWait" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT" value1="${contentBody}" />
 	</command>
 
 	<command name="navigateToViewAllNotifications">
@@ -20,7 +20,7 @@
 				<execute function="#assertClick" locator1="PGNotificationsdockbar#NOTIFICATIONS_VIEW_ALL_NOTIFICATIONS" value1="Notifications (${notificationCount})" />
 			</then>
 			<else>
-				<execute function="#click" locator1="PGNotificationsdockbar#NOTIFICATIONS_VIEW_ALL_NOTIFICATIONS" />
+				<execute function="Click#clickAtAndWait" locator1="PGNotificationsdockbar#NOTIFICATIONS_VIEW_ALL_NOTIFICATIONS" />
 			</else>
 		</if>
 	</command>
@@ -54,7 +54,7 @@
 		<var name="assetType" value="${assetType?lowercase()}" />
 		<var name="key_contentBody" value="${contentBody}" />
 
-		<execute function="#assertTextEquals" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_TITLE" value1="${user} added a new ${assetType} to ${content}." />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_TITLE" value1="${user} added a new ${assetType} to ${content}." />
 		<execute function="#assertTextEquals" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_BODY" value1="${contentBody}" />
 	</command>
 
@@ -62,7 +62,7 @@
 		<var name="assetType" value="${assetType?lowercase()}" />
 		<var name="key_contentBody" value="${contentBody}" />
 
-		<execute function="#assertTextEquals" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_TITLE" value1="${user} added a new ${assetType}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_TITLE" value1="${user} added a new ${assetType}" />
 		<execute function="#assertTextEquals" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_BODY" value1="${contentBody}" />
 	</command>
 
@@ -75,7 +75,7 @@
 		<var name="assetType" value="${assetType?lowercase()}" />
 		<var name="key_contentBody" value="${contentBody}" />
 
-		<execute function="#assertTextEquals" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_TITLE" value1="${user} updated a ${assetType} to ${content}." />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_TITLE" value1="${user} updated a ${assetType} to ${content}." />
 		<execute function="#assertTextEquals" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_BODY" value1="${contentBody}" />
 	</command>
 
@@ -83,7 +83,7 @@
 		<var name="assetType" value="${assetType?lowercase()}" />
 		<var name="key_contentBody" value="${contentBody}" />
 
-		<execute function="#assertTextEquals" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_TITLE" value1="${user} updated a ${assetType}." />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_TITLE" value1="${user} updated a ${assetType}." />
 		<execute function="#assertTextEquals" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_BODY" value1="${contentBody}" />
 	</command>
 </definition>

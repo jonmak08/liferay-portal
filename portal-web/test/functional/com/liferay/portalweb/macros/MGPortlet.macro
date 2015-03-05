@@ -1,15 +1,15 @@
 <definition>
 	<command name="configureShowAllPG">
 		<execute function="#assertElementPresent" locator1="PGMediagallery#OPTIONS" />
-		<execute function="#assertClick" locator1="PGMediagallery#OPTIONS" value1="Options" />
-		<execute function="#assertClick" locator1="PGMediagallery#OPTIONS_MENULIST_CONFIGURATION" value1="Configuration" />
+		<execute function="AssertClick#pauseAssertTextClickAt" locator1="PGMediagallery#OPTIONS" value1="Options" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGMediagallery#OPTIONS_MENULIST_CONFIGURATION" value1="Configuration" />
 
 		<execute function="#selectFrame" locator1="PGMediagalleryConfiguration#MG_CONFIGURATION_IFRAME" />
 		<execute function="#check" locator1="PGMediagalleryConfiguration#DISPLAY_SETTINGS_SHOW_ACTIONS_CHECKBOX" />
 		<execute function="#check" locator1="PGMediagalleryConfiguration#DISPLAY_SETTINGS_SHOW_FOLDER_MENU_CHECKBOX" />
 		<execute function="#check" locator1="PGMediagalleryConfiguration#DISPLAY_SETTINGS_SHOW_NAVIGATION_LINKS_CHECKBOX" />
 		<execute function="#check" locator1="PGMediagalleryConfiguration#DISPLAY_SETTINGS_SHOW_SEARCH_CHECKBOX" />
-		<execute function="#assertClick" locator1="PGMediagalleryConfiguration#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGMediagalleryConfiguration#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="PGMediagalleryConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
 

@@ -11,16 +11,16 @@
 		<var name="key_folderName" value="${folderName}" />
 
 		<execute function="#assertTextEquals" locator1="CPBookmarks#FOLDERS_TABLE_FOLDER_NAME" value1="${folderName}" />
-		<execute function="#assertTextEquals" locator1="CPBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescription}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="CPBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescription}" />
 	</command>
 
 	<command name="addNullCP">
 		<execute function="#assertClick" locator1="CPBookmarks#FOLDER_MENU_ADD_FOLDER" value1="Add Folder" />
 
 		<execute function="#assertClick" locator1="CPBookmarksAddfolder#SAVE_BUTTON" value1="Save" />
-		<execute function="#assertTextEquals" locator1="CPBookmarksAddfolder#NAME_FIELD_REQUIRED" value1="Name" />
-		<execute function="#assertTextEquals" locator1="CPBookmarksAddfolder#NAME_FIELD_REQUIRED" value1="(Required)" />
-		<execute function="#assertTextEquals" locator1="CPBookmarksAddfolder#NAME_FIELD_REQUIRED" value1="This field is required." />
+		<execute function="AssertTextEquals#assertPartialText" locator1="CPBookmarksAddfolder#NAME_FIELD_REQUIRED" value1="Name" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="CPBookmarksAddfolder#NAME_FIELD_REQUIRED" value1="(Required)" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="CPBookmarksAddfolder#NAME_FIELD_REQUIRED" value1="This field is required." />
 	</command>
 
 	<command name="addNullSubfolderCP">
@@ -50,7 +50,7 @@
 		<var name="key_folderName" value="${folderName}" />
 
 		<execute function="#assertTextEquals" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_NAME" value1="${folderName}" />
-		<execute function="#assertTextEquals" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescription}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescription}" />
 	</command>
 
 	<command name="addSubfolderCP">
@@ -72,7 +72,7 @@
 		<var name="key_folderName" value="${subfolderName}" />
 
 		<execute function="#assertTextEquals" locator1="CPBookmarksFolder#FOLDERS_TABLE_FOLDER_NAME" value1="${subfolderName}" />
-		<execute function="#assertTextEquals" locator1="CPBookmarksFolder#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${subfolderDescription}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="CPBookmarksFolder#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${subfolderDescription}" />
 
 		<var name="key_folderName" value="${folderName}" />
 
@@ -86,7 +86,7 @@
 		<execute function="#assertElementPresent" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_ACTIONS_BUTTON" value1="Actions" />
 		<execute function="#assertClick" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_ACTIONS_BUTTON" value1="Actions" />
 		<execute function="#assertClick" locator1="PGBookmarks#FOLDER_ACTION_MENULIST_MOVE_TO_THE_RECYCLE_BIN" value1="Move to the Recycle Bin" />
-		<execute function="#assertTextEquals" locator1="PGBookmarks#SUCCESS_MESSAGE_RECYCLE_BIN" value1="moved to the Recycle Bin. Undo" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGBookmarks#SUCCESS_MESSAGE_RECYCLE_BIN" value1="moved to the Recycle Bin. Undo" />
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Recycle Bin" />
@@ -107,14 +107,14 @@
 
 		<execute function="#assertTextEquals" locator1="CPBookmarks#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="#assertTextEquals" locator1="CPBookmarks#FOLDERS_TABLE_FOLDER_NAME" value1="${folderName}" />
-		<execute function="#assertTextEquals" locator1="CPBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescription}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="CPBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescription}" />
 	</command>
 
 	<command name="editPG">
 		<var name="key_folderName" value="${folderName}" />
 
 		<execute function="#assertTextEquals" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_NAME" value1="${folderName}" />
-		<execute function="#assertTextEquals" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescription}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescription}" />
 		<execute function="#assertClick" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_ACTIONS_BUTTON" value1="Actions" />
 		<execute function="#assertClick" locator1="PGBookmarks#FOLDER_ACTION_MENULIST_EDIT" value1="Edit" />
 
@@ -127,7 +127,7 @@
 		<var name="key_folderName" value="${folderNameEdit}" />
 
 		<execute function="#assertTextEquals" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_NAME" value1="${folderNameEdit}" />
-		<execute function="#assertTextEquals" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescriptionEdit}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescriptionEdit}" />
 	</command>
 
 	<command name="editSubfolderCP">
@@ -147,7 +147,7 @@
 
 		<execute function="#assertTextEquals" locator1="CPBookmarks#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="#assertTextEquals" locator1="CPBookmarks#FOLDERS_TABLE_FOLDER_NAME" value1="${editSubfolderName}" />
-		<execute function="#assertTextEquals" locator1="CPBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${editSubfolderDescription}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="CPBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${editSubfolderDescription}" />
 	</command>
 
 	<command name="gotoPG">
@@ -189,14 +189,14 @@
 		<execute function="#assertElementPresent" locator1="CPBookmarks#FOLDERS_TABLE_FOLDER_ACTIONS_BUTTON" value1="Actions" />
 		<execute function="#assertClick" locator1="CPBookmarks#FOLDERS_TABLE_FOLDER_ACTIONS_BUTTON" value1="Actions" />
 		<execute function="#assertClick" locator1="CPBookmarks#FOLDER_ACTION_MENULIST_MOVE_TO_THE_RECYCLE_BIN" value1="Move to the Recycle Bin" />
-		<execute function="#assertTextEquals" locator1="CPBookmarks#SUCCESS_MESSAGE_RECYCLE_BIN" value1="moved to the Recycle Bin. Undo" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="CPBookmarks#SUCCESS_MESSAGE_RECYCLE_BIN" value1="moved to the Recycle Bin. Undo" />
 	</command>
 
 	<command name="subscribePG">
 		<var name="key_folderName" value="${folderName}" />
 
 		<execute function="#assertTextEquals" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_NAME" value1="${folderName}" />
-		<execute function="#assertTextEquals" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescription}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescription}" />
 		<execute function="#click" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_ACTIONS_BUTTON" />
 		<execute function="#assertClick" locator1="PGBookmarks#FOLDER_ACTION_MENULIST_SUBSCRIBE" value1="Subscribe" />
 		<execute function="#assertTextEquals" locator1="PGBookmarks#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -212,7 +212,7 @@
 			<then>
 				<execute function="#assertClick" locator1="CPBookmarks#FOLDERS_TABLE_FOLDER_ACTIONS_BUTTON_GENERIC" value1="Actions" />
 				<execute function="#assertClick" locator1="CPBookmarks#FOLDER_ACTION_MENULIST_MOVE_TO_THE_RECYCLE_BIN" value1="Move to the Recycle Bin" />
-				<execute function="#assertTextEquals" locator1="CPBookmarks#SUCCESS_MESSAGE_RECYCLE_BIN" value1="moved to the Recycle Bin. Undo" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="CPBookmarks#SUCCESS_MESSAGE_RECYCLE_BIN" value1="moved to the Recycle Bin. Undo" />
 			</then>
 		</while>
 
@@ -227,13 +227,13 @@
 		<var name="key_folderName" value="${folderName}" />
 
 		<execute function="#assertTextEquals" locator1="CPBookmarks#FOLDERS_TABLE_FOLDER_NAME" value1="${folderName}" />
-		<execute function="#assertTextEquals" locator1="CPBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescription}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="CPBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescription}" />
 	</command>
 
 	<command name="viewPG">
 		<var name="key_folderName" value="${folderName}" />
 
 		<execute function="#assertTextEquals" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_NAME" value1="${folderName}" />
-		<execute function="#assertTextEquals" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescription}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGBookmarks#FOLDERS_TABLE_FOLDER_DESCRIPTION" value1="${folderDescription}" />
 	</command>
 </definition>

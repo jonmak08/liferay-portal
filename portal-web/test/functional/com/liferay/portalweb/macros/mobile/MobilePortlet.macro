@@ -35,7 +35,7 @@
 	<command name="addPGCmd">
 		<description message="Add a ${portletName} portlet." />
 
-		<execute function="#click" locator1="Mobiledockbar#PENCIL_ICON" />
+		<execute function="Click#clickAtClickDockbar" locator1="Mobiledockbar#PENCIL_ICON" />
 		<execute function="#click" locator1="Mobiledockbar#ADD" value1="Add" />
 		<execute function="#assertClick" locator1="Mobiledockbar#ADD_APPLICATION_LINK" value1="Applications" />
 		<execute function="#type" locator1="Mobiledockbar#ADD_APPLICATION_SEARCH_FIELD" value1="${portletName}" />

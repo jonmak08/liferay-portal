@@ -126,8 +126,8 @@
 		<execute function="#assertElementNotPresent" locator1="SOUserBar#USER_BAR" />
 		<execute function="#assertTextNotPresent" value1="Dashboard" />
 
-		<execute function="#assertClick" locator1="Dockbar#USER_NAME" value1="${userName}" />
-		<execute function="#assertClick" locator1="Dockbar#USER_MY_DASHBOARD" value1="My Dashboard" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="Dockbar#USER_NAME" value1="${userName}" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="Dockbar#USER_MY_DASHBOARD" value1="My Dashboard" />
 
 		<execute function="#assertElementNotPresent" locator1="SODashboard#NAVIGATION_DASHBOARD" />
 		<execute function="#assertElementNotPresent" locator1="SODashboard#NAVIGATION_CONTACTS_CENTER" />
@@ -136,7 +136,7 @@
 		<execute function="#assertElementNotPresent" locator1="SODashboard#NAVIGATION_MY_DOCUMENTS" />
 		<execute function="#assertElementNotPresent" locator1="SODashboard#NAVIGATION_TASKS" />
 
-		<execute function="#assertClick" locator1="Dockbar#USER_NAME" value1="${userName}" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="Dockbar#USER_NAME" value1="${userName}" />
 		<execute function="#assertClick" locator1="Dockbar#USER_MY_PROFILE" value1="My Profile" />
 
 		<execute function="#assertElementNotPresent" locator1="SOProfile#USER_NAME" />
@@ -168,7 +168,7 @@
 		<execute function="#assertTextEquals" locator1="SOUserBar#TASKS" value1="Tasks" />
 		<execute function="#click" locator1="SOUserBar#USER_BAR" />
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
 		<execute function="#assertElementPresent" locator1="SOUserBar#GO_TO_SEARCH_FIELD" />
 		<execute function="#assertElementPresent" locator1="SOUserBar#GO_TO_SITE_LIST" />
 		<execute function="#select" locator1="SOUserBar#GO_TO_SITE_CATEGORY_SELECT" value1="All Sites" />
@@ -199,12 +199,12 @@
 		<execute function="#assertTextEquals" locator1="SOUserBar#TASKS" value1="Tasks" />
 		<execute function="#click" locator1="SOUserBar#USER_BAR" />
 		<execute function="#selectFrameTop" />
-		<execute function="#click" locator1="SOUserBar#GO_TO" />
+		<execute function="Click#pauseClickAt" locator1="SOUserBar#GO_TO" />
 		<execute function="#assertElementPresent" locator1="SOUserBar#GO_TO_SEARCH_FIELD" />
 		<execute function="#assertElementPresent" locator1="SOUserBar#GO_TO_SITE_CATEGORY_SELECT" />
 		<execute function="#assertElementPresent" locator1="SOUserBar#GO_TO_SITE_LIST" />
 
-		<execute function="#assertClick" locator1="Dockbar#USER_NAME" value1="${userName}" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="Dockbar#USER_NAME" value1="${userName}" />
 		<execute function="#assertClick" locator1="Dockbar#USER_MY_PROFILE" value1="My Profile" />
 
 		<execute function="#assertTextEquals" locator1="SOProfile#USER_NAME" value1="${userName}" />

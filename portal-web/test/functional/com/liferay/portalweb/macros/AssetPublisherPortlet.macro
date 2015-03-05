@@ -21,7 +21,7 @@
 
 				<var name="key_siteName" value="${otherSiteName}" />
 
-				<execute function="#assertClick" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON" value1="Choose" />
+				<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON" value1="Choose" />
 
 				<execute function="#selectFrame" />
 				<execute function="#selectFrame" locator1="PGAssetpublisherConfiguration#ASSET_PUBLISHER_IFRAME" />
@@ -39,7 +39,7 @@
 
 				<var name="key_siteName" value="${siteName}" />
 
-				<execute function="#assertClick" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON" value1="Choose" />
+				<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON" value1="Choose" />
 
 				<execute function="#selectFrame" />
 				<execute function="#selectFrame" locator1="PGAssetpublisherConfiguration#ASSET_PUBLISHER_IFRAME" />
@@ -185,7 +185,7 @@
 		<if>
 			<isset var="fieldValue" />
 			<then>
-				<execute function="#assertTextEquals" locator1="PGAssetpublisherConfiguration#SOURCE_SCOPE_FIELD_FILTER_AND_VALUE" value1="${fieldFilter}: ${fieldValue}" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="PGAssetpublisherConfiguration#SOURCE_SCOPE_FIELD_FILTER_AND_VALUE" value1="${fieldFilter}: ${fieldValue}" />
 			</then>
 		</if>
 
@@ -273,13 +273,13 @@
 		<execute macro="AssetPublisherPortlet#goToConfigurationPG" />
 
 		<execute function="#assertClick" locator1="PGAssetpublisherConfiguration#SOURCE_SCOPE_SELECT" value1="Select" />
-		<execute function="#assertClick" locator1="PGAssetpublisherConfiguration#SOURCE_SCOPE_MENULIST_OTHER_SITE" value1="Other Site..." />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGAssetpublisherConfiguration#SOURCE_SCOPE_MENULIST_OTHER_SITE" value1="Other Site..." />
 
 		<execute function="#selectFrame" value1="relative=top" />
 		<execute function="#selectFrame" locator1="PGAssetpublisherConfigurationSites#SITES_IFRAME" />
 		<execute function="#assertTextEquals" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_NAME" value1="${siteName}" />
 		<execute function="#assertTextEquals" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_TYPE" value1="${siteScopeType}" />
-		<execute function="#assertClick" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON" value1="Choose" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON" value1="Choose" />
 		<execute function="#selectFrame" value1="relative=top" />
 
 		<execute function="#selectFrame" locator1="PGAssetpublisherConfiguration#ASSET_PUBLISHER_IFRAME" />
@@ -334,7 +334,7 @@
 		<var name="key_assetDescription" value="${assetDescription}" />
 
 		<execute function="#mouseOver" locator1="PGAssetpublisher#YOUR_RATING" />
-		<execute function="#click" locator1="PGAssetpublisher#YOUR_RATING_STAR_EMPTY_4" />
+		<execute function="Click#clickNoMouseOver" locator1="PGAssetpublisher#YOUR_RATING_STAR_EMPTY_4" />
 	</command>
 
 	<command name="restoreArchivedSetupPG">
@@ -387,8 +387,8 @@
 				<var name="key_categoryName" value="${categoryName}" />
 				<var name="key_vocabularyName" value="${vocabularyName}" />
 
-				<execute function="#assertTextEquals" locator1="PGAssetpublisher#METADATA_VOCABULARY" value1="${vocabularyName}" />
-				<execute function="#assertTextEquals" locator1="PGAssetpublisher#METADATA_CATEGORY" value1="${categoryName}" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="PGAssetpublisher#METADATA_VOCABULARY" value1="${vocabularyName}" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="PGAssetpublisher#METADATA_CATEGORY" value1="${categoryName}" />
 			</then>
 		</if>
 	</command>
@@ -466,7 +466,7 @@
 		<execute macro="AssetPublisherPortlet#goToConfigurationPG" />
 
 		<execute function="#assertClick" locator1="PGAssetpublisherConfiguration#SOURCE_SCOPE_SELECT" value1="Select" />
-		<execute function="#assertClick" locator1="PGAssetpublisherConfiguration#SOURCE_SCOPE_MENULIST_OTHER_SITE" value1="Other Site..." />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGAssetpublisherConfiguration#SOURCE_SCOPE_MENULIST_OTHER_SITE" value1="Other Site..." />
 
 		<execute function="#selectFrame" value1="relative=top" />
 		<execute function="#selectFrame" locator1="PGAssetpublisherConfigurationSites#SITES_IFRAME" />
@@ -478,7 +478,7 @@
 
 				<execute function="#assertTextEquals" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_NAME" value1="${globalSiteName}" />
 				<execute function="#assertTextEquals" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_TYPE" value1="${globalSiteType}" />
-				<execute function="#assertElementPresent" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON" />
+				<execute function="AssertElementPresent#assertVisible" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON" />
 
 				<var name="key_siteName" value="${liferaySiteName}" />
 
@@ -491,7 +491,7 @@
 						<execute function="#assertElementPresent" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON_DISABLED" />
 					</then>
 					<else>
-						<execute function="#assertElementPresent" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON" />
+						<execute function="AssertElementPresent#assertVisible" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON" />
 					</else>
 				</if>
 			</then>
@@ -538,7 +538,7 @@
 		<var name="key_assetTitle" value="${assetTitle}" />
 
 		<execute function="#assertTextEquals" locator1="PGAssetpublisher#ASSET_ABSTRACT_TITLE" value1="${assetTitle}" />
-		<execute function="#assertTextEquals" locator1="PGAssetpublisher#ASSET_ABSTRACT_DESCRIPTION" value1="${assetDescription}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGAssetpublisher#ASSET_ABSTRACT_DESCRIPTION" value1="${assetDescription}" />
 		<execute function="#assertElementPresent" locator1="PGAssetpublisher#ASSET_ABSTRACT_READ_MORE" />
 		<execute function="#assertElementPresent" locator1="PGAssetpublisher#DISPLAY_ICON_PRINT" />
 		<execute function="#assertElementPresent" locator1="PGAssetpublisher#DISPLAY_ICON_FLAG" />
@@ -576,7 +576,7 @@
 
 		<execute function="#assertTextEquals" locator1="PGAssetpublisher#ASSET_ABSTRACT_TITLE" value1="${assetTitle}" />
 		<execute function="#assertElementPresent" locator1="PGAssetpublisher#ASSET_ABSTRACT_EDIT" />
-		<execute function="#assertTextEquals" locator1="PGAssetpublisher#ASSET_ABSTRACT_DESCRIPTION" value1="${assetDescription}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGAssetpublisher#ASSET_ABSTRACT_DESCRIPTION" value1="${assetDescription}" />
 		<execute function="#assertElementPresent" locator1="PGAssetpublisher#ASSET_ABSTRACT_READ_MORE" />
 	</command>
 
@@ -597,7 +597,7 @@
 		<if>
 			<equals arg1="${noneIndexable}" arg2="true" />
 			<then>
-				<execute function="#assertElementNotPresent" locator1="PGAssetpublisherConfiguration#SOURCE_SCOPE_FILTER_BY_FIELD_CHECKBOX" />
+				<execute function="AssertElementNotPresent#assertNotVisible" locator1="PGAssetpublisherConfiguration#SOURCE_SCOPE_FILTER_BY_FIELD_CHECKBOX" />
 				<execute function="#assertElementNotPresent" locator1="PGAssetpublisherConfiguration#SOURCE_SCOPE_FILTER_BY_FIELD_SELECT_BUTTON" value1="Select" />
 			</then>
 			<else>
@@ -610,7 +610,7 @@
 				<for list="${assetSubtypeFields}" param="assetSubtypeField">
 					<var name="key_fieldName" value="${assetSubtypeField}" />
 
-					<execute function="#assertTextEquals" locator1="PGAssetpublisherConfigurationFilterbyfield#FIELD_FILTER_FIELD_NAME" value1="${assetSubtypeField}" />
+					<execute function="AssertTextEquals#assertPartialText" locator1="PGAssetpublisherConfigurationFilterbyfield#FIELD_FILTER_FIELD_NAME" value1="${assetSubtypeField}" />
 				</for>
 			</else>
 		</if>

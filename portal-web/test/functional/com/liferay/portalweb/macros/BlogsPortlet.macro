@@ -78,8 +78,8 @@
 
 		<var name="key_scopeSelection" value="${scopeSelection}" />
 
-		<execute function="#click" locator1="PGBlogsConfigurationScope#SCOPE_MENULIST" />
-		<execute function="#assertClick" locator1="PGBlogsConfigurationScope#SCOPE_MENULIST_SELECTION" value1="${scopeSelection}" />
+		<execute function="Click#pauseClickAt" locator1="PGBlogsConfigurationScope#SCOPE_MENULIST" />
+		<execute function="AssertClick#assertPartialTextClickAt" locator1="PGBlogsConfigurationScope#SCOPE_MENULIST_SELECTION" value1="${scopeSelection}" />
 
 		<execute function="#assertTextEquals" locator1="PGBlogsConfigurationScope#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 		<execute function="#assertTextEquals" locator1="PGBlogsConfigurationScope#SCOPE_MENULIST" value1="${scopeSelection}" />

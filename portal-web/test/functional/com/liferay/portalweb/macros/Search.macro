@@ -10,7 +10,7 @@
 				<execute function="#keyPress" locator1="PGSearch#SEARCH_FIELD" value1="\RETURN" />
 			</then>
 			<else>
-				<execute function="#click" locator1="PGSearch#SEARCH_ICON" />
+				<execute function="Click#clickAtAndWait" locator1="PGSearch#SEARCH_ICON" />
 			</else>
 		</if>
 
@@ -53,7 +53,7 @@
 				<execute function="#keyPress" locator1="PGSearch#SEARCH_FIELD" value1="\RETURN" />
 			</then>
 			<else>
-				<execute function="#click" locator1="PGSearch#SEARCH_ICON" />
+				<execute function="Click#clickAtAndWait" locator1="PGSearch#SEARCH_ICON" />
 			</else>
 		</if>
 
@@ -63,7 +63,7 @@
 				<var name="key_searchAssetTitle" value="${searchAssetTitle}" />
 
 				<execute function="#assertTextEquals" locator1="PGSearchResults#ASSET_ENTRY_TABLE_TITLE" value1="${searchAssetTitle}" />
-				<execute function="#assertTextEquals" locator1="PGSearchResults#ASSET_ENTRY_TABLE_TYPE" value1="${searchAssetType}" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="PGSearchResults#ASSET_ENTRY_TABLE_TYPE" value1="${searchAssetType}" />
 			</then>
 		</if>
 
@@ -100,7 +100,7 @@
 		<var name="key_searchAssetTitle" value="${searchAssetTitle}" />
 
 		<execute function="#assertTextEquals" locator1="PGSearchResults#ASSET_ENTRY_TABLE_TITLE" value1="${searchAssetTitle}" />
-		<execute function="#assertTextEquals" locator1="PGSearchResults#ASSET_ENTRY_TABLE_TYPE" value1="${searchAssetType}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGSearchResults#ASSET_ENTRY_TABLE_TYPE" value1="${searchAssetType}" />
 
 		<if>
 			<isset var="searchAssetSummary" />

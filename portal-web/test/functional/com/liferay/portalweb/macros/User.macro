@@ -8,7 +8,7 @@
 		<execute function="#click" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED" />
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#ADVANCED_SEARCH_FIRST_NAME_FIELD" value1="${userFirstName}" />
 		<execute function="#select" locator1="CPUsersandorganizationsViewusers#ADVANCED_SEARCH_STATUS_SELECT" value1="Inactive" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_userScreenName" value="${userScreenName}" />
 
@@ -17,9 +17,9 @@
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 		<if>
-			<condition function="#isElementPresent" locator1="CPUsersandorganizationsViewusers#USER_TABLE_FIRST_NAME" />
+			<condition function="IsElementPresent#isElementPresentAfterWait" locator1="CPUsersandorganizationsViewusers#USER_TABLE_FIRST_NAME" />
 			<then>
-				<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+				<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 			</then>
 		</if>
 
@@ -229,7 +229,7 @@
 		<var name="key_userScreenName" value="${userScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 
@@ -237,7 +237,7 @@
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#PERSONAL_SITE_LABEL" value1="Personal site" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#PERSONAL_SITE_PRIVATE_PAGES_LABEL" value1="Private Pages" />
 		<execute function="#select" locator1="CPUsersandorganizationsUser#PERSONAL_SITE_PRIVATE_PAGES" value1="${siteTemplateName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -308,7 +308,7 @@
 		<execute function="#type" locator1="CPUsersandorganizationsAdduser#DETAILS_EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
 		<execute function="#type" locator1="CPUsersandorganizationsAdduser#DETAILS_FIRST_NAME_FIELD" value1="${userFirstName}" />
 		<execute function="#type" locator1="CPUsersandorganizationsAdduser#DETAILS_LAST_NAME_FIELD" value1="${userLastName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsAdduser#SAVE" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAdduser#SAVE" value1="Save" />
 
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsAdduser#ERROR_MESSAGE_1" value1="Your request failed to complete." />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsAdduser#ERROR_MESSAGE_2" value1="The email address you requested is reserved." />
@@ -322,7 +322,7 @@
 		<execute function="#type" locator1="CPUsersandorganizationsAdduser#DETAILS_EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
 		<execute function="#type" locator1="CPUsersandorganizationsAdduser#DETAILS_FIRST_NAME_FIELD" value1="${userFirstName}" />
 		<execute function="#type" locator1="CPUsersandorganizationsAdduser#DETAILS_LAST_NAME_FIELD" value1="${userLastName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsAdduser#SAVE" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAdduser#SAVE" value1="Save" />
 
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsAdduser#ERROR_MESSAGE_1" value1="Your request failed to complete." />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsAdduser#ERROR_MESSAGE_2" value1="The screen name you requested is reserved." />
@@ -336,7 +336,7 @@
 		<execute function="#type" locator1="CPUsersandorganizationsAdduser#DETAILS_EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
 		<execute function="#type" locator1="CPUsersandorganizationsAdduser#DETAILS_FIRST_NAME_FIELD" value1="${userFirstName}" />
 		<execute function="#type" locator1="CPUsersandorganizationsAdduser#DETAILS_LAST_NAME_FIELD" value1="${userLastName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsAdduser#SAVE" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAdduser#SAVE" value1="Save" />
 
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsAdduser#ERROR_MESSAGE_1" value1="Your request failed to complete." />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsAdduser#ERROR_MESSAGE_2" value1="Please enter a valid screen name." />
@@ -399,7 +399,7 @@
 			<equals arg1="${userAdvancedSearch}" arg2="First Name" />
 			<then>
 				<execute function="#type" locator1="CPUsersandorganizationsViewusers#ADVANCED_SEARCH_FIRST_NAME_FIELD" value1="${userFirstName}" />
-				<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+				<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 
 				<var name="key_userScreenName" value="${userScreenName}" />
 
@@ -415,14 +415,14 @@
 				</if>
 
 				<execute function="#type" locator1="CPUsersandorganizationsViewusers#ADVANCED_SEARCH_FIRST_NAME_FIELD" value1="${userFirstName}1" />
-				<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+				<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 				<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#INFO_MESSAGE" value1="No users were found." />
 			</then>
 			<elseif>
 				<equals arg1="${userAdvancedSearch}" arg2="Middle Name" />
 				<then>
 					<execute function="#type" locator1="CPUsersandorganizationsViewusers#ADVANCED_SEARCH_MIDDLE_NAME_FIELD" value1="${userMiddleName}" />
-					<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+					<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 
 					<var name="key_userScreenName" value="${userScreenName}" />
 
@@ -438,7 +438,7 @@
 					</if>
 
 					<execute function="#type" locator1="CPUsersandorganizationsViewusers#ADVANCED_SEARCH_MIDDLE_NAME_FIELD" value1="${userMiddleName}1" />
-					<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+					<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 					<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#INFO_MESSAGE" value1="No users were found." />
 				</then>
 			</elseif>
@@ -446,7 +446,7 @@
 				<equals arg1="${userAdvancedSearch}" arg2="Last Name" />
 				<then>
 					<execute function="#type" locator1="CPUsersandorganizationsViewusers#ADVANCED_SEARCH_LAST_NAME_FIELD" value1="${userLastName}" />
-					<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+					<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 
 					<var name="key_userScreenName" value="${userScreenName}" />
 
@@ -462,7 +462,7 @@
 					</if>
 
 					<execute function="#type" locator1="CPUsersandorganizationsViewusers#ADVANCED_SEARCH_LAST_NAME_FIELD" value1="${userLastName}1" />
-					<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+					<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 					<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#INFO_MESSAGE" value1="No users were found." />
 				</then>
 			</elseif>
@@ -470,7 +470,7 @@
 				<equals arg1="${userAdvancedSearch}" arg2="Screen Name" />
 				<then>
 					<execute function="#type" locator1="CPUsersandorganizationsViewusers#ADVANCED_SEARCH_SCREEN_NAME_FIELD" value1="${userScreenName}" />
-					<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+					<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 
 					<var name="key_userScreenName" value="${userScreenName}" />
 
@@ -486,7 +486,7 @@
 					</if>
 
 					<execute function="#type" locator1="CPUsersandorganizationsViewusers#ADVANCED_SEARCH_SCREEN_NAME_FIELD" value1="${userScreenName}1" />
-					<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+					<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 					<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#INFO_MESSAGE" value1="No users were found." />
 				</then>
 			</elseif>
@@ -494,7 +494,7 @@
 				<equals arg1="${userAdvancedSearch}" arg2="Email Address" />
 				<then>
 					<execute function="#type" locator1="CPUsersandorganizationsViewusers#ADVANCED_SEARCH_EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
-					<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+					<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 
 					<var name="key_userScreenName" value="${userScreenName}" />
 
@@ -510,7 +510,7 @@
 					</if>
 
 					<execute function="#type" locator1="CPUsersandorganizationsViewusers#ADVANCED_SEARCH_EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}1" />
-					<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+					<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 					<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#INFO_MESSAGE" value1="No users were found." />
 				</then>
 			</elseif>
@@ -749,7 +749,7 @@
 		<execute function="#assertClick" locator1="CPUsersandorganizations#SEARCH_ALL_USERS" value1="All Users" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_userScreenName" value="${userScreenName}" />
 
@@ -766,7 +766,7 @@
 		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#ROLES_REGULAR_SELECT_CHOOSE_BUTTON" value1="Choose" />
 		<execute function="#selectFrame" value1="relative=top" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#ROLES_REGULAR_ROLES_TABLE_TITLE" value1="${roleName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -774,7 +774,7 @@
 		<execute function="#assertClick" locator1="CPUsersandorganizations#SEARCH_ALL_USERS" value1="All Users" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_userScreenName" value="${userScreenName}" />
 
@@ -791,7 +791,7 @@
 		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#ROLES_SITE_ROLES_IFRAME_CHOOSE_BUTTON" value1="Choose" />
 		<execute function="#selectFrame" value1="relative=top" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#ROLES_SITE_ROLES_TABLE_TITLE" value1="${siteRoleName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -910,7 +910,7 @@
 		<execute function="#assertClick" locator1="CPUsersandorganizations#SEARCH_ALL_USERS" value1="All Users" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userFirstName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 
 		<if>
 			<equals arg1="${deactivateType}" arg2="Actions" />
@@ -954,7 +954,7 @@
 		<execute function="#click" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED" />
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#ADVANCED_SEARCH_FIRST_NAME_FIELD" value1="${userFirstName}" />
 		<execute function="#select" locator1="CPUsersandorganizationsViewusers#ADVANCED_SEARCH_STATUS_SELECT" value1="Inactive" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 
 		<if>
 			<condition function="#isElementPresent" locator1="CPUsersandorganizationsViewusers#USER_TABLE_ALL_CHECKBOX" />
@@ -1033,7 +1033,7 @@
 		<execute function="#assertClick" locator1="CPUsersandorganizations#SEARCH_ALL_USERS" value1="All Users" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_userScreenName" value="${userScreenName}" />
 
@@ -1042,7 +1042,7 @@
 
 		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#MENU_MISCELLANEOUS_DISPLAY_SETTINGS" value1="Display Settings" />
 		<execute function="#select" locator1="CPUsersandorganizationsUser#DISPLAY_SETTINGS_LANGUAGE_SELECT" value1="${languageName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -1052,14 +1052,14 @@
 		<var name="key_userScreenName" value="${userScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 
-		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#MENU_USER_INFORMATION_PASSWORD" value1="Password" />
+		<execute function="AssertClick#assertPartialTextClickAtAndWait" locator1="CPUsersandorganizationsUser#MENU_USER_INFORMATION_PASSWORD" value1="Password" />
 		<execute function="#type" locator1="CPUsersandorganizationsUser#PASSWORD_NEW_PASSWORD_FIELD" value1="password" />
 		<execute function="#type" locator1="CPUsersandorganizationsUser#PASSWORD_ENTER_AGAIN_FIELD" value1="password" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 		<execute macro="User#logoutPG" />
@@ -1095,7 +1095,7 @@
 		<var name="key_userScreenName" value="${userScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 
@@ -1113,7 +1113,7 @@
 
 		<execute function="#type" locator1="CPUsersandorganizationsUser#DISPLAY_SETTINGS_GREETING_FIELD" value1="${displaySettingsGreeting}" />
 
-		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 		<if>
@@ -1135,13 +1135,13 @@
 		<var name="key_userScreenName" value="${userScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 
 		<execute function="#select" locator1="CPUsersandorganizationsAdduser#DETAILS_GENDER_FIELD" value1="${userGender}" />
 
-		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -1151,12 +1151,12 @@
 		<var name="key_userScreenName" value="${userScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsUser#DETAILS_MIDDLE_NAME_FIELD" value1="${userMiddleName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -1166,7 +1166,7 @@
 		<var name="key_userScreenName" value="${userScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 
@@ -1184,16 +1184,16 @@
 		<execute function="#selectFrame" value1="relative=top" />
 
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SITES_TABLE_NAME" value1="${siteName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="expandRootCP">
 		<execute function="#click" locator1="CPUsersandorganizationsManagepages#PAGE_TREE_ROOT_ARROW" />
-		<execute function="#assertElementPresent" locator1="CPUsersandorganizationsManagepages#PAGE_TREE_PAGE_LINK_1" />
+		<execute function="AssertElementPresent#assertElementPresent" locator1="CPUsersandorganizationsManagepages#PAGE_TREE_PAGE_LINK_1" />
 
 		<if>
-			<condition function="#isElementNotPresent" locator1="CPUsersandorganizationsManagepages#PAGE_TREE_PAGE_LINK_1" />
+			<condition function="IsElementNotPresent#isNotVisible" locator1="CPUsersandorganizationsManagepages#PAGE_TREE_PAGE_LINK_1" />
 			<then>
 				<execute function="#click" locator1="CPUsersandorganizationsManagepages#PAGE_TREE_ROOT_ARROW" />
 			</then>
@@ -1206,7 +1206,7 @@
 
 		<execute function="#type" locator1="PGFastloginGuest#FIRST_NAME_FIELD" value1="${userFirstName}" />
 		<execute function="#type" locator1="PGFastloginGuest#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
-		<execute function="#assertClick" locator1="PGFastloginGuest#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGFastloginGuest#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="PGFastloginGuest#SUCCESS_MESSAGE" value1="Your comment has already been posted. Would you like to create an account with the provided information?" />
 		<execute function="#assertClick" locator1="PGFastloginGuest#CANCEL_BUTTON" value1="Cancel" />
 		<execute function="#selectFrame" value1="relative=top" />
@@ -1255,7 +1255,7 @@
 		<execute function="#assertClick" locator1="CPUsersandorganizations#SEARCH_ALL_USERS" value1="All Users" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_userScreenName" value="${userScreenName}" />
 
@@ -1342,7 +1342,7 @@
 
 		<execute function="#type" locator1="PGLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
 		<execute function="#type" locator1="PGLogin#PASSWORD_FIELD" value1="${password}" />
-		<execute function="#click" locator1="PGLogin#SIGN_IN_BUTTON" />
+		<execute function="Click#clickAtAndWait" locator1="PGLogin#SIGN_IN_BUTTON" />
 
 		<execute function="#assertTextEquals" locator1="PGLogin#ERROR_MESSAGE_1" value1="Your request failed to complete." />
 		<execute function="#assertTextEquals" locator1="PGLogin#ERROR_MESSAGE_2" value1="Authentication failed. Please try again." />
@@ -1355,7 +1355,7 @@
 
 		<execute function="#type" locator1="PGLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
 		<execute function="#type" locator1="PGLogin#PASSWORD_FIELD" value1="${password}" />
-		<execute function="#click" locator1="PGLogin#SIGN_IN_BUTTON" />
+		<execute function="Click#clickAtAndWait" locator1="PGLogin#SIGN_IN_BUTTON" />
 	</command>
 
 	<command name="logoutAndLoginPG">
@@ -1404,7 +1404,7 @@
 			<condition function="#isElementPresent" locator1="Dockbar#USER_NAME" />
 			<then>
 				<execute function="#click" locator1="Dockbar#USER_NAME" />
-				<execute function="#click" locator1="Dockbar#USER_SIGN_OUT" />
+				<execute function="Click#clickAtAndWait" locator1="Dockbar#USER_SIGN_OUT" />
 			</then>
 		</if>
 	</command>
@@ -1429,7 +1429,7 @@
 		<execute function="#assertClick" locator1="CPUsersandorganizations#SEARCH_ALL_USERS" value1="All Users" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_userScreenName" value="${userScreenName}" />
 
@@ -1442,7 +1442,7 @@
 
 		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#ROLES_REGULAR_ROLES_TABLE_REMOVE" value1="Remove" />
 		<execute function="#assertElementNotPresent" locator1="CPUsersandorganizationsUser#ROLES_REGULAR_ROLES_TABLE_TITLE" value1="${roleName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsUser#SAVE_BUTTON" value1="Save" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -1453,14 +1453,14 @@
 			<equals arg1="${userEmailAddressVariation}" arg2="At" />
 			<then>
 				<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userEmailAddress}" />
-				<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+				<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 				<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#INFO_MESSAGE" value1="No users were found." />
 			</then>
 			<elseif>
 				<equals arg1="${userEmailAddressVariation}" arg2="Period" />
 				<then>
 					<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userEmailAddress}" />
-					<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+					<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 					<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#INFO_MESSAGE" value1="No users were found." />
 				</then>
 			</elseif>
@@ -1468,7 +1468,7 @@
 				<equals arg1="${userScreenNameVariation}" arg2="Invalid" />
 				<then>
 					<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-					<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+					<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 					<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#INFO_MESSAGE" value1="No users were found." />
 				</then>
 			</elseif>
@@ -1476,7 +1476,7 @@
 				<var name="key_userScreenName" value="${userScreenName}" />
 
 				<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-				<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+				<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 				<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_FIRST_NAME" value1="${userFirstName}" />
 				<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_LAST_NAME" value1="${userLastName}" />
 				<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
@@ -1533,7 +1533,7 @@
 		<var name="key_userScreenName" value="${userScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_FIRST_NAME" value1="${userFirstName}" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_LAST_NAME" value1="${userLastName}" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
@@ -1551,7 +1551,7 @@
 		<var name="key_userScreenName" value="${userScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_FIRST_NAME" value1="${userFirstName}" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_LAST_NAME" value1="${userLastName}" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
@@ -1569,7 +1569,7 @@
 		<var name="key_userScreenName" value="${userScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_FIRST_NAME" value1="${userFirstName}" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_LAST_NAME" value1="${userLastName}" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
@@ -1587,7 +1587,7 @@
 		<var name="key_userScreenName" value="${userScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_FIRST_NAME" value1="${userFirstName}" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_LAST_NAME" value1="${userLastName}" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
@@ -1605,7 +1605,7 @@
 		<var name="key_userScreenName" value="${userScreenName}" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 		<execute function="#assertTextEquals" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 

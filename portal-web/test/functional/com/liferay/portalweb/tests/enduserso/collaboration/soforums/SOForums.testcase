@@ -178,7 +178,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute function="#assertTextEquals" locator1="PGMessageboards#INFO_MESSAGE_THREAD" value1="There are no threads in this category." />
+		<execute function="AssertTextEquals#assertText" locator1="PGMessageboards#INFO_MESSAGE_THREAD" value1="There are no threads in this category." />
 	</command>
 
 	<command name="AddMBCategorySubcategoryNullName" priority="3">
@@ -549,7 +549,7 @@
 
 		<var name="key_threadSubject" value="${threadSubject}" />
 
-		<execute function="#assertClick" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
 
 		<execute function="#sikuliAssertElementPresent" locator1="SOForums#SCREENSHOTS_FORUMS_THREAD_BODY_CODE_PNG" />
 	</command>
@@ -1852,7 +1852,7 @@
 		<execute function="#assertTextEquals" locator1="PGMessageboardsCategory#SUBCATEGORY_TABLE_POSTS" value1="0" />
 		<execute function="#assertClick" locator1="PGMessageboardsCategory#SUBCATEGORY_TABLE_CATEGORY" value1="${subCategoryName}" />
 
-		<execute function="#assertTextEquals" locator1="PGMessageboardsCategory#INFO_MESSAGE_THREAD" value1="There are no threads in this category." />
+		<execute function="AssertTextEquals#assertText" locator1="PGMessageboardsCategory#INFO_MESSAGE_THREAD" value1="There are no threads in this category." />
 		<execute function="#assertTextNotPresent" value1="${threadSubject}" />
 	</command>
 
@@ -1910,7 +1910,7 @@
 		<execute function="#assertTextEquals" locator1="PGMessageboards#CATEGORY_TABLE_POSTS" value1="0" />
 		<execute function="#assertClick" locator1="PGMessageboards#CATEGORY_TABLE_CATEGORY" value1="${categoryName}" />
 
-		<execute function="#assertTextEquals" locator1="PGMessageboards#INFO_MESSAGE_THREAD" value1="There are no threads in this category." />
+		<execute function="AssertTextEquals#assertText" locator1="PGMessageboards#INFO_MESSAGE_THREAD" value1="There are no threads in this category." />
 		<execute function="#assertTextNotPresent" value1="${threadSubject}" />
 	</command>
 
@@ -3634,7 +3634,7 @@
 
 		<var name="key_threadSubject" value="${threadSubject}" />
 
-		<execute function="#assertClick" locator1="PGMessageboardsCategory#THREAD_TABLE_ACTIONS" value1="Actions" />
+		<execute function="AssertClick#assertTextClickAt" locator1="PGMessageboardsCategory#THREAD_TABLE_ACTIONS" value1="Actions" />
 
 		<execute function="#assertTextEquals" locator1="PGMessageboardsCategory#THREAD_MENULIST_UNSUBSCRIBE" value1="Unsubscribe" />
 		<execute function="#assertTextEquals" locator1="PGMessageboardsCategory#THREAD_MENULIST_RSS" value1="RSS (Opens New Window)" />

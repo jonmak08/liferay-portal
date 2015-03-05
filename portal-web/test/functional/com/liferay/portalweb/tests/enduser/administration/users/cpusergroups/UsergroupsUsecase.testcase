@@ -70,7 +70,7 @@
 		<execute function="#assertClick" locator1="CPUsersandorganizations#SEARCH_ALL_USERS" value1="All Users" />
 
 		<execute function="#type" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_FIELD" value1="${userFirstName}" />
-		<execute function="#assertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_userScreenName" value="${userScreenName}" />
 
@@ -301,14 +301,14 @@
 
 		<var name="key_siteName" value="${siteName}" />
 
-		<execute function="#assertClick" locator1="CPSites#SITE_TABLE_NAME" value1="${siteName}" />
+		<execute function="AssertClick#assertPartialTextClickAt" locator1="CPSites#SITE_TABLE_NAME" value1="${siteName}" />
 
 		<execute function="#assertClick" locator1="Home#SITE_ADMINISTRATION_USERS" value1="Users" />
 		<execute function="#assertClick" locator1="Home#SITE_ADMINISTRATION_USERS_SITE_MEMBERSHIPS" value1="Site Memberships" />
 
 		<var name="key_userScreenName" value="usersn3" />
 
-		<execute function="#assertTextEquals" locator1="CPSitememberships#USER_TABLE_NAME" value1="userfn3 userln3" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="CPSitememberships#USER_TABLE_NAME" value1="userfn3 userln3" />
 		<execute function="#assertTextEquals" locator1="CPSitememberships#USER_TABLE_SCREEN_NAME" value1="usersn3" />
 		<execute function="#assertClick" locator1="CPSitememberships#USER_TABLE_ACTIONS" value1="Actions" />
 		<execute function="#assertTextEquals" locator1="CPSitememberships#USER_MENULIST_ASSIGN_SITE_ROLES" value1="Assign Site Roles" />
@@ -340,7 +340,7 @@
 
 		<var name="key_siteName" value="${siteName}" />
 
-		<execute function="#assertClick" locator1="CPSites#SITE_TABLE_NAME_UNVIEWABLE" value1="${siteName}" />
+		<execute function="AssertClick#assertPartialTextClickAt" locator1="CPSites#SITE_TABLE_NAME_UNVIEWABLE" value1="${siteName}" />
 
 		<execute macro="User#logoutUserPG" />
 
@@ -390,7 +390,7 @@
 
 		<var name="key_siteName" value="${siteName}" />
 
-		<execute function="#assertClick" locator1="CPSites#SITE_TABLE_NAME" value1="${siteName}" />
+		<execute function="AssertClick#assertPartialTextClickAt" locator1="CPSites#SITE_TABLE_NAME" value1="${siteName}" />
 
 		<execute macro="User#logoutUserPG" />
 

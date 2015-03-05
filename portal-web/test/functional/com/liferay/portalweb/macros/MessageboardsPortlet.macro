@@ -81,7 +81,7 @@
 		<var name="key_scopeName" value="${scopeName}" />
 
 		<execute function="#click" locator1="PGMessageboardsConfigurationScope#SCOPE_DROPDOWN" />
-		<execute function="#assertClick" locator1="PGMessageboardsConfigurationScope#SCOPE_MENULIST" value1="${scopeName}" />
+		<execute function="AssertClick#assertPartialTextClickAtAndWait" locator1="PGMessageboardsConfigurationScope#SCOPE_MENULIST" value1="${scopeName}" />
 		<execute function="#assertTextEquals" locator1="PGMessageboardsConfigurationScope#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
 
@@ -150,6 +150,6 @@
 	<command name="viewNoPermissionCP">
 		<execute function="#assertTextEquals" locator1="CPMessageboards#PORTLET_TITLE" value1="Message Boards" />
 		<execute function="#assertElementPresent" locator1="CPMessageboards#NAVBAR_CONTAINER" />
-		<execute function="#assertTextEquals" locator1="CPMessageboards#INFO_MESSAGE_THREAD" value1="There are no threads in this category." />
+		<execute function="AssertTextEquals#assertText" locator1="CPMessageboards#INFO_MESSAGE_THREAD" value1="There are no threads in this category." />
 	</command>
 </definition>
