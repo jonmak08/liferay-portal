@@ -9,10 +9,10 @@
 		<if>
 			<condition action="Dynamicdatamapping#isElementPresent" locator1="FORM_FIELD_3" />
 			<then>
-				<execute action="Dynamicdatamapping#dragAndDrop" locator1="FIELDS_FIELD" locator2="FORM_BUILDER_LOWEST_FIELD" value1="${field}" />
+				<execute function="#dragAndDrop" locator1="Dynamicdatamapping#FIELDS_FIELD" locator2="Dynamicdatamapping#FORM_BUILDER_LOWEST_FIELD" value1="${field}" />
 			</then>
 			<else>
-				<execute action="Dynamicdatamapping#dragAndDrop" locator1="FIELDS_FIELD" locator2="FORM_BUILDER" value1="${field}" />
+				<execute function="#dragAndDrop" locator1="Dynamicdatamapping#FIELDS_FIELD" locator2="Dynamicdatamapping#FORM_BUILDER" value1="${field}" />
 			</else>
 		</if>
 
@@ -54,10 +54,10 @@
 		<if>
 			<condition action="Dynamicdatamapping#isElementPresent" locator1="FORM_FIELD_3" />
 			<then>
-				<execute action="Dynamicdatamapping#dragAndDrop" locator1="FIELDS_FIELD" locator2="FORM_BUILDER_LOWEST_FIELD" value1="${field}" />
+				<execute function="#dragAndDrop" locator1="Dynamicdatamapping#FIELDS_FIELD" locator2="Dynamicdatamapping#FORM_BUILDER_LOWEST_FIELD" value1="${field}" />
 			</then>
 			<else>
-				<execute action="Dynamicdatamapping#dragAndDrop" locator1="FIELDS_FIELD" locator2="FORM_BUILDER" value1="${field}" />
+				<execute function="#dragAndDrop" locator1="Dynamicdatamapping#FIELDS_FIELD" locator2="Dynamicdatamapping#FORM_BUILDER" value1="${field}" />
 			</else>
 		</if>
 

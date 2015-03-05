@@ -226,7 +226,7 @@
 
 		<var name="key_vocabularyName" value="Vocabulary Name 2" />
 
-		<execute action="CPCategories#dragAndDrop" locator1="VOCABULARY_CATEGORY_LABEL" locator2="VOCABULARY_ENTRY" value1="Category Name" />
+		<execute function="#dragAndDrop" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" locator2="CPCategories#VOCABULARY_ENTRY" value1="Category Name" />
 		<execute action="CPCategories#assertTextEquals" locator1="SUCCESS_MESSAGE" value1="Your request processed successfully." />
 		<execute action="CPCategories#assertTextEquals" locator1="VOCABULARY_ENTRY" value1="Vocabulary Name 2" />
 		<execute action="CPCategories#assertTextEquals" locator1="VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
