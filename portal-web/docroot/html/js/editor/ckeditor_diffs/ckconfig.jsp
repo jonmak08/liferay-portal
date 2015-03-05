@@ -101,7 +101,7 @@ String contentsLanguageDir = LanguageUtil.get(contentsLocale, "lang.dir");
 
 	config.entities = false;
 
-	config.extraPlugins = 'media,scayt,wsc';
+	config.extraPlugins = 'a11yhelpbtn,media,scayt,wsc';
 
 	<c:if test="<%= inlineEdit %>">
 		config.extraPlugins += ',ajaxsave,restore';
@@ -130,6 +130,7 @@ String contentsLanguageDir = LanguageUtil.get(contentsLocale, "lang.dir");
 		['Undo', 'Redo'],
 		['SpellChecker', 'Scayt'],
 		['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'], ['Source', 'RemoveFormat'],
+		['A11YBtn']
 	];
 
 	config.toolbar_email = [
@@ -140,7 +141,8 @@ String contentsLanguageDir = LanguageUtil.get(contentsLocale, "lang.dir");
 		['Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'SelectAll', 'RemoveFormat'],
 		['Source'],
 		['Link', 'Unlink'],
-		['Image']
+		['Image'],
+		['A11YBtn']
 	];
 
 	config.toolbar_liferay = [
@@ -164,6 +166,8 @@ String contentsLanguageDir = LanguageUtil.get(contentsLocale, "lang.dir");
 		<c:if test="<%= !inlineEdit %>">
 			,['Source']
 		</c:if>
+
+		,['A11YBtn']
 	];
 
 	config.toolbar_liferayArticle = [
@@ -178,7 +182,8 @@ String contentsLanguageDir = LanguageUtil.get(contentsLocale, "lang.dir");
 		'/',
 		['Source'],
 		['Link', 'Unlink', 'Anchor'],
-		['Image', 'Flash', <c:if test="<%= XugglerUtil.isEnabled() %>">'Audio', 'Video',</c:if> 'Table', '-', 'Smiley', 'SpecialChar', 'LiferayPageBreak']
+		['Image', 'Flash', <c:if test="<%= XugglerUtil.isEnabled() %>">'Audio', 'Video',</c:if> 'Table', '-', 'Smiley', 'SpecialChar', 'LiferayPageBreak'],
+		['A11YBtn']
 	];
 
 	config.toolbar_phone = [
