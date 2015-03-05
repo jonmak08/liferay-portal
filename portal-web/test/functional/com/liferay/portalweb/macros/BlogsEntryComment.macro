@@ -3,28 +3,28 @@
 		<var name="key_entryTitle" value="${entryTitle}" />
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
-		<execute function="#pause" value1="1000" />
+		<execute function="Pause" value1="1000" />
 
 		<var name="key_entryComment" value="${entryComment}" />
 
-		<execute function="#assertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
+		<execute function="AssertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
 		<execute function="AssertClick#assertTextClickWaitForInlineCKEditor" locator1="CPBlogsEntry#COMMENTS_BE_THE_FIRST" value1="Be the first." />
-		<execute function="#pause" value1="1000" />
-		<execute function="#type" locator1="CPBlogsEntry#COMMENTS_BODY_FIELD" value1="${entryComment}" />
+		<execute function="Pause" value1="1000" />
+		<execute function="Type" locator1="CPBlogsEntry#COMMENTS_BODY_FIELD" value1="${entryComment}" />
 		<execute function="AssertClick#assertTextClickWaitForInlineCKEditor" locator1="CPBlogsEntry#COMMENTS_REPLY_BUTTON" value1="Reply" />
 
-		<execute function="#pause" value1="1000" />
+		<execute function="Pause" value1="1000" />
 		<execute function="AssertTextEquals#assertTextWaitForInlineCKEditor" locator1="CPBlogsEntry#COMMENTS_SUCCESS" value1="Your request processed successfully." />
 	</command>
 
 	<command name="addPG">
 		<execute macro="BlogsEntryComment#gotoAddPG" />
 
-		<execute function="#type" locator1="PGBlogsEntry#COMMENTS_BODY_FIELD" value1="${entryComment}" />
-		<execute function="#pause" value1="1000" />
+		<execute function="Type" locator1="PGBlogsEntry#COMMENTS_BODY_FIELD" value1="${entryComment}" />
+		<execute function="Pause" value1="1000" />
 
 		<if>
-			<condition function="#isElementPresent" locator1="Dockbar#USER_SIGN_IN" />
+			<condition function="IsElementPresent" locator1="Dockbar#USER_SIGN_IN" />
 			<then>
 				<execute function="AssertClick#assertTextClickWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENTS_REPLY_AS_BUTTON" value1="Reply as..." />
 
@@ -35,7 +35,7 @@
 			</then>
 			<else>
 				<if>
-					<condition function="#isElementPresent" locator1="PGBlogsEntry#COMMENTS_SUBMIT_BUTTON" value1="Submit" />
+					<condition function="IsElementPresent" locator1="PGBlogsEntry#COMMENTS_SUBMIT_BUTTON" value1="Submit" />
 					<then>
 						<execute function="AssertClick#assertTextClickWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENTS_SUBMIT_BUTTON" value1="Submit" />
 					</then>
@@ -46,17 +46,17 @@
 			</else>
 		</if>
 
-		<execute function="#pause" value1="1000" />
+		<execute function="Pause" value1="1000" />
 		<execute function="AssertTextEquals#assertTextWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENTS_SUCCESS" value1="Your request processed successfully." />
 	</command>
 
 	<command name="cancelPG">
-		<execute function="#type" locator1="PGBlogsEntry#COMMENTS_BODY_FIELD" value1="${entryComment}" />
-		<execute function="#pause" value1="1000" />
+		<execute function="Type" locator1="PGBlogsEntry#COMMENTS_BODY_FIELD" value1="${entryComment}" />
+		<execute function="Pause" value1="1000" />
 		<execute function="AssertClick#assertTextClickWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENTS_CANCEL_BUTTON" value1="Cancel" />
 
 		<if>
-			<condition function="#isElementPresent" locator1="PGBlogsEntry#COMMENTS_BE_THE_FIRST" />
+			<condition function="IsElementPresent" locator1="PGBlogsEntry#COMMENTS_BE_THE_FIRST" />
 			<then>
 				<execute function="AssertClick#assertTextClickWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENTS_BE_THE_FIRST" value1="Be the first." />
 			</then>
@@ -65,7 +65,7 @@
 			</else>
 		</if>
 
-		<execute function="#assertTextNotPresent" locator1="PGBlogsEntry#COMMENTS_BODY_FIELD" value1="${entryComment}" />
+		<execute function="AssertTextNotPresent" locator1="PGBlogsEntry#COMMENTS_BODY_FIELD" value1="${entryComment}" />
 		<execute function="AssertClick#assertTextClickWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENTS_CANCEL_BUTTON" value1="Cancel" />
 	</command>
 
@@ -76,35 +76,35 @@
 
 		<var name="key_entryComment" value="${entryComment}" />
 
-		<execute function="#assertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
-		<execute function="#mouseOver" locator1="CPBlogsEntry#COMMENT" />
-		<execute function="#assertClickNoError" locator1="CPBlogsEntry#COMMENT_DELETE_1" value1="Delete" />
+		<execute function="AssertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
+		<execute function="MouseOver" locator1="CPBlogsEntry#COMMENT" />
+		<execute function="AssertClickNoError" locator1="CPBlogsEntry#COMMENT_DELETE_1" value1="Delete" />
 		<execute function="Confirm#waitForConfirmation" locator1="CPBlogsEntry#CONFIRMATION" value1="Are you sure you want to delete this? It will be deleted immediately." />
 		<execute function="AssertTextEquals#assertTextWaitForInlineCKEditor" locator1="CPBlogsEntry#COMMENTS_SUCCESS" value1="Your request processed successfully." />
-		<execute function="#assertTextNotPresent" value1="${entryComment}" />
+		<execute function="AssertTextNotPresent" value1="${entryComment}" />
 	</command>
 
 	<command name="deletePG">
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="PGBlogs#ENTRY_TITLE" value1="${entryTitle}" />
+		<execute function="AssertClick" locator1="PGBlogs#ENTRY_TITLE" value1="${entryTitle}" />
 
 		<var name="key_entryComment" value="${entryComment}" />
 
 		<if>
 			<equals arg1="${soPage}" arg2="true" />
 			<then>
-				<execute function="#assertClickNoError" locator1="PGBlogsEntry#COMMENT_DELETE" value1="Delete" />
-				<execute function="#confirm" locator1="PGBlogsEntry#CONFIRMATION" value1="Are you sure you want to delete the selected comment?" />
+				<execute function="AssertClickNoError" locator1="PGBlogsEntry#COMMENT_DELETE" value1="Delete" />
+				<execute function="Confirm" locator1="PGBlogsEntry#CONFIRMATION" value1="Are you sure you want to delete the selected comment?" />
 			</then>
 			<else>
-				<execute function="#assertClickNoError" locator1="PGBlogsEntry#COMMENT_DELETE" value1="Delete" />
-				<execute function="#confirm" locator1="PGBlogsEntry#CONFIRMATION" value1="Are you sure you want to delete this? It will be deleted immediately." />
+				<execute function="AssertClickNoError" locator1="PGBlogsEntry#COMMENT_DELETE" value1="Delete" />
+				<execute function="Confirm" locator1="PGBlogsEntry#CONFIRMATION" value1="Are you sure you want to delete this? It will be deleted immediately." />
 			</else>
 		</if>
 
 		<execute function="AssertTextEquals#assertTextWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENTS_SUCCESS" value1="Your request processed successfully." />
-		<execute function="#assertTextNotPresent" value1="${entryComment}" />
+		<execute function="AssertTextNotPresent" value1="${entryComment}" />
 	</command>
 
 	<command name="editCP">
@@ -114,10 +114,10 @@
 
 		<var name="key_entryComment" value="${entryComment}" />
 
-		<execute function="#assertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
-		<execute function="#mouseOver" locator1="CPBlogsEntry#COMMENT" />
+		<execute function="AssertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
+		<execute function="MouseOver" locator1="CPBlogsEntry#COMMENT" />
 		<execute function="AssertClick#assertTextClickWaitForInlineCKEditor" locator1="CPBlogsEntry#COMMENT_EDIT_1" value1="Edit" />
-		<execute function="#type" locator1="CPBlogsEntry#COMMENT_EDIT_COMMENT_BODY_FIELD_1" value1="${entryCommentEdit}" />
+		<execute function="Type" locator1="CPBlogsEntry#COMMENT_EDIT_COMMENT_BODY_FIELD_1" value1="${entryCommentEdit}" />
 		<execute function="AssertClick#assertTextClickWaitForInlineCKEditor" locator1="CPBlogsEntry#COMMENT_EDIT_COMMENT_PUBLISH" value1="Publish" />
 
 		<execute function="AssertTextEquals#assertTextWaitForInlineCKEditor" locator1="CPBlogsEntry#COMMENT_EDIT_SUCCESS" value1="Your request processed successfully." />
@@ -127,12 +127,12 @@
 	<command name="editPG">
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="PGBlogs#ENTRY_TITLE" value1="${entryTitle}" />
+		<execute function="AssertClick" locator1="PGBlogs#ENTRY_TITLE" value1="${entryTitle}" />
 
 		<var name="key_entryComment" value="${entryComment}" />
 
 		<execute function="AssertClick#assertTextClickWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENT_EDIT" value1="Edit" />
-		<execute function="#type" locator1="PGBlogsEntry#COMMENT_EDIT_BODY_FIELD" value1="${entryCommentEdit}" />
+		<execute function="Type" locator1="PGBlogsEntry#COMMENT_EDIT_BODY_FIELD" value1="${entryCommentEdit}" />
 		<execute function="AssertClick#assertTextClickWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENT_EDIT_PUBLISH_BUTTON" value1="Publish" />
 		<execute function="AssertTextEquals#assertTextWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENTS_SUCCESS" value1="Your request processed successfully." />
 
@@ -144,11 +144,11 @@
 	<command name="gotoAddPG">
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="PGBlogs#ENTRY_TITLE" value1="${entryTitle}" />
-		<execute function="#pause" value1="1000" />
+		<execute function="AssertClick" locator1="PGBlogs#ENTRY_TITLE" value1="${entryTitle}" />
+		<execute function="Pause" value1="1000" />
 
 		<if>
-			<condition function="#isElementPresent" locator1="PGBlogsEntry#COMMENTS_BE_THE_FIRST" />
+			<condition function="IsElementPresent" locator1="PGBlogsEntry#COMMENTS_BE_THE_FIRST" />
 			<then>
 				<execute function="AssertClick#assertTextClickWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENTS_BE_THE_FIRST" value1="Be the first." />
 			</then>
@@ -161,11 +161,11 @@
 	<command name="searchPG">
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#type" locator1="PGBlogsSearch#SEARCH_FIELD" value1="${entrySearchTerm}" />
-		<execute function="#assertClick" locator1="PGBlogsSearch#SEARCH_BUTTON" value1="Search" />
-		<execute function="#assertTextEquals" locator1="PGBlogsSearch#SEARCH_RESULTS_ENTRY_TITLE" value1="${entryTitle}" />
-		<execute function="#assertTextEquals" locator1="PGBlogsSearch#SEARCH_RESULTS_ENTRY_DESCRIPTION" value1="${entryContent}" />
-		<execute function="#assertTextEquals" locator1="PGBlogsSearch#SEARCH_RESULTS_HIGHLIGHTED" value1="${entrySearchTerm}" />
+		<execute function="Type" locator1="PGBlogsSearch#SEARCH_FIELD" value1="${entrySearchTerm}" />
+		<execute function="AssertClick" locator1="PGBlogsSearch#SEARCH_BUTTON" value1="Search" />
+		<execute function="AssertTextEquals" locator1="PGBlogsSearch#SEARCH_RESULTS_ENTRY_TITLE" value1="${entryTitle}" />
+		<execute function="AssertTextEquals" locator1="PGBlogsSearch#SEARCH_RESULTS_ENTRY_DESCRIPTION" value1="${entryContent}" />
+		<execute function="AssertTextEquals" locator1="PGBlogsSearch#SEARCH_RESULTS_HIGHLIGHTED" value1="${entrySearchTerm}" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGBlogsSearch#SEARCH_RESULTS_ENTRY_COMMENT" value1="${entryComment}" />
 	</command>
 
@@ -181,9 +181,9 @@
 
 		<var name="key_entryComment" value="${entryComment}" />
 
-		<execute function="#assertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
-		<execute function="#assertTextEquals" locator1="CPBlogsEntry#ENTRY_STATS_COMMENTS" value1="1 Comment" />
-		<execute function="#assertElementNotPresent" locator1="CPBlogsEntry#COMMENTS_BE_THE_FIRST" />
+		<execute function="AssertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
+		<execute function="AssertTextEquals" locator1="CPBlogsEntry#ENTRY_STATS_COMMENTS" value1="1 Comment" />
+		<execute function="AssertElementNotPresent" locator1="CPBlogsEntry#COMMENTS_BE_THE_FIRST" />
 		<execute function="AssertTextEquals#assertTextWaitForInlineCKEditor" locator1="CPBlogsEntry#COMMENT" value1="${entryComment}" />
 	</command>
 
@@ -194,36 +194,36 @@
 
 		<var name="key_entryComment" value="${entryComment}" />
 
-		<execute function="#assertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
-		<execute function="#assertTextEquals" locator1="CPBlogsEntry#ENTRY_STATS_COMMENTS" value1="0 Comments" />
+		<execute function="AssertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
+		<execute function="AssertTextEquals" locator1="CPBlogsEntry#ENTRY_STATS_COMMENTS" value1="0 Comments" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="CPBlogsEntry#COMMENTS_NO_COMMENTS_YET" value1="No comments yet." />
 		<execute function="AssertTextEquals#assertTextWaitForInlineCKEditor" locator1="CPBlogsEntry#COMMENTS_BE_THE_FIRST" value1="Be the first." />
-		<execute function="#assertTextNotPresent" value1="${entryComment}" />
+		<execute function="AssertTextNotPresent" value1="${entryComment}" />
 	</command>
 
 	<command name="viewDefaultPG">
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="PGBlogs#ENTRY_TITLE" value1="${entryTitle}" />
+		<execute function="AssertClick" locator1="PGBlogs#ENTRY_TITLE" value1="${entryTitle}" />
 
 		<var name="key_entryComment" value="${entryComment}" />
 
-		<execute function="#assertTextEquals" locator1="PGBlogsEntry#ENTRY_TITLE" value1="${entryTitle}" />
-		<execute function="#assertTextEquals" locator1="PGBlogsEntry#ENTRY_STATS_COMMENTS" value1="0 Comments" />
+		<execute function="AssertTextEquals" locator1="PGBlogsEntry#ENTRY_TITLE" value1="${entryTitle}" />
+		<execute function="AssertTextEquals" locator1="PGBlogsEntry#ENTRY_STATS_COMMENTS" value1="0 Comments" />
 		<execute function="AssertTextEquals#assertTextWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENTS_BE_THE_FIRST" value1="Be the first." />
-		<execute function="#assertTextNotPresent" value1="${entryComment}" />
+		<execute function="AssertTextNotPresent" value1="${entryComment}" />
 	</command>
 
 	<command name="viewPG">
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="PGBlogs#ENTRY_TITLE" value1="${entryTitle}" />
+		<execute function="AssertClick" locator1="PGBlogs#ENTRY_TITLE" value1="${entryTitle}" />
 
 		<var name="key_entryComment" value="${entryComment}" />
 
-		<execute function="#assertTextEquals" locator1="PGBlogsEntry#ENTRY_TITLE" value1="${entryTitle}" />
-		<execute function="#assertTextEquals" locator1="PGBlogsEntry#ENTRY_STATS_COMMENTS" value1="1 Comment" />
-		<execute function="#assertElementNotPresent" locator1="PGBlogsEntry#COMMENTS_BE_THE_FIRST" />
+		<execute function="AssertTextEquals" locator1="PGBlogsEntry#ENTRY_TITLE" value1="${entryTitle}" />
+		<execute function="AssertTextEquals" locator1="PGBlogsEntry#ENTRY_STATS_COMMENTS" value1="1 Comment" />
+		<execute function="AssertElementNotPresent" locator1="PGBlogsEntry#COMMENTS_BE_THE_FIRST" />
 		<execute function="AssertTextEquals#assertTextWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENT_USER_NAME" value1="${userFullName}" />
 		<execute function="AssertTextEquals#assertTextWaitForInlineCKEditor" locator1="PGBlogsEntry#COMMENT" value1="${entryComment}" />
 	</command>

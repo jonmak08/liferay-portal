@@ -1,10 +1,10 @@
 <definition>
 	<command name="addCP">
-		<execute function="#assertClick" locator1="SPIAdministration#TOOLBAR_ADD" value1="Add SPI" />
+		<execute function="AssertClick" locator1="SPIAdministration#TOOLBAR_ADD" value1="Add SPI" />
 
-		<execute function="#type" locator1="SPIAdministrationAdd#GENERAL_NAME_FIELD" value1="${spiName}" />
-		<execute function="#type" locator1="SPIAdministrationAdd#GENERAL_DESCRIPTION_FIELD" value1="${spiDescription}" />
-		<execute function="#type" locator1="SPIAdministrationAdd#SPI_CONFIGURATIONS_SPI_RUNTIME_CONNECTOR_PORT_FIELD" value1="${spiConnectorPort}" />
+		<execute function="Type" locator1="SPIAdministrationAdd#GENERAL_NAME_FIELD" value1="${spiName}" />
+		<execute function="Type" locator1="SPIAdministrationAdd#GENERAL_DESCRIPTION_FIELD" value1="${spiDescription}" />
+		<execute function="Type" locator1="SPIAdministrationAdd#SPI_CONFIGURATIONS_SPI_RUNTIME_CONNECTOR_PORT_FIELD" value1="${spiConnectorPort}" />
 
 		<if>
 			<isset var="spiApplications" />
@@ -12,19 +12,19 @@
 				<for list="${spiApplications}" param="portletName">
 					<var name="key_portletName" value="${portletName}" />
 
-					<execute function="#select" locator1="SPIAdministrationAdd#SPI_CONFIGURATIONS_SPI_APPLICATIONS_AVAILABLE_SELECT" value1="${portletName}" />
-					<execute function="#click" locator1="SPIAdministrationAdd#SPI_CONFIGURATIONS_SPI_APPLICATIONS_MOVE_SELECTED_ITEMS_FROM_AVAILABLE_TO_CURRENT_BUTTON" />
+					<execute function="Select" locator1="SPIAdministrationAdd#SPI_CONFIGURATIONS_SPI_APPLICATIONS_AVAILABLE_SELECT" value1="${portletName}" />
+					<execute function="Click" locator1="SPIAdministrationAdd#SPI_CONFIGURATIONS_SPI_APPLICATIONS_MOVE_SELECTED_ITEMS_FROM_AVAILABLE_TO_CURRENT_BUTTON" />
 					<execute function="AssertTextEquals#assertValue" locator1="SPIAdministrationAdd#SPI_CONFIGURATIONS_SPI_APPLICATIONS_CURRENT_SELECT" value1="${portletName}" />
 				</for>
 			</then>
 		</if>
 
-		<execute function="#pause" locator1="3000" />
+		<execute function="Pause" locator1="3000" />
 
 		<if>
-			<condition function="#isElementNotPresent" locator1="SPIAdministrationAdd#ADVANCED_CONFIGURATIONS_EXPANDED" />
+			<condition function="IsElementNotPresent" locator1="SPIAdministrationAdd#ADVANCED_CONFIGURATIONS_EXPANDED" />
 			<then>
-				<execute function="#click" locator1="SPIAdministrationAdd#ADVANCED_CONFIGURATIONS_TOGGLE" />
+				<execute function="Click" locator1="SPIAdministrationAdd#ADVANCED_CONFIGURATIONS_TOGGLE" />
 			</then>
 		</if>
 
@@ -34,60 +34,60 @@
 				<for list="${spiCoreApplications}" param="portletName">
 					<var name="key_portletName" value="${portletName}" />
 
-					<execute function="#select" locator1="SPIAdministrationAdd#ADVANCED_CONFIGURATIONS_SPI_CORE_APPLICATIONS_AVAILABLE_SELECT" value1="${portletName}" />
-					<execute function="#click" locator1="SPIAdministrationAdd#ADVANCED_CONFIGURATIONS_SPI_CORE_APPLICATIONS_MOVE_SELECTED_ITEMS_FROM_AVAILABLE_TO_CURRENT_BUTTON" />
-					<execute function="#assertTextEquals" locator1="SPIAdministrationAdd#ADVANCED_CONFIGURATIONS_SPI_CORE_APPLICATIONS_CURRENT_SELECT" value1="${portletName}" />
+					<execute function="Select" locator1="SPIAdministrationAdd#ADVANCED_CONFIGURATIONS_SPI_CORE_APPLICATIONS_AVAILABLE_SELECT" value1="${portletName}" />
+					<execute function="Click" locator1="SPIAdministrationAdd#ADVANCED_CONFIGURATIONS_SPI_CORE_APPLICATIONS_MOVE_SELECTED_ITEMS_FROM_AVAILABLE_TO_CURRENT_BUTTON" />
+					<execute function="AssertTextEquals" locator1="SPIAdministrationAdd#ADVANCED_CONFIGURATIONS_SPI_CORE_APPLICATIONS_CURRENT_SELECT" value1="${portletName}" />
 				</for>
 			</then>
 		</if>
 
-		<execute function="#assertClick" locator1="SPIAdministrationAdd#SAVE_BUTTON" value1="Save" />
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute function="AssertClick" locator1="SPIAdministrationAdd#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="configureEmailNotificationsCP">
-		<execute function="#assertClick" locator1="SPIAdministration#OPTIONS_WRENCH_ICON" value1="Options" />
-		<execute function="#assertClick" locator1="SPIAdministration#OPTIONS_MENULIST_CONFIGURATION" value1="Configuration" />
+		<execute function="AssertClick" locator1="SPIAdministration#OPTIONS_WRENCH_ICON" value1="Options" />
+		<execute function="AssertClick" locator1="SPIAdministration#OPTIONS_MENULIST_CONFIGURATION" value1="Configuration" />
 
-		<execute function="#selectFrame" locator1="SPIAdministrationConfiguration#CONFIGURATION_IFRAME" />
+		<execute function="SelectFrame" locator1="SPIAdministrationConfiguration#CONFIGURATION_IFRAME" />
 
-		<execute function="#type" locator1="SPIAdministrationConfiguration#RECOVERY_OPTIONS_NOTIFICATION_OPTIONS_NOTIFICATION_RECIPIENTS_FIELD" value1="${notificationRecipients}" />
-		<execute function="#type" locator1="SPIAdministrationConfiguration#RECOVERY_OPTIONS_RESTART_OPTIONS_MAX_RESTART_ATTEMPTS_FIELD" value1="${maxRestartAttempts}" />
-		<execute function="#assertClick" locator1="SPIAdministrationConfiguration#SAVE_BUTTON" value1="Save" />
-		<execute function="#assertTextEquals" locator1="SPIAdministrationConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
-		<execute function="#selectFrame" value1="relative=top" />
+		<execute function="Type" locator1="SPIAdministrationConfiguration#RECOVERY_OPTIONS_NOTIFICATION_OPTIONS_NOTIFICATION_RECIPIENTS_FIELD" value1="${notificationRecipients}" />
+		<execute function="Type" locator1="SPIAdministrationConfiguration#RECOVERY_OPTIONS_RESTART_OPTIONS_MAX_RESTART_ATTEMPTS_FIELD" value1="${maxRestartAttempts}" />
+		<execute function="AssertClick" locator1="SPIAdministrationConfiguration#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertTextEquals" locator1="SPIAdministrationConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
 	<command name="startCP">
 		<var name="key_spiName" value="${spiName}" />
 
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_NAME" value1="${spiName}" />
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="${spiStatus}" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_NAME" value1="${spiName}" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="${spiStatus}" />
 
-		<execute function="#assertClick" locator1="SPIAdministration#SPI_TABLE_ACTIONS" value1="Actions" />
-		<execute function="#assertClick" locator1="SPIAdministration#ACTION_MENULIST_START" value1="Start" />
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute function="AssertClick" locator1="SPIAdministration#SPI_TABLE_ACTIONS" value1="Actions" />
+		<execute function="AssertClick" locator1="SPIAdministration#ACTION_MENULIST_START" value1="Start" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
-		<execute function="#pause" locator1="90000" />
+		<execute function="Pause" locator1="90000" />
 
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="Started" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="Started" />
 	</command>
 
 	<command name="stopCP">
 		<var name="key_spiName" value="${spiName}" />
 
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_NAME" value1="${spiName}" />
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="${spiStatus}" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_NAME" value1="${spiName}" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="${spiStatus}" />
 
-		<execute function="#assertClick" locator1="SPIAdministration#SPI_TABLE_ACTIONS" value1="Actions" />
-		<execute function="#assertClick" locator1="SPIAdministration#ACTION_MENULIST_STOP" value1="Stop" />
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute function="AssertClick" locator1="SPIAdministration#SPI_TABLE_ACTIONS" value1="Actions" />
+		<execute function="AssertClick" locator1="SPIAdministration#ACTION_MENULIST_STOP" value1="Stop" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
-		<execute function="#pause" locator1="90000" />
+		<execute function="Pause" locator1="90000" />
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="Stopped" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="Stopped" />
 	</command>
 
 	<command name="tearDownCP">
@@ -96,12 +96,12 @@
 		</execute>
 
 		<while>
-			<condition function="#isElementPresent" locator1="SPIAdministration#SPI_TABLE_ACTIONS_1" />
+			<condition function="IsElementPresent" locator1="SPIAdministration#SPI_TABLE_ACTIONS_1" />
 			<then>
-				<execute function="#assertClick" locator1="SPIAdministration#SPI_TABLE_ACTIONS_1" value1="Actions" />
-				<execute function="#assertClickNoError" locator1="SPIAdministration#ACTION_MENULIST_DELETE" value1="Delete" />
-				<execute function="#confirm" locator1="SPIAdministration#CONFIRMATION" value1="Are you sure you want to delete this? It will be deleted immediately." />
-				<execute function="#assertTextEquals" locator1="SPIAdministration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+				<execute function="AssertClick" locator1="SPIAdministration#SPI_TABLE_ACTIONS_1" value1="Actions" />
+				<execute function="AssertClickNoError" locator1="SPIAdministration#ACTION_MENULIST_DELETE" value1="Delete" />
+				<execute function="Confirm" locator1="SPIAdministration#CONFIRMATION" value1="Are you sure you want to delete this? It will be deleted immediately." />
+				<execute function="AssertTextEquals" locator1="SPIAdministration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 			</then>
 		</while>
 	</command>
@@ -109,9 +109,9 @@
 	<command name="viewCP">
 		<var name="key_spiName" value="${spiName}" />
 
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_NAME" value1="${spiName}" />
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_DESCRIPTION" value1="${spiDescription}" />
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="${spiStatus}" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_NAME" value1="${spiName}" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_DESCRIPTION" value1="${spiDescription}" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="${spiStatus}" />
 
 		<if>
 			<isset var="spiApplications" />
@@ -131,28 +131,28 @@
 			</then>
 		</if>
 
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_CONNECTOR_PORT" value1="${spiConnectorPort}" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_CONNECTOR_PORT" value1="${spiConnectorPort}" />
 	</command>
 
 	<command name="viewNoRestartCP">
 		<var name="key_spiName" value="${spiName}" />
 
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_NAME" value1="${spiName}" />
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="Stopped" />
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS_UNABLE_TO_RESTART" value1="Unable to automatically restart the SPI. The total number of automatic restart attempts have exceeded the defined maximum." />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_NAME" value1="${spiName}" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="Stopped" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS_UNABLE_TO_RESTART" value1="Unable to automatically restart the SPI. The total number of automatic restart attempts have exceeded the defined maximum." />
 	</command>
 
 	<command name="viewStartCP">
 		<var name="key_spiName" value="${spiName}" />
 
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_NAME" value1="${spiName}" />
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="Started" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_NAME" value1="${spiName}" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="Started" />
 	</command>
 
 	<command name="viewStopCP">
 		<var name="key_spiName" value="${spiName}" />
 
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_NAME" value1="${spiName}" />
-		<execute function="#assertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="Stopped" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_NAME" value1="${spiName}" />
+		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="Stopped" />
 	</command>
 </definition>

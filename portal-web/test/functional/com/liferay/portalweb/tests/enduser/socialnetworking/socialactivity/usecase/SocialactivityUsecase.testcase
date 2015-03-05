@@ -95,7 +95,7 @@
 
 		<var name="key_portletName" value="User Statistics" />
 
-		<execute function="#assertTextEquals" locator1="PGUserstatistics#PORTLET_BODY" value1="There are no active users for this period." />
+		<execute function="AssertTextEquals" locator1="PGUserstatistics#PORTLET_BODY" value1="There are no active users for this period." />
 
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Blogs Page" />
@@ -309,7 +309,7 @@
 			<var name="portletName" value="Account Settings" />
 		</execute>
 
-		<execute function="#assertClick" locator1="Myaccount#MENU_MISCELLANEOUS_DISPLAY_SETTINGS" value1="Display Settings" />
-		<execute function="#assertSelectedLabel" locator1="Myaccount#LANGUAGE_SELECT" value1="English (United States)" />
+		<execute function="AssertClick" locator1="Myaccount#MENU_MISCELLANEOUS_DISPLAY_SETTINGS" value1="Display Settings" />
+		<execute function="AssertSelectedLabel" locator1="Myaccount#LANGUAGE_SELECT" value1="English (United States)" />
 	</command>
 </definition>

@@ -1,26 +1,26 @@
 <definition>
 	<command name="activateStagingCP">
 		<execute function="AssertClick#assertTextClickAt" locator1="CPSitesEdit#MENU_STAGING" value1="Staging" />
-		<execute function="#assertTextEquals" locator1="CPSitesEdit#SITE_TITLE" value1="${siteName}" />
+		<execute function="AssertTextEquals" locator1="CPSitesEdit#SITE_TITLE" value1="${siteName}" />
 
 		<if>
 			<equals arg1="${remoteStaging}" arg2="true" />
 			<then>
-				<execute function="#check" locator1="CPSitesEdit#STAGING_REMOTE_LIVE" />
-				<execute function="#type" locator1="CPSitesEdit#REMOTE_STAGING_IP" value1="localhost" />
-				<execute function="#type" locator1="CPSitesEdit#REMOTE_STAGING_PORT" value1="8080" />
-				<execute function="#paste" locator1="CPSitesEdit#REMOTE_STAGING_SITE_ID" value1="${siteID}" />
+				<execute function="Check" locator1="CPSitesEdit#STAGING_REMOTE_LIVE" />
+				<execute function="Type" locator1="CPSitesEdit#REMOTE_STAGING_IP" value1="localhost" />
+				<execute function="Type" locator1="CPSitesEdit#REMOTE_STAGING_PORT" value1="8080" />
+				<execute function="Paste" locator1="CPSitesEdit#REMOTE_STAGING_SITE_ID" value1="${siteID}" />
 			</then>
 			<else>
-				<execute function="#check" locator1="CPSitesEdit#STAGING_LOCAL_LIVE" />
+				<execute function="Check" locator1="CPSitesEdit#STAGING_LOCAL_LIVE" />
 			</else>
 		</if>
 
 		<if>
 			<equals arg1="${pageVersioningEnabled}" arg2="true" />
 			<then>
-				<execute function="#check" locator1="CPSitesEdit#STAGING_ENABLED_ON_PUBLIC_PAGES_CHECKBOX" />
-				<execute function="#check" locator1="CPSitesEdit#STAGING_ENABLED_ON_PRIVATE_PAGES_CHECKBOX" />
+				<execute function="Check" locator1="CPSitesEdit#STAGING_ENABLED_ON_PUBLIC_PAGES_CHECKBOX" />
+				<execute function="Check" locator1="CPSitesEdit#STAGING_ENABLED_ON_PRIVATE_PAGES_CHECKBOX" />
 			</then>
 		</if>
 
@@ -28,9 +28,9 @@
 			<var name="key_contentName" value="${contentName}" />
 
 			<if>
-				<condition function="#isElementPresent" locator1="CPSitesEdit#STAGING_CONTENT_CHECKBOX" />
+				<condition function="IsElementPresent" locator1="CPSitesEdit#STAGING_CONTENT_CHECKBOX" />
 				<then>
-					<execute function="#check" locator1="CPSitesEdit#STAGING_CONTENT_CHECKBOX" />
+					<execute function="Check" locator1="CPSitesEdit#STAGING_CONTENT_CHECKBOX" />
 				</then>
 			</if>
 		</for>
@@ -40,7 +40,7 @@
 			<then>
 				<var name="key_contentName" value="${uncheckContent}" />
 
-				<execute function="#uncheck" locator1="CPSitesEdit#STAGING_CONTENT_CHECKBOX" />
+				<execute function="Uncheck" locator1="CPSitesEdit#STAGING_CONTENT_CHECKBOX" />
 			</then>
 		</if>
 
@@ -53,20 +53,20 @@
 			<elseif>
 				<equals arg1="${remoteStaging}" arg2="true" />
 				<then>
-					<execute function="#assertClickNoError" locator1="CPSitesEdit#MENU_SAVE" value1="Save" />
-					<execute function="#confirm" locator1="CPSitesEdit#CONFIRMATION" value1="Are you sure you want to activate remote staging for ${siteName}?" />
+					<execute function="AssertClickNoError" locator1="CPSitesEdit#MENU_SAVE" value1="Save" />
+					<execute function="Confirm" locator1="CPSitesEdit#CONFIRMATION" value1="Are you sure you want to activate remote staging for ${siteName}?" />
 					<execute function="AssertTextEquals#assertText" locator1="CPSitesEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 				</then>
 			</elseif>
 			<else>
-				<execute function="#assertClickNoError" locator1="CPSitesEdit#MENU_SAVE" value1="Save" />
-				<execute function="#confirm" locator1="CPSitesEdit#CONFIRMATION" value1="Are you sure you want to activate local staging for ${siteName}?" />
+				<execute function="AssertClickNoError" locator1="CPSitesEdit#MENU_SAVE" value1="Save" />
+				<execute function="Confirm" locator1="CPSitesEdit#CONFIRMATION" value1="Are you sure you want to activate local staging for ${siteName}?" />
 				<execute function="AssertTextEquals#assertText" locator1="CPSitesEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 			</else>
 		</if>
 
-		<execute function="#pause" locator1="5000" />
-		<execute function="#refresh" />
+		<execute function="Pause" locator1="5000" />
+		<execute function="Refresh" />
 	</command>
 
 	<command name="addEventRepeatDaily">
@@ -77,23 +77,23 @@
 			</then>
 		</if>
 
-		<execute function="#click" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
+		<execute function="Click" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 
-		<execute function="#selectFrame" locator1="PGStagingPublishtolivenow#PUBLISH_TO_LIVE_IFRAME" />
-		<execute function="#check" locator1="PGStagingPublishtolivenow#DATE_SCHEDULE_RADIO" />
-		<execute function="#type" locator1="PGStagingPublishtolivenow#DATE_SCHEDULE_TITLE_FIELD" value1="${scheduleTitleName}" />
-		<execute function="#check" locator1="PGStagingPublishtolivenow#DATE_SCHEDULE_END_DATE_NO_END_DATE_RADIO" />
-		<execute function="#check" locator1="PGStagingPublishtolivenow#DATE_SCHEDULE_REPEAT_DAILY_RADIO" />
-		<execute function="#check" locator1="PGStagingPublishtolivenow#CONTENT_ALL_CONTENT_RADIO" />
-		<execute function="#assertClick" locator1="PGStagingPublishtolivenow#ADD_EVENT_BUTTON" value1="Add Event" />
+		<execute function="SelectFrame" locator1="PGStagingPublishtolivenow#PUBLISH_TO_LIVE_IFRAME" />
+		<execute function="Check" locator1="PGStagingPublishtolivenow#DATE_SCHEDULE_RADIO" />
+		<execute function="Type" locator1="PGStagingPublishtolivenow#DATE_SCHEDULE_TITLE_FIELD" value1="${scheduleTitleName}" />
+		<execute function="Check" locator1="PGStagingPublishtolivenow#DATE_SCHEDULE_END_DATE_NO_END_DATE_RADIO" />
+		<execute function="Check" locator1="PGStagingPublishtolivenow#DATE_SCHEDULE_REPEAT_DAILY_RADIO" />
+		<execute function="Check" locator1="PGStagingPublishtolivenow#CONTENT_ALL_CONTENT_RADIO" />
+		<execute function="AssertClick" locator1="PGStagingPublishtolivenow#ADD_EVENT_BUTTON" value1="Add Event" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGStagingPublishtolivenow#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 		<var name="key_scheduleTitleName" value="${scheduleTitleName}" />
 
-		<execute function="#assertTextEquals" locator1="PGStagingPublishtolivenow#SCHEDULED_TABLE_TITLE" value1="${scheduleTitleName}" />
-		<execute function="#assertTextEquals" locator1="PGStagingPublishtolivenow#SCHEDULED_TABLE_END_DATE" value1="No End Date" />
+		<execute function="AssertTextEquals" locator1="PGStagingPublishtolivenow#SCHEDULED_TABLE_TITLE" value1="${scheduleTitleName}" />
+		<execute function="AssertTextEquals" locator1="PGStagingPublishtolivenow#SCHEDULED_TABLE_END_DATE" value1="No End Date" />
 
-		<execute function="#selectFrame" value1="relative=top" />
+		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
 	<command name="addPageVariationPG">
@@ -106,11 +106,11 @@
 
 		<execute function="AssertClick#assertTextClickAndWait" locator1="PGStaging#STAGING_MENU_MANAGE_PAGE_VARIATION" value1="Manage Page Variations" />
 
-		<execute function="#selectFrame" locator1="PGStagingManagepagevariations#MANAGE_PAGE_VARIATIONS_IFRAME" />
+		<execute function="SelectFrame" locator1="PGStagingManagepagevariations#MANAGE_PAGE_VARIATIONS_IFRAME" />
 		<execute function="AssertClick#assertTextClickAndWait" locator1="PGStagingManagepagevariations#ADD_PAGE_VARIATION_BUTTON" value1="Add Page Variation" />
-		<execute function="#type" locator1="PGStagingManagepagevariations#ADD_PAGE_VARIATION_NAME_FIELD" value1="${pageVariationName}" />
+		<execute function="Type" locator1="PGStagingManagepagevariations#ADD_PAGE_VARIATION_NAME_FIELD" value1="${pageVariationName}" />
 		<execute function="AssertClick#assertTextClickAndWait" locator1="PGStagingManagepagevariations#ADD_PAGE_VARIATION_ADD_BUTTON" value1="Add" />
-		<execute function="#assertTextEquals" locator1="PGStagingManagepagevariations#SUCCESS_MESSAGE" value1="Page variation was added." />
+		<execute function="AssertTextEquals" locator1="PGStagingManagepagevariations#SUCCESS_MESSAGE" value1="Page variation was added." />
 	</command>
 
 	<command name="addSitePagesVariationPG">
@@ -121,23 +121,23 @@
 			</then>
 		</if>
 
-		<execute function="#click" locator1="PGStaging#STAGING_MENULIST_MANAGE_SITE_PAGES_VARIATIONS" />
+		<execute function="Click" locator1="PGStaging#STAGING_MENULIST_MANAGE_SITE_PAGES_VARIATIONS" />
 
 		<var name="key_sitePagesVariationName" value="${sitePagesVariationName}" />
 
-		<execute function="#selectFrame" locator1="PGStagingManagesitepagesvariations#MANAGE_SITE_PAGES_VARIATIONS_IFRAME" />
+		<execute function="SelectFrame" locator1="PGStagingManagesitepagesvariations#MANAGE_SITE_PAGES_VARIATIONS_IFRAME" />
 		<execute function="AssertClick#assertTextClickAndWait" locator1="PGStagingManagesitepagesvariations#ADD_SITE_PAGES_VARIATIONS_BUTTON" value1="Add Site Pages Variation" />
-		<execute function="#type" locator1="PGStagingManagesitepagesvariations#ADD_SITE_PAGES_VARIATION_NAME_FIELD" value1="${sitePagesVariationName}" />
+		<execute function="Type" locator1="PGStagingManagesitepagesvariations#ADD_SITE_PAGES_VARIATION_NAME_FIELD" value1="${sitePagesVariationName}" />
 
 		<if>
 			<isset var="copySitePagesVariationName" />
 			<then>
-				<execute function="#select" locator1="PGStagingManagesitepagesvariations#ADD_SITE_PAGES_VARIATION_COPY_PAGES_SELECT" value1="${copySitePagesVariationName}" />
+				<execute function="Select" locator1="PGStagingManagesitepagesvariations#ADD_SITE_PAGES_VARIATION_COPY_PAGES_SELECT" value1="${copySitePagesVariationName}" />
 			</then>
 		</if>
 
-		<execute function="#assertClick" locator1="PGStagingManagesitepagesvariations#ADD_SITE_PAGES_VARIATION_ADD_BUTTON" value1="Add" />
-		<execute function="#assertTextEquals" locator1="PGStagingManagesitepagesvariations#SUCCESS_MESSAGE" value1="Site page variation was added." />
+		<execute function="AssertClick" locator1="PGStagingManagesitepagesvariations#ADD_SITE_PAGES_VARIATION_ADD_BUTTON" value1="Add" />
+		<execute function="AssertTextEquals" locator1="PGStagingManagesitepagesvariations#SUCCESS_MESSAGE" value1="Site page variation was added." />
 	</command>
 
 	<command name="changePageVariationPG">
@@ -150,11 +150,11 @@
 
 		<var name="key_pageVariationName" value="${pageVariationName}" />
 
-		<execute function="#click" locator1="PGStaging#PAGE_VARIATION_DROPDOWN" />
+		<execute function="Click" locator1="PGStaging#PAGE_VARIATION_DROPDOWN" />
 
 		<var name="key_pageVariationName" value="${pageVariationNameMenulistName}" />
 
-		<execute function="#assertClick" locator1="PGStaging#PAGE_VARIATION_MENULIST_NAME" value1="${pageVariationNameMenulistName}" />
+		<execute function="AssertClick" locator1="PGStaging#PAGE_VARIATION_MENULIST_NAME" value1="${pageVariationNameMenulistName}" />
 	</command>
 
 	<command name="changeSitePageVariationPG">
@@ -167,23 +167,23 @@
 
 		<var name="key_sitePagesVariationName" value="${sitePagesVariationName}" />
 
-		<execute function="#click" locator1="PGStaging#SITE_PAGES_VARIATION_DROPDOWN" />
+		<execute function="Click" locator1="PGStaging#SITE_PAGES_VARIATION_DROPDOWN" />
 
 		<var name="key_sitePagesVariationName" value="${sitePagesVariationMenulistName}" />
 
-		<execute function="#assertClick" locator1="PGStaging#SITE_PAGES_VARIATION_MENULIST_NAME" value1="${sitePagesVariationMenulistName}" />
+		<execute function="AssertClick" locator1="PGStaging#SITE_PAGES_VARIATION_MENULIST_NAME" value1="${sitePagesVariationMenulistName}" />
 	</command>
 
 	<command name="deactivateStagingCP">
 		<execute function="AssertClick#assertTextClickAt" locator1="CPSitesEdit#MENU_STAGING" value1="Staging" />
 
 		<if>
-			<condition function="#isElementPresent" locator1="CPSitesEdit#STAGING_ENABLED_ON_PUBLIC_PAGES_CHECKBOX" />
+			<condition function="IsElementPresent" locator1="CPSitesEdit#STAGING_ENABLED_ON_PUBLIC_PAGES_CHECKBOX" />
 			<then>
 				<execute function="AssertClick#assertTextClickAt" locator1="CPSitesEdit#MENU_STAGING" value1="Staging" />
-				<execute function="#check" locator1="CPSitesEdit#STAGING_NONE" />
-				<execute function="#assertClickNoError" locator1="CPSitesEdit#MENU_SAVE" value1="Save" />
-				<execute function="#confirm" locator1="CPSitesEdit#CONFIRMATION" value1="Are you sure you want to deactivate staging for ${siteName}?" />
+				<execute function="Check" locator1="CPSitesEdit#STAGING_NONE" />
+				<execute function="AssertClickNoError" locator1="CPSitesEdit#MENU_SAVE" value1="Save" />
+				<execute function="Confirm" locator1="CPSitesEdit#CONFIRMATION" value1="Are you sure you want to deactivate staging for ${siteName}?" />
 				<execute function="AssertTextEquals#assertText" locator1="CPSitesEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 			</then>
 		</if>
@@ -199,20 +199,20 @@
 			</then>
 		</if>
 
-		<execute function="#click" locator1="PGStaging#STAGING_MENU_MANAGE_SITE_PAGE_VARIATION" />
+		<execute function="Click" locator1="PGStaging#STAGING_MENU_MANAGE_SITE_PAGE_VARIATION" />
 
-		<execute function="#selectFrame" locator1="PGStagingManagesitepagesvariations#MANAGE_SITE_PAGES_VARIATIONS_IFRAME" />
+		<execute function="SelectFrame" locator1="PGStagingManagesitepagesvariations#MANAGE_SITE_PAGES_VARIATIONS_IFRAME" />
 
 		<var name="key_sitePagesVariationName" value="${sitePagesVariationName}" />
 
-		<execute function="#assertClick" locator1="PGStagingManagesitepagesvariations#SITE_PAGES_VARIATIONS_TABLE_ACTIONS" value1="Actions" />
-		<execute function="#assertClick" locator1="PGStagingManagesitepagesvariations#SITE_PAGES_VARIATIONS_TABLE_ACTIONS_MENULIST_EDIT" value1="Edit" />
-		<execute function="#type" locator1="PGStagingManagesitepagesvariations#EDIT_SITE_PAGES_VARIATION_NAME_FIELD" value1="${sitePagesVariationName} Edit" />
+		<execute function="AssertClick" locator1="PGStagingManagesitepagesvariations#SITE_PAGES_VARIATIONS_TABLE_ACTIONS" value1="Actions" />
+		<execute function="AssertClick" locator1="PGStagingManagesitepagesvariations#SITE_PAGES_VARIATIONS_TABLE_ACTIONS_MENULIST_EDIT" value1="Edit" />
+		<execute function="Type" locator1="PGStagingManagesitepagesvariations#EDIT_SITE_PAGES_VARIATION_NAME_FIELD" value1="${sitePagesVariationName} Edit" />
 		<execute function="AssertClick#assertTextClickAndWait" locator1="PGStagingManagesitepagesvariations#EDIT_SITE_PAGES_VARIATION_UPDATE_BUTTON" value1="Update" />
-		<execute function="#selectFrameTop" value1="relative=top" />
-		<execute function="#selectFrame" locator1="PGStagingManagesitepagesvariations#MANAGE_SITE_PAGES_VARIATIONS_IFRAME" />
-		<execute function="#assertTextEquals" locator1="PGStagingManagesitepagesvariations#SUCCESS_MESSAGE" value1="Site page variation was updated." />
-		<execute function="#selectFrameTop" value1="relative=top" />
+		<execute function="SelectFrameTop" value1="relative=top" />
+		<execute function="SelectFrame" locator1="PGStagingManagesitepagesvariations#MANAGE_SITE_PAGES_VARIATIONS_IFRAME" />
+		<execute function="AssertTextEquals" locator1="PGStagingManagesitepagesvariations#SUCCESS_MESSAGE" value1="Site page variation was updated." />
+		<execute function="SelectFrameTop" value1="relative=top" />
 	</command>
 
 	<command name="enablePageInSitePagesVariation">
@@ -224,7 +224,7 @@
 		</if>
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGStaging#STAGING_MENU_REVISION_DETAILS_MESSAGE" value1="The page ${pageName} is not enabled in ${sitePagesVariationName}, but is available for other pages variations." />
-		<execute function="#assertClick" locator1="PGStaging#STAGING_MENU_ENABLE_PAGE_BUTTON" value1="Enable in ${sitePagesVariationName}" />
+		<execute function="AssertClick" locator1="PGStaging#STAGING_MENU_ENABLE_PAGE_BUTTON" value1="Enable in ${sitePagesVariationName}" />
 
 		<execute macro="Page#viewPG">
 			<var name="pageName" value="${pageName}" />
@@ -236,15 +236,15 @@
 			<condition function="IsElementNotPresent#isNotVisible" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 			<then>
 				<execute function="AssertClick#assertTextClickAtClickDockbar" locator1="PGStaging#STAGING_DROP_DOWN_BUTTON" value1="Staging" />
-				<execute function="#assertElementPresent" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
+				<execute function="AssertElementPresent" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 			</then>
 		</if>
 
 		<if>
-			<condition function="#isElementPresent" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" />
+			<condition function="IsElementPresent" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" />
 			<then>
-				<execute function="#assertClick" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" value1="Mark as Ready for Publication" />
-				<execute function="#assertTextEquals" locator1="PGStaging#STAGING_MENU_READY_FOR_PUBLICATION" value1="Ready for Publication" />
+				<execute function="AssertClick" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" value1="Mark as Ready for Publication" />
+				<execute function="AssertTextEquals" locator1="PGStaging#STAGING_MENU_READY_FOR_PUBLICATION" value1="Ready for Publication" />
 			</then>
 		</if>
 	</command>
@@ -257,22 +257,22 @@
 			</then>
 		</if>
 
-		<execute function="#click" locator1="PGStaging#STAGING_MENULIST_MANAGE_SITE_PAGES_VARIATIONS" />
-		<execute function="#selectFrame" locator1="PGStagingManagesitepagesvariations#MANAGE_SITE_PAGES_VARIATIONS_IFRAME" />
+		<execute function="Click" locator1="PGStaging#STAGING_MENULIST_MANAGE_SITE_PAGES_VARIATIONS" />
+		<execute function="SelectFrame" locator1="PGStagingManagesitepagesvariations#MANAGE_SITE_PAGES_VARIATIONS_IFRAME" />
 
 		<var name="key_sitePagesVariationName" value="${sitePagesVariationName}" />
 
-		<execute function="#assertClick" locator1="PGStagingManagesitepagesvariations#SITE_PAGES_VARIATIONS_TABLE_ACTIONS" value1="Actions" />
-		<execute function="#assertClick" locator1="PGStagingManagesitepagesvariations#SITE_PAGES_VARIATIONS_TABLE_ACTIONS_MENULIST_MERGE" value1="Merge" />
+		<execute function="AssertClick" locator1="PGStagingManagesitepagesvariations#SITE_PAGES_VARIATIONS_TABLE_ACTIONS" value1="Actions" />
+		<execute function="AssertClick" locator1="PGStagingManagesitepagesvariations#SITE_PAGES_VARIATIONS_TABLE_ACTIONS_MENULIST_MERGE" value1="Merge" />
 
 		<var name="key_sitePagesVariationMergeName" value="${sitePagesVariationMergeName}" />
 
-		<execute function="#assertTextEquals" locator1="PGStagingManagesitepagesvariations#MERGE_SITE_PAGES_VARIATION_TABLE_BRANCH" value1="${sitePagesVariationMergeName}" />
-		<execute function="#assertClickNoError" locator1="PGStagingManagesitepagesvariations#MERGE_SITE_PAGES_VARIATION_TABLE_SELECT_LINK" value1="Select" />
-		<execute function="#confirm" locator1="PGStagingManagesitepagesvariations#MERGE_SITE_PAGES_VARIATION_TABLE_CONFIRMATION" value1="Are you sure you want to merge changes from ${sitePagesVariationMergeName}?" />
-		<execute function="#selectFrameTop" value1="relative=top" />
-		<execute function="#selectFrame" locator1="PGStagingManagesitepagesvariations#MANAGE_SITE_PAGES_VARIATIONS_IFRAME" />
-		<execute function="#assertTextEquals" locator1="PGStagingManagesitepagesvariations#SUCCESS_MESSAGE" value1="Site page variation was merged." />
+		<execute function="AssertTextEquals" locator1="PGStagingManagesitepagesvariations#MERGE_SITE_PAGES_VARIATION_TABLE_BRANCH" value1="${sitePagesVariationMergeName}" />
+		<execute function="AssertClickNoError" locator1="PGStagingManagesitepagesvariations#MERGE_SITE_PAGES_VARIATION_TABLE_SELECT_LINK" value1="Select" />
+		<execute function="Confirm" locator1="PGStagingManagesitepagesvariations#MERGE_SITE_PAGES_VARIATION_TABLE_CONFIRMATION" value1="Are you sure you want to merge changes from ${sitePagesVariationMergeName}?" />
+		<execute function="SelectFrameTop" value1="relative=top" />
+		<execute function="SelectFrame" locator1="PGStagingManagesitepagesvariations#MANAGE_SITE_PAGES_VARIATIONS_IFRAME" />
+		<execute function="AssertTextEquals" locator1="PGStagingManagesitepagesvariations#SUCCESS_MESSAGE" value1="Site page variation was merged." />
 	</command>
 
 	<command name="publishToLiveNowPG">
@@ -280,69 +280,69 @@
 			<condition function="IsElementNotPresent#isNotVisible" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 			<then>
 				<execute function="AssertClick#assertTextClickAtClickDockbar" locator1="PGStaging#STAGING_DROP_DOWN_BUTTON" value1="Staging" />
-				<execute function="#assertElementPresent" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
+				<execute function="AssertElementPresent" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 			</then>
 		</if>
 
 		<if>
-			<condition function="#isElementPresent" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" />
+			<condition function="IsElementPresent" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" />
 			<then>
-				<execute function="#assertClick" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" value1="Mark as Ready for Publication" />
-				<execute function="#assertTextEquals" locator1="PGStaging#STAGING_MENU_READY_FOR_PUBLICATION" value1="Ready for Publication" />
+				<execute function="AssertClick" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" value1="Mark as Ready for Publication" />
+				<execute function="AssertTextEquals" locator1="PGStaging#STAGING_MENU_READY_FOR_PUBLICATION" value1="Ready for Publication" />
 			</then>
 		</if>
 
-		<execute function="#click" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
+		<execute function="Click" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 
-		<execute function="#selectFrame" locator1="PGStagingPublishtolivenow#PUBLISH_TO_LIVE_IFRAME" />
-		<execute function="#check" locator1="PGStagingPublishtolivenow#DATE_NOW_RADIO" />
+		<execute function="SelectFrame" locator1="PGStagingPublishtolivenow#PUBLISH_TO_LIVE_IFRAME" />
+		<execute function="Check" locator1="PGStagingPublishtolivenow#DATE_NOW_RADIO" />
 
 		<if>
 			<equals arg1="${deleteMissingPages}" arg2="true" />
 			<then>
-				<execute function="#assertClick" locator1="PGStagingPublishtolivenow#PAGES_CHANGE_LINK" value1="Change" />
-				<execute function="#check" locator1="PGStagingPublishtolivenow#PAGES_DELETE_MISSING_PAGES_CHECKBOX" />
-				<execute function="#assertClick" locator1="PGStagingPublishtolivenow#PAGES_OK_BUTTON" value1="OK" />
+				<execute function="AssertClick" locator1="PGStagingPublishtolivenow#PAGES_CHANGE_LINK" value1="Change" />
+				<execute function="Check" locator1="PGStagingPublishtolivenow#PAGES_DELETE_MISSING_PAGES_CHECKBOX" />
+				<execute function="AssertClick" locator1="PGStagingPublishtolivenow#PAGES_OK_BUTTON" value1="OK" />
 			</then>
 		</if>
 
 		<if>
 			<isset var="checkPageName" />
 			<then>
-				<execute function="#assertClick" locator1="PGStagingPublishtolivenow#PAGES_CHANGE_LINK" value1="Change" />
+				<execute function="AssertClick" locator1="PGStagingPublishtolivenow#PAGES_CHANGE_LINK" value1="Change" />
 
 				<for list="${checkPageName}" param="pageName">
 					<var name="key_pageName" value="${pageName}" />
 
-					<execute function="#click" locator1="PGStagingPublishtolivenow#PAGES_SPECIFIC_PAGE_NAME" />
+					<execute function="Click" locator1="PGStagingPublishtolivenow#PAGES_SPECIFIC_PAGE_NAME" />
 				</for>
 
-				<execute function="#assertClick" locator1="PGStagingPublishtolivenow#PAGES_OK_BUTTON" value1="OK" />
+				<execute function="AssertClick" locator1="PGStagingPublishtolivenow#PAGES_OK_BUTTON" value1="OK" />
 			</then>
 		</if>
 
 		<if>
 			<equals arg1="${contentDeletion}" arg2="true" />
 			<then>
-				<execute function="#check" locator1="PGStagingPublishtolivenow#CONTENT_CHOOSE_CONTENT_RADIO" />
-				<execute function="#check" locator1="PGStagingPublishtolivenow#CONTENT_CHOOSE_CONTENT_DELETION_CHECKBOX" />
+				<execute function="Check" locator1="PGStagingPublishtolivenow#CONTENT_CHOOSE_CONTENT_RADIO" />
+				<execute function="Check" locator1="PGStagingPublishtolivenow#CONTENT_CHOOSE_CONTENT_DELETION_CHECKBOX" />
 			</then>
 		</if>
 
 		<if>
 			<equals arg1="${uncheckApplication}" arg2="true" />
 			<then>
-				<execute function="#check" locator1="PGStagingPublishtolivenow#APPLICATION_CONFIGURATION_CHOOSE_APPLICATIONS_RADIO" />
+				<execute function="Check" locator1="PGStagingPublishtolivenow#APPLICATION_CONFIGURATION_CHOOSE_APPLICATIONS_RADIO" />
 
 				<var name="key_applicationName" value="${applicationName}" />
 
-				<execute function="#uncheck" locator1="PGStagingPublishtolivenow#APPLICATION_CONFIGURATION_CHOOSE_APPLICATIONS_APPLICATION_CHECKBOX" />
+				<execute function="Uncheck" locator1="PGStagingPublishtolivenow#APPLICATION_CONFIGURATION_CHOOSE_APPLICATIONS_APPLICATION_CHECKBOX" />
 			</then>
 			<else>
 				<if>
-					<condition function="#isElementPresent" locator1="PGStagingPublishtolivenow#APPLICATION_CONFIGURATION_ALL_APPLICATIONS_RADIO" />
+					<condition function="IsElementPresent" locator1="PGStagingPublishtolivenow#APPLICATION_CONFIGURATION_ALL_APPLICATIONS_RADIO" />
 					<then>
-						<execute function="#check" locator1="PGStagingPublishtolivenow#APPLICATION_CONFIGURATION_ALL_APPLICATIONS_RADIO" />
+						<execute function="Check" locator1="PGStagingPublishtolivenow#APPLICATION_CONFIGURATION_ALL_APPLICATIONS_RADIO" />
 					</then>
 				</if>
 			</else>
@@ -351,38 +351,38 @@
 		<if>
 			<equals arg1="${uncheckContent}" arg2="true" />
 			<then>
-				<execute function="#check" locator1="PGStagingPublishtolivenow#CONTENT_CHOOSE_CONTENT_RADIO" />
+				<execute function="Check" locator1="PGStagingPublishtolivenow#CONTENT_CHOOSE_CONTENT_RADIO" />
 
 				<var name="key_contentName" value="${contentName}" />
 
-				<execute function="#uncheck" locator1="PGStagingPublishtolivenow#CONTENT_CHOOSE_CONTENT_CONTENT_CHECKBOX" />
+				<execute function="Uncheck" locator1="PGStagingPublishtolivenow#CONTENT_CHOOSE_CONTENT_CONTENT_CHECKBOX" />
 			</then>
 			<else>
-				<execute function="#check" locator1="PGStagingPublishtolivenow#CONTENT_ALL_CONTENT_RADIO" />
+				<execute function="Check" locator1="PGStagingPublishtolivenow#CONTENT_ALL_CONTENT_RADIO" />
 			</else>
 		</if>
 
 		<if>
 			<isset var="contentDateRange" />
 			<then>
-				<execute function="#click" locator1="PGStagingPublishtolivenow#CONTENT_CHOOSE_CONTENT_RADIO" />
-				<execute function="#assertClick" locator1="PGStagingPublishtolivenow#CHOOSE_CONTENT_DATE_RANGE_CHANGE_LINK" value1="Change" />
+				<execute function="Click" locator1="PGStagingPublishtolivenow#CONTENT_CHOOSE_CONTENT_RADIO" />
+				<execute function="AssertClick" locator1="PGStagingPublishtolivenow#CHOOSE_CONTENT_DATE_RANGE_CHANGE_LINK" value1="Change" />
 
 				<var name="key_contentDateRange" value="${contentDateRange}" />
 
-				<execute function="#click" locator1="PGStagingPublishtolivenow#DATE_RANGE_POPUP_RANGE_RADIO" />
-				<execute function="#assertClick" locator1="PGStagingPublishtolivenow#DATE_RANGE_POPUP_OK_BUTTON" value1="OK" />
-				<execute function="#assertTextEquals" locator1="PGStagingPublishtolivenow#CHOOSE_CONTENT_DATE_RANGE_STATUS" value1="${contentDateRange}" />
+				<execute function="Click" locator1="PGStagingPublishtolivenow#DATE_RANGE_POPUP_RANGE_RADIO" />
+				<execute function="AssertClick" locator1="PGStagingPublishtolivenow#DATE_RANGE_POPUP_OK_BUTTON" value1="OK" />
+				<execute function="AssertTextEquals" locator1="PGStagingPublishtolivenow#CHOOSE_CONTENT_DATE_RANGE_STATUS" value1="${contentDateRange}" />
 			</then>
 		</if>
 
-		<execute function="#assertClickNoError" locator1="PGStagingPublishtolivenow#PUBLISH_BUTTON" value1="Publish" />
-		<execute function="#confirm" locator1="PGStagingPublishtolivenow#CONFIRMATION" value1="Are you sure you want to publish these pages?" />
-		<execute function="#assertTextEquals" locator1="PGStagingPublishtolivenow#CURRENT_AND_PREVIOUS_TABLE_STATUS" value1="Successful" />
-		<execute function="#selectFrameTop" value1="relative=top" />
+		<execute function="AssertClickNoError" locator1="PGStagingPublishtolivenow#PUBLISH_BUTTON" value1="Publish" />
+		<execute function="Confirm" locator1="PGStagingPublishtolivenow#CONFIRMATION" value1="Are you sure you want to publish these pages?" />
+		<execute function="AssertTextEquals" locator1="PGStagingPublishtolivenow#CURRENT_AND_PREVIOUS_TABLE_STATUS" value1="Successful" />
+		<execute function="SelectFrameTop" value1="relative=top" />
 
-		<execute function="#pause" locator1="5000" />
-		<execute function="#refresh" />
+		<execute function="Pause" locator1="5000" />
+		<execute function="Refresh" />
 	</command>
 
 	<command name="redoStagingPageVersioningPG">
@@ -393,8 +393,8 @@
 			</then>
 		</if>
 
-		<execute function="#clickNoError" locator1="PGStaging#STAGING_MENU_REDO_BUTTON" />
-		<execute function="#confirm" locator1="PGStaging#CONFIRMATION" value1="Are you sure you want to redo your last changes?" />
+		<execute function="ClickNoError" locator1="PGStaging#STAGING_MENU_REDO_BUTTON" />
+		<execute function="Confirm" locator1="PGStaging#CONFIRMATION" value1="Are you sure you want to redo your last changes?" />
 	</command>
 
 	<command name="remoteStagingSetUp">
@@ -415,7 +415,7 @@
 
 		<var name="siteID" value="siteID" />
 
-		<execute function="#copy" locator1="CPSitesEdit#SITE_ID" value1="siteID" />
+		<execute function="Copy" locator1="CPSitesEdit#SITE_ID" value1="siteID" />
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
@@ -435,26 +435,26 @@
 			<condition function="IsElementNotPresent#isNotVisible" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 			<then>
 				<execute function="AssertClick#assertTextClickAtClickDockbar" locator1="PGStaging#STAGING_DROP_DOWN_BUTTON" value1="Staging" />
-				<execute function="#assertElementPresent" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
+				<execute function="AssertElementPresent" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 			</then>
 		</if>
 
 		<if>
-			<condition function="#isElementPresent" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" />
+			<condition function="IsElementPresent" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" />
 			<then>
-				<execute function="#assertClick" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" value1="Mark as Ready for Publication" />
-				<execute function="#assertTextEquals" locator1="PGStaging#STAGING_MENU_READY_FOR_PUBLICATION" value1="Ready for Publication" />
+				<execute function="AssertClick" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" value1="Mark as Ready for Publication" />
+				<execute function="AssertTextEquals" locator1="PGStaging#STAGING_MENU_READY_FOR_PUBLICATION" value1="Ready for Publication" />
 			</then>
 		</if>
 
-		<execute function="#click" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
+		<execute function="Click" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 
-		<execute function="#selectFrame" locator1="PGStagingPublishtolivenow#PUBLISH_TO_LIVE_IFRAME" />
-		<execute function="#assertClick" locator1="PGStagingPublishtolivenow#PAGES_CHANGE_LINK" value1="Change" />
-		<execute function="#click" locator1="PGStagingPublishtolivenow#PAGES_ALL_PUBLIC_PAGES_CHECKBOX" />
-		<execute function="#assertClick" locator1="PGStagingPublishtolivenow#PAGES_OK_BUTTON" value1="OK" />
-		<execute function="#check" locator1="PGStagingPublishtolivenow#DATE_SCHEDULE_RADIO" />
-		<execute function="#type" locator1="PGStagingPublishtolivenow#DATE_SCHEDULE_TITLE_FIELD" value1="${scheduleTitleName}" />
+		<execute function="SelectFrame" locator1="PGStagingPublishtolivenow#PUBLISH_TO_LIVE_IFRAME" />
+		<execute function="AssertClick" locator1="PGStagingPublishtolivenow#PAGES_CHANGE_LINK" value1="Change" />
+		<execute function="Click" locator1="PGStagingPublishtolivenow#PAGES_ALL_PUBLIC_PAGES_CHECKBOX" />
+		<execute function="AssertClick" locator1="PGStagingPublishtolivenow#PAGES_OK_BUTTON" value1="OK" />
+		<execute function="Check" locator1="PGStagingPublishtolivenow#DATE_SCHEDULE_RADIO" />
+		<execute function="Type" locator1="PGStagingPublishtolivenow#DATE_SCHEDULE_TITLE_FIELD" value1="${scheduleTitleName}" />
 
 		<var attribute="value" locator="//input[@id='_88_schedulerStartDateHour']" name="displayDateHour" />
 		<var name="displayDateHourLength" value="${displayDateHour?length()}" />
@@ -484,13 +484,13 @@
 
 		<var name="displayDate" value="${displayDateHour}:${displayDateMinuteFuture} ${displayDateAMPM}" />
 
-		<execute function="#type" locator1="PGStagingPublishtolivenow#DATE_SCHEDULE_TIME_INPUT" value1="${displayDate}" />
-		<execute function="#assertClick" locator1="PGStagingPublishtolivenow#ADD_EVENT_BUTTON" value1="Add Event" />
+		<execute function="Type" locator1="PGStagingPublishtolivenow#DATE_SCHEDULE_TIME_INPUT" value1="${displayDate}" />
+		<execute function="AssertClick" locator1="PGStagingPublishtolivenow#ADD_EVENT_BUTTON" value1="Add Event" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGStagingPublishtolivenow#SUCCESS_MESSAGE" value1="Your request completed successfully." />
-		<execute function="#selectFrameTop" value1="relative=top" />
+		<execute function="SelectFrameTop" value1="relative=top" />
 
-		<execute function="#pause" locator1="5000" />
-		<execute function="#refresh" />
+		<execute function="Pause" locator1="5000" />
+		<execute function="Refresh" />
 	</command>
 
 	<command name="setContentDateRange">
@@ -498,30 +498,30 @@
 			<condition function="IsElementNotPresent#isNotVisible" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 			<then>
 				<execute function="AssertClick#assertTextClickAtClickDockbar" locator1="PGStaging#STAGING_DROP_DOWN_BUTTON" value1="Staging" />
-				<execute function="#assertElementPresent" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
+				<execute function="AssertElementPresent" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 			</then>
 		</if>
 
 		<if>
-			<condition function="#isElementPresent" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" />
+			<condition function="IsElementPresent" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" />
 			<then>
-				<execute function="#assertClick" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" value1="Mark as Ready for Publication" />
-				<execute function="#assertTextEquals" locator1="PGStaging#STAGING_MENU_READY_FOR_PUBLICATION" value1="Ready for Publication" />
+				<execute function="AssertClick" locator1="PGStaging#STAGING_MENU_MARK_AS_READY_FOR_PUBLICATION_BUTTON" value1="Mark as Ready for Publication" />
+				<execute function="AssertTextEquals" locator1="PGStaging#STAGING_MENU_READY_FOR_PUBLICATION" value1="Ready for Publication" />
 			</then>
 		</if>
 
-		<execute function="#click" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
+		<execute function="Click" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 
-		<execute function="#selectFrame" locator1="PGStagingPublishtolivenow#PUBLISH_TO_LIVE_IFRAME" />
-		<execute function="#check" locator1="PGStagingPublishtolivenow#CONTENT_CHOOSE_CONTENT_RADIO" />
-		<execute function="#click" locator1="PGStagingPublishtolivenow#CHOOSE_CONTENT_DATE_RANGE_CHANGE_LINK" />
+		<execute function="SelectFrame" locator1="PGStagingPublishtolivenow#PUBLISH_TO_LIVE_IFRAME" />
+		<execute function="Check" locator1="PGStagingPublishtolivenow#CONTENT_CHOOSE_CONTENT_RADIO" />
+		<execute function="Click" locator1="PGStagingPublishtolivenow#CHOOSE_CONTENT_DATE_RANGE_CHANGE_LINK" />
 
 		<var name="key_contentDateRange" value="DateRange" />
 
-		<execute function="#click" locator1="PGStagingPublishtolivenow#DATE_RANGE_POPUP_RANGE_RADIO" />
+		<execute function="Click" locator1="PGStagingPublishtolivenow#DATE_RANGE_POPUP_RANGE_RADIO" />
 		<execute function="Type#clickAtSendKeys" locator1="PGStagingPublishtolivenow#DATE_RANGE_START_DATE" value1="${dateRangeStartDate}" />
 		<execute function="Type#clickAtSendKeys" locator1="PGStagingPublishtolivenow#DATE_RANGE_END_DATE" value1="${dateRangeEndDate}" />
-		<execute function="#click" locator1="PGStagingPublishtolivenow#DATE_RANGE_POPUP_OK_BUTTON" />
+		<execute function="Click" locator1="PGStagingPublishtolivenow#DATE_RANGE_POPUP_OK_BUTTON" />
 	</command>
 
 	<command name="submitForPublicationPageRevision">
@@ -529,25 +529,25 @@
 			<condition function="IsElementNotPresent#isNotVisible" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 			<then>
 				<execute function="AssertClick#assertTextClickAtClickDockbar" locator1="PGStaging#STAGING_DROP_DOWN_BUTTON" value1="Staging" />
-				<execute function="#assertElementPresent" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
+				<execute function="AssertElementPresent" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 			</then>
 		</if>
 
-		<execute function="#assertTextEquals" locator1="PGStaging#STAGING_MENU_STATUS" value1="Draft" />
-		<execute function="#assertClick" locator1="PGStaging#STAGING_MENU_SUBMIT_FOR_PUBLICATION" value1="Submit for Publication" />
-		<execute function="#assertElementPresent" locator1="PGStaging#STAGING_MENU_SUBMIT_FOR_PUBLICATION_DISABLED" />
+		<execute function="AssertTextEquals" locator1="PGStaging#STAGING_MENU_STATUS" value1="Draft" />
+		<execute function="AssertClick" locator1="PGStaging#STAGING_MENU_SUBMIT_FOR_PUBLICATION" value1="Submit for Publication" />
+		<execute function="AssertElementPresent" locator1="PGStaging#STAGING_MENU_SUBMIT_FOR_PUBLICATION_DISABLED" />
 
 		<if>
-			<condition function="#isTextEqual" locator1="PGStaging#STAGING_MENU_STATUS" value1="Pending (Created)" />
+			<condition function="IsTextEqual" locator1="PGStaging#STAGING_MENU_STATUS" value1="Pending (Created)" />
 			<then>
-				<execute function="#assertTextEquals" locator1="PGStaging#STAGING_MENU_STATUS" value1="Pending (Created)" />
+				<execute function="AssertTextEquals" locator1="PGStaging#STAGING_MENU_STATUS" value1="Pending (Created)" />
 			</then>
 			<else>
-				<execute function="#assertTextEquals" locator1="PGStaging#STAGING_MENU_STATUS" value1="Pending (Review)" />
+				<execute function="AssertTextEquals" locator1="PGStaging#STAGING_MENU_STATUS" value1="Pending (Review)" />
 			</else>
 		</if>
 
-		<execute function="#pause" locator1="5000" />
+		<execute function="Pause" locator1="5000" />
 	</command>
 
 	<command name="undoStagingPageVersioningPG">
@@ -558,8 +558,8 @@
 			</then>
 		</if>
 
-		<execute function="#clickNoError" locator1="PGStaging#STAGING_MENU_UNDO_BUTTON" />
-		<execute function="#confirm" locator1="PGStaging#CONFIRMATION" value1="Are you sure you want to undo your last changes?" />
+		<execute function="ClickNoError" locator1="PGStaging#STAGING_MENU_UNDO_BUTTON" />
+		<execute function="Confirm" locator1="PGStaging#CONFIRMATION" value1="Are you sure you want to undo your last changes?" />
 	</command>
 
 	<command name="viewPageVariationPG">
@@ -572,7 +572,7 @@
 
 		<var name="key_pageVariationName" value="${pageVariationName}" />
 
-		<execute function="#assertTextEquals" locator1="PGStaging#PAGE_VARIATION" value1="${pageVariationName}" />
+		<execute function="AssertTextEquals" locator1="PGStaging#PAGE_VARIATION" value1="${pageVariationName}" />
 	</command>
 
 	<command name="viewSitePagesVariationPG">
@@ -589,14 +589,14 @@
 	</command>
 
 	<command name="viewStagingLocalLivePG">
-		<execute function="#assertElementPresent" locator1="PGStaging#STAGING_VIEW" />
+		<execute function="AssertElementPresent" locator1="PGStaging#STAGING_VIEW" />
 	</command>
 
 	<command name="viewStagingLocalLiveVariationMessagePG">
 		<if>
-			<condition function="#isElementNotPresent" locator1="PGStaging#LIVE_MENU_MESSAGE" />
+			<condition function="IsElementNotPresent" locator1="PGStaging#LIVE_MENU_MESSAGE" />
 			<then>
-				<execute function="#assertClick" locator1="PGStaging#LIVE_DROP_DOWN_BUTTON" value1="Live" />
+				<execute function="AssertClick" locator1="PGStaging#LIVE_DROP_DOWN_BUTTON" value1="Live" />
 			</then>
 		</if>
 
@@ -608,10 +608,10 @@
 			<condition function="IsElementNotPresent#isNotVisible" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 			<then>
 				<execute function="AssertClick#assertTextClickAtClickDockbar" locator1="PGStaging#STAGING_DROP_DOWN_BUTTON" value1="Staging" />
-				<execute function="#assertElementPresent" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
+				<execute function="AssertElementPresent" locator1="PGStaging#STAGING_MENULIST_PUBLISH_TO_LIVE_NOW" />
 			</then>
 		</if>
 
-		<execute function="#assertTextEquals" locator1="PGStaging#STAGING_MENU_STATUS" value1="${stagingWorkflowStatus}" />
+		<execute function="AssertTextEquals" locator1="PGStaging#STAGING_MENU_STATUS" value1="${stagingWorkflowStatus}" />
 	</command>
 </definition>

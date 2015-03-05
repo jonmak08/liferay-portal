@@ -87,10 +87,10 @@
 
 		<var name="key_portletName" value="${portlet3Name}" />
 
-		<execute function="#assertTextEquals" locator1="BasePortlet#SPECIFIC_PORTLET_TITLE" value1="${portlet3Name}" />
+		<execute function="AssertTextEquals" locator1="BasePortlet#SPECIFIC_PORTLET_TITLE" value1="${portlet3Name}" />
 
-		<execute function="#assertTextEquals" locator1="Dockbar#PAGE_INFO_MESSAGE" value1="This page has been changed since the last update from the site template. This page has been changed since the last update from the site template. No further updates from the site template will be applied. Click Reset to overwrite the changes and receive updates from the site template." />
-		<execute function="#assertClick" locator1="Dockbar#RESET_CHANGES_BUTTON" value1="Reset Changes" />
+		<execute function="AssertTextEquals" locator1="Dockbar#PAGE_INFO_MESSAGE" value1="This page has been changed since the last update from the site template. This page has been changed since the last update from the site template. No further updates from the site template will be applied. Click Reset to overwrite the changes and receive updates from the site template." />
+		<execute function="AssertClick" locator1="Dockbar#RESET_CHANGES_BUTTON" value1="Reset Changes" />
 
 		<execute macro="Page#openURL">
 			<var name="pageName" value="${sitePageName}" />
@@ -98,7 +98,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" locator1="BasePortlet#SPECIFIC_PORTLET_TITLE" value1="${portlet3Name}" />
+		<execute function="AssertTextNotPresent" locator1="BasePortlet#SPECIFIC_PORTLET_TITLE" value1="${portlet3Name}" />
 
 		<execute macro="PermissionsInline#gotoConfigurationPG" >
 			<var name="portletName" value="${portlet1Name}" />
@@ -161,11 +161,11 @@
 
 		<execute macro="User#logoutPG" />
 
-		<execute function="#open" locator1="${siteGuestViewURL}" />
+		<execute function="Open" locator1="${siteGuestViewURL}" />
 
 		<var name="key_portletName" value="${portlet2Name}" />
 
-		<execute function="#assertTextEquals" locator1="BasePortlet#SPECIFIC_PORTLET_TITLE" value1="${portlet2Name}" />
+		<execute function="AssertTextEquals" locator1="BasePortlet#SPECIFIC_PORTLET_TITLE" value1="${portlet2Name}" />
 
 		<execute macro="MessageboardsThread#viewPG">
 			<var name="postCount" value="1" />
@@ -176,24 +176,24 @@
 
 		<var name="key_portletName" value="${portlet1Name}" />
 
-		<execute function="#assertTextEquals" locator1="BasePortlet#SPECIFIC_PORTLET_TITLE" value1="${portlet1Name}" />
+		<execute function="AssertTextEquals" locator1="BasePortlet#SPECIFIC_PORTLET_TITLE" value1="${portlet1Name}" />
 
-		<execute function="#assertTextEquals" locator1="BasePortlet#INFO_MESSSAGE" value1="Please sign in to vote." />
+		<execute function="AssertTextEquals" locator1="BasePortlet#INFO_MESSSAGE" value1="Please sign in to vote." />
 
-		<execute function="#assertElementPresent" locator1="PGSearch#SEARCH_FIELD" />
+		<execute function="AssertElementPresent" locator1="PGSearch#SEARCH_FIELD" />
 
 		<var name="key_portletName" value="${portlet4Name}" />
 
-		<execute function="#assertTextEquals" locator1="BasePortlet#SPECIFIC_PORTLET_TITLE" value1="${portlet4Name}" />
+		<execute function="AssertTextEquals" locator1="BasePortlet#SPECIFIC_PORTLET_TITLE" value1="${portlet4Name}" />
 
 		<var name="key_portletName" value="${portlet5Name}" />
 
-		<execute function="#assertTextEquals" locator1="BasePortlet#SPECIFIC_PORTLET_TITLE" value1="${portlet5Name}" />
+		<execute function="AssertTextEquals" locator1="BasePortlet#SPECIFIC_PORTLET_TITLE" value1="${portlet5Name}" />
 
-		<execute function="#assertClick" locator1="Dockbar#USER_SIGN_IN" value1="Sign In" />
+		<execute function="AssertClick" locator1="Dockbar#USER_SIGN_IN" value1="Sign In" />
 
-		<execute function="#type" locator1="PGLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
-		<execute function="#type" locator1="PGLogin#PASSWORD_FIELD" value1="${password}" />
+		<execute function="Type" locator1="PGLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
+		<execute function="Type" locator1="PGLogin#PASSWORD_FIELD" value1="${password}" />
 		<execute function="Click#clickAtAndWait" locator1="PGLogin#SIGN_IN_BUTTON" value1="Sign In" />
 
 		<execute macro="PermissionsInline#gotoConfigurationPG" >
@@ -220,9 +220,9 @@
 
 		<execute macro="User#logoutPG" />
 
-		<execute function="#open" locator1="${siteGuestViewURL}" />
+		<execute function="Open" locator1="${siteGuestViewURL}" />
 
-		<execute function="#assertTextEquals" locator1="PGPollsdisplay#ERROR_MESSAGE_1_COLUMN_1" value1="You do not have the roles required to access this portlet." />
-		<execute function="#assertTextEquals" locator1="PGPollsdisplay#ERROR_MESSAGE_1_COLUMN_2" value1="You do not have the roles required to access this portlet." />
+		<execute function="AssertTextEquals" locator1="PGPollsdisplay#ERROR_MESSAGE_1_COLUMN_1" value1="You do not have the roles required to access this portlet." />
+		<execute function="AssertTextEquals" locator1="PGPollsdisplay#ERROR_MESSAGE_1_COLUMN_2" value1="You do not have the roles required to access this portlet." />
 	</command>
 </definition>

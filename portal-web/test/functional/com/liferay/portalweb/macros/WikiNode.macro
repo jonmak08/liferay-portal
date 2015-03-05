@@ -4,25 +4,25 @@
 	<command name="addCP">
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPWiki#ADD_WIKI_BUTTON" value1="Add Wiki" />
 
-		<execute function="#type" locator1="CPWikiAddwiki#NAME_FIELD" value1="${wikiNodeName}" />
-		<execute function="#type" locator1="CPWikiAddwiki#DESCRIPTION_FIELD" value1="${wikiNodeDescription}" />
+		<execute function="Type" locator1="CPWikiAddwiki#NAME_FIELD" value1="${wikiNodeName}" />
+		<execute function="Type" locator1="CPWikiAddwiki#DESCRIPTION_FIELD" value1="${wikiNodeDescription}" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPWikiAddwiki#SAVE_BUTTON" value1="Save" />
 
 		<var name="key_wikiNodeName" value="${wikiNodeName}" />
 
-		<execute function="#assertTextEquals" locator1="CPWiki#SUCCESS_MESSAGE" value1="Your request completed successfully." />
-		<execute function="#assertTextEquals" locator1="CPWiki#WIKI_NODE_TABLE_WIKI" value1="${wikiNodeName}" />
-		<execute function="#assertTextEquals" locator1="CPWiki#WIKI_NODE_TABLE_NUMBER_OF_PAGES" value1="0" />
+		<execute function="AssertTextEquals" locator1="CPWiki#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute function="AssertTextEquals" locator1="CPWiki#WIKI_NODE_TABLE_WIKI" value1="${wikiNodeName}" />
+		<execute function="AssertTextEquals" locator1="CPWiki#WIKI_NODE_TABLE_NUMBER_OF_PAGES" value1="0" />
 	</command>
 
 	<command name="deleteCP">
 		<var name="key_wikiNodeName" value="${wikiNodeName}" />
 
-		<execute function="#assertTextEquals" locator1="CPWiki#WIKI_NODE_TABLE_WIKI" value1="${wikiNodeName}" />
-		<execute function="#assertClick" locator1="CPWiki#WIKI_NODE_TABLE_ACTIONS" value1="Actions" />
+		<execute function="AssertTextEquals" locator1="CPWiki#WIKI_NODE_TABLE_WIKI" value1="${wikiNodeName}" />
+		<execute function="AssertClick" locator1="CPWiki#WIKI_NODE_TABLE_ACTIONS" value1="Actions" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPWiki#WIKI_NODE_MENULIST_RECYCLE_BIN" value1="Move to the Recycle Bin" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="CPWiki#SUCCESS_MESSAGE_RECYCLE_BIN" value1="The ${assetType} ${wikiNodeName} was moved to the Recycle Bin. Undo" />
-		<execute function="#assertElementNotPresent" locator1="CPWiki#WIKI_NODE_TABLE_WIKI" />
+		<execute function="AssertElementNotPresent" locator1="CPWiki#WIKI_NODE_TABLE_WIKI" />
 
 		<execute macro="RecycleBin#emptyCP" />
 	</command>
@@ -30,19 +30,19 @@
 	<command name="editCP">
 		<var name="key_wikiNodeName" value="${wikiNodeName}" />
 
-		<execute function="#assertTextEquals" locator1="CPWiki#WIKI_NODE_TABLE_WIKI" value1="${wikiNodeName}" />
-		<execute function="#assertClick" locator1="CPWiki#WIKI_NODE_TABLE_ACTIONS" value1="Actions" />
+		<execute function="AssertTextEquals" locator1="CPWiki#WIKI_NODE_TABLE_WIKI" value1="${wikiNodeName}" />
+		<execute function="AssertClick" locator1="CPWiki#WIKI_NODE_TABLE_ACTIONS" value1="Actions" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPWiki#WIKI_NODE_MENULIST_EDIT" value1="Edit" />
 
-		<execute function="#type" locator1="CPWikiAddwiki#NAME_FIELD" value1="${wikiNodeNameEdit}" />
-		<execute function="#type" locator1="CPWikiAddwiki#DESCRIPTION_FIELD" value1="${wikiNodeDescriptionEdit}" />
+		<execute function="Type" locator1="CPWikiAddwiki#NAME_FIELD" value1="${wikiNodeNameEdit}" />
+		<execute function="Type" locator1="CPWikiAddwiki#DESCRIPTION_FIELD" value1="${wikiNodeDescriptionEdit}" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPWikiAddwiki#SAVE_BUTTON" value1="Save" />
 
 		<var name="key_wikiNodeName" value="${wikiNodeNameEdit}" />
 
-		<execute function="#assertTextEquals" locator1="CPWiki#SUCCESS_MESSAGE" value1="Your request completed successfully." />
-		<execute function="#assertTextEquals" locator1="CPWiki#WIKI_NODE_TABLE_WIKI" value1="${wikiNodeNameEdit}" />
-		<execute function="#assertTextNotEquals" locator1="CPWiki#WIKI_NODE_TABLE_WIKI" value1="${wikiNodeName}" />
+		<execute function="AssertTextEquals" locator1="CPWiki#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute function="AssertTextEquals" locator1="CPWiki#WIKI_NODE_TABLE_WIKI" value1="${wikiNodeNameEdit}" />
+		<execute function="AssertTextNotEquals" locator1="CPWiki#WIKI_NODE_TABLE_WIKI" value1="${wikiNodeName}" />
 	</command>
 
 	<command name="gotoCP">
@@ -57,9 +57,9 @@
 		</execute>
 
 		<while>
-			<condition function="#isElementPresent" locator1="xpath=(//a[@title='Actions'])[2]" />
+			<condition function="IsElementPresent" locator1="xpath=(//a[@title='Actions'])[2]" />
 			<then>
-				<execute function="#assertClick" locator1="xpath=(//a[@title='Actions'])[2]" value1="Actions" />
+				<execute function="AssertClick" locator1="xpath=(//a[@title='Actions'])[2]" value1="Actions" />
 				<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPWiki#WIKI_NODE_MENULIST_RECYCLE_BIN" value1="Move to the Recycle Bin" />
 				<execute function="AssertTextEquals#assertPartialText" locator1="CPWiki#SUCCESS_MESSAGE_RECYCLE_BIN" value1="The ${assetType}" />
 				<execute function="AssertTextEquals#assertPartialText" locator1="CPWiki#SUCCESS_MESSAGE_RECYCLE_BIN" value1="moved to the Recycle Bin. Undo" />

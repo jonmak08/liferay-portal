@@ -2,122 +2,122 @@
 	<command name="addCP">
 		<var name="key_vocabularyName" value="${vocabularyName}" />
 
-		<execute function="#assertClick" locator1="CPCategories#VOCABULARY_ENTRY" value1="${vocabularyName}" />
+		<execute function="AssertClick" locator1="CPCategories#VOCABULARY_ENTRY" value1="${vocabularyName}" />
 
 		<var name="key_categoryName" value="${categoryName}" />
 
-		<execute function="#assertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
-		<execute function="#assertClick" locator1="CPCategories#CATEGORY_DETAILS_ADD_SUBCATEGORY_BUTTON" value1="Add Subcategory" />
-		<execute function="#type" locator1="CPCategoriesAddSubcategory#NAME_FIELD" value1="${subcategoryName}" />
-		<execute function="#assertClick" locator1="CPCategoriesAddSubcategory#SAVE_BUTTON" value1="Save" />
-		<execute function="#assertTextEquals" locator1="CPCategories#SUCCESS_MESSAGE" value1="Your request processed successfully." />
+		<execute function="AssertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
+		<execute function="AssertClick" locator1="CPCategories#CATEGORY_DETAILS_ADD_SUBCATEGORY_BUTTON" value1="Add Subcategory" />
+		<execute function="Type" locator1="CPCategoriesAddSubcategory#NAME_FIELD" value1="${subcategoryName}" />
+		<execute function="AssertClick" locator1="CPCategoriesAddSubcategory#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertTextEquals" locator1="CPCategories#SUCCESS_MESSAGE" value1="Your request processed successfully." />
 	</command>
 
 	<command name="deleteViaActionsCP">
 		<var name="key_vocabularyName" value="${vocabularyName}" />
 
-		<execute function="#assertClick" locator1="CPCategories#VOCABULARY_ENTRY" value1="${vocabularyName}" />
+		<execute function="AssertClick" locator1="CPCategories#VOCABULARY_ENTRY" value1="${vocabularyName}" />
 
 		<var name="key_categoryName" value="${categoryName}" />
 
-		<execute function="#assertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
+		<execute function="AssertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
 
 		<if>
 			<condition function="IsElementPresent#isVisible" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			<then>
-				<execute function="#click" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
+				<execute function="Click" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			</then>
 		</if>
 
 		<var name="key_subcategoryName" value="${subcategoryName}" />
 
-		<execute function="#click" locator1="CPCategories#SUBCATEGORY_CHECKBOX" value1="${subcategoryName}" />
-		<execute function="#assertClick" locator1="CPCategories#ACTIONS_BUTTON" value1="Actions" />
-		<execute function="#assertClickNoError" locator1="CPCategories#ACTIONS_MENULIST_DELETE" value1="Delete" />
-		<execute function="#confirm" locator1="CPCategories#CONFIRMATION" value1="Are you sure you want to delete the selected categories?" />
-		<execute function="#assertTextEquals" locator1="CPCategories#SUCCESS_MESSAGE" value1="Your request processed successfully." />
-		<execute function="#assertTextNotPresent" value1="${subcategoryName}" />
+		<execute function="Click" locator1="CPCategories#SUBCATEGORY_CHECKBOX" value1="${subcategoryName}" />
+		<execute function="AssertClick" locator1="CPCategories#ACTIONS_BUTTON" value1="Actions" />
+		<execute function="AssertClickNoError" locator1="CPCategories#ACTIONS_MENULIST_DELETE" value1="Delete" />
+		<execute function="Confirm" locator1="CPCategories#CONFIRMATION" value1="Are you sure you want to delete the selected categories?" />
+		<execute function="AssertTextEquals" locator1="CPCategories#SUCCESS_MESSAGE" value1="Your request processed successfully." />
+		<execute function="AssertTextNotPresent" value1="${subcategoryName}" />
 	</command>
 
 	<command name="deleteViaDetailsCP">
 		<var name="key_vocabularyName" value="${vocabularyName}" />
 
-		<execute function="#assertClick" locator1="CPCategories#VOCABULARY_ENTRY" value1="${vocabularyName}" />
+		<execute function="AssertClick" locator1="CPCategories#VOCABULARY_ENTRY" value1="${vocabularyName}" />
 
 		<var name="key_categoryName" value="${categoryName}" />
 
-		<execute function="#assertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
+		<execute function="AssertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
 
 		<if>
 			<condition function="IsElementPresent#isVisible" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			<then>
-				<execute function="#click" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
+				<execute function="Click" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			</then>
 		</if>
 
 		<var name="key_subcategoryName" value="${subcategoryName}" />
 
-		<execute function="#click" locator1="CPCategories#SUBCATEGORY_CHECKBOX" value1="${subcategoryName}" />
-		<execute function="#assertClickNoError" locator1="CPCategories#SUBCATEGORY_DETAILS_DELETE_BUTTON" value1="Delete" />
-		<execute function="#confirm" locator1="CPCategories#CONFIRMATION" value1="Are you sure you want to delete this category?" />
-		<execute function="#assertTextEquals" locator1="CPCategories#SUCCESS_MESSAGE" value1="Your request processed successfully." />
-		<execute function="#assertTextNotPresent" value1="${subcategoryName}" />
+		<execute function="Click" locator1="CPCategories#SUBCATEGORY_CHECKBOX" value1="${subcategoryName}" />
+		<execute function="AssertClickNoError" locator1="CPCategories#SUBCATEGORY_DETAILS_DELETE_BUTTON" value1="Delete" />
+		<execute function="Confirm" locator1="CPCategories#CONFIRMATION" value1="Are you sure you want to delete this category?" />
+		<execute function="AssertTextEquals" locator1="CPCategories#SUCCESS_MESSAGE" value1="Your request processed successfully." />
+		<execute function="AssertTextNotPresent" value1="${subcategoryName}" />
 	</command>
 
 	<command name="editCP">
 		<var name="key_vocabularyName" value="${vocabularyName}" />
 
-		<execute function="#assertClick" locator1="CPCategories#VOCABULARY_ENTRY" value1="${vocabularyName}" />
+		<execute function="AssertClick" locator1="CPCategories#VOCABULARY_ENTRY" value1="${vocabularyName}" />
 
 		<var name="key_categoryName" value="${categoryName}" />
 
-		<execute function="#assertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
+		<execute function="AssertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
 
 		<if>
 			<condition function="IsElementPresent#isVisible" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			<then>
-				<execute function="#click" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
+				<execute function="Click" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			</then>
 		</if>
 
 		<var name="key_subcategoryName" value="${subcategoryName}" />
 
-		<execute function="#click" locator1="CPCategories#SUBCATEGORY_CHECKBOX" />
-		<execute function="#assertClick" locator1="CPCategories#SUBCATEGORY_DETAILS_EDIT_BUTTON" value1="Edit" />
-		<execute function="#type" locator1="CPCategoriesEditSubcategory#NAME_FIELD" value1="${subcategoryNameEdit}" />
-		<execute function="#assertClick" locator1="CPCategoriesEditSubcategory#SAVE_BUTTON" value1="Save" />
-		<execute function="#assertTextEquals" locator1="CPCategories#SUCCESS_MESSAGE" value1="Your request processed successfully." />
-		<execute function="#click" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
+		<execute function="Click" locator1="CPCategories#SUBCATEGORY_CHECKBOX" />
+		<execute function="AssertClick" locator1="CPCategories#SUBCATEGORY_DETAILS_EDIT_BUTTON" value1="Edit" />
+		<execute function="Type" locator1="CPCategoriesEditSubcategory#NAME_FIELD" value1="${subcategoryNameEdit}" />
+		<execute function="AssertClick" locator1="CPCategoriesEditSubcategory#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertTextEquals" locator1="CPCategories#SUCCESS_MESSAGE" value1="Your request processed successfully." />
+		<execute function="Click" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 
 		<var name="key_subcategoryName" value="${subcategoryNameEdit}" />
 
-		<execute function="#click" locator1="CPCategories#SUBCATEGORY_CHECKBOX" />
-		<execute function="#assertTextEquals" locator1="CPCategories#SUBCATEGORY_DETAILS_HEADER" value1="${subcategoryNameEdit}" />
+		<execute function="Click" locator1="CPCategories#SUBCATEGORY_CHECKBOX" />
+		<execute function="AssertTextEquals" locator1="CPCategories#SUBCATEGORY_DETAILS_HEADER" value1="${subcategoryNameEdit}" />
 	</command>
 
 	<command name="viewCP">
 		<var name="key_vocabularyName" value="${vocabularyName}" />
 
-		<execute function="#assertClick" locator1="CPCategories#VOCABULARY_ENTRY" value1="${vocabularyName}" />
+		<execute function="AssertClick" locator1="CPCategories#VOCABULARY_ENTRY" value1="${vocabularyName}" />
 
 		<var name="key_categoryName" value="${categoryName}" />
 
-		<execute function="#assertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
+		<execute function="AssertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
 
 		<if>
 			<condition function="IsElementPresent#isVisible" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			<then>
-				<execute function="#click" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
+				<execute function="Click" locator1="CPCategories#CATEGORY_DETAILS_DROPDOWN_TREE" />
 			</then>
 		</if>
 
 		<var name="key_subcategoryName" value="${subcategoryName}" />
 
-		<execute function="#click" locator1="CPCategories#SUBCATEGORY_CHECKBOX" />
-		<execute function="#assertClick" locator1="CPCategories#VOCABULARY_CATEGORY_SUBCATEGORY" value1="${subcategoryName}" />
-		<execute function="#assertTextEquals" locator1="CPCategories#SUBCATEGORY_DETAILS_HEADER" value1="${subcategoryName}" />
-		<execute function="#assertElementPresent" locator1="CPCategories#SUBCATEGORY_DETAILS_EDIT_BUTTON" value1="Edit" />
-		<execute function="#assertElementPresent" locator1="CPCategories#SUBCATEGORY_DETAILS_DELETE_BUTTON" value1="Delete" />
-		<execute function="#assertElementPresent" locator1="CPCategories#SUBCATEGORY_DETAILS_ADD_SUBCATEGORY_BUTTON" value1="Add Subcategory" />
+		<execute function="Click" locator1="CPCategories#SUBCATEGORY_CHECKBOX" />
+		<execute function="AssertClick" locator1="CPCategories#VOCABULARY_CATEGORY_SUBCATEGORY" value1="${subcategoryName}" />
+		<execute function="AssertTextEquals" locator1="CPCategories#SUBCATEGORY_DETAILS_HEADER" value1="${subcategoryName}" />
+		<execute function="AssertElementPresent" locator1="CPCategories#SUBCATEGORY_DETAILS_EDIT_BUTTON" value1="Edit" />
+		<execute function="AssertElementPresent" locator1="CPCategories#SUBCATEGORY_DETAILS_DELETE_BUTTON" value1="Delete" />
+		<execute function="AssertElementPresent" locator1="CPCategories#SUBCATEGORY_DETAILS_ADD_SUBCATEGORY_BUTTON" value1="Add Subcategory" />
 	</command>
 </definition>

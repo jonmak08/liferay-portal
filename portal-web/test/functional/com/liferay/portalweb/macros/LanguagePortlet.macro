@@ -32,7 +32,7 @@
 			<elseif>
 				<equals arg1="${language}" arg2="Japanese (Japan)" />
 				<then>
-					<execute function="#click" locator1="PGLanguage#LANGUAGE_MENU_JAPANESE" />
+					<execute function="Click" locator1="PGLanguage#LANGUAGE_MENU_JAPANESE" />
 				</then>
 			</elseif>
 			<elseif>

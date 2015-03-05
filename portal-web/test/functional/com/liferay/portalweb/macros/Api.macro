@@ -3,39 +3,39 @@
 	<var name="userEmailAddress" value="test@liferay.com" />
 
 	<command name="apiAxisView">
-		<execute function="#open" locator1="Home#API_AXIS_URL" />
+		<execute function="Open" locator1="Home#API_AXIS_URL" />
 
-		<execute function="#assertTextPresent" value1="And now... Some Services" />
-		<execute function="#assertTextPresent" value1="Portal_LayoutBranchService" />
-		<execute function="#assertTextPresent" value1="Portal_AccountService" />
-		<execute function="#assertTextPresent" value1="Portal_CompanyService" />
+		<execute function="AssertTextPresent" value1="And now... Some Services" />
+		<execute function="AssertTextPresent" value1="Portal_LayoutBranchService" />
+		<execute function="AssertTextPresent" value1="Portal_AccountService" />
+		<execute function="AssertTextPresent" value1="Portal_CompanyService" />
 	</command>
 
 	<command name="apiJsonwsAddressView">
-		<execute function="#open" locator1="Home#API_JSON_URL" />
+		<execute function="Open" locator1="Home#API_JSON_URL" />
 
-		<execute function="#click" locator1="Jsonwebservices#ADDRESS_ADD_ADDRESS" />
+		<execute function="Click" locator1="Jsonwebservices#ADDRESS_ADD_ADDRESS" />
 
-		<execute function="#assertTextEquals" locator1="JsonwebservicesAddress#API_METHOD" value1="/address/add-address" />
-		<execute function="#assertElementPresent" locator1="JsonwebservicesAddress#INVOKE" />
+		<execute function="AssertTextEquals" locator1="JsonwebservicesAddress#API_METHOD" value1="/address/add-address" />
+		<execute function="AssertElementPresent" locator1="JsonwebservicesAddress#INVOKE" />
 	</command>
 
 	<command name="apiJsonwsView">
-		<execute function="#open" locator1="Home#API_JSON_URL" />
+		<execute function="Open" locator1="Home#API_JSON_URL" />
 
-		<execute function="#assertTextEquals" locator1="Jsonwebservices#INFO_MESSAGE" value1="Please select a method on the left." />
-		<execute function="#assertTextEquals" locator1="Jsonwebservices#SITE_NAME" value1="JSONWS API" />
-		<execute function="#assertElementPresent" locator1="Jsonwebservices#SEARCH" />
-		<execute function="#assertElementPresent" locator1="Jsonwebservices#ADDRESS" />
-		<execute function="#assertElementPresent" locator1="Jsonwebservices#WIKI_PAGE" />
+		<execute function="AssertTextEquals" locator1="Jsonwebservices#INFO_MESSAGE" value1="Please select a method on the left." />
+		<execute function="AssertTextEquals" locator1="Jsonwebservices#SITE_NAME" value1="JSONWS API" />
+		<execute function="AssertElementPresent" locator1="Jsonwebservices#SEARCH" />
+		<execute function="AssertElementPresent" locator1="Jsonwebservices#ADDRESS" />
+		<execute function="AssertElementPresent" locator1="Jsonwebservices#WIKI_PAGE" />
 	</command>
 
 	<command name="apiJsonwsWikiView">
-		<execute function="#open" locator1="Home#API_JSON_URL" />
+		<execute function="Open" locator1="Home#API_JSON_URL" />
 
-		<execute function="#click" locator1="Jsonwebservices#WIKI_PAGE_ADD_PAGE" />
+		<execute function="Click" locator1="Jsonwebservices#WIKI_PAGE_ADD_PAGE" />
 
-		<execute function="#assertTextEquals" locator1="JsonwebservicesWiki#API_METHOD" value1="/wikipage/add-page" />
-		<execute function="#assertElementPresent" locator1="JsonwebservicesWiki#INVOKE" />
+		<execute function="AssertTextEquals" locator1="JsonwebservicesWiki#API_METHOD" value1="/wikipage/add-page" />
+		<execute function="AssertElementPresent" locator1="JsonwebservicesWiki#INVOKE" />
 	</command>
 </definition>

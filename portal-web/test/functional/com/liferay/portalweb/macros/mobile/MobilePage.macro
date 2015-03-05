@@ -5,17 +5,17 @@
 		<execute macro="Page#openURL" />
 
 		<execute function="Click#clickAtClickDockbar" locator1="Mobiledockbar#PENCIL_ICON" />
-		<execute function="#click" locator1="Mobiledockbar#ADD" />
-		<execute function="#assertClick" locator1="Mobiledockbar#ADD_PAGE_LINK" value1="Page" />
-		<execute function="#type" locator1="Mobiledockbar#ADD_PAGE_NAME_FIELD" value1="${pageName}" />
-		<execute function="#assertClick" locator1="Mobiledockbar#ADD_PAGE_BUTTON" value1="Add Page" />
+		<execute function="Click" locator1="Mobiledockbar#ADD" />
+		<execute function="AssertClick" locator1="Mobiledockbar#ADD_PAGE_LINK" value1="Page" />
+		<execute function="Type" locator1="Mobiledockbar#ADD_PAGE_NAME_FIELD" value1="${pageName}" />
+		<execute function="AssertClick" locator1="Mobiledockbar#ADD_PAGE_BUTTON" value1="Add Page" />
 	</command>
 
 	<command name="gotoCmdCP">
 		<execute macro="Page#openURL" />
 
-		<execute function="#click" locator1="Mobiledockbar#COG_ICON" />
-		<execute function="#assertClick" locator1="Mobiledockbar#${portletCategoryKey}" value1="${portletCategoryName}" />
+		<execute function="Click" locator1="Mobiledockbar#COG_ICON" />
+		<execute function="AssertClick" locator1="Mobiledockbar#${portletCategoryKey}" value1="${portletCategoryName}" />
 
 		<if>
 			<not>
@@ -73,7 +73,7 @@
 
 		<var name="key_pageName" value="${pageName}" />
 
-		<execute function="#assertClick" locator1="Mobiledockbar#REORDER_MENULIST_PAGE_NAME" value1="${pageName}" />
+		<execute function="AssertClick" locator1="Mobiledockbar#REORDER_MENULIST_PAGE_NAME" value1="${pageName}" />
 	</command>
 
 	<command name="tearDownCP">
@@ -82,13 +82,13 @@
 		</execute>
 
 		<while>
-			<condition function="#isElementPresent" locator1="MobileCPSitepages#PAGE_TREE_PAGE_LINK_2" />
+			<condition function="IsElementPresent" locator1="MobileCPSitepages#PAGE_TREE_PAGE_LINK_2" />
 			<then>
-				<execute function="#click" locator1="MobileCPSitepages#PAGE_TREE_PAGE_LINK_2" />
+				<execute function="Click" locator1="MobileCPSitepages#PAGE_TREE_PAGE_LINK_2" />
 				<execute function="Click#pauseClickAt" locator1="MobileCPSitepages#REORDER_ICON" />
-				<execute function="#assertClickNoError" locator1="MobileCPSitepages#TOOLBAR_DELETE" value1="Delete" />
-				<execute function="#confirm" locator1="MobileCPSitepages#CONFIRMATION" value1="Are you sure you want to delete the selected page?" />
-				<execute function="#assertTextEquals" locator1="MobileCPSitepages#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+				<execute function="AssertClickNoError" locator1="MobileCPSitepages#TOOLBAR_DELETE" value1="Delete" />
+				<execute function="Confirm" locator1="MobileCPSitepages#CONFIRMATION" value1="Are you sure you want to delete the selected page?" />
+				<execute function="AssertTextEquals" locator1="MobileCPSitepages#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 			</then>
 		</while>
 	</command>
@@ -105,6 +105,6 @@
 
 		<var name="key_portletName" value="${portletName}" />
 
-		<execute function="#mouseMove" locator1="BasePortlet#SPECIFIC_PORTLET_OPTIONS_ICON" value1="${portletName}" />
+		<execute function="MouseMove" locator1="BasePortlet#SPECIFIC_PORTLET_OPTIONS_ICON" value1="${portletName}" />
 	</command>
 </definition>

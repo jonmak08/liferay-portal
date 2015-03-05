@@ -143,7 +143,7 @@
 			<var name="portletName" value="Campaign Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -240,7 +240,7 @@
 			<var name="portletName" value="Campaign Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -418,7 +418,7 @@
 			<var name="portletName" value="Campaign Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -610,7 +610,7 @@
 			<var name="portletName" value="Campaign Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -704,7 +704,7 @@
 			<var name="portletName" value="Campaign Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -890,7 +890,7 @@
 			<var name="portletName" value="Campaign Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -989,7 +989,7 @@
 			<var name="portletName" value="User Segment Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -1029,11 +1029,11 @@
 
 		<execute macro="LAR#configureExportSiteCP" />
 
-		<execute function="#assertClick" locator1="CPSitepagesExport#EXPORT_BUTTON" value1="Export" />
+		<execute function="AssertClick" locator1="CPSitepagesExport#EXPORT_BUTTON" value1="Export" />
 
 		<var name="key_larFileName" value="${larFileName}" />
 
-		<execute function="#assertTextEquals" locator1="CPSitepagesExport#CURRENT_AND_PREVIOUS_STATUS" value1="Successful" />
+		<execute function="AssertTextEquals" locator1="CPSitepagesExport#CURRENT_AND_PREVIOUS_STATUS" value1="Successful" />
 
 		<var method="selenium#getText(&quot;//tr/td[5]/span/a&quot;)" name="valueName" />
 
@@ -1043,9 +1043,9 @@
 
 		<echo message="lar file name ${larFileName}" />
 
-		<execute function="#click" locator1="CPSitepagesExport#CURRENT_AND_PREVIOUS_DOWNLOAD" />
-		<execute function="#downloadTempFile" />
-		<execute function="#selectFrame" value1="relative=top" />
+		<execute function="Click" locator1="CPSitepagesExport#CURRENT_AND_PREVIOUS_DOWNLOAD" />
+		<execute function="DownloadTempFile" />
+		<execute function="SelectFrame" value1="relative=top" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
@@ -1072,7 +1072,7 @@
 			<var name="viewEntryTitleList" value="Web Content Title" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="UserSegmentContentDisplayPortlet#viewEntryPG">
 			<var name="entryContentText" value="Web Content Content" />
@@ -1081,7 +1081,7 @@
 			<var name="viewUserSegmentSelected" value="User Segment Name" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="CampaignDisplayPortlet#viewPG">
 			<var name="entryContentText" value="Web Content Content" />
@@ -1156,11 +1156,11 @@
 			<var name="uncheckContentNameList" value="Audience Targeting" />
 		</execute>
 
-		<execute function="#assertClick" locator1="CPSitepagesExport#EXPORT_BUTTON" value1="Export" />
+		<execute function="AssertClick" locator1="CPSitepagesExport#EXPORT_BUTTON" value1="Export" />
 
 		<var name="key_larFileName" value="${larFileName}" />
 
-		<execute function="#assertTextEquals" locator1="CPSitepagesExport#CURRENT_AND_PREVIOUS_STATUS" value1="Successful" />
+		<execute function="AssertTextEquals" locator1="CPSitepagesExport#CURRENT_AND_PREVIOUS_STATUS" value1="Successful" />
 
 		<var method="selenium#getText(&quot;//tr/td[5]/span/a&quot;)" name="valueName" />
 
@@ -1170,9 +1170,9 @@
 
 		<echo message="lar file name ${larFileName}" />
 
-		<execute function="#click" locator1="CPSitepagesExport#CURRENT_AND_PREVIOUS_DOWNLOAD" />
-		<execute function="#downloadTempFile" />
-		<execute function="#selectFrame" value1="relative=top" />
+		<execute function="Click" locator1="CPSitepagesExport#CURRENT_AND_PREVIOUS_DOWNLOAD" />
+		<execute function="DownloadTempFile" />
+		<execute function="SelectFrame" value1="relative=top" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
@@ -1244,11 +1244,11 @@
 			<var name="uncheckContentNameList" value="Audience Targeting,Web Content" />
 		</execute>
 
-		<execute function="#assertClick" locator1="CPSitepagesExport#EXPORT_BUTTON" value1="Export" />
+		<execute function="AssertClick" locator1="CPSitepagesExport#EXPORT_BUTTON" value1="Export" />
 
 		<var name="key_larFileName" value="${larFileName}" />
 
-		<execute function="#assertTextEquals" locator1="CPSitepagesExport#CURRENT_AND_PREVIOUS_STATUS" value1="Successful" />
+		<execute function="AssertTextEquals" locator1="CPSitepagesExport#CURRENT_AND_PREVIOUS_STATUS" value1="Successful" />
 
 		<var method="selenium#getText(&quot;//tr/td[5]/span/a&quot;)" name="valueName" />
 
@@ -1258,9 +1258,9 @@
 
 		<echo message="lar file name ${larFileName}" />
 
-		<execute function="#click" locator1="CPSitepagesExport#CURRENT_AND_PREVIOUS_DOWNLOAD" />
-		<execute function="#downloadTempFile" />
-		<execute function="#selectFrame" value1="relative=top" />
+		<execute function="Click" locator1="CPSitepagesExport#CURRENT_AND_PREVIOUS_DOWNLOAD" />
+		<execute function="DownloadTempFile" />
+		<execute function="SelectFrame" value1="relative=top" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
@@ -1287,7 +1287,7 @@
 			<var name="viewEntryTitleList" value="Web Content Title" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="UserSegmentContentDisplayPortlet#viewEntryPG">
 			<var name="entryContentText" value="Web Content Content" />
@@ -1296,7 +1296,7 @@
 			<var name="viewUserSegmentSelected" value="User Segment Name" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="CampaignDisplayPortlet#viewPG">
 			<var name="entryContentText" value="Web Content Content" />
@@ -1426,13 +1426,13 @@
 			<var name="portletName" value="Campaign Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#addPG">
 			<var name="portletName" value="User Segment Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#addPG">
 			<var name="portletName" value="User Segment Content List" />
@@ -1502,7 +1502,7 @@
 			<var name="viewEntryTitleList" value="Web Content Title" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="UserSegmentContentDisplayPortlet#viewEntryPG">
 			<var name="entryContentText" value="Web Content Content" />
@@ -1511,7 +1511,7 @@
 			<var name="viewUserSegmentSelected" value="Male Users" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="CampaignDisplayPortlet#viewPG">
 			<var name="entryContentText" value="Web Content Content" />
@@ -1520,7 +1520,7 @@
 			<var name="viewCampaignSelected" value="Campaign Name" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Staging#publishToLiveNowPG" />
 
@@ -1535,7 +1535,7 @@
 			<var name="viewEntryTitleList" value="Web Content Title" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="UserSegmentContentDisplayPortlet#viewEntryPG">
 			<var name="entryContentText" value="Web Content Content" />
@@ -1544,7 +1544,7 @@
 			<var name="viewUserSegmentSelected" value="Male Users" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="CampaignDisplayPortlet#viewPG">
 			<var name="entryContentText" value="Web Content Content" />
@@ -1839,7 +1839,7 @@
 			<var name="portletName" value="User Segment Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -2034,7 +2034,7 @@
 			<var name="portletName" value="User Segment Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -2134,7 +2134,7 @@
 			<var name="portletName" value="User Segment Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -2218,7 +2218,7 @@
 			<var name="portletName" value="User Segment Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -2296,7 +2296,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute function="#sikuliClick" locator1="PGUsersegmentcontentdisplay#PREVIEW_DOCUMENT_1_PNG" />
+		<execute function="SikuliClick" locator1="PGUsersegmentcontentdisplay#PREVIEW_DOCUMENT_1_PNG" />
 	</command>
 
 	<command name="UserSegmentAddWithDoesNotBelongViaUserSegmentContentDisplayPortlet" priority="5">
@@ -2346,7 +2346,7 @@
 			<var name="portletName" value="User Segment Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -2467,7 +2467,7 @@
 			<var name="portletName" value="User Segment Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -2605,7 +2605,7 @@
 			<var name="portletName" value="User Segment Content Display" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -2720,7 +2720,7 @@
 			<var name="portletName" value="User Segment Content List" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="UserSegmentContentListPortlet#viewContent">
 			<var name="viewEntryContentList" value="Web Content Content" />
@@ -2874,13 +2874,13 @@
 			<var name="portletName" value="User Segment Content List" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="UserSegmentContentListPortlet#configureDisplayFilter">
 			<var name="assetTypeFilter" value="Web Content Article" />
 		</execute>
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="UserSegmentContentListPortlet#viewContent">
 			<var name="viewEntryContentList" value="Web Content Content" />

@@ -1,18 +1,18 @@
 <definition>
 	<command name="showEditField">
 		<if>
-			<condition function="#isElementNotPresent" locator1="//div[@id='_145_${fieldLabel}Content']" value1="${fieldName}" />
+			<condition function="IsElementNotPresent" locator1="//div[@id='_145_${fieldLabel}Content']" value1="${fieldName}" />
 			<then>
-				<execute function="#assertClick" locator1="Dockbar#EDIT_${fieldKey}" value1="${fieldName}" />
+				<execute function="AssertClick" locator1="Dockbar#EDIT_${fieldKey}" value1="${fieldName}" />
 			</then>
 		</if>
 
-		<execute function="#assertElementPresent" locator1="_145_${fieldLabel}Content" />
+		<execute function="AssertElementPresent" locator1="_145_${fieldLabel}Content" />
 	</command>
 
 	<command name="viewSitesViaMySitesDropDown">
 		<var name="key_siteName" value="${siteName}" />
 
-		<execute function="#assertTextEquals" locator1="Dockbar#MY_SITES_PUBLIC_SITE" value1="${siteName}" />
+		<execute function="AssertTextEquals" locator1="Dockbar#MY_SITES_PUBLIC_SITE" value1="${siteName}" />
 	</command>
 </definition>

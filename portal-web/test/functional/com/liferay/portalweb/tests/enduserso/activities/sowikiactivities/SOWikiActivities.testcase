@@ -591,7 +591,7 @@
 			<var name="wikiPageTitle" value="FrontPage" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="1 Comment" />
+		<execute function="AssertTextNotPresent" value1="1 Comment" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Wiki" />
@@ -603,7 +603,7 @@
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="${commentContent}" />
+		<execute function="AssertTextNotPresent" value1="${commentContent}" />
 	</command>
 
 	<command name="EditWikiFrontPageComment" priority="5">
@@ -947,7 +947,7 @@
 			<var name="timeStampValue" value="About a minute ago." />
 		</execute>
 
-		<execute function="#pause" locator1="60000" />
+		<execute function="Pause" locator1="60000" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Wiki" />
@@ -1384,10 +1384,10 @@
 			<var name="wikiPageTitle" value="FrontPage" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="${wikiChildPageContent2}" />
-		<execute function="#assertTextNotPresent" value1="${wikiChildPageTitle2}" />
-		<execute function="#assertTextNotPresent" value1="${wikiChildPageContent3}" />
-		<execute function="#assertTextNotPresent" value1="${wikiChildPageTitle3}" />
+		<execute function="AssertTextNotPresent" value1="${wikiChildPageContent2}" />
+		<execute function="AssertTextNotPresent" value1="${wikiChildPageTitle2}" />
+		<execute function="AssertTextNotPresent" value1="${wikiChildPageContent3}" />
+		<execute function="AssertTextNotPresent" value1="${wikiChildPageTitle3}" />
 	</command>
 
 	<command name="ViewWikiFrontPageAttachmentActivity" priority="4">

@@ -692,7 +692,7 @@
 		<var name="key_documentTitleRow" value="1" />
 		<var name="key_row" value="1" />
 
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle3}" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle3}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription3}" />
@@ -703,7 +703,7 @@
 			<var name="dmDocumentVersionNumber" value="1.0" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="${commentContent}" />
+		<execute function="AssertTextNotPresent" value1="${commentContent}" />
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName}" />
@@ -713,7 +713,7 @@
 		<var name="key_documentTitleRow" value="2" />
 		<var name="key_row" value="1" />
 
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle2}" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle2}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription2}" />
@@ -724,7 +724,7 @@
 			<var name="dmDocumentVersionNumber" value="1.0" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="${commentContent}" />
+		<execute function="AssertTextNotPresent" value1="${commentContent}" />
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName}" />
@@ -734,7 +734,7 @@
 		<var name="key_documentTitleRow" value="3" />
 		<var name="key_row" value="1" />
 
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle1}" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle1}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription1}" />
@@ -745,7 +745,7 @@
 			<var name="dmDocumentVersionNumber" value="1.0" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="${commentContent}" />
+		<execute function="AssertTextNotPresent" value1="${commentContent}" />
 	</command>
 
 	<command name="DeleteDocumentComment" priority="5">
@@ -808,7 +808,7 @@
 			<var name="userName" value="${adminFirstName}" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="1 Comment" />
+		<execute function="AssertTextNotPresent" value1="1 Comment" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Documents" />
@@ -822,7 +822,7 @@
 			<var name="dmDocumentVersionNumber" value="${dmDocumentVersionNumber}" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="${commentContent}" />
+		<execute function="AssertTextNotPresent" value1="${commentContent}" />
 	</command>
 
 	<command name="EditDocumentComment" priority="5">
@@ -1040,7 +1040,7 @@
 		<var name="key_documentTitleRow" value="1" />
 		<var name="key_row" value="1" />
 
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle3}" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle3}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription3}" />
@@ -1051,7 +1051,7 @@
 			<var name="dmDocumentVersionNumber" value="1.0" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="${commentContentEdit}" />
+		<execute function="AssertTextNotPresent" value1="${commentContentEdit}" />
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName}" />
@@ -1061,7 +1061,7 @@
 		<var name="key_documentTitleRow" value="2" />
 		<var name="key_row" value="1" />
 
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle2}" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle2}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription2}" />
@@ -1072,7 +1072,7 @@
 			<var name="dmDocumentVersionNumber" value="1.0" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="${commentContentEdit}" />
+		<execute function="AssertTextNotPresent" value1="${commentContentEdit}" />
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName}" />
@@ -1082,7 +1082,7 @@
 		<var name="key_documentTitleRow" value="3" />
 		<var name="key_row" value="1" />
 
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle1}" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle1}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription1}" />
@@ -1093,7 +1093,7 @@
 			<var name="dmDocumentVersionNumber" value="1.0" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="${commentContentEdit}" />
+		<execute function="AssertTextNotPresent" value1="${commentContentEdit}" />
 	</command>
 
 	<command name="ViewDMFolderDocumentActivities" priority="5">
@@ -1151,7 +1151,7 @@
 
 		<var name="key_row" value="01" />
 
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_TITLE" value1="${dmDocumentTitle}" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_TITLE" value1="${dmDocumentTitle}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
@@ -1166,11 +1166,11 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute function="#assertClick" locator1="SOActivities#ACTIVITIES_ACTION_LINK" value1="${dmFolderName}" />
+		<execute function="AssertClick" locator1="SOActivities#ACTIVITIES_ACTION_LINK" value1="${dmFolderName}" />
 
 		<var name="key_dmDocumentTitle" value="${dmDocumentTitle}" />
 
-		<execute function="#assertClick" locator1="PGDocumentsandmedia#ENTRY_ICON_DOCUMENT_TITLE" value1="${dmDocumentTitle}" />
+		<execute function="AssertClick" locator1="PGDocumentsandmedia#ENTRY_ICON_DOCUMENT_TITLE" value1="${dmDocumentTitle}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
@@ -1283,7 +1283,7 @@
 		<var name="key_documentTitleRow" value="1" />
 		<var name="key_row" value="1" />
 
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle3}" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle3}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription3}" />
@@ -1302,7 +1302,7 @@
 		<var name="key_documentTitleRow" value="2" />
 		<var name="key_row" value="1" />
 
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle2}" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle2}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription2}" />
@@ -1321,7 +1321,7 @@
 		<var name="key_documentTitleRow" value="3" />
 		<var name="key_row" value="1" />
 
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle1}" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle1}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription1}" />
@@ -1357,7 +1357,7 @@
 		<var name="key_documentTitleRow" value="1" />
 		<var name="key_row" value="1" />
 
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle3}" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle3}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription3}" />
@@ -1376,7 +1376,7 @@
 		<var name="key_documentTitleRow" value="2" />
 		<var name="key_row" value="1" />
 
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle1}" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle1}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription1}" />
@@ -1425,9 +1425,9 @@
 		<var name="key_documentTitleRow" value="1" />
 		<var name="key_row" value="1" />
 
-		<execute function="#assertElementNotPresent" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" />
-		<execute function="#assertElementNotPresent" locator1="SOActivities#ACTIVITIES_DOCUMENT_DESCRIPTION_MULTIPLE" />
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_TITLE" value1="${dmDocumentTitle3}" />
+		<execute function="AssertElementNotPresent" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" />
+		<execute function="AssertElementNotPresent" locator1="SOActivities#ACTIVITIES_DOCUMENT_DESCRIPTION_MULTIPLE" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_TITLE" value1="${dmDocumentTitle3}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription3}" />
@@ -1582,9 +1582,9 @@
 			<var name="userName" value="Test" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="1 Comment" />
-		<execute function="#assertTextNotPresent" value1="2 Comments" />
-		<execute function="#assertTextNotPresent" value1="3 Comments" />
+		<execute function="AssertTextNotPresent" value1="1 Comment" />
+		<execute function="AssertTextNotPresent" value1="2 Comments" />
+		<execute function="AssertTextNotPresent" value1="3 Comments" />
 	</command>
 
 	<command name="ViewDMFolderImageThumbnailActivities" priority="5">
@@ -1640,7 +1640,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute function="#sikuliAssertElementPresent" locator1="SOActivities#SCREENSHOTS_ACTIVITIES_DOCUMENT_IMAGE_THUMBNAIL_PNG" />
+		<execute function="SikuliAssertElementPresent" locator1="SOActivities#SCREENSHOTS_ACTIVITIES_DOCUMENT_IMAGE_THUMBNAIL_PNG" />
 	</command>
 
 	<command name="ViewEditedDMFolderDocumentActivities" priority="4">
@@ -1717,7 +1717,7 @@
 			<var name="timeStampValue" value="About a minute ago." />
 		</execute>
 
-		<execute function="#pause" locator1="60000" />
+		<execute function="Pause" locator1="60000" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Documents" />
@@ -1899,7 +1899,7 @@
 
 		<var name="key_row" value="1" />
 
-		<execute function="#assertClick" locator1="SOActivities#ACTIVITIES_VIEW_MORE" value1="View More" />
+		<execute function="AssertClick" locator1="SOActivities#ACTIVITIES_VIEW_MORE" value1="View More" />
 
 		<execute macro="SOActivities#viewMultipleDocumentsActivityEntry">
 			<var name="dmDocumentDescriptionList" value="${dmDocumentDescription6},${dmDocumentDescription5},${dmDocumentDescription4},${dmDocumentDescription3},${dmDocumentDescription2},${dmDocumentDescription1}" />
@@ -1908,7 +1908,7 @@
 			<var name="userName" value="Test" />
 		</execute>
 
-		<execute function="#assertClick" locator1="SOActivities#ACTIVITIES_VIEW_LESS" value1="View Less" />
+		<execute function="AssertClick" locator1="SOActivities#ACTIVITIES_VIEW_LESS" value1="View Less" />
 
 		<execute macro="SOActivities#viewMultipleDocumentsActivityEntry">
 			<var name="dmDocumentDescriptionList" value="${dmDocumentDescription6},${dmDocumentDescription5},${dmDocumentDescription4}" />
@@ -1919,7 +1919,7 @@
 
 		<var name="key_documentTitleRow" value="1" />
 
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle6}" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle6}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription6}" />
@@ -1938,7 +1938,7 @@
 		<var name="key_documentTitleRow" value="2" />
 		<var name="key_row" value="1" />
 
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle5}" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle5}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription5}" />
@@ -1957,7 +1957,7 @@
 		<var name="key_documentTitleRow" value="3" />
 		<var name="key_row" value="1" />
 
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle4}" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle4}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription4}" />
@@ -1976,8 +1976,8 @@
 		<var name="key_documentTitleRow" value="4" />
 		<var name="key_row" value="1" />
 
-		<execute function="#assertClick" locator1="SOActivities#ACTIVITIES_VIEW_MORE" value1="View More" />
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle3}" />
+		<execute function="AssertClick" locator1="SOActivities#ACTIVITIES_VIEW_MORE" value1="View More" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle3}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription3}" />
@@ -1996,8 +1996,8 @@
 		<var name="key_documentTitleRow" value="5" />
 		<var name="key_row" value="1" />
 
-		<execute function="#assertClick" locator1="SOActivities#ACTIVITIES_VIEW_MORE" value1="View More" />
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle2}" />
+		<execute function="AssertClick" locator1="SOActivities#ACTIVITIES_VIEW_MORE" value1="View More" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle2}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription2}" />
@@ -2016,8 +2016,8 @@
 		<var name="key_documentTitleRow" value="6" />
 		<var name="key_row" value="1" />
 
-		<execute function="#assertClick" locator1="SOActivities#ACTIVITIES_VIEW_MORE" value1="View More" />
-		<execute function="#click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle1}" />
+		<execute function="AssertClick" locator1="SOActivities#ACTIVITIES_VIEW_MORE" value1="View More" />
+		<execute function="Click" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle1}" />
 
 		<execute macro="SODocuments#viewPGDocumentDetailView">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription1}" />
@@ -2063,7 +2063,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute function="#assertElementNotPresent" locator1="SOActivities#ACTIVITIES_VIEW_MORE" />
+		<execute function="AssertElementNotPresent" locator1="SOActivities#ACTIVITIES_VIEW_MORE" />
 
 		<execute macro="SOActivities#viewMultipleDocumentsActivityEntry">
 			<var name="dmDocumentDescriptionList" value="${dmDocumentDescription3},${dmDocumentDescription2},${dmDocumentDescription1}" />
@@ -2315,10 +2315,10 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="${dmDocumentDescription2}" />
-		<execute function="#assertTextNotPresent" value1="${dmDocumentSize2}" />
-		<execute function="#assertTextNotPresent" value1="${dmDocumentSizeSO2}" />
-		<execute function="#assertTextNotPresent" value1="${dmDocumentTitle2}" />
+		<execute function="AssertTextNotPresent" value1="${dmDocumentDescription2}" />
+		<execute function="AssertTextNotPresent" value1="${dmDocumentSize2}" />
+		<execute function="AssertTextNotPresent" value1="${dmDocumentSizeSO2}" />
+		<execute function="AssertTextNotPresent" value1="${dmDocumentTitle2}" />
 	</command>
 
 	<command known-issues="LPS-45435" name="ViewRemoveFolderViewPermissionsActivities" priority="4">
@@ -2441,11 +2441,11 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="${dmFolderName2}" />
-		<execute function="#assertTextNotPresent" value1="${dmDocumentDescription2}" />
-		<execute function="#assertTextNotPresent" value1="${dmDocumentSize2}" />
-		<execute function="#assertTextNotPresent" value1="${dmDocumentSizeSO2}" />
-		<execute function="#assertTextNotPresent" value1="${dmDocumentTitle2}" />
+		<execute function="AssertTextNotPresent" value1="${dmFolderName2}" />
+		<execute function="AssertTextNotPresent" value1="${dmDocumentDescription2}" />
+		<execute function="AssertTextNotPresent" value1="${dmDocumentSize2}" />
+		<execute function="AssertTextNotPresent" value1="${dmDocumentSizeSO2}" />
+		<execute function="AssertTextNotPresent" value1="${dmDocumentTitle2}" />
 	</command>
 
 	<command name="ViewRemoveFolderViewPermissionsViaAddFolderActivities" priority="3">
@@ -2559,10 +2559,10 @@
 			<var name="userName" value="${adminName}" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="${dmFolderName2}" />
-		<execute function="#assertTextNotPresent" value1="${dmDocumentDescription2}" />
-		<execute function="#assertTextNotPresent" value1="${dmDocumentSize2}" />
-		<execute function="#assertTextNotPresent" value1="${dmDocumentSizeSO2}" />
-		<execute function="#assertTextNotPresent" value1="${dmDocumentTitle2}" />
+		<execute function="AssertTextNotPresent" value1="${dmFolderName2}" />
+		<execute function="AssertTextNotPresent" value1="${dmDocumentDescription2}" />
+		<execute function="AssertTextNotPresent" value1="${dmDocumentSize2}" />
+		<execute function="AssertTextNotPresent" value1="${dmDocumentSizeSO2}" />
+		<execute function="AssertTextNotPresent" value1="${dmDocumentTitle2}" />
 	</command>
 </definition>

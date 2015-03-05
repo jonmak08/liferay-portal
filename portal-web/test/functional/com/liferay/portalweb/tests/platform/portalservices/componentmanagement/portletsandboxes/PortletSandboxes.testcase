@@ -45,7 +45,7 @@
 			<var name="spiName" value="SPI Name" />
 		</execute>
 
-		<execute function="#assertConsoleTextNotPresent" value1="Error" />
+		<execute function="AssertConsoleTextNotPresent" value1="Error" />
 	</command>
 
 	<command name="AutomaticStartup" priority="5">
@@ -77,9 +77,9 @@
 			<var name="spiName" value="SPI Name" />
 		</execute>
 
-		<execute function="#antCommand" locator1="build-test.xml" value1="stop-app-server" />
+		<execute function="AntCommand" locator1="build-test.xml" value1="stop-app-server" />
 
-		<execute function="#antCommand" locator1="build-test.xml" value1="start-app-server" />
+		<execute function="AntCommand" locator1="build-test.xml" value1="start-app-server" />
 
 		<execute macro="User#firstLoginPG" />
 
@@ -87,9 +87,9 @@
 			<var name="portletName" value="SPI Administration" />
 		</execute>
 
-		<execute function="#pause" locator1="90000" />
+		<execute function="Pause" locator1="90000" />
 
-		<execute function="#refresh" />
+		<execute function="Refresh" />
 
 		<execute macro="SPIAdministration#viewStartCP">
 			<var name="spiName" value="SPI Name" />
@@ -150,9 +150,9 @@
 			<var name="notificationRecipients" property-value="email.address.2" />
 		</execute>
 
-		<execute function="#antCommand" locator1="build-test.xml" value1="shutdown-spi" />
+		<execute function="AntCommand" locator1="build-test.xml" value1="shutdown-spi" />
 
-		<execute function="#pause" locator1="30000" />
+		<execute function="Pause" locator1="30000" />
 
 		<execute macro="Gmail#login">
 			<var name="userEmailAddress" property-value="email.address.2" />
@@ -171,7 +171,7 @@
 			<var name="gmailMessageTitle" value="Sandbox Status Notification: SPI Name" />
 		</execute>
 
-		<execute function="#pause" locator1="30000" />
+		<execute function="Pause" locator1="30000" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="SPI Administration" />
@@ -181,9 +181,9 @@
 			<var name="spiName" value="SPI Name" />
 		</execute>
 
-		<execute function="#antCommand" locator1="build-test.xml" value1="shutdown-spi" />
+		<execute function="AntCommand" locator1="build-test.xml" value1="shutdown-spi" />
 
-		<execute function="#pause" locator1="30000" />
+		<execute function="Pause" locator1="30000" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="SPI Administration" />

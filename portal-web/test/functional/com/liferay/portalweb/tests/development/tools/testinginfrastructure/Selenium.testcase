@@ -38,8 +38,8 @@
 
 		<var name="key_entryComment" value="${entryComment}" />
 
-		<execute function="#assertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
-		<execute function="#mouseOver" locator1="CPBlogsEntry#COMMENT" />
+		<execute function="AssertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
+		<execute function="MouseOver" locator1="CPBlogsEntry#COMMENT" />
 		<execute function="AssertClick#assertTextClickWaitForInlineCKEditor" locator1="CPBlogsEntry#COMMENT_DELETE_1" value1="Delete" />
 
 		<var method="selenium#getAlert()" name="string" />
@@ -84,7 +84,7 @@
 		<execute function="Type#typeWaitForCKEditor" locator1="CPBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
 		<execute function="Type#typeFrameWaitForCKEditor" locator1="CPBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
 
-		<execute function="#selectFrame" locator1="//iframe[contains(@title,'Rich Text Editor')]" />
+		<execute function="SelectFrame" locator1="//iframe[contains(@title,'Rich Text Editor')]" />
 
 		<var method="selenium#getBodyText()" name="string" />
 
@@ -226,7 +226,7 @@
 
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="CPBlogs#ENTRY_TABLE_ACTIONS" value1="Actions" />
+		<execute function="AssertClick" locator1="CPBlogs#ENTRY_TABLE_ACTIONS" value1="Actions" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ENTRY_MENULIST_EDIT" value1="Edit" />
 
 		<var method="selenium#getValue(//input[@id='_161_title'])" name="string" />
@@ -270,8 +270,8 @@
 
 		<var name="key_entryComment" value="${entryComment}" />
 
-		<execute function="#assertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
-		<execute function="#mouseOver" locator1="CPBlogsEntry#COMMENT" />
+		<execute function="AssertTextEquals" locator1="CPBlogsEntry#ENTRY_TITLE_LINK" value1="${entryTitle}" />
+		<execute function="MouseOver" locator1="CPBlogsEntry#COMMENT" />
 		<execute function="AssertClick#assertTextClickWaitForInlineCKEditor" locator1="CPBlogsEntry#COMMENT_DELETE_1" value1="Delete" />
 
 		<var method="selenium#isAlertPresent()" name="alert" />
@@ -372,7 +372,7 @@
 
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="CPBlogs#ENTRY_TABLE_ACTIONS" value1="Actions" />
+		<execute function="AssertClick" locator1="CPBlogs#ENTRY_TABLE_ACTIONS" value1="Actions" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ENTRY_MENULIST_EDIT" value1="Edit" />
 
 		<var method="selenium#isNotPartialText(//fieldset[@class='fieldset '], Content)" name="string" />
@@ -411,7 +411,7 @@
 
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="CPBlogs#ENTRY_TABLE_ACTIONS" value1="Actions" />
+		<execute function="AssertClick" locator1="CPBlogs#ENTRY_TABLE_ACTIONS" value1="Actions" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ENTRY_MENULIST_EDIT" value1="Edit" />
 
 		<var method="selenium#isNotValue(//input[@id='_161_title'], Blogs Entry Title)" name="string" />
@@ -450,7 +450,7 @@
 
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="CPBlogs#ENTRY_TABLE_ACTIONS" value1="Actions" />
+		<execute function="AssertClick" locator1="CPBlogs#ENTRY_TABLE_ACTIONS" value1="Actions" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ENTRY_MENULIST_EDIT" value1="Edit" />
 
 		<var method="selenium#isPartialText(//fieldset[@class='fieldset '], Content)" name="string" />
@@ -509,7 +509,7 @@
 
 		<var name="key_entryTitle" value="${entryTitle}" />
 
-		<execute function="#assertClick" locator1="CPBlogs#ENTRY_TABLE_ACTIONS" value1="Actions" />
+		<execute function="AssertClick" locator1="CPBlogs#ENTRY_TABLE_ACTIONS" value1="Actions" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ENTRY_MENULIST_EDIT" value1="Edit" />
 
 		<var method="selenium#isValue(//div[@id='_161_title'], Blogs Entry Title)" name="string" />

@@ -4,12 +4,12 @@
 			<var name="portletOption" value="Configuration" />
 		</execute>
 
-		<execute function="#selectFrame" locator1="PGMessageboardsConfiguration#MESSAGE_BOARDS_IFRAME" />
+		<execute function="SelectFrame" locator1="PGMessageboardsConfiguration#MESSAGE_BOARDS_IFRAME" />
 
 		<if>
 			<equals arg1="${threadAsQuestionByDefaultEnabled}" arg2="true" />
 			<then>
-				<execute function="#check" locator1="PGMessageboardsConfigurationGeneral#THREAD_AS_QUESTION_BY_DEFAULT_CHECKBOX" />
+				<execute function="Check" locator1="PGMessageboardsConfigurationGeneral#THREAD_AS_QUESTION_BY_DEFAULT_CHECKBOX" />
 			</then>
 		</if>
 
@@ -18,12 +18,12 @@
 			<then>
 				<var name="key_messageFormat" value="${messageFormat}" />
 
-				<execute function="#select" locator1="PGMessageboardsConfigurationGeneral#MESSAGE_FORMAT_DROPDOWN_OPTION" value1="${key_messageFormat}" />
+				<execute function="Select" locator1="PGMessageboardsConfigurationGeneral#MESSAGE_FORMAT_DROPDOWN_OPTION" value1="${key_messageFormat}" />
 			</then>
 		</if>
 
-		<execute function="#assertClick" locator1="PGMessageboardsConfigurationGeneral#SAVE_BUTTON" value1="Save" />
-		<execute function="#assertTextEquals" locator1="PGMessageboardsConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+		<execute function="AssertClick" locator1="PGMessageboardsConfigurationGeneral#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertTextEquals" locator1="PGMessageboardsConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
 
 	<command name="configureMessageAddedEmailPG">
@@ -31,21 +31,21 @@
 			<var name="portletOption" value="Configuration" />
 		</execute>
 
-		<execute function="#selectFrame" locator1="PGMessageboardsConfiguration#MESSAGE_BOARDS_IFRAME" />
-		<execute function="#assertClick" locator1="PGMessageboardsConfiguration#SETUP_NAVIGATION_MESSAGE_ADDED_EMAIL" value1="Message Added Email" />
+		<execute function="SelectFrame" locator1="PGMessageboardsConfiguration#MESSAGE_BOARDS_IFRAME" />
+		<execute function="AssertClick" locator1="PGMessageboardsConfiguration#SETUP_NAVIGATION_MESSAGE_ADDED_EMAIL" value1="Message Added Email" />
 
 		<if>
 			<equals arg1="${messageAddedEmailEnabled}" arg2="false" />
 			<then>
-				<execute function="#uncheck" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#MESSAGE_ADDED_EMAIL_ENABLED_CHECKBOX" />
+				<execute function="Uncheck" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#MESSAGE_ADDED_EMAIL_ENABLED_CHECKBOX" />
 			</then>
 			<else>
-				<execute function="#assertChecked" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#MESSAGE_ADDED_EMAIL_ENABLED_CHECKBOX" />
+				<execute function="AssertChecked" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#MESSAGE_ADDED_EMAIL_ENABLED_CHECKBOX" />
 			</else>
 		</if>
 
-		<execute function="#assertClick" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#SAVE_BUTTON" value1="Save" />
-		<execute function="#assertTextEquals" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+		<execute function="AssertClick" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertTextEquals" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
 
 	<command name="configureMessageUpdatedEmailPG">
@@ -53,21 +53,21 @@
 			<var name="portletOption" value="Configuration" />
 		</execute>
 
-		<execute function="#selectFrame" locator1="PGMessageboardsConfiguration#MESSAGE_BOARDS_IFRAME" />
-		<execute function="#assertClick" locator1="PGMessageboardsConfiguration#SETUP_NAVIGATION_MESSAGE_UPDATED_EMAIL" value1="Message Updated Email" />
+		<execute function="SelectFrame" locator1="PGMessageboardsConfiguration#MESSAGE_BOARDS_IFRAME" />
+		<execute function="AssertClick" locator1="PGMessageboardsConfiguration#SETUP_NAVIGATION_MESSAGE_UPDATED_EMAIL" value1="Message Updated Email" />
 
 		<if>
 			<equals arg1="${messageUpdatedEmailEnabled}" arg2="false" />
 			<then>
-				<execute function="#uncheck" locator1="PGMessageboardsConfigurationSetupMessageUpdatedEmail#MESSAGE_UPDATED_EMAIL_ENABLED_CHECKBOX" />
+				<execute function="Uncheck" locator1="PGMessageboardsConfigurationSetupMessageUpdatedEmail#MESSAGE_UPDATED_EMAIL_ENABLED_CHECKBOX" />
 			</then>
 			<else>
-				<execute function="#assertChecked" locator1="PGMessageboardsConfigurationSetupMessageUpdatedEmail#MESSAGE_UPDATED_EMAIL_ENABLED_CHECKBOX" />
+				<execute function="AssertChecked" locator1="PGMessageboardsConfigurationSetupMessageUpdatedEmail#MESSAGE_UPDATED_EMAIL_ENABLED_CHECKBOX" />
 			</else>
 		</if>
 
-		<execute function="#assertClick" locator1="PGMessageboardsConfigurationSetupMessageUpdatedEmail#SAVE_BUTTON" value1="Save" />
-		<execute function="#assertTextEquals" locator1="PGMessageboardsConfigurationSetupMessageUpdatedEmail#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+		<execute function="AssertClick" locator1="PGMessageboardsConfigurationSetupMessageUpdatedEmail#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertTextEquals" locator1="PGMessageboardsConfigurationSetupMessageUpdatedEmail#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
 
 	<command name="configureScopePG">
@@ -75,14 +75,14 @@
 			<var name="portletOption" value="Configuration" />
 		</execute>
 
-		<execute function="#selectFrame" locator1="PGMessageboardsConfiguration#MESSAGE_BOARDS_IFRAME" />
-		<execute function="#assertClick" locator1="PGMessageboardsConfiguration#NAVIGATION_SCOPE" value1="Scope" />
+		<execute function="SelectFrame" locator1="PGMessageboardsConfiguration#MESSAGE_BOARDS_IFRAME" />
+		<execute function="AssertClick" locator1="PGMessageboardsConfiguration#NAVIGATION_SCOPE" value1="Scope" />
 
 		<var name="key_scopeName" value="${scopeName}" />
 
-		<execute function="#click" locator1="PGMessageboardsConfigurationScope#SCOPE_DROPDOWN" />
+		<execute function="Click" locator1="PGMessageboardsConfigurationScope#SCOPE_DROPDOWN" />
 		<execute function="AssertClick#assertPartialTextClickAtAndWait" locator1="PGMessageboardsConfigurationScope#SCOPE_MENULIST" value1="${scopeName}" />
-		<execute function="#assertTextEquals" locator1="PGMessageboardsConfigurationScope#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+		<execute function="AssertTextEquals" locator1="PGMessageboardsConfigurationScope#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
 
 	<command name="tearDownConfigurationEmailPG">
@@ -90,66 +90,66 @@
 			<var name="portletOption" value="Configuration" />
 		</execute>
 
-		<execute function="#selectFrame" locator1="PGMessageboardsConfiguration#MESSAGE_BOARDS_IFRAME" />
-		<execute function="#assertClick" locator1="PGMessageboardsConfiguration#SETUP_NAVIGATION_MESSAGE_ADDED_EMAIL" value1="Message Added Email" />
+		<execute function="SelectFrame" locator1="PGMessageboardsConfiguration#MESSAGE_BOARDS_IFRAME" />
+		<execute function="AssertClick" locator1="PGMessageboardsConfiguration#SETUP_NAVIGATION_MESSAGE_ADDED_EMAIL" value1="Message Added Email" />
 
-		<execute function="#check" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#MESSAGE_ADDED_EMAIL_ENABLED_CHECKBOX" />
-		<execute function="#assertClick" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#SAVE_BUTTON" value1="Save" />
+		<execute function="Check" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#MESSAGE_ADDED_EMAIL_ENABLED_CHECKBOX" />
+		<execute function="AssertClick" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#SAVE_BUTTON" value1="Save" />
 
-		<execute function="#assertTextEquals" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
-		<execute function="#assertClick" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#SETUP_NAVIGATION_MESSAGE_UPDATED_EMAIL" value1="Message Updated Email" />
+		<execute function="AssertTextEquals" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+		<execute function="AssertClick" locator1="PGMessageboardsConfigurationSetupMessageAddedEmail#SETUP_NAVIGATION_MESSAGE_UPDATED_EMAIL" value1="Message Updated Email" />
 
-		<execute function="#check" locator1="PGMessageboardsConfigurationSetupMessageUpdatedEmail#MESSAGE_UPDATED_EMAIL_ENABLED_CHECKBOX" />
-		<execute function="#assertClick" locator1="PGMessageboardsConfigurationSetupMessageUpdatedEmail#SAVE_BUTTON" value1="Save" />
+		<execute function="Check" locator1="PGMessageboardsConfigurationSetupMessageUpdatedEmail#MESSAGE_UPDATED_EMAIL_ENABLED_CHECKBOX" />
+		<execute function="AssertClick" locator1="PGMessageboardsConfigurationSetupMessageUpdatedEmail#SAVE_BUTTON" value1="Save" />
 
-		<execute function="#assertTextEquals" locator1="PGMessageboardsConfigurationSetupMessageUpdatedEmail#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+		<execute function="AssertTextEquals" locator1="PGMessageboardsConfigurationSetupMessageUpdatedEmail#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
 
 	<command name="unbanUserPG">
-		<execute function="#assertClick" locator1="PGMessageboards#NAVIGATION_BANNED_USERS" value1="Banned Users" />
+		<execute function="AssertClick" locator1="PGMessageboards#NAVIGATION_BANNED_USERS" value1="Banned Users" />
 
 		<var name="key_userScreenName" value="${userScreenName}" />
 
-		<execute function="#assertClick" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_UNBAN_THIS_USER" value1="Unban This User" />
-		<execute function="#assertTextEquals" locator1="PGMessageboardsBannedusers#SUCCESS_MESSAGE" value1="Your request completed successfully." />
-		<execute function="#assertElementNotPresent" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_BANNED_USER" />
-		<execute function="#assertTextNotPresent" value1="${userScreenName}" />
+		<execute function="AssertClick" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_UNBAN_THIS_USER" value1="Unban This User" />
+		<execute function="AssertTextEquals" locator1="PGMessageboardsBannedusers#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute function="AssertElementNotPresent" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_BANNED_USER" />
+		<execute function="AssertTextNotPresent" value1="${userScreenName}" />
 	</command>
 
 	<command name="viewBannedUserPG">
-		<execute function="#assertClick" locator1="PGMessageboards#NAVIGATION_BANNED_USERS" value1="Banned Users" />
+		<execute function="AssertClick" locator1="PGMessageboards#NAVIGATION_BANNED_USERS" value1="Banned Users" />
 
 		<var name="key_userScreenName" value="${userScreenName}" />
 
-		<execute function="#assertTextEquals" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_BANNED_USER" value1="${userScreenName}" />
-		<execute function="#assertTextEquals" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_BANNED_BY" value1="Test Test" />
-		<execute function="#assertVisible" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_BAN_DATE"  />
-		<execute function="#assertVisible" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_UNBAN_DATE"  />
-		<execute function="#assertTextEquals" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_UNBAN_THIS_USER" value1="Unban This User" />
-		<execute function="#assertClick" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_BANNED_USER" value1="${userScreenName}" />
+		<execute function="AssertTextEquals" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_BANNED_USER" value1="${userScreenName}" />
+		<execute function="AssertTextEquals" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_BANNED_BY" value1="Test Test" />
+		<execute function="AssertVisible" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_BAN_DATE"  />
+		<execute function="AssertVisible" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_UNBAN_DATE"  />
+		<execute function="AssertTextEquals" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_UNBAN_THIS_USER" value1="Unban This User" />
+		<execute function="AssertClick" locator1="PGMessageboardsBannedusers#BANNED_USERS_TABLE_BANNED_USER" value1="${userScreenName}" />
 
-		<execute function="#assertTextEquals" locator1="Home#SITE_NAME" value1="${userScreenName}" />
+		<execute function="AssertTextEquals" locator1="Home#SITE_NAME" value1="${userScreenName}" />
 	</command>
 
 	<command name="viewBanPG">
-		<execute function="#assertTextEquals" locator1="PGMessageboards#ERROR_MESSAGE" value1="You have been banned by the moderator." />
-		<execute function="#assertElementNotPresent" locator1="PGMessageboards#ADD_CATEGORY_BUTTON" />
-		<execute function="#assertElementNotPresent" locator1="PGMessageboards#POST_NEW_THREAD_BUTTON" />
-		<execute function="#assertElementNotPresent" locator1="PGMessageboards#RSS_LINK" />
-		<execute function="#assertElementNotPresent" locator1="PGMessageboards#SUBSCRIBE_LINK" />
-		<execute function="#assertElementNotPresent" locator1="PGMessageboards#NAVIGATION_MESSAGE_BOARDS_HOME" />
-		<execute function="#assertElementNotPresent" locator1="PGMessageboards#NAVIGATION_RECENT_POSTS" />
-		<execute function="#assertElementNotPresent" locator1="PGMessageboards#NAVIGATION_MY_POSTS" />
-		<execute function="#assertElementNotPresent" locator1="PGMessageboards#NAVIGATION_MY_SUBSCRIPTIONS" />
-		<execute function="#assertElementNotPresent" locator1="PGMessageboards#NAVIGATION_STATISTICS" />
-		<execute function="#assertElementNotPresent" locator1="PGMessageboards#NAVIGATION_BANNED_USERS" />
-		<execute function="#assertElementNotPresent" locator1="PGMessageboards#NAVIGATION_SEARCH_FIELD" />
-		<execute function="#assertElementNotPresent" locator1="PGMessageboards#NAVIGATION_SEARCH_BUTTON" />
+		<execute function="AssertTextEquals" locator1="PGMessageboards#ERROR_MESSAGE" value1="You have been banned by the moderator." />
+		<execute function="AssertElementNotPresent" locator1="PGMessageboards#ADD_CATEGORY_BUTTON" />
+		<execute function="AssertElementNotPresent" locator1="PGMessageboards#POST_NEW_THREAD_BUTTON" />
+		<execute function="AssertElementNotPresent" locator1="PGMessageboards#RSS_LINK" />
+		<execute function="AssertElementNotPresent" locator1="PGMessageboards#SUBSCRIBE_LINK" />
+		<execute function="AssertElementNotPresent" locator1="PGMessageboards#NAVIGATION_MESSAGE_BOARDS_HOME" />
+		<execute function="AssertElementNotPresent" locator1="PGMessageboards#NAVIGATION_RECENT_POSTS" />
+		<execute function="AssertElementNotPresent" locator1="PGMessageboards#NAVIGATION_MY_POSTS" />
+		<execute function="AssertElementNotPresent" locator1="PGMessageboards#NAVIGATION_MY_SUBSCRIPTIONS" />
+		<execute function="AssertElementNotPresent" locator1="PGMessageboards#NAVIGATION_STATISTICS" />
+		<execute function="AssertElementNotPresent" locator1="PGMessageboards#NAVIGATION_BANNED_USERS" />
+		<execute function="AssertElementNotPresent" locator1="PGMessageboards#NAVIGATION_SEARCH_FIELD" />
+		<execute function="AssertElementNotPresent" locator1="PGMessageboards#NAVIGATION_SEARCH_BUTTON" />
 	</command>
 
 	<command name="viewNoPermissionCP">
-		<execute function="#assertTextEquals" locator1="CPMessageboards#PORTLET_TITLE" value1="Message Boards" />
-		<execute function="#assertElementPresent" locator1="CPMessageboards#NAVBAR_CONTAINER" />
+		<execute function="AssertTextEquals" locator1="CPMessageboards#PORTLET_TITLE" value1="Message Boards" />
+		<execute function="AssertElementPresent" locator1="CPMessageboards#NAVBAR_CONTAINER" />
 		<execute function="AssertTextEquals#assertText" locator1="CPMessageboards#INFO_MESSAGE_THREAD" value1="There are no threads in this category." />
 	</command>
 </definition>

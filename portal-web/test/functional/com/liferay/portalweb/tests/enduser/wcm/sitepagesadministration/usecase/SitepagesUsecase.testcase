@@ -55,7 +55,7 @@
 
 		<var name="key_pageName" value="${sitePage3Name}" />
 
-		<execute function="#assertTextEquals" locator1="Home#PAGE" value1="${sitePage3Name}" />
+		<execute function="AssertTextEquals" locator1="Home#PAGE" value1="${sitePage3Name}" />
 	</command>
 
 	<command name="WebContentAdministrationSitesPagesPanel" priority="3">
@@ -87,7 +87,7 @@
 
 		<var name="key_portletName" value="${portlet1Name}" />
 
-		<execute function="#assertClick" locator1="PGPanel#MENU_ITEM" value1="${portlet1Name}" />
+		<execute function="AssertClick" locator1="PGPanel#MENU_ITEM" value1="${portlet1Name}" />
 
 		<execute macro="BlogsEntry#addPG">
 			<var name="entryContent" value="${entryContent}" />
@@ -101,7 +101,7 @@
 
 		<var name="key_portletName" value="${portlet2Name}" />
 
-		<execute function="#assertClick" locator1="PGPanel#MENU_ITEM" value1="${portlet2Name}" />
+		<execute function="AssertClick" locator1="PGPanel#MENU_ITEM" value1="${portlet2Name}" />
 
 		<execute macro="MessageboardsThread#addPG">
 			<var name="threadBody" value="${threadBody}" />
@@ -112,7 +112,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute function="#assertClick" locator1="PGPanel#MENU_ITEM" value1="${portlet2Name}" />
+		<execute function="AssertClick" locator1="PGPanel#MENU_ITEM" value1="${portlet2Name}" />
 
 		<execute macro="MessageboardsThread#viewPG">
 			<var name="postCount" value="${postCount}" />
@@ -169,12 +169,12 @@
 			<var name="siteScopeSelected" value="true" />
 		</execute>
 
-		<execute function="#assertClick" locator1="CPSitepages#PAGE_TREE_PAGE_LINK_1" value1="${sitePage1Name}" />
-		<execute function="#assertClickNoError" locator1="CPSitepages#TOOLBAR_DELETE" value1="Delete" />
-		<execute function="#confirm" locator1="CPSitepages#CONFIRMATION" value1="Are you sure you want to delete the selected page?" />
-		<execute function="#assertTextEquals" locator1="CPSitepages#INFO_MESSAGE_1" value1="Your request failed to complete." />
-		<execute function="#assertTextEquals" locator1="CPSitepages#INFO_MESSAGE_2" value1="The first page cannot be of type Link to URL." />
-		<execute function="#assertTextEquals" locator1="CPSitepages#PAGE_TREE_PAGE_LINK_1" value1="${sitePage1Name}" />
+		<execute function="AssertClick" locator1="CPSitepages#PAGE_TREE_PAGE_LINK_1" value1="${sitePage1Name}" />
+		<execute function="AssertClickNoError" locator1="CPSitepages#TOOLBAR_DELETE" value1="Delete" />
+		<execute function="Confirm" locator1="CPSitepages#CONFIRMATION" value1="Are you sure you want to delete the selected page?" />
+		<execute function="AssertTextEquals" locator1="CPSitepages#INFO_MESSAGE_1" value1="Your request failed to complete." />
+		<execute function="AssertTextEquals" locator1="CPSitepages#INFO_MESSAGE_2" value1="The first page cannot be of type Link to URL." />
+		<execute function="AssertTextEquals" locator1="CPSitepages#PAGE_TREE_PAGE_LINK_1" value1="${sitePage1Name}" />
 
 		<execute macro="SitePage#addCP">
 			<var name="pageTypeDescription" value="${sitePage3Description}" />
@@ -206,7 +206,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute function="#assertLocation" value1="https://www.google.com/" />
+		<execute function="AssertLocation" value1="https://www.google.com/" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${sitePage3Name}" />
@@ -214,11 +214,11 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute function="#assertLocation" value1="http://localhost:8080/web/page-type-test-site-name/embedded-page" />
+		<execute function="AssertLocation" value1="http://localhost:8080/web/page-type-test-site-name/embedded-page" />
 
-		<execute function="#selectFrame" locator1="PGEmbedded#EMBEDDED_IFRAME" />
-		<execute function="#assertTextEquals" locator1="PGEmbedded#EMBEDDED_LIFERAY_COPYRIGHT_TEXT" value1="© 2015 LIFERAY INC. ALL RIGHTS RESERVED" />
-		<execute function="#selectFrame" value1="relative=top" />
+		<execute function="SelectFrame" locator1="PGEmbedded#EMBEDDED_IFRAME" />
+		<execute function="AssertTextEquals" locator1="PGEmbedded#EMBEDDED_LIFERAY_COPYRIGHT_TEXT" value1="© 2015 LIFERAY INC. ALL RIGHTS RESERVED" />
+		<execute function="SelectFrame" value1="relative=top" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${sitePage4Name}" />

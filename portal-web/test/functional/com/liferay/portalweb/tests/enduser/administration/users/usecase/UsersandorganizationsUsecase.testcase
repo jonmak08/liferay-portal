@@ -153,7 +153,7 @@
 		<for list="${userScreenNameList}" param="userScreenName">
 			<var name="key_userScreenName" value="${userScreenName}" />
 
-			<execute function="#assertTextEquals" locator1="CPUsersandorganizations#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
+			<execute function="AssertTextEquals" locator1="CPUsersandorganizations#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 		</for>
 
 		<execute macro="Page#gotoCP">
@@ -196,44 +196,44 @@
 		<for list="usersn2,usersn4" param="userScreenName">
 			<var name="key_userScreenName" value="${userScreenName}" />
 
-			<execute function="#assertTextEquals" locator1="CPUsersandorganizations#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
+			<execute function="AssertTextEquals" locator1="CPUsersandorganizations#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 		</for>
 
 		<for list="usersn1,usersn3,usersn5" param="userScreenName">
 			<var name="key_userScreenName" value="${userScreenName}" />
 
-			<execute function="#assertTextNotPresent" locator1="CPUsersandorganizations#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
+			<execute function="AssertTextNotPresent" locator1="CPUsersandorganizations#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 		</for>
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="Organization Name 1" />
+		<execute function="AssertTextNotPresent" value1="Organization Name 1" />
 
 		<var name="key_siteName" value="${siteName}" />
 
-		<execute function="#assertTextEquals" locator1="CPSites#SITE_TABLE_NAME" value1="${siteName}" />
+		<execute function="AssertTextEquals" locator1="CPSites#SITE_TABLE_NAME" value1="${siteName}" />
 
 		<execute macro="Page#gotoPagesCP">
 			<var name="portletName" value="Site Pages" />
 		</execute>
 
-		<execute function="#click" locator1="Home#SCOPE_SELECTOR" />
+		<execute function="Click" locator1="Home#SCOPE_SELECTOR" />
 
 		<var name="key_siteScopeName" value="Organization Name 1" />
 
-		<execute function="#assertTextNotPresent" locator1="Home#SCOPE_SELECTOR_MENULIST_ITEM" value1="${siteScopeName}" />
+		<execute function="AssertTextNotPresent" locator1="Home#SCOPE_SELECTOR_MENULIST_ITEM" value1="${siteScopeName}" />
 
 		<var name="key_siteScopeName" value="${siteName}" />
 
-		<execute function="#assertTextEquals" locator1="Home#SCOPE_SELECTOR_MENULIST_ITEM" value1="${siteName}" />
+		<execute function="AssertTextEquals" locator1="Home#SCOPE_SELECTOR_MENULIST_ITEM" value1="${siteName}" />
 
 		<execute macro="Page#openURL" />
 
 		<execute function="Click#textClickAtClickDockbar" locator1="Dockbar#MY_SITES" />
-		<execute function="#assertTextNotPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 1" />
-		<execute function="#assertTextNotPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 2" />
+		<execute function="AssertTextNotPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 1" />
+		<execute function="AssertTextNotPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 2" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
@@ -247,30 +247,30 @@
 		</execute>
 
 		<execute function="Click#textClickAtClickDockbar" locator1="Dockbar#MY_SITES" />
-		<execute function="#assertTextNotPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 1" />
-		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 2" />
+		<execute function="AssertTextNotPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 1" />
+		<execute function="AssertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 2" />
 
 		<var name="key_siteName" value="${siteName}" />
 
 		<execute function="Click#textClickAtClickDockbar" locator1="Dockbar#MY_SITES" />
-		<execute function="#assertClick" locator1="Dockbar#MY_SITES_PUBLIC_SITE" value1="${siteName}" />
+		<execute function="AssertClick" locator1="Dockbar#MY_SITES_PUBLIC_SITE" value1="${siteName}" />
 
-		<execute function="#click" locator1="Home#PAGE_NAVIGATION_BAR" />
-		<execute function="#assertTextEquals" locator1="Home#PAGE_TEMPLATE_1" value1="Home" />
-		<execute function="#assertTextEquals" locator1="Home#PAGE_TEMPLATE_2" value1="Wiki" />
+		<execute function="Click" locator1="Home#PAGE_NAVIGATION_BAR" />
+		<execute function="AssertTextEquals" locator1="Home#PAGE_TEMPLATE_1" value1="Home" />
+		<execute function="AssertTextEquals" locator1="Home#PAGE_TEMPLATE_2" value1="Wiki" />
 
 		<for list="Message Boards,Polls Display,User Statistics,Upcoming Events" param="portletTitleName">
 			<var name="key_portletTitleName" value="${portletTitleName}" />
 
-			<execute function="#assertTextEquals" locator1="BasePortlet#SPECIFIC_TITLE" value1="${portletTitleName}" />
+			<execute function="AssertTextEquals" locator1="BasePortlet#SPECIFIC_TITLE" value1="${portletTitleName}" />
 		</for>
 
-		<execute function="#assertClick" locator1="Home#PAGE_TEMPLATE_2" value1="Wiki" />
+		<execute function="AssertClick" locator1="Home#PAGE_TEMPLATE_2" value1="Wiki" />
 
 		<for list="Wiki,Categories Navigation,Tag Cloud" param="portletTitleName">
 			<var name="key_portletTitleName" value="${portletTitleName}" />
 
-			<execute function="#assertTextEquals" locator1="BasePortlet#SPECIFIC_TITLE" value1="${portletTitleName}" />
+			<execute function="AssertTextEquals" locator1="BasePortlet#SPECIFIC_TITLE" value1="${portletTitleName}" />
 		</for>
 
 		<execute macro="Page#gotoCP">
@@ -521,15 +521,15 @@
 		</execute>
 
 		<execute function="Click#textClickAtClickDockbar" locator1="Dockbar#MY_SITES" />
-		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name A" />
-		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name B" />
-		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name C" />
-		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name D" />
-		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name E" />
-		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name F" />
-		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name G" />
-		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name H" />
-		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name I" />
+		<execute function="AssertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name A" />
+		<execute function="AssertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name B" />
+		<execute function="AssertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name C" />
+		<execute function="AssertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name D" />
+		<execute function="AssertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name E" />
+		<execute function="AssertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name F" />
+		<execute function="AssertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name G" />
+		<execute function="AssertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name H" />
+		<execute function="AssertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name I" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
@@ -552,7 +552,7 @@
 		</execute>
 
 		<execute function="Click#textClickAtClickDockbar" locator1="Dockbar#MY_SITES" />
-		<execute function="#assertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name I" />
+		<execute function="AssertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Site Name I" />
 	</command>
 
 	<command name="OrganizationSiteDefaultUserAssociations" priority="3">

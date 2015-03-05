@@ -88,7 +88,7 @@
 			<var name="roleName" value="${roleName}" />
 		</execute>
 
-		<execute function="#assertTextNotPresent" value1="action.ADD_REPOSITORY" />
+		<execute function="AssertTextNotPresent" value1="action.ADD_REPOSITORY" />
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Roles" />

@@ -13,25 +13,25 @@
 	<command name="ValidateForwardURLPG" priority="4">
 		<property name="custom.properties" value="virtual.hosts.valid.hosts=localhost,127.0.0.1,${ip.address}" />
 
-		<execute function="#open" locator1="http://localhost:8080/html/common/forward_jsp.jsp?FORWARD_URL=http://www.msn.com" />
-		<execute function="#pause" locator1="3000" />
+		<execute function="Open" locator1="http://localhost:8080/html/common/forward_jsp.jsp?FORWARD_URL=http://www.msn.com" />
+		<execute function="Pause" locator1="3000" />
 
 		<var name="key_pageName" value="Welcome" />
 
-		<execute function="#assertElementPresent" locator1="Home#PAGE" value1="Welcome" />
+		<execute function="AssertElementPresent" locator1="Home#PAGE" value1="Welcome" />
 
 		<execute function="AssertTextEquals#assertText" locator1="PGHelloworld#PORTLET_TITLE" value1="Hello World" />
-		<execute function="#assertElementPresent" locator1="PGHelloworld#PORTLET_CONTENT" value1="Welcome to Liferay Portal" />
+		<execute function="AssertElementPresent" locator1="PGHelloworld#PORTLET_CONTENT" value1="Welcome to Liferay Portal" />
 
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Test" />
 		</execute>
 
-		<execute function="#open" locator1="http://localhost:8080/html/common/forward_jsp.jsp?FORWARD_URL=http://localhost:8080/web/guest/test" />
+		<execute function="Open" locator1="http://localhost:8080/html/common/forward_jsp.jsp?FORWARD_URL=http://localhost:8080/web/guest/test" />
 
 		<var name="key_pageName" value="Test" />
 
-		<execute function="#assertElementPresent" locator1="Home#PAGE" value1="Test" />
+		<execute function="AssertElementPresent" locator1="Home#PAGE" value1="Test" />
 	</command>
 
 	<command known-issues="LPS-28957" name="ViewExternalWebappsPG" priority="5">
@@ -55,6 +55,6 @@
 			<var name="pageName" value="External Webapps Test Page" />
 		</execute>
 
-		<execute function="#assertTextEquals" locator1="PGOpensocialgadget#PORTLET_TITLE" value1="To-Do List" />
+		<execute function="AssertTextEquals" locator1="PGOpensocialgadget#PORTLET_TITLE" value1="To-Do List" />
 	</command>
 </definition>

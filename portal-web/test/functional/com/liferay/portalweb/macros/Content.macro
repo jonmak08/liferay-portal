@@ -5,8 +5,8 @@
 
 		<var name="key_assetType" value="${assetType}" />
 
-		<execute function="#assertClick" locator1="Dockbar#ADD_CONTENT_ADD_NEW" value1="Add New" />
-		<execute function="#assertClick" locator1="Dockbar#ADD_CONTENT_ADD_NEW_MENULIST" value1="${assetType}" />
+		<execute function="AssertClick" locator1="Dockbar#ADD_CONTENT_ADD_NEW" value1="Add New" />
+		<execute function="AssertClick" locator1="Dockbar#ADD_CONTENT_ADD_NEW_MENULIST" value1="${assetType}" />
 	</command>
 
 	<command name="addPG">
@@ -15,10 +15,10 @@
 		<execute function="Click#clickAtSidebarClickAt" locator1="Dockbar#ADD" value1="Add" />
 		<execute function="AssertClick#assertTextClickAtAddApplication" locator1="Dockbar#ADD_CONTENT_LINK" value1="Content" />
 		<execute function="Type#sendKeys" locator1="Dockbar#ADD_CONTENT_SEARCH_FIELD" value1="${assetTitle}" />
-		<execute function="#pause" locator1="5000" />
-		<execute function="#assertTextEquals" locator1="Dockbar#ADD_CONTENT_CONTENT_TITLE" value1="${assetTitle}" />
-		<execute function="#mouseOver" locator1="Dockbar#ADD_CONTENT_CONTENT_TITLE" />
-		<execute function="#assertTextEquals" locator1="Dockbar#ADD_CONTENT_POPOVER_CONTENT_TITLE" value1="${assetTitle}" />
-		<execute function="#assertClick" locator1="Dockbar#ADD_CONTENT_POPOVER_ADD_BUTTON" value1="Add" />
+		<execute function="Pause" locator1="5000" />
+		<execute function="AssertTextEquals" locator1="Dockbar#ADD_CONTENT_CONTENT_TITLE" value1="${assetTitle}" />
+		<execute function="MouseOver" locator1="Dockbar#ADD_CONTENT_CONTENT_TITLE" />
+		<execute function="AssertTextEquals" locator1="Dockbar#ADD_CONTENT_POPOVER_CONTENT_TITLE" value1="${assetTitle}" />
+		<execute function="AssertClick" locator1="Dockbar#ADD_CONTENT_POPOVER_ADD_BUTTON" value1="Add" />
 	</command>
 </definition>

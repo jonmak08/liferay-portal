@@ -100,8 +100,8 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute function="#assertElementNotPresent" locator1="PGBlogs#ENTRY_EDIT_1" value1="Edit" />
-		<execute function="#assertElementNotPresent" locator1="PGBlogs#ENTRY_PERMISSIONS_1" value1="Permissions" />
-		<execute function="#assertElementNotPresent" locator1="PGBlogs#ENTRY_RECYCLE_BIN_1" value1="Move to the Recycle Bin" />
+		<execute function="AssertElementNotPresent" locator1="PGBlogs#ENTRY_EDIT_1" value1="Edit" />
+		<execute function="AssertElementNotPresent" locator1="PGBlogs#ENTRY_PERMISSIONS_1" value1="Permissions" />
+		<execute function="AssertElementNotPresent" locator1="PGBlogs#ENTRY_RECYCLE_BIN_1" value1="Move to the Recycle Bin" />
 	</command>
 </definition>
