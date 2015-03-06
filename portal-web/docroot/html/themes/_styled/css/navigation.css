@@ -59,6 +59,8 @@
 	.lfr-nav-updateable {
 		.add-page-editor {
 			.add-page-editor-input {
+				height: 36px;
+				margin: 0;
 				width: 150px;
 			}
 
