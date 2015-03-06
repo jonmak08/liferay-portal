@@ -471,18 +471,6 @@
 		</if>
 	</command>
 
-	<command name="gotoViaKBDisplayPG">
-		<var name="kbArticleTitle" value="${kbArticleTitle}" />
-		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
-
-		<if>
-			<condition function= "IsElementPresent" locator1= "PGKnowledgebasedisplay#ARTICLE_NAVIGATION" /> 
-			<then>
-				<execute function= "AssertClick" locator1= "PGKnowledgebasedisplay#ARTICLE_NAVIGATION" value1= "${kbArticleTitle}" />
-			</then>
-		</if>
-	</command>
-
 	<command name="gotoViaKBAdminCP">
 		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
 
@@ -518,6 +506,18 @@
 			<else>
 				<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#ARTICLE_NAVIGATION" value1="${kbArticleTitle}" />
 			</else>
+		</if>
+	</command>
+
+	<command name="gotoViaKBDisplayPG">
+		<var name="kbArticleTitle" value="${kbArticleTitle}" />
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+
+		<if>
+			<condition function= "IsElementPresent" locator1= "PGKnowledgebasedisplay#ARTICLE_NAVIGATION" />
+			<then>
+				<execute function= "AssertClick" locator1= "PGKnowledgebasedisplay#ARTICLE_NAVIGATION" value1= "${kbArticleTitle}" />
+			</then>
 		</if>
 	</command>
 
