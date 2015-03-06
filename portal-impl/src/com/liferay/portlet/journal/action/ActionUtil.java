@@ -32,7 +32,6 @@ import com.liferay.portal.service.ServiceContextFactory;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.WebKeys;
-import com.liferay.portlet.dynamicdatamapping.NoSuchStructureException;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.model.DDMTemplate;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureServiceUtil;
@@ -41,8 +40,6 @@ import com.liferay.portlet.dynamicdatamapping.storage.Field;
 import com.liferay.portlet.dynamicdatamapping.storage.FieldConstants;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
 import com.liferay.portlet.dynamicdatamapping.util.DDMUtil;
-import com.liferay.portlet.journal.NoSuchArticleException;
-import com.liferay.portlet.journal.NoSuchFolderException;
 import com.liferay.portlet.journal.model.JournalArticle;
 import com.liferay.portlet.journal.model.JournalArticleConstants;
 import com.liferay.portlet.journal.model.JournalFeed;
@@ -193,14 +190,11 @@ public class ActionUtil {
 				groupId, className, classPK);
 		}
 		else if (Validator.isNotNull(structureId)) {
-			DDMStructure ddmStructure = null;
+			DDMStructure ddmStructure = DDMStructureServiceUtil.fetchStructure(
+				groupId, PortalUtil.getClassNameId(JournalArticle.class),
+				structureId, true);
 
-			try {
-				ddmStructure = DDMStructureServiceUtil.getStructure(
-					groupId, PortalUtil.getClassNameId(JournalArticle.class),
-					structureId, true);
-			}
-			catch (NoSuchStructureException nsse1) {
+			if (ddmStructure == null) {
 				return;
 			}
 
@@ -248,13 +242,11 @@ public class ActionUtil {
 			ParamUtil.getString(request, "articleIds"));
 
 		for (String articleId : articleIds) {
-			try {
-				JournalArticle article = JournalArticleServiceUtil.getArticle(
-					themeDisplay.getScopeGroupId(), articleId);
+			JournalArticle article = JournalArticleServiceUtil.fetchArticle(
+				themeDisplay.getScopeGroupId(), articleId);
 
+			if (article != null) {
 				articles.add(article);
-			}
-			catch (NoSuchArticleException nsfee) {
 			}
 		}
 
@@ -343,13 +335,11 @@ public class ActionUtil {
 		List<JournalFolder> folders = new ArrayList<JournalFolder>();
 
 		for (long folderId : folderIds) {
-			try {
-				JournalFolder folder = JournalFolderServiceUtil.getFolder(
-					folderId);
+			JournalFolder folder = JournalFolderServiceUtil.fetchFolder(
+				folderId);
 
+			if (folder != null) {
 				folders.add(folder);
-			}
-			catch (NoSuchFolderException nsfee) {
 			}
 		}
 
@@ -488,11 +478,10 @@ public class ActionUtil {
 			articleId = articleId.substring(0, pos);
 		}
 
-		try {
-			JournalArticleLocalServiceUtil.getArticle(
-				themeDisplay.getScopeGroupId(), articleId);
-		}
-		catch (NoSuchArticleException nsae) {
+		JournalArticle article = JournalArticleLocalServiceUtil.fetchArticle(
+			themeDisplay.getScopeGroupId(), articleId);
+
+		if (article == null) {
 			return false;
 		}
 
