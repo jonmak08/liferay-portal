@@ -130,12 +130,13 @@ String eventName = "_" + HtmlUtil.escapeJS(portletResource) + "_selectAsset";
 								Map<String, Object> data = new HashMap<String, Object>();
 
 								data.put("groupid", String.valueOf(groupId));
-								data.put("href", assetBrowserURL.toString());
-								data.put("title", LanguageUtil.format(pageContext, "select-x", curRendererFactory.getTypeName(locale, false)));
+								if (!curRendererFactory.isSupportsClassTypes()) {
+									data.put("href", assetBrowserURL.toString());
 
-								String type = curRendererFactory.getTypeName(locale, false);
+									String type = curRendererFactory.getTypeName(locale);
 
-								data.put("type", type);
+									data.put("title", LanguageUtil.format(pageContext, "select-x", type, false));
+									data.put("type", type);
 							%>
 
 								<liferay-ui:icon
@@ -148,6 +149,37 @@ String eventName = "_" + HtmlUtil.escapeJS(portletResource) + "_selectAsset";
 								/>
 
 							<%
+								}
+								else {
+									Map<Long, String> assetAvailableClassTypes = curRendererFactory.getClassTypes(PortalUtil.getCurrentAndAncestorSiteGroupIds(AssetPublisherUtil.getGroupIds(portletPreferences, scopeGroupId, layout), true), locale);
+
+									if (assetAvailableClassTypes.isEmpty()) {
+										continue;
+									}
+
+									for (Map.Entry<Long, String> assetAvailableClassType : assetAvailableClassTypes.entrySet()) {
+										assetBrowserURL.setParameter("subtypeSelectionId", String.valueOf(assetAvailableClassType.getKey()));
+
+										data.put("href", assetBrowserURL.toString());
+
+										String type = assetAvailableClassType.getValue();
+
+										data.put("title", LanguageUtil.format(pageContext, "select-x", type, false));
+										data.put("type", type);
+							%>
+
+								<liferay-ui:icon
+									cssClass="asset-selector"
+									data="<%= data %>"
+									id="<%= groupId + FriendlyURLNormalizerUtil.normalize(type) %>"
+									message="<%= curRendererFactory.getTypeName(locale, false) %>"
+									src="<%= curRendererFactory.getIconPath(renderRequest) %>"
+									url="javascript:;"
+								/>
+
+							<%
+									}
+								}
 							}
 							%>
 

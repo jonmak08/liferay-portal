@@ -76,6 +76,8 @@ public interface AssetRendererFactory {
 
 	public String getType();
 
+	public String getTypeName(Locale locale);
+
 	public String getTypeName(Locale locale, boolean hasSubtypes);
 
 	public PortletURL getURLAdd(
@@ -106,6 +108,8 @@ public interface AssetRendererFactory {
 		throws SystemException;
 
 	public boolean isSelectable();
+
+	public boolean isSupportsClassTypes();
 
 	public void setClassName(String className);
 
