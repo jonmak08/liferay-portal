@@ -172,7 +172,7 @@ String eventName = "_" + HtmlUtil.escapeJS(portletResource) + "_selectAsset";
 									cssClass="asset-selector"
 									data="<%= data %>"
 									id="<%= groupId + FriendlyURLNormalizerUtil.normalize(type) %>"
-									message="<%= curRendererFactory.getTypeName(locale, false) %>"
+									message="<%= type %>"
 									src="<%= curRendererFactory.getIconPath(renderRequest) %>"
 									url="javascript:;"
 								/>
