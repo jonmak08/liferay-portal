@@ -150,6 +150,8 @@
 				<execute function="AssertClick" locator1="CPKnowledgebaseadminConfiguration#NAVIGATION_EMAIL_FROM_TAB" value1="Email From" />
 				<execute function="Type" locator1="CPKnowledgebaseadminConfiguration#EMAIL_FROM_NAME_FIELD" value1="${userName}" />
 				<execute function="Type" locator1="CPKnowledgebaseadminConfiguration#EMAIL_FROM_ADDRESS_FIELD" value1="${userEmailAddress}" />
+				<execute function="AssertClick" locator1="CPKnowledgebaseadminConfiguration#SAVE_BUTTON" value1="Save" />
+				<execute function="AssertTextEquals" locator1="CPKnowledgebaseadminConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 			</then>
 		</if>
 
@@ -158,6 +160,8 @@
 			<then>
 				<execute function="AssertClick" locator1="CPKnowledgebaseadminConfiguration#NAVIGATION_SUGGESTION_RECEIVED_TAB" value1="Suggestion Received Email" />
 				<execute function="Type" locator1="CPKnowledgebaseadminConfiguration#SUGGESTION_RECEIVED_EMAIL_BODY_FIELD" value1="[$COMMENT_CREATE_DATE$] &lt;a href=&quot;[$ARTICLE_URL$]&quot;&gt;Article Link &lt;/a&gt;" />
+				<execute function="AssertClick" locator1="CPKnowledgebaseadminConfiguration#SAVE_BUTTON" value1="Save" />
+				<execute function="AssertTextEquals" locator1="CPKnowledgebaseadminConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 			</then>
 		</if>
 
@@ -166,6 +170,8 @@
 			<then>
 				<execute function="AssertClick" locator1="CPKnowledgebaseadminConfiguration#NAVIGATION_SUGGESTION_IN_PROGRESS_TAB" value1="Suggestion in Progress Email" />
 				<execute function="Type" locator1="CPKnowledgebaseadminConfiguration#SUGGESTION_IN_PROGRESS_EMAIL_BODY_FIELD" value1="[$COMMENT_CREATE_DATE$] &lt;a href=&quot;[$ARTICLE_URL$]&quot;&gt;Article Link &lt;/a&gt;" />
+				<execute function="AssertClick" locator1="CPKnowledgebaseadminConfiguration#SAVE_BUTTON" value1="Save" />
+				<execute function="AssertTextEquals" locator1="CPKnowledgebaseadminConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 			</then>
 		</if>
 
@@ -174,11 +180,11 @@
 			<then>
 				<execute function="AssertClick" locator1="CPKnowledgebaseadminConfiguration#NAVIGATION_SUGGESTION_RESOLVED_TAB" value1="Suggestion Resolved Email" />
 				<execute function="Type" locator1="CPKnowledgebaseadminConfiguration#SUGGESTION_RESOLVED_EMAIL_BODY_FIELD" value1="[$COMMENT_CREATE_DATE$] &lt;a href=&quot;[$ARTICLE_URL$]&quot;&gt;Article Link &lt;/a&gt;" />
+				<execute function="AssertClick" locator1="CPKnowledgebaseadminConfiguration#SAVE_BUTTON" value1="Save" />
+				<execute function="AssertTextEquals" locator1="CPKnowledgebaseadminConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 			</then>
 		</if>
 
-		<execute function="AssertClick" locator1="CPKnowledgebaseadminConfiguration#SAVE_BUTTON" value1="Save" />
-		<execute function="AssertTextEquals" locator1="CPKnowledgebaseadminConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
@@ -299,11 +305,10 @@
 		<execute function="SelectFrame" value1="relative=top" />
 
 		<execute function="SelectFrame" locator1="PGKnowledgebasedisplaySelectParentArticleDisplay#SELECT_PARENT_DISPLAY_IFRAME" />
-		<execute function="Click" locator1="PGKnowledgebasedisplaySelectParentArticleDisplay#FOLDER_CHOOSE_BUTTON" />
+		<execute function="AssertClick" locator1="PGKnowledgebasedisplaySelectParentArticleDisplay#FOLDER_CHOOSE_BUTTON" value1="Choose" />
 		<execute function="SelectFrame" value1="relative=top" />
 
-		<execute function="SelectFrame" locator1="PGKnowledgebasedisplayConfiguration#CONFIGURATION_IFRAME" />
-		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplayConfiguration#ARTICLE_OR_FOLDER_FIELD" value1="${kbFolderName}" />
+		<execute function="SelectFrame" locator1="PGKnowledgebasedisplayConfigurationCONFIGURATION_IFRAME" />
 		<execute function="AssertClick" locator1="PGKnowledgebasedisplayConfiguration#SAVE_BUTTON" value1="Save" />
 		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplayConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
@@ -462,6 +467,18 @@
 			<condition function="IsElementNotPresent" locator1="PGKnowledgebasedisplay#SUGGESTION_NAVIGATION_BAR" />
 			<then>
 				<execute function="Click" locator1="PGKnowledgebasedisplay#ARTICLE_THERE_ARE_SUGGESTIONS_LINK" />
+			</then>
+		</if>
+	</command>
+
+	<command name="gotoViaKBDisplayPG">
+		<var name="kbArticleTitle" value="${kbArticleTitle}" />
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+
+		<if>
+			<condition function= "IsElementPresent" locator1= "PGKnowledgebasedisplay#ARTICLE_NAVIGATION" /> 
+			<then>
+				<execute function= "AssertClick" locator1= "PGKnowledgebasedisplay#ARTICLE_NAVIGATION" value1= "${kbArticleTitle}" />
 			</then>
 		</if>
 	</command>
@@ -676,7 +693,7 @@
 
 	<command name="subscribeCP">
 		<execute function="AssertClick" locator1="CPKnowledgebaseadmin#SUBSCRIBE_BUTTON" value1="Subscribe" />
-		<execute function="AssertTextEquals#assertPartialText" locator1="CPKnowledgebaseadmin#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+		<execute function="AssertTextEquals" locator1="CPKnowledgebaseadmin#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="AssertTextNotEquals" locator1="CPKnowledgebaseadmin#UNSUBSCRIBE_BUTTON" />
 	</command>
 
@@ -1008,6 +1025,18 @@
 
 	<command name="viewKBDisplayPG">
 		<if>
+			<isset var="kbArticleFriendlyURL" />
+			<then>
+				<var method="selenium#getLocation()" name="url" />
+
+				<execute macro="TestUtils#assertEquals">
+					<var name="actual" value="${url}" />
+					<var name="expected" value="http://localhost:8080/web/guest/knowledge-base-display/-/knowledge_base/${kbArticleFriendlyURL}" />
+				</execute>
+			</then>
+		</if>
+
+		<if>
 			<equals arg1="${sourceURL}" arg2="true" />
 			<then>
 				<execute function="AssertClick" locator1="PGKnowledgebasedisplay#ARTICLE_GITHUB" value1="Edit on GitHub" />
@@ -1174,6 +1203,13 @@
 				</then>
 			</elseif>
 		</if>
+	</command>
+
+	<command name="viewNoHierarchyPG">
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+
+		<execute function="AssertElementNotPresent" locator1="PGKnowledgebasedisplay#ARTICLE_NAVIGATION" />
+		<execute function="AssertElementPresent" locator1="PGKnowledgebasedisplay#FOLDER_NAVIGATION_MENULIST" />
 	</command>
 
 	<command name="viewNoPGViaKBSection">
