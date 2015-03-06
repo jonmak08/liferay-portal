@@ -1364,6 +1364,35 @@ public class JournalArticleLocalServiceImpl
 	}
 
 	@Override
+	public JournalArticle fetchArticle(long groupId, String articleId)
+		throws SystemException {
+
+		// Get the latest article that is approved, if none are approved, get
+		// the latest unapproved article
+
+		JournalArticle article = fetchLatestArticle(
+			groupId, articleId, WorkflowConstants.STATUS_APPROVED);
+
+		if (article != null) {
+			return article;
+		}
+
+		return fetchLatestArticle(
+			groupId, articleId, WorkflowConstants.STATUS_ANY);
+	}
+
+	/**
+	 * Returns the web content article matching the group, article ID, and
+	 * version.
+	 *
+	 * @param  groupId the primary key of the web content article's group
+	 * @param  articleId the primary key of the web content article
+	 * @param  version the web content article's version
+	 * @return the web content article matching the group, article ID, and
+	 *         version, or <code>null</code> if no web content article could be
+	 *         found
+	 */
+	@Override
 	public JournalArticle fetchArticle(
 			long groupId, String articleId, double version)
 		throws SystemException {
@@ -1373,6 +1402,62 @@ public class JournalArticleLocalServiceImpl
 	}
 
 	@Override
+	public JournalArticle fetchArticleByUrlTitle(long groupId, String urlTitle)
+		throws SystemException {
+
+		JournalArticle article = fetchLatestArticleByUrlTitle(
+			groupId, urlTitle, WorkflowConstants.STATUS_APPROVED);
+
+		if (article != null) {
+			return article;
+		}
+
+		return fetchLatestArticleByUrlTitle(
+			groupId, urlTitle, WorkflowConstants.STATUS_PENDING);
+	}
+
+	@Override
+	public JournalArticle fetchDisplayArticle(long groupId, String articleId)
+		throws SystemException {
+
+		List<JournalArticle> articles = journalArticlePersistence.findByG_A_ST(
+			groupId, articleId, WorkflowConstants.STATUS_APPROVED);
+
+		if (articles.isEmpty()) {
+			return null;
+		}
+
+		Date now = new Date();
+
+		for (JournalArticle article : articles) {
+			Date displayDate = article.getDisplayDate();
+			Date expirationDate = article.getExpirationDate();
+
+			if (((displayDate == null) || displayDate.before(now)) &&
+				((expirationDate == null) || expirationDate.after(now))) {
+
+				return article;
+			}
+		}
+
+		return articles.get(0);
+	}
+
+	@Override
+	public JournalArticle fetchLatestArticle(long resourcePrimKey)
+		throws SystemException {
+
+		return fetchLatestArticle(
+			resourcePrimKey, WorkflowConstants.STATUS_ANY);
+	}
+
+	@Override
+	public JournalArticle fetchLatestArticle(long resourcePrimKey, int status)
+		throws SystemException {
+
+		return fetchLatestArticle(resourcePrimKey, status, true);
+	}
+	
 	public JournalArticle fetchLatestArticle(
 			long resourcePrimKey, int[] statuses)
 		throws SystemException {
@@ -1436,6 +1521,40 @@ public class JournalArticleLocalServiceImpl
 			groupId, articleId, status, orderByComparator);
 	}
 
+	@Override
+	public JournalArticle fetchLatestArticleByUrlTitle(
+			long groupId, String urlTitle, int status)
+		throws SystemException {
+
+		List<JournalArticle> articles = null;
+
+		OrderByComparator orderByComparator = new ArticleVersionComparator();
+
+		if (status == WorkflowConstants.STATUS_ANY) {
+			articles = journalArticlePersistence.findByG_UT(
+				groupId, urlTitle, 0, 1, orderByComparator);
+		}
+		else {
+			articles = journalArticlePersistence.findByG_UT_ST(
+				groupId, urlTitle, status, 0, 1, orderByComparator);
+		}
+
+		if (articles.isEmpty()) {
+			return null;
+		}
+
+		return articles.get(0);
+	}
+
+	/**
+	 * Returns the latest indexable web content article matching the resource
+	 * primary key.
+	 *
+	 * @param  resourcePrimKey the primary key of the resource instance
+	 * @return the latest indexable web content article matching the resource
+	 *         primary key, or <code>null</code> if no matching web content
+	 *         article could be found
+	 */
 	@Override
 	public JournalArticle fetchLatestIndexableArticle(long resourcePrimKey)
 		throws SystemException {
@@ -2625,31 +2744,15 @@ public class JournalArticleLocalServiceImpl
 	public JournalArticle getDisplayArticle(long groupId, String articleId)
 		throws PortalException, SystemException {
 
-		List<JournalArticle> articles = journalArticlePersistence.findByG_A_ST(
-			groupId, articleId, WorkflowConstants.STATUS_APPROVED);
+		JournalArticle article = fetchDisplayArticle(groupId, articleId);
 
-		if (articles.isEmpty()) {
+		if (article == null) {
 			throw new NoSuchArticleException(
 				"No approved JournalArticle exists with the key {groupId=" +
 					groupId + ", " + "articleId=" + articleId + "}");
 		}
 
-		Date now = new Date();
-
-		for (int i = 0; i < articles.size(); i++) {
-			JournalArticle article = articles.get(i);
-
-			Date displayDate = article.getDisplayDate();
-			Date expirationDate = article.getExpirationDate();
-
-			if (((displayDate == null) || displayDate.before(now)) &&
-				((expirationDate == null) || expirationDate.after(now))) {
-
-				return article;
-			}
-		}
-
-		return articles.get(0);
+		return article;
 	}
 
 	/**
@@ -2935,26 +3038,16 @@ public class JournalArticleLocalServiceImpl
 			long groupId, String urlTitle, int status)
 		throws PortalException, SystemException {
 
-		List<JournalArticle> articles = null;
+		JournalArticle article = fetchLatestArticleByUrlTitle(
+			groupId, urlTitle, status);
 
-		OrderByComparator orderByComparator = new ArticleVersionComparator();
-
-		if (status == WorkflowConstants.STATUS_ANY) {
-			articles = journalArticlePersistence.findByG_UT(
-				groupId, urlTitle, 0, 1, orderByComparator);
-		}
-		else {
-			articles = journalArticlePersistence.findByG_UT_ST(
-				groupId, urlTitle, status, 0, 1, orderByComparator);
-		}
-
-		if (articles.isEmpty()) {
+		if (article == null) {
 			throw new NoSuchArticleException(
 				"No JournalArticle exists with the key {groupId=" + groupId +
 					", urlTitle=" + urlTitle + ", status=" + status + "}");
 		}
 
-		return articles.get(0);
+		return article;
 	}
 
 	/**
