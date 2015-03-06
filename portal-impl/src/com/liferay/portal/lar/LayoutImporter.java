@@ -555,6 +555,11 @@ public class LayoutImporter {
 				missingReferencesElement);
 		}
 
+		// Deletion system events
+
+		_deletionSystemEventImporter.importDeletionSystemEvents(
+			portletDataContext);
+
 		// Look and feel
 
 		if (importLogo) {
@@ -929,11 +934,6 @@ public class LayoutImporter {
 
 		updateLayoutPriorities(
 			portletDataContext, _layoutElements, privateLayout);
-
-		// Deletion system events
-
-		_deletionSystemEventImporter.importDeletionSystemEvents(
-			portletDataContext);
 
 		if (_log.isInfoEnabled()) {
 			_log.info("Importing layouts takes " + stopWatch.getTime() + " ms");

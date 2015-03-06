@@ -450,6 +450,11 @@ public class PortletImporter {
 				missingReferencesElement);
 		}
 
+		// Deletion system events
+
+		_deletionSystemEventImporter.importDeletionSystemEvents(
+			portletDataContext);
+
 		// Read asset categories, asset tags, comments, locks, and ratings
 		// entries to make them available to the data handlers through the
 		// portlet data context
@@ -562,11 +567,6 @@ public class PortletImporter {
 		}
 
 		readAssetLinks(portletDataContext);
-
-		// Deletion system events
-
-		_deletionSystemEventImporter.importDeletionSystemEvents(
-			portletDataContext);
 
 		if (_log.isInfoEnabled()) {
 			_log.info("Importing portlet takes " + stopWatch.getTime() + " ms");
