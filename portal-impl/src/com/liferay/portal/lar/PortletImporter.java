@@ -205,16 +205,11 @@ public class PortletImporter {
 			Map<String, String[]> parameterMap, File file)
 		throws Exception {
 
-		boolean indexReadOnly = SearchEngineUtil.isIndexReadOnly();
-
 		try {
 			ExportImportThreadLocal.setPortletImportInProcess(true);
 
-			SearchEngineUtil.setIndexReadOnly(true);
-
 			doImportPortletInfo(
-				userId, plid, groupId, portletId, parameterMap, file,
-				indexReadOnly);
+				userId, plid, groupId, portletId, parameterMap, file);
 		}
 		finally {
 			ExportImportThreadLocal.setPortletImportInProcess(false);
@@ -222,8 +217,6 @@ public class PortletImporter {
 			CacheUtil.clearCache();
 			JournalContentUtil.clearCache();
 			PermissionCacheUtil.clearCache();
-
-			SearchEngineUtil.setIndexReadOnly(indexReadOnly);
 		}
 	}
 
@@ -348,8 +341,7 @@ public class PortletImporter {
 
 	protected void doImportPortletInfo(
 			long userId, long plid, long groupId, String portletId,
-			Map<String, String[]> parameterMap, File file,
-			boolean indexReadOnly)
+			Map<String, String[]> parameterMap, File file)
 		throws Exception {
 
 		boolean deletePortletData = MapUtil.getBoolean(
@@ -574,9 +566,7 @@ public class PortletImporter {
 
 		zipReader.close();
 
-		if (!indexReadOnly) {
-			ExportImportHelperUtil.reindex(portletDataContext, userId);
-		}
+		ExportImportHelperUtil.reindex(portletDataContext, userId);
 	}
 
 	protected String getAssetCategoryName(

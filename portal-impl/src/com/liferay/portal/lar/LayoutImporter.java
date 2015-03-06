@@ -244,16 +244,11 @@ public class LayoutImporter {
 			Map<String, String[]> parameterMap, File file)
 		throws Exception {
 
-		boolean indexReadOnly = SearchEngineUtil.isIndexReadOnly();
-
 		try {
 			ExportImportThreadLocal.setLayoutImportInProcess(true);
 
-			SearchEngineUtil.setIndexReadOnly(true);
-
 			doImportLayouts(
-				userId, groupId, privateLayout, parameterMap, file,
-				indexReadOnly);
+				userId, groupId, privateLayout, parameterMap, file);
 		}
 		finally {
 			ExportImportThreadLocal.setLayoutImportInProcess(false);
@@ -261,8 +256,6 @@ public class LayoutImporter {
 			CacheUtil.clearCache();
 			JournalContentUtil.clearCache();
 			PermissionCacheUtil.clearCache();
-
-			SearchEngineUtil.setIndexReadOnly(indexReadOnly);
 		}
 	}
 
@@ -327,8 +320,7 @@ public class LayoutImporter {
 
 	protected void doImportLayouts(
 			long userId, long groupId, boolean privateLayout,
-			Map<String, String[]> parameterMap, File file,
-			boolean indexReadOnly)
+			Map<String, String[]> parameterMap, File file)
 		throws Exception {
 
 		boolean deleteMissingLayouts = MapUtil.getBoolean(
@@ -941,9 +933,7 @@ public class LayoutImporter {
 
 		zipReader.close();
 
-		if (!indexReadOnly) {
-			ExportImportHelperUtil.reindex(portletDataContext, userId);
-		}
+		ExportImportHelperUtil.reindex(portletDataContext, userId);
 	}
 
 	protected void importLayout(
