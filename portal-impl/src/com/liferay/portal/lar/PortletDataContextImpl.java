@@ -389,10 +389,10 @@ public class PortletDataContextImpl implements PortletDataContext {
 	 */
 	@Override
 	public void addDateRangeCriteria(
-		DynamicQuery dynamicQuery, String modifiedDatePropertyName) {
+		DynamicQuery dynamicQuery, String datePropertyName) {
 
 		Criterion criterion = getDateRangeCriteria(
-			dynamicQuery, modifiedDatePropertyName);
+			dynamicQuery, datePropertyName);
 
 		if (criterion == null) {
 			return;
@@ -920,7 +920,7 @@ public class PortletDataContextImpl implements PortletDataContext {
 
 	@Override
 	public Criterion getDateRangeCriteria(
-		DynamicQuery dynamicQuery, String modifiedDatePropertyName) {
+		DynamicQuery dynamicQuery, String datePropertyName) {
 
 		if (!hasDateRange()) {
 			return null;
@@ -928,11 +928,10 @@ public class PortletDataContextImpl implements PortletDataContext {
 
 		Conjunction conjunction = RestrictionsFactoryUtil.conjunction();
 
-		Property modifiedDateProperty = PropertyFactoryUtil.forName(
-			modifiedDatePropertyName);
+		Property dateProperty = PropertyFactoryUtil.forName(datePropertyName);
 
-		conjunction.add(modifiedDateProperty.ge(_startDate));
-		conjunction.add(modifiedDateProperty.le(_endDate));
+		conjunction.add(dateProperty.ge(_startDate));
+		conjunction.add(dateProperty.le(_endDate));
 
 		return conjunction;
 	}
