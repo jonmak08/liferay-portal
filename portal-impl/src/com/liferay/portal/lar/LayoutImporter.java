@@ -41,7 +41,6 @@ import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.portal.kernel.lar.UserIdStrategy;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.search.SearchEngineUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -247,8 +246,7 @@ public class LayoutImporter {
 		try {
 			ExportImportThreadLocal.setLayoutImportInProcess(true);
 
-			doImportLayouts(
-				userId, groupId, privateLayout, parameterMap, file);
+			doImportLayouts(userId, groupId, privateLayout, parameterMap, file);
 		}
 		finally {
 			ExportImportThreadLocal.setLayoutImportInProcess(false);
