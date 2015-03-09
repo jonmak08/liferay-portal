@@ -454,62 +454,6 @@ public class PortalUtil {
 		return getPortal().getCreateAccountURL(request, themeDisplay);
 	}
 
-	public static long[] getCurrentAndAncestorSiteGroupIds(long groupId)
-		throws PortalException, SystemException {
-
-		return getPortal().getCurrentAndAncestorSiteGroupIds(groupId);
-	}
-
-	public static long[] getCurrentAndAncestorSiteGroupIds(
-			long groupId, boolean checkContentSharingWithChildrenEnabled)
-		throws PortalException, SystemException {
-
-		return getPortal().getCurrentAndAncestorSiteGroupIds(
-			groupId, checkContentSharingWithChildrenEnabled);
-	}
-
-	public static long[] getCurrentAndAncestorSiteGroupIds(long[] groupIds)
-		throws PortalException, SystemException {
-
-		return getPortal().getCurrentAndAncestorSiteGroupIds(groupIds);
-	}
-
-	public static long[] getCurrentAndAncestorSiteGroupIds(
-			long[] groupIds, boolean checkContentSharingWithChildrenEnabled)
-		throws PortalException, SystemException {
-
-		return getPortal().getCurrentAndAncestorSiteGroupIds(
-			groupIds, checkContentSharingWithChildrenEnabled);
-	}
-
-	public static List<Group> getCurrentAndAncestorSiteGroups(long groupId)
-		throws PortalException, SystemException {
-
-		return getPortal().getCurrentAndAncestorSiteGroups(groupId);
-	}
-
-	public static List<Group> getCurrentAndAncestorSiteGroups(
-			long groupId, boolean checkContentSharingWithChildrenEnabled)
-		throws PortalException, SystemException {
-
-		return getPortal().getCurrentAndAncestorSiteGroups(
-			groupId, checkContentSharingWithChildrenEnabled);
-	}
-
-	public static List<Group> getCurrentAndAncestorSiteGroups(long[] groupIds)
-		throws PortalException, SystemException {
-
-		return getPortal().getCurrentAndAncestorSiteGroups(groupIds);
-	}
-
-	public static List<Group> getCurrentAndAncestorSiteGroups(
-			long[] groupIds, boolean checkContentSharingWithChildrenEnabled)
-		throws PortalException, SystemException {
-
-		return getPortal().getCurrentAndAncestorSiteGroups(
-			groupIds, checkContentSharingWithChildrenEnabled);
-	}
-
 	public static String getCurrentCompleteURL(HttpServletRequest request) {
 		return getPortal().getCurrentCompleteURL(request);
 	}

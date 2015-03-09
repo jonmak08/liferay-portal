@@ -540,34 +540,6 @@ public interface Portal {
 			HttpServletRequest request, ThemeDisplay themeDisplay)
 		throws Exception;
 
-	public long[] getCurrentAndAncestorSiteGroupIds(long groupId)
-			throws PortalException, SystemException;
-
-	public long[] getCurrentAndAncestorSiteGroupIds(
-			long groupId, boolean checkContentSharingWithChildrenEnabled)
-		throws PortalException, SystemException;
-
-	public long[] getCurrentAndAncestorSiteGroupIds(long[] groupIds)
-		throws PortalException, SystemException;
-
-	public long[] getCurrentAndAncestorSiteGroupIds(
-			long[] groupId, boolean checkContentSharingWithChildrenEnabled)
-		throws PortalException, SystemException;
-
-	public List<Group> getCurrentAndAncestorSiteGroups(long groupId)
-		throws PortalException, SystemException;
-
-	public List<Group> getCurrentAndAncestorSiteGroups(
-			long groupId, boolean checkContentSharingWithChildrenEnabled)
-		throws PortalException, SystemException;
-
-	public List<Group> getCurrentAndAncestorSiteGroups(long[] groupIds)
-		throws PortalException, SystemException;
-
-	public List<Group> getCurrentAndAncestorSiteGroups(
-			long[] groupIds, boolean checkContentSharingWithChildrenEnabled)
-		throws PortalException, SystemException;
-
 	public String getCurrentCompleteURL(HttpServletRequest request);
 
 	public String getCurrentURL(HttpServletRequest request);

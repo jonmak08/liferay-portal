@@ -299,4 +299,80 @@ private boolean _isEnablePermissions(String portletName, PortletPreferences port
 
 	return GetterUtil.getBoolean(portletPreferences.getValue("enablePermissions", null));
 }
+
+private long[] _getAncestorAndCurrentSiteGroupIds(long[] groupIds, boolean checkContentSharingWithChildrenEnabled)
+	throws PortalException, SystemException {
+
+	List<Group> groups = _getAncestorAndCurrentSiteGroups(groupIds, checkContentSharingWithChildrenEnabled);
+
+	long[] currentAndAncestorSiteGroupIds = new long[groups.size()];
+
+	for (int i = 0; i < groups.size(); i++) {
+		Group group = groups.get(i);
+		currentAndAncestorSiteGroupIds[i] = group.getGroupId();
+	}
+	return currentAndAncestorSiteGroupIds;
+}
+
+private  ArrayList<Group> _getAncestorAndCurrentSiteGroups(long[] groupIds, boolean checkContentSharingWithChildrenEnabled)
+	throws PortalException, SystemException {
+	Set<Group> groups = new LinkedHashSet<Group>();
+
+	for (int i = 0; i < groupIds.length; i++) {
+		groups.addAll(_getAncestorAndCurrentSiteGroups(groupIds[i], checkContentSharingWithChildrenEnabled));
+	}
+	return new ArrayList<Group>(groups);
+}
+
+private List<Group> _getAncestorAndCurrentSiteGroups(
+		long groupId, boolean checkContentSharingWithChildrenEnabled)
+	throws PortalException, SystemException {
+
+	Set<Group> groups = new LinkedHashSet<Group>();
+
+	Group siteGroup = _getCurrentSiteGroup(groupId);
+
+	if (siteGroup != null) {
+		groups.add(siteGroup);
+	}
+	groups.addAll(_getAncestorSiteGroups(groupId, checkContentSharingWithChildrenEnabled));
+
+	return new ArrayList<Group>(groups);
+}
+
+private Group _getCurrentSiteGroup(long groupId)
+	throws PortalException, SystemException {
+
+	long siteGroupId = PortalUtil.getSiteGroupId(groupId);
+
+	Group siteGroup = GroupLocalServiceUtil.getGroup(siteGroupId);
+
+	if (!siteGroup.isLayoutPrototype()) {
+		return siteGroup;
+	}
+	return null;
+}
+
+private List<Group> _getAncestorSiteGroups(
+		long groupId, boolean checkContentSharingWithChildrenEnabled)
+	throws PortalException, SystemException {
+
+	List<Group> groups = new UniqueList<Group>();
+
+	long siteGroupId = PortalUtil.getSiteGroupId(groupId);
+
+	Group siteGroup = GroupLocalServiceUtil.getGroup(siteGroupId);
+
+	for (Group group : siteGroup.getAncestors()) {
+		if (checkContentSharingWithChildrenEnabled && !SitesUtil.isContentSharingWithChildrenEnabled(group)) {
+			continue;
+		}
+		groups.add(group);
+	}
+
+	if (!siteGroup.isCompany()) {
+		groups.add(GroupLocalServiceUtil.getCompanyGroup(siteGroup.getCompanyId()));
+	}
+	return groups;
+}
 %>

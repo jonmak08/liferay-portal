@@ -23,6 +23,7 @@ String redirect = (String)request.getAttribute("configuration.jsp-redirect");
 String rootPortletId = (String)request.getAttribute("configuration.jsp-rootPortletId");
 String selectScope = (String)request.getAttribute("configuration.jsp-selectScope");
 String selectStyle = (String)request.getAttribute("configuration.jsp-selectStyle");
+long[] scopedGroupIds = AssetPublisherUtil.getGroupIds(portletPreferences, scopeGroupId, layout);
 %>
 
 <liferay-ui:tabs
@@ -108,7 +109,7 @@ String selectStyle = (String)request.getAttribute("configuration.jsp-selectStyle
 
 					<%
 					for (AssetRendererFactory assetRendererFactory : AssetRendererFactoryRegistryUtil.getAssetRendererFactories(company.getCompanyId())) {
-						Map<Long, String> assetAvailableClassTypes = assetRendererFactory.getClassTypes(PortalUtil.getCurrentAndAncestorSiteGroupIds(AssetPublisherUtil.getGroupIds(portletPreferences, scopeGroupId, layout), true), locale);
+						Map<Long, String> assetAvailableClassTypes = assetRendererFactory.getClassTypes(_getAncestorAndCurrentSiteGroupIds(scopedGroupIds, true), locale);
 
 						if (assetAvailableClassTypes.isEmpty()) {
 							continue;
@@ -291,7 +292,7 @@ String selectStyle = (String)request.getAttribute("configuration.jsp-selectStyle
 							String categoryIds = ParamUtil.getString(request, "queryCategoryIds" + queryLogicIndex, queryValues);
 
 							if (Validator.isNotNull(tagNames) || Validator.isNotNull(categoryIds) || (queryLogicIndexes.length == 1)) {
-								request.setAttribute("configuration.jsp-categorizableGroupIds", PortalUtil.getCurrentAndAncestorSiteGroupIds(AssetPublisherUtil.getGroupIds(portletPreferences, scopeGroupId, layout), true));
+								request.setAttribute("configuration.jsp-categorizableGroupIds", _getAncestorAndCurrentSiteGroupIds(AssetPublisherUtil.getGroupIds(portletPreferences, scopeGroupId, layout), true));
 								request.setAttribute("configuration.jsp-index", String.valueOf(index));
 								request.setAttribute("configuration.jsp-queryLogicIndex", String.valueOf(queryLogicIndex));
 
@@ -555,7 +556,7 @@ String selectStyle = (String)request.getAttribute("configuration.jsp-selectStyle
 		}
 
 		<%
-		Map<Long, String> assetAvailableClassTypes = curRendererFactory.getClassTypes(PortalUtil.getCurrentAndAncestorSiteGroupIds(AssetPublisherUtil.getGroupIds(portletPreferences, scopeGroupId, layout), true), locale);
+		Map<Long, String> assetAvailableClassTypes = curRendererFactory.getClassTypes(_getAncestorAndCurrentSiteGroupIds(AssetPublisherUtil.getGroupIds(portletPreferences, scopeGroupId, layout), true), locale);
 
 		if (assetAvailableClassTypes.isEmpty()) {
 			continue;

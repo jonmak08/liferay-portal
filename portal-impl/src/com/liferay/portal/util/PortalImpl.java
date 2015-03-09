@@ -229,7 +229,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -1742,108 +1741,6 @@ public class PortalImpl implements Portal {
 		}
 
 		return StringPool.BLANK;
-	}
-
-	@Override
-	public long[] getCurrentAndAncestorSiteGroupIds(long groupId)
-		throws PortalException, SystemException {
-
-		return getCurrentAndAncestorSiteGroupIds(groupId, false);
-	}
-
-	@Override
-	public long[] getCurrentAndAncestorSiteGroupIds(
-			long groupId, boolean checkContentSharingWithChildrenEnabled)
-		throws PortalException, SystemException {
-
-		List<Group> groups = getCurrentAndAncestorSiteGroups(
-			groupId, checkContentSharingWithChildrenEnabled);
-
-		long[] groupIds = new long[groups.size()];
-
-		for (int i = 0; i < groups.size(); i++) {
-			Group group = groups.get(i);
-
-			groupIds[i] = group.getGroupId();
-		}
-
-		return groupIds;
-	}
-
-	@Override
-	public long[] getCurrentAndAncestorSiteGroupIds(long[] groupIds)
-		throws PortalException, SystemException {
-
-		return getCurrentAndAncestorSiteGroupIds(groupIds, false);
-	}
-
-	@Override
-	public long[] getCurrentAndAncestorSiteGroupIds(
-			long[] groupIds, boolean checkContentSharingWithChildrenEnabled)
-		throws PortalException, SystemException {
-
-		List<Group> groups = getCurrentAndAncestorSiteGroups(
-			groupIds, checkContentSharingWithChildrenEnabled);
-
-		long[] currentAndAncestorSiteGroupIds = new long[groups.size()];
-
-		for (int i = 0; i < groups.size(); i++) {
-			Group group = groups.get(i);
-
-			currentAndAncestorSiteGroupIds[i] = group.getGroupId();
-		}
-
-		return currentAndAncestorSiteGroupIds;
-	}
-
-	@Override
-	public List<Group> getCurrentAndAncestorSiteGroups(long groupId)
-		throws PortalException, SystemException {
-
-		return getCurrentAndAncestorSiteGroups(groupId, false);
-	}
-
-	@Override
-	public List<Group> getCurrentAndAncestorSiteGroups(
-			long groupId, boolean checkContentSharingWithChildrenEnabled)
-		throws PortalException, SystemException {
-
-		Set<Group> groups = new LinkedHashSet<Group>();
-
-		Group siteGroup = doGetCurrentSiteGroup(groupId);
-
-		if (siteGroup != null) {
-			groups.add(siteGroup);
-		}
-
-		groups.addAll(
-			doGetAncestorSiteGroups(
-				groupId, checkContentSharingWithChildrenEnabled));
-
-		return new ArrayList<Group>(groups);
-	}
-
-	@Override
-	public List<Group> getCurrentAndAncestorSiteGroups(long[] groupIds)
-		throws PortalException, SystemException {
-
-		return getCurrentAndAncestorSiteGroups(groupIds, false);
-	}
-
-	@Override
-	public List<Group> getCurrentAndAncestorSiteGroups(
-			long[] groupIds, boolean checkContentSharingWithChildrenEnabled)
-		throws PortalException, SystemException {
-
-		Set<Group> groups = new LinkedHashSet<Group>();
-
-		for (int i = 0; i < groupIds.length; i++) {
-			groups.addAll(
-				getCurrentAndAncestorSiteGroups(
-					groupIds[i], checkContentSharingWithChildrenEnabled));
-		}
-
-		return new ArrayList<Group>(groups);
 	}
 
 	@Override
