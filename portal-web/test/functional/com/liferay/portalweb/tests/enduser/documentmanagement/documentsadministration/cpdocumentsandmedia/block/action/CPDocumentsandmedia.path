@@ -418,7 +418,7 @@
 </tr>
 <tr>
 	<td>DOCUMENT_CONTAINER_FOLDER_CHECKBOX</td>
-	<td>//div[contains(@data-title,'${key_dmFolderName}')]/div[contains(@class,'input-checkbox-wrapper')]/input[@type='checkbox'] | //div[@id='_20_entriesContainer']//div[contains(.,'${key_dmFolderName}')]/input[contains(@id,'_20_rowIdsFolderCheckbox')] | //div[@id='_20_entriesContainer']//div[contains(.,'${key_dmFolderName}')]/input[contains(@id,'Checkbox')]</td>
+	<td>//div[@id='_20_entriesContainer']//div[contains(.,'${key_dmFolderName}')]//input[contains(@id,'Checkbox')] | //div[contains(@data-title,'${key_dmFolderName}')]/div[contains(@class,'input-checkbox-wrapper')]/input[@type='checkbox']</td>
 	<td></td>
 </tr>
 <tr>
