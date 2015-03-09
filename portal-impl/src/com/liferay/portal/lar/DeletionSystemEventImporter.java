@@ -95,11 +95,11 @@ public class DeletionSystemEventImporter {
 		Element importDataRootElement =
 			portletDataContext.getImportDataRootElement();
 
-		Element portletsElement = null;
-
-		if (importDataRootElement != null) {
-			portletsElement = importDataRootElement.element("portlets");
+		if (importDataRootElement == null) {
+			return;
 		}
+
+		Element portletsElement = importDataRootElement.element("portlets");
 
 		List<Element> portletElements = Collections.emptyList();
 
@@ -129,11 +129,11 @@ public class DeletionSystemEventImporter {
 
 			portletElement = portletDocument.getRootElement();
 
-			Element portletDataElement = null;
-
-			if (portletElement != null) {
-				portletDataElement = portletElement.element("portlet-data");
+			if (portletElement == null) {
+				continue;
 			}
+
+			Element portletDataElement = portletElement.element("portlet-data");
 
 			String portletId = portletElement.attributeValue("portlet-id");
 
