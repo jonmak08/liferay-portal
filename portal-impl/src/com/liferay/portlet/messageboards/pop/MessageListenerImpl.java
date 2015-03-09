@@ -37,7 +37,6 @@ import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portal.util.PropsValues;
-import com.liferay.portlet.messageboards.NoSuchMessageException;
 import com.liferay.portlet.messageboards.model.MBCategory;
 import com.liferay.portlet.messageboards.model.MBCategoryConstants;
 import com.liferay.portlet.messageboards.model.MBMessage;
@@ -141,6 +140,23 @@ public class MessageListenerImpl implements MessageListener {
 				_log.debug("Message id " + messageIdString);
 			}
 
+			long parentMessageId = MBUtil.getMessageId(messageIdString);
+
+			if (_log.isDebugEnabled()) {
+				_log.debug("Parent message id " + parentMessageId);
+			}
+
+			MBMessage parentMessage = null;
+
+			if (parentMessageId > 0) {
+				parentMessage = MBMessageLocalServiceUtil.fetchMBMessage(
+					parentMessageId);
+			}
+
+			if (_log.isDebugEnabled()) {
+				_log.debug("Parent message " + parentMessage);
+			}
+
 			long groupId = 0;
 			long categoryId = getCategoryId(messageIdString);
 
@@ -148,22 +164,14 @@ public class MessageListenerImpl implements MessageListener {
 				categoryId);
 
 			if (category == null) {
-				groupId = categoryId;
 				categoryId = MBCategoryConstants.DEFAULT_PARENT_CATEGORY_ID;
+
+				if (parentMessage != null) {
+					groupId = parentMessage.getGroupId();
+				}
 			}
 			else {
 				groupId = category.getGroupId();
-
-				if (category.isRoot()) {
-					long messageId = getMessageId(messageIdString);
-
-					MBMessage threadMessage =
-						MBMessageLocalServiceUtil.fetchMBMessage(messageId);
-
-					if (threadMessage != null) {
-						groupId = threadMessage.getGroupId();
-					}
-				}
 			}
 
 			if (_log.isDebugEnabled()) {
@@ -173,31 +181,6 @@ public class MessageListenerImpl implements MessageListener {
 
 			User user = UserLocalServiceUtil.getUserByEmailAddress(
 				company.getCompanyId(), from);
-
-			long parentMessageId = getParentMessageId(recipient, message);
-
-			if (_log.isDebugEnabled()) {
-				_log.debug("Parent message id " + parentMessageId);
-			}
-
-			MBMessage parentMessage = null;
-
-			try {
-				if (parentMessageId > 0) {
-					parentMessage = MBMessageLocalServiceUtil.getMessage(
-						parentMessageId);
-				}
-			}
-			catch (NoSuchMessageException nsme) {
-
-				// If the parent message does not exist we ignore it and post
-				// the message as a new thread.
-
-			}
-
-			if (_log.isDebugEnabled()) {
-				_log.debug("Parent message " + parentMessage);
-			}
 
 			String subject = MBUtil.getSubjectForEmail(message);
 
