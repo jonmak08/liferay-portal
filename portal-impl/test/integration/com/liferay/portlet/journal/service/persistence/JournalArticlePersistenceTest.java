@@ -27,13 +27,14 @@ import com.liferay.portal.kernel.test.AssertUtils;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelListener;
 import com.liferay.portal.service.ServiceTestUtil;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
 import com.liferay.portal.util.PropsValues;
-
+import com.liferay.portal.util.RandomTestUtil;
 import com.liferay.portlet.journal.NoSuchArticleException;
 import com.liferay.portlet.journal.model.JournalArticle;
 import com.liferay.portlet.journal.model.impl.JournalArticleModelImpl;
@@ -44,7 +45,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
 import org.junit.runner.RunWith;
 
 import java.util.ArrayList;
@@ -99,6 +99,20 @@ public class JournalArticlePersistenceTest {
 		Assert.assertNotNull(journalArticle);
 
 		Assert.assertEquals(journalArticle.getPrimaryKey(), pk);
+	}
+
+	@Test
+	public void testCountByC_T() {
+		try {
+			_persistence.countByC_T(RandomTestUtil.nextLong(), StringPool.BLANK);
+		
+			_persistence.countByC_T(0L, StringPool.NULL);
+		
+			_persistence.countByC_T(0L, (String)null);
+		}
+		catch (Exception e) {
+			Assert.fail(e.getMessage());
+		}
 	}
 
 	@Test
