@@ -283,9 +283,9 @@ public class DDMStructureStagedModelDataHandler
 			else {
 				if (_log.isDebugEnabled()) {
 					_log.debug(
-						"Not importing DDMStructure with key " +
+						"Not importing DDM structure with key " +
 							structure.getStructureKey() +
-								" as it has not changed");
+								" since it was not modified");
 				}
 
 				importedStructure = existingStructure;
