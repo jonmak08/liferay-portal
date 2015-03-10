@@ -23,7 +23,6 @@ String redirect = (String)request.getAttribute("configuration.jsp-redirect");
 String rootPortletId = (String)request.getAttribute("configuration.jsp-rootPortletId");
 String selectScope = (String)request.getAttribute("configuration.jsp-selectScope");
 String selectStyle = (String)request.getAttribute("configuration.jsp-selectStyle");
-long[] scopedGroupIds = AssetPublisherUtil.getGroupIds(portletPreferences, scopeGroupId, layout);
 %>
 
 <liferay-ui:tabs
@@ -109,7 +108,7 @@ long[] scopedGroupIds = AssetPublisherUtil.getGroupIds(portletPreferences, scope
 
 					<%
 					for (AssetRendererFactory assetRendererFactory : AssetRendererFactoryRegistryUtil.getAssetRendererFactories(company.getCompanyId())) {
-						Map<Long, String> assetAvailableClassTypes = assetRendererFactory.getClassTypes(_getCurrentAndAncestorSiteGroupIds(scopedGroupIds, true), locale);
+						Map<Long, String> assetAvailableClassTypes = assetRendererFactory.getClassTypes(_getCurrentAndAncestorSiteGroupIds(groupIds, true), locale);
 
 						if (assetAvailableClassTypes.isEmpty()) {
 							continue;
@@ -292,7 +291,7 @@ long[] scopedGroupIds = AssetPublisherUtil.getGroupIds(portletPreferences, scope
 							String categoryIds = ParamUtil.getString(request, "queryCategoryIds" + queryLogicIndex, queryValues);
 
 							if (Validator.isNotNull(tagNames) || Validator.isNotNull(categoryIds) || (queryLogicIndexes.length == 1)) {
-								request.setAttribute("configuration.jsp-categorizableGroupIds", _getCurrentAndAncestorSiteGroupIds(AssetPublisherUtil.getGroupIds(portletPreferences, scopeGroupId, layout), true));
+								request.setAttribute("configuration.jsp-categorizableGroupIds", _getCurrentAndAncestorSiteGroupIds(groupIds, true));
 								request.setAttribute("configuration.jsp-index", String.valueOf(index));
 								request.setAttribute("configuration.jsp-queryLogicIndex", String.valueOf(queryLogicIndex));
 
@@ -556,7 +555,7 @@ long[] scopedGroupIds = AssetPublisherUtil.getGroupIds(portletPreferences, scope
 		}
 
 		<%
-		Map<Long, String> assetAvailableClassTypes = curRendererFactory.getClassTypes(_getCurrentAndAncestorSiteGroupIds(AssetPublisherUtil.getGroupIds(portletPreferences, scopeGroupId, layout), true), locale);
+		Map<Long, String> assetAvailableClassTypes = curRendererFactory.getClassTypes(_getCurrentAndAncestorSiteGroupIds(groupIds, true), locale);
 
 		if (assetAvailableClassTypes.isEmpty()) {
 			continue;
