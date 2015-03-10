@@ -314,7 +314,7 @@ private long[] _getAncestorAndCurrentSiteGroupIds(long[] groupIds, boolean check
 	return currentAndAncestorSiteGroupIds;
 }
 
-private  ArrayList<Group> _getAncestorAndCurrentSiteGroups(long[] groupIds, boolean checkContentSharingWithChildrenEnabled)
+private ArrayList<Group> _getAncestorAndCurrentSiteGroups(long[] groupIds, boolean checkContentSharingWithChildrenEnabled)
 	throws PortalException, SystemException {
 	Set<Group> groups = new LinkedHashSet<Group>();
 
