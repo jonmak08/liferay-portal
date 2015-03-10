@@ -17,12 +17,17 @@ package com.liferay.portlet.xslcontent.action;
 import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.model.Portlet;
+import com.liferay.portal.service.PortletLocalServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import java.util.Map;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -31,6 +36,7 @@ import javax.portlet.PortletConfig;
 /**
  * @author Brian Wing Shun Chan
  * @author Hugo Huijser
+ * @author Samuel Kong
  */
 public class ConfigurationActionImpl extends DefaultConfigurationAction {
 
@@ -43,6 +49,26 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
 		validateUrls(actionRequest);
 
 		super.processAction(portletConfig, actionRequest, actionResponse);
+	}
+
+	protected String[] getValidUrlPrefixes(ActionRequest actionRequest) {
+		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		String portletResource = ParamUtil.getString(
+			actionRequest, "portletResource");
+
+		Portlet xslPortlet = PortletLocalServiceUtil.getPortletById(
+			portletResource);
+
+		Map initParams = xslPortlet.getInitParams();
+
+		String validUrlPrefixes = (String)initParams.get("valid.url.prefixes");
+
+		validUrlPrefixes = StringUtil.replace(
+			validUrlPrefixes, "@portal_url@", themeDisplay.getPortalURL());
+
+		return StringUtil.split(validUrlPrefixes);
 	}
 
 	protected boolean hasAllowedProtocol(String xmlURL) {
@@ -62,16 +88,34 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
 		return false;
 	}
 
+	protected boolean hasValidUrlPrefix(String[] validUrlPrefixes, String url) {
+		if (validUrlPrefixes.length == 0) {
+			return true;
+		}
+
+		for (String validUrlPrefix : validUrlPrefixes) {
+			if (StringUtil.startsWith(url, validUrlPrefix)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	protected void validateUrls(ActionRequest actionRequest) {
 		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
+
+		String[] validUrlPrefixes = getValidUrlPrefixes(actionRequest);
 
 		String xmlUrl = getParameter(actionRequest, "xmlUrl");
 
 		xmlUrl = StringUtil.replace(
 			xmlUrl, "@portal_url@", themeDisplay.getPortalURL());
 
-		if (!hasAllowedProtocol(xmlUrl)) {
+		if (!hasAllowedProtocol(xmlUrl) ||
+			!hasValidUrlPrefix(validUrlPrefixes, xmlUrl)) {
+
 			SessionErrors.add(actionRequest, "xmlUrl");
 		}
 
@@ -80,7 +124,9 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
 		xslUrl = StringUtil.replace(
 			xslUrl, "@portal_url@", themeDisplay.getPortalURL());
 
-		if (!hasAllowedProtocol(xslUrl)) {
+		if (!hasAllowedProtocol(xslUrl) ||
+			!hasValidUrlPrefix(validUrlPrefixes, xslUrl)) {
+
 			SessionErrors.add(actionRequest, "xslUrl");
 		}
 	}
