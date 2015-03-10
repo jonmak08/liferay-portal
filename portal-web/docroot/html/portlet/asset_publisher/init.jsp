@@ -314,7 +314,7 @@ private long[] _getCurrentAndAncestorSiteGroupIds(long[] groupIds, boolean check
 	return currentAndAncestorSiteGroupIds;
 }
 
-private ArrayList<Group> _getCurrentAndAncestorSiteGroups(long[] groupIds, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
+private List<Group> _getCurrentAndAncestorSiteGroups(long[] groupIds, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
 	Set<Group> groups = new LinkedHashSet<Group>();
 
 	for (int i = 0; i < groupIds.length; i++) {
@@ -350,8 +350,8 @@ private Group _doGetCurrentSiteGroup(long groupId) throws PortalException, Syste
 	return null;
 }
 
-private List<Group> _doGetAncestorSiteGroups(long groupId, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
-	List<Group> groups = new UniqueList<Group>();
+private Set<Group> _doGetAncestorSiteGroups(long groupId, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
+	Set<Group> groups = new LinkedHashSet<Group>();
 
 	long siteGroupId = PortalUtil.getSiteGroupId(groupId);
 
