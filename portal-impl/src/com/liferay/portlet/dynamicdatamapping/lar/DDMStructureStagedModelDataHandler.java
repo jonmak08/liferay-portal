@@ -145,7 +145,7 @@ public class DDMStructureStagedModelDataHandler
 
 		Map<Long, Long> structureIdsUnchanged =
 			(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
-				DDMStructure.class + ".unchanged");
+				DDMStructure.class + ".unmodified");
 
 		structureIdsUnchanged.put(
 			structureId, existingStructure.getStructureId());
@@ -273,7 +273,7 @@ public class DDMStructureStagedModelDataHandler
 					structure.getStorageType(), structure.getType(),
 					serviceContext);
 			}
-			else if (isStructureChanged(structure, existingStructure)) {
+			else if (isModifiedStructure(structure, existingStructure)) {
 				importedStructure =
 					DDMStructureLocalServiceUtil.updateStructure(
 						existingStructure.getStructureId(), parentStructureId,
@@ -292,7 +292,7 @@ public class DDMStructureStagedModelDataHandler
 
 				Map<Long, Long> structureIdsUnchanged =
 					(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
-						DDMStructure.class + ".unchanged");
+						DDMStructure.class + ".unmodified");
 
 				structureIdsUnchanged.put(
 					structure.getStructureId(),
@@ -314,7 +314,7 @@ public class DDMStructureStagedModelDataHandler
 			structure.getStructureKey(), importedStructure.getStructureKey());
 	}
 
-	protected boolean isStructureChanged(
+	protected boolean isModifiedStructure(
 		DDMStructure existingStructure, DDMStructure structure) {
 
 		Date modifiedDate = structure.getModifiedDate();

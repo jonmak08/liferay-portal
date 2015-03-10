@@ -179,14 +179,14 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 			DDMStructure.class.getName());
 		Map<Long, Long> structureIdsUnchanged =
 			(Map<Long, Long>)newPrimaryKeysMaps.get(
-				DDMStructure.class + ".unchanged");
+				DDMStructure.class + ".unmodified");
 
 		if ((structureIdsUnchanged != null) && (structureIds != null)) {
 			for (Long structureIdUnchanged : structureIdsUnchanged.keySet()) {
 				structureIds.remove(structureIdUnchanged);
 			}
 
-			newPrimaryKeysMaps.remove(DDMStructure.class + ".unchanged");
+			newPrimaryKeysMaps.remove(DDMStructure.class + ".unmodified");
 		}
 
 		taskContextMap.put("portletDataContext", clonedPortletDataContext);
