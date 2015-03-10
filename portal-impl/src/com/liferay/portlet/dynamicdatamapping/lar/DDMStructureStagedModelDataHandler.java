@@ -271,14 +271,7 @@ public class DDMStructureStagedModelDataHandler
 					structure.getStorageType(), structure.getType(),
 					serviceContext);
 			}
-			else if (!structure.getNameMap().equals(
-						existingStructure.getNameMap()) ||
-					 !structure.getDescriptionMap().equals(
-						existingStructure.getDescriptionMap()) ||
-					 !structure.getXsd().equals(existingStructure.getXsd()) ||
-					 (parentStructureId !=
-						existingStructure.getParentStructureId())) {
-
+			else if (isStructureChanged(structure, existingStructure)) {
 				importedStructure =
 					DDMStructureLocalServiceUtil.updateStructure(
 						existingStructure.getStructureId(), parentStructureId,
@@ -316,6 +309,48 @@ public class DDMStructureStagedModelDataHandler
 
 		structureKeys.put(
 			structure.getStructureKey(), importedStructure.getStructureKey());
+	}
+
+	protected boolean isStructureChanged(
+		DDMStructure existingStructure, DDMStructure structure) {
+
+		Date modifiedDate = structure.getModifiedDate();
+
+		if (modifiedDate.after(existingStructure.getModifiedDate())) {
+			return true;
+		}
+
+		if (!Validator.equals(
+				structure.getName(), existingStructure.getName())) {
+
+			return true;
+		}
+
+		if (!Validator.equals(
+				structure.getDescription(),
+				existingStructure.getDescription())) {
+
+			return true;
+		}
+
+		if (!Validator.equals(structure.getXsd(), existingStructure.getXsd())) {
+			return true;
+		}
+
+		if (!Validator.equals(
+				structure.getStorageType(),
+				existingStructure.getStorageType())) {
+
+			return true;
+		}
+
+		if (!Validator.equals(
+				structure.getType(), existingStructure.getType())) {
+
+			return true;
+		}
+
+		return false;
 	}
 
 	protected DDMStructure getExistingStructure(
