@@ -27,6 +27,7 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.MapUtil;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.UserLocalServiceUtil;
@@ -35,6 +36,7 @@ import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructureConstants;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -146,7 +148,7 @@ public class DDMStructureStagedModelDataHandler
 				DDMStructure.class + ".unchanged");
 
 		structureIdsUnchanged.put(
-				structureId, existingStructure.getStructureId());
+			structureId, existingStructure.getStructureId());
 	}
 
 	@Override
@@ -281,8 +283,9 @@ public class DDMStructureStagedModelDataHandler
 			else {
 				if (_log.isDebugEnabled()) {
 					_log.debug(
-						"Skipped importing DDMStructure with key " +
-						structure.getStructureKey() + " as it has not changed");
+						"Not importing DDMStructure with key " +
+							structure.getStructureKey() +
+								" as it has not changed");
 				}
 
 				importedStructure = existingStructure;
@@ -292,8 +295,8 @@ public class DDMStructureStagedModelDataHandler
 						DDMStructure.class + ".unchanged");
 
 				structureIdsUnchanged.put(
-						structure.getStructureId(),
-						existingStructure.getStructureId());
+					structure.getStructureId(),
+					existingStructure.getStructureId());
 			}
 		}
 		else {
@@ -391,4 +394,5 @@ public class DDMStructureStagedModelDataHandler
 
 	private static Log _log = LogFactoryUtil.getLog(
 		DDMStructureStagedModelDataHandler.class);
+
 }
