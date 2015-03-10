@@ -65,10 +65,6 @@ public class JournalArticleAssetRendererFactory
 
 	public static final String TYPE = "content";
 
-	public JournalArticleAssetRendererFactory() {
-		setSupportsClassTypes(true);
-	}
-
 	@Override
 	public AssetRenderer getAssetRenderer(long classPK, int type)
 		throws PortalException, SystemException {

@@ -122,11 +122,6 @@ public abstract class BaseAssetRendererFactory implements AssetRendererFactory {
 	}
 
 	@Override
-	public String getTypeName(Locale locale) {
-		return ResourceActionsUtil.getModelResource(locale, getClassName());
-	}
-
-	@Override
 	public String getTypeName(Locale locale, boolean hasSubtypes) {
 		return ResourceActionsUtil.getModelResource(locale, getClassName());
 	}
@@ -213,11 +208,6 @@ public abstract class BaseAssetRendererFactory implements AssetRendererFactory {
 	}
 
 	@Override
-	public boolean isSupportsClassTypes() {
-		return _supportsClassTypes;
-	}
-
-	@Override
 	public void setClassName(String className) {
 		_className = className;
 	}
@@ -225,10 +215,6 @@ public abstract class BaseAssetRendererFactory implements AssetRendererFactory {
 	@Override
 	public void setPortletId(String portletId) {
 		_portletId = portletId;
-	}
-
-	protected void setSupportsClassTypes(boolean supportsClassTypes) {
-		_supportsClassTypes = supportsClassTypes;
 	}
 
 	protected long getControlPanelPlid(ThemeDisplay themeDisplay)
@@ -286,6 +272,5 @@ public abstract class BaseAssetRendererFactory implements AssetRendererFactory {
 
 	private String _className;
 	private String _portletId;
-	private boolean _supportsClassTypes;
 
 }
