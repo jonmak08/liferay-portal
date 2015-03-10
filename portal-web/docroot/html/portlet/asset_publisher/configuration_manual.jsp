@@ -151,7 +151,7 @@ String eventName = "_" + HtmlUtil.escapeJS(portletResource) + "_selectAsset";
 							<%
 								}
 								else {
-									Map<Long, String> assetAvailableClassTypes = curRendererFactory.getClassTypes(_getAncestorAndCurrentSiteGroupIds(AssetPublisherUtil.getGroupIds(portletPreferences, scopeGroupId, layout), true), locale);
+									Map<Long, String> assetAvailableClassTypes = curRendererFactory.getClassTypes(_getCurrentAndAncestorSiteGroupIds(AssetPublisherUtil.getGroupIds(portletPreferences, scopeGroupId, layout), true), locale);
 
 									if (assetAvailableClassTypes.isEmpty()) {
 										continue;
