@@ -160,7 +160,7 @@ public class VerifyJournal extends VerifyProcess {
 		throws Exception {
 
 		List<Element> dynamicElementElements = element.elements(
-				"dynamic-element");
+			"dynamic-element");
 
 		for (Element dynamicElementElement : dynamicElementElements) {
 			updateElement(groupId, dynamicElementElement);
