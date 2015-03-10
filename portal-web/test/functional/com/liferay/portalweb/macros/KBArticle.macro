@@ -418,10 +418,25 @@
 		<execute function="AssertClick" locator1="PGKnowledgebasedisplay#ACTIONS_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="Type" locator1="PGKnowledgebasedisplayEdit#TITLE_FIELD" value1="${kbArticleTitleEdit}" />
-		<execute function="Type" locator1="PGKnowledgebasedisplayEdit#CONTENT_FIELD" value1="${kbArticleContentEdit}" />
-		<execute function="AssertClick" locator1="PGKnowledgebasedisplayEdit#CONTENT_FIELD" value1="Publish" />
+		<execute function="Type#typeFrameWaitForCKEditor" locator1="PGKnowledgebasedisplayEdit#CONTENT_FIELD" value1="${kbArticleContentEdit}" />
+		<execute function="AssertClick" locator1="PGKnowledgebasedisplayEdit#PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+	</command>
+
+	<command name="editViaLocalizedKBDisplay">
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+
+		<execute function="Click" locator1="xpath=//div[@class='kb-article-container']//div//a[@title='Acciones']" />
+
+		<execute function="AssertClick" locator1="PGKnowledgebasedisplay#ACTIONS_MENULIST_EDIT" value1="Editar" />
+
+		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplayEdit#HEADER_TITLE" value1="${kbArticleTitle}" />
+		<execute function="Type" locator1="PGKnowledgebasedisplayEdit#TITLE_FIELD" value1="${kbArticleTitleEdit}" />
+		<execute function="Type#typeFrameWaitForCKEditor" locator1="PGKnowledgebasedisplayEdit#CONTENT_FIELD" value1="${kbArticleContentEdit}" />
+		<execute function="AssertClick" locator1="//button[contains(@id,'_knowledgebaseportlet_publish')]" value1="Publicar" />
+
+		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#SUCCESS_MESSAGE" value1="${localizedSuccessMessage}" />
 	</command>
 
 	<command name="goBackCP">
