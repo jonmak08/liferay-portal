@@ -21,10 +21,6 @@ public class VerifyRegion extends VerifyProcess {
 
 	@Override
 	protected void doVerify() throws Exception {
-		updateRegions();
-	}
-
-	protected void updateRegions() throws Exception {
 		runSQL(
 			"update Region set regionCode = 'BB' where regionId = 4004 and " +
 				"regionCode = 'BR'");
