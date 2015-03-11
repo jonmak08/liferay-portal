@@ -456,7 +456,7 @@
 		<execute function="AssertClick" locator1="PGKnowledgebasedisplay#ARTICLE_NAVIGATION_GRANDCHILD" value1="${kbGrandchildArticleTitle}" />
 	</command>
 
-	<command name="gotoNextArticle">
+	<command name="gotoNextArticlePG">
 		<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_NEXT" value1="${kbDisplayNextArticle}" />
 	</command>
 
@@ -472,7 +472,7 @@
 		<execute function="AssertClick" locator1="PGKnowledgebasesection#KB_ARTICLE_LINK" value1="${kbArticleTitle}" />
 	</command>
 
-	<command name="gotoPreviousArticle">
+	<command name="gotoPreviousArticlePG">
 		<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_PREVIOUS" value1="${kbDisplayPreviousArticle}" />
 	</command>
 

@@ -1872,7 +1872,7 @@
 			<var name="kbArticleTitle" value="Knowledge Base Article Title Priority 1" />
 		</execute>
 
-		<execute macro="KBArticle#gotoNextArticle">
+		<execute macro="KBArticle#gotoNextArticlePG">
 			<var name="kbDisplayNextArticle" value="Knowledge Base Article Title Priority 2" />
 		</execute>
 
@@ -1881,7 +1881,7 @@
 			<var name="kbArticleTitle" value="Knowledge Base Article Title Priority 2" />
 		</execute>
 
-		<execute macro="KBArticle#gotoNextArticle">
+		<execute macro="KBArticle#gotoNextArticlePG">
 			<var name="kbDisplayNextArticle" value="Knowledge Base Article Title Edited Priority 1" />
 		</execute>
 
@@ -1890,7 +1890,7 @@
 			<var name="kbArticleTitle" value="Knowledge Base Article Title Edited Priority 1" />
 		</execute>
 
-		<execute macro="KBArticle#gotoPreviousArticle">
+		<execute macro="KBArticle#gotoPreviousArticlePG">
 			<var name="kbDisplayPreviousArticle" value="Knowledge Base Article Title Priority 2" />
 		</execute>
 
@@ -1899,7 +1899,7 @@
 			<var name="kbArticleTitle" value="Knowledge Base Article Title Priority 2" />
 		</execute>
 
-		<execute macro="KBArticle#gotoPreviousArticle">
+		<execute macro="KBArticle#gotoPreviousArticlePG">
 			<var name="kbDisplayPreviousArticle" value="Knowledge Base Article Title Priority 1" />
 		</execute>
 
@@ -1941,7 +1941,7 @@
 			<var name="kbArticleTitle" value="Knowledge Base Article Title Priority 1" />
 		</execute>
 
-		<execute macro="KBArticle#gotoNextArticle">
+		<execute macro="KBArticle#gotoNextArticlePG">
 			<var name="kbDisplayNextArticle" value="Knowledge Base Article Title Edited Priority 1" />
 		</execute>
 
@@ -1950,7 +1950,7 @@
 			<var name="kbArticleTitle" value="Knowledge Base Article Title Edited Priority 1" />
 		</execute>
 
-		<execute macro="KBArticle#gotoNextArticle">
+		<execute macro="KBArticle#gotoNextArticlePG">
 			<var name="kbDisplayNextArticle" value="Knowledge Base Article Title Priority 2" />
 		</execute>
 
@@ -1959,7 +1959,7 @@
 			<var name="kbArticleTitle" value="Knowledge Base Article Title Priority 2" />
 		</execute>
 
-		<execute macro="KBArticle#gotoPreviousArticle">
+		<execute macro="KBArticle#gotoPreviousArticlePG">
 			<var name="kbDisplayPreviousArticle" value="Knowledge Base Article Title Edited Priority 1" />
 		</execute>
 
@@ -1968,7 +1968,7 @@
 			<var name="kbArticleTitle" value="Knowledge Base Article Title Edited Priority 1" />
 		</execute>
 
-		<execute macro="KBArticle#gotoPreviousArticle">
+		<execute macro="KBArticle#gotoPreviousArticlePG">
 			<var name="kbDisplayPreviousArticle" value="Knowledge Base Article Title Priority 1" />
 		</execute>
 
