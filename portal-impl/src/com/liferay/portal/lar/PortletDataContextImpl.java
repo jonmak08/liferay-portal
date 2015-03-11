@@ -27,6 +27,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.ExportImportClassedModelUtil;
 import com.liferay.portal.kernel.lar.ExportImportPathUtil;
+import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.lar.ManifestSummary;
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.lar.PortletDataContextListener;
@@ -1877,6 +1878,25 @@ public class PortletDataContextImpl implements PortletDataContext {
 		else {
 			return false;
 		}
+	}
+
+	@Override
+	public boolean isInitialPublication() {
+		Group group = null;
+
+		try {
+			group = GroupLocalServiceUtil.getGroup(getGroupId());
+		}
+		catch (Exception e) {
+		}
+
+		if (ExportImportThreadLocal.isStagingInProcess() && (group != null) &&
+			group.hasStagingGroup()) {
+
+			return true;
+		}
+
+		return false;
 	}
 
 	@Override
