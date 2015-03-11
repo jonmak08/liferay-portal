@@ -31,6 +31,7 @@ import com.liferay.portal.kernel.lar.PortletDataHandlerControl;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.portal.kernel.lar.StagedModelType;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PropsValues;
@@ -422,6 +423,19 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 		};
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 * #getDDMTemplateActionableDynamicQuery(PortletDataContext,
+	 * List, boolean)}
+	 */
+	protected ActionableDynamicQuery getDDMTemplateActionableDynamicQuery(
+			final PortletDataContext portletDataContext)
+		throws SystemException {
+
+		return getDDMTemplateActionableDynamicQuery(
+				portletDataContext, null, false);
+	}
+
 	protected ActionableDynamicQuery getDDMTemplateActionableDynamicQuery(
 			final PortletDataContext portletDataContext,
 			final List<DDMTemplate> ddmTemplates, final boolean export)
@@ -477,7 +491,9 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 						portletDataContext, ddmTemplate);
 				}
 
-				ddmTemplates.remove(ddmTemplate);
+				if (Validator.isNotNull(ddmTemplates)) {
+					ddmTemplates.remove(ddmTemplate);
+				}
 			}
 
 		};
