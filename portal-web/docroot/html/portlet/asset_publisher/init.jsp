@@ -297,18 +297,6 @@ private Set<Group> _getAncestorSiteGroups(long groupId, boolean checkContentShar
 	return groups;
 }
 
-private Group _getCurrentSiteGroup(long groupId) throws PortalException, SystemException {
-	long siteGroupId = PortalUtil.getSiteGroupId(groupId);
-
-	Group siteGroup = GroupLocalServiceUtil.getGroup(siteGroupId);
-
-	if (!siteGroup.isLayoutPrototype()) {
-		return siteGroup;
-	}
-
-	return null;
-}
-
 private long[] _getCurrentAndAncestorSiteGroupIds(long[] groupIds, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
 	List<Group> groups = _getCurrentAndAncestorSiteGroups(groupIds, checkContentSharingWithChildrenEnabled);
 
@@ -345,6 +333,18 @@ private List<Group> _getCurrentAndAncestorSiteGroups(long[] groupIds, boolean ch
 	}
 
 	return new ArrayList<Group>(groups);
+}
+
+private Group _getCurrentSiteGroup(long groupId) throws PortalException, SystemException {
+	long siteGroupId = PortalUtil.getSiteGroupId(groupId);
+
+	Group siteGroup = GroupLocalServiceUtil.getGroup(siteGroupId);
+
+	if (!siteGroup.isLayoutPrototype()) {
+		return siteGroup;
+	}
+
+	return null;
 }
 
 private long[] _getSiteGroupIds(long[] groupIds) throws PortalException, SystemException {
