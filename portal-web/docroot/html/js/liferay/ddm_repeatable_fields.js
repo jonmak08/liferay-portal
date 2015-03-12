@@ -93,7 +93,9 @@ AUI.add(
 
 										var validatorField = liferayForm.formValidator.getField(fieldInputName);
 
-										liferayForm.formValidator.resetField(validatorField);
+										if (validatorField) {
+											liferayForm.formValidator.resetField(validatorField);
+										}
 									}
 
 									liferayForm.formValidator.set('rules', validatorRules);
