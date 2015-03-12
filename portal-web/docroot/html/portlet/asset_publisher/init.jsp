@@ -275,6 +275,78 @@ private String _checkViewURL(AssetEntry assetEntry, boolean viewInContext, Strin
 	return viewURL;
 }
 
+private Set<Group> _doGetAncestorSiteGroups(long groupId, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
+	Set<Group> groups = new LinkedHashSet<Group>();
+
+	long siteGroupId = PortalUtil.getSiteGroupId(groupId);
+
+	Group siteGroup = GroupLocalServiceUtil.getGroup(siteGroupId);
+
+	for (Group group : siteGroup.getAncestors()) {
+		if (checkContentSharingWithChildrenEnabled && !SitesUtil.isContentSharingWithChildrenEnabled(group)) {
+			continue;
+		}
+
+		groups.add(group);
+	}
+
+	if (!siteGroup.isCompany()) {
+		groups.add(GroupLocalServiceUtil.getCompanyGroup(siteGroup.getCompanyId()));
+	}
+
+	return groups;
+}
+
+private Group _doGetCurrentSiteGroup(long groupId) throws PortalException, SystemException {
+	long siteGroupId = PortalUtil.getSiteGroupId(groupId);
+
+	Group siteGroup = GroupLocalServiceUtil.getGroup(siteGroupId);
+
+	if (!siteGroup.isLayoutPrototype()) {
+		return siteGroup;
+	}
+
+	return null;
+}
+
+private long[] _getCurrentAndAncestorSiteGroupIds(long[] groupIds, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
+	List<Group> groups = _getCurrentAndAncestorSiteGroups(groupIds, checkContentSharingWithChildrenEnabled);
+
+	long[] currentAndAncestorSiteGroupIds = new long[groups.size()];
+
+	for (int i = 0; i < groups.size(); i++) {
+		Group group = groups.get(i);
+
+		currentAndAncestorSiteGroupIds[i] = group.getGroupId();
+	}
+
+	return currentAndAncestorSiteGroupIds;
+}
+
+private List<Group> _getCurrentAndAncestorSiteGroups(long groupId, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
+	Set<Group> groups = new LinkedHashSet<Group>();
+
+	Group siteGroup = _doGetCurrentSiteGroup(groupId);
+
+	if (siteGroup != null) {
+		groups.add(siteGroup);
+	}
+
+	groups.addAll(_doGetAncestorSiteGroups(groupId, checkContentSharingWithChildrenEnabled));
+
+	return new ArrayList<Group>(groups);
+}
+
+private List<Group> _getCurrentAndAncestorSiteGroups(long[] groupIds, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
+	Set<Group> groups = new LinkedHashSet<Group>();
+
+	for (int i = 0; i < groupIds.length; i++) {
+		groups.addAll(_getCurrentAndAncestorSiteGroups(groupIds[i], checkContentSharingWithChildrenEnabled));
+	}
+
+	return new ArrayList<Group>(groups);
+}
+
 private long[] _getSiteGroupIds(long[] groupIds) throws PortalException, SystemException {
 	Set<Long> siteGroupIds = new HashSet<Long>();
 
@@ -298,77 +370,5 @@ private boolean _isEnablePermissions(String portletName, PortletPreferences port
 	}
 
 	return GetterUtil.getBoolean(portletPreferences.getValue("enablePermissions", null));
-}
-
-private long[] _getCurrentAndAncestorSiteGroupIds(long[] groupIds, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
-	List<Group> groups = _getCurrentAndAncestorSiteGroups(groupIds, checkContentSharingWithChildrenEnabled);
-
-	long[] currentAndAncestorSiteGroupIds = new long[groups.size()];
-
-	for (int i = 0; i < groups.size(); i++) {
-		Group group = groups.get(i);
-
-		currentAndAncestorSiteGroupIds[i] = group.getGroupId();
-	}
-
-	return currentAndAncestorSiteGroupIds;
-}
-
-private List<Group> _getCurrentAndAncestorSiteGroups(long[] groupIds, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
-	Set<Group> groups = new LinkedHashSet<Group>();
-
-	for (int i = 0; i < groupIds.length; i++) {
-		groups.addAll(_getCurrentAndAncestorSiteGroups(groupIds[i], checkContentSharingWithChildrenEnabled));
-	}
-
-	return new ArrayList<Group>(groups);
-}
-
-private List<Group> _getCurrentAndAncestorSiteGroups(long groupId, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
-	Set<Group> groups = new LinkedHashSet<Group>();
-
-	Group siteGroup = _doGetCurrentSiteGroup(groupId);
-
-	if (siteGroup != null) {
-		groups.add(siteGroup);
-	}
-
-	groups.addAll(_doGetAncestorSiteGroups(groupId, checkContentSharingWithChildrenEnabled));
-
-	return new ArrayList<Group>(groups);
-}
-
-private Group _doGetCurrentSiteGroup(long groupId) throws PortalException, SystemException {
-	long siteGroupId = PortalUtil.getSiteGroupId(groupId);
-
-	Group siteGroup = GroupLocalServiceUtil.getGroup(siteGroupId);
-
-	if (!siteGroup.isLayoutPrototype()) {
-		return siteGroup;
-	}
-
-	return null;
-}
-
-private Set<Group> _doGetAncestorSiteGroups(long groupId, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
-	Set<Group> groups = new LinkedHashSet<Group>();
-
-	long siteGroupId = PortalUtil.getSiteGroupId(groupId);
-
-	Group siteGroup = GroupLocalServiceUtil.getGroup(siteGroupId);
-
-	for (Group group : siteGroup.getAncestors()) {
-		if (checkContentSharingWithChildrenEnabled && !SitesUtil.isContentSharingWithChildrenEnabled(group)) {
-			continue;
-		}
-
-		groups.add(group);
-	}
-
-	if (!siteGroup.isCompany()) {
-		groups.add(GroupLocalServiceUtil.getCompanyGroup(siteGroup.getCompanyId()));
-	}
-
-	return groups;
 }
 %>
