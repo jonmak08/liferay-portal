@@ -1279,10 +1279,11 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 						friendlyURL);
 				}
 
-				if (layout == null && privateLayout &&
-						layoutsImportMode.equals(
+				if ((layout == null) && privateLayout &&
+					layoutsImportMode.equals(
 							PortletDataHandlerKeys.
 								LAYOUTS_IMPORT_MODE_CREATED_FROM_PROTOTYPE)) {
+
 					layout =
 						LayoutLocalServiceUtil.fetchLayoutByUuidAndGroupId(
 							layoutUuid, portletDataContext.getScopeGroupId(),
