@@ -275,7 +275,7 @@ private String _checkViewURL(AssetEntry assetEntry, boolean viewInContext, Strin
 	return viewURL;
 }
 
-private Set<Group> _doGetAncestorSiteGroups(long groupId, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
+private Set<Group> _getAncestorSiteGroups(long groupId, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
 	Set<Group> groups = new LinkedHashSet<Group>();
 
 	long siteGroupId = PortalUtil.getSiteGroupId(groupId);
@@ -297,7 +297,7 @@ private Set<Group> _doGetAncestorSiteGroups(long groupId, boolean checkContentSh
 	return groups;
 }
 
-private Group _doGetCurrentSiteGroup(long groupId) throws PortalException, SystemException {
+private Group _getCurrentSiteGroup(long groupId) throws PortalException, SystemException {
 	long siteGroupId = PortalUtil.getSiteGroupId(groupId);
 
 	Group siteGroup = GroupLocalServiceUtil.getGroup(siteGroupId);
@@ -326,13 +326,13 @@ private long[] _getCurrentAndAncestorSiteGroupIds(long[] groupIds, boolean check
 private List<Group> _getCurrentAndAncestorSiteGroups(long groupId, boolean checkContentSharingWithChildrenEnabled) throws PortalException, SystemException {
 	Set<Group> groups = new LinkedHashSet<Group>();
 
-	Group siteGroup = _doGetCurrentSiteGroup(groupId);
+	Group siteGroup = _getCurrentSiteGroup(groupId);
 
 	if (siteGroup != null) {
 		groups.add(siteGroup);
 	}
 
-	groups.addAll(_doGetAncestorSiteGroups(groupId, checkContentSharingWithChildrenEnabled));
+	groups.addAll(_getAncestorSiteGroups(groupId, checkContentSharingWithChildrenEnabled));
 
 	return new ArrayList<Group>(groups);
 }
