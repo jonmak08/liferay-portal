@@ -2312,7 +2312,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-42413" name="ViewAnnouncementEntryAddedViaDashboardInGmail" priority="5">
+	<command name="ViewAnnouncementEntryAddedViaDashboardInGmail" priority="5">
 		<property name="custom.properties" value="announcements.entry.check.interval=1" />
 
 		<var name="distributionScope" value="General" />
@@ -2380,6 +2380,7 @@
 		<execute macro="Gmail#gotoHtmlMode" />
 
 		<execute macro="Gmail#viewMail">
+			<var name="emailFromUserName" value="Joe Bloggs" />
 			<var name="gmailAssetType" value="Announcements" />
 			<var name="gmailMailTableMessageTitle" value="[General announcement] ${entryTitle}" />
 			<var name="gmailMessageBody" value="${entryContent}" />
@@ -2396,7 +2397,7 @@
 		<execute function="Open" locator1="http://localhost:8080" />
 	</command>
 
-	<command known-issues="LPS-42413" name="ViewAnnouncementEntryInGmail" priority="5">
+	<command name="ViewAnnouncementEntryInGmail" priority="5">
 		<property name="custom.properties" value="announcements.entry.check.interval=1" />
 
 		<var name="entryContent" value="Announcements Entry Content" />
@@ -2480,6 +2481,7 @@
 		<execute macro="Gmail#gotoHtmlMode" />
 
 		<execute macro="Gmail#viewMail">
+			<var name="emailFromUserName" value="Joe Bloggs" />
 			<var name="gmailAssetType" value="Announcements" />
 			<var name="gmailMailTableMessageTitle" value="[General announcement] ${entryTitle}" />
 			<var name="gmailMessageBody" value="${entryContent}" />
