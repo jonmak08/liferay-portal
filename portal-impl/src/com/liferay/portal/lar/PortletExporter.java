@@ -204,7 +204,8 @@ public class PortletExporter {
 			if (lastPublishDate == null) {
 				startDate = null;
 			}
-			else if (lastPublishDate.before(startDate)) {
+			else if ((startDate==null) || lastPublishDate.before(startDate)) {
+
 				startDate = lastPublishDate;
 			}
 		}
