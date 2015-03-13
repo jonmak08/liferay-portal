@@ -225,6 +225,11 @@ if (fieldParamSelection.equals("0")) {
 		window,
 		'<portlet:namespace /><%= HtmlUtil.escapeJS(facet.getFieldId()) %>searchCustomRange',
 		function(selection) {
+			var A = AUI();
+			var Lang = A.Lang
+			var LString = Lang.String;
+			var toInt = Lang.toInt;
+		
 			var dayFrom = document.<portlet:namespace />fm['<portlet:namespace /><%= HtmlUtil.escapeJS(facet.getFieldId()) %>dayFrom'].value;
 			var monthFrom = document.<portlet:namespace />fm['<portlet:namespace /><%= HtmlUtil.escapeJS(facet.getFieldId()) %>monthFrom'].value;
 			var yearFrom = document.<portlet:namespace />fm['<portlet:namespace /><%= HtmlUtil.escapeJS(facet.getFieldId()) %>yearFrom'].value;
@@ -233,7 +238,7 @@ if (fieldParamSelection.equals("0")) {
 			var monthTo = document.<portlet:namespace />fm['<portlet:namespace /><%= HtmlUtil.escapeJS(facet.getFieldId()) %>monthTo'].value;
 			var yearTo = document.<portlet:namespace />fm['<portlet:namespace /><%= HtmlUtil.escapeJS(facet.getFieldId()) %>yearTo'].value;
 
-			var range = '[' + yearFrom.val() + monthFrom.val() + dayFrom.val() + '000000 TO ' + yearTo.val() + monthTo.val() + dayTo.val() + '235959]';
+			var range = '[' + yearFrom + LString.padNumber(toInt(monthFrom) + 1, 2) + LString.padNumber(dayFrom, 2) + '000000 TO ' + yearTo + LString.padNumber(toInt(monthTo) + 1, 2) + LString.padNumber(dayTo, 2) + '235959]';
 
 			document.<portlet:namespace />fm['<portlet:namespace /><%= HtmlUtil.escapeJS(facet.getFieldId()) %>'].value = range;
 			document.<portlet:namespace />fm['<portlet:namespace /><%= HtmlUtil.escapeJS(facet.getFieldId()) %>selection'].value = selection;
