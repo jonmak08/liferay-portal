@@ -16,9 +16,11 @@ package com.liferay.portal.lar.backgroundtask;
 
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskResult;
 import com.liferay.portal.kernel.backgroundtask.BaseBackgroundTaskExecutor;
+import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.lar.PortletDataHandlerKeys;
 import com.liferay.portal.kernel.log.Log;
@@ -38,7 +40,7 @@ import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.portlet.journal.model.JournalArticle;
-import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
+import com.liferay.portlet.journal.service.persistence.JournalArticleActionableDynamicQuery;
 
 import java.io.Serializable;
 
@@ -128,14 +130,14 @@ public class StagingIndexingBackgroundTaskExecutor
 
 	protected void reindexDDMStructures(
 			List<Long> ddmStructureIds,
-			Map<String, Map<?, ?>> newPrimaryKeysMaps, long groupId)
+			final Map<String, Map<?, ?>> newPrimaryKeysMaps, long groupId)
 		throws Exception {
 
 		if ((ddmStructureIds == null) || ddmStructureIds.isEmpty()) {
 			return;
 		}
 
-		String[] ddmStructureKeys = new String[ddmStructureIds.size()];
+		final String[] ddmStructureKeys = new String[ddmStructureIds.size()];
 
 		for (int i = 0; i < ddmStructureIds.size(); i++) {
 			long structureId = ddmStructureIds.get(i);
@@ -146,39 +148,48 @@ public class StagingIndexingBackgroundTaskExecutor
 			ddmStructureKeys[i] = ddmStructure.getStructureKey();
 		}
 
-		DynamicQuery journalArticleDynamicQuery =
-			JournalArticleLocalServiceUtil.dynamicQuery();
+		ActionableDynamicQuery journalArticleDynamicQuery =
+			new JournalArticleActionableDynamicQuery() {
 
-		Property groupIdProperty = PropertyFactoryUtil.forName("groupId");
+			Map<?, ?> journalArticlePrimaryKeysMap = newPrimaryKeysMaps.get(
+				JournalArticle.class.getName());
 
-		journalArticleDynamicQuery.add(groupIdProperty.eq(groupId));
+			Indexer journalArticleIndexer = IndexerRegistryUtil.getIndexer(
+				JournalArticle.class);
 
-		Property structureIdProperty = PropertyFactoryUtil.forName(
-			"structureId");
+			@Override
+			protected void addCriteria(DynamicQuery dynamicQuery) {
 
-		journalArticleDynamicQuery.add(
-			structureIdProperty.in(ddmStructureKeys));
+				Property structureIdProperty = PropertyFactoryUtil.forName(
+					"structureId");
 
-		List<JournalArticle> journalArticles =
-			JournalArticleLocalServiceUtil.dynamicQuery(
-				journalArticleDynamicQuery);
+				dynamicQuery.add(structureIdProperty.in(ddmStructureKeys));
 
-		Map<?, ?> journalArticlePrimaryKeysMap = newPrimaryKeysMaps.get(
-			JournalArticle.class.getName());
-
-		Indexer journalArticleIndexer = IndexerRegistryUtil.getIndexer(
-			JournalArticle.class);
-
-		for (JournalArticle article : journalArticles) {
-			if (containsValue(
-					journalArticlePrimaryKeysMap,
-					article.getResourcePrimKey())) {
-
-				continue;
 			}
 
-			journalArticleIndexer.reindex(article);
-		}
+			@Override
+			protected void performAction(Object object) throws PortalException {
+				JournalArticle article = (JournalArticle)object;
+
+				if (containsValue(
+						journalArticlePrimaryKeysMap,
+							article.getResourcePrimKey())) {
+
+					return;
+				}
+
+				try {
+					journalArticleIndexer.reindex(article);
+				} catch (Exception e) {
+					throw new PortalException(e);
+				}
+			}
+
+		};
+
+		journalArticleDynamicQuery.setGroupId(groupId);
+
+		journalArticleDynamicQuery.performActions();
 
 		List<DLFileEntry> dlFileEntries = new ArrayList<DLFileEntry>();
 
