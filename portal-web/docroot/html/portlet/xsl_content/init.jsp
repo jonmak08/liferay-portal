@@ -31,6 +31,8 @@ page import="com.liferay.portlet.xslcontent.util.XSLContentUtil" %>
 <%@ page import="java.util.Map" %>
 
 <%
+XSLContentConfiguration xslContentConfiguration = (XSLContentConfiguration)request.getAttribute(XSLContentConfiguration.class.getName());
+
 String xmlUrl = portletPreferences.getValue("xmlUrl", XSLContentUtil.DEFAULT_XML_URL);
 String xslUrl = portletPreferences.getValue("xslUrl", XSLContentUtil.DEFAULT_XSL_URL);
 %>
