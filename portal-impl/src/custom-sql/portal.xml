@@ -1377,7 +1377,7 @@
 	<sql id="com.liferay.portal.service.persistence.UserFinder.countByC_FN_MN_LN_SN_EA_S">
 		<![CDATA[
 			SELECT
-				DISTINCT User_.userId AS userId
+				COUNT(DISTINCT User_.userId) AS COUNT_VALUE
 			FROM
 				User_
 			[$JOIN$]
