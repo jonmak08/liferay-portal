@@ -47,10 +47,10 @@ import org.w3c.dom.Document;
 public class XSLContentUtil {
 
 	public static final String DEFAULT_XML_URL =
-		"@portal_url@/html/portlet/xsl_content/example.xml";
+		"@portlet_context_url@/html/portlet/xsl_content/example.xml";
 
 	public static final String DEFAULT_XSL_URL =
-		"@portal_url@/html/portlet/xsl_content/example.xsl";
+		"@portlet_context_url@/html/portlet/xsl_content/example.xsl";
 
 	public static String replaceUrlTokens(
 		ThemeDisplay themeDisplay, String url) {
