@@ -273,7 +273,7 @@ public class DDMStructureStagedModelDataHandler
 					structure.getStorageType(), structure.getType(),
 					serviceContext);
 			}
-			else if (isModifiedStructure(structure, existingStructure)) {
+			else if (isModifiedStructure(existingStructure, structure)) {
 				importedStructure =
 					DDMStructureLocalServiceUtil.updateStructure(
 						existingStructure.getStructureId(), parentStructureId,
