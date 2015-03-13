@@ -433,7 +433,7 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 		throws SystemException {
 
 		return getDDMTemplateActionableDynamicQuery(
-				portletDataContext, null, false);
+			portletDataContext, null, false);
 	}
 
 	protected ActionableDynamicQuery getDDMTemplateActionableDynamicQuery(
