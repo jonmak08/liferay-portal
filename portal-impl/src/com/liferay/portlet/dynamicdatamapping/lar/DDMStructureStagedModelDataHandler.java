@@ -143,11 +143,11 @@ public class DDMStructureStagedModelDataHandler
 
 		structureKeys.put(structureKey, existingStructure.getStructureKey());
 
-		Map<Long, Long> structureIdsUnchanged =
+		Map<Long, Long> structureIdsUnmodified =
 			(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
 				DDMStructure.class + ".unmodified");
 
-		structureIdsUnchanged.put(
+		structureIdsUnmodified.put(
 			structureId, existingStructure.getStructureId());
 	}
 
@@ -290,11 +290,11 @@ public class DDMStructureStagedModelDataHandler
 
 				importedStructure = existingStructure;
 
-				Map<Long, Long> structureIdsUnchanged =
+				Map<Long, Long> structureIdsUnmodified =
 					(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
 						DDMStructure.class + ".unmodified");
 
-				structureIdsUnchanged.put(
+				structureIdsUnmodified.put(
 					structure.getStructureId(),
 					existingStructure.getStructureId());
 			}

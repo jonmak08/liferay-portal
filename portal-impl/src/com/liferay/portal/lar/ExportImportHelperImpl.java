@@ -177,13 +177,13 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 
 		Map<Long, Long> structureIds = (Map<Long, Long>)newPrimaryKeysMaps.get(
 			DDMStructure.class.getName());
-		Map<Long, Long> structureIdsUnchanged =
+		Map<Long, Long> structureIdsUnmodified =
 			(Map<Long, Long>)newPrimaryKeysMaps.get(
 				DDMStructure.class + ".unmodified");
 
-		if ((structureIdsUnchanged != null) && (structureIds != null)) {
-			for (Long structureIdUnchanged : structureIdsUnchanged.keySet()) {
-				structureIds.remove(structureIdUnchanged);
+		if ((structureIdsUnmodified != null) && (structureIds != null)) {
+			for (Long structureIdUnmodified : structureIdsUnmodified.keySet()) {
+				structureIds.remove(structureIdUnmodified);
 			}
 
 			newPrimaryKeysMaps.remove(DDMStructure.class + ".unmodified");
