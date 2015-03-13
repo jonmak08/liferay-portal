@@ -77,7 +77,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="KBArticle#viewDefaultViaKBDisplayPG" />
+		<execute macro="KBArticle#viewDefaultPGViaKBDisplay" />
 
 		<execute macro="KBArticle#configureKBArticleDisplayPG">
 			<var name="kbArticleTitle" value="KB Article Outside Folder" />
@@ -744,7 +744,7 @@
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
 
-		<execute macro="KBArticle#viewDefaultViaKBDisplayPG" />
+		<execute macro="KBArticle#viewDefaultPGViaKBDisplay" />
 	</command>
 
 	<command name="ViewImportedKBArticlesInHierarchyWithMarkdownFormat" priority="5">
