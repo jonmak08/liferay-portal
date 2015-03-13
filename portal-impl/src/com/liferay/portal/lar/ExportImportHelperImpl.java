@@ -1281,13 +1281,12 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 
 				if ((layout == null) && privateLayout &&
 					layoutsImportMode.equals(
-							PortletDataHandlerKeys.
-								LAYOUTS_IMPORT_MODE_CREATED_FROM_PROTOTYPE)) {
+						PortletDataHandlerKeys.
+							LAYOUTS_IMPORT_MODE_CREATED_FROM_PROTOTYPE)) {
 
-					layout =
-						LayoutLocalServiceUtil.fetchLayoutByUuidAndGroupId(
-							layoutUuid, portletDataContext.getScopeGroupId(),
-							false);
+					layout = LayoutLocalServiceUtil.fetchLayoutByUuidAndGroupId(
+						layoutUuid, portletDataContext.getScopeGroupId(),
+						false);
 				}
 
 				if (layout == null) {
