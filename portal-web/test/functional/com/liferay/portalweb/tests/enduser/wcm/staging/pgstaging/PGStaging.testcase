@@ -62,7 +62,9 @@
 			<var name="stagingActivated" value="true" />
 		</execute>
 
-		<execute macro="Staging#publishToLiveNowPG" />
+		<execute macro="Staging#gotoPublishToLive" />
+
+		<execute macro="Staging#publishToLive" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page" />
@@ -772,7 +774,9 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="Staging#publishToLiveNowPG" />
+		<execute macro="Staging#gotoPublishToLive" />
+
+		<execute macro="Staging#publishToLive" />
 
 		<execute macro="User#logoutUserPG" />
 
@@ -854,7 +858,9 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="Staging#publishToLiveNowPG" />
+		<execute macro="Staging#gotoPublishToLive" />
+
+		<execute macro="Staging#publishToLive" />
 
 		<execute macro="User#logoutUserPG" />
 
@@ -966,7 +972,9 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="Staging#publishToLiveNowPG" />
+		<execute macro="Staging#gotoPublishToLive" />
+
+		<execute macro="Staging#publishToLive" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -997,9 +1005,13 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="Staging#publishToLiveNowPG">
+		<execute macro="Staging#gotoPublishToLive" />
+
+		<execute macro="Staging#configurePublishToLive">
 			<var name="contentDeletion" value="true" />
 		</execute>
+
+		<execute macro="Staging#publishToLive" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -1075,7 +1087,9 @@
 			<var name="webContentTitle" value="Web Content Title" />
 		</execute>
 
-		<execute macro="Staging#publishToLiveNowPG" />
+		<execute macro="Staging#gotoPublishToLive" />
+
+		<execute macro="Staging#publishToLive" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page" />
@@ -1189,7 +1203,9 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="Staging#publishToLiveNowPG" />
+		<execute macro="Staging#gotoPublishToLive" />
+
+		<execute macro="Staging#publishToLive" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page" />
@@ -1242,7 +1258,9 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="Staging#publishToLiveNowPG" />
+		<execute macro="Staging#gotoPublishToLive" />
+
+		<execute macro="Staging#publishToLive" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
