@@ -22,6 +22,7 @@ import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.facet.AssetEntriesFacet;
@@ -428,7 +429,9 @@ public abstract class BaseIndexer implements Indexer {
 	@Override
 	public void reindex(Object obj) throws SearchException {
 		try {
-			if (SearchEngineUtil.isIndexReadOnly() || !isIndexerEnabled()) {
+			if (SearchEngineUtil.isIndexReadOnly() || !isIndexerEnabled() ||
+				ExportImportThreadLocal.isImportInProcess()) {
+
 				return;
 			}
 
@@ -446,7 +449,7 @@ public abstract class BaseIndexer implements Indexer {
 	public void reindex(String className, long classPK) throws SearchException {
 		try {
 			if (SearchEngineUtil.isIndexReadOnly() || !isIndexerEnabled() ||
-				(classPK <= 0)) {
+				(classPK <= 0) || ExportImportThreadLocal.isImportInProcess()) {
 
 				return;
 			}
@@ -469,7 +472,9 @@ public abstract class BaseIndexer implements Indexer {
 	@Override
 	public void reindex(String[] ids) throws SearchException {
 		try {
-			if (SearchEngineUtil.isIndexReadOnly() || !isIndexerEnabled()) {
+			if (SearchEngineUtil.isIndexReadOnly() || !isIndexerEnabled() ||
+				ExportImportThreadLocal.isImportInProcess()) {
+
 				return;
 			}
 
@@ -488,7 +493,9 @@ public abstract class BaseIndexer implements Indexer {
 		throws SearchException {
 
 		try {
-			if (SearchEngineUtil.isIndexReadOnly() || !isIndexerEnabled()) {
+			if (SearchEngineUtil.isIndexReadOnly() || !isIndexerEnabled() ||
+				ExportImportThreadLocal.isImportInProcess()) {
+
 				return;
 			}
 
