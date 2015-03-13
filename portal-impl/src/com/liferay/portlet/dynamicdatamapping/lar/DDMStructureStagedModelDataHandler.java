@@ -324,14 +324,14 @@ public class DDMStructureStagedModelDataHandler
 		}
 
 		if (!Validator.equals(
-				structure.getName(), existingStructure.getName())) {
+				structure.getNameMap(), existingStructure.getNameMap())) {
 
 			return true;
 		}
 
 		if (!Validator.equals(
-				structure.getDescription(),
-				existingStructure.getDescription())) {
+				structure.getDescriptionMap(),
+				existingStructure.getDescriptionMap())) {
 
 			return true;
 		}
