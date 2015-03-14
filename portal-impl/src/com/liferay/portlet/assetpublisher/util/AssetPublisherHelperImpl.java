@@ -19,13 +19,13 @@ import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
-import com.liferay.portal.model.Layout;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.PortletURLUtil;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.model.AssetRenderer;
 import com.liferay.portlet.asset.model.AssetRendererFactory;
+import com.liferay.portlet.asset.util.AssetUtil;
 
 import javax.portlet.PortletURL;
 
@@ -109,19 +109,9 @@ public class AssetPublisherHelperImpl implements AssetPublisherHelper {
 			viewURL = viewFullContentURL.toString();
 		}
 
-		if (Validator.isNotNull(viewURL)) {
-			Layout layout = themeDisplay.getLayout();
-
-			String assetEntryLayoutUuid = assetEntry.getLayoutUuid();
-
-			if (!viewInContext ||
-				(Validator.isNotNull(assetEntryLayoutUuid) &&
-				 !assetEntryLayoutUuid.equals(layout.getUuid()))) {
-
-				viewURL = HttpUtil.setParameter(
-					viewURL, "redirect", currentURL);
-			}
-		}
+		viewURL = AssetUtil.checkViewURL(
+				assetEntry, viewInContext, viewURL, currentURL, themeDisplay,
+				false);
 
 		return viewURL;
 	}
