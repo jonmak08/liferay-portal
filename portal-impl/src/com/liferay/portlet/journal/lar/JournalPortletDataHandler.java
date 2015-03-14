@@ -97,6 +97,7 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 			new StagedModelType(DDMStructure.class, JournalArticle.class),
 			new StagedModelType(DDMTemplate.class, DDMStructure.class),
 			new StagedModelType(JournalArticle.class),
+			new StagedModelType(JournalArticle.class, DDMStructure.class),
 			new StagedModelType(JournalFeed.class),
 			new StagedModelType(JournalFolder.class));
 		setExportControls(
@@ -189,6 +190,15 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 				StagedModelDataHandlerUtil.exportStagedModel(
 					portletDataContext, ddmTemplate);
 			}
+
+			// Export structure default values
+
+			ActionableDynamicQuery
+					ddmStructureDefaultValuesActionableDynamicQuery =
+						getDDMStructureDefaultValuesActionableDynamicQuery(
+								portletDataContext);
+
+			ddmStructureDefaultValuesActionableDynamicQuery.performActions();
 		}
 
 		if (portletDataContext.getBooleanParameter(NAMESPACE, "web-content")) {
@@ -228,6 +238,11 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 			}
 		}
 
+		Element articlesElement = portletDataContext.getImportDataGroupElement(
+			JournalArticle.class);
+
+		List<Element> articleElements = articlesElement.elements();
+
 		if (portletDataContext.getBooleanParameter(NAMESPACE, "structures")) {
 			Element ddmStructuresElement =
 				portletDataContext.getImportDataGroupElement(
@@ -250,6 +265,17 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 				StagedModelDataHandlerUtil.importStagedModel(
 					portletDataContext, ddmTemplateElement);
 			}
+
+			for (Element articleElement : articleElements) {
+				String className = articleElement.attributeValue("class-name");
+
+				if (Validator.isNotNull(className) &&
+					className.equals(DDMStructure.class.getName())) {
+
+					StagedModelDataHandlerUtil.importStagedModel(
+						portletDataContext, articleElement);
+				}
+			}
 		}
 
 		if (!portletDataContext.getBooleanParameter(NAMESPACE, "web-content")) {
@@ -265,11 +291,6 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 			StagedModelDataHandlerUtil.importStagedModel(
 				portletDataContext, folderElement);
 		}
-
-		Element articlesElement = portletDataContext.getImportDataGroupElement(
-			JournalArticle.class);
-
-		List<Element> articleElements = articlesElement.elements();
 
 		for (Element articleElement : articleElements) {
 			StagedModelDataHandlerUtil.importStagedModel(
@@ -418,6 +439,24 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 				}
 				catch (SystemException se) {
 				}
+			}
+
+		};
+	}
+
+	protected ActionableDynamicQuery
+			getDDMStructureDefaultValuesActionableDynamicQuery(
+			final PortletDataContext portletDataContext)
+		throws SystemException {
+
+		return new JournalArticleExportActionableDynamicQuery(
+			portletDataContext) {
+
+			@Override
+			protected StagedModelType getStagedModelType() {
+				return new StagedModelType(
+					JournalArticle.class.getName(),
+					DDMStructure.class.getName());
 			}
 
 		};
