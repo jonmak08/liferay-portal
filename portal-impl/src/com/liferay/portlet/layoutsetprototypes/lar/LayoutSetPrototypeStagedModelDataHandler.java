@@ -238,6 +238,7 @@ public class LayoutSetPrototypeStagedModelDataHandler
 
 			if (portletDataContext.isPathNotProcessed(
 					layoutSetPrototypeLARPath)) {
+
 				portletDataContext.addZipEntry(
 					layoutSetPrototypeLARPath, inputStream);
 			}
