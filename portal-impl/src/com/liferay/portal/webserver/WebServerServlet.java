@@ -1033,11 +1033,11 @@ public class WebServerServlet extends HttpServlet {
 		FlashMagicBytesUtil.Result flashMagicBytesUtilResult =
 			FlashMagicBytesUtil.check(inputStream);
 
-		inputStream = flashMagicBytesUtilResult.getInputStream();
-
 		if (flashMagicBytesUtilResult.isFlash()) {
 			fileName = FileUtil.stripExtension(fileName) + ".swf";
 		}
+
+		inputStream = flashMagicBytesUtilResult.getInputStream();
 
 		// Determine proper content type
 
