@@ -4123,6 +4123,14 @@ if (ppstate.equals("normal")) {
 	</target>
 
 	<target name="record-test-plugin-names">
+		<loadproperties srcFile="${lp.plugins.dir}/build.properties">
+			<filterchain>
+				<linecontains>
+					<contains value="plugins.excludes" />
+				</linecontains>
+			</filterchain>
+		</loadproperties>
+
 		<script classpathref="project.classpath" language="beanshell">
 			<![CDATA[
 				import org.apache.tools.ant.DirectoryScanner;
@@ -4168,7 +4176,11 @@ if (ppstate.equals("normal")) {
 
 						String pluginName = fileName.substring(x + 1, y);
 
-						pluginNames.add(pluginName);
+						String pluginsExcludes = project.getProperty("plugins.excludes");
+
+						if (!pluginsExcludes.contains(pluginName)) {
+							pluginNames.add(pluginName);
+						}
 					}
 
 					Collections.sort(pluginNames);
