@@ -41,6 +41,7 @@ import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.portlet.journal.model.JournalArticle;
 import com.liferay.portlet.journal.service.persistence.JournalArticleActionableDynamicQuery;
+import com.liferay.portlet.journal.util.JournalArticleIndexer;
 
 import java.io.Serializable;
 
@@ -152,10 +153,11 @@ public class StagingIndexingBackgroundTaskExecutor
 			new JournalArticleActionableDynamicQuery() {
 
 			Map<?, ?> journalArticlePrimaryKeysMap = newPrimaryKeysMaps.get(
-				JournalArticle.class.getName());
+					JournalArticle.class.getName());
 
-			Indexer journalArticleIndexer = IndexerRegistryUtil.getIndexer(
-				JournalArticle.class);
+			JournalArticleIndexer journalArticleIndexer =
+				(JournalArticleIndexer)IndexerRegistryUtil.getIndexer(
+					JournalArticle.class);
 
 			@Override
 			protected void addCriteria(DynamicQuery dynamicQuery) {
@@ -179,7 +181,7 @@ public class StagingIndexingBackgroundTaskExecutor
 				}
 
 				try {
-					journalArticleIndexer.reindex(article);
+					journalArticleIndexer.doReindex(article, false);
 				} catch (Exception e) {
 					throw new PortalException(e);
 				}
