@@ -45,6 +45,7 @@ import com.liferay.portlet.documentlibrary.NoSuchFileShortcutException;
 import com.liferay.portlet.documentlibrary.model.DLFileShortcut;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileShortcutImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileShortcutModelImpl;
+import com.liferay.portlet.documentlibrary.service.persistence.DLFileShortcutPersistence;
 
 import java.io.Serializable;
 

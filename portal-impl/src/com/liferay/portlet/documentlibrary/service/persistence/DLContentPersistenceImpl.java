@@ -43,6 +43,7 @@ import com.liferay.portlet.documentlibrary.NoSuchContentException;
 import com.liferay.portlet.documentlibrary.model.DLContent;
 import com.liferay.portlet.documentlibrary.model.impl.DLContentImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLContentModelImpl;
+import com.liferay.portlet.documentlibrary.service.persistence.DLContentPersistence;
 
 import java.io.Serializable;
 

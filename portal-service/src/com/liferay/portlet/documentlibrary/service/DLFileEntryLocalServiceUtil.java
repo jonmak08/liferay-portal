@@ -624,6 +624,17 @@ public class DLFileEntryLocalServiceUtil {
 	}
 
 	public static java.util.List<com.liferay.portlet.documentlibrary.model.DLFileEntry> getFileEntries(
+		long groupId, long userId,
+		java.util.List<java.lang.Long> repositoryIds,
+		java.util.List<java.lang.Long> folderIds, java.lang.String[] mimeTypes,
+		com.liferay.portal.kernel.dao.orm.QueryDefinition queryDefinition)
+		throws java.lang.Exception {
+		return getService()
+				   .getFileEntries(groupId, userId, repositoryIds, folderIds,
+			mimeTypes, queryDefinition);
+	}
+
+	public static java.util.List<com.liferay.portlet.documentlibrary.model.DLFileEntry> getFileEntries(
 		long folderId, java.lang.String name)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getService().getFileEntries(folderId, name);
@@ -660,6 +671,16 @@ public class DLFileEntryLocalServiceUtil {
 		return getService()
 				   .getFileEntriesCount(groupId, userId, folderIds, mimeTypes,
 			queryDefinition);
+	}
+
+	public static int getFileEntriesCount(long groupId, long userId,
+		java.util.List<java.lang.Long> repositoryIds,
+		java.util.List<java.lang.Long> folderIds, java.lang.String[] mimeTypes,
+		com.liferay.portal.kernel.dao.orm.QueryDefinition queryDefinition)
+		throws java.lang.Exception {
+		return getService()
+				   .getFileEntriesCount(groupId, userId, repositoryIds,
+			folderIds, mimeTypes, queryDefinition);
 	}
 
 	public static com.liferay.portlet.documentlibrary.model.DLFileEntry getFileEntry(
