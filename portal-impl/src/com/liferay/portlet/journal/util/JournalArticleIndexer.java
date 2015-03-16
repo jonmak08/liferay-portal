@@ -562,7 +562,7 @@ public class JournalArticleIndexer extends BaseIndexer {
 		return new Summary(snippetLocale, title, content, portletURL);
 	}
 
-	protected void doReindex(JournalArticle article, boolean allVersions)
+	public void doReindex(JournalArticle article, boolean allVersions)
 			throws Exception {
 
 		if (PortalUtil.getClassNameId(DDMStructure.class) ==
