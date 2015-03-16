@@ -184,19 +184,19 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 
 			ddmTemplateActionableDynamicQuery.performActions();
 
-			// Export templates that belong to structures
+			// Export DDM templates that belong to DDM structures
 
 			for (DDMTemplate ddmTemplate : ddmTemplates) {
 				StagedModelDataHandlerUtil.exportStagedModel(
 					portletDataContext, ddmTemplate);
 			}
 
-			// Export structure default values
+			// Export DDM structure default values
 
 			ActionableDynamicQuery
-					ddmStructureDefaultValuesActionableDynamicQuery =
-						getDDMStructureDefaultValuesActionableDynamicQuery(
-								portletDataContext);
+				ddmStructureDefaultValuesActionableDynamicQuery =
+					getDDMStructureDefaultValuesActionableDynamicQuery(
+						portletDataContext);
 
 			ddmStructureDefaultValuesActionableDynamicQuery.performActions();
 		}
@@ -256,6 +256,8 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 					portletDataContext, ddmStructureElement);
 			}
 
+			// Import DDM templates that belong to DDM structures
+
 			Element ddmTemplatesElement =
 				portletDataContext.getImportDataGroupElement(DDMTemplate.class);
 
@@ -265,6 +267,8 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 				StagedModelDataHandlerUtil.importStagedModel(
 					portletDataContext, ddmTemplateElement);
 			}
+
+			// Importing DDM structure default values
 
 			for (Element articleElement : articleElements) {
 				String className = articleElement.attributeValue("class-name");
