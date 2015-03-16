@@ -1209,9 +1209,20 @@ public class WebServerServlet extends HttpServlet {
 			fileName = TrashUtil.getOriginalTitle(fileName);
 		}
 
+		InputStream is = fileEntry.getContentStream();
+
+		FlashMagicBytesUtil.Result flashMagicBytesUtilResult =
+			FlashMagicBytesUtil.check(is);
+
+		is = flashMagicBytesUtilResult.getInputStream();
+
+		if (flashMagicBytesUtilResult.isFlash()) {
+			fileName = FileUtil.stripExtension(fileName) + ".swf";
+		}
+
 		ServletResponseUtil.sendFile(
-			request, response, fileName, fileEntry.getContentStream(),
-			fileEntry.getSize(), fileEntry.getMimeType());
+			request, response, fileName, is, fileEntry.getSize(),
+			fileEntry.getMimeType());
 	}
 
 	protected void writeImage(
