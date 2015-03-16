@@ -229,7 +229,7 @@ if (fieldParamSelection.equals("0")) {
 			var Lang = A.Lang
 			var LString = Lang.String;
 			var toInt = Lang.toInt;
-		
+
 			var dayFrom = document.<portlet:namespace />fm['<portlet:namespace /><%= HtmlUtil.escapeJS(facet.getFieldId()) %>dayFrom'].value;
 			var monthFrom = document.<portlet:namespace />fm['<portlet:namespace /><%= HtmlUtil.escapeJS(facet.getFieldId()) %>monthFrom'].value;
 			var yearFrom = document.<portlet:namespace />fm['<portlet:namespace /><%= HtmlUtil.escapeJS(facet.getFieldId()) %>yearFrom'].value;
