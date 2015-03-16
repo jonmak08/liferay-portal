@@ -63,12 +63,12 @@ public class AnnouncementsEntryLocalServiceImpl
 	@Override
 	public AnnouncementsEntry addEntry(
 			long userId, long classNameId, long classPK, String title,
-			String content, String url, String type, int displayDateMonth,
-			int displayDateDay, int displayDateYear, int displayDateHour,
-			int displayDateMinute, boolean displayImmediately,
-			int expirationDateMonth, int expirationDateDay,
-			int expirationDateYear, int expirationDateHour,
-			int expirationDateMinute, int priority, boolean alert)
+			String content, String url, String type, String borderColor,
+			int displayDateMonth, int displayDateDay, int displayDateYear,
+			int displayDateHour, int displayDateMinute, boolean displayImmediately,
+			int expirationDateMonth, int expirationDateDay, int expirationDateYear,
+			int expirationDateHour, int expirationDateMinute, int priority,
+			boolean alert)
 		throws PortalException {
 
 		// Entry
@@ -109,6 +109,7 @@ public class AnnouncementsEntryLocalServiceImpl
 		entry.setContent(content);
 		entry.setUrl(url);
 		entry.setType(type);
+		entry.setBorderColor(borderColor);
 		entry.setDisplayDate(displayDate);
 		entry.setExpirationDate(expirationDate);
 		entry.setPriority(priority);
@@ -128,23 +129,22 @@ public class AnnouncementsEntryLocalServiceImpl
 
 	/**
 	 * @deprecated As of 6.2.0, replaced by {@link #addEntry(long, long, long,
-	 *             String, String, String, String, int, int, int, int, int,
+	 *             String, String, String, String, String, int, int, int, int, int,
 	 *             boolean, int, int, int, int, int, int, boolean)}
 	 */
 	@Deprecated
 	@Override
 	public AnnouncementsEntry addEntry(
 			long userId, long classNameId, long classPK, String title,
-			String content, String url, String type, int displayDateMonth,
-			int displayDateDay, int displayDateYear, int displayDateHour,
-			int displayDateMinute, int expirationDateMonth,
-			int expirationDateDay, int expirationDateYear,
-			int expirationDateHour, int expirationDateMinute, int priority,
-			boolean alert)
+			String content, String url, String type, String borderColor,
+			int displayDateMonth, int displayDateDay, int displayDateYear,
+			int displayDateHour, int displayDateMinute, int expirationDateMonth,
+			int expirationDateDay, int expirationDateYear, int expirationDateHour,
+			int expirationDateMinute, int priority, boolean alert)
 		throws PortalException {
 
 		return addEntry(
-			userId, classNameId, classPK, title, content, url, type,
+			userId, classNameId, classPK, title, content, url, type, borderColor,
 			displayDateMonth, displayDateDay, displayDateYear, displayDateHour,
 			displayDateMinute, false, expirationDateMonth, expirationDateDay,
 			expirationDateYear, expirationDateHour, expirationDateMinute,
@@ -326,11 +326,12 @@ public class AnnouncementsEntryLocalServiceImpl
 	@Override
 	public AnnouncementsEntry updateEntry(
 			long userId, long entryId, String title, String content, String url,
-			String type, int displayDateMonth, int displayDateDay,
-			int displayDateYear, int displayDateHour, int displayDateMinute,
-			boolean displayImmediately, int expirationDateMonth,
-			int expirationDateDay, int expirationDateYear,
-			int expirationDateHour, int expirationDateMinute, int priority)
+			String type, String borderColor, int displayDateMonth,
+			int displayDateDay, int displayDateYear, int displayDateHour,
+			int displayDateMinute, boolean displayImmediately,
+			int expirationDateMonth, int expirationDateDay,
+			int expirationDateYear, int expirationDateHour,
+			int expirationDateMinute, int priority)
 		throws PortalException {
 
 		// Entry
@@ -363,6 +364,7 @@ public class AnnouncementsEntryLocalServiceImpl
 		entry.setContent(content);
 		entry.setUrl(url);
 		entry.setType(type);
+		entry.setBorderColor(borderColor);
 		entry.setDisplayDate(displayDate);
 		entry.setExpirationDate(expirationDate);
 		entry.setPriority(priority);

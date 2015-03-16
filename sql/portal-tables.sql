@@ -65,6 +65,7 @@ create table AnnouncementsEntry (
 	content TEXT null,
 	url STRING null,
 	type_ VARCHAR(75) null,
+	borderColor VARCHAR(75) null,
 	displayDate DATE null,
 	expirationDate DATE null,
 	priority INTEGER,

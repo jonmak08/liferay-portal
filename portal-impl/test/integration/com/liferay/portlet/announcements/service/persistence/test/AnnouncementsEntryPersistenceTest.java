@@ -139,6 +139,8 @@ public class AnnouncementsEntryPersistenceTest {
 
 		newAnnouncementsEntry.setType(RandomTestUtil.randomString());
 
+		newAnnouncementsEntry.setBorderColor(RandomTestUtil.randomString());
+
 		newAnnouncementsEntry.setDisplayDate(RandomTestUtil.nextDate());
 
 		newAnnouncementsEntry.setExpirationDate(RandomTestUtil.nextDate());
@@ -179,6 +181,8 @@ public class AnnouncementsEntryPersistenceTest {
 			newAnnouncementsEntry.getUrl());
 		Assert.assertEquals(existingAnnouncementsEntry.getType(),
 			newAnnouncementsEntry.getType());
+		Assert.assertEquals(existingAnnouncementsEntry.getBorderColor(),
+			newAnnouncementsEntry.getBorderColor());
 		Assert.assertEquals(Time.getShortTimestamp(
 				existingAnnouncementsEntry.getDisplayDate()),
 			Time.getShortTimestamp(newAnnouncementsEntry.getDisplayDate()));
@@ -296,8 +300,9 @@ public class AnnouncementsEntryPersistenceTest {
 			"uuid", true, "entryId", true, "companyId", true, "userId", true,
 			"userName", true, "createDate", true, "modifiedDate", true,
 			"classNameId", true, "classPK", true, "title", true, "content",
-			true, "url", true, "type", true, "displayDate", true,
-			"expirationDate", true, "priority", true, "alert", true);
+			true, "url", true, "type", true, "borderColor", true,
+			"displayDate", true, "expirationDate", true, "priority", true,
+			"alert", true);
 	}
 
 	@Test
@@ -523,6 +528,8 @@ public class AnnouncementsEntryPersistenceTest {
 		announcementsEntry.setUrl(RandomTestUtil.randomString());
 
 		announcementsEntry.setType(RandomTestUtil.randomString());
+
+		announcementsEntry.setBorderColor(RandomTestUtil.randomString());
 
 		announcementsEntry.setDisplayDate(RandomTestUtil.nextDate());
 

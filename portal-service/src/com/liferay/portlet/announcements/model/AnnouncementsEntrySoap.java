@@ -47,6 +47,7 @@ public class AnnouncementsEntrySoap implements Serializable {
 		soapModel.setContent(model.getContent());
 		soapModel.setUrl(model.getUrl());
 		soapModel.setType(model.getType());
+		soapModel.setBorderColor(model.getBorderColor());
 		soapModel.setDisplayDate(model.getDisplayDate());
 		soapModel.setExpirationDate(model.getExpirationDate());
 		soapModel.setPriority(model.getPriority());
@@ -210,6 +211,14 @@ public class AnnouncementsEntrySoap implements Serializable {
 		_type = type;
 	}
 
+	public String getBorderColor() {
+		return _borderColor;
+	}
+
+	public void setBorderColor(String borderColor) {
+		_borderColor = borderColor;
+	}
+
 	public Date getDisplayDate() {
 		return _displayDate;
 	}
@@ -259,6 +268,7 @@ public class AnnouncementsEntrySoap implements Serializable {
 	private String _content;
 	private String _url;
 	private String _type;
+	private String _borderColor;
 	private Date _displayDate;
 	private Date _expirationDate;
 	private int _priority;

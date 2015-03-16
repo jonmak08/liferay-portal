@@ -148,6 +148,7 @@ public class EditEntryAction extends PortletAction {
 		String content = ParamUtil.getString(actionRequest, "content");
 		String url = ParamUtil.getString(actionRequest, "url");
 		String type = ParamUtil.getString(actionRequest, "type");
+		String borderColor = ParamUtil.getString(actionRequest, "borderColor");
 
 		int displayDateMonth = ParamUtil.getInteger(
 			actionRequest, "displayDateMonth");
@@ -195,17 +196,18 @@ public class EditEntryAction extends PortletAction {
 
 			AnnouncementsEntryServiceUtil.addEntry(
 				themeDisplay.getPlid(), classNameId, classPK, title, content,
-				url, type, displayDateMonth, displayDateDay, displayDateYear,
-				displayDateHour, displayDateMinute, displayImmediately,
-				expirationDateMonth, expirationDateDay, expirationDateYear,
-				expirationDateHour, expirationDateMinute, priority, alert);
+				url, type, borderColor, displayDateMonth, displayDateDay,
+				displayDateYear, displayDateHour, displayDateMinute,
+				displayImmediately, expirationDateMonth, expirationDateDay,
+				expirationDateYear, expirationDateHour, expirationDateMinute,
+				priority, alert);
 		}
 		else {
 
 			// Update entry
 
 			AnnouncementsEntryServiceUtil.updateEntry(
-				entryId, title, content, url, type, displayDateMonth,
+				entryId, title, content, url, type, borderColor, displayDateMonth,
 				displayDateDay, displayDateYear, displayDateHour,
 				displayDateMinute, displayImmediately, expirationDateMonth,
 				expirationDateDay, expirationDateYear, expirationDateHour,

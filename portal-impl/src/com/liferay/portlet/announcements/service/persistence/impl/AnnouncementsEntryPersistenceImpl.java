@@ -5108,6 +5108,7 @@ public class AnnouncementsEntryPersistenceImpl extends BasePersistenceImpl<Annou
 		announcementsEntryImpl.setContent(announcementsEntry.getContent());
 		announcementsEntryImpl.setUrl(announcementsEntry.getUrl());
 		announcementsEntryImpl.setType(announcementsEntry.getType());
+		announcementsEntryImpl.setBorderColor(announcementsEntry.getBorderColor());
 		announcementsEntryImpl.setDisplayDate(announcementsEntry.getDisplayDate());
 		announcementsEntryImpl.setExpirationDate(announcementsEntry.getExpirationDate());
 		announcementsEntryImpl.setPriority(announcementsEntry.getPriority());
