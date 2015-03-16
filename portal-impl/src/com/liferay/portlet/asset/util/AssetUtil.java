@@ -153,35 +153,33 @@ public class AssetUtil {
 	}
 
 	public static String checkViewURL(
-			AssetEntry assetEntry, boolean viewInContext, String viewURL,
-			String currentURL, ThemeDisplay themeDisplay) {
+		AssetEntry assetEntry, boolean viewInContext, String viewURL,
+		String currentURL, ThemeDisplay themeDisplay) {
 
 		return checkViewURL(
-				assetEntry, viewInContext, viewURL, currentURL, themeDisplay,
-				true);
+			assetEntry, viewInContext, viewURL, currentURL, themeDisplay, true);
 	}
 
 	public static String checkViewURL(
-			AssetEntry assetEntry, boolean viewInContext, String viewURL,
-			String currentURL, ThemeDisplay themeDisplay,
-			boolean checkInheritRedirect) {
+		AssetEntry assetEntry, boolean viewInContext, String viewURL,
+		String currentURL, ThemeDisplay themeDisplay,
+		boolean checkInheritRedirect) {
 
 		if (Validator.isNotNull(viewURL)) {
 			if (checkInheritRedirect) {
 				viewURL = HttpUtil.setParameter(
-							viewURL, "inheritRedirect", viewInContext);
+					viewURL, "inheritRedirect", viewInContext);
 			}
-
-			Layout layout = themeDisplay.getLayout();
 
 			String assetEntryLayoutUuid = assetEntry.getLayoutUuid();
 
-			if (!viewInContext ||
-				(Validator.isNotNull(assetEntryLayoutUuid) &&
+			Layout layout = themeDisplay.getLayout();
+
+			if (!viewInContext || (Validator.isNotNull(assetEntryLayoutUuid) &&
 				 !assetEntryLayoutUuid.equals(layout.getUuid()))) {
 
 				viewURL = HttpUtil.setParameter(
-								viewURL, "redirect", currentURL);
+					viewURL, "redirect", currentURL);
 			}
 		}
 
