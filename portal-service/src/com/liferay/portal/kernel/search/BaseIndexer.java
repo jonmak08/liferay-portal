@@ -449,7 +449,7 @@ public abstract class BaseIndexer implements Indexer {
 	public void reindex(String className, long classPK) throws SearchException {
 		try {
 			if (SearchEngineUtil.isIndexReadOnly() || !isIndexerEnabled() ||
-				(classPK <= 0) || ExportImportThreadLocal.isImportInProcess()) {
+				ExportImportThreadLocal.isImportInProcess() || (classPK <= 0)) {
 
 				return;
 			}
