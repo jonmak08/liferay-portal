@@ -407,14 +407,19 @@ public class JournalArticleIndexer extends BaseIndexer {
 		document.addKeyword("ddmStructureKey", article.getStructureId());
 		document.addKeyword("ddmTemplateKey", article.getTemplateId());
 		document.addDate("displayDate", article.getDisplayDate());
+
+		int[] headStatuses = new int[] {
+			WorkflowConstants.STATUS_APPROVED, WorkflowConstants.STATUS_IN_TRASH
+		};
+
+		document.addKeyword("head", isHead(article, headStatuses));
+
+		int[] scheduledHeadStatuses = new int[] {
+			WorkflowConstants.STATUS_SCHEDULED
+		};
+
 		document.addKeyword(
-			"head",
-			isHead(article, new int[] {
-				WorkflowConstants.STATUS_APPROVED,
-				WorkflowConstants.STATUS_IN_TRASH}));
-		document.addKeyword(
-			"scheduledHead",
-			isHead(article, new int[]{WorkflowConstants.STATUS_SCHEDULED}));
+			"scheduledHead", isHead(article, scheduledHeadStatuses));
 
 		addDDMStructureAttributes(document, article);
 
