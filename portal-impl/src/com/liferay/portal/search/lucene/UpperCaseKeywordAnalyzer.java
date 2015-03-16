@@ -21,6 +21,7 @@ import org.apache.lucene.analysis.KeywordTokenizer;
 import org.apache.lucene.analysis.ReusableAnalyzerBase;
 import org.apache.lucene.analysis.TokenFilter;
 import org.apache.lucene.analysis.TokenStream;
+import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 
 /**
@@ -29,33 +30,33 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
  */
 public class UpperCaseKeywordAnalyzer extends ReusableAnalyzerBase {
 
-	public UpperCaseKeywordAnalyzer() {
-	}
-
 	@Override
 	protected TokenStreamComponents createComponents(
 		String fieldName, Reader reader) {
 
-		KeywordTokenizer tokenizer = new KeywordTokenizer(reader);
+		Tokenizer tokenizer = new KeywordTokenizer(reader);
 
 		return new TokenStreamComponents(
 			tokenizer, new UpperCaseFilter(tokenizer));
 	}
 
 	/**
-	 * Adapted from Lucene 4.7.0
 	 * {@link https://issues.apache.org/jira/browse/LUCENE-5369}
+	 * {@link https://github.com/apache/lucene-solr/blob/lucene_solr_4_7_0/lucene/analysis/common/src/java/org/apache/lucene/analysis/core/UpperCaseFilter.java}
+	 * {@link https://github.com/apache/lucene-solr/blob/lucene_solr_4_7_0/lucene/analysis/common/src/java/org/apache/lucene/analysis/util/CharacterUtils.java}
 	 */
 	private class UpperCaseFilter extends TokenFilter {
 
-		public UpperCaseFilter(TokenStream in) {
-			super(in);
+		public UpperCaseFilter(TokenStream tokenStream) {
+			super(tokenStream);
 		}
 
 		@Override
 		public final boolean incrementToken() throws IOException {
 			if (input.incrementToken()) {
-				toUpperCase(_termAtt.buffer(), 0, _termAtt.length());
+				toUpperCase(
+					_charTermAttribute.buffer(), 0,
+					_charTermAttribute.length());
 
 				return true;
 			}
@@ -64,21 +65,21 @@ public class UpperCaseKeywordAnalyzer extends ReusableAnalyzerBase {
 		}
 
 		protected void toUpperCase(
-			final char[] buffer, final int offset, final int limit) {
+			char[] buffer, final int offset, final int limit) {
 
-			assert buffer.length >= limit;
-			assert offset <= 0 && offset <= buffer.length;
+			assert (buffer.length >= limit);
+			assert ((offset <= 0) && (offset <= buffer.length));
 
 			for (int i = offset; i < limit;) {
 				i +=
 					Character.toChars(
 						Character.toUpperCase(
-							Character.codePointAt(
-								buffer, i, limit)), buffer, i);
+							Character.codePointAt(buffer, i, limit)),
+						buffer, i);
 			}
 		}
 
-		private final CharTermAttribute _termAtt = addAttribute(
+		private final CharTermAttribute _charTermAttribute = addAttribute(
 			CharTermAttribute.class);
 
 	}
