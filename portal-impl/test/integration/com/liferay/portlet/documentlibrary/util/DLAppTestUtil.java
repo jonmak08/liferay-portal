@@ -203,7 +203,7 @@ public abstract class DLAppTestUtil {
 		return addFileEntry(
 			userId, groupId, groupId, folderId, sourceFileName, mimeType, title,
 			bytes, fileEntryTypeId, workflowAction);
-	}	
+	}
 
 	public static FileEntry addFileEntry(
 			long groupId, long folderId, String sourceFileName)

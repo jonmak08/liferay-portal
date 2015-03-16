@@ -80,7 +80,7 @@ public class VerifyDocumentLibraryTest extends BaseVerifyTestCase {
 			ServiceTestUtil.randomString());
 
 		DLAppTestUtil.addFileEntry(
-			group.getGroupId(), parentFolder.getFolderId(), 
+			group.getGroupId(), parentFolder.getFolderId(),
 			ServiceTestUtil.randomString());
 
 		DLAppServiceUtil.moveFolderToTrash(parentFolder.getFolderId());
