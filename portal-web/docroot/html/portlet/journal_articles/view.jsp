@@ -81,6 +81,7 @@ double version = ParamUtil.getDouble(request, "version");
 
 		List<JournalArticle> results = null;
 		int total = 0;
+		boolean includeScheduledArticles = false;
 		%>
 
 		<%@ include file="/html/portlet/journal/article_search_results.jspf" %>

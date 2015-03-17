@@ -304,10 +304,17 @@ public class JournalArticleIndexer extends BaseIndexer {
 			BooleanQuery contextQuery, SearchContext searchContext)
 		throws Exception {
 
-		boolean scheduledHead = GetterUtil.getBoolean(
-			searchContext.getAttribute("scheduledHead"));
+		LinkedHashMap<String, Object> params =
+			(LinkedHashMap<String, Object>)searchContext.getAttribute("params");
 
-		if (scheduledHead) {
+		boolean includeScheduledArticles = false;
+
+		if (params != null) {
+			includeScheduledArticles = GetterUtil.getBoolean(
+				params.get("includeScheduledArticles"));
+		}
+
+		if (includeScheduledArticles) {
 			BooleanQuery statusQueryHead = BooleanQueryFactoryUtil.create(
 				searchContext);
 

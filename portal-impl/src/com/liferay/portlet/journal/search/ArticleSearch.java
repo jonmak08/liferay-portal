@@ -22,7 +22,6 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
-import com.liferay.portal.model.PortletConstants;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portlet.PortalPreferences;
 import com.liferay.portlet.PortletPreferencesFactoryUtil;
@@ -72,29 +71,15 @@ public class ArticleSearch extends SearchContainer<JournalArticle> {
 			new ArticleSearchTerms(portletRequest), DEFAULT_CUR_PARAM, cur,
 			delta, iteratorURL, headerNames, null);
 
-		ArticleDisplayTerms displayTerms =
-			(ArticleDisplayTerms)getDisplayTerms();
-		ArticleSearchTerms searchTerms = (ArticleSearchTerms)getSearchTerms();
-
 		PortletConfig portletConfig =
 			(PortletConfig)portletRequest.getAttribute(
 				JavaConstants.JAVAX_PORTLET_CONFIG);
 
+		ArticleDisplayTerms displayTerms =
+			(ArticleDisplayTerms)getDisplayTerms();
+		ArticleSearchTerms searchTerms = (ArticleSearchTerms)getSearchTerms();
+
 		String portletName = portletConfig.getPortletName();
-
-		if (portletName.equals(PortletKeys.PORTLET_CONFIGURATION)) {
-			String portletResource = ParamUtil.getString(
-				portletRequest, "portletResource");
-
-			if (Validator.isNotNull(portletResource)) {
-				portletName = PortletConstants.getRootPortletId(
-					portletResource);
-			}
-
-			if (portletName.equals(PortletKeys.JOURNAL_CONTENT)) {
-				scheduledHead = true;
-			}
-		}
 
 		if (!portletName.equals(PortletKeys.JOURNAL)) {
 			displayTerms.setStatus("approved");
@@ -174,12 +159,6 @@ public class ArticleSearch extends SearchContainer<JournalArticle> {
 		this(portletRequest, 0, DEFAULT_DELTA, iteratorURL);
 	}
 
-	public boolean isIncludeScheduledHead() {
-		return scheduledHead;
-	}
-
 	private static Log _log = LogFactoryUtil.getLog(ArticleSearch.class);
-
-	protected boolean scheduledHead;
 
 }

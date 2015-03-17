@@ -546,7 +546,7 @@ public class JournalUtil {
 		return getArticles(hits, false);
 	}
 
-	public static Tuple getArticles(Hits hits, boolean includeScheduledHead)
+	public static Tuple getArticles(Hits hits, boolean includeScheduledArticles)
 		throws PortalException, SystemException {
 
 		List<JournalArticle> articles = new ArrayList<JournalArticle>();
@@ -564,7 +564,7 @@ public class JournalUtil {
 			try {
 				JournalArticle article;
 
-				if (includeScheduledHead && scheduledHead) {
+				if (includeScheduledArticles && scheduledHead) {
 					article = JournalArticleLocalServiceUtil.getLatestArticle(
 						groupId, articleId, WorkflowConstants.STATUS_SCHEDULED);
 				}
