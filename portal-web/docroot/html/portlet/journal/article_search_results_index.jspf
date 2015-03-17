@@ -14,8 +14,6 @@
  */
 --%>
 
-<%@ page import="com.liferay.portlet.journal.util.JournalUtil" %>
-
 <%
 LinkedHashMap<String, Object> journalParams = new LinkedHashMap<String, Object>();
 
