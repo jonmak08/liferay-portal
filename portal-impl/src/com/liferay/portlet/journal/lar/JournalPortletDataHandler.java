@@ -449,9 +449,9 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 	}
 
 	protected ActionableDynamicQuery
-			getDDMStructureDefaultValuesActionableDynamicQuery(
-			final PortletDataContext portletDataContext)
-		throws SystemException {
+		getDDMStructureDefaultValuesActionableDynamicQuery(
+				final PortletDataContext portletDataContext)
+			throws SystemException {
 
 		return new JournalArticleExportActionableDynamicQuery(
 			portletDataContext) {
