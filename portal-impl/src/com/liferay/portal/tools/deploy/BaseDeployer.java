@@ -2317,7 +2317,8 @@ public class BaseDeployer implements AutoDeployer, Deployer {
 				}
 
 				content =
-					"<?xml version=\"1.0\"?>\n" + rootElement.formattedString();
+					"<?xml version=\"1.0\"?>\n\n" +
+						rootElement.formattedString();
 
 				document = SAXReaderUtil.read(content);
 
