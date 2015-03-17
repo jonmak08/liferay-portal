@@ -155,9 +155,7 @@ public abstract class BaseStagedModelDataHandler<T extends StagedModel>
 			PortletDataHandlerStatusMessageSenderUtil.sendStatusMessage(
 				"stagedModel", stagedModel, manifestSummary);
 
-			if (stagedModel instanceof TrashedModel) {
-				restoreStagedModel(portletDataContext, stagedModel);
-			}
+			restoreStagedModel(portletDataContext, stagedModel);
 
 			doImportStagedModel(portletDataContext, stagedModel);
 
@@ -200,7 +198,9 @@ public abstract class BaseStagedModelDataHandler<T extends StagedModel>
 		throws PortletDataException {
 
 		try {
-			doRestoreStagedModel(portletDataContext, stagedModel);
+			if (stagedModel instanceof TrashedModel) {
+				doRestoreStagedModel(portletDataContext, stagedModel);
+			}
 		}
 		catch (PortletDataException pde) {
 			throw pde;
