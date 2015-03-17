@@ -129,31 +129,16 @@ public class StagingIndexingBackgroundTaskExecutor
 		return BackgroundTaskResult.SUCCESS;
 	}
 
-	protected void reindexDDMStructures(
-			List<Long> ddmStructureIds,
-			final Map<String, Map<?, ?>> newPrimaryKeysMaps, long groupId)
+	protected ActionableDynamicQuery getJournalArticleActionableDynamicQuery(
+			long groupId, final Map<String, Map<?, ?>> newPrimaryKeysMaps,
+			final String[] ddmStructureKeys)
 		throws Exception {
 
-		if ((ddmStructureIds == null) || ddmStructureIds.isEmpty()) {
-			return;
-		}
-
-		final String[] ddmStructureKeys = new String[ddmStructureIds.size()];
-
-		for (int i = 0; i < ddmStructureIds.size(); i++) {
-			long structureId = ddmStructureIds.get(i);
-
-			DDMStructure ddmStructure =
-				DDMStructureLocalServiceUtil.getDDMStructure(structureId);
-
-			ddmStructureKeys[i] = ddmStructure.getStructureKey();
-		}
-
-		ActionableDynamicQuery journalArticleDynamicQuery =
+		ActionableDynamicQuery journalArticleActionableDynamicQuery =
 			new JournalArticleActionableDynamicQuery() {
 
 			Map<?, ?> journalArticlePrimaryKeysMap = newPrimaryKeysMaps.get(
-					JournalArticle.class.getName());
+				JournalArticle.class.getName());
 
 			JournalArticleIndexer journalArticleIndexer =
 				(JournalArticleIndexer)IndexerRegistryUtil.getIndexer(
@@ -174,7 +159,7 @@ public class StagingIndexingBackgroundTaskExecutor
 
 				if (containsValue(
 						journalArticlePrimaryKeysMap,
-							article.getResourcePrimKey())) {
+						article.getResourcePrimKey())) {
 
 					return;
 				}
@@ -189,9 +174,40 @@ public class StagingIndexingBackgroundTaskExecutor
 
 		};
 
-		journalArticleDynamicQuery.setGroupId(groupId);
+		journalArticleActionableDynamicQuery.setGroupId(groupId);
 
-		journalArticleDynamicQuery.performActions();
+		return journalArticleActionableDynamicQuery;
+	}
+
+	protected void reindexDDMStructures(
+			List<Long> ddmStructureIds,
+			final Map<String, Map<?, ?>> newPrimaryKeysMaps, long groupId)
+		throws Exception {
+
+		if ((ddmStructureIds == null) || ddmStructureIds.isEmpty()) {
+			return;
+		}
+
+		final String[] ddmStructureKeys = new String[ddmStructureIds.size()];
+
+		for (int i = 0; i < ddmStructureIds.size(); i++) {
+			long structureId = ddmStructureIds.get(i);
+
+			DDMStructure ddmStructure =
+				DDMStructureLocalServiceUtil.getDDMStructure(structureId);
+
+			ddmStructureKeys[i] = ddmStructure.getStructureKey();
+		}
+
+		// Journal
+
+		ActionableDynamicQuery journalArticleActionableDynamicQuery =
+			getJournalArticleActionableDynamicQuery(
+				groupId, newPrimaryKeysMaps, ddmStructureKeys);
+
+		journalArticleActionableDynamicQuery.performActions();
+
+		// DL
 
 		List<DLFileEntry> dlFileEntries = new ArrayList<DLFileEntry>();
 
