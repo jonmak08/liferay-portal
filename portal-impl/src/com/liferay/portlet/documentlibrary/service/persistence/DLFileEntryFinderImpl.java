@@ -593,8 +593,8 @@ public class DLFileEntryFinderImpl
 		List<Long> repositoryIds = Collections.emptyList();
 
 		return doCountByG_U_R_F_M(
-				groupId, userId, repositoryIds, folderIds, mimeTypes,
-				queryDefinition, inlineSQLHelper);
+			groupId, userId, repositoryIds, folderIds, mimeTypes,
+			queryDefinition, inlineSQLHelper);
 	}
 
 	protected int doCountByG_U_R_F_M(

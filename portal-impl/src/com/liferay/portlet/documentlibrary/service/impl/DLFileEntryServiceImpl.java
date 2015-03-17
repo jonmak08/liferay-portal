@@ -492,8 +492,8 @@ public class DLFileEntryServiceImpl extends DLFileEntryServiceBaseImpl {
 		throws PortalException, SystemException {
 
 		return getGroupFileEntries(
-				groupId, userId, rootFolderId, 0, mimeTypes, status, start, end,
-				obc);
+			groupId, userId, rootFolderId, 0, mimeTypes, status, start, end,
+			obc);
 	}
 
 	@Override
@@ -558,7 +558,7 @@ public class DLFileEntryServiceImpl extends DLFileEntryServiceBaseImpl {
 		throws PortalException, SystemException {
 
 		return getGroupFileEntriesCount(
-				groupId, userId, 0, rootFolderId, mimeTypes, status);
+			groupId, userId, 0, rootFolderId, mimeTypes, status);
 	}
 
 	@Override
