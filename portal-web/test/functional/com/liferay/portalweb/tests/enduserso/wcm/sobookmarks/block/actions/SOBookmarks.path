@@ -108,7 +108,7 @@
 </tr>
 <tr>
 	<td>BOOKMARKS_POP_UP_IMAGE_GOOGLE</td>
-	<td>xPath=(//button[@aria-label='Google Search'])[2]</td>
+	<td>//input[@aria-label='Google Search']</td>
 	<td>Google</td>
 </tr>
 <tr>
