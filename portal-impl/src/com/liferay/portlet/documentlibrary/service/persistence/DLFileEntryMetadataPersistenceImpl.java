@@ -43,7 +43,6 @@ import com.liferay.portlet.documentlibrary.NoSuchFileEntryMetadataException;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryMetadata;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileEntryMetadataImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileEntryMetadataModelImpl;
-import com.liferay.portlet.documentlibrary.service.persistence.DLFileEntryMetadataPersistence;
 
 import java.io.Serializable;
 

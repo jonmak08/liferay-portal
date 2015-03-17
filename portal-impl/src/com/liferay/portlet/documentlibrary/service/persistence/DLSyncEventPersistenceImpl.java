@@ -41,7 +41,6 @@ import com.liferay.portlet.documentlibrary.NoSuchSyncEventException;
 import com.liferay.portlet.documentlibrary.model.DLSyncEvent;
 import com.liferay.portlet.documentlibrary.model.impl.DLSyncEventImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLSyncEventModelImpl;
-import com.liferay.portlet.documentlibrary.service.persistence.DLSyncEventPersistence;
 
 import java.io.Serializable;
 

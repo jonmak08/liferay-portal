@@ -49,8 +49,6 @@ import com.liferay.portlet.documentlibrary.NoSuchFileEntryTypeException;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryType;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileEntryTypeImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileEntryTypeModelImpl;
-import com.liferay.portlet.documentlibrary.service.persistence.DLFileEntryTypePersistence;
-import com.liferay.portlet.documentlibrary.service.persistence.DLFolderPersistence;
 import com.liferay.portlet.dynamicdatamapping.service.persistence.DDMStructurePersistence;
 
 import java.io.Serializable;

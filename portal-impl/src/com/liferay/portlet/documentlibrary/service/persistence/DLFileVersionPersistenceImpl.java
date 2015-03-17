@@ -43,7 +43,6 @@ import com.liferay.portlet.documentlibrary.NoSuchFileVersionException;
 import com.liferay.portlet.documentlibrary.model.DLFileVersion;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileVersionImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileVersionModelImpl;
-import com.liferay.portlet.documentlibrary.service.persistence.DLFileVersionPersistence;
 
 import java.io.Serializable;
 

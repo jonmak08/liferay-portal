@@ -41,7 +41,6 @@ import com.liferay.portlet.documentlibrary.NoSuchFileRankException;
 import com.liferay.portlet.documentlibrary.model.DLFileRank;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileRankImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileRankModelImpl;
-import com.liferay.portlet.documentlibrary.service.persistence.DLFileRankPersistence;
 
 import java.io.Serializable;
 
