@@ -166,7 +166,6 @@ public class StagingIndexingBackgroundTaskExecutor
 					"structureId");
 
 				dynamicQuery.add(structureIdProperty.in(ddmStructureKeys));
-
 			}
 
 			@Override
@@ -182,7 +181,8 @@ public class StagingIndexingBackgroundTaskExecutor
 
 				try {
 					journalArticleIndexer.doReindex(article, false);
-				} catch (Exception e) {
+				}
+				catch (Exception e) {
 					throw new PortalException(e);
 				}
 			}

@@ -563,7 +563,7 @@ public class JournalArticleIndexer extends BaseIndexer {
 	}
 
 	public void doReindex(JournalArticle article, boolean allVersions)
-			throws Exception {
+		throws Exception {
 
 		if (PortalUtil.getClassNameId(DDMStructure.class) ==
 				article.getClassNameId()) {
