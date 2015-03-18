@@ -18,6 +18,7 @@
 
 <%@ page import="com.liferay.portal.kernel.repository.RepositoryException" %><%@
 page import="com.liferay.portal.kernel.repository.model.Folder" %><%@
+page import="com.liferay.portal.kernel.search.Document" %><%@
 page import="com.liferay.portlet.documentlibrary.NoSuchFolderException" %><%@
 page import="com.liferay.portlet.documentlibrary.model.DLFileEntryType" %><%@
 page import="com.liferay.portlet.documentlibrary.model.DLFileShortcut" %><%@
@@ -30,7 +31,8 @@ page import="com.liferay.portlet.documentlibrary.service.DLFileEntryTypeServiceU
 page import="com.liferay.portlet.documentlibrary.service.permission.DLFileEntryPermission" %><%@
 page import="com.liferay.portlet.documentlibrary.service.permission.DLFolderPermission" %><%@
 page import="com.liferay.portlet.journal.search.FileEntryDisplayTerms" %><%@
-page import="com.liferay.portlet.journal.search.FileEntrySearch" %>
+page import="com.liferay.portlet.journal.search.FileEntrySearch" %><%@
+page import="com.liferay.portlet.journal.search.FileEntrySearchTerms" %>
 
 <%
 String portletResource = ParamUtil.getString(request, "portletResource");
