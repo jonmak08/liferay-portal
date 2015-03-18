@@ -1056,6 +1056,10 @@ public class ModuleFrameworkImpl implements ModuleFramework {
 	private void _registerApplicationContext(
 		ApplicationContext applicationContext) {
 
+		if (_framework == null) {
+			return;
+		}
+
 		BundleContext bundleContext = _framework.getBundleContext();
 
 		for (String beanName : applicationContext.getBeanDefinitionNames()) {
@@ -1113,6 +1117,10 @@ public class ModuleFrameworkImpl implements ModuleFramework {
 	}
 
 	private void _registerServletContext(ServletContext servletContext) {
+		if (_framework == null) {
+			return;
+		}
+
 		BundleContext bundleContext = _framework.getBundleContext();
 
 		Hashtable<String, Object> properties = new Hashtable<String, Object>();
@@ -1128,6 +1136,10 @@ public class ModuleFrameworkImpl implements ModuleFramework {
 	}
 
 	private void _setupInitialBundles() throws Exception {
+		if (_framework == null) {
+			return;
+		}
+
 		FrameworkWiring frameworkWiring = _framework.adapt(
 			FrameworkWiring.class);
 
