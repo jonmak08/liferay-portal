@@ -115,10 +115,14 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "sites"
 	</portlet:renderURL>
 
 	<aui:script use="escape,liferay-search-container">
+		var Util = Liferay.Util;
+
 		var <portlet:namespace />addGroupIds = [];
 		var <portlet:namespace />deleteGroupIds = [];
 
-		var Util = Liferay.Util;
+		var searchContainer = Liferay.SearchContainer.get('<portlet:namespace />groupsSearchContainer');
+
+		var searchContainerContentBox = searchContainer.get('contentBox');
 
 		A.one('#<portlet:namespace />selectSiteLink').on(
 			'click',
@@ -135,8 +139,6 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "sites"
 						uri: '<%= groupSelectorURL.toString() %>'
 					},
 					function(event) {
-						var searchContainer = Liferay.SearchContainer.get('<portlet:namespace />groupsSearchContainer');
-
 						var rowColumns = [];
 
 						rowColumns.push(A.Escape.html(event.groupdescriptivename));
@@ -162,10 +164,6 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "sites"
 				);
 			}
 		);
-
-		var searchContainer = Liferay.SearchContainer.get('<portlet:namespace />groupsSearchContainer');
-
-		var searchContainerContentBox = searchContainer.get('contentBox');
 
 		searchContainerContentBox.delegate(
 			'click',
