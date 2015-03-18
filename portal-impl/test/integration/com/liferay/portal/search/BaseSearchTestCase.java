@@ -262,6 +262,18 @@ public abstract class BaseSearchTestCase {
 			message.getMessageId(), message.getSubject(), body, serviceContext);
 	}
 
+	protected void assertBaseModelsCount(
+			int expectedCount, String keywords, SearchContext searchContext)
+		throws Exception {
+
+		searchContext.setKeywords(keywords);
+
+		Assert.assertEquals(
+			expectedCount,
+			searchBaseModelsCount(
+				getBaseModelClass(), group.getGroupId(), searchContext));
+	}
+
 	protected void checkUserPermissionsBaseModelsSearchCount(
 			boolean addBaseModelPermission, int initialBaseModelsSearchCount,
 			int searchBaseModelsCount)

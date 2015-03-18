@@ -71,7 +71,7 @@ import org.junit.runner.RunWith;
 public class JournalArticleSearchTest extends BaseSearchTestCase {
 
 	@Test
-	public void testSearchNonAutoArticleId() throws Exception {
+	public void testArticleIdCaseInsensitive() throws Exception {
 		ServiceContext serviceContext = ServiceTestUtil.getServiceContext(
 			group.getGroupId());
 
@@ -96,36 +96,14 @@ public class JournalArticleSearchTest extends BaseSearchTestCase {
 		SearchContext searchContext = ServiceTestUtil.getSearchContext(
 			group.getGroupId());
 
-		// articleId is stored as uppercase
+		int initialBaseModelsSearchCount = 1;
 
-		articleId = "ARTICLE.ID";
-
-		searchContext.setKeywords(articleId);
-
-		int initialBaseModelsSearchCount = searchBaseModelsCount(
-			getBaseModelClass(), group.getGroupId(), searchContext);
-
-		Assert.assertEquals(1, initialBaseModelsSearchCount);
-
-		// search for articleId should be case-insensitive
-
-		articleId = "article.id";
-
-		searchContext.setKeywords(articleId);
-
-		Assert.assertEquals(
-			initialBaseModelsSearchCount,
-			searchBaseModelsCount(
-				getBaseModelClass(), group.getGroupId(), searchContext));
-
-		articleId = "ArtiCle.Id";
-
-		searchContext.setKeywords(articleId);
-
-		Assert.assertEquals(
-			initialBaseModelsSearchCount,
-			searchBaseModelsCount(
-				getBaseModelClass(), group.getGroupId(), searchContext));
+		assertBaseModelsCount(
+			initialBaseModelsSearchCount, "ARTICLE.ID", searchContext);
+		assertBaseModelsCount(
+			initialBaseModelsSearchCount, "article.id", searchContext);
+		assertBaseModelsCount(
+			initialBaseModelsSearchCount, "ArtiCle.Id", searchContext);
 	}
 
 	@Ignore()
