@@ -1469,6 +1469,13 @@ go]]></replacevalue>
 					match="\&gt;[\n\s]*\&lt;"
 					replace="\&gt;${line.separator}\&lt;"
 				/>
+
+				<replaceregexp
+					file="@{file.name}"
+					flags="g"
+					match="(&lt;/?)error"
+					replace="\1failure"
+				/>
 			</sequential>
 		</for>
 	</target>
