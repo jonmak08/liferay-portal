@@ -44,6 +44,7 @@ try {
 	}
 }
 catch (NoSuchArticleException nsae) {
+	type = StringPool.BLANK;
 }
 %>
 
