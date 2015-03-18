@@ -90,7 +90,7 @@ public class ModuleFrameworkUtilAdapter {
 	public static void startFramework() throws Exception {
 		if (!PropsValues.MODULE_FRAMEWORK_ENABLED) {
 			if (_log.isWarnEnabled()) {
-				_log.warn("Module Framework is disabled.");
+				_log.warn("Module framework is disabled");
 			}
 
 			return;
