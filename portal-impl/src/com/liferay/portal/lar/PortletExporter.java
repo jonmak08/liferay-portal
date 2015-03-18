@@ -195,9 +195,14 @@ public class PortletExporter {
 		String range = MapUtil.getString(
 			portletDataContext.getParameterMap(), "range");
 
+		Group group = GroupLocalServiceUtil.getGroup(
+			portletDataContext.getGroupId());
+
 		Date startDate = originalStartDate;
 
-		if (range.equals("fromLastPublishDate")) {
+		if (!group.isStagedRemotely() &&
+			range.equals("fromLastPublishDate")) {
+
 			Date lastPublishDate = StagingUtil.getLastPublishDate(
 				jxPortletPreferences);
 
