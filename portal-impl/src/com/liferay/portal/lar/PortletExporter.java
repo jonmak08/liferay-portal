@@ -246,8 +246,6 @@ public class PortletExporter {
 
 		portletDataContext.addZipEntry(path, data);
 
-		Date endDate = portletDataContext.getEndDate();
-
 		boolean updateLastPublishDate = MapUtil.getBoolean(
 			portletDataContext.getParameterMap(),
 			PortletDataHandlerKeys.UPDATE_LAST_PUBLISH_DATE);
