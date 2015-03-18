@@ -1737,6 +1737,8 @@ public interface PropsKeys {
 
 	public static final String MODULE_FRAMEWORK_BEGINNING_START_LEVEL = "module.framework.beginning.start.level";
 
+	public static final String MODULE_FRAMEWORK_ENABLED = "module.framework.enabled";
+
 	public static final String MODULE_FRAMEWORK_INITIAL_BUNDLES = "module.framework.initial.bundles";
 
 	public static final String MODULE_FRAMEWORK_PORTAL_DIR = "module.framework.portal.dir";
