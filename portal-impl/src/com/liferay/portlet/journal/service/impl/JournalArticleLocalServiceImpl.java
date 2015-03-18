@@ -5020,8 +5020,18 @@ public class JournalArticleLocalServiceImpl
 
 		JournalArticle article = null;
 
-		User user = userPersistence.findByPrimaryKey(
-			serviceContext.getUserId());
+		User user = userPersistence.fetchByPrimaryKey(
+				serviceContext.getUserId());
+
+		if (user == null) {
+			user = userPersistence.fetchByC_U(
+				oldArticle.getCompanyId(), oldArticle.getUserId());
+
+			if (user == null) {
+				user = userPersistence.fetchByC_DU(
+					oldArticle.getCompanyId(), true);
+			}
+		}
 
 		Locale defaultLocale = getArticleDefaultLocale(content, serviceContext);
 
