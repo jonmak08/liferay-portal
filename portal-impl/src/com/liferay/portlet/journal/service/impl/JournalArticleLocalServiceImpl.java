@@ -5020,12 +5020,8 @@ public class JournalArticleLocalServiceImpl
 
 		JournalArticle article = null;
 
-		User user = userPersistence.fetchByC_U(
-			oldArticle.getCompanyId(), oldArticle.getUserId());
-
-		if (user == null) {
-			user = userPersistence.fetchByC_DU(oldArticle.getCompanyId(), true);
-		}
+		User user = userPersistence.findByPrimaryKey(
+			serviceContext.getUserId());
 
 		Locale defaultLocale = getArticleDefaultLocale(content, serviceContext);
 
@@ -5039,7 +5035,7 @@ public class JournalArticleLocalServiceImpl
 			article.setResourcePrimKey(oldArticle.getResourcePrimKey());
 			article.setGroupId(oldArticle.getGroupId());
 			article.setCompanyId(oldArticle.getCompanyId());
-			article.setUserId(oldArticle.getUserId());
+			article.setUserId(user.getUserId());
 			article.setUserName(user.getFullName());
 			article.setCreateDate(new Date());
 			article.setModifiedDate(new Date());
