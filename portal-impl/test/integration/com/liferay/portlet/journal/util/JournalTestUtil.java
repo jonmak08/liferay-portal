@@ -107,6 +107,20 @@ public class JournalTestUtil {
 			ServiceContext serviceContext)
 		throws Exception {
 
+		return addArticle(
+			groupId, folderId, classNameId, StringPool.BLANK, true, titleMap,
+			descriptionMap, contentMap, defaultLocale, expirationDate,
+			workflowEnabled, approved, serviceContext);
+	}
+
+	public static JournalArticle addArticle(
+			long groupId, long folderId, long classNameId, String articleId,
+			boolean autoArticleId, Map<Locale, String> titleMap,
+			Map<Locale, String> descriptionMap, Map<Locale, String> contentMap,
+			Locale defaultLocale, Date expirationDate, boolean workflowEnabled,
+			boolean approved, ServiceContext serviceContext)
+		throws Exception {
+
 		if (workflowEnabled) {
 			serviceContext = (ServiceContext)serviceContext.clone();
 
@@ -150,7 +164,7 @@ public class JournalTestUtil {
 
 		return JournalArticleLocalServiceUtil.addArticle(
 			serviceContext.getUserId(), groupId, folderId, classNameId, 0,
-			StringPool.BLANK, true, JournalArticleConstants.VERSION_DEFAULT,
+			articleId, autoArticleId, JournalArticleConstants.VERSION_DEFAULT,
 			titleMap, descriptionMap, content, "general", null, null, null, 1,
 			1, 1965, 0, 0, expirationDateMonth, expirationDateDay,
 			expirationDateYear, expirationDateHour, expirationDateMinute,

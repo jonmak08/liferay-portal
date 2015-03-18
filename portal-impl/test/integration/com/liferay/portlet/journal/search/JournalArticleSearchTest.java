@@ -16,6 +16,7 @@ package com.liferay.portlet.journal.search;
 
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.search.Hits;
+import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -39,6 +40,7 @@ import com.liferay.portlet.dynamicdatamapping.util.DDMStructureTestUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMTemplateTestUtil;
 import com.liferay.portlet.journal.asset.JournalArticleAssetRenderer;
 import com.liferay.portlet.journal.model.JournalArticle;
+import com.liferay.portlet.journal.model.JournalArticleConstants;
 import com.liferay.portlet.journal.model.JournalFolder;
 import com.liferay.portlet.journal.model.JournalFolderConstants;
 import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
@@ -46,6 +48,7 @@ import com.liferay.portlet.journal.service.JournalArticleServiceUtil;
 import com.liferay.portlet.journal.service.JournalFolderServiceUtil;
 import com.liferay.portlet.journal.util.JournalTestUtil;
 
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
@@ -66,6 +69,64 @@ import org.junit.runner.RunWith;
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
 @Sync
 public class JournalArticleSearchTest extends BaseSearchTestCase {
+
+	@Test
+	public void testSearchNonAutoArticleId() throws Exception {
+		ServiceContext serviceContext = ServiceTestUtil.getServiceContext(
+			group.getGroupId());
+
+		Map<Locale, String> keywordsMap = new HashMap<Locale, String>();
+
+		String keywords = "keywords";
+
+		keywordsMap.put(LocaleUtil.getDefault(), keywords);
+		keywordsMap.put(LocaleUtil.GERMANY, keywords);
+		keywordsMap.put(LocaleUtil.SPAIN, keywords);
+
+		String articleId = "Article.Id";
+
+		JournalArticle article = JournalTestUtil.addArticle(
+			group.getGroupId(), JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID,
+			JournalArticleConstants.CLASSNAME_ID_DEFAULT, articleId, false,
+			keywordsMap, keywordsMap, keywordsMap, LocaleUtil.getDefault(),
+			null, true, true, serviceContext);
+
+		updateBaseModel(article, keywords, serviceContext);
+
+		SearchContext searchContext = ServiceTestUtil.getSearchContext(
+			group.getGroupId());
+
+		// articleId is stored as uppercase
+
+		articleId = "ARTICLE.ID";
+
+		searchContext.setKeywords(articleId);
+
+		int initialBaseModelsSearchCount = searchBaseModelsCount(
+			getBaseModelClass(), group.getGroupId(), searchContext);
+
+		Assert.assertEquals(1, initialBaseModelsSearchCount);
+
+		// search for articleId should be case-insensitive
+
+		articleId = "article.id";
+
+		searchContext.setKeywords(articleId);
+
+		Assert.assertEquals(
+			initialBaseModelsSearchCount,
+			searchBaseModelsCount(
+				getBaseModelClass(), group.getGroupId(), searchContext));
+
+		articleId = "ArtiCle.Id";
+
+		searchContext.setKeywords(articleId);
+
+		Assert.assertEquals(
+			initialBaseModelsSearchCount,
+			searchBaseModelsCount(
+				getBaseModelClass(), group.getGroupId(), searchContext));
+	}
 
 	@Ignore()
 	@Override
