@@ -241,6 +241,10 @@ public class UserFinderImpl
 
 		LinkedHashMap<String, Object> params4 = null;
 
+		LinkedHashMap<String, Object> params5 = null;
+
+		LinkedHashMap<String, Object> params6 = null;
+
 		Long[] groupIds = null;
 
 		if (params.get("usersGroups") instanceof Long) {
@@ -424,6 +428,22 @@ public class UserFinderImpl
 						andOperator));
 			}
 
+			if (params5 != null) {
+				userIds.addAll(
+					countByC_FN_MN_LN_SN_EA_S(
+						session, companyId, firstNames, middleNames, lastNames,
+						screenNames, emailAddresses, status, params5,
+						andOperator));
+			}
+
+			if (params6 != null) {
+				userIds.addAll(
+					countByC_FN_MN_LN_SN_EA_S(
+						session, companyId, firstNames, middleNames, lastNames,
+						screenNames, emailAddresses, status, params6,
+						andOperator));
+			}
+
 			return userIds.size();
 		}
 		catch (Exception e) {
@@ -583,6 +603,10 @@ public class UserFinderImpl
 		LinkedHashMap<String, Object> params3 = null;
 
 		LinkedHashMap<String, Object> params4 = null;
+
+		LinkedHashMap<String, Object> params5 = null;
+
+		LinkedHashMap<String, Object> params6 = null;
 
 		Long[] groupIds = null;
 
@@ -782,6 +806,18 @@ public class UserFinderImpl
 				sb.append(StringPool.CLOSE_PARENTHESIS);
 			}
 
+			if (params5 != null) {
+				sb.append(" UNION (");
+				sb.append(replaceJoinAndWhere(sql, params5));
+				sb.append(StringPool.CLOSE_PARENTHESIS);
+			}
+
+			if (params6 != null) {
+				sb.append(" UNION (");
+				sb.append(replaceJoinAndWhere(sql, params6));
+				sb.append(StringPool.CLOSE_PARENTHESIS);
+			}
+
 			if (obc != null) {
 				sb.append(" ORDER BY ");
 				sb.append(obc.toString());
@@ -845,6 +881,38 @@ public class UserFinderImpl
 
 			if (params4 != null) {
 				setJoin(qPos, params4);
+
+				qPos.add(companyId);
+				qPos.add(false);
+				qPos.add(firstNames, 2);
+				qPos.add(middleNames, 2);
+				qPos.add(lastNames, 2);
+				qPos.add(screenNames, 2);
+				qPos.add(emailAddresses, 2);
+
+				if (status != WorkflowConstants.STATUS_ANY) {
+					qPos.add(status);
+				}
+			}
+
+			if (params5 != null) {
+				setJoin(qPos, params5);
+
+				qPos.add(companyId);
+				qPos.add(false);
+				qPos.add(firstNames, 2);
+				qPos.add(middleNames, 2);
+				qPos.add(lastNames, 2);
+				qPos.add(screenNames, 2);
+				qPos.add(emailAddresses, 2);
+
+				if (status != WorkflowConstants.STATUS_ANY) {
+					qPos.add(status);
+				}
+			}
+
+			if (params6 != null) {
+				setJoin(qPos, params6);
 
 				qPos.add(companyId);
 				qPos.add(false);
