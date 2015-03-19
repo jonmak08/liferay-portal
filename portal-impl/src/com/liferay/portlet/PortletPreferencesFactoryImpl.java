@@ -147,15 +147,10 @@ public class PortletPreferencesFactoryImpl
 			long ownerId, int ownerType, String xml)
 		throws SystemException {
 
-		try {
-			Map<String, Preference> preferencesMap = toPreferencesMap(xml);
+		Map<String, Preference> preferencesMap = toPreferencesMap(xml);
 
-			return new PortalPreferencesImpl(
-				ownerId, ownerType, xml, preferencesMap, false);
-		}
-		catch (SystemException se) {
-			throw se;
-		}
+		return new PortalPreferencesImpl(
+			ownerId, ownerType, xml, preferencesMap, false);
 	}
 
 	@Override
@@ -164,16 +159,11 @@ public class PortletPreferencesFactoryImpl
 			String portletId, String xml)
 		throws SystemException {
 
-		try {
-			Map<String, Preference> preferencesMap = toPreferencesMap(xml);
+		Map<String, Preference> preferencesMap = toPreferencesMap(xml);
 
-			return new PortletPreferencesImpl(
-				companyId, ownerId, ownerType, plid, portletId, xml,
-				preferencesMap);
-		}
-		catch (SystemException se) {
-			throw se;
-		}
+		return new PortletPreferencesImpl(
+			companyId, ownerId, ownerType, plid, portletId, xml,
+			preferencesMap);
 	}
 
 	/**
@@ -631,16 +621,11 @@ public class PortletPreferencesFactoryImpl
 			String portletId, String xml)
 		throws SystemException {
 
-		try {
-			Map<String, Preference> preferencesMap = toPreferencesMap(xml);
+		Map<String, Preference> preferencesMap = toPreferencesMap(xml);
 
-			return new StrictPortletPreferencesImpl(
-				companyId, ownerId, ownerType, plid, portletId, xml,
-				preferencesMap);
-		}
-		catch (SystemException se) {
-			throw se;
-		}
+		return new StrictPortletPreferencesImpl(
+			companyId, ownerId, ownerType, plid, portletId, xml,
+			preferencesMap);
 	}
 
 	@Override
