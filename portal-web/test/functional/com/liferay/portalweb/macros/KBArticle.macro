@@ -113,18 +113,11 @@
 		</if>
 
 		<if>
-			<equals arg1="${kbArticleDuplicateFriendlyURL}" arg2="true" />
+			<equals arg1="${kbArticleInvalidContent}" arg2="true" />
 			<then>
 				<execute function="AssertTextEquals" locator1="CPKnowledgebaseadminAddarticle#ERROR_MESSAGE_1" value1="Your request failed to complete." />
-				<execute function="AssertTextEquals" locator1="CPKnowledgebaseadminAddarticle#ERROR_MESSAGE_2" value1="Please enter a valid title." />
+				<execute function="AssertTextEquals" locator1="CPKnowledgebaseadminAddarticle#ERROR_MESSAGE_2" value1="Please enter a valid content." />
 			</then>
-			<elseif>
-				<equals arg1="${kbArticleInvalidContent}" arg2="true" />
-				<then>
-					<execute function="AssertTextEquals" locator1="CPKnowledgebaseadminAddarticle#ERROR_MESSAGE_1" value1="Your request failed to complete." />
-					<execute function="AssertTextEquals" locator1="CPKnowledgebaseadminAddarticle#ERROR_MESSAGE_2" value1="Please enter valid content." />
-				</then>
-			</elseif>
 			<elseif>
 				<equals arg1="${kbArticleDuplicateFriendlyURL}" arg2="true" />
 				<then>
@@ -319,7 +312,8 @@
 		<execute function="AssertClick" locator1="PGKnowledgebasedisplaySelectParentArticleDisplay#FOLDER_CHOOSE_BUTTON" value1="Choose" />
 		<execute function="SelectFrame" value1="relative=top" />
 
-		<execute function="SelectFrame" locator1="PGKnowledgebasedisplayConfigurationCONFIGURATION_IFRAME" />
+		<execute function="SelectFrame" locator1="PGKnowledgebasedisplayConfiguration#CONFIGURATION_IFRAME" />
+		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplayConfiguration#ARTICLE_OR_FOLDER_FIELD" value1="${kbFolderName}" />
 		<execute function="AssertClick" locator1="PGKnowledgebasedisplayConfiguration#SAVE_BUTTON" value1="Save" />
 		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplayConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
