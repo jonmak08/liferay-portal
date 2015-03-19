@@ -189,7 +189,8 @@ public class DDMStructureImpl extends DDMStructureBaseImpl {
 		throws PortalException, SystemException {
 
 		if (!hasField(fieldName)) {
-			throw new StructureFieldException();
+			throw new StructureFieldException(
+				"Unable to find field " + fieldName);
 		}
 
 		Map<String, Map<String, String>> fieldsMap = getFieldsMap(locale, true);
