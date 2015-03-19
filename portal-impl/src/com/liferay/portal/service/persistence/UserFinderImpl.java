@@ -361,34 +361,34 @@ public class UserFinderImpl
 				}
 			}
 
-			if (!roleGroupIds.isEmpty()) {
+			if (!organizationIds.isEmpty()) {
 				params2 = new LinkedHashMap<String, Object>(params1);
 
 				params2.remove("usersRoles");
 
 				params2.put(
-					"usersGroups",
-					roleGroupIds.toArray(new Long[roleGroupIds.size()]));
+					"usersOrgs",
+					organizationIds.toArray(new Long[organizationIds.size()]));
 			}
 
-			if (!userGroupIds.isEmpty()) {
+			if (!roleGroupIds.isEmpty()) {
 				params3 = new LinkedHashMap<String, Object>(params1);
 
 				params3.remove("usersRoles");
 
 				params3.put(
-					"usersUserGroups",
-					userGroupIds.toArray(new Long[userGroupIds.size()]));
+					"usersGroups",
+					roleGroupIds.toArray(new Long[roleGroupIds.size()]));
 			}
 
-			if (!organizationIds.isEmpty()) {
+			if (!userGroupIds.isEmpty()) {
 				params4 = new LinkedHashMap<String, Object>(params1);
 
 				params4.remove("usersRoles");
 
 				params4.put(
-					"usersOrgs",
-					organizationIds.toArray(new Long[organizationIds.size()]));
+					"usersUserGroups",
+					userGroupIds.toArray(new Long[userGroupIds.size()]));
 			}
 		}
 
@@ -724,34 +724,34 @@ public class UserFinderImpl
 				}
 			}
 
-			if (!roleGroupIds.isEmpty()) {
+			if (!organizationIds.isEmpty()) {
 				params2 = new LinkedHashMap<String, Object>(params1);
 
 				params2.remove("usersRoles");
 
 				params2.put(
-					"usersGroups",
-					roleGroupIds.toArray(new Long[roleGroupIds.size()]));
+					"usersOrgs",
+					organizationIds.toArray(new Long[organizationIds.size()]));
 			}
 
-			if (!userGroupIds.isEmpty()) {
+			if (!roleGroupIds.isEmpty()) {
 				params3 = new LinkedHashMap<String, Object>(params1);
 
 				params3.remove("usersRoles");
 
 				params3.put(
-					"usersUserGroups",
-					userGroupIds.toArray(new Long[userGroupIds.size()]));
+					"usersGroups",
+					roleGroupIds.toArray(new Long[roleGroupIds.size()]));
 			}
 
-			if (!organizationIds.isEmpty()) {
+			if (!userGroupIds.isEmpty()) {
 				params4 = new LinkedHashMap<String, Object>(params1);
 
 				params4.remove("usersRoles");
 
 				params4.put(
-					"usersOrgs",
-					organizationIds.toArray(new Long[organizationIds.size()]));
+					"usersUserGroups",
+					userGroupIds.toArray(new Long[userGroupIds.size()]));
 			}
 		}
 
