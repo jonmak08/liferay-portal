@@ -122,7 +122,7 @@ public class BackgroundTaskStatusRegistryImpl
 		return null;
 	}
 
-	private static final Log _log = LogFactoryUtil.getLog(
+	private static Log _log = LogFactoryUtil.getLog(
 		BackgroundTaskStatusRegistryImpl.class);
 
 	private final Map<Long, BackgroundTaskStatus> _backgroundTaskStatuses =
