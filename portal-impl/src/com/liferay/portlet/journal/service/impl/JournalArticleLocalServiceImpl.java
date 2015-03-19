@@ -5021,7 +5021,7 @@ public class JournalArticleLocalServiceImpl
 		JournalArticle article = null;
 
 		User user = userPersistence.fetchByPrimaryKey(
-				serviceContext.getUserId());
+			serviceContext.getUserId());
 
 		if (user == null) {
 			user = userPersistence.fetchByC_U(
