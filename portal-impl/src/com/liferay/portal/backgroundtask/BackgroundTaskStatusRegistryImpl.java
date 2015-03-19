@@ -112,8 +112,8 @@ public class BackgroundTaskStatusRegistryImpl
 				ClusterMasterExecutorUtil.executeOnMaster(methodHandler);
 
 			ClusterNodeResponse clusterNodeResponse = future.get();
-			
-			return (BackgroundTaskStatus) clusterNodeResponse.getResult();
+
+			return (BackgroundTaskStatus)clusterNodeResponse.getResult();
 		}
 		catch (Exception e) {
 			_log.error("Uanble to retrieve status from master node", e);
