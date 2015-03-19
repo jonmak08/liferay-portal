@@ -110,8 +110,7 @@ public class AssetPublisherHelperImpl implements AssetPublisherHelper {
 		}
 
 		viewURL = AssetUtil.checkViewURL(
-			assetEntry, viewInContext, viewURL, currentURL, themeDisplay,
-			true);
+			assetEntry, viewInContext, viewURL, currentURL, themeDisplay, true);
 
 		return viewURL;
 	}
