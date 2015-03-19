@@ -116,7 +116,7 @@ public class BackgroundTaskStatusRegistryImpl
 			return (BackgroundTaskStatus)clusterNodeResponse.getResult();
 		}
 		catch (Exception e) {
-			_log.error("Uanble to retrieve status from master node", e);
+			_log.error("Unable to retrieve status from master node", e);
 		}
 
 		return null;
