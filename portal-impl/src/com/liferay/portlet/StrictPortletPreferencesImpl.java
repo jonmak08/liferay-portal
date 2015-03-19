@@ -45,19 +45,6 @@ public class StrictPortletPreferencesImpl
 			getOriginalXML(), getOriginalPreferences());
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-
-		if (!(obj instanceof StrictPortletPreferencesImpl)) {
-			return false;
-		}
-
-		return super.equals(obj);
-	}
-
 	private long _companyId;
 
 }
