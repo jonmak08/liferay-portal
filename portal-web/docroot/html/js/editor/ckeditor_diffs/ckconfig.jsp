@@ -152,7 +152,7 @@ String contentsLanguageDir = LanguageUtil.get(contentsLocale, "lang.dir");
 			['AjaxSave', '-', 'Restore'],
 		</c:if>
 
-		['Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', ],
+		['Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord'],
 		['Styles', 'FontSize', '-', 'TextColor', 'BGColor'],
 		'/',
 		['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
