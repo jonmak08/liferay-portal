@@ -39,10 +39,6 @@
 			<var name="kbArticleTitle" value="KB Article Outside Folder" />
 		</execute>
 
-		<execute macro="Page#gotoContentCP">
-			<var name="portletName" value="Knowledge Base" />
-		</execute>
-
 		<execute macro="KBFolder#addCP">
 			<var name="kbFolderDescription" value="KB Folder Description" />
 			<var name="kbFolderName" value="KB Folder" />
@@ -119,7 +115,7 @@
 		</execute>
 
 		<execute macro="KBArticle#gotoKBArticleViaKBDisplayHierarchyNavigationPG">
-			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
+			<var name="kbArticleTitle" value="Application Display Templates" />
 		</execute>
 
 		<execute macro="KBArticle#viewHierarchyViaKBDisplayPG">
@@ -895,7 +891,7 @@
 		</execute>
 
 		<execute macro="KBArticle#gotoKBArticleViaKBDisplayHierarchyNavigationPG">
-			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
+			<var name="kbArticleTitle" value="Learning Paths" />
 		</execute>
 
 		<execute macro="KBArticle#viewHierarchyViaKBDisplayPG">
@@ -944,7 +940,7 @@
 		</execute>
 
 		<execute macro="KBArticle#gotoKBArticleViaKBDisplayHierarchyNavigationPG">
-			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
+			<var name="kbArticleTitle" value="Application Display Templates" />
 		</execute>
 
 		<execute macro="KBArticle#viewHierarchyViaKBDisplayPG">
@@ -1411,10 +1407,6 @@
 			<var name="pageName" value="Knowledge Base Display Page 1" />
 		</execute>
 
-		<execute macro="KBArticle#gotoKBArticleViaKBDisplayHierarchyNavigationPG">
-			<var name="kbArticleTitle" value="Knowledge Base Article Title for Page 1" />
-		</execute>
-
 		<execute macro="KBArticle#viewViaKBDisplayPG">
 			<var name="kbArticleContent" value="Knowledge Base Article Content" />
 			<var name="kbArticleTitle" value="Knowledge Base Article Title for Page 1" />
@@ -1422,10 +1414,6 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Knowledge Base Display Page 2" />
-		</execute>
-
-		<execute macro="KBArticle#gotoKBArticleViaKBDisplayHierarchyNavigationPG">
-			<var name="kbArticleTitle" value="Knowledge Base Article Title for Page 2" />
 		</execute>
 
 		<execute macro="KBArticle#viewViaKBDisplayPG">
@@ -1656,7 +1644,8 @@
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
 
-		<execute macro="KBArticle#gotoKBArticleViaKBDisplayHierarchyNavigationPG">
+		<execute macro="KBArticle#viewViaKBDisplayPG">
+			<var name="kbArticleContent" value="Knowledge Base Article Content" />
 			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 		</execute>
 
