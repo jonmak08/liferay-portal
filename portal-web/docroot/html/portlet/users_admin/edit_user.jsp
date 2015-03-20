@@ -257,7 +257,7 @@ if (selUser != null) {
 			try {
 				UserLocalServiceUtil.checkLockout(selUser);
 			}
-			catch (UserLockoutException.PasswordPolicyLockout ule) {
+			catch (UserLockoutException ule) {
 				lockedOut = true;
 			}
 		}
