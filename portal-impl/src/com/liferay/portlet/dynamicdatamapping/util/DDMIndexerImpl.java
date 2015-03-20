@@ -36,6 +36,8 @@ import com.liferay.portlet.dynamicdatamapping.storage.Fields;
 
 import java.io.Serializable;
 
+import java.math.BigDecimal;
+
 import java.text.Format;
 
 import java.util.Date;
@@ -76,7 +78,23 @@ public class DDMIndexerImpl implements DDMIndexer {
 
 					Serializable value = field.getValue(locale);
 
-					if (value instanceof Boolean) {
+					if (value instanceof BigDecimal) {
+						Double doubleValue = ((BigDecimal)value).doubleValue();
+
+						document.addNumber(name, doubleValue);
+					}
+					else if (value instanceof BigDecimal[]) {
+						BigDecimal[] bigDecimals = (BigDecimal[])value;
+
+						Double[] doubleValues = new Double[bigDecimals.length];
+
+						for (int i = 0; i < bigDecimals.length; i++) {
+							doubleValues[i] = bigDecimals[i].doubleValue();
+						}
+
+						document.addNumber(name, doubleValues);
+					}
+					else if (value instanceof Boolean) {
 						document.addKeyword(name, (Boolean)value);
 					}
 					else if (value instanceof Boolean[]) {
