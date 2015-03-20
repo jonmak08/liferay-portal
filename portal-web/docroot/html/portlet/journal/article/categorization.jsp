@@ -82,7 +82,6 @@ boolean changeStructure = GetterUtil.getBoolean(request.getAttribute("edit_artic
 	<aui:input classPK="<%= classPK %>" ignoreRequestValue="<%= changeStructure %>" name="categories" type="assetCategories" />
 
 	<aui:input classPK="<%= classPK %>" ignoreRequestValue="<%= changeStructure %>" name="tags" type="assetTags" />
-	
 </aui:fieldset>
 
 <aui:script>

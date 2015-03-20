@@ -81,7 +81,6 @@ boolean preselectCurrentLayout = false;
 
 boolean changeStructure = GetterUtil.getBoolean(request.getAttribute("edit_article.jsp-changeStructure"));
 
-
 if (article != null) {
 	if (Validator.isNull(content)) {
 		content = article.getContent();
@@ -411,7 +410,7 @@ if (Validator.isNotNull(content)) {
 
 		<div class="journal-article-general-fields">
 			<aui:input autoFocus="<%= (((article != null) && !article.isNew()) && !PropsValues.JOURNAL_ARTICLE_FORCE_AUTOGENERATE_ID && windowState.equals(WindowState.MAXIMIZED)) || windowState.equals(LiferayWindowState.POP_UP) %>" ignoreRequestValue="<%= changeStructure %>" defaultLanguageId="<%= Validator.isNotNull(toLanguageId) ? toLanguageId : defaultLanguageId %>" languageId="<%= Validator.isNotNull(toLanguageId) ? toLanguageId : defaultLanguageId %>" name="title">
-            	<c:if test="<%= classNameId == JournalArticleConstants.CLASSNAME_ID_DEFAULT %>">
+				<c:if test="<%= classNameId == JournalArticleConstants.CLASSNAME_ID_DEFAULT %>">
 					<aui:validator name="required" />
 				</c:if>
 			</aui:input>
@@ -623,8 +622,8 @@ if (Validator.isNotNull(content)) {
 					document.<portlet:namespace />fm1.<portlet:namespace />ddmStructureId.value = event.ddmstructureid;
 					document.<portlet:namespace />fm1.<portlet:namespace />structureId.value = event.ddmstructurekey;
 					document.<portlet:namespace />fm1.<portlet:namespace />templateId.value = "";
-                    document.<portlet:namespace />fm1.<portlet:namespace />changeStructure.value = true;
-                    
+					document.<portlet:namespace />fm1.<portlet:namespace />changeStructure.value = true;
+
 					submitForm(document.<portlet:namespace />fm1, null, false, false);
 				}
 			}

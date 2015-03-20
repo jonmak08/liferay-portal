@@ -27,7 +27,7 @@ String layoutUuid = BeanParamUtil.getString(article, request, "layoutUuid");
 boolean changeStructure = GetterUtil.getBoolean(request.getAttribute("edit_article.jsp-changeStructure"));
 
 if (changeStructure && (article != null)) {
-    layoutUuid = article.getLayoutUuid();
+	layoutUuid = article.getLayoutUuid();
 }
 
 Layout selLayout = null;
