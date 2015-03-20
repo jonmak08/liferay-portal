@@ -347,8 +347,7 @@ public class LayoutAction extends Action {
 
 			String portletId = ParamUtil.getString(request, "p_p_id");
 
-			if (!PropsValues.TCK_URL && resetLayout &&
-				(_layoutResetPortletIds.contains(portletId) ||
+			if (resetLayout && (_layoutResetPortletIds.contains(portletId) ||
 				 ((previousLayout != null) &&
 				  (layout.getPlid() != previousLayout.getPlid())))) {
 
