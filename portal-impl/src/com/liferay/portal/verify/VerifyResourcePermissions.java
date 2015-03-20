@@ -88,6 +88,8 @@ public class VerifyResourcePermissions extends VerifyProcess {
 
 				verifyResourcedModelRunnables.add(verifyResourcedModelRunnable);
 			}
+			
+			doVerify(verifyResourcedModelRunnables);
 
 			verifyLayout(role);
 		}
