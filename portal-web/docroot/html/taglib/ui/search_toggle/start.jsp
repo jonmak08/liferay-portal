@@ -40,8 +40,8 @@
 			<div id="<%= id %>advancedBodyNode">
 				<liferay-util:buffer var="andOperator">
 					<aui:select cssClass="inline-control" inlineField="<%= true %>" label="" name="<%= displayTerms.AND_OPERATOR %>">
-						<aui:option label="all" selected="<%= displayTerms.isAndOperator() %>" value="1" />
-						<aui:option label="any" selected="<%= !displayTerms.isAndOperator() %>" value="0" />
+						<aui:option label="all" selected="<%= displayTerms.isAndOperator() %>" value="true" />
+						<aui:option label="any" selected="<%= !displayTerms.isAndOperator() %>" value="false" />
 					</aui:select>
 				</liferay-util:buffer>
 
