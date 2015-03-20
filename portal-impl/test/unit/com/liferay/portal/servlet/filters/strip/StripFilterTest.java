@@ -16,7 +16,6 @@ package com.liferay.portal.servlet.filters.strip;
 
 import com.liferay.portal.cache.key.HashCodeCacheKeyGenerator;
 import com.liferay.portal.kernel.cache.key.CacheKeyGeneratorUtil;
-import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.util.MinifierUtil;
 
 import java.io.StringWriter;
@@ -37,7 +36,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
  * @author Shuyang Zhou
  * @author Miguel Pastor
  */
-@PrepareForTest({CacheKeyGeneratorUtil.class, PropsUtil.class})
+@PrepareForTest({CacheKeyGeneratorUtil.class})
 @RunWith(PowerMockRunner.class)
 public class StripFilterTest extends PowerMockito {
 
