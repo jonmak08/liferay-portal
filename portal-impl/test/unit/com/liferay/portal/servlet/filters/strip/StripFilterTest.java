@@ -23,22 +23,23 @@ import java.io.StringWriter;
 import java.nio.CharBuffer;
 
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import org.mockito.Mockito;
-
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 
 /**
  * @author Shuyang Zhou
  * @author Miguel Pastor
  */
-@PrepareForTest({CacheKeyGeneratorUtil.class})
-@RunWith(PowerMockRunner.class)
-public class StripFilterTest extends PowerMockito {
+public class StripFilterTest {
+
+	@BeforeClass
+	public static void setUpClass() {
+		CacheKeyGeneratorUtil cacheKeyGeneratorUtil =
+			new CacheKeyGeneratorUtil();
+
+		cacheKeyGeneratorUtil.setDefaultCacheKeyGenerator(
+			new HashCodeCacheKeyGenerator());
+	}
 
 	@Test
 	public void testHasMarker() {
@@ -84,8 +85,6 @@ public class StripFilterTest extends PowerMockito {
 	@Test
 	public void testProcessCSS() throws Exception {
 		StripFilter stripFilter = new StripFilter();
-
-		_mockCacheGenerationUtil();
 
 		// Missing close tag
 
@@ -151,15 +150,11 @@ public class StripFilterTest extends PowerMockito {
 			"style type=\"text/css\">" + minifiedCode + "</style> ",
 			stringWriter.toString());
 		Assert.assertEquals(code.length() + 34, charBuffer.position());
-
-		verifyStatic(Mockito.times(3));
 	}
 
 	@Test
 	public void testProcessJavaScript() throws Exception {
 		StripFilter stripFilter = new StripFilter();
-
-		_mockCacheGenerationUtil();
 
 		// Missing close tag
 
@@ -220,8 +215,6 @@ public class StripFilterTest extends PowerMockito {
 		Assert.assertEquals(
 			"script>" + minifiedCode + "</script> ", stringWriter.toString());
 		Assert.assertEquals(code.length() + 20, charBuffer.position());
-
-		verifyStatic(Mockito.times(5));
 	}
 
 	@Test
@@ -363,17 +356,6 @@ public class StripFilterTest extends PowerMockito {
 
 		Assert.assertEquals(" ", stringWriter.toString());
 		Assert.assertEquals(4, charBuffer.position());
-	}
-
-	private void _mockCacheGenerationUtil() {
-		mockStatic(CacheKeyGeneratorUtil.class);
-
-		when(
-			CacheKeyGeneratorUtil.getCacheKeyGenerator(
-				StripFilter.class.getName())
-		).thenReturn(
-			new HashCodeCacheKeyGenerator()
-		);
 	}
 
 }
