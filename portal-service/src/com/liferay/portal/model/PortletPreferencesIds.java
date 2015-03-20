@@ -21,6 +21,9 @@ import java.io.Serializable;
  */
 public class PortletPreferencesIds implements Serializable {
 
+	public PortletPreferencesIds() {
+	}
+
 	public PortletPreferencesIds(
 		long companyId, long ownerId, int ownerType, long plid,
 		String portletId) {
@@ -52,10 +55,30 @@ public class PortletPreferencesIds implements Serializable {
 		return _portletId;
 	}
 
-	private final long _companyId;
-	private final long _ownerId;
-	private final int _ownerType;
-	private final long _plid;
-	private final String _portletId;
+	public void setCompanyId(long companyId) {
+		_companyId = companyId;
+	}
+
+	public void setOwnerId(long ownerId) {
+		_ownerId = ownerId;
+	}
+
+	public void setOwnerType(int ownerType) {
+		_ownerType = ownerType;
+	}
+
+	public void setPlid(long plid) {
+		_plid = plid;
+	}
+
+	public void setPortletId(String portletId) {
+		_portletId = portletId;
+	}
+
+	private long _companyId;
+	private long _ownerId;
+	private int _ownerType;
+	private long _plid;
+	private String _portletId;
 
 }
