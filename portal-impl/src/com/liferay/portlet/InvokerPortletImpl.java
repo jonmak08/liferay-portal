@@ -308,6 +308,14 @@ public class InvokerPortletImpl implements InvokerPortlet {
 			invokeAction(actionRequest, actionResponse);
 		}
 		catch (PortletException pe) {
+
+			// PLT.5.4.7, TCK xxiii
+
+			StateAwareResponseImpl stateAwareResponseImpl =
+				(StateAwareResponseImpl)actionResponse;
+
+			stateAwareResponseImpl.reset();
+
 			actionRequest.setAttribute(
 				_portletId + PortletException.class.getName(), pe);
 		}
