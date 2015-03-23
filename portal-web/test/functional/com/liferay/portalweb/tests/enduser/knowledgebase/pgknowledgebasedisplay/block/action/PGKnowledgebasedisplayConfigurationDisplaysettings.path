@@ -69,6 +69,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>SOCIAL_BOOKMARKS_SITE_CHECKBOX</td>
+	<td>//input[contains(@id,'socialBookmarksTypes${key_socialBookmarkSite}Checkbox')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>CONTENT_ROOT_PREFIX_FIELD</td>
 	<td>//input[contains(@id,'RootPrefix')]</td>
 	<td></td>

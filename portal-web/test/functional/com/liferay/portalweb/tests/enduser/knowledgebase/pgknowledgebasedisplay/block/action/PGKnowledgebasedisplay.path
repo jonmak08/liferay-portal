@@ -110,6 +110,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ARTICLE_SOCIAL_BOOKMARK_SITE</td>
+	<td>//li[contains(@class,'taglib-social-bookmark-${key_socialBookmarkSite}')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ARTICLE_PREVIOUS</td>
 	<td>//div[@class='kb-article-container']//span[@class='kb-article-previous']/a</td>
 	<td></td>
