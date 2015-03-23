@@ -214,6 +214,72 @@
 		<execute function="AssertElementNotPresent" locator1="//ul[contains(@class,'breadcrumb')]/li[contains(.,'Home')]/following-sibling::ul[contains(@class,'breadcrumb')]" />
 	</command>
 
+	<command name="ChangeSocialBookmarkSitesForKBArticle" priority="5">
+		<property name="hook.plugins.includes" value="social-bookmarks-hook" />
+
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Knowledge Base" />
+		</execute>
+
+		<execute macro="KBArticle#addCP">
+			<var name="kbArticleContent" value="Knowledge Base Article Content" />
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Knowledge Base Display Page" />
+		</execute>
+
+		<execute macro="KBArticle#viewViaKBDisplayPG">
+			<var name="kbArticleContent" value="Knowledge Base Article Content" />
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+		</execute>
+
+		<execute macro="KBArticle#configureKBSocialBookmarkSites">
+			<var name="enableSocialBookmarkSites" value="twitter,facebook,plusone,addthis,blinklist,buzz,delicious,digg,evernote,linkedin,newsvine,reddit,slashdot,stumbleupon,technorati,tuenti" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Knowledge Base Display Page" />
+		</execute>
+
+		<for list="twitter,facebook,plusone,addthis,blinklist,buzz,delicious,digg,evernote,linkedin,newsvine,reddit,slashdot,stumbleupon,technorati,tuenti" param="socialBookmarkSites" >
+			<execute macro="KBArticle#viewEnabledKBSocialBookmarkSites">
+				<var name="socialBookmarkSite" value="${socialBookmarkSites}" />
+			</execute>
+		</for>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Knowledge Base Display Page" />
+		</execute>
+
+		<execute macro="KBArticle#viewViaKBDisplayPG">
+			<var name="kbArticleContent" value="Knowledge Base Article Content" />
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+		</execute>
+
+		<execute macro="KBArticle#configureKBSocialBookmarkSites">
+			<var name="disableSocialBookmarkSites" value="twitter,newsvine,reddit,slashdot,stumbleupon,technorati,tuenti" />
+			<var name="enableSocialBookmarkSites" value="facebook,plusone,addthis,blinklist,buzz,delicious,digg,evernote,linkedin" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Knowledge Base Display Page" />
+		</execute>
+
+		<for list="facebook,plusone,addthis,blinklist,buzz,delicious,digg,evernote,linkedin" param="socialBookmarkSites" >
+			<execute macro="KBArticle#viewEnabledKBSocialBookmarkSites">
+				<var name="socialBookmarkSite" value="${socialBookmarkSites}" />
+			</execute>
+		</for>
+
+		<for list="twitter,newsvine,reddit,slashdot,stumbleupon,technorati,tuenti" param="socialBookmarkSites" >
+			<execute macro="KBArticle#viewDisabledKBSocialBookmarkSites">
+				<var name="socialBookmarkSite" value="${socialBookmarkSites}" />
+			</execute>
+		</for>
+	</command>
+
 	<command name="DeleteKBArticleViaKBDisplay" priority="4">
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Knowledge Base" />
@@ -695,6 +761,44 @@
 			<var name="kbArticleContent" value="Knowledge Base Article2 Content" />
 			<var name="kbArticleTitle" value="Knowledge Base Article2 Title" />
 		</execute>
+	</command>
+
+	<command name="ViewKBArticleWithAllSocialBookmarkSites" priority="5">
+		<property name="hook.plugins.includes" value="social-bookmarks-hook" />
+
+		<var name="socialBookmarkSites" value="twitter,facebook,plusone,addthis,blinklist,buzz,delicious,digg,evernote,linkedin,newsvine,reddit,slashdot,stumbleupon,technorati,tuenti" />
+
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Knowledge Base" />
+		</execute>
+
+		<execute macro="KBArticle#addCP">
+			<var name="kbArticleContent" value="Knowledge Base Article Content" />
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Knowledge Base Display Page" />
+		</execute>
+
+		<execute macro="KBArticle#viewViaKBDisplayPG">
+			<var name="kbArticleContent" value="Knowledge Base Article Content" />
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+		</execute>
+
+		<execute macro="KBArticle#configureKBSocialBookmarkSites">
+			<var name="enableSocialBookmarkSites" value="${socialBookmarkSites}" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Knowledge Base Display Page" />
+		</execute>
+
+		<for list="${socialBookmarkSites}" param="socialBookmarkSites" >
+			<execute macro="KBArticle#viewEnabledKBSocialBookmarkSites">
+				<var name="socialBookmarkSite" value="${socialBookmarkSites}" />
+			</execute>
+		</for>
 	</command>
 
 	<command name="ViewKBArticleWithBlogsEntryRelatedAsset" priority="5">
