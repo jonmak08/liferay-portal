@@ -302,8 +302,7 @@ public class InvokerPortletImpl implements InvokerPortlet {
 
 	@Override
 	public void processAction(
-			ActionRequest actionRequest, ActionResponse actionResponse)
-		throws IOException {
+		ActionRequest actionRequest, ActionResponse actionResponse) {
 
 		StopWatch stopWatch = new StopWatch();
 
@@ -325,8 +324,7 @@ public class InvokerPortletImpl implements InvokerPortlet {
 
 	@Override
 	public void processEvent(
-			EventRequest eventRequest, EventResponse eventResponse)
-		throws IOException {
+		EventRequest eventRequest, EventResponse eventResponse) {
 
 		StopWatch stopWatch = new StopWatch();
 
@@ -439,8 +437,7 @@ public class InvokerPortletImpl implements InvokerPortlet {
 
 	@Override
 	public void serveResource(
-			ResourceRequest resourceRequest, ResourceResponse resourceResponse)
-		throws IOException {
+		ResourceRequest resourceRequest, ResourceResponse resourceResponse) {
 
 		StopWatch stopWatch = new StopWatch();
 
