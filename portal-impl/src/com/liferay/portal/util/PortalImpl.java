@@ -4814,6 +4814,10 @@ public class PortalImpl implements Portal {
 
 		Group scopeGroup = GroupLocalServiceUtil.getGroup(groupId);
 
+		if (scopeGroup.isCompany()) {
+			return new long[] {groupId};
+		}
+
 		Group companyGroup = GroupLocalServiceUtil.getCompanyGroup(
 			scopeGroup.getCompanyId());
 
@@ -4827,12 +4831,7 @@ public class PortalImpl implements Portal {
 				 scopeGroup.isOrganization() || scopeGroup.isRegularSite() ||
 				 scopeGroup.isUser()) {
 
-			if (!scopeGroup.isCompany()) {
 				return new long[] {groupId, companyGroup.getGroupId()};
-			}
-			else {
-				return new long[] {groupId};
-			}
 		}
 		else {
 			return new long[] {companyGroup.getGroupId()};
