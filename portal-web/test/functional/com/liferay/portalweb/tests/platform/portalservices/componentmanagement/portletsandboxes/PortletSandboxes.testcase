@@ -1,6 +1,6 @@
 <definition component-name="portal-portal-services">
 	<property name="custom.properties" value="layout.parallel.render.enable=false${line.separator}portal.resiliency.enabled=true${line.separator}portal.resiliency.portlet.show.footer=true" />
-	<property name="testray.main.component.name" value="Platform" />
+	<property name="testray.main.component.name" value="Sandbox" />
 	<property name="portlet.plugins.includes" value="spi-admin-portlet" />
 	<property name="web.plugins.includes" value="spi-provider-web" />
 
