@@ -351,6 +351,44 @@ public class JournalArticleIndexer extends BaseIndexer {
 		}
 	}
 
+	protected void addStatusHeads(Document document, JournalArticle article)
+		throws SystemException {
+
+		boolean head = false;
+		boolean scheduledHead = false;
+
+		int[] statuses = new int[] {
+			WorkflowConstants.STATUS_APPROVED, WorkflowConstants.STATUS_IN_TRASH
+		};
+
+		JournalArticle latestArticle =
+			JournalArticleLocalServiceUtil.fetchLatestArticle(
+				article.getResourcePrimKey(), statuses);
+
+		if (latestArticle == null) {
+			statuses = new int[] {WorkflowConstants.STATUS_SCHEDULED};
+
+			latestArticle = JournalArticleLocalServiceUtil.fetchLatestArticle(
+				article.getResourcePrimKey(), statuses);
+		}
+
+		if ((latestArticle != null) && latestArticle.isIndexable() &&
+			(article.getId() == latestArticle.getId())) {
+
+			if (latestArticle.getStatus() ==
+					WorkflowConstants.STATUS_SCHEDULED) {
+
+				scheduledHead = true;
+			}
+			else {
+				head = true;
+			}
+		}
+
+		document.addKeyword("head", head);
+		document.addKeyword("scheduledHead", scheduledHead);
+	}
+
 	@Override
 	protected void doDelete(Object obj) throws Exception {
 		JournalArticle article = (JournalArticle)obj;
@@ -451,20 +489,9 @@ public class JournalArticleIndexer extends BaseIndexer {
 		document.addKeyword("ddmTemplateKey", article.getTemplateId());
 		document.addDate("displayDate", article.getDisplayDate());
 
-		int[] headStatuses = new int[] {
-			WorkflowConstants.STATUS_APPROVED, WorkflowConstants.STATUS_IN_TRASH
-		};
-
-		document.addKeyword("head", isHead(article, headStatuses));
-
-		int[] scheduledHeadStatuses = new int[] {
-			WorkflowConstants.STATUS_SCHEDULED
-		};
-
-		document.addKeyword(
-			"scheduledHead", isHead(article, scheduledHeadStatuses));
-
 		addDDMStructureAttributes(document, article);
+
+		addStatusHeads(document, article);
 
 		return document;
 	}
@@ -775,25 +802,6 @@ public class JournalArticleIndexer extends BaseIndexer {
 		}
 
 		return languageIds;
-	}
-
-	protected boolean isHead(JournalArticle article, int[] statuses)
-		throws SystemException {
-
-		JournalArticle latestArticle =
-			JournalArticleLocalServiceUtil.fetchLatestArticle(
-				article.getResourcePrimKey(), statuses);
-
-		if ((latestArticle != null) && !latestArticle.isIndexable()) {
-			return false;
-		}
-		else if ((latestArticle != null) &&
-				 (article.getId() == latestArticle.getId())) {
-
-			return true;
-		}
-
-		return false;
 	}
 
 	@Override
