@@ -16,6 +16,7 @@ package com.liferay.portal.upgrade.v6_0_12;
 
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.model.ResourceConstants;
+import com.liferay.portal.model.Role;
 import com.liferay.portal.model.RoleConstants;
 import com.liferay.portal.security.permission.ResourceActionsUtil;
 import com.liferay.portal.service.ResourceActionLocalServiceUtil;
@@ -50,6 +51,14 @@ public class UpgradePermission extends UpgradeProcess {
 		runSQL(
 			"update Role_ set name = 'Organization User' where name = " +
 				"'Organization Member'");
+
+		// LPS-54467
+
+		List<String> modelActions = ResourceActionsUtil.getModelResourceActions(
+			Role.class.getName());
+
+		ResourceActionLocalServiceUtil.checkResourceActions(
+			Role.class.getName(), modelActions);
 
 		// LPS-14202 and LPS-17841
 
