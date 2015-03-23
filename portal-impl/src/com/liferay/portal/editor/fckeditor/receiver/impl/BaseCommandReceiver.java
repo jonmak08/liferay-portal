@@ -35,6 +35,7 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.UniqueList;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Group;
+import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.Organization;
 import com.liferay.portal.security.xml.SecureXMLFactoryProviderUtil;
 import com.liferay.portal.service.GroupLocalServiceUtil;
@@ -373,9 +374,12 @@ public abstract class BaseCommandReceiver implements CommandReceiver {
 			String descriptiveName = group.getDescriptiveName();
 
 			if (group.hasStagingGroup()) {
+				Layout layout = themeDisplay.getLayout();
+
 				Group stagingGroup = group.getStagingGroup();
 
-				if ((stagingGroup.getGroupId() == doAsGroupId) &&
+				if ((layout.isTypeControlPanel() ||
+					 (stagingGroup.getGroupId() == doAsGroupId)) &&
 					group.isStagedPortlet(portletId) &&
 					!group.isStagedRemotely() && isStagedData(group)) {
 
