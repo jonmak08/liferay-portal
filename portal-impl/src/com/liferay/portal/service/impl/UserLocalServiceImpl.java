@@ -5062,7 +5062,11 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		user.setFacebookId(facebookId);
 
-		Long ldapServerId = (Long)serviceContext.getAttribute("ldapServerId");
+		Long ldapServerId = null;
+
+		if (serviceContext != null) {
+			ldapServerId = (Long)serviceContext.getAttribute("ldapServerId");
+		}
 
 		if (ldapServerId != null) {
 			user.setLdapServerId(ldapServerId);
