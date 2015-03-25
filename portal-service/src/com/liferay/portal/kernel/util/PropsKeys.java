@@ -2771,6 +2771,8 @@ public interface PropsKeys {
 
 	public static final String XML_VALIDATION_ENABLED = "xml.validation.enabled";
 
+	public static final String XSL_CONTENT_VALID_URL_PREFIXES = "xsl.content.valid.url.prefixes";
+
 	public static final String XSL_CONTENT_XML_DOCTYPE_DECLARATION_ALLOWED = "xsl.content.xml.doctype.declaration.allowed";
 
 	public static final String XSL_CONTENT_XML_EXTERNAL_GENERAL_ENTITIES_ALLOWED = "xsl.content.xml.external.general.entities.allowed";

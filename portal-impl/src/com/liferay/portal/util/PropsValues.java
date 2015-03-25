@@ -2088,6 +2088,8 @@ public class PropsValues {
 
 	public static final boolean XML_VALIDATION_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.XML_VALIDATION_ENABLED));
 
+	public static final String[] XSL_CONTENT_VALID_URL_PREFIXES = PropsUtil.getArray(PropsKeys.XSL_CONTENT_VALID_URL_PREFIXES);
+
 	public static final boolean XSL_CONTENT_XML_DOCTYPE_DECLARATION_ALLOWED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.XSL_CONTENT_XML_DOCTYPE_DECLARATION_ALLOWED));
 
 	public static final boolean XSL_CONTENT_XML_EXTERNAL_GENERAL_ENTITIES_ALLOWED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.XSL_CONTENT_XML_EXTERNAL_GENERAL_ENTITIES_ALLOWED));

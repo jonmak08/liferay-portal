@@ -14,26 +14,18 @@
 
 package com.liferay.portlet.xslcontent.action;
 
-import aQute.bnd.annotation.metatype.Configurable;
-
 import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
 import com.liferay.portal.kernel.servlet.SessionErrors;
+import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.theme.ThemeDisplay;
-import com.liferay.xsl.content.web.configuration.XSLContentConfiguration;
-import com.liferay.xsl.content.web.util.XSLContentUtil;
-
-import java.util.Map;
+import com.liferay.portal.util.PropsUtil;
+import com.liferay.portlet.xslcontent.util.XSLContentUtil;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletConfig;
-import javax.portlet.RenderRequest;
-import javax.portlet.RenderResponse;
-
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Modified;
 
 /**
  * @author Brian Wing Shun Chan
@@ -53,28 +45,12 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
 		super.processAction(portletConfig, actionRequest, actionResponse);
 	}
 
-	@Override
-	public String render(
-			PortletConfig portletConfig, RenderRequest renderRequest,
-			RenderResponse renderResponse)
-		throws Exception {
-
-		renderRequest.setAttribute(
-			XSLContentConfiguration.class.getName(), _xslContentConfiguration);
-
-		return super.render(portletConfig, renderRequest, renderResponse);
-	}
-
-	@Activate
-	@Modified
-	protected void activate(Map<String, Object> properties) {
-		_xslContentConfiguration = Configurable.createConfigurable(
-			XSLContentConfiguration.class, properties);
-	}
-
 	protected String[] getValidUrlPrefixes(ThemeDisplay themeDisplay) {
-		String validUrlPrefixes = XSLContentUtil.replaceUrlTokens(
-			themeDisplay, _xslContentConfiguration.validUrlPrefixes());
+		String validUrlPrefixes = PropsUtil.get(
+			PropsKeys.XSL_CONTENT_VALID_URL_PREFIXES);
+
+		validUrlPrefixes = XSLContentUtil.replaceUrlTokens(
+			themeDisplay, validUrlPrefixes);
 
 		return StringUtil.split(validUrlPrefixes);
 	}
@@ -115,7 +91,5 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
 			SessionErrors.add(actionRequest, "xslUrl");
 		}
 	}
-
-	private volatile XSLContentConfiguration _xslContentConfiguration;
 
 }
