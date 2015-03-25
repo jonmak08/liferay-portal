@@ -34,7 +34,6 @@ import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portal.service.PortletLocalServiceUtil;
 import com.liferay.portal.util.PortletCategoryKeys;
-import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.ControlPanelEntry;
 import com.liferay.portlet.sites.util.SitesUtil;
 
@@ -436,9 +435,7 @@ public class PortletPermissionImpl implements PortletPermission {
 		boolean access = contains(
 			permissionChecker, scopeGroupId, layout, portlet, ActionKeys.VIEW);
 
-		if (access && !PropsValues.TCK_URL &&
-			portletMode.equals(PortletMode.EDIT)) {
-
+		if (access && portletMode.equals(PortletMode.EDIT)) {
 			access = contains(
 				permissionChecker, scopeGroupId, layout, portlet,
 				ActionKeys.PREFERENCES);
