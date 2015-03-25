@@ -37,7 +37,8 @@ import java.util.Map;
 /**
  * @author Brian Wing Shun Chan
  */
-public class PermissionCheckerBagImpl implements PermissionCheckerBag {
+public class PermissionCheckerBagImpl
+	extends UserPermissionCheckerBagImpl implements PermissionCheckerBag {
 
 	public PermissionCheckerBagImpl() {
 	}
@@ -45,20 +46,28 @@ public class PermissionCheckerBagImpl implements PermissionCheckerBag {
 	public PermissionCheckerBagImpl(
 		long userId, List<Group> userGroups, List<Organization> userOrgs,
 		List<Group> userOrgGroups, List<Group> userUserGroupGroups,
-		List<Group> groups, List<Role> roles) {
+		List<Role> roles) {
 
-		_userId = userId;
-		_userGroups = userGroups;
-		_userOrgs = userOrgs;
-		_userOrgGroups = userOrgGroups;
-		_userUserGroupGroups = userUserGroupGroups;
-		_groups = groups;
+		super(userId, userGroups, userOrgs, userOrgGroups, userUserGroupGroups);
+
 		_roles = roles;
 	}
 
+	public PermissionCheckerBagImpl(
+		UserPermissionCheckerBag userPermissionCheckerBag, List<Role> roles) {
+
+		super(userPermissionCheckerBag);
+
+		_roles = roles;
+	}
+
+	/**
+	 * @deprecated As of 7.0.0, renamed to {@link
+	 *             UserPermissionCheckerBagImpl#getGroups()}
+	 */
 	@Override
 	public List<Group> getGroups() {
-		return _groups;
+		return super.getGroups();
 	}
 
 	@Override
@@ -87,24 +96,40 @@ public class PermissionCheckerBagImpl implements PermissionCheckerBag {
 		return _roles;
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, renamed to {@link
+	 *             UserPermissionCheckerBagImpl#getUserGroups()}
+	 */
 	@Override
 	public List<Group> getUserGroups() {
-		return _userGroups;
+		return super.getUserGroups();
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, renamed to {@link
+	 *             UserPermissionCheckerBagImpl#getUserOrgGroups()}
+	 */
 	@Override
 	public List<Group> getUserOrgGroups() {
-		return _userOrgGroups;
+		return super.getUserOrgGroups();
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, renamed to {@link
+	 *             UserPermissionCheckerBagImpl#getUserOrgs()}
+	 */
 	@Override
 	public List<Organization> getUserOrgs() {
-		return _userOrgs;
+		return super.getUserOrgs();
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, renamed to {@link
+	 *             UserPermissionCheckerBagImpl#getUserUserGroupGroups()}
+	 */
 	@Override
 	public List<Group> getUserUserGroupGroups() {
-		return _userUserGroupGroups;
+		return super.getUserUserGroupGroups();
 	}
 
 	/**
@@ -177,7 +202,9 @@ public class PermissionCheckerBagImpl implements PermissionCheckerBag {
 			}
 		}
 
-		if (_userGroups.contains(group)) {
+		List<Group> userGroups = getUserGroups();
+
+		if (userGroups.contains(group)) {
 			return true;
 		}
 
@@ -246,8 +273,10 @@ public class PermissionCheckerBagImpl implements PermissionCheckerBag {
 			return true;
 		}
 
+		long userId = getUserId();
+
 		if (RoleLocalServiceUtil.hasUserRole(
-				_userId, group.getCompanyId(),
+				userId, group.getCompanyId(),
 				RoleConstants.PORTAL_CONTENT_REVIEWER, true)) {
 
 			return true;
@@ -255,7 +284,7 @@ public class PermissionCheckerBagImpl implements PermissionCheckerBag {
 
 		if (group.isSite()) {
 			if (UserGroupRoleLocalServiceUtil.hasUserGroupRole(
-					_userId, group.getGroupId(),
+					userId, group.getGroupId(),
 					RoleConstants.SITE_CONTENT_REVIEWER, true)) {
 
 				return true;
@@ -279,12 +308,14 @@ public class PermissionCheckerBagImpl implements PermissionCheckerBag {
 			group = GroupLocalServiceUtil.getGroup(parentGroupId);
 		}
 
+		long userId = getUserId();
+
 		if (group.isSite()) {
 			if (UserGroupRoleLocalServiceUtil.hasUserGroupRole(
-					_userId, group.getGroupId(),
+					userId, group.getGroupId(),
 					RoleConstants.SITE_ADMINISTRATOR, true) ||
 				UserGroupRoleLocalServiceUtil.hasUserGroupRole(
-					_userId, group.getGroupId(), RoleConstants.SITE_OWNER,
+					userId, group.getGroupId(), RoleConstants.SITE_OWNER,
 					true)) {
 
 				return true;
@@ -332,10 +363,10 @@ public class PermissionCheckerBagImpl implements PermissionCheckerBag {
 				long organizationGroupId = organization.getGroupId();
 
 				if (UserGroupRoleLocalServiceUtil.hasUserGroupRole(
-						_userId, organizationGroupId,
+						userId, organizationGroupId,
 						RoleConstants.ORGANIZATION_ADMINISTRATOR, true) ||
 					UserGroupRoleLocalServiceUtil.hasUserGroupRole(
-						_userId, organizationGroupId,
+						userId, organizationGroupId,
 						RoleConstants.ORGANIZATION_OWNER, true)) {
 
 					return true;
@@ -352,9 +383,11 @@ public class PermissionCheckerBagImpl implements PermissionCheckerBag {
 			PermissionChecker permissionChecker, Group group)
 		throws PortalException, SystemException {
 
+		long userId = getUserId();
+
 		if (group.isSite()) {
 			if (UserGroupRoleLocalServiceUtil.hasUserGroupRole(
-					_userId, group.getGroupId(), RoleConstants.SITE_OWNER,
+					userId, group.getGroupId(), RoleConstants.SITE_OWNER,
 					true)) {
 
 				return true;
@@ -394,7 +427,7 @@ public class PermissionCheckerBagImpl implements PermissionCheckerBag {
 				long organizationGroupId = organization.getGroupId();
 
 				if (UserGroupRoleLocalServiceUtil.hasUserGroupRole(
-						_userId, organizationGroupId,
+						userId, organizationGroupId,
 						RoleConstants.ORGANIZATION_OWNER, true)) {
 
 					return true;
@@ -404,9 +437,9 @@ public class PermissionCheckerBagImpl implements PermissionCheckerBag {
 			}
 		}
 		else if (group.isUser()) {
-			long userId = group.getClassPK();
+			long groupUserId = group.getClassPK();
 
-			if (userId == _userId) {
+			if (userId == groupUserId) {
 				return true;
 			}
 		}
@@ -421,11 +454,13 @@ public class PermissionCheckerBagImpl implements PermissionCheckerBag {
 		while (organization != null) {
 			long organizationGroupId = organization.getGroupId();
 
+			long userId = getUserId();
+
 			if (UserGroupRoleLocalServiceUtil.hasUserGroupRole(
-					_userId, organizationGroupId,
+					userId, organizationGroupId,
 					RoleConstants.ORGANIZATION_ADMINISTRATOR, true) ||
 				UserGroupRoleLocalServiceUtil.hasUserGroupRole(
-					_userId, organizationGroupId,
+					userId, organizationGroupId,
 					RoleConstants.ORGANIZATION_OWNER, true)) {
 
 				return true;
@@ -441,11 +476,13 @@ public class PermissionCheckerBagImpl implements PermissionCheckerBag {
 			PermissionChecker permissionChecker, Organization organization)
 		throws PortalException, SystemException {
 
+		long userId = getUserId();
+
 		while (organization != null) {
 			long organizationGroupId = organization.getGroupId();
 
 			if (UserGroupRoleLocalServiceUtil.hasUserGroupRole(
-					_userId, organizationGroupId,
+					userId, organizationGroupId,
 					RoleConstants.ORGANIZATION_OWNER, true)) {
 
 				return true;
@@ -460,17 +497,11 @@ public class PermissionCheckerBagImpl implements PermissionCheckerBag {
 	private Map<Long, Boolean> _contentReviewers = new HashMap<Long, Boolean>();
 	private Map<Long, Boolean> _groupAdmins = new HashMap<Long, Boolean>();
 	private Map<Long, Boolean> _groupOwners = new HashMap<Long, Boolean>();
-	private List<Group> _groups;
 	private Map<Long, Boolean> _organizationAdmins =
 		new HashMap<Long, Boolean>();
 	private Map<Long, Boolean> _organizationOwners =
 		new HashMap<Long, Boolean>();
 	private long[] _roleIds;
 	private List<Role> _roles;
-	private List<Group> _userGroups;
-	private long _userId;
-	private List<Group> _userOrgGroups;
-	private List<Organization> _userOrgs;
-	private List<Group> _userUserGroupGroups;
 
 }
