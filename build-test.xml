@@ -2815,6 +2815,15 @@ global.startup.events=com.liferay.portal.events.GlobalStartupAction,com.liferay.
 		</if>
 
 		<if>
+			<equals arg1="${portlet.preferences.strict.store}" arg2="true" />
+			<then>
+				<echo file="portal-impl/src/portal-ext.properties" append="true">
+
+portlet.preferences.strict.store=true</echo>
+			</then>
+		</if>
+
+		<if>
 			<isset property="set.permission.algorithm.5" />
 			<then>
 				<replace file="portal-impl/src/portal-ext.properties" token="#permissions.user.check.algorithm=5" value="permissions.user.check.algorithm=5" />

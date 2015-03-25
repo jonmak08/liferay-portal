@@ -170,6 +170,7 @@ work.dir=${basedir.unix}/tools/tck/work</echo>
 
 		<antcall target="prepare-portal-ext-properties">
 			<param name="global.startup.events" value="true" />
+			<param name="portlet.preferences.strict.store" value="true" />
 			<param name="tck.url" value="true" />
 		</antcall>
 
