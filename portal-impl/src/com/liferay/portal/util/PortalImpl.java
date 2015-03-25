@@ -4831,7 +4831,7 @@ public class PortalImpl implements Portal {
 				 scopeGroup.isOrganization() || scopeGroup.isRegularSite() ||
 				 scopeGroup.isUser()) {
 
-				return new long[] {groupId, companyGroup.getGroupId()};
+			return new long[] {groupId, companyGroup.getGroupId()};
 		}
 		else {
 			return new long[] {companyGroup.getGroupId()};
