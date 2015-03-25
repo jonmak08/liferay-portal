@@ -169,6 +169,7 @@ work.dir=${basedir.unix}/tools/tck/work</echo>
 		<antcall target="clean-up-java-processes" inheritAll="false" />
 
 		<antcall target="prepare-portal-ext-properties">
+			<param name="global.startup.events" value="true" />
 			<param name="tck.url" value="true" />
 		</antcall>
 

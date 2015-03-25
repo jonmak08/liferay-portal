@@ -2806,6 +2806,15 @@ auto.deploy.dest.dir=C:/WINDOWS/system32/config/systemprofile/liferay/websphere-
 		</if>
 
 		<if>
+			<equals arg1="${global.startup.events}" arg2="true" />
+			<then>
+				<echo file="portal-impl/src/portal-ext.properties" append="true">
+
+global.startup.events=com.liferay.portal.events.GlobalStartupAction,com.liferay.portal.events.CryptoStartupAction,com.liferay.portal.events.TCKStartupAction</echo>
+			</then>
+		</if>
+
+		<if>
 			<isset property="set.permission.algorithm.5" />
 			<then>
 				<replace file="portal-impl/src/portal-ext.properties" token="#permissions.user.check.algorithm=5" value="permissions.user.check.algorithm=5" />
