@@ -93,6 +93,31 @@ public class PortletPreferencesLocalServiceStagingAdvice
 		}
 	}
 
+	protected LayoutRevision getLayoutRevision(long plid) {
+		if (plid <= 0) {
+			return null;
+		}
+
+		LayoutRevision layoutRevision = LayoutRevisionUtil.fetchByPrimaryKey(
+			plid);
+
+		if (layoutRevision != null) {
+			return layoutRevision;
+		}
+
+		Layout layout = LayoutLocalServiceUtil.fetchLayout(plid);
+
+		if (layout == null) {
+			return null;
+		}
+
+		if (!LayoutStagingUtil.isBranchingLayout(layout)) {
+			return null;
+		}
+
+		return LayoutStagingUtil.getLayoutRevision(layout);
+	}
+
 	protected Object getPortletPreferences(MethodInvocation methodInvocation)
 		throws Throwable {
 
@@ -107,18 +132,11 @@ public class PortletPreferencesLocalServiceStagingAdvice
 			plid = (Long)arguments[2];
 		}
 
-		if (plid <= 0) {
+		LayoutRevision layoutRevision = getLayoutRevision(plid);
+
+		if (layoutRevision == null) {
 			return methodInvocation.proceed();
 		}
-
-		Layout layout = LayoutLocalServiceUtil.getLayout(plid);
-
-		if (!LayoutStagingUtil.isBranchingLayout(layout)) {
-			return methodInvocation.proceed();
-		}
-
-		LayoutRevision layoutRevision = LayoutStagingUtil.getLayoutRevision(
-			layout);
 
 		arguments[2] = layoutRevision.getLayoutRevisionId();
 
@@ -141,22 +159,11 @@ public class PortletPreferencesLocalServiceStagingAdvice
 			plid = (Long)arguments[2];
 		}
 
-		if (plid <= 0) {
+		LayoutRevision layoutRevision = getLayoutRevision(plid);
+
+		if (layoutRevision == null) {
 			return methodInvocation.proceed();
 		}
-
-		Layout layout = LayoutLocalServiceUtil.fetchLayout(plid);
-
-		if (layout == null) {
-			return methodInvocation.proceed();
-		}
-
-		if (!LayoutStagingUtil.isBranchingLayout(layout)) {
-			return methodInvocation.proceed();
-		}
-
-		LayoutRevision layoutRevision = LayoutStagingUtil.getLayoutRevision(
-			layout);
 
 		if (arguments.length == 3) {
 			arguments[1] = layoutRevision.getLayoutRevisionId();
@@ -186,18 +193,7 @@ public class PortletPreferencesLocalServiceStagingAdvice
 			plid = (Long)arguments[3];
 		}
 
-		if (plid <= 0) {
-			return methodInvocation.proceed();
-		}
-
-		Layout layout = LayoutLocalServiceUtil.getLayout(plid);
-
-		if (!LayoutStagingUtil.isBranchingLayout(layout)) {
-			return methodInvocation.proceed();
-		}
-
-		LayoutRevision layoutRevision = LayoutStagingUtil.getLayoutRevision(
-			layout);
+		LayoutRevision layoutRevision = getLayoutRevision(plid);
 
 		if (layoutRevision == null) {
 			return methodInvocation.proceed();
@@ -237,12 +233,11 @@ public class PortletPreferencesLocalServiceStagingAdvice
 
 		long plid = (Long)arguments[2];
 
-		if (plid <= 0) {
+		LayoutRevision layoutRevision = getLayoutRevision(plid);
+
+		if (layoutRevision == null) {
 			return methodInvocation.proceed();
 		}
-
-		LayoutRevision layoutRevision = LayoutRevisionUtil.fetchByPrimaryKey(
-			plid);
 
 		ServiceContext serviceContext =
 			ServiceContextThreadLocal.getServiceContext();
@@ -253,7 +248,7 @@ public class PortletPreferencesLocalServiceStagingAdvice
 
 		boolean exporting = ParamUtil.getBoolean(serviceContext, "exporting");
 
-		if ((layoutRevision == null) || exporting) {
+		if (exporting) {
 			return methodInvocation.proceed();
 		}
 
