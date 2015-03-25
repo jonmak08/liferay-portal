@@ -535,6 +535,8 @@ public class JournalConverterImpl implements JournalConverter {
 
 		String dataType = ddmStructure.getFieldDataType(name);
 		String type = ddmStructure.getFieldType(name);
+		boolean localizable = GetterUtil.getBoolean(
+			ddmStructure.getFieldProperty(name, "localizable"));
 
 		List<Element> dynamicContentElements = dynamicElementElement.elements(
 			"dynamic-content");
@@ -544,6 +546,12 @@ public class JournalConverterImpl implements JournalConverter {
 
 			String languageId = dynamicContentElement.attributeValue(
 				"language-id");
+
+			if (!localizable && !languageId.equals(defaultLanguageId)) {
+				dynamicElementElement.remove(dynamicContentElement);
+
+				continue;
+			}
 
 			if (Validator.isNotNull(languageId)) {
 				locale = LocaleUtil.fromLanguageId(languageId);
