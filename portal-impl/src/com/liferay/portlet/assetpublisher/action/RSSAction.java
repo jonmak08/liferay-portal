@@ -17,6 +17,7 @@ package com.liferay.portlet.assetpublisher.action;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
+import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -27,6 +28,7 @@ import com.liferay.portal.theme.PortletDisplay;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.Portal;
 import com.liferay.portal.util.PortalUtil;
+import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.WebKeys;
 import com.liferay.portlet.asset.AssetRendererFactoryRegistryUtil;
 import com.liferay.portlet.asset.model.AssetEntry;
@@ -46,7 +48,9 @@ import com.sun.syndication.feed.synd.SyndLinkImpl;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
@@ -301,6 +305,35 @@ public class RSSAction extends com.liferay.portal.struts.RSSAction {
 
 		String format = RSSUtil.getFeedTypeFormat(rssFeedType);
 		double version = RSSUtil.getFeedTypeVersion(rssFeedType);
+
+		Set<String> defaultOrderValues = new HashSet<String>();
+
+		defaultOrderValues.add(Field.TITLE);
+		defaultOrderValues.add(Field.CREATE_DATE);
+		defaultOrderValues.add(Field.MODIFIED_DATE);
+		defaultOrderValues.add(Field.PUBLISH_DATE);
+		defaultOrderValues.add(Field.EXPIRATION_DATE);
+		defaultOrderValues.add(Field.PRIORITY);
+
+		if (!PropsValues.ASSET_PUBLISHER_SEARCH_WITH_INDEX) {
+			defaultOrderValues.add(Field.VIEW_COUNT);
+			defaultOrderValues.add(Field.RATINGS);
+		}
+
+		String orderByColumn1 = portletPreferences.getValue(
+			"orderByColumn1", null);
+		String orderByColumn2 = portletPreferences.getValue(
+			"orderbyColumn2", null);
+
+		if (!defaultOrderValues.contains(orderByColumn1)) {
+			portletPreferences.setValue("orderByColumn1", null);
+			portletPreferences.setValue("orderByType1", null);
+		}
+
+		if (!defaultOrderValues.contains(orderByColumn2)) {
+			portletPreferences.setValue("orderByColumn2", null);
+			portletPreferences.setValue("orderByType2", null);
+		}
 
 		String rss = exportToRSS(
 			portletRequest, portletResponse, rssName, null, format, version,
