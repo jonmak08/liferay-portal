@@ -2940,8 +2940,6 @@ portlet.preferences.strict.store=true</echo>
 			<then>
 				<echo file="portal-impl/src/portal-ext.properties" append="true">
 
-tck.url=true
-
 hot.deploy.dependency.management.enabled=false</echo>
 			</then>
 		</if>
