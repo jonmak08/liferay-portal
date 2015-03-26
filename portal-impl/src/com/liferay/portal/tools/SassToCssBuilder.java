@@ -149,6 +149,32 @@ public class SassToCssBuilder {
 		}
 	}
 
+	private void _addSassCache(
+			String docrootDirName, String portalCommonDirName, String fileName)
+		throws Exception {
+
+		String filePath = docrootDirName.concat(fileName);
+
+		File file = new File(filePath);
+		File cacheFile = getCacheFile(filePath);
+
+		String parsedContent = _parseSassFile(
+			docrootDirName, portalCommonDirName, fileName);
+
+		FileUtil.write(cacheFile, parsedContent);
+
+		cacheFile.setLastModified(file.lastModified());
+
+		// Generate rtl cache
+
+		File rtlCacheFile = getCacheFile(filePath, "_rtl");
+
+		FileUtil.write(
+			rtlCacheFile, RTLCSSUtil.getRtlCss(fileName, parsedContent));
+
+		rtlCacheFile.setLastModified(file.lastModified());
+	}
+
 	private String _getContent(String docrootDirName, String fileName)
 		throws Exception {
 
@@ -255,7 +281,7 @@ public class SassToCssBuilder {
 			try {
 				long start = System.currentTimeMillis();
 
-				_parseSassFile(docrootDirName, portalCommonDirName, fileName);
+				_addSassCache(docrootDirName, portalCommonDirName, fileName);
 
 				long end = System.currentTimeMillis();
 
@@ -271,14 +297,11 @@ public class SassToCssBuilder {
 		}
 	}
 
-	private void _parseSassFile(
+	private String _parseSassFile(
 			String docrootDirName, String portalCommonDirName, String fileName)
 		throws Exception {
 
 		String filePath = docrootDirName.concat(fileName);
-
-		File file = new File(filePath);
-		File cacheFile = getCacheFile(filePath);
 
 		Map<String, Object> inputObjects = new HashMap<String, Object>();
 
@@ -300,20 +323,7 @@ public class SassToCssBuilder {
 
 		unsyncPrintWriter.flush();
 
-		String parsedContent = unsyncByteArrayOutputStream.toString();
-
-		FileUtil.write(cacheFile, parsedContent);
-
-		cacheFile.setLastModified(file.lastModified());
-
-		// Generate rtl cache
-
-		File rtlCacheFile = getCacheFile(filePath, "_rtl");
-
-		FileUtil.write(
-			rtlCacheFile, RTLCSSUtil.getRtlCss(fileName, parsedContent));
-
-		rtlCacheFile.setLastModified(file.lastModified());
+		return unsyncByteArrayOutputStream.toString();
 	}
 
 	private RubyExecutor _rubyExecutor;
