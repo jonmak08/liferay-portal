@@ -39,6 +39,8 @@ public class JSONIncludesManagerImpl implements JSONIncludesManager {
 			return excludes;
 		}
 
+		Class<?> originalType = type;
+
 		List<String> list = new ArrayList<String>();
 
 		while (type != null) {
@@ -58,7 +60,7 @@ public class JSONIncludesManagerImpl implements JSONIncludesManager {
 
 		excludes = _listToArray(list);
 
-		_excludesMap.put(type, excludes);
+		_excludesMap.put(originalType, excludes);
 
 		return excludes;
 	}
@@ -73,6 +75,8 @@ public class JSONIncludesManagerImpl implements JSONIncludesManager {
 
 		List<String> list = new ArrayList<String>();
 
+		Class<?> originalType = type;
+
 		while (type != null) {
 			_scanFieldsAndMethods(list, type, true);
 
@@ -81,7 +85,7 @@ public class JSONIncludesManagerImpl implements JSONIncludesManager {
 
 		includes = _listToArray(list);
 
-		_includesMap.put(type, includes);
+		_includesMap.put(originalType, includes);
 
 		return includes;
 	}
