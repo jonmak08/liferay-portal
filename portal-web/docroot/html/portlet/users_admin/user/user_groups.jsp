@@ -89,7 +89,7 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "userGr
 		<portlet:param name="p_u_i_d" value="<%= String.valueOf(selUser.getUserId()) %>" />
 	</portlet:renderURL>
 
-	<aui:script use="liferay-search-container,escape">
+	<aui:script use="escape,liferay-search-container">
 		var Util = Liferay.Util;
 
 		var searchContainer = Liferay.SearchContainer.get('<portlet:namespace />userGroupsSearchContainer');
