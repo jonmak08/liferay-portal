@@ -848,7 +848,7 @@ public class PortletPreferencesFactoryImpl
 		return preferencesMap;
 	}
 
-	private final Log _log = LogFactoryUtil.getLog(
+	private static Log _log = LogFactoryUtil.getLog(
 		PortletPreferencesFactoryImpl.class);
 	private PortalCache<String, Map<String, Preference>>
 		_preferencesMapPortalCache = SingleVMPoolUtil.getCache(
