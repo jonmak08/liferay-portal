@@ -75,6 +75,8 @@ public class DynamicCSSUtil {
 				"com/liferay/portal/servlet/filters/dynamiccss" +
 					"/dependencies/main.rb");
 
+			RTLCSSUtil.init();
+
 			_initialized = true;
 		}
 		catch (Exception e) {
@@ -127,7 +129,7 @@ public class DynamicCSSUtil {
 		URLConnection cacheResourceURLConnection = null;
 
 		URL cacheResourceURL = _getCacheResource(
-			servletContext, request, resourcePath);
+				servletContext, request, resourcePath);
 
 		if (cacheResourceURL != null) {
 			cacheResourceURLConnection = cacheResourceURL.openConnection();
@@ -172,6 +174,11 @@ public class DynamicCSSUtil {
 			parsedContent = _parseSass(
 				servletContext, request, themeDisplay, theme, resourcePath,
 				content);
+
+			if (PortalUtil.isRightToLeft(request)) {
+				parsedContent = RTLCSSUtil.getRtlCss(
+						resourcePath, parsedContent);
+			}
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(
