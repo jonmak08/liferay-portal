@@ -45,8 +45,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class FileSystemStore extends BaseStore {
 
 	public FileSystemStore() {
-		if (!_rootDir.exists()) {
-			_rootDir.mkdirs();
+		try {
+			FileUtil.mkdirs(_rootDir);
+		}
+		catch (IOException ioe) {
+			throw new SystemException(ioe);
 		}
 	}
 
@@ -60,7 +63,12 @@ public class FileSystemStore extends BaseStore {
 			throw new DuplicateDirectoryException(dirNameDir.getPath());
 		}
 
-		dirNameDir.mkdirs();
+		try {
+			FileUtil.mkdirs(dirNameDir);
+		}
+		catch (IOException ioe) {
+			throw new SystemException(ioe);
+		}
 	}
 
 	@Override
@@ -430,8 +438,11 @@ public class FileSystemStore extends BaseStore {
 	protected File getCompanyDir(long companyId) {
 		File companyDir = new File(_rootDir + StringPool.SLASH + companyId);
 
-		if (!companyDir.exists()) {
-			companyDir.mkdirs();
+		try {
+			FileUtil.mkdirs(companyDir);
+		}
+		catch (IOException ioe) {
+			throw new SystemException(ioe);
 		}
 
 		return companyDir;
@@ -499,8 +510,11 @@ public class FileSystemStore extends BaseStore {
 			repositoryDir = new File(
 				companyDir + StringPool.SLASH + repositoryId);
 
-			if (!repositoryDir.exists()) {
-				repositoryDir.mkdirs();
+			try {
+				FileUtil.mkdirs(repositoryDir);
+			}
+			catch (IOException ioe) {
+				throw new SystemException(ioe);
 			}
 
 			_repositoryDirs.put(repositoryDirKey, repositoryDir);
