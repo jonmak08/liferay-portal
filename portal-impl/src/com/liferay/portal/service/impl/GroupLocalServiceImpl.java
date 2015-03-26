@@ -914,6 +914,10 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 					ResourceConstants.SCOPE_INDIVIDUAL, group.getGroupId());
 			}
 
+			// Trash
+
+			trashEntryLocalService.deleteEntries(group.getGroupId());
+
 			// Workflow
 
 			List<WorkflowHandler> scopeableWorkflowHandlers =
