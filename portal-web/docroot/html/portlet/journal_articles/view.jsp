@@ -79,9 +79,10 @@ double version = ParamUtil.getDouble(request, "version");
 		searchTerms.setVersion(version);
 		searchTerms.setAdvancedSearch(true);
 
+		boolean includeScheduledArticles = false;
+
 		List<JournalArticle> results = null;
 		int total = 0;
-		boolean includeScheduledArticles = false;
 		%>
 
 		<%@ include file="/html/portlet/journal/article_search_results.jspf" %>

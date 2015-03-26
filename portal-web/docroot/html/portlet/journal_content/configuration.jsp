@@ -182,9 +182,10 @@ catch (NoSuchArticleException nsae) {
 	searchTerms.setFolderIds(new ArrayList<Long>());
 	searchTerms.setVersion(-1);
 
+	boolean includeScheduledArticles = true;
+
 	List<JournalArticle> results = null;
 	int total = 0;
-	boolean includeScheduledArticles = true;
 	%>
 
 	<%@ include file="/html/portlet/journal/article_search_results.jspf" %>

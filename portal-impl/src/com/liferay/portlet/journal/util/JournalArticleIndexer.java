@@ -315,25 +315,28 @@ public class JournalArticleIndexer extends BaseIndexer {
 		}
 
 		if (includeScheduledArticles) {
-			BooleanQuery statusQueryHead = BooleanQueryFactoryUtil.create(
-				searchContext);
-
-			statusQueryHead.addRequiredTerm("head", Boolean.TRUE);
-			statusQueryHead.addRequiredTerm(
-				Field.STATUS, WorkflowConstants.STATUS_APPROVED);
-
-			BooleanQuery statusQueryScheduled = BooleanQueryFactoryUtil.create(
-				searchContext);
-
-			statusQueryScheduled.addRequiredTerm("scheduledHead", Boolean.TRUE);
-			statusQueryScheduled.addRequiredTerm(
-				Field.STATUS, WorkflowConstants.STATUS_SCHEDULED);
-
 			BooleanQuery statusQuery = BooleanQueryFactoryUtil.create(
 				searchContext);
 
-			statusQuery.add(statusQueryHead, BooleanClauseOccur.SHOULD);
-			statusQuery.add(statusQueryScheduled, BooleanClauseOccur.SHOULD);
+			BooleanQuery statusHeadQuery = BooleanQueryFactoryUtil.create(
+				searchContext);
+
+			statusHeadQuery.addRequiredTerm("head", Boolean.TRUE);
+			statusHeadQuery.addRequiredTerm(
+				Field.STATUS, WorkflowConstants.STATUS_APPROVED);
+
+			statusQuery.add(statusHeadQuery, BooleanClauseOccur.SHOULD);
+
+			BooleanQuery statusScheduledHeadQuery =
+				BooleanQueryFactoryUtil.create(searchContext);
+
+			statusScheduledHeadQuery.addRequiredTerm(
+				"scheduledHead", Boolean.TRUE);
+			statusScheduledHeadQuery.addRequiredTerm(
+				Field.STATUS, WorkflowConstants.STATUS_SCHEDULED);
+
+			statusQuery.add(
+				statusScheduledHeadQuery, BooleanClauseOccur.SHOULD);
 
 			contextQuery.add(statusQuery, BooleanClauseOccur.MUST);
 		}

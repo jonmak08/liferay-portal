@@ -47,9 +47,10 @@ ArticleSearchTerms searchTerms = (ArticleSearchTerms)searchContainer.getSearchTe
 searchTerms.setFolderIds(new ArrayList<Long>());
 searchTerms.setVersion(-1);
 
+boolean includeScheduledArticles = false;
+
 List<JournalArticle> results = null;
 int total = 0;
-boolean includeScheduledArticles = false;
 %>
 
 <%@ include file="/html/portlet/journal/article_search_results.jspf" %>
