@@ -163,7 +163,7 @@ public class TrashEntryLocalServiceImpl extends TrashEntryLocalServiceBaseImpl {
 	}
 
 	@Override
-	public void deleteEntries(long groupId) throws PortalException {
+	public void deleteEntries(long groupId) {
 		List<TrashEntry> trashEntries = getEntries(groupId);
 
 		for (TrashEntry trashEntry : trashEntries) {
