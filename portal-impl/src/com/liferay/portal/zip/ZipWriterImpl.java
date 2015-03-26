@@ -20,7 +20,6 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.memory.DeleteFileFinalizeAction;
 import com.liferay.portal.kernel.memory.FinalizeManager;
-import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.SystemProperties;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
@@ -96,8 +95,6 @@ public class ZipWriterImpl implements ZipWriter {
 		if (_log.isDebugEnabled()) {
 			_log.debug("Adding " + name);
 		}
-
-		FileUtil.mkdirs(getPath());
 
 		OutputStream outputStream = new FileOutputStream(
 			new File(getPath() + StringPool.SLASH + name));
