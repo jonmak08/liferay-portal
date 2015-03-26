@@ -74,7 +74,7 @@
 	</command>
 
 	<command name="sendKeysApplicationSearch">
-		<execute argument1="//script[contains(@src,'/autocomplete-filters/autocomplete-filters-min.js')]" selenium="waitForElementPresent" />
+		<execute argument1="//script[contains(@src,'/autocomplete-filters/autocomplete-filters-min.js')] | //script[contains(@src,'/autocomplete-base.js')]" selenium="waitForElementPresent" />
 
 		<execute function="Type#sendKeys" />
 
