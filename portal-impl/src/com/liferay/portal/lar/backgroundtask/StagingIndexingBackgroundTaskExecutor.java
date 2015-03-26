@@ -130,23 +130,15 @@ public class StagingIndexingBackgroundTaskExecutor
 	}
 
 	protected ActionableDynamicQuery getJournalArticleActionableDynamicQuery(
-			long groupId, final Map<String, Map<?, ?>> newPrimaryKeysMaps,
+			long groupId, final Map<?, ?> journalArticleIds,
 			final String[] ddmStructureKeys)
 		throws Exception {
 
 		ActionableDynamicQuery journalArticleActionableDynamicQuery =
 			new JournalArticleActionableDynamicQuery() {
 
-			Map<?, ?> journalArticlePrimaryKeysMap = newPrimaryKeysMaps.get(
-				JournalArticle.class.getName());
-
-			JournalArticleIndexer journalArticleIndexer =
-				(JournalArticleIndexer)IndexerRegistryUtil.getIndexer(
-					JournalArticle.class);
-
 			@Override
 			protected void addCriteria(DynamicQuery dynamicQuery) {
-
 				Property structureIdProperty = PropertyFactoryUtil.forName(
 					"structureId");
 
@@ -158,19 +150,22 @@ public class StagingIndexingBackgroundTaskExecutor
 				JournalArticle article = (JournalArticle)object;
 
 				if (containsValue(
-						journalArticlePrimaryKeysMap,
-						article.getResourcePrimKey())) {
+						journalArticleIds, article.getResourcePrimKey())) {
 
 					return;
 				}
 
 				try {
-					journalArticleIndexer.doReindex(article, false);
+					_journalArticleIndexer.doReindex(article, false);
 				}
 				catch (Exception e) {
 					throw new PortalException(e);
 				}
 			}
+
+			private final JournalArticleIndexer _journalArticleIndexer =
+				(JournalArticleIndexer)IndexerRegistryUtil.getIndexer(
+					JournalArticle.class);
 
 		};
 
@@ -201,9 +196,12 @@ public class StagingIndexingBackgroundTaskExecutor
 
 		// Journal
 
+		Map<?, ?> articleIds = (Map<?, ?>)newPrimaryKeysMaps.get(
+			JournalArticle.class.getName());
+
 		ActionableDynamicQuery journalArticleActionableDynamicQuery =
 			getJournalArticleActionableDynamicQuery(
-				groupId, newPrimaryKeysMaps, ddmStructureKeys);
+				groupId, articleIds, ddmStructureKeys);
 
 		journalArticleActionableDynamicQuery.performActions();
 
