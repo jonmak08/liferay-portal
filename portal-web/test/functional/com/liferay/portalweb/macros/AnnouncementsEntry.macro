@@ -63,6 +63,7 @@
 		<var name="key_entryTitle" value="${entryTitle}" />
 
 		<execute function="AssertClick" locator1="PGAnnouncements#ENTRY_MARK_AS_READ" value1="Mark as Read" />
+		<execute function="Refresh" />
 	</command>
 
 	<command name="showPG">
