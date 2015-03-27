@@ -118,7 +118,9 @@ public class DynamicCSSUtil {
 					_log.warn("No theme found for " + currentURL);
 				}
 
-				if (PortalUtil.isRightToLeft(request)) {
+				if (PortalUtil.isRightToLeft(request) &&
+					!RTLCSSUtil.isExcludedPath(resourcePath)) {
+
 					content = RTLCSSUtil.getRtlCss(resourcePath, content);
 				}
 
@@ -179,7 +181,9 @@ public class DynamicCSSUtil {
 				servletContext, request, themeDisplay, theme, resourcePath,
 				content);
 
-			if (PortalUtil.isRightToLeft(request)) {
+			if (PortalUtil.isRightToLeft(request) &&
+				!RTLCSSUtil.isExcludedPath(resourcePath)) {
+
 				parsedContent = RTLCSSUtil.getRtlCss(
 					resourcePath, parsedContent);
 
