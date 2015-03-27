@@ -275,8 +275,7 @@ public class ServletResponseUtil {
 		List<Range> ranges = null;
 
 		try {
-			ranges = ServletResponseUtil.getRanges(
-				request, response, contentLength);
+			ranges = getRanges(request, response, contentLength);
 		}
 		catch (IOException ioe) {
 			if (_log.isErrorEnabled()) {
@@ -293,7 +292,7 @@ public class ServletResponseUtil {
 		}
 
 		if ((ranges == null) || ranges.isEmpty()) {
-			ServletResponseUtil.sendFile(
+			sendFile(
 				request, response, fileName, inputStream, contentLength,
 				contentType);
 		}
@@ -304,7 +303,7 @@ public class ServletResponseUtil {
 						request.getHeader(HttpHeaders.RANGE));
 			}
 
-			ServletResponseUtil.write(
+			write(
 				request, response, fileName, ranges, inputStream, contentLength,
 				contentType);
 		}
