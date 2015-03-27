@@ -205,7 +205,7 @@ public class StagingIndexingBackgroundTaskExecutor
 
 		journalArticleActionableDynamicQuery.performActions();
 
-		// DL
+		// Document library
 
 		List<DLFileEntry> dlFileEntries = new ArrayList<DLFileEntry>();
 
