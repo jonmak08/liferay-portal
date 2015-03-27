@@ -21,11 +21,15 @@
 	<command name="viewPG">
 		<execute function="Click#clickAtSidebarClickAt" locator1="Dockbar#EDIT" value1="Edit" />
 
+		<execute function="Pause" locator1="3000" />
+
 		<execute macro="Dockbar#showEditField">
 			<var name="fieldKey" value="${fieldKey}" />
 			<var name="fieldLabel" value="${fieldLabel}" />
 			<var name="fieldName" value="${fieldName}" />
 		</execute>
+
+		<execute function="Pause" locator1="3000" />
 
 		<if>
 			<isset var="viewNumber" />
