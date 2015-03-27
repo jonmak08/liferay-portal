@@ -1780,8 +1780,8 @@
 		<var name="kbArticleTitle" value="KB Article Title" />
 		<var name="kbSuggestionBody" value="KB Article Suggestion Content" />
 		<var name="pageName" value="Knowledge Base Display Page" />
-		<var name="userEmailAddress" property-value="email.address.2" />
-		<var name="userEmailPassword" property-value="email.password.2" />
+		<var name="userEmailAddress" property-value="email.address.5" />
+		<var name="userEmailPassword" property-value="email.password.5" />
 
 		<var name="userName" value="Test Test" />
 
@@ -1950,6 +1950,8 @@
 			<var name="kbArticleTitle" value="${kbArticleTitle}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userName" value="Test Test" />
+			<var name="userPassword" value="${userEmailPassword}" />
 		</execute>
 	</command>
 
