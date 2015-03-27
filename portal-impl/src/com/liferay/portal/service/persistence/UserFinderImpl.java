@@ -203,11 +203,25 @@ public class UserFinderImpl
 			LinkedHashMap<String, Object> params, boolean andOperator)
 		throws SystemException {
 
-		String[] firstNames = CustomSQLUtil.keywords(firstName);
-		String[] middleNames = CustomSQLUtil.keywords(middleName);
-		String[] lastNames = CustomSQLUtil.keywords(lastName);
-		String[] screenNames = CustomSQLUtil.keywords(screenName);
-		String[] emailAddresses = CustomSQLUtil.keywords(emailAddress);
+		String[] firstNames = null;
+		String[] middleNames = null;
+		String[] lastNames = null;
+		String[] screenNames = null;
+		String[] emailAddresses = null;
+
+		if (Validator.isNotNull(firstName) || Validator.isNotNull(middleName) ||
+			Validator.isNotNull(lastName) || Validator.isNotNull(screenName) ||
+			Validator.isNotNull(emailAddress)) {
+
+			firstNames = CustomSQLUtil.keywords(firstName);
+			middleNames = CustomSQLUtil.keywords(middleName);
+			lastNames = CustomSQLUtil.keywords(lastName);
+			screenNames = CustomSQLUtil.keywords(screenName);
+			emailAddresses = CustomSQLUtil.keywords(emailAddress);
+		}
+		else {
+			andOperator = true;
+		}
 
 		return countByC_FN_MN_LN_SN_EA_S(
 			companyId, firstNames, middleNames, lastNames, screenNames,
@@ -573,11 +587,25 @@ public class UserFinderImpl
 			int start, int end, OrderByComparator obc)
 		throws SystemException {
 
-		String[] firstNames = CustomSQLUtil.keywords(firstName);
-		String[] middleNames = CustomSQLUtil.keywords(middleName);
-		String[] lastNames = CustomSQLUtil.keywords(lastName);
-		String[] screenNames = CustomSQLUtil.keywords(screenName);
-		String[] emailAddresses = CustomSQLUtil.keywords(emailAddress);
+		String[] firstNames = null;
+		String[] middleNames = null;
+		String[] lastNames = null;
+		String[] screenNames = null;
+		String[] emailAddresses = null;
+
+		if (Validator.isNotNull(firstName) || Validator.isNotNull(middleName) ||
+			Validator.isNotNull(lastName) || Validator.isNotNull(screenName) ||
+			Validator.isNotNull(emailAddress)) {
+
+			firstNames = CustomSQLUtil.keywords(firstName);
+			middleNames = CustomSQLUtil.keywords(middleName);
+			lastNames = CustomSQLUtil.keywords(lastName);
+			screenNames = CustomSQLUtil.keywords(screenName);
+			emailAddresses = CustomSQLUtil.keywords(emailAddress);
+		}
+		else {
+			andOperator = true;
+		}
 
 		return findByC_FN_MN_LN_SN_EA_S(
 			companyId, firstNames, middleNames, lastNames, screenNames,
