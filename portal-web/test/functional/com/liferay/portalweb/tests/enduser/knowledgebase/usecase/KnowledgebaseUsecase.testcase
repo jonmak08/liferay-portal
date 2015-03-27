@@ -89,7 +89,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteImportedArticles" priority="5">
+	<command known-issues="LPS-14669" name="DeleteImportedArticles" priority="5">
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
@@ -870,7 +870,7 @@
 		<execute macro="KBArticle#viewDefaultPGViaKBDisplay" />
 	</command>
 
-	<command name="ViewImportedKBArticlesInHierarchyWithMarkdownFormat" priority="5">
+	<command known-issues="LPS-14669" name="ViewImportedKBArticlesInHierarchyWithMarkdownFormat" priority="5">
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
@@ -935,7 +935,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewImportedKBArticlesWithMultiplePeerHierarchies" priority="5">
+	<command known-issues="LPS-14669" name="ViewImportedKBArticlesWithMultiplePeerHierarchies" priority="5">
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
@@ -990,7 +990,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewImportedKBArticleWithImagesAsKBAttachments" priority="5">
+	<command known-issues="LPS-14669" name="ViewImportedKBArticleWithImagesAsKBAttachments" priority="5">
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
@@ -1047,7 +1047,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewImportedKBArticleWithSourceURLMetadata" priority="5">
+	<command known-issues="LPS-14669" name="ViewImportedKBArticleWithSourceURLMetadata" priority="5">
 		<property name="portlet.properties.knowledge-base-portlet" value="knowledge.base.source.url.enabled=true" />
 
 		<execute macro="Page#addPG">
