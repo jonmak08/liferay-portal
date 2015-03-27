@@ -73,9 +73,9 @@ public class JSONIncludesManagerImpl implements JSONIncludesManager {
 			return includes;
 		}
 
-		List<String> list = new ArrayList<String>();
-
 		Class<?> originalType = type;
+
+		List<String> list = new ArrayList<String>();
 
 		while (type != null) {
 			_scanFieldsAndMethods(list, type, true);
