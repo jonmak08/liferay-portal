@@ -3351,7 +3351,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-48682" name="ViewListRecordAndAssertAnchorLink"  priority="3">
+	<command name="ViewListRecordAndAssertAnchorLink"  priority="3">
 		<var name="ddlDataDefinitionDescription" value="Data Definition Description" />
 		<var name="ddlDataDefinitionName" value="Data Definition" />
 		<var name="ddlListDescription" value="List Description" />

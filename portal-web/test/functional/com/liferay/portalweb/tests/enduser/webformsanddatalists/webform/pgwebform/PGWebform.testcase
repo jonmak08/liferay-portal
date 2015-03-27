@@ -25,7 +25,7 @@
 		<execute macro="Page#tearDownPG" />
 	</tear-down>
 
-	<command known-issues="LPS-51955" name="EditAndSendWebFormWithRequiredCheckbox" priority="4">
+	<command name="EditAndSendWebFormWithRequiredCheckbox" priority="4">
 		<execute macro="WebForm#viewPG">
 			<var name="wfInformationDescription" value="Your input is valuable to us. Please send us your suggestions." />
 			<var name="wfInformationTitle" value="Suggestions" />
@@ -490,7 +490,7 @@
 		<execute macro="WebForm#sendPG" />
 	</command>
 
-	<command known-issues="LPS-51955" name="EditWebFormAndViewRequiredCheckBoxField" priority="4">
+	<command name="EditWebFormAndViewRequiredCheckBoxField" priority="4">
 		<execute macro="WebForm#viewPG">
 			<var name="wfInformationDescription" value="Your input is valuable to us. Please send us your suggestions." />
 			<var name="wfInformationTitle" value="Suggestions" />
