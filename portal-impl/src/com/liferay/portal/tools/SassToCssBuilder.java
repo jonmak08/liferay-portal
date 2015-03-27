@@ -172,7 +172,7 @@ public class SassToCssBuilder {
 			String docrootDirName, String portalCommonDirName, String fileName)
 		throws Exception {
 
-		if (fileName.contains("_rtl")) {
+		if (fileName.contains("_rtl") || RTLCSSUtil.isExcludedPath(fileName)) {
 			return;
 		}
 
