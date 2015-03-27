@@ -185,7 +185,9 @@ public class SassToCssBuilder {
 
 		File file = new File(docrootDirName.concat(fileName));
 
-		cacheFile.setLastModified(file.lastModified());
+		long lastModified = file.lastModified();
+
+		cacheFile.setLastModified(lastModified);
 
 		// Generate RTL cache
 
@@ -198,7 +200,11 @@ public class SassToCssBuilder {
 
 		String rtlCustomFileName = getRtlCustomFileName(fileName);
 
-		if (FileUtil.exists(docrootDirName.concat(rtlCustomFileName))) {
+		File rtlCustomFile = new File(docrootDirName, rtlCustomFileName);
+
+		if (rtlCustomFile.exists()) {
+			lastModified = rtlCustomFile.lastModified();
+
 			String rtlCustomCss = _parseSassFile(
 				docrootDirName, portalCommonDirName, rtlCustomFileName);
 
@@ -207,7 +213,7 @@ public class SassToCssBuilder {
 
 		FileUtil.write(rtlCacheFile, rtlCss);
 
-		rtlCacheFile.setLastModified(file.lastModified());
+		rtlCacheFile.setLastModified(lastModified);
 	}
 
 	private String _getCssThemePath(String fileName) {
