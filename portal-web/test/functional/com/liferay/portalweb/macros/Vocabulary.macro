@@ -20,7 +20,7 @@
 	</command>
 
 	<command name="addCP">
-		<execute function="AssertClick" locator1="CPCategories#ADD_VOCABULARY_BUTTON" value1="Add Vocabulary" />
+		<execute function="AssertClickNoError" locator1="CPCategories#ADD_VOCABULARY_BUTTON" value1="Add Vocabulary" />
 		<execute function="Type" locator1="CPVocabulariesAdd#NAME_FIELD" value1="${vocabularyName}" />
 
 		<if>

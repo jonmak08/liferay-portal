@@ -8,7 +8,8 @@
 		<execute function="SelectFrame" />
 
 		<execute function="SelectFrame" locator1="CPWebcontentStructuresAddstructure#STRUCTURES_IFRAME" />
-		<execute function="Type#clickAtSendKeys" locator1="CPWebcontentStructuresAddstructure#NAME_FIELD" value1="${structureName}" />
+		<execute function="ClickNoError" locator1="CPWebcontentStructuresAddstructure#NAME_FIELD" />
+		<execute function="Type#sendKeys" locator1="CPWebcontentStructuresAddstructure#NAME_FIELD" value1="${structureName}" />
 
 		<execute macro="CPWebcontentStructuresAddstructure#showDetails" />
 

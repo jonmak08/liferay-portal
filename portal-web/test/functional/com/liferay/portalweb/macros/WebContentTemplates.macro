@@ -8,7 +8,8 @@
 		<execute function="SelectFrame" />
 
 		<execute function="SelectFrame" locator1="CPWebcontentTemplatesAddtemplate#TEMPLATES_IFRAME" />
-		<execute function="Type#clickAtSendKeys" locator1="CPWebcontentTemplatesAddtemplate#NAME_FIELD" value1="${templateName}" />
+		<execute function="ClickNoError" locator1="CPWebcontentTemplatesAddtemplate#NAME_FIELD" />
+		<execute function="Type#sendKeys" locator1="CPWebcontentTemplatesAddtemplate#NAME_FIELD" value1="${templateName}" />
 
 		<execute macro="CPWebcontentTemplatesAddtemplate#showDetails" />
 
