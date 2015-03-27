@@ -405,6 +405,7 @@
 	<command name="ViewPaginationCategoriesAndTags" priority="4">
 		<var name="categoryDescription" value="Category Description" />
 		<var name="dmDocumentFileList" value="Document_1.doc,Document_2.doc,Document_1.txt,Document_2.docx,Document_1.xlsx,Document_1.jpg" />
+		<var name="dmDocumentFileList2" value="Document_1.docx,Document_1.jpeg,Document_1.mp3,Document_1.pptx,Document_1.xls" />
 		<var name="pageName" value="Documents and Media Page" />
 		<var name="portletOption" value="Configuration" />
 		<var name="uploadCommonFile" value="true" />
@@ -471,7 +472,7 @@
 		</execute>
 
 		<execute macro="DMDocument#addPGViaFlashUploader">
-			<var name="dmDocumentFileList" value="${dmDocumentFileList}" />
+			<var name="dmDocumentFileList" value="${dmDocumentFileList2}" />
 			<var name="uploadCommonFile" value="${uploadCommonFile}" />
 		</execute>
 
