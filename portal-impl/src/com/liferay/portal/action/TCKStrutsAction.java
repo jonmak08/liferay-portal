@@ -156,7 +156,7 @@ public class TCKStrutsAction extends BaseStrutsAction {
 			long facebookId = 0;
 			String openId = StringPool.BLANK;
 			Locale locale = LocaleUtil.US;
-			String firstName = _TCK;
+			String firstName = "TCK";
 			String middleName = StringPool.BLANK;
 			String lastName = "User";
 			int prefixId = 0;
@@ -186,13 +186,11 @@ public class TCKStrutsAction extends BaseStrutsAction {
 
 			UserLocalServiceUtil.updateAgreedToTermsOfUse(userId, true);
 			UserLocalServiceUtil.updatePasswordReset(userId, false);
-			UserLocalServiceUtil.updateReminderQuery(userId, _TCK, _TCK);
+			UserLocalServiceUtil.updateReminderQuery(userId, "TCK", "TCK");
 
 			return user;
 		}
 	}
-
-	private static final String _TCK = "TCK";
 
 	private static Log _log = LogFactoryUtil.getLog(TCKStrutsAction.class);
 
