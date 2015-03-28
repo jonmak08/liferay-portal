@@ -3027,14 +3027,9 @@ portlet.preferences.strict.store=true</echo>
 			</then>
 		</if>
 
-		<if>
-			<equals arg1="${tck.url}" arg2="true" />
-			<then>
-				<echo file="portal-impl/src/portal-ext.properties" append="true">
+		<echo file="portal-impl/src/portal-ext.properties" append="true">
 
 hot.deploy.dependency.management.enabled=false</echo>
-			</then>
-		</if>
 
 		<if>
 			<isset property="test.set.default.portal.properties" />
