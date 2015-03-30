@@ -272,12 +272,12 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 		else if (range.equals("fromLastPublishDate")) {
 			Date lastPublishDate = null;
 
-			if (Validator.isNotNull(portletId)) {
+			Group group = GroupLocalServiceUtil.getGroup(groupId);
+
+			if (!group.isStagedRemotely() && Validator.isNotNull(portletId)) {
 				Layout layout = LayoutLocalServiceUtil.fetchLayout(plid);
 
 				if (layout == null) {
-					Group group = GroupLocalServiceUtil.getGroup(groupId);
-
 					layout = new LayoutImpl();
 
 					layout.setGroupId(group.getGroupId());
