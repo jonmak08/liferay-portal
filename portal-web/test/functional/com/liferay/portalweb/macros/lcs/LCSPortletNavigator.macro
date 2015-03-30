@@ -1,0 +1,64 @@
+<definition>
+	<command name="gotoEnvironment">
+		<execute function="AssertClick" locator1="LCSPortlet#ENVIRONMENT_LINK" value1="${environmentName} (Opens New Window)" />
+
+		<if>
+			<equals arg1="${loginRequired}" arg2="true" />
+			<then>
+				<execute function="SelectWindow" locator1="Liferay - Enterprise open source portal and collaboration software | Liferay" />
+
+				<execute function="Type" locator1="LRDCOMLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
+				<execute function="Type" locator1="LRDCOMLogin#PASSWORD_FIELD" value1="${userEmailPassword}" />
+
+				<execute function="AssertClickNoError" locator1="LRDCOMLogin#SIGN_IN_BUTTON" value1="Sign In" />
+
+				<execute function="Confirm#assertPartialConfirmation" locator1="LCSWelcome#CONFIRMATION" value1="Are you sure you want to continue sending this information?" />
+			</then>
+			<else>
+				<execute function="SelectWindow" locator1="Dashboard - Liferay" />
+			</else>
+		</if>
+	</command>
+
+	<command name="gotoProjectHome">
+		<execute function="AssertClick" locator1="LCSPortlet#PROJECT_HOME_LINK" value1="${projectName} (Opens New Window)" />
+
+		<if>
+			<equals arg1="${loginRequired}" arg2="true" />
+			<then>
+				<execute function="SelectWindow" locator1="Liferay - Enterprise open source portal and collaboration software | Liferay" />
+
+				<execute function="Type" locator1="LRDCOMLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
+				<execute function="Type" locator1="LRDCOMLogin#PASSWORD_FIELD" value1="${userEmailPassword}" />
+
+				<execute function="AssertClickNoError" locator1="LRDCOMLogin#SIGN_IN_BUTTON" value1="Sign In" />
+
+				<execute function="Confirm#assertPartialConfirmation" locator1="LCSWelcome#CONFIRMATION" value1="Are you sure you want to continue sending this information?" />
+			</then>
+			<else>
+				<execute function="SelectWindow" locator1="Dashboard - Liferay" />
+			</else>
+		</if>
+	</command>
+
+	<command name="gotoServer">
+		<execute function="AssertClick" locator1="LCSPortlet#SERVER_DASHBOARD_LINK" value1="${serverName} (Opens New Window)" />
+
+		<if>
+			<equals arg1="${loginRequired}" arg2="true" />
+			<then>
+				<execute function="SelectWindow" locator1="Liferay - Enterprise open source portal and collaboration software | Liferay" />
+
+				<execute function="Type" locator1="LRDCOMLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
+				<execute function="Type" locator1="LRDCOMLogin#PASSWORD_FIELD" value1="${userEmailPassword}" />
+
+				<execute function="AssertClickNoError" locator1="LRDCOMLogin#SIGN_IN_BUTTON" value1="Sign In" />
+
+				<execute function="Confirm#assertPartialConfirmation" locator1="LCSWelcome#CONFIRMATION" value1="Are you sure you want to continue sending this information?" />
+			</then>
+			<else>
+				<execute function="SelectWindow" locator1="Dashboard - Liferay" />
+			</else>
+		</if>
+	</command>
+</definition>

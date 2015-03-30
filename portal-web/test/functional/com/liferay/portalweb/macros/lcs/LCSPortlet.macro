@@ -1,0 +1,80 @@
+<definition>
+	<command name="addEnvironment">
+		<execute function="Click" locator1="LCSPortletRegistration#ADD_ENVIRONMENT_BUTTON" />
+
+		<execute function="Type" locator1="LCSPortletAddNewEnvironment#ENVIRONMENT_NAME_FIELD" value1="${environmentName}" />
+		<execute function="Type" locator1="LCSPortletAddNewEnvironment#ENVIRONMENT_LOCATION_FIELD" value1="${environmentLocation}" />
+		<execute function="Type" locator1="LCSPortletAddNewEnvironment#ENVIRONMENT_DESCRIPTION_FIELD" value1="${environmentDescription}" />
+
+		<execute function="Click" locator1="LCSPortletAddNewEnvironment#SAVE_BUTTON" />
+
+		<var name="key_environmentName" value="${environmentName}" />
+
+		<execute function="AssertTextEquals" locator1="LCSPortletRegistration#ENVIRONMENT_NAME" value1="${environmentName}" />
+	</command>
+
+	<command name="authorizeLCS">
+		<if>
+			<condition function="IsElementPresent" locator1="LCSPortlet#PROJECT_HOME_LINK" value1="Project Home" />
+			<then>
+				<execute function="AssertTextEquals#assertPartialText" locator1="LCSPortlet#PROJECT_HOME_LINK" value1="${projectName}" />
+			</then>
+			<elseif>
+				<condition function="IsTextEqual" locator1="LCSPortletRegistration#INFO_MESSAGE" value1="Please authorize Liferay Connected Services to start receiving your portal metrics data." />
+				<then>
+					<execute function="Click" locator1="LCSPortletRegistration#AUTHORIZE_ACCESS_BUTTON" />
+
+					<if>
+						<condition function="IsElementPresent" locator1="LRDCOMLogin#EMAIL_ADDRESS_FIELD" />
+						<then>
+							<execute function="Type" locator1="LRDCOMLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
+							<execute function="Type" locator1="LRDCOMLogin#PASSWORD_FIELD" value1="${userEmailPassword}" />
+
+							<execute function="AssertClickNoError" locator1="LRDCOMLogin#SIGN_IN_BUTTON" value1="Sign In" />
+
+							<execute function="Confirm#assertPartialConfirmation" locator1="LCSWelcome#CONFIRMATION" value1="Are you sure you want to continue sending this information?" />
+						</then>
+					</if>
+
+					<execute function="Click" locator1="LCSWelcome#GRANT_ACCESS_BUTTON" />
+				</then>
+			</elseif>
+		</if>
+	</command>
+
+	<command name="registerServer">
+		<if>
+			<condition function="IsElementPresent" locator1="LCSPortlet#PROJECT_HOME_LINK" value1="Project Home" />
+			<then>
+				<execute function="AssertTextEquals" locator1="LCSPortlet#CONNECTION_STATUS" value1="Connected" />
+			</then>
+			<else>
+				<if>
+					<equals arg1="${addEnvironment}" arg2="true" />
+					<then>
+						<if>
+							<condition function="IsTextEqual#isPartialText" locator1="LCSPortletRegistration#ENVIRONMENT_SELECT" value1="${environmentName}" />
+							<then>
+								<execute function="Select" locator1="LCSPortletRegistration#ENVIRONMENT_SELECT" value1="${environmentName}" />
+							</then>
+							<else>
+								<execute macro="LCSPortlet#addEnvironment" />
+							</else>
+						</if>
+					</then>
+					<else>
+						<execute function="Select" locator1="LCSPortletRegistration#ENVIRONMENT_SELECT" value1="${environmentName}" />
+					</else>
+				</if>
+
+				<execute function="Type" locator1="LCSPortletRegistration#SERVER_NAME_FIELD" value1="${serverName}" />
+				<execute function="Type" locator1="LCSPortletRegistration#SERVER_LOCATION_FIELD" value1="${serverLocation}" />
+				<execute function="Type" locator1="LCSPortletRegistration#SERVER_DESCRIPTION_FIELD" value1="${serverDescription}" />
+
+				<execute function="Click" locator1="LCSPortletRegistration#REGISTER_BUTTON" />
+
+				<execute function="AssertTextEquals" locator1="LCSPortlet#CONNECTION_STATUS" value1="Connected" />
+			</else>
+		</if>
+	</command>
+</definition>

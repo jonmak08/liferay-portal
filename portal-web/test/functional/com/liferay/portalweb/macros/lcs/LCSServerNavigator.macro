@@ -1,0 +1,13 @@
+<definition>
+	<command name="gotoServer">
+		<execute function="Click" locator1="LCSPortalNavigation#NAVIGATION_MENU_DASHBOARD" />
+
+		<var name="key_environmentName" value="${environmentName}" />
+
+		<execute function="AssertClick" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT" value1="${environmentName}" />
+
+		<var name="key_serverName" value="${serverName}" />
+
+		<execute function="AssertClick" locator1="LCSPortalNavigation#NAVIGATION_MENU_SERVER" value1="${serverName}" />
+	</command>
+</definition>

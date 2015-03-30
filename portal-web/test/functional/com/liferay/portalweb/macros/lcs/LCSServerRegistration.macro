@@ -1,0 +1,25 @@
+<definition>
+	<command name="connectToLCSPortal">
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Liferay Connected Services" />
+		</execute>
+
+		<execute macro="LCSPortlet#authorizeLCS">
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userEmailPassword" value="${userEmailPassword}" />
+		</execute>
+
+		<execute macro="LCSPortlet#registerServer">
+			<var name="addEnvironment" value="${addEnvironment}" />
+			<var name="environmentName" value="${environmentName}" />
+			<var name="projectName" value="${projectName}" />
+			<var name="serverDescription" value="${serverDescription}" />
+			<var name="serverLocation" value="${serverLocation}" />
+			<var name="serverName" value="${serverName}" />
+		</execute>
+
+		<execute macro="LCSPortletNavigator#gotoProjectHome">
+			<var name="projectName" value="${projectName}" />
+		</execute>
+	</command>
+</definition>

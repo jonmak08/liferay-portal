@@ -1,0 +1,20 @@
+<definition>
+	<command name="gotoAddEnvironment">
+		<execute function="Click" locator1="LCSPortalNavigation#NAVIGATION_MENU_DASHBOARD" />
+		<execute function="Click" locator1="LCSPortalNavigation#NAVIGATION_MENU_ADD_ENVIRONMENT" />
+	</command>
+
+	<command name="gotoEnvironment">
+		<execute function="Click" locator1="LCSPortalNavigation#NAVIGATION_MENU_DASHBOARD" />
+
+		<var name="key_environmentName" value="${environmentName}" />
+
+		<execute function="AssertClick" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT" value1="${environmentName}" />
+	</command>
+
+	<command name="gotoEnvironmentDetails">
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment" />
+
+		<execute function="AssertClick" locator1="LCSEnvironment#ENVIRONMENT_DETAILS_BUTTON" value1="Environment Details" />
+	</command>
+</definition>

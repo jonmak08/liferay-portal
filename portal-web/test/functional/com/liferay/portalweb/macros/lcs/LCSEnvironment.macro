@@ -1,0 +1,20 @@
+<definition>
+	<command name="addEnvironment">
+		<execute function="Type" locator1="LCSEnvironmentAdd#NAME_FIELD" value1="${environmentName}" />
+		<execute function="Type" locator1="LCSEnvironmentAdd#DESCRIPTION_FIELD" value1="${environmentDescription}" />
+		<execute function="Type" locator1="LCSEnvironmentAdd#LOCATION_FIELD" value1="${environmentLocation}" />
+
+		<execute function="Click" locator1="LCSEnvironmentAdd#CREATE_BUTTON" />
+
+		<execute function="AssertTextEquals" locator1="LCSEnvironmentAdd#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+	</command>
+
+	<command name="viewEnvironmentDetails">
+		<var name="key_environmentName" value="${environmentName}" />
+
+		<execute function="AssertTextEquals" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT" value1="${environmentName}" />
+		<execute function="AssertTextEquals" locator1="LCSEnvironmentEnvironmentDetails#ENVIRONMENT_NAME" value1="Name ${environmentName}" />
+		<execute function="AssertTextEquals" locator1="LCSEnvironmentEnvironmentDetails#ENVIRONMENT_DESCRIPTION" value1="Description ${environmentDescription}" />
+		<execute function="AssertTextEquals" locator1="LCSEnvironmentEnvironmentDetails#ENVIRONMENT_LOCATION" value1="Location ${environmentLocation}" />
+	</command>
+</definition>

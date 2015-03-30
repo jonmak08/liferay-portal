@@ -1,0 +1,10 @@
+<definition>
+	<command name="addProject">
+		<execute function="Click" locator1="LCSProjects#NEW_PROJECT_CREATE_NEW_PROJECT_CHECKBOX" />
+
+		<execute function="Type" locator1="LCSProjects#NEW_PROJECT_PROJECT_NAME_FIELD" value1="${projectName}" />
+		<execute function="Check" locator1="LCSProjects#NEW_PROJECT_TAKE_TO_DASHBOARD_CHECKBOX" />
+
+		<execute function="Click" locator1="LCSProjects#SAVE_BUTTON" />
+	</command>
+</definition>
