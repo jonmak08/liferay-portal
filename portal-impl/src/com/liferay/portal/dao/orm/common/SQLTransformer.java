@@ -31,6 +31,7 @@ import java.util.regex.Pattern;
 /**
  * @author Brian Wing Shun Chan
  * @author Shuyang Zhou
+ * @author Sampsa Sohlman
  */
 public class SQLTransformer {
 
@@ -221,6 +222,9 @@ public class SQLTransformer {
 		}
 		else if (_vendorSybase) {
 			return matcher.replaceAll("CAST($1 AS NVARCHAR(5461))");
+		}
+		else if (_vendorMySQL) {
+			return matcher.replaceAll("CAST($1 AS CHAR)");
 		}
 		else {
 			return matcher.replaceAll("$1");
