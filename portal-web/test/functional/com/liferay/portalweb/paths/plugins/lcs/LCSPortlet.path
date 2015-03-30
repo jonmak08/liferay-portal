@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>LCSPortlet</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSPortlet</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>LCSPortlet</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>INFO_MESSAGE</td>
+	<td>//div[contains(@class,'lcs-alert')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CONNECTION_STATUS</td>
+	<td>//div[contains(@class,'lcs-connection-status')]/span[@class='lcs-connection-label']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PROJECT_HOME_LINK</td>
+	<td>//div[@class='lcs-portal-info']//dl[contains(.,'Project Home')]//a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_LINK</td>
+	<td>//div[@class='lcs-portal-info']//dl[contains(.,'Environment')]//a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_DASHBOARD_LINK</td>
+	<td>//div[@class='lcs-portal-info']//dl[contains(.,'Server Dashboard')]//a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>DISCONNECT_BUTTON</td>
+	<td>//button[contains(.,'Disconnect')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RESET_CREDENTIALS_BUTTON</td>
+	<td>//button[contains(.,'Reset Credentials')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

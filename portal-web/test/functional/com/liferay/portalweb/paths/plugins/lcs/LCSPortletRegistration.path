@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>LCSPortletRegistration</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSPortletRegistration</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>LCSPortletRegistration</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>INFO_MESSAGE</td>
+	<td>//div[contains(@class,'lcs-alert')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>AUTHORIZE_ACCESS_BUTTON</td>
+	<td>//button[contains(@id,'authorizeAccess')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PROJECT_SELECT</td>
+	<td>//select[contains(@id,'lcsportlet_corpProject')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_SELECT</td>
+	<td>//div[contains(@class,'lcs-environment-container')]//select[contains(@id,'lcsClusterEntryId')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_NAME</td>
+	<td>//div[contains(@class,'lcs-environment-container')]//div[contains(.,'${key_environmentName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ADD_ENVIRONMENT_BUTTON</td>
+	<td>//div[contains(@class,'lcs-environment-container')]//button[contains(.,'Add New Environment')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EDIT_NEW_ENVIRONMENT_BUTTON</td>
+	<td>//div[contains(@class,'lcs-environment-container')]//button[contains(.,'Edit New Environment')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_NAME_FIELD</td>
+	<td>//input[contains(@id,'lcsClusterNodeName')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_LOCATION_FIELD</td>
+	<td>//input[contains(@id,'lcsClusterNodeLocation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_DESCRIPTION_FIELD</td>
+	<td>//input[contains(@id,'lcsClusterNodeDescription')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BACK_BUTTON</td>
+	<td>//button[contains(.,'Back')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REGISTER_BUTTON</td>
+	<td>//button[contains(.,'Register')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

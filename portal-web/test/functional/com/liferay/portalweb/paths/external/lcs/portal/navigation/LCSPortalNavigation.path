@@ -1,17 +1,17 @@
 <html>
 <head>
-<title>LCSNavigation</title>
+<title>LCSPortalNavigation</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">LCSNavigation</td></tr>
+<tr><td rowspan="1" colspan="3">LCSPortalNavigation</td></tr>
 </thead>
 <tbody>
 <tr>
 	<td>PAGE_NAME</td>
 	<td></td>
-	<td>LCSNavigation</td>
+	<td>LCSPortalNavigation</td>
 </tr>
 <tr>
 	<td></td>

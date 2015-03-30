@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>LCSPortletAddNewEnvironment</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSPortletAddNewEnvironment</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>LCSPortletAddNewEnvironment</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_NAME_FIELD</td>
+	<td>//div[contains(@class,'lcs-cluster-entry-dialog-content')]//input[contains(@id,'lcsClusterEntryName')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_LOCATION_FIELD</td>
+	<td>//div[contains(@class,'lcs-cluster-entry-dialog-content')]//input[contains(@id,'lcsClusterEntryLocation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_DESCRIPTION_FIELD</td>
+	<td>//div[contains(@class,'lcs-cluster-entry-dialog-content')]//input[contains(@id,'lcsClusterEntryDescription')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SAVE_BUTTON</td>
+	<td>//div[contains(@class,'lcs-cluster-entry-dialog-content')]//button[contains(.,'Save')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

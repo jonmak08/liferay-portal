@@ -1,17 +1,17 @@
 <html>
 <head>
-<title>LCSServerServerdetailsEdit</title>
+<title>LCSServerServerDetailsEdit</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">LCSServerServerdetailsEdit</td></tr>
+<tr><td rowspan="1" colspan="3">LCSServerServerDetailsEdit</td></tr>
 </thead>
 <tbody>
 <tr>
 	<td>PAGE_NAME</td>
 	<td></td>
-	<td>LCSServerServerdetailsEdit</td>
+	<td>LCSServerServerDetailsEdit</td>
 </tr>
 <tr>
 	<td></td>

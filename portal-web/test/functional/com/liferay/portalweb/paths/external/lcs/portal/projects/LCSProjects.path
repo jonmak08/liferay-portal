@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>LCSProjects</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSProjects</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PAGE_NAME</td>
+	<td></td>
+	<td>LCSWelcomeProjects</td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>PROJECT_NAME</td>
+	<td>//div[@class='lcs-projects-list']//label[contains(.,'${key_projectName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PROJECT_NAME_CHECKBOX</td>
+	<td>//div[@class='lcs-projects-list']//label[contains(.,'${key_projectName}')]/input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MY_PROJECT_NAME_LINK</td>
+	<td>//div[contains(@class,'lcs-my-projects-container')]//div[contains(@class,'lcs-project-item') and contains(.,'${key_projectName}')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NEW_PROJECT_CREATE_NEW_PROJECT_CHECKBOX</td>
+	<td>//div[contains(@class,'lcs-new-projects-container')]//input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NEW_PROJECT_PROJECT_NAME_FIELD</td>
+	<td>//div[@class='lcs-new-project-details']//input[contains(@id,'newCorpProjectName')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NEW_PROJECT_TAKE_TO_DASHBOARD_CHECKBOX</td>
+	<td>//div[@class='lcs-new-project-details']//input[contains(@id,'newCorpProjectRedirectCheckbox')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SAVE_BUTTON</td>
+	<td>//button[contains(.,'Save')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
