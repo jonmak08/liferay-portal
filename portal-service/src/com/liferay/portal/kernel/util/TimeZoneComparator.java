@@ -15,6 +15,7 @@
 package com.liferay.portal.kernel.util;
 
 import java.util.Comparator;
+import java.util.Locale;
 import java.util.TimeZone;
 
 /**
@@ -23,6 +24,13 @@ import java.util.TimeZone;
 public class TimeZoneComparator implements Comparator<TimeZone> {
 
 	public TimeZoneComparator() {
+	}
+
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #TimeZoneComparator()}
+	 */
+	public TimeZoneComparator(Locale locale) {
+		_locale = locale;
 	}
 
 	@Override
@@ -43,5 +51,7 @@ public class TimeZoneComparator implements Comparator<TimeZone> {
 
 		return value;
 	}
+
+	private Locale _locale;
 
 }
