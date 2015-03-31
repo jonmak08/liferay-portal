@@ -258,7 +258,7 @@ if (translating) {
 					}
 					%>
 
-					<c:if test="<%= !user.isDefaultUser() %>">
+					<c:if test="<%= themeDisplay.isSignedIn() %>">
 						<aui:button name="saveButton" onClick='<%= renderResponse.getNamespace() + "setWorkflowAction(true);" %>' primary="<%= false %>" type="submit" value="<%= saveButtonLabel %>" />
 					</c:if>
 
