@@ -793,6 +793,7 @@
 
 		<execute function="SelectFrame" locator1="PGKnowledgebasedisplaySelectParentArticle#SELECT_PARENT_IFRAME" />
 		<execute function="Click" locator1="PGKnowledgebasedisplaySelectParentArticle#CHOOSE_BUTTON" value1="Choose" />
+
 		<execute function="SelectFrame" value1="relative=top" />
 
 		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplayMoveArticle#NEW_PARENT_TITLE_FIELD" value1="${kbArticleTitle}" />
