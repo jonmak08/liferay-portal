@@ -472,6 +472,8 @@ public class DDMStructureImpl extends DDMStructureBaseImpl {
 					getParentStructureId());
 
 			hasField = parentStructure.hasField(fieldName);
+
+			return hasField;
 		}
 
 		return hasField;
