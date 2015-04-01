@@ -1416,9 +1416,10 @@
 			<var name="viewType" value="Day" />
 		</execute>
 
+		<execute function="Pause" value1="1000" />
+
 		<var name="key_eventTitle" value="${eventTitle}" />
 
-		<execute function="Pause" value1="1000" />
 		<execute function="AssertElementPresent" locator1="PGCalendarDayView#SCHEDULER_EVENT_SPECIFIC" />
 		<execute function="AssertTextEquals" locator1="PGCalendarDayView#SCHEDULER_EVENT_SPECIFIC" value1="${eventTitle}" />
 	</command>
@@ -1428,9 +1429,10 @@
 			<var name="viewType" value="Day" />
 		</execute>
 
+		<execute function="Pause" value1="1000" />
+
 		<var name="key_eventTitle" value="${eventTitle}" />
 
-		<execute function="Pause" value1="1000" />
 		<execute function="AssertElementNotPresent" locator1="PGCalendarDayView#SCHEDULER_EVENT_SPECIFIC" />
 	</command>
 
