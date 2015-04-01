@@ -86,14 +86,14 @@ public class TCKStartupAction extends SimpleAction {
 		StrutsActionRegistryUtil.register(_PATH, new TCKStrutsAction());
 
 		FutureTask<Void> futureTask = new FutureTask<Void>(
-			new HandShakeServerCallable());
+			new HandshakeServerCallable());
 
-		Thread handShakeServerThread = new Thread(
-			futureTask, "Hand shake server thread");
+		Thread handshakeServerThread = new Thread(
+			futureTask, "Handshake server thread");
 
-		handShakeServerThread.setDaemon(true);
+		handshakeServerThread.setDaemon(true);
 
-		handShakeServerThread.start();
+		handshakeServerThread.start();
 	}
 
 	private static final String _FILTER_NAME = "TCK Auto Login Filter";
@@ -102,7 +102,7 @@ public class TCKStartupAction extends SimpleAction {
 
 	private static Log _log = LogFactoryUtil.getLog(TCKStartupAction.class);
 
-	private static class HandShakeServerCallable implements Callable<Void> {
+	private static class HandshakeServerCallable implements Callable<Void> {
 
 		@Override
 		public Void call() throws IOException {
