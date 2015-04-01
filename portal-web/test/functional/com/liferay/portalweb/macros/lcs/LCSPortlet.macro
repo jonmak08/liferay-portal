@@ -53,10 +53,16 @@
 					<equals arg1="${addEnvironment}" arg2="true" />
 					<then>
 						<if>
-							<condition function="IsTextEqual#isPartialText" locator1="LCSPortletRegistration#ENVIRONMENT_SELECT" value1="${environmentName}" />
+							<condition function="IsTextEqual" locator1="LCSPortletRegistration#ENVIRONMENT_INPUT_WRAPPER" value1="There are no environments created yet." />
 							<then>
-								<execute function="Select" locator1="LCSPortletRegistration#ENVIRONMENT_SELECT" value1="${environmentName}" />
+								<execute macro="LCSPortlet#addEnvironment" />
 							</then>
+							<elseif>
+								<condition function="IsTextEqual#isPartialText" locator1="LCSPortletRegistration#ENVIRONMENT_INPUT_WRAPPER" value1="${environmentName}" />
+								<then>
+									<execute function="Select" locator1="LCSPortletRegistration#ENVIRONMENT_SELECT" value1="${environmentName}" />
+								</then>
+							</elseif>
 							<else>
 								<execute macro="LCSPortlet#addEnvironment" />
 							</else>

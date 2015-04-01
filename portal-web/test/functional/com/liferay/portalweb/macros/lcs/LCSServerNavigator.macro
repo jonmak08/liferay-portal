@@ -1,13 +1,20 @@
 <definition>
 	<command name="gotoServer">
-		<execute function="Click" locator1="LCSPortalNavigation#NAVIGATION_MENU_DASHBOARD" />
-
-		<var name="key_environmentName" value="${environmentName}" />
-
-		<execute function="AssertClick" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT" value1="${environmentName}" />
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="${environmentName}" />
+		</execute>
 
 		<var name="key_serverName" value="${serverName}" />
 
-		<execute function="AssertClick" locator1="LCSPortalNavigation#NAVIGATION_MENU_SERVER" value1="${serverName}" />
+		<execute function="AssertClick#assertPartialTextClickAt" locator1="LCSPortalNavigation#NAVIGATION_MENU_SERVER" value1="${serverName}" />
+	</command>
+
+	<command name="gotoServerDetails">
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="${environmentName}" />
+			<var name="serverName" value="${serverName}" />
+		</execute>
+
+		<execute function="AssertClick" locator1="LCSServer#TOOLBAR_SERVER_DETAILS_BUTTON" value1="Server Details" />
 	</command>
 </definition>

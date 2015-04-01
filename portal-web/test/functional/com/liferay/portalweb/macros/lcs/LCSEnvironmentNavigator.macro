@@ -10,7 +10,7 @@
 
 		<var name="key_environmentName" value="${environmentName}" />
 
-		<execute function="AssertClick" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT" value1="${environmentName}" />
+		<execute function="AssertClick#assertPartialTextClickAt" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT" value1="${environmentName}" />
 	</command>
 
 	<command name="gotoEnvironmentDetails">

@@ -9,6 +9,23 @@
 		<execute function="AssertTextEquals" locator1="LCSEnvironmentAdd#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
+	<command name="tearDown">
+		<while>
+			<condition function="IsElementPresent" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT_GENERIC" />
+			<then>
+				<execute function="Click" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT_GENERIC" />
+
+				<execute function="AssertClick" locator1="LCSEnvironment#ENVIRONMENT_DETAILS_BUTTON" value1="Environment Details" />
+
+				<execute function="AssertClickNoError" locator1="LCSEnvironmentEnvironmentDetails#DELETE_BUTTON" value1="Delete" />
+
+				<execute function="Confirm" locator1="LCSEnvironmentEnvironmentDetails#CONFIRMATION" value1="Are you sure you want to delete this environment?" />
+
+				<execute function="Click" locator1="LCSPortalNavigation#NAVIGATION_MENU_DASHBOARD" />
+			</then>
+		</while>
+	</command>
+
 	<command name="viewEnvironmentDetails">
 		<var name="key_environmentName" value="${environmentName}" />
 
