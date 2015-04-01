@@ -222,15 +222,21 @@ work.dir=${basedir.unix}/tools/tck/work</echo>
 	</target>
 
 	<target name="run-tck-tomcat" depends="deploy-tck-wars">
-		<antcall target="clean-up-java-processes" inheritAll="false" />
+		<if>
+			<not>
+				<isset property="test.class.group" />
+			</not>
+			<then>
+				<antcall target="clean-up-java-processes" inheritAll="false" />
 
-		<antcall target="prepare-portal-ext-properties">
-			<param name="global.startup.events" value="true" />
-			<param name="portlet.preferences.strict.store" value="true" />
-			<param name="tck.url" value="true" />
-		</antcall>
+				<antcall target="prepare-portal-ext-properties">
+					<param name="global.startup.events" value="true" />
+					<param name="portlet.preferences.strict.store" value="true" />
+				</antcall>
 
-		<antcall target="rebuild-database" inheritAll="false" />
+				<antcall target="rebuild-database" inheritAll="false" />
+			</then>
+		</if>
 
 		<antcall target="start-app-server" />
 
@@ -280,7 +286,9 @@ work.dir=${basedir.unix}/tools/tck/work</echo>
 				<equals arg1="${test.packages}" arg2="" />
 			</not>
 			<then>
-				<antcall target="run-tck-tomcat" />
+				<antcall target="run-tck-tomcat">
+					<param name="test.class.group" value="true" />
+				</antcall>
 			</then>
 		</if>
 	</target>
