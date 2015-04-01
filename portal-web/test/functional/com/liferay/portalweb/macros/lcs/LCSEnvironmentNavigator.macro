@@ -1,6 +1,7 @@
 <definition>
 	<command name="gotoAddEnvironment">
 		<execute function="Click" locator1="LCSPortalNavigation#NAVIGATION_MENU_DASHBOARD" />
+
 		<execute function="Click" locator1="LCSPortalNavigation#NAVIGATION_MENU_ADD_ENVIRONMENT" />
 	</command>
 
