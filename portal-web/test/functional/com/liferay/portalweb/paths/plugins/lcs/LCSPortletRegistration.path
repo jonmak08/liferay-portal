@@ -34,6 +34,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ENVIRONMENT_INPUT_WRAPPER</td>
+	<td>//div[@class='lcs-environment-input-wrapper']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ENVIRONMENT_SELECT</td>
 	<td>//div[contains(@class,'lcs-environment-container')]//select[contains(@id,'lcsClusterEntryId')]</td>
 	<td></td>
