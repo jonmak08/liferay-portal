@@ -288,7 +288,7 @@ public class VerifyProperties extends VerifyProcess {
 		"message.boards.thread.locking.enabled", "portal.ctx",
 		"portal.security.manager.enable", "permissions.user.check.algorithm",
 		"scheduler.classes", "schema.run.minimal", "shard.available.names",
-		"velocity.engine.resource.manager",
+		"tck.url", "velocity.engine.resource.manager",
 		"velocity.engine.resource.manager.cache.enabled",
 		"webdav.storage.class", "webdav.storage.show.edit.url",
 		"webdav.storage.show.view.url", "webdav.storage.tokens", "xss.allow"
