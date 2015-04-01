@@ -33,30 +33,25 @@
 		<execute function="Click" locator1="PGKnowledgebasedisplay#SUGGESTION_TITLE" value1="${kbSuggestionBody}" />
 	</command>
 
-	<command name="gotoStatus">
+	<command name="gotoSuggestionStatusInProgress">
 		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
 
-		<if>
-			<equals arg1="${status}" arg2="New" />
-			<then>
-				<execute function="AssertClick" locator1="PGKnowledgebasedisplay#SUGGESTION_NAVIGATION_NEW" value1="New (${suggestionCount})" />
-			</then>
-			<elseif>
-				<equals arg1="${status}" arg2="In Progress" />
-				<then>
-					<execute function="AssertClick" locator1="PGKnowledgebasedisplay#SUGGESTION_NAVIGATION_IN_PROGRESS" value1="In Progress (${suggestionCount})" />
-				</then>
-			</elseif>
-			<elseif>
-				<equals arg1="${status}" arg2="Resolved" />
-				<then>
-					<execute function="AssertClick" locator1="PGKnowledgebasedisplay#SUGGESTION_NAVIGATION_RESOLVED" value1="Resolved (${suggestionCount})" />
-				</then>
-			</elseif>
-		</if>
+		<execute function="AssertClick" locator1="PGKnowledgebasedisplay#SUGGESTION_NAVIGATION_IN_PROGRESS" value1="In Progress (${suggestionCount})" />
 	</command>
 
-	<command name="moveToInProgressStatusPG">
+	<command name="gotoSuggestionStatusNew">
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGKnowledgebasedisplay#SUGGESTION_NAVIGATION_NEW" value1="New (${suggestionCount})" />
+	</command>
+
+	<command name="gotoSuggestionStatusResolved">
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+
+		<execute function="AssertClick" locator1="PGKnowledgebasedisplay#SUGGESTION_NAVIGATION_RESOLVED" value1="Resolved (${suggestionCount})" />
+	</command>
+
+	<command name="moveToInProgressStatus">
 		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
 		<var name="key_kbSuggestionBody" value="${kbSuggestionBody}" />
 
@@ -64,7 +59,7 @@
 		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#SUCCESS_MESSAGE" value1="Suggestion status updated successfully." />
 	</command>
 
-	<command name="moveToNewStatusPG">
+	<command name="moveToNewStatus">
 		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
 		<var name="key_kbSuggestionBody" value="${kbSuggestionBody}" />
 
@@ -72,38 +67,12 @@
 		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#SUCCESS_MESSAGE" value1="Suggestion status updated successfully." />
 	</command>
 
-	<command name="moveToResolvedStatusPG">
+	<command name="moveToResolvedStatus">
 		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
 		<var name="key_kbSuggestionBody" value="${kbSuggestionBody}" />
 
 		<execute function="AssertClick" locator1="PGKnowledgebasedisplay#SUGGESTION_RESOLVE_BUTTON" value1="Resolve" />
 		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#SUCCESS_MESSAGE" value1="Suggestion status updated successfully." />
-	</command>
-
-	<command name="moveToStatusCP">
-		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
-
-		<if>
-			<equals arg1="${status}" arg2="New" />
-			<then>
-				<execute function="AssertClick" locator1="CPKnowledgebasedisplaySuggestionsInprogress#MOVE_TO_NEW_BUTTON" value1="Move to New" />
-				<execute function="AssertTextEquals" locator1="CPKnowledgebasedisplaySuggestionsInprogress#SUCCESS_MESSAGE" value1="Suggestion status updated successfully." />
-			</then>
-			<elseif>
-				<equals arg1="${status}" arg2="In Progress" />
-				<then>
-					<execute function="AssertClick" locator1="CPKnowledgebasedisplaySuggestionsNew#MOVE_TO_IN_PROGRESS_BUTTON" value1="Move to in Progress" />
-					<execute function="AssertTextEquals" locator1="CPKnowledgebasedisplaySuggestionsNew#SUCCESS_MESSAGE" value1="Suggestion status updated successfully." />
-				</then>
-			</elseif>
-			<elseif>
-				<equals arg1="${status}" arg2="Resolved" />
-				<then>
-					<execute function="AssertClick" locator1="CPKnowledgebasedisplaySuggestionsInprogress#RESOLVE_BUTTON" value1="Resolve" />
-					<execute function="AssertTextEquals" locator1="CPKnowledgebasedisplaySuggestionsInprogress#SUCCESS_MESSAGE" value1="Suggestion status updated successfully." />
-				</then>
-			</elseif>
-		</if>
 	</command>
 
 	<command name="viewCP">
@@ -115,25 +84,16 @@
 		<execute function="AssertTextEquals" locator1="CPKnowledgebasedisplaySuggestionsNew#SUGGESTION_STATUS" value1="Status: ${status}" />
 	</command>
 
-	<command name="viewDefault">
-		<if>
-			<equals arg1="${status}" arg2="New" />
-			<then>
-				<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#INFO_MESSAGE" value1="No new suggestion was found." />
-			</then>
-			<elseif>
-				<equals arg1="${status}" arg2="In Progress" />
-				<then>
-					<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#INFO_MESSAGE" value1="No in progress suggestion was found." />
-				</then>
-			</elseif>
-			<elseif>
-				<equals arg1="${status}" arg2="Resolved" />
-				<then>
-					<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#INFO_MESSAGE" value1="No completed suggestion was found." />
-				</then>
-			</elseif>
-		</if>
+	<command name="viewDefaultInProgress">
+		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#INFO_MESSAGE" value1="No in progress suggestion was found." />
+	</command>
+
+	<command name="viewDefaultNew">
+		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#INFO_MESSAGE" value1="No new suggestion was found." />
+	</command>
+
+	<command name="viewDefaultResolved">
+		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#INFO_MESSAGE" value1="No completed suggestion was found." />
 	</command>
 
 	<command name="viewNoDuplicatePG">
@@ -146,11 +106,49 @@
 		<execute function="AssertElementNotPresent" locator1="PGKnowledgebasedisplay#SUGGESTION_CONTENT_DUPLICATE" value1="${kbSuggestionBody}" />
 	</command>
 
+	<command name="viewNoSuggestionsPG">
+		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#ARTICLE_DO_YOU_HAVE_ANY_SUGGESTIONS_LINK" value1="Do you have any suggestions?" />
+		<execute function="AssertElementNotPresent" locator1="PGKnowledgebasedisplay#ARTICLE_THERE_ARE_SUGGESTIONS_LINK" />
+	</command>
+
 	<command name="viewPG">
 		<var name="key_kbSuggestionBody" value="${kbSuggestionBody}" />
 
 		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#SUGGESTION_USER_NAME" value1="${userName}" />
 		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#SUGGESTION_CONTENT" value1="${kbSuggestionBody}" />
 		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#SUGGESTION_STATUS" value1="Status: ${status}" />
+	</command>
+
+	<command name="viewSubmittedSuggestionCountNoPermissionPG">
+		<var name="kbSuggestionCount" value="${kbSuggestionCount}" />
+
+		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#ARTICLE_DO_YOU_HAVE_ANY_SUGGESTIONS_LINK" value1="Do you have any suggestions?" />
+		<execute function="AssertElementNotPresent" locator1="PGKnowledgebasedisplay#SUGGESTION_NAVIGATION_BAR" />
+
+		<if>
+			<equals arg1="${kbSuggestionCount}" arg2="1" />
+			<then>
+				<execute function="AssertTextEquals#assertPartialText" locator1="PGKnowledgebasedisplay#ARTICLE_THERE_ARE_SUGGESTIONS_LINK" value1="You sent one suggestion for this article." />
+			</then>
+			<else>
+				<execute function="AssertTextEquals#assertPartialText" locator1="PGKnowledgebasedisplay#ARTICLE_THERE_ARE_SUGGESTIONS_LINK" value1="You sent ${kbSuggestionCount} suggestions for this article." />
+			</else>
+		</if>
+	</command>
+
+	<command name="viewSuggestionCountPG">
+		<var name="kbSuggestionCount" value="${kbSuggestionCount}" />
+
+		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#ARTICLE_DO_YOU_HAVE_ANY_SUGGESTIONS_LINK" value1="Do you have any suggestions?" />
+
+		<if>
+			<equals arg1="${kbSuggestionCount}" arg2="1" />
+			<then>
+				<execute function="AssertTextEquals#assertPartialText" locator1="PGKnowledgebasedisplay#ARTICLE_THERE_ARE_SUGGESTIONS_LINK" value1="There is one suggestion." />
+			</then>
+			<else>
+				<execute function="AssertTextEquals#assertPartialText" locator1="PGKnowledgebasedisplay#ARTICLE_THERE_ARE_SUGGESTIONS_LINK" value1="There are ${kbSuggestionCount} suggestions." />
+			</else>
+		</if>
 	</command>
 </definition>
