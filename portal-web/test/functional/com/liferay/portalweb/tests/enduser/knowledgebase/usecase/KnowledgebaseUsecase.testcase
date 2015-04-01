@@ -1703,18 +1703,18 @@
 
 		<execute macro="KBArticle#gotoSuggestionsNavigationCP" />
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
-			<var name="status" value="New" />
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusNew">
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 			<var name="suggestionCount" value="1" />
 		</execute>
 
-		<execute macro="KBArticleSuggestion#moveToStatusCP">
+		<execute macro="KBArticleSuggestion#moveToInProgressStatus">
 			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
-			<var name="status" value="In Progress" />
+			<var name="kbSuggestionBody" value="Knowledge Base Article Suggestion" />
 		</execute>
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
-			<var name="status" value="In Progress" />
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusInProgress">
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 			<var name="suggestionCount" value="1" />
 		</execute>
 
@@ -1727,13 +1727,13 @@
 
 		<execute macro="KBArticle#goBackCP" />
 
-		<execute macro="KBArticleSuggestion#moveToStatusCP">
+		<execute macro="KBArticleSuggestion#moveToResolvedStatus">
 			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
-			<var name="status" value="Resolved" />
+			<var name="kbSuggestionBody" value="Knowledge Base Article Suggestion" />
 		</execute>
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
-			<var name="status" value="Resolved" />
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusResolved">
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 			<var name="suggestionCount" value="1" />
 		</execute>
 
@@ -1747,32 +1747,26 @@
 
 		<execute macro="KBArticle#gotoSuggestionsNavigationCP" />
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
-			<var name="status" value="New" />
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusNew">
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 			<var name="suggestionCount" value="0" />
 		</execute>
 
-		<execute macro="KBArticleSuggestion#viewDefault">
-			<var name="status" value="New" />
-		</execute>
+		<execute macro="KBArticleSuggestion#viewDefaultNew" />
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
-			<var name="status" value="In Progress" />
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusInProgress">
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 			<var name="suggestionCount" value="0" />
 		</execute>
 
-		<execute macro="KBArticleSuggestion#viewDefault">
-			<var name="status" value="In Progress" />
-		</execute>
+		<execute macro="KBArticleSuggestion#viewDefaultInProgress" />
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
-			<var name="status" value="Resolved" />
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusResolved">
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 			<var name="suggestionCount" value="0" />
 		</execute>
 
-		<execute macro="KBArticleSuggestion#viewDefault">
-			<var name="status" value="Resolved" />
-		</execute>
+		<execute macro="KBArticleSuggestion#viewDefaultResolved" />
 	</command>
 
 	<command name="ViewKBArticleSuggestionsWorkflowNotificationInGmail" priority="4">
@@ -1907,35 +1901,32 @@
 
 		<execute macro="KBArticle#gotoSuggestionsNavigationPG" />
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
-			<var name="kbSuggestionBody" value="${kbSuggestionBody}" />
-			<var name="status" value="New" />
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusNew">
+			<var name="kbArticleTitle" value="${kbArticleTitle}" />
 			<var name="suggestionCount" value="1" />
 		</execute>
 
-		<execute macro="KBArticleSuggestion#moveToInProgressStatusPG">
+		<execute macro="KBArticleSuggestion#moveToInProgressStatus">
 			<var name="kbArticleTitle" value="${kbArticleTitle}" />
 			<var name="kbSuggestionBody" value="${kbSuggestionBody}" />
 		</execute>
 
 		<execute macro="KBArticle#gotoSuggestionsNavigationPG" />
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
-			<var name="kbSuggestionBody" value="${kbSuggestionBody}" />
-			<var name="status" value="In Progress" />
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusInProgress">
+			<var name="kbArticleTitle" value="${kbArticleTitle}" />
 			<var name="suggestionCount" value="1" />
 		</execute>
 
-		<execute macro="KBArticleSuggestion#moveToResolvedStatusPG">
+		<execute macro="KBArticleSuggestion#moveToResolvedStatus">
 			<var name="kbArticleTitle" value="${kbArticleTitle}" />
 			<var name="kbSuggestionBody" value="${kbSuggestionBody}" />
 		</execute>
 
 		<execute macro="KBArticle#gotoSuggestionsNavigationPG" />
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
-			<var name="kbSuggestionBody" value="${kbSuggestionBody}" />
-			<var name="status" value="Resolved" />
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusResolved">
+			<var name="kbArticleTitle" value="${kbArticleTitle}" />
 			<var name="suggestionCount" value="1" />
 		</execute>
 
@@ -2218,6 +2209,220 @@
 		<execute macro="KBArticle#viewViaKBDisplayPG">
 			<var name="kbArticleContent" value="Knowledge Base Article Content 2" />
 			<var name="kbArticleTitle" value="Knowledge Base Article Title 2" />
+		</execute>
+	</command>
+
+	<command name="ViewSuggestionsWithPermissions" priority="3">
+		<execute macro="Page#addPG">
+			<var name="pageName" value="Knowledge Base Display Page" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Knowledge Base Display Page" />
+		</execute>
+
+		<execute macro="Portlet#addPG">
+			<var name="portletName" value="Knowledge Base Display" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Users and Organizations" />
+		</execute>
+
+		<execute macro="User#addCP">
+			<var name="userEmailAddress" value="poweruser@liferay.com" />
+			<var name="userFirstName" value="Power" />
+			<var name="userLastName" value="User" />
+			<var name="userScreenName" value="poweruser" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Users and Organizations" />
+		</execute>
+
+		<execute macro="User#assignRegularRoleCP">
+			<var name="roleName" value="Power User" />
+			<var name="userScreenName" value="poweruser" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Users and Organizations" />
+		</execute>
+
+		<execute macro="User#assignRegularRoleCP">
+			<var name="roleName" value="Administrator" />
+			<var name="userScreenName" value="poweruser" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Users and Organizations" />
+		</execute>
+
+		<execute macro="User#editPasswordCP">
+			<var name="password" value="password" />
+			<var name="userEmailAddress" value="poweruser@liferay.com" />
+			<var name="userScreenName" value="poweruser" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Users and Organizations" />
+		</execute>
+
+		<execute macro="User#addCP">
+			<var name="userEmailAddress" value="user1@liferay.com" />
+			<var name="userFirstName" value="userfn1" />
+			<var name="userLastName" value="userln1" />
+			<var name="userScreenName" value="usersn1" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Users and Organizations" />
+		</execute>
+
+		<execute macro="User#editPasswordCP">
+			<var name="password" value="password" />
+			<var name="userEmailAddress" value="user1@liferay.com" />
+			<var name="userScreenName" value="usersn1" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Users and Organizations" />
+		</execute>
+
+		<execute macro="User#addCP">
+			<var name="userEmailAddress" value="user2@liferay.com" />
+			<var name="userFirstName" value="userfn2" />
+			<var name="userLastName" value="userln2" />
+			<var name="userScreenName" value="usersn2" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Users and Organizations" />
+		</execute>
+
+		<execute macro="User#editPasswordCP">
+			<var name="password" value="password" />
+			<var name="userEmailAddress" value="user2@liferay.com" />
+			<var name="userScreenName" value="usersn2" />
+		</execute>
+
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Knowledge Base" />
+		</execute>
+
+		<execute macro="KBArticle#addCP">
+			<var name="kbArticleContent" value="Knowledge Base Article Content" />
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Knowledge Base Display Page" />
+		</execute>
+
+		<execute macro="KBArticle#viewPGViaKBDisplay">
+			<var name="kbArticleContent" value="Knowledge Base Article Content" />
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+		</execute>
+
+		<execute macro="KBArticleSuggestion#addPG">
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+			<var name="kbSuggestionBody" value="Knowledge Base Article Suggestion" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Knowledge Base Display Page" />
+		</execute>
+
+		<execute macro="KBArticle#gotoSuggestionsNavigationPG" />
+
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusNew">
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+			<var name="suggestionCount" value="1" />
+		</execute>
+
+		<execute macro="KBArticleSuggestion#viewPG">
+			<var name="kbSuggestionBody" value="Knowledge Base Article Suggestion" />
+			<var name="status" value="New" />
+			<var name="userName" value="Test Test" />
+		</execute>
+
+		<execute macro="User#logoutPG" />
+
+		<execute macro="User#loginUserPG">
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="user1@liferay.com" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Knowledge Base Display Page" />
+		</execute>
+
+		<execute macro="KBArticle#viewPGViaKBDisplay">
+			<var name="kbArticleContent" value="Knowledge Base Article Content" />
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+		</execute>
+
+		<execute macro="KBArticleSuggestion#viewNoSuggestionsPG" />
+
+		<execute macro="KBArticleSuggestion#addPG">
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+			<var name="kbSuggestionBody" value="User 1 Knowledge Base Article Suggestion 1" />
+		</execute>
+
+		<execute macro="KBArticleSuggestion#addPG">
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+			<var name="kbSuggestionBody" value="User 1 Knowledge Base Article Suggestion 2" />
+		</execute>
+
+		<execute macro="KBArticleSuggestion#viewSubmittedSuggestionCountNoPermissionPG">
+			<var name="kbSuggestionCount" value="2" />
+		</execute>
+
+		<execute macro="User#logoutPG" />
+
+		<execute macro="User#loginUserPG">
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="user2@liferay.com" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Knowledge Base Display Page" />
+		</execute>
+
+		<execute macro="KBArticle#viewPGViaKBDisplay">
+			<var name="kbArticleContent" value="Knowledge Base Article Content" />
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+		</execute>
+
+		<execute macro="KBArticleSuggestion#viewNoSuggestionsPG" />
+
+		<execute macro="KBArticleSuggestion#addPG">
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+			<var name="kbSuggestionBody" value="User 2 Knowledge Base Article Suggestion 1" />
+		</execute>
+
+		<execute macro="KBArticleSuggestion#viewSubmittedSuggestionCountNoPermissionPG">
+			<var name="kbSuggestionCount" value="1" />
+		</execute>
+
+		<execute macro="User#logoutPG" />
+
+		<execute macro="User#loginUserPG">
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="poweruser@liferay.com" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Knowledge Base Display Page" />
+		</execute>
+
+		<execute macro="KBArticle#viewPGViaKBDisplay">
+			<var name="kbArticleContent" value="Knowledge Base Article Content" />
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+		</execute>
+
+		<execute macro="KBArticleSuggestion#viewSuggestionCountPG">
+			<var name="kbSuggestionCount" value="4" />
 		</execute>
 	</command>
 

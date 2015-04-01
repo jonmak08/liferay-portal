@@ -76,7 +76,8 @@
 
 		<execute macro="KBArticle#gotoSuggestionsNavigationPG" />
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusNew">
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 			<var name="suggestionCount" value="1" />
 		</execute>
 
@@ -587,35 +588,32 @@
 
 		<execute macro="KBArticle#gotoSuggestionsNavigationPG" />
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
-			<var name="kbSuggestionBody" value="Knowledge Base Article1 Suggestion" />
-			<var name="status" value="New" />
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusNew">
+			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
 			<var name="suggestionCount" value="1" />
 		</execute>
 
-		<execute macro="KBArticleSuggestion#moveToInProgressStatusPG">
+		<execute macro="KBArticleSuggestion#moveToInProgressStatus">
 			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
 			<var name="kbSuggestionBody" value="Knowledge Base Article1 Suggestion" />
 		</execute>
 
 		<execute macro="KBArticle#gotoSuggestionsNavigationPG" />
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
-			<var name="kbSuggestionBody" value="Knowledge Base Article1 Suggestion" />
-			<var name="status" value="In Progress" />
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusInProgress">
+			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
 			<var name="suggestionCount" value="1" />
 		</execute>
 
-		<execute macro="KBArticleSuggestion#moveToResolvedStatusPG">
+		<execute macro="KBArticleSuggestion#moveToResolvedStatus">
 			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
 			<var name="kbSuggestionBody" value="Knowledge Base Article1 Suggestion" />
 		</execute>
 
 		<execute macro="KBArticle#gotoSuggestionsNavigationPG" />
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
-			<var name="kbSuggestionBody" value="Knowledge Base Article1 Suggestion" />
-			<var name="status" value="Resolved" />
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusResolved">
+			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
 			<var name="suggestionCount" value="1" />
 		</execute>
 
@@ -625,26 +623,22 @@
 
 		<execute macro="KBArticle#gotoSuggestionsNavigationPG" />
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
-			<var name="status" value="New" />
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusNew">
+			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
 			<var name="suggestionCount" value="0" />
 		</execute>
 
-		<execute macro="KBArticleSuggestion#viewDefault">
-			<var name="status" value="New" />
-		</execute>
+		<execute macro="KBArticleSuggestion#viewDefaultNew" />
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
-			<var name="status" value="In Progress" />
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusInProgress">
+			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
 			<var name="suggestionCount" value="0" />
 		</execute>
 
-		<execute macro="KBArticleSuggestion#viewDefault">
-			<var name="status" value="In Progress" />
-		</execute>
+		<execute macro="KBArticleSuggestion#viewDefaultInProgress" />
 
-		<execute macro="KBArticleSuggestion#gotoStatus">
-			<var name="status" value="Resolved" />
+		<execute macro="KBArticleSuggestion#gotoSuggestionStatusResolved">
+			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
 			<var name="suggestionCount" value="1" />
 		</execute>
 
