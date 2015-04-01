@@ -1018,6 +1018,17 @@ public class LiferaySeleniumHelper {
 			}
 		}
 
+		// LPS-54680
+
+		if (line.matches(
+				".*The web application \\[\\] appears to have started a " +
+					"thread named.*")) {
+
+			if (line.contains("[/reports-portlet]")) {
+				return true;
+			}
+		}
+
 		// WCM-202
 
 		if (line.contains("No score point assigners available")) {
