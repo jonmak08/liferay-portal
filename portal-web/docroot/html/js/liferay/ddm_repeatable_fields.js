@@ -303,6 +303,16 @@ AUI.add(
 								originalFieldNode: originalFieldNode
 							}
 						);
+
+						instance.getFieldsList(null, newFieldNode).each(
+							function(item, index, collection) {
+								var fieldName = item.getData('fieldName');
+
+								var originalChildFieldNode = instance.getFieldsList(fieldName, originalFieldNode).first();
+
+								instance._addFieldValidation(item, originalChildFieldNode);
+							}
+						);
 					},
 
 					_afterFormRegistered: function(event) {
@@ -342,6 +352,12 @@ AUI.add(
 
 					_removeFieldValidation: function(fieldNode) {
 						var instance = this;
+
+						instance.getFieldsList(null, fieldNode).each(
+							function(item, index, collection) {
+								instance._removeFieldValidation(item);
+							}
+						);
 
 						instance.fire(
 							'remove',
