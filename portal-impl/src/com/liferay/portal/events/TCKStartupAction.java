@@ -126,11 +126,15 @@ public class TCKStartupAction extends SimpleAction {
 				serverSocket.setSoTimeout(100);
 
 				while (!Thread.interrupted()) {
-					Socket socket = serverSocket.accept();
+					Socket socket = null;
 
-					OutputStream outputStream = socket.getOutputStream();
+					OutputStream outputStream = null;
 
 					try {
+						socket = serverSocket.accept();
+
+						outputStream = socket.getOutputStream();
+
 						outputStream.write(
 							"Portlet TCK Bridge is ready".getBytes(
 								Charset.defaultCharset()));
@@ -138,9 +142,13 @@ public class TCKStartupAction extends SimpleAction {
 					catch (SocketTimeoutException ste) {
 					}
 					finally {
-						outputStream.close();
+						if (outputStream != null) {
+							outputStream.close();
+						}
 
-						socket.close();
+						if (socket != null) {
+							socket.close();
+						}
 					}
 				}
 			}
