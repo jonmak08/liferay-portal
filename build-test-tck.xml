@@ -59,6 +59,8 @@
 
 		<antcall target="prepare-tck" />
 
+		<var name="tck.servlet.context.names" value="" />
+
 		<for list="${test.directories}" param="test.directory">
 			<sequential>
 				<for param="tck.war.file">
@@ -70,6 +72,20 @@
 					</path>
 
 					<sequential>
+						<local name="tck.servlet.context.name" />
+
+						<basename property="tck.servlet.context.name" file="@{tck.war.file}" suffix=".war" />
+
+						<if>
+							<equals arg1="${tck.servlet.context.names}" arg2="" />
+							<then>
+								<var name="tck.servlet.context.names" value="${tck.servlet.context.name}" />
+							</then>
+							<else>
+								<var name="tck.servlet.context.names" value="${tck.servlet.context.names},${tck.servlet.context.name}" />
+							</else>
+						</if>
+
 						<update-tck-war-version
 							tck.war.file="@{tck.war.file}"
 						/>
@@ -232,6 +248,8 @@ work.dir=${basedir.unix}/tools/tck/work</echo>
 				<antcall target="prepare-portal-ext-properties">
 					<param name="global.startup.events" value="true" />
 					<param name="portlet.preferences.strict.store" value="true" />
+					<param name="tck.handshake.server.port" value="${tck.handshake.server.port}" />
+					<param name="tck.servlet.context.names" value="${tck.servlet.context.names}" />
 				</antcall>
 
 				<antcall target="rebuild-database" inheritAll="false" />
@@ -239,6 +257,12 @@ work.dir=${basedir.unix}/tools/tck/work</echo>
 		</if>
 
 		<antcall target="start-app-server" />
+
+		<waitfor checkevery="100" checkeveryunit="millisecond" maxwait="5" maxwaitunit="minute" timeoutproperty="tck.wars.deployment.timeout">
+			<socket server="localhost" port="${tck.handshake.server.port}" />
+		</waitfor>
+
+		<fail message="Timeout on waiting TCK wars deployment!" if="tck.wars.deployment.timeout" />
 
 		<condition property="tsant.file.suffix.bat" value=".bat" else="">
 			<contains string="${os.name}" substring="Windows" casesensitive="false" />
