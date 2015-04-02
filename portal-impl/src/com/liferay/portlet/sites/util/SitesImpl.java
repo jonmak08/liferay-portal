@@ -1068,21 +1068,20 @@ public class SitesImpl implements Sites {
 			"groupOrganization", new Long(group.getGroupId()));
 		organizationParams.put(
 			"organizationsGroups", new Long(group.getGroupId()));
+		organizationParams.put("usersOrgs", new Long(user.getUserId()));
 
-		List<Organization> organizationsGroups =
+		List<Organization> organizations =
 			OrganizationLocalServiceUtil.search(
 				companyId, OrganizationConstants.ANY_PARENT_ORGANIZATION_ID,
 				null, null, null, null, organizationParams, QueryUtil.ALL_POS,
 				QueryUtil.ALL_POS);
 
-		for (Organization organization : organizationsGroups) {
-			for (long userOrganizationId : user.getOrganizationIds()) {
-				if (userOrganizationId == organization.getOrganizationId()) {
-					organizationNames.add(organization.getName());
+		if (!organizations.isEmpty()) {
+			organizationUser = true;
+		}
 
-					organizationUser = true;
-				}
-			}
+		for (Organization organization : organizations) {
+			organizationNames.add(organization.getName());
 		}
 
 		return organizationUser;
@@ -1128,19 +1127,18 @@ public class SitesImpl implements Sites {
 			new LinkedHashMap<String, Object>();
 
 		userGroupParams.put("userGroupsGroups", new Long(group.getGroupId()));
+		userGroupParams.put("userGroupsUsers", new Long(user.getUserId()));
 
-		List<UserGroup> userGroupsGroups = UserGroupLocalServiceUtil.search(
+		List<UserGroup> userGroups = UserGroupLocalServiceUtil.search(
 			companyId, null, userGroupParams, QueryUtil.ALL_POS,
 			QueryUtil.ALL_POS, (OrderByComparator)null);
 
-		for (UserGroup userGroup : userGroupsGroups) {
-			for (long userGroupId : user.getUserGroupIds()) {
-				if (userGroupId == userGroup.getUserGroupId()) {
-					userGroupNames.add(userGroup.getName());
+		if (!userGroups.isEmpty()) {
+			userGroupUser = true;
+		}
 
-					userGroupUser = true;
-				}
-			}
+		for (UserGroup userGroup : userGroups) {
+			userGroupNames.add(userGroup.getName());
 		}
 
 		return userGroupUser;
