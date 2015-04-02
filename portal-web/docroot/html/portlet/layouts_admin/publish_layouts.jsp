@@ -473,7 +473,6 @@ else {
 		{
 			commentsNode: '#<%= PortletDataHandlerKeys.COMMENTS %>Checkbox',
 			deleteMissingLayoutsNode: '#<%= PortletDataHandlerKeys.DELETE_MISSING_LAYOUTS %>Checkbox',
-			deletePortletDataNode: '#<%= PortletDataHandlerKeys.DELETE_PORTLET_DATA %>Checkbox',
 			deletionsNode: '#<%= PortletDataHandlerKeys.DELETIONS %>Checkbox',
 			form: document.<portlet:namespace />exportPagesFm,
 			incompleteProcessMessageNode: '#<portlet:namespace />incompleteProcessMessage',
@@ -490,7 +489,6 @@ else {
 			rangeLastPublishNode: '#rangeLastPublish',
 			ratingsNode: '#<%= PortletDataHandlerKeys.RATINGS %>Checkbox',
 			remoteAddressNode: '#<portlet:namespace />remoteAddress',
-			remoteDeletePortletDataNode: '#remoteDeletePortletDataCheckbox',
 			remotePortNode: '#<portlet:namespace />remotePort',
 			remotePathContextNode: '#<portlet:namespace />remotePathContext',
 			remoteGroupIdNode: '#<portlet:namespace />remoteGroupId',

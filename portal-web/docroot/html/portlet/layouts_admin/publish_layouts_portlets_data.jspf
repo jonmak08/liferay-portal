@@ -31,36 +31,6 @@ ManifestSummary manifestSummary = portletDataContext.getManifestSummary();
 
 		<aui:input checked="<%= true %>" helpMessage="all-content-publish-help" id="allContent" label="all-content" name="<%= PortletDataHandlerKeys.PORTLET_DATA_ALL %>" type="radio" value="<%= true %>" />
 
-		<c:if test="<%= selGroup.isStagingGroup() && localPublishing %>">
-			<div class="hide" id="<portlet:namespace />globalContent">
-				<aui:fieldset cssClass="portlet-data-section" label="all-content">
-					<aui:input label="delete-portlet-data-before-importing" name="<%= PortletDataHandlerKeys.DELETE_PORTLET_DATA %>" type="checkbox" />
-
-					<ul class="unstyled" id="<portlet:namespace />showDeleteContentWarning">
-						<li>
-							<div class="alert alert-block">
-								<liferay-ui:message key="delete-content-before-importing-warning" />
-
-								<liferay-ui:message key="delete-content-before-importing-suggestion" />
-							</div>
-						</li>
-					</ul>
-
-					<aui:script>
-						Liferay.Util.toggleBoxes('<portlet:namespace /><%= PortletDataHandlerKeys.DELETE_PORTLET_DATA %>Checkbox', '<portlet:namespace />showDeleteContentWarning');
-					</aui:script>
-				</aui:fieldset>
-			</div>
-
-			<ul class="hide" id="<portlet:namespace />showChangeGlobalContent">
-				<li>
-					<span class="selected-labels" id="<portlet:namespace />selectedGlobalContent"></span>
-
-					<aui:a cssClass="modify-link" href="javascript:;" id="globalContentLink" label="change" method="get" />
-				</li>
-			</ul>
-		</c:if>
-
 		<aui:input helpMessage="choose-content-publish-help" id="chooseContent" label="choose-content" name="<%= PortletDataHandlerKeys.PORTLET_DATA_ALL %>" type="radio" value="<%= false %>" />
 
 		<ul class="hide select-options" id="<portlet:namespace />selectContents">
@@ -361,19 +331,6 @@ ManifestSummary manifestSummary = portletDataContext.getManifestSummary();
 								<aui:input label="comments" name="<%= PortletDataHandlerKeys.COMMENTS %>" type="checkbox" value="<%= true %>" />
 
 								<aui:input label="ratings" name="<%= PortletDataHandlerKeys.RATINGS %>" type="checkbox" value="<%= true %>" />
-
-								<%
-								long modelDeletionCount = manifestSummary.getModelDeletionCount();
-								%>
-
-								<c:if test="<%= modelDeletionCount != 0 %>">
-
-									<%
-									String deletionsLabel = LanguageUtil.get(pageContext, "deletions") + (modelDeletionCount > 0 ? " (" + modelDeletionCount + ")" : StringPool.BLANK);
-									%>
-
-									<aui:input data-name="<%= deletionsLabel %>" helpMessage="deletions-help" label="<%= deletionsLabel %>" name="<%= PortletDataHandlerKeys.DELETIONS %>" type="checkbox" value="<%= true %>" />
-								</c:if>
 							</li>
 						</ul>
 					</div>

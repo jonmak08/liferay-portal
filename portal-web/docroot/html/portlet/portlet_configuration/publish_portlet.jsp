@@ -340,24 +340,6 @@ portletURL.setParameter("tabs3", "current-and-previous");
 																	<li class="tree-item">
 																		<aui:fieldset cssClass="portlet-type-data-section" label="content">
 																			<aui:field-wrapper label='<%= ArrayUtil.isNotEmpty(metadataControls) ? "content" : StringPool.BLANK %>'>
-																				<ul class="lfr-tree unstyled">
-																					<li class="tree-item">
-																						<aui:input data-name='<%= LanguageUtil.get(locale, "delete-portlet-data") %>' label="delete-portlet-data-before-importing" name="<%= PortletDataHandlerKeys.DELETE_PORTLET_DATA %>" type="checkbox" />
-
-																						<div id="<portlet:namespace />showDeleteContentWarning">
-																							<div class="alert alert-block">
-																								<liferay-ui:message key="delete-content-before-importing-warning" />
-
-																								<liferay-ui:message key="delete-content-before-importing-suggestion" />
-																							</div>
-																						</div>
-																					</li>
-																				</ul>
-
-																				<aui:script>
-																					Liferay.Util.toggleBoxes('<portlet:namespace /><%= PortletDataHandlerKeys.DELETE_PORTLET_DATA %>Checkbox', '<portlet:namespace />showDeleteContentWarning');
-																				</aui:script>
-
 																				<c:if test="<%= exportControls != null %>">
 
 																					<%
@@ -439,15 +421,6 @@ portletURL.setParameter("tabs3", "current-and-previous");
 																	<aui:input label="comments" name="<%= PortletDataHandlerKeys.COMMENTS %>" type="checkbox" value="<%= true %>" />
 
 																	<aui:input label="ratings" name="<%= PortletDataHandlerKeys.RATINGS %>" type="checkbox" value="<%= true %>" />
-
-																	<c:if test="<%= modelDeletionCount != 0 %>">
-
-																		<%
-																		String deletionsLabel = LanguageUtil.get(pageContext, "deletions") + (modelDeletionCount > 0 ? " (" + modelDeletionCount + ")" : StringPool.BLANK);
-																		%>
-
-																		<aui:input data-name="<%= deletionsLabel %>" helpMessage="deletions-help" label="<%= deletionsLabel %>" name="<%= PortletDataHandlerKeys.DELETIONS %>" type="checkbox" value="<%= true %>" />
-																	</c:if>
 																</li>
 															</ul>
 														</div>
@@ -503,7 +476,6 @@ portletURL.setParameter("tabs3", "current-and-previous");
 			var exportImport = new Liferay.ExportImport(
 				{
 					commentsNode: '#<%= PortletDataHandlerKeys.COMMENTS %>Checkbox',
-					deletePortletDataNode: '#<%= PortletDataHandlerKeys.DELETE_PORTLET_DATA %>Checkbox',
 					deletionsNode: '#<%= PortletDataHandlerKeys.DELETIONS %>Checkbox',
 					form: document.<portlet:namespace />fm1,
 					incompleteProcessMessageNode: '#<portlet:namespace />incompleteProcessMessage',
