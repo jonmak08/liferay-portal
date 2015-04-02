@@ -50,11 +50,11 @@
 		</if>
 
 		<propertyregex
-				global="true"
-				input="${test.packages}."
-				property="test.directories"
-				regexp="\."
-				replace="/"
+			global="true"
+			input="${test.packages}."
+			property="test.directories"
+			regexp="\."
+			replace="/"
 		/>
 
 		<antcall target="prepare-tck" />
@@ -151,14 +151,12 @@ work.dir=${basedir.unix}/tools/tck/work</echo>
 						packageGroups.add(new ArrayList());
 					}
 
-					int packageGroupIndex = 0;
+					for (int i = 0; i < packageNames.size(); i++) {
+						String packageName = packageNames.get(i);
 
-					for (String packageName : packageNames) {
-						List packageGroup = packageGroups.get(packageGroupIndex % groupsSize);
+						List packageGroup = packageGroups.get(i % groupsSize);
 
 						packageGroup.add(packageName);
-
-						packageGroupIndex++;
 					}
 
 					return packageGroups;
