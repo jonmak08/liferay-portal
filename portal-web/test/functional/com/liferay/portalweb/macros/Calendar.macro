@@ -48,11 +48,16 @@
 			<elseif>
 				<equals arg1="${calendarType}" arg2="Other Calendars" />
 				<then>
-					<execute function="Type" locator1="PGCalendar#OTHER_CALENDARS_SEARCH" value1="${calendarName}" />
+					<execute macro="Calendar#searchOtherCalendars">
+						<var name="searchValue" value="${calendarName}" />
+					</execute>
+
+					<execute macro="Calendar#viewOtherCalendarsSearchResults">
+						<var name="calendarName" value="${calendarName}" />
+					</execute>
 
 					<var name="key_calendarName" value="${calendarName}" />
 
-					<execute function="Pause" locator1="5000" />
 					<execute function="AssertClick" locator1="PGCalendar#OTHER_CALENDARS_SEARCH_LIST_RESULT" value1="${calendarName}" />
 					<execute function="AssertTextEquals" locator1="PGCalendar#OTHER_CALENDARS_CALENDAR" value1="${calendarName}" />
 				</then>
@@ -506,6 +511,10 @@
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
+	<command name="searchOtherCalendars">
+		<execute function="Type" locator1="PGCalendar#OTHER_CALENDARS_SEARCH" value1="${searchValue}" />
+	</command>
+
 	<command name="tearDownColorPG">
 		<execute macro="CalendarEvent#changeViewPG">
 			<var name="viewType" value="Week" />
@@ -609,6 +618,12 @@
 				<execute function="Click" locator1="PGCalendar#SMALL_CALENDAR_NEXT" />
 			</then>
 		</while>
+	</command>
+
+	<command name="viewOtherCalendarsSearchResults">
+		<var name="key_calendarName" value="${calendarName}" />
+
+		<execute function="AssertTextEquals" locator1="PGCalendar#OTHER_CALENDARS_SEARCH_LIST_RESULT" value1="${calendarName}" />
 	</command>
 
 	<command name="viewPG">
