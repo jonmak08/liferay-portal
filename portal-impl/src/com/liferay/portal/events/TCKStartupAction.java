@@ -108,19 +108,19 @@ public class TCKStartupAction extends SimpleAction {
 		public Void call() throws IOException {
 			long startTime = System.currentTimeMillis();
 
-			for (String servletContextName : PropsUtil.getArray(
-				_SERVLET_CONTEXT_NAMES)) {
+			for (String servletContextName :
+					PropsUtil.getArray(_TCK_SERVLET_CONTEXT_NAMES)) {
 
 				_waitForDeployment(
 					servletContextName, startTime,
 					GetterUtil.getInteger(
-						PropsUtil.get(_TIMEOUT)) * Time.SECOND);
+						PropsUtil.get(_TCK_HANDSHAKE_TIMEOUT)) * Time.SECOND);
 			}
 
 			ServerSocket serverSocket =
 				new ServerSocket(
 					GetterUtil.getInteger(
-						PropsUtil.get(_HANDSHAKE_SERVER_PORT)));
+						PropsUtil.get(_TCK_HANDSHAKE_SERVER_PORT)));
 
 			try {
 				serverSocket.setSoTimeout(100);
@@ -173,13 +173,14 @@ public class TCKStartupAction extends SimpleAction {
 			_log.error("Timeout on waiting " + servletContextName);
 		}
 
-		private static final String _SERVLET_CONTEXT_NAMES =
-			"servlet.context.names";
+		private static final String _TCK_HANDSHAKE_SERVER_PORT =
+			"tck.handshake.server.port";
 
-		private static final String _TIMEOUT = "tck.handshake.timeout";
+		private static final String _TCK_HANDSHAKE_TIMEOUT =
+			"tck.handshake.timeout";
 
-		private static final String _HANDSHAKE_SERVER_PORT =
-			"handshake.server.port";
+		private static final String _TCK_SERVLET_CONTEXT_NAMES =
+			"tck.servlet.context.names";
 
 	}
 

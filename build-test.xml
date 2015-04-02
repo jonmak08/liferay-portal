@@ -2896,11 +2896,9 @@ auto.deploy.dest.dir=C:/WINDOWS/system32/config/systemprofile/liferay/websphere-
 
 global.startup.events=com.liferay.portal.events.GlobalStartupAction,com.liferay.portal.events.CryptoStartupAction,com.liferay.portal.events.TCKStartupAction
 
-servlet.context.names=
-
+tck.handshake.server.port=8239
 tck.handshake.timeout=300
-
-handshake.server.port=8239</echo>
+tck.servlet.context.names=</echo>
 			</then>
 		</if>
 
