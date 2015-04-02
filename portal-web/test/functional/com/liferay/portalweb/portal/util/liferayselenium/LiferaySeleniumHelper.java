@@ -1018,6 +1018,25 @@ public class LiferaySeleniumHelper {
 			}
 		}
 
+		// LPS-54539
+
+		if (line.matches(
+				".*The web application \\[/agent\\] appears to have started " +
+					"a thread.*")) {
+
+			if (line.matches(".*\\[http-bio.*\\].*")) {
+				return true;
+			}
+
+			if (line.matches(".*\\[scheduler_Worker-[0-9]+\\].*")) {
+				return true;
+			}
+
+			if (line.matches(".*\\[SocketListener.*\\].*")) {
+				return true;
+			}
+		}
+
 		// LPS-54680
 
 		if (line.contains(
