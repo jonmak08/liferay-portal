@@ -18,7 +18,7 @@
 			<var name="environmentDescription" value="Environment 1 Description" />
 			<var name="environmentLocation" value="Environment 1 Location" />
 			<var name="environmentName" value="Environment 1 Name" />
-			<var name="projectName" value="CStokes - LiferayQA" />
+			<var name="projectName" value="Liferay QA" />
 			<var name="serverDescription" value="Environment 1 Server 1 Description" />
 			<var name="serverLocation" value="Environment 1 Server 1 Location" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
