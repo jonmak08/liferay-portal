@@ -1889,6 +1889,18 @@
 				</licenses>
 			</library>
 			<library>
+				<file-name>lib/portal/guice.jar</file-name>
+				<version>3.0</version>
+				<project-name>Google Guice Core Library</project-name>
+				<project-url>https://code.google.com/p/google-guice/</project-url>
+				<licenses>
+					<license>
+						<license-name>Apache License 2.0</license-name>
+						<license-url>http://www.apache.org/licenses/LICENSE-2.0</license-url>
+					</license>
+				</licenses>
+			</library>
+			<library>
 				<file-name>lib/portal/hessian.jar</file-name>
 				<version>4.0.3</version>
 				<project-name>Hessian</project-name>
@@ -2161,6 +2173,18 @@
 					<license>
 						<license-name>LGPL 2.1</license-name>
 						<license-url>http://www.gnu.org/licenses/lgpl-2.1.html</license-url>
+					</license>
+				</licenses>
+			</library>
+			<library>
+				<file-name>lib/portal/javax.inject.jar</file-name>
+				<version>1</version>
+				<project-name>JSR-330: Dependency Injection for Java</project-name>
+				<project-url>http://code.google.com/p/atinject/</project-url>
+				<licenses>
+					<license>
+						<license-name>Apache License 2.0</license-name>
+						<license-url>http://www.apache.org/licenses/LICENSE-2.0</license-url>
 					</license>
 				</licenses>
 			</library>
