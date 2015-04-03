@@ -246,8 +246,6 @@ work.dir=${basedir.unix}/tools/tck/work</echo>
 				<antcall target="prepare-portal-ext-properties">
 					<param name="global.startup.events" value="true" />
 					<param name="portlet.preferences.strict.store" value="true" />
-					<param name="tck.handshake.server.port" value="${tck.handshake.server.port}" />
-					<param name="tck.servlet.context.names" value="${tck.servlet.context.names}" />
 				</antcall>
 
 				<antcall target="rebuild-database" inheritAll="false" />
@@ -256,11 +254,13 @@ work.dir=${basedir.unix}/tools/tck/work</echo>
 
 		<antcall target="start-app-server" />
 
+		<property name="tck.servlet.context.names.activate" value="Activate,${tck.servlet.context.names}" />
+
 		<waitfor checkevery="100" checkeveryunit="millisecond" maxwait="5" maxwaitunit="minute" timeoutproperty="tck.wars.deployment.timeout">
-			<socket server="localhost" port="${tck.handshake.server.port}" />
+			 <http url="http://localhost:${tck.handshake.server.port}/${tck.servlet.context.names.activate}" />
 		</waitfor>
 
-		<fail message="Timeout while waiting for TCK wars to deploy." if="tck.wars.deployment.timeout" />
+		<fail message="Timeout while activating TCK." if="tck.wars.deployment.timeout" />
 
 		<condition property="tsant.file.suffix.bat" value=".bat" else="">
 			<contains string="${os.name}" substring="Windows" casesensitive="false" />

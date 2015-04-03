@@ -17,6 +17,7 @@ package com.liferay.portal.events;
 import com.liferay.portal.action.TCKStrutsAction;
 import com.liferay.portal.kernel.events.ActionException;
 import com.liferay.portal.kernel.events.SimpleAction;
+import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.servlet.ServletContextPool;
@@ -25,23 +26,22 @@ import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilterConfig;
 import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilterHelper;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsUtil;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.servlet.filters.tck.TCKAutoLoginFilter;
 import com.liferay.portal.struts.StrutsActionRegistryUtil;
 import com.liferay.portal.util.PortalUtil;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 
-import java.nio.charset.Charset;
-
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterConfig;
@@ -49,28 +49,31 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
 /**
- *
  * @author Matthew Tambara
  */
-
 public class TCKStartupAction extends SimpleAction {
 
 	@Override
 	public void run(String[] ids) throws ActionException {
+		Thread handshakeServerThread = new Thread(
+			new HandshakeServerRunnable(), "Handshake server thread");
+
+		handshakeServerThread.setDaemon(true);
+
+		handshakeServerThread.start();
+	}
+
+	private static void _activate() throws ServletException {
 		ServletContext servletContext = ServletContextPool.get(
 			PortalUtil.getPathContext());
 
 		Filter filter = new TCKAutoLoginFilter();
 
 		FilterConfig filterConfig = new InvokerFilterConfig(
-			servletContext, _FILTER_NAME, Collections.EMPTY_MAP);
+			servletContext, _FILTER_NAME,
+			Collections.<String, String>emptyMap());
 
-		try {
-			filter.init(filterConfig);
-		}
-		catch (ServletException se) {
-			throw new ActionException(se);
-		}
+		filter.init(filterConfig);
 
 		InvokerFilterHelper invokerFilterHelper =
 			(InvokerFilterHelper)servletContext.getAttribute(
@@ -81,19 +84,9 @@ public class TCKStartupAction extends SimpleAction {
 		invokerFilterHelper.registerFilterMapping(
 			new FilterMapping(
 				filter, filterConfig, Collections.singletonList("/*"),
-				Collections.EMPTY_LIST), _FILTER_NAME, false);
+				Collections.<String>emptyList()), _FILTER_NAME, false);
 
 		StrutsActionRegistryUtil.register(_PATH, new TCKStrutsAction());
-
-		FutureTask<Void> futureTask = new FutureTask<Void>(
-			new HandshakeServerCallable());
-
-		Thread handshakeServerThread = new Thread(
-			futureTask, "Handshake server thread");
-
-		handshakeServerThread.setDaemon(true);
-
-		handshakeServerThread.start();
 	}
 
 	private static final String _FILTER_NAME = "TCK Auto Login Filter";
@@ -102,61 +95,98 @@ public class TCKStartupAction extends SimpleAction {
 
 	private static Log _log = LogFactoryUtil.getLog(TCKStartupAction.class);
 
-	private static class HandshakeServerCallable implements Callable<Void> {
+	private static class HandshakeServerRunnable implements Runnable {
 
 		@Override
-		public Void call() throws IOException {
+		public void run() {
 			long startTime = System.currentTimeMillis();
 
-			for (String servletContextName :
-					PropsUtil.getArray(_TCK_SERVLET_CONTEXT_NAMES)) {
+			ServerSocket serverSocket = null;
 
-				_waitForDeployment(
-					servletContextName, startTime,
-					GetterUtil.getInteger(
-						PropsUtil.get(_TCK_HANDSHAKE_TIMEOUT)) * Time.SECOND);
-			}
-
-			ServerSocket serverSocket =
-				new ServerSocket(
+			try {
+				serverSocket = new ServerSocket(
 					GetterUtil.getInteger(
 						PropsUtil.get(_TCK_HANDSHAKE_SERVER_PORT)));
 
-			try {
 				serverSocket.setSoTimeout(100);
 
 				while (!Thread.interrupted()) {
 					Socket socket = null;
+
+					UnsyncBufferedReader unsyncBufferedReader = null;
 
 					OutputStream outputStream = null;
 
 					try {
 						socket = serverSocket.accept();
 
+						unsyncBufferedReader = new UnsyncBufferedReader(
+							new InputStreamReader(socket.getInputStream()));
+
+						String request = unsyncBufferedReader.readLine();
+
+						String[] rawInput = request.split(" ");
+
+						String[] input = rawInput[1].split(",");
+
+						String operation = input[0].substring(1);
+
+						if (!operation.equals("Activate")) {
+							continue;
+						}
+
+						_activate();
+
+						String[] servletContextNames = Arrays.copyOfRange(
+							input, 1, input.length);
+
+						for (String servletContextName : servletContextNames) {
+							_waitForDeployment(
+								servletContextName, startTime,
+								GetterUtil.getInteger(
+									PropsUtil.get(_TCK_HANDSHAKE_TIMEOUT)) *
+									Time.SECOND);
+						}
+
 						outputStream = socket.getOutputStream();
 
-						outputStream.write(
-							"Portlet TCK Bridge is ready".getBytes(
-								Charset.defaultCharset()));
+						outputStream.write(_RESPONSE.getBytes(StringPool.UTF8));
 					}
 					catch (SocketTimeoutException ste) {
 					}
 					finally {
-						if (outputStream != null) {
-							outputStream.close();
-						}
+						try {
+							if (outputStream != null) {
+								outputStream.close();
+							}
 
-						if (socket != null) {
-							socket.close();
+							if (unsyncBufferedReader != null) {
+								unsyncBufferedReader.close();
+							}
+
+							if (socket != null) {
+								socket.close();
+							}
+						}
+						catch (IOException ioe) {
+							throw new RuntimeException(ioe);
 						}
 					}
 				}
 			}
-			finally {
-				serverSocket.close();
+			catch (Exception e) {
+				throw new RuntimeException(e);
 			}
-
-			return null;
+			finally {
+				if (serverSocket != null) {
+					try {
+						serverSocket.close();
+					}
+					catch (IOException ioe) {
+						throw new RuntimeException(ioe);
+					}
+				}
+			}
 		}
 
 		private void _waitForDeployment(
@@ -181,15 +211,13 @@ public class TCKStartupAction extends SimpleAction {
 			_log.error("Timeout on waiting " + servletContextName);
 		}
 
+		private static final String _RESPONSE = "HTTP/1.1 200 OK";
+
 		private static final String _TCK_HANDSHAKE_SERVER_PORT =
 			"tck.handshake.server.port";
 
 		private static final String _TCK_HANDSHAKE_TIMEOUT =
 			"tck.handshake.timeout";
-
-		private static final String _TCK_SERVLET_CONTEXT_NAMES =
-			"tck.servlet.context.names";
-
 	}
 
 }
