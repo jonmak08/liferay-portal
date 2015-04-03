@@ -17,6 +17,8 @@
 <%@ include file="/html/portlet/portlet_configuration/init.jsp" %>
 
 <%
+String cmd = ParamUtil.getString(request, Constants.CMD, Constants.IMPORT);
+
 String redirect = ParamUtil.getString(request, "redirect");
 
 Layout exportableLayout = ExportImportHelperUtil.getExportableLayout(themeDisplay);
@@ -269,6 +271,10 @@ ManifestSummary manifestSummary = ExportImportHelperUtil.getManifestSummary(them
 							</ul>
 						</li>
 					</ul>
+				</aui:fieldset>
+
+				<aui:fieldset cssClass="options-group" label="deletions">
+					<%@ include file="/html/portlet/portlet_configuration/deletions.jspf" %>
 				</aui:fieldset>
 
 				<aui:fieldset cssClass="options-group" label="permissions">

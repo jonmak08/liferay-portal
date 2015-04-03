@@ -17,6 +17,8 @@
 <%@ include file="/html/portlet/portlet_configuration/init.jsp" %>
 
 <%
+String cmd = ParamUtil.getString(request, Constants.CMD, Constants.PUBLISH);
+
 String tabs2 = ParamUtil.getString(request, "tabs2", "export");
 
 Layout exportableLayout = ExportImportHelperUtil.getExportableLayout(themeDisplay);
@@ -431,6 +433,10 @@ portletURL.setParameter("tabs3", "current-and-previous");
 									</ul>
 								</aui:fieldset>
 							</c:if>
+
+							<aui:fieldset cssClass="options-group" label="deletions">
+								<%@ include file="/html/portlet/portlet_configuration/deletions.jspf" %>
+							</aui:fieldset>
 
 							<aui:fieldset cssClass="options-group" label="permissions">
 								<ul class="lfr-tree unstyled">
