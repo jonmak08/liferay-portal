@@ -22,6 +22,8 @@ import com.liferay.portal.kernel.util.StringUtil;
  */
 public class TestPropsValues extends com.liferay.portal.util.TestPropsValues {
 
+	public static final String ANDROID_HOME = TestPropsUtil.get("android.home");
+
 	public static final String BROWSER_COMMANDS_DIR_NAME = TestPropsUtil.get(
 		"browser.commands.dir");
 
