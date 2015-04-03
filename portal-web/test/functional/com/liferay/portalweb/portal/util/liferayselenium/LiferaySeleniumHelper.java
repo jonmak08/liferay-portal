@@ -1020,13 +1020,11 @@ public class LiferaySeleniumHelper {
 
 		// LPS-54680
 
-		if (line.matches(
-				".*The web application \\[\\] appears to have started a " +
-					"thread named.*")) {
+		if (line.contains(
+				"The web application [/reports-portlet] appears to have " +
+					"started a thread named [C3P0PooledConnectionPool")) {
 
-			if (line.contains("[/reports-portlet]")) {
-				return true;
-			}
+			return true;
 		}
 
 		// WCM-202
