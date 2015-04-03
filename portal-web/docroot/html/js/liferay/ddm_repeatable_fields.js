@@ -304,8 +304,10 @@ AUI.add(
 							}
 						);
 
-						instance.getFieldsList(null, newFieldNode).each(
-							function(item, index, collection) {
+						var newFieldsList = instance.getFieldsList(null, newFieldNode);
+
+						newFieldsList.each(
+							function(item) {
 								var fieldName = item.getData('fieldName');
 
 								var originalChildFieldNode = instance.getFieldsList(fieldName, originalFieldNode).first();
@@ -353,8 +355,10 @@ AUI.add(
 					_removeFieldValidation: function(fieldNode) {
 						var instance = this;
 
-						instance.getFieldsList(null, fieldNode).each(
-							function(item, index, collection) {
+						var newFieldsList = instance.getFieldsList(null, fieldNode);
+
+						newFieldsList.each(
+							function(item) {
 								instance._removeFieldValidation(item);
 							}
 						);
