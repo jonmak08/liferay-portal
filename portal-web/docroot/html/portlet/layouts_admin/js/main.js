@@ -29,7 +29,6 @@ AUI.add(
 					archivedSetupsNode: defaultConfig,
 					commentsNode: defaultConfig,
 					deleteMissingLayoutsNode: defaultConfig,
-					deletePortletDataNode: defaultConfig,
 					deletionsNode: defaultConfig,
 					form: defaultConfig,
 					incompleteProcessMessageNode: defaultConfig,
@@ -43,7 +42,6 @@ AUI.add(
 					rangeLastPublishNode: defaultConfig,
 					ratingsNode: defaultConfig,
 					remoteAddressNode: defaultConfig,
-					remoteDeletePortletDataNode: defaultConfig,
 					remotePortNode: defaultConfig,
 					remotePathContextNode: defaultConfig,
 					remoteGroupIdNode: defaultConfig,
@@ -84,10 +82,6 @@ AUI.add(
 
 						if (instance._globalConfigurationDialog) {
 							instance._globalConfigurationDialog.destroy();
-						}
-
-						if (instance._globalContentDialog) {
-							instance._globalContentDialog.destroy();
 						}
 
 						if (instance._pagesDialog) {
@@ -216,28 +210,15 @@ AUI.add(
 							);
 						}
 
-						var globalConfigurationLink = instance.byId('globalConfigurationLink');
 
-						if (globalConfigurationLink) {
-							globalConfigurationLink.on(
-								STR_CLICK,
-								function(event) {
-									var globalConfigurationDialog = instance._getGlobalConfigurationDialog();
-
-									globalConfigurationDialog.show();
 								}
 							);
 						}
 
-						var globalContentLink = instance.byId('globalContentLink');
 
-						if (globalContentLink) {
-							globalContentLink.on(
 								STR_CLICK,
 								function(event) {
-									var globalContentDialog = instance._getGlobalContentDialog();
 
-									globalContentDialog.show();
 								}
 							);
 						}
@@ -521,63 +502,6 @@ AUI.add(
 						}
 
 						return globalConfigurationDialog;
-					},
-
-					_getGlobalContentDialog: function() {
-						var instance = this;
-
-						var globalContentDialog = instance._globalContentDialog;
-
-						if (!globalContentDialog) {
-							var globalContentNode = instance.byId('globalContent');
-
-							globalContentNode.show();
-
-							globalContentDialog = Liferay.Util.Window.getWindow(
-								{
-									dialog: {
-										bodyContent: globalContentNode,
-										centered: true,
-										height: 300,
-										modal: true,
-										render: instance.get('form'),
-										toolbars: {
-											footer: [
-												{
-													on: {
-														click: function(event) {
-															event.domEvent.preventDefault();
-
-															instance._setGlobalContentLabels();
-
-															globalContentDialog.hide();
-														}
-													},
-													label: Liferay.Language.get('ok'),
-													primary: true
-												},
-												{
-													on: {
-														click: function(event) {
-															event.domEvent.preventDefault();
-
-															globalContentDialog.hide();
-														}
-													},
-													label: Liferay.Language.get('cancel')
-												}
-											]
-										},
-										width: 400
-									},
-									title: Liferay.Language.get('all-content')
-								}
-							);
-
-							instance._globalContentDialog = globalContentDialog;
-						}
-
-						return globalContentDialog;
 					},
 
 					_getNotificationMessage: function(dateChecker) {
@@ -873,7 +797,6 @@ AUI.add(
 
 						instance._setContentOptionsLabels();
 						instance._setGlobalConfigurationLabels();
-						instance._setGlobalContentLabels();
 						instance._setPageLabels();
 						instance._setRangeLabels();
 						instance._setRemoteLabels();
@@ -1070,25 +993,6 @@ AUI.add(
 							selectedContentOptions.push(Liferay.Language.get('comments'));
 						}
 
-						if (instance._isChecked('deletionsNode')) {
-							var deletionsNode = instance.get('deletionsNode');
-
-							selectedContentOptions.push(deletionsNode.attr('data-name'));
-
-							instance.all('.deletions').each(
-								function(item, index, collection) {
-									item.show();
-								}
-							);
-						}
-						else {
-							instance.all('.deletions').each(
-								function(item, index, collection) {
-									item.hide();
-								}
-							);
-						}
-
 						if (instance._isChecked('ratingsNode')) {
 							selectedContentOptions.push(Liferay.Language.get('ratings'));
 						}
@@ -1114,18 +1018,6 @@ AUI.add(
 						}
 
 						instance._setLabels('globalConfigurationLink', 'selectedGlobalConfiguration', selectedGlobalConfiguration.join(', '));
-					},
-
-					_setGlobalContentLabels: function() {
-						var instance = this;
-
-						var selectedGlobalContent = [];
-
-						if (instance._isChecked('deletePortletDataNode')) {
-							selectedGlobalContent.push(Liferay.Language.get('delete-portlet-data-before-importing'));
-						}
-
-						instance._setLabels('globalContentLink', 'selectedGlobalContent', selectedGlobalContent.join(', '));
 					},
 
 					_setLabels: function(linkId, labelDivId, label) {
@@ -1255,10 +1147,6 @@ AUI.add(
 
 						if (instance._isChecked('secureConnectionNode')) {
 							selectedRemote.push(Liferay.Language.get('use-a-secure-network-connection'));
-						}
-
-						if (instance._isChecked('remoteDeletePortletDataNode')) {
-							selectedRemote.push(Liferay.Language.get('delete-portlet-data-before-importing'));
 						}
 
 						instance._setLabels('remoteLink', 'selectedRemote', selectedRemote.join(', '));
