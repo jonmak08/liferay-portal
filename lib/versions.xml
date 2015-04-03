@@ -2916,7 +2916,7 @@
 			</library>
 			<library>
 				<file-name>lib/portal/openid4java.jar</file-name>
-				<version>0.9.5.593</version>
+				<version>0.9.8</version>
 				<project-name>OpenID 4 Java</project-name>
 				<project-url>http://code.google.com/p/openid4java</project-url>
 				<licenses>
