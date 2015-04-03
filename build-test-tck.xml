@@ -243,10 +243,7 @@ work.dir=${basedir.unix}/tools/tck/work</echo>
 			<then>
 				<antcall target="clean-up-java-processes" inheritAll="false" />
 
-				<antcall target="prepare-portal-ext-properties">
-					<param name="global.startup.events" value="true" />
-					<param name="portlet.preferences.strict.store" value="true" />
-				</antcall>
+				<antcall target="prepare-portal-ext-properties" />
 
 				<antcall target="rebuild-database" inheritAll="false" />
 			</then>

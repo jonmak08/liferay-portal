@@ -2980,27 +2980,14 @@ auto.deploy.dest.dir=C:/WINDOWS/system32/config/systemprofile/liferay/websphere-
 			</then>
 		</if>
 
-		<if>
-			<equals arg1="${global.startup.events}" arg2="true" />
-			<then>
-				<echo file="portal-impl/src/portal-ext.properties" append="true">
+		<echo file="portal-impl/src/portal-ext.properties" append="true">
 
 global.startup.events=com.liferay.portal.events.GlobalStartupAction,com.liferay.portal.events.CryptoStartupAction,com.liferay.portal.events.TCKStartupAction
 
 tck.handshake.server.port=${tck.handshake.server.port}
 tck.handshake.timeout=300
-tck.servlet.context.names=${tck.servlet.context.names}</echo>
-			</then>
-		</if>
-
-		<if>
-			<equals arg1="${portlet.preferences.strict.store}" arg2="true" />
-			<then>
-				<echo file="portal-impl/src/portal-ext.properties" append="true">
 
 portlet.preferences.strict.store=true</echo>
-			</then>
-		</if>
 
 		<if>
 			<isset property="set.permission.algorithm.5" />
