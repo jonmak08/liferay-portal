@@ -43,10 +43,10 @@ import org.w3c.dom.Document;
 public class XSLContentUtil {
 
 	public static final String DEFAULT_XML_URL =
-		"@portlet_context_url@/html/portlet/xsl_content/example.xml";
+		"@portlet_context_url@/example.xml";
 
 	public static final String DEFAULT_XSL_URL =
-		"@portlet_context_url@/html/portlet/xsl_content/example.xsl";
+		"@portlet_context_url@/example.xsl";
 
 	public static String replaceUrlTokens(
 		ThemeDisplay themeDisplay, String url) {
@@ -54,7 +54,9 @@ public class XSLContentUtil {
 		return StringUtil.replace(
 			url, new String[] {"@portal_url@", "@portlet_context_url@"},
 			new String[] {
-				themeDisplay.getPortalURL(), themeDisplay.getPortalURL()});
+				themeDisplay.getPortalURL(),
+				themeDisplay.getPortalURL() + "/html/portlet/xsl_content"
+			});
 	}
 
 	public static String transform(URL xmlUrl, URL xslUrl) throws Exception {
