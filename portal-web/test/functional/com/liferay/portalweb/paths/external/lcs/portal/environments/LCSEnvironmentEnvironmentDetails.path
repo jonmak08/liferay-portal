@@ -19,11 +19,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>CONFIRMATION</td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>ENVIRONMENT_NAME</td>
 	<td>//div[contains(@class,'control-group') and contains(.,'Name')]</td>
 	<td></td>

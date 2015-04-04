@@ -19,7 +19,7 @@
 
 				<execute function="AssertClickNoError" locator1="LCSEnvironmentEnvironmentDetails#DELETE_BUTTON" value1="Delete" />
 
-				<execute function="Confirm" locator1="LCSEnvironmentEnvironmentDetails#CONFIRMATION" value1="Are you sure you want to delete this environment?" />
+				<execute function="Confirm" value1="Are you sure you want to delete this environment?" />
 
 				<execute function="Click" locator1="LCSPortalNavigation#NAVIGATION_MENU_DASHBOARD" />
 			</then>
