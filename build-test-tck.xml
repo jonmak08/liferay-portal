@@ -269,7 +269,8 @@ work.dir=${basedir.unix}/tools/tck/work</echo>
 
 						<loadfile property="logfile.content" srcFile="@{logfile}" />
 
-						<echo>File content for ${liferay.home}/logs/@{logfile}
+						<echo>File content for ${liferay.home}/logs/@{logfile}:
+
 ${logfile.content}</echo>
 					</sequential>
 				</for>
