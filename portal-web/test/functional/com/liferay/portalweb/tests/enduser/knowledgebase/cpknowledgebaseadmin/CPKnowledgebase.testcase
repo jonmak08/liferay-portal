@@ -10,6 +10,8 @@
 	<tear-down>
 		<execute macro="BlogsEntry#tearDownCP" />
 
+		<execute macro="Vocabulary#tearDownCP" />
+
 		<execute macro="KBFolder#tearDownCP" />
 
 		<execute macro="KBTemplate#tearDownCP" />

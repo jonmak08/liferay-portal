@@ -22,6 +22,8 @@
 	</set-up>
 
 	<tear-down>
+		<execute macro="BlogsEntry#tearDownCP" />
+
 		<execute macro="Page#tearDownPG" />
 
 		<execute macro="KBArticle#tearDownCP" />
