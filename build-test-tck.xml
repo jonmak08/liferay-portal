@@ -243,11 +243,11 @@ work.dir=${basedir.unix}/tools/tck/work</echo>
 			<then>
 				<antcall target="clean-up-java-processes" inheritAll="false" />
 
-				<antcall target="prepare-portal-ext-properties" />
-
 				<antcall target="rebuild-database" inheritAll="false" />
 			</then>
 		</if>
+
+		<antcall target="prepare-portal-ext-properties" />
 
 		<antcall target="start-app-server" />
 
