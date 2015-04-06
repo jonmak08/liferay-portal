@@ -1,0 +1,82 @@
+<definition>
+	<command name="generateApplicationMetrics">
+		<execute macro="Page#openURL">
+			<var name="virtualHostsURL" value="http://localhost:8080" />
+		</execute>
+
+		<execute macro="Page#gotoMyDashboard" />
+
+		<execute macro="Page#gotoMyProfile" />
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Liferay Connected Services" />
+		</execute>
+
+		<execute macro="LCSPortletNavigator#gotoProjectHome">
+			<var name="projectName" value="${projectName}" />
+		</execute>
+	</command>
+
+	<command name="viewMetricsApplicationCacheHibernateMetrics">
+		<execute function="AssertElementPresent" locator1="LCSServerMetrics#APPLICATION_CACHE_HIBERNATE_METRICS_NAME_GENERAL" />
+	</command>
+
+	<command name="viewMetricsApplicationCacheLiferaySingleVMMetrics">
+		<execute function="AssertElementPresent" locator1="LCSServerMetrics#APPLICATION_CACHE_SINGLE_VM_METRICS_NAME_GENERAL" />
+	</command>
+
+	<command name="viewMetricsJVMGarbageCollectorMetrics">
+		<execute function="AssertElementPresent" locator1="LCSServerMetrics#JVM_GARBAGE_COLLECTOR_METRICS_TABLE" />
+	</command>
+
+	<command name="viewMetricsJVMMemoryMetrics">
+		<execute function="AssertElementPresent" locator1="LCSServerMetrics#JVM_MEMORY_METRICS_CHART" />
+	</command>
+
+	<command name="viewMetricsServerCurrentThreads">
+		<execute function="AssertElementPresent" locator1="LCSServerMetrics#SERVER_CURRENT_THREADS_BAR_CHART" />
+	</command>
+
+	<command name="viewMetricsServerJDBCConnectionPools">
+		<execute function="AssertElementPresent" locator1="LCSServerMetrics#SERVER_JDBC_CONNECTION_POOLS_BAR_CHART" />
+	</command>
+
+	<command name="viewSingleMetricApplicationPages">
+		<var name="key_pageLink" value="${pageLink}" />
+
+		<execute function="AssertTextEquals" locator1="LCSServerMetrics#APPLICATION_PAGES_PAGE" value1="${pageLink}" />
+		<execute function="AssertElementPresent" locator1="LCSServerMetrics#APPLICATION_PAGES_FREQUENCY" />
+		<execute function="AssertElementPresent" locator1="LCSServerMetrics#APPLICATION_PAGES_AVERAGE_LOAD_TIME" />
+	</command>
+
+	<command name="viewSingleMetricApplicationPortlets">
+		<var name="key_portletName" value="${portletName}" />
+
+		<execute function="AssertTextEquals" locator1="LCSServerMetrics#APPLICATION_PORTLETS_NAME" value1="${key_portletName}" />
+		<execute function="AssertElementPresent" locator1="LCSServerMetrics#APPLICATION_PORTLETS_FREQUENCY" />
+		<execute function="AssertElementPresent" locator1="LCSServerMetrics#APPLICATION_PORTLETS_AVERAGE_LOAD_TIME" />
+	</command>
+
+	<command name="waitForMetrics">
+		<var name="i" value="1" />
+
+		<while>
+			<not>
+				<or>
+					<or>
+						<condition function="IsElementNotPresent" locator1="LCSServerMetrics#SERVER_STATUS_ALERT_MESSAGE" />
+						<condition function="IsElementNotPresent" locator1="LCSServerMetrics#INFO_MESSAGE" />
+					</or>
+					<equals arg1="${i}" arg2="3" />
+				</or>
+			</not>
+			<then>
+				<var name="i" value="${i?increment()}" />
+
+				<echo message="The Server Metrics could not be found. Refreshing the page. Attempt number ${i}..." />
+
+				<execute function="Refresh" />
+			</then>
+		</while>
+	</command>
+</definition>

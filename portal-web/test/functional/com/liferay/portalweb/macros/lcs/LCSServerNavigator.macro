@@ -17,4 +17,37 @@
 
 		<execute function="AssertClick" locator1="LCSServer#TOOLBAR_SERVER_DETAILS_BUTTON" value1="Server Details" />
 	</command>
+
+	<command name="gotoServerMetrics">
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="${environmentName}" />
+			<var name="serverName" value="${serverName}" />
+		</execute>
+
+		<execute function="AssertClick" locator1="LCSServer#TOOLBAR_METRICS_BUTTON" value1="Metrics" />
+
+		<if>
+			<isset var="metricsTabName" />
+			<then>
+				<if>
+					<equals arg1="${metricsTabName}" arg2="Application" />
+					<then>
+						<execute macro="LCSServerMetricsNavigator#gotoApplication" />
+					</then>
+					<elseif>
+						<equals arg1="${metricsTabName}" arg2="JVM" />
+						<then>
+							<execute macro="LCSServerMetricsNavigator#gotoJVM" />
+						</then>
+					</elseif>
+					<elseif>
+						<equals arg1="${metricsTabName}" arg2="Server" />
+						<then>
+							<execute macro="LCSServerMetricsNavigator#gotoServer" />
+						</then>
+					</elseif>
+				</if>
+			</then>
+		</if>
+	</command>
 </definition>

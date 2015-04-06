@@ -1,0 +1,49 @@
+<definition>
+	<command name="gotoApplication">
+		<execute function="AssertClick" locator1="LCSServerMetrics#NAVIGATION_APPLICATION" value1="Application" />
+
+		<if>
+			<isset var="metricsSubTabName" />
+			<then>
+				<if>
+					<equals arg1="${metricsSubTabName}" arg2="Pages" />
+					<then>
+						<execute macro="LCSServerMetricsNavigator#gotoApplicationPages" />
+					</then>
+					<elseif>
+						<equals arg1="${metricsSubTabName}" arg2="Portlets" />
+						<then>
+							<execute macro="LCSServerMetricsNavigator#gotoApplicationPortlets" />
+						</then>
+					</elseif>
+					<elseif>
+						<equals arg1="${metricsSubTabName}" arg2="Cache" />
+						<then>
+							<execute macro="LCSServerMetricsNavigator#gotoApplicationCache" />
+						</then>
+					</elseif>
+				</if>
+			</then>
+		</if>
+	</command>
+
+	<command name="gotoApplicationCache">
+		<execute function="AssertClick" locator1="LCSServerMetrics#NAVIGATION_APPLICATION_CACHE" value1="Cache" />
+	</command>
+
+	<command name="gotoApplicationPages">
+		<execute function="AssertClick" locator1="LCSServerMetrics#NAVIGATION_APPLICATION_PAGES" value1="Pages" />
+	</command>
+
+	<command name="gotoApplicationPortlets">
+		<execute function="AssertClick" locator1="LCSServerMetrics#NAVIGATION_APPLICATION_PORTLETS" value1="Portlets" />
+	</command>
+
+	<command name="gotoJVM">
+		<execute function="AssertClick" locator1="LCSServerMetrics#NAVIGATION_JVM" value1="JVM" />
+	</command>
+
+	<command name="gotoServer">
+		<execute function="AssertClick" locator1="LCSServerMetrics#NAVIGATION_SERVER" value1="Server" />
+	</command>
+</definition>
