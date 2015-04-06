@@ -1770,20 +1770,8 @@
 	</command>
 
 	<command name="ViewKBArticleSuggestionsWorkflowNotificationInGmail" priority="4">
-		<var name="kbArticleContent" value="KB Article Content" />
-		<var name="kbArticleTitle" value="KB Article Title" />
-		<var name="kbSuggestionBody" value="KB Article Suggestion Content" />
-		<var name="pageName" value="Knowledge Base Display Page" />
-		<var name="userEmailAddress" property-value="email.address.5" />
-		<var name="userEmailPassword" property-value="email.password.5" />
-
-		<var name="userName" value="Test Test" />
-
-		<var name="userScreenName" value="usersn" />
-		<var name="virtualHost" value="localhost" />
-
 		<execute macro="Page#addPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -1801,6 +1789,7 @@
 
 		<execute macro="PortalInstances#editCP">
 			<var name="mailDomain" value="gmail.com" />
+			<var name="virtualHost" value="localhost" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -1808,10 +1797,10 @@
 		</execute>
 
 		<execute macro="User#addCP">
-			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userEmailAddress" property-value="email.address.4" />
 			<var name="userFirstName" value="Test" />
 			<var name="userLastName" value="2" />
-			<var name="userScreenName" value="${userScreenName}" />
+			<var name="userScreenName" value="usersn" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -1819,8 +1808,8 @@
 		</execute>
 
 		<execute macro="User#editPasswordCP">
-			<var name="userEmailAddress" value="${userEmailAddress}" />
-			<var name="userScreenName" value="${userScreenName}" />
+			<var name="userEmailAddress" property-value="email.address.4" />
+			<var name="userScreenName" value="usersn" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -1829,7 +1818,7 @@
 
 		<execute macro="User#editUserSiteCP">
 			<var name="siteName" value="Liferay" />
-			<var name="userScreenName" value="${userScreenName}" />
+			<var name="userScreenName" value="usersn" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -1838,14 +1827,14 @@
 
 		<execute macro="User#assignSiteRoleCP">
 			<var name="siteRoleName" value="Site Administrator" />
-			<var name="userScreenName" value="${userScreenName}" />
+			<var name="userScreenName" value="usersn" />
 		</execute>
 
 		<execute macro="User#logoutPG" />
 
 		<execute macro="User#loginUserPG">
 			<var name="password" value="test" />
-			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userEmailAddress" property-value="email.address.4" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -1856,8 +1845,8 @@
 
 	 	<execute macro="KBArticle#configureEmailCP">
 	 		<var name="emailFrom" value="true" />
-	 		<var name="userName" value="${userName}" />
-	 		<var name="userEmailAddress" value="${userEmailAddress}" />
+	 		<var name="userName" value="Test Test" />
+	 		<var name="userEmailAddress" property-value="email.address.4" />
 	 		<var name="suggestionReceived" value="true" />
 	 		<var name="suggestionInProgress" value="true" />
 	 		<var name="suggestionResolved" value="true" />
@@ -1875,19 +1864,19 @@
 	 	</execute>
 
 		<execute macro="KBArticle#addCP">
-			<var name="kbArticleContent" value="${kbArticleContent}" />
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
+			<var name="kbArticleContent" value="KB Article Content" />
+			<var name="kbArticleTitle" value="KB Article Title" />
 		</execute>
 
 	 	<execute macro="User#logoutPG" />
 
 	 	<execute macro="User#loginUserPG">
 	 		<var name="password" value="test" />
-	 		<var name="userEmailAddress" value="${userEmailAddress}" />
+	 		<var name="userEmailAddress" property-value="email.address.4" />
 	 	</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -1895,38 +1884,38 @@
 		</execute>
 
 		<execute macro="KBArticleSuggestion#addPG">
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
-			<var name="kbSuggestionBody" value="${kbSuggestionBody}" />
+			<var name="kbArticleTitle" value="KB Article Title" />
+			<var name="kbSuggestionBody" value="KB Article Suggestion Content" />
 		</execute>
 
 		<execute macro="KBArticle#gotoSuggestionsNavigationPG" />
 
 		<execute macro="KBArticleSuggestion#gotoSuggestionStatusNew">
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
+			<var name="kbArticleTitle" value="KB Article Title" />
 			<var name="suggestionCount" value="1" />
 		</execute>
 
 		<execute macro="KBArticleSuggestion#moveToInProgressStatus">
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
-			<var name="kbSuggestionBody" value="${kbSuggestionBody}" />
+			<var name="kbArticleTitle" value="KB Article Title" />
+			<var name="kbSuggestionBody" value="KB Article Suggestion Content" />
 		</execute>
 
 		<execute macro="KBArticle#gotoSuggestionsNavigationPG" />
 
 		<execute macro="KBArticleSuggestion#gotoSuggestionStatusInProgress">
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
+			<var name="kbArticleTitle" value="KB Article Title" />
 			<var name="suggestionCount" value="1" />
 		</execute>
 
 		<execute macro="KBArticleSuggestion#moveToResolvedStatus">
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
-			<var name="kbSuggestionBody" value="${kbSuggestionBody}" />
+			<var name="kbArticleTitle" value="KB Article Title" />
+			<var name="kbSuggestionBody" value="KB Article Suggestion Content" />
 		</execute>
 
 		<execute macro="KBArticle#gotoSuggestionsNavigationPG" />
 
 		<execute macro="KBArticleSuggestion#gotoSuggestionStatusResolved">
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
+			<var name="kbArticleTitle" value="KB Article Title" />
 			<var name="suggestionCount" value="1" />
 		</execute>
 
@@ -1937,12 +1926,12 @@
 		<execute macro="KBArticle#viewKBSuggestionNotificationsInGmail">
 			<var name="gmailKBArticleDate" value="true" />
 			<var name="gmailMessageKBArticleURL" value="true" />
-			<var name="kbArticleContent" value="${kbArticleContent}" />
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
-			<var name="pageName" value="${pageName}" />
-			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="kbArticleContent" value="KB Article Content" />
+			<var name="kbArticleTitle" value="KB Article Title" />
+			<var name="pageName" value="Knowledge Base Display Page" />
+			<var name="userEmailAddress" property-value="email.address.4" />
 			<var name="userName" value="Test Test" />
-			<var name="userPassword" value="${userEmailPassword}" />
+			<var name="userPassword" property-value="email.password.4" />
 		</execute>
 	</command>
 
