@@ -56,19 +56,35 @@
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_APPLICATION</td>
-	<td>//ul[contains(@class,'nav-tabs')]//a[contains(.,'Application')]</td>
+	<td>//div[@class='lcs-tabs-default']//a[contains(.,'Application')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>NAVIGATION_JVM</td>
-	<td>//ul[contains(@class,'nav-tabs')]//a[contains(.,'JVM')]</td>
+	<td>//div[@class='lcs-tabs-default']//a[contains(.,'JVM')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>NAVIGATION_SERVER</td>
-	<td>//ul[contains(@class,'nav-tabs')]//a[contains(.,'Server')]</td>
+	<td>//div[@class='lcs-tabs-default']//a[contains(.,'Server')]</td>
 	<td></td>
 </tr>
+<tr>
+	<td>NAVIGATION_APPLICATION_PAGES</td>
+	<td>//div[@class='lcs-tabs-sub']//a[contains(.,'Pages')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_APPLICATION_PORTLETS</td>
+	<td>//div[@class='lcs-tabs-sub']//a[contains(.,'Portlets')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_APPLICATION_CACHE</td>
+	<td>//div[@class='lcs-tabs-sub']//a[contains(.,'Cache')]</td>
+	<td></td>
+</tr>
+
 <tr>
 	<td></td>
 	<td></td>
@@ -106,6 +122,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>APPLICATION_CACHE_SINGLE_VM_METRICS_NAME_GENERAL</td>
+	<td>//div[contains(@class,'lcs-singlevm-container-content')]//tr/td[1]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>APPLICATION_CACHE_SINGLE_VM_METRICS_NAME</td>
 	<td>//div[contains(@class,'lcs-singlevm-container-content')]//tr[contains(.,'${key_metricName}')]/td[1]</td>
 	<td></td>
@@ -136,6 +157,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>APPLICATION_CACHE_HIBERNATE_METRICS_NAME_GENERAL</td>
+	<td>//div[@class='column-content ' and contains(.,'Hibernate Metrics')]//tr/td[1]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>APPLICATION_CACHE_HIBERNATE_METRICS_NAME</td>
 	<td>//div[@class='column-content ' and contains(.,'Hibernate Metrics')]//tr[contains(.,'${key_metricName}')]/td[1]</td>
 	<td></td>
@@ -151,6 +177,11 @@
 	<td></td>
 </tr>
 <!--JVM-->
+<tr>
+	<td>JVM_GARBAGE_COLLECTOR_METRICS_TABLE</td>
+	<td>//div[@class='lcs-garbage-collector-metrics-container']</td>
+	<td></td>
+</tr>
 <tr>
 	<td>JVM_GARBAGE_COLLECTOR_METRICS_NAME</td>
 	<td>//div[@class='lcs-garbage-collector-metrics-container']//tr[contains(.,'${key_metricName}')]/td[1]</td>
