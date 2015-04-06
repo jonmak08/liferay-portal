@@ -307,12 +307,12 @@ if (!siteGroup.hasLocalOrRemoteStagingGroup()) {
 					</liferay-portlet:renderURL>
 
 					<liferay-ui:icon
-							cssClass="lfr-icon-action lfr-icon-action-edit"
-							image="edit"
-							label="<%= true %>"
-							message="edit"
-							url="<%= editURL %>"
-							/>
+						cssClass="lfr-icon-action lfr-icon-action-edit"
+						image="edit"
+						label="<%= true %>"
+						message="edit"
+						url="<%= editURL %>"
+					/>
 				</c:if>
 
 				<c:if test="<%= showEditTemplateIcon %>">
@@ -325,24 +325,24 @@ if (!siteGroup.hasLocalOrRemoteStagingGroup()) {
 					</liferay-portlet:renderURL>
 
 					<liferay-ui:icon
-							cssClass="lfr-icon-action lfr-icon-action-edit-template"
-							image="../file_system/small/xml"
-							label="<%= true %>"
-							message="edit-template"
-							url="<%= editTemplateURL %>"
-							/>
+						cssClass="lfr-icon-action lfr-icon-action-edit-template"
+						image="../file_system/small/xml"
+						label="<%= true %>"
+						message="edit-template"
+						url="<%= editTemplateURL %>"
+					/>
 				</c:if>
 
 				<c:if test="<%= showSelectArticleIcon %>">
 					<liferay-ui:icon
-							cssClass="lfr-icon-action lfr-icon-action-configuration"
-							image="configuration"
-							label="<%= true %>"
-							message="select-web-content"
-							method="get"
-							onClick="<%= portletDisplay.getURLConfigurationJS() %>"
-							url="<%= portletDisplay.getURLConfiguration() %>"
-							/>
+						cssClass="lfr-icon-action lfr-icon-action-configuration"
+						image="configuration"
+						label="<%= true %>"
+						message="select-web-content"
+						method="get"
+						onClick="<%= portletDisplay.getURLConfigurationJS() %>"
+						url="<%= portletDisplay.getURLConfiguration() %>"
+					/>
 				</c:if>
 
 				<c:if test="<%= showAddArticleIcon %>">
@@ -354,12 +354,12 @@ if (!siteGroup.hasLocalOrRemoteStagingGroup()) {
 					</liferay-portlet:renderURL>
 
 					<liferay-ui:icon
-							cssClass="lfr-icon-action lfr-icon-action-add"
-							image="add_article"
-							label="<%= true %>"
-							message="add"
-							url="<%= addArticleURL %>"
-							/>
+						cssClass="lfr-icon-action lfr-icon-action-add"
+						image="add_article"
+						label="<%= true %>"
+						message="add"
+						url="<%= addArticleURL %>"
+					/>
 				</c:if>
 			</div>
 		</div>
