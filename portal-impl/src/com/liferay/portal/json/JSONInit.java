@@ -92,7 +92,9 @@ public class JSONInit {
 	private static void _registerDefaultTransformers(
 		TypeTransformerMap transformersMap) {
 
-		transformersMap.put(Company.class, new CompanyJSONTransformer());
+		transformersMap.put(
+			Company.class,
+			new TransformerWrapper(new CompanyJSONTransformer()));
 
 		transformersMap.put(
 			InputStream.class, new TransformerWrapper(new NullTransformer()));
