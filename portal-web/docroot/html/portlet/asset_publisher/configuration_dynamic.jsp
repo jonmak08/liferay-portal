@@ -110,13 +110,18 @@ String selectStyle = (String)request.getAttribute("configuration.jsp-selectStyle
 					for (AssetRendererFactory assetRendererFactory : AssetRendererFactoryRegistryUtil.getAssetRendererFactories(company.getCompanyId())) {
 						Map<Long, String> assetAvailableClassTypes = assetRendererFactory.getClassTypes(_getCurrentAndAncestorSiteGroupIds(groupIds, true), locale);
 
-						if (assetAvailableClassTypes.isEmpty()) {
-							continue;
-						}
-
-						classTypesAssetRendererFactories.add(assetRendererFactory);
-
 						String className = AssetPublisherUtil.getClassName(assetRendererFactory);
+
+						if (assetAvailableClassTypes.isEmpty()) {
+							String portletPreferencesClassTypeIds = portletPreferences.getValue("classTypeIds" + className, StringPool.BLANK);
+
+							if (portletPreferencesClassTypeIds.isEmpty()) {
+								continue;
+							}
+						}
+						else {
+							classTypesAssetRendererFactories.add(assetRendererFactory);
+						}
 
 						Set<Long> assetAvailableClassTypeIdsSet = assetAvailableClassTypes.keySet();
 
