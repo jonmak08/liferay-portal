@@ -104,19 +104,20 @@ public class TCKHandshakeAction extends SimpleAction {
 
 						String command = matcher.group(1);
 
-						if (!command.equals("activate")) {
-							continue;
+						if (command.equals("activate")) {
+							_activate();
+
+							for (String servletContextName : StringUtil.split(
+									matcher.group(2))) {
+
+								_waitForDeployment(
+									servletContextName, startTime,
+									_PORTLET_TCK_BRIDGE_HANDSHAKE_TIMEOUT *
+										Time.SECOND);
+							}
 						}
-
-						_activate();
-
-						for (String servletContextName : StringUtil.split(
-								matcher.group(2))) {
-
-							_waitForDeployment(
-								servletContextName, startTime,
-								_PORTLET_TCK_BRIDGE_HANDSHAKE_TIMEOUT *
-									Time.SECOND);
+						else if (command.equals("deactivate")) {
+							_deactivate();
 						}
 
 						outputStream = socket.getOutputStream();
@@ -184,6 +185,19 @@ public class TCKHandshakeAction extends SimpleAction {
 					Collections.<String>emptyList()), _FILTER_NAME, false);
 
 			StrutsActionRegistryUtil.register(_PATH, new TCKStrutsAction());
+		}
+
+		private static void _deactivate() {
+			ServletContext servletContext = ServletContextPool.get(
+				PortalUtil.getPathContext());
+
+			InvokerFilterHelper invokerFilterHelper =
+				(InvokerFilterHelper)servletContext.getAttribute(
+					InvokerFilterHelper.class.getName());
+
+			StrutsActionRegistryUtil.unregister(_PATH);
+
+			invokerFilterHelper.registerFilter(_FILTER_NAME, null);
 		}
 
 		private void _waitForDeployment(

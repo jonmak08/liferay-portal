@@ -304,6 +304,12 @@ ${logfile.content}</echo>
 				</java>
 			</sequential>
 		</for>
+
+		<waitfor checkevery="100" checkeveryunit="millisecond" maxwait="10" maxwaitunit="minute" timeoutproperty="tck.wars.shutdown.timeout">
+			 <http url="http://localhost:${portlet.tck.bridge.handshake.port}?deactivate=" />
+		</waitfor>
+
+		<fail message="Timeout while shutting down TCK." if="tck.wars.deployment.timeout" />
 	</target>
 
 	<target name="test-class-group">
