@@ -2984,10 +2984,10 @@ auto.deploy.dest.dir=C:/WINDOWS/system32/config/systemprofile/liferay/websphere-
 
 global.startup.events=com.liferay.portal.events.GlobalStartupAction,com.liferay.portal.events.CryptoStartupAction,com.liferay.portal.events.TCKStartupAction
 
-tck.handshake.server.port=${tck.handshake.server.port}
-tck.handshake.timeout=300
+portlet.preferences.strict.store=true
 
-portlet.preferences.strict.store=true</echo>
+portlet.tck.bridge.handshake.port=${portlet.tck.bridge.handshake.port}
+portlet.tck.bridge.handshake.timeout=300</echo>
 
 		<if>
 			<isset property="set.permission.algorithm.5" />
