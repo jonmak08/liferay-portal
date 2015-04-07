@@ -62,36 +62,6 @@ public class TCKStartupAction extends SimpleAction {
 		handshakeServerThread.start();
 	}
 
-	private static void _activate() throws ServletException {
-		ServletContext servletContext = ServletContextPool.get(
-			PortalUtil.getPathContext());
-
-		Filter filter = new TCKAutoLoginFilter();
-
-		FilterConfig filterConfig = new InvokerFilterConfig(
-			servletContext, _FILTER_NAME,
-			Collections.<String, String>emptyMap());
-
-		filter.init(filterConfig);
-
-		InvokerFilterHelper invokerFilterHelper =
-			(InvokerFilterHelper)servletContext.getAttribute(
-				InvokerFilterHelper.class.getName());
-
-		invokerFilterHelper.registerFilter(_FILTER_NAME, filter);
-
-		invokerFilterHelper.registerFilterMapping(
-			new FilterMapping(
-				filter, filterConfig, Collections.singletonList("/*"),
-				Collections.<String>emptyList()), _FILTER_NAME, false);
-
-		StrutsActionRegistryUtil.register(_PATH, new TCKStrutsAction());
-	}
-
-	private static final String _FILTER_NAME = "TCK Auto Login Filter";
-
-	private static final String _PATH = "/portal/tck";
-
 	private static Log _log = LogFactoryUtil.getLog(TCKStartupAction.class);
 
 	private static class HandshakeServerRunnable implements Runnable {
@@ -188,6 +158,32 @@ public class TCKStartupAction extends SimpleAction {
 			}
 		}
 
+		private void _activate() throws ServletException {
+			ServletContext servletContext = ServletContextPool.get(
+				PortalUtil.getPathContext());
+
+			Filter filter = new TCKAutoLoginFilter();
+
+			FilterConfig filterConfig = new InvokerFilterConfig(
+				servletContext, _FILTER_NAME,
+				Collections.<String, String>emptyMap());
+
+			filter.init(filterConfig);
+
+			InvokerFilterHelper invokerFilterHelper =
+				(InvokerFilterHelper)servletContext.getAttribute(
+					InvokerFilterHelper.class.getName());
+
+			invokerFilterHelper.registerFilter(_FILTER_NAME, filter);
+
+			invokerFilterHelper.registerFilterMapping(
+				new FilterMapping(
+					filter, filterConfig, Collections.singletonList("/*"),
+					Collections.<String>emptyList()), _FILTER_NAME, false);
+
+			StrutsActionRegistryUtil.register(_PATH, new TCKStrutsAction());
+		}
+
 		private void _waitForDeployment(
 			String servletContextName, long startTime, long timeout) {
 
@@ -210,6 +206,10 @@ public class TCKStartupAction extends SimpleAction {
 			_log.error("Timeout on waiting " + servletContextName);
 		}
 
+		private static final String _FILTER_NAME = "TCK Auto Login Filter";
+
+		private static final String _PATH = "/portal/tck";
+
 		private static final String _RESPONSE = "HTTP/1.1 200 OK";
 
 		private static final String _TCK_HANDSHAKE_SERVER_PORT =
@@ -217,6 +217,7 @@ public class TCKStartupAction extends SimpleAction {
 
 		private static final String _TCK_HANDSHAKE_TIMEOUT =
 			"tck.handshake.timeout";
+
 	}
 
 }
