@@ -114,7 +114,7 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 				DDMStructure.class.getName(), JournalArticle.class.getName()),
 			new PortletDataHandlerBoolean(
 				NAMESPACE, "templates", true, false, null,
-			DDMTemplate.class.getName(), DDMStructure.class.getName()),
+				DDMTemplate.class.getName(), DDMStructure.class.getName()),
 			new PortletDataHandlerBoolean(
 				NAMESPACE, "feeds", true, false, null,
 				JournalFeed.class.getName()));
@@ -179,8 +179,8 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 
 		if (portletDataContext.getBooleanParameter(NAMESPACE, "templates")) {
 			ActionableDynamicQuery ddmTemplateActionableDynamicQuery =
-					getDDMTemplateActionableDynamicQuery(
-						portletDataContext, true);
+				getDDMTemplateActionableDynamicQuery(
+					portletDataContext, true);
 
 			ddmTemplateActionableDynamicQuery.performActions();
 
