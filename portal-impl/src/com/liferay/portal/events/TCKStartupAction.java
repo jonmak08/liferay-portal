@@ -73,9 +73,7 @@ public class TCKStartupAction extends SimpleAction {
 			ServerSocket serverSocket = null;
 
 			try {
-				serverSocket = new ServerSocket(
-					GetterUtil.getInteger(
-						PropsUtil.get(_TCK_HANDSHAKE_SERVER_PORT)));
+				serverSocket = new ServerSocket(_TCK_HANDSHAKE_SERVER_PORT);
 
 				serverSocket.setSoTimeout(100);
 
@@ -112,9 +110,7 @@ public class TCKStartupAction extends SimpleAction {
 						for (String servletContextName : servletContextNames) {
 							_waitForDeployment(
 								servletContextName, startTime,
-								GetterUtil.getInteger(
-									PropsUtil.get(_TCK_HANDSHAKE_TIMEOUT)) *
-									Time.SECOND);
+								_TCK_HANDSHAKE_TIMEOUT);
 						}
 
 						outputStream = socket.getOutputStream();
@@ -212,11 +208,12 @@ public class TCKStartupAction extends SimpleAction {
 
 		private static final String _RESPONSE = "HTTP/1.1 200 OK";
 
-		private static final String _TCK_HANDSHAKE_SERVER_PORT =
-			"tck.handshake.server.port";
+		private static final int _TCK_HANDSHAKE_SERVER_PORT =
+			GetterUtil.getInteger(PropsUtil.get("tck.handshake.server.port"));
 
-		private static final String _TCK_HANDSHAKE_TIMEOUT =
-			"tck.handshake.timeout";
+		private static final long _TCK_HANDSHAKE_TIMEOUT =
+			GetterUtil.getLong(PropsUtil.get("tck.handshake.timeout")) *
+				Time.SECOND;
 
 	}
 
