@@ -26,6 +26,7 @@ import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilterHelper;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.ThreadUtil;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.servlet.filters.tck.TCKAutoLoginFilter;
 import com.liferay.portal.struts.StrutsActionRegistryUtil;
@@ -205,6 +206,8 @@ public class TCKStartupAction extends SimpleAction {
 			}
 
 			_log.error("Timeout on waiting " + servletContextName);
+
+			_log.error(ThreadUtil.threadDump());
 		}
 
 		private static final Pattern _COMMAND_PATTERN = Pattern.compile(
