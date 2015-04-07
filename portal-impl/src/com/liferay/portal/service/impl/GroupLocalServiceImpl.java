@@ -3965,7 +3965,7 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 							resourceName.equals(
 								resourceTypePermission.getName()) &&
 							((resourceTypePermission.getActionIds() &
-								resourceAction.getBitwiseValue()) != 0)) {
+							  resourceAction.getBitwiseValue()) != 0)) {
 
 							Group group = groupPersistence.fetchByPrimaryKey(
 								resourceTypePermission.getGroupId());
@@ -3987,7 +3987,7 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 						if ((resourcePermission.getRoleId() ==
 								resourceRoleId) &&
 							((resourcePermission.getActionIds() &
-								resourceAction.getBitwiseValue()) != 0)) {
+							  resourceAction.getBitwiseValue()) != 0)) {
 
 							Group group = groupPersistence.fetchByPrimaryKey(
 								GetterUtil.getLong(
