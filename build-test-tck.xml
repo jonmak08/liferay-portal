@@ -39,6 +39,15 @@
 		</sequential>
 	</macrodef>
 
+	<target name="clean-up-tck-dependencies">
+		<delete includeemptydirs="true">
+			<fileset
+				dir="${app.server.tomcat.dir}/webapps/"
+				includes="portlet_jp_*/**"
+			/>
+		</delete>
+	</target>
+
 	<target name="prepare-tck">
 		<delete dir="tools/tck" />
 
@@ -309,7 +318,9 @@ ${logfile.content}</echo>
 			 <http url="http://localhost:${portlet.tck.bridge.handshake.port}?deactivate=" />
 		</waitfor>
 
-		<fail message="Timeout while shutting down TCK." if="tck.wars.deployment.timeout" />
+		<fail message="Timeout while shutting down TCK." if="tck.wars.shutdown.timeout" />
+
+		<antcall target="clean-up-tck-dependencies" />
 	</target>
 
 	<target name="test-class-group">
