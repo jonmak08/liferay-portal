@@ -25,7 +25,6 @@ import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilterConfig;
 import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilterHelper;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsUtil;
-import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.servlet.filters.tck.TCKAutoLoginFilter;
 import com.liferay.portal.struts.StrutsActionRegistryUtil;
@@ -38,6 +37,8 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
+
+import java.nio.charset.Charset;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -115,7 +116,7 @@ public class TCKStartupAction extends SimpleAction {
 
 						outputStream = socket.getOutputStream();
 
-						outputStream.write(_RESPONSE.getBytes(StringPool.UTF8));
+						outputStream.write(_RESPONSE);
 					}
 					catch (SocketTimeoutException ste) {
 					}
@@ -206,7 +207,8 @@ public class TCKStartupAction extends SimpleAction {
 
 		private static final String _PATH = "/portal/tck";
 
-		private static final String _RESPONSE = "HTTP/1.1 200 OK";
+		private static final byte[] _RESPONSE = "HTTP/1.1 200 OK".getBytes(
+			Charset.defaultCharset());
 
 		private static final int _TCK_HANDSHAKE_SERVER_PORT =
 			GetterUtil.getInteger(PropsUtil.get("tck.handshake.server.port"));
