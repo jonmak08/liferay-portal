@@ -54,7 +54,7 @@ import javax.servlet.ServletException;
 /**
  * @author Matthew Tambara
  */
-public class TCKStartupAction extends SimpleAction {
+public class TCKHandshakeAction extends SimpleAction {
 
 	@Override
 	public void run(String[] ids) {
@@ -66,7 +66,7 @@ public class TCKStartupAction extends SimpleAction {
 		handshakeServerThread.start();
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(TCKStartupAction.class);
+	private static Log _log = LogFactoryUtil.getLog(TCKHandshakeAction.class);
 
 	private static class HandshakeServerRunnable implements Runnable {
 
