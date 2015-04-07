@@ -10,7 +10,7 @@
 		<if>
 			<isset var="calendarName" />
 			<then>
-				<execute function="Select" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR" value1="${calendarName}" />
+				<execute function="Select" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarName}" />
 			</then>
 		</if>
 
@@ -56,10 +56,10 @@
 		<if>
 			<equals arg1="${schedulerEventDialogBox}" arg2="false" />
 			<then>
-				<execute function="AssertElementNotPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR" value1="${calendarName}" />
+				<execute function="AssertElementNotPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarName}" />
 			</then>
 			<else>
-				<execute function="AssertSelectedLabel" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR" value1="${calendarName}" />
+				<execute function="AssertSelectedLabel" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarName}" />
 			</else>
 		</if>
 
@@ -140,8 +140,6 @@
 	</command>
 
 	<command name="addPG">
-		<execute macro="CalendarEvent#gotoAdd" />
-
 		<execute macro="CalendarEvent#editTitle">
 			<var name="eventTitle" value="${eventTitle}" />
 		</execute>
@@ -410,10 +408,10 @@
 		<if>
 			<equals arg1="${schedulerEventDialogBox}" arg2="false" />
 			<then>
-				<execute function="AssertElementNotPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR" value1="${calendarName}" />
+				<execute function="AssertElementNotPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarName}" />
 			</then>
 			<else>
-				<execute function="AssertSelectedLabel" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR" value1="${calendarName}" />
+				<execute function="AssertSelectedLabel" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarName}" />
 			</else>
 		</if>
 	</command>
@@ -427,9 +425,9 @@
 
 		<execute function="AssertClick#assertTextClickNoMouseOver" locator1="PGCalendar#SCHEDULER_EVENT_SPECIFIC" value1="${eventTitle}" />
 		<execute function="AssertTextEquals" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_EVENT_TITLE" value1="${eventTitle}" />
-		<execute function="AssertElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR" value1="${calendarDefaultName}" />
-		<execute function="Select" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR" value1="${calendarName}" />
-		<execute function="AssertElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR" value1="${calendarName}" />
+		<execute function="AssertElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarDefaultName}" />
+		<execute function="Select" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarName}" />
+		<execute function="AssertElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarName}" />
 		<execute function="AssertClick" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_SAVE_BUTTON" value1="Save" />
 
 		<if>
@@ -440,7 +438,7 @@
 		</if>
 
 		<execute function="AssertClick#assertTextClickNoMouseOver" locator1="PGCalendar#SCHEDULER_EVENT_SPECIFIC" value1="${eventTitle}" />
-		<execute function="AssertElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR" value1="${calendarName}" />
+		<execute function="AssertElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarName}" />
 	</command>
 
 	<command name="changeViewPG">
@@ -682,7 +680,7 @@
 		<if>
 			<isset var="calendarName" />
 			<then>
-				<execute function="Select" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR" value1="${calendarName}" />
+				<execute function="Select" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarName}" />
 			</then>
 		</if>
 
@@ -984,7 +982,8 @@
 
 		<execute function="AssertClick" locator1="PGCalendar#ADD_EVENT_BUTTON" value1="Add Event" />
 
-		<execute function="SelectFrame" locator1="PGCalendarAddevent#ADD_EVENT_IFRAME" />
+		<execute macro="CalendarEvent#selectEventIframe" />
+
 		<execute function="AssertElementPresent#assertVisible" locator1="PGCalendarAddevent#START_DATE" />
 		<execute function="AssertElementPresent#assertVisible" locator1="PGCalendarAddevent#START_DATE_TIME" />
 		<execute function="AssertElementPresent#assertVisible" locator1="PGCalendarAddevent#END_DATE" />
@@ -1079,10 +1078,10 @@
 		<if>
 			<equals arg1="${schedulerEventDialogBox}" arg2="false" />
 			<then>
-				<execute function="AssertElementNotPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR" value1="${calendarName}" />
+				<execute function="AssertElementNotPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarName}" />
 			</then>
 			<else>
-				<execute function="AssertSelectedLabel" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR" value1="${calendarName}" />
+				<execute function="AssertSelectedLabel" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarName}" />
 			</else>
 		</if>
 
@@ -1147,6 +1146,10 @@
 				<execute function="Select" locator1="PGCalendarAddevent#DETAILS_CALENDAR_SELECT" value1="${calendarName}" />
 			</then>
 		</if>
+	</command>
+
+	<command name="selectEventIframe">
+		<execute function="SelectFrame" locator1="PGCalendarAddevent#ADD_EVENT_IFRAME" />
 	</command>
 
 	<command name="setAllDay">
@@ -1583,10 +1586,10 @@
 		<if>
 			<equals arg1="${schedulerEventDialogBox}" arg2="false" />
 			<then>
-				<execute function="AssertElementNotPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR" value1="${calendarName}" />
+				<execute function="AssertElementNotPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarName}" />
 			</then>
 			<else>
-				<execute function="AssertSelectedLabel" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR" value1="${calendarName}" />
+				<execute function="AssertSelectedLabel" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarName}" />
 			</else>
 		</if>
 
