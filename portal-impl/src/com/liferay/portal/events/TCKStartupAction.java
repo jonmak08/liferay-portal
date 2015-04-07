@@ -135,13 +135,13 @@ public class TCKStartupAction extends SimpleAction {
 							}
 						}
 						catch (IOException ioe) {
-							throw new RuntimeException(ioe);
+							_log.error(ioe, ioe);
 						}
 					}
 				}
 			}
 			catch (Exception e) {
-				throw new RuntimeException(e);
+				_log.error(e, e);
 			}
 			finally {
 				if (serverSocket != null) {
