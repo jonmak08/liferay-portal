@@ -1,0 +1,165 @@
+<definition component-name="liferay-connected-services-project-administration">
+	<property name="portlet.plugins.includes" value="lcs-portlet" />
+	<property name="testray.main.component.name" value="Liferay Connected Services" />
+
+	<var name="projectName" value="Liferay QA" />
+
+	<set-up>
+		<execute macro="User#firstLoginPG" />
+
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="${projectName}" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+	</set-up>
+
+	<tear-down>
+		<execute function="Click" locator1="LCSPortalNavigation#NAVIGATION_MENU_DASHBOARD" />
+
+		<execute macro="LCSEnvironment#tearDown" />
+	</tear-down>
+
+	<command name="ViewApplicationCacheHibernateMetrics" priority="5">
+		<execute macro="LCSServerNavigator#gotoServerMetrics">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="metricsSubTabName" value="Cache" />
+			<var name="metricsTabName" value="Application" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#waitForMetrics" />
+
+		<execute macro="LCSServerMetrics#viewMetricsApplicationCacheHibernateMetrics" />
+	</command>
+
+	<command name="ViewApplicationCacheLiferaySingleVMMetrics" priority="5">
+		<execute macro="LCSServerNavigator#gotoServerMetrics">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="metricsSubTabName" value="Cache" />
+			<var name="metricsTabName" value="Application" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#waitForMetrics" />
+
+		<execute macro="LCSServerMetrics#viewMetricsApplicationCacheLiferaySingleVMMetrics" />
+	</command>
+
+	<command name="ViewApplicationPagesMetrics" priority="5">
+		<execute macro="LCSServerMetrics#generateApplicationMetrics" />
+
+		<execute macro="LCSServerNavigator#gotoServerMetrics">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="metricsSubTabName" value="Pages" />
+			<var name="metricsTabName" value="Application" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#waitForMetrics" />
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/user/test/home" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/web/test/home" />
+		</execute>
+	</command>
+
+	<command name="ViewApplicationPortletMetrics" priority="5">
+		<execute macro="LCSServerMetrics#generateApplicationMetrics" />
+
+		<execute macro="LCSServerNavigator#gotoServerMetrics">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="metricsSubTabName" value="Portlets" />
+			<var name="metricsTabName" value="Application" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#waitForMetrics" />
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Dockbar" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Language" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Portal Directory" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Dictionary" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="My Sites" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Search" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Blogs" />
+		</execute>
+	</command>
+
+	<command name="ViewJVMGarbageCollectorMetrics" priority="5">
+		<execute macro="LCSServerNavigator#gotoServerMetrics">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="metricsTabName" value="JVM" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#waitForMetrics" />
+
+		<execute macro="LCSServerMetrics#viewMetricsJVMGarbageCollectorMetrics" />
+	</command>
+
+	<command name="ViewJVMMemoryMetrics" priority="5">
+		<execute macro="LCSServerNavigator#gotoServerMetrics">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="metricsTabName" value="JVM" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#waitForMetrics" />
+
+		<execute macro="LCSServerMetrics#viewMetricsJVMMemoryMetrics" />
+	</command>
+
+	<command name="ViewServerCurrentThreadMetrics" priority="5">
+		<execute macro="LCSServerMetrics#generateApplicationMetrics" />
+
+		<execute macro="LCSServerNavigator#gotoServerMetrics">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="metricsTabName" value="Server" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewMetricsServerCurrentThreads" />
+	</command>
+
+	<command name="ViewServerJDBCConnectionPoolsMetrics" priority="5">
+		<execute macro="LCSServerNavigator#gotoServerMetrics">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="metricsTabName" value="Server" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#waitForMetrics" />
+
+		<execute macro="LCSServerMetrics#viewMetricsServerJDBCConnectionPools" />
+	</command>
+</definition>
