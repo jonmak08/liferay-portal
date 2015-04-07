@@ -251,10 +251,8 @@ work.dir=${basedir.unix}/tools/tck/work</echo>
 
 		<antcall target="start-app-server" />
 
-		<property name="tck.servlet.context.names.activate" value="Activate,${tck.servlet.context.names}" />
-
 		<waitfor checkevery="100" checkeveryunit="millisecond" maxwait="5" maxwaitunit="minute" timeoutproperty="tck.wars.deployment.timeout">
-			 <http url="http://localhost:${tck.handshake.server.port}/${tck.servlet.context.names.activate}" />
+			 <http url="http://localhost:${tck.handshake.server.port}?activate=${tck.servlet.context.names}" />
 		</waitfor>
 
 		<fail message="Timeout while activating TCK." if="tck.wars.deployment.timeout" />

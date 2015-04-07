@@ -25,6 +25,7 @@ import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilterConfig;
 import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilterHelper;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsUtil;
+import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.servlet.filters.tck.TCKAutoLoginFilter;
 import com.liferay.portal.struts.StrutsActionRegistryUtil;
@@ -40,8 +41,9 @@ import java.net.SocketTimeoutException;
 
 import java.nio.charset.Charset;
 
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterConfig;
@@ -91,24 +93,24 @@ public class TCKStartupAction extends SimpleAction {
 						unsyncBufferedReader = new UnsyncBufferedReader(
 							new InputStreamReader(socket.getInputStream()));
 
-						String request = unsyncBufferedReader.readLine();
+						Matcher matcher = _COMMAND_PATTERN.matcher(
+							unsyncBufferedReader.readLine());
 
-						String[] rawInput = request.split(" ");
+						if (!matcher.find()) {
+							continue;
+						}
 
-						String[] input = rawInput[1].split(",");
+						String command = matcher.group(1);
 
-						String operation = input[0].substring(1);
-
-						if (!operation.equals("Activate")) {
+						if (!command.equals("activate")) {
 							continue;
 						}
 
 						_activate();
 
-						String[] servletContextNames = Arrays.copyOfRange(
-							input, 1, input.length);
+						for (String servletContextName : StringUtil.split(
+								matcher.group(2))) {
 
-						for (String servletContextName : servletContextNames) {
 							_waitForDeployment(
 								servletContextName, startTime,
 								_TCK_HANDSHAKE_TIMEOUT);
@@ -202,6 +204,9 @@ public class TCKStartupAction extends SimpleAction {
 
 			_log.error("Timeout on waiting " + servletContextName);
 		}
+
+		private static final Pattern _COMMAND_PATTERN = Pattern.compile(
+			"\\?(\\w+)=(.*)\\s");
 
 		private static final String _FILTER_NAME = "TCK Auto Login Filter";
 
