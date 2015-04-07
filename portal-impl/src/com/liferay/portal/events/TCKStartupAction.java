@@ -15,7 +15,6 @@
 package com.liferay.portal.events;
 
 import com.liferay.portal.action.TCKStrutsAction;
-import com.liferay.portal.kernel.events.ActionException;
 import com.liferay.portal.kernel.events.SimpleAction;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.log.Log;
@@ -54,7 +53,7 @@ import javax.servlet.ServletException;
 public class TCKStartupAction extends SimpleAction {
 
 	@Override
-	public void run(String[] ids) throws ActionException {
+	public void run(String[] ids) {
 		Thread handshakeServerThread = new Thread(
 			new HandshakeServerRunnable(), "Handshake server thread");
 
