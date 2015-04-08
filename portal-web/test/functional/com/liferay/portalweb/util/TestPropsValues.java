@@ -22,6 +22,9 @@ import com.liferay.portal.kernel.util.StringUtil;
  */
 public class TestPropsValues extends com.liferay.portal.util.TestPropsValues {
 
+	public static final String APP_SERVER_TYPE = TestPropsUtil.get(
+		"app.server.type");
+
 	public static final String BROWSER_COMMANDS_DIR_NAME = TestPropsUtil.get(
 		"browser.commands.dir");
 
@@ -92,6 +95,9 @@ public class TestPropsValues extends com.liferay.portal.util.TestPropsValues {
 
 	public static final String DATABASE_SYBASE_USERNAME = TestPropsUtil.get(
 		"database.sybase.username");
+
+	public static final String DATABASE_TYPE = TestPropsUtil.get(
+		"database.type");
 
 	public static final String EMAIL_ADDRESS_1 = TestPropsUtil.get(
 		"email.address.1");
