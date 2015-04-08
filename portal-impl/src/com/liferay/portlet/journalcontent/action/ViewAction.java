@@ -55,14 +55,9 @@ public class ViewAction extends WebContentAction {
 		ThemeDisplay themeDisplay = (ThemeDisplay)renderRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
-		long articleGroupId = ParamUtil.getLong(
-			renderRequest, "articleGroupId");
-
-		if (articleGroupId <= 0) {
-			articleGroupId = GetterUtil.getLong(
-				portletPreferences.getValue(
-					"groupId", String.valueOf(themeDisplay.getScopeGroupId())));
-		}
+		long articleGroupId = PrefsParamUtil.getLong(
+			portletPreferences, renderRequest, "groupId",
+			themeDisplay.getScopeGroupId());
 
 		String articleId = PrefsParamUtil.getString(
 			portletPreferences, renderRequest, "articleId");
