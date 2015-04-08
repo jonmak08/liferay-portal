@@ -14,7 +14,6 @@
 
 package com.liferay.portlet;
 
-import com.liferay.portal.kernel.test.CodeCoverageAssertor;
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
 
 import java.lang.reflect.InvocationTargetException;
@@ -30,7 +29,6 @@ import javax.servlet.http.HttpSession;
 
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.ClassRule;
 import org.junit.Test;
 
 import org.springframework.mock.web.MockHttpSession;
@@ -39,10 +37,6 @@ import org.springframework.mock.web.MockHttpSession;
  * @author Shuyang Zhou
  */
 public class PortletSessionAttributeMapTest {
-
-	@ClassRule
-	public static final CodeCoverageAssertor codeCoverageAssertor =
-		CodeCoverageAssertor.INSTANCE;
 
 	@Before
 	public void setUp() {
