@@ -301,14 +301,13 @@ public class DLFileEntryTrashHandler extends DLBaseTrashHandler {
 			dlFileEntry.getGroupId(), containerModelId, originalTitle);
 
 		if (duplicateDLFolder != null) {
-			RestoreEntryException ree = new RestoreEntryException(
-				RestoreEntryException.DUPLICATE);
+			DuplicateEntryException dee = new DuplicateEntryException();
 
-			ree.setDuplicateEntryId(duplicateDLFolder.getFolderId());
-			ree.setOldName(duplicateDLFolder.getName());
-			ree.setTrashEntryId(entryId);
+			dee.setDuplicateEntryId(duplicateDLFolder.getFolderId());
+			dee.setOldName(duplicateDLFolder.getName());
+			dee.setTrashEntryId(entryId);
 
-			throw ree;
+			throw dee;
 		}
 
 		DLFileEntry duplicateDLFileEntry =
