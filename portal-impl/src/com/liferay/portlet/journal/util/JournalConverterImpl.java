@@ -278,6 +278,12 @@ public class JournalConverterImpl implements JournalConverter {
 				addMetadataEntry(
 					metadataElement, "label", HttpUtil.decodeURL(name));
 
+				Attribute indexTypeAttribute = element.attribute("index-type");
+
+				if (indexTypeAttribute != null) {
+					element.remove(indexTypeAttribute);
+				}
+
 				element.addAttribute("name", "option" + StringUtil.randomId());
 				element.addAttribute("type", "option");
 				element.addAttribute("value", HttpUtil.decodeURL(type));
