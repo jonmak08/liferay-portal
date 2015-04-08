@@ -169,7 +169,6 @@
 		</execute>
 
 		<execute macro="CalendarEvent#viewPG">
-			<var name="eventNumber" value="${eventNumber}" />
 			<var name="eventTitle" value="${eventTitle}" />
 		</execute>
 	</command>
@@ -431,7 +430,6 @@
 		</execute>
 
 		<execute macro="CalendarEvent#viewPG">
-			<var name="eventNumber" value="${eventNumber}" />
 			<var name="eventTitle" value="${eventTitle}" />
 		</execute>
 	</command>
@@ -784,7 +782,6 @@
 		</execute>
 
 		<execute macro="CalendarEvent#viewPG">
-			<var name="eventNumber" value="${eventNumber}" />
 			<var name="eventTitle" value="${eventTitle}" />
 		</execute>
 	</command>
@@ -1571,7 +1568,6 @@
 		</execute>
 
 		<execute macro="CalendarEvent#viewPG">
-			<var name="eventNumber" value="${eventNumber}" />
 			<var name="eventTitle" value="${eventTitleEdit}" />
 		</execute>
 	</command>
@@ -1684,7 +1680,6 @@
 		</execute>
 
 		<execute macro="CalendarEvent#viewPG">
-			<var name="eventNumber" value="${eventNumber}" />
 			<var name="eventTitle" value="${eventTitleEdit}" />
 		</execute>
 	</command>
@@ -1801,7 +1796,6 @@
 		</execute>
 
 		<execute macro="CalendarEvent#viewPG">
-			<var name="eventNumber" value="${eventNumber}" />
 			<var name="eventTitle" value="${eventTitleEdit}" />
 		</execute>
 	</command>
