@@ -41,7 +41,7 @@ public class MappingEnumerationTest {
 			Collections.singleton(-1));
 
 		MappingEnumeration<Integer, String> mappingEnumeration =
-			new MappingEnumeration<>(enumeration, _mapper);
+			new MappingEnumeration<Integer, String>(enumeration, _mapper);
 
 		Assert.assertSame(enumeration, mappingEnumeration.enumeration);
 		Assert.assertSame(_mapper, mappingEnumeration.mapper);
@@ -49,7 +49,8 @@ public class MappingEnumerationTest {
 
 		enumeration = Collections.enumeration(Collections.singleton(1));
 
-		mappingEnumeration = new MappingEnumeration<>(enumeration, _mapper);
+		mappingEnumeration = new MappingEnumeration<Integer, String>(
+			enumeration, _mapper);
 
 		Assert.assertSame(enumeration, mappingEnumeration.enumeration);
 		Assert.assertSame(_mapper, mappingEnumeration.mapper);
@@ -58,8 +59,9 @@ public class MappingEnumerationTest {
 
 	@Test
 	public void testEnumeration() {
-		Enumeration<String> enumeration = new MappingEnumeration<>(
-			Collections.enumeration(Arrays.asList(-1, 0, 1, 2)), _mapper);
+		Enumeration<String> enumeration =
+			new MappingEnumeration<Integer, String>(
+				Collections.enumeration(Arrays.asList(-1, 0, 1, 2)), _mapper);
 
 		Assert.assertTrue(enumeration.hasMoreElements());
 		Assert.assertEquals("1", enumeration.nextElement());

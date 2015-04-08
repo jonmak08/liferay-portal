@@ -89,7 +89,7 @@ public class PortletSessionAttributeMap extends AbstractMap<String, Object> {
 
 	@Override
 	public Set<Entry<String, Object>> entrySet() {
-		Map<String, Object> map = new HashMap<>();
+		Map<String, Object> map = new HashMap<String, Object>();
 
 		Enumeration<String> enumeration = getAttributeNames(true);
 
@@ -156,7 +156,7 @@ public class PortletSessionAttributeMap extends AbstractMap<String, Object> {
 
 	@Override
 	public Collection<Object> values() {
-		List<Object> attributeValues = new ArrayList<>();
+		List<Object> attributeValues = new ArrayList<Object>();
 
 		Enumeration<String> enumeration = getAttributeNames(false);
 
@@ -183,7 +183,7 @@ public class PortletSessionAttributeMap extends AbstractMap<String, Object> {
 			return enumeration;
 		}
 
-		return new MappingEnumeration<>(
+		return new MappingEnumeration<String, String>(
 			enumeration,
 			new AttributeNameMapper(scopePrefix, removePrefix));
 	}

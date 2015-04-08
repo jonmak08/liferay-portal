@@ -96,7 +96,7 @@ public class PortletSessionImpl implements LiferayPortletSession {
 			return session.getAttributeNames();
 		}
 
-		List<String> attributeNames = new ArrayList<>();
+		List<String> attributeNames = new ArrayList<String>();
 
 		Enumeration<String> enu = session.getAttributeNames();
 
