@@ -11,4 +11,19 @@
 		<execute function="AssertTextEquals" locator1="LCSServerServerDetails#SERVER_DESCRIPTION" value1="Description ${serverDescription}" />
 		<execute function="AssertTextEquals" locator1="LCSServerServerDetails#SERVER_LOCATION" value1="Location ${serverLocation}" />
 	</command>
+
+	<command name="viewServerProperties">
+		<execute function="AssertElementPresent" locator1="LCSServerServerDetails#SERVER_PROPERTIES_SOFTWARE_TABLE" />
+		<execute function="AssertElementPresent" locator1="LCSServerServerDetails#SERVER_PROPERTIES_HARDWARE_TABLE" />
+
+		<var name="key_serverPropertyName" value="appsrv.name" />
+
+		<execute function="AssertTextEquals" locator1="LCSServerServerDetails#SERVER_PROPERTIES_SOFTWARE_PROPERTY_NAME" value1="appsrv.name" />
+		<execute function="AssertTextEquals" locator1="LCSServerServerDetails#SERVER_PROPERTIES_SOFTWARE_PROPERTY_VALUE" value1="${appServerType}" />
+
+		<var name="key_serverPropertyName" value="database.name" />
+
+		<execute function="AssertTextEquals" locator1="LCSServerServerDetails#SERVER_PROPERTIES_SOFTWARE_PROPERTY_NAME" value1="database.name" />
+		<execute function="AssertTextEquals" locator1="LCSServerServerDetails#SERVER_PROPERTIES_SOFTWARE_PROPERTY_VALUE" value1="${databaseType}" />
+	</command>
 </definition>

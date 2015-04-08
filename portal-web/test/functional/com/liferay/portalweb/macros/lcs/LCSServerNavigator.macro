@@ -44,4 +44,15 @@
 			</then>
 		</if>
 	</command>
+
+	<command name="gotoServerProperties">
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="${environmentName}" />
+			<var name="serverName" value="${serverName}" />
+		</execute>
+
+		<execute function="AssertClick" locator1="LCSServer#TOOLBAR_SERVER_DETAILS_BUTTON" value1="Server Details" />
+
+		<execute function="AssertClick" locator1="LCSServerServerDetails#NAVIGATION_SERVER_PROPERTIES" value1="Server Properties" />
+	</command>
 </definition>
