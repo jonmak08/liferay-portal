@@ -66,6 +66,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>SERVER_PROPERTIES_SOFTWARE_TABLE</td>
+	<td>//div[@class='lcs-about-software']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>SERVER_PROPERTIES_SOFTWARE_PORTAL_BUILD_NUMBER</td>
 	<td>//div[@class='lcs-about-software']//tr[contains(.,'Portal Build Number')]/td[2]</td>
 	<td></td>
@@ -88,6 +93,11 @@
 <tr>
 	<td>SERVER_PROPERTIES_SOFTWARE_PROPERTY_VALUE</td>
 	<td>//div[@class='lcs-about-software']//tr[contains(.,'${key_serverPropertyName}')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_HARDWARE_TABLE</td>
+	<td>//div[@class='lcs-about-hardware']</td>
 	<td></td>
 </tr>
 <tr>
