@@ -40,6 +40,7 @@ import com.liferay.portal.xml.XMLSchemaImpl;
 import com.liferay.portlet.documentlibrary.model.DLFolderConstants;
 import com.liferay.portlet.documentlibrary.util.DLAppTestUtil;
 import com.liferay.portlet.documentlibrary.util.DLUtil;
+import com.liferay.portlet.dynamicdatamapping.StructureXsdException;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructureConstants;
 import com.liferay.portlet.dynamicdatamapping.model.impl.DDMStructureImpl;
@@ -325,7 +326,12 @@ public class JournalConverterUtilTest extends BaseDDMServiceTestCase {
 		String actualXSD = JournalConverterUtil.getDDMXSD(
 			readText("test-journal-structure-all-fields.xml"));
 
-		validateDDMXSD(actualXSD);
+		try {
+			validateDDMXSD(actualXSD);
+		}
+		catch (StructureXsdException sxsde) {
+			Assert.fail("JournalConverterUtil created invalid xsd");
+		}
 
 		DDMStructure actualDDMStructure = new DDMStructureImpl();
 
