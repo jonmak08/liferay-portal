@@ -12,6 +12,8 @@
 		<execute macro="KBFolder#tearDownCP" />
 
 		<execute macro="KBArticle#tearDownCP" />
+
+		<execute macro="User#tearDownCP" />
 	</tear-down>
 
 	<command name="DeleteConfiguredKBFolder" priority="4">
