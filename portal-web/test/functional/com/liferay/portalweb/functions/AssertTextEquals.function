@@ -1,5 +1,5 @@
-<definition default="assertTextEquals">
-	<command name="assertPartialText">
+<definition default="assertTextEquals" summary="Assert that '${locator1}' equals the value '${value1}'">
+	<command name="assertPartialText" summary="Assert that '${locator1}' contains the value '${value1}'">
 		<execute selenium="waitForVisible" />
 
 		<execute selenium="waitForPartialText" />
