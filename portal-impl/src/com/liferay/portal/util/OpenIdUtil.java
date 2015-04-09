@@ -70,12 +70,14 @@ public class OpenIdUtil {
 	}
 
 	private void _initialize() {
-		if (_manager == null) {
-			_manager = new ConsumerManager();
-
-			_manager.setAssociations(new InMemoryConsumerAssociationStore());
-			_manager.setNonceVerifier(new InMemoryNonceVerifier(5000));
+		if (_manager != null) {
+			return;
 		}
+
+		_manager = new ConsumerManager();
+
+		_manager.setAssociations(new InMemoryConsumerAssociationStore());
+		_manager.setNonceVerifier(new InMemoryNonceVerifier(5000));
 	}
 
 	private static OpenIdUtil _instance = new OpenIdUtil();
