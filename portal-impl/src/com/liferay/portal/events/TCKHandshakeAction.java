@@ -123,6 +123,10 @@ public class TCKHandshakeAction extends SimpleAction {
 						outputStream = socket.getOutputStream();
 
 						outputStream.write(_RESPONSE);
+
+						if (command.equals("deactivate")) {
+							break;
+						}
 					}
 					catch (SocketTimeoutException ste) {
 					}
