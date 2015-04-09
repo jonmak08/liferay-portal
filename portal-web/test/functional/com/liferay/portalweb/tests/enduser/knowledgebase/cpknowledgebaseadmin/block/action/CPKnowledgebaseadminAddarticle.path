@@ -120,6 +120,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ATTACHMENTS_SAVED_ATTACHMENTS_LINK</td>
+	<td>//div[contains(@id,'AttachmentsContainer')]//a[contains(@id,'WAR_knowledgebaseportlet')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td></td>
 	<td></td>
 	<td></td>

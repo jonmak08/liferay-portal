@@ -71,6 +71,16 @@
 	<td></td>
 </tr>
 <tr>
+	<td>CKEDITOR_TOOLBAR_IMAGE_BUTTON</td>
+	<td>//a[contains(@class,'cke_button__image')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CKEDITOR_TOOLBAR_LINK_BUTTON</td>
+	<td>//a[contains(@class,'cke_button__link')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>CKEDITOR_TOOLBAR_SIZE_BUTTON_PORTLET</td>
 	<td>//span[contains(@class,'portlet-title-text') and contains(.,'${key_portletName}')]/../../..//a[contains(@class,'cke_combo_button') and contains(.,'Size')]/span</td>
 	<td></td>
