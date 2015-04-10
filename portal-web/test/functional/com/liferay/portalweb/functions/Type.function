@@ -83,6 +83,14 @@
 		<execute selenium="assertLiferayErrors" />
 	</command>
 
+	<command name="sendKeysNoError">
+		<execute selenium="waitForVisible" />
+
+		<execute selenium="mouseOver" />
+
+		<execute selenium="sendKeys" />
+	</command>
+
 	<command name="sendKeysNoWait">
 		<execute selenium="mouseOver" />
 
