@@ -23,6 +23,7 @@ import com.liferay.portal.kernel.servlet.ServletContextPool;
 import com.liferay.portal.kernel.servlet.filters.invoker.FilterMapping;
 import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilterConfig;
 import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilterHelper;
+import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -36,12 +37,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 
 import java.nio.charset.Charset;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -58,6 +61,52 @@ public class TCKHandshakeAction extends SimpleAction {
 
 	@Override
 	public void run(String[] ids) {
+		Socket socket = null;
+
+		OutputStream outputStream = null;
+
+		try {
+			socket = new Socket(
+				InetAddress.getLocalHost(), _PORTLET_TCK_BRIDGE_HANDSHAKE_PORT);
+
+			outputStream = socket.getOutputStream();
+
+			outputStream.write(
+				"?deactivate= ".getBytes(Charset.defaultCharset()));
+
+			socket.shutdownOutput();
+
+			if (Arrays.equals(
+					_RESPONSE, FileUtil.getBytes(socket.getInputStream()))) {
+
+				return;
+			}
+		}
+		catch (IOException ioe) {
+			if (_log.isDebugEnabled()) {
+				_log.debug("Server is not responsing, continue to start it");
+			}
+		}
+		finally {
+			if (outputStream != null) {
+				try {
+					outputStream.close();
+				}
+				catch (IOException ioe) {
+					_log.error(ioe, ioe);
+				}
+			}
+
+			if (socket != null) {
+				try {
+					socket.close();
+				}
+				catch (IOException ioe) {
+					_log.error(ioe, ioe);
+				}
+			}
+		}
+
 		Thread handshakeServerThread = new Thread(
 			new HandshakeServerRunnable(), "Handshake server thread");
 
@@ -65,6 +114,13 @@ public class TCKHandshakeAction extends SimpleAction {
 
 		handshakeServerThread.start();
 	}
+
+	private static final int _PORTLET_TCK_BRIDGE_HANDSHAKE_PORT =
+		GetterUtil.getInteger(
+			PropsUtil.get("portlet.tck.bridge.handshake.port"));
+
+	private static final byte[] _RESPONSE = "HTTP/1.1 200 OK".getBytes(
+		Charset.defaultCharset());
 
 	private static Log _log = LogFactoryUtil.getLog(TCKHandshakeAction.class);
 
@@ -123,6 +179,8 @@ public class TCKHandshakeAction extends SimpleAction {
 						outputStream = socket.getOutputStream();
 
 						outputStream.write(_RESPONSE);
+
+						socket.shutdownOutput();
 
 						if (command.equals("deactivate")) {
 							break;
@@ -234,13 +292,6 @@ public class TCKHandshakeAction extends SimpleAction {
 		private static final String _FILTER_NAME = "TCK Auto Login Filter";
 
 		private static final String _PATH = "/portal/tck";
-
-		private static final byte[] _RESPONSE = "HTTP/1.1 200 OK".getBytes(
-			Charset.defaultCharset());
-
-		private static final int _PORTLET_TCK_BRIDGE_HANDSHAKE_PORT =
-			GetterUtil.getInteger(
-				PropsUtil.get("portlet.tck.bridge.handshake.port"));
 
 		private static final long _PORTLET_TCK_BRIDGE_HANDSHAKE_TIMEOUT =
 			GetterUtil.getLong(

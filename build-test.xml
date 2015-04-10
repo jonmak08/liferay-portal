@@ -2982,6 +2982,7 @@ auto.deploy.dest.dir=C:/WINDOWS/system32/config/systemprofile/liferay/websphere-
 
 		<echo file="portal-impl/src/portal-ext.properties" append="true">
 
+global.shutdown.events=com.liferay.portal.events.GlobalShutdownAction,com.liferay.portal.events.TCKHandshakeAction
 global.startup.events=com.liferay.portal.events.GlobalStartupAction,com.liferay.portal.events.CryptoStartupAction,com.liferay.portal.events.TCKHandshakeAction
 
 portlet.preferences.strict.store=true
