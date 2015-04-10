@@ -29,24 +29,18 @@
 		<if>
 			<isset var="metricsTabName" />
 			<then>
-				<if>
-					<equals arg1="${metricsTabName}" arg2="Application" />
-					<then>
-						<execute macro="LCSServerMetricsNavigator#gotoApplication" />
-					</then>
-					<elseif>
-						<equals arg1="${metricsTabName}" arg2="JVM" />
-						<then>
-							<execute macro="LCSServerMetricsNavigator#gotoJVM" />
-						</then>
-					</elseif>
-					<elseif>
-						<equals arg1="${metricsTabName}" arg2="Server" />
-						<then>
-							<execute macro="LCSServerMetricsNavigator#gotoServer" />
-						</then>
-					</elseif>
-				</if>
+				<execute macro="LCSServerMetricsNavigator#gotoDefaultTab">
+					<var name="metricsTabName" value="${metricsTabName}" />
+				</execute>
+			</then>
+		</if>
+
+		<if>
+			<isset var="metricsSubTabName" />
+			<then>
+				<execute macro="LCSServerMetricsNavigator#gotoSubTab">
+					<var name="metricsSubTabName" value="${metricsSubTabName}" />
+				</execute>
 			</then>
 		</if>
 	</command>

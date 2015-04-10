@@ -55,33 +55,13 @@
 </tr>
 <!--NAVIGATION-->
 <tr>
-	<td>NAVIGATION_APPLICATION</td>
-	<td>//div[@class='lcs-tabs-default']//a[contains(.,'Application')]</td>
+	<td>NAVIGATION_DEFAULT_TAB</td>
+	<td>//div[@class='lcs-tabs-default']//a[contains(.,'${key_metricsTabName}')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>NAVIGATION_JVM</td>
-	<td>//div[@class='lcs-tabs-default']//a[contains(.,'JVM')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>NAVIGATION_SERVER</td>
-	<td>//div[@class='lcs-tabs-default']//a[contains(.,'Server')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>NAVIGATION_APPLICATION_PAGES</td>
-	<td>//div[@class='lcs-tabs-sub']//a[contains(.,'Pages')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>NAVIGATION_APPLICATION_PORTLETS</td>
-	<td>//div[@class='lcs-tabs-sub']//a[contains(.,'Portlets')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>NAVIGATION_APPLICATION_CACHE</td>
-	<td>//div[@class='lcs-tabs-sub']//a[contains(.,'Cache')]</td>
+	<td>NAVIGATION_SUB_TAB</td>
+	<td>//div[@class='lcs-tabs-sub']//a[contains(.,'${key_metricsSubTabName}')]</td>
 	<td></td>
 </tr>
 <tr>
