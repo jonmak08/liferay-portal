@@ -917,9 +917,8 @@ public class DocumentImpl implements Document {
 			return;
 		}
 
-		String min = Collections.min(Arrays.asList(values));
-
 		String sortableFieldName = getSortableFieldName(name);
+		String min = Collections.min(Arrays.asList(values));
 
 		Field field = new Field(sortableFieldName, min);
 
