@@ -61,9 +61,8 @@ public class TCKHandshakeAction extends SimpleAction {
 
 	@Override
 	public void run(String[] ids) {
-		Socket socket = null;
-
 		OutputStream outputStream = null;
+		Socket socket = null;
 
 		try {
 			socket = new Socket(
@@ -84,7 +83,7 @@ public class TCKHandshakeAction extends SimpleAction {
 		}
 		catch (IOException ioe) {
 			if (_log.isDebugEnabled()) {
-				_log.debug("Server is not responsing, continue to start it");
+				_log.debug("Server is not responding, continue to start it");
 			}
 		}
 		finally {
