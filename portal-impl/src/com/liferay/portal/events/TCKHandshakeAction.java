@@ -258,7 +258,7 @@ public class TCKHandshakeAction extends SimpleAction {
 
 			StrutsActionRegistryUtil.unregister(_PATH);
 
-			invokerFilterHelper.registerFilter(_FILTER_NAME, null);
+			invokerFilterHelper.unregisterFilter(_FILTER_NAME);
 		}
 
 		private void _waitForDeployment(
