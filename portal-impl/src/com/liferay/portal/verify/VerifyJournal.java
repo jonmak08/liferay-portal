@@ -205,7 +205,7 @@ public class VerifyJournal extends VerifyProcess {
 	}
 
 	protected void updateImageElement(Element element, String name, int index)
-		throws PortalException, SystemException {
+		throws SystemException {
 
 		Element dynamicContentElement = element.element("dynamic-content");
 
