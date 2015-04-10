@@ -144,6 +144,31 @@ public class InvokerFilterHelper {
 		}
 	}
 
+	public void unregisterFilter(String filterName) {
+		Filter filter = _filters.remove(filterName);
+
+		if (filter == null) {
+			return;
+		}
+
+		for (FilterMapping filterMapping : _filterMappings) {
+			if (filterMapping.getFilter() == filter) {
+				unregisterFilterMapping(filterMapping);
+
+				break;
+			}
+		}
+
+		_filterConfigs.remove(filterName);
+
+		try {
+			filter.destroy();
+		}
+		catch (Exception e) {
+			_log.error(e, e);
+		}
+	}
+
 	public void unregisterFilterMapping(FilterMapping filterMapping) {
 		_filterMappings.remove(filterMapping);
 
