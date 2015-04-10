@@ -43,6 +43,19 @@ import javax.servlet.http.HttpServletRequestWrapper;
 public class UploadPortletRequestImpl
 	extends HttpServletRequestWrapper implements UploadPortletRequest {
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #UploadPortletRequestImpl(
+	 *             UploadServletRequest, PortletRequest, String)}
+	 */
+	public UploadPortletRequestImpl(
+		UploadServletRequest uploadServletRequest, String namespace) {
+
+		super(uploadServletRequest);
+
+		_uploadServletRequest = uploadServletRequest;
+		_namespace = namespace;
+	}
+
 	public UploadPortletRequestImpl(
 		UploadServletRequest uploadServletRequest,
 		PortletRequest portletRequest, String namespace) {
