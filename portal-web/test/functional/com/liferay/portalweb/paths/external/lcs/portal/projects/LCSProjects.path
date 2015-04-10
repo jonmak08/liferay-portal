@@ -9,16 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td>PAGE_NAME</td>
-	<td></td>
-	<td>LCSWelcomeProjects</td>
-</tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>PROJECT_NAME</td>
 	<td>//div[@class='lcs-projects-list']//label[contains(.,'${key_projectName}')]</td>
 	<td></td>

@@ -9,16 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td>PAGE_NAME</td>
-	<td></td>
-	<td>LCSPortletAddNewEnvironment</td>
-</tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>ENVIRONMENT_NAME_FIELD</td>
 	<td>//div[contains(@class,'lcs-cluster-entry-dialog-content')]//input[contains(@id,'lcsClusterEntryName')]</td>
 	<td></td>

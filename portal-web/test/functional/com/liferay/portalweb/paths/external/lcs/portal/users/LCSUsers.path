@@ -9,16 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td>PAGE_NAME</td>
-	<td></td>
-	<td>LCSUsers</td>
-</tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>PROJECT_MEMBERS_EMAIL_ADDRESS</td>
 	<td>//div[contains(.,'Project Members')]//tr[contains(.,'${key_userName}')]//td[1]</td>
 	<td></td>

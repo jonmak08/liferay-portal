@@ -9,16 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td>PAGE_NAME</td>
-	<td></td>
-	<td>LCSServerServerDetails</td>
-</tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>SERVER_STATUS_ALERT_MESSAGE</td>
 	<td>//div[@class='portlet-msg-alert']</td>
 	<td></td>
