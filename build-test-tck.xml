@@ -260,6 +260,8 @@ work.dir=${basedir.unix}/tools/tck/work</echo>
 
 		<antcall target="prepare-portal-ext-properties" />
 
+		<antcall target="prepare-system-ext-properties" />
+
 		<antcall target="start-app-server" />
 
 		<waitfor checkevery="100" checkeveryunit="millisecond" maxwait="10" maxwaitunit="minute" timeoutproperty="tck.wars.deployment.timeout">
