@@ -77,6 +77,17 @@ public class PermissionCacheUtil {
 		}
 	}
 
+	public static void clearResourceCache() {
+		if (ExportImportThreadLocal.isImportInProcess() ||
+			!PermissionThreadLocal.isFlushEnabled()) {
+
+			return;
+		}
+
+		_permissionPortalCache.removeAll();
+		_resourceBlockIdsBagCache.removeAll();
+	}
+
 	public static PermissionCheckerBag getBag(long userId, long groupId) {
 		BagKey bagKey = new BagKey(userId, groupId);
 
