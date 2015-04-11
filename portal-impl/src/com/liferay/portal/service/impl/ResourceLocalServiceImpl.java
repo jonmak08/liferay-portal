@@ -792,7 +792,7 @@ public class ResourceLocalServiceImpl extends ResourceLocalServiceBaseImpl {
 		finally {
 			PermissionThreadLocal.setIndexEnabled(flushEnabled);
 
-			PermissionCacheUtil.clearCache();
+			PermissionCacheUtil.clearResourceCache();
 
 			SearchEngineUtil.updatePermissionFields(name, primKey);
 		}
@@ -904,7 +904,7 @@ public class ResourceLocalServiceImpl extends ResourceLocalServiceBaseImpl {
 
 			PermissionThreadLocal.setIndexEnabled(flushEnabled);
 
-			PermissionCacheUtil.clearCache();
+			PermissionCacheUtil.clearResourceCache();
 
 			SearchEngineUtil.updatePermissionFields(name, primKey);
 		}

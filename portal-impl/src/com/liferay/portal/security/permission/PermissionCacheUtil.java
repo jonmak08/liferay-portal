@@ -54,9 +54,7 @@ public class PermissionCacheUtil {
 		PermissionCacheUtil.class.getName() + "_USER_ROLE";
 
 	public static void clearCache() {
-		if (ExportImportThreadLocal.isImportInProcess() ||
-			!PermissionThreadLocal.isFlushEnabled()) {
-
+		if (ExportImportThreadLocal.isImportInProcess()) {
 			return;
 		}
 
