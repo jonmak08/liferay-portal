@@ -202,23 +202,8 @@
 </tr>
 <!--FILTER-->
 <tr>
-	<td>FILTER_HOME</td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>FILTER_HOME_ARROW</td>
 	<td>//span[contains(@class,'entry-action')]/div/a/i[@class='caret']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>FILTER_RECENT</td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
-	<td>FILTER_MINE</td>
-	<td></td>
 	<td></td>
 </tr>
 <tr>
