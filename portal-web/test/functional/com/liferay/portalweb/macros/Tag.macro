@@ -201,7 +201,7 @@
 		<execute function="Check" locator1="CPTags#TAG_ENTRY_CHECKBOX" />
 		<execute function="AssertTextEquals" locator1="CPTags#TAG_DETAILS_HEADER" value1="${tagName}" />
 		<execute function="AssertClickNoError" locator1="CPTags#TAG_DETAILS_DELETE_BUTTON" value1="Delete" />
-		<execute function="Confirm" locator1="CPTags#CONFIRMATION" value1="Are you sure you want to delete this tag?" />
+		<execute function="Confirm" value1="Are you sure you want to delete this tag?" />
 		<execute function="AssertTextEquals" locator1="CPTags#SUCCESS_MESSAGE" value1="Your request processed successfully." />
 		<execute function="AssertTextEquals" locator1="CPTags#INFO_MESSAGE" value1="There are no tags." />
 		<execute function="AssertTextNotPresent" value1="${tagName}" />
@@ -348,7 +348,7 @@
 				<execute function="Check" locator1="CPTags#ALL_TAGS_CHECKBOX" />
 				<execute function="AssertClick" locator1="CPTags#TOOLBAR_ACTIONS" value1="Actions" />
 				<execute function="AssertClickNoError" locator1="CPTags#ACTIONS_MENULIST_DELETE" value1="Delete" />
-				<execute function="Confirm" locator1="CPTags#CONFIRMATION" value1="Are you sure you want to delete the selected tags?" />
+				<execute function="Confirm" value1="Are you sure you want to delete the selected tags?" />
 			</then>
 		</if>
 

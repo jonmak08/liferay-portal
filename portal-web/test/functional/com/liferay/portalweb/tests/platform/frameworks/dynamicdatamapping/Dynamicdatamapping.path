@@ -33,11 +33,6 @@
 	<td>//input[contains(@id,'name')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td>CONFIRMATION</td>
-	<td></td>
-	<td></td>
-</tr>
 <!--FIELDS-->
 <tr>
 	<td>FIELDS_LINK</td>

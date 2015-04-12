@@ -54,13 +54,13 @@
 				<equals arg1="${remoteStaging}" arg2="true" />
 				<then>
 					<execute function="AssertClickNoError" locator1="CPSitesEdit#MENU_SAVE" value1="Save" />
-					<execute function="Confirm" locator1="CPSitesEdit#CONFIRMATION" value1="Are you sure you want to activate remote staging for ${siteName}?" />
+					<execute function="Confirm" value1="Are you sure you want to activate remote staging for ${siteName}?" />
 					<execute function="AssertTextEquals#assertText" locator1="CPSitesEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 				</then>
 			</elseif>
 			<else>
 				<execute function="AssertClickNoError" locator1="CPSitesEdit#MENU_SAVE" value1="Save" />
-				<execute function="Confirm" locator1="CPSitesEdit#CONFIRMATION" value1="Are you sure you want to activate local staging for ${siteName}?" />
+				<execute function="Confirm" value1="Are you sure you want to activate local staging for ${siteName}?" />
 				<execute function="AssertTextEquals#assertText" locator1="CPSitesEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 			</else>
 		</if>
@@ -315,7 +315,7 @@
 				<execute function="AssertClick#assertTextClickAt" locator1="CPSitesEdit#MENU_STAGING" value1="Staging" />
 				<execute function="Check" locator1="CPSitesEdit#STAGING_NONE" />
 				<execute function="AssertClickNoError" locator1="CPSitesEdit#MENU_SAVE" value1="Save" />
-				<execute function="Confirm" locator1="CPSitesEdit#CONFIRMATION" value1="Are you sure you want to deactivate staging for ${siteName}?" />
+				<execute function="Confirm" value1="Are you sure you want to deactivate staging for ${siteName}?" />
 				<execute function="AssertTextEquals#assertText" locator1="CPSitesEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 			</then>
 		</if>
@@ -432,7 +432,7 @@
 
 	<command name="publishToLive">
 		<execute function="AssertClickNoError" locator1="PGStagingPublishtolivenow#PUBLISH_BUTTON" value1="Publish" />
-		<execute function="Confirm" locator1="PGStagingPublishtolivenow#CONFIRMATION" value1="Are you sure you want to publish these pages?" />
+		<execute function="Confirm" value1="Are you sure you want to publish these pages?" />
 
 		<if>
 			<equals arg1="${publishFail}" arg2="true" />
@@ -465,7 +465,7 @@
 		</if>
 
 		<execute function="ClickNoError" locator1="PGStaging#STAGING_MENU_REDO_BUTTON" />
-		<execute function="Confirm" locator1="PGStaging#CONFIRMATION" value1="Are you sure you want to redo your last changes?" />
+		<execute function="Confirm" value1="Are you sure you want to redo your last changes?" />
 	</command>
 
 	<command name="remoteStagingSetUp">
@@ -630,7 +630,7 @@
 		</if>
 
 		<execute function="ClickNoError" locator1="PGStaging#STAGING_MENU_UNDO_BUTTON" />
-		<execute function="Confirm" locator1="PGStaging#CONFIRMATION" value1="Are you sure you want to undo your last changes?" />
+		<execute function="Confirm" value1="Are you sure you want to undo your last changes?" />
 	</command>
 
 	<command name="viewPageVariationPG">

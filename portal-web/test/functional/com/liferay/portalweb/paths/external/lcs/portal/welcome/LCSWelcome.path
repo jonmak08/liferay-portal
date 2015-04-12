@@ -9,11 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td>CONFIRMATION</td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>GRANT_ACCESS_BUTTON</td>
 	<td>//button[contains(.,'Grant Access')]</td>
 	<td></td>

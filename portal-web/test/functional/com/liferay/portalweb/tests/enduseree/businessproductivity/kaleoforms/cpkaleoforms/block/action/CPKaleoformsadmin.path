@@ -14,11 +14,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>CONFIRMATION</td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>OPTIONS_WRENCH_ICON</td>
 	<td>//a[@title='Options']</td>
 	<td></td>

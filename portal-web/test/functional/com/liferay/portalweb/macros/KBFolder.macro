@@ -24,7 +24,7 @@
 
 		<execute function="AssertClick" locator1="CPKnowledgebaseadmin#FOLDER_TABLE_ACTIONS_BUTTON" value1="Actions" />
 		<execute function="AssertClickNoError" locator1="CPKnowledgebaseadmin#FOLDER_MENULIST_DELETE" value1="Delete" />
-		<execute function="Confirm" locator1="CPKnowledgebaseadmin#CONFIRMATION" value1="Are you sure you want to delete this? It will be deleted immediately." />
+		<execute function="Confirm" value1="Are you sure you want to delete this? It will be deleted immediately." />
 		<execute function="AssertTextEquals#assertPartialText" locator1="CPKnowledgebaseadmin#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -76,7 +76,7 @@
 			<then>
 				<execute function="AssertClick" locator1="CPKnowledgebaseadmin#FOLDER_TABLE_ACTIONS_BUTTON_GENERIC" value1="Actions" />
 				<execute function="AssertClickNoError" locator1="CPKnowledgebaseadmin#FOLDER_MENULIST_DELETE" value1="Delete" />
-				<execute function="Confirm" locator1="CPKnowledgebaseadmin#CONFIRMATION" value1="Are you sure you want to delete this? It will be deleted immediately." />
+				<execute function="Confirm" value1="Are you sure you want to delete this? It will be deleted immediately." />
 				<execute function="AssertTextEquals#assertPartialText" locator1="CPKnowledgebaseadmin#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 			</then>
 		</while>

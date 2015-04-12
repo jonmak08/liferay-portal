@@ -32,7 +32,7 @@
 
 							<execute function="AssertClickNoError" locator1="LRDCOMLogin#SIGN_IN_BUTTON" value1="Sign In" />
 
-							<execute function="Confirm#assertPartialConfirmation" locator1="LCSWelcome#CONFIRMATION" value1="Are you sure you want to continue sending this information?" />
+							<execute function="Confirm#assertPartialConfirmation" value1="Are you sure you want to continue sending this information?" />
 						</then>
 					</if>
 
