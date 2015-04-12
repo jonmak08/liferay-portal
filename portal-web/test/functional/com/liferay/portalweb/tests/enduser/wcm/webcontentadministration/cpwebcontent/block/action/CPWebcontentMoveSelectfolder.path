@@ -8,11 +8,6 @@
 <tr><td rowspan="1" colspan="3">CPWebcontentMoveSelectfolder</td></tr>
 </thead>
 <tbody>
-<tr>
-	<td>PAGE_NAME</td>
-	<td></td>
-	<td>CPWebcontentMoveSelectfolder</td>
-</tr>
 <!---->
 <tr>
 	<td>SELECT_FOLDER_IFRAME</td>

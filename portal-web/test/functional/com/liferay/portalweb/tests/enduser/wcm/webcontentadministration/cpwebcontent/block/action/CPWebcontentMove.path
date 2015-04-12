@@ -8,11 +8,6 @@
 <tr><td rowspan="1" colspan="3">CPWebcontentMove</td></tr>
 </thead>
 <tbody>
-<tr>
-	<td>PAGE_NAME</td>
-	<td></td>
-	<td>CPWebcontentMove</td>
-</tr>
 <!---->
 <tr>
 	<td>PARENT_FOLDER_NAME</td>

@@ -8,11 +8,6 @@
 <tr><td rowspan="1" colspan="3">CPWebcontentStructures</td></tr>
 </thead>
 <tbody>
-<tr>
-	<td>PAGE_NAME</td>
-	<td></td>
-	<td>CPWebcontentStructures</td>
-</tr>
 <!---->
 <tr>
 	<td>STRUCTURES_IFRAME</td>

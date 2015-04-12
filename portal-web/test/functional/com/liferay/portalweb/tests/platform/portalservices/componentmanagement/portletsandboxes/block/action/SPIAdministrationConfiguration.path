@@ -8,11 +8,6 @@
 <tr><td rowspan="1" colspan="3">SPIAdministrationConfiguration</td></tr>
 </thead>
 <tbody>
-<tr>
-	<td>PAGE_NAME</td>
-	<td></td>
-	<td>SPIAdministrationConfiguration</td>
-</tr>
 <!---->
 <tr>
 	<td>CONFIGURATION_IFRAME</td>

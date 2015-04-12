@@ -8,11 +8,6 @@
 <tr><td rowspan="1" colspan="3">CPBookmarksFolder</td></tr>
 </thead>
 <tbody>
-<tr>
-	<td>PAGE_NAME</td>
-	<td></td>
-	<td>CPBookmarksFolder</td>
-</tr>
 <!---->
 <tr>
 	<td>EXTEND_ACTION_PATH</td>

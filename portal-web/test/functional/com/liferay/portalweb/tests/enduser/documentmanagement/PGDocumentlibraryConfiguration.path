@@ -9,11 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td>PAGE_NAME</td>
-	<td></td>
-	<td>PGDocumentlibraryConfiguration</td>
-</tr>
-<tr>
 	<td>DOCUMENT_LIBRARY_IFRAME</td>
 	<td>//iframe[contains(@class,'dialog-iframe-node')]</td>
 	<td></td>

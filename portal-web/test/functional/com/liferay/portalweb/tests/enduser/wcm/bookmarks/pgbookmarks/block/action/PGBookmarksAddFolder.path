@@ -8,11 +8,6 @@
 <tr><td rowspan="1" colspan="3">PGBookmarksAddFolder</td></tr>
 </thead>
 <tbody>
-<tr>
-	<td>PAGE_NAME</td>
-	<td></td>
-	<td>PGBookmarksAddFolder</td>
-</tr>
 <!---->
 <tr>
 	<td>NAME_FIELD</td>
