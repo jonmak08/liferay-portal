@@ -146,7 +146,7 @@
 		<execute function="AssertElementNotPresent" locator1="SOSite#SITE_NAME" />
 	</command>
 
-	<command known-issues="LPS-51944" name="ViewDashboardEvent2DaysIntoFuture" priority="3">
+	<command name="ViewDashboardEvent2DaysIntoFuture" priority="3">
 		<var name="eventTitle1" value="Calendar Event1 Title" />
 		<var name="eventTitle2" value="Calendar Event2 Title" />
 		<var name="eventTitle3" value="Calendar Event3 Title" />
@@ -234,7 +234,7 @@
 		<execute function="AssertElementNotPresent" locator1="SOEvents#EVENTS_DISPLAY_TODAYS_EVENTS_EVENT_TITLE_GENERIC" />
 	</command>
 
-	<command known-issues="LPS-51944" name="ViewDashboardEvent6DaysIntoFuture" priority="3">
+	<command name="ViewDashboardEvent6DaysIntoFuture" priority="3">
 		<var name="eventTitle1" value="Calendar Event1 Title" />
 		<var name="eventTitle2" value="Calendar Event2 Title" />
 		<var name="eventTitle3" value="Calendar Event3 Title" />
@@ -1108,7 +1108,7 @@
 		<execute function="AssertElementNotPresent" locator1="SOSite#SITE_NAME" />
 	</command>
 
-	<command known-issues="LPS-51944" name="ViewDeletedDashboardEvent" priority="4">
+	<command name="ViewDeletedDashboardEvent" priority="4">
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventType" value="Regular" />
 		<var name="pageName" value="Calendar Page" />
@@ -1148,7 +1148,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="ViewDeletedSiteEvents" priority="4">
+	<command name="ViewDeletedSiteEvents" priority="4">
 		<var name="eventTitle1" value="Calendar Event1 Title" />
 		<var name="eventTitle2" value="Calendar Event2 Title" />
 		<var name="eventTitle3" value="Calendar Event3 Title" />
@@ -1334,7 +1334,7 @@
 		<execute function="AssertElementPresent" locator1="SOEvents#EVENTS_DISPLAY_UPCOMING_EVENTS_EVENT_TIME" />
 	</command>
 
-	<command known-issues="LPS-51944" name="ViewDeletedSiteEventViaDashboard" priority="4">
+	<command name="ViewDeletedSiteEventViaDashboard" priority="4">
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventType" value="Regular" />
 		<var name="pageName" value="Calendar" />
@@ -1379,7 +1379,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="ViewEditedCalendarEventUserCalendarToSiteCalendar" priority="4">
+	<command name="ViewEditedCalendarEventUserCalendarToSiteCalendar" priority="4">
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventType" value="Regular" />
 		<var name="pageName" value="Calendar Page" />
@@ -1456,7 +1456,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="ViewEditedSiteEvent" priority="4">
+	<command name="ViewEditedSiteEvent" priority="4">
 		<var name="endDateTimeEdit" value="3:00 PM" />
 		<var name="eventTitle1" value="Calendar Event1 Title" />
 		<var name="eventTitle2" value="Calendar Event2 Title" />
@@ -1661,7 +1661,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="ViewSiteEvent6DaysIntoFuture" priority="3">
+	<command name="ViewSiteEvent6DaysIntoFuture" priority="3">
 		<var name="eventTitle1" value="Calendar Event1 Title" />
 		<var name="eventTitle2" value="Calendar Event2 Title" />
 		<var name="eventTitle3" value="Calendar Event3 Title" />
@@ -2001,7 +2001,7 @@
 		<execute function="AssertTextEquals" locator1="SOSite#SITE_NAME" value1="${siteName}" />
 	</command>
 
-	<command known-issues="LPS-51944" name="ViewSiteEvents" priority="5">
+	<command name="ViewSiteEvents" priority="5">
 		<var name="eventTitle1" value="Calendar Event1 Title" />
 		<var name="eventTitle2" value="Calendar Event2 Title" />
 		<var name="eventTitle3" value="Calendar Event3 Title" />

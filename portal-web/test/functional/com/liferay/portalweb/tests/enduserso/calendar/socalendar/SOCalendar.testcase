@@ -132,7 +132,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="AddCalendarEventComment" priority="4">
+	<command name="AddCalendarEventComment" priority="4">
 		<var name="eventComment" value="Calendar Event Comment" />
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventType" value="Regular" />
@@ -190,7 +190,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="AddCalendarEventCommentSOUser" priority="5">
+	<command name="AddCalendarEventCommentSOUser" priority="5">
 		<var name="eventComment" value="Calendar Event Comment" />
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventType" value="Regular" />
@@ -497,7 +497,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="AddCalendarEventTag" priority="3">
+	<command name="AddCalendarEventTag" priority="3">
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventType" value="Regular" />
 		<var name="tagText" value="tag1" />
@@ -542,7 +542,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="AddCalendarEventViaScheduler" priority="3">
+	<command name="AddCalendarEventViaScheduler" priority="3">
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventType" value="Regular" />
 
@@ -697,7 +697,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="DeleteCalendarEvent" priority="5">
+	<command name="DeleteCalendarEvent" priority="5">
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventType" value="Regular" />
 
@@ -723,7 +723,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="DeleteCalendarEventCommentSOUser" priority="5">
+	<command name="DeleteCalendarEventCommentSOUser" priority="5">
 		<var name="eventComment" value="Calendar Event Comment" />
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventType" value="Regular" />
@@ -863,7 +863,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="EditCalendarEvent" priority="5">
+	<command name="EditCalendarEvent" priority="5">
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventTitleEdit" value="Calendar Event Title Edit" />
 		<var name="eventType" value="Regular" />
@@ -914,7 +914,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="EditCalendarEventCalendar" priority="4">
+	<command name="EditCalendarEventCalendar" priority="4">
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventTitleEdit" value="Calendar Event Title Edit" />
 		<var name="eventType" value="Regular" />
@@ -987,7 +987,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="EditCalendarEventCommentSOUser" priority="5">
+	<command name="EditCalendarEventCommentSOUser" priority="5">
 		<var name="eventComment" value="Calendar Event Comment" />
 		<var name="eventCommentEdit" value="Calendar Event Comment Edit" />
 		<var name="eventTitle" value="Calendar Event Title" />
@@ -1115,7 +1115,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="EditCalendarEventViaScheduler" priority="3">
+	<command name="EditCalendarEventViaScheduler" priority="3">
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventTitleEdit" value="Calendar Event Title Edit" />
 		<var name="eventType" value="Regular" />
@@ -1463,7 +1463,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="InviteSOUserToCalendarEvent" priority="5">
+	<command name="InviteSOUserToCalendarEvent" priority="5">
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventType" value="Regular" />
 		<var name="userEmailAddress" value="socialoffice01@liferay.com" />
@@ -1539,7 +1539,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="RateCalendarEvent4Stars" priority="3">
+	<command name="RateCalendarEvent4Stars" priority="3">
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventType" value="Regular" />
 

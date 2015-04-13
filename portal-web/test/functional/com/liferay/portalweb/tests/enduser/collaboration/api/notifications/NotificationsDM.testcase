@@ -194,7 +194,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-47973" name="ViewWebsiteNotificationForNewDocumentInFolder" priority="5">
+	<command name="ViewWebsiteNotificationForNewDocumentInFolder" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 		</execute>
@@ -267,7 +267,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-47973" name="ViewWebsiteNotificationForUpdatedDocumentInFolder" priority="5">
+	<command name="ViewWebsiteNotificationForUpdatedDocumentInFolder" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 		</execute>

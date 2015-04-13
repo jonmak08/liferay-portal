@@ -21,7 +21,7 @@
 		<execute macro="SOUser#tearDownCP" />
 	</tear-down>
 
-	<command known-issues="LPS-51944" name="AddCalendarEventComment" priority="5">
+	<command name="AddCalendarEventComment" priority="5">
 		<var name="commentContent" value="Calendar Event Comment" />
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventType" value="Regular" />
@@ -431,7 +431,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="DeleteCalendarEventComment" priority="5">
+	<command name="DeleteCalendarEventComment" priority="5">
 		<var name="commentContent" value="Calendar Event Comment" />
 		<var name="commentContentEdit" value="Calendar Event Comment Edit" />
 		<var name="eventTitle" value="Calendar Event Title" />
@@ -524,7 +524,7 @@
 		<execute function="AssertTextNotPresent" value1="${commentContent}" />
 	</command>
 
-	<command known-issues="LPS-51944" name="EditCalendarEventComment" priority="5">
+	<command name="EditCalendarEventComment" priority="5">
 		<var name="commentContent" value="Calendar Event Comment" />
 		<var name="commentContentEdit" value="Calendar Event Comment Edit" />
 		<var name="eventTitle" value="Calendar Event Title" />
@@ -726,7 +726,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-51944" name="ViewEditedCalendarEventActivities" priority="4">
+	<command name="ViewEditedCalendarEventActivities" priority="4">
 		<var name="eventTitle" value="Calendar Event Title" />
 		<var name="eventTitleEdit" value="Calendar Event Title Edit" />
 		<var name="eventType" value="Regular" />
