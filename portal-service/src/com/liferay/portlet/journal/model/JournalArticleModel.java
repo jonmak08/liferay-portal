@@ -316,7 +316,6 @@ public interface JournalArticleModel extends AttachedModel,
 	 *
 	 * @return the article ID of this journal article
 	 */
-	@AutoEscape
 	public String getArticleId();
 
 	/**

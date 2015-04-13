@@ -479,6 +479,15 @@ public interface JournalArticleService extends BaseService {
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public java.lang.String getArticleContent(long groupId,
+		java.lang.String articleId, double version,
+		java.lang.String languageId,
+		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
+		com.liferay.portal.theme.ThemeDisplay themeDisplay)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
+
 	/**
 	* Returns the web content matching the group, article ID, and version.
 	*
@@ -497,6 +506,14 @@ public interface JournalArticleService extends BaseService {
 	public java.lang.String getArticleContent(long groupId,
 		java.lang.String articleId, double version,
 		java.lang.String languageId,
+		com.liferay.portal.theme.ThemeDisplay themeDisplay)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public java.lang.String getArticleContent(long groupId,
+		java.lang.String articleId, java.lang.String languageId,
+		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
 		com.liferay.portal.theme.ThemeDisplay themeDisplay)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;

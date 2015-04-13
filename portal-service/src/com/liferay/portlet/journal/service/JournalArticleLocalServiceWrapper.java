@@ -1058,6 +1058,20 @@ public class JournalArticleLocalServiceWrapper
 			urlTitle);
 	}
 
+	@Override
+	public java.lang.String getArticleContent(
+		com.liferay.portlet.journal.model.JournalArticle article,
+		java.lang.String ddmTemplateKey, java.lang.String viewMode,
+		java.lang.String languageId,
+		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
+		com.liferay.portal.theme.ThemeDisplay themeDisplay)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _journalArticleLocalService.getArticleContent(article,
+			ddmTemplateKey, viewMode, languageId, portletRequestModel,
+			themeDisplay);
+	}
+
 	/**
 	* Returns the web content associated with the web content article and DDM
 	* template.
@@ -1085,6 +1099,19 @@ public class JournalArticleLocalServiceWrapper
 			com.liferay.portal.kernel.exception.SystemException {
 		return _journalArticleLocalService.getArticleContent(article,
 			ddmTemplateKey, viewMode, languageId, themeDisplay);
+	}
+
+	@Override
+	public java.lang.String getArticleContent(long groupId,
+		java.lang.String articleId, double version, java.lang.String viewMode,
+		java.lang.String ddmTemplateKey, java.lang.String languageId,
+		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
+		com.liferay.portal.theme.ThemeDisplay themeDisplay)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _journalArticleLocalService.getArticleContent(groupId,
+			articleId, version, viewMode, ddmTemplateKey, languageId,
+			portletRequestModel, themeDisplay);
 	}
 
 	/**
@@ -1143,6 +1170,19 @@ public class JournalArticleLocalServiceWrapper
 			articleId, version, viewMode, languageId, themeDisplay);
 	}
 
+	@Override
+	public java.lang.String getArticleContent(long groupId,
+		java.lang.String articleId, java.lang.String viewMode,
+		java.lang.String ddmTemplateKey, java.lang.String languageId,
+		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
+		com.liferay.portal.theme.ThemeDisplay themeDisplay)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _journalArticleLocalService.getArticleContent(groupId,
+			articleId, viewMode, ddmTemplateKey, languageId,
+			portletRequestModel, themeDisplay);
+	}
+
 	/**
 	* Returns the latest web content matching the group and article ID, and
 	* associated with DDM template key.
@@ -1196,6 +1236,20 @@ public class JournalArticleLocalServiceWrapper
 			articleId, viewMode, languageId, themeDisplay);
 	}
 
+	@Override
+	public com.liferay.portlet.journal.model.JournalArticleDisplay getArticleDisplay(
+		com.liferay.portlet.journal.model.JournalArticle article,
+		java.lang.String ddmTemplateKey, java.lang.String viewMode,
+		java.lang.String languageId, int page,
+		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
+		com.liferay.portal.theme.ThemeDisplay themeDisplay)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _journalArticleLocalService.getArticleDisplay(article,
+			ddmTemplateKey, viewMode, languageId, page, portletRequestModel,
+			themeDisplay);
+	}
+
 	/**
 	* Returns a web content article display for the specified page of the
 	* latest version of the web content article, optionally based on the DDM
@@ -1230,6 +1284,20 @@ public class JournalArticleLocalServiceWrapper
 			com.liferay.portal.kernel.exception.SystemException {
 		return _journalArticleLocalService.getArticleDisplay(article,
 			ddmTemplateKey, viewMode, languageId, page, xmlRequest, themeDisplay);
+	}
+
+	@Override
+	public com.liferay.portlet.journal.model.JournalArticleDisplay getArticleDisplay(
+		long groupId, java.lang.String articleId, double version,
+		java.lang.String ddmTemplateKey, java.lang.String viewMode,
+		java.lang.String languageId, int page,
+		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
+		com.liferay.portal.theme.ThemeDisplay themeDisplay)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _journalArticleLocalService.getArticleDisplay(groupId,
+			articleId, version, ddmTemplateKey, viewMode, languageId, page,
+			portletRequestModel, themeDisplay);
 	}
 
 	/**
@@ -1309,6 +1377,19 @@ public class JournalArticleLocalServiceWrapper
 			themeDisplay);
 	}
 
+	@Override
+	public com.liferay.portlet.journal.model.JournalArticleDisplay getArticleDisplay(
+		long groupId, java.lang.String articleId, java.lang.String viewMode,
+		java.lang.String languageId, int page,
+		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
+		com.liferay.portal.theme.ThemeDisplay themeDisplay)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _journalArticleLocalService.getArticleDisplay(groupId,
+			articleId, viewMode, languageId, page, portletRequestModel,
+			themeDisplay);
+	}
+
 	/**
 	* Returns a web content article display for the first page of the latest
 	* version of the web content article matching the group and article ID. If
@@ -1340,6 +1421,20 @@ public class JournalArticleLocalServiceWrapper
 			com.liferay.portal.kernel.exception.SystemException {
 		return _journalArticleLocalService.getArticleDisplay(groupId,
 			articleId, viewMode, languageId, page, xmlRequest, themeDisplay);
+	}
+
+	@Override
+	public com.liferay.portlet.journal.model.JournalArticleDisplay getArticleDisplay(
+		long groupId, java.lang.String articleId,
+		java.lang.String ddmTemplateKey, java.lang.String viewMode,
+		java.lang.String languageId, int page,
+		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
+		com.liferay.portal.theme.ThemeDisplay themeDisplay)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _journalArticleLocalService.getArticleDisplay(groupId,
+			articleId, ddmTemplateKey, viewMode, languageId, page,
+			portletRequestModel, themeDisplay);
 	}
 
 	/**
