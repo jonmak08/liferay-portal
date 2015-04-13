@@ -577,7 +577,7 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 
 		userPersistence.addGroups(userId, groupIds);
 
-		PermissionCacheUtil.clearCache();
+		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
@@ -3321,7 +3321,7 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 
 		userPersistence.removeGroups(userId, groupIds);
 
-		PermissionCacheUtil.clearCache();
+		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
