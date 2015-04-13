@@ -1003,7 +1003,7 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 
 			ClusterNode clusterNode = clusterExecutorImpl.getLocalClusterNode();
 
-			Assert.assertEquals(-1, clusterNode.getPort());
+			Assert.assertEquals(80, clusterNode.getPort());
 
 			clusterExecutorImpl.portalPortConfigured(81);
 
@@ -1033,7 +1033,7 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 
 			ClusterNode clusterNode = clusterExecutorImpl.getLocalClusterNode();
 
-			Assert.assertEquals(-1, clusterNode.getPort());
+			Assert.assertEquals(80, clusterNode.getPort());
 
 			clusterExecutorImpl.portalPortConfigured(80);
 

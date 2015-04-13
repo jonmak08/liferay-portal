@@ -331,7 +331,7 @@ public class ClusterExecutorImpl
 
 			if (((secure && portalProtocol.equals(Http.HTTPS)) ||
 				 (!secure && portalProtocol.equals(Http.HTTP))) &&
-				(_localClusterNode.getPort() == _port)) {
+				(_localClusterNode.getPort() == port)) {
 
 				return;
 			}
@@ -343,7 +343,7 @@ public class ClusterExecutorImpl
 				_localClusterNode.setPortalProtocol(Http.HTTP);
 			}
 		}
-		else if (_localClusterNode.getPort() == _port) {
+		else if (_localClusterNode.getPort() == port) {
 			return;
 		}
 
