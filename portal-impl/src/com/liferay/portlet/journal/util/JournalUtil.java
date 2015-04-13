@@ -1424,6 +1424,20 @@ public class JournalUtil {
 		return new UnmodifiableList<JournalTemplate>(templates);
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #transform(ThemeDisplay, Map,
+	 *             String, String, String, PortletRequestModel, String, String)}
+	 */
+	public static String transform(
+			ThemeDisplay themeDisplay, Map<String, String> tokens,
+			String viewMode, String languageId, String xml, String script,
+			String langType)
+		throws Exception {
+
+		return _transformer.transform(
+			themeDisplay, tokens, viewMode, languageId, xml, script, langType);
+	}
+
 	public static String transform(
 			ThemeDisplay themeDisplay, Map<String, String> tokens,
 			String viewMode, String languageId, String xml,
