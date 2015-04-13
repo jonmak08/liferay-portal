@@ -74,13 +74,14 @@ public class MessageListenerImpl implements MessageListener {
 
 			if ((messageIdString == null) ||
 				!messageIdString.startsWith(
-					MBUtil.MESSAGE_POP_PORTLET_PREFIX, getOffset())) {
+					MBUtil.MESSAGE_POP_PORTLET_PREFIX,
+					MBUtil.getMessageIdStringOffset())) {
 
 				return false;
 			}
 
 			Company company = getCompany(messageIdString);
-			long categoryId = getCategoryId(messageIdString);
+			long categoryId = MBUtil.getCategoryId(messageIdString);
 
 			MBCategory category = MBCategoryLocalServiceUtil.getCategory(
 				categoryId);
@@ -158,7 +159,7 @@ public class MessageListenerImpl implements MessageListener {
 			}
 
 			long groupId = 0;
-			long categoryId = getCategoryId(messageIdString);
+			long categoryId = MBUtil.getCategoryId(messageIdString);
 
 			MBCategory category = MBCategoryLocalServiceUtil.fetchMBCategory(
 				categoryId);
@@ -252,12 +253,6 @@ public class MessageListenerImpl implements MessageListener {
 		return MessageListenerImpl.class.getName();
 	}
 
-	protected long getCategoryId(String messageIdString) {
-		String[] parts = getMessageIdStringParts(messageIdString);
-
-		return GetterUtil.getLong(parts[0]);
-	}
-
 	protected Company getCompany(String messageIdString) throws Exception {
 		int pos =
 			messageIdString.indexOf(CharPool.AT) +
@@ -278,12 +273,6 @@ public class MessageListenerImpl implements MessageListener {
 		return CompanyLocalServiceUtil.getCompanyByMx(mx);
 	}
 
-	protected long getMessageId(String messageIdString) {
-		String[] parts = getMessageIdStringParts(messageIdString);
-
-		return GetterUtil.getLong(parts[1]);
-	}
-
 	protected String getMessageIdString(String recipient, Message message)
 		throws Exception {
 
@@ -293,56 +282,6 @@ public class MessageListenerImpl implements MessageListener {
 		else {
 			return MBUtil.getParentMessageIdString(message);
 		}
-	}
-
-	protected String[] getMessageIdStringParts(String messageIdString) {
-		int pos = messageIdString.indexOf(CharPool.AT);
-
-		String target = messageIdString.substring(
-			MBUtil.MESSAGE_POP_PORTLET_PREFIX.length() + getOffset(), pos);
-
-		return StringUtil.split(target, CharPool.PERIOD);
-	}
-
-	protected int getOffset() {
-		if (PropsValues.POP_SERVER_SUBDOMAIN.length() == 0) {
-			return 1;
-		}
-
-		return 0;
-	}
-
-	protected long getParentMessageId(String recipient, Message message)
-		throws Exception {
-
-		if (!StringUtil.startsWith(
-				recipient, MBUtil.MESSAGE_POP_PORTLET_PREFIX)) {
-
-			return MBUtil.getParentMessageId(message);
-		}
-
-		int pos = recipient.indexOf(CharPool.AT);
-
-		if (pos < 0) {
-			return MBUtil.getParentMessageId(message);
-		}
-
-		String target = recipient.substring(
-			MBUtil.MESSAGE_POP_PORTLET_PREFIX.length(), pos);
-
-		String[] parts = StringUtil.split(target, CharPool.PERIOD);
-
-		long parentMessageId = 0;
-
-		if (parts.length == 2) {
-			parentMessageId = GetterUtil.getLong(parts[1]);
-		}
-
-		if (parentMessageId > 0) {
-			return parentMessageId;
-		}
-
-		return MBUtil.getParentMessageId(message);
 	}
 
 	protected boolean isAutoReply(Message message) throws MessagingException {
