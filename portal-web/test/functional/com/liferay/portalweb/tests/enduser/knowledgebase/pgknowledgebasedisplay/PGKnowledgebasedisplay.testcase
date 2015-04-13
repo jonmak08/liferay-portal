@@ -24,9 +24,9 @@
 	<tear-down>
 		<execute macro="BlogsEntry#tearDownCP" />
 
-		<execute macro="Page#tearDownPG" />
-
 		<execute macro="KBArticle#tearDownCP" />
+
+		<execute macro="Page#tearDownPG" />
 	</tear-down>
 
 	<command name="AddKBArticleContentNull" priority="5">
