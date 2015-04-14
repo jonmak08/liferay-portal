@@ -67,6 +67,7 @@ import com.liferay.portlet.dynamicdatamapping.storage.FieldConstants;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
 import com.liferay.portlet.dynamicdatamapping.storage.StorageEngineUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMXMLUtil;
+import com.liferay.portlet.journal.model.JournalArticle;
 
 import java.io.File;
 import java.io.Serializable;
@@ -174,8 +175,18 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		if (_log.isWarnEnabled()) {
 			StringBundler sb = new StringBundler();
 
-			sb.append("Structure with structureKey (6.1 structureId) ");
+			long journalArticleClassNameId = PortalUtil.getClassNameId(
+				JournalArticle.class.getName());
+
+			sb.append("Structure with classNameId ");
+			sb.append(structure.getClassNameId());
+			sb.append(", structureKey = ");
 			sb.append(structure.getStructureKey());
+
+			if (structure.getClassNameId() == journalArticleClassNameId) {
+				sb.append(" (JournalStructure.structureId in 6.1)");
+			}
+
 			sb.append(" contains more than one element that is identified by ");
 			sb.append("the same name either within itself or within any of ");
 			sb.append("its parent structures. The duplicate element names ");
