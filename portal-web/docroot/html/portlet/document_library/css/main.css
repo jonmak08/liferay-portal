@@ -156,6 +156,12 @@
 	.button-holder.toolbar {
 		display: inline;
 		margin: 0;
+
+		.btn-group {
+			.btn {
+				float: left;
+			}
+		}
 	}
 
 	.lfr-header-row {
