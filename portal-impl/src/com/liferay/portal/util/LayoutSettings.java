@@ -15,12 +15,19 @@
 package com.liferay.portal.util;
 
 import com.liferay.portal.kernel.configuration.Filter;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.LayoutConstants;
+import com.liferay.portal.security.permission.ActionKeys;
+import com.liferay.portal.security.permission.PermissionChecker;
+import com.liferay.portal.security.permission.PermissionThreadLocal;
+import com.liferay.portal.service.LayoutLocalServiceUtil;
+import com.liferay.portal.service.permission.LayoutPermissionUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -68,9 +75,20 @@ public class LayoutSettings {
 	}
 
 	public String getURL(Map<String, String> variables) {
-		return StringUtil.replace(
-			_url, StringPool.DOLLAR_AND_OPEN_CURLY_BRACE,
-			StringPool.CLOSE_CURLY_BRACE, variables);
+		long plid = Long.valueOf(variables.get("liferay:plid"));
+
+		try {
+			Layout layout = LayoutLocalServiceUtil.getLayout(plid);
+
+			if(hasViewPermission(layout)) {
+				return replaceVariables(getURL(), variables);
+			}
+		}
+		catch (Exception e) {
+			_log.error(e);
+		}
+
+		return replaceVariables(getDefaultURL(), variables);
 	}
 
 	public String getViewPage() {
@@ -91,6 +109,35 @@ public class LayoutSettings {
 
 	public boolean isURLFriendliable() {
 		return _urlFriendliable;
+	}
+
+	protected boolean hasViewPermission(Layout layout) {
+		if (layout.isTypeControlPanel()) {
+			return false;
+		}
+
+		try {
+			return LayoutPermissionUtil.contains(
+				PermissionThreadLocal.getPermissionChecker(), layout,
+				ActionKeys.VIEW);
+		}
+		catch (Exception e) {
+			_log.error(e);
+
+			return false;
+		}
+	}
+
+	protected String replaceVariables(
+		String url, Map<String, String> variables) {
+
+		return StringUtil.replace(
+			url, StringPool.DOLLAR_AND_OPEN_CURLY_BRACE,
+			StringPool.CLOSE_CURLY_BRACE, variables);
+	}
+
+	protected String getDefaultURL() {
+		return _URL;
 	}
 
 	private LayoutSettings(String type) {
@@ -121,6 +168,13 @@ public class LayoutSettings {
 		_viewPage = GetterUtil.getString(
 			PropsUtil.get(PropsKeys.LAYOUT_VIEW_PAGE, filter));
 	}
+
+	private static final Log _log = LogFactoryUtil.getLog(
+		LayoutSettings.class);
+
+	private static final String _URL =
+		"${liferay:mainPath}/portal/layout?p_l_id=${liferay:plid}&" +
+			"p_v_l_s_g_id=${liferay:pvlsgid}";
 
 	private static Map<String, LayoutSettings> _layoutSettingsMap =
 		new HashMap<String, LayoutSettings>();
