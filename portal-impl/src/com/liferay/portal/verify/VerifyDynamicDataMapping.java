@@ -153,8 +153,7 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		}
 	}
 
-	protected boolean checkDuplicateNames(
-			DDMStructure structure, boolean duplicateExists)
+	protected boolean checkDuplicateNames(DDMStructure structure)
 		throws Exception {
 
 		String xml =
@@ -168,7 +167,11 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 				document.getRootElement(), new HashSet<String>(),
 				new HashSet<String>());
 
-		if (!duplicateElementNames.isEmpty()) {
+		if (duplicateElementNames.isEmpty()) {
+			return false;
+		}
+
+		if (_log.isWarnEnabled()) {
 			StringBundler sb = new StringBundler();
 
 			sb.append("Structure with structureKey (6.1 structureId) ");
@@ -185,14 +188,10 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 
 			sb.setIndex(sb.index() - 1);
 
-			if (_log.isWarnEnabled()) {
-				_log.warn(sb.toString());
-			}
-
-			duplicateExists = true;
+			_log.warn(sb.toString());
 		}
 
-		return duplicateExists;
+		return true;
 	}
 
 	protected boolean createDefaultMetadataElement(
@@ -236,7 +235,9 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		boolean duplicateExists = false;
 
 		for (DDMStructure structure : structures) {
-			duplicateExists = checkDuplicateNames(structure, duplicateExists);
+			if (checkDuplicateNames(structure)) {
+				duplicateExists = true;
+			}
 		}
 
 		if (duplicateExists) {
