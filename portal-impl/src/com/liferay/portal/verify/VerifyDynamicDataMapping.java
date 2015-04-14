@@ -72,8 +72,10 @@ import java.io.File;
 import java.io.Serializable;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Marcellus Tavares
@@ -151,6 +153,48 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		}
 	}
 
+	protected boolean checkDuplicateNames(
+			DDMStructure structure, boolean duplicateExists)
+		throws Exception {
+
+		String xml =
+			"<root>" +
+				getFullStructureXML(structure, StringPool.BLANK) + "</root>";
+
+		Document document = SAXReaderUtil.read(xml);
+
+		Set<String> duplicateElementNames =
+			getDuplicateElementNames(
+				document.getRootElement(), new HashSet<String>(),
+				new HashSet<String>());
+
+		if (!duplicateElementNames.isEmpty()) {
+			StringBundler sb = new StringBundler();
+
+			sb.append("Structure with structureKey (6.1 structureId) ");
+			sb.append(structure.getStructureKey());
+			sb.append(" contains more than one element that is identified by ");
+			sb.append("the same name either within itself or within any of ");
+			sb.append("its parent structures. The duplicate element names ");
+			sb.append("are: ");
+
+			for (String duplicateElementName : duplicateElementNames) {
+				sb.append(duplicateElementName);
+				sb.append(StringPool.COMMA_AND_SPACE);
+			}
+
+			sb.setIndex(sb.index() - 1);
+
+			if (_log.isWarnEnabled()) {
+				_log.warn(sb.toString());
+			}
+
+			duplicateExists = true;
+		}
+
+		return duplicateExists;
+	}
+
 	protected boolean createDefaultMetadataElement(
 		Element dynamicElementElement, String defaultLanguageId) {
 
@@ -189,11 +233,42 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		List<DDMStructure> structures =
 			DDMStructureLocalServiceUtil.getStructures();
 
+		boolean duplicateExists = false;
+
+		for (DDMStructure structure : structures) {
+			duplicateExists = checkDuplicateNames(structure, duplicateExists);
+		}
+
+		if (duplicateExists) {
+			throw new VerifyException(
+				"Duplicate element name found in structures");
+		}
+
 		for (DDMStructure structure : structures) {
 			verifyStructure(structure);
 
 			updateFileUploadReferences(structure);
 		}
+	}
+
+	protected Set<String> getDuplicateElementNames(
+		Element element, Set<String> elementNames,
+		Set<String> duplicateElementNames) {
+
+		String elementName = element.attributeValue("name");
+
+		if (!elementNames.add(elementName)) {
+			duplicateElementNames.add(elementName);
+		}
+
+		List<Element> dynamicElements = element.elements("dynamic-element");
+
+		for (Element dynamicElement : dynamicElements) {
+			duplicateElementNames = getDuplicateElementNames(
+				dynamicElement, elementNames, duplicateElementNames);
+		}
+
+		return duplicateElementNames;
 	}
 
 	protected String getFileUploadPath(BaseModel<?> baseModel)
@@ -234,6 +309,30 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		sb.append(version);
 
 		return sb.toString();
+	}
+
+	protected String getFullStructureXML(DDMStructure structure, String xml)
+		throws Exception {
+
+		if (structure.getParentStructureId() != 0) {
+			DDMStructure parentStructure =
+				DDMStructureLocalServiceUtil.getStructure(
+					structure.getParentStructureId());
+
+			xml = getFullStructureXML(parentStructure, xml);
+		}
+
+		Document document = SAXReaderUtil.read(structure.getXsd());
+
+		Element rootElement = document.getRootElement();
+
+		List<Element> dynamicElements = rootElement.elements("dynamic-element");
+
+		for (Element element : dynamicElements) {
+			xml += element.asXML();
+		}
+
+		return xml;
 	}
 
 	protected String getJSON(FileEntry fileEntry) {
