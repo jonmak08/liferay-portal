@@ -6,7 +6,7 @@
 	</command>
 
 	<command name="gotoSubTab">
-		<var name="key_metricsSubTabName" value="${metricsTabName}" />
+		<var name="key_metricsSubTabName" value="${metricsSubTabName}" />
 
 		<execute function="AssertClick" locator1="LCSServerMetrics#NAVIGATION_SUB_TAB" value1="${metricsSubTabName}" />
 	</command>
