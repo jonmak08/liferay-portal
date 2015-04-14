@@ -74,20 +74,22 @@ public class LayoutSettings {
 	}
 
 	public String getURL(Map<String, String> variables) {
-		long plid = Long.valueOf(variables.get("liferay:plid"));
+		long plid = GetterUtil.getLong(variables.get("liferay:plid"));
+
+		String url = getDefaultURL();
 
 		try {
 			Layout layout = LayoutLocalServiceUtil.getLayout(plid);
 
 			if (hasViewPermission(layout)) {
-				return replaceVariables(getURL(), variables);
+				url = getURL();
 			}
 		}
 		catch (Exception e) {
 			_log.error(e);
 		}
 
-		return replaceVariables(getDefaultURL(), variables);
+		return replaceVariables(url, variables);
 	}
 
 	public String getViewPage() {
