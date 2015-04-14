@@ -946,8 +946,7 @@ public class DocumentImpl implements Document {
 
 		String valueString = String.valueOf(value);
 
-		createSortableNumericField(
-			name, typify, valueString, value.getClass());
+		createSortableNumericField(name, typify, valueString, value.getClass());
 
 		Field field = new Field(name, valueString);
 
