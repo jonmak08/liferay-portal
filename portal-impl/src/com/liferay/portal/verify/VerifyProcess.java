@@ -93,10 +93,11 @@ public abstract class VerifyProcess extends BaseDBProcess {
 			for (ThrowableAwareRunnable throwableAwareRunnable :
 					throwableAwareRunnables) {
 
-				throwableAwareRunnable.run();
-
-				if (throwableAwareRunnable.hasException()) {
-					throwables.add(throwableAwareRunnable.getThrowable());
+				try {
+					throwableAwareRunnable.run();
+				}
+				catch (Exception e) {
+					throwables.add(e);
 				}
 			}
 		}
@@ -125,6 +126,14 @@ public abstract class VerifyProcess extends BaseDBProcess {
 			}
 			finally {
 				executorService.shutdown();
+			}
+		}
+
+		for (ThrowableAwareRunnable throwableAwareRunnable :
+				throwableAwareRunnables) {
+
+			if (throwableAwareRunnable.hasException()) {
+				throwables.add(throwableAwareRunnable.getThrowable());
 			}
 		}
 
