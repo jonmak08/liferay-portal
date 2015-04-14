@@ -24,7 +24,6 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.LayoutConstants;
 import com.liferay.portal.security.permission.ActionKeys;
-import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.security.permission.PermissionThreadLocal;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portal.service.permission.LayoutPermissionUtil;
@@ -80,7 +79,7 @@ public class LayoutSettings {
 		try {
 			Layout layout = LayoutLocalServiceUtil.getLayout(plid);
 
-			if(hasViewPermission(layout)) {
+			if (hasViewPermission(layout)) {
 				return replaceVariables(getURL(), variables);
 			}
 		}
@@ -169,8 +168,7 @@ public class LayoutSettings {
 			PropsUtil.get(PropsKeys.LAYOUT_VIEW_PAGE, filter));
 	}
 
-	private static final Log _log = LogFactoryUtil.getLog(
-		LayoutSettings.class);
+	private static Log _log = LogFactoryUtil.getLog(LayoutSettings.class);
 
 	private static final String _URL =
 		"${liferay:mainPath}/portal/layout?p_l_id=${liferay:plid}&" +
