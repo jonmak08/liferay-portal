@@ -52,7 +52,9 @@
 	</command>
 
 	<command name="ViewApplicationPagesMetrics" priority="5">
-		<execute macro="LCSServerMetrics#generateApplicationMetrics" />
+		<execute macro="LCSServerMetrics#generateApplicationMetrics">
+			<var name="projectName" value="Liferay QA" />
+		</execute>
 
 		<execute macro="LCSServerNavigator#gotoServerMetrics">
 			<var name="environmentName" value="Environment 1 Name" />
@@ -73,7 +75,9 @@
 	</command>
 
 	<command name="ViewApplicationPortletMetrics" priority="5">
-		<execute macro="LCSServerMetrics#generateApplicationMetrics" />
+		<execute macro="LCSServerMetrics#generateApplicationMetrics">
+			<var name="projectName" value="Liferay QA" />
+		</execute>
 
 		<execute macro="LCSServerNavigator#gotoServerMetrics">
 			<var name="environmentName" value="Environment 1 Name" />
@@ -138,7 +142,9 @@
 	</command>
 
 	<command name="ViewServerCurrentThreadMetrics" priority="5">
-		<execute macro="LCSServerMetrics#generateApplicationMetrics" />
+		<execute macro="LCSServerMetrics#generateApplicationMetrics">
+			<var name="projectName" value="Liferay QA" />
+		</execute>
 
 		<execute macro="LCSServerNavigator#gotoServerMetrics">
 			<var name="environmentName" value="Environment 1 Name" />
