@@ -24,6 +24,7 @@ import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
+import com.liferay.portal.kernel.repository.model.FileEntryWrapper;
 import com.liferay.portal.kernel.repository.model.FileVersion;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.search.Indexer;
@@ -162,7 +163,8 @@ public class FileEntryStagedModelDataHandler
 				PortletDataContext.REFERENCE_TYPE_PARENT);
 		}
 
-		LiferayFileEntry liferayFileEntry = (LiferayFileEntry)fileEntry;
+		LiferayFileEntry liferayFileEntry = (LiferayFileEntry)_unwrap(
+			fileEntry);
 
 		liferayFileEntry.setCachedFileVersion(fileEntry.getFileVersion());
 
@@ -449,9 +451,11 @@ public class FileEntryStagedModelDataHandler
 							folderId, serviceContext);
 					}
 
-					if (importedFileEntry instanceof LiferayFileEntry) {
+					FileEntry unwrappedFileEntry = _unwrap(importedFileEntry);
+
+					if (unwrappedFileEntry instanceof LiferayFileEntry) {
 						LiferayFileEntry liferayFileEntry =
-							(LiferayFileEntry)importedFileEntry;
+							(LiferayFileEntry)unwrappedFileEntry;
 
 						Indexer indexer = IndexerRegistryUtil.getIndexer(
 							DLFileEntry.class);
@@ -542,7 +546,8 @@ public class FileEntryStagedModelDataHandler
 			FileEntry fileEntry)
 		throws Exception {
 
-		LiferayFileEntry liferayFileEntry = (LiferayFileEntry)fileEntry;
+		LiferayFileEntry liferayFileEntry = (LiferayFileEntry)_unwrap(
+			fileEntry);
 
 		DLFileEntry dlFileEntry = liferayFileEntry.getDLFileEntry();
 
@@ -732,6 +737,16 @@ public class FileEntryStagedModelDataHandler
 		}
 
 		return true;
+	}
+
+	private FileEntry _unwrap(FileEntry fileEntry) {
+		while (fileEntry instanceof FileEntryWrapper) {
+			FileEntryWrapper fileEntryWrapper = (FileEntryWrapper)fileEntry;
+
+			fileEntry = fileEntryWrapper.getWrappedModel();
+		}
+
+		return fileEntry;
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(
