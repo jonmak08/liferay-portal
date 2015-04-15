@@ -60,6 +60,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>NAVIGATION_MENU_SERVER_GENERIC</td>
+	<td>//div[@class='lcs-navigation-submenu']//div[@class='menu-item server ']/a</td>
+	<td></td>
+</tr>
+<tr>
 	<td>NAVIGATION_MENU_SERVER_OFFLINE_ICON</td>
 	<td>//div[@class='lcs-navigation-submenu']//a[contains(.,'${key_serverName}')]/span[contains(@class,'lcs-content-type-icon server offline')]</td>
 	<td></td>
