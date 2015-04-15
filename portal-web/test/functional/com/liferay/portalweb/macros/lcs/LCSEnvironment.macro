@@ -26,6 +26,14 @@
 		</while>
 	</command>
 
+	<command name="viewEmptyEnvironment">
+		<var name="key_environmentName" value="${environmentName}" />
+
+		<execute function="AssertTextEquals" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT" value1="${environmentName}" />
+		<execute function="AssertTextEquals" locator1="LCSEnvironment#ALERT_MESSAGE" value1="There are no servers in this environment. Please install Liferay Connected Services Client on the servers you wish to add to this environment and complete the registration process." />
+		<execute function="AssertElementNotPresent" locator1="LCSPortalNavigation#NAVIGATION_MENU_SERVER_GENERIC" />
+	</command>
+
 	<command name="viewEnvironmentDetails">
 		<var name="key_environmentName" value="${environmentName}" />
 

@@ -83,4 +83,9 @@
 			</else>
 		</if>
 	</command>
+
+	<command name="viewBeforeAuthorization">
+		<execute function="AssertTextEquals" locator1="LCSPortletRegistration#INFO_MESSAGE" value1="Please authorize Liferay Connected Services to start receiving your portal metrics data." />
+		<execute function="AssertElementPresent" locator1="LCSPortletRegistration#AUTHORIZE_ACCESS_BUTTON" />
+	</command>
 </definition>

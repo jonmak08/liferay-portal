@@ -1,4 +1,32 @@
 <definition>
+	<command name="editServerDetails">
+		<execute function="Click" locator1="LCSServerServerDetails#SERVER_NAME_EDIT_ICON" />
+
+		<execute function="Type" locator1="LCSServerServerDetails#SERVER_NAME_EDIT_INPUT" value1="${serverNameEdit}" />
+
+		<execute function="Click" locator1="LCSServerServerDetails#SERVER_NAME_SAVE_ICON" />
+
+		<execute function="Click" locator1="LCSServerServerDetails#SERVER_DESCRIPTION_EDIT_ICON" />
+
+		<execute function="Type" locator1="LCSServerServerDetails#SERVER_DESCRIPTION_EDIT_INPUT" value1="${serverDescriptionEdit}" />
+
+		<execute function="Click" locator1="LCSServerServerDetails#SERVER_DESCRIPTION_SAVE_ICON" />
+
+		<execute function="Click" locator1="LCSServerServerDetails#SERVER_LOCATION_EDIT_ICON" />
+
+		<execute function="Type" locator1="LCSServerServerDetails#SERVER_LOCATION_EDIT_INPUT" value1="${serverLocationEdit}" />
+
+		<execute function="Click" locator1="LCSServerServerDetails#SERVER_LOCATION_SAVE_ICON" />
+
+		<execute function="Select" locator1="LCSServerServerDetails#ENVIRONMENT_SELECT" value1="${environmentName}" />
+	</command>
+
+	<command name="unregisterServer">
+		<execute function="AssertClickNoError" locator1="LCSServerServerDetails#UNREGISTER_BUTTON" value1="Unregister" />
+
+		<execute function="Confirm" value1="Are you sure you want to unregister this server from Liferay Connected Services?" />
+	</command>
+
 	<command name="viewServerDetails">
 		<var name="key_environmentName" value="${environmentName}" />
 
@@ -7,9 +35,9 @@
 		<var name="key_serverName" value="${serverName}" />
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="LCSPortalNavigation#NAVIGATION_MENU_SERVER" value1="${serverName}" />
-		<execute function="AssertTextEquals" locator1="LCSServerServerDetails#SERVER_NAME" value1="Name ${serverName}" />
-		<execute function="AssertTextEquals" locator1="LCSServerServerDetails#SERVER_DESCRIPTION" value1="Description ${serverDescription}" />
-		<execute function="AssertTextEquals" locator1="LCSServerServerDetails#SERVER_LOCATION" value1="Location ${serverLocation}" />
+		<execute function="AssertTextEquals" locator1="LCSServerServerDetails#SERVER_NAME" value1="${serverName}" />
+		<execute function="AssertTextEquals" locator1="LCSServerServerDetails#SERVER_DESCRIPTION" value1="${serverDescription}" />
+		<execute function="AssertTextEquals" locator1="LCSServerServerDetails#SERVER_LOCATION" value1="${serverLocation}" />
 	</command>
 
 	<command name="viewServerProperties">
