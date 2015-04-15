@@ -12,6 +12,149 @@
 		<execute macro="LCSEnvironment#tearDown" />
 	</tear-down>
 
+	<command name="EditServerDetails" priority="4">
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServerDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#editServerDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverDescriptionEdit" value="Environment 1 Server 1 Description Edit" />
+			<var name="serverLocationEdit" value="Environment 1 Server 1 Location Edit" />
+			<var name="serverNameEdit" value="Environment 1 Server 1 Name Edit" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServerDetails">
+			<var name="environmentName" value="Environment 1 Name Edit" />
+			<var name="serverName" value="Environment 1 Server 1 Name Edit" />
+		</execute>
+
+		<execute macro="LCSServer#viewServerDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description Edit" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location Edit" />
+			<var name="serverName" value="Environment 1 Server 1 Name Edit" />
+		</execute>
+	</command>
+
+	<command name="UnregisterAndRegisterServer" priority="4">
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServerDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#unregisterServer" />
+
+		<execute macro="LCSEnvironment#viewEmptyEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="Page#openURL">
+			<var name="virtualHostsURL" value="http://localhost:8080" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Liferay Connected Services" />
+		</execute>
+
+		<execute macro="LCSPortlet#viewBeforeAuthorization" />
+
+		<execute macro="LCSPortlet#authorizeLCS">
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSPortlet#registerServer">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSPortletNavigator#gotoProjectHome">
+			<var name="projectName" value="Liferay QA" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServerDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewServerDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+	</command>
+
+	<command name="UnregisterServer" priority="4">
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServerDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#unregisterServer" />
+
+		<execute macro="LCSEnvironment#viewEmptyEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="Page#openURL">
+			<var name="virtualHostsURL" value="http://localhost:8080" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Liferay Connected Services" />
+		</execute>
+
+		<execute macro="LCSPortlet#viewBeforeAuthorization" />
+	</command>
+
 	<command name="ViewServerProperties" priority="5">
 		<execute macro="LCSServerRegistration#connectToLCSPortal">
 			<var name="addEnvironment" value="true" />
