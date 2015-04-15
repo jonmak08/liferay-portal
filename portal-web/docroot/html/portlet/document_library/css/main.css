@@ -157,10 +157,8 @@
 		display: inline;
 		margin: 0;
 
-		.btn-group {
-			.btn {
-				float: left;
-			}
+		.btn-group .btn {
+			float: left;
 		}
 	}
 
