@@ -691,6 +691,20 @@ public class HookHotDeployListener
 			return;
 		}
 
+		if (!isCompatible(hotDeployEvent.getPluginPackage())) {
+			if (_log.isInfoEnabled()) {
+				_log.info(
+					"Omitting to register RTL-hook as now it's been moved to " +
+						"the portal's core");
+			}
+
+			HotDeployUtil.fireUndeployEvent(
+				new HotDeployEvent(
+					servletContext, hotDeployEvent.getContextClassLoader()));
+
+			return;
+		}
+
 		if (_log.isInfoEnabled()) {
 			_log.info("Registering hook for " + servletContextName);
 		}
@@ -2499,6 +2513,17 @@ public class HookHotDeployListener
 		}
 	}
 
+	protected boolean isCompatible(PluginPackage pluginPackage) {
+		if (StringUtil.startsWith(pluginPackage.getName(), _RTL_HOOK_NAME) &&
+			Validator.equals(pluginPackage.getAuthor(), _RTL_HOOK_AUTHOR) &&
+			Validator.equals(pluginPackage.getPageURL(), _RTL_HOOK_PAGE_URL)) {
+
+			return false;
+		}
+
+		return true;
+	}
+
 	protected void resetPortalProperties(
 			String servletContextName, Properties portalProperties,
 			boolean initPhase)
@@ -2900,6 +2925,11 @@ public class HookHotDeployListener
 
 		throw new DuplicateCustomJspException();
 	}
+
+	private static final String _RTL_HOOK_AUTHOR = "Liferay, Inc.";
+	private static final String _RTL_HOOK_NAME =
+		"Right to Left Language Support";
+	private static final String _RTL_HOOK_PAGE_URL = "http://www.liferay.com";
 
 	private static final String[] _PROPS_KEYS_EVENTS = {
 		LOGIN_EVENTS_POST, LOGIN_EVENTS_PRE, LOGOUT_EVENTS_POST,
