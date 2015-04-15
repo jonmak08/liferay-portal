@@ -91,6 +91,7 @@ public class PortletFileRepositoryImpl implements PortletFileRepository {
 			return DLFileEntryServiceUtil.getFileAsStream(
 				getFileEntryId(), version, false);
 		}
+
 	}
 
 	@Override

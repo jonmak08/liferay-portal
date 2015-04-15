@@ -163,8 +163,7 @@ public class FileEntryStagedModelDataHandler
 				PortletDataContext.REFERENCE_TYPE_PARENT);
 		}
 
-		LiferayFileEntry liferayFileEntry = (LiferayFileEntry)_unwrap(
-			fileEntry);
+		LiferayFileEntry liferayFileEntry = (LiferayFileEntry)unwrap(fileEntry);
 
 		liferayFileEntry.setCachedFileVersion(fileEntry.getFileVersion());
 
@@ -451,7 +450,7 @@ public class FileEntryStagedModelDataHandler
 							folderId, serviceContext);
 					}
 
-					FileEntry unwrappedFileEntry = _unwrap(importedFileEntry);
+					FileEntry unwrappedFileEntry = unwrap(importedFileEntry);
 
 					if (unwrappedFileEntry instanceof LiferayFileEntry) {
 						LiferayFileEntry liferayFileEntry =
@@ -546,8 +545,7 @@ public class FileEntryStagedModelDataHandler
 			FileEntry fileEntry)
 		throws Exception {
 
-		LiferayFileEntry liferayFileEntry = (LiferayFileEntry)_unwrap(
-			fileEntry);
+		LiferayFileEntry liferayFileEntry = (LiferayFileEntry)unwrap(fileEntry);
 
 		DLFileEntry dlFileEntry = liferayFileEntry.getDLFileEntry();
 
@@ -739,7 +737,7 @@ public class FileEntryStagedModelDataHandler
 		return true;
 	}
 
-	private FileEntry _unwrap(FileEntry fileEntry) {
+	protected FileEntry unwrap(FileEntry fileEntry) {
 		while (fileEntry instanceof FileEntryWrapper) {
 			FileEntryWrapper fileEntryWrapper = (FileEntryWrapper)fileEntry;
 
