@@ -10,32 +10,82 @@
 <tbody>
 <tr>
 	<td>ENVIRONMENT_NAME</td>
-	<td>//div[contains(@class,'control-group') and contains(.,'Name')]</td>
+	<td>//div[@class='lcs-section' and contains(.,'Name')]//div[contains(@class,'lcs-section-content')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_NAME_EDIT_ICON</td>
+	<td>//div[@class='lcs-section' and contains(.,'Name')]//div[contains(@class,'lcs-section-content')]//span[contains(@class,'icon-pencil')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_NAME_EDIT_INPUT</td>
+	<td>//div[@class='lcs-section' and contains(.,'Name')]//div[contains(@class,'lcs-section-content')]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_NAME_SAVE_ICON</td>
+	<td>//div[@class='lcs-section' and contains(.,'Name')]//div[contains(@class,'lcs-section-content')]/span[contains(@class,'icon-save')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_NAME_REMOVE_INPUT</td>
+	<td>//div[@class='lcs-section' and contains(.,'Name')]//div[contains(@class,'lcs-section-content')]/span[contains(@class,'icon-remove')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ENVIRONMENT_DESCRIPTION</td>
-	<td>//div[contains(@class,'control-group') and contains(.,'Description')]</td>
+	<td>//div[@class='lcs-section' and contains(.,'Description')]//div[contains(@class,'lcs-section-content')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_DESCRIPTION_EDIT_ICON</td>
+	<td>//div[@class='lcs-section' and contains(.,'Description')]//span[contains(@class,'icon-pencil')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_DESCRIPTION_EDIT_INPUT</td>
+	<td>//div[@class='lcs-section' and contains(.,'Description')]//div[contains(@class,'lcs-section-content')]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_DESCRIPTION_SAVE_ICON</td>
+	<td>//div[@class='lcs-section' and contains(.,'Description')]//div[contains(@class,'lcs-section-content')]/span[contains(@class,'icon-save')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_DESCRIPTION_REMOVE_INPUT</td>
+	<td>//div[@class='lcs-section' and contains(.,'Description')]//div[contains(@class,'lcs-section-content')]/span[contains(@class,'icon-remove')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ENVIRONMENT_LOCATION</td>
-	<td>//div[contains(@class,'control-group') and contains(.,'Location')]</td>
+	<td>//div[@class='lcs-section' and contains(.,'Location')]//div[contains(@class,'lcs-section-content')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_LOCATION_EDIT_ICON</td>
+	<td>//div[@class='lcs-section' and contains(.,'Location')]//span[contains(@class,'icon-pencil')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_LOCATION_EDIT_INPUT</td>
+	<td>//div[@class='lcs-section' and contains(.,'Location')]//div[contains(@class,'lcs-section-content')]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_LOCATION_SAVE_ICON</td>
+	<td>//div[@class='lcs-section' and contains(.,'Location')]//div[contains(@class,'lcs-section-content')]/span[contains(@class,'icon-save')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_LOCATION_REMOVE_INPUT</td>
+	<td>//div[@class='lcs-section' and contains(.,'Location')]//div[contains(@class,'lcs-section-content')]/span[contains(@class,'icon-remove')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ENVIRONMENT_TYPE</td>
-	<td>//div[contains(@class,'control-group') and contains(.,'Type')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ACTIVATE_BUTTON</td>
-	<td>//button[contains(.,'Activate')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>EDIT_BUTTON</td>
-	<td>//button[contains(.,'Edit')]</td>
+	<td>//div[@class='lcs-section' and contains(.,'Type')]//div[contains(@class,'lcs-section-content')]</td>
 	<td></td>
 </tr>
 <tr>
