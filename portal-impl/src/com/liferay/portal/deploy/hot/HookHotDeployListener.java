@@ -691,7 +691,7 @@ public class HookHotDeployListener
 			return;
 		}
 
-		if (!isCompatible(hotDeployEvent.getPluginPackage())) {
+		if (isRTLHook(hotDeployEvent.getPluginPackage())) {
 			if (_log.isInfoEnabled()) {
 				_log.info(
 					"Omitting to register RTL-hook as now it's been moved to " +
@@ -2513,15 +2513,15 @@ public class HookHotDeployListener
 		}
 	}
 
-	protected boolean isCompatible(PluginPackage pluginPackage) {
+	protected boolean isRTLHook(PluginPackage pluginPackage) {
 		if (StringUtil.startsWith(pluginPackage.getName(), _RTL_HOOK_NAME) &&
 			Validator.equals(pluginPackage.getAuthor(), _RTL_HOOK_AUTHOR) &&
 			Validator.equals(pluginPackage.getPageURL(), _RTL_HOOK_PAGE_URL)) {
 
-			return false;
+			return true;
 		}
 
-		return true;
+		return false;
 	}
 
 	protected void resetPortalProperties(
