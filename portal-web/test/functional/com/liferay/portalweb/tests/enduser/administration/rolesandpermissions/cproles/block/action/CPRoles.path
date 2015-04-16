@@ -41,17 +41,17 @@
 <!--ADD_MENULIST-->
 <tr>
 	<td>ADD_MENULIST_REGULAR_ROLE</td>
-	<td>//ul[@class='dropdown-menu ']/li/a[contains(.,'Regular Role')]</td>
+	<td>//a[@role='menuitem' and contains(.,'Regular Role')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ADD_MENULIST_SITE_ROLE</td>
-	<td>//ul[@class='dropdown-menu ']/li/a[contains(.,'Site Role')]</td>
+	<td>//a[@role='menuitem' and contains(.,'Site Role')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ADD_MENULIST_ORGANIZATION_ROLE</td>
-	<td>//ul[@class='dropdown-menu ']/li/a[contains(.,'Organization Role')]</td>
+	<td>//a[@role='menuitem' and contains(.,'Organization Role')]</td>
 	<td></td>
 </tr>
 <tr>
