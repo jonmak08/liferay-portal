@@ -340,8 +340,8 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 
 		List<Element> dynamicElements = rootElement.elements("dynamic-element");
 
-		for (Element element : dynamicElements) {
-			xml += element.asXML();
+		for (Element dynamicElement : dynamicElements) {
+			xml += dynamicElement.asXML();
 		}
 
 		return xml;
