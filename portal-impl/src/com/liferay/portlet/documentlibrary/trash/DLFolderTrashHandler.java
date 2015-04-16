@@ -299,7 +299,7 @@ public class DLFolderTrashHandler extends DLBaseTrashHandler {
 
 		DLFileEntry duplicateDLFileEntry =
 			DLFileEntryLocalServiceUtil.fetchFileEntry(
-					dlFolder.getGroupId(), containerModelId, originalTitle);
+				dlFolder.getGroupId(), containerModelId, originalTitle);
 
 		if (duplicateDLFileEntry != null) {
 			DuplicateEntryException dee = new DuplicateEntryException();
