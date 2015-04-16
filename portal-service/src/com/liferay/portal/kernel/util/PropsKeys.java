@@ -2521,7 +2521,7 @@ public interface PropsKeys {
 
 	public static final String SYSTEM_SITE_ROLES = "system.site.roles";
 
-	public static final String TABLE_MAPPER_CACHELESS_MAPPING_TABLE_NAMES = "table.mapper.cacheless.mapping.table.names";
+	public static final String TABLE_MAPPER_CACHE_MAPPING_TABLE_NAMES = "table.mapper.cache.mapping.table.names";
 
 	public static final String TAGS_COMPILER_ENABLED = "tags.compiler.enabled";
 
