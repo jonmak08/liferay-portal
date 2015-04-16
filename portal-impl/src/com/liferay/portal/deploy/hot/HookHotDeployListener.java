@@ -2514,10 +2514,25 @@ public class HookHotDeployListener
 	}
 
 	protected boolean isRTLHook(PluginPackage pluginPackage) {
-		if (StringUtil.startsWith(pluginPackage.getName(), _RTL_HOOK_NAME) &&
-			Validator.equals(pluginPackage.getAuthor(), _RTL_HOOK_AUTHOR) &&
-			Validator.equals(pluginPackage.getPageURL(), _RTL_HOOK_PAGE_URL)) {
+		String moduleGroupId = pluginPackage.getGroupId();
 
+		if (!moduleGroupId.equals(_RTL_HOOK_MODULE_GROUP_ID)) {
+			return false;
+		}
+
+		// LRDCOM-9735
+
+		List<String> tags = pluginPackage.getTags();
+
+		if (tags.contains(_RTL_HOOK_TAG)) {
+			return true;
+		}
+
+		// LPS-43009
+
+		String name = pluginPackage.getName();
+
+		if (name.startsWith(_RTL_HOOK_NAME)) {
 			return true;
 		}
 
@@ -2926,10 +2941,9 @@ public class HookHotDeployListener
 		throw new DuplicateCustomJspException();
 	}
 
-	private static final String _RTL_HOOK_AUTHOR = "Liferay, Inc.";
-	private static final String _RTL_HOOK_NAME =
-		"Right to Left Language Support";
-	private static final String _RTL_HOOK_PAGE_URL = "http://www.liferay.com";
+	private static final String _RTL_HOOK_MODULE_GROUP_ID = "liferay";
+	private static final String _RTL_HOOK_NAME = "RTL";
+	private static final String _RTL_HOOK_TAG = "rtl";
 
 	private static final String[] _PROPS_KEYS_EVENTS = {
 		LOGIN_EVENTS_POST, LOGIN_EVENTS_PRE, LOGOUT_EVENTS_POST,
