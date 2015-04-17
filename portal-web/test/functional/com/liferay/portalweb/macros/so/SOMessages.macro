@@ -181,7 +181,7 @@
 				<var name="connectionNumber" value="0" />
 
 				<for list="${connectionNameList}" param="connectionName">
-					<var name="connectionNumber" value="${connectionNumber?increment()}" />
+					<var method="MathUtil#sum(${connectionNumber}, 1)" name="connectionNumber" />
 
 					<execute function="AssertTextEquals#assertPartialText" locator1="SOMessagesMessage#PRIVATE_MESSAGE_USERS" value1="${connectionName}" />
 				</for>
@@ -191,7 +191,7 @@
 				<var name="connectionNumber" value="0" />
 
 				<for list="${connectionNameList}" param="connectionName">
-					<var name="connectionNumber" value="${connectionNumber?increment()}" />
+					<var method="MathUtil#sum(${connectionNumber}, 1)" name="connectionNumber" />
 
 					<if>
 						<equals arg1="${connectionNumber}" arg2="1" />
@@ -230,7 +230,7 @@
 				<var name="connectionNumber" value="0" />
 
 				<for list="${connectionNameList}" param="connectionName">
-					<var name="connectionNumber" value="${connectionNumber?increment()}" />
+					<var method="MathUtil#sum(${connectionNumber}, 1)" name="connectionNumber" />
 
 					<execute function="AssertTextEquals#assertPartialText" locator1="SOMessages#MESSAGE" value1="${connectionName}" />
 				</for>
@@ -240,7 +240,7 @@
 				<var name="connectionNumber" value="0" />
 
 				<for list="${connectionNameList}" param="connectionName">
-					<var name="connectionNumber" value="${connectionNumber?increment()}" />
+					<var method="MathUtil#sum(${connectionNumber}, 1)" name="connectionNumber" />
 
 					<if>
 						<not>

@@ -31,7 +31,7 @@
 			<execute function="Type" locator1="SOProfileAddAdditionalEmailAddress#EMAIL_ADDRESS_FIELD" value1="${userAdditionalEmailAddress}" />
 			<execute function="Click" locator1="SOProfileAddAddress#ADD_ROW_BUTTON" />
 
-			<var name="key_row" value="${key_row?increment()}" />
+			<var method="MathUtil#sum(${key_row}, 1)" name="key_row" />
 		</for>
 
 		<var name="key_row" value="1" />
@@ -39,7 +39,7 @@
 		<for list="${userAdditionalEmailTypeList}" param="userAdditionalEmailType">
 			<execute function="Select" locator1="SOProfileAddAdditionalEmailAddress#TYPE_SELECT" value1="${userAdditionalEmailType}" />
 
-			<var name="key_row" value="${key_row?increment()}" />
+			<var method="MathUtil#sum(${key_row}, 1)" name="key_row" />
 		</for>
 
 		<var name="key_row" value="1" />
@@ -115,7 +115,7 @@
 			<execute function="Type" locator1="SOProfileAddAddress#STREET_1_FIELD" value1="${userAddressStreet1}" />
 			<execute function="Click" locator1="SOProfileAddAddress#ADD_ROW_BUTTON" />
 
-			<var name="key_row" value="${key_row?increment()}" />
+			<var method="MathUtil#sum(${key_row}, 1)" name="key_row" />
 		</for>
 
 		<var name="key_row" value="1" />
@@ -123,7 +123,7 @@
 		<for list="${userAddressPostalCodeList}" param="userAddressPostalCode">
 			<execute function="Type" locator1="SOProfileAddAddress#POSTAL_CODE_FIELD" value1="${userAddressPostalCode}" />
 
-			<var name="key_row" value="${key_row?increment()}" />
+			<var method="MathUtil#sum(${key_row}, 1)" name="key_row" />
 		</for>
 
 		<var name="key_row" value="1" />
@@ -131,7 +131,7 @@
 		<for list="${userAddressCityList}" param="userAddressCity">
 			<execute function="Type" locator1="SOProfileAddAddress#CITY_FIELD" value1="${userAddressCity}" />
 
-			<var name="key_row" value="${key_row?increment()}" />
+			<var method="MathUtil#sum(${key_row}, 1)" name="key_row" />
 		</for>
 
 		<var name="key_row" value="1" />
@@ -142,7 +142,7 @@
 				<for list="${userAddressTypeList}" param="userAddressType">
 					<execute function="Select" locator1="SOProfileAddAddress#TYPE_SELECT" value1="${userAddressType}" />
 
-					<var name="key_row" value="${key_row?increment()}" />
+					<var method="MathUtil#sum(${key_row}, 1)" name="key_row" />
 				</for>
 			</then>
 		</if>
@@ -155,7 +155,7 @@
 				<for list="${userAddressCountryList}" param="userAddressCountry">
 					<execute function="Select" locator1="SOProfileAddAddress#COUNTRY_SELECT" value1="${userAddressCountry}" />
 
-					<var name="key_row" value="${key_row?increment()}" />
+					<var method="MathUtil#sum(${key_row}, 1)" name="key_row" />
 				</for>
 			</then>
 		</if>
@@ -168,7 +168,7 @@
 				<for list="${userAddressRegionList}" param="userAddressRegion">
 					<execute function="Select" locator1="SOProfileAddAddress#REGION_SELECT" value1="${userAddressRegion}" />
 
-					<var name="key_row" value="${key_row?increment()}" />
+					<var method="MathUtil#sum(${key_row}, 1)" name="key_row" />
 				</for>
 			</then>
 		</if>
@@ -326,7 +326,7 @@
 			<execute function="Type" locator1="SOProfileAddPhoneNumber#NUMBER_FIELD" value1="${userPhoneNumberNumber}" />
 			<execute function="Click" locator1="SOProfileAddPhoneNumber#ADD_ROW_BUTTON" />
 
-			<var name="key_row" value="${key_row?increment()}" />
+			<var method="MathUtil#sum(${key_row}, 1)" name="key_row" />
 		</for>
 
 		<var name="key_row" value="1" />
@@ -337,7 +337,7 @@
 				<for list="${userPhoneNumberExtensionList}" param="userPhoneNumberExtension">
 					<execute function="Type" locator1="SOProfileAddPhoneNumber#EXTENSION_FIELD" value1="${userPhoneNumberExtension}" />
 
-					<var name="key_row" value="${key_row?increment()}" />
+					<var method="MathUtil#sum(${key_row}, 1)" name="key_row" />
 				</for>
 			</then>
 		</if>
@@ -347,7 +347,7 @@
 		<for list="${userPhoneNumberTypeList}" param="userPhoneNumberType">
 			<execute function="Select" locator1="SOProfileAddPhoneNumber#TYPE_SELECT" value1="${userPhoneNumberType}" />
 
-			<var name="key_row" value="${key_row?increment()}" />
+			<var method="MathUtil#sum(${key_row}, 1)" name="key_row" />
 		</for>
 
 		<var name="key_row" value="1" />
@@ -511,7 +511,7 @@
 			<execute function="Type" locator1="SOProfileAddWebsite#URL_FIELD" value1="${userWebsiteURL}" />
 			<execute function="Click" locator1="SOProfileAddWebsite#ADD_ROW_BUTTON" />
 
-			<var name="key_row" value="${key_row?increment()}" />
+			<var method="MathUtil#sum(${key_row}, 1)" name="key_row" />
 		</for>
 
 		<var name="key_row" value="1" />
@@ -519,7 +519,7 @@
 		<for list="${userWebsiteTypeList}" param="userWebsiteType">
 			<execute function="Select" locator1="SOProfileAddWebsite#TYPE_SELECT" value1="${userWebsiteType}" />
 
-			<var name="key_row" value="${key_row?increment()}" />
+			<var method="MathUtil#sum(${key_row}, 1)" name="key_row" />
 		</for>
 
 		<var name="key_row" value="1" />
