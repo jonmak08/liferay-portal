@@ -14,12 +14,7 @@
 
 package com.liferay.portal.verify;
 
-import com.liferay.portal.kernel.test.rule.AggregateTestRule;
-import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
-import com.liferay.portal.kernel.test.util.GroupTestUtil;
-import com.liferay.portal.kernel.test.util.RandomTestUtil;
-import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
-import com.liferay.portal.kernel.test.util.TestPropsValues;
+import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Layout;
@@ -28,36 +23,41 @@ import com.liferay.portal.model.LayoutRevision;
 import com.liferay.portal.model.LayoutSetBranch;
 import com.liferay.portal.model.PortletPreferences;
 import com.liferay.portal.model.impl.PortletImpl;
+import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.service.LayoutBranchLocalServiceUtil;
 import com.liferay.portal.service.LayoutRevisionLocalServiceUtil;
 import com.liferay.portal.service.LayoutSetBranchLocalServiceUtil;
 import com.liferay.portal.service.PortletPreferencesLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
-import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
-import com.liferay.portal.test.rule.MainServletTestRule;
-import com.liferay.portal.util.test.LayoutTestUtil;
-import com.liferay.portal.verify.test.BaseVerifyProcessTestCase;
 
+import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
+import com.liferay.portal.test.MainServletExecutionTestListener;
+import com.liferay.portal.util.GroupTestUtil;
+import com.liferay.portal.util.LayoutTestUtil;
+import com.liferay.portal.util.RandomTestUtil;
+import com.liferay.portal.util.ServiceContextTestUtil;
+import com.liferay.portal.util.TestPropsValues;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.ClassRule;
-import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 /**
  * @author Andrew Betts
  */
-public class VerifyPortletPreferencesTest extends BaseVerifyProcessTestCase {
-
-	@ClassRule
-	@Rule
-	public static final AggregateTestRule aggregateTestRule =
-		new AggregateTestRule(
-			new LiferayIntegrationTestRule(), MainServletTestRule.INSTANCE);
+@ExecutionTestListeners(listeners = {MainServletExecutionTestListener.class})
+@RunWith(LiferayIntegrationJUnitTestRunner.class)
+public class VerifyPortletPreferencesTest extends BaseVerifyTestCase {
 
 	@Before
 	public void setUp() throws Exception {
 		_group = GroupTestUtil.addGroup();
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		GroupLocalServiceUtil.deleteGroup(_group);
 	}
 
 	@Test
@@ -83,7 +83,8 @@ public class VerifyPortletPreferencesTest extends BaseVerifyProcessTestCase {
 	}
 
 	protected LayoutRevision getLayoutRevision() throws Exception {
-		Layout layout = LayoutTestUtil.addLayout(_group, false);
+		Layout layout = LayoutTestUtil.addLayout(
+			_group.getGroupId(), RandomTestUtil.randomString());
 
 		ServiceContext serviceContext =
 			ServiceContextTestUtil.getServiceContext();
@@ -108,7 +109,6 @@ public class VerifyPortletPreferencesTest extends BaseVerifyProcessTestCase {
 		return new VerifyPortletPreferences();
 	}
 
-	@DeleteAfterTestRun
 	private Group _group;
 
 }

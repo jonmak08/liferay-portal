@@ -14,6 +14,7 @@
 
 package com.liferay.portal.service.impl;
 
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.staging.LayoutStagingUtil;
 import com.liferay.portal.kernel.staging.MergeLayoutPrototypesThreadLocal;
 import com.liferay.portal.kernel.staging.StagingUtil;
@@ -93,7 +94,9 @@ public class PortletPreferencesLocalServiceStagingAdvice
 		}
 	}
 
-	protected LayoutRevision getLayoutRevision(long plid) {
+	protected LayoutRevision getLayoutRevision(long plid)
+		throws SystemException {
+
 		if (plid <= 0) {
 			return null;
 		}

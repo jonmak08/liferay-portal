@@ -20,6 +20,7 @@ import com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ListUtil;
@@ -31,7 +32,9 @@ import com.liferay.portal.model.PortletPreferences;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portal.service.LayoutRevisionLocalServiceUtil;
 import com.liferay.portal.service.PortletPreferencesLocalServiceUtil;
+import com.liferay.portal.service.persistence.PortletPreferencesActionableDynamicQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -49,79 +52,73 @@ public class VerifyPortletPreferences extends VerifyProcess {
 	}
 
 	protected static ActionableDynamicQuery
-		getPortletPreferencesActionableDynamicQuery() {
+		getPortletPreferencesActionableDynamicQuery() throws SystemException {
 
-		ActionableDynamicQuery portletPreferencesActionableDynamicQuery =
-			PortletPreferencesLocalServiceUtil.getActionableDynamicQuery();
+		return new PortletPreferencesActionableDynamicQuery() {
 
-		portletPreferencesActionableDynamicQuery.setAddCriteriaMethod(
-			new ActionableDynamicQuery.AddCriteriaMethod() {
+			@Override
+			protected void addCriteria(DynamicQuery dynamicQuery) {
+				Property plidProperty = PropertyFactoryUtil.forName("plid");
 
-				@Override
-				public void addCriteria(DynamicQuery dynamicQuery) {
-					Property plidProperty = PropertyFactoryUtil.forName("plid");
+				DynamicQuery layoutRevisionDynamicQuery =
+					LayoutRevisionLocalServiceUtil.dynamicQuery();
 
-					DynamicQuery layoutRevisionDynamicQuery =
-						LayoutRevisionLocalServiceUtil.dynamicQuery();
+				layoutRevisionDynamicQuery.setProjection(
+					ProjectionFactoryUtil.property("layoutRevisionId"));
 
-					layoutRevisionDynamicQuery.setProjection(
-						ProjectionFactoryUtil.property("layoutRevisionId"));
+				dynamicQuery.add(
+					plidProperty.in(layoutRevisionDynamicQuery));
+			}
 
-					dynamicQuery.add(
-						plidProperty.in(layoutRevisionDynamicQuery));
+			@Override
+			protected void performAction(Object object)
+				throws PortalException, SystemException {
+
+				PortletPreferences portletPreferences =
+					(PortletPreferences)object;
+
+				long layoutRevisionId = portletPreferences.getPlid();
+
+				LayoutRevision layoutRevision =
+					LayoutRevisionLocalServiceUtil.getLayoutRevision(
+						layoutRevisionId);
+
+				Layout layout = LayoutLocalServiceUtil.getLayout(
+					layoutRevision.getPlid());
+
+				if (!layout.isTypePortlet()) {
+					return;
 				}
 
-			});
-		portletPreferencesActionableDynamicQuery.setPerformActionMethod(
-			new ActionableDynamicQuery.PerformActionMethod() {
+				LayoutTypePortlet layoutTypePortlet =
+					(LayoutTypePortlet)layout.getLayoutType();
 
-				@Override
-				public void performAction(Object object)
-					throws PortalException {
+				List<Portlet> portlets = layoutTypePortlet.getAllPortlets();
 
-					PortletPreferences portletPreferences =
-						(PortletPreferences)object;
+				List<String> portletIds = new ArrayList<String>(
+					portlets.size());
 
-					long layoutRevisionId = portletPreferences.getPlid();
-
-					LayoutRevision layoutRevision =
-						LayoutRevisionLocalServiceUtil.getLayoutRevision(
-							layoutRevisionId);
-
-					Layout layout = LayoutLocalServiceUtil.getLayout(
-						layoutRevision.getPlid());
-
-					if (!layout.isTypePortlet()) {
-						return;
-					}
-
-					LayoutTypePortlet layoutTypePortlet =
-						(LayoutTypePortlet)layout.getLayoutType();
-
-					List<Portlet> portlets = layoutTypePortlet.getAllPortlets();
-
-					List<String> portletIds = ListUtil.toList(
-						portlets, Portlet.PORTLET_ID_ACCESSOR);
-
-					if (portletIds.contains(
-							portletPreferences.getPortletId())) {
-
-						return;
-					}
-
-					if (_log.isWarnEnabled()) {
-						_log.warn(
-							"Removing portlet preferences " +
-								portletPreferences.getPortletPreferencesId());
-					}
-
-					PortletPreferencesLocalServiceUtil.deletePortletPreferences(
-						portletPreferences);
+				for (Portlet portlet : portlets) {
+					portletIds.add(Portlet.PORTLET_ID_ACCESSOR.get(portlet));
 				}
 
-			});
+				if (portletIds.contains(
+						portletPreferences.getPortletId())) {
 
-		return portletPreferencesActionableDynamicQuery;
+					return;
+				}
+
+				if (_log.isWarnEnabled()) {
+					_log.warn(
+						"Removing portlet preferences " +
+							portletPreferences.getPortletPreferencesId());
+				}
+
+				PortletPreferencesLocalServiceUtil.deletePortletPreferences(
+					portletPreferences);
+			}
+
+		};
 	}
 
 	@Override
