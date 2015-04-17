@@ -18,21 +18,35 @@ import com.liferay.portal.deploy.hot.HookHotDeployListener;
 import com.liferay.portal.kernel.deploy.hot.DependencyManagementThreadLocal;
 import com.liferay.portal.kernel.deploy.hot.HotDeployEvent;
 import com.liferay.portal.kernel.deploy.hot.HotDeployUtil;
+import com.liferay.portal.kernel.plugin.PluginPackage;
 import com.liferay.portal.kernel.portlet.PortletClassLoaderUtil;
 import com.liferay.portal.kernel.servlet.ServletContextPool;
 import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilterHelper;
 import com.liferay.portal.kernel.test.TestContext;
 import com.liferay.portal.kernel.util.PortalLifecycleUtil;
+import com.liferay.portal.kernel.util.PropertiesUtil;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.plugin.PluginPackageUtil;
 import com.liferay.portal.spring.context.PortletContextLoaderListener;
 import com.liferay.portal.test.MainServletExecutionTestListener;
 import com.liferay.portal.test.mock.AutoDeployMockServletContext;
 import com.liferay.portal.util.PortalUtil;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+import java.net.URL;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
+
+import org.junit.Assert;
 
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
@@ -100,13 +114,26 @@ public class PACLExecutionTestListener
 
 		ClassLoader classLoader = clazz.getClassLoader();
 
+		String displayName = "a-test-hook";
+
 		MockServletContext mockServletContext = new MockServletContext(
 			new PACLResourceLoader(classLoader));
 
-		mockServletContext.setServletContextName("a-test-hook");
+		mockServletContext.setServletContextName(displayName);
+
+		URL resourceURL = classLoader.getResource(
+			"WEB-INF/liferay-plugin-package.properties");
+
+		Properties properties = getLiferayPluginPackageProperties(resourceURL);
+
+		PluginPackage pluginPackage =
+			PluginPackageUtil.readPluginPackageProperties(
+				displayName, properties);
 
 		HotDeployEvent hotDeployEvent = getHotDeployEvent(
 			mockServletContext, classLoader);
+
+		hotDeployEvent.setPluginPackage(pluginPackage);
 
 		HotDeployUtil.fireDeployEvent(hotDeployEvent);
 
@@ -128,6 +155,31 @@ public class PACLExecutionTestListener
 		}
 
 		_hotDeployEvents.put(clazz, hotDeployEvent);
+	}
+
+	protected Properties getLiferayPluginPackageProperties(URL resourceURL) {
+
+		InputStream inputStream = null;
+		Properties properties = new Properties();
+
+		try {
+			inputStream = new FileInputStream(new File(resourceURL.getPath()));
+
+			properties = PropertiesUtil.load(StringUtil.read(inputStream));
+		}
+		catch (IOException ioe) {
+			Assert.fail();
+		}
+		finally {
+			try {
+				inputStream.close();
+			}
+			catch (IOException ioe) {}
+		}
+
+		Assert.assertFalse(properties.isEmpty());
+
+		return properties;
 	}
 
 	protected HotDeployEvent getHotDeployEvent(
