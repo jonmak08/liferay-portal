@@ -471,7 +471,7 @@
 		</if>
 
 		<var name="key_roleName" value="${roleName?replace(' ', '-')}" />
-		<var name="key_roleName" value="${key_roleName?lowercase()}" />
+		<var method="StringUtil#lowerCase(${key_roleName})" name="key_roleName" />
 
 		<execute function="SelectFrame" locator1="Permissions#PERMISSIONS_IFRAME" />
 		<execute function="AssertTextEquals" locator1="Permissions#HEADER_TITLE" value1="${calendarName}" />
@@ -570,7 +570,7 @@
 		</if>
 
 		<var name="key_roleName" value="${roleName?replace(' ', '-')}" />
-		<var name="key_roleName" value="${key_roleName?lowercase()}" />
+		<var method="StringUtil#lowerCase(${key_roleName})" name="key_roleName" />
 
 		<execute function="SelectFrame" locator1="Permissions#PERMISSIONS_IFRAME" />
 		<execute function="AssertTextEquals" locator1="Permissions#HEADER_TITLE" value1="${calendarName}" />
