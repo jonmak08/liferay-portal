@@ -109,9 +109,11 @@ public class EditFolderAction extends PortletAction {
 			}
 			else if (e instanceof DuplicateFileException ||
 					 e instanceof DuplicateFolderNameException ||
-					 e instanceof InvalidFolderException ||
 					 e instanceof FolderNameException) {
 
+				SessionErrors.add(actionRequest, e.getClass());
+			}
+			else if (e instanceof InvalidFolderException) {
 				SessionErrors.add(actionRequest, e.getClass(), e);
 			}
 			else {
