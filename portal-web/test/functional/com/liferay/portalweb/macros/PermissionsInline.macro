@@ -3,7 +3,7 @@
 		<for list="${roleList}" param="roleName" >
 			<var name="roleName" value="${roleName}" />
 
-			<var name="key_roleName" value="${roleName?replace(' ', '-')}" />
+			<var method="StringUtil#replace(${roleName}, ' ', '-')" name="key_roleName" />
 			<var method="StringUtil#lowerCase(${key_roleName})" name="key_roleName" />
 
 			<if>
@@ -189,7 +189,7 @@
 		<for list="${roleList}" param="roleName" >
 			<var name="roleName" value="${roleName}" />
 
-			<var name="key_roleName" value="${roleName?replace(' ', '-')}" />
+			<var method="StringUtil#replace(${roleName}, ' ', '-')" name="key_roleName" />
 			<var method="StringUtil#lowerCase(${key_roleName})" name="key_roleName" />
 
 			<execute function="Uncheck" locator1="Permissions#CONFIGURATION_PERMISSIONS_VIEW_CHECKBOX" />
@@ -200,7 +200,7 @@
 	</command>
 
 	<command name="viewPermissionsRemoved">
-		<var name="key_roleName" value="${roleName?replace(' ', '-')}" />
+		<var method="StringUtil#replace(${roleName}, ' ', '-')" name="key_roleName" />
 		<var method="StringUtil#lowerCase(${key_roleName})" name="key_roleName" />
 
 		<execute function="AssertNotChecked" locator1="Permissions#${permissionDefinitionKey}" />

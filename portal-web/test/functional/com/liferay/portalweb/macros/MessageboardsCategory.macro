@@ -173,7 +173,7 @@
 
 	<command name="removeViewPermissionsPG">
 		<var name="key_categoryName" value="${categoryName}" />
-		<var name="key_roleName" value="${roleName?replace(' ', '-')}" />
+		<var method="StringUtil#replace(${roleName}, ' ', '-')" name="key_roleName" />
 		<var method="StringUtil#lowerCase(${key_roleName})" name="key_roleName" />
 
 		<execute function="AssertClick" locator1="PGMessageboards#CATEGORY_TABLE_ACTIONS" value1="Actions" />
