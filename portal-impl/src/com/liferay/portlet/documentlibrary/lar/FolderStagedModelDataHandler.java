@@ -21,8 +21,6 @@ import com.liferay.portal.kernel.lar.ExportImportPathUtil;
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.lar.PortletDataException;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
@@ -424,30 +422,18 @@ public class FolderStagedModelDataHandler
 			throw pde;
 		}
 
-		TrashHandler trashHandler = TrashHandlerRegistryUtil.getTrashHandler(
-			DLFolder.class.getName());
+		if (folder instanceof LiferayFolder) {
+			LiferayFolder liferayFolder = (LiferayFolder)folder;
 
-		if (trashHandler != null) {
-			try {
-				if (trashHandler.isInTrash(folder.getFolderId()) ||
-					trashHandler.isInTrashContainer(folder.getFolderId())) {
+			DLFolder dlFolder = (DLFolder)liferayFolder.getModel();
 
-					throw new PortletDataException(
-						PortletDataException.STATUS_IN_TRASH);
-				}
-			}
-			catch (PortletDataException pde) {
+			if (dlFolder.isInTrash() || dlFolder.isInTrashContainer()) {
+				PortletDataException pde = new PortletDataException(
+					PortletDataException.STATUS_IN_TRASH);
+
+				pde.setStagedModel(folder);
+
 				throw pde;
-			}
-			catch (Exception e) {
-				if (_log.isDebugEnabled()) {
-					_log.debug(e, e);
-				}
-				else if (_log.isWarnEnabled()) {
-					_log.warn(
-						"Unable to check trash status for folder " +
-							folder.getFolderId());
-				}
 			}
 		}
 	}
@@ -467,8 +453,5 @@ public class FolderStagedModelDataHandler
 
 		return true;
 	}
-
-	private static Log _log = LogFactoryUtil.getLog(
-		FolderStagedModelDataHandler.class);
 
 }
