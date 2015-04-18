@@ -1034,6 +1034,18 @@ public class HookHotDeployListener
 		}
 	}
 
+	protected String getPortalJsp(String customJsp, String customJspDir) {
+		if (Validator.isNull(customJsp) || Validator.isNull(customJspDir)) {
+			return null;
+		}
+
+		int pos = customJsp.indexOf(customJspDir);
+
+		String portalJsp = customJsp.substring(pos + customJspDir.length());
+
+		return portalJsp;
+	}
+
 	protected File getPortalJspBackupFile(File portalJspFile) {
 		String fileName = portalJspFile.getName();
 		String filePath = portalJspFile.toString();
@@ -1054,18 +1066,6 @@ public class HookHotDeployListener
 		}
 
 		return new File(filePath);
-	}
-
-	protected String getPortalJsp(String customJsp, String customJspDir) {
-		if (Validator.isNull(customJsp) || Validator.isNull(customJspDir)) {
-			return null;
-		}
-
-		int pos = customJsp.indexOf(customJspDir);
-
-		String portalJsp = customJsp.substring(pos + customJspDir.length());
-
-		return portalJsp;
 	}
 
 	protected void initAuthenticators(
