@@ -707,9 +707,14 @@ public class HookHotDeployListener
 		initLanguageProperties(
 			servletContextName, portletClassLoader, rootElement);
 
-		initCustomJspDir(
-			servletContext, servletContextName, portletClassLoader,
-			hotDeployEvent.getPluginPackage(), rootElement);
+		try {
+			initCustomJspDir(
+				servletContext, servletContextName, portletClassLoader,
+				hotDeployEvent.getPluginPackage(), rootElement);
+		}
+		catch (DuplicateCustomJspException dcje) {
+			return;
+		}
 
 		initIndexerPostProcessors(
 			servletContextName, portletClassLoader, rootElement);
@@ -1309,6 +1314,8 @@ public class HookHotDeployListener
 
 			_log.debug(sb.toString());
 		}
+
+		verifyCustomJsps(servletContextName, customJspBag);
 
 		_customJspBagsMap.put(servletContextName, customJspBag);
 
@@ -2784,6 +2791,61 @@ public class HookHotDeployListener
 
 		ReleaseLocalServiceUtil.updateRelease(
 			release.getReleaseId(), buildNumber, null, true);
+	}
+
+	protected void verifyCustomJsps(
+			String currentServletContextName, CustomJspBag currentCustomJspBag)
+		throws DuplicateCustomJspException {
+
+		if (_customJspBagsMap.isEmpty() ||
+			_customJspBagsMap.containsKey(currentServletContextName) ||
+			!currentCustomJspBag.isCustomJspGlobal()) {
+
+			return;
+		}
+
+		String currentCustomJspDir = currentCustomJspBag.getCustomJspDir();
+		Set<String> currentCustomJsps = new HashSet<>();
+
+		for (String currentCustomJsp : currentCustomJspBag.getCustomJsps()) {
+			int pos = currentCustomJsp.indexOf(currentCustomJspDir);
+
+			String portalJsp = currentCustomJsp.substring(
+				pos + currentCustomJspDir.length());
+
+			currentCustomJsps.add(portalJsp);
+		}
+
+		Map<String, String> collidingCustomJsps = new HashMap<>();
+
+		for (Map.Entry<String, CustomJspBag> entry :
+				_customJspBagsMap.entrySet()) {
+
+			String servletContextName = (String)entry.getKey();
+			CustomJspBag customJspBag = (CustomJspBag)entry.getValue();
+
+			String customJspDir = customJspBag.getCustomJspDir();
+			List<String> customJsps = customJspBag.getCustomJsps();
+
+			for (String customJsp : customJsps) {
+				int pos = customJsp.indexOf(customJspDir);
+
+				String portalJsp = customJsp.substring(
+					pos + customJspDir.length());
+
+				if (currentCustomJsps.contains(portalJsp)) {
+					collidingCustomJsps.put(portalJsp, servletContextName);
+				}
+			}
+		}
+
+		if ((collidingCustomJsps != null) && !collidingCustomJsps.isEmpty()) {
+			_log.error(
+				currentServletContextName + " is colliding with the " +
+					"currently installed hooks");
+
+			throw new DuplicateCustomJspException();
+		}
 	}
 
 	private static final String[] _PROPS_KEYS_EVENTS = {
