@@ -2825,7 +2825,7 @@ public class HookHotDeployListener
 			String servletContextName, CustomJspBag customJspBag)
 		throws DuplicateCustomJspException {
 
-		Set<String> customJsps = new HashSet<>();
+		Set<String> customJsps = new HashSet<String>();
 
 		for (String customJsp : customJspBag.getCustomJsps()) {
 			String portalJsp = getPortalJsp(
@@ -2834,7 +2834,8 @@ public class HookHotDeployListener
 			customJsps.add(portalJsp);
 		}
 
-		Map<String, String> conflictingCustomJsps = new HashMap<>();
+		Map<String, String> conflictingCustomJsps =
+			new HashMap<String, String>();
 
 		for (Map.Entry<String, CustomJspBag> entry :
 				_customJspBagsMap.entrySet()) {
