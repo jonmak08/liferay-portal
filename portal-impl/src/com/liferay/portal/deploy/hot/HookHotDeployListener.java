@@ -1056,6 +1056,19 @@ public class HookHotDeployListener
 		return new File(filePath);
 	}
 
+	protected String getPortalJspName(String customJsp, String customJspDir) {
+		if (Validator.isNull(customJsp) || Validator.isNull(customJspDir)) {
+			return null;
+		}
+
+		int customJspDirIndex = customJsp.indexOf(customJspDir);
+
+		String portalJspName = customJsp.substring(
+			customJspDirIndex + customJspDir.length());
+
+		return portalJspName;
+	}
+
 	protected void initAuthenticators(
 			ClassLoader portletClassLoader, Properties portalProperties,
 			String key, AuthenticatorsContainer authenticatorsContainer)
