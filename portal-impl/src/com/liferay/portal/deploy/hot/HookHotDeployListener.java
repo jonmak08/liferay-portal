@@ -1339,7 +1339,8 @@ public class HookHotDeployListener
 			log.debug(sb.toString());
 		}
 
-		if (customJspGlobal && !_customJspBagsMap.isEmpty() &&
+		if (PropsValues.HOT_DEPLOY_HOOK_CUSTOM_JSP_VERIFICATION_ENABLED &&
+			customJspGlobal && !_customJspBagsMap.isEmpty() &&
 			!_customJspBagsMap.containsKey(servletContextName)) {
 
 			verifyCustomJsps(servletContextName, customJspBag);
