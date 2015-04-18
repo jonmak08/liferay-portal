@@ -16,7 +16,7 @@
 		<execute macro="DMDocument#tearDownCP" />
 
 		<execute macro="CalendarEvent#tearDown">
-			<var name="Marketplace" value="Marketplace" />
+			<var name="marketplace" value="true" />
 		</execute>
 
 		<execute macro="MessageboardsCategory#tearDownCP" />
