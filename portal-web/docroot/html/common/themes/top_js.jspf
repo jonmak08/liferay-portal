@@ -295,6 +295,9 @@
 			},
 			getLangPath: function() {
 				return '<%= PortalUtil.getStaticResourceURL(request, "aui_lang.jsp", javaScriptLastModified) %>';
+			},
+			getStaticResourceURLParams: function() {
+				return '<%= PortalUtil.getStaticResourceURL(request, StringPool.BLANK, "minifierType=", javaScriptLastModified) %>';
 			}
 		};
 
