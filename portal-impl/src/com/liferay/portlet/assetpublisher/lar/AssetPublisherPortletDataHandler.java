@@ -371,7 +371,7 @@ public class AssetPublisherPortletDataHandler
 
 		DDMStructure ddmStructure =
 			DDMStructureLocalServiceUtil.fetchDDMStructureByUuidAndGroupId(
-				structureUuid, portletDataContext.getGroupId());
+				structureUuid, portletDataContext.getScopeGroupId());
 
 		if (ddmStructure == null) {
 			ddmStructure =
