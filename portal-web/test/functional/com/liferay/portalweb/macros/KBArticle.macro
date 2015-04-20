@@ -449,6 +449,13 @@
 			</then>
 		</if>
 
+		<if>
+			<isset var="kbAttachmentLink" />
+			<then>
+				<execute macro="KBArticle#linkAttachmentInArticle" />
+			</then>
+		</if>
+
 		<execute function="AssertClick" locator1="CPKnowledgebaseadminAddarticle#PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="CPKnowledgebaseadmin#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -655,6 +662,14 @@
 		<execute function="AssertClick" locator1="CPKnowledgebaseadminUploadZipFile#SAVE_BUTTON" value1="Save" />
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="CPKnowledgebaseadmin#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+	</command>
+
+	<command name="linkAttachmentInArticle">
+		<execute function="Click" locator1="CKEditor#CKEDITOR_TOOLBAR_LINK_BUTTON" />
+		<execute function="Type" locator1="CKEditorAddlink#URL_FIELD" value1="${kbAttachmentLink}" />
+		<execute function="Click" locator1="CKEditorAddlink#OK_BUTTON" />
+
+		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
 	<command name="moveArticleCP">
@@ -1334,6 +1349,16 @@
 	<command name="viewNoPGViaKBSection">
 		<execute function="AssertTextEquals" locator1="PGKnowledgebasesection#SECTIONS_TITLE" value1="General" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGKnowledgebasesection#PORTLET_BODY" value1="No articles were found" />
+	</command>
+
+	<command name="viewPageAttachmentCP">
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+
+		<execute function="AssertClick" locator1="CPKnowledgebaseadmin#ARTICLE_TABLE_ACTIONS" value1="Actions" />
+		<execute function="AssertClick" locator1="CPKnowledgebaseadmin#ARTICLE_MENULIST_EDIT" value1="Edit" />
+
+		<execute function="AssertTextEquals" locator1="CPKnowledgebaseadminAddarticle#INFO_MESSAGE" value1="A new version will be created automatically if this content is modified." />
+		<execute function="AssertElementPresent" locator1="CPKnowledgebaseadminAddarticle#ATTACHMENTS_SAVED_ATTACHMENTS_CONTAINER" />
 	</command>
 
 	<command name="viewParentArticleHierarchyViaKBDisplayPG">
