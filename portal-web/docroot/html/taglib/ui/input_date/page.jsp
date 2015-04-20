@@ -97,6 +97,18 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 		function() {
 			var datePicker = new A.DatePicker<%= BrowserSnifferUtil.isMobile(request) ? "Native" : StringPool.BLANK %>(
 				{
+					calendar: {
+
+						<%
+						String calendarOptions = StringPool.BLANK;
+
+						if (firstDayOfWeek != -1) {
+							calendarOptions += String.format("'strings.first_weekday': %d", firstDayOfWeek);
+						}
+						%>
+
+						<%= calendarOptions %>
+					},
 					container: '#<%= randomNamespace %>displayDate',
 					mask: '<%= mask %>',
 					on: {
