@@ -18,7 +18,14 @@
 
 		<execute function="Type" locator1="PGKnowledgebasedisplayAddchildarticle#TITLE_FIELD" value1="${kbArticleTitle}" />
 		<execute function="Type#typeFrameWaitForCKEditor" locator1="PGKnowledgebasedisplayAddchildarticle#CONTENT_FIELD" value1="${kbArticleContent}" />
-		<execute function="AddSelection" locator1="PGKnowledgebasedisplayAddchildarticle#SECTIONS_SELECT" value1="${kbArticleSection}" />
+
+		<if>
+			<isset var="kbArticleSection" />
+			<then>
+				<execute function="AddSelection" locator1="PGKnowledgebasedisplayAddchildarticle#SECTIONS_SELECT" value1="${kbArticleSection}" />
+			</then>
+		</if>
+
 		<execute function="AssertClick" locator1="PGKnowledgebasedisplayAddchildarticle#PUBLISH_BUTTON" value1="Publish" />
 	</command>
 
@@ -1038,6 +1045,16 @@
 				</if>
 			</then>
 		</while>
+	</command>
+
+	<command name="viewChildArticlePG">
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+		<var name="key_kbChildArticleTitle" value="${kbChildArticleTitle}" />
+
+		<execute function="AssertClick" locator1="PGKnowledgebasedisplay#ARTICLE_NAVIGATION_CHILD" value1="${key_kbChildArticleTitle}" />
+
+		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#ARTICLE_TITLE" value1="${kbChildArticleTitle}" />
+		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#ARTICLE_CONTENT" value1="${kbChildArticleContent}" />
 	</command>
 
 	<command name="viewCP">
