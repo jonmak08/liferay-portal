@@ -15,8 +15,12 @@
 package com.liferay.portal.verify;
 
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
 import com.liferay.portal.test.MainServletExecutionTestListener;
+import com.liferay.portal.util.PropsValues;
+
+import java.lang.reflect.Field;
 
 import java.sql.SQLException;
 
@@ -38,6 +42,35 @@ public class VerifyUUIDTest extends BaseVerifyTestCase {
 	@Test(expected = SQLException.class)
 	public void testVerifyModelWithUnknownPKColumnName() throws Exception {
 		testVerifyModel("Layout", _UNKNOWN);
+	}
+
+	@Test(expected = VerifyException.class)
+	public void testVerifyParallelUnknownModelWithUnknownPKColumnName()
+		throws Exception {
+
+		String[][] models =
+			new String[PropsValues.VERIFY_PROCESS_CONCURRENCY_THRESHOLD][2];
+
+		for (String[] array : models) {
+			array[0] = "Unknown";
+			array[1] = "Unknown";
+		}
+
+		Field field = ReflectionUtil.getDeclaredField(
+			VerifyUUID.class, "_MODELS");
+
+		Object value = field.get(null);
+
+		ReflectionUtil.unfinalField(field);
+
+		try {
+			field.set(null, models);
+
+			doVerify();
+		}
+		finally {
+			field.set(null, value);
+		}
 	}
 
 	@Test(expected = SQLException.class)
