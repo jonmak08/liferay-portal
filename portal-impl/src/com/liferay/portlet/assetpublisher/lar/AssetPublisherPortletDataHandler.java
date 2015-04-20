@@ -50,6 +50,7 @@ import com.liferay.portlet.journal.model.JournalArticle;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+
 import javax.portlet.PortletPreferences;
 
 /**
@@ -146,7 +147,7 @@ public class AssetPublisherPortletDataHandler
 		DDMStructure ddmStructure =
 			DDMStructureLocalServiceUtil.fetchDDMStructure(structureId);
 
-		if(ddmStructure == null) {
+		if (ddmStructure == null) {
 			portletPreferences.reset(key);
 
 			return;
