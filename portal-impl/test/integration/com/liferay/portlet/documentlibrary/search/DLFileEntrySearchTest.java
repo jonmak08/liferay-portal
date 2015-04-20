@@ -75,36 +75,32 @@ public class DLFileEntrySearchTest extends BaseSearchTestCase {
 	public void testSearchAttachments() throws Exception {
 	}
 
-	@Override
-	protected BaseModel<?> addBaseModelWithDDMStructure(
-			BaseModel<?> parentBaseModel, String keywords,
+	protected BaseModel<?> addBaseModel(
+			String keywords, DDMStructure ddmStructure,
 			ServiceContext serviceContext)
 		throws Exception {
 
-		String xsd = DDMStructureTestUtil.getSampleStructureXSD("name");
-
-		_ddmStructure = DDMStructureTestUtil.addStructure(
-			serviceContext.getScopeGroupId(), DLFileEntry.class.getName(), xsd);
+		_ddmStructure = ddmStructure;
 
 		DLFileEntryType dlFileEntryType =
 			DLFileEntryTypeLocalServiceUtil.addFileEntryType(
 				TestPropsValues.getUserId(), serviceContext.getScopeGroupId(),
 				"Structure", StringPool.BLANK,
-				new long[] {_ddmStructure.getStructureId()}, serviceContext);
+				new long[] {ddmStructure.getStructureId()}, serviceContext);
 
 		String content = "Content: Enterprise. Open Source. For Life.";
 
 		Fields fields = new Fields();
 
 		Field textField = new Field(
-			_ddmStructure.getStructureId(), "name", getSearchKeywords());
+			ddmStructure.getStructureId(), "name", keywords);
 
 		fields.put(textField);
 
 		serviceContext.setAttribute(
-			"fileEntryTypeId",dlFileEntryType.getFileEntryTypeId());
+			"fileEntryTypeId", dlFileEntryType.getFileEntryTypeId());
 		serviceContext.setAttribute(
-			Fields.class.getName() + _ddmStructure.getStructureId(), fields);
+			Fields.class.getName() + ddmStructure.getStructureId(), fields);
 
 		FileEntry fileEntry = DLAppTestUtil.addFileEntry(
 			serviceContext.getUserId(), serviceContext.getScopeGroupId(),
@@ -113,6 +109,20 @@ public class DLFileEntrySearchTest extends BaseSearchTestCase {
 			WorkflowConstants.ACTION_PUBLISH, serviceContext);
 
 		return (DLFileEntry)fileEntry.getModel();
+	}
+
+	@Override
+	protected BaseModel<?> addBaseModelWithDDMStructure(
+			BaseModel<?> parentBaseModel, String keywords,
+			ServiceContext serviceContext)
+		throws Exception {
+
+		String xsd = DDMStructureTestUtil.getSampleStructureXSD("name");
+
+		DDMStructure ddmStructure = DDMStructureTestUtil.addStructure(
+			serviceContext.getScopeGroupId(), DLFileEntry.class.getName(), xsd);
+
+		return addBaseModel(keywords, ddmStructure, serviceContext);
 	}
 
 	@Override
