@@ -133,7 +133,8 @@ public class AssetPublisherPortletDataHandler
 
 		String oldValue = portletPreferences.getValue(key, null);
 
-		if (Validator.isNull(oldValue) || !oldValue.startsWith(
+		if (Validator.isNull(oldValue) ||
+			!oldValue.startsWith(
 				DDMIndexer.DDM_FIELD_NAMESPACE + StringPool.FORWARD_SLASH)) {
 
 			return;
@@ -358,7 +359,8 @@ public class AssetPublisherPortletDataHandler
 
 		String oldValue = portletPreferences.getValue(key, null);
 
-		if (Validator.isNull(oldValue) || !oldValue.startsWith(
+		if (Validator.isNull(oldValue) ||
+			!oldValue.startsWith(
 				DDMIndexer.DDM_FIELD_NAMESPACE + StringPool.FORWARD_SLASH)) {
 
 			return;
