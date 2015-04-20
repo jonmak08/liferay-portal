@@ -27,8 +27,7 @@ public interface PermissionCheckerBag extends UserPermissionCheckerBag {
 
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
-	 *             com.liferay.portal.security.permission.UserPermissionCheckerBag#
-	 *             getGroups()}
+	 *             UserPermissionCheckerBag#getGroups()}
 	 */
 	public List<Group> getGroups();
 
@@ -38,29 +37,25 @@ public interface PermissionCheckerBag extends UserPermissionCheckerBag {
 
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
-	 *             com.liferay.portal.security.permission.UserPermissionCheckerBag#
-	 *             getUserGroups()}
+	 *             UserPermissionCheckerBag#getUserGroups()}
 	 */
 	public List<Group> getUserGroups();
 
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
-	 *             com.liferay.portal.security.permission.UserPermissionCheckerBag#
-	 *             getUserOrgGroups()}
+	 *             UserPermissionCheckerBag#getUserOrgGroups()}
 	 */
 	public List<Group> getUserOrgGroups();
 
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
-	 *             com.liferay.portal.security.permission.UserPermissionCheckerBag#
-	 *             getUserOrgs()}
+	 *             UserPermissionCheckerBag#getUserOrgs()}
 	 */
 	public List<Organization> getUserOrgs();
 
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
-	 *             com.liferay.portal.security.permission.UserPermissionCheckerBag#
-	 *             getUserUserGroupGroups()}
+	 *             UserPermissionCheckerBag#getUserUserGroupGroups()}
 	 */
 	public List<Group> getUserUserGroupGroups();
 

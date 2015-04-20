@@ -75,7 +75,7 @@ public class PermissionCheckerBagImpl
 	}
 
 	/**
-	 * @deprecated As of 7.0.0, renamed to {@link
+	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             UserPermissionCheckerBagImpl#getGroups()}
 	 */
 	@Override
@@ -110,7 +110,7 @@ public class PermissionCheckerBagImpl
 	}
 
 	/**
-	 * @deprecated As of 7.0.0, renamed to {@link
+	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             UserPermissionCheckerBagImpl#getUserGroups()}
 	 */
 	@Override
@@ -119,7 +119,7 @@ public class PermissionCheckerBagImpl
 	}
 
 	/**
-	 * @deprecated As of 7.0.0, renamed to {@link
+	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             UserPermissionCheckerBagImpl#getUserOrgGroups()}
 	 */
 	@Override
@@ -128,7 +128,7 @@ public class PermissionCheckerBagImpl
 	}
 
 	/**
-	 * @deprecated As of 7.0.0, renamed to {@link
+	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             UserPermissionCheckerBagImpl#getUserOrgs()}
 	 */
 	@Override
@@ -137,7 +137,7 @@ public class PermissionCheckerBagImpl
 	}
 
 	/**
-	 * @deprecated As of 7.0.0, renamed to {@link
+	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             UserPermissionCheckerBagImpl#getUserUserGroupGroups()}
 	 */
 	@Override
