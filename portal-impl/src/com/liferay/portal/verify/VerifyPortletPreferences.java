@@ -23,7 +23,6 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.LayoutRevision;
 import com.liferay.portal.model.LayoutTypePortlet;
@@ -66,8 +65,7 @@ public class VerifyPortletPreferences extends VerifyProcess {
 				layoutRevisionDynamicQuery.setProjection(
 					ProjectionFactoryUtil.property("layoutRevisionId"));
 
-				dynamicQuery.add(
-					plidProperty.in(layoutRevisionDynamicQuery));
+				dynamicQuery.add(plidProperty.in(layoutRevisionDynamicQuery));
 			}
 
 			@Override
@@ -102,9 +100,7 @@ public class VerifyPortletPreferences extends VerifyProcess {
 					portletIds.add(Portlet.PORTLET_ID_ACCESSOR.get(portlet));
 				}
 
-				if (portletIds.contains(
-						portletPreferences.getPortletId())) {
-
+				if (portletIds.contains(portletPreferences.getPortletId())) {
 					return;
 				}
 
@@ -126,7 +122,7 @@ public class VerifyPortletPreferences extends VerifyProcess {
 		cleanUpLayoutRevisionPortletPreferences();
 	}
 
-	private static final Log _log = LogFactoryUtil.getLog(
+	private static Log _log = LogFactoryUtil.getLog(
 		VerifyPortletPreferences.class);
 
 }

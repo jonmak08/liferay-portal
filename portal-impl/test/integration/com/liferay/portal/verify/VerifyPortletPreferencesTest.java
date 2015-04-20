@@ -29,7 +29,6 @@ import com.liferay.portal.service.LayoutRevisionLocalServiceUtil;
 import com.liferay.portal.service.LayoutSetBranchLocalServiceUtil;
 import com.liferay.portal.service.PortletPreferencesLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
-
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
 import com.liferay.portal.test.MainServletExecutionTestListener;
 import com.liferay.portal.util.GroupTestUtil;
@@ -37,6 +36,7 @@ import com.liferay.portal.util.LayoutTestUtil;
 import com.liferay.portal.util.RandomTestUtil;
 import com.liferay.portal.util.ServiceContextTestUtil;
 import com.liferay.portal.util.TestPropsValues;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
