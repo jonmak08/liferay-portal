@@ -29,9 +29,45 @@ public class InvalidFolderException extends PortalException {
 
 	public static final int CANNOT_MOVE_INTO_ITSELF = 2;
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #InvalidFolderException(int,
+	 *             long)}
+	 */
+	@Deprecated
+	public InvalidFolderException() {
+		super();
+	}
+
 	public InvalidFolderException(int type, long folderId) {
 		_type = type;
 		_folderId = folderId;
+	}
+
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #InvalidFolderException(int,
+	 *             long)}
+	 */
+	@Deprecated
+	public InvalidFolderException(String msg) {
+		super(msg);
+	}
+
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #InvalidFolderException(int,
+	 *             long)}
+	 */
+	@Deprecated
+	public InvalidFolderException(String msg, Throwable cause) {
+		super(msg, cause);
+	}
+
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #InvalidFolderException(int,
+	 *             long)}
+	 */
+	@Deprecated
+	public InvalidFolderException(Throwable cause) {
+		super(cause);
 	}
 
 	public long getFolderId() {
@@ -49,7 +85,7 @@ public class InvalidFolderException extends PortalException {
 		return null;
 	}
 
-	private final long _folderId;
-	private final int _type;
+	private long _folderId;
+	private int _type;
 
 }
