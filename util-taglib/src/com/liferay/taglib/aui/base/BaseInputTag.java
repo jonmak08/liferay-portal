@@ -14,6 +14,8 @@
 
 package com.liferay.taglib.aui.base;
 
+import java.util.Calendar;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 
@@ -87,6 +89,10 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 
 	public boolean getFirst() {
 		return _first;
+	}
+
+	public int getFirstDayOfWeek() {
+		return _firstDayOfWeek;
 	}
 
 	public java.lang.String getFormName() {
@@ -289,6 +295,12 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		setScopedAttribute("first", first);
 	}
 
+	public void setFirstDayOfWeek(int firstDayOfWeek) {
+		_firstDayOfWeek = firstDayOfWeek;
+
+		setScopedAttribute("firstDayOfWeek", firstDayOfWeek);
+	}
+
 	public void setFormName(java.lang.String formName) {
 		_formName = formName;
 
@@ -479,6 +491,7 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		_field = null;
 		_fieldParam = null;
 		_first = false;
+		_firstDayOfWeek = Calendar.SUNDAY - 2;
 		_formName = null;
 		_helpMessage = null;
 		_helpTextCssClass = "add-on";
@@ -531,6 +544,7 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		setNamespacedAttribute(request, "field", _field);
 		setNamespacedAttribute(request, "fieldParam", _fieldParam);
 		setNamespacedAttribute(request, "first", _first);
+		setNamespacedAttribute(request, "firstDayOfWeek", _firstDayOfWeek);
 		setNamespacedAttribute(request, "formName", _formName);
 		setNamespacedAttribute(request, "helpMessage", _helpMessage);
 		setNamespacedAttribute(request, "helpTextCssClass", _helpTextCssClass);
@@ -581,6 +595,7 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 	private java.lang.String _field = null;
 	private java.lang.String _fieldParam = null;
 	private boolean _first = false;
+	private int _firstDayOfWeek = Calendar.SUNDAY - 2;
 	private java.lang.String _formName = null;
 	private java.lang.String _helpMessage = null;
 	private java.lang.String _helpTextCssClass = "add-on";
