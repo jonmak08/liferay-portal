@@ -907,16 +907,6 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.lang.String getArticleContent(
-		com.liferay.portlet.journal.model.JournalArticle article,
-		java.lang.String ddmTemplateKey, java.lang.String viewMode,
-		java.lang.String languageId,
-		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
-		com.liferay.portal.theme.ThemeDisplay themeDisplay)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
-
 	/**
 	* Returns the web content associated with the web content article and DDM
 	* template.
@@ -939,15 +929,6 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		com.liferay.portlet.journal.model.JournalArticle article,
 		java.lang.String ddmTemplateKey, java.lang.String viewMode,
 		java.lang.String languageId,
-		com.liferay.portal.theme.ThemeDisplay themeDisplay)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.lang.String getArticleContent(long groupId,
-		java.lang.String articleId, double version, java.lang.String viewMode,
-		java.lang.String ddmTemplateKey, java.lang.String languageId,
-		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
 		com.liferay.portal.theme.ThemeDisplay themeDisplay)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
@@ -1001,15 +982,6 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.lang.String getArticleContent(long groupId,
-		java.lang.String articleId, java.lang.String viewMode,
-		java.lang.String ddmTemplateKey, java.lang.String languageId,
-		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
-		com.liferay.portal.theme.ThemeDisplay themeDisplay)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
-
 	/**
 	* Returns the latest web content matching the group and article ID, and
 	* associated with DDM template key.
@@ -1057,16 +1029,6 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.liferay.portlet.journal.model.JournalArticleDisplay getArticleDisplay(
-		com.liferay.portlet.journal.model.JournalArticle article,
-		java.lang.String ddmTemplateKey, java.lang.String viewMode,
-		java.lang.String languageId, int page,
-		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
-		com.liferay.portal.theme.ThemeDisplay themeDisplay)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
-
 	/**
 	* Returns a web content article display for the specified page of the
 	* latest version of the web content article, optionally based on the DDM
@@ -1096,16 +1058,6 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		com.liferay.portlet.journal.model.JournalArticle article,
 		java.lang.String ddmTemplateKey, java.lang.String viewMode,
 		java.lang.String languageId, int page, java.lang.String xmlRequest,
-		com.liferay.portal.theme.ThemeDisplay themeDisplay)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.liferay.portlet.journal.model.JournalArticleDisplay getArticleDisplay(
-		long groupId, java.lang.String articleId, double version,
-		java.lang.String ddmTemplateKey, java.lang.String viewMode,
-		java.lang.String languageId, int page,
-		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
 		com.liferay.portal.theme.ThemeDisplay themeDisplay)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
@@ -1179,15 +1131,6 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.liferay.portlet.journal.model.JournalArticleDisplay getArticleDisplay(
-		long groupId, java.lang.String articleId, java.lang.String viewMode,
-		java.lang.String languageId, int page,
-		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
-		com.liferay.portal.theme.ThemeDisplay themeDisplay)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
-
 	/**
 	* Returns a web content article display for the first page of the latest
 	* version of the web content article matching the group and article ID. If
@@ -1214,16 +1157,6 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	public com.liferay.portlet.journal.model.JournalArticleDisplay getArticleDisplay(
 		long groupId, java.lang.String articleId, java.lang.String viewMode,
 		java.lang.String languageId, int page, java.lang.String xmlRequest,
-		com.liferay.portal.theme.ThemeDisplay themeDisplay)
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.liferay.portlet.journal.model.JournalArticleDisplay getArticleDisplay(
-		long groupId, java.lang.String articleId,
-		java.lang.String ddmTemplateKey, java.lang.String viewMode,
-		java.lang.String languageId, int page,
-		com.liferay.portal.kernel.portlet.PortletRequestModel portletRequestModel,
 		com.liferay.portal.theme.ThemeDisplay themeDisplay)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
