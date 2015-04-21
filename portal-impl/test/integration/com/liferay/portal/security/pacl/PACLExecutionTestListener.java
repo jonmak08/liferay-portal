@@ -114,21 +114,20 @@ public class PACLExecutionTestListener
 
 		ClassLoader classLoader = clazz.getClassLoader();
 
-		String displayName = "a-test-hook";
-
 		MockServletContext mockServletContext = new MockServletContext(
 			new PACLResourceLoader(classLoader));
 
-		mockServletContext.setServletContextName(displayName);
+		mockServletContext.setServletContextName(_HOOK_DISPLAY_NAME);
 
 		URL resourceURL = classLoader.getResource(
 			"WEB-INF/liferay-plugin-package.properties");
 
-		Properties properties = getLiferayPluginPackageProperties(resourceURL);
+		Properties pluginPackageProperties = getPluginPackageProperties(
+			resourceURL);
 
 		PluginPackage pluginPackage =
 			PluginPackageUtil.readPluginPackageProperties(
-				displayName, properties);
+				_HOOK_DISPLAY_NAME, pluginPackageProperties);
 
 		HotDeployEvent hotDeployEvent = getHotDeployEvent(
 			mockServletContext, classLoader);
@@ -157,7 +156,7 @@ public class PACLExecutionTestListener
 		_hotDeployEvents.put(clazz, hotDeployEvent);
 	}
 
-	protected Properties getLiferayPluginPackageProperties(URL resourceURL) {
+	protected Properties getPluginPackageProperties(URL resourceURL) {
 
 		InputStream inputStream = null;
 		Properties properties = new Properties();
@@ -198,6 +197,8 @@ public class PACLExecutionTestListener
 				dependencyManagementEnabled);
 		}
 	}
+
+	private static final String _HOOK_DISPLAY_NAME = "a-test-hook";
 
 	private static Map<Class<?>, HotDeployEvent> _hotDeployEvents =
 		new HashMap<Class<?>, HotDeployEvent>();
