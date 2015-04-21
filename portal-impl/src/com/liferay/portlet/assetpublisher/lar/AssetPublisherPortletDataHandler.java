@@ -143,10 +143,10 @@ public class AssetPublisherPortletDataHandler
 		String[] oldValueParts = StringUtil.split(
 			oldValue, StringPool.FORWARD_SLASH);
 
-		long structureId = Long.valueOf(oldValueParts[1]);
+		long ddmStructureId = Long.valueOf(oldValueParts[1]);
 
 		DDMStructure ddmStructure =
-			DDMStructureLocalServiceUtil.fetchDDMStructure(structureId);
+			DDMStructureLocalServiceUtil.fetchDDMStructure(ddmStructureId);
 
 		if (ddmStructure == null) {
 			portletPreferences.reset(key);
@@ -155,7 +155,7 @@ public class AssetPublisherPortletDataHandler
 		}
 
 		String newValue = oldValue.replace(
-			String.valueOf(structureId), ddmStructure.getUuid());
+			String.valueOf(ddmStructureId), ddmStructure.getUuid());
 
 		portletPreferences.setValue(key, newValue);
 	}
@@ -369,26 +369,26 @@ public class AssetPublisherPortletDataHandler
 		String[] oldValueParts = StringUtil.split(
 			oldValue, StringPool.FORWARD_SLASH);
 
-		String structureUuid = oldValueParts[1];
+		String ddmStructureUuid = oldValueParts[1];
 
 		DDMStructure ddmStructure =
 			DDMStructureLocalServiceUtil.fetchDDMStructureByUuidAndGroupId(
-				structureUuid, portletDataContext.getScopeGroupId());
+				ddmStructureUuid, portletDataContext.getScopeGroupId());
 
 		if (ddmStructure == null) {
 			ddmStructure =
 				DDMStructureLocalServiceUtil.fetchDDMStructureByUuidAndGroupId(
-					structureUuid, portletDataContext.getCompanyGroupId());
+					ddmStructureUuid, portletDataContext.getCompanyGroupId());
 		}
 
 		if (ddmStructure == null) {
 			return;
 		}
 
-		long structureId = ddmStructure.getStructureId();
+		long ddmStructureId = ddmStructure.getStructureId();
 
 		String newValue = oldValue.replace(
-			String.valueOf(structureUuid), String.valueOf(structureId));
+			String.valueOf(ddmStructureUuid), String.valueOf(ddmStructureId));
 
 		portletPreferences.setValue(key, newValue);
 	}
