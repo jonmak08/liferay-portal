@@ -116,6 +116,9 @@ public class PACLExecutionTestListener
 
 		mockServletContext.setServletContextName(_HOOK_DISPLAY_NAME);
 
+		HotDeployEvent hotDeployEvent = getHotDeployEvent(
+			mockServletContext, classLoader);
+
 		URL resourceURL = classLoader.getResource(
 			"WEB-INF/liferay-plugin-package.properties");
 
@@ -128,9 +131,6 @@ public class PACLExecutionTestListener
 		PluginPackage pluginPackage =
 			PluginPackageUtil.readPluginPackageProperties(
 				_HOOK_DISPLAY_NAME, pluginPackageProperties);
-
-		HotDeployEvent hotDeployEvent = getHotDeployEvent(
-			mockServletContext, classLoader);
 
 		hotDeployEvent.setPluginPackage(pluginPackage);
 

@@ -694,8 +694,7 @@ public class HookHotDeployListener
 		if (isRTLHook(hotDeployEvent.getPluginPackage())) {
 			if (_log.isInfoEnabled()) {
 				_log.info(
-					"Omitting to register RTL-hook as now it's been moved to " +
-						"the portal's core");
+					"Skipping RTL hook since it is now part of the portal");
 			}
 
 			HotDeployUtil.fireUndeployEvent(
@@ -2942,7 +2941,9 @@ public class HookHotDeployListener
 	}
 
 	private static final String _RTL_HOOK_MODULE_GROUP_ID = "liferay";
+
 	private static final String _RTL_HOOK_NAME = "RTL";
+
 	private static final String _RTL_HOOK_TAG = "rtl";
 
 	private static final String[] _PROPS_KEYS_EVENTS = {
