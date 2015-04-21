@@ -37,7 +37,7 @@ if (!workflowAssetPreview && article.isApproved()) {
 	articleDisplay = JournalContentUtil.getDisplay(articleResource.getGroupId(), articleResource.getArticleId(), article.getVersion(), templateId, viewMode, languageId, themeDisplay, articlePage, xmlRequest);
 }
 else {
-	articleDisplay = JournalArticleLocalServiceUtil.getArticleDisplay(article, null, viewMode, languageId, 1, (PortletRequestModel)null, themeDisplay);
+	articleDisplay = JournalArticleLocalServiceUtil.getArticleDisplay(article, null, viewMode, languageId, 1, null, themeDisplay);
 }
 %>
 
