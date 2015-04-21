@@ -52,8 +52,8 @@ public class VerifyUUIDTest extends BaseVerifyTestCase {
 			new String[PropsValues.VERIFY_PROCESS_CONCURRENCY_THRESHOLD][2];
 
 		for (String[] array : models) {
-			array[0] = "Unknown";
-			array[1] = "Unknown";
+			array[0] = _UNKNOWN;
+			array[1] = _UNKNOWN;
 		}
 
 		Field field = ReflectionUtil.getDeclaredField(
