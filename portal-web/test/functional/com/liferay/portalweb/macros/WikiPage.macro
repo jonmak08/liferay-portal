@@ -841,7 +841,7 @@
 				<equals arg1="${siteURL}" arg2="true" />
 			</and>
 			<then>
-				<var method="StringUtil#replace(${siteName}, ' ', '-')" name="siteName" />
+				<var method="StringUtil#replace(${siteName}, ' ', '-')" name="siteNameURL" />
 				<var method="StringUtil#lowerCase(/${siteNameURL})" name="siteNameURL" />
 			</then>
 			<elseif>
