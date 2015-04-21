@@ -2779,6 +2779,7 @@
 		<execute macro="CalendarEvent#viewEventDetails">
 			<var name="calendarName" value="Liferay" />
 			<var name="eventTitle" value="Calendar Event All Day Title" />
+			<var name="eventType" value="All Day" />
 		</execute>
 
 		<execute macro="CalendarEvent#viewEventDetailsTime">
@@ -2826,10 +2827,6 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarEvent#changeViewPG">
-			<var name="viewType" value="Month" />
-		</execute>
-
 		<execute macro="CalendarEvent#viewEventDetails">
 			<var name="calendarName" value="Liferay" />
 			<var name="eventTitle" value="Site Event" />
@@ -2841,10 +2838,6 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-		</execute>
-
-		<execute macro="CalendarEvent#changeViewPG">
-			<var name="viewType" value="Month" />
 		</execute>
 
 		<execute macro="CalendarEvent#viewEventDetails">
@@ -2860,10 +2853,6 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarEvent#changeViewPG">
-			<var name="viewType" value="Month" />
-		</execute>
-
 		<execute macro="CalendarEvent#viewEventDetails">
 			<var name="calendarName" value="Liferay" />
 			<var name="eventTitle" value="Site Event" />
@@ -2875,10 +2864,6 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-		</execute>
-
-		<execute macro="CalendarEvent#changeViewPG">
-			<var name="viewType" value="Month" />
 		</execute>
 
 		<execute macro="CalendarEvent#viewEventDetails">
