@@ -479,7 +479,7 @@ AUI.add(
 						if (languageId) {
 							var items = inputLocalized.get(STR_ITEMS);
 
-							if (items.indexOf(languageId) === -1) {
+							if (AArray.indexOf(items, languageId) === -1) {
 								languageId = defaultLanguageId;
 							}
 
