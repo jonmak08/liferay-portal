@@ -28,6 +28,7 @@ import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.ClassedModel;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.search.BaseSearchTestCase;
+import com.liferay.portal.search.TestOrderHelper;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.ServiceTestUtil;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
@@ -37,9 +38,12 @@ import com.liferay.portal.test.SynchronousDestinationExecutionTestListener;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.RandomTestUtil;
 import com.liferay.portal.util.TestPropsValues;
+import com.liferay.portlet.asset.model.AssetRenderer;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.model.DDMTemplate;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
+import com.liferay.portlet.dynamicdatamapping.storage.Field;
+import com.liferay.portlet.dynamicdatamapping.storage.Fields;
 import com.liferay.portlet.dynamicdatamapping.util.DDMIndexerUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMStructureTestUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMTemplateTestUtil;
@@ -51,6 +55,7 @@ import com.liferay.portlet.journal.model.JournalFolderConstants;
 import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.portlet.journal.service.JournalArticleServiceUtil;
 import com.liferay.portlet.journal.service.JournalFolderServiceUtil;
+import com.liferay.portlet.journal.util.JournalConverterUtil;
 import com.liferay.portlet.journal.util.JournalTestUtil;
 
 import java.util.HashMap;
@@ -124,6 +129,38 @@ public class JournalArticleSearchTest extends BaseSearchTestCase {
 		query.addTerm("title", RandomTestUtil.randomString());
 
 		assertEquals(0, query, searchContext);
+	}
+
+	@Test
+	public void testOrderByDDMBooleanField() throws Exception {
+		TestOrderHelper orderTestHelper =
+			new JournalArticleSearchTestOrderHelper(group);
+
+		orderTestHelper.testOrderByDDMBooleanField();
+	}
+
+	@Test
+	public void testOrderByDDMIntegerField() throws Exception {
+		TestOrderHelper orderTestHelper =
+			new JournalArticleSearchTestOrderHelper(group);
+
+		orderTestHelper.testOrderByDDMIntegerField();
+	}
+
+	@Test
+	public void testOrderByDDMNumberField() throws Exception {
+		TestOrderHelper orderTestHelper =
+			new JournalArticleSearchTestOrderHelper(group);
+
+		orderTestHelper.testOrderByDDMNumberField();
+	}
+
+	@Test
+	public void testOrderByDDMTextField() throws Exception {
+		TestOrderHelper orderTestHelper =
+			new JournalArticleSearchTestOrderHelper(group);
+
+		orderTestHelper.testOrderByDDMTextField();
 	}
 
 	@Ignore()
@@ -358,6 +395,64 @@ public class JournalArticleSearchTest extends BaseSearchTestCase {
 			_ddmStructure.getStructureId(),
 			_ddmStructure.getParentStructureId(), _ddmStructure.getNameMap(),
 			_ddmStructure.getDescriptionMap(), xsd, serviceContext);
+	}
+
+	protected class JournalArticleSearchTestOrderHelper
+		extends TestOrderHelper {
+
+		protected JournalArticleSearchTestOrderHelper(Group group)
+			throws Exception {
+
+			super(group);
+		}
+
+		@Override
+		protected BaseModel<?> addSearchableAssetEntry(
+				BaseModel<?> parentBaseModel, String keywords,
+				DDMStructure ddmStructure, DDMTemplate ddmTemplate,
+				ServiceContext serviceContext)
+			throws Exception {
+
+			return addBaseModel(
+				parentBaseModel, keywords, ddmStructure, ddmTemplate,
+				serviceContext);
+		}
+
+		@Override
+		protected String getValue(AssetRenderer assetRenderer)
+			throws Exception {
+
+			JournalArticleAssetRenderer journalArticleAssetRenderer =
+				(JournalArticleAssetRenderer)assetRenderer;
+
+			JournalArticle article = journalArticleAssetRenderer.getArticle();
+
+			Fields fields = JournalConverterUtil.getDDMFields(
+				_ddmStructure, article.getContent());
+
+			Field field = fields.get("name");
+
+			return String.valueOf(field.getValue(LocaleUtil.getDefault()));
+		}
+
+		@Override
+		protected String getSearchableAssetEntryClassName() {
+			return getBaseModelClassName();
+		}
+
+		@Override
+		protected BaseModel<?> getSearchableAssetEntryParentBaseModel(
+				Group group, ServiceContext serviceContext)
+			throws Exception {
+
+			return getParentBaseModel(group, serviceContext);
+		}
+
+		@Override
+		protected String getSearchableAssetEntryStructureClassName() {
+			return getBaseModelClassName();
+		}
+
 	}
 
 	private DDMStructure _ddmStructure;

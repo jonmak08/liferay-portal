@@ -26,24 +26,33 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.search.BaseSearchTestCase;
+import com.liferay.portal.search.TestOrderHelper;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.ServiceTestUtil;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
 import com.liferay.portal.test.MainServletExecutionTestListener;
 import com.liferay.portal.test.Sync;
 import com.liferay.portal.test.SynchronousDestinationExecutionTestListener;
+import com.liferay.portal.util.RandomTestUtil;
 import com.liferay.portal.util.TestPropsValues;
+import com.liferay.portlet.asset.model.AssetRenderer;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
+import com.liferay.portlet.documentlibrary.model.DLFileEntryMetadata;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryType;
+import com.liferay.portlet.documentlibrary.model.DLFileVersion;
 import com.liferay.portlet.documentlibrary.model.DLFolder;
 import com.liferay.portlet.documentlibrary.model.DLFolderConstants;
 import com.liferay.portlet.documentlibrary.service.DLAppServiceUtil;
+import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
+import com.liferay.portlet.documentlibrary.service.DLFileEntryMetadataLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryTypeLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.util.DLAppTestUtil;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
+import com.liferay.portlet.dynamicdatamapping.model.DDMTemplate;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.portlet.dynamicdatamapping.storage.Field;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
+import com.liferay.portlet.dynamicdatamapping.storage.StorageEngineUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMIndexerUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMStructureTestUtil;
 
@@ -67,6 +76,38 @@ public class DLFileEntrySearchTest extends BaseSearchTestCase {
 	@Override
 	@Test
 	public void testLocalizedSearch() throws Exception {
+	}
+
+	@Test
+	public void testOrderByDDMBooleanField() throws Exception {
+		TestOrderHelper orderTestHelper = new DLFileEntrySearchTestOrderHelper(
+			group);
+
+		orderTestHelper.testOrderByDDMBooleanField();
+	}
+
+	@Test
+	public void testOrderByDDMIntegerField() throws Exception {
+		TestOrderHelper orderTestHelper = new DLFileEntrySearchTestOrderHelper(
+			group);
+
+		orderTestHelper.testOrderByDDMIntegerField();
+	}
+
+	@Test
+	public void testOrderByDDMNumberField() throws Exception {
+		TestOrderHelper orderTestHelper = new DLFileEntrySearchTestOrderHelper(
+			group);
+
+		orderTestHelper.testOrderByDDMNumberField();
+	}
+
+	@Test
+	public void testOrderByDDMTextField() throws Exception {
+		TestOrderHelper orderTestHelper = new DLFileEntrySearchTestOrderHelper(
+			group);
+
+		orderTestHelper.testOrderByDDMTextField();
 	}
 
 	@Ignore()
@@ -105,8 +146,9 @@ public class DLFileEntrySearchTest extends BaseSearchTestCase {
 		FileEntry fileEntry = DLAppTestUtil.addFileEntry(
 			serviceContext.getUserId(), serviceContext.getScopeGroupId(),
 			DLFolderConstants.DEFAULT_PARENT_FOLDER_ID, "Text.txt",
-			ContentTypes.TEXT_PLAIN, "Title", content.getBytes(),
-			WorkflowConstants.ACTION_PUBLISH, serviceContext);
+			ContentTypes.TEXT_PLAIN, RandomTestUtil.randomString(),
+			content.getBytes(), WorkflowConstants.ACTION_PUBLISH,
+			serviceContext);
 
 		return (DLFileEntry)fileEntry.getModel();
 	}
@@ -263,6 +305,67 @@ public class DLFileEntrySearchTest extends BaseSearchTestCase {
 			_ddmStructure.getStructureId(),
 			_ddmStructure.getParentStructureId(), _ddmStructure.getNameMap(),
 			_ddmStructure.getDescriptionMap(), xsd, serviceContext);
+	}
+
+	protected class DLFileEntrySearchTestOrderHelper extends TestOrderHelper {
+
+		protected DLFileEntrySearchTestOrderHelper(Group group)
+			throws Exception {
+
+			super(group);
+		}
+
+		@Override
+		protected BaseModel<?> addSearchableAssetEntry(
+				BaseModel<?> parentBaseModel, String keywords,
+				DDMStructure ddmStructure, DDMTemplate ddmTemplate,
+				ServiceContext serviceContext)
+			throws Exception {
+
+			return addBaseModel(keywords, ddmStructure, serviceContext);
+		}
+
+		@Override
+		protected String getValue(AssetRenderer assetRenderer)
+			throws Exception {
+
+			DLFileEntry dlFileEntry =
+				DLFileEntryLocalServiceUtil.getDLFileEntry(
+					assetRenderer.getClassPK());
+
+			DLFileVersion dlFileVersion = dlFileEntry.getFileVersion();
+
+			DLFileEntryMetadata dlFileEntryMetadata =
+				DLFileEntryMetadataLocalServiceUtil.getFileEntryMetadata(
+					_ddmStructure.getStructureId(),
+					dlFileVersion.getFileVersionId());
+
+			Fields fields = StorageEngineUtil.getFields(
+				dlFileEntryMetadata.getDDMStorageId());
+
+			Field field = fields.get("name");
+
+			return String.valueOf(field.getValue(LocaleUtil.getDefault()));
+		}
+
+		@Override
+		protected String getSearchableAssetEntryClassName() {
+			return getBaseModelClassName();
+		}
+
+		@Override
+		protected BaseModel<?> getSearchableAssetEntryParentBaseModel(
+				Group group, ServiceContext serviceContext)
+			throws Exception {
+
+			return getParentBaseModel(group, serviceContext);
+		}
+
+		@Override
+		protected String getSearchableAssetEntryStructureClassName() {
+			return DLFileEntryMetadata.class.getName();
+		}
+
 	}
 
 	private static final int _FOLDER_NAME_MAX_LENGTH = 100;
