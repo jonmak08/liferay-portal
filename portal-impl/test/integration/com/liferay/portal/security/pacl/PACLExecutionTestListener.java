@@ -23,19 +23,16 @@ import com.liferay.portal.kernel.portlet.PortletClassLoaderUtil;
 import com.liferay.portal.kernel.servlet.ServletContextPool;
 import com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilterHelper;
 import com.liferay.portal.kernel.test.TestContext;
+import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.PortalLifecycleUtil;
 import com.liferay.portal.kernel.util.PropertiesUtil;
-import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.plugin.PluginPackageUtil;
 import com.liferay.portal.spring.context.PortletContextLoaderListener;
 import com.liferay.portal.test.MainServletExecutionTestListener;
 import com.liferay.portal.test.mock.AutoDeployMockServletContext;
 import com.liferay.portal.util.PortalUtil;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 import java.net.URL;
 
@@ -125,6 +122,9 @@ public class PACLExecutionTestListener
 		Properties pluginPackageProperties = getPluginPackageProperties(
 			resourceURL);
 
+		Assert.assertNotNull(pluginPackageProperties);
+		Assert.assertFalse(pluginPackageProperties.isEmpty());
+
 		PluginPackage pluginPackage =
 			PluginPackageUtil.readPluginPackageProperties(
 				_HOOK_DISPLAY_NAME, pluginPackageProperties);
@@ -157,28 +157,18 @@ public class PACLExecutionTestListener
 	}
 
 	protected Properties getPluginPackageProperties(URL resourceURL) {
-
-		InputStream inputStream = null;
-		Properties properties = new Properties();
+		String filename = resourceURL.getPath();
 
 		try {
-			inputStream = new FileInputStream(new File(resourceURL.getPath()));
+			String propertiesString = FileUtil.read(filename);
 
-			properties = PropertiesUtil.load(StringUtil.read(inputStream));
+			return PropertiesUtil.load(propertiesString);
 		}
 		catch (IOException ioe) {
-			Assert.fail();
-		}
-		finally {
-			try {
-				inputStream.close();
-			}
-			catch (IOException ioe) {}
-		}
+			Assert.fail(ioe.getMessage());
 
-		Assert.assertFalse(properties.isEmpty());
-
-		return properties;
+			return null;
+		}
 	}
 
 	protected HotDeployEvent getHotDeployEvent(
