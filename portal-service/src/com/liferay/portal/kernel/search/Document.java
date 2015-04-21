@@ -157,6 +157,8 @@ public interface Document extends Cloneable, Serializable {
 
 	public void addNumber(String name, Long[] values);
 
+	public void addNumber(String name, Number[] values);
+
 	public void addNumber(String name, String value);
 
 	public void addNumber(String name, String[] values);
