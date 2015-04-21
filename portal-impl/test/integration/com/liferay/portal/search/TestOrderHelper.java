@@ -18,7 +18,9 @@ import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.test.IdempotentRetryAssert;
+import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.service.ServiceContext;
@@ -42,6 +44,8 @@ import java.util.Locale;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.lang.ArrayUtils;
+
 import org.junit.Assert;
 
 /**
@@ -57,10 +61,25 @@ public abstract class TestOrderHelper {
 			"checkbox");
 	}
 
+	public void testOrderByDDMBooleanFieldRepeatable() throws Exception {
+		testOrderByDDMFieldRepeatable(
+			new String[] {"true|true", "false|false", "true|true",
+				"false|false"},
+			new String[] {"false|false", "false|false", "true|true",
+				"true|true"},
+			"boolean", "checkbox");
+	}
+
 	public void testOrderByDDMIntegerField() throws Exception {
 		testOrderByDDMField(
 			new String[] {"1", "10", "3", "2"},
 			new String[] {"1", "2", "3", "10"}, "integer", "ddm-integer");
+	}
+
+	public void testOrderByDDMIntegerFieldRepeatable() throws Exception {
+		testOrderByDDMFieldRepeatable(
+			new String[] {"50", "707|25", "1|99|42"},
+			new String[] {"1|99|42", "707|25", "50"}, "integer", "ddm-integer");
 	}
 
 	public void testOrderByDDMNumberField() throws Exception {
@@ -70,10 +89,22 @@ public abstract class TestOrderHelper {
 			"number", "ddm-number");
 	}
 
+	public void testOrderByDDMNumberFieldRepeatable() throws Exception {
+		testOrderByDDMFieldRepeatable(
+			new String[] {"20|12.34", "16.0", "3.14"},
+			new String[] {"3.14", "20|12.34", "16.0"}, "number", "ddm-number");
+	}
+
 	public void testOrderByDDMTextField() throws Exception {
 		testOrderByDDMField(
 			new String[] {"A", "D", "C", "B"},
 			new String[] {"A", "B", "C", "D"}, "string", "text");
+	}
+
+	public void testOrderByDDMTextFieldRepeatable() throws Exception {
+		testOrderByDDMFieldRepeatable(
+			new String[] {"B", "X|Y", "D|A|C|Z"},
+			new String[] {"D|A|C|Z", "B", "X|Y"}, "string", "text");
 	}
 
 	protected TestOrderHelper(Group group) throws Exception {
@@ -83,11 +114,9 @@ public abstract class TestOrderHelper {
 			group.getGroupId());
 	}
 
-	protected DDMStructure addDDMStructure(String dataType, String type)
-		throws Exception {
-
+	protected DDMStructure addDDMStructure() throws Exception {
 		String definition = DDMStructureTestUtil.getSampleStructureXSD(
-			"name", dataType, false, type, new Locale[] {LocaleUtil.US},
+			"name", _dataType, _repeatable, _type, new Locale[] {LocaleUtil.US},
 			LocaleUtil.US);
 
 		return DDMStructureTestUtil.addStructure(
@@ -103,47 +132,51 @@ public abstract class TestOrderHelper {
 	}
 
 	protected void addSearchableAssetEntries(
-			String[] unsortedValues, DDMStructure ddmStructure,
-			DDMTemplate ddmTemplate)
+			DDMStructure ddmStructure, DDMTemplate ddmTemplate)
 		throws Exception {
 
 		BaseModel<?> parentBaseModel = getSearchableAssetEntryParentBaseModel(
 			_group, _serviceContext);
 
-		for (String unsortedValue : unsortedValues) {
-			addSearchableAssetEntry(
-				parentBaseModel, unsortedValue, ddmStructure, ddmTemplate,
-				_serviceContext);
+		for (String value : _unsortedValues) {
+			if (!_repeatable) {
+				addSearchableAssetEntry(
+					value, parentBaseModel, ddmStructure, ddmTemplate,
+					_serviceContext);
+			}
+			else {
+				addSearchableAssetEntryRepeatable(
+					StringUtil.split(value, CharPool.PIPE), parentBaseModel,
+					ddmStructure, ddmTemplate, _serviceContext);
+			}
 		}
 	}
 
 	protected abstract BaseModel<?> addSearchableAssetEntry(
-			BaseModel<?> parentBaseModel, String keywords,
+			String fieldValue, BaseModel<?> parentBaseModel,
 			DDMStructure ddmStructure, DDMTemplate ddmTemplate,
 			ServiceContext serviceContext)
 		throws Exception;
 
-	protected void assertArrayEquals(
-			String[] sortedValues, AssetEntryQuery assetEntryQuery,
-			AssetRendererFactory assetRendererFactory)
+	protected abstract BaseModel<?> addSearchableAssetEntryRepeatable(
+			String[] fieldValues, BaseModel<?> parentBaseModel,
+			DDMStructure ddmStructure, DDMTemplate ddmTemplate,
+			ServiceContext serviceContext)
+		throws Exception;
+
+	protected void assertSearch(AssetEntryQuery assetEntryQuery)
 		throws Exception {
 
 		Hits hits = search(assetEntryQuery);
 
 		List<AssetEntry> assetEntries = AssetUtil.getAssetEntries(hits);
 
-		String[] values = new String[assetEntries.size()];
+		String[] actualValues = getValues(assetEntries);
+		String[] expectedValues = _sortedValues;
 
-		for (int i = 0; i < assetEntries.size(); i++) {
-			AssetEntry assetEntry = assetEntries.get(i);
-
-			AssetRenderer assetRenderer = assetRendererFactory.getAssetRenderer(
-				assetEntry.getClassPK());
-
-			values[i] = getValue(assetRenderer);
-		}
-
-		Assert.assertArrayEquals(sortedValues, values);
+		Assert.assertEquals(
+			ArrayUtils.toString(expectedValues),
+			ArrayUtils.toString(actualValues));
 	}
 
 	private AssetEntryQuery createAssetEntryQuery(DDMStructure ddmStructure)
@@ -163,7 +196,35 @@ public abstract class TestOrderHelper {
 		return assetEntryQuery;
 	}
 
+	protected AssetRendererFactory getAssetRendererFactory() {
+		return
+			AssetRendererFactoryRegistryUtil.getAssetRendererFactoryByClassName(
+				getSearchableAssetEntryClassName());
+	}
+
 	protected abstract String getSearchableAssetEntryClassName();
+
+	protected abstract String getValue(AssetRenderer assetRenderer)
+		throws Exception;
+
+	protected String[] getValues(List<AssetEntry> assetEntries)
+		throws Exception {
+
+		AssetRendererFactory assetRendererFactory = getAssetRendererFactory();
+
+		String[] values = new String[assetEntries.size()];
+
+		for (int i = 0; i < assetEntries.size(); i++) {
+			AssetEntry assetEntry = assetEntries.get(i);
+
+			AssetRenderer assetRenderer = assetRendererFactory.getAssetRenderer(
+				assetEntry.getClassPK());
+
+			values[i] = getValue(assetRenderer);
+		}
+
+		return values;
+	}
 
 	protected abstract BaseModel<?> getSearchableAssetEntryParentBaseModel(
 		Group group, ServiceContext serviceContext) throws Exception;
@@ -184,26 +245,15 @@ public abstract class TestOrderHelper {
 			QueryUtil.ALL_POS);
 	}
 
-	protected abstract String getValue(AssetRenderer assetRenderer)
-		throws Exception;
-
-	protected void testOrderByDDMField(
-			String[] unsortedValues, final String[] sortedValues,
-			String dataType, String type)
-		throws Exception {
-
-		DDMStructure ddmStructure = addDDMStructure(dataType, type);
+	protected void testOrderByDDMField() throws Exception {
+		DDMStructure ddmStructure = addDDMStructure();
 
 		DDMTemplate ddmTemplate = addDDMTemplate(ddmStructure);
 
-		addSearchableAssetEntries(unsortedValues, ddmStructure, ddmTemplate);
+		addSearchableAssetEntries(ddmStructure, ddmTemplate);
 
 		final AssetEntryQuery assetEntryQuery = createAssetEntryQuery(
 			ddmStructure);
-
-		final AssetRendererFactory assetRendererFactory =
-			AssetRendererFactoryRegistryUtil.getAssetRendererFactoryByClassName(
-				getSearchableAssetEntryClassName());
 
 		IdempotentRetryAssert.retryAssert(
 			3, TimeUnit.SECONDS,
@@ -211,8 +261,7 @@ public abstract class TestOrderHelper {
 
 				@Override
 				public Void call() throws Exception {
-					assertArrayEquals(
-						sortedValues, assetEntryQuery, assetRendererFactory);
+					assertSearch(assetEntryQuery);
 
 					return null;
 				}
@@ -220,7 +269,40 @@ public abstract class TestOrderHelper {
 			});
 	}
 
+	protected void testOrderByDDMField(
+			String[] unsortedValues, String[] sortedValues, String dataType,
+			String type)
+		throws Exception {
+
+		_unsortedValues = unsortedValues;
+		_sortedValues = sortedValues;
+		_dataType = dataType;
+		_type = type;
+		_repeatable = false;
+
+		testOrderByDDMField();
+	}
+
+	protected void testOrderByDDMFieldRepeatable(
+			String[] unsortedValues, String[] sortedValues, String dataType,
+			String type)
+		throws Exception {
+
+		_unsortedValues = unsortedValues;
+		_sortedValues = sortedValues;
+		_dataType = dataType;
+		_type = type;
+		_repeatable = true;
+
+		testOrderByDDMField();
+	}
+
+	private String _dataType;
 	private final Group _group;
+	private boolean _repeatable;
 	private final ServiceContext _serviceContext;
+	private String[] _sortedValues;
+	private String _type;
+	private String[] _unsortedValues;
 
 }

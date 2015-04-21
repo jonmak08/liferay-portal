@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.model.BaseModel;
@@ -56,6 +57,12 @@ import com.liferay.portlet.dynamicdatamapping.storage.StorageEngineUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMIndexerUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMStructureTestUtil;
 
+import java.io.Serializable;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -87,11 +94,27 @@ public class DLFileEntrySearchTest extends BaseSearchTestCase {
 	}
 
 	@Test
+	public void testOrderByDDMBooleanFieldRepeatable() throws Exception {
+		TestOrderHelper orderTestHelper = new DLFileEntrySearchTestOrderHelper(
+			group);
+
+		orderTestHelper.testOrderByDDMBooleanFieldRepeatable();
+	}
+
+	@Test
 	public void testOrderByDDMIntegerField() throws Exception {
 		TestOrderHelper orderTestHelper = new DLFileEntrySearchTestOrderHelper(
 			group);
 
 		orderTestHelper.testOrderByDDMIntegerField();
+	}
+
+	@Test
+	public void testOrderByDDMIntegerFieldRepeatable() throws Exception {
+		TestOrderHelper orderTestHelper = new DLFileEntrySearchTestOrderHelper(
+			group);
+
+		orderTestHelper.testOrderByDDMIntegerFieldRepeatable();
 	}
 
 	@Test
@@ -103,11 +126,27 @@ public class DLFileEntrySearchTest extends BaseSearchTestCase {
 	}
 
 	@Test
+	public void testOrderByDDMNumberFieldRepeatable() throws Exception {
+		TestOrderHelper orderTestHelper = new DLFileEntrySearchTestOrderHelper(
+			group);
+
+		orderTestHelper.testOrderByDDMNumberFieldRepeatable();
+	}
+
+	@Test
 	public void testOrderByDDMTextField() throws Exception {
 		TestOrderHelper orderTestHelper = new DLFileEntrySearchTestOrderHelper(
 			group);
 
 		orderTestHelper.testOrderByDDMTextField();
+	}
+
+	@Test
+	public void testOrderByDDMTextFieldRepeatable() throws Exception {
+		TestOrderHelper orderTestHelper = new DLFileEntrySearchTestOrderHelper(
+			group);
+
+		orderTestHelper.testOrderByDDMTextFieldRepeatable();
 	}
 
 	@Ignore()
@@ -118,6 +157,15 @@ public class DLFileEntrySearchTest extends BaseSearchTestCase {
 
 	protected BaseModel<?> addBaseModel(
 			String keywords, DDMStructure ddmStructure,
+			ServiceContext serviceContext)
+		throws Exception {
+
+		return addBaseModel(
+			new String[] {keywords}, ddmStructure, serviceContext);
+	}
+
+	protected BaseModel<?> addBaseModel(
+			String[] keywords, DDMStructure ddmStructure,
 			ServiceContext serviceContext)
 		throws Exception {
 
@@ -133,8 +181,15 @@ public class DLFileEntrySearchTest extends BaseSearchTestCase {
 
 		Fields fields = new Fields();
 
+		List<Serializable> values = new ArrayList<Serializable>(
+			keywords.length);
+
+		for (String keyword : keywords) {
+			values.add(keyword);
+		}
+
 		Field textField = new Field(
-			ddmStructure.getStructureId(), "name", keywords);
+			ddmStructure.getStructureId(), "name", values, Locale.getDefault());
 
 		fields.put(textField);
 
@@ -317,12 +372,22 @@ public class DLFileEntrySearchTest extends BaseSearchTestCase {
 
 		@Override
 		protected BaseModel<?> addSearchableAssetEntry(
-				BaseModel<?> parentBaseModel, String keywords,
+				String fieldValue, BaseModel<?> parentBaseModel,
 				DDMStructure ddmStructure, DDMTemplate ddmTemplate,
 				ServiceContext serviceContext)
 			throws Exception {
 
-			return addBaseModel(keywords, ddmStructure, serviceContext);
+			return addBaseModel(fieldValue, ddmStructure, serviceContext);
+		}
+
+		@Override
+		protected BaseModel<?> addSearchableAssetEntryRepeatable(
+				String[] fieldValues, BaseModel<?> parentBaseModel,
+				DDMStructure ddmStructure, DDMTemplate ddmTemplate,
+				ServiceContext serviceContext)
+			throws Exception {
+
+			return addBaseModel(fieldValues, ddmStructure, serviceContext);
 		}
 
 		@Override
@@ -345,7 +410,23 @@ public class DLFileEntrySearchTest extends BaseSearchTestCase {
 
 			Field field = fields.get("name");
 
-			return String.valueOf(field.getValue(LocaleUtil.getDefault()));
+			List<Serializable> values = field.getValues(
+				LocaleUtil.getDefault());
+
+			if (values.size() == 1) {
+				return String.valueOf(values.get(0));
+			}
+
+			StringBundler sb = new StringBundler(values.size());
+
+			for (Serializable value : values) {
+				sb.append(value);
+				sb.append(StringPool.PIPE);
+			}
+
+			sb.setIndex(sb.index() - 1);
+
+			return sb.toString();
 		}
 
 		@Override

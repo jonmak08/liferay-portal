@@ -177,30 +177,25 @@ public class JournalTestUtilTest {
 	}
 
 	@Test
-	public void testAddDynamicContent() {
-		try {
-			Document document = JournalTestUtil.createDocument(
-				"en_US,pt_BR", "en_US");
+	public void testAddDynamicContent() throws Exception {
+		Document document = JournalTestUtil.createDocument(
+			"en_US,pt_BR", "en_US");
 
-			Element dynamicElementElement =
-				JournalTestUtil.addDynamicElementElement(
-					document.getRootElement(), "text", "name");
+		Element dynamicElementElement =
+			JournalTestUtil.addDynamicElementElement(
+				document.getRootElement(), "text", "name");
 
-			JournalTestUtil.addDynamicContentElement(
-				dynamicElementElement, "en_US", "Joe Bloggs");
+		JournalTestUtil.addDynamicContentElement(
+			dynamicElementElement, "en_US", "Joe Bloggs");
 
-			String xml = document.asXML();
+		String xml = document.asXML();
 
-			String content = JournalUtil.transform(
-				null, getTokens(), Constants.VIEW, "en_US", xml,
-				JournalTestUtil.getSampleTemplateXSL(),
-				TemplateConstants.LANG_TYPE_VM);
+		String content = JournalUtil.transform(
+			null, getTokens(), Constants.VIEW, "en_US", xml,
+			JournalTestUtil.getSampleTemplateXSL(),
+			TemplateConstants.LANG_TYPE_VM);
 
-			Assert.assertEquals("Joe Bloggs", content);
-		}
-		catch (Exception e) {
-			Assert.fail(e.getMessage());
-		}
+		Assert.assertEquals("Joe Bloggs", content);
 	}
 
 	@Test
