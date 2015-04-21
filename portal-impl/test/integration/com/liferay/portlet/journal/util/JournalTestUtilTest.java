@@ -14,7 +14,6 @@
 
 package com.liferay.portlet.journal.util;
 
-import com.liferay.portal.kernel.portlet.PortletRequestModel;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -272,7 +271,7 @@ public class JournalTestUtilTest {
 
 	protected Map<String, String> getTokens() throws Exception {
 		Map<String, String> tokens = JournalUtil.getTokens(
-			TestPropsValues.getGroupId(), null, (PortletRequestModel)null);
+			TestPropsValues.getGroupId(), null, null);
 
 		tokens.put(
 			"article_group_id", String.valueOf(TestPropsValues.getGroupId()));
