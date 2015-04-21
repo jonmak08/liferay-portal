@@ -79,6 +79,9 @@
 				<entry key="com.liferay.portal.kernel.dao.orm.FinderCache#BaseModel">
 					<bean class="com.liferay.portal.cache.key.HashCodeCacheKeyGenerator" />
 				</entry>
+				<entry key="com.liferay.portlet.PortletPreferencesFactoryImpl">
+					<bean class="com.liferay.portal.cache.key.JavaSHA1CacheKeyGenerator" />
+				</entry>
 				<entry key="com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilter">
 					<bean class="com.liferay.portal.cache.key.SimpleCacheKeyGenerator" />
 				</entry>
