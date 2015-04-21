@@ -181,21 +181,6 @@ public class Transformer {
 		return unsyncStringWriter.toString();
 	}
 
-	/**
-	 * @deprecated As of 7.0.0, replaced by {@link #transform(ThemeDisplay, Map,
-	 *             String, String, String, PortletRequestModel, String, String)}
-	 */
-	public String transform(
-			ThemeDisplay themeDisplay, Map<String, String> tokens,
-			String viewMode, String languageId, String xml, String script,
-			String langType)
-		throws Exception {
-
-		return transform(
-			themeDisplay, tokens, viewMode, languageId, xml, null, script,
-			langType);
-	}
-
 	public String transform(
 			ThemeDisplay themeDisplay, Map<String, String> tokens,
 			String viewMode, String languageId, String xml,
