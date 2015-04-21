@@ -1,3 +1,6 @@
+@import "aui/variables";
+@import "aui_variables";
+@import "aui/mixins";
 @import "compass";
 
 /* ---------- Portlet wrapper and icons ---------- */
@@ -646,6 +649,40 @@ body.portlet {
 }
 
 /* ---------- Miscellaneous component styles ---------- */
+
+.lfr-ddm-container {
+	.control-group.warning {
+		@include formFieldState();
+	}
+
+	.control-group.error {
+		@include formFieldState();
+	}
+
+	.control-group.success {
+		@include formFieldState();
+	}
+
+	.control-group.info {
+		@include formFieldState();
+	}
+
+	.control-group.warning > {
+		@include formFieldState($warningText, $warningText, $warningBackground);
+	}
+
+	.control-group.error > {
+		@include formFieldState($errorText, $errorText, $errorBackground);
+	}
+
+	.control-group.success > {
+		@include formFieldState($successText, $successText, $successBackground);
+	}
+
+	.control-group.info > {
+		@include formFieldState($infoText, $infoText, $infoBackground);
+	}
+}
 
 /* ---------- Add content dialog ---------- */
 
