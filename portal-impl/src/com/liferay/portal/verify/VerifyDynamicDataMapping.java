@@ -158,8 +158,8 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		throws Exception {
 
 		String xml =
-			"<root>" +
-				getFullStructureXML(structure, StringPool.BLANK) + "</root>";
+			"<root>" + getFullStructureXML(structure, StringPool.BLANK) +
+				"</root>";
 
 		Document document = SAXReaderUtil.read(xml);
 
@@ -172,35 +172,37 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 			return false;
 		}
 
-		if (_log.isWarnEnabled()) {
-			StringBundler sb = new StringBundler();
-
-			long journalArticleClassNameId = PortalUtil.getClassNameId(
-				JournalArticle.class.getName());
-
-			sb.append("Structure with classNameId ");
-			sb.append(structure.getClassNameId());
-			sb.append(", structureKey = ");
-			sb.append(structure.getStructureKey());
-
-			if (structure.getClassNameId() == journalArticleClassNameId) {
-				sb.append(" (JournalStructure.structureId in 6.1)");
-			}
-
-			sb.append(" contains more than one element that is identified by ");
-			sb.append("the same name either within itself or within any of ");
-			sb.append("its parent structures. The duplicate element names ");
-			sb.append("are: ");
-
-			for (String duplicateElementName : duplicateElementNames) {
-				sb.append(duplicateElementName);
-				sb.append(StringPool.COMMA_AND_SPACE);
-			}
-
-			sb.setIndex(sb.index() - 1);
-
-			_log.warn(sb.toString());
+		if (!_log.isWarnEnabled()) {
+			return true;
 		}
+
+		StringBundler sb = new StringBundler(
+			duplicateElementNames.size() * 2 + 8);
+
+		sb.append("Structure with classNameId ");
+		sb.append(structure.getClassNameId());
+		sb.append(", structureKey = ");
+		sb.append(structure.getStructureKey());
+
+		long journalArticleClassNameId = PortalUtil.getClassNameId(
+			JournalArticle.class.getName());
+
+		if (structure.getClassNameId() == journalArticleClassNameId) {
+			sb.append(" (JournalStructure.structureId in 6.1)");
+		}
+
+		sb.append(" contains more than one element that is identified by the ");
+		sb.append("same name either within itself or within any of its ");
+		sb.append("parent structures. The duplicate element names are: ");
+
+		for (String duplicateElementName : duplicateElementNames) {
+			sb.append(duplicateElementName);
+			sb.append(StringPool.COMMA_AND_SPACE);
+		}
+
+		sb.setIndex(sb.index() - 1);
+
+		_log.warn(sb.toString());
 
 		return true;
 	}
@@ -243,17 +245,11 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		List<DDMStructure> structures =
 			DDMStructureLocalServiceUtil.getStructures();
 
-		boolean duplicateExists = false;
-
 		for (DDMStructure structure : structures) {
 			if (checkDuplicateNames(structure)) {
-				duplicateExists = true;
+				throw new VerifyException(
+					"Duplicate element name found in structures");
 			}
-		}
-
-		if (duplicateExists) {
-			throw new VerifyException(
-				"Duplicate element name found in structures");
 		}
 
 		for (DDMStructure structure : structures) {
