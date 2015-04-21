@@ -905,15 +905,18 @@ public class PortletImporter {
 		}
 
 		if (existingAssetVocabulary == null) {
-			String name = getAssetVocabularyName(
-				null, groupId, assetVocabulary.getName(), 2);
+			existingAssetVocabulary = AssetVocabularyUtil.fetchByG_N(
+				groupId, assetVocabulary.getName());
+		}
 
+		if (existingAssetVocabulary == null) {
 			serviceContext.setUuid(assetVocabulary.getUuid());
 
 			importedAssetVocabulary =
 				AssetVocabularyLocalServiceUtil.addVocabulary(
 					userId, StringPool.BLANK,
-					getAssetVocabularyTitleMap(groupId, assetVocabulary, name),
+					getAssetVocabularyTitleMap(
+						groupId, assetVocabulary, assetVocabulary.getName()),
 					assetVocabulary.getDescriptionMap(),
 					assetVocabulary.getSettings(), serviceContext);
 		}
