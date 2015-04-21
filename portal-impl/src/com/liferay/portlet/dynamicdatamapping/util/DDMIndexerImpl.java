@@ -95,10 +95,10 @@ public class DDMIndexerImpl implements DDMIndexer {
 						document.addNumber(name, doubleValues);
 					}
 					else if (value instanceof Boolean) {
-						document.addKeyword(name, (Boolean)value);
+						document.addKeywordSortable(name, (Boolean)value);
 					}
 					else if (value instanceof Boolean[]) {
-						document.addKeyword(name, (Boolean[])value);
+						document.addKeywordSortable(name, (Boolean[])value);
 					}
 					else if (value instanceof Date) {
 						document.addDate(name, (Date)value);
@@ -141,7 +141,7 @@ public class DDMIndexerImpl implements DDMIndexer {
 							document.addKeyword(name, valuesString);
 						}
 						else {
-							document.addText(name, valuesString);
+							document.addTextSortable(name, valuesString);
 						}
 					}
 					else {
@@ -174,7 +174,7 @@ public class DDMIndexerImpl implements DDMIndexer {
 								document.addKeyword(name, valueString);
 							}
 							else {
-								document.addText(name, valueString);
+								document.addTextSortable(name, valueString);
 							}
 						}
 					}
