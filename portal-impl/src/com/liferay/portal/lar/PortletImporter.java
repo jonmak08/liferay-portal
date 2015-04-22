@@ -927,8 +927,8 @@ public class PortletImporter {
 		}
 		else {
 			String name = getAssetVocabularyName(
-				assetVocabulary.getUuid(), groupId, assetVocabulary.getName(),
-				2);
+				existingAssetVocabulary.getUuid(), groupId,
+				assetVocabulary.getName(), 2);
 
 			importedAssetVocabulary =
 				AssetVocabularyLocalServiceUtil.updateVocabulary(
@@ -936,6 +936,15 @@ public class PortletImporter {
 					getAssetVocabularyTitleMap(groupId, assetVocabulary, name),
 					assetVocabulary.getDescriptionMap(),
 					assetVocabulary.getSettings(), serviceContext);
+
+			if (!assetVocabulary.getUuid().equals(
+					importedAssetVocabulary.getUuid())) {
+
+				importedAssetVocabulary.setUuid(assetVocabulary.getUuid());
+
+				AssetVocabularyLocalServiceUtil.updateAssetVocabulary(
+					importedAssetVocabulary);
+			}
 		}
 
 		assetVocabularyPKs.put(
