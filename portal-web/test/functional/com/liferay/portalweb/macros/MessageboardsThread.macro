@@ -482,7 +482,7 @@
 	</command>
 
 	<command name="removeViewPermissionsPG">
-		<var method="StringUtil#lowerCase(${key_roleName})" name="key_roleName" />
+		<var method="StringUtil#lowerCase('${key_roleName}')" name="key_roleName" />
 		<var name="key_threadSubject" value="${threadSubject}" />
 
 		<execute function="AssertClick#assertTextClickAt" locator1="PGMessageboards#THREAD_TABLE_ACTIONS" value1="Actions" />
@@ -986,7 +986,7 @@
 	</command>
 
 	<command name="viewTagPG">
-		<var method="StringUtil#lowerCase(${tagName})" name="tagName" />
+		<var method="StringUtil#lowerCase('${tagName}')" name="tagName" />
 		<var name="key_tagName" value="tagName" />
 
 		<if>

@@ -63,9 +63,9 @@
 						<equals arg1="${i}" arg2="${propertyNumber}" />
 					</not>
 					<then>
-						<var method="MathUtil#sum(${i}, 1)" name="i" />
+						<var method="MathUtil#sum('${i}', '1')" name="i" />
 						<var name="key_pathNumber" value="${pathNumber}" />
-						<var method="MathUtil#sum(${pathNumber}, 2)" name="pathNumber" />
+						<var method="MathUtil#sum('${pathNumber}', '2')" name="pathNumber" />
 
 						<execute function="Type" locator1="CPCategoriesAdd#PROPERTIES_KEY_FIELD" value1="${propertiesKeyField} ${i} Key" />
 						<execute function="Type" locator1="CPCategoriesAdd#PROPERTIES_VALUE_FIELD" value1="${propertiesValueField} ${i} Value" />
@@ -271,7 +271,7 @@
 						<equals arg1="${i}" arg2="${propertyNumber}" />
 					</not>
 					<then>
-						<var method="MathUtil#sum(${i}, 1)" name="i" />
+						<var method="MathUtil#sum('${i}', '1')" name="i" />
 
 						<execute function="AssertClick" locator1="CPCategories#VOCABULARY_ENTRY" value1="${vocabularyName}" />
 						<execute function="AssertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />

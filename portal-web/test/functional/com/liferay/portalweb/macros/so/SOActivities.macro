@@ -1383,7 +1383,7 @@
 		<for list="${dmDocumentTitleList}" param="dmDocumentTitle">
 			<execute function="AssertTextEquals" locator1="SOActivities#ACTIVITIES_DOCUMENT_TITLE_MULTIPLE" value1="${dmDocumentTitle}" />
 
-			<var method="MathUtil#sum(${key_documentTitleRow}, 1)" name="key_documentTitleRow" />
+			<var method="MathUtil#sum('${key_documentTitleRow}', '1')" name="key_documentTitleRow" />
 		</for>
 
 		<var name="key_documentTitleRow" value="1" />
@@ -1391,7 +1391,7 @@
 		<for list="${dmDocumentDescriptionList}" param="dmDocumentDescription">
 			<execute function="AssertTextEquals" locator1="SOActivities#ACTIVITIES_DOCUMENT_DESCRIPTION_MULTIPLE" value1="${dmDocumentDescription}" />
 
-			<var method="MathUtil#sum(${key_documentTitleRow}, 1)" name="key_documentTitleRow" />
+			<var method="MathUtil#sum('${key_documentTitleRow}', '1')" name="key_documentTitleRow" />
 		</for>
 
 		<var name="key_documentTitleRow" value="1" />
@@ -1399,7 +1399,7 @@
 		<for list="${dmDocumentTitleList}" param="dmDocumentTitle">
 			<execute function="AssertElementPresent" locator1="SOActivities#ACTIVITIES_DOCUMENT_DOWNLOAD_LINK_MULTIPLE" />
 
-			<var method="MathUtil#sum(${key_documentTitleRow}, 1)" name="key_documentTitleRow" />
+			<var method="MathUtil#sum('${key_documentTitleRow}', '1')" name="key_documentTitleRow" />
 		</for>
 
 		<if>

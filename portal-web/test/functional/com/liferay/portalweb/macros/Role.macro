@@ -235,8 +235,8 @@
 	</command>
 
 	<command name="definePermissionPG">
-		<var method="StringUtil#replace(${roleName}, ' ', '-')" name="key_roleName" />
-		<var method="StringUtil#lowerCase(${key_roleName})" name="key_roleName" />
+		<var method="StringUtil#replace('${roleName}', ' ', '-')" name="key_roleName" />
+		<var method="StringUtil#lowerCase('${key_roleName}')" name="key_roleName" />
 
 		<execute function="Check" locator1="Permissions#${permissionDefinitionKey}" />
 		<execute function="AssertClick" locator1="Permissions#SAVE_BUTTON" value1="Save" />
@@ -459,8 +459,8 @@
 	</command>
 
 	<command name="removePermissionPG">
-		<var method="StringUtil#replace(${roleName}, ' ', '-')" name="key_roleName" />
-		<var method="StringUtil#lowerCase(${key_roleName})" name="key_roleName" />
+		<var method="StringUtil#replace('${roleName}', ' ', '-')" name="key_roleName" />
+		<var method="StringUtil#lowerCase('${key_roleName}')" name="key_roleName" />
 
 		<execute function="Uncheck" locator1="Permissions#${permissionDefinitionKey}" />
 		<execute function="AssertClick" locator1="Permissions#SAVE_BUTTON" value1="Save" />
