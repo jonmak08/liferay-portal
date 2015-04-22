@@ -1,4 +1,10 @@
 <definition>
+	<command name="gotoNotifications">
+		<execute function="Click" locator1="Dockbar#USER_NAME" />
+
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="LCSUserbar#USER_NOTIFICATIONS" value1="Notifications" />
+	</command>
+
 	<command name="gotoServer">
 		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
 			<var name="environmentName" value="${environmentName}" />

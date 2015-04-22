@@ -1,0 +1,21 @@
+<definition>
+	<command name="gotoAddRule">
+		<execute function="AssertClick" locator1="LCSNotifications#ADD_RULE_BUTTON" value1="Add Rule" />
+	</command>
+
+	<command name="gotoEditRule">
+		<var name="key_environmentName" value="${environmentName}" />
+		<var name="key_projectName" value="${projectName}" />
+		<var name="key_serverName" value="${serverName}" />
+
+		<execute function="AssertClick" locator1="LCSNotifications#NOTIFICATION_TABLE_RULE_ACTIONS_BUTTON" value1="Actions" />
+
+		<execute function="AssertClick" locator1="LCSNotifications#ACTIONS_MENU_EDIT" value1="Edit" />
+	</command>
+
+	<command name="saveRule">
+		<execute function="AssertClick" locator1="LCSNotificationsRule#SAVE_BUTTON" value1="Save" />
+
+		<execute function="AssertTextEquals" locator1="LCSNotifications#NOTIFICATIONS_ALERT_SUCCESS" value1="Your request completed successfully." />
+	</command>
+</definition>
