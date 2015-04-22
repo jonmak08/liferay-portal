@@ -26,7 +26,6 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.model.ClassName;
 import com.liferay.portal.model.GroupConstants;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.LayoutRevision;
@@ -42,6 +41,7 @@ import com.liferay.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portlet.assetpublisher.util.AssetPublisher;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
+import com.liferay.portlet.journal.model.JournalArticle;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,15 +59,7 @@ public class VerifyPortletPreferences extends VerifyProcess {
 		throws Exception {
 
 		ActionableDynamicQuery actionableDynamicQuery =
-			getPortletPreferencesActionableDynamicQuery();
-
-		actionableDynamicQuery.performActions();
-	}
-
-	protected static ActionableDynamicQuery
-		getPortletPreferencesActionableDynamicQuery() throws SystemException {
-
-		return new PortletPreferencesActionableDynamicQuery() {
+			new PortletPreferencesActionableDynamicQuery() {
 
 			@Override
 			protected void addCriteria(DynamicQuery dynamicQuery) {
@@ -129,20 +121,13 @@ public class VerifyPortletPreferences extends VerifyProcess {
 			}
 
 		};
+
+		actionableDynamicQuery.performActions();
 	}
 
-	public static void cleanUpPortletPreferences() throws Exception {
+	public static void cleanUpScopeIdPortletPreferences() throws Exception {
 		ActionableDynamicQuery actionableDynamicQuery =
-				getPortletPreferencesWithLayoutsActionableDynamicQuery();
-
-			actionableDynamicQuery.performActions();
-	}
-
-	protected static ActionableDynamicQuery
-		getPortletPreferencesWithLayoutsActionableDynamicQuery()
-			throws SystemException {
-
-		return new PortletPreferencesActionableDynamicQuery() {
+			new PortletPreferencesActionableDynamicQuery() {
 
 			@Override
 			protected void addCriteria(DynamicQuery dynamicQuery) {
@@ -164,88 +149,91 @@ public class VerifyPortletPreferences extends VerifyProcess {
 				PortletPreferences portletPreferences =
 					(PortletPreferences)object;
 
-				long portletPlid = portletPreferences.getPlid();
+				long plid = portletPreferences.getPlid();
 
-				Layout portletLayout = LayoutLocalServiceUtil.getLayout(
-						portletPlid);
+				Layout layout = LayoutLocalServiceUtil.getLayout(plid);
 
-				if (!portletLayout.isTypePortlet()) {
+				if (!layout.isTypePortlet()) {
 					return;
 				}
 
-				javax.portlet.PortletPreferences strictPortletPreferences =
-						PortletPreferencesFactoryUtil.strictFromXML(
-								portletLayout.getCompanyId(),
-								portletPreferences.getOwnerId(),
-								portletPreferences.getOwnerType(), portletPlid,
-								portletPreferences.getPortletId(),
-								portletPreferences.getPreferences());
+				javax.portlet.PortletPreferences jxPortletPreferences =
+					PortletPreferencesFactoryUtil.strictFromXML(
+						layout.getCompanyId(), portletPreferences.getOwnerId(),
+						portletPreferences.getOwnerType(), plid,
+						portletPreferences.getPortletId(),
+						portletPreferences.getPreferences());
 
-				String[] scopeIds = strictPortletPreferences.getValues(
-						"scopeIds", null);
+				String[] scopeIds = jxPortletPreferences.getValues(
+					"scopeIds", null);
 
-				if (ArrayUtil.isNotEmpty(scopeIds)) {
-					long[] groupIds = getGroupIds(
-							scopeIds, portletLayout.getGroupId());
+				String preferenceName =
+					"classTypeIdsJournalArticleAssetRendererFactory";
 
-					ClassName journalClass =
-							ClassNameLocalServiceUtil.getClassName(
-									journalClassName);
+				try {
+					if (ArrayUtil.isNotEmpty(scopeIds)) {
+						long[] groupIds = getGroupIds(
+							scopeIds, layout.getGroupId());
 
-					List<DDMStructure> assetAvailableStructures =
+						long classNameId =
+							ClassNameLocalServiceUtil.getClassNameId(
+								JournalArticle.class.getName());
+
+						List<DDMStructure> structures =
 							DDMStructureLocalServiceUtil.getStructures(
-									groupIds, journalClass.getClassNameId());
+								groupIds, classNameId);
 
-					long[] assetAvailableStructureIds = new long[0];
+						long[] structureIds = new long[0];
 
-					for (DDMStructure structure : assetAvailableStructures) {
-						assetAvailableStructureIds = ArrayUtil.append(
-								assetAvailableStructureIds,
-								structure.getStructureId());
-					}
-
-					if (ArrayUtil.isNotEmpty(assetAvailableStructureIds)) {
-						String formattedFromArray = StringUtil.strip(
-								Arrays.toString(assetAvailableStructureIds),
-								charsToRemove);
-
-						try {
-							strictPortletPreferences.setValue(
-									journalFactoryName, formattedFromArray);
+						for (DDMStructure structure : structures) {
+							structureIds =
+								ArrayUtil.append(
+									structureIds, structure.getStructureId());
 						}
-						catch (ReadOnlyException roe) {
+
+						if (ArrayUtil.isNotEmpty(structureIds)) {
+							char[] charsToRemove = {
+								CharPool.CLOSE_BRACKET, CharPool.OPEN_BRACKET,
+								CharPool.SPACE};
+
+							String cleanStructureIds = StringUtil.strip(
+								Arrays.toString(structureIds), charsToRemove);
+
+							jxPortletPreferences.setValue(
+								preferenceName, cleanStructureIds);
+						}
+						else {
+							jxPortletPreferences.reset(preferenceName);
 						}
 					}
 					else {
-						try {
-							strictPortletPreferences.reset(journalFactoryName);
-						}
-						catch (ReadOnlyException roe) {
-						}
+						jxPortletPreferences.reset(preferenceName);
 					}
 				}
-				else {
-					try {
-						strictPortletPreferences.reset(journalFactoryName);
-					}
-					catch (ReadOnlyException roe) {
+				catch (ReadOnlyException roe) {
+					if (_log.isWarnEnabled()) {
+						_log.warn(
+							"Portlet Preferences with ID " +
+								portletPreferences.getPortletPreferencesId() +
+									" can not be updated");
 					}
 				}
 
-				if (_log.isWarnEnabled()) {
-					_log.warn(
-						"Updating Portlet Preferences " +
+				if (_log.isInfoEnabled()) {
+					_log.info(
+						"Updating Portlet Preferences with ID " +
 							portletPreferences.getPortletPreferencesId());
 				}
 
 				PortletPreferencesLocalServiceUtil.updatePreferences(
 					portletPreferences.getOwnerId(),
-					portletPreferences.getOwnerType(), portletPlid,
-					portletPreferences.getPortletId(),
-					strictPortletPreferences);
+					portletPreferences.getOwnerType(), plid,
+					portletPreferences.getPortletId(), jxPortletPreferences);
 			}
 
 		};
+
+		actionableDynamicQuery.performActions();
 	}
 
 	private static long[] getGroupIds(String[] scopeIds, long defaultGroupId) {
@@ -255,13 +243,13 @@ public class VerifyPortletPreferences extends VerifyProcess {
 		for (String scopeId : scopeIds) {
 			if (scopeId.startsWith(AssetPublisher.SCOPE_ID_GROUP_PREFIX)) {
 				String scopeIdSuffix = scopeId.substring(
-						AssetPublisher.SCOPE_ID_GROUP_PREFIX.length());
+					AssetPublisher.SCOPE_ID_GROUP_PREFIX.length());
 
 				if (scopeIdSuffix.equals(GroupConstants.DEFAULT)) {
 					siteGroupId = defaultGroupId;
 				}
 				else {
-					siteGroupId = Long.valueOf(scopeIdSuffix).longValue();
+					siteGroupId = Long.valueOf(scopeIdSuffix);
 				}
 
 				groupIds = ArrayUtil.append(groupIds, siteGroupId);
@@ -274,17 +262,8 @@ public class VerifyPortletPreferences extends VerifyProcess {
 	@Override
 	protected void doVerify() throws Exception {
 		cleanUpLayoutRevisionPortletPreferences();
-		cleanUpPortletPreferences();
+		cleanUpScopeIdPortletPreferences();
 	}
-
-	private final static String journalClassName =
-			"com.liferay.portlet.journal.model.JournalArticle";
-
-	private final static String journalFactoryName =
-			"classTypeIdsJournalArticleAssetRendererFactory";
-
-	private final static char[] charsToRemove =
-			{CharPool.OPEN_BRACKET, CharPool.CLOSE_BRACKET, CharPool.SPACE};
 
 	private static Log _log = LogFactoryUtil.getLog(
 		VerifyPortletPreferences.class);
