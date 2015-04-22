@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>LCSUserbar</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSUserbar</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_USER_DOCUMENTATION</td>
+	<td>//div[contains(@class,'osb-lcs-portlet-profile')]//ul/li/a[contains(.,'User Documentation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_DOWNLOAD_CLIENT</td>
+	<td>//div[contains(@class,'osb-lcs-portlet-profile')]//ul/li/a[contains(.,'Download Client')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_NOTIFICATIONS</td>
+	<td>//div[contains(@class,'osb-lcs-portlet-profile')]//ul/li/a[contains(.,'Notifications')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_MANAGE_PROJECTS</td>
+	<td>//div[contains(@class,'osb-lcs-portlet-profile')]//ul/li/a[contains(.,'Manage Projects')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_PROJECT</td>
+	<td>//div[contains(@class,'osb-lcs-portlet-profile')]//ul/li/a[contains(.,'${key_projectName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>USER_SIGN_OUT</td>
+	<td>//div[contains(@class,'osb-lcs-portlet-profile')]//ul/li/a[contains(.,'Sign Out')]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

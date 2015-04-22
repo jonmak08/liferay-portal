@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>LCSNotificationsRule</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSNotificationsRule</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PROJECT_SELECT</td>
+	<td>//div[contains(.,'Project')]/select[contains(@id,'ProjectId')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PROJECT_NAME</td>
+	<td>//div[contains(.,'Project')]/div[@class='lcs-section-content']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_SELECT</td>
+	<td>//div[contains(.,'Environment')]/select[contains(@id,'ClusterEntryId')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_NAME</td>
+	<td>//div[contains(.,'Environment')]/div[@class='lcs-section-content']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_SELECT</td>
+	<td>//div[contains(.,'Server')]/select[contains(@id,'ClusterNodeId')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_NAME</td>
+	<td>//div[contains(.,'Server')]/div[@class='lcs-section-content']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NOTIFICATION_RULE_CHECKBOX</td>
+	<td>//label[contains(@class,'checkbox') and contains(.,'${key_notificationRule}')]/input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SAVE_BUTTON</td>
+	<td>//button[contains(.,'Save')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CANCEL_BUTTON</td>
+	<td>//button[contains(.,'Cancel')]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
