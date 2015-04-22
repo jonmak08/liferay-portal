@@ -63,10 +63,12 @@ public abstract class TestOrderHelper {
 
 	public void testOrderByDDMBooleanFieldRepeatable() throws Exception {
 		testOrderByDDMFieldRepeatable(
-			new String[] {"true|true", "false|false", "true|true",
-				"false|false"},
-			new String[] {"false|false", "false|false", "true|true",
-				"true|true"},
+			new String[] {
+				"true|true", "false|false", "true|true", "false|false"
+			},
+			new String[] {
+				"false|false", "false|false", "true|true", "true|true"
+			},
 			"boolean", "checkbox");
 	}
 
@@ -171,12 +173,9 @@ public abstract class TestOrderHelper {
 
 		List<AssetEntry> assetEntries = AssetUtil.getAssetEntries(hits);
 
-		String[] actualValues = getValues(assetEntries);
-		String[] expectedValues = _sortedValues;
-
 		Assert.assertEquals(
-			ArrayUtils.toString(expectedValues),
-			ArrayUtils.toString(actualValues));
+			ArrayUtils.toString(_sortedValues),
+			ArrayUtils.toString(getValues(assetEntries)));
 	}
 
 	private AssetEntryQuery createAssetEntryQuery(DDMStructure ddmStructure)
@@ -197,8 +196,8 @@ public abstract class TestOrderHelper {
 	}
 
 	protected AssetRendererFactory getAssetRendererFactory() {
-		return
-			AssetRendererFactoryRegistryUtil.getAssetRendererFactoryByClassName(
+		return AssetRendererFactoryRegistryUtil.
+			getAssetRendererFactoryByClassName(
 				getSearchableAssetEntryClassName());
 	}
 

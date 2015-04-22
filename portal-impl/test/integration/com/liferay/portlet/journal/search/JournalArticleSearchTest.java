@@ -228,6 +228,9 @@ public class JournalArticleSearchTest extends BaseSearchTestCase {
 			ServiceContext serviceContext)
 		throws Exception {
 
+		String content = DDMStructureTestUtil.getSampleStructuredContent(
+			"name", keywords);
+
 		String xsd = DDMStructureTestUtil.getSampleStructureXSD("name");
 
 		DDMStructure ddmStructure = DDMStructureTestUtil.addStructure(
@@ -236,9 +239,6 @@ public class JournalArticleSearchTest extends BaseSearchTestCase {
 
 		DDMTemplate ddmTemplate = DDMTemplateTestUtil.addTemplate(
 			serviceContext.getScopeGroupId(), ddmStructure.getStructureId());
-
-		String content = DDMStructureTestUtil.getSampleStructuredContent(
-			"name", keywords);
 
 		return addArticleWithXmlContent(
 			parentBaseModel, content, ddmStructure, ddmTemplate,
