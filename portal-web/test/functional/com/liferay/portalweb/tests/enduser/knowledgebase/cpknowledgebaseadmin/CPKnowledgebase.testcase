@@ -8,6 +8,10 @@
 	</set-up>
 
 	<tear-down>
+		<execute macro="Workflow#tearDownWorkflowDefinitionsViaWorkflowCP" />
+
+		<execute macro="Workflow#tearDownWorkflowDefinitionDraftsViaKDCP" />
+
 		<execute macro="BlogsEntry#tearDownCP" />
 
 		<execute macro="Vocabulary#tearDownCP" />
@@ -996,8 +1000,5 @@
 			<var name="kbPriority" value="1.0" />
 			<var name="kbWorkflowStatus" value="Pending" />
 		</execute>
-
-		<execute macro="Workflow#tearDownWorkflowDefinitionsViaWorkflowCP" />
-		<execute macro="Workflow#tearDownWorkflowDefinitionDraftsViaKDCP" />
 	</command>
 </definition>
