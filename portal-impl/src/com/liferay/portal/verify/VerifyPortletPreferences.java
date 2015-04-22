@@ -23,21 +23,35 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.model.ClassName;
+import com.liferay.portal.model.GroupConstants;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.LayoutRevision;
 import com.liferay.portal.model.LayoutTypePortlet;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.model.PortletPreferences;
+import com.liferay.portal.service.ClassNameLocalServiceUtil;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portal.service.LayoutRevisionLocalServiceUtil;
 import com.liferay.portal.service.PortletPreferencesLocalServiceUtil;
 import com.liferay.portal.service.persistence.PortletPreferencesActionableDynamicQuery;
+import com.liferay.portlet.PortletPreferencesFactoryUtil;
+import com.liferay.portlet.assetpublisher.util.AssetPublisher;
+import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
+import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import javax.portlet.ReadOnlyException;
 
 /**
  * @author Andrew Betts
+ * @author Christopher Kian
  */
 public class VerifyPortletPreferences extends VerifyProcess {
 
@@ -117,10 +131,160 @@ public class VerifyPortletPreferences extends VerifyProcess {
 		};
 	}
 
+	public static void cleanUpPortletPreferences() throws Exception {
+		ActionableDynamicQuery actionableDynamicQuery =
+				getPortletPreferencesWithLayoutsActionableDynamicQuery();
+
+			actionableDynamicQuery.performActions();
+	}
+
+	protected static ActionableDynamicQuery
+		getPortletPreferencesWithLayoutsActionableDynamicQuery()
+			throws SystemException {
+
+		return new PortletPreferencesActionableDynamicQuery() {
+
+			@Override
+			protected void addCriteria(DynamicQuery dynamicQuery) {
+				Property plidProperty = PropertyFactoryUtil.forName("plid");
+
+				DynamicQuery layoutDynamicQuery =
+					LayoutLocalServiceUtil.dynamicQuery();
+
+				layoutDynamicQuery.setProjection(
+					ProjectionFactoryUtil.property("plid"));
+
+				dynamicQuery.add(plidProperty.in(layoutDynamicQuery));
+			}
+
+			@Override
+			protected void performAction(Object object)
+				throws PortalException, SystemException {
+
+				PortletPreferences portletPreferences =
+					(PortletPreferences)object;
+
+				long portletPlid = portletPreferences.getPlid();
+
+				Layout portletLayout = LayoutLocalServiceUtil.getLayout(
+						portletPlid);
+
+				if (!portletLayout.isTypePortlet()) {
+					return;
+				}
+
+				javax.portlet.PortletPreferences strictPortletPreferences =
+						PortletPreferencesFactoryUtil.strictFromXML(
+								portletLayout.getCompanyId(),
+								portletPreferences.getOwnerId(),
+								portletPreferences.getOwnerType(), portletPlid,
+								portletPreferences.getPortletId(),
+								portletPreferences.getPreferences());
+
+				String[] scopeIds = strictPortletPreferences.getValues(
+						"scopeIds", null);
+
+				if (ArrayUtil.isNotEmpty(scopeIds)) {
+					long[] groupIds = getGroupIds(
+							scopeIds, portletLayout.getGroupId());
+
+					ClassName journalClass =
+							ClassNameLocalServiceUtil.getClassName(
+									journalClassName);
+
+					List<DDMStructure> assetAvailableStructures =
+							DDMStructureLocalServiceUtil.getStructures(
+									groupIds, journalClass.getClassNameId());
+
+					long[] assetAvailableStructureIds = new long[0];
+
+					for (DDMStructure structure : assetAvailableStructures) {
+						assetAvailableStructureIds = ArrayUtil.append(
+								assetAvailableStructureIds,
+								structure.getStructureId());
+					}
+
+					if (ArrayUtil.isNotEmpty(assetAvailableStructureIds)) {
+						String formattedFromArray = StringUtil.strip(
+								Arrays.toString(assetAvailableStructureIds),
+								charsToRemove);
+
+						try {
+							strictPortletPreferences.setValue(
+									journalFactoryName, formattedFromArray);
+						}
+						catch (ReadOnlyException roe) {
+						}
+					}
+					else {
+						try {
+							strictPortletPreferences.reset(journalFactoryName);
+						}
+						catch (ReadOnlyException roe) {
+						}
+					}
+				}
+				else {
+					try {
+						strictPortletPreferences.reset(journalFactoryName);
+					}
+					catch (ReadOnlyException roe) {
+					}
+				}
+
+				if (_log.isWarnEnabled()) {
+					_log.warn(
+						"Updating Portlet Preferences " +
+							portletPreferences.getPortletPreferencesId());
+				}
+
+				PortletPreferencesLocalServiceUtil.updatePreferences(
+					portletPreferences.getOwnerId(),
+					portletPreferences.getOwnerType(), portletPlid,
+					portletPreferences.getPortletId(),
+					strictPortletPreferences);
+			}
+
+		};
+	}
+
+	private static long[] getGroupIds(String[] scopeIds, long defaultGroupId) {
+		long[] groupIds = new long[0];
+		long siteGroupId;
+
+		for (String scopeId : scopeIds) {
+			if (scopeId.startsWith(AssetPublisher.SCOPE_ID_GROUP_PREFIX)) {
+				String scopeIdSuffix = scopeId.substring(
+						AssetPublisher.SCOPE_ID_GROUP_PREFIX.length());
+
+				if (scopeIdSuffix.equals(GroupConstants.DEFAULT)) {
+					siteGroupId = defaultGroupId;
+				}
+				else {
+					siteGroupId = Long.valueOf(scopeIdSuffix).longValue();
+				}
+
+				groupIds = ArrayUtil.append(groupIds, siteGroupId);
+			}
+		}
+
+		return groupIds;
+	}
+
 	@Override
 	protected void doVerify() throws Exception {
 		cleanUpLayoutRevisionPortletPreferences();
+		cleanUpPortletPreferences();
 	}
+
+	private final static String journalClassName =
+			"com.liferay.portlet.journal.model.JournalArticle";
+
+	private final static String journalFactoryName =
+			"classTypeIdsJournalArticleAssetRendererFactory";
+
+	private final static char[] charsToRemove =
+			{CharPool.OPEN_BRACKET, CharPool.CLOSE_BRACKET, CharPool.SPACE};
 
 	private static Log _log = LogFactoryUtil.getLog(
 		VerifyPortletPreferences.class);
