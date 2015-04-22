@@ -749,8 +749,8 @@ public class AssetUtil {
 
 		return SortFactoryUtil.getSort(
 			AssetEntry.class, getSortType(ddmFormFieldType),
-			getOrderByCol(sortField, locale), isSortFieldInferred(sortField),
-			orderByType);
+			getOrderByCol(sortField, locale),
+			!sortField.startsWith(DDMIndexer.DDM_FIELD_PREFIX), orderByType);
 	}
 
 	protected static Sort[] getSorts(
@@ -792,14 +792,6 @@ public class AssetUtil {
 		}
 
 		return sortType;
-	}
-
-	protected static boolean isSortFieldInferred(String sortField) {
-		if (sortField.startsWith(DDMIndexer.DDM_FIELD_PREFIX)) {
-			return false;
-		}
-
-		return true;
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(AssetUtil.class);
