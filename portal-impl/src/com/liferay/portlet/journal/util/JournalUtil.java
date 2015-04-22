@@ -22,8 +22,6 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
-import com.liferay.portal.kernel.portlet.PortletRequestModel;
-import com.liferay.portal.kernel.portlet.ThemeDisplayModel;
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.search.Indexer;
@@ -1081,37 +1079,7 @@ public class JournalUtil {
 			long articleGroupId, ThemeDisplay themeDisplay)
 		throws PortalException, SystemException {
 
-		return getTokens(
-			articleGroupId, themeDisplay, (PortletRequestModel)null);
-	}
-
-	public static Map<String, String> getTokens(
-			long articleGroupId, ThemeDisplay themeDisplay,
-			PortletRequestModel portletRequestModel)
-		throws PortalException, SystemException {
-
-		Map<String, String> tokens = new HashMap<String, String>();
-
-		if (themeDisplay != null) {
-			_populateTokens(tokens, articleGroupId, themeDisplay);
-		}
-		else if (portletRequestModel != null) {
-			ThemeDisplayModel themeDisplayModel =
-				portletRequestModel.getThemeDisplayModel();
-
-			if (themeDisplayModel != null) {
-				try {
-					_populateTokens(tokens, articleGroupId, themeDisplayModel);
-				}
-				catch (Exception e) {
-					if (_log.isWarnEnabled()) {
-						_log.warn(e, e);
-					}
-				}
-			}
-		}
-
-		return tokens;
+		return getTokens(articleGroupId, themeDisplay, null);
 	}
 
 	public static Map<String, String> getTokens(
@@ -1426,14 +1394,12 @@ public class JournalUtil {
 
 	public static String transform(
 			ThemeDisplay themeDisplay, Map<String, String> tokens,
-			String viewMode, String languageId, String xml,
-			PortletRequestModel portletRequestModel, String script,
+			String viewMode, String languageId, String xml, String script,
 			String langType)
 		throws Exception {
 
 		return _transformer.transform(
-			themeDisplay, tokens, viewMode, languageId, xml,
-			portletRequestModel, script, langType);
+			themeDisplay, tokens, viewMode, languageId, xml, script, langType);
 	}
 
 	private static void _addElementOptions(
@@ -1851,85 +1817,6 @@ public class JournalUtil {
 			themeDisplay.getPathFriendlyURLPrivateGroup());
 		tokens.put("group_id", String.valueOf(articleGroupId));
 		tokens.put("page_url", themeDisplay.getPathFriendlyURLPublic());
-	}
-
-	private static void _populateTokens(
-			Map<String, String> tokens, long articleGroupId,
-			ThemeDisplayModel themeDisplayModel)
-		throws Exception {
-
-		Layout layout = LayoutLocalServiceUtil.getLayout(
-			themeDisplayModel.getPlid());
-
-		Group group = layout.getGroup();
-
-		LayoutSet layoutSet = layout.getLayoutSet();
-
-		String friendlyUrlCurrent = null;
-
-		if (layout.isPublicLayout()) {
-			friendlyUrlCurrent = themeDisplayModel.getPathFriendlyURLPublic();
-		}
-		else if (group.isUserGroup()) {
-			friendlyUrlCurrent =
-				themeDisplayModel.getPathFriendlyURLPrivateUser();
-		}
-		else {
-			friendlyUrlCurrent =
-				themeDisplayModel.getPathFriendlyURLPrivateGroup();
-		}
-
-		String layoutSetFriendlyUrl = themeDisplayModel.getI18nPath();
-
-		String virtualHostname = layoutSet.getVirtualHostname();
-
-		if (Validator.isNull(virtualHostname) ||
-			!virtualHostname.equals(themeDisplayModel.getServerName())) {
-
-			layoutSetFriendlyUrl = friendlyUrlCurrent + group.getFriendlyURL();
-		}
-
-		tokens.put("article_group_id", String.valueOf(articleGroupId));
-		tokens.put("cdn_host", themeDisplayModel.getCdnHost());
-		tokens.put(
-			"company_id", String.valueOf(themeDisplayModel.getCompanyId()));
-		tokens.put("friendly_url_current", friendlyUrlCurrent);
-		tokens.put(
-			"friendly_url_private_group",
-			themeDisplayModel.getPathFriendlyURLPrivateGroup());
-		tokens.put(
-			"friendly_url_private_user",
-			themeDisplayModel.getPathFriendlyURLPrivateUser());
-		tokens.put(
-			"friendly_url_public",
-			themeDisplayModel.getPathFriendlyURLPublic());
-		tokens.put("group_friendly_url", group.getFriendlyURL());
-		tokens.put("image_path", themeDisplayModel.getPathImage());
-		tokens.put("layout_set_friendly_url", layoutSetFriendlyUrl);
-		tokens.put("main_path", themeDisplayModel.getPathMain());
-		tokens.put("portal_ctx", themeDisplayModel.getPathContext());
-		tokens.put(
-			"portal_url",
-			HttpUtil.removeProtocol(themeDisplayModel.getURLPortal()));
-		tokens.put(
-			"protocol", HttpUtil.getProtocol(themeDisplayModel.getURLPortal()));
-		tokens.put("root_path", themeDisplayModel.getPathContext());
-		tokens.put(
-			"scope_group_id",
-			String.valueOf(themeDisplayModel.getScopeGroupId()));
-		tokens.put("theme_image_path", themeDisplayModel.getPathThemeImages());
-
-		_populateCustomTokens(tokens);
-
-		// Deprecated tokens
-
-		tokens.put(
-			"friendly_url", themeDisplayModel.getPathFriendlyURLPublic());
-		tokens.put(
-			"friendly_url_private",
-			themeDisplayModel.getPathFriendlyURLPrivateGroup());
-		tokens.put("group_id", String.valueOf(articleGroupId));
-		tokens.put("page_url", themeDisplayModel.getPathFriendlyURLPublic());
 	}
 
 	private static void _removeOldContent(
