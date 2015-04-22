@@ -1,0 +1,157 @@
+<definition component-name="liferay-connected-services-notifications">
+	<property name="portlet.plugins.includes" value="lcs-portlet" />
+	<property name="testray.main.component.name" value="Liferay Connected Services" />
+
+	<set-up>
+		<execute macro="User#firstLoginPG" />
+	</set-up>
+
+	<tear-down>
+		<execute function="Click" locator1="LCSPortalNavigation#NAVIGATION_MENU_DASHBOARD" />
+
+		<execute macro="LCSEnvironment#tearDown" />
+
+		<execute macro="LCSServerNavigator#gotoNotifications" />
+
+		<execute macro="LCSNotificationsRule#tearDown" />
+	</tear-down>
+
+	<command name="AddRuleAllNotifications" priority="4">
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoNotifications" />
+
+		<execute macro="LCSNotifications#addRuleAllNotifications">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSNotifications#viewRuleAllNotifications">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+	</command>
+
+	<command name="DeleteRuleAllNotifications" priority="4">
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoNotifications" />
+
+		<execute macro="LCSNotifications#addRuleAllNotifications">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSNotifications#viewRuleAllNotifications">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoNotifications" />
+
+		<execute macro="LCSNotifications#deleteRule">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+	</command>
+
+	<command name="EditRuleAllNotifications" priority="4">
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoNotifications" />
+
+		<execute macro="LCSNotifications#addRuleOneNotification">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSNotificationsNavigator#gotoEditRule">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSNotificationsRule#viewRuleScope">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSNotificationsRule#viewRuleNotificationUnchecked">
+			<var name="notificationRule" value="Monitoring is unavailable." />
+		</execute>
+
+		<execute macro="LCSNotificationsRule#viewRuleNotificationUnchecked">
+			<var name="notificationRule" value="New Liferay Connected Services Client is available." />
+		</execute>
+
+		<execute macro="LCSNotificationsRule#viewRuleNotificationChecked">
+			<var name="notificationRule" value="New fix pack is available." />
+		</execute>
+
+		<execute macro="LCSNotificationsRule#viewRuleNotificationUnchecked">
+			<var name="notificationRule" value="New patching tool is available." />
+		</execute>
+
+		<execute macro="LCSNotificationsRule#viewRuleNotificationUnchecked">
+			<var name="notificationRule" value="The patching tool is unavailable." />
+		</execute>
+
+		<execute macro="LCSNotificationsRule#viewRuleNotificationUnchecked">
+			<var name="notificationRule" value="The server is offline." />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoNotifications" />
+
+		<execute macro="LCSNotifications#editRuleAllNotifications">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSNotifications#viewRuleAllNotifications">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+	</command>
+</definition>
