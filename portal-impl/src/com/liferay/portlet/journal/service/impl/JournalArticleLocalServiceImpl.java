@@ -1590,7 +1590,6 @@ public class JournalArticleLocalServiceImpl
 		}
 	}
 
-	@Override
 	public String getArticleContent(
 			JournalArticle article, String ddmTemplateKey, String viewMode,
 			String languageId, PortletRequestModel portletRequestModel,
@@ -1636,7 +1635,6 @@ public class JournalArticleLocalServiceImpl
 			article, ddmTemplateKey, viewMode, languageId, null, themeDisplay);
 	}
 
-	@Override
 	public String getArticleContent(
 			long groupId, String articleId, double version, String viewMode,
 			String ddmTemplateKey, String languageId,
@@ -1710,7 +1708,6 @@ public class JournalArticleLocalServiceImpl
 			themeDisplay);
 	}
 
-	@Override
 	public String getArticleContent(
 			long groupId, String articleId, String viewMode,
 			String ddmTemplateKey, String languageId,
