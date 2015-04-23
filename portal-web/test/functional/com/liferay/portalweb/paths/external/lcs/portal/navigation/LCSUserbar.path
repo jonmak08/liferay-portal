@@ -9,11 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>USER_USER_DOCUMENTATION</td>
 	<td>//div[contains(@class,'osb-lcs-portlet-profile')]//ul/li/a[contains(.,'User Documentation')]</td>
 	<td></td>

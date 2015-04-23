@@ -45,7 +45,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteRuleAllNotifications" priority="4">
+	<command name="DeleteRuleNotifications" priority="4">
 		<execute macro="LCSServerRegistration#connectToLCSPortal">
 			<var name="addEnvironment" value="true" />
 			<var name="environmentDescription" value="Environment 1 Description" />
