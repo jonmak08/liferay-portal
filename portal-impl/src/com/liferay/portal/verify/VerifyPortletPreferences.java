@@ -238,6 +238,7 @@ public class VerifyPortletPreferences extends VerifyProcess {
 
 	private static long[] getGroupIds(String[] scopeIds, long defaultGroupId) {
 		long[] groupIds = new long[0];
+
 		long siteGroupId;
 
 		for (String scopeId : scopeIds) {
