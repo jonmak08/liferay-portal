@@ -1770,6 +1770,13 @@ public class JournalArticleLocalServiceUtil {
 		return getService().getDisplayArticleByUrlTitle(groupId, urlTitle);
 	}
 
+	public static java.util.List<com.liferay.portlet.journal.model.JournalArticle> getIndexableArticlesByDDMStructureKey(
+		java.lang.String[] ddmStructureKeys)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService()
+				   .getIndexableArticlesByDDMStructureKey(ddmStructureKeys);
+	}
+
 	public static java.util.List<com.liferay.portlet.journal.model.JournalArticle> getIndexableArticlesByResourcePrimKey(
 		long resourcePrimKey)
 		throws com.liferay.portal.kernel.exception.SystemException {

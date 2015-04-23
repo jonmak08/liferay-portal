@@ -1848,6 +1848,13 @@ public class JournalArticleLocalServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.liferay.portlet.journal.model.JournalArticle> getIndexableArticlesByDDMStructureKey(
+		java.lang.String[] ddmStructureKeys)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _journalArticleLocalService.getIndexableArticlesByDDMStructureKey(ddmStructureKeys);
+	}
+
+	@Override
 	public java.util.List<com.liferay.portlet.journal.model.JournalArticle> getIndexableArticlesByResourcePrimKey(
 		long resourcePrimKey)
 		throws com.liferay.portal.kernel.exception.SystemException {

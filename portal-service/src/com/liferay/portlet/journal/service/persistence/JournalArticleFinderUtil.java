@@ -53,6 +53,15 @@ public class JournalArticleFinderUtil {
 			queryDefinition);
 	}
 
+	public static int countByG_C_S(long groupId, long classNameId,
+		java.lang.String[] ddmStructureKeys,
+		com.liferay.portal.kernel.dao.orm.QueryDefinition queryDefinition)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getFinder()
+				   .countByG_C_S(groupId, classNameId, ddmStructureKeys,
+			queryDefinition);
+	}
+
 	public static int countByG_U_F_C(long groupId, long userId,
 		java.util.List<java.lang.Long> folderIds, long classNameId,
 		com.liferay.portal.kernel.dao.orm.QueryDefinition queryDefinition)
@@ -357,6 +366,15 @@ public class JournalArticleFinderUtil {
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getFinder()
 				   .findByG_C_S(groupId, classNameId, ddmStructureKey,
+			queryDefinition);
+	}
+
+	public static java.util.List<com.liferay.portlet.journal.model.JournalArticle> findByG_C_S(
+		long groupId, long classNameId, java.lang.String[] ddmStructureKeys,
+		com.liferay.portal.kernel.dao.orm.QueryDefinition queryDefinition)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getFinder()
+				   .findByG_C_S(groupId, classNameId, ddmStructureKeys,
 			queryDefinition);
 	}
 
