@@ -2701,6 +2701,39 @@ public class JournalArticleLocalServiceImpl
 	}
 
 	@Override
+	public List<JournalArticle> getIndexableArticlesByDDMStructureKey(
+			String[] ddmStructureKeys)
+		throws SystemException {
+
+		if (PropsValues.JOURNAL_ARTICLE_INDEX_ALL_VERSIONS) {
+			return getStructureArticles(ddmStructureKeys);
+		}
+
+		QueryDefinition approvedQueryDefinition =
+				new QueryDefinition(
+						WorkflowConstants.STATUS_APPROVED, QueryUtil.ALL_POS,
+						QueryUtil.ALL_POS, new ArticleVersionComparator());
+
+		List<JournalArticle> articles = new ArrayList<JournalArticle>();
+
+		articles.addAll(
+				journalArticleFinder.findByG_C_S(
+						0, JournalArticleConstants.CLASSNAME_ID_DEFAULT,
+						ddmStructureKeys, approvedQueryDefinition));
+
+		QueryDefinition trashQueryDefinition =
+					new QueryDefinition(
+							WorkflowConstants.STATUS_IN_TRASH,
+							QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+							new ArticleVersionComparator());
+		articles.addAll(
+				journalArticleFinder.findByG_C_S(
+						0, JournalArticleConstants.CLASSNAME_ID_DEFAULT,
+						ddmStructureKeys, trashQueryDefinition));
+		return articles;
+	}
+
+	@Override
 	public List<JournalArticle> getIndexableArticlesByResourcePrimKey(
 			long resourcePrimKey)
 		throws SystemException {

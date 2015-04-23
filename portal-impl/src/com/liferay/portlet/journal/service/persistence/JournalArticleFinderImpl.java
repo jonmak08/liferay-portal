@@ -33,7 +33,6 @@ import com.liferay.portal.security.permission.InlineSQLHelperUtil;
 import com.liferay.portal.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portlet.journal.NoSuchArticleException;
 import com.liferay.portlet.journal.model.JournalArticle;
-import com.liferay.portlet.journal.model.JournalArticleConstants;
 import com.liferay.portlet.journal.model.impl.JournalArticleImpl;
 import com.liferay.util.dao.orm.CustomSQLUtil;
 
@@ -140,6 +139,16 @@ public class JournalArticleFinderImpl
 
 		return doCountByG_C_S(
 			groupId, classNameId, ddmStructureKey, queryDefinition, false);
+	}
+
+	@Override
+	public int countByG_C_S(
+			long groupId, long classNameId, String[] ddmStructureKeys,
+			QueryDefinition queryDefinition)
+		throws SystemException {
+
+		return doCountByG_C_S(
+			groupId, classNameId, ddmStructureKeys, queryDefinition, false);
 	}
 
 	@Override
@@ -646,6 +655,16 @@ public class JournalArticleFinderImpl
 	}
 
 	@Override
+	public List<JournalArticle> findByG_C_S(
+			long groupId, long classNameId, String[] ddmStructureKeys,
+			QueryDefinition queryDefinition)
+		throws SystemException {
+
+		return doFindByG_C_S(
+			groupId, classNameId, ddmStructureKeys, queryDefinition, false);
+	}
+
+	@Override
 	public List<JournalArticle> findByG_U_F_C(
 			long groupId, long userId, List<Long> folderIds, long classNameId,
 			QueryDefinition queryDefinition)
@@ -785,6 +804,16 @@ public class JournalArticleFinderImpl
 			QueryDefinition queryDefinition, boolean inlineSQLHelper)
 		throws SystemException {
 
+		return doCountByG_C_S(
+				groupId, classNameId, new String[] {ddmStructureKey},
+				queryDefinition, inlineSQLHelper);
+	}
+
+	protected int doCountByG_C_S(
+			long groupId, long classNameId, String[] ddmStructureKeys,
+			QueryDefinition queryDefinition, boolean inlineSQLHelper)
+		throws SystemException {
+
 		Session session = null;
 
 		try {
@@ -798,15 +827,10 @@ public class JournalArticleFinderImpl
 					sql, "(groupId = ?) AND", StringPool.BLANK);
 			}
 
-			if (ddmStructureKey.equals(
-					String.valueOf(
-						JournalArticleConstants.CLASSNAME_ID_DEFAULT))) {
-
-				sql = StringUtil.replace(
-					sql, "(structureId = ?)",
-					"((structureId = ?) OR (structureId = '') OR " +
-						"(structureId IS NULL))");
-			}
+			sql = StringUtil.replace(
+				sql, "[$DDM_STRUCTURE_KEY$]",
+				getDDMStructureKeys(
+				ddmStructureKeys, JournalArticleImpl.TABLE_NAME));
 
 			if (inlineSQLHelper) {
 				sql = InlineSQLHelperUtil.replacePermissionCheck(
@@ -825,7 +849,7 @@ public class JournalArticleFinderImpl
 			}
 
 			qPos.add(classNameId);
-			qPos.add(ddmStructureKey);
+			qPos.add(ddmStructureKeys);
 			qPos.add(queryDefinition.getStatus());
 
 			Iterator<Long> itr = q.iterate();
@@ -1144,6 +1168,16 @@ public class JournalArticleFinderImpl
 			QueryDefinition queryDefinition, boolean inlineSQLHelper)
 		throws SystemException {
 
+		return doFindByG_C_S(
+				groupId, classNameId, new String[] {ddmStructureKey},
+				queryDefinition, inlineSQLHelper);
+	}
+
+	protected List<JournalArticle> doFindByG_C_S(
+			long groupId, long classNameId, String[] ddmStructureKeys,
+			QueryDefinition queryDefinition, boolean inlineSQLHelper)
+		throws SystemException {
+
 		Session session = null;
 
 		try {
@@ -1162,16 +1196,10 @@ public class JournalArticleFinderImpl
 					sql, "(JournalArticle.groupId = ?) AND", StringPool.BLANK);
 			}
 
-			if (ddmStructureKey.equals(
-					String.valueOf(
-						JournalArticleConstants.CLASSNAME_ID_DEFAULT))) {
-
-				sql = StringUtil.replace(
-					sql, "(JournalArticle.structureId = ?)",
-					"((JournalArticle.structureId = ?) OR " +
-						"(JournalArticle.structureId = '') OR" +
-							"(JournalArticle.structureId IS NULL))");
-			}
+			sql = StringUtil.replace(
+					sql, "[$DDM_STRUCTURE_KEY$]",
+					getDDMStructureKeys(
+					ddmStructureKeys, JournalArticleImpl.TABLE_NAME));
 
 			if (inlineSQLHelper) {
 				sql = InlineSQLHelperUtil.replacePermissionCheck(
@@ -1191,7 +1219,7 @@ public class JournalArticleFinderImpl
 			}
 
 			qPos.add(classNameId);
-			qPos.add(ddmStructureKey);
+			qPos.add(ddmStructureKeys);
 			qPos.add(queryDefinition.getStatus());
 
 			return (List<JournalArticle>)QueryUtil.list(
@@ -1430,6 +1458,31 @@ public class JournalArticleFinderImpl
 		finally {
 			closeSession(session);
 		}
+	}
+
+	protected String getDDMStructureKeys(
+			String[] ddmStructureKeys, String tableName) {
+
+			if (ArrayUtil.isEmpty(ddmStructureKeys)) {
+				return StringPool.BLANK;
+			}
+
+			StringBundler sb = new StringBundler(
+					ddmStructureKeys.length * 3 + 1);
+
+			sb.append(StringPool.OPEN_PARENTHESIS);
+
+			for (int i = 0; i < ddmStructureKeys.length; i++) {
+				sb.append(tableName);
+				sb.append(".structureId = ? ");
+				sb.append(WHERE_OR);
+			}
+
+			sb.setIndex(sb.index() - 1);
+
+			sb.append(StringPool.CLOSE_PARENTHESIS);
+
+			return sb.toString();
 	}
 
 	protected String getFolderIds(List<Long> folderIds, String tableName) {
