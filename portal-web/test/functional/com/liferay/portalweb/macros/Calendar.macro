@@ -771,6 +771,8 @@
 
 		<execute macro="CalendarEvent#viewNewEventIframeCmd" />
 
+		<execute function="SelectFrameTop" value1="relative=top" />
+
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 		</execute>
