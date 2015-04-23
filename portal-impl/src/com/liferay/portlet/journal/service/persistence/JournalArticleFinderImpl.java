@@ -830,7 +830,7 @@ public class JournalArticleFinderImpl
 			sql = StringUtil.replace(
 				sql, "[$DDM_STRUCTURE_KEY$]",
 				getDDMStructureKeys(
-				ddmStructureKeys, JournalArticleImpl.TABLE_NAME));
+					ddmStructureKeys, JournalArticleImpl.TABLE_NAME));
 
 			if (inlineSQLHelper) {
 				sql = InlineSQLHelperUtil.replacePermissionCheck(
@@ -1197,8 +1197,8 @@ public class JournalArticleFinderImpl
 			}
 
 			sql = StringUtil.replace(
-					sql, "[$DDM_STRUCTURE_KEY$]",
-					getDDMStructureKeys(
+				sql, "[$DDM_STRUCTURE_KEY$]",
+				getDDMStructureKeys(
 					ddmStructureKeys, JournalArticleImpl.TABLE_NAME));
 
 			if (inlineSQLHelper) {
@@ -1461,28 +1461,27 @@ public class JournalArticleFinderImpl
 	}
 
 	protected String getDDMStructureKeys(
-			String[] ddmStructureKeys, String tableName) {
+		String[] ddmStructureKeys, String tableName) {
 
-			if (ArrayUtil.isEmpty(ddmStructureKeys)) {
-				return StringPool.BLANK;
-			}
+		if (ArrayUtil.isEmpty(ddmStructureKeys)) {
+			return StringPool.BLANK;
+		}
 
-			StringBundler sb = new StringBundler(
-					ddmStructureKeys.length * 3 + 1);
+		StringBundler sb = new StringBundler(ddmStructureKeys.length * 3 + 1);
 
-			sb.append(StringPool.OPEN_PARENTHESIS);
+		sb.append(StringPool.OPEN_PARENTHESIS);
 
-			for (int i = 0; i < ddmStructureKeys.length; i++) {
-				sb.append(tableName);
-				sb.append(".structureId = ? ");
-				sb.append(WHERE_OR);
-			}
+		for (int i = 0; i < ddmStructureKeys.length; i++) {
+			sb.append(tableName);
+			sb.append(".structureId = ? ");
+			sb.append(WHERE_OR);
+		}
 
-			sb.setIndex(sb.index() - 1);
+		sb.setIndex(sb.index() - 1);
 
-			sb.append(StringPool.CLOSE_PARENTHESIS);
+		sb.append(StringPool.CLOSE_PARENTHESIS);
 
-			return sb.toString();
+		return sb.toString();
 	}
 
 	protected String getFolderIds(List<Long> folderIds, String tableName) {

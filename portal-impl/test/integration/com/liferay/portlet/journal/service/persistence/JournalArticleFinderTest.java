@@ -255,7 +255,7 @@ public class JournalArticleFinderTest {
 			_ddmStructure.getStructureKey(), queryDefinition, 1);
 		testQueryByG_C_S(
 			_group.getGroupId(), JournalArticleConstants.CLASSNAME_ID_DEFAULT,
-			"", queryDefinition, 2);
+			StringPool.BLANK, queryDefinition, 2);
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH);
 
@@ -264,7 +264,7 @@ public class JournalArticleFinderTest {
 			_ddmStructure.getStructureKey(), queryDefinition, 0);
 		testQueryByG_C_S(
 			_group.getGroupId(), JournalArticleConstants.CLASSNAME_ID_DEFAULT,
-			"", queryDefinition, 1);
+			StringPool.BLANK, queryDefinition, 1);
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH, true);
 
@@ -273,7 +273,7 @@ public class JournalArticleFinderTest {
 			_ddmStructure.getStructureKey(), queryDefinition, 1);
 		testQueryByG_C_S(
 			_group.getGroupId(), JournalArticleConstants.CLASSNAME_ID_DEFAULT,
-			"", queryDefinition, 1);
+			StringPool.BLANK, queryDefinition, 1);
 	}
 
 	@Test
