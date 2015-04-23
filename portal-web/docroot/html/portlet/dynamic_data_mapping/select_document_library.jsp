@@ -55,9 +55,15 @@ if (folderId > 0) {
 else {
 	long defaultFolderId = DLFolderConstants.getFolderId(groupId, DLFolderConstants.getDataRepositoryId(groupId, searchFolderIds));
 
-	List<Long> folderIds = DLAppServiceUtil.getSubfolderIds(groupId, searchFolderIds);
+	List<Folder> folders = DLAppServiceUtil.getFolders(groupId, searchFolderIds);
 
-	folderIds.add(0, defaultFolderId);
+	List<Long> folderIds = new ArrayList<Long>(folders.size() + 1);
+
+	folderIds.add(defaultFolderId);
+
+	for (Folder subFolder : folders) {
+		folderIds.add(subFolder.getFolderId());
+	}
 
 	folderIdsArray = StringUtil.split(StringUtil.merge(folderIds), 0L);
 }
@@ -304,6 +310,14 @@ portletURL.setParameter("folderId", String.valueOf(folderId));
 			searchContext.setFolderIds(folderIdsArray);
 			searchContext.setGroupIds(new long[] {groupId});
 			searchContext.setKeywords(keywords);
+
+			QueryConfig queryConfig = new QueryConfig();
+
+			queryConfig.setHighlightEnabled(true);
+			queryConfig.setSearchSubfolders(true);
+
+			searchContext.setQueryConfig(queryConfig);
+
 			searchContext.setStart(entryStart);
 
 			searchContext.setScopeStrict(false);
