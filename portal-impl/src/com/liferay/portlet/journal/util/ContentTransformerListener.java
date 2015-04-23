@@ -128,9 +128,9 @@ public class ContentTransformerListener extends BaseTransformerListener {
 			tokens.get("article_group_id"));
 
 		for (Element el : root.elements()) {
-			Element dynamicContent = el.element("dynamic-content");
+			List<Element> dynamicContents = el.elements("dynamic-content");
 
-			if (dynamicContent != null) {
+			for (Element dynamicContent : dynamicContents) {
 				String text = dynamicContent.getText();
 
 				text = HtmlUtil.stripComments(text);
