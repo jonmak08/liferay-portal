@@ -362,7 +362,7 @@ AUI.add(
 
 						var pagesStart = modCurrentIndex || numberOfPages;
 
-						pagesStart = (pagesStart - 1);
+						pagesStart -= 1;
 
 						if (controlItem.hasClass('first')) {
 							instance._dispatchRequest(

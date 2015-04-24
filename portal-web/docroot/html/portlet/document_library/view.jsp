@@ -233,13 +233,12 @@ if (!defaultFolderView && (folder != null) && portletName.equals(PortletKeys.DOC
 				rootFolderId: '<%= rootFolderId %>',
 				strutsAction: '/document_library/view'
 			},
-			trashEnabled: <%= TrashUtil.isTrashEnabled(scopeGroupId) %>,
 			maxFileSize: <%= PrefsPropsUtil.getLong(PropsKeys.DL_FILE_MAX_SIZE) %>,
 			move: {
 				allRowIds: '<%= RowChecker.ALL_ROW_IDS %>',
 				editEntryUrl: '<portlet:actionURL><portlet:param name="struts_action" value="/document_library/edit_entry" /></portlet:actionURL>',
-				folderIdRegEx: /&?<portlet:namespace />folderId=([\d]+)/i,
 				folderIdHashRegEx: /#.*&?<portlet:namespace />folderId=([\d]+)/i,
+				folderIdRegEx: /&?<portlet:namespace />folderId=([\d]+)/i,
 				form: {
 					method: 'post',
 					node: A.one(document.<portlet:namespace />fm2)
@@ -248,6 +247,7 @@ if (!defaultFolderView && (folder != null) && portletName.equals(PortletKeys.DOC
 				trashLinkId: '<%= TrashUtil.isTrashEnabled(scopeGroupId) ? "_" + PortletKeys.CONTROL_PANEL_MENU + "_portlet_" + PortletKeys.TRASH : StringPool.BLANK %>',
 				updateable: <%= DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.UPDATE) %>
 			},
+			namespace: '<portlet:namespace />',
 			paginator: {
 				entriesTotal: <%= entriesTotal %>,
 				entryEnd: <%= entryEnd %>,
@@ -261,7 +261,6 @@ if (!defaultFolderView && (folder != null) && portletName.equals(PortletKeys.DOC
 				numberOfPages: <%= paginatorNumberOfPages %>,
 				showControls: true
 			},
-			namespace: '<portlet:namespace />',
 			portletId: '<%= HtmlUtil.escapeJS(portletId) %>',
 			redirect: encodeURIComponent('<%= currentURL %>'),
 			repositories: [
@@ -276,7 +275,7 @@ if (!defaultFolderView && (folder != null) && portletName.equals(PortletKeys.DOC
 				for (Folder mountFolder : mountFolders) {
 				%>
 
-					,{
+					, {
 						id: '<%= mountFolder.getRepositoryId() %>',
 						name: '<%= HtmlUtil.escapeJS(mountFolder.getName()) %>'
 					}
@@ -292,6 +291,7 @@ if (!defaultFolderView && (folder != null) && portletName.equals(PortletKeys.DOC
 			},
 			syncMessageDisabled: <%= !PropsValues.DL_SHOW_LIFERAY_SYNC_MESSAGE %>,
 			syncMessageSuppressed: <%= !GetterUtil.getBoolean(SessionClicks.get(request, liferayPortletResponse.getNamespace() + "show-sync-message", "true")) %>,
+			trashEnabled: <%= TrashUtil.isTrashEnabled(scopeGroupId) %>,
 			updateable: <%= DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.UPDATE) %>,
 			uploadURL: '<%= uploadURL %>',
 			viewFileEntryURL: '<portlet:renderURL><portlet:param name="struts_action" value="/document_library/view_file_entry" /><portlet:param name="redirect" value="<%= currentURL %>" /></portlet:renderURL>'

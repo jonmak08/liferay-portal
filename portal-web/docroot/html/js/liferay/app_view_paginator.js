@@ -20,9 +20,9 @@ AUI.add(
 
 		var SRC_ENTRIES_PAGINATOR = 1;
 
-		var SRC_SEARCH_FRAGMENT = 2;
-
 		var SRC_SEARCH = 3;
+
+		var SRC_SEARCH_FRAGMENT = 2;
 
 		var STR_CHANGE_REQUEST = 'changeRequest';
 
@@ -36,13 +36,13 @@ AUI.add(
 
 		var STR_FOLDER_START = 'folderStart';
 
+		var VALUE_SEPARATOR = History.VALUE_SEPARATOR;
+
 		var VIEW_ENTRIES = 'viewEntries';
 
 		var VIEW_ENTRIES_PAGE = 'viewEntriesPage';
 
 		var VIEW_FOLDERS = 'viewFolders';
-
-		var VALUE_SEPARATOR = History.VALUE_SEPARATOR;
 
 		var AppViewPaginator = A.Component.create(
 			{
@@ -375,18 +375,6 @@ AUI.add(
 						}
 					},
 
-					_getEntryPagination: function() {
-						var instance = this;
-
-						return instance._entryPagination;
-					},
-
-					_getFolderPagination: function() {
-						var instance = this;
-
-						return instance._folderPagination;
-					},
-
 					_getDefaultParams: function() {
 						var instance = this;
 
@@ -413,12 +401,24 @@ AUI.add(
 						return params;
 					},
 
+					_getEntryPagination: function() {
+						var instance = this;
+
+						return instance._entryPagination;
+					},
+
+					_getFolderPagination: function() {
+						var instance = this;
+
+						return instance._folderPagination;
+					},
+
 					_getPaginationPageNodes: function(pagination) {
 						var instance = this;
 
 						var paginationControlSize = pagination._paginationContentNode.all('.pagination-control').size();
 
-						var shiftIndex =  (paginationControlSize / 2);
+						var shiftIndex = (paginationControlSize / 2);
 
 						var newIndex = (pagination.get('total') + shiftIndex);
 
@@ -491,7 +491,7 @@ AUI.add(
 							while ((pageCounter % numberOfPages) > 0) {
 								visiblePages.push(pageCounter);
 
-								pageCounter ++;
+								pageCounter++;
 							}
 
 							var pageLength = (page - 1);
