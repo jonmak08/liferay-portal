@@ -24,6 +24,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ERROR_MESSAGE</td>
+	<td>//div[contains(@class,'alert') and (contains(@class,'alert-error') or contains(@class,'alert-danger'))]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>EDIT_WEB_CONTENT</td>
 	<td>//span[contains(@class,'lfr-icon-action-edit')]/a</td>
 	<td></td>
