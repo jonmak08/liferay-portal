@@ -1914,6 +1914,8 @@ go]]></replacevalue>
 			<then>
 				<delete dir="${liferay.home}/data" />
 				<delete dir="${liferay.home}/logs" />
+
+				<delete file="${liferay.home}/portal-setup-wizard.properties" />
 			</then>
 		</if>
 	</target>
