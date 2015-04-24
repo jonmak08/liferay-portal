@@ -2,7 +2,7 @@
 	<command name="gotoNotifications">
 		<execute function="Click" locator1="Dockbar#USER_NAME" />
 
-		<execute function="AssertClick#assertTextClickAtAndWait" locator1="LCSUserbar#USER_NOTIFICATIONS" value1="Notifications" />
+		<execute function="AssertClick" locator1="LCSUserbar#USER_NOTIFICATIONS" value1="Notifications" />
 	</command>
 
 	<command name="gotoServer">
