@@ -666,7 +666,9 @@
 
 	<command name="linkAttachmentInArticle">
 		<execute function="Click" locator1="CKEditor#CKEDITOR_TOOLBAR_LINK_BUTTON" />
+
 		<execute function="Type" locator1="CKEditorAddlink#URL_FIELD" value1="${kbAttachmentLink}" />
+
 		<execute function="Click" locator1="CKEditorAddlink#OK_BUTTON" />
 
 		<execute function="SelectFrame" value1="relative=top" />
@@ -1355,6 +1357,7 @@
 		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
 
 		<execute function="AssertClick" locator1="CPKnowledgebaseadmin#ARTICLE_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPKnowledgebaseadmin#ARTICLE_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertTextEquals" locator1="CPKnowledgebaseadminAddarticle#INFO_MESSAGE" value1="A new version will be created automatically if this content is modified." />
