@@ -262,20 +262,18 @@ public class PortalLDAPExporterImpl implements PortalLDAPExporter {
 					ldapServerId, ldapContext, user, userMappings);
 			}
 			else {
-				Attributes userAttributes =
-					PortalLDAPUtil.getUserAttributes(
-						ldapServerId, companyId, ldapContext,
-						PortalLDAPUtil.getNameInNamespace(
-							ldapServerId, companyId, binding));
+				Attributes attributes = PortalLDAPUtil.getUserAttributes(
+					ldapServerId, companyId, ldapContext,
+					PortalLDAPUtil.getNameInNamespace(
+						ldapServerId, companyId, binding));
 
-				String modifiedDate = LDAPUtil.getAttributeString(
-					userAttributes, "modifyTimestamp");
+				String modifyTimestamp = LDAPUtil.getAttributeString(
+					attributes, "modifyTimestamp");
 
-				if (Validator.isNotNull(modifiedDate)) {
-					Date ldapUserModifiedDate = LDAPUtil.parseDate(
-						modifiedDate);
+				if (Validator.isNotNull(modifyTimestamp)) {
+					Date modifiedDate = LDAPUtil.parseDate(modifyTimestamp);
 
-					if (ldapUserModifiedDate.equals(user.getModifiedDate())) {
+					if (modifiedDate.equals(user.getModifiedDate())) {
 						if (_log.isDebugEnabled()) {
 							_log.debug(
 								"Skipping user " + user.getEmailAddress() +
