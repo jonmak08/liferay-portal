@@ -1040,6 +1040,14 @@ public class LiferaySeleniumHelper {
 			return true;
 		}
 
+		// LRQA-15177
+
+		if (line.contains("JS_ERROR: TypeError: Liferay.Form is undefined")) {
+			if (line.contains("html/js/liferay/sign_in_modal.js")) {
+				return true;
+			}
+		}
+
 		// WCM-202
 
 		if (line.contains("No score point assigners available")) {
