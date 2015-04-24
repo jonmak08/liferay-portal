@@ -606,4 +606,22 @@
 		<execute function="AssertTextEquals#assertPartialText" locator1="CPRolesDefinepermissions#PERMISSION_TABLE_PERMISSIONS" value1="${permissionDefinitionValue}" />
 		<execute function="AssertTextEquals" locator1="CPRolesDefinepermissions#PERMISSION_TABLE_REMOVE" value1="Remove" />
 	</command>
+
+	<command name="viewPermissionPG">
+		<var method="StringUtil#replace('${roleName}', ' ', '-')" name="key_roleName" />
+		<var method="StringUtil#lowerCase('${key_roleName}')" name="key_roleName" />
+
+		<if>
+			<equals arg1="${permissionFlagged}" arg2="true" />
+			<then>
+				<execute function="AssertChecked" locator1="Permissions#${permissionDefinitionKey}" />
+			</then>
+			<elseif>
+				<equals arg1="${permissionFlagged}" arg2="false" />
+				<then>
+					<execute function="AssertNotChecked" locator1="Permissions#${permissionDefinitionKey}" />
+				</then>
+			</elseif>
+		</if>
+	</command>
 </definition>
