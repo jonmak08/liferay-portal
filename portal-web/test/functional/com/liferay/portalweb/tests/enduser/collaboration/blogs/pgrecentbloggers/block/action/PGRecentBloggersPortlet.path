@@ -9,11 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>AUTHOR_NAME</td>
 	<td>//span[@class='user-name']</td>
 	<td></td>

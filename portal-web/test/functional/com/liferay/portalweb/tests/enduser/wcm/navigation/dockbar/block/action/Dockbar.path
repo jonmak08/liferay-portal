@@ -9,11 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>PAGE_INFO_MESSAGE</td>
 	<td>//div[@class='page-customization-bar']/div[contains(@class,'page-customization-bar-text')]</td>
 	<td></td>

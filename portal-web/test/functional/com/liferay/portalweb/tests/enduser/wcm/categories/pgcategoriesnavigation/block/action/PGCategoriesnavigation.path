@@ -9,11 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>CATEGORY_NAME</td>
 	<td>//ul[contains(@class,'lfr-asset-category-list')]/li/div/span/span/a[contains(.,'${key_categoryName}')]</td>
 	<td></td>

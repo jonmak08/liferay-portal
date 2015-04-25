@@ -9,11 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>VIEW_HISTORY_BUTTON</td>
 	<td>//button[@class='btn yui3-widget btn-content' and contains(.,'View History')]/i</td>
 	<td></td>

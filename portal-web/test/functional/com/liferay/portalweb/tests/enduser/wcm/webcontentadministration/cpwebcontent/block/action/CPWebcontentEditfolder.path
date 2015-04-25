@@ -9,11 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>PARENT_FOLDER_SELECT_BUTTON</td>
 	<td>//button[@id='_15_selecFolderButton']</td>
 	<td></td>

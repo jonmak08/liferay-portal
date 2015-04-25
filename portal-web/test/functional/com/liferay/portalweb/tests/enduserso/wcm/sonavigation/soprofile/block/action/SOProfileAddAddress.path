@@ -9,11 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>STREET_1_FIELD</td>
 	<td>xpath=(//input[contains(@id,'addressStreet1')])[${key_row}]</td>
 	<td></td>

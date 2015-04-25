@@ -9,11 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>NUMBER_FIELD</td>
 	<td>xpath=(//input[contains(@id,'phoneNumber')])[${key_row}]</td>
 	<td></td>

@@ -9,11 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>EMAIL_ADDRESS_FIELD</td>
 	<td>xpath=(//input[contains(@class,'email-field')])[${key_row}]</td>
 	<td></td>
