@@ -5,21 +5,29 @@ AUI.add(
 		var AArray = A.Array;
 		var AObject = A.Object;
 
-		var BOUNDING_BOX = 'boundingBox';
+		var CSS_ACTIVE = 'active';
 
-		var ITEMS_PER_PAGE = 'itemsPerPage';
+		var CSS_DISABLED = 'disabled';
 
-		var ITEMS_PER_PAGE_LIST = 'itemsPerPageList';
+		var CSS_PAGINATION_CONTROL = 'pagination-control';
 
 		var NAME = 'pagination';
 
-		var PAGE = 'page';
+		var STR_ITEMS = 'items';
 
-		var RESULTS = 'results';
+		var STR_ITEMS_PER_PAGE = 'itemsPerPage';
 
-		var STRINGS = 'strings';
+		var STR_ITEMS_PER_PAGE_LIST = 'itemsPerPageList';
+
+		var STR_PAGE = 'page';
+
+		var STR_RESULTS = 'results';
+
+		var STR_SHIFT = 'shift';
 
 		var STR_SPACE = ' ';
+
+		var STR_STRINGS = 'strings';
 
 		var Pagination = A.Component.create(
 			{
@@ -126,7 +134,7 @@ AUI.add(
 
 						Pagination.superclass.renderUI.apply(instance, arguments);
 
-						var boundingBox = instance.get(BOUNDING_BOX);
+						var boundingBox = instance.get('boundingBox');
 
 						boundingBox.addClass('lfr-pagination');
 
@@ -173,7 +181,7 @@ AUI.add(
 						);
 
 						var buffer = AArray.map(
-							instance.get(ITEMS_PER_PAGE_LIST),
+							instance.get(STR_ITEMS_PER_PAGE_LIST),
 							function(item, index, collection) {
 								return Lang.sub(
 									instance.TPL_ITEM,
@@ -230,10 +238,10 @@ AUI.add(
 						var instance = this;
 
 						if (Lang.isNumber(currentPage)) {
-							var items = instance.get('items');
+							var items = instance.get(STR_ITEMS);
 
 							if (items) {
-								currentPage = items.item(currentPage + instance.get('shift'));
+								currentPage = items.item(currentPage + instance.get(STR_SHIFT));
 							}
 						}
 
@@ -254,7 +262,7 @@ AUI.add(
 						A.each(
 							items,
 							function(node, index) {
-								if (node.hasClass('pagination-control')) {
+								if (node.hasClass(CSS_PAGINATION_CONTROL)) {
 									controlCount++;
 								}
 							}
@@ -266,8 +274,8 @@ AUI.add(
 					_dispatchRequest: function(state) {
 						var instance = this;
 
-						if (!AObject.owns(state, ITEMS_PER_PAGE)) {
-							state.itemsPerPage = instance.get(ITEMS_PER_PAGE);
+						if (!AObject.owns(state, STR_ITEMS_PER_PAGE)) {
+							state.itemsPerPage = instance.get(STR_ITEMS_PER_PAGE);
 						}
 
 						Pagination.superclass._dispatchRequest.call(instance, state);
@@ -281,8 +289,8 @@ AUI.add(
 						A.each(
 							items,
 							function(node, index) {
-								if (node.hasClass('active')) {
-									activeNodeIndex = (items.indexOf(node) - instance.get('shift'));
+								if (node.hasClass(CSS_ACTIVE)) {
+									activeNodeIndex = (items.indexOf(node) - instance.get(STR_SHIFT));
 								}
 							}
 						);
@@ -295,10 +303,10 @@ AUI.add(
 
 						var result;
 
-						var strings = instance.get(STRINGS);
+						var strings = instance.get(STR_STRINGS);
 
 						if (!itemsPerPage) {
-							itemsPerPage = instance.get(ITEMS_PER_PAGE);
+							itemsPerPage = instance.get(STR_ITEMS_PER_PAGE);
 						}
 
 						result = Lang.sub(
@@ -317,15 +325,15 @@ AUI.add(
 					_getResultsContent: function(page, itemsPerPage) {
 						var instance = this;
 
-						var results = instance.get(RESULTS);
-						var strings = instance.get(STRINGS);
+						var results = instance.get(STR_RESULTS);
+						var strings = instance.get(STR_STRINGS);
 
 						if (!Lang.isValue(page)) {
-							page = instance.get(PAGE);
+							page = instance.get(STR_PAGE);
 						}
 
 						if (!Lang.isValue(itemsPerPage)) {
-							itemsPerPage = instance.get(ITEMS_PER_PAGE);
+							itemsPerPage = instance.get(STR_ITEMS_PER_PAGE);
 						}
 
 						var tpl = instance.TPL_RESULTS_MESSAGE_SHORT;
@@ -343,7 +351,7 @@ AUI.add(
 
 							values.from = ((page - 1) * itemsPerPage) + 1;
 							values.of = strings.of;
-							values.to = tmp < results ? tmp : results;
+							values.to = (tmp < results) ? tmp : results;
 						}
 
 						return Lang.sub(tpl, values);
@@ -352,7 +360,7 @@ AUI.add(
 					_goToPage: function(index, controlItem) {
 						var instance = this;
 
-						var items = instance.get('items');
+						var items = instance.get(STR_ITEMS);
 
 						var currentIndex = instance._getActiveNodeIndex(items);
 
@@ -401,7 +409,7 @@ AUI.add(
 						else {
 							instance._dispatchRequest(
 								{
-									page: (index - instance.get('shift'))
+									page: (index - instance.get(STR_SHIFT))
 								}
 							);
 						}
@@ -424,7 +432,7 @@ AUI.add(
 
 						var currentTarget = event.currentTarget;
 
-						var items = instance.get('items');
+						var items = instance.get(STR_ITEMS);
 
 						var index = items.indexOf(currentTarget);
 
@@ -432,7 +440,7 @@ AUI.add(
 
 						event.preventDefault();
 
-						if (!currentTarget.hasClass('disabled') || !currentTarget.hasClass('active')) {
+						if (!currentTarget.hasClass(CSS_DISABLED) || !currentTarget.hasClass(CSS_ACTIVE)) {
 							if (index === 0) {
 								instance._goToPage(index, items.first());
 							}
@@ -454,7 +462,7 @@ AUI.add(
 							else {
 								instance._dispatchRequest(
 									{
-										page: (index - instance.get('shift'))
+										page: (index - instance.get(STR_SHIFT))
 									}
 								);
 							}
@@ -466,13 +474,13 @@ AUI.add(
 
 						var itemsPerPage = Lang.toInt(event.currentTarget.one('.taglib-text-icon').attr('data-value'));
 
-						instance.set(ITEMS_PER_PAGE, itemsPerPage);
+						instance.set(STR_ITEMS_PER_PAGE, itemsPerPage);
 					},
 
 					_onItemsPerPageChange: function(event) {
 						var instance = this;
 
-						var page = instance.get(PAGE);
+						var page = instance.get(STR_PAGE);
 
 						var itemsPerPage = event.newVal;
 
@@ -574,11 +582,11 @@ AUI.add(
 
 						instance.TOTAL_CONTROLS = instance._countPaginationControls(items);
 
-						if (!instance.get('shift')) {
-							instance.set('shift', ((instance.TOTAL_CONTROLS / 2) - 1));
+						if (!instance.get(STR_SHIFT)) {
+							instance.set(STR_SHIFT, ((instance.TOTAL_CONTROLS / 2) - 1));
 						}
 
-						instance.set('items', items);
+						instance.set(STR_ITEMS, items);
 
 						instance.get('contentBox').setContent(items);
 
@@ -586,7 +594,7 @@ AUI.add(
 							A.each(
 								items,
 								function(node) {
-									if (node.hasClass('pagination-control')) {
+									if (node.hasClass(CSS_PAGINATION_CONTROL)) {
 										node.remove();
 									}
 								}
@@ -605,8 +613,8 @@ AUI.add(
 					_syncNavigationUI: function() {
 						var instance = this;
 
-						var items = instance.get('items');
-						var page = instance.get('page');
+						var items = instance.get(STR_ITEMS);
+						var page = instance.get(STR_PAGE);
 						var total = instance.get('total');
 
 						var firstPage = (page === 1);
@@ -614,7 +622,7 @@ AUI.add(
 
 						if (!instance.get('circular')) {
 							items.item(1).toggleClass(
-								'disabled',
+								CSS_DISABLED,
 								firstPage
 							);
 
@@ -623,18 +631,18 @@ AUI.add(
 							var nextToLastItem = (lastItemIndex - 1);
 
 							items.item(nextToLastItem).toggleClass(
-								'disabled',
+								CSS_DISABLED,
 								lastPage
 							);
 						}
 
 						items.first().toggleClass(
-							'disabled',
+							CSS_DISABLED,
 							firstPage
 						);
 
 						items.last().toggleClass(
-							'disabled',
+							CSS_DISABLED,
 							lastPage
 						);
 					},
@@ -656,7 +664,7 @@ AUI.add(
 							var item = instance.getItem(val);
 
 							if (item) {
-								item.addClass('active');
+								item.addClass(CSS_ACTIVE);
 							}
 						}
 					},
@@ -672,8 +680,8 @@ AUI.add(
 							hiddenClass += STR_SPACE + (hideClass || 'hide');
 						}
 
-						var results = instance.get(RESULTS);
-						var itemsPerPageList = instance.get(ITEMS_PER_PAGE_LIST);
+						var results = instance.get(STR_RESULTS);
+						var itemsPerPageList = instance.get(STR_ITEMS_PER_PAGE_LIST);
 
 						instance._paginationControls.toggleClass(hiddenClass, (results <= itemsPerPageList[0]));
 
