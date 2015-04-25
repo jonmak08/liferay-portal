@@ -124,13 +124,13 @@ String emailBody = PrefsParamUtil.getString(portletPreferences, request, emailBo
 
 						</aui:select>
 
-						<aui:select label="maximum-pagination-pages-to-display" name="preferences--paginationNumberOfPages--">
+						<aui:select label="maximum-pagination-pages-to-display" name="preferences--numberOfPages--">
 
 							<%
-							for (int paginationNumberOfPagesValue : PropsValues.SEARCH_CONTAINER_PAGINATION_NUMBER_OF_PAGES_VALUES) {
+							for (int paginationNumberOfPagesValue : PropsValues.SEARCH_CONTAINER_PAGE_ITERATOR_PAGE_VALUES) {
 							%>
 
-								<aui:option label="<%= paginationNumberOfPagesValue %>" selected="<%= paginationNumberOfPages == paginationNumberOfPagesValue %>" />
+								<aui:option label="<%= paginationNumberOfPagesValue %>" selected="<%= numberOfPages == paginationNumberOfPagesValue %>" />
 
 							<%
 							}

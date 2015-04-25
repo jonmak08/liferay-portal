@@ -2207,9 +2207,7 @@ public interface PropsKeys {
 
 	public static final String SEARCH_CONTAINER_PAGE_ITERATOR_MAX_PAGES = "search.container.page.iterator.max.pages";
 
-	public static final String SEARCH_CONTAINER_PAGINATION_DEFAULT_NUMBER_OF_PAGES = "search.container.pagination.default.number.of.pages";
-
-	public static final String SEARCH_CONTAINER_PAGINATION_NUMBER_OF_PAGES_VALUES = "search.container.pagination.number.of.pages.values";
+	public static final String SEARCH_CONTAINER_PAGE_ITERATOR_PAGE_VALUES = "search.container.page.iterator.page.values";
 
 	public static final String SEARCH_CONTAINER_SHOW_PAGINATION_BOTTOM = "search.container.show.pagination.bottom";
 

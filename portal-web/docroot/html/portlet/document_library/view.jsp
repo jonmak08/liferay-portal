@@ -60,7 +60,7 @@ int entryEnd = ParamUtil.getInteger(request, "entryEnd", entriesPerPage);
 int folderStart = ParamUtil.getInteger(request, "folderStart");
 int folderEnd = ParamUtil.getInteger(request, "folderEnd", SearchContainer.DEFAULT_DELTA);
 
-int paginationPages = ParamUtil.getInteger(request, "paginationNumberOfPages", paginationNumberOfPages);
+int paginatorNumberOfPages = ParamUtil.getInteger(request, "numberOfPages", numberOfPages);
 
 String orderByCol = ParamUtil.getString(request, "orderByCol");
 String orderByType = ParamUtil.getString(request, "orderByType");
@@ -258,7 +258,7 @@ if (!defaultFolderView && (folder != null) && portletName.equals(PortletKeys.DOC
 				folderRowsPerPage: <%= folderEnd - folderStart %>,
 				folderStart: <%= folderStart %>,
 				foldersTotal: <%= foldersTotal %>,
-				numberOfPages: <%= paginationPages %>,
+				numberOfPages: <%= paginatorNumberOfPages %>,
 				showControls: true
 			},
 			namespace: '<portlet:namespace />',
