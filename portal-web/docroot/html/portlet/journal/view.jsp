@@ -48,6 +48,8 @@ int entryEnd = ParamUtil.getInteger(request, "entryEnd", SearchContainer.DEFAULT
 int folderStart = ParamUtil.getInteger(request, "folderStart");
 int folderEnd = ParamUtil.getInteger(request, "folderEnd", SearchContainer.DEFAULT_DELTA);
 
+int paginatorNumberOfPages = ParamUtil.getInteger(request, "numberOfPages", numberOfPages);
+
 request.setAttribute("view.jsp-folder", folder);
 
 request.setAttribute("view.jsp-folderId", String.valueOf(folderId));
@@ -178,7 +180,9 @@ folderStart = GetterUtil.getInteger(request.getAttribute("view_folders.jsp-folde
 				folderRowsPerPage: <%= folderEnd - folderStart %>,
 				folderRowsPerPageOptions: [<%= StringUtil.merge(PropsValues.SEARCH_CONTAINER_PAGE_DELTA_VALUES) %>],
 				folderStart: <%= folderStart %>,
-				foldersTotal: <%= foldersTotal %>
+				foldersTotal: <%= foldersTotal %>,
+				numberOfPages: <%= paginatorNumberOfPages %>,
+				showControls: true
 			},
 			namespace: '<portlet:namespace />',
 			portletId: '<%= portletDisplay.getId() %>',
