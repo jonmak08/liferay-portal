@@ -81,7 +81,7 @@ public class DDMIndexerImpl implements DDMIndexer {
 					if (value instanceof BigDecimal) {
 						Double doubleValue = ((BigDecimal)value).doubleValue();
 
-						document.addNumber(name, doubleValue);
+						document.addNumberSortable(name, doubleValue);
 					}
 					else if (value instanceof BigDecimal[]) {
 						BigDecimal[] bigDecimals = (BigDecimal[])value;
@@ -92,7 +92,7 @@ public class DDMIndexerImpl implements DDMIndexer {
 							doubleValues[i] = bigDecimals[i].doubleValue();
 						}
 
-						document.addNumber(name, doubleValues);
+						document.addNumberSortable(name, doubleValues);
 					}
 					else if (value instanceof Boolean) {
 						document.addKeywordSortable(name, (Boolean)value);
@@ -107,31 +107,38 @@ public class DDMIndexerImpl implements DDMIndexer {
 						document.addDate(name, (Date[])value);
 					}
 					else if (value instanceof Double) {
-						document.addNumber(name, (Double)value);
+						document.addNumberSortable(name, (Double)value);
 					}
 					else if (value instanceof Double[]) {
-						document.addNumber(name, (Double[])value);
+						document.addNumberSortable(name, (Double[])value);
 					}
 					else if (value instanceof Integer) {
-						document.addNumber(name, (Integer)value);
+						document.addNumberSortable(name, (Integer)value);
 					}
 					else if (value instanceof Integer[]) {
-						document.addNumber(name, (Integer[])value);
+						document.addNumberSortable(name, (Integer[])value);
 					}
 					else if (value instanceof Long) {
-						document.addNumber(name, (Long)value);
+						document.addNumberSortable(name, (Long)value);
 					}
 					else if (value instanceof Long[]) {
-						document.addNumber(name, (Long[])value);
+						document.addNumberSortable(name, (Long[])value);
 					}
 					else if (value instanceof Float) {
-						document.addNumber(name, (Float)value);
+						document.addNumberSortable(name, (Float)value);
 					}
 					else if (value instanceof Float[]) {
-						document.addNumber(name, (Float[])value);
+						document.addNumberSortable(name, (Float[])value);
 					}
 					else if (value instanceof Number[]) {
-						document.addNumber(name, (Number[])value);
+						Number[] numbers = (Number[])value;
+						Double[] doubles = new Double[numbers.length];
+
+						for (int i = 0; i < numbers.length; i++) {
+							doubles[i] = numbers[i].doubleValue();
+						}
+
+						document.addNumberSortable(name, doubles);
 					}
 					else if (value instanceof Object[]) {
 						String[] valuesString = ArrayUtil.toStringArray(

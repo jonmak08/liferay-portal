@@ -119,14 +119,14 @@ public class DocumentImpl implements Document {
 		}
 
 		String[] dates = new String[values.length];
-		String[] datesTime = new String[values.length];
+		Long[] datesTime = new Long[values.length];
 
 		for (int i = 0; i < values.length; i++) {
 			dates[i] = _dateFormat.format(values[i]);
-			datesTime[i] = String.valueOf(values[i].getTime());
+			datesTime[i] = values[i].getTime();
 		}
 
-		createSortableNumericField(name, datesTime, Long.class);
+		createSortableNumericField(name, false, datesTime);
 
 		addKeyword(name, dates);
 	}
@@ -467,119 +467,158 @@ public class DocumentImpl implements Document {
 
 	@Override
 	public void addNumber(String name, double value) {
-		addNumber(name, String.valueOf(value), Double.class);
+		createNumberField(name, Double.valueOf(value));
 	}
 
 	@Override
 	public void addNumber(String name, Double value) {
-		addNumber(name, String.valueOf(value), Double.class);
+		createNumberField(name, value);
 	}
 
 	@Override
 	public void addNumber(String name, double[] values) {
-		addNumber(name, ArrayUtil.toStringArray(values), Double.class);
-	}
-
-	@Override
-	public void addNumber(String name, Double[] values) {
-		addNumber(name, ArrayUtil.toStringArray(values), Double.class);
-	}
-
-	@Override
-	public void addNumber(String name, float value) {
-		addNumber(name, String.valueOf(value), Float.class);
-	}
-
-	@Override
-	public void addNumber(String name, Float value) {
-		addNumber(name, String.valueOf(value), Float.class);
-	}
-
-	@Override
-	public void addNumber(String name, float[] values) {
-		addNumber(name, ArrayUtil.toStringArray(values), Float.class);
-	}
-
-	@Override
-	public void addNumber(String name, Float[] values) {
-		addNumber(name, ArrayUtil.toStringArray(values), Float.class);
-	}
-
-	@Override
-	public void addNumber(String name, int value) {
-		addNumber(name, String.valueOf(value), Integer.class);
-	}
-
-	@Override
-	public void addNumber(String name, int[] values) {
-		addNumber(name, ArrayUtil.toStringArray(values), Integer.class);
-	}
-
-	@Override
-	public void addNumber(String name, Integer value) {
-		addNumber(name, String.valueOf(value), Integer.class);
-	}
-
-	@Override
-	public void addNumber(String name, Integer[] values) {
-		addNumber(name, ArrayUtil.toStringArray(values), Integer.class);
-	}
-
-	@Override
-	public void addNumber(String name, long value) {
-		addNumber(name, String.valueOf(value), Long.class);
-	}
-
-	@Override
-	public void addNumber(String name, Long value) {
-		addNumber(name, String.valueOf(value), Long.class);
-	}
-
-	@Override
-	public void addNumber(String name, long[] values) {
-		addNumber(name, ArrayUtil.toStringArray(values), Long.class);
-	}
-
-	@Override
-	public void addNumber(String name, Long[] values) {
-		addNumber(name, ArrayUtil.toStringArray(values), Long.class);
-	}
-
-	@Override
-	public void addNumber(String name, Number[] values) {
-		addNumber(name, ArrayUtil.toStringArray(values), Number.class);
-	}
-
-	@Override
-	public void addNumber(String name, String value) {
-		addNumber(name, value, Long.class);
-	}
-
-	public void addNumber(
-		String name, String value, Class<? extends Number> clazz) {
-
-		if (Validator.isNull(value)) {
-			return;
-		}
-
-		addNumber(name, new String[] {value}, clazz);
-	}
-
-	@Override
-	public void addNumber(String name, String[] values) {
-		addNumber(name, values, Long.class);
-	}
-
-	public void addNumber(
-		String name, String[] values, Class<? extends Number> clazz) {
-
 		if (values == null) {
 			return;
 		}
 
-		createSortableNumericField(name, values, clazz);
+		createNumberField(name, ArrayUtil.toArray(values));
+	}
 
-		addKeyword(name, values);
+	@Override
+	public void addNumber(String name, Double[] values) {
+		createNumberField(name, values);
+	}
+
+	@Override
+	public void addNumber(String name, float value) {
+		createNumberField(name, Float.valueOf(value));
+	}
+
+	@Override
+	public void addNumber(String name, Float value) {
+		createNumberField(name, value);
+	}
+
+	@Override
+	public void addNumber(String name, float[] values) {
+		if (values == null) {
+			return;
+		}
+
+		createNumberField(name, ArrayUtil.toArray(values));
+	}
+
+	@Override
+	public void addNumber(String name, Float[] values) {
+		createNumberField(name, values);
+	}
+
+	@Override
+	public void addNumber(String name, int value) {
+		createNumberField(name, Integer.valueOf(value));
+	}
+
+	@Override
+	public void addNumber(String name, int[] values) {
+		if (values == null) {
+			return;
+		}
+
+		createNumberField(name, ArrayUtil.toArray(values));
+	}
+
+	@Override
+	public void addNumber(String name, Integer value) {
+		createNumberField(name, value);
+	}
+
+	@Override
+	public void addNumber(String name, Integer[] values) {
+		createNumberField(name, values);
+	}
+
+	@Override
+	public void addNumber(String name, long value) {
+		createNumberField(name, Long.valueOf(value));
+	}
+
+	@Override
+	public void addNumber(String name, Long value) {
+		createNumberField(name, value);
+	}
+
+	@Override
+	public void addNumber(String name, long[] values) {
+		if (values == null) {
+			return;
+		}
+
+		createNumberField(name, ArrayUtil.toArray(values));
+	}
+
+	@Override
+	public void addNumber(String name, Long[] values) {
+		createNumberField(name, values);
+	}
+
+	@Override
+	public void addNumber(String name, String value) {
+		createNumberField(name, Long.valueOf(value));
+	}
+
+	@Override
+	public void addNumber(String name, String[] values) {
+		if (values == null) {
+			return;
+		}
+
+		Long[] longs = new Long[values.length];
+
+		for (int i = 0; i < values.length; i++) {
+			longs[i] = Long.valueOf(values[i]);
+		}
+
+		createNumberField(name, longs);
+	}
+
+	@Override
+	public void addNumberSortable(String name, Double value) {
+		createNumberFieldWithTypedSortable(name, value);
+	}
+
+	@Override
+	public void addNumberSortable(String name, Double[] values) {
+		createNumberFieldWithTypedSortable(name, values);
+	}
+
+	@Override
+	public void addNumberSortable(String name, Float value) {
+		createNumberFieldWithTypedSortable(name, value);
+	}
+
+	@Override
+	public void addNumberSortable(String name, Float[] values) {
+		createNumberFieldWithTypedSortable(name, values);
+	}
+
+	@Override
+	public void addNumberSortable(String name, Integer value) {
+		createNumberFieldWithTypedSortable(name, value);
+	}
+
+	@Override
+	public void addNumberSortable(String name, Integer[] values) {
+		createNumberFieldWithTypedSortable(name, values);
+	}
+
+	@Override
+	public void addNumberSortable(String name, Long value) {
+		createNumberFieldWithTypedSortable(name, value);
+	}
+
+	@Override
+	public void addNumberSortable(String name, Long[] values) {
+		createNumberFieldWithTypedSortable(name, values);
 	}
 
 	@Override
@@ -898,6 +937,59 @@ public class DocumentImpl implements Document {
 		}
 	}
 
+	protected void createNumberField(
+		String name, boolean typifySortable, Number value) {
+
+		if (value == null) {
+			return;
+		}
+
+		String stringValue = String.valueOf(value);
+
+		createSortableNumericField(
+			name, typifySortable, stringValue, value.getClass());
+
+		Field field = new Field(name, valueString);
+
+		_fields.put(name, field);
+	}
+
+	protected <T extends Number & Comparable<? super T>> void createNumberField(
+		String name, boolean typifySortable, T... values) {
+
+		if (values == null) {
+			return;
+		}
+
+		createSortableNumericField(name, typifySortable, values);
+
+		Field field = new Field(name, ArrayUtil.toStringArray(values));
+
+		_fields.put(name, field);
+	}
+
+	protected void createNumberField(String name, Number value) {
+		createNumberField(name, false, value);
+	}
+
+	protected <T extends Number & Comparable<? super T>> void createNumberField(
+		String name, T... values) {
+
+		createNumberField(name, false, values);
+	}
+
+	protected void createNumberFieldWithTypedSortable(
+		String name, Number value) {
+
+		createNumberField(name, true, value);
+	}
+
+	protected <T extends Number & Comparable<? super T>> void
+		createNumberFieldWithTypedSortable(String name, T... values) {
+
+		createNumberField(name, true, values);
+	}
+
 	protected void createSortableKeywordField(String name, String value) {
 		if (isDocumentSortableTextField(name)) {
 			createSortableTextField(name, value);
@@ -911,21 +1003,34 @@ public class DocumentImpl implements Document {
 	}
 
 	protected void createSortableNumericField(
-		String name, String[] values, Class<? extends Number> clazz) {
+		String name, boolean typify, String value,
+		Class<? extends Number> clazz) {
 
-		if (values.length == 0) {
-			return;
+		if (typify) {
+			name = name.concat(StringPool.UNDERLINE).concat("Number");
 		}
 
 		String sortableFieldName = getSortableFieldName(name);
-		String min = Collections.min(Arrays.asList(values));
 
-		Field field = new Field(sortableFieldName, min);
+		Field field = new Field(sortableFieldName, value);
 
-		_fields.put(name, field);
+		_fields.put(sortableFieldName, field);
 
 		field.setNumeric(true);
 		field.setNumericClass(clazz);
+	}
+
+	protected <T extends Number & Comparable<? super T>> void
+		createSortableNumericField(String name, boolean typify, T... values) {
+
+		if ((values == null) || (values.length == 0)) {
+			return;
+		}
+
+		T minValue = Collections.min(Arrays.asList(values));
+
+		createSortableNumericField(
+			name, typify, String.valueOf(minValue), minValue.getClass());
 	}
 
 	protected void createSortableTextField(String name, String value) {
