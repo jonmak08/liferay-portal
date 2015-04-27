@@ -101,7 +101,7 @@ public class ConvertDocumentLibrary extends ConvertProcess {
 		return true;
 	}
 
-	protected boolean deleteFilesFromSourceStore() {
+	protected boolean isDeleteFilesFromSourceStore() {
 		String[] values = getParameterValues();
 
 		return GetterUtil.getBoolean(values[1]);
@@ -210,7 +210,7 @@ public class ConvertDocumentLibrary extends ConvertProcess {
 					companyId, repositoryId, fileName, versionNumber, is);
 			}
 
-			if (deleteFilesFromSourceStore()) {
+			if (isDeleteFilesFromSourceStore()) {
 				_sourceStore.deleteFile(
 					companyId, repositoryId, fileName, versionNumber);
 			}
