@@ -386,11 +386,11 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="Calendar#goToSpecificDayViaSmallCalendar">
+		<execute macro="Calendar#gotoSpecificDayViaSmallCalendar">
 			<var name="dateNumber" value="8" />
 		</execute>
 
-		<execute macro="CalendarEvent#goToAddOnSpecifcDayOfWeekViaWeekView">
+		<execute macro="CalendarEvent#gotoAddOnSpecifcDayOfWeekViaWeekView">
 			<var name="dayOfWeek" value="2" />
 		</execute>
 
@@ -403,7 +403,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="Calendar#goToBusyDayViaSmallCalendar" />
+		<execute macro="Calendar#gotoBusyDayViaSmallCalendar" />
 
 		<execute macro="CalendarEvent#viewPG">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -987,8 +987,11 @@
 
 		<execute macro="CalendarEvent#setDates">
 			<var name="endDate" value="02/15/2015" />
-			<var name="endDateTime" value="2:00 AM" />
 			<var name="startDate" value="02/15/2015" />
+		</execute>
+
+		<execute macro="CalendarEvent#setTimes">
+			<var name="endDateTime" value="2:00 AM" />
 			<var name="startDateTime" value="1:00 AM" />
 		</execute>
 
@@ -1007,11 +1010,11 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="Calendar#goToMonthViaSmallCalendar">
+		<execute macro="Calendar#gotoMonthViaSmallCalendar">
 			<var name="dateMonth" value="February 2016" />
 		</execute>
 
-		<execute macro="Calendar#goToSpecificBusyDayViaSmallCalendar">
+		<execute macro="Calendar#gotoSpecificBusyDayViaSmallCalendar">
 			<var name="dateNumber" value="2" />
 		</execute>
 
@@ -1193,7 +1196,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarEvent#changeCalendarViaQuickEditPG">
+		<execute macro="CalendarEvent#changeCalendarViaScheduler">
 			<var name="calendarDefaultName" value="Liferay" />
 			<var name="calendarName" value="Test Test" />
 			<var name="eventTitle" value="${eventTitle}" />
@@ -1220,7 +1223,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarEvent#changeCalendarViaQuickEditPG">
+		<execute macro="CalendarEvent#changeCalendarViaScheduler">
 			<var name="calendarDefaultName" value="Liferay" />
 			<var name="calendarName" value="Test Test" />
 			<var name="eventTitle" value="${eventTitle}" />
@@ -1248,7 +1251,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarEvent#changeCalendarViaQuickEditPG">
+		<execute macro="CalendarEvent#changeCalendarViaScheduler">
 			<var name="calendarDefaultName" value="Liferay" />
 			<var name="calendarName" value="Test Test" />
 			<var name="eventTitle" value="${eventTitle}" />
@@ -1488,8 +1491,11 @@
 
 		<execute macro="CalendarEvent#setDates">
 			<var name="endDate" value="02/2/2015" />
-			<var name="endDateTime" value="2:00 AM" />
 			<var name="startDate" value="02/2/2015" />
+		</execute>
+
+		<execute macro="CalendarEvent#setTimes">
+			<var name="endDateTime" value="2:00 AM" />
 			<var name="startDateTime" value="1:00 AM" />
 		</execute>
 
@@ -1506,11 +1512,11 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="Calendar#goToMonthViaSmallCalendar">
+		<execute macro="Calendar#gotoMonthViaSmallCalendar">
 			<var name="dateMonth" value="February 2015" />
 		</execute>
 
-		<execute macro="Calendar#goToSpecificBusyDayViaSmallCalendar">
+		<execute macro="Calendar#gotoSpecificBusyDayViaSmallCalendar">
 			<var name="dateNumber" value="2" />
 		</execute>
 
@@ -1528,11 +1534,11 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="Calendar#goToMonthViaSmallCalendar">
+		<execute macro="Calendar#gotoMonthViaSmallCalendar">
 			<var name="dateMonth" value="February 2015" />
 		</execute>
 
-		<execute macro="Calendar#goToSpecificBusyDayViaSmallCalendar">
+		<execute macro="Calendar#gotoSpecificBusyDayViaSmallCalendar">
 			<var name="dateNumber" value="3" />
 		</execute>
 
@@ -2675,7 +2681,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarEvent#changeCalendarViaQuickEditPG">
+		<execute macro="CalendarEvent#changeCalendarViaScheduler">
 			<var name="calendarDefaultName" value="Liferay" />
 			<var name="calendarName" value="${userFirstName} ${userLastName}" />
 			<var name="eventTitle" value="User Calendar Event 1" />
@@ -2696,7 +2702,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarEvent#changeCalendarViaQuickEditPG">
+		<execute macro="CalendarEvent#changeCalendarViaScheduler">
 			<var name="calendarDefaultName" value="Liferay" />
 			<var name="calendarName" value="${userFirstName} ${userLastName}" />
 			<var name="eventTitle" value="User Calendar Event 2" />
@@ -3186,6 +3192,72 @@
 		<execute macro="CalendarEvent#viewPG">
 			<var name="eventNumber" value="${eventNumber}" />
 			<var name="eventTitle" value="${eventTitle}" />
+		</execute>
+	</command>
+
+	<command name="ViewSiteCalendarRSSFeed" priority="5">
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
+		</execute>
+
+		<execute macro="CalendarEvent#gotoAdd" />
+
+		<execute macro="CalendarEvent#editTitle">
+			<var name="eventTitle" value="Current Day Event" />
+		</execute>
+
+		<execute macro="CalendarEvent#setDatesToday" />
+
+		<execute macro="CalendarEvent#setTimes">
+			<var name="endDateTime" value="11:59 PM" />
+			<var name="startDateTime" value="11:58 PM" />
+		</execute>
+
+		<execute macro="CalendarEvent#save">
+			<var name="pageName" value="${pageName}" />
+		</execute>
+
+		<execute macro="CalendarEvent#gotoPreviousDay" />
+
+		<execute macro="CalendarEvent#addViaDayView">
+			<var name="eventTitle" value="Previous Day Event" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
+		</execute>
+
+		<execute macro="CalendarEvent#gotoNextDay" />
+
+		<execute macro="CalendarEvent#addViaDayView">
+			<var name="eventTitle" value="Future Day Event" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
+		</execute>
+
+		<execute macro="Calendar#gotoSiteCalendarRSS">
+			<var name="calendarName" value="Liferay" />
+		</execute>
+
+		<execute macro="Calendar#viewRSSFeedEventPresent">
+			<var name="calendarName" value="Liferay" />
+			<var name="eventTitle" value="Current Day Event" />
+		</execute>
+
+		<execute macro="Calendar#viewRSSFeedEventPresent">
+			<var name="calendarName" value="Liferay" />
+			<var name="eventTitle" value="Future Day Event" />
+		</execute>
+
+		<execute macro="Calendar#viewRSSFeedEventNotPresent">
+			<var name="calendarName" value="Liferay" />
+			<var name="eventTitle" value="Past Day Event" />
+		</execute>
+
+		<execute macro="Calendar#gotoPageWindow">
+			<var name="pageName" value="${pageName}" />
 		</execute>
 	</command>
 
