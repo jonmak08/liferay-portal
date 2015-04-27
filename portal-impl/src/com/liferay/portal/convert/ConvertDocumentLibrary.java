@@ -91,7 +91,9 @@ public class ConvertDocumentLibrary extends ConvertProcess {
 			}
 		}
 
-		return new String[] {sb.toString(), "delete-from-old-store=checkbox"};
+		return new String[] {
+			sb.toString(), "delete-files-from-previous-repository=checkbox"
+		};
 	}
 
 	@Override
@@ -99,9 +101,15 @@ public class ConvertDocumentLibrary extends ConvertProcess {
 		return true;
 	}
 
+	protected boolean deleteFromPreviousRepository() {
+		String[] values = getParameterValues();
+
+		return GetterUtil.getBoolean(values[1]);
+	}
+
 	@Override
 	protected void doConvert() throws Exception {
-		_isDeleteFromOldStore = isDeleteFromOldStore();
+		_deleteFromPreviousRepository = deleteFromPreviousRepository();
 
 		_sourceStore = StoreFactory.getInstance();
 
@@ -132,12 +140,6 @@ public class ConvertDocumentLibrary extends ConvertProcess {
 
 		return ListUtil.sort(
 			dlFileVersions, new FileVersionVersionComparator(true));
-	}
-
-	protected boolean isDeleteFromOldStore() {
-		String[] values = getParameterValues();
-
-		return GetterUtil.getBoolean(values[1]);
 	}
 
 	protected void migrateDL() throws PortalException, SystemException {
@@ -210,7 +212,7 @@ public class ConvertDocumentLibrary extends ConvertProcess {
 					companyId, repositoryId, fileName, versionNumber, is);
 			}
 
-			if (_isDeleteFromOldStore) {
+			if (_deleteFromPreviousRepository) {
 				_sourceStore.deleteFile(
 					companyId, repositoryId, fileName, versionNumber);
 			}
@@ -332,7 +334,7 @@ public class ConvertDocumentLibrary extends ConvertProcess {
 	private static Log _log = LogFactoryUtil.getLog(
 		ConvertDocumentLibrary.class);
 
-	private boolean _isDeleteFromOldStore = false;
+	private boolean _deleteFromPreviousRepository = false;
 	private Store _sourceStore;
 	private Store _targetStore;
 
