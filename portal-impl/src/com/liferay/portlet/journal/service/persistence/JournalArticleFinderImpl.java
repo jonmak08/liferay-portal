@@ -805,8 +805,8 @@ public class JournalArticleFinderImpl
 		throws SystemException {
 
 		return doCountByG_C_S(
-				groupId, classNameId, new String[] {ddmStructureKey},
-				queryDefinition, inlineSQLHelper);
+			groupId, classNameId, new String[] {ddmStructureKey},
+			queryDefinition, inlineSQLHelper);
 	}
 
 	protected int doCountByG_C_S(
@@ -1169,8 +1169,8 @@ public class JournalArticleFinderImpl
 		throws SystemException {
 
 		return doFindByG_C_S(
-				groupId, classNameId, new String[] {ddmStructureKey},
-				queryDefinition, inlineSQLHelper);
+			groupId, classNameId, new String[] {ddmStructureKey},
+			queryDefinition, inlineSQLHelper);
 	}
 
 	protected List<JournalArticle> doFindByG_C_S(
