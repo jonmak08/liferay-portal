@@ -101,7 +101,7 @@ public class ConvertDocumentLibrary extends ConvertProcess {
 		return true;
 	}
 
-	protected boolean deleteFromPreviousRepository() {
+	protected boolean deleteFilesFromSourceStore() {
 		String[] values = getParameterValues();
 
 		return GetterUtil.getBoolean(values[1]);
@@ -109,8 +109,6 @@ public class ConvertDocumentLibrary extends ConvertProcess {
 
 	@Override
 	protected void doConvert() throws Exception {
-		_deleteFromPreviousRepository = deleteFromPreviousRepository();
-
 		_sourceStore = StoreFactory.getInstance();
 
 		String[] values = getParameterValues();
@@ -212,7 +210,7 @@ public class ConvertDocumentLibrary extends ConvertProcess {
 					companyId, repositoryId, fileName, versionNumber, is);
 			}
 
-			if (_deleteFromPreviousRepository) {
+			if (deleteFilesFromSourceStore()) {
 				_sourceStore.deleteFile(
 					companyId, repositoryId, fileName, versionNumber);
 			}
@@ -334,7 +332,6 @@ public class ConvertDocumentLibrary extends ConvertProcess {
 	private static Log _log = LogFactoryUtil.getLog(
 		ConvertDocumentLibrary.class);
 
-	private boolean _deleteFromPreviousRepository = false;
 	private Store _sourceStore;
 	private Store _targetStore;
 
