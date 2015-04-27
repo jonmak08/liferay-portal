@@ -27,7 +27,7 @@
 			<elseif>
 				<equals arg1="${calendarType}" arg2="Current Site Calendars" />
 				<then>
-					<execute function="Click" locator1="PGCalendar#CURRENT_SITE_CALENDARS_MENULIST_ARROW" />
+					<execute function="Click" locator1="PGCalendar#CURRENT_SITE_CALENDARS_CALENDAR_MENULIST_ARROW" />
 					<execute function="AssertClick" locator1="PGCalendar#CURRENT_SITE_CALENDARS_MENULIST_ADD_CALENDAR" value1="Add Calendar" />
 					<execute function="Pause" locator1="1000" />
 
@@ -92,7 +92,7 @@
 
 				<var name="key_color" value="${myCalendarColor}" />
 
-				<execute function="Click" locator1="PGCalendar#MY_CALENDARS_CALENDAR_MENULIST_COLOR_PICKER" />
+				<execute function="Click" locator1="PGCalendar#CALENDAR_MENULIST_COLOR_PICKER" />
 			</then>
 			<elseif>
 				<equals arg1="${calendarType}" arg2="Current Site Calendars" />
@@ -104,18 +104,18 @@
 
 					<var name="key_color" value="${siteCalendarColor}" />
 
-					<execute function="Click" locator1="PGCalendar#CURRENT_SITE_CALENDARS_CALENDAR_MENULIST_COLOR_PICKER" />
+					<execute function="Click" locator1="PGCalendar#CALENDAR_MENULIST_COLOR_PICKER" />
 				</then>
 			</elseif>
 		</if>
 	</command>
 
 	<command name="chooseMenulistOption">
-		<execute macro="Calendar#goToMenulistCmd">
+		<execute macro="Calendar#gotoOtherCalendarMenulistCmd">
 			<var name="calendarName" value="${calendarName}" />
 		</execute>
 
-		<execute macro="Calendar#goToMenulistOptionCmd">
+		<execute macro="Calendar#gotoMenulistOptionCmd">
 			<var name="menuListOption" value="${menuListOption}" />
 		</execute>
 	</command>
@@ -487,7 +487,7 @@
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
-	<command name="goToBusyDayViaSmallCalendar">
+	<command name="gotoBusyDayViaSmallCalendar">
 		<execute function="AssertElementPresent" locator1="PGCalendar#SMALL_CALENDAR_BUSY_DAY" />
 
 		<execute function="Click" locator1="PGCalendar#SMALL_CALENDAR_BUSY_DAY" />
@@ -502,20 +502,13 @@
 		<execute function="SelectFrame" locator1="CalendarConfiguration#CALENDAR_CONFIGURATION_IFRAME" />
 	</command>
 
-	<command name="goToMenulistCmd">
-		<var name="key_calendarName" value="${calendarName}" />
-
-		<execute function="AssertTextEquals" locator1="PGCalendar#OTHER_CALENDARS_CALENDAR" value1="${calendarName}" />
-		<execute function="Click" locator1="PGCalendar#OTHER_CALENDARS_CALENDAR_MENULIST_ARROW" value1="${calendarName}" />
-	</command>
-
-	<command name="goToMenulistOptionCmd">
+	<command name="gotoMenulistOptionCmd">
 		<var name="key_menuListOption" value="${menuListOption}" />
 
-		<execute function="AssertClick" locator1="PGCalendar#OTHER_CALENDARS_CALENDAR_MENULIST_OPTION" value1="${menuListOption}" />
+		<execute function="AssertClick" locator1="PGCalendar#CALENDAR_MENULIST_OPTION" value1="${menuListOption}" />
 	</command>
 
-	<command name="goToMonthViaSmallCalendar">
+	<command name="gotoMonthViaSmallCalendar">
 
 		<!--
 		To ensure the desired month will always be reached, click "Previous"
@@ -538,7 +531,37 @@
 		</while>
 	</command>
 
-	<command name="goToSpecificBusyDayViaSmallCalendar">
+	<command name="gotoOtherCalendarMenulistCmd">
+		<var name="key_calendarName" value="${calendarName}" />
+
+		<execute function="AssertTextEquals" locator1="PGCalendar#OTHER_CALENDARS_CALENDAR" value1="${calendarName}" />
+		<execute function="Click" locator1="PGCalendar#OTHER_CALENDARS_CALENDAR_MENULIST_ARROW" value1="${calendarName}" />
+	</command>
+
+	<command name="gotoPageWindow">
+		<execute function="SelectWindow" locator1="title=${pageName} - Liferay" />
+	</command>
+
+	<command name="gotoSiteCalendarMenulistCmd">
+		<var name="key_calendarName" value="${calendarName}" />
+
+		<execute function="AssertTextEquals" locator1="PGCalendar#CURRENT_SITE_CALENDARS_CALENDAR" value1="${calendarName}" />
+		<execute function="Click" locator1="PGCalendar#CURRENT_SITE_CALENDARS_CALENDAR_MENULIST_ARROW" value1="${calendarName}" />
+	</command>
+
+	<command name="gotoSiteCalendarRSS">
+		<execute macro="Calendar#gotoSiteCalendarMenulistCmd">
+			<var name="calendarName" value="${calendarName}" />
+		</execute>
+
+		<execute macro="Calendar#gotoMenulistOptionCmd">
+			<var name="menuListOption" value="RSS" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="title=${calendarName}" />
+	</command>
+
+	<command name="gotoSpecificBusyDayViaSmallCalendar">
 		<var name="key_dateNumber" value="${dateNumber}" />
 
 		<execute function="AssertElementPresent" locator1="PGCalendar#SMALL_CALENDAR_SPECIFIC_BUSY_DAY" />
@@ -546,7 +569,7 @@
 		<execute function="Click" locator1="PGCalendar#SMALL_CALENDAR_SPECIFIC_BUSY_DAY" />
 	</command>
 
-	<command name="goToSpecificDayViaSmallCalendar">
+	<command name="gotoSpecificDayViaSmallCalendar">
 		<var name="key_dateNumber" value="${dateNumber}" />
 
 		<execute function="Click" locator1="PGCalendar#SMALL_CALENDAR_SPECIFIC_DAY" />
@@ -657,7 +680,7 @@
 			<then>
 				<execute function="Click" locator1="PGCalendar#OTHER_CALENDARS_CALENDAR_GENERIC_MENULIST_ARROW" />
 
-				<execute macro="Calendar#goToMenulistOptionCmd">
+				<execute macro="Calendar#gotoMenulistOptionCmd">
 					<var name="menuListOption" value="Hide Calendar" />
 				</execute>
 			</then>
@@ -680,13 +703,13 @@
 	</command>
 
 	<command name="viewCalendarColorPicker">
-		<execute macro="Calendar#goToMenulistCmd">
+		<execute macro="Calendar#gotoOtherCalendarMenulistCmd">
 			<var name="calendarName" value="${calendarName}" />
 		</execute>
 
 		<var name="key_color" value="${color}" />
 
-		<execute function="AssertElementPresent" locator1="PGCalendar#OTHER_CALENDARS_CALENDAR_MENULIST_COLOR_PICKER" />
+		<execute function="AssertElementPresent" locator1="PGCalendar#CALENDAR_MENULIST_COLOR_PICKER" />
 	</command>
 
 	<command name="viewCalendarHiddenCmd">
@@ -874,6 +897,37 @@
 				</then>
 			</elseif>
 		</if>
+	</command>
+
+	<command name="viewRSSFeedEventNotPresent">
+		<execute function="AssertTextEquals" locator1="CalendarRSS#FEED_TITLE"  value1="${calendarName}" />
+
+		<var name="key_eventTitle" value="${eventTitle}" />
+
+		<execute function="AssertElementNotPresent" locator1="CalendarRSS#FEED_EVENT_TITLE" />
+		<execute function="AssertElementNotPresent" locator1="CalendarRSS#FEED_EVENT_DATES" />
+	</command>
+
+	<command name="viewRSSFeedEventPresent">
+		<execute function="AssertTextEquals" locator1="CalendarRSS#FEED_TITLE"  value1="${calendarName}" />
+
+		<var name="key_eventTitle" value="${eventTitle}" />
+
+		<execute function="AssertTextEquals" locator1="CalendarRSS#FEED_EVENT_LINK" value1="${eventTitle}" />
+		<execute function="AssertTextEquals" locator1="CalendarRSS#FEED_EVENT_TITLE" value1="${eventTitle}" />
+		<execute function="AssertElementPresent" locator1="CalendarRSS#FEED_EVENT_DATES" />
+	</command>
+
+	<command name="viewWeekCountViaMonthView">
+		<var name="key_weekNumber" value="${weekNumber}" />
+
+		<execute function="AssertElementPresent" locator1="PGCalendar#SCHEDULER_VIEW_MONTH_WEEK_NUMBER" />
+		<execute function="SelectFrame" value1="relative=top" />
+		<execute function="Pause" locator1="3000" />
+
+		<var name="key_weekNumber" value="${weekNumber?increment()}" />
+
+		<execute function="AssertElementNotPresent" locator1="PGCalendar#SCHEDULER_VIEW_MONTH_WEEK_NUMBER" />
 	</command>
 
 	<command name="viewWeekStartDayViaMonthView">

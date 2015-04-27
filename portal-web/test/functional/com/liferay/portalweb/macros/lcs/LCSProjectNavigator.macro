@@ -1,5 +1,5 @@
 <definition>
-	<command name="goToMyProject">
+	<command name="gotoMyProject">
 		<var name="key_projectName" value="${projectName}" />
 
 		<execute function="Click" locator1="LCSProjects#MY_PROJECT_NAME_LINK" value1="${projectName}" />
