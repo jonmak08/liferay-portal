@@ -191,6 +191,7 @@ else {
 			AssetEntryQuery assetEntryQuery = new AssetEntryQuery(classNameIds, searchContainer);
 
 			assetEntryQuery.setEnd(entryEnd);
+			assetEntryQuery.setEnablePermissions(true);
 			assetEntryQuery.setExcludeZeroViewCount(false);
 			assetEntryQuery.setStart(entryStart);
 
