@@ -13,7 +13,7 @@
 
 		<execute macro="CPWebcontentStructuresAddstructure#showDetails" />
 
-		<execute function="Type" locator1="CPWebcontentStructuresAddstructure#DESCRIPTION_FIELD" value1="${structureDescription}" />
+		<execute function="Type#sendKeysNoError" locator1="CPWebcontentStructuresAddstructure#DESCRIPTION_FIELD" value1="${structureDescription}" />
 		<execute function="SelectFrame" value1="relative=top" />
 
 		<for list="${structureFieldNames}" param="structureFieldName">
