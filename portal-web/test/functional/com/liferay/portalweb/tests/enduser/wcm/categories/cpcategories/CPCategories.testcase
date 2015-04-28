@@ -1156,9 +1156,9 @@
 			<var name="portletName" value="Categories" />
 		</execute>
 
-		<execute function="AssertClick" locator1="CPCategories#ADD_VOCABULARY_BUTTON" value1="Add Vocabulary" />
-		<execute function="Type" locator1="CPVocabulariesAdd#NAME_FIELD" value1="${vocabularyName}" />
-		<execute function="Click" locator1="CPVocabulariesAdd#CLOSE_BUTTON" />
+		<execute function="AssertClickNoError" locator1="CPCategories#ADD_VOCABULARY_BUTTON" value1="Add Vocabulary" />
+		<execute function="Type#sendKeysNoError" locator1="CPVocabulariesAdd#NAME_FIELD" value1="${vocabularyName}" />
+		<execute function="ClickNoError" locator1="CPVocabulariesAdd#CLOSE_BUTTON" />
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Categories" />
