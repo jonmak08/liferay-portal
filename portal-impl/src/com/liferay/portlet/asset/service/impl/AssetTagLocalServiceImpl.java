@@ -45,7 +45,9 @@ import com.liferay.portlet.social.util.SocialCounterPeriodUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Provides the local service for accessing, adding, checking, deleting,
@@ -646,9 +648,7 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		List<AssetTagProperty> oldTagProperties =
 			assetTagPropertyPersistence.findByTagId(tagId);
 
-		for (AssetTagProperty tagProperty : oldTagProperties) {
-			assetTagPropertyLocalService.deleteTagProperty(tagProperty);
-		}
+		Set<String> newKeys = new HashSet<String>();
 
 		for (int i = 0; i < tagProperties.length; i++) {
 			String[] tagProperty = StringUtil.split(
@@ -673,8 +673,26 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 			}
 
 			if (Validator.isNotNull(key)) {
-				assetTagPropertyLocalService.addTagProperty(
-					userId, tagId, key, value);
+				newKeys.add(key);
+
+				AssetTagProperty assetTagProperty =
+					assetTagPropertyLocalService.getTagProperty(tagId, key);
+
+				if (assetTagProperty != null) {
+					assetTagProperty.setValue(value);
+					assetTagPropertyLocalService.updateAssetTagProperty(
+						assetTagProperty);
+				}
+				else {
+					assetTagPropertyLocalService.addTagProperty(
+						userId, tagId, key, value);
+				}
+			}
+		}
+
+		for (AssetTagProperty tagProperty : oldTagProperties) {
+			if (!newKeys.contains(tagProperty.getKey())) {
+				assetTagPropertyLocalService.deleteTagProperty(tagProperty);
 			}
 		}
 
