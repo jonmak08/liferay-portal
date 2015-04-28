@@ -467,11 +467,17 @@ request.setAttribute("view_file_entry.jsp-fileEntry", fileEntry);
 
 						<span class="download-document">
 							<c:if test="<%= DLFileEntryPermission.contains(permissionChecker, fileEntry, ActionKeys.VIEW) %>">
+
+								<%
+								String previewURL = DLUtil.getPreviewURL(fileEntry, fileVersion, themeDisplay, StringPool.BLANK);
+								String downloadURL = HttpUtil.addParameter(previewURL, "download", true);
+								%>
+
 								<liferay-ui:icon
 									image="download"
 									label="<%= true %>"
 									message='<%= LanguageUtil.get(pageContext, "download") + " (" + TextFormatter.formatStorageSize(fileVersion.getSize(), locale) + ")" %>'
-									url="<%= DLUtil.getPreviewURL(fileEntry, fileVersion, themeDisplay, StringPool.BLANK) %>"
+									url="<%= downloadURL %>"
 								/>
 							</c:if>
 						</span>
@@ -851,13 +857,19 @@ request.setAttribute("view_file_entry.jsp-fileEntry", fileEntry);
 		var fileEntryButtonGroup = [];
 
 		<c:if test="<%= DLFileEntryPermission.contains(permissionChecker, fileEntry, ActionKeys.VIEW) %>">
+
+			<%
+			String previewURL = DLUtil.getPreviewURL(fileEntry, fileVersion, themeDisplay, StringPool.BLANK);
+			String downloadURL = HttpUtil.addParameter(previewURL, "download", true);
+			%>
+
 			fileEntryButtonGroup.push(
 				{
 					icon: 'icon-download',
 					label: '<%= UnicodeLanguageUtil.get(pageContext, "download") %>',
 					on: {
 						click: function(event) {
-							location.href = '<%= DLUtil.getPreviewURL(fileEntry, fileVersion, themeDisplay, StringPool.BLANK) %>';
+							location.href = '<%= downloadURL %>';
 						}
 					}
 				}
