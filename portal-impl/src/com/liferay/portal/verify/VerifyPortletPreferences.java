@@ -216,6 +216,8 @@ public class VerifyPortletPreferences extends VerifyProcess {
 								portletPreferences.getPortletPreferencesId() +
 									" can not be updated");
 					}
+
+					return;
 				}
 
 				if (_log.isInfoEnabled()) {
