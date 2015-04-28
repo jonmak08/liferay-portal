@@ -126,6 +126,9 @@ public class VerifyPortletPreferences extends VerifyProcess {
 	}
 
 	public static void cleanUpScopeIdPortletPreferences() throws Exception {
+		final long classNameId = ClassNameLocalServiceUtil.getClassNameId(
+			JournalArticle.class.getName());
+
 		ActionableDynamicQuery actionableDynamicQuery =
 			new PortletPreferencesActionableDynamicQuery() {
 
@@ -175,32 +178,28 @@ public class VerifyPortletPreferences extends VerifyProcess {
 						long[] groupIds = getGroupIds(
 							scopeIds, layout.getGroupId());
 
-						long classNameId =
-							ClassNameLocalServiceUtil.getClassNameId(
-								JournalArticle.class.getName());
-
 						List<DDMStructure> structures =
 							DDMStructureLocalServiceUtil.getStructures(
 								groupIds, classNameId);
 
-						long[] structureIds = new long[0];
+						long[] structureIdsArray = new long[structures.size()];
 
 						for (DDMStructure structure : structures) {
-							structureIds =
+							structureIdsArray =
 								ArrayUtil.append(
-									structureIds, structure.getStructureId());
+									structureIdsArray,
+									structure.getStructureId());
 						}
 
-						if (ArrayUtil.isNotEmpty(structureIds)) {
-							char[] charsToRemove = {
-								CharPool.CLOSE_BRACKET, CharPool.OPEN_BRACKET,
-								CharPool.SPACE};
-
-							String cleanStructureIds = StringUtil.strip(
-								Arrays.toString(structureIds), charsToRemove);
+						if (ArrayUtil.isNotEmpty(structureIdsArray)) {
+							String structureIds = StringUtil.strip(
+								Arrays.toString(structureIdsArray),
+								new char[] {
+									CharPool.CLOSE_BRACKET,
+									CharPool.OPEN_BRACKET, CharPool.SPACE});
 
 							jxPortletPreferences.setValue(
-								preferenceName, cleanStructureIds);
+								preferenceName, structureIds);
 						}
 						else {
 							jxPortletPreferences.reset(preferenceName);
