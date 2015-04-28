@@ -34,7 +34,7 @@
 		<if>
 			<equals arg1="${allowMultipleCategories}" arg2="False" />
 			<then>
-				<execute function="Uncheck" locator1="CPVocabulariesAdd#ALLOW_MULTIPLE_CATEGORIES_CHECKBOX" />
+				<execute function="Uncheck#uncheckNoError" locator1="CPVocabulariesAdd#ALLOW_MULTIPLE_CATEGORIES_CHECKBOX" />
 			</then>
 		</if>
 
@@ -43,8 +43,8 @@
 			<then>
 				<var name="key_localizationName" value="${localizationNameKey}" />
 
-				<execute function="Click" locator1="CPVocabulariesAdd#LOCALIZATION_NAME" />
-				<execute function="Type" locator1="CPVocabulariesAdd#NAME_FIELD" value1="${localizationName}" />
+				<execute function="ClickNoError" locator1="CPVocabulariesAdd#LOCALIZATION_NAME" />
+				<execute function="Type#sendKeysNoError" locator1="CPVocabulariesAdd#NAME_FIELD" value1="${localizationName}" />
 			</then>
 		</if>
 
@@ -53,12 +53,12 @@
 			<then>
 				<var name="key_localizationName" value="${localization2NameKey}" />
 
-				<execute function="Click" locator1="CPVocabulariesAdd#LOCALIZATION_NAME" />
-				<execute function="Type" locator1="CPVocabulariesAdd#NAME_FIELD" value1="${localization2Name}" />
+				<execute function="ClickNoError" locator1="CPVocabulariesAdd#LOCALIZATION_NAME" />
+				<execute function="Type#sendKeysNoError" locator1="CPVocabulariesAdd#NAME_FIELD" value1="${localization2Name}" />
 			</then>
 		</if>
 
-		<execute function="AssertClick" locator1="CPVocabulariesAdd#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClickNoError" locator1="CPVocabulariesAdd#SAVE_BUTTON" value1="Save" />
 		<execute function="AssertTextEquals" locator1="CPCategories#SUCCESS_MESSAGE" value1="Your request processed successfully." />
 
 		<var name="key_vocabularyName" value="${vocabularyName}" />
@@ -67,11 +67,11 @@
 	</command>
 
 	<command name="addViewableByCP">
-		<execute function="AssertClick" locator1="CPCategories#ADD_VOCABULARY_BUTTON" value1="Add Vocabulary" />
+		<execute function="AssertClickNoError" locator1="CPCategories#ADD_VOCABULARY_BUTTON" value1="Add Vocabulary" />
 
-		<execute function="Type" locator1="CPVocabulariesAdd#NAME_FIELD" value1="${vocabularyName}" />
+		<execute function="Type#sendKeysNoError" locator1="CPVocabulariesAdd#NAME_FIELD" value1="${vocabularyName}" />
 		<execute function="Select" locator1="CPVocabulariesAdd#VIEWABLE_BY_SELECT" value1="${viewableBy}" />
-		<execute function="AssertClick" locator1="CPVocabulariesAdd#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClickNoError" locator1="CPVocabulariesAdd#SAVE_BUTTON" value1="Save" />
 
 		<execute function="AssertTextEquals" locator1="CPCategories#SUCCESS_MESSAGE" value1="Your request processed successfully." />
 
@@ -81,16 +81,16 @@
 	</command>
 
 	<command name="addVocabularyWithNullTitle">
-		<execute function="AssertClick" locator1="CPCategories#ADD_VOCABULARY_BUTTON" value1="Add Vocabulary" />
-		<execute function="Type" locator1="CPVocabulariesAdd#NAME_FIELD" value1=" " />
+		<execute function="AssertClickNoError" locator1="CPCategories#ADD_VOCABULARY_BUTTON" value1="Add Vocabulary" />
+		<execute function="Type#sendKeysNoError" locator1="CPVocabulariesAdd#NAME_FIELD" value1=" " />
 
-		<execute function="AssertClick" locator1="CPVocabulariesAdd#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClickNoError" locator1="CPVocabulariesAdd#SAVE_BUTTON" value1="Save" />
 		<execute function="AssertTextEquals" locator1="CPVocabulariesAdd#ERROR_MESSAGE" value1="One of your fields contains invalid characters." />
 	</command>
 
 	<command name="addWithAssociatedAssetTypeCP">
-		<execute function="AssertClick" locator1="CPCategories#ADD_VOCABULARY_BUTTON" value1="Add Vocabulary" />
-		<execute function="Type" locator1="CPVocabulariesAdd#NAME_FIELD" value1="${vocabularyName}" />
+		<execute function="AssertClickNoError" locator1="CPCategories#ADD_VOCABULARY_BUTTON" value1="Add Vocabulary" />
+		<execute function="Type#sendKeysNoError" locator1="CPVocabulariesAdd#NAME_FIELD" value1="${vocabularyName}" />
 
 		<if>
 			<condition function="IsElementNotPresent#isNotVisible" locator1="CPVocabulariesAdd#ASSOCIATED_ASSET_TYPES_SELECT" />
@@ -108,7 +108,7 @@
 			</then>
 		</if>
 
-		<execute function="AssertClick" locator1="CPVocabulariesAdd#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClickNoError" locator1="CPVocabulariesAdd#SAVE_BUTTON" value1="Save" />
 		<execute function="AssertTextEquals" locator1="CPCategories#SUCCESS_MESSAGE" value1="Your request processed successfully." />
 
 		<var name="key_vocabularyName" value="${vocabularyName}" />
