@@ -9,16 +9,6 @@
 </thead>
 <tbody>
 <tr>
-	<td>COG_ICON</td>
-	<td>//div[@id='main-content']//i[contains(@class,'icon-cog')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>COG_MENULIST_CONFIGURATION</td>
-	<td>//ul[contains(@class,'dropdown-menu') and contains(@class,'lfr-menu-list') and contains(@class,'direction-down')]/li/a[contains(.,'Configuration')]</td>
-	<td></td>
-</tr>
-<tr>
 	<td>ADD_EVENT_BUTTON</td>
 	<td>//button[contains(@class,'btn') and contains(@class,'btn-primary') and contains(@class,'calendar-add-event-btn')]</td>
 	<td></td>
