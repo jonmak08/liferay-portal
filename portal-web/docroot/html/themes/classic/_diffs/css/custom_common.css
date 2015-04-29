@@ -849,6 +849,14 @@
 		}
 	}
 
+	/* ---------- CKEditor ---------- */
+
+	.html-editor.portlet-message-boards {
+		a {
+			font-weight: inherit;
+		}
+	}
+
 	/* ---------- Extras ---------- */
 
 	$prefixes: ("-webkit-","-moz-", "-o-", "");
