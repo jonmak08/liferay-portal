@@ -678,14 +678,14 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 				AssetTagProperty assetTagProperty =
 					assetTagPropertyPersistence.fetchByT_K(tagId, key);
 
-				if (assetTagProperty != null) {
+				if (assetTagProperty == null) {
+					assetTagPropertyLocalService.addTagProperty(
+						userId, tagId, key, value);
+				}
+				else {
 					assetTagProperty.setValue(value);
 					assetTagPropertyLocalService.updateAssetTagProperty(
 						assetTagProperty);
-				}
-				else {
-					assetTagPropertyLocalService.addTagProperty(
-						userId, tagId, key, value);
 				}
 			}
 		}
