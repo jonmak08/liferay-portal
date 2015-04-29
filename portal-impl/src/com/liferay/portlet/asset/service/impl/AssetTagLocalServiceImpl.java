@@ -676,7 +676,7 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 				newKeys.add(key);
 
 				AssetTagProperty assetTagProperty =
-					assetTagPropertyLocalService.getTagProperty(tagId, key);
+					assetTagPropertyPersistence.fetchByT_K(tagId, key);
 
 				if (assetTagProperty != null) {
 					assetTagProperty.setValue(value);
