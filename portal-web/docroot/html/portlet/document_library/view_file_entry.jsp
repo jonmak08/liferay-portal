@@ -858,19 +858,19 @@ request.setAttribute("view_file_entry.jsp-fileEntry", fileEntry);
 		var fileEntryButtonGroup = [];
 
 		<c:if test="<%= DLFileEntryPermission.contains(permissionChecker, fileEntry, ActionKeys.VIEW) %>">
-
-			<%
-			String previewURL = DLUtil.getPreviewURL(fileEntry, fileVersion, themeDisplay, StringPool.BLANK);
-
-			String downloadURL = HttpUtil.addParameter(previewURL, "download", true);
-			%>
-
 			fileEntryButtonGroup.push(
 				{
 					icon: 'icon-download',
 					label: '<%= UnicodeLanguageUtil.get(pageContext, "download") %>',
 					on: {
 						click: function(event) {
+
+							<%
+							String previewURL = DLUtil.getPreviewURL(fileEntry, fileVersion, themeDisplay, StringPool.BLANK);
+
+							String downloadURL = HttpUtil.addParameter(previewURL, "download", true);
+							%>
+
 							location.href = '<%= downloadURL %>';
 						}
 					}
