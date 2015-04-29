@@ -6,6 +6,7 @@
 	table {
 		tbody td, thead th {
 			text-align: center;
+			word-break: normal;
 
 			&:first-child {
 				text-align: left;
