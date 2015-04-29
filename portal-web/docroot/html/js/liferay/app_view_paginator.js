@@ -243,9 +243,9 @@ AUI.add(
 						];
 
 						if (showControls && (entriesTotal || foldersTotal)) {
-							instance._hidePaginationPageNodes(entryPagination);
+							instance._hideAllPaginatorNodes(entryPagination);
 
-							instance._displayPages(entryPagination, entryPagination.get(STR_PAGE));
+							instance._displayPaginator(entryPagination, entryPagination.get(STR_PAGE));
 						}
 					},
 
@@ -345,17 +345,17 @@ AUI.add(
 
 							if (instance.get(STR_SHOW_CONTROLS)) {
 								if (!paginationDataPrevVal || (paginationDataPrevVal && (paginationDataPrevVal.state.rowsPerPage !== rowsPerPage))) {
-									instance._hidePaginationPageNodes(pagination);
+									instance._hideAllPaginatorNodes(pagination);
 
 									pagination._paginationContentNode.setData(STR_OLD_PAGES, null);
 								}
 
-								instance._displayPages(pagination, state.page);
+								instance._displayPaginator(pagination, state.page);
 							}
 						}
 					},
 
-					_displayPages: function(pagination, page) {
+					_displayPaginator: function(pagination, page) {
 						var instance = this;
 
 						var pageNodes = instance._getPaginationPageNodes(pagination);
@@ -372,15 +372,13 @@ AUI.add(
 
 						instance._syncPrevNextPagesControls(pageNodes, paginationContentNode, page);
 
-						var visiblePages = [];
-
 						var oldPages = paginationContentNode.getData(STR_OLD_PAGES);
 
-						visiblePages = instance._showVisiblePages(numberOfPages, oldPages, page, pageNodes, visiblePages);
+						instance._renderPaginatorNodes(numberOfPages, oldPages, page, pageNodes);
 
-						paginationContentNode.setData(STR_OLD_PAGES, visiblePages);
+						paginationContentNode.setData(STR_OLD_PAGES, instance._visiblePages);
 
-						var lastPage = (page - 1);
+						var lastPage = page - 1;
 
 						var lastPageNode = pageNodes.item(lastPage);
 
@@ -432,9 +430,9 @@ AUI.add(
 
 						var paginationControlSize = pagination._paginationContentNode.all('.pagination-control').size();
 
-						var shiftIndex = (paginationControlSize / 2);
+						var shiftIndex = paginationControlSize / 2;
 
-						var newIndex = (pagination.get(STR_TOTAL) + shiftIndex);
+						var newIndex = pagination.get(STR_TOTAL) + shiftIndex;
 
 						return pagination.get('items').slice(shiftIndex, newIndex);
 					},
@@ -445,7 +443,7 @@ AUI.add(
 						if (!Lang.isValue(page)) {
 							page = 0;
 
-							var curPage = (pagination.get(STR_PAGE) - 1);
+							var curPage = pagination.get(STR_PAGE) - 1;
 
 							if (curPage > 0) {
 								page = curPage;
@@ -464,12 +462,24 @@ AUI.add(
 						return Math.ceil(totalRows / rowsPerPage);
 					},
 
-					_hidePaginationPageNodes: function(pagination) {
+					_hideAllPaginatorNodes: function(pagination) {
 						var instance = this;
 
 						var pageNodes = instance._getPaginationPageNodes(pagination);
 
 						pageNodes.hide();
+					},
+
+					_hideCurrentPaginatorNodes: function(numberOfPages, pages, pageNodes) {
+						var instance = this;
+
+						for (var i = 0; i < pages.length; i++) {
+							var oldPageNode = pageNodes.item(pages[i]);
+
+							if (oldPageNode) {
+								oldPageNode.hide();
+							}
+						}
 					},
 
 					_onDataRequest: function(event) {
@@ -486,79 +496,34 @@ AUI.add(
 						}
 					},
 
-					_showVisiblePages: function(numberOfPages, oldPages, page, pageNodes, visiblePages) {
+					_renderPaginatorNodes: function(numberOfPages, oldPages, page, pageNodes) {
 						var instance = this;
 
-						var pageCounter = page;
+						if (!instance._visiblePages || (A.Array.indexOf(instance._visiblePages, page - 1) === -1) || (oldPages != instance._visiblePages)) {
+							instance._updateVisiblePagesList(numberOfPages, page, pageNodes);
+						}
 
 						if (oldPages) {
-							do {
-								visiblePages.unshift(pageCounter - 1);
-
-								pageCounter--;
-							} while ((pageCounter % numberOfPages) > 0);
-
-							pageCounter = page;
-
-							while ((pageCounter % numberOfPages) > 0) {
-								visiblePages.push(pageCounter);
-
-								pageCounter++;
-							}
-
-							var pageLength = (page - 1);
-
-							if ((oldPages.indexOf(pageLength) === -1)) {
-								for (var i = 0; i < numberOfPages; i++) {
-									var visiblePageNode = pageNodes.item(visiblePages[i]);
-
-									if (visiblePageNode) {
-										visiblePageNode.show();
-									}
-
-									var oldPageNode = pageNodes.item(oldPages[i]);
-
-									if (oldPageNode) {
-										oldPageNode.hide();
-									}
-								}
+							if (A.Array.indexOf(oldPages, page - 1) === -1) {
+								instance._showCurrentPaginatorNodes(numberOfPages, instance._visiblePages, pageNodes);
+								instance._hideCurrentPaginatorNodes(numberOfPages, oldPages, pageNodes);
 							}
 						}
 						else {
-							do {
-								var pageCounterLength = (pageCounter - 1);
+							instance._showCurrentPaginatorNodes(numberOfPages, instance._visiblePages, pageNodes);
+						}
+					},
 
-								pageNodes.item(pageCounterLength).show();
+					_showCurrentPaginatorNodes: function(numberOfPages, pages, pageNodes) {
+						var instance = this;
 
-								visiblePages.unshift(pageCounterLength);
+						for (var i = 0; i < pages.length; i++) {
+							var visiblePageNode = pageNodes.item(pages[i]);
 
-								pageCounter--;
-							} while ((pageCounter % numberOfPages) > 0);
-
-							pageCounter = page;
-
-							while ((pageCounter % numberOfPages) > 0) {
-								var pageCounterLength = (pageCounter - 1);
-
-								pageNodes.item(pageCounterLength).show();
-
-								visiblePages.push(pageCounter);
-
-								pageCounter++;
-
-								if ((pageCounter % numberOfPages) === 0) {
-									var updatedPageCounterLength = (pageCounter - 1);
-
-									var firstPageNode = pageNodes.item(updatedPageCounterLength);
-
-									if (firstPageNode) {
-										firstPageNode.show();
-									}
-								}
+							if (visiblePageNode) {
+								visiblePageNode.show();
 							}
 						}
-
-						return visiblePages;
 					},
 
 					_syncPrevNextPagesControls: function(pageNodes, paginationContentNode, page) {
@@ -583,9 +548,9 @@ AUI.add(
 								nextPages.removeClass(CSS_HIDE);
 							}
 
-							var modNumberOfPages = (totalPages % numberOfPages);
+							var modNumberOfPages = totalPages % numberOfPages;
 
-							var deltaTotalPages = (totalPages - modNumberOfPages);
+							var deltaTotalPages = totalPages - modNumberOfPages;
 
 							if ((page > numberOfPages) && (page <= deltaTotalPages)) {
 								prevPages.removeClass(CSS_HIDE);
@@ -635,6 +600,35 @@ AUI.add(
 						if (!AObject.isEmpty(customParams)) {
 							A.mix(requestParams, customParams, true);
 						}
+					},
+
+					_updateVisiblePagesList: function(numberOfPages, page, pageNodes) {
+						var instance = this;
+
+						var pageCounter = page;
+
+						var visiblePages = [];
+
+						do {
+							visiblePages.unshift(pageCounter - 1);
+
+							pageCounter--;
+						}
+						while (pageCounter % numberOfPages > 0);
+
+						pageCounter = page;
+
+						while (pageCounter % numberOfPages > 0) {
+							visiblePages.push(pageCounter);
+
+							if (pageCounter >= pageNodes.size()) {
+								break;
+							}
+
+							pageCounter ++;
+						}
+
+						instance._visiblePages = visiblePages;
 					}
 				},
 

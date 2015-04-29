@@ -248,21 +248,14 @@ AUI.add(
 						return currentPage;
 					},
 
-					_afterResultsChange: function(event) {
-						var instance = this;
-
-						instance._syncResults();
-					},
-
 					_countPaginationControls: function(items) {
 						var instance = this;
 
 						var controlCount = 0;
 
-						A.each(
-							items,
-							function(node, index) {
-								if (node.hasClass(CSS_PAGINATION_CONTROL)) {
+						items.each(
+							function(item, index) {
+								if (item.hasClass(CSS_PAGINATION_CONTROL)) {
 									controlCount++;
 								}
 							}
@@ -286,11 +279,10 @@ AUI.add(
 
 						var activeNodeIndex;
 
-						A.each(
-							items,
-							function(node, index) {
-								if (node.hasClass(CSS_ACTIVE)) {
-									activeNodeIndex = (items.indexOf(node) - instance.get(STR_SHIFT));
+						items.each(
+							function(item, index) {
+								if (item.hasClass(CSS_ACTIVE)) {
+									activeNodeIndex = items.indexOf(item) - instance.get(STR_SHIFT);
 								}
 							}
 						);
@@ -366,7 +358,7 @@ AUI.add(
 
 						var numberOfPages = instance.get('numberOfPages');
 
-						var modCurrentIndex = (currentIndex % numberOfPages);
+						var modCurrentIndex = currentIndex % numberOfPages;
 
 						var pagesStart = modCurrentIndex || numberOfPages;
 
@@ -385,14 +377,14 @@ AUI.add(
 						else if (controlItem.hasClass('prev-pages')) {
 							instance._dispatchRequest(
 								{
-									page: (currentIndex - numberOfPages - pagesStart)
+									page: currentIndex - numberOfPages - pagesStart
 								}
 							);
 						}
 						else if (controlItem.hasClass('next-pages')) {
 							instance._dispatchRequest(
 								{
-									page: (currentIndex + numberOfPages - pagesStart)
+									page: (currentIndex + numberOfPages) - pagesStart
 								}
 							);
 						}
@@ -402,14 +394,14 @@ AUI.add(
 						else if (controlItem.hasClass('last')) {
 							instance._dispatchRequest(
 								{
-									page: (index - instance.TOTAL_CONTROLS + 1)
+									page: (index - instance.TOTAL_CONTROLS) + 1
 								}
 							);
 						}
 						else {
 							instance._dispatchRequest(
 								{
-									page: (index - instance.get(STR_SHIFT))
+									page: index - instance.get(STR_SHIFT)
 								}
 							);
 						}
@@ -436,33 +428,34 @@ AUI.add(
 
 						var index = items.indexOf(currentTarget);
 
-						var lastIndex = (items.size() - 1);
+						var lastIndex = items.size() - 1;
+
+						var isDisabled = (function() {
+							if (currentTarget.hasClass(CSS_DISABLED)) {
+								return false;
+							}
+							else if (currentTarget.hasClass(CSS_ACTIVE)) {
+								return false;
+							}
+							else {
+								return true;
+							}
+						})();
 
 						event.preventDefault();
 
-						if (!currentTarget.hasClass(CSS_DISABLED) || !currentTarget.hasClass(CSS_ACTIVE)) {
-							if (index === 0) {
-								instance._goToPage(index, items.first());
-							}
-							else if (index === 1) {
-								instance._goToPage(index, items.item(1));
-							}
-							else if (index === 2) {
-								instance._goToPage(index, items.item(2));
-							}
-							else if (index === lastIndex - 2) {
-								instance._goToPage(index, items.item(lastIndex - 2));
-							}
-							else if (index === lastIndex - 1) {
-								instance._goToPage(index, items.item(lastIndex - 1));
-							}
-							else if (index === lastIndex) {
-								instance._goToPage(index, items.item(lastIndex));
+						if (isDisabled) {
+							var startRange = 2;
+
+							var endRange = lastIndex - 2;
+
+							if (index <= startRange || index >= endRange) {
+								instance._goToPage(index, items.item(index));
 							}
 							else {
 								instance._dispatchRequest(
 									{
-										page: (index - instance.get(STR_SHIFT))
+										page: index - instance.get(STR_SHIFT)
 									}
 								);
 							}
@@ -538,7 +531,7 @@ AUI.add(
 						var formatter = instance.get('formatter');
 						var offset = instance.get('offset');
 
-						for (var i = offset; i <= (offset + total - 1); i++) {
+						for (var i = offset; i <= offset + total - 1; i++) {
 							buffer += formatter.apply(instance, [i]);
 						}
 
@@ -583,7 +576,7 @@ AUI.add(
 						instance.TOTAL_CONTROLS = instance._countPaginationControls(items);
 
 						if (!instance.get(STR_SHIFT)) {
-							instance.set(STR_SHIFT, ((instance.TOTAL_CONTROLS / 2) - 1));
+							instance.set(STR_SHIFT, (instance.TOTAL_CONTROLS / 2) - 1);
 						}
 
 						instance.set(STR_ITEMS, items);
@@ -591,11 +584,10 @@ AUI.add(
 						instance.get('contentBox').setContent(items);
 
 						if (!instance.get('showControls')) {
-							A.each(
-								items,
-								function(node) {
-									if (node.hasClass(CSS_PAGINATION_CONTROL)) {
-										node.remove();
+							items.each(
+								function(item) {
+									if (item.hasClass(CSS_PAGINATION_CONTROL)) {
+										item.remove();
 									}
 								}
 							);
@@ -617,8 +609,8 @@ AUI.add(
 						var page = instance.get(STR_PAGE);
 						var total = instance.get('total');
 
-						var firstPage = (page === 1);
-						var lastPage = (page === total);
+						var firstPage = page <= 1;
+						var lastPage = page >= total;
 
 						if (!instance.get('circular')) {
 							items.item(1).toggleClass(
@@ -628,7 +620,7 @@ AUI.add(
 
 							var lastItemIndex = items.indexOf(items.last());
 
-							var nextToLastItem = (lastItemIndex - 1);
+							var nextToLastItem = lastItemIndex - 1;
 
 							items.item(nextToLastItem).toggleClass(
 								CSS_DISABLED,
@@ -658,8 +650,6 @@ AUI.add(
 					_uiSetPage: function(val) {
 						var instance = this;
 
-						instance._syncNavigationUI();
-
 						if ((val !== 0) || (val !== instance.getTotalItems())) {
 							var item = instance.getItem(val);
 
@@ -683,9 +673,11 @@ AUI.add(
 						var results = instance.get(STR_RESULTS);
 						var itemsPerPageList = instance.get(STR_ITEMS_PER_PAGE_LIST);
 
-						instance._paginationControls.toggleClass(hiddenClass, (results <= itemsPerPageList[0]));
+						instance._paginationControls.toggleClass(hiddenClass, results <= itemsPerPageList[0]);
 
 						instance._paginationContentNode.toggleClass(hiddenClass, !val);
+
+						instance._syncNavigationUI();
 					}
 				}
 			}
