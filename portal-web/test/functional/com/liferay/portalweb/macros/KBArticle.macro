@@ -1173,6 +1173,8 @@
 	</command>
 
 	<command name="viewKBDisplayPG">
+		<execute function="AssertHTMLSourceTextPresent" value1="${kbArticleTitle} - Liferay"  />
+
 		<if>
 			<isset var="kbArticleFriendlyURL" />
 			<then>
