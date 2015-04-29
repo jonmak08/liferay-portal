@@ -675,10 +675,10 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 			if (Validator.isNotNull(key)) {
 				newKeys.add(key);
 
-				AssetTagProperty assetTagProperty =
+				AssetTagProperty keyTagProperty =
 					assetTagPropertyPersistence.fetchByT_K(tagId, key);
 
-				if (assetTagProperty == null) {
+				if (keyTagProperty == null) {
 					assetTagPropertyLocalService.addTagProperty(
 						userId, tagId, key, value);
 				}
