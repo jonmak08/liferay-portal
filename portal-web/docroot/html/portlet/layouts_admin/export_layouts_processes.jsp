@@ -104,6 +104,7 @@ OrderByComparator orderByComparator = BackgroundTaskComparatorFactoryUtil.getBac
 						sb.append(StringPool.CLOSE_PARENTHESIS);
 
 						String portletFileEntryURL = PortletFileRepositoryUtil.getPortletFileEntryURL(themeDisplay, fileEntry, StringPool.BLANK);
+
 						String downloadPortletFileEntryURL = HttpUtil.addParameter(portletFileEntryURL, "download", true);
 						%>
 

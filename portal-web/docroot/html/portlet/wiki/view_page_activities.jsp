@@ -101,6 +101,7 @@ iteratorURL.setParameter("title", wikiPage.getTitle());
 
 									<%
 									String portletFileEntryURL = PortletFileRepositoryUtil.getPortletFileEntryURL(themeDisplay, fileEntry, StringPool.BLANK);
+
 									String downloadPortletFileEntryURL = HttpUtil.addParameter(portletFileEntryURL, "download", true);
 									%>
 

@@ -177,6 +177,7 @@ iteratorURL.setParameter("viewTrashAttachments", String.valueOf(viewTrashAttachm
 		}
 
 		String rowHREF = PortletFileRepositoryUtil.getPortletFileEntryURL(themeDisplay, fileEntry, "status=" + status);
+
 		rowHREF = HttpUtil.addParameter(rowHREF, "download", true);
 		%>
 

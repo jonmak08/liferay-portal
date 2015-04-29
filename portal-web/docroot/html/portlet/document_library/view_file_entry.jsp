@@ -470,6 +470,7 @@ request.setAttribute("view_file_entry.jsp-fileEntry", fileEntry);
 
 								<%
 								String previewURL = DLUtil.getPreviewURL(fileEntry, fileVersion, themeDisplay, StringPool.BLANK);
+
 								String downloadURL = HttpUtil.addParameter(previewURL, "download", true);
 								%>
 
@@ -860,6 +861,7 @@ request.setAttribute("view_file_entry.jsp-fileEntry", fileEntry);
 
 			<%
 			String previewURL = DLUtil.getPreviewURL(fileEntry, fileVersion, themeDisplay, StringPool.BLANK);
+
 			String downloadURL = HttpUtil.addParameter(previewURL, "download", true);
 			%>
 

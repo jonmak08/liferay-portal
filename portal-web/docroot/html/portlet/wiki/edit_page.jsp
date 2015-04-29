@@ -316,6 +316,7 @@ if (Validator.isNull(redirect)) {
 								FileEntry attachmentsFileEntry = attachmentsFileEntries.get(i);
 
 								String portletFileEntryURL = PortletFileRepositoryUtil.getPortletFileEntryURL(themeDisplay, attachmentsFileEntry, StringPool.BLANK);
+
 								String downloadPortletFileEntryURL = HttpUtil.addParameter(portletFileEntryURL, "download", true);
 							%>
 
