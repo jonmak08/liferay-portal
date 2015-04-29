@@ -182,24 +182,23 @@ public class VerifyPortletPreferences extends VerifyProcess {
 							DDMStructureLocalServiceUtil.getStructures(
 								groupIds, classNameId);
 
-						long[] structureIdsArray = new long[structures.size()];
+						long[] structureIds = new long[structures.size()];
 
 						for (DDMStructure structure : structures) {
-							structureIdsArray =
-								ArrayUtil.append(
-									structureIdsArray,
-									structure.getStructureId());
+							structureIds = ArrayUtil.append(
+								structureIds, structure.getStructureId());
 						}
 
-						if (ArrayUtil.isNotEmpty(structureIdsArray)) {
-							String structureIds = StringUtil.strip(
-								Arrays.toString(structureIdsArray),
+						if (ArrayUtil.isNotEmpty(structureIds)) {
+							String structureIdsString = StringUtil.strip(
+								Arrays.toString(structureIds),
 								new char[] {
 									CharPool.CLOSE_BRACKET,
-									CharPool.OPEN_BRACKET, CharPool.SPACE});
+									CharPool.OPEN_BRACKET, CharPool.SPACE
+								});
 
 							jxPortletPreferences.setValue(
-								preferenceName, structureIds);
+								preferenceName, structureIdsString);
 						}
 						else {
 							jxPortletPreferences.reset(preferenceName);
@@ -212,9 +211,8 @@ public class VerifyPortletPreferences extends VerifyProcess {
 				catch (ReadOnlyException roe) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
-							"Portlet Preferences with ID " +
-								portletPreferences.getPortletPreferencesId() +
-									" can not be updated");
+							"Unable to update portlet preferences " +
+								portletPreferences.getPortletPreferencesId());
 					}
 
 					return;
@@ -222,7 +220,7 @@ public class VerifyPortletPreferences extends VerifyProcess {
 
 				if (_log.isInfoEnabled()) {
 					_log.info(
-						"Updating Portlet Preferences with ID " +
+						"Updating portlet preferences " +
 							portletPreferences.getPortletPreferencesId());
 				}
 
@@ -240,22 +238,24 @@ public class VerifyPortletPreferences extends VerifyProcess {
 	private static long[] getGroupIds(String[] scopeIds, long defaultGroupId) {
 		long[] groupIds = new long[0];
 
-		long siteGroupId;
-
 		for (String scopeId : scopeIds) {
-			if (scopeId.startsWith(AssetPublisher.SCOPE_ID_GROUP_PREFIX)) {
-				String scopeIdSuffix = scopeId.substring(
-					AssetPublisher.SCOPE_ID_GROUP_PREFIX.length());
-
-				if (scopeIdSuffix.equals(GroupConstants.DEFAULT)) {
-					siteGroupId = defaultGroupId;
-				}
-				else {
-					siteGroupId = Long.valueOf(scopeIdSuffix);
-				}
-
-				groupIds = ArrayUtil.append(groupIds, siteGroupId);
+			if (!scopeId.startsWith(AssetPublisher.SCOPE_ID_GROUP_PREFIX)) {
+				continue;
 			}
+
+			long siteGroupId = 0;
+
+			String scopeIdSuffix = scopeId.substring(
+				AssetPublisher.SCOPE_ID_GROUP_PREFIX.length());
+
+			if (scopeIdSuffix.equals(GroupConstants.DEFAULT)) {
+				siteGroupId = defaultGroupId;
+			}
+			else {
+				siteGroupId = Long.valueOf(scopeIdSuffix);
+			}
+
+			groupIds = ArrayUtil.append(groupIds, siteGroupId);
 		}
 
 		return groupIds;
