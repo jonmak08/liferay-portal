@@ -86,7 +86,7 @@ AUI.add(
 						validator: Lang.isObject,
 						value: {
 								next: Liferay.Language.get('next'),
-								prev: Liferay.Language.get('prev')
+								prev: Liferay.Language.get('previous')
 						}
 					},
 

@@ -152,7 +152,7 @@ AUI.add(
 							last: '&raquo;',
 							next: Liferay.Language.get('next'),
 							nextPages: '...',
-							prev: Liferay.Language.get('prev'),
+							prev: Liferay.Language.get('previous'),
 							prevPages: '...'
 						}
 					}
