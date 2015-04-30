@@ -88,13 +88,11 @@ PortalPreferences portalPreferences = PortletPreferencesFactoryUtil.getPortalPre
 
 String portletResource = ParamUtil.getString(request, "portletResource");
 
-int entriesPerPage = PrefsParamUtil.getInteger(portletPreferences, request, "entriesPerPage", SearchContainer.DEFAULT_DELTA);
-
 String[] displayViews = StringUtil.split(PrefsParamUtil.getString(portletPreferences, request, "displayViews", StringUtil.merge(PropsValues.DL_DISPLAY_VIEWS)));
+int entriesPerPage = PrefsParamUtil.getInteger(portletPreferences, request, "entriesPerPage", SearchContainer.DEFAULT_DELTA);
+int numberOfPages = PrefsParamUtil.getInteger(portletPreferences, request, "numberOfPages", PropsValues.SEARCH_CONTAINER_PAGE_ITERATOR_MAX_PAGES);
 
 long rootFolderId = PrefsParamUtil.getLong(portletPreferences, request, "rootFolderId", DLFolderConstants.DEFAULT_PARENT_FOLDER_ID);
-
-int numberOfPages = PrefsParamUtil.getInteger(portletPreferences, request, "numberOfPages", PropsValues.SEARCH_CONTAINER_PAGE_ITERATOR_MAX_PAGES);
 
 String rootFolderName = StringPool.BLANK;
 
