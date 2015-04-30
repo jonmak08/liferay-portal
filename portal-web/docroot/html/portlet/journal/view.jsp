@@ -159,8 +159,8 @@ folderStart = GetterUtil.getInteger(request.getAttribute("view_folders.jsp-folde
 			move: {
 				allRowIds: '<%= RowChecker.ALL_ROW_IDS %>',
 				editEntryUrl: '<portlet:actionURL><portlet:param name="struts_action" value="/journal/edit_entry" /></portlet:actionURL>',
-				folderIdRegEx: /&?<portlet:namespace />folderId=([\d]+)/i,
 				folderIdHashRegEx: /#.*&?<portlet:namespace />folderId=([\d]+)/i,
+				folderIdRegEx: /&?<portlet:namespace />folderId=([\d]+)/i,
 				form: {
 					method: 'post',
 					node: A.one(document.<portlet:namespace />fm)
@@ -169,6 +169,7 @@ folderStart = GetterUtil.getInteger(request.getAttribute("view_folders.jsp-folde
 				trashLinkId: '<%= TrashUtil.isTrashEnabled(scopeGroupId) ? "_" + PortletKeys.CONTROL_PANEL_MENU + "_portlet_" + PortletKeys.TRASH : StringPool.BLANK %>',
 				updateable: true
 			},
+			namespace: '<portlet:namespace />',
 			paginator: {
 				entriesTotal: <%= entriesTotal %>,
 				entryEnd: <%= entryEnd %>,
@@ -184,7 +185,6 @@ folderStart = GetterUtil.getInteger(request.getAttribute("view_folders.jsp-folde
 				numberOfPages: <%= paginatorNumberOfPages %>,
 				showControls: true
 			},
-			namespace: '<portlet:namespace />',
 			portletId: '<%= portletDisplay.getId() %>',
 			rowIds: '<%= RowChecker.ROW_IDS %>',
 			select: {

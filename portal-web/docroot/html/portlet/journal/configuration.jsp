@@ -248,7 +248,7 @@ String emailBody = PrefsParamUtil.getString(portletPreferences, request, emailBo
 
 <aui:script>
 	function <portlet:namespace />initEditor() {
-		return "<%= UnicodeFormatter.toString(emailBody) %>";
+		return '<%= UnicodeFormatter.toString(emailBody) %>';
 	}
 
 	function <portlet:namespace />saveConfiguration() {
