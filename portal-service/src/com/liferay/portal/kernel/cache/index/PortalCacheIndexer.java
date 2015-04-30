@@ -67,11 +67,12 @@ public class PortalCacheIndexer<I, K extends IndexedCacheKey<I>, V> {
 			Set<K> indexedCacheKeys = _indexedCacheKeys.get(index);
 
 			if (indexedCacheKeys == null) {
-				Set<K> keys = new HashSet<K>();
+				Set<K> newIndexedCacheKeys = new HashSet<K>();
 
-				keys.add(indexedCacheKey);
+				newIndexedCacheKeys.add(indexedCacheKey);
 
-				indexedCacheKeys = _indexedCacheKeys.putIfAbsent(index, keys);
+				indexedCacheKeys = _indexedCacheKeys.putIfAbsent(
+					index, newIndexedCacheKeys);
 
 				if (indexedCacheKeys == null) {
 					return;
