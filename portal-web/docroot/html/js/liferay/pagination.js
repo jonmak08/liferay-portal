@@ -529,7 +529,9 @@ AUI.add(
 						var formatter = instance.get('formatter');
 						var offset = instance.get('offset');
 
-						for (var i = offset; i <= (offset + total - 1); i++) {
+						var offsetEnd = (offset + total) -1;
+
+						for (var i = offset; i <= offsetEnd; i++) {
 							buffer += formatter.apply(instance, [i]);
 						}
 
