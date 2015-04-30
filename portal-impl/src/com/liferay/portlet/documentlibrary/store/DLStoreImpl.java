@@ -495,6 +495,10 @@ public class DLStoreImpl implements DLStore {
 		}
 	}
 
+	public void setStore(Store store) {
+		this.store = store;
+	}
+
 	@Override
 	public void updateFile(
 			long companyId, long repositoryId, long newRepositoryId,
@@ -834,7 +838,6 @@ public class DLStoreImpl implements DLStore {
 	@BeanReference(type = GroupLocalService.class)
 	protected GroupLocalService groupLocalService;
 
-	@BeanReference(type = Store.class)
 	protected Store store;
 
 	private static final String[] _KEYWORDS_FIELDS = {

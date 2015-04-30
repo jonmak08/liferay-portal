@@ -928,7 +928,9 @@
 			<bean class="com.liferay.portlet.documentlibrary.antivirus.AntivirusScannerImpl" />
 		</property>
 	</bean>
-	<bean id="com.liferay.portlet.documentlibrary.store.DLStore" class="com.liferay.portlet.documentlibrary.store.DLStoreImpl" />
+	<bean id="com.liferay.portlet.documentlibrary.store.DLStore" class="com.liferay.portlet.documentlibrary.store.DLStoreImpl">
+		<property name="store" ref="com.liferay.portlet.documentlibrary.store.Store" />
+	</bean>
 	<bean id="com.liferay.portlet.documentlibrary.store.Store" class="com.liferay.portlet.documentlibrary.store.SafeFileNameStoreWrapper">
 		<constructor-arg>
 			<bean class="com.liferay.portlet.documentlibrary.store.StoreProxyImpl" />
