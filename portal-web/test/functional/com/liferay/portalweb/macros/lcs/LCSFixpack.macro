@@ -1,0 +1,121 @@
+<definition>
+	<command name="downloadFixpack">
+		<var name="key_fixpackName" value="${fixpackName}" />
+
+		<execute function="AssertTextEquals" locator1="LCSServer#FIX_PACKS_AVAILABLE_TABLE_NAME" value1="${fixpackName}" />
+
+		<execute function="Check" locator1="LCSServer#FIX_PACKS_AVAILABLE_TABLE_CHECKBOX" />
+
+		<execute function="AssertClickNoError" locator1="LCSServer#FIX_PACKS_AVAILABLE_DOWNLOAD_BUTTON" value1="Download" />
+
+		<execute function="Confirm" value1="Are you sure you want to download the selected fix packs?" />
+
+		<execute function="AssertTextEquals" locator1="LCSServer#ALERT_SUCCESS" value1="Completed all downloads." />
+		<execute function="AssertTextEquals" locator1="LCSServer#ALERTS_ALERT_1" value1="Completed download for ${fixpackName}. Please restart the server." />
+	</command>
+
+	<command name="viewFixpackCountAfterPatchInstallation">
+		<var name="key_environmentName" value="${environmentName}" />
+
+		<if>
+			<equals arg1="${patchesCount}" arg2="1" />
+			<then>
+				<execute function="AssertElementNotPresent" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT_PATCHES_COUNT" />
+			</then>
+			<else>
+				<var method="MathUtil#sum('${patchesCount}', '-1')" name="patchesCountUpdated" />
+
+				<execute function="AssertTextEquals" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT_PATCHES_COUNT" value1="${patchesCountUpdated}" />
+			</else>
+		</if>
+	</command>
+
+	<command name="viewFixpackViaDashboard">
+		<var name="key_fixpackName" value="${fixpackName}" />
+
+		<execute function="AssertTextEquals" locator1="LCSDashboard#FIX_PACKS_TABLE_NAME" value1="${fixpackName}" />
+		<execute function="AssertTextEquals" locator1="LCSDashboard#FIX_PACKS_TABLE_STATUS" value1="${fixpackStatus}" />
+		<execute function="AssertTextEquals" locator1="LCSDashboard#FIX_PACKS_TABLE_ENVIRONMENT" value1="${fixpackEnvironment}" />
+		<execute function="AssertTextEquals" locator1="LCSDashboard#FIX_PACKS_TABLE_SERVER_LINK" value1="${fixpackServer}" />
+		<execute function="AssertTextEquals" locator1="LCSDashboard#FIX_PACKS_TABLE_LOCATION" value1="${fixpackLocation}" />
+	</command>
+
+	<command name="viewFixpackViaEnvironment">
+		<var name="key_fixpackName" value="${fixpackName}" />
+
+		<execute function="AssertTextEquals" locator1="LCSEnvironment#FIX_PACKS_TABLE_NAME" value1="${fixpackName}" />
+		<execute function="AssertTextEquals" locator1="LCSEnvironment#FIX_PACKS_TABLE_STATUS" value1="${fixpackStatus}" />
+		<execute function="AssertTextEquals" locator1="LCSEnvironment#FIX_PACKS_TABLE_SERVER_LINK" value1="${fixpackServer}" />
+		<execute function="AssertTextEquals" locator1="LCSEnvironment#FIX_PACKS_TABLE_LOCATION" value1="${fixpackLocation}" />
+	</command>
+
+	<command name="viewFixpackViaServerAvailable">
+		<var name="key_fixpackName" value="${fixpackName}" />
+
+		<execute function="AssertTextEquals" locator1="LCSServer#FIX_PACKS_AVAILABLE_TABLE_NAME" value1="${fixpackName}" />
+		<execute function="AssertTextEquals" locator1="LCSServer#FIX_PACKS_AVAILABLE_TABLE_STATUS" value1="${fixpackStatus}" />
+	</command>
+
+	<command name="viewFixpackViaServerInstalled">
+		<execute macro="LCSServerNavigator#gotoFixpacksInstalled" />
+
+		<var name="key_fixpackName" value="${fixpackName}" />
+
+		<execute function="AssertTextEquals" locator1="LCSServer#FIX_PACKS_INSTALLED_TABLE_NAME" value1="${fixpackName}" />
+	</command>
+
+	<command name="viewNoFixpackViaDashboard">
+		<var name="key_fixpackName" value="${fixpackName}" />
+
+		<execute function="AssertElementNotPresent" locator1="LCSDashboard#FIX_PACKS_TABLE_NAME" />
+		<execute function="AssertElementNotPresent" locator1="LCSDashboard#FIX_PACKS_TABLE_STATUS" />
+		<execute function="AssertElementNotPresent" locator1="LCSDashboard#FIX_PACKS_TABLE_ENVIRONMENT" />
+		<execute function="AssertElementNotPresent" locator1="LCSDashboard#FIX_PACKS_TABLE_SERVER_LINK" />
+		<execute function="AssertElementNotPresent" locator1="LCSDashboard#FIX_PACKS_TABLE_LOCATION" />
+	</command>
+
+	<command name="viewNoFixpackViaEnvironment">
+		<var name="key_fixpackName" value="${fixpackName}" />
+
+		<execute function="AssertElementNotPresent" locator1="LCSEnvironment#FIX_PACKS_TABLE_NAME" />
+		<execute function="AssertElementNotPresent" locator1="LCSEnvironment#FIX_PACKS_TABLE_STATUS" />
+		<execute function="AssertElementNotPresent" locator1="LCSEnvironment#FIX_PACKS_TABLE_SERVER_LINK" />
+		<execute function="AssertElementNotPresent" locator1="LCSEnvironment#FIX_PACKS_TABLE_LOCATION" />
+	</command>
+
+	<command name="viewNoFixpackViaServerAvailable">
+		<execute macro="LCSServerNavigator#gotoFixpacksAvailable" />
+
+		<var name="key_fixpackName" value="${fixpackName}" />
+
+		<execute function="AssertElementNotPresent" locator1="LCSServer#FIX_PACKS_AVAILABLE_TABLE_NAME" />
+	</command>
+
+	<command name="viewNoFixpackViaServerInstalled">
+		<execute macro="LCSServerNavigator#gotoFixpacksInstalled" />
+
+		<var name="key_fixpackName" value="${fixpackName}" />
+
+		<execute function="AssertElementNotPresent#assertNotVisible" locator1="LCSServer#FIX_PACKS_INSTALLED_TABLE_NAME" />
+	</command>
+
+	<command name="waitForFixpacksToDisplay">
+		<var name="i" value="1" />
+
+		<while>
+			<and>
+				<condition function="IsElementNotPresent" locator1="LCSDashboard#FIX_PACKS_TABLE_NAME_GENERAL" />
+				<not>
+					<equals arg1="${i}" arg2="3" />
+				</not>
+			</and>
+			<then>
+				<var method="MathUtil#sum(${i}, 1)" name="i" />
+
+				<echo message="Fixpacks could not be found. Refreshing the page. Attempt number ${i}..." />
+
+				<execute function="Refresh" />
+			</then>
+		</while>
+	</command>
+</definition>

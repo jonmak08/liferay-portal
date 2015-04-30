@@ -1,4 +1,12 @@
 <definition>
+	<command name="gotoFixpacksAvailable">
+		<execute function="Click" locator1="LCSServer#FIX_PACKS_NAVIGATION_AVAILABLE" />
+	</command>
+
+	<command name="gotoFixpacksInstalled">
+		<execute function="Click" locator1="LCSServer#FIX_PACKS_NAVIGATION_INSTALLED" />
+	</command>
+
 	<command name="gotoNotifications">
 		<execute function="Click" locator1="Dockbar#USER_NAME" />
 
