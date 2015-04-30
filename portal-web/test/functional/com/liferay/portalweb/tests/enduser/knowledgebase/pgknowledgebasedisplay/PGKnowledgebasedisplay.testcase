@@ -462,6 +462,7 @@
 
 		<execute macro="KBArticle#viewKBDisplayPG">
 			<var name="history" value="false" />
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 			<var name="print" value="false" />
 			<var name="subscribe" value="false" />
 		</execute>

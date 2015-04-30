@@ -1137,6 +1137,7 @@
 
 		<execute macro="KBArticle#viewKBDisplayPG">
 			<var name="kbArticleFriendlyURL" value="friendly-url-test" />
+			<var name="kbArticleTitle" value="${kbArticleTitle}" />
 		</execute>
 
 		<execute macro="KBArticle#viewPGViaKBDisplay">
@@ -1181,6 +1182,7 @@
 
 		<execute macro="KBArticle#viewKBDisplayPG">
 			<var name="history" value="${history}" />
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 			<var name="print" value="${print}" />
 			<var name="sourceURL" value="true" />
 			<var name="subscribe" value="${subscribe}" />
