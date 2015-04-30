@@ -293,15 +293,13 @@ AUI.add(
 					_getLabelContent: function(itemsPerPage) {
 						var instance = this;
 
-						var result;
-
-						var strings = instance.get(STR_STRINGS);
-
 						if (!itemsPerPage) {
 							itemsPerPage = instance.get(STR_ITEMS_PER_PAGE);
 						}
 
-						result = Lang.sub(
+						var strings = instance.get(STR_STRINGS);
+
+						return Lang.sub(
 							instance.TPL_LABEL,
 							{
 								items: strings.items,
@@ -310,8 +308,6 @@ AUI.add(
 								x: itemsPerPage
 							}
 						);
-
-						return result;
 					},
 
 					_getResultsContent: function(page, itemsPerPage) {
@@ -377,7 +373,7 @@ AUI.add(
 						else if (controlItem.hasClass('prev-pages')) {
 							instance._dispatchRequest(
 								{
-									page: currentIndex - numberOfPages - pagesStart
+									page: (currentIndex - numberOfPages) - pagesStart
 								}
 							);
 						}
@@ -411,16 +407,18 @@ AUI.add(
 						var instance = this;
 
 						var state = event.state;
-						var page = state.page;
 
 						var itemsPerPage = state.itemsPerPage;
 
 						instance._syncLabel(itemsPerPage);
-						instance._syncResults(page, itemsPerPage);
+
+						instance._syncResults(state.page, itemsPerPage);
 					},
 
 					_onClickItem: function(event) {
 						var instance = this;
+
+						event.preventDefault();
 
 						var currentTarget = event.currentTarget;
 
@@ -428,26 +426,22 @@ AUI.add(
 
 						var index = items.indexOf(currentTarget);
 
-						var lastIndex = items.size() - 1;
+						var lastIndex = (items.size() - 1);
 
-						var isDisabled = (function() {
-							if (currentTarget.hasClass(CSS_DISABLED)) {
-								return false;
+						var hasNoClass = (function() {
+							var returnVal = true;
+
+							if (currentTarget.hasClass(CSS_DISABLED) || currentTarget.hasClass(CSS_ACTIVE)) {
+								returnVal = false;
 							}
-							else if (currentTarget.hasClass(CSS_ACTIVE)) {
-								return false;
-							}
-							else {
-								return true;
-							}
+
+							return true;
 						})();
 
-						event.preventDefault();
-
-						if (isDisabled) {
+						if (hasNoClass) {
 							var startRange = 2;
 
-							var endRange = lastIndex - 2;
+							var endRange = (lastIndex - 2);
 
 							if (index <= startRange || index >= endRange) {
 								instance._goToPage(index, items.item(index));
@@ -465,22 +459,26 @@ AUI.add(
 					_onItemClick: function(event) {
 						var instance = this;
 
-						var itemsPerPage = Lang.toInt(event.currentTarget.one('.taglib-text-icon').attr('data-value'));
+						var textIcon = event.currentTarget.one('.taglib-text-icon');
 
-						instance.set(STR_ITEMS_PER_PAGE, itemsPerPage);
+						if (textIcon) {
+							var dataValue = textIcon.attr('data-value');
+
+							var itemsPerPage = Lang.toInt(dataValue);
+
+							instance.set(STR_ITEMS_PER_PAGE, itemsPerPage);
+						}
 					},
 
 					_onItemsPerPageChange: function(event) {
 						var instance = this;
-
-						var page = instance.get(STR_PAGE);
 
 						var itemsPerPage = event.newVal;
 
 						instance._dispatchRequest(
 							{
 								itemsPerPage: itemsPerPage,
-								page: page
+								page: instance.get(STR_PAGE)
 							}
 						);
 					},
@@ -531,7 +529,7 @@ AUI.add(
 						var formatter = instance.get('formatter');
 						var offset = instance.get('offset');
 
-						for (var i = offset; i <= offset + total - 1; i++) {
+						for (var i = offset; i <= (offset + total - 1); i++) {
 							buffer += formatter.apply(instance, [i]);
 						}
 
@@ -609,8 +607,8 @@ AUI.add(
 						var page = instance.get(STR_PAGE);
 						var total = instance.get('total');
 
-						var firstPage = page <= 1;
-						var lastPage = page >= total;
+						var firstPage = (page <= 1);
+						var lastPage = (page >= total);
 
 						if (!instance.get('circular')) {
 							items.item(1).toggleClass(
@@ -620,7 +618,7 @@ AUI.add(
 
 							var lastItemIndex = items.indexOf(items.last());
 
-							var nextToLastItem = lastItemIndex - 1;
+							var nextToLastItem = (lastItemIndex - 1);
 
 							items.item(nextToLastItem).toggleClass(
 								CSS_DISABLED,
@@ -673,7 +671,7 @@ AUI.add(
 						var results = instance.get(STR_RESULTS);
 						var itemsPerPageList = instance.get(STR_ITEMS_PER_PAGE_LIST);
 
-						instance._paginationControls.toggleClass(hiddenClass, results <= itemsPerPageList[0]);
+						instance._paginationControls.toggleClass(hiddenClass, (results <= itemsPerPageList[0]));
 
 						instance._paginationContentNode.toggleClass(hiddenClass, !val);
 

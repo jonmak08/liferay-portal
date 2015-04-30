@@ -378,7 +378,7 @@ AUI.add(
 
 						paginationContentNode.setData(STR_OLD_PAGES, instance._visiblePages);
 
-						var lastPage = page - 1;
+						var lastPage = (page - 1);
 
 						var lastPageNode = pageNodes.item(lastPage);
 
@@ -430,9 +430,9 @@ AUI.add(
 
 						var paginationControlSize = pagination._paginationContentNode.all('.pagination-control').size();
 
-						var shiftIndex = paginationControlSize / 2;
+						var shiftIndex = (paginationControlSize / 2);
 
-						var newIndex = pagination.get(STR_TOTAL) + shiftIndex;
+						var newIndex = (pagination.get(STR_TOTAL) + shiftIndex);
 
 						return pagination.get('items').slice(shiftIndex, newIndex);
 					},
@@ -443,15 +443,15 @@ AUI.add(
 						if (!Lang.isValue(page)) {
 							page = 0;
 
-							var curPage = pagination.get(STR_PAGE) - 1;
+							var curPage = (pagination.get(STR_PAGE) - 1);
 
 							if (curPage > 0) {
 								page = curPage;
 							}
 						}
 
-						var start = page * rowsPerPage;
-						var end = start + rowsPerPage;
+						var start = (page * rowsPerPage);
+						var end = (start + rowsPerPage);
 
 						return [start, end];
 					},
@@ -506,6 +506,7 @@ AUI.add(
 						if (oldPages) {
 							if (A.Array.indexOf(oldPages, page - 1) === -1) {
 								instance._showCurrentPaginatorNodes(numberOfPages, instance._visiblePages, pageNodes);
+
 								instance._hideCurrentPaginatorNodes(numberOfPages, oldPages, pageNodes);
 							}
 						}
@@ -550,18 +551,20 @@ AUI.add(
 
 							var modNumberOfPages = totalPages % numberOfPages;
 
-							var deltaTotalPages = totalPages - modNumberOfPages;
+							var deltaTotalPages = (totalPages - modNumberOfPages);
 
 							if ((page > numberOfPages) && (page <= deltaTotalPages)) {
 								prevPages.removeClass(CSS_HIDE);
 								nextPages.removeClass(CSS_HIDE);
 							}
 
-							if ((page > deltaTotalPages) && (page <= totalPages) && (deltaTotalPages !== 0)) {
+							var hasMorePages = (page > deltaTotalPages) && (page <= totalPages);
+
+							if (hasMorePages && (deltaTotalPages !== 0)) {
 								prevPages.removeClass(CSS_HIDE);
 							}
 
-							if (((page > deltaTotalPages) && (page <= totalPages)) || (page === totalPages)) {
+							if (hasMorePages || (page === totalPages)) {
 								nextPages.addClass(CSS_HIDE);
 							}
 						}
@@ -625,7 +628,7 @@ AUI.add(
 								break;
 							}
 
-							pageCounter ++;
+							pageCounter++;
 						}
 
 						instance._visiblePages = visiblePages;
