@@ -566,6 +566,20 @@ public class DocumentImpl implements Document {
 		createNumberField(name, Long.valueOf(value));
 	}
 
+	/**
+	 * @deprecated As of 7.0.0
+	 */
+	@Deprecated
+	public void addNumber(
+		String name, String value, Class<? extends Number> clazz) {
+
+		if (Validator.isNull(value)) {
+			return;
+		}
+
+		addNumber(name, new String[] {value}, clazz);
+	}
+
 	@Override
 	public void addNumber(String name, String[] values) {
 		if (values == null) {
@@ -579,6 +593,29 @@ public class DocumentImpl implements Document {
 		}
 
 		createNumberField(name, longs);
+	}
+
+	/**
+	 * @deprecated As of 7.0.0
+	 */
+	@Deprecated
+	public void addNumber(
+		String name, String[] values, Class<? extends Number> clazz) {
+
+		if (values == null) {
+			return;
+		}
+
+		String sortableFieldName = getSortableFieldName(name);
+
+		Field field = new Field(sortableFieldName, values);
+
+		field.setNumeric(true);
+		field.setNumericClass(clazz);
+
+		_fields.put(sortableFieldName, field);
+
+		addKeyword(name, values);
 	}
 
 	@Override
