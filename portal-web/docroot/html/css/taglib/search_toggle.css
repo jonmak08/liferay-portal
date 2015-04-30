@@ -21,15 +21,13 @@
 }
 
 .taglib-search-toggle-advanced-wrapper {
+	clear: both;
+
 	.taglib-search-toggle-advanced {
 		border: solid transparent;
 		border-width: 0 1px 1px;
 		margin-top: 0;
 		padding: 15px 15px 0;
-	}
-
-	.toggler-content-wrapper {
-		clear: both;
 	}
 
 	.btn.close {
@@ -43,13 +41,11 @@
 		border-width: 1px 0 0;
 	}
 
-	.toggler-content-wrapper {
-		margin: 0 -15px;
-		padding: 0;
-		width: auto;
+	margin: 0 -15px;
+	padding: 0;
+	width: auto;
 
-		@media (min-width: 768px) {
-			margin: 0 -30px;
-		}
+	@media (min-width: 768px) {
+		margin: 0 -30px;
 	}
 }
