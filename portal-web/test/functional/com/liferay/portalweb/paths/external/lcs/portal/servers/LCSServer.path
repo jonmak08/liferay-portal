@@ -24,6 +24,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ALERT_SUCCESS</td>
+	<td>//div[@class='alert alert-success']</td>
+	<td></td>
+</tr>
+<tr>
 	<td></td>
 	<td></td>
 	<td></td>

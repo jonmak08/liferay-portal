@@ -40,8 +40,18 @@
 	<td></td>
 </tr>
 <tr>
+	<td>FIX_PACKS_TABLE_CHECKBOX_GENERAL</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr/td[1]/input</td>
+	<td></td>
+</tr>
+<tr>
 	<td>FIX_PACKS_TABLE_NAME</td>
 	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_TABLE_NAME_GENERAL</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr/td[2]/a</td>
 	<td></td>
 </tr>
 <tr>
