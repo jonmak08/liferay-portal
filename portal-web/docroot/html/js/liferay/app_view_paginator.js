@@ -378,7 +378,7 @@ AUI.add(
 
 						paginationContentNode.setData(STR_OLD_PAGES, instance._visiblePages);
 
-						var lastPage = (page - 1);
+						var lastPage = page - 1;
 
 						var lastPageNode = pageNodes.item(lastPage);
 
@@ -430,9 +430,9 @@ AUI.add(
 
 						var paginationControlSize = pagination._paginationContentNode.all('.pagination-control').size();
 
-						var shiftIndex = (paginationControlSize / 2);
+						var shiftIndex = paginationControlSize / 2;
 
-						var newIndex = (pagination.get(STR_TOTAL) + shiftIndex);
+						var newIndex = pagination.get(STR_TOTAL) + shiftIndex;
 
 						return pagination.get('items').slice(shiftIndex, newIndex);
 					},
@@ -443,15 +443,15 @@ AUI.add(
 						if (!Lang.isValue(page)) {
 							page = 0;
 
-							var curPage = (pagination.get(STR_PAGE) - 1);
+							var curPage = pagination.get(STR_PAGE) - 1;
 
 							if (curPage > 0) {
 								page = curPage;
 							}
 						}
 
-						var start = (page * rowsPerPage);
-						var end = (start + rowsPerPage);
+						var start = page * rowsPerPage;
+						var end = start + rowsPerPage;
 
 						return [start, end];
 					},
@@ -544,27 +544,27 @@ AUI.add(
 								prevPages.addClass(CSS_HIDE);
 								nextPages.addClass(CSS_HIDE);
 							}
-							else if ((page >= 1) && (page <= numberOfPages)) {
+							else if (page >= 1 && page <= numberOfPages) {
 								prevPages.addClass(CSS_HIDE);
 								nextPages.removeClass(CSS_HIDE);
 							}
 
 							var modNumberOfPages = totalPages % numberOfPages;
 
-							var deltaTotalPages = (totalPages - modNumberOfPages);
+							var deltaTotalPages = totalPages - modNumberOfPages;
 
-							if ((page > numberOfPages) && (page <= deltaTotalPages)) {
+							if (page > numberOfPages && page <= deltaTotalPages) {
 								prevPages.removeClass(CSS_HIDE);
 								nextPages.removeClass(CSS_HIDE);
 							}
 
-							var hasMorePages = (page > deltaTotalPages) && (page <= totalPages);
+							var hasMorePages = page > deltaTotalPages && page <= totalPages;
 
-							if (hasMorePages && (deltaTotalPages !== 0)) {
+							if (hasMorePages && deltaTotalPages !== 0) {
 								prevPages.removeClass(CSS_HIDE);
 							}
 
-							if (hasMorePages || (page === totalPages)) {
+							if (hasMorePages || page === totalPages) {
 								nextPages.addClass(CSS_HIDE);
 							}
 						}

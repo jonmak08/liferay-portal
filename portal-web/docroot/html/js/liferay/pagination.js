@@ -426,7 +426,7 @@ AUI.add(
 
 						var index = items.indexOf(currentTarget);
 
-						var lastIndex = (items.size() - 1);
+						var lastIndex = items.size() - 1;
 
 						var hasNoClass = (function() {
 							var returnVal = true;
@@ -441,7 +441,7 @@ AUI.add(
 						if (hasNoClass) {
 							var startRange = 2;
 
-							var endRange = (lastIndex - 2);
+							var endRange = lastIndex - 2;
 
 							if (index <= startRange || index >= endRange) {
 								instance._goToPage(index, items.item(index));
@@ -607,8 +607,8 @@ AUI.add(
 						var page = instance.get(STR_PAGE);
 						var total = instance.get('total');
 
-						var firstPage = (page <= 1);
-						var lastPage = (page >= total);
+						var firstPage = page <= 1;
+						var lastPage = page >= total;
 
 						if (!instance.get('circular')) {
 							items.item(1).toggleClass(
@@ -618,7 +618,7 @@ AUI.add(
 
 							var lastItemIndex = items.indexOf(items.last());
 
-							var nextToLastItem = (lastItemIndex - 1);
+							var nextToLastItem = lastItemIndex - 1;
 
 							items.item(nextToLastItem).toggleClass(
 								CSS_DISABLED,
