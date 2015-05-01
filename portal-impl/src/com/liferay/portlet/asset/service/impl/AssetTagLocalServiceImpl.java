@@ -684,7 +684,7 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 				}
 				else {
 					assetTagPropertyLocalService.updateTagProperty(
-						tagId, key, value);
+						keyTagProperty.getTagPropertyId(), key, value);
 				}
 			}
 		}
