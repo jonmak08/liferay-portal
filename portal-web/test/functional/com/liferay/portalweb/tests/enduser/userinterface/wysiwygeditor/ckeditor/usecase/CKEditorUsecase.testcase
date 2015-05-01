@@ -11,7 +11,7 @@
 		<execute macro="Page#tearDownPG" />
 	</tear-down>
 
-	<command known-issues="LPS-42504" name="ViewCKEditorsInheritanceNo" priority="5">
+	<command name="ViewCKEditorsInheritanceNo" priority="5">
 		<var name="ckEditorFormatOptionsInvalid" value="Heading,Heading 2,Heading 3,Heading 4,Heading 5,Heading 6" />
 		<var name="ckEditorFormatOptionsValid" value="Normal,Formatted" />
 		<var name="invalidSubstring" value="Heading" />
