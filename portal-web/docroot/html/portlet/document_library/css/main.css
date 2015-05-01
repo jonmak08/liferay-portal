@@ -323,6 +323,12 @@
 	.common-file-metadata-container {
 		padding: 1em;
 
+		.control-group {
+			input, select, textarea {
+				width: 100%;
+			}
+		}
+
 		.field-element {
 			display: block;
 
@@ -345,8 +351,20 @@
 			overflow: hidden;
 		}
 
-		.document-type .lfr-panel-content {
-			min-height: 35px;
+		.document-type {
+			.lfr-panel-content {
+				min-height: 35px;
+			}
+
+			.document-type-selector .btn-group {
+				max-width: 100%;
+
+				.btn {
+					max-width: 100%;
+					overflow: hidden;
+					white-space: normal;
+				}
+			}
 		}
 
 		.document-type-fields {
