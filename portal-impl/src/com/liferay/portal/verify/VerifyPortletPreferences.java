@@ -173,18 +173,18 @@ public class VerifyPortletPreferences extends VerifyProcess {
 				String preferenceName =
 					"classTypeIdsJournalArticleAssetRendererFactory";
 
-				String[] preferenceIds = jxPortletPreferences.getValues(
+				String[] classTypeIds = jxPortletPreferences.getValues(
 					preferenceName, null);
 
-				String groupDefault =
-					AssetPublisher.SCOPE_ID_GROUP_PREFIX +
-					GroupConstants.DEFAULT;
-
 				try {
-					if (ArrayUtil.isNotEmpty(scopeIds) ||
-						ArrayUtil.isNotEmpty(preferenceIds)) {
+					if (ArrayUtil.isNotEmpty(classTypeIds) ||
+						ArrayUtil.isNotEmpty(scopeIds)) {
 
 						if (ArrayUtil.isEmpty(scopeIds)) {
+							String groupDefault =
+								AssetPublisher.SCOPE_ID_GROUP_PREFIX +
+								GroupConstants.DEFAULT;
+
 							scopeIds = new String[] { groupDefault };
 
 							jxPortletPreferences.setValue(
