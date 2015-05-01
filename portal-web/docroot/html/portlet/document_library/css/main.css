@@ -323,12 +323,6 @@
 	.common-file-metadata-container {
 		padding: 1em;
 
-		.control-group {
-			input, select, textarea {
-				max-width: 100% !important;
-			}
-		}
-
 		.field-element {
 			display: block;
 
