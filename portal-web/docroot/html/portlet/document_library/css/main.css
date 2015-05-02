@@ -657,5 +657,9 @@
 		.audio-node {
 			height: 28px;
 		}
+
+		.common-file-metadata-container fieldset {
+			overflow: hidden;
+		}
 	}
 }
