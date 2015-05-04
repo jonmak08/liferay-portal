@@ -80,7 +80,9 @@
 					<bean class="com.liferay.portal.cache.key.HashCodeCacheKeyGenerator" />
 				</entry>
 				<entry key="com.liferay.portlet.PortletPreferencesFactoryImpl">
-					<bean class="com.liferay.portal.cache.key.JavaSHA1CacheKeyGenerator" />
+					<bean class="com.liferay.portal.cache.key.MessageDigestCacheKeyGenerator">
+						<constructor-arg value="SHA-1" />
+					</bean>
 				</entry>
 				<entry key="com.liferay.portal.kernel.servlet.filters.invoker.InvokerFilter">
 					<bean class="com.liferay.portal.cache.key.SimpleCacheKeyGenerator" />
