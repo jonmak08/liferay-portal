@@ -1088,6 +1088,27 @@
 
 	<macrodef name="setup-testable-tomcat">
 		<sequential>
+			<setup-testable-tomcat-logging />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="setup-testable-tomcat-logging">
+		<sequential>
+			<if>
+				<not>
+					<resourcecontains resource="${app.server.tomcat.dir}/conf/logging.properties" substring="org.apache.catalina.core.ContainerBase.level" />
+				</not>
+				<then>
+				<echo file="${app.server.tomcat.dir}/conf/logging.properties" append="true">
+					<![CDATA[
+org.apache.catalina.level = ALL
+
+org.apache.catalina.loader.WebappClassLoader.level = INFO
+org.apache.catalina.startup.ClassLoaderFactory.level = INFO
+org.apache.catalina.loader.WebappLoader.level = INFO]]>
+				</echo>
+				</then>
+			</if>
 		</sequential>
 	</macrodef>
 
