@@ -798,10 +798,6 @@ ${app.server.tomcat.dir}, then run "ant -buildfile build-dist.xml unzip-tomcat".
 		</if>
 	</target>
 
-	<target name="setup-testable-tomcat">
-		<setup-testable-tomcat />
-	</target>
-
 	<target name="sort-xml-attributes">
 		<java
 			classname="com.liferay.portal.tools.XMLAttributesSorter"

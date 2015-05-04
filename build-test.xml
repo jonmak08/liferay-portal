@@ -5598,6 +5598,10 @@ jdbc.default.password=${database.mysql.password}</echo>
 		</if>
 	</target>
 
+	<target name="setup-testable-tomcat">
+		<setup-testable-tomcat />
+	</target>
+
 	<target name="start-app-server">
 		<if>
 			<not>
