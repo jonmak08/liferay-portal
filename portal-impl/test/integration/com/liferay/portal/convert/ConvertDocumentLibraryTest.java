@@ -299,7 +299,8 @@ public class ConvertDocumentLibraryTest {
 		FileEntry folderFileEntry = DLAppTestUtil.addFileEntry(
 			_group.getGroupId(), folder.getFolderId(), "liferay.jpg",
 			ContentTypes.IMAGE_JPEG, "liferay.jpg",
-			FileUtil.getBytes(getClass(), "dependencies/liferay.jpg"),
+			FileUtil.getBytes(
+				getClass().getResourceAsStream("dependencies/liferay.jpg")),
 			WorkflowConstants.ACTION_PUBLISH);
 
 		ImageProcessorUtil.generateImages(
