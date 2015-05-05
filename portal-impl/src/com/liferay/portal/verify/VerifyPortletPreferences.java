@@ -183,7 +183,7 @@ public class VerifyPortletPreferences extends VerifyProcess {
 						if (ArrayUtil.isEmpty(scopeIds)) {
 							String groupDefault =
 								AssetPublisher.SCOPE_ID_GROUP_PREFIX +
-								GroupConstants.DEFAULT;
+									GroupConstants.DEFAULT;
 
 							scopeIds = new String[] {groupDefault};
 
