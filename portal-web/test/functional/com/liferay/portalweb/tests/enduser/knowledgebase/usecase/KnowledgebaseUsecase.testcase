@@ -92,6 +92,9 @@
 	</command>
 
 	<command name="DeleteImportedArticles" priority="5">
+		<property name="ignore.errors" value="java.lang.IllegalStateException|Exception in thread &quot;TrueZIP ArchiveController Shutdown Hook&quot; java.lang.NoClassDefFoundError: de/schlichtherle/io/ArchiveControllers$ControllerEnumeration" />
+		<property name="ignore.errors.delimiter" value="|" />
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
@@ -873,6 +876,9 @@
 	</command>
 
 	<command name="ViewImportedKBArticlesInHierarchyWithMarkdownFormat" priority="5">
+		<property name="ignore.errors" value="java.lang.IllegalStateException|Exception in thread &quot;TrueZIP ArchiveController Shutdown Hook&quot; java.lang.NoClassDefFoundError: de/schlichtherle/io/ArchiveControllers$ControllerEnumeration" />
+		<property name="ignore.errors.delimiter" value="|" />
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
@@ -938,6 +944,9 @@
 	</command>
 
 	<command name="ViewImportedKBArticlesWithMultiplePeerHierarchies" priority="5">
+		<property name="ignore.errors" value="java.lang.IllegalStateException|Exception in thread &quot;TrueZIP ArchiveController Shutdown Hook&quot; java.lang.NoClassDefFoundError: de/schlichtherle/io/ArchiveControllers$ControllerEnumeration" />
+		<property name="ignore.errors.delimiter" value="|" />
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
@@ -993,6 +1002,9 @@
 	</command>
 
 	<command name="ViewImportedKBArticleWithImagesAsKBAttachments" priority="5">
+		<property name="ignore.errors" value="java.lang.IllegalStateException|Exception in thread &quot;TrueZIP ArchiveController Shutdown Hook&quot; java.lang.NoClassDefFoundError: de/schlichtherle/io/ArchiveControllers$ControllerEnumeration" />
+		<property name="ignore.errors.delimiter" value="|" />
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
@@ -1050,6 +1062,8 @@
 	</command>
 
 	<command name="ViewImportedKBArticleWithSourceURLMetadata" priority="5">
+		<property name="ignore.errors" value="java.lang.IllegalStateException|Exception in thread &quot;TrueZIP ArchiveController Shutdown Hook&quot; java.lang.NoClassDefFoundError: de/schlichtherle/io/ArchiveControllers$ControllerEnumeration" />
+		<property name="ignore.errors.delimiter" value="|" />
 		<property name="portlet.properties.knowledge-base-portlet" value="knowledge.base.source.url.enabled=true" />
 
 		<execute macro="Page#addPG">
