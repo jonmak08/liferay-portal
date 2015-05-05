@@ -1066,8 +1066,8 @@ public class StagingImpl implements Staging {
 		catch (JSONException jsone) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
-					"Unable to get recent layout set branch ID for user " +
-						user.getUserId() + " and layout set ID " + layoutSetId,
+					"Unable to get recent layout set branch ID with user " +
+						user.getUserId() + " and layout set " + layoutSetId,
 					jsone);
 			}
 		}
@@ -1691,9 +1691,9 @@ public class StagingImpl implements Staging {
 		catch (JSONException jsone) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
-					"Unable to set recent set branch ID for user " +
-						user.getUserId() + " and layout set ID " + layoutSetId +
-							" with layout set branch ID " + layoutSetBranchId,
+					"Unable to set recent layout set branch ID with user " +
+						user.getUserId() + " and layout set " + layoutSetId +
+							" and layout set branch " + layoutSetBranchId,
 					jsone);
 			}
 		}
@@ -2103,9 +2103,8 @@ public class StagingImpl implements Staging {
 		catch (JSONException jsone) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
-					"Unable to delete recent layout branch ID with layout " +
-						"set branch ID " + layoutSetBranchId + " and plid " +
-							plid,
+					"Unable to delete recent layout revision ID with layout " +
+						"set branch " + layoutSetBranchId + " and PLID " + plid,
 					jsone);
 			}
 		}
@@ -2156,9 +2155,8 @@ public class StagingImpl implements Staging {
 		catch (JSONException jsone) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
-					"Unable to get recent layout branch ID with layout " +
-						"set branch ID " + layoutSetBranchId + " and plid " +
-							plid,
+					"Unable to get recent layout branch ID with layout set " +
+						"branch " + layoutSetBranchId + " and PLID " + plid,
 					jsone);
 			}
 		}
@@ -2194,9 +2192,8 @@ public class StagingImpl implements Staging {
 		catch (JSONException jsone) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
-					"Unable to get recent layout branch ID with layout " +
-						"set branch ID " + layoutSetBranchId + " and plid " +
-							plid,
+					"Unable to get recent layout revision ID with layout set " +
+						"branch " + layoutSetBranchId + " and PLID " + plid,
 					jsone);
 			}
 		}
@@ -2580,9 +2577,9 @@ public class StagingImpl implements Staging {
 		catch (JSONException jsone) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
-					"Unable to set recent layout branch ID with layout " +
-						"set branch ID " + layoutSetBranchId + " and plid " +
-							plid + " with layout branch ID " + layoutBranchId,
+					"Unable to set recent layout branch ID with layout set " +
+						"branch " + layoutSetBranchId + " and PLID " + plid +
+							" and layout branch " + layoutBranchId,
 					jsone);
 			}
 		}
@@ -2621,8 +2618,8 @@ public class StagingImpl implements Staging {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
 					"Unable to set recent layout revision ID with layout set " +
-						"branch ID " + layoutSetBranchId + " and plid " + plid +
-							" with layout branch ID " + layoutBranchId,
+						"branch " + layoutSetBranchId + " and PLID " + plid +
+							" and layout branch " + layoutBranchId,
 					pe);
 			}
 		}
