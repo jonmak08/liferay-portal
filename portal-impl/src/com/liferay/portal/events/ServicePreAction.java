@@ -924,20 +924,24 @@ public class ServicePreAction extends Action {
 
 		String siteAdministrationURL = urlControlPanel;
 
-		Group siteAdminDoAsGroup = GroupLocalServiceUtil.getGroup(siteGroupId);
-		long siteAdminDoAsGroupId = siteAdminDoAsGroup.getGroupId();
+		Group siteAdministrationDoAsGroup = GroupLocalServiceUtil.getGroup(
+			siteGroupId);
 
-		if (siteAdminDoAsGroup.hasStagingGroup()) {
+		long siteAdministrationDoAsGroupId =
+			siteAdministrationDoAsGroup.getGroupId();
+
+		if (siteAdministrationDoAsGroup.hasStagingGroup()) {
 			Group stagingGroup = group.getStagingGroup();
 
-			siteAdminDoAsGroupId = stagingGroup.getGroupId();
+			siteAdministrationDoAsGroupId = stagingGroup.getGroupId();
 		}
 
 		siteAdministrationURL = HttpUtil.addParameter(
 			siteAdministrationURL, "controlPanelCategory",
 			PortletCategoryKeys.CURRENT_SITE);
 		siteAdministrationURL = HttpUtil.addParameter(
-			siteAdministrationURL, "doAsGroupId", siteAdminDoAsGroupId);
+			siteAdministrationURL, "doAsGroupId",
+			siteAdministrationDoAsGroupId);
 
 		themeDisplay.setURLSiteAdministration(siteAdministrationURL);
 
