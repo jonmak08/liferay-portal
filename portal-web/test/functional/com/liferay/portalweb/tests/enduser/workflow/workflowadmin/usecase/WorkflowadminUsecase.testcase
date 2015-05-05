@@ -150,7 +150,7 @@
 
 	<command name="ViewWebContentConfigurationCP" priority="4">
 		<var name="authorAddress" value="test@liferay.com" />
-		<var name="authorName" value="Joe Bloggs" />
+		<var name="authorName" value="Test Test" />
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
