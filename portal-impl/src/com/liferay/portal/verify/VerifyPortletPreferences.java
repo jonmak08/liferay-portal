@@ -187,7 +187,7 @@ public class VerifyPortletPreferences extends VerifyProcess {
 							};
 
 							jxPortletPreferences.setValue(
-								"scopeIds", groupDefault);
+								"scopeIds", scopeIds[0]);
 						}
 
 						long[] groupIds = getGroupIds(
