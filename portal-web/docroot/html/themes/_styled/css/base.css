@@ -9,7 +9,7 @@
 	vertical-align: middle;
 }
 
-/* ---------- Table Styles ---------- */
+/* ---------- Table styles ---------- */
 
 @include respond-to(phone, tablet) {
 	.responsive-table-horizontal {
