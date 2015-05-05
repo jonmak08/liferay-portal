@@ -185,7 +185,7 @@ public class VerifyPortletPreferences extends VerifyProcess {
 								AssetPublisher.SCOPE_ID_GROUP_PREFIX +
 								GroupConstants.DEFAULT;
 
-							scopeIds = new String[] { groupDefault };
+							scopeIds = new String[] {groupDefault};
 
 							jxPortletPreferences.setValue(
 								"scopeIds", groupDefault);
