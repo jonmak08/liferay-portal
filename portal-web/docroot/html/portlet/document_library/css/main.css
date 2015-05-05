@@ -659,6 +659,7 @@
 		}
 
 		.common-file-metadata-container fieldset {
+			display: table-cell;
 			overflow: hidden;
 		}
 	}
