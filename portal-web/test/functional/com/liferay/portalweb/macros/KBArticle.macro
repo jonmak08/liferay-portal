@@ -553,7 +553,7 @@
 	</command>
 
 	<command name="gotoNextArticlePG">
-		<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_NEXT" value1="${kbDisplayNextArticle}" />
+		<execute function="AssertClick" locator1="PGKnowledgebasedisplay#ARTICLE_NEXT" value1="${kbDisplayNextArticle}" />
 	</command>
 
 	<command name="gotoPGViaKBSearchResult">
@@ -569,7 +569,7 @@
 	</command>
 
 	<command name="gotoPreviousArticlePG">
-		<execute action="PGKnowledgebasedisplay#assertClick" locator-key1="ARTICLE_PREVIOUS" value1="${kbDisplayPreviousArticle}" />
+		<execute function="AssertClick" locator1="PGKnowledgebasedisplay#ARTICLE_PREVIOUS" value1="${kbDisplayPreviousArticle}" />
 	</command>
 
 	<command name="gotoRelatedAssetCP">

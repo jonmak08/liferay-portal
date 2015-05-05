@@ -280,7 +280,7 @@
 
 		<execute function="AssertClick" locator1="CPSitepages#TOOLBAR_IMPORT" value1="Import" />
 
-		<execute action="BasePortletImport#selectFrame" locator-key1="IMPORT_IFRAME" />
+		<execute function="SelectFrame" locator1="BasePortletImport#IMPORT_IFRAME" />
 	</command>
 
 	<command name="importCmd">
