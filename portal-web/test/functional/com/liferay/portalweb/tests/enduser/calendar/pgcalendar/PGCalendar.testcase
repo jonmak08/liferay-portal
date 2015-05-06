@@ -1553,10 +1553,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="Portlet#gotoPortletOptions">
-			<var name="portletName" value="Calendar" />
-			<var name="portletOption" value="Configuration" />
-		</execute>
+		<execute macro="Calendar#gotoConfiguration" />
 
 		<execute macro="CalendarConfiguration#editTimeZonePacific" />
 
@@ -1600,10 +1597,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="Portlet#gotoPortletOptions">
-			<var name="portletName" value="Calendar" />
-			<var name="portletOption" value="Configuration" />
-		</execute>
+		<execute macro="Calendar#gotoConfiguration" />
 
 		<execute macro="CalendarConfiguration#enableGlobalTimeZone" />
 
@@ -3143,10 +3137,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="Portlet#gotoPortletOptions">
-			<var name="portletName" value="Calendar" />
-			<var name="portletOption" value="Configuration" />
-		</execute>
+		<execute macro="Calendar#gotoConfiguration" />
 
 		<execute macro="CalendarConfiguration#selectTimeFormat">
 			<var name="timeFormat" value="24 Hour" />
@@ -3200,10 +3191,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="Portlet#gotoPortletOptions">
-			<var name="portletName" value="Calendar" />
-			<var name="portletOption" value="Configuration" />
-		</execute>
+		<execute macro="Calendar#gotoConfiguration" />
 
 		<execute macro="CalendarConfiguration#selectTimeFormat">
 			<var name="timeFormat" value="AM/PM" />
@@ -3916,10 +3904,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="Portlet#gotoPortletOptions">
-			<var name="portletName" value="Calendar" />
-			<var name="portletOption" value="Configuration" />
-		</execute>
+		<execute macro="Calendar#gotoConfiguration" />
 
 		<execute macro="CalendarConfiguration#selectWeekStartsOn">
 			<var name="weekStartDay" value="Monday" />
@@ -3963,10 +3948,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="Portlet#gotoPortletOptions">
-			<var name="portletName" value="Calendar" />
-			<var name="portletOption" value="Configuration" />
-		</execute>
+		<execute macro="Calendar#gotoConfiguration" />
 
 		<execute macro="CalendarConfiguration#selectWeekStartsOn">
 			<var name="weekStartDay" value="Saturday" />
