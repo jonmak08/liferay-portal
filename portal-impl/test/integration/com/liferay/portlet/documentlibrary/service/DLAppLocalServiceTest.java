@@ -84,8 +84,8 @@ public class DLAppLocalServiceTest {
 
 		DLAppLocalServiceUtil.updateFileEntry(
 			TestPropsValues.getUserId(), fileEntry.getFileEntryId(),
-			RandomTestUtil.randomString(), ContentTypes.TEXT_PLAIN,
-			"New Title", RandomTestUtil.randomString(), null, true,
+			RandomTestUtil.randomString(), ContentTypes.TEXT_PLAIN, "New Title",
+			RandomTestUtil.randomString(), null, true,
 			RandomTestUtil.randomBytes(), serviceContext);
 
 		AssetEntry assetEntry = AssetEntryLocalServiceUtil.getEntry(
