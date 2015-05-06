@@ -121,12 +121,6 @@ request.setAttribute("view.jsp-showIconLabel", true);
 		}
 	}
 
-	if (showContextLink) {
-		if (PortalUtil.getPlidFromPortletId(assetRenderer.getGroupId(), assetRendererFactory.getPortletId()) == 0) {
-			showContextLink = false;
-		}
-	}
-
 	PortletURL viewFullContentURL = renderResponse.createRenderURL();
 
 	viewFullContentURL.setParameter("struts_action", "/asset_publisher/view_content");
@@ -140,10 +134,6 @@ request.setAttribute("view.jsp-showIconLabel", true);
 
 		viewFullContentURL.setParameter("urlTitle", assetRenderer.getUrlTitle());
 	}
-
-	String viewFullContentURLString = viewFullContentURL.toString();
-
-	viewFullContentURLString = HttpUtil.setParameter(viewFullContentURLString, "redirect", currentURL);
 	%>
 
 	<div class="asset-content" id="<portlet:namespace /><%= assetEntry.getEntryId() %>">
@@ -209,9 +199,17 @@ request.setAttribute("view.jsp-showIconLabel", true);
 			</div>
 		</c:if>
 
+		<%
+		if (showContextLink) {
+			if (PortalUtil.getPlidFromPortletId(assetRenderer.getGroupId(), assetRendererFactory.getPortletId()) == 0) {
+				showContextLink = false;
+			}
+		}
+		%>
+
 		<c:if test="<%= showContextLink && !print && assetEntry.isVisible() %>">
 			<div class="asset-more">
-				<a href="<%= assetRenderer.getURLViewInContext(liferayPortletRequest, liferayPortletResponse, viewFullContentURLString) %>"><liferay-ui:message key="<%= assetRenderer.getViewInContextMessage() %>" /> &raquo;</a>
+				<a href="<%= assetRenderer.getURLViewInContext(liferayPortletRequest, liferayPortletResponse, HttpUtil.setParameter(viewFullContentURL.toString(), "redirect", currentURL)) %>"><liferay-ui:message key="<%= assetRenderer.getViewInContextMessage() %>" /> &raquo;</a>
 			</div>
 		</c:if>
 
