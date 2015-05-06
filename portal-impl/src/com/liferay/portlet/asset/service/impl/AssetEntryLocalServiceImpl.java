@@ -398,11 +398,7 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 	@Override
 	public void reindex(List<AssetEntry> entries) throws PortalException {
 		for (AssetEntry entry : entries) {
-			String className = PortalUtil.getClassName(entry.getClassNameId());
-
-			Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(className);
-
-			indexer.reindex(className, entry.getClassPK());
+			reindex(entry);
 		}
 	}
 
@@ -967,6 +963,14 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 		}
 
 		return null;
+	}
+
+	protected void reindex(AssetEntry entry) throws PortalException {
+		String className = PortalUtil.getClassName(entry.getClassNameId());
+
+		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(className);
+
+		indexer.reindex(className, entry.getClassPK());
 	}
 
 	protected AssetEntry updateVisible(AssetEntry entry, boolean visible)
