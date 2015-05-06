@@ -98,6 +98,9 @@ public interface Staging {
 			User user, long layoutSetBranchId, long plid)
 		throws SystemException;
 
+	public void deleteRecentLayoutRevisionId(
+		long userId, long layoutSetBranchId, long plid, boolean isDefaultUser);
+
 	/**
 	 * @deprecated As of 6.2.0, replaced by {@link
 	 *             com.liferay.portal.service.StagingLocalService#disableStaging(
