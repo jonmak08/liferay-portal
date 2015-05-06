@@ -435,7 +435,7 @@ AUI.add(
 								returnVal = false;
 							}
 
-							return true;
+							return returnVal;
 						})();
 
 						if (hasNoClass) {
