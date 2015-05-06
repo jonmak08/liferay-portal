@@ -820,6 +820,25 @@ public abstract class DLFileEntryTypeServiceBaseImpl extends BaseServiceImpl
 	}
 
 	/**
+	 * Returns the d l app helper local service.
+	 *
+	 * @return the d l app helper local service
+	 */
+	public com.liferay.portlet.documentlibrary.service.DLAppHelperLocalService getDLAppHelperLocalService() {
+		return dlAppHelperLocalService;
+	}
+
+	/**
+	 * Sets the d l app helper local service.
+	 *
+	 * @param dlAppHelperLocalService the d l app helper local service
+	 */
+	public void setDLAppHelperLocalService(
+		com.liferay.portlet.documentlibrary.service.DLAppHelperLocalService dlAppHelperLocalService) {
+		this.dlAppHelperLocalService = dlAppHelperLocalService;
+	}
+
+	/**
 	 * Returns the d d m structure local service.
 	 *
 	 * @return the d d m structure local service
@@ -1027,6 +1046,8 @@ public abstract class DLFileEntryTypeServiceBaseImpl extends BaseServiceImpl
 	protected com.liferay.portal.service.WorkflowInstanceLinkLocalService workflowInstanceLinkLocalService;
 	@BeanReference(type = WorkflowInstanceLinkPersistence.class)
 	protected WorkflowInstanceLinkPersistence workflowInstanceLinkPersistence;
+	@BeanReference(type = com.liferay.portlet.documentlibrary.service.DLAppHelperLocalService.class)
+	protected com.liferay.portlet.documentlibrary.service.DLAppHelperLocalService dlAppHelperLocalService;
 	@BeanReference(type = com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalService.class)
 	protected com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalService ddmStructureLocalService;
 	@BeanReference(type = com.liferay.portlet.dynamicdatamapping.service.DDMStructureService.class)
