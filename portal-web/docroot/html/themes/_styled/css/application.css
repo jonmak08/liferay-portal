@@ -589,6 +589,14 @@
 	}
 }
 
+/* ---------- CKEditor source ---------- */
+
+.aui {
+	.cke_source {
+		@include box-sizing(border-box);
+	}
+}
+
 /* ---------- HTML editor ---------- */
 
 body.html-editor {
