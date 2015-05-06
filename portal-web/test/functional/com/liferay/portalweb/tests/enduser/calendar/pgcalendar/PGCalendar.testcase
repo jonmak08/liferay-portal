@@ -3486,7 +3486,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewCorrectNumberOfWeeksMonthView" priority="3">
+	<command known-issues="LPS-54990" name="ViewCorrectNumberOfWeeksMonthView" priority="3">
 		<description message="This is a use case for LPS-52517." />
 
 		<execute macro="Page#gotoPG">
