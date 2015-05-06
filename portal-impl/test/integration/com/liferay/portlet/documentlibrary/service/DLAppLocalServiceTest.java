@@ -27,6 +27,7 @@ import com.liferay.portal.test.EnvironmentExecutionTestListener;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
 import com.liferay.portal.test.TransactionalExecutionTestListener;
 import com.liferay.portal.util.GroupTestUtil;
+import com.liferay.portal.util.RandomTestUtil;
 import com.liferay.portal.util.TestPropsValues;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
@@ -73,7 +74,7 @@ public class DLAppLocalServiceTest {
 	@Test
 	public void testUpdateAssetWhenUpdatingFileEntry() throws Throwable {
 		ServiceContext serviceContext =
-			ServiceContextTestUtil.getServiceContext(_group.getGroupId());
+			ServiceTestUtil.getServiceContext(_group.getGroupId());
 
 		FileEntry fileEntry = DLAppLocalServiceUtil.addFileEntry(
 			TestPropsValues.getUserId(), _group.getGroupId(),
@@ -97,7 +98,7 @@ public class DLAppLocalServiceTest {
 	@Test
 	public void testUpdateAssetWhenUpdatingFolder() throws Throwable {
 		ServiceContext serviceContext =
-			ServiceContextTestUtil.getServiceContext(_group.getGroupId());
+			ServiceTestUtil.getServiceContext(_group.getGroupId());
 
 		Folder folder = addFolder(false, "Old Name");
 
