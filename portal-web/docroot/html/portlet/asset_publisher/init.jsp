@@ -225,6 +225,7 @@ boolean enableRatings = GetterUtil.getBoolean(portletPreferences.getValue("enabl
 boolean enableComments = GetterUtil.getBoolean(portletPreferences.getValue("enableComments", null));
 boolean enableCommentRatings = GetterUtil.getBoolean(portletPreferences.getValue("enableCommentRatings", null));
 boolean enableTagBasedNavigation = GetterUtil.getBoolean(portletPreferences.getValue("enableTagBasedNavigation", null));
+boolean enableViewCountIncrement = GetterUtil.getBoolean(portletPreferences.getValue("enableViewCountIncrement", null), true);
 
 String[] conversions = DocumentConversionUtil.getConversions("html");
 String[] extensions = portletPreferences.getValues("extensions", new String[0]);
