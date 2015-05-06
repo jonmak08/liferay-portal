@@ -94,6 +94,7 @@ public interface Staging {
 			HttpServletRequest request, long layoutSetBranchId, long plid)
 		throws SystemException;
 
+	@Deprecated
 	public void deleteRecentLayoutRevisionId(
 			User user, long layoutSetBranchId, long plid)
 		throws SystemException;
