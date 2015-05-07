@@ -126,6 +126,7 @@ import com.liferay.portlet.journal.model.impl.JournalArticleDisplayImpl;
 import com.liferay.portlet.journal.model.impl.JournalArticleModelImpl;
 import com.liferay.portlet.journal.model.impl.JournalFolderModelImpl;
 import com.liferay.portlet.journal.service.base.JournalArticleLocalServiceBaseImpl;
+import com.liferay.portlet.journal.service.persistence.JournalArticleActionableDynamicQuery;
 import com.liferay.portlet.journal.social.JournalActivityKeys;
 import com.liferay.portlet.journal.util.JournalUtil;
 import com.liferay.portlet.journal.util.comparator.ArticleIDComparator;
@@ -4533,50 +4534,41 @@ public class JournalArticleLocalServiceImpl
 
 	@Override
 	public void setTreePaths(final long folderId, final String treePath)
-		throws PortalException {
-
-		ActionableDynamicQuery actionableDynamicQuery =
-			getActionableDynamicQuery();
-
-		actionableDynamicQuery.setAddCriteriaMethod(
-			new ActionableDynamicQuery.AddCriteriaMethod() {
-
-				@Override
-				public void addCriteria(DynamicQuery dynamicQuery) {
-					Property folderIdProperty = PropertyFactoryUtil.forName(
-						"folderId");
-
-					dynamicQuery.add(folderIdProperty.eq(folderId));
-
-					Property treePathProperty = PropertyFactoryUtil.forName(
-						"treePath");
-
-					dynamicQuery.add(treePathProperty.ne(treePath));
-				}
-
-			}
-		);
+		throws PortalException, SystemException {
 
 		final Indexer indexer = IndexerRegistryUtil.getIndexer(
 			JournalArticle.class.getName());
 
-		actionableDynamicQuery.setPerformActionMethod(
-			new ActionableDynamicQuery.PerformActionMethod() {
+		ActionableDynamicQuery actionableDynamicQuery =
+			new JournalArticleActionableDynamicQuery() {
 
-				@Override
-				public void performAction(Object object)
-					throws PortalException {
+			@Override
+			protected void addCriteria(DynamicQuery dynamicQuery) {
+				Property folderIdProperty = PropertyFactoryUtil.forName(
+					"folderId");
 
-					JournalArticle article = (JournalArticle)object;
+				dynamicQuery.add(folderIdProperty.eq(folderId));
 
-					article.setTreePath(treePath);
+				Property treePathProperty = PropertyFactoryUtil.forName(
+					"treePath");
 
-					updateJournalArticle(article);
+				dynamicQuery.add(treePathProperty.ne(treePath));
+			}
 
-					indexer.reindex(article);
-				}
+			@Override
+			protected void performAction(Object object)
+				throws PortalException, SystemException {
 
-			});
+				JournalArticle article = (JournalArticle)object;
+
+				article.setTreePath(treePath);
+
+				updateJournalArticle(article);
+
+				indexer.reindex(article);
+			}
+
+		};
 
 		actionableDynamicQuery.performActions();
 	}

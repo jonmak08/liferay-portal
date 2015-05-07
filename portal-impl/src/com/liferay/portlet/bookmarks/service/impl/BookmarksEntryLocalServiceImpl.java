@@ -57,6 +57,7 @@ import com.liferay.portlet.bookmarks.model.BookmarksFolderConstants;
 import com.liferay.portlet.bookmarks.model.impl.BookmarksEntryModelImpl;
 import com.liferay.portlet.bookmarks.model.impl.BookmarksFolderModelImpl;
 import com.liferay.portlet.bookmarks.service.base.BookmarksEntryLocalServiceBaseImpl;
+import com.liferay.portlet.bookmarks.service.persistence.BookmarksEntryActionableDynamicQuery;
 import com.liferay.portlet.bookmarks.social.BookmarksActivityKeys;
 import com.liferay.portlet.bookmarks.util.BookmarksUtil;
 import com.liferay.portlet.bookmarks.util.comparator.EntryModifiedDateComparator;
@@ -525,39 +526,30 @@ public class BookmarksEntryLocalServiceImpl
 
 	@Override
 	public void setTreePaths(final long folderId, final String treePath)
-		throws PortalException {
-
-		ActionableDynamicQuery actionableDynamicQuery =
-			getActionableDynamicQuery();
-
-		actionableDynamicQuery.setAddCriteriaMethod(
-			new ActionableDynamicQuery.AddCriteriaMethod() {
-
-				@Override
-				public void addCriteria(DynamicQuery dynamicQuery) {
-					Property folderIdProperty = PropertyFactoryUtil.forName(
-						"folderId");
-
-					dynamicQuery.add(folderIdProperty.eq(folderId));
-
-					Property treePathProperty = PropertyFactoryUtil.forName(
-						"treePath");
-
-					dynamicQuery.add(treePathProperty.ne(treePath));
-				}
-
-			}
-		);
+		throws PortalException, SystemException {
 
 		final Indexer indexer = IndexerRegistryUtil.getIndexer(
-			BookmarksEntry.class.getName());
+				BookmarksEntry.class.getName());
 
-		actionableDynamicQuery.setPerformActionMethod(
-			new ActionableDynamicQuery.PerformActionMethod() {
+		ActionableDynamicQuery actionableDynamicQuery =
+				new BookmarksEntryActionableDynamicQuery() {
 
 				@Override
-				public void performAction(Object object)
-					throws PortalException {
+				protected void addCriteria(DynamicQuery dynamicQuery) {
+					Property folderIdProperty = PropertyFactoryUtil.forName(
+							"folderId");
+
+						dynamicQuery.add(folderIdProperty.eq(folderId));
+
+						Property treePathProperty = PropertyFactoryUtil.forName(
+							"treePath");
+
+						dynamicQuery.add(treePathProperty.ne(treePath));
+				}
+
+				@Override
+				protected void performAction(Object object)
+					throws PortalException, SystemException {
 
 					BookmarksEntry entry = (BookmarksEntry)object;
 
@@ -567,8 +559,7 @@ public class BookmarksEntryLocalServiceImpl
 
 					indexer.reindex(entry);
 				}
-
-			});
+			};
 
 		actionableDynamicQuery.performActions();
 	}

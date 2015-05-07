@@ -99,6 +99,7 @@ import com.liferay.portlet.documentlibrary.model.impl.DLFileEntryImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileEntryModelImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLFolderModelImpl;
 import com.liferay.portlet.documentlibrary.service.base.DLFileEntryLocalServiceBaseImpl;
+import com.liferay.portlet.documentlibrary.service.persistence.DLFileEntryActionableDynamicQuery;
 import com.liferay.portlet.documentlibrary.store.DLStoreUtil;
 import com.liferay.portlet.documentlibrary.util.DL;
 import com.liferay.portlet.documentlibrary.util.DLAppUtil;
@@ -1561,16 +1562,16 @@ public class DLFileEntryLocalServiceImpl
 
 	@Override
 	public void setTreePaths(final long folderId, final String treePath)
-		throws PortalException {
+		throws PortalException, SystemException {
+
+		final Indexer indexer = IndexerRegistryUtil.getIndexer(
+			DLFileEntry.class.getName());
 
 		ActionableDynamicQuery actionableDynamicQuery =
-			getActionableDynamicQuery();
-
-		actionableDynamicQuery.setAddCriteriaMethod(
-			new ActionableDynamicQuery.AddCriteriaMethod() {
+			new DLFileEntryActionableDynamicQuery() {
 
 				@Override
-				public void addCriteria(DynamicQuery dynamicQuery) {
+				protected void addCriteria(DynamicQuery dynamicQuery) {
 					Property folderIdProperty = PropertyFactoryUtil.forName(
 						"folderId");
 
@@ -1582,18 +1583,9 @@ public class DLFileEntryLocalServiceImpl
 					dynamicQuery.add(treePathProperty.ne(treePath));
 				}
 
-			}
-		);
-
-		final Indexer indexer = IndexerRegistryUtil.getIndexer(
-			DLFileEntry.class.getName());
-
-		actionableDynamicQuery.setPerformActionMethod(
-			new ActionableDynamicQuery.PerformActionMethod() {
-
 				@Override
-				public void performAction(Object object)
-					throws PortalException {
+				protected void performAction(Object object)
+					throws PortalException, SystemException {
 
 					DLFileEntry entry = (DLFileEntry)object;
 
@@ -1604,7 +1596,7 @@ public class DLFileEntryLocalServiceImpl
 					indexer.reindex(entry);
 				}
 
-			});
+		};
 
 		actionableDynamicQuery.performActions();
 	}

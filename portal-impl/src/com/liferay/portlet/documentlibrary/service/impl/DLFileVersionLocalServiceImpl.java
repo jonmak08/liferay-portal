@@ -30,6 +30,7 @@ import com.liferay.portlet.documentlibrary.model.DLFileVersion;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileVersionModelImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLFolderModelImpl;
 import com.liferay.portlet.documentlibrary.service.base.DLFileVersionLocalServiceBaseImpl;
+import com.liferay.portlet.documentlibrary.service.persistence.DLFileVersionActionableDynamicQuery;
 import com.liferay.portlet.documentlibrary.util.comparator.FileVersionVersionComparator;
 
 import java.util.Collections;
@@ -158,45 +159,36 @@ public class DLFileVersionLocalServiceImpl
 
 	@Override
 	public void setTreePaths(final long folderId, final String treePath)
-		throws PortalException {
+		throws PortalException, SystemException {
 
 		ActionableDynamicQuery actionableDynamicQuery =
-			getActionableDynamicQuery();
+			new DLFileVersionActionableDynamicQuery() {
 
-		actionableDynamicQuery.setAddCriteriaMethod(
-			new ActionableDynamicQuery.AddCriteriaMethod() {
+			@Override
+			protected void addCriteria(DynamicQuery dynamicQuery) {
+				Property folderIdProperty = PropertyFactoryUtil.forName(
+					"folderId");
 
-				@Override
-				public void addCriteria(DynamicQuery dynamicQuery) {
-					Property folderIdProperty = PropertyFactoryUtil.forName(
-						"folderId");
+				dynamicQuery.add(folderIdProperty.eq(folderId));
 
-					dynamicQuery.add(folderIdProperty.eq(folderId));
+				Property treePathProperty = PropertyFactoryUtil.forName(
+					"treePath");
 
-					Property treePathProperty = PropertyFactoryUtil.forName(
-						"treePath");
-
-					dynamicQuery.add(treePathProperty.ne(treePath));
-				}
-
+				dynamicQuery.add(treePathProperty.ne(treePath));
 			}
-		);
 
-		actionableDynamicQuery.setPerformActionMethod(
-			new ActionableDynamicQuery.PerformActionMethod() {
+			@Override
+			protected void performAction(Object object)
+				throws PortalException, SystemException {
 
-				@Override
-				public void performAction(Object object)
-					throws PortalException {
+				DLFileVersion version = (DLFileVersion)object;
 
-					DLFileVersion version = (DLFileVersion)object;
+				version.setTreePath(treePath);
 
-					version.setTreePath(treePath);
+				updateDLFileVersion(version);
+			}
 
-					updateDLFileVersion(version);
-				}
-
-			});
+		};
 
 		actionableDynamicQuery.performActions();
 	}
