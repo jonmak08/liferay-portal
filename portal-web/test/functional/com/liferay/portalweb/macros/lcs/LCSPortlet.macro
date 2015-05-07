@@ -42,6 +42,18 @@
 		</if>
 	</command>
 
+	<command name="connect">
+		<execute function="AssertClick" locator1="LCSPortlet#CONNECT_BUTTON" value1="Connect" />
+
+		<execute macro="LCSPortlet#viewConnected" />
+	</command>
+
+	<command name="disconnect">
+		<execute function="AssertClick" locator1="LCSPortlet#DISCONNECT_BUTTON" value1="Disconnect" />
+
+		<execute macro="LCSPortlet#viewDisconnected" />
+	</command>
+
 	<command name="registerServer">
 		<if>
 			<condition function="IsElementPresent" locator1="LCSPortlet#PROJECT_HOME_LINK" value1="Project Home" />
@@ -84,8 +96,24 @@
 		</if>
 	</command>
 
+	<command name="resetCredentials">
+		<execute function="AssertClick" locator1="LCSPortlet#RESET_CREDENTIALS_BUTTON" value1="Reset Credentials" />
+
+		<execute macro="LCSPortlet#viewBeforeAuthorization" />
+	</command>
+
 	<command name="viewBeforeAuthorization">
 		<execute function="AssertTextEquals" locator1="LCSPortletRegistration#INFO_MESSAGE" value1="Please authorize Liferay Connected Services to start receiving your portal metrics data." />
 		<execute function="AssertElementPresent" locator1="LCSPortletRegistration#AUTHORIZE_ACCESS_BUTTON" />
+	</command>
+
+	<command name="viewConnected">
+		<execute function="AssertElementPresent" locator1="LCSPortlet#DISCONNECT_BUTTON" />
+		<execute function="AssertTextEquals" locator1="LCSPortlet#CONNECTION_STATUS" value1="Connected" />
+	</command>
+
+	<command name="viewDisconnected">
+		<execute function="AssertElementPresent" locator1="LCSPortlet#CONNECT_BUTTON" />
+		<execute function="AssertTextEquals" locator1="LCSPortlet#CONNECTION_STATUS" value1="Disconnected" />
 	</command>
 </definition>

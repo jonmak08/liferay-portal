@@ -27,6 +27,18 @@
 		<execute function="Confirm" value1="Are you sure you want to unregister this server from Liferay Connected Services?" />
 	</command>
 
+	<command name="viewConnectedServerIcon">
+		<var name="key_serverName" value="${serverName}" />
+
+		<execute function="AssertElementPresent" locator1="LCSPortalNavigation#NAVIGATION_MENU_SERVER_ONLINE_ICON" />
+	</command>
+
+	<command name="viewDisconnectedServerIcon">
+		<var name="key_serverName" value="${serverName}" />
+
+		<execute function="AssertElementPresent" locator1="LCSPortalNavigation#NAVIGATION_MENU_SERVER_OFFLINE_ICON" />
+	</command>
+
 	<command name="viewServerDetails">
 		<var name="key_environmentName" value="${environmentName}" />
 

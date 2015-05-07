@@ -26,6 +26,18 @@
 		</while>
 	</command>
 
+	<command name="viewConnectedEnvironmentIcon">
+		<var name="key_environmentName" value="${environmentName}" />
+
+		<execute function="AssertElementPresent" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT_ONLINE_ICON" />
+	</command>
+
+	<command name="viewDisconnectedEnvironmentIcon">
+		<var name="key_environmentName" value="${environmentName}" />
+
+		<execute function="AssertElementPresent" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT_OFFLINE_ICON" />
+	</command>
+
 	<command name="viewEmptyEnvironment">
 		<var name="key_environmentName" value="${environmentName}" />
 
