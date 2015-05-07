@@ -727,6 +727,14 @@ public class JournalConverterImpl implements JournalConverter {
 					fieldValue = valueDate.getTime();
 				}
 
+				if (Validator.isNull(fieldValue)) {
+					Locale defaultLocale = ddmField.getDefaultLocale();
+
+					if (!Validator.equals(locale, defaultLocale)) {
+						fieldValue = ddmField.getValue(defaultLocale, count);
+					}
+				}
+
 				String valueString = String.valueOf(fieldValue);
 
 				updateDynamicContentValue(
