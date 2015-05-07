@@ -20,7 +20,7 @@
 </tr>
 <tr>
 	<td>ERROR_HEADER</td>
-	<td>//h3[contains(@class,'alert') and contains(@class,'alert-danger')]</td>
+	<td>//h3[contains(@class,'alert') and contains(@class,'alert-error')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -36,12 +36,12 @@
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_USER_SETTINGS</td>
-	<td>//ul[@class='lfr-nav nav nav-tabs']/li/a[contains(.,'User Settings')]</td>
+	<td>//ul[contains(@class,'nav-tabs')]/li/a[contains(.,'User Settings')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>NAVIGATION_USER_RSS</td>
-	<td>//ul[@class='lfr-nav nav nav-tabs']/li/a[contains(.,'RSS')]</td>
+	<td>//ul[contains(@class,'nav-tabs')]/li/a[contains(.,'RSS')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -93,7 +93,7 @@
 <!--RSS-->
 <tr>
 	<td>RSS_ENABLE_RSS_SUBSCRIPTION_CHECKBOX</td>
-	<td>//input[contains(@id,'enableRss')]</td>
+	<td>//input[contains(@id,'enableRssCheckbox')]</td>
 	<td></td>
 </tr>
 </tbody>
