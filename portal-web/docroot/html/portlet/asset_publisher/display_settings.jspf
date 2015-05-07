@@ -155,7 +155,7 @@
 	<c:if test='<%= selectionStyle.equals("manual") %>'>
 		<aui:input helpMessage="enable-tag-based-navigation-help" label="enable-tag-based-navigation" name="preferences--enableTagBasedNavigation--" type="checkbox" value="<%= enableTagBasedNavigation %>" />
 	</c:if>
-	
+
 	<aui:input name="preferences--enableViewCountIncrement--" type="checkbox" value="<%= enableViewCountIncrement %>" />
 </aui:fieldset>
 
