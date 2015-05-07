@@ -2732,6 +2732,6 @@ public class StagingImpl implements Staging {
 
 	private static final String _LAST_PUBLISH_DATE = "last-publish-date";
 
-	private static final Log _log = LogFactoryUtil.getLog(StagingImpl.class);
+	private static Log _log = LogFactoryUtil.getLog(StagingImpl.class);
 
 }
