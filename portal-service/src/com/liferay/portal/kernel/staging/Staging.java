@@ -94,13 +94,12 @@ public interface Staging {
 			HttpServletRequest request, long layoutSetBranchId, long plid)
 		throws SystemException;
 
-	@Deprecated
-	public void deleteRecentLayoutRevisionId(
-			User user, long layoutSetBranchId, long plid)
-		throws SystemException;
-
 	public void deleteRecentLayoutRevisionId(
 		long userId, long layoutSetBranchId, long plid, boolean isDefaultUser);
+
+	@Deprecated
+	public void deleteRecentLayoutRevisionId(
+		User user, long layoutSetBranchId, long plid);
 
 	/**
 	 * @deprecated As of 6.2.0, replaced by {@link
