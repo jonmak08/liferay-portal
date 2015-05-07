@@ -73,8 +73,8 @@ public class DLAppLocalServiceTest {
 
 	@Test
 	public void testUpdateAssetWhenUpdatingFileEntry() throws Throwable {
-		ServiceContext serviceContext =
-			ServiceTestUtil.getServiceContext(_group.getGroupId());
+		ServiceContext serviceContext = ServiceTestUtil.getServiceContext(
+			_group.getGroupId());
 
 		FileEntry fileEntry = DLAppLocalServiceUtil.addFileEntry(
 			TestPropsValues.getUserId(), _group.getGroupId(),
@@ -97,8 +97,8 @@ public class DLAppLocalServiceTest {
 
 	@Test
 	public void testUpdateAssetWhenUpdatingFolder() throws Throwable {
-		ServiceContext serviceContext =
-			ServiceTestUtil.getServiceContext(_group.getGroupId());
+		ServiceContext serviceContext = ServiceTestUtil.getServiceContext(
+			_group.getGroupId());
 
 		Folder folder = addFolder(false, "Old Name");
 
