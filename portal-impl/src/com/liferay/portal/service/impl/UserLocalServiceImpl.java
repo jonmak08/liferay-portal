@@ -79,6 +79,7 @@ import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -3709,13 +3710,28 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	public void setRoleUsers(long roleId, long[] userIds)
 		throws PortalException, SystemException {
 
+		List<User> oldUsers = rolePersistence.getUsers(roleId);
+
+		long[] oldUserIds = new long[oldUsers.size()];
+
+		for (int i = 0; i < oldUsers.size(); i++) {
+			User user = oldUsers.get(i);
+
+			oldUserIds[i] = user.getUserId();
+		}
+
+		Set<Long> updatedUserIdsSet = SetUtil.symmetricDifference(
+			userIds, oldUserIds);
+
+		long[] updateUserIds = ArrayUtil.toLongArray(updatedUserIdsSet);
+
 		rolePersistence.setUsers(roleId, userIds);
 
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 
-		indexer.reindex(userIds);
+		indexer.reindex(updateUserIds);
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache(updateUserIds);
 	}
 
 	/**
@@ -3736,13 +3752,28 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			userGroupLocalService.copyUserGroupLayouts(userGroupId, userIds);
 		}
 
+		List<User> oldUsers = userGroupPersistence.getUsers(userGroupId);
+
+		long[] oldUserIds = new long[oldUsers.size()];
+
+		for (int i = 0; i < oldUsers.size(); i++) {
+			User user = oldUsers.get(i);
+
+			oldUserIds[i] = user.getUserId();
+		}
+
+		Set<Long> updatedUserIdsSet = SetUtil.symmetricDifference(
+			userIds, oldUserIds);
+
+		long[] updateUserIds = ArrayUtil.toLongArray(updatedUserIdsSet);
+
 		userGroupPersistence.setUsers(userGroupId, userIds);
 
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 
-		indexer.reindex(userIds);
+		indexer.reindex(updateUserIds);
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache(updateUserIds);
 	}
 
 	/**
