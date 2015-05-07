@@ -413,6 +413,11 @@ public class PortalCacheDatagramReceiveHandlerTest {
 		}
 
 		@Override
+		public List<String> getKeys() {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
 		public String getName() {
 			return _name;
 		}
