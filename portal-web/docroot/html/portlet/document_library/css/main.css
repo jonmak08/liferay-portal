@@ -325,8 +325,19 @@
 
 		.control-group {
 			input, select, textarea {
+				@include box-sizing(border-box);
+
+				max-width: 100% !important;
 				width: 100%;
 			}
+
+			input {
+				height: auto;
+			}
+		}
+
+		fieldset {
+			overflow: hidden;
 		}
 
 		.field-element {
@@ -356,10 +367,14 @@
 				min-height: 35px;
 			}
 
-			.document-type-selector .btn-group {
-				max-width: 100%;
+			.document-type-selector .btn {
+				display: block;
+			}
+		}
 
-				.btn {
+		.document-type-selector, .tagselector {
+			.btn-group {
+				&, & .btn {
 					max-width: 100%;
 					overflow: hidden;
 					white-space: normal;
@@ -374,6 +389,12 @@
 
 		.categorization-panel {
 			clear: left;
+
+			.tagselector {
+				.textboxlist-input-container, .toolbar-content {
+					max-width: 100%;
+				}
+			}
 		}
 	}
 
@@ -660,7 +681,6 @@
 
 		.common-file-metadata-container fieldset {
 			display: table-cell;
-			overflow: hidden;
 		}
 	}
 }
