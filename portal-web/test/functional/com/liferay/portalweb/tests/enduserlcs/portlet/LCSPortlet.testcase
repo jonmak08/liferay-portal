@@ -1,0 +1,283 @@
+<definition component-name="liferay-connected-services-project-administration">
+	<property name="portlet.plugins.includes" value="lcs-portlet" />
+	<property name="testray.main.component.name" value="Liferay Connected Services" />
+
+	<set-up>
+		<execute macro="User#firstLoginPG" />
+	</set-up>
+
+	<command name="Connect" priority="4">
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewEnvironmentDetails">
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewConnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="LCSPortlet#viewConnected" />
+
+		<execute function="SelectWindow" locator1="Settings - Liferay" />
+	</command>
+
+	<command name="Disconnect" priority="4">
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewEnvironmentDetails">
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="LCSPortlet#disconnect" />
+
+		<execute function="SelectWindow" locator1="Settings - Liferay" />
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewDisconnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+	</command>
+
+	<command name="DisconnectAndReconnect" priority="4">
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewEnvironmentDetails">
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="LCSPortlet#disconnect" />
+
+		<execute function="SelectWindow" locator1="Settings - Liferay" />
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewDisconnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="LCSPortlet#connect" />
+
+		<execute function="SelectWindow" locator1="Settings - Liferay" />
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewConnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+	</command>
+
+	<command name="Reset" priority="4">
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewEnvironmentDetails">
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewConnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="LCSPortlet#resetCredentials" />
+
+		<execute macro="LCSPortlet#viewBeforeAuthorization" />
+
+		<execute function="SelectWindow" locator1="Settings - Liferay" />
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewDisconnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+	</command>
+
+	<command name="ResetAndReconnect" priority="4">
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewEnvironmentDetails">
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewConnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="LCSPortlet#resetCredentials" />
+
+		<execute macro="LCSPortlet#viewBeforeAuthorization" />
+
+		<execute function="SelectWindow" locator1="Settings - Liferay" />
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewDisconnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="LCSPortlet#authorizeLCS">
+			<var name="projectName" value="Liferay QA" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSPortlet#viewDisconnected" />
+
+		<execute macro="LCSPortlet#connect" />
+
+		<execute function="SelectWindow" locator1="Settings - Liferay" />
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewConnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+	</command>
+</definition>
