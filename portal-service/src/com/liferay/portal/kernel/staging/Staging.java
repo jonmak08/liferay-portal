@@ -95,9 +95,8 @@ public interface Staging {
 		throws SystemException;
 
 	public void deleteRecentLayoutRevisionId(
-		long userId, long layoutSetBranchId, long plid, boolean isDefaultUser);
+		long userId, long layoutSetBranchId, long plid);
 
-	@Deprecated
 	public void deleteRecentLayoutRevisionId(
 		User user, long layoutSetBranchId, long plid);
 
