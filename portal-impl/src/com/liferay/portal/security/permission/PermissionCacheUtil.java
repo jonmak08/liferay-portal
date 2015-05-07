@@ -21,6 +21,8 @@ import com.liferay.portal.kernel.cache.key.CompositePortalCacheKey;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.util.AutoResetThreadLocal;
 import com.liferay.portal.kernel.util.HashUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Role;
 import com.liferay.portal.util.PropsValues;
@@ -111,14 +113,18 @@ public class PermissionCacheUtil {
 		_resourceBlockIdsBagCache.removeAll();
 	}
 
-	public static void clearResourceBlockCache() {
+	public static void clearResourceBlockCache(
+		long companyId, long groupId, String name) {
+
 		if (ExportImportThreadLocal.isImportInProcess() ||
-			!PermissionThreadLocal.isFlushResourceBlockEnabled()) {
+			!PermissionThreadLocal.isFlushResourceBlockEnabled(
+				companyId, groupId, name)) {
 
 			return;
 		}
 
-		_resourceBlockIdsBagCache.removeAll();
+		_resourceBlockIdsBagCacheKeyManager.removeBySimpleKey(
+			ResourceBlockIdsBagKey.getSimpleKey(companyId, groupId, name));
 	}
 
 	public static void clearResourceCache() {
@@ -128,14 +134,18 @@ public class PermissionCacheUtil {
 		}
 	}
 
-	public static void clearResourcePermissionCache() {
+	public static void clearResourcePermissionCache(
+		String name, String primKey) {
+
 		if (ExportImportThreadLocal.isImportInProcess() ||
-			!PermissionThreadLocal.isFlushResourcePermissionEnabled()) {
+			!PermissionThreadLocal.isFlushResourcePermissionEnabled(
+				name, primKey)) {
 
 			return;
 		}
 
-		_permissionPortalCache.removeAll();
+		_permissionPortalCacheKeyManager.removeBySimpleKey(
+			PermissionKey.getSimpleKey(name, primKey));
 	}
 
 	public static PermissionCheckerBag getBag(long userId, long groupId) {
@@ -283,11 +293,20 @@ public class PermissionCacheUtil {
 		_permissionPortalCache = MultiVMPoolUtil.getCache(
 			PERMISSION_CACHE_NAME,
 			PropsValues.PERMISSIONS_OBJECT_BLOCKING_CACHE);
+	private static final CompositePortalCacheKeyManager<PermissionKey, Boolean>
+		_permissionPortalCacheKeyManager = new CompositePortalCacheKeyManager
+			<PermissionKey, Boolean>(_permissionPortalCache);
 	private static final
 		PortalCache<ResourceBlockIdsBagKey, ResourceBlockIdsBag>
 			_resourceBlockIdsBagCache = MultiVMPoolUtil.getCache(
 				RESOURCE_BLOCK_IDS_BAG_CACHE_NAME,
 				PropsValues.PERMISSIONS_OBJECT_BLOCKING_CACHE);
+	private static final CompositePortalCacheKeyManager
+		<ResourceBlockIdsBagKey, ResourceBlockIdsBag>
+			_resourceBlockIdsBagCacheKeyManager =
+				new CompositePortalCacheKeyManager
+					<ResourceBlockIdsBagKey, ResourceBlockIdsBag>(
+						_resourceBlockIdsBagCache);
 	private static final PortalCache<Long, UserPermissionCheckerBag>
 		_userPermissionCheckerBagPortalCache = MultiVMPoolUtil.getCache(
 			USER_PERMISSION_CHECKER_BAG_CACHE_NAME,
@@ -341,7 +360,11 @@ public class PermissionCacheUtil {
 
 	}
 
-	private static class PermissionKey implements Serializable {
+	private static class PermissionKey implements CompositePortalCacheKey {
+
+		public static String getSimpleKey(String name, String primKey) {
+			return name + StringPool.UNDERLINE + primKey;
+		}
 
 		public PermissionKey(
 			long userId, boolean signedIn, long groupId, String name,
@@ -374,6 +397,11 @@ public class PermissionCacheUtil {
 		}
 
 		@Override
+		public String getSimpleKey() {
+			return getSimpleKey(_name, _primKey);
+		}
+
+		@Override
 		public int hashCode() {
 			int hashCode = HashUtil.hash(0, _userId);
 
@@ -397,7 +425,22 @@ public class PermissionCacheUtil {
 
 	}
 
-	private static class ResourceBlockIdsBagKey implements Serializable {
+	private static class ResourceBlockIdsBagKey
+		implements CompositePortalCacheKey {
+
+		public static String getSimpleKey(
+			long companyId, long groupId, String name) {
+
+			StringBundler sb = new StringBundler(5);
+
+			sb.append(companyId);
+			sb.append(StringPool.UNDERLINE);
+			sb.append(groupId);
+			sb.append(StringPool.UNDERLINE);
+			sb.append(name);
+
+			return sb.toString();
+		}
 
 		public ResourceBlockIdsBagKey(
 			long companyId, long groupId, long userId, String name) {
@@ -423,6 +466,11 @@ public class PermissionCacheUtil {
 			else {
 				return false;
 			}
+		}
+
+		@Override
+		public String getSimpleKey() {
+			return getSimpleKey(_companyId, _groupId, _name);
 		}
 
 		@Override
