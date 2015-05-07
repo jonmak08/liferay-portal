@@ -14,8 +14,10 @@
 
 package com.liferay.portal.security.permission;
 
+import com.liferay.portal.cache.CompositePortalCacheKeyManager;
 import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
 import com.liferay.portal.kernel.cache.PortalCache;
+import com.liferay.portal.kernel.cache.key.CompositePortalCacheKey;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.util.AutoResetThreadLocal;
 import com.liferay.portal.kernel.util.HashUtil;
@@ -82,8 +84,11 @@ public class PermissionCacheUtil {
 
 		_userPermissionCheckerBagPortalCache.remove(userId);
 
-		_userRolePortalCache.removeAll();
-		_permissionCheckerBagPortalCache.removeAll();
+		_userRolePortalCacheKeyManager.removeBySimpleKey(
+			UserRoleKey.getSimpleKey(userId));
+		_permissionCheckerBagPortalCacheKeyManager.removeBySimpleKey(
+			BagKey.getSimpleKey(userId));
+
 		_permissionPortalCache.removeAll();
 		_resourceBlockIdsBagCache.removeAll();
 	}
@@ -95,10 +100,13 @@ public class PermissionCacheUtil {
 
 		for (long userId : userIds) {
 			_userPermissionCheckerBagPortalCache.remove(userId);
+
+			_userRolePortalCacheKeyManager.removeBySimpleKey(
+				UserRoleKey.getSimpleKey(userId));
+			_permissionCheckerBagPortalCacheKeyManager.removeBySimpleKey(
+				BagKey.getSimpleKey(userId));
 		}
 
-		_userRolePortalCache.removeAll();
-		_permissionCheckerBagPortalCache.removeAll();
 		_permissionPortalCache.removeAll();
 		_resourceBlockIdsBagCache.removeAll();
 	}
@@ -245,19 +253,26 @@ public class PermissionCacheUtil {
 
 	private static ThreadLocal<LRUMap> _localCache;
 	private static boolean _localCacheAvailable;
-	private static PortalCache<BagKey, PermissionCheckerBag>
+	private static final PortalCache<BagKey, PermissionCheckerBag>
 		_permissionCheckerBagPortalCache = MultiVMPoolUtil.getCache(
 			PERMISSION_CHECKER_BAG_CACHE_NAME,
 			PropsValues.PERMISSIONS_OBJECT_BLOCKING_CACHE);
-	private static PortalCache<PermissionKey, Boolean> _permissionPortalCache =
-		MultiVMPoolUtil.getCache(
+	private static final CompositePortalCacheKeyManager
+		<BagKey, PermissionCheckerBag>
+			_permissionCheckerBagPortalCacheKeyManager =
+				new CompositePortalCacheKeyManager
+					<BagKey, PermissionCheckerBag>(
+						_permissionCheckerBagPortalCache);
+	private static final PortalCache<PermissionKey, Boolean>
+		_permissionPortalCache = MultiVMPoolUtil.getCache(
 			PERMISSION_CACHE_NAME,
 			PropsValues.PERMISSIONS_OBJECT_BLOCKING_CACHE);
-	private static PortalCache<ResourceBlockIdsBagKey, ResourceBlockIdsBag>
-		_resourceBlockIdsBagCache = MultiVMPoolUtil.getCache(
-			RESOURCE_BLOCK_IDS_BAG_CACHE_NAME,
-			PropsValues.PERMISSIONS_OBJECT_BLOCKING_CACHE);
-	private static PortalCache<Long, UserPermissionCheckerBag>
+	private static final
+		PortalCache<ResourceBlockIdsBagKey, ResourceBlockIdsBag>
+			_resourceBlockIdsBagCache = MultiVMPoolUtil.getCache(
+				RESOURCE_BLOCK_IDS_BAG_CACHE_NAME,
+				PropsValues.PERMISSIONS_OBJECT_BLOCKING_CACHE);
+	private static final PortalCache<Long, UserPermissionCheckerBag>
 		_userPermissionCheckerBagPortalCache = MultiVMPoolUtil.getCache(
 			USER_PERMISSION_CHECKER_BAG_CACHE_NAME,
 			PropsValues.PERMISSIONS_OBJECT_BLOCKING_CACHE);
@@ -265,8 +280,16 @@ public class PermissionCacheUtil {
 		_userRolePortalCache = MultiVMPoolUtil.getCache(
 			USER_ROLE_CACHE_NAME,
 			PropsValues.PERMISSIONS_OBJECT_BLOCKING_CACHE);
+	private static final CompositePortalCacheKeyManager<UserRoleKey, Boolean>
+		_userRolePortalCacheKeyManager =
+			new CompositePortalCacheKeyManager<UserRoleKey, Boolean>(
+				_userRolePortalCache);
 
-	private static class BagKey implements Serializable {
+	private static class BagKey implements CompositePortalCacheKey {
+
+		public static String getSimpleKey(long userId) {
+			return String.valueOf(userId);
+		}
 
 		public BagKey(long userId, long groupId) {
 			_userId = userId;
@@ -283,6 +306,11 @@ public class PermissionCacheUtil {
 			else {
 				return false;
 			}
+		}
+
+		@Override
+		public String getSimpleKey() {
+			return getSimpleKey(_userId);
 		}
 
 		@Override
@@ -401,7 +429,11 @@ public class PermissionCacheUtil {
 
 	}
 
-	private static class UserRoleKey implements Serializable {
+	private static class UserRoleKey implements CompositePortalCacheKey {
+
+		public static String getSimpleKey(long userId) {
+			return String.valueOf(userId);
+		}
 
 		public UserRoleKey(long userId, long roleId) {
 			_userId = userId;
@@ -420,6 +452,11 @@ public class PermissionCacheUtil {
 			else {
 				return false;
 			}
+		}
+
+		@Override
+		public String getSimpleKey() {
+			return getSimpleKey(_userId);
 		}
 
 		@Override
