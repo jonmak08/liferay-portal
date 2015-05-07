@@ -530,9 +530,17 @@ AUI.add(
 					_syncPrevNextPagesControls: function(pageNodes, paginationContentNode, page) {
 						var instance = this;
 
+						var nextPages;
+						var prevPages;
+
 						var strings = instance.get(STR_STRINGS);
 
-						if (strings.prevPages && strings.nextPages) {
+						if (paginationContentNode) {
+							nextPages = paginationContentNode.one('.next-pages');
+							prevPages = paginationContentNode.one('.prev-pages');
+						}
+
+						if (strings.prevPages && strings.nextPages && prevPages && nextPages) {
 							var numberOfPages = instance.get(STR_NUMBER_OF_PAGES);
 
 							var totalPages = pageNodes.size();
