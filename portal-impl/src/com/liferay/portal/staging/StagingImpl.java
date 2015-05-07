@@ -2066,7 +2066,7 @@ public class StagingImpl implements Staging {
 		long plid) {
 
 		String oldPortalPreferences = portalPreferences.getValue(
-			Staging.class.getName(), "ATTRIBUTE_MAP");
+			Staging.class.getName(), _STAGING_RECENT_LAYOUT_IDS_MAP);
 
 		try {
 			JSONArray jsonArray = JSONFactoryUtil.createJSONArray();
@@ -2090,7 +2090,8 @@ public class StagingImpl implements Staging {
 			}
 
 			portalPreferences.setValue(
-				Staging.class.getName(), "ATTRIBUTE_MAP", jsonArray.toString());
+				Staging.class.getName(), _STAGING_RECENT_LAYOUT_IDS_MAP,
+				jsonArray.toString());
 		}
 		catch (JSONException je) {
 			if (_log.isWarnEnabled()) {
@@ -2656,7 +2657,7 @@ public class StagingImpl implements Staging {
 		throws JSONException {
 
 		String preferencesString = portalPreferences.getValue(
-			Staging.class.getName(), "ATTRIBUTE_MAP");
+			Staging.class.getName(), _STAGING_RECENT_LAYOUT_IDS_MAP);
 
 		JSONArray jsonArray = JSONFactoryUtil.createJSONArray(
 			preferencesString);
@@ -2679,7 +2680,7 @@ public class StagingImpl implements Staging {
 		throws JSONException {
 
 		String oldPortalPreferences = portalPreferences.getValue(
-			Staging.class.getName(), "ATTRIBUTE_MAP");
+			Staging.class.getName(), _STAGING_RECENT_LAYOUT_IDS_MAP);
 
 		JSONArray jsonArray = JSONFactoryUtil.createJSONArray();
 
@@ -2711,11 +2712,15 @@ public class StagingImpl implements Staging {
 		}
 
 		portalPreferences.setValue(
-			Staging.class.getName(), "ATTRIBUTE_MAP", jsonArray.toString());
+			Staging.class.getName(), _STAGING_RECENT_LAYOUT_IDS_MAP,
+			jsonArray.toString());
 	}
 
 	private static final String _LAST_PUBLISH_DATE = "last-publish-date";
 
-	private static Log _log = LogFactoryUtil.getLog(StagingImpl.class);
+	private static final String _STAGING_RECENT_LAYOUT_IDS_MAP =
+		"STAGING_RECENT_LAYOUT_IDS_MAP";
+
+	private static final Log _log = LogFactoryUtil.getLog(StagingImpl.class);
 
 }
