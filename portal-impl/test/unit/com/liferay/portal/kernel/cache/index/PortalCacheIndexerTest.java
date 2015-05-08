@@ -22,12 +22,13 @@ import com.liferay.portal.kernel.test.CodeCoverageAssertor;
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentMap;
 
-import com.liferay.portal.util.RandomTestUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.ClassRule;
@@ -45,14 +46,20 @@ public class PortalCacheIndexerTest {
 	@Before
 	public void setUp() throws Exception {
 		_portalCache = new MemoryPortalCache<TestIndexedCacheKey, String>(
-			RandomTestUtil.randomString(), 10);
+			_CACHE_NAME, 10);
 
 		_portalCacheIndexer =
 			new PortalCacheIndexer<Long, TestIndexedCacheKey, String>(
 				_portalCache);
 
-		_cacheListener = ReflectionTestUtil.getFieldValue(
-			_portalCache, "aggregatedCacheListener");
+		Set<CacheListener<TestIndexedCacheKey, String>> cacheListeners =
+			ReflectionTestUtil.getFieldValue(_portalCache, "_cacheListeners");
+
+		List<CacheListener<TestIndexedCacheKey, String>> cacheListenerList =
+			new ArrayList<CacheListener<TestIndexedCacheKey, String>>(
+				cacheListeners);
+
+		_cacheListener = cacheListenerList.get(0);
 
 		_mappedMethodNameCallableInvocationHandler =
 			new MappedMethodNameCallableInvocationHandler(
@@ -118,7 +125,7 @@ public class PortalCacheIndexerTest {
 	@Test
 	public void testConstructor() {
 		_portalCache = new MemoryPortalCache<TestIndexedCacheKey, String>(
-			RandomTestUtil.randomString(), 10);
+			_CACHE_NAME, 10);
 
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 
@@ -307,6 +314,8 @@ public class PortalCacheIndexerTest {
 		Assert.assertEquals(
 			expectedTestIndexedCacheKeys, actualTestIndexedCacheKeys);
 	}
+
+	private static final String _CACHE_NAME = "Cache Name";
 
 	private static final TestIndexedCacheKey _INDEX_1_KEY_1 =
 		new TestIndexedCacheKey(1L, 1L);
