@@ -14,6 +14,10 @@
 
 package com.liferay.portlet.documentlibrary.service.impl;
 
+import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.Property;
+import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -295,13 +299,15 @@ public class DLFileShortcutLocalServiceImpl
 	}
 
 	@Override
-	public void rebuildTree(long companyId) throws SystemException {
+	public void rebuildTree(long companyId)
+		throws PortalException, SystemException {
+
 		dlFolderLocalService.rebuildTree(companyId);
 
 		Session session = dlFileShortcutPersistence.openSession();
 
 		try {
-			TreePathUtil.rebuildTree(
+			TreePathUtil.rebuildTreePaths(
 				session, companyId, DLFileShortcutModelImpl.TABLE_NAME,
 				DLFolderModelImpl.TABLE_NAME, "folderId", true);
 		}
@@ -310,6 +316,51 @@ public class DLFileShortcutLocalServiceImpl
 
 			dlFileShortcutPersistence.clearCache();
 		}
+	}
+
+	@Override
+	public void setTreePaths(final long folderId, final String treePath)
+		throws PortalException {
+
+		ActionableDynamicQuery actionableDynamicQuery =
+			getActionableDynamicQuery();
+
+		actionableDynamicQuery.setAddCriteriaMethod(
+			new ActionableDynamicQuery.AddCriteriaMethod() {
+
+	@Override
+				public void addCriteria(DynamicQuery dynamicQuery) {
+					Property folderIdProperty = PropertyFactoryUtil.forName(
+						"folderId");
+
+					dynamicQuery.add(folderIdProperty.eq(folderId));
+
+					Property treePathProperty = PropertyFactoryUtil.forName(
+						"treePath");
+
+					dynamicQuery.add(treePathProperty.ne(treePath));
+				}
+
+			}
+		);
+
+		actionableDynamicQuery.setPerformActionMethod(
+			new ActionableDynamicQuery.PerformActionMethod() {
+
+				@Override
+				public void performAction(Object object)
+					throws PortalException {
+
+					DLFileShortcut shortcut = (DLFileShortcut)object;
+
+					shortcut.setTreePath(treePath);
+
+					updateDLFileShortcut(shortcut);
+				}
+
+			});
+
+		actionableDynamicQuery.performActions();
 	}
 
 	@Override

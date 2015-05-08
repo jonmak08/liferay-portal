@@ -15,6 +15,10 @@
 package com.liferay.portlet.journal.service.impl;
 
 import com.liferay.portal.LocaleException;
+import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.Property;
+import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.QueryDefinition;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.orm.Session;
@@ -3629,13 +3633,14 @@ public class JournalArticleLocalServiceImpl
 	}
 
 	@Override
-	public void rebuildTree(long companyId) throws SystemException {
+	public void rebuildTree(long companyId)
+		throws PortalException, SystemException {
 		journalFolderLocalService.rebuildTree(companyId);
 
 		Session session = journalArticlePersistence.openSession();
 
 		try {
-			TreePathUtil.rebuildTree(
+			TreePathUtil.rebuildTreePaths(
 				session, companyId, JournalArticleModelImpl.TABLE_NAME,
 				JournalFolderModelImpl.TABLE_NAME, "folderId", true);
 		}
@@ -4524,6 +4529,56 @@ public class JournalArticleLocalServiceImpl
 			title, description, content, type, ddmStructureKeys,
 			ddmTemplateKeys, displayDateGT, displayDateLT, reviewDate,
 			andOperator, new QueryDefinition(status));
+	}
+
+	@Override
+	public void setTreePaths(final long folderId, final String treePath)
+		throws PortalException {
+
+		ActionableDynamicQuery actionableDynamicQuery =
+			getActionableDynamicQuery();
+
+		actionableDynamicQuery.setAddCriteriaMethod(
+			new ActionableDynamicQuery.AddCriteriaMethod() {
+
+				@Override
+				public void addCriteria(DynamicQuery dynamicQuery) {
+					Property folderIdProperty = PropertyFactoryUtil.forName(
+						"folderId");
+
+					dynamicQuery.add(folderIdProperty.eq(folderId));
+
+					Property treePathProperty = PropertyFactoryUtil.forName(
+						"treePath");
+
+					dynamicQuery.add(treePathProperty.ne(treePath));
+				}
+
+			}
+		);
+
+		final Indexer indexer = IndexerRegistryUtil.getIndexer(
+			JournalArticle.class.getName());
+
+		actionableDynamicQuery.setPerformActionMethod(
+			new ActionableDynamicQuery.PerformActionMethod() {
+
+				@Override
+				public void performAction(Object object)
+					throws PortalException {
+
+					JournalArticle article = (JournalArticle)object;
+
+					article.setTreePath(treePath);
+
+					updateJournalArticle(article);
+
+					indexer.reindex(article);
+				}
+
+			});
+
+		actionableDynamicQuery.performActions();
 	}
 
 	/**
