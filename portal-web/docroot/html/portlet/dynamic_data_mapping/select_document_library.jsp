@@ -216,7 +216,7 @@ portletURL.setParameter("folderId", String.valueOf(folderId));
 
 			int foldersCount = DLAppServiceUtil.getFoldersCount(curFolder.getRepositoryId(), curFolder.getFolderId());
 
-			int fileEntriesCount = DLAppServiceUtil.getFileEntriesAndFileShortcutsCount(curFolder.getRepositoryId(), curFolder.getFolderId(), WorkflowConstants.STATUS_APPROVED);
+			int fileEntriesCount = DLAppServiceUtil.getFoldersFileEntriesCount(curFolder.getRepositoryId(), Arrays.asList(curFolder.getFolderId()), WorkflowConstants.STATUS_APPROVED);
 
 			row.addText(String.valueOf(foldersCount), rowURL);
 			row.addText(String.valueOf(fileEntriesCount), rowURL);
