@@ -359,6 +359,10 @@ public class Table {
 		}
 		else if (t == Types.BLOB) {
 			value = rs.getBytes(name);
+
+			if (value == null) {
+				value = new byte[0];
+			}
 		}
 		else if (t == Types.BOOLEAN) {
 			value = GetterUtil.getBoolean(rs.getBoolean(name));
