@@ -71,7 +71,7 @@
 		</execute>
 
 		<execute macro="ApplicationDisplayTemplates#addPG">
-			<var name="adtFile" value="portlet_display_template_rich_summary.ftl" />
+			<var name="adtFile" value="adt_asset_publisher_rich_summary.ftl" />
 			<var name="adtType" value="Asset Publisher" />
 			<var name="siteName" value="${siteName}" />
 		</execute>
@@ -176,7 +176,7 @@
 		</execute>
 
 		<execute macro="ApplicationDisplayTemplates#addPG">
-			<var name="adtFile" value="portlet_display_template_multi_column_layout.ftl" />
+			<var name="adtFile" value="adt_categories_navigation_multi_column.ftl" />
 			<var name="adtType" value="Categories Navigation" />
 			<var name="siteName" value="${siteName}" />
 		</execute>
@@ -309,7 +309,7 @@
 		</execute>
 
 		<execute macro="ApplicationDisplayTemplates#addPG">
-			<var name="adtFile" value="portlet_display_template_carousel.ftl" />
+			<var name="adtFile" value="adt_media_gallery_carousel.ftl" />
 			<var name="adtType" value="Documents and Media" />
 			<var name="siteName" value="${siteName}" />
 		</execute>
@@ -413,7 +413,7 @@
 		</execute>
 
 		<execute macro="ApplicationDisplayTemplates#addPG">
-			<var name="adtFile" value="portlet_sitemap_display_template_multi_column_layout.ftl" />
+			<var name="adtFile" value="adt_sitemap_multi_column.ftl" />
 			<var name="adtType" value="Site Map" />
 			<var name="siteName" value="${siteName}" />
 		</execute>
@@ -550,7 +550,7 @@
 		</execute>
 
 		<execute macro="ApplicationDisplayTemplates#addPG">
-			<var name="adtFile" value="portlet_display_template_color_by_popularity.ftl" />
+			<var name="adtFile" value="adt_tags_color.ftl" />
 			<var name="adtType" value="Tags Navigation" />
 			<var name="siteName" value="${siteName}" />
 		</execute>
@@ -653,7 +653,7 @@
 		</execute>
 
 		<execute macro="ApplicationDisplayTemplates#addPG">
-			<var name="adtFile" value="portlet_display_template_social.ftl" />
+			<var name="adtFile" value="adt_wiki_social.ftl" />
 			<var name="adtType" value="Wiki" />
 			<var name="siteName" value="${siteName}" />
 		</execute>
