@@ -570,7 +570,7 @@ AUI.add(
 													label: Liferay.Language.get('cancel')
 												}
 											]
-										},
+										}
 									},
 									title: Liferay.Language.get('pages')
 								}
