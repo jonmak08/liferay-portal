@@ -586,7 +586,6 @@ public class VerifyJournal extends VerifyProcess {
 		long[] companyIds = PortalInstances.getCompanyIdsBySQL();
 
 		for (long companyId : companyIds) {
-			JournalArticleLocalServiceUtil.rebuildTree(companyId);
 			JournalFolderLocalServiceUtil.rebuildTree(companyId);
 		}
 	}

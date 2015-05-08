@@ -115,7 +115,10 @@ public class TreePathUtil {
 		treeModelFinder.reindexTreeModels(modifiedTreeModels);
 	}
 
-
+	/**
+	 * @deprecated As of 7.0.0, with no direct replacement
+	 */
+	@Deprecated
 	public static void rebuildTree(
 		Session session, long companyId, String tableName,
 		String parentTableName, String parentPrimaryKeyColumnName,
@@ -129,6 +132,10 @@ public class TreePathUtil {
 			parentPrimaryKeyColumnName, statusColumn, true);
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, with no direct replacement
+	 */
+	@Deprecated
 	protected static void rebuildTree(
 		Session session, long companyId, String tableName,
 		String parentTableName, String parentPrimaryKeyColumnName,
