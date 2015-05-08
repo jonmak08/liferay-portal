@@ -327,12 +327,15 @@
 			input, select, textarea {
 				@include box-sizing(border-box);
 
-				max-width: 100% !important;
 				width: 100%;
 			}
 
 			input {
 				height: auto;
+			}
+
+			textarea {
+				max-width: 100% !important;
 			}
 		}
 
@@ -374,7 +377,7 @@
 
 		.document-type-selector, .tagselector {
 			.btn-group {
-				&, & .btn {
+				&, .btn {
 					max-width: 100%;
 					overflow: hidden;
 					white-space: normal;
