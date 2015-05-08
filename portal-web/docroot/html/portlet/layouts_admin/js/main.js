@@ -448,7 +448,7 @@ AUI.add(
 										},
 										width: 400
 									},
-									title: Liferay.Language.get('comments,-ratings-and-deletions')
+									title: Liferay.Language.get('comments-and-ratings')
 								}
 							);
 
