@@ -2153,7 +2153,8 @@ public interface JournalArticleLocalService extends BaseLocalService,
 			com.liferay.portal.kernel.exception.SystemException;
 
 	public void rebuildTree(long companyId)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
 
 	/**
 	* Removes the web content of the web content article matching the group,
@@ -2755,6 +2756,11 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		java.util.Date displayDateLT, int status, java.util.Date reviewDate,
 		boolean andOperator)
 		throws com.liferay.portal.kernel.exception.SystemException;
+
+	public void setTreePaths(long folderId, java.lang.String treePath,
+		boolean reindex)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
 
 	/**
 	* Subscribes the user to notifications for the web content article matching
