@@ -2140,6 +2140,8 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 				message.getCategoryId(), message.getParentMessageId());
 		}
 
+		String entryURL = getMessageURL(message, serviceContext);
+
 		SubscriptionSender subscriptionSenderPrototype =
 			new MBSubscriptionSender();
 
@@ -2153,8 +2155,8 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 			"[$CATEGORY_NAME$]", categoryName, "[$MAILING_LIST_ADDRESS$]",
 			replyToAddress, "[$MESSAGE_ID$]", message.getMessageId(),
 			"[$MESSAGE_SUBJECT$]", message.getSubject(), "[$MESSAGE_URL$]",
-			getMessageURL(message, serviceContext), "[$MESSAGE_USER_ADDRESS$]",
-			emailAddress, "[$MESSAGE_USER_NAME$]", fullName);
+			entryURL, "[$MESSAGE_USER_ADDRESS$]", emailAddress,
+			"[$MESSAGE_USER_NAME$]", fullName);
 		subscriptionSenderPrototype.setFrom(fromAddress, fromName);
 		subscriptionSenderPrototype.setHtmlFormat(htmlFormat);
 		subscriptionSenderPrototype.setInReplyTo(inReplyTo);
@@ -2167,6 +2169,8 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		subscriptionSenderPrototype.setServiceContext(serviceContext);
 		subscriptionSenderPrototype.setSubject(subject);
 		subscriptionSenderPrototype.setUserId(message.getUserId());
+
+		serviceContext.setAttribute("entryURL", entryURL);
 
 		SubscriptionSender subscriptionSender =
 			(SubscriptionSender)SerializableUtil.clone(
