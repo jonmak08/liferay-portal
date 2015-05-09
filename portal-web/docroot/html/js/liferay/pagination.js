@@ -25,6 +25,8 @@ AUI.add(
 
 		var STR_SHIFT = 'shift';
 
+		var STR_SHOW_CONTROLS = 'showControls';
+
 		var STR_SPACE = ' ';
 
 		var STR_STRINGS = 'strings';
@@ -211,6 +213,8 @@ AUI.add(
 
 						instance._paginationContentNode = boundingBox.one('.pagination-content');
 						instance._paginationControls = boundingBox.one('.lfr-pagination-controls');
+
+						instance._syncNavigationUI();
 
 						Liferay.Menu.register(deltaSelectorId);
 					},
@@ -502,16 +506,18 @@ AUI.add(
 							);
 						}
 
-						var stringPrev = instance.getString('prev');
+						if (instance.get(STR_SHOW_CONTROLS)) {
+							var stringPrev = instance.getString('prev');
 
-						if (stringPrev) {
-							buffer += Lang.sub(
-								TPL_ITEM_TEMPLATE,
-								{
-									content: stringPrev,
-									cssClass: 'pagination-control prev'
-								}
-							);
+							if (stringPrev) {
+								buffer += Lang.sub(
+									TPL_ITEM_TEMPLATE,
+									{
+										content: stringPrev,
+										cssClass: 'pagination-control prev'
+									}
+								);
+							}
 						}
 
 						var stringPrevPages = instance.getString('prevPages');
@@ -547,16 +553,18 @@ AUI.add(
 							);
 						}
 
-						var stringNext = instance.getString('next');
+						if (instance.get(STR_SHOW_CONTROLS)) {
+							var stringNext = instance.getString('next');
 
-						if (stringNext) {
-							buffer += Lang.sub(
-								TPL_ITEM_TEMPLATE,
-								{
-									content: stringNext,
-									cssClass: 'next pagination-control'
-								}
-							);
+							if (stringNext) {
+								buffer += Lang.sub(
+									TPL_ITEM_TEMPLATE,
+									{
+										content: stringNext,
+										cssClass: 'next pagination-control'
+									}
+								);
+							}
 						}
 
 						var stringLast = instance.getString('last');
@@ -582,16 +590,6 @@ AUI.add(
 						instance.set(STR_ITEMS, items);
 
 						instance.get('contentBox').setContent(items);
-
-						if (!instance.get('showControls')) {
-							items.each(
-								function(item) {
-									if (item.hasClass(CSS_PAGINATION_CONTROL)) {
-										item.remove();
-									}
-								}
-							);
-						}
 					},
 
 					_syncLabel: function(itemsPerPage) {
@@ -676,8 +674,6 @@ AUI.add(
 						instance._paginationControls.toggleClass(hiddenClass, (results <= itemsPerPageList[0]));
 
 						instance._paginationContentNode.toggleClass(hiddenClass, !val);
-
-						instance._syncNavigationUI();
 					}
 				}
 			}

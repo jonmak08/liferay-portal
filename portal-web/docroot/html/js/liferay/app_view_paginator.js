@@ -227,6 +227,7 @@ AUI.add(
 								namespace: instance.NS,
 								page: folderPage,
 								results: foldersTotal,
+								showControls: true,
 								total: totalFolderPages,
 								visible: (totalFolderPages > 1)
 							}
@@ -239,7 +240,8 @@ AUI.add(
 						instance._eventHandles = [
 							Liferay.on('liferay-app-view-folders:dataRequest', instance._onDataRequest, instance),
 							Liferay.on('liferay-app-view-folders:afterDataRequest', instance._afterDataRequest, instance),
-							instance.after('paginationDataChange', instance._afterPaginationDataChange, instance)
+							instance.after('paginationDataChange', instance._afterPaginationDataChange, instance),
+							entryPagination.after('itemsPerPageChange', instance._onItemsPerPageChange, instance)
 						];
 
 						if (showControls && (entriesTotal || foldersTotal)) {
@@ -314,6 +316,8 @@ AUI.add(
 
 						A.mix(requestParams, customParams, true);
 
+						instance._reflowPaginator = true;
+
 						Liferay.fire(
 							instance._eventDataRequest,
 							{
@@ -344,13 +348,20 @@ AUI.add(
 							var paginationDataPrevVal = event.prevVal;
 
 							if (instance.get(STR_SHOW_CONTROLS)) {
-								if (!paginationDataPrevVal || (paginationDataPrevVal && (paginationDataPrevVal.state.rowsPerPage !== rowsPerPage))) {
+								if (instance._reflowPaginator) {
+									pagination._syncLabel(rowsPerPage);
+									pagination._syncResults(state.page, rowsPerPage);
 									instance._hideAllPaginatorNodes(pagination);
-
 									pagination._paginationContentNode.setData(STR_OLD_PAGES, null);
-								}
+									instance._displayPaginator(pagination, state.page);
+									pagination._syncNavigationUI();
 
-								instance._displayPaginator(pagination, state.page);
+									instance._reflowPaginator = false;
+								}
+								else {
+									instance._displayPaginator(pagination, state.page);
+									pagination._syncNavigationUI();
+								}
 							}
 						}
 					},
@@ -496,6 +507,12 @@ AUI.add(
 						}
 					},
 
+					_onItemsPerPageChange: function(event) {
+						var instance = this;
+
+						instance._reflowPaginator = true;
+					},
+
 					_renderPaginatorNodes: function(numberOfPages, oldPages, page, pageNodes) {
 						var instance = this;
 
@@ -592,6 +609,8 @@ AUI.add(
 							customParams[instance.ns(STR_ENTRY_END)] = entryRowsPerPage;
 							customParams[instance.ns(STR_FOLDER_START)] = 0;
 							customParams[instance.ns(STR_FOLDER_END)] = folderRowsPerPage;
+
+							instance._reflowPaginator = resetPagination;
 						}
 						else {
 							var entryStartEndParams = instance._getResultsStartEnd(instance._entryPagination, entryRowsPerPage);
