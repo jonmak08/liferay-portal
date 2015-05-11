@@ -1,6 +1,12 @@
 <definition>
 	<var name="assetType" value="Wiki Page" />
 
+	<command name="_editEmptyFrontPage">
+		<execute function="AssertClick" locator1="PGWiki#ADD_FRONTPAGE" value1="This page is empty. Edit it to add some text." />
+
+		<execute function="Type#typeFrameWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${wikiPageContent}" />
+	</command>
+
 	<command name="addAttachmentPG">
 		<var name="key_attachmentFileName" value="${attachmentFileName}" />
 		<var name="key_wikiPageTitle" value="${wikiPageTitle}" />
@@ -314,6 +320,14 @@
 
 		<execute function="AssertTextEquals" locator1="PGWikidisplay#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="AssertTextEquals" locator1="PGWikidisplay#WIKI_PAGE_BODY" value1="${wikiPageContent}" />
+	</command>
+
+	<command name="addFrontPageWithWorkflowPG">
+		<execute macro="WikiPage#_editEmptyFrontPage">
+			<var name="wikiPageContent" value="${wikiPageContent}" />
+		</execute>
+
+		<execute macro="WikiPage#submitForPublication" />
 	</command>
 
 	<command name="addPagePGViaWD">
@@ -1160,6 +1174,12 @@
 				</if>
 			</else>
 		</if>
+	</command>
+
+	<command name="submitForPublication">
+		<execute function="AssertClick" locator1="PGWikiAddpage#SUBMIT_FOR_PUBLICATION_BUTTON" value1="Submit for Publication" />
+
+		<execute function="AssertTextEquals" locator1="PGWiki#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="subscribeToPagePG">
