@@ -3321,6 +3321,7 @@ public class JournalArticleLocalServiceImpl
 	 * @param  articleId the primary key of the web content article
 	 * @return <code>true</code> if the specified web content article exists;
 	 *         <code>false</code> otherwise
+	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	public boolean hasArticle(long groupId, String articleId)
