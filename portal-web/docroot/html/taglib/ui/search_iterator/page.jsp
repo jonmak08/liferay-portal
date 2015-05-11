@@ -72,7 +72,7 @@ JSONArray primaryKeysJSONArray = JSONFactoryUtil.createJSONArray();
 	</c:if>
 
 	<div id="<%= namespace + id %>SearchContainer">
-		<table class="table table-bordered table-hover table-striped">
+		<table class="responsive-table-stacked table table-bordered table-hover table-striped">
 
 		<c:if test="<%= headerNames != null %>">
 			<thead class="table-columns">
@@ -136,7 +136,7 @@ JSONArray primaryKeysJSONArray = JSONFactoryUtil.createJSONArray();
 					}
 				%>
 
-					<th class="<%= cssClass %>" id="<%= namespace + id %>_col-<%= normalizedHeaderName %>"
+					<th class="<%= cssClass %>" id="<%= namespace + id %>_col-<%= normalizedHeaderName %>" role="label"
 
 						<%--
 
@@ -288,14 +288,29 @@ JSONArray primaryKeysJSONArray = JSONFactoryUtil.createJSONArray();
 				else if ((j + 1) == entries.size()) {
 					columnClassName += " last";
 				}
+
+				String headerName = StringPool.BLANK;
+
+				if (headerNames != null) {
+					headerName = headerNames.get(j);
+
+					if (Validator.isNotNull(headerName) && !headerName.contains("hide-accessible")) {
+						headerName = LanguageUtil.get(request, HtmlUtil.escape(headerName)) + StringPool.COLON;
+					}
+					else {
+						headerName = StringPool.BLANK;
+					}
+				}
 			%>
 
-				<td class="table-cell <%= columnClassName %> text-<%= entry.getAlign() %> text-<%= entry.getValign() %>" colspan="<%= entry.getColspan() %>">
+				<td aria-labelledby="<%= namespace + id %>_col-<%= normalizedHeaderName %>" class="table-cell <%= columnClassName %> text-<%= entry.getAlign() %> text-<%= entry.getValign() %>" colspan="<%= entry.getColspan() %>" tabindex="0">
+					<span data-th="<%= headerName %>" tabindex="-1">
 
-					<%
-					entry.print(pageContext.getOut(), request, response);
-					%>
+						<%
+						entry.print(pageContext.getOut(), request, response);
+						%>
 
+					</span>
 				</td>
 
 			<%

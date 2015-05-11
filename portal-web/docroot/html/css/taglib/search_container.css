@@ -1,3 +1,5 @@
+@import "mixins";
+
 .lfr-search-container .entry-action {
 	width: 1px;
 
@@ -60,5 +62,11 @@
 		.user-status-date {
 			font-size: 11px;
 		}
+	}
+}
+
+@include respond-to(phone, tablet) {
+	.lfr-search-container .entry-action {
+		width: auto;
 	}
 }

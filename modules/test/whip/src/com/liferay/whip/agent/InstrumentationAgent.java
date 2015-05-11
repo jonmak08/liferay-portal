@@ -47,11 +47,16 @@ public class InstrumentationAgent {
 		_whipClassFileTransformer = null;
 
 		try {
-			ProjectData projectData = ProjectDataUtil.captureProjectData(false);
+			ProjectData projectData = ProjectDataUtil.captureProjectData(
+				false, false);
 
 			List<AssertionError> assertionErrors = new ArrayList<>();
 
 			for (Class<?> clazz : classes) {
+				if (clazz.isSynthetic()) {
+					continue;
+				}
+
 				ClassData classData = projectData.getClassData(clazz.getName());
 
 				_assertClassDataCoverage(assertionErrors, clazz, classData);
@@ -61,6 +66,10 @@ public class InstrumentationAgent {
 
 					declaredClass:
 					for (Class<?> declaredClass : declaredClasses) {
+						if (declaredClass.isSynthetic()) {
+							continue;
+						}
+
 						for (Class<?> clazz2 : classes) {
 							if (clazz2.equals(declaredClass)) {
 								continue declaredClass;
@@ -227,7 +236,10 @@ public class InstrumentationAgent {
 
 					@Override
 					public void run() {
-						ProjectDataUtil.captureProjectData(true);
+						ProjectDataUtil.captureProjectData(
+							true,
+							Boolean.getBoolean(
+								"whip.static.instrument.use.data.file"));
 					}
 
 				});
@@ -294,15 +306,7 @@ public class InstrumentationAgent {
 		List<AssertionError> assertionErrors, Class<?> clazz,
 		ClassData classData) {
 
-		if (clazz.isInterface() || clazz.isSynthetic()) {
-			return;
-		}
-
-		if (classData == null) {
-			assertionErrors.add(
-				new AssertionError(
-					"Class " + clazz.getName() + " has no coverage data"));
-
+		if (clazz.isInterface()) {
 			return;
 		}
 

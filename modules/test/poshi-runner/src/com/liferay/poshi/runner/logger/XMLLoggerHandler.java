@@ -31,39 +31,71 @@ import org.dom4j.Element;
 public final class XMLLoggerHandler {
 
 	public static void generateXMLLog(String classCommandName) {
-		LoggerElement xmlLoggerElement = new LoggerElement();
+		_xmlLogLoggerElement = new LoggerElement("xmlLogContainer");
 
-		xmlLoggerElement.setClassName("header");
-		xmlLoggerElement.setName("li");
+		_xmlLogLoggerElement.setClassName("xml-log-container");
+		_xmlLogLoggerElement.setName("ul");
 
-		LoggerElement btnContainerLoggerElement = new LoggerElement();
+		LoggerElement headerLoggerElement = new LoggerElement();
 
-		btnContainerLoggerElement.setClassName("btn-container");
-		btnContainerLoggerElement.setName("div");
-
-		LoggerElement btnLoggerElement = new LoggerElement();
-
-		btnLoggerElement.setClassName("btn btn-collapse");
-		btnLoggerElement.setName("button");
-
-		btnContainerLoggerElement.addChildLoggerElement(btnLoggerElement);
-
-		xmlLoggerElement.addChildLoggerElement(btnContainerLoggerElement);
+		headerLoggerElement.setClassName("header");
+		headerLoggerElement.setName("li");
 
 		LoggerElement lineContainerLoggerElement = new LoggerElement();
 
 		lineContainerLoggerElement.setClassName("line-container");
+		lineContainerLoggerElement.setID(null);
 		lineContainerLoggerElement.setName("div");
 
 		LoggerElement lineLoggerElement = new LoggerElement();
 
 		lineLoggerElement.setClassName("test-case-command");
+		lineLoggerElement.setID(null);
 		lineLoggerElement.setName("h3");
 		lineLoggerElement.setText(classCommandName);
 
 		lineContainerLoggerElement.addChildLoggerElement(lineLoggerElement);
 
-		xmlLoggerElement.addChildLoggerElement(lineContainerLoggerElement);
+		headerLoggerElement.addChildLoggerElement(lineContainerLoggerElement);
+
+		LoggerElement childContainerLoggerElement = new LoggerElement();
+
+		childContainerLoggerElement.setClassName("child-container");
+		childContainerLoggerElement.setID(null);
+		childContainerLoggerElement.setName("ul");
+
+		String className =
+			PoshiRunnerGetterUtil.getClassNameFromClassCommandName(
+				classCommandName);
+
+		Element setUpElement = PoshiRunnerContext.getTestCaseCommandElement(
+			className + "#set-up");
+
+		if (setUpElement != null) {
+			childContainerLoggerElement.addChildLoggerElement(
+				_getLoggerElementFromElement(setUpElement));
+		}
+
+		childContainerLoggerElement.addChildLoggerElement(
+			_getLoggerElementFromElement(
+				PoshiRunnerContext.getTestCaseCommandElement(
+					classCommandName)));
+
+		Element tearDownElement = PoshiRunnerContext.getTestCaseCommandElement(
+			className + "#tear-down");
+
+		if (tearDownElement != null) {
+			childContainerLoggerElement.addChildLoggerElement(
+				_getLoggerElementFromElement(tearDownElement));
+		}
+
+		headerLoggerElement.addChildLoggerElement(childContainerLoggerElement);
+
+		_xmlLogLoggerElement.addChildLoggerElement(headerLoggerElement);
+	}
+
+	public static String getXMLLogText() {
+		return _xmlLogLoggerElement.toString();
 	}
 
 	private static LoggerElement _getBtnContainerLoggerElement(
@@ -81,13 +113,15 @@ public final class XMLLoggerHandler {
 
 		List<Element> childElements = element.elements();
 
-		boolean executingMacro = _isExecutingMacro(element);
+		if ((!childElements.isEmpty() && !_isExecutingFunction(element)) ||
+			_isExecutingMacro(element)) {
 
-		if (!childElements.isEmpty() || executingMacro) {
 			sb.append(_getBtnItemText("btn-collapse"));
 		}
 
-		if (!childElements.isEmpty() && executingMacro) {
+		if (!childElements.isEmpty() &&
+			(_isExecutingFunction(element) || _isExecutingMacro(element))) {
+
 			sb.append(_getBtnItemText("btn-var"));
 		}
 
@@ -98,6 +132,15 @@ public final class XMLLoggerHandler {
 
 	private static String _getBtnItemText(String className) {
 		LoggerElement loggerElement = new LoggerElement();
+
+		if (className.equals("btn-collapse")) {
+			loggerElement.setAttribute(
+				"data-btnlinkid", "collapse-" + _btnLinkCollapseId);
+		}
+		else if (className.equals("btn-var")) {
+			loggerElement.setAttribute(
+				"data-btnlinkid", "var-" + _btnLinkVarId);
+		}
 
 		loggerElement.setClassName("btn " + className);
 		loggerElement.setID(null);
@@ -120,6 +163,9 @@ public final class XMLLoggerHandler {
 		Element element, Element rootElement) {
 
 		LoggerElement loggerElement = new LoggerElement();
+
+		loggerElement.setAttribute(
+			"data-btnlinkid", "collapse-" + _btnLinkCollapseId);
 
 		loggerElement.setClassName("child-container collapse collapsible");
 		loggerElement.setName("ul");
@@ -359,6 +405,13 @@ public final class XMLLoggerHandler {
 
 		lineContainerLoggerElement.setText(sb.toString());
 
+		String elementName = element.getName();
+
+		if (elementName.equals("execute") && !elements.isEmpty()) {
+			lineContainerLoggerElement.addChildLoggerElement(
+				_getParameterContainerLoggerElement(element));
+		}
+
 		return lineContainerLoggerElement;
 	}
 
@@ -368,6 +421,9 @@ public final class XMLLoggerHandler {
 
 	private static LoggerElement _getLineGroupLoggerElement(
 		String className, Element element) {
+
+		_btnLinkCollapseId++;
+		_btnLinkVarId++;
 
 		LoggerElement loggerElement = new LoggerElement();
 
@@ -397,13 +453,19 @@ public final class XMLLoggerHandler {
 		return loggerElement.toString();
 	}
 
-	private static String _getLineNumberItemText(String lineNumber) {
+	private static LoggerElement _getLineNumberItem(String lineNumber) {
 		LoggerElement loggerElement = new LoggerElement();
 
 		loggerElement.setClassName("line-number");
 		loggerElement.setID(null);
 		loggerElement.setName("div");
 		loggerElement.setText(lineNumber);
+
+		return loggerElement;
+	}
+
+	private static String _getLineNumberItemText(String lineNumber) {
+		LoggerElement loggerElement = _getLineNumberItem(lineNumber);
 
 		return loggerElement.toString();
 	}
@@ -450,6 +512,29 @@ public final class XMLLoggerHandler {
 		return loggerElement;
 	}
 
+	private static LoggerElement _getParameterContainerLoggerElement(
+		Element element) {
+
+		LoggerElement loggerElement = new LoggerElement();
+
+		loggerElement.setAttribute("data-btnlinkid", "var-" + _btnLinkVarId);
+		loggerElement.setClassName(
+			"child-container collapse parameter-container");
+		loggerElement.setID(null);
+		loggerElement.setName("div");
+
+		List<Element> childElements = element.elements();
+
+		for (Element childElement : childElements) {
+			loggerElement.addChildLoggerElement(
+				_getLineNumberItem(childElement.attributeValue("line-number")));
+			loggerElement.addChildLoggerElement(
+				_getLineContainerLoggerElement(childElement));
+		}
+
+		return loggerElement;
+	}
+
 	private static LoggerElement _getVarLoggerElement(Element element) {
 		return _getLineGroupLoggerElement("var", element);
 	}
@@ -465,6 +550,14 @@ public final class XMLLoggerHandler {
 		return loggerElement;
 	}
 
+	private static boolean _isExecutingFunction(Element element) {
+		if (element.attributeValue("function") != null) {
+			return true;
+		}
+
+		return false;
+	}
+
 	private static boolean _isExecutingMacro(Element element) {
 		if ((element.attributeValue("macro") != null) ||
 			(element.attributeValue("macro-desktop") != null) ||
@@ -475,5 +568,9 @@ public final class XMLLoggerHandler {
 
 		return false;
 	}
+
+	private static int _btnLinkCollapseId;
+	private static int _btnLinkVarId;
+	private static LoggerElement _xmlLogLoggerElement = null;
 
 }

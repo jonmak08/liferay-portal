@@ -17,6 +17,7 @@ package com.liferay.poshi.runner;
 import com.liferay.poshi.runner.logger.CommandLoggerHandler;
 import com.liferay.poshi.runner.logger.LoggerUtil;
 import com.liferay.poshi.runner.logger.SummaryLoggerHandler;
+import com.liferay.poshi.runner.logger.XMLLoggerHandler;
 import com.liferay.poshi.runner.selenium.SeleniumUtil;
 import com.liferay.poshi.runner.util.PropsValues;
 
@@ -82,6 +83,8 @@ public class PoshiRunner {
 		PoshiRunnerContext.setTestCaseCommandName(_testClassCommandName);
 		PoshiRunnerContext.setTestCaseName(_testClassName);
 
+		XMLLoggerHandler.generateXMLLog(classCommandName);
+
 		LoggerUtil.startLogger();
 
 		SeleniumUtil.startSelenium();
@@ -90,6 +93,8 @@ public class PoshiRunner {
 	@Test
 	public void test() throws Exception {
 		try {
+			CommandLoggerHandler.startRunning();
+
 			_runSetUp();
 
 			_runCommand();
@@ -170,6 +175,8 @@ public class PoshiRunner {
 			throw e;
 		}
 		finally {
+			CommandLoggerHandler.stopRunning();
+
 			LoggerUtil.stopLogger();
 
 			SeleniumUtil.stopSelenium();
