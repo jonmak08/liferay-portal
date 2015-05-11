@@ -114,10 +114,10 @@ public class VerifyPortalPreferences extends VerifyProcess {
 
 	@Override
 	protected void doVerify() throws Exception {
-		upgradePortalPreferences();
+		updatePortalPreferences();
 	}
 
-	protected void upgradePortalPreferences() throws Exception {
+	protected void updatePortalPreferences() throws Exception {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -136,7 +136,7 @@ public class VerifyPortalPreferences extends VerifyProcess {
 
 				String preferences = rs.getString("preferences");
 
-				upgradeUserStagingPreferences(portalPreferencesId, preferences);
+				updateUserStagingPreferences(portalPreferencesId, preferences);
 			}
 		}
 		finally {
@@ -144,7 +144,7 @@ public class VerifyPortalPreferences extends VerifyProcess {
 		}
 	}
 
-	protected void upgradeUserStagingPreferences(
+	protected void updateUserStagingPreferences(
 			long portalPreferencesId, String preferences)
 		throws Exception {
 
