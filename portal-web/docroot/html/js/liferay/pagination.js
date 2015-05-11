@@ -506,7 +506,9 @@ AUI.add(
 							);
 						}
 
-						if (instance.get(STR_SHOW_CONTROLS)) {
+						var showControls = instance.get(STR_SHOW_CONTROLS);
+
+						if (showControls) {
 							var stringPrev = instance.getString('prev');
 
 							if (stringPrev) {
@@ -553,7 +555,7 @@ AUI.add(
 							);
 						}
 
-						if (instance.get(STR_SHOW_CONTROLS)) {
+						if (showControls) {
 							var stringNext = instance.getString('next');
 
 							if (stringNext) {
