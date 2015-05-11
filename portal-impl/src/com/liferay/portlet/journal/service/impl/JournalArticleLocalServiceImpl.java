@@ -1456,7 +1456,7 @@ public class JournalArticleLocalServiceImpl
 
 		return fetchLatestArticle(resourcePrimKey, status, true);
 	}
-	
+
 	public JournalArticle fetchLatestArticle(
 			long resourcePrimKey, int[] statuses)
 		throws SystemException {
@@ -1701,12 +1701,12 @@ public class JournalArticleLocalServiceImpl
 		JournalArticle article = fetchLatestArticleByUrlTitle(
 			groupId, urlTitle, WorkflowConstants.STATUS_APPROVED);
 
-		if (article == null) {
-			return getLatestArticleByUrlTitle(
-				groupId, urlTitle, WorkflowConstants.STATUS_PENDING);
+		if (article != null) {
+			return article;
 		}
 
-		return article;
+		return getLatestArticleByUrlTitle(
+			groupId, urlTitle, WorkflowConstants.STATUS_PENDING);
 	}
 
 	/**
@@ -3321,7 +3321,6 @@ public class JournalArticleLocalServiceImpl
 	 * @param  articleId the primary key of the web content article
 	 * @return <code>true</code> if the specified web content article exists;
 	 *         <code>false</code> otherwise
-	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	public boolean hasArticle(long groupId, String articleId)
@@ -3329,12 +3328,11 @@ public class JournalArticleLocalServiceImpl
 
 		JournalArticle article = fetchArticle(groupId, articleId);
 
-		if (article == null) {
-			return false;
-		}
-		else {
+		if (article != null) {
 			return true;
 		}
+
+		return false;
 	}
 
 	/**
@@ -6370,16 +6368,12 @@ public class JournalArticleLocalServiceImpl
 
 	protected boolean hasModifiedLatestApprovedVersion(
 			long groupId, String articleId, double version)
-		throws PortalException, SystemException {
+		throws SystemException {
 
 		JournalArticle article = fetchLatestArticle(
 			groupId, articleId, WorkflowConstants.STATUS_APPROVED);
 
-		if (article == null) {
-			return true;
-		}
-
-		if (version >= article.getVersion()) {
+		if ((article == null) || (article.getVersion() <= version)) {
 			return true;
 		}
 
