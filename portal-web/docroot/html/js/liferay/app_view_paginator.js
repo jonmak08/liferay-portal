@@ -353,15 +353,12 @@ AUI.add(
 									pagination._syncResults(state.page, rowsPerPage);
 									instance._hideAllPaginatorNodes(pagination);
 									pagination._paginationContentNode.setData(STR_OLD_PAGES, null);
-									instance._displayPaginator(pagination, state.page);
-									pagination._syncNavigationUI();
 
 									instance._reflowPaginator = false;
 								}
-								else {
-									instance._displayPaginator(pagination, state.page);
-									pagination._syncNavigationUI();
-								}
+
+								instance._displayPaginator(pagination, state.page);
+								pagination._syncNavigationUI();
 							}
 						}
 					},
