@@ -452,9 +452,11 @@ public class DLPortletDataHandler extends BasePortletDataHandler {
 					(statusDateCriterion != null)) {
 
 					Disjunction disjunction =
-							RestrictionsFactoryUtil.disjunction();
+						RestrictionsFactoryUtil.disjunction();
+
 					disjunction.add(modifiedDateCriterion);
 					disjunction.add(statusDateCriterion);
+
 					fileVersionDynamicQuery.add(disjunction);
 				}
 
