@@ -137,7 +137,8 @@ public class StagingUtil {
 	}
 
 	public static void deleteRecentLayoutRevisionId(
-		long userId, long layoutSetBranchId, long plid) {
+			long userId, long layoutSetBranchId, long plid)
+		throws PortalException, SystemException {
 
 		getStaging().deleteRecentLayoutRevisionId(
 			userId, layoutSetBranchId, plid);

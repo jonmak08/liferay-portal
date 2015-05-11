@@ -106,6 +106,7 @@ import com.liferay.portal.service.LockLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.ServiceContextThreadLocal;
 import com.liferay.portal.service.StagingLocalServiceUtil;
+import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.service.WorkflowInstanceLinkLocalServiceUtil;
 import com.liferay.portal.service.http.GroupServiceHttp;
 import com.liferay.portal.service.permission.GroupPermissionUtil;
@@ -425,7 +426,8 @@ public class StagingImpl implements Staging {
 
 	@Override
 	public void deleteRecentLayoutRevisionId(
-		long userId, long layoutSetBranchId, long plid) {
+			long userId, long layoutSetBranchId, long plid)
+		throws PortalException, SystemException {
 
 		User user = UserLocalServiceUtil.fetchUser(userId);
 
@@ -451,7 +453,8 @@ public class StagingImpl implements Staging {
 	@Deprecated
 	@Override
 	public void deleteRecentLayoutRevisionId(
-		User user, long layoutSetBranchId, long plid) {
+			User user, long layoutSetBranchId, long plid)
+		throws SystemException {
 
 		PortalPreferences portalPreferences = getPortalPreferences(user);
 
