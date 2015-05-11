@@ -108,6 +108,20 @@ public class JournalFolderServiceSoap {
 		}
 	}
 
+	public static com.liferay.portlet.journal.model.JournalFolderSoap fetchFolder(
+		long folderId) throws RemoteException {
+		try {
+			com.liferay.portlet.journal.model.JournalFolder returnValue = JournalFolderServiceUtil.fetchFolder(folderId);
+
+			return com.liferay.portlet.journal.model.JournalFolderSoap.toSoapModel(returnValue);
+		}
+		catch (Exception e) {
+			_log.error(e, e);
+
+			throw new RemoteException(e.getMessage());
+		}
+	}
+
 	public static com.liferay.portlet.journal.model.JournalFolderSoap getFolder(
 		long folderId) throws RemoteException {
 		try {
@@ -297,7 +311,6 @@ public class JournalFolderServiceSoap {
 	* @deprecated As of 7.0.0, replaced by {@link #getSubfolderIds(List, long,
 	long, boolean)}
 	*/
-	@Deprecated
 	public static void getSubfolderIds(Long[] folderIds, long groupId,
 		long folderId) throws RemoteException {
 		try {

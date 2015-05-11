@@ -421,6 +421,13 @@ public class JournalArticleServiceUtil {
 			.expireArticle(groupId, articleId, articleURL, serviceContext);
 	}
 
+	public static com.liferay.portlet.journal.model.JournalArticle fetchArticle(
+		long groupId, java.lang.String articleId)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().fetchArticle(groupId, articleId);
+	}
+
 	/**
 	* Returns the web content article with the ID.
 	*

@@ -79,6 +79,14 @@ public class JournalFolderServiceWrapper implements JournalFolderService,
 	}
 
 	@Override
+	public com.liferay.portlet.journal.model.JournalFolder fetchFolder(
+		long folderId)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _journalFolderService.fetchFolder(folderId);
+	}
+
+	@Override
 	public com.liferay.portlet.journal.model.JournalFolder getFolder(
 		long folderId)
 		throws com.liferay.portal.kernel.exception.PortalException,
@@ -188,7 +196,6 @@ public class JournalFolderServiceWrapper implements JournalFolderService,
 	* @deprecated As of 7.0.0, replaced by {@link #getSubfolderIds(List, long,
 	long, boolean)}
 	*/
-	@Deprecated
 	@Override
 	public void getSubfolderIds(java.util.List<java.lang.Long> folderIds,
 		long groupId, long folderId)
