@@ -39,6 +39,26 @@
 	<td></td>
 </tr>
 <tr>
+	<td>METRICS_TABLE_SORT_ICON</td>
+	<td>//div[@class='lcs-metrics-tabs-container']//thead//div[contains(@class,'table-sort')]/a[contains(.,'${key_headerName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>METRICS_TABLE_ROW_1</td>
+	<td>//div[@class='lcs-metrics-tabs-container']//tr[1]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>METRICS_TABLE_ROW_2</td>
+	<td>//div[@class='lcs-metrics-tabs-container']//tr[2]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>METRICS_TABLE_ROW_3</td>
+	<td>//div[@class='lcs-metrics-tabs-container']//tr[3]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
 	<td></td>
 	<td></td>
 	<td></td>
@@ -52,6 +72,47 @@
 <tr>
 	<td>NAVIGATION_SUB_TAB</td>
 	<td>//div[@class='lcs-tabs-sub']//a[contains(.,'${key_metricsSubTabName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--PAGINATION-->
+<tr>
+	<td>PAGINATION_ITEMS_PER_PAGE</td>
+	<td>//div[contains(@class,'lfr-pagination-delta-selector')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PAGINATION_ITEMS_PER_PAGE_MENU_ITEM</td>
+	<td>//ul[contains(@class,'dropdown-menu')]/li/a[contains(.,'${key_itemsPerPage}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PAGINATION_PAGE_SELECTOR</td>
+	<td>//div[contains(@class,'lfr-pagination-page-selector')]//span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PAGINATION_FIRST_BUTTON</td>
+	<td>//div[contains(@class,'lfr-pagination')]//a[contains(.,'First')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PAGINATION_PREVIOUS_BUTTON</td>
+	<td>//div[contains(@class,'lfr-pagination')]//a[contains(.,'Previous')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PAGINATION_NEXT_BUTTON</td>
+	<td>//div[contains(@class,'lfr-pagination')]//a[contains(.,'Next')]</td>
+	<td>Next</td>
+</tr>
+<tr>
+	<td>PAGINATION_LAST_BUTTON</td>
+	<td>//div[contains(@class,'lfr-pagination')]//a[contains(.,'Last')]</td>
 	<td></td>
 </tr>
 <tr>
