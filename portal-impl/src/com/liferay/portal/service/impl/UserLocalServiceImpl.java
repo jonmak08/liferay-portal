@@ -1292,21 +1292,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			return 0;
 		}
 
-		if (user.isDefaultUser()) {
-			if (_log.isInfoEnabled()) {
-				_log.info(
-					"Digest authentication is disabled for the default user");
-			}
-
-			return 0;
-		}
-		else if (!user.isActive()) {
-			if (_log.isInfoEnabled()) {
-				_log.info(
-					"Digest authentication is disabled for inactive user " +
-						user.getUserId());
-			}
-
+		if (!isUserAllowedToAuthenticate(user)) {
 			return 0;
 		}
 
@@ -1333,6 +1319,13 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 				return user.getUserId();
 			}
 		}
+
+		Company company = companyLocalService.getCompany(companyId);
+		String authType = company.getAuthType();
+
+		handleAuthenticationFailure(
+			username, authType, user, new HashMap<String, String[]>(),
+			new HashMap<String, String[]>());
 
 		return 0;
 	}
