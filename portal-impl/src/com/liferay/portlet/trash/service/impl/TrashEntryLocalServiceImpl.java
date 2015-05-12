@@ -163,7 +163,7 @@ public class TrashEntryLocalServiceImpl extends TrashEntryLocalServiceBaseImpl {
 	}
 
 	@Override
-	public void deleteEntries(long groupId) {
+	public void deleteEntries(long groupId) throws SystemException {
 		List<TrashEntry> entries = getEntries(groupId);
 
 		for (TrashEntry entry : entries) {
