@@ -490,7 +490,16 @@ public class PDFProcessorImpl
 
 		String processIdentity = String.valueOf(fileVersion.getFileVersionId());
 
-		futures.put(processIdentity, future);
+		while (!future.isCancelled()) {
+			if (future.isDone()) {
+				futures.put(processIdentity, future);
+
+				break;
+			}
+			else {
+				continue;
+			}
+		}
 
 		future.get();
 
