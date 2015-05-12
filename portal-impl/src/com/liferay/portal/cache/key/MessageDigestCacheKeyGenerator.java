@@ -15,7 +15,6 @@
 package com.liferay.portal.cache.key;
 
 import com.liferay.portal.kernel.cache.key.CacheKeyGenerator;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.nio.charset.CharsetEncoderUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -70,7 +69,7 @@ public class MessageDigestCacheKeyGenerator extends BaseCacheKeyGenerator {
 			return StringUtil.bytesToHexString(_messageDigest.digest());
 		}
 		catch (CharacterCodingException cce) {
-			throw new SystemException(cce);
+			throw new RuntimeException(cce);
 		}
 	}
 
@@ -81,7 +80,7 @@ public class MessageDigestCacheKeyGenerator extends BaseCacheKeyGenerator {
 
 	@Override
 	public Serializable getCacheKey(StringBundler sb) {
-		return getCacheKey(sb.getStrings(), sb.index());
+		return getCacheKey(sb.toString());
 	}
 
 	@Override
@@ -99,7 +98,7 @@ public class MessageDigestCacheKeyGenerator extends BaseCacheKeyGenerator {
 			return StringUtil.bytesToHexString(_messageDigest.digest());
 		}
 		catch (CharacterCodingException cce) {
-			throw new SystemException(cce);
+			throw new RuntimeException(cce);
 		}
 	}
 
