@@ -74,6 +74,186 @@
 		</execute>
 	</command>
 
+	<command name="ViewApplicationPagesPagination" priority="3">
+		<execute macro="Page#openURL">
+			<var name="virtualHostsURL" value="http://localhost:8080" />
+		</execute>
+
+		<execute macro="Page#addPG">
+			<var name="pageName" value="Page 1" />
+		</execute>
+
+		<execute macro="Page#addPG">
+			<var name="pageName" value="Page 2" />
+		</execute>
+
+		<execute macro="Page#addPG">
+			<var name="pageName" value="Page 3" />
+		</execute>
+
+		<execute macro="Page#addPG">
+			<var name="pageName" value="Page 4" />
+		</execute>
+
+		<execute macro="Page#addPG">
+			<var name="pageName" value="Page 5" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Page 1" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Page 2" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Page 3" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Page 4" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Page 5" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Liferay Connected Services" />
+		</execute>
+
+		<execute macro="LCSPortletNavigator#gotoProjectHome">
+			<var name="projectName" value="Liferay QA" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServerMetrics">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="metricsTabName" value="Application" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/web/guest/home" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/web/guest/page-1" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/web/guest/page-2" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/web/guest/page-3" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/web/guest/page-4" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/web/guest/page-5" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#setMetricsTableItemsPerPage">
+			<var name="itemsPerPage" value="5" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/web/guest/home" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/web/guest/page-1" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/web/guest/page-2" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/web/guest/page-3" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPagesNotPresent">
+			<var name="pageLink" value="/web/guest/page-4" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPagesNotPresent">
+			<var name="pageLink" value="/web/guest/page-5" />
+		</execute>
+
+		<execute function="Click" locator1="LCSServerMetrics#PAGINATION_NEXT_BUTTON" />
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPagesNotPresent">
+			<var name="pageLink" value="/web/guest/home" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPagesNotPresent">
+			<var name="pageLink" value="/web/guest/page-1" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPagesNotPresent">
+			<var name="pageLink" value="/web/guest/page-2" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPagesNotPresent">
+			<var name="pageLink" value="/web/guest/page-3" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/web/guest/page-4" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/web/guest/page-5" />
+		</execute>
+	</command>
+
+	<command name="ViewApplicationPagesSorted" priority="3">
+		<execute macro="LCSServerNavigator#gotoServerMetrics">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="metricsTabName" value="Application" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/web/guest" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/user/test/home" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPages">
+			<var name="pageLink" value="/web/test/home" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#sortMetricsTable">
+			<var name="headerName" value="Page" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewMetricsTableSorted">
+			<var name="tableItem1" value="/web/test/home" />
+			<var name="tableItem2" value="/web/guest" />
+			<var name="tableItem3" value="/user/test/home" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#sortMetricsTable">
+			<var name="headerName" value="Page" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewMetricsTableSorted">
+			<var name="tableItem1" value="/user/test/home" />
+			<var name="tableItem2" value="/web/guest" />
+			<var name="tableItem3" value="/web/test/home" />
+		</execute>
+	</command>
+
 	<command name="ViewApplicationPortletMetrics" priority="5">
 		<execute macro="LCSServerMetrics#generateApplicationMetrics">
 			<var name="projectName" value="Liferay QA" />
@@ -114,6 +294,210 @@
 
 		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
 			<var name="portletName" value="Blogs" />
+		</execute>
+	</command>
+
+	<command name="ViewApplicationPortletsPagination" priority="3">
+		<execute macro="LCSServerMetrics#generateApplicationMetrics">
+			<var name="projectName" value="Liferay QA" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServerMetrics">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="metricsSubTabName" value="Portlets" />
+			<var name="metricsTabName" value="Application" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#waitForMetrics" />
+
+		<execute macro="LCSServerMetrics#sortMetricsTable">
+			<var name="headerName" value="Name" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Search" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Portal Directory" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="My Sites" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Login" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Language" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Hello World" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Dockbar" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Dictionary" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Control Panel Home" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Blogs" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#setMetricsTableItemsPerPage">
+			<var name="itemsPerPage" value="5" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Search" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Portal Directory" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="My Sites" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Login" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Language" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortletsNotPresent">
+			<var name="portletName" value="Hello World" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortletsNotPresent">
+			<var name="portletName" value="Dockbar" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortletsNotPresent">
+			<var name="portletName" value="Dictionary" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortletsNotPresent">
+			<var name="portletName" value="Control Panel Home" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortletsNotPresent">
+			<var name="portletName" value="Blogs" />
+		</execute>
+
+		<execute function="Click" locator1="LCSServerMetrics#PAGINATION_NEXT_BUTTON" />
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortletsNotPresent">
+			<var name="portletName" value="Search" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortletsNotPresent">
+			<var name="portletName" value="Portal Directory" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortletsNotPresent">
+			<var name="portletName" value="My Sites" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortletsNotPresent">
+			<var name="portletName" value="Login" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortletsNotPresent">
+			<var name="portletName" value="Language" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Hello World" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Dockbar" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Dictionary" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Control Panel Home" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Blogs" />
+		</execute>
+	</command>
+
+	<command name="ViewApplicationPortletsSorted" priority="3">
+		<execute macro="LCSServerMetrics#generateApplicationMetrics">
+			<var name="projectName" value="Liferay QA" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServerMetrics">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="metricsSubTabName" value="Portlets" />
+			<var name="metricsTabName" value="Application" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#waitForMetrics" />
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Search" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Portal Directory" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="My Sites" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Blogs" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Control Panel Home" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewSingleMetricApplicationPortlets">
+			<var name="portletName" value="Dictionary" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#sortMetricsTable">
+			<var name="headerName" value="Name" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewMetricsTableSorted">
+			<var name="tableItem1" value="Search" />
+			<var name="tableItem2" value="Portal Directory" />
+			<var name="tableItem3" value="My Sites" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#sortMetricsTable">
+			<var name="headerName" value="Name" />
+		</execute>
+
+		<execute macro="LCSServerMetrics#viewMetricsTableSorted">
+			<var name="tableItem1" value="Blogs" />
+			<var name="tableItem2" value="Control Panel Home" />
+			<var name="tableItem3" value="Dictionary" />
 		</execute>
 	</command>
 
