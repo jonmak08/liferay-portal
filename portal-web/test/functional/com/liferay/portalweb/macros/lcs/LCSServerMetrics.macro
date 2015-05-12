@@ -17,6 +17,20 @@
 		</execute>
 	</command>
 
+	<command name="setMetricsTableItemsPerPage">
+		<execute function="Click" locator1="LCSServerMetrics#PAGINATION_ITEMS_PER_PAGE" />
+
+		<var name="key_itemsPerPage" value="${itemsPerPage}" />
+
+		<execute function="Click" locator1="LCSServerMetrics#PAGINATION_ITEMS_PER_PAGE_MENU_ITEM" value1="${itemsPerPage}" />
+	</command>
+
+	<command name="sortMetricsTable">
+		<var name="key_headerName" value="${headerName}" />
+
+		<execute function="Click" locator1="LCSServerMetrics#METRICS_TABLE_SORT_ICON" />
+	</command>
+
 	<command name="viewMetricsApplicationCacheHibernateMetrics">
 		<execute function="AssertElementPresent" locator1="LCSServerMetrics#APPLICATION_CACHE_HIBERNATE_METRICS_NAME_GENERAL" />
 	</command>
@@ -41,6 +55,12 @@
 		<execute function="AssertElementPresent" locator1="LCSServerMetrics#SERVER_JDBC_CONNECTION_POOLS_BAR_CHART" />
 	</command>
 
+	<command name="viewMetricsTableSorted">
+		<execute function="AssertTextEquals" locator1="LCSServerMetrics#METRICS_TABLE_ROW_1" value1="${tableItem1}" />
+		<execute function="AssertTextEquals" locator1="LCSServerMetrics#METRICS_TABLE_ROW_2" value1="${tableItem2}" />
+		<execute function="AssertTextEquals" locator1="LCSServerMetrics#METRICS_TABLE_ROW_3" value1="${tableItem3}" />
+	</command>
+
 	<command name="viewSingleMetricApplicationPages">
 		<var name="key_pageLink" value="${pageLink}" />
 
@@ -49,12 +69,28 @@
 		<execute function="AssertElementPresent" locator1="LCSServerMetrics#APPLICATION_PAGES_AVERAGE_LOAD_TIME" />
 	</command>
 
+	<command name="viewSingleMetricApplicationPagesNotPresent">
+		<var name="key_pageLink" value="${pageLink}" />
+
+		<execute function="AssertElementNotPresent" locator1="LCSServerMetrics#APPLICATION_PAGES_PAGE" value1="${pageLink}" />
+		<execute function="AssertElementNotPresent" locator1="LCSServerMetrics#APPLICATION_PAGES_FREQUENCY" />
+		<execute function="AssertElementNotPresent" locator1="LCSServerMetrics#APPLICATION_PAGES_AVERAGE_LOAD_TIME" />
+	</command>
+
 	<command name="viewSingleMetricApplicationPortlets">
 		<var name="key_portletName" value="${portletName}" />
 
 		<execute function="AssertTextEquals" locator1="LCSServerMetrics#APPLICATION_PORTLETS_NAME" value1="${key_portletName}" />
 		<execute function="AssertElementPresent" locator1="LCSServerMetrics#APPLICATION_PORTLETS_FREQUENCY" />
 		<execute function="AssertElementPresent" locator1="LCSServerMetrics#APPLICATION_PORTLETS_AVERAGE_LOAD_TIME" />
+	</command>
+
+	<command name="viewSingleMetricApplicationPortletsNotPresent">
+		<var name="key_portletName" value="${portletName}" />
+
+		<execute function="AssertElementNotPresent" locator1="LCSServerMetrics#APPLICATION_PORTLETS_NAME" value1="${key_portletName}" />
+		<execute function="AssertElementNotPresent" locator1="LCSServerMetrics#APPLICATION_PORTLETS_FREQUENCY" />
+		<execute function="AssertElementNotPresent" locator1="LCSServerMetrics#APPLICATION_PORTLETS_AVERAGE_LOAD_TIME" />
 	</command>
 
 	<command name="waitForMetrics">
