@@ -236,6 +236,12 @@ public class FileEntryStagedModelDataHandler
 				uuid, portletDataContext.getCompanyGroupId());
 		}
 
+		Map<Long, Long> dlFileEntryIds =
+			(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
+				DLFileEntry.class);
+
+		dlFileEntryIds.put(fileEntryId, existingFileEntry.getFileEntryId());
+
 		Map<Long, Long> fileEntryIds =
 			(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
 				FileEntry.class);
