@@ -17,6 +17,8 @@ package com.liferay.portal.verify;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 
 import java.sql.Connection;
@@ -51,42 +53,56 @@ public class VerifyDB2 extends VerifyProcess {
 
 			rs = ps.executeQuery();
 
-			if (rs.next()) {
-				String dataType = rs.getString(1);
+			if (!rs.next()) {
+				if (_log.isWarnEnabled()) {
+					sb = new StringBundler(5);
 
-				if (dataType.equals("CLOB")) {
-					return;
+					sb.append("Column ");
+					sb.append(columnName);
+					sb.append(" in table ");
+					sb.append(tableName);
+					sb.append(" could not be found.");
+
+					_log.warn(sb.toString());
 				}
 
-				runSQL("alter table " + tableName + " add temp CLOB");
-
-				sb = new StringBundler(4);
-
-				sb.append("update ");
-				sb.append(tableName);
-				sb.append(" set temp = ");
-				sb.append(columnName);
-
-				runSQL(sb.toString());
-
-				sb = new StringBundler(4);
-
-				sb.append("alter table ");
-				sb.append(tableName);
-				sb.append(" drop column ");
-				sb.append(columnName);
-
-				runSQL(sb.toString());
-
-				sb = new StringBundler(4);
-
-				sb.append("alter table ");
-				sb.append(tableName);
-				sb.append(" rename column temp to ");
-				sb.append(columnName);
-
-				runSQL(sb.toString());
+				return;
 			}
+
+			String dataType = rs.getString(1);
+
+			if (dataType.equals("CLOB")) {
+				return;
+			}
+
+			runSQL("alter table " + tableName + " add temp CLOB");
+
+			sb = new StringBundler(4);
+
+			sb.append("update ");
+			sb.append(tableName);
+			sb.append(" set temp = ");
+			sb.append(columnName);
+
+			runSQL(sb.toString());
+
+			sb = new StringBundler(4);
+
+			sb.append("alter table ");
+			sb.append(tableName);
+			sb.append(" drop column ");
+			sb.append(columnName);
+
+			runSQL(sb.toString());
+
+			sb = new StringBundler(4);
+
+			sb.append("alter table ");
+			sb.append(tableName);
+			sb.append(" rename column temp to ");
+			sb.append(columnName);
+
+			runSQL(sb.toString());
 		}
 		finally {
 			DataAccess.cleanUp(con, ps, rs);
@@ -144,5 +160,7 @@ public class VerifyDB2 extends VerifyProcess {
 			DataAccess.cleanUp(con, ps, rs);
 		}
 	}
+
+	private static Log _log = LogFactoryUtil.getLog(VerifyDB2.class);
 
 }
