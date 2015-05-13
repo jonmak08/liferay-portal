@@ -124,16 +124,16 @@
 	</command>
 
 	<command name="configurePortalWorkflow">
-		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPPortalWorkflowconfiguration#NAVIGATION_DEFAULT_CONFIGURATION" value1="Default Configuration" />
+		<execute function="AssertClick" locator1="CPPortalWorkflowconfiguration#NAVIGATION_DEFAULT_CONFIGURATION" value1="Default Configuration" />
 
 		<execute function="Select" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#${workflowResourceKey}" value1="${workflowDefinition}" />
-		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#SAVE_BUTTON" value1="Save" />
 		<execute function="AssertTextEquals" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="configureSiteWorkflow">
 		<execute function="Select" locator1="CPSiteWorkflowconfiguration#${workflowResourceKey}" value1="${workflowDefinition}" />
-		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPSiteWorkflowconfiguration#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick" locator1="CPSiteWorkflowconfiguration#SAVE_BUTTON" value1="Save" />
 		<execute function="AssertTextEquals" locator1="CPSiteWorkflowconfiguration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -333,7 +333,7 @@
 		<execute function="Select" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#RESOURCE_TABLE_COMMENTS_SELECT" value1="${noWorkflow}" />
 		<execute function="Select" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#RESOURCE_TABLE_MESSAGE_BOARDS_MESSAGE_SELECT" value1="${noWorkflow}" />
 		<execute function="Select" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#RESOURCE_TABLE_WIKI_PAGE_SELECT" value1="${noWorkflow}" />
-		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#SAVE_BUTTON" value1="Save" />
 	</command>
 
 	<command name="tearDownSiteWorkflow">
@@ -349,7 +349,7 @@
 		<execute function="Select" locator1="CPSiteWorkflowconfiguration#RESOURCE_TABLE_COMMENTS_SELECT" value1="${defaultWorkflow}" />
 		<execute function="Select" locator1="CPSiteWorkflowconfiguration#RESOURCE_TABLE_MESSAGE_BOARDS_MESSAGE_SELECT" value1="${defaultWorkflow}" />
 		<execute function="Select" locator1="CPSiteWorkflowconfiguration#RESOURCE_TABLE_WIKI_PAGE_SELECT" value1="${defaultWorkflow}" />
-		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPSiteWorkflowconfiguration#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertClick" locator1="CPSiteWorkflowconfiguration#SAVE_BUTTON" value1="Save" />
 	</command>
 
 	<command name="tearDownSpecificWorkflowDefinition">
@@ -470,7 +470,7 @@
 
 	<command name="viewDefaultMySubmissionsCP">
 		<execute function="AssertTextEquals" locator1="CPMysubmissions#INFO_MESSAGE" value1="There are no pending publications requested by me." />
-		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPMysubmissions#NAVIGATION_COMPLETED" value1="Completed" />
+		<execute function="AssertClick" locator1="CPMysubmissions#NAVIGATION_COMPLETED" value1="Completed" />
 
 		<execute function="AssertTextEquals" locator1="CPMysubmissionsCompleted#INFO_MESSAGE" value1="There are no completed publications requested by me." />
 	</command>
@@ -584,7 +584,7 @@
 
 		<var name="key_workflowAssetTitle" value="${workflowAssetTitle}" />
 
-		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPMysubmissions#PENDING_TABLE_WITHDRAW_SUBMISSION" value1="Withdraw Submission" />
+		<execute function="AssertClick" locator1="CPMysubmissions#PENDING_TABLE_WITHDRAW_SUBMISSION" value1="Withdraw Submission" />
 
 		<execute function="AssertTextEquals" locator1="CPMysubmissions#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
@@ -600,7 +600,7 @@
 		<var name="key_workflowAssetTitle" value="${workflowAssetTitle}" />
 
 		<execute function="AssertTextEquals" locator1="CPMysubmissions#PENDING_TABLE_WITHDRAW_SUBMISSION" value1="Withdraw Submission" />
-		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPMysubmissions#PENDING_TABLE_ASSET_TITLE" value1="${workflowAssetTitle}" />
+		<execute function="AssertClick" locator1="CPMysubmissions#PENDING_TABLE_ASSET_TITLE" value1="${workflowAssetTitle}" />
 
 		<execute macro="Workflow#viewMySubmissionsTaskPreview">
 			<var name="workflowAssetContent" value="${workflowAssetContent}" />
@@ -609,7 +609,7 @@
 			<var name="workflowDefinition" value="${workflowDefinition}" />
 		</execute>
 
-		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPMysubmissionsTask#MENU_WITHDRAW_SUBMISSION" value1="Withdraw Submission" />
+		<execute function="AssertClick" locator1="CPMysubmissionsTask#MENU_WITHDRAW_SUBMISSION" value1="Withdraw Submission" />
 
 		<execute function="AssertTextEquals" locator1="CPMysubmissions#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
