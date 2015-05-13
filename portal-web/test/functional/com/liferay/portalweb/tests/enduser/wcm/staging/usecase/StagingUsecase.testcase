@@ -92,7 +92,7 @@
 		<execute macro="Staging#gotoPublishToLive" />
 
 		<execute macro="Staging#configurePublishToLive">
-			<var name="uncheckApplicationList" value="Sites Directory" />
+			<var name="uncheckApplicationNameList" value="Sites Directory" />
 		</execute>
 
 		<execute macro="Staging#publishToLive" />
