@@ -71,10 +71,10 @@ AUI.add(
 
 						var responseData = event.currentTarget.get(RESPONSE_DATA);
 
-						if (responseData.success) {
+						if (responseData.success === true) {
 							submitForm(instance._hrefFm, uri);
 						}
-						else {
+						else if (responseData.success === false) {
 							var data = instance.ns(
 								{
 									duplicateEntryId: responseData.duplicateEntryId,
@@ -100,10 +100,10 @@ AUI.add(
 
 						var responseData = event.currentTarget.get(RESPONSE_DATA);
 
-						if (responseData.success) {
+						if (responseData.success === true) {
 							submitForm(form);
 						}
-						else {
+						else if (responseData.success === false) {
 							var newName = instance.byId('newName');
 							var messageContainer = instance.byId('messageContainer');
 
