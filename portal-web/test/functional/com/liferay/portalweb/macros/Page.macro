@@ -466,6 +466,13 @@
 	<command name="viewWithWorkflowPG">
 		<execute function="AssertTextEquals" locator1="Home#BREADCRUMB_2" value1="${pageName}" />
 
+		<if>
+			<condition function="IsElementNotPresent" locator1="PGStaging#STAGING_MENU_STATUS" />
+			<then>
+				<execute function="AssertClick" locator1="PGStaging#STAGING_DROP_DOWN_BUTTON" value1="Staging" />
+			</then>
+		</if>
+
 		<execute function="AssertTextEquals" locator1="PGStaging#STAGING_MENU_STATUS" value1="${workflowStatus}" />
 		<execute function="AssertClick" locator1="PGStaging#LIVE_BUTTON" value1="Live" />
 
