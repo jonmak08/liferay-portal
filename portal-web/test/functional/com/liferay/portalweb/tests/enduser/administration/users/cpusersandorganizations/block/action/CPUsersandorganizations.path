@@ -20,7 +20,7 @@
 </tr>
 <tr>
 	<td>ADD</td>
-	<td>//div[@class='navbar-inner']//span[contains(.,'Add')]</td>
+	<td>//div[@class='navbar-inner']//a/span[contains(.,'Add')]</td>
 	<td></td>
 </tr>
 <tr>
