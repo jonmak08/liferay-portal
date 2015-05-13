@@ -20,6 +20,7 @@ import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,6 +28,7 @@ import java.sql.ResultSet;
 
 /**
  * @author Igor Beslic
+ * @author Joshua Gok
  */
 public class VerifyDB2 extends VerifyProcess {
 
@@ -40,14 +42,13 @@ public class VerifyDB2 extends VerifyProcess {
 		try {
 			con = DataAccess.getUpgradeOptimizedConnection();
 
-			StringBundler sb = new StringBundler(6);
+			StringBundler sb = new StringBundler(5);
 
-			sb.append("select coltype from ");
-			sb.append("sysibm.syscolumns where tbname = '");
+			sb.append("select coltype from sysibm.syscolumns where tbname = '");
 			sb.append(tableName);
 			sb.append("' AND name = '");
 			sb.append(columnName);
-			sb.append("'");
+			sb.append(StringPool.APOSTROPHE);
 
 			ps = con.prepareStatement(sb.toString());
 
@@ -119,11 +120,12 @@ public class VerifyDB2 extends VerifyProcess {
 			return;
 		}
 
-		increaseColumnSize();
+		alterVarcharColumns();
+
 		convertColumnToClob("EXPANDOVALUE", "DATA_");
 	}
 
-	protected void increaseColumnSize() throws Exception {
+	protected void alterVarcharColumns() throws Exception {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
