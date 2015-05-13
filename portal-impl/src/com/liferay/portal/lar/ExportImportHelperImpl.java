@@ -1097,23 +1097,17 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 				}
 			}
 
-			String uuid = referenceElement.attributeValue("uuid");
+			Map<Long, Long> fileEntryIds =
+				(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
+					DLFileEntry.class);
 
-			long importGroupId = groupId;
-
-			if (groupId == portletDataContext.getSourceCompanyGroupId()) {
-				importGroupId = portletDataContext.getCompanyGroupId();
-			}
-			else if (groupId == portletDataContext.getSourceGroupId()) {
-				importGroupId = portletDataContext.getGroupId();
-			}
+			long fileEntryId = MapUtil.getLong(fileEntryIds, classPK, classPK);
 
 			FileEntry importedFileEntry = null;
 
 			try {
-				importedFileEntry =
-					DLAppLocalServiceUtil.getFileEntryByUuidAndGroupId(
-						uuid, importGroupId);
+				importedFileEntry = DLAppLocalServiceUtil.getFileEntry(
+					fileEntryId);
 			}
 			catch (PortalException pe) {
 				if (_log.isDebugEnabled()) {
