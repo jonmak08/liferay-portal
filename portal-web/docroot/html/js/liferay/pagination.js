@@ -228,14 +228,21 @@ AUI.add(
 							instance._itemContainer.delegate('click', instance._onItemClick, '.lfr-pagination-link', instance)
 						];
 
-						instance.on('itemsPerPageChange', instance._onItemsPerPageChange, instance);
+						instance.after('resultsChange', instance._afterResultsChange, instance);
 						instance.on('changeRequest', instance._onChangeRequest, instance);
+						instance.on('itemsPerPageChange', instance._onItemsPerPageChange, instance);
 					},
 
 					destructor: function() {
 						var instance = this;
 
 						(new A.EventHandle(instance._eventHandles)).detach();
+					},
+
+					_afterResultsChange: function(event) {
+						var instance = this;
+
+						instance._syncResults();
 					},
 
 					getItem: function(currentPage) {
