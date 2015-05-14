@@ -146,6 +146,7 @@ boolean showAddAction = ParamUtil.getBoolean(request, "showAddAction", true);
 	<aui:input name="selPlid" type="hidden" value="<%= selPlid %>" />
 	<aui:input name="privateLayout" type="hidden" value="<%= privateLayout %>" />
 	<aui:input name="layoutId" type="hidden" value="<%= layoutId %>" />
+	<aui:input name="devices" type="hidden" value='<%= PropsValues.MOBILE_DEVICE_STYLING_WAP_ENABLED ? "regular,wap" : "regular" %>' />
 	<aui:input name="<%= PortletDataHandlerKeys.SELECTED_LAYOUTS %>" type="hidden" />
 
 	<c:if test="<%= layoutRevision != null && !incomplete %>">
