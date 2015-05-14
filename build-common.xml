@@ -920,6 +920,8 @@ Please set the environment variable ANT_OPTS to the recommended value of
 			<if>
 				<available file="/opt/dev/cache" />
 				<then>
+					<mkdir dir="/opt/dev/cache/mirrors" />
+
 					<propertyregex
 						input="@{src}"
 						property="mirrors.cache.file"
@@ -929,11 +931,11 @@ Please set the environment variable ANT_OPTS to the recommended value of
 
 					<if>
 						<not>
-							<available file="/opt/dev/cache/${mirrors.cache.file}" />
+							<available file="/opt/dev/cache/mirrors/${mirrors.cache.file}" />
 						</not>
 						<then>
 							<mirrors-get-cmd
-								dest="/opt/dev/cache/${mirrors.cache.file}"
+								dest="/opt/dev/cache/mirrors/${mirrors.cache.file}"
 								ignoreerrors="@{ignoreerrors}"
 								skipexisting="@{skipexisting}"
 								src="@{src}"
@@ -953,7 +955,7 @@ Please set the environment variable ANT_OPTS to the recommended value of
 							/>
 
 							<copy
-								file="/opt/dev/cache/${mirrors.cache.file}"
+								file="/opt/dev/cache/mirrors/${mirrors.cache.file}"
 								overwrite="true"
 								tofile="@{dest}/${mirrors.dest.file}"
 							/>
@@ -962,7 +964,7 @@ Please set the environment variable ANT_OPTS to the recommended value of
 						</then>
 						<else>
 							<copy
-								file="/opt/dev/cache/${mirrors.cache.file}"
+								file="/opt/dev/cache/mirrors/${mirrors.cache.file}"
 								overwrite="true"
 								tofile="@{dest}"
 							/>
