@@ -16,6 +16,7 @@ package com.liferay.portal.cache.key;
 
 import com.liferay.portal.kernel.cache.key.CacheKeyGenerator;
 import com.liferay.portal.kernel.util.Digester;
+import com.liferay.portal.kernel.util.StringBundler;
 
 import java.security.NoSuchAlgorithmException;
 
@@ -24,8 +25,7 @@ import java.security.NoSuchAlgorithmException;
  * @author Shuyang Zhou
  * @author Vilmos Papp
  */
-public class JavaMD5CacheKeyGenerator
-	extends BaseMessageDigestCacheKeyGenerator {
+public class JavaMD5CacheKeyGenerator extends MessageDigestCacheKeyGenerator {
 
 	public JavaMD5CacheKeyGenerator() throws NoSuchAlgorithmException {
 		this(-1);
@@ -34,17 +34,43 @@ public class JavaMD5CacheKeyGenerator
 	public JavaMD5CacheKeyGenerator(int maxLength)
 		throws NoSuchAlgorithmException {
 
-		super(Digester.MD5, maxLength);
+		super(Digester.MD5);
+
+		_maxLength = maxLength;
 	}
 
 	@Override
 	public CacheKeyGenerator clone() {
 		try {
-			return new JavaMD5CacheKeyGenerator(getMaxLength());
+			return new JavaMD5CacheKeyGenerator(_maxLength);
 		}
 		catch (NoSuchAlgorithmException nsae) {
 			throw new IllegalStateException(nsae.getMessage(), nsae);
 		}
 	}
+
+	@Override
+	public String getCacheKey(String key) {
+		if ((_maxLength > -1) && (key.length() < _maxLength)) {
+			return key;
+		}
+
+		return (String)super.getCacheKey(key);
+	}
+
+	@Override
+	public String getCacheKey(StringBundler sb) {
+		if ((_maxLength > -1) && (sb.length() < _maxLength)) {
+			return sb.toString();
+		}
+
+		return (String)super.getCacheKey(sb);
+	}
+
+	public void setMaxLength(int maxLength) {
+		_maxLength = maxLength;
+	}
+
+	private int _maxLength = -1;
 
 }
