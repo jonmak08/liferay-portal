@@ -2912,7 +2912,7 @@
 		</execute>
 	</command>
 
-	<command name="ImportCalendarAndViewCalendarEventRegularComment" priority="5">
+	<command known-issues="LRQA-15650" name="ImportCalendarAndViewCalendarEventRegularComment" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 		</execute>
