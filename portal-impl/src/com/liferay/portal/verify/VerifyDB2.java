@@ -56,13 +56,12 @@ public class VerifyDB2 extends VerifyProcess {
 
 			if (!rs.next()) {
 				if (_log.isWarnEnabled()) {
-					sb = new StringBundler(5);
+					sb = new StringBundler(4);
 
-					sb.append("Column ");
+					sb.append("Unable to find column ");
 					sb.append(columnName);
 					sb.append(" in table ");
 					sb.append(tableName);
-					sb.append(" could not be found.");
 
 					_log.warn(sb.toString());
 				}
