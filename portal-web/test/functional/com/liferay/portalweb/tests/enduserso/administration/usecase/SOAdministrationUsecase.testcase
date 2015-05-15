@@ -808,7 +808,7 @@
 			<var name="soPage" value="true" />
 		</execute>
 
-		<execute macro="CalendarEvent#addPG">
+		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle1}" />
 			<var name="eventType" value="${eventType}" />
 			<var name="pageName" value="Calendar" />
@@ -824,7 +824,7 @@
 			<var name="soPage" value="true" />
 		</execute>
 
-		<execute macro="Calendar#enableViewEventDetailsPermissionsPG">
+		<execute macro="Calendar#enableViewEventDetailsPermissions">
 			<var name="calendarName" value="${siteName1}" />
 			<var name="calendarType" value="Current Site Calendars" />
 			<var name="roleName" value="Site Member" />
@@ -1104,7 +1104,7 @@
 			<var name="soPage" value="true" />
 		</execute>
 
-		<execute macro="CalendarEvent#addPG">
+		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle2}" />
 			<var name="eventType" value="${eventType}" />
 			<var name="pageName" value="Calendar" />
@@ -1146,7 +1146,7 @@
 			<var name="pageName" value="Calendar Test Page" />
 		</execute>
 
-		<execute macro="CalendarEvent#addPG">
+		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle3}" />
 			<var name="eventType" value="${eventType}" />
 			<var name="pageName" value="Calendar Test Page" />
