@@ -303,7 +303,8 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="WikiPage#viewFrontPageDefaultCP">
+		<execute macro="WikiPage#viewFrontPageDefaultPG">
+			<var name="wikiPageContent" value="Front Page Wiki Content" />
 			<var name="wikiPageTitle" value="FrontPage" />
 		</execute>
 
