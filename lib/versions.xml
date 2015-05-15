@@ -1891,8 +1891,8 @@
 			<library>
 				<file-name>lib/portal/guice.jar</file-name>
 				<version>3.0</version>
-				<project-name>Google Guice Core Library</project-name>
-				<project-url>https://code.google.com/p/google-guice/</project-url>
+				<project-name>Guice</project-name>
+				<project-url>https://code.google.com/p/google-guice</project-url>
 				<licenses>
 					<license>
 						<license-name>Apache License 2.0</license-name>
@@ -2179,8 +2179,8 @@
 			<library>
 				<file-name>lib/portal/javax.inject.jar</file-name>
 				<version>1</version>
-				<project-name>JSR-330: Dependency Injection for Java</project-name>
-				<project-url>http://code.google.com/p/atinject/</project-url>
+				<project-name>Dependency Injection for Java</project-name>
+				<project-url>http://code.google.com/p/atinject</project-url>
 				<licenses>
 					<license>
 						<license-name>Apache License 2.0</license-name>
