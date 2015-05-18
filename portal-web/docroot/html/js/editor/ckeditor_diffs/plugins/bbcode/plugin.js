@@ -2,6 +2,15 @@
 	CKEDITOR.plugins.add(
 	'bbcode',
 		{
+			beforeInit: function( editor ) {
+				CKEDITOR.tools.extend(
+					editor.config, {
+						listIndentOnly: true
+					},
+					true
+				);
+			},
+
 			init: function(editor) {
 				var instance = this;
 
