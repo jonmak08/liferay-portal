@@ -334,6 +334,29 @@
 		</execute>
 	</command>
 
+	<command name="AddPageWithPageVersioningEnabled" priority="5">
+		<execute macro="Page#gotoConfigurationCP">
+			<var name="portletName" value="Site Settings" />
+			<var name="siteName" value="Site Name" />
+			<var name="siteURL" value="true" />
+		</execute>
+
+		<execute macro="Staging#activateStagingCP">
+			<var name="pageVersioningEnabled" value="true" />
+			<var name="siteName" value="Site Name" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Sites" />
+		</execute>
+
+		<execute macro="SitePage#addCP">
+			<var name="siteName" value="Site Name" />
+			<var name="sitePageName" value="Staging Test Page" />
+			<var name="sitePagePrivacy" value="Public" />
+		</execute>
+	</command>
+
 	<command name="AddSitePagesVariation" priority="5">
 		<var name="pageName" value="Staging Test Page" />
 		<var name="siteName" value="${siteName}" />
