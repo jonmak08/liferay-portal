@@ -179,6 +179,10 @@ else {
 	}
 }
 
+if (!pagesName.equals("pages")) {
+	tabs1 = pagesName;
+}
+
 String rootNodeName = liveGroup.getLayoutRootNodeName(privateLayout, locale);
 
 LayoutView layoutView = layoutLister.getLayoutView(groupId, privateLayout, rootNodeName, locale);
