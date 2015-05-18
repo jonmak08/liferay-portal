@@ -4029,7 +4029,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewWeekStartMonday" priority="5">
+	<command known-issues="LPS-55080" name="ViewWeekStartMonday" priority="5">
 		<description message="This is a use case for 51127." />
 
 		<execute macro="Page#gotoPG">
@@ -4077,7 +4077,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewWeekStartSaturday" priority="5">
+	<command known-issues="LPS-55080" name="ViewWeekStartSaturday" priority="5">
 		<description message="This is a use case for 51127." />
 
 		<execute macro="Page#gotoPG">
