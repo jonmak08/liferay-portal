@@ -425,6 +425,10 @@ public class JournalFolderLocalServiceImpl
 
 		parentFolderId = getParentFolderId(folder, parentFolderId);
 
+		if (folder.getParentFolderId() == parentFolderId) {
+			return folder;
+		}
+
 		validateFolder(
 			folder.getFolderId(), folder.getGroupId(), parentFolderId,
 			folder.getName());
