@@ -37,7 +37,7 @@ import com.liferay.portal.util.GroupTestUtil;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.TestPropsValues;
-import com.liferay.portal.util.test.UserTestUtil;
+import com.liferay.portal.util.UserTestUtil;
 import com.liferay.portlet.asset.AssetRendererFactoryRegistryUtil;
 import com.liferay.portlet.asset.model.AssetCategory;
 import com.liferay.portlet.asset.model.AssetVocabulary;
@@ -53,6 +53,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -129,7 +130,7 @@ public abstract class BaseAssetSearchTestCase {
 		_group2 = GroupTestUtil.addGroup();
 
 		ServiceContext group2ServiceContext =
-			ServiceContextTestUtil.getServiceContext(_group2.getGroupId());
+			ServiceTestUtil.getServiceContext(_group2.getGroupId());
 
 		ServiceContext[] serviceContexts = new ServiceContext[] {
 			group1ServiceContext, group2ServiceContext};
@@ -1158,7 +1159,7 @@ public abstract class BaseAssetSearchTestCase {
 		int initialEntries = searchCount(assetEntryQuery, searchContext);
 
 		ServiceContext serviceContext =
-			ServiceContextTestUtil.getServiceContext(groups[0].getGroupId());
+			ServiceTestUtil.getServiceContext(groups[0].getGroupId());
 
 		serviceContext.setAssetTagNames(_assetTagsNames1);
 		serviceContext.setAssetCategoryIds(_assetCategoryIds1);
@@ -1380,10 +1381,7 @@ public abstract class BaseAssetSearchTestCase {
 	private long _fashionCategoryId;
 	private long _foodCategoryId;
 	private Group _group1;
-
-	@DeleteAfterTestRun
 	private Group _group2;
-
 	private long _healthCategoryId;
 	private long _sportCategoryId;
 	private long _travelCategoryId;
