@@ -1110,6 +1110,10 @@ public class DLFolderLocalServiceImpl extends DLFolderLocalServiceBaseImpl {
 			dlAppHelperLocalService.updateFolder(
 				userId, new LiferayFolder(dlFolder), serviceContext);
 
+			rebuildTree(
+				dlFolder.getCompanyId(), folderId, dlFolder.getTreePath(),
+				true);
+
 			return dlFolder;
 		}
 		finally {
