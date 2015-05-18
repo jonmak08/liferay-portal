@@ -81,6 +81,13 @@
 		<execute function="AssertTextEquals#assertPartialText" locator1="Home#NODE_NAME" />
 	</command>
 
+	<command name="deleteLivePG">
+		<execute function="Click#clickAtSidebarClickAt" locator1="Dockbar#EDIT" />
+		<execute function="ClickNoError" locator1="Dockbar#EDIT_LIVE_DELETE" />
+
+		<execute function="Confirm#waitForConfirmation" value1="Are you sure you want to delete the selected page?" />
+	</command>
+
 	<command name="deletePG">
 		<var name="key_pageName" value="${pageName}" />
 
@@ -406,6 +413,12 @@
 				<execute function="AssertElementNotPresent#assertElementNotPresentClickDockbar" locator1="Home#PAGE_DELETE" />
 			</then>
 		</while>
+	</command>
+
+	<command name="viewNoPG">
+		<var name="key_pageName" value="${pageName}" />
+
+		<execute function="AssertElementNotPresent" locator1="Home#PAGE" value1="${pageName}" />
 	</command>
 
 	<command name="viewPageLayoutColumn">
