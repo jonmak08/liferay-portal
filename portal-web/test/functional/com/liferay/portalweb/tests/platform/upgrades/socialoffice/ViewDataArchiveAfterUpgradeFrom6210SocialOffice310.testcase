@@ -653,7 +653,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="CalendarEvent#changeViewPG">
+		<execute macro="CalendarNavigation#gotoView">
 			<var name="viewType" value="Month" />
 		</execute>
 
@@ -664,7 +664,7 @@
 			</then>
 		</while>
 
-		<execute macro="CalendarEvent#changeViewPG">
+		<execute macro="CalendarNavigation#gotoView">
 			<var name="viewType" value="Day" />
 		</execute>
 
@@ -674,7 +674,7 @@
 		<execute function="AssertElementPresent" locator1="PGCalendarDayView#SCHEDULER_EVENT_SPECIFIC" />
 		<execute function="AssertTextEquals" locator1="PGCalendarDayView#SCHEDULER_EVENT_SPECIFIC" value1="${eventTitle}" />
 
-		<execute macro="CalendarEvent#changeViewPG">
+		<execute macro="CalendarNavigation#gotoView">
 			<var name="viewType" value="Week" />
 		</execute>
 
@@ -683,13 +683,13 @@
 		<execute function="AssertElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_SPECIFIC" />
 		<execute function="AssertTextEquals" locator1="PGCalendar#SCHEDULER_EVENT_SPECIFIC" value1="${eventTitle}" />
 
-		<execute macro="CalendarEvent#changeViewPG">
+		<execute macro="CalendarNavigation#gotoView">
 			<var name="viewType" value="Month" />
 		</execute>
 
 		<execute function="AssertElementPresent" locator1="PGCalendarMonthView#SCHEDULER_EVENT_MONTH_VIEW_GENERIC" />
 
-		<execute macro="CalendarEvent#changeViewPG">
+		<execute macro="CalendarNavigation#gotoView">
 			<var name="viewType" value="Agenda" />
 		</execute>
 

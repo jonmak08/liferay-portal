@@ -1301,7 +1301,7 @@
 	</command>
 
 	<command name="viewDetailsResources">
-		<execute function="AssertTextEquals" locator1="CalendarViewEventDetails#RESOURCES_FIELD" value1="${calendarName}" />
+		<execute function="AssertTextEquals" locator1="PGCalendarVieweventdetails#RESOURCES_FIELD" value1="${calendarName}" />
 	</command>
 
 	<command name="viewDetailsTags">
