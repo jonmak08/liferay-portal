@@ -304,6 +304,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>EDIT_LIVE_DELETE</td>
+	<td>//li/a[@role='menuitem']/span</td>
+	<td></td>
+</tr>
+<tr>
 	<td></td>
 	<td></td>
 	<td></td>
