@@ -81,6 +81,8 @@
 	</command>
 
 	<command name="AddCampaignContentCP" priority="5">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
 			<var name="siteScopeName" value="Site Name" />
@@ -146,6 +148,8 @@
 	</command>
 
 	<command name="AddCampaignFormCP" priority="5">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
 			<var name="siteScopeName" value="Site Name" />
@@ -197,6 +201,8 @@
 	</command>
 
 	<command name="AddCampaignLinkCP" priority="5">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
 			<var name="siteScopeName" value="Site Name" />

@@ -460,6 +460,8 @@
 	</command>
 
 	<command name="CampaignViewInSimulatorPG" priority="5">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
 			<var name="siteScopeName" value="Site Name" />
@@ -735,6 +737,8 @@
 	</command>
 
 	<command name="CampaignViewStatusCP" priority="3">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
 			<var name="siteScopeName" value="Site Name" />
@@ -1237,6 +1241,8 @@
 	</command>
 
 	<command name="ExportImportUncheckAppAllAndContentCTRefAllAndWC" priority="4">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
 			<var name="siteScopeName" value="Site Name" />
@@ -1374,6 +1380,8 @@
 	</command>
 
 	<command name="ExportImportUncheckAppCTRefAllAndContentAll" priority="4">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="LAR#setupContentTargeting" />
 
 		<execute macro="Page#gotoPagesCP">
@@ -1437,6 +1445,8 @@
 	</command>
 
 	<command name="ExportImportUncheckAppCTRefAllAndContentAT" priority="4">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="LAR#setupContentTargeting" />
 
 		<execute macro="Page#gotoPagesCP">
@@ -1496,6 +1506,8 @@
 	</command>
 
 	<command name="ExportImportUncheckAppCTRefAllAndContentWC" priority="4">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="LAR#setupContentTargeting" />
 
 		<execute macro="Page#gotoPagesCP">
@@ -2161,6 +2173,8 @@
 	</command>
 
 	<command name="StagingCTEnabled" priority="4">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
 			<var name="siteScopeName" value="Site Name" />
@@ -2523,6 +2537,8 @@
 	</command>
 
 	<command name="UserSegmentAddCategorizationToContent" priority="5">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
 			<var name="siteScopeName" value="Site Name" />
@@ -2899,6 +2915,8 @@
 	</command>
 
 	<command name="UserSegmentAddParentSiteCategorizationToChildSiteContent" priority="5">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
@@ -3138,6 +3156,8 @@
 	</command>
 
 	<command name="UserSegmentAddWithBelongsViaUserSegmentContentDisplayPortlet" priority="5">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
 			<var name="siteScopeName" value="Site Name" />
@@ -3652,6 +3672,8 @@
 	</command>
 
 	<command name="UserSegmentViewAnyContentWithCategorizationViaContentListPortlet" priority="5">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
 			<var name="siteScopeName" value="Site Name" />
@@ -3697,6 +3719,8 @@
 	</command>
 
 	<command name="UserSegmentViewInSimulatorPG" priority="5">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
 			<var name="siteScopeName" value="Site Name" />
