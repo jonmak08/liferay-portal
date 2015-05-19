@@ -1432,7 +1432,7 @@
 			</library>
 			<library>
 				<file-name>lib/portal/commons-codec.jar</file-name>
-				<version>1.6</version>
+				<version>1.9</version>
 				<project-name>Commons Codec</project-name>
 				<project-url>http://commons.apache.org/codec</project-url>
 				<licenses>
