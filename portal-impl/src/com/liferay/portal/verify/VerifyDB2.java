@@ -32,6 +32,44 @@ import java.sql.ResultSet;
  */
 public class VerifyDB2 extends VerifyProcess {
 
+	protected void alterVarcharColumns() throws Exception {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			con = DataAccess.getUpgradeOptimizedConnection();
+
+			StringBundler sb = new StringBundler(4);
+
+			sb.append("select tbname, name, coltype, length from ");
+			sb.append("sysibm.syscolumns where tbcreator = (select distinct ");
+			sb.append("current schema from sysibm.sysschemata) AND coltype = ");
+			sb.append("'VARCHAR' and length = 500");
+
+			ps = con.prepareStatement(sb.toString());
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				String tableName = rs.getString(1);
+
+				if (!isPortalTableName(tableName)) {
+					continue;
+				}
+
+				String columnName = rs.getString(2);
+
+				runSQL(
+					"alter table " + tableName + " alter column " + columnName +
+						" set data type varchar(600)");
+			}
+		}
+		finally {
+			DataAccess.cleanUp(con, ps, rs);
+		}
+	}
+
 	protected void convertColumnToClob(String tableName, String columnName)
 		throws Exception {
 
@@ -122,44 +160,6 @@ public class VerifyDB2 extends VerifyProcess {
 		alterVarcharColumns();
 
 		convertColumnToClob("EXPANDOVALUE", "DATA_");
-	}
-
-	protected void alterVarcharColumns() throws Exception {
-		Connection con = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-
-		try {
-			con = DataAccess.getUpgradeOptimizedConnection();
-
-			StringBundler sb = new StringBundler(4);
-
-			sb.append("select tbname, name, coltype, length from ");
-			sb.append("sysibm.syscolumns where tbcreator = (select distinct ");
-			sb.append("current schema from sysibm.sysschemata) AND coltype = ");
-			sb.append("'VARCHAR' and length = 500");
-
-			ps = con.prepareStatement(sb.toString());
-
-			rs = ps.executeQuery();
-
-			while (rs.next()) {
-				String tableName = rs.getString(1);
-
-				if (!isPortalTableName(tableName)) {
-					continue;
-				}
-
-				String columnName = rs.getString(2);
-
-				runSQL(
-					"alter table " + tableName + " alter column " + columnName +
-						" set data type varchar(600)");
-			}
-		}
-		finally {
-			DataAccess.cleanUp(con, ps, rs);
-		}
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(VerifyDB2.class);
