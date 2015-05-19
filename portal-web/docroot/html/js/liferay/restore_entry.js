@@ -20,11 +20,11 @@ AUI.add(
 						validator: isString
 					},
 
-					overrideMessage:{
-						validator:isString
+					overrideMessage: {
+						validator: isString
 					},
 
-					renameMessage:{
+					renameMessage: {
 						validator: isString
 					},
 
@@ -71,10 +71,12 @@ AUI.add(
 
 						var responseData = event.currentTarget.get(RESPONSE_DATA);
 
-						if (responseData.success === true) {
+						var responseDataSuccess = responseData.success;
+
+						if (responseDataSuccess === true) {
 							submitForm(instance._hrefFm, uri);
 						}
-						else if (responseData.success === false) {
+						else if (responseDataSuccess === false) {
 							var data = instance.ns(
 								{
 									duplicateEntryId: responseData.duplicateEntryId,
@@ -104,8 +106,8 @@ AUI.add(
 							submitForm(form);
 						}
 						else if (responseData.success === false) {
-							var newName = instance.byId('newName');
 							var messageContainer = instance.byId('messageContainer');
+							var newName = instance.byId('newName');
 
 							messageContainer.html(Lang.sub(Liferay.Language.get('an-entry-with-name-x-already-exists'), [newName.val()]));
 						}
@@ -178,8 +180,8 @@ AUI.add(
 							closeButton.on('click', instance._popup.hide, instance._popup);
 						}
 
-						var rename = instance.byId('rename');
 						var newName = instance.byId('newName');
+						var rename = instance.byId('rename');
 
 						rename.on('click', Liferay.Util.focusFormField, Liferay.Util, newName);
 
@@ -212,8 +214,8 @@ AUI.add(
 									arguments: form,
 									data: instance.ns(
 										{
-											trashEntryId: trashEntryId.val(),
-											newName: newName.val()
+											newName: newName.val(),
+											trashEntryId: trashEntryId.val()
 										}
 									),
 									dataType: 'json'
