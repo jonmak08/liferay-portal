@@ -137,37 +137,46 @@ public class AddDefaultDocumentLibraryStructuresAction
 		List<String> ddmStructureNames = new ArrayList<String>();
 
 		addDLFileEntryType(
-			userId, groupId, DLFileEntryTypeConstants.NAME_CONTRACT,
-			ddmStructureNames, serviceContext);
+			userId, groupId, DLFileEntryTypeConstants.NAME_LOCALIZED_CONTRACT,
+			DLFileEntryTypeConstants.NAME_CONTRACT, ddmStructureNames,
+			serviceContext);
 
 		ddmStructureNames.clear();
 
 		ddmStructureNames.add("Marketing Campaign Theme Metadata");
 
 		addDLFileEntryType(
-			userId, groupId, DLFileEntryTypeConstants.NAME_MARKETING_BANNER,
-			ddmStructureNames, serviceContext);
+			userId, groupId,
+			DLFileEntryTypeConstants.NAME_LOCALIZED_MARKETING_BANNER,
+			DLFileEntryTypeConstants.NAME_MARKETING_BANNER, ddmStructureNames,
+			serviceContext);
 
 		ddmStructureNames.clear();
 
 		ddmStructureNames.add("Learning Module Metadata");
 
 		addDLFileEntryType(
-			userId, groupId, DLFileEntryTypeConstants.NAME_ONLINE_TRAINING,
-			ddmStructureNames, serviceContext);
+			userId, groupId,
+			DLFileEntryTypeConstants.NAME_LOCALIZED_ONLINE_TRAINING,
+			DLFileEntryTypeConstants.NAME_ONLINE_TRAINING, ddmStructureNames,
+			serviceContext);
 
 		ddmStructureNames.clear();
 
 		ddmStructureNames.add("Meeting Metadata");
 
 		addDLFileEntryType(
-			userId, groupId, DLFileEntryTypeConstants.NAME_SALES_PRESENTATION,
-			ddmStructureNames, serviceContext);
+			userId, groupId,
+			DLFileEntryTypeConstants.NAME_LOCALIZED_SALES_PRESENTATION,
+			DLFileEntryTypeConstants.NAME_SALES_PRESENTATION, ddmStructureNames,
+			serviceContext);
 
 		if (UpgradeProcessUtil.isCreateIGImageDocumentType()) {
 			addDLFileEntryType(
-				userId, groupId, DLFileEntryTypeConstants.NAME_IG_IMAGE,
-				ddmStructureNames, serviceContext);
+				userId, groupId,
+				DLFileEntryTypeConstants.NAME_LOCALIZED_IG_IMAGE,
+				DLFileEntryTypeConstants.NAME_IG_IMAGE, ddmStructureNames,
+				serviceContext);
 		}
 	}
 
