@@ -887,7 +887,7 @@ public class DLFolderLocalServiceImpl extends DLFolderLocalServiceBaseImpl {
 						parentPrimaryKey, treePath);
 					dlFileVersionLocalService.setTreePaths(
 						parentPrimaryKey, treePath);
-			}
+				}
 
 				@Override
 				public void reindexTreeModels(List<TreeModel> treeModels)
@@ -904,7 +904,6 @@ public class DLFolderLocalServiceImpl extends DLFolderLocalServiceBaseImpl {
 						indexer.reindex(treeModel);
 					}
 				}
-
 			}
 		);
 	}

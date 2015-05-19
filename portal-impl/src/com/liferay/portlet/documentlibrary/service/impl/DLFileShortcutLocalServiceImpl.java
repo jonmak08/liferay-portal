@@ -322,7 +322,6 @@ public class DLFileShortcutLocalServiceImpl
 				dynamicQuery.add(treePathProperty.ne(treePath));
 			}
 
-
 			@Override
 			protected void performAction(Object object)
 				throws PortalException, SystemException {

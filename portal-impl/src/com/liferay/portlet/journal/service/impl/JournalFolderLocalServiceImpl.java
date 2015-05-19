@@ -27,8 +27,8 @@ import com.liferay.portal.kernel.search.IndexerRegistryUtil;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.OrderByComparator;
-import com.liferay.portal.kernel.util.TreeModelFinder;
 import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.TreeModelFinder;
 import com.liferay.portal.kernel.util.TreePathUtil;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -546,7 +546,9 @@ public class JournalFolderLocalServiceImpl
 	}
 
 	@Override
-	public void rebuildTree(long companyId) throws PortalException, SystemException {
+	public void rebuildTree(long companyId)
+		throws PortalException, SystemException {
+
 		rebuildTree(
 			companyId, JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID,
 			StringPool.SLASH, false);
@@ -598,7 +600,6 @@ public class JournalFolderLocalServiceImpl
 						indexer.reindex(treeModel);
 					}
 				}
-
 			}
 		);
 	}
