@@ -310,6 +310,56 @@
 		<antcall target="build-fckeditor" />
 	</target>
 
+	<target name="build-ckeditor-filemanager">
+		<mkdir dir="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay" />
+
+		<copy todir="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay">
+			<fileset dir="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay" />
+		</copy>
+
+		<replace file="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay/browser.html">
+			<replacefilter token="FCKeditor" value="CKeditor" />
+		</replace>
+
+		<replace file="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay/browser.html">
+			<replacetoken><![CDATA[<meta http-equiv="Content-Type" content="text/html; charset=utf-8">]]></replacetoken>
+			<replacevalue>
+				<![CDATA[
+					<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+					<meta content="IE=EmulateIE9" http-equiv="X-UA-Compatible">
+				]]>
+			</replacevalue>
+		</replace>
+
+		<replace file="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay/frmresourceslist.html">
+			<replacetoken><![CDATA[function OpenFile( fileUrl )]]></replacetoken>
+			<replacevalue><![CDATA[function OpenFile( fileUrl, errorMessage )]]></replacevalue>
+		</replace>
+
+		<replace file="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay/frmresourceslist.html">
+			<replacetoken><![CDATA[window.top.opener.SetUrl( encodeURI( fileUrl ).replace( '#', '%23' ) ) ;]]></replacetoken>
+			<replacevalue>
+				<![CDATA[
+					if (!errorMessage) {
+						var match = window.top.location.search.match(/(?:[\?&]|&amp;)CKEditorFuncNum=([^&]+)/i);
+
+						var funcNum = (match && match.length) ? match[1] : '';
+
+						window.top.opener.CKEDITOR.tools.callFunction(funcNum, fileUrl);
+					}
+					else {
+						alert(errorMessage);
+					}
+				]]>
+			</replacevalue>
+		</replace>
+
+		<replace file="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay/frmresourceslist.html">
+			<replacetoken><![CDATA[var sCurrentFolderPath	= oFolderNode.attributes.getNamedItem('path').value ;]]></replacetoken>
+			<replacevalue><![CDATA[var sCurrentFolderPath	= oFolderNode.attributes.getNamedItem('path').value.replace( /"/g, '') ;]]></replacevalue>
+		</replace>
+	</target>
+
 	<target name="build-ckeditor-plugins-bbcode">
 		<concat destfile="docroot/html/js/editor/ckeditor_diffs/plugins/bbcode/bbcode_parser.js">
 			<filelist
@@ -966,58 +1016,14 @@
 
 				<!-- CKEditor -->
 
-				<mkdir dir="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay" />
-
-				<copy todir="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay">
-					<fileset dir="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay" />
-				</copy>
-
-				<replace file="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay/browser.html">
-					<replacefilter token="FCKeditor" value="CKeditor" />
-				</replace>
-
-				<replace file="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay/browser.html">
-					<replacetoken><![CDATA[<meta http-equiv="Content-Type" content="text/html; charset=utf-8">]]></replacetoken>
-					<replacevalue>
-						<![CDATA[
-							<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-							<meta content="IE=EmulateIE9" http-equiv="X-UA-Compatible">
-						]]>
-					</replacevalue>
-				</replace>
-
-				<replace file="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay/frmresourceslist.html">
-					<replacetoken><![CDATA[function OpenFile( fileUrl )]]></replacetoken>
-					<replacevalue><![CDATA[function OpenFile( fileUrl, errorMessage )]]></replacevalue>
-				</replace>
-
-				<replace file="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay/frmresourceslist.html">
-					<replacetoken><![CDATA[window.top.opener.SetUrl( encodeURI( fileUrl ).replace( '#', '%23' ) ) ;]]></replacetoken>
-					<replacevalue>
-						<![CDATA[
-							if (!errorMessage) {
-								var match = window.top.location.search.match(/(?:[\?&]|&amp;)CKEditorFuncNum=([^&]+)/i);
-
-								var funcNum = (match && match.length) ? match[1] : '';
-
-								window.top.opener.CKEDITOR.tools.callFunction(funcNum, fileUrl);
-							}
-							else {
-								alert(errorMessage);
-							}
-						]]>
-					</replacevalue>
-				</replace>
-
-				<replace file="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay/frmresourceslist.html">
-					<replacetoken><![CDATA[var sCurrentFolderPath	= oFolderNode.attributes.getNamedItem('path').value ;]]></replacetoken>
-					<replacevalue><![CDATA[var sCurrentFolderPath	= oFolderNode.attributes.getNamedItem('path').value.replace( /"/g, '') ;]]></replacevalue>
-				</replace>
+				<antcall target="build-ckeditor-filemanager" />
 			</then>
 			<else>
 				<copy todir="docroot/html/js/editor/fckeditor">
 					<fileset dir="docroot/html/js/editor/fckeditor_diffs" />
 				</copy>
+
+				<antcall target="build-ckeditor-filemanager" />
 			</else>
 		</if>
 	</target>
