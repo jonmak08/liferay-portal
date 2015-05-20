@@ -70,7 +70,7 @@ public class AddDefaultDocumentLibraryStructuresAction
 
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link #addDLFileEntryType(long,
-	 * long, String, String, List, ServiceContext)}
+	 *             long, String, String, List, ServiceContext)}
 	 */
 	protected void addDLFileEntryType(
 			long userId, long groupId, String dlFileEntryTypeKey,
@@ -78,8 +78,8 @@ public class AddDefaultDocumentLibraryStructuresAction
 		throws Exception {
 
 		addDLFileEntryType(
-				userId, groupId, dlFileEntryTypeKey, dlFileEntryTypeKey,
-				ddmStructureNames, serviceContext);
+			userId, groupId, dlFileEntryTypeKey, dlFileEntryTypeKey,
+			ddmStructureNames, serviceContext);
 	}
 
 	protected void addDLFileEntryType(
@@ -119,7 +119,7 @@ public class AddDefaultDocumentLibraryStructuresAction
 		}
 		catch (NoSuchFileEntryTypeException nsfete) {
 			Map<Locale, String> localizationMap = getLocalizationMap(
-					languageKey);
+				languageKey);
 
 			DLFileEntryTypeLocalServiceUtil.addFileEntryType(
 				userId, groupId, dlFileEntryTypeKey, localizationMap,
