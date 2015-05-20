@@ -200,7 +200,7 @@ AUI.add(
 						var override = instance.byId('override');
 						var trashEntryId = instance.byId('trashEntryId');
 
-						if (override.attr('checked') || (!override.attr('checked') && !newName.val())) {
+						if (override.attr('checked') || !override.attr('checked') && !newName.val()) {
 							submitForm(form);
 						}
 						else {
