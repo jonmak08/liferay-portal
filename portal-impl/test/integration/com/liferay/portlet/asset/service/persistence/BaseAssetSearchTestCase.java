@@ -129,8 +129,8 @@ public abstract class BaseAssetSearchTestCase {
 
 		_group2 = GroupTestUtil.addGroup();
 
-		ServiceContext group2ServiceContext =
-			ServiceTestUtil.getServiceContext(_group2.getGroupId());
+		ServiceContext group2ServiceContext = ServiceTestUtil.getServiceContext(
+			_group2.getGroupId());
 
 		ServiceContext[] serviceContexts = new ServiceContext[] {
 			group1ServiceContext, group2ServiceContext};
@@ -1158,8 +1158,8 @@ public abstract class BaseAssetSearchTestCase {
 
 		int initialEntries = searchCount(assetEntryQuery, searchContext);
 
-		ServiceContext serviceContext =
-			ServiceTestUtil.getServiceContext(groups[0].getGroupId());
+		ServiceContext serviceContext = ServiceTestUtil.getServiceContext(
+			groups[0].getGroupId());
 
 		serviceContext.setAssetTagNames(_assetTagsNames1);
 		serviceContext.setAssetCategoryIds(_assetCategoryIds1);
