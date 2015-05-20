@@ -440,7 +440,6 @@
 				<execute function="Pause" locator1="5000" />
 				<execute function="AssertClickNoError" locator1="CPSitepagesImport#IMPORT_BUTTON" value1="Import" />
 				<execute function="Pause" locator1="5000" />
-				<execute function="AssertTextEquals" locator1="CPSitepagesImport#FILE_NAME" value1="${larFileName}" />
 			</else>
 		</if>
 
