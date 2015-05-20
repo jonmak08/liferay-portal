@@ -348,19 +348,21 @@
 		_handleLink: function(element, listTagsIn, listTagsOut) {
 			var hrefAttribute = element.getAttribute('href');
 
-			if (!REGEX_URL_PREFIX.test(hrefAttribute)) {
-				hrefAttribute = decodeURIComponent(hrefAttribute);
+			if (hrefAttribute) {
+				if (!REGEX_URL_PREFIX.test(hrefAttribute)) {
+					hrefAttribute = decodeURIComponent(hrefAttribute);
+				}
+
+				var linkText = element.textContent || element.innerText;
+
+				listTagsIn.push('[[');
+
+				if (linkText !== hrefAttribute) {
+					listTagsIn.push(hrefAttribute, STR_PIPE);
+				}
+
+				listTagsOut.push(']]');
 			}
-
-			var linkText = element.textContent || element.innerText;
-
-			listTagsIn.push('[[');
-
-			if (linkText !== hrefAttribute) {
-				listTagsIn.push(hrefAttribute, STR_PIPE);
-			}
-
-			listTagsOut.push(']]');
 		},
 
 		_handleListItem: function(element, listTagsIn, listTagsOut) {

@@ -551,17 +551,19 @@
 		_handleLink: function(element, listTagsIn, listTagsOut) {
 			var hrefAttribute = element.getAttribute('href');
 
-			var decodedLink = decodeURIComponent(hrefAttribute);
+			if (hrefAttribute) {
+				var decodedLink = decodeURIComponent(hrefAttribute);
 
-			if (decodedLink.indexOf(newThreadURL) >= 0) {
-				hrefAttribute = newThreadURL;
+				if (decodedLink.indexOf(newThreadURL) >= 0) {
+					hrefAttribute = newThreadURL;
+				}
+
+				var linkHandler = MAP_LINK_HANDLERS[hrefAttribute.indexOf(STR_MAILTO)] || 'url';
+
+				listTagsIn.push('[' + linkHandler + '=', hrefAttribute, ']');
+
+				listTagsOut.push('[/' + linkHandler + ']');
 			}
-
-			var linkHandler = MAP_LINK_HANDLERS[hrefAttribute.indexOf(STR_MAILTO)] || 'url';
-
-			listTagsIn.push('[' + linkHandler + '=', hrefAttribute, ']');
-
-			listTagsOut.push('[/' + linkHandler + ']');
 		},
 
 		_handleListItem: function(element, listTagsIn, listTagsOut) {
