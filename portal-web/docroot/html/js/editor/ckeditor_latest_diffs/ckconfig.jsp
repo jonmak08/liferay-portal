@@ -82,6 +82,8 @@ response.setContentType(ContentTypes.TEXT_JAVASCRIPT);
 
 	var config = ckEditor.config;
 
+	config.allowedContent = true;
+
 	config.autoParagraph = false;
 
 	config.autoSaveTimeout = 3000;
