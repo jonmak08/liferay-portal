@@ -41,7 +41,7 @@
 </tr>
 <tr>
 	<td>TOOLBAR_ADD</td>
-	<td>//div[@class='navbar ']/div/div/div/ul/li[contains(.,'Add')]/a</td>
+	<td>//div[contains(@id,'Navbar')]//li[contains(@id,'ButtonContainer')]/a[contains(.,'Add')]</td>
 	<td>Add</td>
 </tr>
 <tr>
