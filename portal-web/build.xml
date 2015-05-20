@@ -272,6 +272,11 @@
 	</target>
 
 	<target name="build-ckeditor">
+		<antcall target="build-ckeditor-common" />
+		<antcall target="build-ckeditor-latest" />
+	</target>
+
+	<target name="build-ckeditor-common">
 		<if>
 			<not>
 				<uptodate
@@ -358,6 +363,17 @@
 			<replacetoken><![CDATA[var sCurrentFolderPath	= oFolderNode.attributes.getNamedItem('path').value ;]]></replacetoken>
 			<replacevalue><![CDATA[var sCurrentFolderPath	= oFolderNode.attributes.getNamedItem('path').value.replace( /"/g, '') ;]]></replacevalue>
 		</replace>
+	</target>
+
+	<target name="build-ckeditor-latest">
+		<script classpathref="project.classpath" language="beanshell">
+			project.setProperty("ckeditor.file", project.getProperty("ckeditor.file.latest"));
+			project.setProperty("scayt.file", project.getProperty("scayt.file.latest"));
+			project.setProperty("wsc.file", project.getProperty("wsc.file.latest"));
+			project.setProperty("ckeditor.deploy.dir", "ckeditor_latest");
+		</script>
+
+		<antcall target="build-ckeditor-common" />
 	</target>
 
 	<target name="build-ckeditor-plugins-bbcode">
