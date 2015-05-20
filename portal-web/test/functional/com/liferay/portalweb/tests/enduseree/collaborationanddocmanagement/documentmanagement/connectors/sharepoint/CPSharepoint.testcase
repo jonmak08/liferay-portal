@@ -295,7 +295,7 @@
 		</execute>
 
 		<execute macro="DMFolder#gotoCP">
-			<var name="dmFolderName" value="DM Folder Name" />
+			<var name="dmFolderName" value="DM Folder3 Name" />
 		</execute>
 
 		<execute macro="DMDocument#cannotViewCP">
