@@ -17,6 +17,7 @@ package com.liferay.portlet.documentlibrary.util;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.image.ImageBag;
+import com.liferay.portal.kernel.image.ImageTool;
 import com.liferay.portal.kernel.image.ImageToolUtil;
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.log.Log;
@@ -336,13 +337,24 @@ public class ImageProcessorImpl
 			return type;
 		}
 
-		String extension = fileVersion.getExtension();
+		String contentType = fileVersion.getMimeType();
 
-		if (extension.equals("jpeg")) {
-			type = "jpg";
+		if (contentType.contains(ImageTool.TYPE_BMP)) {
+			type = ImageTool.TYPE_BMP;
+		}
+		else if (contentType.contains(ImageTool.TYPE_GIF)) {
+			type = ImageTool.TYPE_GIF;
+		}
+		else if (contentType.contains(ImageTool.TYPE_JPEG) ||
+				 contentType.contains("jpeg")) {
+
+			type = ImageTool.TYPE_JPEG;
+		}
+		else if (contentType.contains(ImageTool.TYPE_PNG)) {
+			type = ImageTool.TYPE_PNG;
 		}
 		else if (!_previewGenerationRequired(fileVersion)) {
-			type = extension;
+			type = fileVersion.getExtension();
 		}
 
 		return type;
@@ -370,9 +382,9 @@ public class ImageProcessorImpl
 	}
 
 	private boolean _previewGenerationRequired(FileVersion fileVersion) {
-		String type = fileVersion.getExtension();
+		String contentType = fileVersion.getMimeType();
 
-		if (type.equals("tiff") || type.equals("tif")) {
+		if (contentType.contains("tiff") || contentType.contains("tif")) {
 			return true;
 		}
 		else {
