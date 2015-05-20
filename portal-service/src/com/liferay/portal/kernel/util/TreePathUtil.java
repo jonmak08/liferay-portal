@@ -36,6 +36,7 @@ public class TreePathUtil {
 	 * @deprecated As of 7.0.0, replaced by {@link #rebuildTree(long, long,
 	 *             String, TreeModelFinder<?>)}
 	 */
+	@Deprecated
 	public static void rebuildTree(
 			long companyId, long defaultParentPrimaryKey,
 			TreeModelFinder<?> treeModelFinder)
