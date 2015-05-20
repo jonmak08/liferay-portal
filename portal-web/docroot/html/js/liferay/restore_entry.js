@@ -73,10 +73,7 @@ AUI.add(
 
 						var responseDataSuccess = responseData.success;
 
-						if (responseDataSuccess === true) {
-							submitForm(instance._hrefFm, uri);
-						}
-						else if (responseDataSuccess === false) {
+						if (responseDataSuccess === false) {
 							var data = instance.ns(
 								{
 									duplicateEntryId: responseData.duplicateEntryId,
@@ -88,6 +85,9 @@ AUI.add(
 							);
 
 							instance._showPopup(data, instance.get('duplicateEntryURL'));
+						}
+						else {
+							submitForm(instance._hrefFm, uri);
 						}
 					},
 
