@@ -945,7 +945,6 @@
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
-			<var name="siteScopeName" value="Site Name" />
 		</execute>
 
 		<execute macro="ContentTargetingUserSegment#addCP">
@@ -973,7 +972,6 @@
 		<execute macro="Page#gotoContentCP">
 			<var name="nodePort" value="9080" />
 			<var name="portletName" value="Web Content" />
-			<var name="siteScopeName" value="Site Name" />
 		</execute>
 
 		<execute macro="WebContent#addWithCategoryCP">
@@ -986,8 +984,6 @@
 		<execute macro="Page#gotoPG">
 			<var name="nodePort" value="9080" />
 			<var name="pageName" value="Test Page Name" />
-			<var name="siteName" value="Site Name" />
-			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -1014,8 +1010,6 @@
 		<execute macro="Page#gotoPG">
 			<var name="nodePort" value="9080" />
 			<var name="pageName" value="Test Page Name" />
-			<var name="siteName" value="Site Name" />
-			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="UserSegmentContentDisplayPortlet#viewEntryPG">
