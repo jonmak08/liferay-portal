@@ -2618,6 +2618,8 @@
 	</command>
 
 	<command name="UserSegmentAddFromParentSiteViaCampaign" priority="5">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
 			<var name="siteScopeName" value="Site Name" />
@@ -2686,6 +2688,8 @@
 	</command>
 
 	<command name="UserSegmentAddGlobalCategorizationToSiteContent" priority="5">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
 			<var name="siteScopeName" value="Global" />
@@ -3532,6 +3536,8 @@
 	</command>
 
 	<command name="UserSegmentSimulateRulesViaSimulatorPG" priority="5">
+		<property name="test.assert.javascript.errors" value="false" />
+
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
 			<var name="siteScopeName" value="Site Name" />
