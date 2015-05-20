@@ -39,7 +39,7 @@
 		</execute>
 
 		<execute macro="LCSServerNavigator#gotoServerDetails">
-			<var name="environmentName" value="Environment 1 Name Edit" />
+			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name Edit" />
 		</execute>
 
