@@ -1032,7 +1032,7 @@ public abstract class BaseAssetSearchTestCase {
 			Group[] groups, String keywords, ServiceContext serviceContext)
 		throws Exception {
 
-		List<BaseModel<?>> baseModels = new ArrayList<>();
+		List<BaseModel<?>> baseModels = new ArrayList<BaseModel<?>>();
 
 		for (Group group : groups) {
 			User user = UserTestUtil.getAdminUser(group.getCompanyId());
