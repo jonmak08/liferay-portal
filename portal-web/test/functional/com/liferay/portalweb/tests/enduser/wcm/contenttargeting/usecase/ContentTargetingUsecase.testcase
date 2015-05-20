@@ -1242,6 +1242,7 @@
 
 	<command name="ExportImportUncheckAppAllAndContentCTRefAllAndWC" priority="4">
 		<property name="test.assert.javascript.errors" value="false" />
+		<property name="ignore.errors" value="Cannot import rule Content Visited from user segment User Segment Name because it refers to a missing Asset|Cannot import custom data for tracking action Content in campaignCampaign Name" />
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
