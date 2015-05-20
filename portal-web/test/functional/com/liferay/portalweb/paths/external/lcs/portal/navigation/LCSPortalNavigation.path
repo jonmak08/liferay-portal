@@ -24,6 +24,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>NAVIGATION_MENU_SUBSCRIPTIONS</td>
+	<td>//div[@class='lcs-navigation-header']//div[contains(.,'Subscriptions')]/a</td>
+	<td></td>
+</tr>
+<tr>
 	<td>NAVIGATION_MENU_ADD_ENVIRONMENT</td>
 	<td>//div[@class='lcs-navigation-submenu']//div[contains(@class,'environments-titlebar')]//a[contains(.,'Add Environment')]</td>
 	<td></td>

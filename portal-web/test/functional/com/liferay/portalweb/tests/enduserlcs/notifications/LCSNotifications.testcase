@@ -11,7 +11,7 @@
 
 		<execute macro="LCSEnvironment#tearDown" />
 
-		<execute macro="LCSServerNavigator#gotoNotifications" />
+		<execute macro="LCSPortalNavigator#gotoNotifications" />
 
 		<execute macro="LCSNotificationsRule#tearDown" />
 	</tear-down>
@@ -30,7 +30,7 @@
 			<var name="userEmailPassword" property-value="lcs.email.password.1" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoNotifications" />
+		<execute macro="LCSPortalNavigator#gotoNotifications" />
 
 		<execute macro="LCSNotifications#addRuleAllNotifications">
 			<var name="environmentName" value="Environment 1 Name" />
@@ -59,7 +59,7 @@
 			<var name="userEmailPassword" property-value="lcs.email.password.1" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoNotifications" />
+		<execute macro="LCSPortalNavigator#gotoNotifications" />
 
 		<execute macro="LCSNotifications#addRuleAllNotifications">
 			<var name="environmentName" value="Environment 1 Name" />
@@ -73,7 +73,7 @@
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoNotifications" />
+		<execute macro="LCSPortalNavigator#gotoNotifications" />
 
 		<execute macro="LCSNotifications#deleteRule">
 			<var name="environmentName" value="Environment 1 Name" />
@@ -96,7 +96,7 @@
 			<var name="userEmailPassword" property-value="lcs.email.password.1" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoNotifications" />
+		<execute macro="LCSPortalNavigator#gotoNotifications" />
 
 		<execute macro="LCSNotifications#addRuleOneNotification">
 			<var name="environmentName" value="Environment 1 Name" />
@@ -140,7 +140,7 @@
 			<var name="notificationRule" value="The server is offline." />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoNotifications" />
+		<execute macro="LCSPortalNavigator#gotoNotifications" />
 
 		<execute macro="LCSNotifications#editRuleAllNotifications">
 			<var name="environmentName" value="Environment 1 Name" />
