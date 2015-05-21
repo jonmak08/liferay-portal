@@ -2587,6 +2587,13 @@ public class JournalArticleLocalServiceImpl
 			groupId, folderId, status);
 	}
 
+	@Override
+	public int getArticlesCount(long groupId, String articleId)
+		throws SystemException {
+
+		return journalArticlePersistence.countByG_A(groupId, articleId);
+	}
+
 	/**
 	 * Returns an ordered range of all the web content articles matching the
 	 * company, version, and workflow status.
