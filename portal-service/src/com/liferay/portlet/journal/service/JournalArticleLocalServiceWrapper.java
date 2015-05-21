@@ -1754,6 +1754,12 @@ public class JournalArticleLocalServiceWrapper
 			status);
 	}
 
+	@Override
+	public int getArticlesCount(long groupId, java.lang.String articleId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _journalArticleLocalService.getArticlesCount(groupId, articleId);
+	}
+
 	/**
 	* Returns an ordered range of all the web content articles matching the
 	* company, version, and workflow status.
