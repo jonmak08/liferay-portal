@@ -715,6 +715,26 @@ public class JournalArticleIndexer extends BaseIndexer {
 			ddmStructure, fields, LocaleUtil.fromLanguageId(languageId));
 	}
 
+	protected JournalArticle fetchLatestIndexableArticleVersion(
+			long resourcePrimKey)
+		throws SystemException {
+
+		JournalArticle latestIndexableArticle =
+				JournalArticleLocalServiceUtil.fetchLatestArticle(
+						resourcePrimKey,
+						new int[] {WorkflowConstants.STATUS_APPROVED,
+								WorkflowConstants.STATUS_IN_TRASH
+						});
+
+		if (latestIndexableArticle == null) {
+			latestIndexableArticle =
+					JournalArticleLocalServiceUtil.fetchLatestArticle(
+							resourcePrimKey);
+		}
+
+		return latestIndexableArticle;
+	}
+
 	protected Collection<Document> getArticleVersions(JournalArticle article)
 		throws PortalException, SystemException {
 
