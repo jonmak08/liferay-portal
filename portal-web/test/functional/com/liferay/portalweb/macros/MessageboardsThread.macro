@@ -873,8 +873,19 @@
 		<if>
 			<equals arg1="${guestReply}" arg2="true" />
 			<then>
-				<execute function="AssertTextEquals" locator1="PGMessageboardsThread#MESSAGE_RATING_GUEST_VIEW_1" value1="0 (0 Votes)" />
-				<execute function="AssertTextEquals" locator1="PGMessageboardsThread#MESSAGE_RATING_GUEST_VIEW_2" value1="0 (0 Votes)" />
+				<if>
+					<condition function="IsElementPresent" locator1="PGMessageboardsThread#MESSAGE_RATING_GUEST_VIEW_1" value1="0 (0 Votes)" />
+					<then>
+						<execute function="AssertTextEquals" locator1="PGMessageboardsThread#MESSAGE_RATING_GUEST_VIEW_2" value1="0 (0 Votes)" />
+					</then>
+				</if>
+
+				<if>
+					<condition function="IsElementPresent" locator1="PGMessageboardsThread#MESSAGE_RATING_GUEST_SIGN_IN_1" value1= "Sign in to vote." />
+					<then>
+						<execute function= "AssertTextEquals" locator1= "PGMessageboardsThread#MESSAGE_RATING_GUEST_SIGN_IN_1" value1= "Sign in to vote." />
+					</then>
+				</if>
 			</then>
 			<else>
 				<execute function="AssertTextEquals" locator1="PGMessageboardsThread#MESSAGE_USERNAME_2" value1="${userName}" />
