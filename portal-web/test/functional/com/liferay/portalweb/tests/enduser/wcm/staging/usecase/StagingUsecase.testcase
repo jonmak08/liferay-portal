@@ -900,6 +900,13 @@
 
 		<execute function="Refresh" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Test Page Name" />
+			<var name="pageStaging" value="true" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="true" />
+		</execute>
+
 		<execute macro="Staging#enablePageInSitePagesVariation">
 			<var name="pageName" value="Test Page Name" />
 			<var name="sitePagesVariationName" value="Main Variation Edit" />
