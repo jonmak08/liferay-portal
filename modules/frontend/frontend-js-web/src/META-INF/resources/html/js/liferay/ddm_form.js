@@ -792,7 +792,7 @@ AUI.add(
 								on: {
 									uploadcomplete: function(event) {
 										try {
-											var data = A.JSON.parse(event.data);
+											var data = JSON.parse(event.data);
 
 											if (data.status) {
 												instance.showNotice(data.message);
