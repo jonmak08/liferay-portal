@@ -752,7 +752,7 @@ public class JournalArticleIndexer extends BaseIndexer {
 			articles = new ArrayList<JournalArticle>();
 
 			JournalArticle latestIndexableArticle =
-				JournalArticleLocalServiceUtil.fetchLatestIndexableArticle(
+				fetchLatestIndexableArticleVersion(
 					article.getResourcePrimKey());
 
 			if (latestIndexableArticle != null) {
