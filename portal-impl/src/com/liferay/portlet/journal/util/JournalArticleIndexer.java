@@ -15,9 +15,6 @@
 package com.liferay.portlet.journal.util;
 
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
-import com.liferay.portal.kernel.dao.orm.DynamicQuery;
-import com.liferay.portal.kernel.dao.orm.Property;
-import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
@@ -399,8 +396,12 @@ public class JournalArticleIndexer extends BaseIndexer {
 
 		long classPK = article.getId();
 
-		if (!PropsValues.JOURNAL_ARTICLE_INDEX_ALL_VERSIONS) {
-			classPK = article.getResourcePrimKey();
+		if (!PropsValues.JOURNAL_ARTICLE_INDEX_ALL_VERSIONS &&
+			(JournalArticleLocalServiceUtil.getArticlesCount(
+						article.getGroupId(), article.getArticleId()) > 0)) {
+
+				doReindex(obj);
+				return;
 		}
 
 		deleteDocument(article.getCompanyId(), classPK);
@@ -576,18 +577,6 @@ public class JournalArticleIndexer extends BaseIndexer {
 				document.get(Field.UID), isCommitImmediately());
 
 			return;
-		}
-
-		if (!PropsValues.JOURNAL_ARTICLE_INDEX_ALL_VERSIONS) {
-			int status = article.getStatus();
-
-			if ((status != WorkflowConstants.STATUS_APPROVED) &&
-				(status != WorkflowConstants.STATUS_IN_TRASH) &&
-				(status != WorkflowConstants.STATUS_SCHEDULED)) {
-
-				deleteDocument(
-					article.getCompanyId(), article.getResourcePrimKey());
-			}
 		}
 
 		if (allVersions || !PropsValues.JOURNAL_ARTICLE_INDEX_ALL_VERSIONS) {
@@ -853,25 +842,22 @@ public class JournalArticleIndexer extends BaseIndexer {
 			new JournalArticleActionableDynamicQuery() {
 
 			@Override
-			protected void addCriteria(DynamicQuery dynamicQuery) {
-				if (PropsValues.JOURNAL_ARTICLE_INDEX_ALL_VERSIONS) {
-					return;
-				}
+			protected void performAction(Object object)
+				throws PortalException, SystemException {
 
-				Property statusProperty = PropertyFactoryUtil.forName("status");
-
-				Integer[] statuses = {
-					WorkflowConstants.STATUS_APPROVED,
-					WorkflowConstants.STATUS_IN_TRASH,
-					WorkflowConstants.STATUS_SCHEDULED
-				};
-
-				dynamicQuery.add(statusProperty.in(statuses));
-			}
-
-			@Override
-			protected void performAction(Object object) throws PortalException {
 				JournalArticle article = (JournalArticle)object;
+
+				if (!PropsValues.JOURNAL_ARTICLE_INDEX_ALL_VERSIONS) {
+					JournalArticle latestIndexableArticle =
+							fetchLatestIndexableArticleVersion(
+							article.getResourcePrimKey());
+
+					if (latestIndexableArticle == null) {
+						return;
+					}
+
+					article = latestIndexableArticle;
+				}
 
 				Document document = getDocument(article);
 
