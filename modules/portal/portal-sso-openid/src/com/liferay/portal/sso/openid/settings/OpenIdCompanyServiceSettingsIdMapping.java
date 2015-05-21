@@ -12,23 +12,29 @@
  * details.
  */
 
-package com.liferay.nested.portlets.web.configuration.internal;
+package com.liferay.portal.sso.openid.settings;
 
-import com.liferay.nested.portlets.web.configuration.NestedPortletsPortletInstanceConfiguration;
-import com.liferay.portal.kernel.settings.definition.ConfigurationBeanDeclaration;
+import com.liferay.portal.kernel.settings.definition.SettingsIdMapping;
+import com.liferay.portal.sso.openid.configuration.OpenIdConfiguration;
+import com.liferay.portal.sso.openid.constants.OpenIdConstants;
 
 import org.osgi.service.component.annotations.Component;
 
 /**
- * @author Juergen Kappler
+ * @author Mika Koivisto
  */
 @Component
-public class NestedPortletsPortletInstanceConfigurationBeanDeclaration
-	implements ConfigurationBeanDeclaration {
+public class OpenIdCompanyServiceSettingsIdMapping
+	implements SettingsIdMapping {
 
 	@Override
-	public Class getConfigurationBeanClass() {
-		return NestedPortletsPortletInstanceConfiguration.class;
+	public Class<?> getConfigurationBeanClass() {
+		return OpenIdConfiguration.class;
+	}
+
+	@Override
+	public String getSettingsId() {
+		return OpenIdConstants.SERVICE_NAME;
 	}
 
 }
