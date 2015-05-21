@@ -324,7 +324,7 @@ AUI.add(
 
 								if (dataChannel) {
 									dataChannel.remove();
-									instance.set('dataChannel', A.JSON.parse(dataChannel.get('text')));
+									instance.set('dataChannel', JSON.parse(dataChannel.get('text')));
 								}
 
 								Liferay.fire(
