@@ -34,7 +34,9 @@ import com.liferay.portal.model.Organization;
 import com.liferay.portal.model.User;
 import com.liferay.portal.model.impl.UserImpl;
 import com.liferay.portal.service.GroupLocalServiceUtil;
+import com.liferay.portal.service.OrganizationLocalServiceUtil;
 import com.liferay.portal.service.persistence.impl.BasePersistenceImpl;
+import com.liferay.portal.util.PropsValues;
 import com.liferay.util.dao.orm.CustomSQLUtil;
 
 import java.util.ArrayList;
@@ -671,7 +673,7 @@ public class UserFinderImpl
 		boolean inherit = GetterUtil.getBoolean(params.get("inherit"));
 
 		if (ArrayUtil.isNotEmpty(groupIds) && inherit) {
-			List<Long> organizationIds = new ArrayList<Long>();
+			List<Organization> organizations = new ArrayList<Organization>();
 			List<Long> siteGroupIds = new ArrayList<Long>();
 			List<Long> userGroupIds = new ArrayList<Long>();
 
@@ -683,7 +685,13 @@ public class UserFinderImpl
 				}
 
 				if (group.isOrganization()) {
-					organizationIds.add(group.getOrganizationId());
+					Organization organization =
+						OrganizationLocalServiceUtil.fetchOrganization(
+							group.getOrganizationId());
+
+					if (organization != null) {
+						organizations.add(organization);
+					}
 				}
 				else if (group.isUserGroup()) {
 					userGroupIds.add(group.getClassPK());
@@ -693,14 +701,25 @@ public class UserFinderImpl
 				}
 			}
 
-			if (!organizationIds.isEmpty()) {
+			if (!organizations.isEmpty()) {
 				params2 = new LinkedHashMap<String, Object>(params1);
 
 				params2.remove("usersGroups");
 
-				params2.put(
-					"usersOrgs",
-					organizationIds.toArray(new Long[organizationIds.size()]));
+				if (PropsValues.ORGANIZATIONS_MEMBERSHIP_STRICT) {
+					Long[] organizationIds = new Long[organizations.size()];
+
+					for (int i = 0; i < organizationIds.length; i++) {
+						Organization organization = organizations.get(i);
+
+						organizationIds[i] = organization.getOrganizationId();
+					}
+
+					params2.put("usersOrgs", organizationIds);
+				}
+				else {
+					params2.put("usersOrgsTree", organizations);
+				}
 			}
 
 			if (!siteGroupIds.isEmpty()) {
@@ -732,7 +751,7 @@ public class UserFinderImpl
 		}
 
 		if (ArrayUtil.isNotEmpty(roleIds) && inherit) {
-			List<Long> organizationIds = new ArrayList<Long>();
+			List<Organization> organizations = new ArrayList<Organization>();
 			List<Long> siteGroupIds = new ArrayList<Long>();
 			List<Long> userGroupIds = new ArrayList<Long>();
 
@@ -741,7 +760,13 @@ public class UserFinderImpl
 
 				for (Group group : groups) {
 					if (group.isOrganization()) {
-						organizationIds.add(group.getOrganizationId());
+						Organization organization =
+							OrganizationLocalServiceUtil.fetchOrganization(
+								group.getOrganizationId());
+
+						if (organization != null) {
+							organizations.add(organization);
+						}
 					}
 					else if (group.isUserGroup()) {
 						userGroupIds.add(group.getClassPK());
@@ -752,14 +777,25 @@ public class UserFinderImpl
 				}
 			}
 
-			if (!organizationIds.isEmpty()) {
+			if (!organizations.isEmpty()) {
 				params2 = new LinkedHashMap<String, Object>(params1);
 
 				params2.remove("usersRoles");
 
-				params2.put(
-					"usersOrgs",
-					organizationIds.toArray(new Long[organizationIds.size()]));
+				if (PropsValues.ORGANIZATIONS_MEMBERSHIP_STRICT) {
+					Long[] organizationIds = new Long[organizations.size()];
+
+					for (int i = 0; i < organizationIds.length; i++) {
+						Organization organization = organizations.get(i);
+
+						organizationIds[i] = organization.getOrganizationId();
+					}
+
+					params2.put("usersOrgs", organizationIds);
+				}
+				else {
+					params2.put("usersOrgsTree", organizations);
+				}
 			}
 
 			if (!siteGroupIds.isEmpty()) {
