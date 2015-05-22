@@ -3,8 +3,6 @@ AUI.add(
 	function(A) {
 		var AArray = A.Array;
 
-		var AJSON = A.JSON;
-
 		var Lang = A.Lang;
 
 		var INSTANCE_ID_PREFIX = '_INSTANCE_';
@@ -162,7 +160,7 @@ AUI.add(
 					{
 						data: {
 							controlPanelCategory: 'portlet',
-							definition: AJSON.stringify(instance.get('definition')),
+							definition: JSON.stringify(instance.get('definition')),
 							doAsGroupId: instance.get('doAsGroupId'),
 							fieldName: instance.get('name'),
 							mode: instance.get('mode'),
@@ -792,7 +790,7 @@ AUI.add(
 								on: {
 									uploadcomplete: function(event) {
 										try {
-											var data = A.JSON.parse(event.data);
+											var data = JSON.parse(event.data);
 
 											if (data.status) {
 												instance.showNotice(data.message);
@@ -929,7 +927,7 @@ AUI.add(
 
 						if (Lang.isString(value)) {
 							if (value !== '') {
-								value = AJSON.parse(value);
+								value = JSON.parse(value);
 							}
 							else {
 								value = {};
@@ -979,7 +977,7 @@ AUI.add(
 							value = '';
 						}
 						else {
-							value = AJSON.stringify(parsedValue);
+							value = JSON.stringify(parsedValue);
 						}
 
 						DocumentLibraryField.superclass.setValue.call(instance, value);
@@ -1134,7 +1132,7 @@ AUI.add(
 
 							parsedValue.alt = altNode.val();
 
-							value = AJSON.stringify(parsedValue);
+							value = JSON.stringify(parsedValue);
 						}
 						else {
 							value = '';
@@ -1161,7 +1159,7 @@ AUI.add(
 								parsedValue.name = parsedValue.title;
 							}
 
-							value = AJSON.stringify(parsedValue);
+							value = JSON.stringify(parsedValue);
 						}
 						else {
 							value = '';
@@ -1201,7 +1199,7 @@ AUI.add(
 						var location = event.newVal.location;
 
 						instance.setValue(
-							AJSON.stringify(
+							JSON.stringify(
 								{
 									latitude: location.lat,
 									longitude: location.lng
@@ -1278,7 +1276,7 @@ AUI.add(
 							value = RadioField.superclass.getValue.apply(instance, arguments);
 						}
 
-						return AJSON.stringify([value]);
+						return JSON.stringify([value]);
 					},
 
 					setLabel: function() {
@@ -1317,7 +1315,7 @@ AUI.add(
 						radioNodes.set('checked', false);
 
 						if (Lang.isString(value)) {
-							value = AJSON.parse(value);
+							value = JSON.parse(value);
 						}
 
 						if (value.length) {
@@ -1373,7 +1371,7 @@ AUI.add(
 						var instance = this;
 
 						if (Lang.isString(value)) {
-							value = AJSON.parse(value);
+							value = JSON.parse(value);
 						}
 
 						instance.getInputNode().all('option').each(
@@ -1639,7 +1637,7 @@ AUI.add(
 
 						var ddmFormValuesInput = instance.get('ddmFormValuesInput');
 
-						ddmFormValuesInput.val(AJSON.stringify(instance.toJSON()));
+						ddmFormValuesInput.val(JSON.stringify(instance.toJSON()));
 					}
 				}
 			}

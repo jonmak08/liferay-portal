@@ -792,7 +792,7 @@ AUI.add(
 						var newLiNode;
 
 						try {
-							data = A.JSON.parse(data);
+							data = JSON.parse(data);
 						}
 						catch (e) {
 						}
