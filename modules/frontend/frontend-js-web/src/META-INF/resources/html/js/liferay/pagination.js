@@ -4,7 +4,6 @@ AUI.add(
 		var Lang = A.Lang;
 		var AArray = A.Array;
 		var ANode = A.Node;
-		var AObject = A.Object;
 
 		var BOUNDING_BOX = 'boundingBox';
 
@@ -222,7 +221,7 @@ AUI.add(
 					_dispatchRequest: function(state) {
 						var instance = this;
 
-						if (!AObject.owns(state, ITEMS_PER_PAGE)) {
+						if (!state.hasOwnProperty(ITEMS_PER_PAGE)) {
 							state.itemsPerPage = instance.get(ITEMS_PER_PAGE);
 						}
 
