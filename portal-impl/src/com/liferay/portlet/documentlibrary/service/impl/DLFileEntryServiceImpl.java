@@ -39,6 +39,7 @@ import com.liferay.portlet.documentlibrary.service.permission.DLFileEntryPermiss
 import com.liferay.portlet.documentlibrary.service.permission.DLFolderPermission;
 import com.liferay.portlet.documentlibrary.store.DLStoreUtil;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
+import com.liferay.portlet.expando.util.ExpandoBridgeUtil;
 
 import java.io.File;
 import java.io.InputStream;
@@ -233,6 +234,10 @@ public class DLFileEntryServiceImpl extends DLFileEntryServiceBaseImpl {
 		DLFileVersion dlFileVersion = dlFileEntry.getFileVersion();
 
 		DLFileVersion newDlFileVersion = newDlFileEntry.getFileVersion();
+
+		ExpandoBridgeUtil.copyExpandoBridgeAttributes(
+			dlFileVersion.getExpandoBridge(),
+			newDlFileVersion.getExpandoBridge());
 
 		dlFileEntryLocalService.copyFileEntryMetadata(
 			dlFileVersion.getCompanyId(), dlFileVersion.getFileEntryTypeId(),

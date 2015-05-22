@@ -117,6 +117,7 @@ import com.liferay.portlet.expando.model.ExpandoColumnConstants;
 import com.liferay.portlet.expando.model.ExpandoRow;
 import com.liferay.portlet.expando.model.ExpandoTable;
 import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
+import com.liferay.portlet.expando.util.ExpandoBridgeUtil;
 
 import java.awt.image.RenderedImage;
 
@@ -2526,8 +2527,14 @@ public class DLFileEntryLocalServiceImpl
 		}
 
 		if (checkedOut || autoCheckIn) {
+			ExpandoBridge oldExpandoBridge = dlFileVersion.getExpandoBridge();
+
 			dlFileVersion = dlFileVersionLocalService.getLatestFileVersion(
 				fileEntryId, false);
+
+			ExpandoBridgeUtil.setExpandoBridgeAttributes(
+				oldExpandoBridge, dlFileVersion.getExpandoBridge(),
+				serviceContext);
 		}
 
 		try {
