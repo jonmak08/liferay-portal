@@ -103,6 +103,7 @@ import com.liferay.portlet.dynamicdatamapping.storage.FieldConstants;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
 import com.liferay.portlet.dynamicdatamapping.util.DDMUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMXMLUtil;
+import com.liferay.portlet.expando.util.ExpandoBridgeUtil;
 import com.liferay.portlet.journal.ArticleContentException;
 import com.liferay.portlet.journal.ArticleDisplayDateException;
 import com.liferay.portlet.journal.ArticleExpirationDateException;
@@ -838,6 +839,11 @@ public class JournalArticleLocalServiceImpl
 		newArticle.setExpandoBridgeAttributes(oldArticle);
 
 		journalArticlePersistence.update(newArticle);
+
+		// Expando
+
+		ExpandoBridgeUtil.copyExpandoBridgeAttributes(
+			oldArticle.getExpandoBridge(), newArticle.getExpandoBridge());
 
 		// Resources
 
@@ -5064,7 +5070,9 @@ public class JournalArticleLocalServiceImpl
 			article.setStatus(WorkflowConstants.STATUS_EXPIRED);
 		}
 
-		article.setExpandoBridgeAttributes(serviceContext);
+		ExpandoBridgeUtil.setExpandoBridgeAttributes(
+			latestArticle.getExpandoBridge(), article.getExpandoBridge(),
+			serviceContext);
 
 		journalArticlePersistence.update(article);
 
@@ -5297,7 +5305,9 @@ public class JournalArticleLocalServiceImpl
 
 			article.setStatus(WorkflowConstants.STATUS_DRAFT);
 			article.setStatusDate(new Date());
-			article.setExpandoBridgeAttributes(oldArticle);
+
+			ExpandoBridgeUtil.copyExpandoBridgeAttributes(
+				oldArticle.getExpandoBridge(), article.getExpandoBridge());
 		}
 		else {
 			article = oldArticle;
