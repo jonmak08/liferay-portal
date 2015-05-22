@@ -107,7 +107,7 @@ YUI.add(
 				},
 
 				status: {
-					validator: Lang.isArray,
+					validator: Array.isArray,
 					value: ['fail', 'pass', 'pending']
 				},
 

@@ -12,7 +12,7 @@ AUI.add(
 			if (Lang.isFunction(value)) {
 				method = 'get';
 
-				if (Lang.isArray(key)) {
+				if (Array.isArray(key)) {
 					method = 'getAll';
 				}
 			}

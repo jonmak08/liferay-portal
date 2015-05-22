@@ -113,7 +113,7 @@ AUI.add(
 				var offsetX = 0;
 				var offsetY = 0;
 
-				if (Lang.isArray(offset)) {
+				if (Array.isArray(offset)) {
 					offsetX = offset[0];
 					offsetY = offset[1];
 				}
@@ -263,7 +263,7 @@ AUI.add(
 			_syncUIPosAlign: Lang.emptyFn,
 
 			_validateOffset: function(value) {
-				return (Lang.isArray(value) || Lang.isNumber(value));
+				return (Array.isArray(value) || Lang.isNumber(value));
 			}
 		};
 
