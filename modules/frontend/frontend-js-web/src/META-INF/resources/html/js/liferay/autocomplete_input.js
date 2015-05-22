@@ -252,7 +252,7 @@ AUI.add(
 				if (trigger !== instance._trigger) {
 					var triggers = instance._getTriggers();
 
-					var triggerConfig = instance.get(STR_TRIGGER)[AArray.indexOf(triggers, trigger)];
+					var triggerConfig = instance.get(STR_TRIGGER)[triggers.indexOf(trigger)];
 
 					instance.setAttrs(A.merge(instance._triggerConfigDefaults, triggerConfig));
 

@@ -83,7 +83,7 @@ AUI.add(
 				var queue = new A.Queue(tree);
 
 				var addToQueue = function(item) {
-					if (AArray.indexOf(queue._q, item) === -1) {
+					if (queue._q.indexOf(item) === -1) {
 						queue.add(item);
 					}
 				};
@@ -366,7 +366,7 @@ AUI.add(
 
 						var siblings = instance.getSiblings();
 
-						var index = AArray.indexOf(siblings, instance);
+						var index = siblings.indexOf(instance);
 
 						siblings.splice(index, 1);
 
@@ -405,7 +405,7 @@ AUI.add(
 
 								var field = parent._getField(fieldNode);
 
-								var index = AArray.indexOf(siblings, instance);
+								var index = siblings.indexOf(instance);
 
 								siblings.splice(++index, 0, field);
 
@@ -591,7 +591,7 @@ AUI.add(
 
 						var availableLocales = translationManager.get('availableLocales');
 
-						if (AArray.indexOf([defaultLocale].concat(availableLocales), event.prevVal) > -1) {
+						if ([defaultLocale].concat(availableLocales).indexOf(event.prevVal) > -1) {
 							instance.updateLocalizationMap(event.prevVal);
 						}
 
@@ -1378,7 +1378,7 @@ AUI.add(
 
 						instance.getInputNode().all('option').each(
 							function(item, index) {
-								item.set('selected', AArray.indexOf(value, item.val()) > -1);
+								item.set('selected', value.indexOf(item.val()) > -1);
 							}
 						);
 					}
