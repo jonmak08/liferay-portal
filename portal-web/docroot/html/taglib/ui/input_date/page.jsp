@@ -68,6 +68,8 @@ else {
 }
 
 Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPattern, locale);
+
+String inputDateNullable = nullable ? "" : format.format(calendar.getTime());
 %>
 
 <span class="lfr-input-date <%= cssClass %>" id="<%= randomNamespace %>displayDate">
@@ -76,7 +78,9 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 			<input class="input-medium" <%= disabled ? "disabled=\"disabled\"" : "" %> id="<%= nameId %>" name="<%= namespace + HtmlUtil.escapeAttribute(name) %>" type="date" value="<%= format.format(calendar.getTime()) %>" />
 		</c:when>
 		<c:otherwise>
-			<input class="input-medium" <%= disabled ? "disabled=\"disabled\"" : "" %> id="<%= nameId %>" name="<%= namespace + HtmlUtil.escapeAttribute(name) %>" placeholder="<%= StringUtil.toLowerCase(simpleDateFormatPattern) %>" type="text" value="<%= nullable ? "" : format.format(calendar.getTime()) %>" />
+			<aui:input disabled="<%= disabled %>" id="<%= name %>" label="" name="<%= name %>" placeholder="<%= StringUtil.toLowerCase(simpleDateFormatPattern) %>" title="" type="text" value="<%= inputDateNullable %>">
+				<aui:validator name="date" />
+			</aui:input>
 		</c:otherwise>
 	</c:choose>
 
@@ -107,17 +111,11 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 							container.one('#<%= yearParamId %>').attr('disabled', newVal);
 						},
 						selectionChange: function(event) {
-							var instance = this;
-
-							var container = instance.get('container');
-
-							var date = event.newSelection[0];
-
-							if (date) {
-								container.one('#<%= dayParamId %>').val(date.getDate());
-								container.one('#<%= monthParamId %>').val(date.getMonth());
-								container.one('#<%= yearParamId %>').val(date.getFullYear());
+							if (isNaN(event.newSelection[0])) {
+								event.newSelection[0] = new Date();
 							}
+
+							datePicker.updateValue(event.newSelection[0]);
 						}
 					},
 					popover: {
@@ -133,6 +131,18 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 				var container = instance.get('container');
 
 				return new Date(container.one('#<%= yearParamId %>').val(), container.one('#<%= monthParamId %>').val(), container.one('#<%= dayParamId %>').val());
+			};
+
+			datePicker.updateValue = function(date) {
+				var instance = this;
+
+				var container = instance.get('container');
+
+				if (date) {
+					container.one('#<%= dayParamId %>').val(date.getDate());
+					container.one('#<%= monthParamId %>').val(date.getMonth());
+					container.one('#<%= yearParamId %>').val(date.getFullYear());
+				}
 			};
 
 			return datePicker;
