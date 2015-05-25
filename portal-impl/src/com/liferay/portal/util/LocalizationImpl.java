@@ -424,7 +424,7 @@ public class LocalizationImpl implements Localization {
 
 		Map<Locale, String> map = new HashMap<Locale, String>();
 
-		Locale defaultLocale = LocaleUtil.getDefault();
+		Locale defaultLocale = LocaleUtil.getSiteDefault();
 
 		String defaultValue = _getLocalization(
 			bundleName, defaultLocale, classLoader, key, key);
@@ -479,7 +479,7 @@ public class LocalizationImpl implements Localization {
 		String xml = StringPool.BLANK;
 
 		Locale[] locales = LanguageUtil.getAvailableLocales();
-		Locale defaultLocale = LocaleUtil.getDefault();
+		Locale defaultLocale = LocaleUtil.getSiteDefault();
 		String defaultLanguageId = LocaleUtil.toLanguageId(defaultLocale);
 
 		for (Locale locale : locales) {
