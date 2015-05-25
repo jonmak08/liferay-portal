@@ -82,6 +82,7 @@ import com.liferay.portlet.PortletContextFactory;
 import com.liferay.portlet.PortletInstanceFactoryUtil;
 import com.liferay.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portlet.PortletQNameUtil;
+import com.liferay.portlet.UndeployedPortletImpl;
 import com.liferay.portlet.expando.model.CustomAttributesDisplay;
 import com.liferay.util.ContentUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
@@ -508,11 +509,7 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 
 			portlet.setPortletName(portletId);
 			portlet.setDisplayName(portletId);
-			portlet.setPortletClass(MVCPortlet.class.getName());
-
-			Map<String, String> initParams = portlet.getInitParams();
-
-			initParams.put("view-jsp", "/html/portal/undeployed_portlet.jsp");
+			portlet.setPortletClass(UndeployedPortletImpl.class.getName());
 
 			Set<String> mimeTypePortletModes = new HashSet<String>();
 
