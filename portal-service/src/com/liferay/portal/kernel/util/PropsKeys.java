@@ -2779,8 +2779,6 @@ public interface PropsKeys {
 
 	public static final String XML_SECURITY_ENABLED = "xml.security.enabled";
 
-	public static final String XML_SECURITY_WHITELIST = "xml.security.whitelist";
-
 	public static final String XML_VALIDATION_ENABLED = "xml.validation.enabled";
 
 	public static final String XSL_CONTENT_VALID_URL_PREFIXES = "xsl.content.valid.url.prefixes";
