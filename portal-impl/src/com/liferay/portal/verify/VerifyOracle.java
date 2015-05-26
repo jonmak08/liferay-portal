@@ -203,6 +203,7 @@ public class VerifyOracle extends VerifyProcess {
 
 		convertColumnToClob("AssetEntry", "description");
 		convertColumnToClob("AssetEntry", "summary");
+		convertColumnToClob("ExpandoValue", "data_");
 		convertColumnToClob("JournalArticle", "description");
 		convertColumnToClob("ShoppingCart", "itemIds");
 		convertColumnToClob("ShoppingOrder", "comments");
