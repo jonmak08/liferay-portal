@@ -1,6 +1,7 @@
 <definition component-name="extra-apps-content-targeting">
 	<property name="custom.properties" value="javascript.fast.load=false" />
 	<property name="testray.main.component.name" value="Content Targeting" />
+	<property name="test.assert.javascript.errors" value="false" />
 
 	<set-up>
 		<execute macro="User#firstLoginPG" />
@@ -107,8 +108,6 @@
 	</command>
 
 	<command name="AddParentSiteUserSegmentToChildSiteViaUserSegmentContentDisplayPortlet" priority="5">
-		<property name="test.assert.javascript.errors" value="false" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
@@ -764,8 +763,6 @@
 	</command>
 
 	<command name="AddUserSegmentUserAttributesOrganizationRoleCP" priority="5">
-		<property name="test.assert.javascript.errors" value="false" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
 		</execute>
@@ -899,8 +896,6 @@
 	</command>
 
 	<command name="AddUserSegmentUserAttributesUserGroupMemberCP" priority="5">
-		<property name="test.assert.javascript.errors" value="false" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="User Groups" />
 		</execute>
@@ -993,8 +988,6 @@
 	</command>
 
 	<command name="EditUserSegmentCP" priority="5">
-		<property name="test.assert.javascript.errors" value="false" />
-
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
 			<var name="siteScopeName" value="Site Name" />
