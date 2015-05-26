@@ -16,6 +16,7 @@ package com.liferay.portlet.trash.util;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.model.Group;
@@ -41,10 +42,22 @@ public interface Trash {
 			PortletURL containerModelURL)
 		throws PortalException, SystemException;
 
+	public void addBaseModelBreadcrumbEntries(
+			HttpServletRequest request,
+			LiferayPortletResponse liferayPortletResponse, String className,
+			long classPK, PortletURL containerModelURL)
+			throws PortalException, SystemException;
+
 	public void addContainerModelBreadcrumbEntries(
 			HttpServletRequest request, String className, long classPK,
 			PortletURL containerModelURL)
 		throws PortalException, SystemException;
+
+	public void addContainerModelBreadcrumbEntries(
+			HttpServletRequest request,
+			LiferayPortletResponse liferayPortletResponse, String className,
+			long classPK, PortletURL containerModelURL)
+			throws PortalException, SystemException;
 
 	public void deleteEntriesAttachments(
 			long companyId, long repositoryId, Date date,
