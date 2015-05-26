@@ -1396,7 +1396,7 @@ public interface Portal {
 
 	public PortletMode updatePortletMode(
 		String portletId, User user, Layout layout, PortletMode portletMode,
-		HttpServletRequest request);
+		HttpServletRequest request) throws PortalException;
 
 	public String updateRedirect(
 		String redirect, String oldPath, String newPath);
