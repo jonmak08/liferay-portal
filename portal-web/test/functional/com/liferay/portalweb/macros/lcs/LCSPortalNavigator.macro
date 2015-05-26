@@ -3,17 +3,17 @@
 		<execute function="AssertClick" locator1="LCSPortalNavigation#NAVIGATION_MENU_DASHBOARD" value1="Dashboard" />
 	</command>
 
-	<command name="gotoUsers">
-		<execute function="AssertClick" locator1="LCSPortalNavigation#NAVIGATION_MENU_USERS" value1="Users" />
+	<command name="gotoNotifications">
+		<execute function="Click" locator1="Dockbar#USER_NAME" />
+
+		<execute function="AssertClick" locator1="LCSUserbar#USER_NOTIFICATIONS" value1="Notifications" />
 	</command>
 
 	<command name="gotoSubscriptions">
 		<execute function="AssertClick" locator1="LCSPortalNavigation#NAVIGATION_MENU_SUBSCRIPTIONS" value1="Subscriptions" />
 	</command>
 
-	<command name="gotoNotifications">
-		<execute function="Click" locator1="Dockbar#USER_NAME" />
-
-		<execute function="AssertClick" locator1="LCSUserbar#USER_NOTIFICATIONS" value1="Notifications" />
+	<command name="gotoUsers">
+		<execute function="AssertClick" locator1="LCSPortalNavigation#NAVIGATION_MENU_USERS" value1="Users" />
 	</command>
 </definition>
