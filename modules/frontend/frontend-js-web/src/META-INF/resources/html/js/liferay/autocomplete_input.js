@@ -263,7 +263,7 @@ AUI.add(
 			_syncUIPosAlign: Lang.emptyFn,
 
 			_validateOffset: function(value) {
-				return (Lang.isArray(value) || Lang.isNumber(value));
+				return Lang.isArray(value) || Lang.isNumber(value);
 			}
 		};
 
