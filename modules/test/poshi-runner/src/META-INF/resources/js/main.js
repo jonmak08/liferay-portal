@@ -9,6 +9,101 @@ function macroHover(node, enter) {
 	}
 }
 
+function addChildLoggerElement(childLoggerAttributes, extraAttributes) {
+	var childNode = document.createElement(childLoggerAttributes.elementName);
+	var parentNode = document.getElementById(childLoggerAttributes.parentId);
+
+	if (childNode) {
+		childNode.setAttribute('class', childLoggerAttributes.elementClass);
+		childNode.setAttribute('id', childLoggerAttributes.elementId);
+
+		childNode.innerHTML = childLoggerAttributes.innerHTML;
+
+		for (var attribute in extraAttributes) {
+			childNode.setAttribute(attribute, extraAttributes.attribute);
+		}
+		if (parentNode) {
+			parentNode.appendChild(childNode);
+		}
+	}
+}
+
+function getClassName(id) {
+	var node = document.getElementById(id);
+
+	if (node) {
+		return node.getAttribute('class');
+	}
+}
+
+function getName(id) {
+	var node = document.getElementById(id);
+
+	if (node) {
+		return node.nodeName;
+	}
+}
+
+function getText(id) {
+	var node = document.getElementById(id);
+
+	if (node) {
+		return node.innerHTML;
+	}
+}
+
+function isWrittenToLogger(id) {
+	var node = document.getElementById(id);
+
+	if (node == null) {
+		return false;
+	}
+	return true;
+}
+
+function setAttribute(id, attrName, attrValue) {
+	var node = document.getElementById(id);
+
+	if (node) {
+		node.setAttribute(attrName, attrValue);
+	}
+}
+
+function setClassName(id, className) {
+	var node = document.getElementById(id);
+
+	if (node) {
+		node.setAttribute('class', className);
+	}
+}
+
+function setName(id, name) {
+	var oldNode = document.getElementById(id);
+
+	var newNode = document.createElement(name);
+
+	if (oldNode) {
+		newNode.innerHTML = oldNode.innerHTML;
+
+		newNode.setAttribute('class', oldNode.getAttribute('class'));
+		newNode.setAttribute('id', oldNode.getAttribute('id'));
+
+		oldNode.parentNode.insertBefore(newNode, oldNode.nextSibling);
+
+		var parentNode = oldNode.parentNode;
+
+		parentNode.removeChild(oldNode);
+	}
+}
+
+function setText(id, text) {
+	var node = document.getElementById(id);
+
+	if (node) {
+		node.innerHTML = text;
+	}
+}
+
 YUI.add(
 	'liferay-qa-poshi-logger',
 	function(A) {
@@ -613,15 +708,13 @@ YUI.add(
 							var scopeNames = currentScope.all('> .line-container .name');
 							var scopeTypes = currentScope.all('> .line-container .tag-type');
 
-							var scopeName = scopeNames.first() || currentScope.one('.testCaseCommand');
+							var scopeName = scopeNames.first();
 
 							scopeName = scopeName.html();
 
-							var scopeType = scopeTypes.first() || currentScope.one('> .line-container .action-type') || 'test-case';
+							var scopeType = scopeTypes.first();
 
-							if (!Lang.isString(scopeType)) {
-								scopeType = scopeType.html();
-							}
+							scopeType = scopeType.html();
 
 							sidebar.one('.scope-type .scope-name').html(scopeName);
 							sidebar.one('.scope-type .title').html(scopeType);
@@ -634,19 +727,17 @@ YUI.add(
 
 							sidebarParameterTitle.removeClass(CSS_HIDDEN);
 
-							var i;
-
-							if (scopeType != 'function' || scopeType != 'macro') {
+							if (scopeType !== 'function' && scopeType !== 'macro') {
 								sidebarParameterTitle.addClass(CSS_HIDDEN);
 							}
 							else {
 								var buffer = [];
 
 								if (scopeType === 'macro') {
-									var parameters = currentScope.all('> .line-container .parameter-container .parameter-value');
+									var parameters = currentScope.all('> .line-container .child-container .name');
 									var parameterSize = parameters.size();
 
-									for (i = 0; i < parameterSize; i += 2) {
+									for (var i = 0; i < parameterSize; i += 2) {
 										buffer.push(
 											A.Lang.sub(
 												TPL_PARAMETER,
@@ -671,7 +762,7 @@ YUI.add(
 								else if (scopeType === 'function') {
 									var parameterCount = scopeNames.size() - 1;
 
-									for (i = 1; i <= parameterCount; i++) {
+									for (var i = 1; i <= parameterCount; i++) {
 										buffer.push(
 											A.Lang.sub(
 												TPL_PARAMETER,
