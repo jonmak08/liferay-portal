@@ -320,6 +320,9 @@
 	</command>
 
 	<command name="importSiteCmd">
+		<execute function="AssertClickNoError" locator1="CPSitepagesImport#CONTINUE_BUTTON" value1="Continue" />
+		<execute function="Pause" locator1="5000" />
+
 		<if>
 			<equals arg1="${importPermissions}" arg2="true" />
 			<then>
@@ -350,8 +353,6 @@
 			</then>
 		</if>
 
-		<execute function="AssertClickNoError" locator1="CPSitepagesImport#CONTINUE_BUTTON" value1="Continue" />
-		<execute function="Pause" locator1="5000" />
 		<execute function="AssertClickNoError" locator1="CPSitepagesImport#CONTINUE_BUTTON" value1="Continue" />
 		<execute function="Pause" locator1="5000" />
 		<execute function="AssertClickNoError" locator1="CPSitepagesImport#IMPORT_BUTTON" value1="Import" />
