@@ -326,11 +326,11 @@ public class LayoutAction extends Action {
 				return null;
 			}
 
-			Long previousPlid = (Long)session.getAttribute(
+			Long previousLayoutPlid = (Long)session.getAttribute(
 				WebKeys.PREVIOUS_LAYOUT_PLID);
 
-			if ((previousPlid == null) ||
-				(layout.getPlid() != previousPlid.longValue())) {
+			if ((previousLayoutPlid == null) ||
+				(layout.getPlid() != previousLayoutPlid.longValue())) {
 
 				session.setAttribute(
 					WebKeys.PREVIOUS_LAYOUT_PLID, layout.getPlid());
@@ -357,8 +357,8 @@ public class LayoutAction extends Action {
 			String portletId = ParamUtil.getString(request, "p_p_id");
 
 			if (resetLayout && (_layoutResetPortletIds.contains(portletId) ||
-				 ((previousPlid != null) &&
-				  (layout.getPlid() != previousPlid.longValue())))) {
+				 ((previousLayoutPlid != null) &&
+				  (layout.getPlid() != previousLayoutPlid.longValue())))) {
 
 				// Always clear render parameters on a layout url, but do not
 				// clear on portlet urls invoked on the same layout
