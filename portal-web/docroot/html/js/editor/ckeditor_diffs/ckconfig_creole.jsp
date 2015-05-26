@@ -148,7 +148,7 @@ CKEDITOR.config.contentsLangDirection = '<%= HtmlUtil.escapeJS(contentsLanguageD
 		['Styles', 'FontSize']
 	];
 
-	ckEditor.on(
+	CKEDITOR.on(
 		'dialogDefinition',
 		function(event) {
 			var dialogName = event.data.name;
