@@ -86,7 +86,7 @@ public class LocalizationImplUnitTest extends PowerMockito {
 		spy(LocaleUtil.class);
 
 		when(
-			LocaleUtil.getDefault()
+			LocaleUtil.getSiteDefault()
 		).thenReturn(
 			new Locale(defaultContentLocale)
 		);
