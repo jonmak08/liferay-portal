@@ -1,0 +1,95 @@
+/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package com.liferay.portlet.journal.service;
+
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.GroupTestUtil;
+import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.model.Group;
+import com.liferay.portal.model.ResourceConstants;
+import com.liferay.portal.model.ResourcePermission;
+import com.liferay.portal.service.ResourcePermissionLocalServiceUtil;
+import com.liferay.portal.service.ServiceContext;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portal.test.rule.MainServletTestRule;
+import com.liferay.portal.util.PortalUtil;
+import com.liferay.portlet.asset.model.AssetEntry;
+import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
+import com.liferay.portlet.dynamicdatamapping.service.DDMTemplateLinkLocalServiceUtil;
+import com.liferay.portlet.journal.model.JournalArticle;
+import com.liferay.portlet.journal.model.JournalArticleConstants;
+import com.liferay.portlet.journal.model.JournalFolderConstants;
+import com.liferay.portlet.journal.util.test.JournalTestUtil;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.ClassRule;
+import org.junit.Rule;
+import org.junit.Test;
+
+/**
+ * @author Michael C. Han
+ */
+@Sync
+public class JournalArticleLocalServiceTest {
+
+	@ClassRule
+	@Rule
+	public static final AggregateTestRule aggregateTestRule =
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(), MainServletTestRule.INSTANCE,
+			SynchronousDestinationTestRule.INSTANCE);
+
+	@Before
+	public void setUp() throws Exception {
+		_group = GroupTestUtil.addGroup();
+	}
+
+	@Test
+	public void testDuplicateGeneratedArticleId() throws Exception {
+		JournalArticle article = JournalTestUtil.addArticle(
+			_group.getGroupId(),
+			JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID);
+
+		ServiceContext serviceContext =
+			ServiceContextTestUtil.getServiceContext();
+
+		Map<Locale, String> keywordsMap = new HashMap<>();
+
+		String keywords = "keywords";
+
+		keywordsMap.put(LocaleUtil.getDefault(), keywords);
+
+		JournalTestUtil.addArticle(
+			_group.getGroupId(),
+			JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID,
+			JournalArticleConstants.CLASSNAME_ID_DEFAULT,
+			article.getArticleId(), true, keywordsMap, keywordsMap, keywordsMap,
+			null, LocaleUtil.getDefault(), null, true, true, serviceContext);
+	}
+
+	@DeleteAfterTestRun
+	private Group _group;
+
+}
