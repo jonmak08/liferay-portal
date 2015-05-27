@@ -103,7 +103,7 @@
 </tr>
 <tr>
 	<td>BOOKMARKS_POP_UP_IMAGE_WIRED</td>
-	<td>//img[@alt='WIRED']</td>
+	<td>//i[@aria-label='WIRED Logo']</td>
 	<td></td>
 </tr>
 <tr>
