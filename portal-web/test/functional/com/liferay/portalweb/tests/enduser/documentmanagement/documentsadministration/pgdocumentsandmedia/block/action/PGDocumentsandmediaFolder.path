@@ -36,7 +36,7 @@
 </tr>
 <tr>
 	<td>TOOLBAR_ACTIONS</td>
-	<td>//div[@class='navbar ']/div/div/div/ul/li[contains(.,'Actions')]/a</td>
+	<td>//div[@class='navbar ']/div/div/div/ul/li[contains(.,'Actions')]/a | //div[contains(@id,'Navbar')]//li[contains(@id,'ButtonContainer')]/a[contains(.,'Actions')]</td>
 	<td>Actions</td>
 </tr>
 <tr>
