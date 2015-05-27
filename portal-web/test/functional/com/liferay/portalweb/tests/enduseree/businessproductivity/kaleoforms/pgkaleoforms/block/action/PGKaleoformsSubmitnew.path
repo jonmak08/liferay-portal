@@ -67,7 +67,7 @@
 </tr>
 <tr>
 	<td>NEW_PROCESS_FIELDS_DATE_FIELD</td>
-	<td>//div[contains(@class,'control-group field-wrapper') and contains(@data-fieldname,'${key_fieldName}')]/span[contains(@class,'lfr-input-date')]/input</td>
+	<td>//div[contains(@class,'control-group field-wrapper') and contains(@data-fieldname,'${key_fieldName}')]/span[contains(@class,'lfr-input-date')]/input | //div[contains(@class,'control-group field-wrapper') and contains(@data-fieldname,'${key_fieldName}')]/span[contains(@class,'lfr-input-date')]/div/input</td>
 	<td></td>
 </tr>
 <tr>
