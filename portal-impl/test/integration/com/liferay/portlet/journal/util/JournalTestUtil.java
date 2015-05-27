@@ -192,27 +192,10 @@ public class JournalTestUtil {
 			ServiceContext serviceContext)
 		throws Exception {
 
-		Map<Locale, String> titleMap = new HashMap<Locale, String>();
-
-		for (Locale locale : _locales) {
-			titleMap.put(locale, title);
-		}
-
-		Map<Locale, String> descriptionMap = new HashMap<Locale, String>();
-
-		for (Locale locale : _locales) {
-			descriptionMap.put(locale, description);
-		}
-
-		Map<Locale, String> contentMap = new HashMap<Locale, String>();
-
-		for (Locale locale : _locales) {
-			contentMap.put(locale, content);
-		}
-
 		return addArticle(
-			groupId, folderId, classNameId, titleMap, descriptionMap,
-			contentMap, defaultLocale, expirationDate, workflowEnabled,
+			groupId, folderId, classNameId, _getLocalizedMap(title),
+			_getLocalizedMap(description), _getLocalizedMap(content),
+			defaultLocale, expirationDate, workflowEnabled,
 			approved, serviceContext);
 	}
 
@@ -637,13 +620,7 @@ public class JournalTestUtil {
 	public static String createLocalizedContent(
 		String content, Locale defaultLocale) {
 
-		Map<Locale, String> contentMap = new HashMap<Locale, String>();
-
-		for (Locale locale : _locales) {
-			contentMap.put(locale, content);
-		}
-
-		return createLocalizedContent(contentMap, defaultLocale);
+		return createLocalizedContent(_getLocalizedMap(content), defaultLocale);
 	}
 
 	public static void expireArticle(long groupId, JournalArticle article)
@@ -738,12 +715,6 @@ public class JournalTestUtil {
 			ServiceContext serviceContext)
 		throws Exception {
 
-		Map<Locale, String> titleMap = new HashMap<Locale, String>();
-
-		for (Locale locale : _locales) {
-			titleMap.put(locale, title);
-		}
-
 		Date displayDate = article.getDisplayDate();
 
 		int displayDateMonth = 0;
@@ -778,12 +749,12 @@ public class JournalTestUtil {
 
 		return JournalArticleLocalServiceUtil.updateArticle(
 			article.getUserId(), article.getGroupId(), article.getFolderId(),
-			article.getArticleId(), article.getVersion(), titleMap,
-			article.getDescriptionMap(), content, article.getType(),
-			article.getStructureId(), article.getTemplateId(),
-			article.getLayoutUuid(), displayDateMonth, displayDateDay,
-			displayDateYear, displayDateHour, displayDateMinute, 0, 0, 0, 0, 0,
-			true, 0, 0, 0, 0, 0, true, article.getIndexable(),
+			article.getArticleId(), article.getVersion(), 
+			_getLocalizedMap(title), article.getDescriptionMap(), content,
+			article.getType(), article.getStructureId(),
+			article.getTemplateId(), article.getLayoutUuid(), displayDateMonth,
+			displayDateDay, displayDateYear, displayDateHour, displayDateMinute,
+			0, 0, 0, 0, 0, true, 0, 0, 0, 0, 0, true, article.getIndexable(),
 			article.isSmallImage(), article.getSmallImageURL(), null, null,
 			null, serviceContext);
 	}
@@ -856,6 +827,16 @@ public class JournalTestUtil {
 		}
 
 		return map;
+	}
+
+	private static Map<Locale, String> _getLocalizedMap(String value) {
+		Map<Locale, String> valuesMap = new HashMap<Locale, String>();
+
+		for (Locale locale : _locales) {
+			valuesMap.put(locale, value);
+		}
+
+		return valuesMap;
 	}
 
 	private static Locale[] _locales = {
