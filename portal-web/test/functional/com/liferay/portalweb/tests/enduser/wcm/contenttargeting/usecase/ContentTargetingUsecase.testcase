@@ -2294,6 +2294,8 @@
 	</command>
 
 	<command name="StagingUncheckAppAllAndContentCTRefAllAndWC" priority="4">
+		<property name="ignore.errors" value="Cannot import rule Content Visited from user segment User Segment Name because it refers to a missing Asset|Cannot import custom data for tracking action Content in campaignCampaign Name" />
+
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
 			<var name="siteScopeName" value="Site Name" />
