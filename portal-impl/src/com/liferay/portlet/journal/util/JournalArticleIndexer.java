@@ -713,16 +713,17 @@ public class JournalArticleIndexer extends BaseIndexer {
 		throws SystemException {
 
 		JournalArticle latestIndexableArticle =
-				JournalArticleLocalServiceUtil.fetchLatestArticle(
-						resourcePrimKey,
-						new int[] {WorkflowConstants.STATUS_APPROVED,
-								WorkflowConstants.STATUS_IN_TRASH
-						});
+			JournalArticleLocalServiceUtil.fetchLatestArticle(
+				resourcePrimKey,
+				new int[] {
+					WorkflowConstants.STATUS_APPROVED,
+					WorkflowConstants.STATUS_IN_TRASH
+				});
 
 		if (latestIndexableArticle == null) {
 			latestIndexableArticle =
-					JournalArticleLocalServiceUtil.fetchLatestArticle(
-							resourcePrimKey);
+				JournalArticleLocalServiceUtil.fetchLatestArticle(
+					resourcePrimKey);
 		}
 
 		return latestIndexableArticle;
@@ -853,7 +854,7 @@ public class JournalArticleIndexer extends BaseIndexer {
 
 				if (!PropsValues.JOURNAL_ARTICLE_INDEX_ALL_VERSIONS) {
 					JournalArticle latestIndexableArticle =
-							fetchLatestIndexableArticleVersion(
+						fetchLatestIndexableArticleVersion(
 							article.getResourcePrimKey());
 
 					if (latestIndexableArticle == null) {
