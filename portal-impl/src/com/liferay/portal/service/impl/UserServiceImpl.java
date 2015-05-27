@@ -752,7 +752,7 @@ public class UserServiceImpl extends UserServiceBaseImpl {
 	}
 
 	@Override
-	public User getCurrentUser() throws PortalException {
+	public User getCurrentUser() throws PortalException, SystemException {
 		return getUser();
 	}
 
