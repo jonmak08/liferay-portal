@@ -649,6 +649,7 @@
 							'aui-component',
 							'aui-io-request',
 							'aui-parse-content',
+							'liferay-form',
 							'liferay-portlet-url',
 							'liferay-util-window',
 							'plugin'
