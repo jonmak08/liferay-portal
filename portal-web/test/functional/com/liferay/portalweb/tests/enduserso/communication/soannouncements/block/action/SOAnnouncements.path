@@ -130,7 +130,7 @@
 </tr>
 <tr>
 	<td>ANNOUNCEMENTS_ENTRY_IMAGE_GOOGLE</td>
-	<td>xPath=(//button[@aria-label='Google Search'])[2]</td>
+	<td>xPath=(//input[@aria-label='Search'])[1]</td>
 	<td>Liferay</td>
 </tr>
 <tr>
