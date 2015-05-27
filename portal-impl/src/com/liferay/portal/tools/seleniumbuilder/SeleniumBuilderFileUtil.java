@@ -77,9 +77,9 @@ public class SeleniumBuilderFileUtil {
 
 		_componentNames = ListUtil.fromArray(
 			StringUtil.split(properties.getProperty("component.names")));
-		_testcaseAvailablePropertyNames = ListUtil.fromArray(
+		_testCaseAvailablePropertyNames = ListUtil.fromArray(
 			StringUtil.split(
-				properties.getProperty("testcase.available.property.names")));
+				properties.getProperty("test.case.available.property.names")));
 		_testrayAvailableComponentNames = ListUtil.fromArray(
 			StringUtil.split(
 				properties.getProperty("testray.available.component.names")));
@@ -1620,7 +1620,7 @@ public class SeleniumBuilderFileUtil {
 
 		String propertyName = propertyElement.attributeValue("name");
 
-		if (!_testcaseAvailablePropertyNames.contains(propertyName)) {
+		if (!_testCaseAvailablePropertyNames.contains(propertyName)) {
 			throwValidationException(
 				3003, fileName, propertyElement, propertyName);
 		}
@@ -2089,7 +2089,7 @@ public class SeleniumBuilderFileUtil {
 			"property", "set-up", "take-screenshot", "task", "td", "tear-down",
 			"then", "tr", "while", "var"
 		});
-	private static List<String> _testcaseAvailablePropertyNames;
+	private static List<String> _testCaseAvailablePropertyNames;
 	private static List<String> _testrayAvailableComponentNames;
 
 	private String _baseDirName;
