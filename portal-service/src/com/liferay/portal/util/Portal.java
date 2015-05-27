@@ -1395,8 +1395,9 @@ public interface Portal {
 	public String transformSQL(String sql);
 
 	public PortletMode updatePortletMode(
-		String portletId, User user, Layout layout, PortletMode portletMode,
-		HttpServletRequest request) throws PortalException;
+			String portletId, User user, Layout layout, PortletMode portletMode,
+			HttpServletRequest request)
+		throws PortalException;
 
 	public String updateRedirect(
 		String redirect, String oldPath, String newPath);

@@ -6836,8 +6836,9 @@ public class PortalImpl implements Portal {
 
 	@Override
 	public PortletMode updatePortletMode(
-		String portletId, User user, Layout layout, PortletMode portletMode,
-		HttpServletRequest request) throws PortalException {
+			String portletId, User user, Layout layout, PortletMode portletMode,
+			HttpServletRequest request)
+		throws PortalException {
 
 		LayoutTypePortlet layoutType =
 			(LayoutTypePortlet)layout.getLayoutType();
@@ -6872,14 +6873,14 @@ public class PortalImpl implements Portal {
 			}
 		}
 		else {
-			Portlet portlet = PortletLocalServiceUtil.getPortletById(
-				getCompanyId(request), portletId);
-
 			ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
 				WebKeys.THEME_DISPLAY);
 
 			PermissionChecker permissionChecker =
 				themeDisplay.getPermissionChecker();
+
+			Portlet portlet = PortletLocalServiceUtil.getPortletById(
+				getCompanyId(request), portletId);
 
 			if (!PortletPermissionUtil.contains(
 					permissionChecker, getScopeGroupId(request), layout,
