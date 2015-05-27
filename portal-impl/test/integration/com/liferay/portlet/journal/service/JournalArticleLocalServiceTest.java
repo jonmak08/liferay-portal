@@ -14,21 +14,13 @@
 
 package com.liferay.portlet.journal.service;
 
-import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.service.GroupLocalServiceUtil;
-import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.test.Sync;
 import com.liferay.portal.util.GroupTestUtil;
-import com.liferay.portal.util.ServiceContextTestUtil;
 import com.liferay.portlet.journal.model.JournalArticle;
-import com.liferay.portlet.journal.model.JournalArticleConstants;
 import com.liferay.portlet.journal.model.JournalFolderConstants;
 import com.liferay.portlet.journal.util.JournalTestUtil;
-
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
 
 import org.junit.After;
 import org.junit.Before;
@@ -56,21 +48,10 @@ public class JournalArticleLocalServiceTest {
 			_group.getGroupId(),
 			JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID);
 
-		ServiceContext serviceContext =
-			ServiceContextTestUtil.getServiceContext();
-
-		Map<Locale, String> keywordsMap = new HashMap<Locale, String>();
-
-		String keywords = "keywords";
-
-		keywordsMap.put(LocaleUtil.getDefault(), keywords);
-
 		JournalTestUtil.addArticle(
 			_group.getGroupId(),
 			JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID,
-			JournalArticleConstants.CLASSNAME_ID_DEFAULT,
-			article.getArticleId(), true, keywordsMap, keywordsMap, keywordsMap,
-			LocaleUtil.getDefault(), null, true, true, serviceContext);
+			article.getArticleId(), true);
 	}
 
 	private Group _group;
