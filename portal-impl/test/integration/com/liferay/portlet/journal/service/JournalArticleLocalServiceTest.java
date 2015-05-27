@@ -26,6 +26,7 @@ import com.liferay.portlet.journal.util.JournalTestUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 /**
  * @author Michael C. Han
  */

@@ -73,8 +73,7 @@ public class JournalTestUtil {
 	public static JournalArticle addArticle(long groupId, long folderId)
 		throws Exception {
 
-		return addArticle(
-			groupId, folderId, StringPool.BLANK, true);
+		return addArticle(groupId, folderId, StringPool.BLANK, true);
 	}
 
 	public static JournalArticle addArticle(
@@ -186,11 +185,11 @@ public class JournalTestUtil {
 		return addArticle(
 			groupId, folderId, classNameId, _getLocalizedMap(title),
 			_getLocalizedMap(description), _getLocalizedMap(content),
-			defaultLocale, expirationDate, workflowEnabled,
-			approved, serviceContext);
+			defaultLocale, expirationDate, workflowEnabled, approved,
+			serviceContext);
 	}
 
- 	public static JournalArticle addArticle(
+	public static JournalArticle addArticle(
 			long groupId, long folderId, String articleId,
 			boolean autoArticleId)
 		throws Exception {
@@ -760,7 +759,7 @@ public class JournalTestUtil {
 
 		return JournalArticleLocalServiceUtil.updateArticle(
 			article.getUserId(), article.getGroupId(), article.getFolderId(),
-			article.getArticleId(), article.getVersion(), 
+			article.getArticleId(), article.getVersion(),
 			_getLocalizedMap(title), article.getDescriptionMap(), content,
 			article.getType(), article.getStructureId(),
 			article.getTemplateId(), article.getLayoutUuid(), displayDateMonth,
