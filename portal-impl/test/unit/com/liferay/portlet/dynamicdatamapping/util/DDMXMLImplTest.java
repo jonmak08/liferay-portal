@@ -147,14 +147,15 @@ public class DDMXMLImplTest extends PowerMockito {
 
 		String xml = readXML(fileName);
 
-		Document document = SAXReaderUtil.read(xml);
+		Document document = UnsecureSAXReaderUtil.read(xml);
 
 		List<Node> structureNodes = document.selectNodes("//structure");
 
 		for (Node structureNode : structureNodes) {
 			String structureXML = structureNode.asXML();
 
-			Document structureDocument = SAXReaderUtil.read(structureXML);
+			Document structureDocument = UnsecureSAXReaderUtil.read(
+				structureXML);
 
 			Element rootElement = (Element)structureDocument.selectSingleNode(
 				"/structure/root");
@@ -169,7 +170,8 @@ public class DDMXMLImplTest extends PowerMockito {
 			structureXML = DDMXMLUtil.updateXMLDefaultLocale(
 				rootXML, contentDefaultLocale, availableDefaultLocale);
 
-			Document updatedXMLDocument = SAXReaderUtil.read(structureXML);
+			Document updatedXMLDocument = UnsecureSAXReaderUtil.read(
+				structureXML);
 
 			rootElement = updatedXMLDocument.getRootElement();
 

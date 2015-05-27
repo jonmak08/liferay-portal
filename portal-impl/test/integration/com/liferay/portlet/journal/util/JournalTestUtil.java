@@ -33,6 +33,7 @@ import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.Node;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
+import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
 import com.liferay.portal.kernel.xml.XPath;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Layout;
@@ -692,7 +693,7 @@ public class JournalTestUtil {
 		Map<String, Map<String, String>> map =
 			new HashMap<String, Map<String, String>>();
 
-		Document document = SAXReaderUtil.read(xsd);
+		Document document = UnsecureSAXReaderUtil.read(xsd);
 
 		XPath xPathSelector = SAXReaderUtil.createXPath("//dynamic-element");
 
