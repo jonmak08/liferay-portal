@@ -14,8 +14,11 @@
 
 package com.liferay.portlet.journal.service;
 
+import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.service.GroupLocalServiceUtil;
+import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
+import com.liferay.portal.test.MainServletExecutionTestListener;
 import com.liferay.portal.test.Sync;
 import com.liferay.portal.util.GroupTestUtil;
 import com.liferay.portlet.journal.DuplicateArticleIdException;
@@ -26,10 +29,16 @@ import com.liferay.portlet.journal.util.JournalTestUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 /**
  * @author Michael C. Han
  */
+@ExecutionTestListeners(
+	listeners = {
+		MainServletExecutionTestListener.class
+	})
+@RunWith(LiferayIntegrationJUnitTestRunner.class)
 @Sync
 public class JournalArticleLocalServiceTest {
 
