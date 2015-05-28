@@ -275,7 +275,6 @@ for (int i = 0; i < results.size(); i++) {
 						%>
 
 						<liferay-ui:icon
-							cssClass="entry-display-style selectable"
 							image="../file_system/small/html"
 							label="<%= true %>"
 							message="<%= curArticle.getTitle(locale) %>"
@@ -334,7 +333,7 @@ for (int i = 0; i < results.size(); i++) {
 
 					ResultRow row = new ResultRow(curArticle, curArticle.getArticleId(), i);
 
-					row.setClassName("entry-display-style");
+					row.setClassName("entry-display-style selectable");
 
 					Map<String, Object> data = new HashMap<String, Object>();
 
@@ -428,7 +427,7 @@ for (int i = 0; i < results.size(); i++) {
 
 					ResultRow row = new ResultRow(curFolder, curFolder.getPrimaryKey(), i);
 
-					row.setClassName("entry-display-style");
+					row.setClassName("entry-display-style selectable");
 
 					Map<String, Object> data = new HashMap<String, Object>();
 
