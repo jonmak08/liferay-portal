@@ -755,18 +755,20 @@ public class PortletImporter {
 		}
 
 		if (existingAssetCategory == null) {
-			String name = getAssetCategoryName(
-				null, groupId, parentAssetCategoryId, assetCategory.getName(),
-				assetVocabularyId, 2);
+			existingAssetCategory = AssetCategoryUtil.fetchByG_P_N_V_First(
+				groupId, parentAssetCategoryId, assetCategory.getName(),
+				assetVocabularyId, null);
+		}
 
+		if (existingAssetCategory == null) {
 			serviceContext.setUuid(assetCategory.getUuid());
 
 			importedAssetCategory =
 				AssetCategoryLocalServiceUtil.addCategory(
 					userId, parentAssetCategoryId,
-					getAssetCategoryTitleMap(groupId, assetCategory, name),
-					assetCategory.getDescriptionMap(), assetVocabularyId,
-					properties, serviceContext);
+					getAssetCategoryTitleMap(groupId, assetCategory,
+					assetCategory.getName()), assetCategory.getDescriptionMap(),
+					assetVocabularyId, properties, serviceContext);
 		}
 		else if (portletDataContext.isCompanyStagedGroupedModel(
 					existingAssetCategory)) {
