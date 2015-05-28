@@ -228,11 +228,6 @@
 	<td>//li/a[@data-type='${key_contentType}']</td>
 	<td></td>
 </tr>
-<tr>
-	<td>PREVIEW_1</td>
-	<td>//div[@data-index='0']</td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>
