@@ -77,22 +77,6 @@ import javax.servlet.http.HttpServletRequest;
 @DoPrivileged
 public class TrashImpl implements Trash {
 
-	/**
-	 * @deprecated As of 7.0.0, replaced by {@link
-	 *             #addBaseModelBreadcrumbEntries(HttpServletRequest,
-	 *             LiferayPortletResponse, String, long, PortletURL}
-	 */
-	@Deprecated
-	@Override
-	public void addBaseModelBreadcrumbEntries(
-			HttpServletRequest request, String className, long classPK,
-			PortletURL containerModelURL)
-		throws PortalException, SystemException {
-
-		addBreadcrumbEntries(
-			request, className, classPK, "classPK", containerModelURL);
-	}
-
 	@Override
 	public void addBaseModelBreadcrumbEntries(
 			HttpServletRequest request,
@@ -107,18 +91,18 @@ public class TrashImpl implements Trash {
 
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
-	 *             #addContainerModelBreadcrumbEntries(HttpServletRequest,
+	 *             #addBaseModelBreadcrumbEntries(HttpServletRequest,
 	 *             LiferayPortletResponse, String, long, PortletURL}
 	 */
 	@Deprecated
 	@Override
-	public void addContainerModelBreadcrumbEntries(
+	public void addBaseModelBreadcrumbEntries(
 			HttpServletRequest request, String className, long classPK,
 			PortletURL containerModelURL)
 		throws PortalException, SystemException {
 
-		addContainerModelBreadcrumbEntries(
-			request, null, className, classPK, containerModelURL);
+		addBreadcrumbEntries(
+			request, className, classPK, "classPK", containerModelURL);
 	}
 
 	@Override
@@ -152,6 +136,22 @@ public class TrashImpl implements Trash {
 		addBreadcrumbEntries(
 			request, liferayPortletResponse, className, classPK,
 			"containerModelId", containerModelURL);
+	}
+
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             #addContainerModelBreadcrumbEntries(HttpServletRequest,
+	 *             LiferayPortletResponse, String, long, PortletURL}
+	 */
+	@Deprecated
+	@Override
+	public void addContainerModelBreadcrumbEntries(
+			HttpServletRequest request, String className, long classPK,
+			PortletURL containerModelURL)
+		throws PortalException, SystemException {
+
+		addContainerModelBreadcrumbEntries(
+			request, null, className, classPK, containerModelURL);
 	}
 
 	@Override

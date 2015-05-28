@@ -37,6 +37,12 @@ public interface Trash {
 
 	public static final String TRASH_TIME_SEPARATOR = "_TRASH_TIME_";
 
+	public void addBaseModelBreadcrumbEntries(
+			HttpServletRequest request,
+			LiferayPortletResponse liferayPortletResponse, String className,
+			long classPK, PortletURL containerModelURL)
+		throws PortalException, SystemException;
+
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #addBaseModelBreadcrumbEntries(HttpServletRequest,
@@ -48,7 +54,7 @@ public interface Trash {
 			PortletURL containerModelURL)
 		throws PortalException, SystemException;
 
-	public void addBaseModelBreadcrumbEntries(
+	public void addContainerModelBreadcrumbEntries(
 			HttpServletRequest request,
 			LiferayPortletResponse liferayPortletResponse, String className,
 			long classPK, PortletURL containerModelURL)
@@ -63,12 +69,6 @@ public interface Trash {
 	public void addContainerModelBreadcrumbEntries(
 			HttpServletRequest request, String className, long classPK,
 			PortletURL containerModelURL)
-		throws PortalException, SystemException;
-
-	public void addContainerModelBreadcrumbEntries(
-			HttpServletRequest request,
-			LiferayPortletResponse liferayPortletResponse, String className,
-			long classPK, PortletURL containerModelURL)
 		throws PortalException, SystemException;
 
 	public void deleteEntriesAttachments(
