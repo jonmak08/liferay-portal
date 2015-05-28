@@ -6838,7 +6838,7 @@ public class PortalImpl implements Portal {
 	public PortletMode updatePortletMode(
 			String portletId, User user, Layout layout, PortletMode portletMode,
 			HttpServletRequest request)
-		throws PortalException {
+		throws PortalException, SystemException {
 
 		LayoutTypePortlet layoutType =
 			(LayoutTypePortlet)layout.getLayoutType();

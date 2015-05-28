@@ -1990,7 +1990,7 @@ public class PortalUtil {
 	public static PortletMode updatePortletMode(
 			String portletId, User user, Layout layout, PortletMode portletMode,
 			HttpServletRequest request)
-		throws PortalException {
+		throws PortalException, SystemException {
 
 		return getPortal().updatePortletMode(
 			portletId, user, layout, portletMode, request);
