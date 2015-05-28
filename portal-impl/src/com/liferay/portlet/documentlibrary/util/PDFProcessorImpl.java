@@ -496,9 +496,6 @@ public class PDFProcessorImpl
 
 				break;
 			}
-			else {
-				continue;
-			}
 		}
 
 		future.get();
