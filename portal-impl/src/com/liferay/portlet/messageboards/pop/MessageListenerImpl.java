@@ -20,7 +20,6 @@ import com.liferay.portal.kernel.pop.MessageListener;
 import com.liferay.portal.kernel.pop.MessageListenerException;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.CharPool;
-import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.ObjectValuePair;
 import com.liferay.portal.kernel.util.PrefsPropsUtil;
@@ -183,7 +182,11 @@ public class MessageListenerImpl implements MessageListener {
 			User user = UserLocalServiceUtil.getUserByEmailAddress(
 				company.getCompanyId(), from);
 
-			String subject = MBUtil.getSubjectForEmail(message);
+			String subject = null;
+
+			if (parentMessage != null) {
+				subject = MBUtil.getSubjectForEmail(parentMessage);
+			}
 
 			MBMailMessage mbMailMessage = new MBMailMessage();
 
