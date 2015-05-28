@@ -102,7 +102,11 @@ public class DLFileEntryServiceImpl extends DLFileEntryServiceBaseImpl {
 		throws PortalException, SystemException {
 
 		try {
-			if (!hasFileEntryLock(fileEntryId)) {
+			if (!hasFileEntryLock(fileEntryId) &&
+				!DLFileEntryPermission.contains(
+					getPermissionChecker(), fileEntryId,
+					ActionKeys.OVERRIDE_CHECKOUT)) {
+
 				throw new PrincipalException();
 			}
 		}
@@ -130,7 +134,11 @@ public class DLFileEntryServiceImpl extends DLFileEntryServiceBaseImpl {
 		throws PortalException, SystemException {
 
 		try {
-			if (!hasFileEntryLock(fileEntryId)) {
+			if (!hasFileEntryLock(fileEntryId) &&
+				!DLFileEntryPermission.contains(
+					getPermissionChecker(), fileEntryId,
+					ActionKeys.OVERRIDE_CHECKOUT)) {
+
 				throw new PrincipalException();
 			}
 		}
