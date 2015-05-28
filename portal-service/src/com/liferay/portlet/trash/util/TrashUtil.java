@@ -35,7 +35,13 @@ import javax.servlet.http.HttpServletRequest;
  * @author Julio Camarero
  */
 public class TrashUtil {
-
+	
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             #addBaseModelBreadcrumbEntries(HttpServletRequest,
+	 *             LiferayPortletResponse, String, long, PortletURL}
+	 */
+	@Deprecated
 	public static void addBaseModelBreadcrumbEntries(
 			HttpServletRequest request, String className, long classPK,
 			PortletURL containerModelURL)
@@ -55,7 +61,13 @@ public class TrashUtil {
 				request, liferayPortletResponse, className, classPK,
 				containerModelURL);
 	}
-
+	
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             #addContainerModelBreadcrumbEntries(HttpServletRequest,
+	 *             LiferayPortletResponse, String, long, PortletURL}
+	 */
+	@Deprecated
 	public static void addContainerModelBreadcrumbEntries(
 			HttpServletRequest request, String className, long classPK,
 			PortletURL containerModelURL)

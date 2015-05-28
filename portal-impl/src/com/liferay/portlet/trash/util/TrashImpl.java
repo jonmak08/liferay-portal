@@ -76,7 +76,13 @@ import javax.servlet.http.HttpServletRequest;
  */
 @DoPrivileged
 public class TrashImpl implements Trash {
-
+	
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             #addBaseModelBreadcrumbEntries(HttpServletRequest,
+	 *             LiferayPortletResponse, String, long, PortletURL}
+	 */
+	@Deprecated
 	@Override
 	public void addBaseModelBreadcrumbEntries(
 			HttpServletRequest request, String className, long classPK,
@@ -98,36 +104,21 @@ public class TrashImpl implements Trash {
 				request, liferayPortletResponse, className, classPK, "classPK",
 				containerModelURL);
 	}
-
+	
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             #addContainerModelBreadcrumbEntries(HttpServletRequest,
+	 *             LiferayPortletResponse, String, long, PortletURL}
+	 */
+	@Deprecated
 	@Override
 	public void addContainerModelBreadcrumbEntries(
 			HttpServletRequest request, String className, long classPK,
 			PortletURL containerModelURL)
 		throws PortalException, SystemException {
 
-		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-			WebKeys.THEME_DISPLAY);
-
-		TrashHandler trashHandler = TrashHandlerRegistryUtil.getTrashHandler(
-			className);
-
-		String rootContainerModelName = LanguageUtil.get(
-			themeDisplay.getLocale(), trashHandler.getRootContainerModelName());
-
-		if (classPK == 0) {
-			PortalUtil.addPortletBreadcrumbEntry(
-				request, rootContainerModelName, null);
-
-			return;
-		}
-
-		containerModelURL.setParameter("containerModelId", "0");
-
-		PortalUtil.addPortletBreadcrumbEntry(
-			request, rootContainerModelName, containerModelURL.toString());
-
-		addBreadcrumbEntries(
-			request, className, classPK, "containerModelId", containerModelURL);
+		addContainerModelBreadcrumbEntries(
+			request, null, className, classPK, containerModelURL);
 	}
 
 	@Override
@@ -445,63 +436,20 @@ public class TrashImpl implements Trash {
 		return GetterUtil.getBoolean(
 			typeSettingsProperties.getProperty("trashEnabled"), true);
 	}
-
+	
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             #addBreadcrumbEntries(HttpServletRequest,
+	 *             LiferayPortletResponse, String, long, String, PortletURL}
+	 */
+	@Deprecated
 	protected void addBreadcrumbEntries(
 			HttpServletRequest request, String className, long classPK,
 			String paramName, PortletURL containerModelURL)
 		throws PortalException, SystemException {
 
-		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-			WebKeys.THEME_DISPLAY);
-
-		TrashHandler trashHandler = TrashHandlerRegistryUtil.getTrashHandler(
-			className);
-
-		List<ContainerModel> containerModels =
-			trashHandler.getParentContainerModels(classPK);
-
-		Collections.reverse(containerModels);
-
-		containerModelURL.setParameter("struts_action", "/trash/view");
-
-		PortalUtil.addPortletBreadcrumbEntry(
-			request, LanguageUtil.get(themeDisplay.getLocale(), "recycle-bin"),
-			containerModelURL.toString());
-
-		for (ContainerModel containerModel : containerModels) {
-			TrashHandler containerModelTrashHandler =
-				TrashHandlerRegistryUtil.getTrashHandler(
-					containerModel.getModelClassName());
-
-			if (!containerModelTrashHandler.isInTrash(
-					containerModel.getContainerModelId())) {
-
-				continue;
-			}
-
-			containerModelURL.setParameter(
-				"struts_action", "/trash/view_content");
-
-			containerModelURL.setParameter(
-				paramName,
-				String.valueOf(containerModel.getContainerModelId()));
-
-			String name = containerModel.getContainerModelName();
-
-			if (containerModelTrashHandler.isInTrash(
-					containerModel.getContainerModelId())) {
-
-				name = TrashUtil.getOriginalTitle(name);
-			}
-
-			PortalUtil.addPortletBreadcrumbEntry(
-				request, name, containerModelURL.toString());
-		}
-
-		TrashRenderer trashRenderer = trashHandler.getTrashRenderer(classPK);
-
-		PortalUtil.addPortletBreadcrumbEntry(
-			request, trashRenderer.getTitle(themeDisplay.getLocale()), null);
+		addBreadcrumbEntries(
+			request, null, className, classPK, paramName, containerModelURL);
 	}
 
 	protected void addBreadcrumbEntries(
