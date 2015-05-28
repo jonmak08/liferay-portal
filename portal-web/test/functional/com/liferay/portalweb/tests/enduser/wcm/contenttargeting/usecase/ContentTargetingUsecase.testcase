@@ -12,6 +12,8 @@
 	</tear-down>
 
 	<set-up>
+		<execute function="Pause" locator1="30000" />
+
 		<execute macro="User#firstLoginPG" />
 
 		<execute macro="Portlet#shutdownServer" />
