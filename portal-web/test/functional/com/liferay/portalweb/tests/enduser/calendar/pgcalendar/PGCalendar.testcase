@@ -2053,6 +2053,15 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
+		<execute macro="CalendarEvent#addRSVP">
+			<var name="eventTitle" value="Current Day Event" />
+			<var name="rsvp" value="Yes" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
+		</execute>
+
 		<execute macro="Calendar#chooseSiteCalendarMenulistOption">
 			<var name="calendarName" value="Liferay" />
 			<var name="menuListOption" value="RSS" />
@@ -3943,6 +3952,25 @@
 
 		<execute macro="CalendarEvent#addViaDayView">
 			<var name="eventTitle" value="Future Day Event" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
+		</execute>
+
+		<execute macro="CalendarEvent#addRSVP">
+			<var name="eventTitle" value="Current Day Event" />
+			<var name="rsvp" value="Yes" />
+		</execute>
+
+		<execute macro="CalendarEvent#addRSVP">
+			<var name="eventTitle" value="Previous Day Event" />
+			<var name="rsvp" value="Yes" />
+		</execute>
+
+		<execute macro="CalendarEvent#addRSVP">
+			<var name="eventTitle" value="Future Day Event" />
+			<var name="rsvp" value="Yes" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
