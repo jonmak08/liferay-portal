@@ -777,7 +777,7 @@ public class PortletImporter {
 		}
 		else {
 			String name = getAssetCategoryName(
-				assetCategory.getUuid(), groupId, parentAssetCategoryId,
+				existingAssetCategory.getUuid(), groupId, parentAssetCategoryId,
 				assetCategory.getName(), assetVocabularyId, 2);
 
 			importedAssetCategory =
@@ -787,6 +787,15 @@ public class PortletImporter {
 					getAssetCategoryTitleMap(groupId, assetCategory, name),
 					assetCategory.getDescriptionMap(), assetVocabularyId,
 					properties, serviceContext);
+
+			if (!assetCategory.getUuid().equals(
+					importedAssetCategory.getUuid())) {
+
+				importedAssetCategory.setUuid(assetCategory.getUuid());
+
+				AssetCategoryLocalServiceUtil.updateAssetCategory(
+					importedAssetCategory);
+			}
 		}
 
 		assetCategoryPKs.put(
