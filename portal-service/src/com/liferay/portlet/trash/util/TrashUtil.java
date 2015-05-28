@@ -35,7 +35,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author Julio Camarero
  */
 public class TrashUtil {
-	
+
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #addBaseModelBreadcrumbEntries(HttpServletRequest,
@@ -55,13 +55,13 @@ public class TrashUtil {
 			HttpServletRequest request,
 			LiferayPortletResponse liferayPortletResponse, String className,
 			long classPK, PortletURL containerModelURL)
-			throws PortalException, SystemException {
+		throws PortalException, SystemException {
 
 		getTrash().addBaseModelBreadcrumbEntries(
-				request, liferayPortletResponse, className, classPK,
-				containerModelURL);
+			request, liferayPortletResponse, className, classPK,
+			containerModelURL);
 	}
-	
+
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #addContainerModelBreadcrumbEntries(HttpServletRequest,
@@ -81,11 +81,11 @@ public class TrashUtil {
 			HttpServletRequest request,
 			LiferayPortletResponse liferayPortletResponse, String className,
 			long classPK, PortletURL containerModelURL)
-			throws PortalException, SystemException {
+		throws PortalException, SystemException {
 
 		getTrash().addContainerModelBreadcrumbEntries(
-				request, liferayPortletResponse, className, classPK,
-				containerModelURL);
+			request, liferayPortletResponse, className, classPK,
+			containerModelURL);
 	}
 
 	public static void deleteEntriesAttachments(

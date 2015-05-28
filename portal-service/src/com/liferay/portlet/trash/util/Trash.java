@@ -36,7 +36,7 @@ import javax.servlet.http.HttpServletRequest;
 public interface Trash {
 
 	public static final String TRASH_TIME_SEPARATOR = "_TRASH_TIME_";
-	
+
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #addBaseModelBreadcrumbEntries(HttpServletRequest,
@@ -52,8 +52,8 @@ public interface Trash {
 			HttpServletRequest request,
 			LiferayPortletResponse liferayPortletResponse, String className,
 			long classPK, PortletURL containerModelURL)
-			throws PortalException, SystemException;
-	
+		throws PortalException, SystemException;
+
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #addContainerModelBreadcrumbEntries(HttpServletRequest,
@@ -69,7 +69,7 @@ public interface Trash {
 			HttpServletRequest request,
 			LiferayPortletResponse liferayPortletResponse, String className,
 			long classPK, PortletURL containerModelURL)
-			throws PortalException, SystemException;
+		throws PortalException, SystemException;
 
 	public void deleteEntriesAttachments(
 			long companyId, long repositoryId, Date date,

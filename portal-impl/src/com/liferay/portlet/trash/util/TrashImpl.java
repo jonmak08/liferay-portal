@@ -76,7 +76,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @DoPrivileged
 public class TrashImpl implements Trash {
-	
+
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #addBaseModelBreadcrumbEntries(HttpServletRequest,
@@ -98,13 +98,13 @@ public class TrashImpl implements Trash {
 			HttpServletRequest request,
 			LiferayPortletResponse liferayPortletResponse, String className,
 			long classPK, PortletURL containerModelURL)
-			throws PortalException, SystemException {
+		throws PortalException, SystemException {
 
 		addBreadcrumbEntries(
-				request, liferayPortletResponse, className, classPK, "classPK",
-				containerModelURL);
+			request, liferayPortletResponse, className, classPK, "classPK",
+			containerModelURL);
 	}
-	
+
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #addContainerModelBreadcrumbEntries(HttpServletRequest,
@@ -126,20 +126,20 @@ public class TrashImpl implements Trash {
 			HttpServletRequest request,
 			LiferayPortletResponse liferayPortletResponse, String className,
 			long classPK, PortletURL containerModelURL)
-			throws PortalException, SystemException {
+		throws PortalException, SystemException {
 
 		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-				WebKeys.THEME_DISPLAY);
+			WebKeys.THEME_DISPLAY);
 
 		TrashHandler trashHandler = TrashHandlerRegistryUtil.getTrashHandler(
-				className);
+			className);
 
 		String rootContainerModelName = LanguageUtil.get(
-				themeDisplay.getLocale(), trashHandler.getRootContainerModelName());
+			themeDisplay.getLocale(), trashHandler.getRootContainerModelName());
 
 		if (classPK == 0) {
 			PortalUtil.addPortletBreadcrumbEntry(
-					request, rootContainerModelName, null);
+				request, rootContainerModelName, null);
 
 			return;
 		}
@@ -147,11 +147,11 @@ public class TrashImpl implements Trash {
 		containerModelURL.setParameter("containerModelId", "0");
 
 		PortalUtil.addPortletBreadcrumbEntry(
-				request, rootContainerModelName, containerModelURL.toString());
+			request, rootContainerModelName, containerModelURL.toString());
 
 		addBreadcrumbEntries(
-				request, liferayPortletResponse, className, classPK,
-				"containerModelId", containerModelURL);
+			request, liferayPortletResponse, className, classPK,
+			"containerModelId", containerModelURL);
 	}
 
 	@Override
@@ -436,7 +436,7 @@ public class TrashImpl implements Trash {
 		return GetterUtil.getBoolean(
 			typeSettingsProperties.getProperty("trashEnabled"), true);
 	}
-	
+
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #addBreadcrumbEntries(HttpServletRequest,
@@ -456,39 +456,39 @@ public class TrashImpl implements Trash {
 			HttpServletRequest request,
 			LiferayPortletResponse liferayPortletResponse, String className,
 			long classPK, String paramName, PortletURL containerModelURL)
-			throws PortalException, SystemException {
+		throws PortalException, SystemException {
 
 		PortletURL portletURL = null;
 
 		try {
 			portletURL = PortletURLUtil.clone(
-					containerModelURL, liferayPortletResponse);
+				containerModelURL, liferayPortletResponse);
 		}
 		catch (PortletException ple) {
 			throw new PortalException(ple);
 		}
 
 		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-				WebKeys.THEME_DISPLAY);
+			WebKeys.THEME_DISPLAY);
 
 		TrashHandler trashHandler = TrashHandlerRegistryUtil.getTrashHandler(
-				className);
+			className);
 
 		List<ContainerModel> containerModels =
-				trashHandler.getParentContainerModels(classPK);
+			trashHandler.getParentContainerModels(classPK);
 
 		Collections.reverse(containerModels);
 
 		portletURL.setParameter("struts_action", "/trash/view");
 
 		PortalUtil.addPortletBreadcrumbEntry(
-				request, LanguageUtil.get(themeDisplay.getLocale(), "recycle-bin"),
-				portletURL.toString());
+			request, LanguageUtil.get(themeDisplay.getLocale(), "recycle-bin"),
+			portletURL.toString());
 
 		for (ContainerModel containerModel : containerModels) {
 			TrashHandler containerModelTrashHandler =
-					TrashHandlerRegistryUtil.getTrashHandler(
-							containerModel.getModelClassName());
+				TrashHandlerRegistryUtil.getTrashHandler(
+					containerModel.getModelClassName());
 
 			if (!containerModelTrashHandler.isInTrash(
 					containerModel.getContainerModelId())) {
@@ -499,8 +499,8 @@ public class TrashImpl implements Trash {
 			portletURL.setParameter("struts_action", "/trash/view_content");
 
 			portletURL.setParameter(
-					paramName,
-					String.valueOf(containerModel.getContainerModelId()));
+				paramName,
+				String.valueOf(containerModel.getContainerModelId()));
 
 			String name = containerModel.getContainerModelName();
 
@@ -511,13 +511,13 @@ public class TrashImpl implements Trash {
 			}
 
 			PortalUtil.addPortletBreadcrumbEntry(
-					request, name, portletURL.toString());
+				request, name, portletURL.toString());
 		}
 
 		TrashRenderer trashRenderer = trashHandler.getTrashRenderer(classPK);
 
 		PortalUtil.addPortletBreadcrumbEntry(
-				request, trashRenderer.getTitle(themeDisplay.getLocale()), null);
+			request, trashRenderer.getTitle(themeDisplay.getLocale()), null);
 	}
 
 	protected String getOriginalTitle(String title, String prefix) {
