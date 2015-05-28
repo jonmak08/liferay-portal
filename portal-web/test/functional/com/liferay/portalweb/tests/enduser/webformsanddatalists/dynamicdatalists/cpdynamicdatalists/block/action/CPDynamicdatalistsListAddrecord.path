@@ -40,7 +40,7 @@
 </tr>
 <tr>
 	<td>DATE_FIELD</td>
-	<td>//div[@data-fieldname='${key_fieldName}']/span/input | //div[@data-fieldname='${key_fieldName}']/span/div/input</td>
+	<td>//div[@data-fieldname='${key_fieldName}']/span/div/input | //div[@data-fieldname='${key_fieldName}']/span/input</td>
 	<td></td>
 </tr>
 <tr>
