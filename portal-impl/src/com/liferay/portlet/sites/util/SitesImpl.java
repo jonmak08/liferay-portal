@@ -1094,7 +1094,6 @@ public class SitesImpl implements Sites {
 			organizationUser = true;
 		}
 
-
 		for (Organization organization : organizations) {
 			organizationNames.add(organization.getName());
 		}
