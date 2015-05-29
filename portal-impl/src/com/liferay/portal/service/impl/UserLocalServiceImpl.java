@@ -4503,7 +4503,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		user.setLastLoginDate(lastLoginDate);
 		user.setLastLoginIP(user.getLoginIP());
 
-		resetFailedLoginAttempts(user);
+		resetFailedLoginAttempts(user, true);
 
 		return user;
 	}
@@ -5903,9 +5903,15 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	}
 
 	protected void resetFailedLoginAttempts(User user) {
-		user.setFailedLoginAttempts(0);
+		resetFailedLoginAttempts(user, false);
+	}
 
-		userPersistence.update(user);
+	protected void resetFailedLoginAttempts(User user, boolean forceUpdate) {
+		if (forceUpdate || (user.getFailedLoginAttempts() > 0)) {
+			user.setFailedLoginAttempts(0);
+
+			userPersistence.update(user);
+		}
 	}
 
 	protected Hits search(
