@@ -52,7 +52,7 @@ public abstract class BaseXStreamConverter implements Converter {
 
 	@Override
 	public abstract Object unmarshal(
-		HierarchicalStreamReader reader,
+		HierarchicalStreamReader hierarchicalStreamReader,
 		UnmarshallingContext unmarshallingContext);
 
 	protected abstract List<String> getFields();
