@@ -34,10 +34,7 @@ import org.junit.runner.RunWith;
 /**
  * @author Michael C. Han
  */
-@ExecutionTestListeners(
-	listeners = {
-		MainServletExecutionTestListener.class
-	})
+@ExecutionTestListeners(listeners = {MainServletExecutionTestListener.class})
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
 @Sync
 public class JournalArticleLocalServiceTest {
