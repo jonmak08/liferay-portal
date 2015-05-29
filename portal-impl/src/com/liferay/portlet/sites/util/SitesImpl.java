@@ -1061,11 +1061,25 @@ public class SitesImpl implements Sites {
 
 		boolean organizationUser = false;
 
+		if (group.isOrganization()) {
+			long organizationId = group.getOrganizationId();
+
+			organizationUser =
+				OrganizationLocalServiceUtil.hasUserOrganization(
+					user.getUserId(), organizationId);
+
+			if (organizationUser) {
+				Organization organization =
+					OrganizationLocalServiceUtil.getOrganization(
+						organizationId);
+
+				organizationNames.add(organization.getName());
+			}
+		}
+
 		LinkedHashMap<String, Object> organizationParams =
 			new LinkedHashMap<String, Object>();
 
-		organizationParams.put(
-			"groupOrganization", new Long(group.getGroupId()));
 		organizationParams.put(
 			"organizationsGroups", new Long(group.getGroupId()));
 		organizationParams.put("usersOrgs", new Long(user.getUserId()));
@@ -1079,6 +1093,7 @@ public class SitesImpl implements Sites {
 		if (!organizations.isEmpty()) {
 			organizationUser = true;
 		}
+
 
 		for (Organization organization : organizations) {
 			organizationNames.add(organization.getName());
