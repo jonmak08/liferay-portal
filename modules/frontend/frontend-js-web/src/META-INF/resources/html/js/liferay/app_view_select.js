@@ -178,16 +178,26 @@ AUI.add(
 						var selectAllCheckbox = instance._selectAllCheckbox;
 
 						for (var i = 0; i < instance._checkBoxesId.length; i++) {
-							Util.checkAll(instance._portletContainer, instance._checkBoxesId[i], selectAllCheckbox, CSS_RESULT_ROW);
+							Util.checkAll(
+								instance._portletContainer,
+								instance._checkBoxesId[i],
+								selectAllCheckbox,
+								CSS_RESULT_ROW
+							);
 						}
 
 						WIN[instance.ns(STR_TOGGLE_ACTIONS_BUTTON)]();
 
-						if (!instance._getDisplayStyle(instance._displayStyle, DISPLAY_STYLE_LIST)) {
-							var articleDisplayStyle = A.all(STR_DOT + instance._displayStyleCSSClass + '.selectable');
+						var articleDisplayStyle;
 
-							articleDisplayStyle.toggleClass(CSS_SELECTED, instance._selectAllCheckbox.attr(ATTR_CHECKED));
+						if (instance._getDisplayStyle(instance._displayStyle, DISPLAY_STYLE_LIST)) {
+							articleDisplayStyle = A.all(CSS_RESULT_ROW + STR_DOT + instance._displayStyleCSSClass);
 						}
+						else {
+							articleDisplayStyle = A.all(STR_DOT + instance._displayStyleCSSClass + '.selectable');
+						}
+
+						articleDisplayStyle.toggleClass(CSS_SELECTED, instance._selectAllCheckbox.attr(ATTR_CHECKED));
 					},
 
 					_toggleHovered: function(event) {
@@ -209,8 +219,10 @@ AUI.add(
 							if (!preventUpdate) {
 								var input = node.one('input') || node;
 
-								input.attr(ATTR_CHECKED, !node.attr(ATTR_CHECKED));
+								input.attr(ATTR_CHECKED, !input.attr(ATTR_CHECKED));
 							}
+
+							node = node.ancestor(CSS_RESULT_ROW) || node;
 						}
 						else {
 							node = node.ancestor(STR_DOT + instance._displayStyleCSSClass) || node;
