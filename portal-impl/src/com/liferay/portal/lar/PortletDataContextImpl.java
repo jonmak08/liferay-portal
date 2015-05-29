@@ -95,6 +95,9 @@ import com.liferay.portlet.asset.service.AssetTagLocalServiceUtil;
 import com.liferay.portlet.blogs.model.impl.BlogsEntryImpl;
 import com.liferay.portlet.bookmarks.model.impl.BookmarksEntryImpl;
 import com.liferay.portlet.bookmarks.model.impl.BookmarksFolderImpl;
+import com.liferay.portlet.documentlibrary.lar.xstream.FileEntryConverter;
+import com.liferay.portlet.documentlibrary.lar.xstream.FileVersionConverter;
+import com.liferay.portlet.documentlibrary.lar.xstream.FolderConverter;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileEntryImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileShortcutImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLFolderImpl;
@@ -124,6 +127,7 @@ import com.liferay.portlet.wiki.model.impl.WikiNodeImpl;
 import com.liferay.portlet.wiki.model.impl.WikiPageImpl;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.converters.Converter;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -2660,6 +2664,16 @@ public class PortletDataContextImpl implements PortletDataContext {
 		_xStream.alias("RatingsEntry", RatingsEntryImpl.class);
 		_xStream.alias("WikiNode", WikiNodeImpl.class);
 		_xStream.alias("WikiPage", WikiPageImpl.class);
+
+		Converter fileEntryConverter = new FileEntryConverter();
+		Converter fileVersionConverter = new FileVersionConverter();
+		Converter folderConverter = new FolderConverter();
+
+		_xStream.registerConverter(folderConverter, XStream.PRIORITY_VERY_HIGH);
+		_xStream.registerConverter(
+			fileEntryConverter, XStream.PRIORITY_VERY_HIGH);
+		_xStream.registerConverter(
+			fileVersionConverter, XStream.PRIORITY_VERY_HIGH);
 
 		_xStream.omitField(HashMap.class, "cache_bitmask");
 	}
