@@ -27,7 +27,7 @@ import org.junit.runner.RunWith;
  */
 @ExecutionTestListeners(listeners = {EnvironmentExecutionTestListener.class})
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
-public class PortalImplValidResourceIdTest {
+public class PortalImplTest {
 
 	@Test
 	public void testIsValidResourceId() {
