@@ -3992,10 +3992,6 @@ osb.lcs.portlet.oauth.consumer.secret=${osb.lcs.portlet.oauth.consumer.secret}</
 
 		<property name="plugins.includes" value="so-portlet,${dependent-apps}" />
 
-		<ant dir="${lp.plugins.dir}" target="clean" />
-
-		<ant dir="${lp.plugins.dir}" target="compile" />
-
 		<ant antfile="build-test-plugins.xml" target="deploy-simple-server-plugins" />
 	</target>
 
