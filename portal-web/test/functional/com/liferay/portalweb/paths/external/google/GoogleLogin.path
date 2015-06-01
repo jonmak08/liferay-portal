@@ -18,9 +18,12 @@
 	<td>//button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-</tr>	
-<!--ACCOUNT_MENULIST-->
 <tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--ACCOUNT_MENULIST-->
 <tr>
 	<td>ACCOUNT_MENULIST</td>
 	<td>//a[contains(@title,'Account')]</td>
