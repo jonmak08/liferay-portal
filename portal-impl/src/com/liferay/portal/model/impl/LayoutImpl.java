@@ -347,7 +347,7 @@ public class LayoutImpl extends LayoutBaseImpl {
 	}
 
 	@Override
-	public String getFriendlyURLsXML() {
+	public String getFriendlyURLsXML() throws SystemException {
 		Map<Locale, String> friendlyURLMap = getFriendlyURLMap();
 
 		return LocalizationUtil.updateLocalization(
