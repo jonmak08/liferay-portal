@@ -60,6 +60,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>MENU_CONFIGURATION_MENTIONS</td>
+	<td>//a[@id='_130_mentionsLink']</td>
+	<td></td>
+</tr>
+<tr>
 	<td></td>
 	<td></td>
 	<td></td>
