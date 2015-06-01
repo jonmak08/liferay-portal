@@ -59,6 +59,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>GOOGLE_LINK</td>
+	<td>//a[contains(.,'Google')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ERROR_MESSAGE_1</td>
 	<td>xpath=(//div[contains(@class,'alert') and contains(@class,'alert-error')])[1]</td>
 	<td></td>
