@@ -103,7 +103,8 @@ public class SecureXMLFactoryProviderImpl implements SecureXMLFactoryProvider {
 		ClassLoader classLoader = getClass().getClassLoader();
 
 		ClassLoader contextClassLoader =
-				ClassLoaderUtil.getContextClassLoader();
+			ClassLoaderUtil.getContextClassLoader();
+
 		try {
 			if (contextClassLoader != classLoader) {
 				ClassLoaderUtil.setContextClassLoader(classLoader);
