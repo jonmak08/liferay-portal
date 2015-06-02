@@ -28,11 +28,20 @@
 			</span>
 
 			<aui:script use="aui-base,event-outside,liferay-menu-toggle">
-				var toggleMenu = new Liferay.MenuToggle(
-					{
-						content: '#<%= id %>bodyContent .nav-collapse, #<%= id %>ResponsiveButton .btn-navbar',
-						toggleTouch: true,
-						trigger: '#<%= id %>ResponsiveButton .btn-navbar'
+				var triggers = A.all('#<%= id %>ResponsiveButton .btn-navbar');
+
+				triggers.each(
+					function(item, index, collection) {
+						var contentId = item.get('id');
+						var navId = item.getData('navid');
+
+						var toggleMenu = new Liferay.MenuToggle(
+							{
+								content: '#' + navId + 'NavbarCollapse, #<%= id %>ResponsiveButton #' + contentId,
+								toggleTouch: true,
+								trigger: '#<%= id %>ResponsiveButton #' + contentId
+							}
+						);
 					}
 				);
 			</aui:script>
