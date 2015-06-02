@@ -1,0 +1,227 @@
+<html>
+<head>
+<title>PGDocumentsandmediaAddGoogleDocs</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">PGDocumentsandmediaAddGoogleDocs</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>PUBLISH_BUTTON</td>
+	<td>//button[contains(.,'Publish')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CANCEL_BUTTON</td>
+	<td>//button[contains(.,'Cancel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BACK</td>
+	<td>//a[@id='_20_TabsBack']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FOLDER_NAME</td>
+	<td>//input[contains(@id,'folderName')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SELECT_BUTTON</td>
+	<td>//button[contains(.,'Select')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>GOOGLE_DOCS_NAME</td>
+	<td>//span[contains(@id,'pickButtonName')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--CATEGORIZATION-->
+<tr>
+	<td>CATEGORIZATION_PANEL_COLLAPSED</td>
+	<td>//div[contains(@class,'toggler-header-collapsed') and @data-persist-id='dlFileEntryCategorizationPanel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CATEGORIZATION_PANEL_EXPANDED</td>
+	<td>//div[contains(@class,'toggler-header-expanded') and @data-persist-id='dlFileEntryCategorizationPanel']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CATEGORIZATION_TAGS_FIELD</td>
+	<td>//input[contains(@id,'assetTagNames')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CATEGORIZATION_TAGS_ADD_BUTTON</td>
+	<td>//button[@title='Add Tags']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CATEGORIZATION_TAG</td>
+	<td>//span[@class='textboxlistentry-content']/span[contains(.,'${key_categoryTag}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CATEGORIZATION_TOPIC_SELECT_BUTTON</td>
+	<td>//div[contains(@id,'FileEntryCategorizationPanel')]//button[contains(.,'Select')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CATEGORIZATION_VOCABULARY_TAG</td>
+	<td>//span[contains(@class,'textboxlistentry-content')]//span[contains(.,'${key_categoryName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--RELATED_ASSETS-->
+<tr>
+	<td>RELATED_ASSETS_PANEL_COLLAPSED</td>
+	<td>//div[contains(@class,'toggler-header-collapsed') and contains(.,'Related Assets')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RELATED_ASSETS_PANEL_EXPANDED</td>
+	<td>//div[contains(@class,'toggler-header-expanded') and contains(.,'Related Assets')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RELATED_ASSETS_SELECT_BUTTON</td>
+	<td>//a[@title='Select']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RELATED_ASSETS_SELECT_BLOGS_ENTRY</td>
+	<td>//a[@role='menuitem' and contains(.,'Blogs Entry')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RELATED_ASSETS_SELECT_MESSAGE_BOARDS_MESSAGE</td>
+	<td>//a[@role='menuitem' and contains(.,'Message Boards Message')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RELATED_ASSETS_SELECT_WEB_CONTENT_ARTICLE</td>
+	<td>//a[@role='menuitem' and contains(.,'Web Content Article')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RELATED_ASSETS_SELECT_BOOKMARKS_ENTRY</td>
+	<td>//a[@role='menuitem' and contains(.,'Bookmarks Entry')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RELATED_ASSETS_SELECT_WIKI_PAGE</td>
+	<td>//a[@role='menuitem' and contains(.,'Wiki Page')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RELATED_ASSETS_SELECT_DOCUMENT</td>
+	<td>//a[@role='menuitem' and contains(.,'Document')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--PERMISSIONS-->
+<tr>
+	<td>PERMISSIONS_SELECT</td>
+	<td>//select[@id='_20_inputPermissionsViewRole']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_MORE_OPTIONS</td>
+	<td>link=More Options »</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_HIDE_OPTIONS</td>
+	<td>link=« Hide Options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_GUEST_ADD_DISCUSSION_CHECKBOX</td>
+	<td>//table[@id='_20_inputPermissionsTable']//input[contains(@id,'guestPermissions_ADD_DISCUSSION')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_GUEST_DELETE_CHECKBOX</td>
+	<td>//table[@id='_20_inputPermissionsTable']//input[contains(@id,'guestPermissions_DELETE')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_GUEST_DELETE_DISCUSSION_CHECKBOX</td>
+	<td>//table[@id='_20_inputPermissionsTable']//input[contains(@id,'guestPermissions_DELETE_DISCUSSION')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_GUEST_OVERRIDE_CHECKOUT_CHECKBOX</td>
+	<td>//table[@id='_20_inputPermissionsTable']//input[contains(@id,'guestPermissions_OVERRIDE_CHECKOUT')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_GUEST_PERMISSIONS_CHECKBOX</td>
+	<td>//table[@id='_20_inputPermissionsTable']//input[contains(@id,'guestPermissions_PERMISSIONS')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_GUEST_UPDATE_CHECKBOX</td>
+	<td>//table[@id='_20_inputPermissionsTable']//input[contains(@id,'guestPermissions_UPDATE')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_GUEST_UPDATE_DISCUSSION_CHECKBOX</td>
+	<td>//table[@id='_20_inputPermissionsTable']//input[contains(@id,'guestPermissions_UPDATE_DISCUSSION')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_SITE_MEMBER_ADD_DISCUSSION_CHECKBOX</td>
+	<td>//table[@id='_20_inputPermissionsTable']//input[contains(@id,'groupPermissions_ADD_DISCUSSION')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_SITE_MEMBER_DELETE_CHECKBOX</td>
+	<td>//table[@id='_20_inputPermissionsTable']//input[contains(@id,'groupPermissions_DELETE')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_SITE_MEMBER_DELETE_DISCUSSION_CHECKBOX</td>
+	<td>//table[@id='_20_inputPermissionsTable']//input[contains(@id,'groupPermissions_DELETE_DISCUSSION')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_GUEST_OVERRIDE_CHECKOUT_CHECKBOX</td>
+	<td>//table[@id='_20_inputPermissionsTable']//input[contains(@id,'groupPermissions_OVERRIDE_CHECKOUT')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_SITE_MEMBER_PERMISSIONS_CHECKBOX</td>
+	<td>//table[@id='_20_inputPermissionsTable']//input[contains(@id,'groupPermissions_PERMISSIONS')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_SITE_MEMBER_UPDATE_CHECKBOX</td>
+	<td>//table[@id='_20_inputPermissionsTable']//input[contains(@id,'groupPermissions_UPDATE')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PERMISSIONS_SITE_MEMBER_UPDATE_DISCUSSION_CHECKBOX</td>
+	<td>//table[@id='_20_inputPermissionsTable']//input[contains(@id,'groupPermissions_UPDATE_DISCUSSION')]</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

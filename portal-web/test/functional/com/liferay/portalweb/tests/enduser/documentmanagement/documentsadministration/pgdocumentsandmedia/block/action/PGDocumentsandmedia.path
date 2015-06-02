@@ -306,6 +306,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ADD_MENULIST_GOOGLE_DOCS</td>
+	<td>//a[@role='menuitem' and contains(.,'Google Docs')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td></td>
 	<td></td>
 	<td></td>
