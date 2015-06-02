@@ -10,7 +10,7 @@
 	</command>
 
 	<command name="_editName">
-		<execute function="Type#mouseOverFocusType" locator1="PGCalendarAddcalendar#NAME_FIELD" value1="${calendarName}" />
+		<execute function="Type" locator1="PGCalendarAddcalendar#NAME_FIELD" value1="${calendarName}" />
 	</command>
 
 	<command name="_gotoMenulistOption">
