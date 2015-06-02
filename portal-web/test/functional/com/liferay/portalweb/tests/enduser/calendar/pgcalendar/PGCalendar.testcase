@@ -54,7 +54,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -92,7 +92,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="calendarName" value="${calendarName}" />
@@ -126,7 +126,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="addRSVPEnabled" value="true" />
@@ -153,7 +153,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="duration1" value="Minutes" />
@@ -183,7 +183,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -216,7 +216,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -284,7 +284,7 @@
 			<var name="calendarType" value="Other Calendars" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="addRSVPEnabled" value="true" />
@@ -314,7 +314,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -376,7 +376,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="calendarName" value="Site Name (Staging)" />
@@ -392,7 +392,7 @@
 			<var name="eventTitle" value="Site Name Staged Event" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="calendarName" value="Test Test" />
@@ -505,7 +505,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventComment" value="${eventComment}" />
@@ -553,7 +553,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventComment" value="${eventComment}" />
@@ -591,7 +591,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="addRSVPYesEnabled" value="true" />
@@ -618,7 +618,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="duration1" value="Minutes" />
@@ -652,7 +652,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -685,7 +685,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -756,7 +756,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="addRSVPEnabled" value="true" />
@@ -786,7 +786,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -827,7 +827,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventComment" value="${eventComment}" />
@@ -862,7 +862,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -888,7 +888,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -916,7 +916,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="addRSVPEnabled" value="true" />
@@ -944,7 +944,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -971,7 +971,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="duration1" value="Minutes" />
@@ -1007,7 +1007,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -1042,7 +1042,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -1116,7 +1116,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="addRSVPEnabled" value="true" />
@@ -1150,7 +1150,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#editTitle">
 			<var name="eventTitle" value="Calendar Event Repeating Title" />
@@ -1413,7 +1413,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -1440,7 +1440,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -1466,7 +1466,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -1501,7 +1501,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -1625,7 +1625,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#editTitle">
 			<var name="eventTitle" value="Calendar Event Title" />
@@ -1739,7 +1739,7 @@
 			<var name="calendarType" value="Other Calendars" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="calendarName" value="Site Name" />
@@ -1811,7 +1811,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -1843,7 +1843,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -1874,7 +1874,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -1905,7 +1905,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#editTitle">
 			<var name="eventTitle" value="Calendar Event Repeating Title" />
@@ -2036,7 +2036,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#editTitle">
 			<var name="eventTitle" value="Current Day Event" />
@@ -2102,7 +2102,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#editTitle">
 			<var name="eventTitle" value="Current Day Event" />
@@ -2203,7 +2203,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -2233,7 +2233,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="duration1" value="Minutes" />
@@ -2280,7 +2280,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -2315,7 +2315,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -2345,7 +2345,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="duration1" value="Minutes" />
@@ -2392,7 +2392,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -2427,7 +2427,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -2459,7 +2459,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="duration1" value="Minutes" />
@@ -2508,7 +2508,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -3055,7 +3055,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -3137,7 +3137,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="Calendar Event Title" />
@@ -3265,7 +3265,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="User Calendar Event 1" />
@@ -3286,7 +3286,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="User Calendar Event 2" />
@@ -3435,7 +3435,7 @@
 			<var name="lastHour" value="11pm" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#editTitle">
 			<var name="eventTitle" value="Calendar Event Title" />
@@ -3642,7 +3642,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#viewAvailableCalendars">
 			<var name="availableCalendarList" value="Liferay,Test Test" />
@@ -3661,7 +3661,7 @@
 			<var name="calendarType" value="Other Calendars" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#viewAvailableCalendars">
 			<var name="availableCalendarList" value="Liferay,Test Test,${siteName}" />
@@ -3688,7 +3688,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#editTitle">
 			<var name="eventTitle" value="Calendar Event All Day Title" />
@@ -3720,7 +3720,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#editTitle">
 			<var name="eventTitle" value="Site Event" />
@@ -3736,7 +3736,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#editTitle">
 			<var name="eventTitle" value="Personal Event" />
@@ -3895,7 +3895,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#editTitle">
 			<var name="eventTitle" value="Calendar Event" />
@@ -4063,7 +4063,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="calendarName" value="${userFirstName} ${userLastName}" />
@@ -4090,7 +4090,7 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#editTitle">
 			<var name="eventTitle" value="Current Day Event" />
@@ -4257,7 +4257,7 @@
 			<var name="weekStartDay" value="Mo" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="Calendar#viewWeekStartDayViaAddEventMiniCalendar">
 			<var name="weekStartDay" value="Mo" />
@@ -4305,7 +4305,7 @@
 			<var name="weekStartDay" value="Sa" />
 		</execute>
 
-		<execute macro="CalendarNavigator#gotoAdd" />
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="Calendar#viewWeekStartDayViaAddEventMiniCalendar">
 			<var name="weekStartDay" value="Sa" />
