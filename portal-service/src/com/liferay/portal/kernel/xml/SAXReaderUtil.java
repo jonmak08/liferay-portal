@@ -128,6 +128,21 @@ public class SAXReaderUtil {
 		return _saxReader;
 	}
 
+	/**
+	 * @deprecated As of 6.2.0, renamed to {@link #getSAXReader}
+	 */
+	public static SAXReader getSecureSAXReader() {
+		return getSAXReader();
+	}
+
+	/**
+	 * @deprecated As of 6.2.0, renamed to {@link
+	 * UnsecureSAXReaderUtil#getSAXReader()}
+	 */
+	public static SAXReader getUnsecureSAXReader() {
+		return UnsecureSAXReaderUtil.getSAXReader();
+	}
+
 	public static Document read(File file) throws DocumentException {
 		return getSAXReader().read(file);
 	}
