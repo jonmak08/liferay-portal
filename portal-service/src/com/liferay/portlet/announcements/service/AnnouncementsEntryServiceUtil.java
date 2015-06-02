@@ -43,18 +43,19 @@ public class AnnouncementsEntryServiceUtil {
 	public static com.liferay.portlet.announcements.model.AnnouncementsEntry addEntry(
 		long plid, long classNameId, long classPK, java.lang.String title,
 		java.lang.String content, java.lang.String url, java.lang.String type,
-		int displayDateMonth, int displayDateDay, int displayDateYear,
-		int displayDateHour, int displayDateMinute, boolean displayImmediately,
-		int expirationDateMonth, int expirationDateDay, int expirationDateYear,
-		int expirationDateHour, int expirationDateMinute, int priority,
-		boolean alert)
+		java.lang.String borderColor, int displayDateMonth, int displayDateDay,
+		int displayDateYear, int displayDateHour, int displayDateMinute,
+		boolean displayImmediately, int expirationDateMonth,
+		int expirationDateDay, int expirationDateYear, int expirationDateHour,
+		int expirationDateMinute, int priority, boolean alert)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
 				   .addEntry(plid, classNameId, classPK, title, content, url,
-			type, displayDateMonth, displayDateDay, displayDateYear,
-			displayDateHour, displayDateMinute, displayImmediately,
-			expirationDateMonth, expirationDateDay, expirationDateYear,
-			expirationDateHour, expirationDateMinute, priority, alert);
+			type, borderColor, displayDateMonth, displayDateDay,
+			displayDateYear, displayDateHour, displayDateMinute,
+			displayImmediately, expirationDateMonth, expirationDateDay,
+			expirationDateYear, expirationDateHour, expirationDateMinute,
+			priority, alert);
 	}
 
 	/**
@@ -66,17 +67,18 @@ public class AnnouncementsEntryServiceUtil {
 	public static com.liferay.portlet.announcements.model.AnnouncementsEntry addEntry(
 		long plid, long classNameId, long classPK, java.lang.String title,
 		java.lang.String content, java.lang.String url, java.lang.String type,
-		int displayDateMonth, int displayDateDay, int displayDateYear,
-		int displayDateHour, int displayDateMinute, int expirationDateMonth,
-		int expirationDateDay, int expirationDateYear, int expirationDateHour,
-		int expirationDateMinute, int priority, boolean alert)
+		java.lang.String borderColor, int displayDateMonth, int displayDateDay,
+		int displayDateYear, int displayDateHour, int displayDateMinute,
+		int expirationDateMonth, int expirationDateDay, int expirationDateYear,
+		int expirationDateHour, int expirationDateMinute, int priority,
+		boolean alert)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
 				   .addEntry(plid, classNameId, classPK, title, content, url,
-			type, displayDateMonth, displayDateDay, displayDateYear,
-			displayDateHour, displayDateMinute, expirationDateMonth,
-			expirationDateDay, expirationDateYear, expirationDateHour,
-			expirationDateMinute, priority, alert);
+			type, borderColor, displayDateMonth, displayDateDay,
+			displayDateYear, displayDateHour, displayDateMinute,
+			expirationDateMonth, expirationDateDay, expirationDateYear,
+			expirationDateHour, expirationDateMinute, priority, alert);
 	}
 
 	public static void deleteEntry(long entryId)
@@ -110,18 +112,19 @@ public class AnnouncementsEntryServiceUtil {
 
 	public static com.liferay.portlet.announcements.model.AnnouncementsEntry updateEntry(
 		long entryId, java.lang.String title, java.lang.String content,
-		java.lang.String url, java.lang.String type, int displayDateMonth,
-		int displayDateDay, int displayDateYear, int displayDateHour,
-		int displayDateMinute, boolean displayImmediately,
-		int expirationDateMonth, int expirationDateDay, int expirationDateYear,
-		int expirationDateHour, int expirationDateMinute, int priority)
+		java.lang.String url, java.lang.String type,
+		java.lang.String borderColor, int displayDateMonth, int displayDateDay,
+		int displayDateYear, int displayDateHour, int displayDateMinute,
+		boolean displayImmediately, int expirationDateMonth,
+		int expirationDateDay, int expirationDateYear, int expirationDateHour,
+		int expirationDateMinute, int priority)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
 				   .updateEntry(entryId, title, content, url, type,
-			displayDateMonth, displayDateDay, displayDateYear, displayDateHour,
-			displayDateMinute, displayImmediately, expirationDateMonth,
-			expirationDateDay, expirationDateYear, expirationDateHour,
-			expirationDateMinute, priority);
+			borderColor, displayDateMonth, displayDateDay, displayDateYear,
+			displayDateHour, displayDateMinute, displayImmediately,
+			expirationDateMonth, expirationDateDay, expirationDateYear,
+			expirationDateHour, expirationDateMinute, priority);
 	}
 
 	public static AnnouncementsEntryService getService() {

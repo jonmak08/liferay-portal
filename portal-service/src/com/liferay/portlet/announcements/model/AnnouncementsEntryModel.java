@@ -296,6 +296,21 @@ public interface AnnouncementsEntryModel extends AttachedModel,
 	public void setType(String type);
 
 	/**
+	 * Returns the border color of this announcements entry.
+	 *
+	 * @return the border color of this announcements entry
+	 */
+	@AutoEscape
+	public String getBorderColor();
+
+	/**
+	 * Sets the border color of this announcements entry.
+	 *
+	 * @param borderColor the border color of this announcements entry
+	 */
+	public void setBorderColor(String borderColor);
+
+	/**
 	 * Returns the display date of this announcements entry.
 	 *
 	 * @return the display date of this announcements entry

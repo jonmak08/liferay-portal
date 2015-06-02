@@ -68,3 +68,13 @@ if (entry.getPriority() > 0) {
 		<%= entry.getContent() %>
 	</div>
 </div>
+<aui:script use="aui-base, aui-color-picker-popover">
+	var borderColor = '<%= borderColor %>',
+	borderVal;
+
+	if (borderColor) {
+		borderVal = "6px solid " + borderColor;
+		var entry = A.one('#<portlet:namespace /><%= entry.getEntryId() %>');
+		entry.setStyle('border', borderVal);
+	}
+</aui:script>

@@ -57,6 +57,7 @@
 		<column name="content" type="String" />
 		<column name="url" type="String" />
 		<column name="type" type="String" />
+		<column name="borderColor" type="String" />
 		<column name="displayDate" type="Date" />
 		<column name="expirationDate" type="Date" />
 		<column name="priority" type="int" />

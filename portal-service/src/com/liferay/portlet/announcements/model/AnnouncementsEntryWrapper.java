@@ -67,6 +67,7 @@ public class AnnouncementsEntryWrapper implements AnnouncementsEntry,
 		attributes.put("content", getContent());
 		attributes.put("url", getUrl());
 		attributes.put("type", getType());
+		attributes.put("borderColor", getBorderColor());
 		attributes.put("displayDate", getDisplayDate());
 		attributes.put("expirationDate", getExpirationDate());
 		attributes.put("priority", getPriority());
@@ -155,6 +156,12 @@ public class AnnouncementsEntryWrapper implements AnnouncementsEntry,
 			setType(type);
 		}
 
+		String borderColor = (String)attributes.get("borderColor");
+
+		if (borderColor != null) {
+			setBorderColor(borderColor);
+		}
+
 		Date displayDate = (Date)attributes.get("displayDate");
 
 		if (displayDate != null) {
@@ -199,6 +206,16 @@ public class AnnouncementsEntryWrapper implements AnnouncementsEntry,
 	@Override
 	public boolean getAlert() {
 		return _announcementsEntry.getAlert();
+	}
+
+	/**
+	* Returns the border color of this announcements entry.
+	*
+	* @return the border color of this announcements entry
+	*/
+	@Override
+	public java.lang.String getBorderColor() {
+		return _announcementsEntry.getBorderColor();
 	}
 
 	/**
@@ -450,6 +467,16 @@ public class AnnouncementsEntryWrapper implements AnnouncementsEntry,
 	@Override
 	public void setAlert(boolean alert) {
 		_announcementsEntry.setAlert(alert);
+	}
+
+	/**
+	* Sets the border color of this announcements entry.
+	*
+	* @param borderColor the border color of this announcements entry
+	*/
+	@Override
+	public void setBorderColor(java.lang.String borderColor) {
+		_announcementsEntry.setBorderColor(borderColor);
 	}
 
 	@Override

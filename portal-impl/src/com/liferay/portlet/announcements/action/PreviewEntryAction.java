@@ -72,6 +72,7 @@ public class PreviewEntryAction extends PortletAction {
 		String content = ParamUtil.getString(actionRequest, "content");
 		String url = ParamUtil.getString(actionRequest, "url");
 		String type = ParamUtil.getString(actionRequest, "type");
+		String borderColor = ParamUtil.getString(actionRequest, "borderColor");
 		int priority = ParamUtil.getInteger(actionRequest, "priority");
 		boolean alert = ParamUtil.getBoolean(actionRequest, "alert");
 
