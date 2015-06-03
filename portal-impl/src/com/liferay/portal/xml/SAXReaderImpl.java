@@ -40,10 +40,8 @@ import com.liferay.util.xml.XMLSafeReader;
 import java.io.File;
 import java.io.InputStream;
 import java.io.Reader;
-
 import java.net.MalformedURLException;
 import java.net.URL;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -345,13 +343,15 @@ public class SAXReaderImpl implements SAXReader {
 
 	@Override
 	public Document read(File file, boolean validate) throws DocumentException {
-		ClassLoader classLoader = getClass().getClassLoader();
+		Class<?> clazz = getClass();
+	
+		ClassLoader classLoader = clazz.getClassLoader();
 
 		ClassLoader contextClassLoader =
 			ClassLoaderUtil.getContextClassLoader();
 
 		try {
-			if (contextClassLoader != classLoader) {
+			if (classLoader != contextClassLoader) {
 				ClassLoaderUtil.setContextClassLoader(classLoader);
 			}
 
@@ -363,7 +363,7 @@ public class SAXReaderImpl implements SAXReader {
 			throw new DocumentException(de.getMessage(), de);
 		}
 		finally {
-			if (contextClassLoader != classLoader) {
+			if (classLoader != contextClassLoader) {
 				ClassLoaderUtil.setContextClassLoader(contextClassLoader);
 			}
 		}
@@ -378,13 +378,15 @@ public class SAXReaderImpl implements SAXReader {
 	public Document read(InputStream is, boolean validate)
 		throws DocumentException {
 
-		ClassLoader classLoader = getClass().getClassLoader();
+		Class<?> clazz = getClass();
+	
+		ClassLoader classLoader = clazz.getClassLoader();
 
 		ClassLoader contextClassLoader =
 			ClassLoaderUtil.getContextClassLoader();
 
 		try {
-			if (contextClassLoader != classLoader) {
+			if (classLoader != contextClassLoader) {
 				ClassLoaderUtil.setContextClassLoader(classLoader);
 			}
 
@@ -396,7 +398,7 @@ public class SAXReaderImpl implements SAXReader {
 			throw new DocumentException(de.getMessage(), de);
 		}
 		finally {
-			if (contextClassLoader != classLoader) {
+			if (classLoader != contextClassLoader) {
 				ClassLoaderUtil.setContextClassLoader(contextClassLoader);
 			}
 		}
@@ -411,13 +413,15 @@ public class SAXReaderImpl implements SAXReader {
 	public Document read(Reader reader, boolean validate)
 		throws DocumentException {
 
-		ClassLoader classLoader = getClass().getClassLoader();
+		Class<?> clazz = getClass();
+	
+		ClassLoader classLoader = clazz.getClassLoader();
 
 		ClassLoader contextClassLoader =
 			ClassLoaderUtil.getContextClassLoader();
 
 		try {
-			if (contextClassLoader != classLoader) {
+			if (classLoader != contextClassLoader) {
 				ClassLoaderUtil.setContextClassLoader(classLoader);
 			}
 
@@ -429,7 +433,7 @@ public class SAXReaderImpl implements SAXReader {
 			throw new DocumentException(de.getMessage(), de);
 		}
 		finally {
-			if (contextClassLoader != classLoader) {
+			if (classLoader != contextClassLoader) {
 				ClassLoaderUtil.setContextClassLoader(contextClassLoader);
 			}
 		}
@@ -451,13 +455,15 @@ public class SAXReaderImpl implements SAXReader {
 	public Document read(String xml, XMLSchema xmlSchema)
 		throws DocumentException {
 
-		ClassLoader classLoader = getClass().getClassLoader();
+		Class<?> clazz = getClass();
+	
+		ClassLoader classLoader = clazz.getClassLoader();
 
 		ClassLoader contextClassLoader =
 			ClassLoaderUtil.getContextClassLoader();
 
 		try {
-			if (contextClassLoader != classLoader) {
+			if (classLoader != contextClassLoader) {
 				ClassLoaderUtil.setContextClassLoader(classLoader);
 			}
 
@@ -471,7 +477,7 @@ public class SAXReaderImpl implements SAXReader {
 			throw new DocumentException(de.getMessage(), de);
 		}
 		finally {
-			if (contextClassLoader != classLoader) {
+			if (classLoader != contextClassLoader) {
 				ClassLoaderUtil.setContextClassLoader(contextClassLoader);
 			}
 		}
@@ -484,13 +490,15 @@ public class SAXReaderImpl implements SAXReader {
 
 	@Override
 	public Document read(URL url, boolean validate) throws DocumentException {
-		ClassLoader classLoader = getClass().getClassLoader();
+		Class<?> clazz = getClass();
+	
+		ClassLoader classLoader = clazz.getClassLoader();
 
 		ClassLoader contextClassLoader =
 			ClassLoaderUtil.getContextClassLoader();
 
 		try {
-			if (contextClassLoader != classLoader) {
+			if (classLoader != contextClassLoader) {
 				ClassLoaderUtil.setContextClassLoader(classLoader);
 			}
 
@@ -502,7 +510,7 @@ public class SAXReaderImpl implements SAXReader {
 			throw new DocumentException(de.getMessage(), de);
 		}
 		finally {
-			if (contextClassLoader != classLoader) {
+			if (classLoader != contextClassLoader) {
 				ClassLoaderUtil.setContextClassLoader(contextClassLoader);
 			}
 		}
