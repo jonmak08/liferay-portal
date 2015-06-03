@@ -34,11 +34,11 @@ public abstract class BaseXStreamConverter implements Converter {
 
 	@Override
 	public void marshal(
-		Object object, HierarchicalStreamWriter writer,
+		Object object, HierarchicalStreamWriter hierarchicalStreamWriter,
 		MarshallingContext marshallingContext) {
 
 		for (String field : getFields()) {
-			writer.startNode(field);
+			hierarchicalStreamWriter.startNode(field);
 
 			Object value = BeanPropertiesUtil.getObject(object, field);
 
@@ -46,7 +46,7 @@ public abstract class BaseXStreamConverter implements Converter {
 				marshallingContext.convertAnother(value);
 			}
 
-			writer.endNode();
+			hierarchicalStreamWriter.endNode();
 		}
 	}
 
