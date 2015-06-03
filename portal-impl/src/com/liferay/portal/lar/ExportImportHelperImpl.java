@@ -593,8 +593,8 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 
 		String groupElementName = groupElement.getName();
 
-		if (!groupElementName.equals(JournalArticle.class.getSimpleName()) &&
-			!groupElementName.equals(DDMTemplate.class.getSimpleName())) {
+		if (!groupElementName.equals(DDMTemplate.class.getSimpleName()) &&
+			!groupElementName.equals(JournalArticle.class.getSimpleName())) {
 
 			content = StringUtil.replace(
 				content, StringPool.AMPERSAND_ENCODED, StringPool.AMPERSAND);
