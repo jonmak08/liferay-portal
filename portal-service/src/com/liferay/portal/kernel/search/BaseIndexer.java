@@ -1679,7 +1679,7 @@ public abstract class BaseIndexer implements Indexer {
 		}
 		catch (PortalException pe) {
 			if (_log.isDebugEnabled()) {
-				_log.debug("Unable to retrieve site group", pe);
+				_log.debug("Unable to get site group", pe);
 			}
 		}
 
