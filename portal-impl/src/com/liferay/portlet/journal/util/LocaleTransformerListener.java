@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.templateparser.BaseTransformerListener;
+import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -72,12 +73,7 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 
 		boolean hasLanguageIdElement = false;
 
-		List<Element> elements = root.elements();
-
-		int listIndex = elements.size() - 1;
-
-		while (listIndex >= 0) {
-			Element element = elements.get(listIndex);
+		for (Element element : root.elements()) {
 
 			String tempLanguageId = element.attributeValue(
 				"language-id", languageId);
@@ -96,8 +92,6 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 
 				root.remove(element);
 			}
-
-			listIndex--;
 		}
 
 		if (!hasLanguageIdElement && (defaultLanguageElement != null)) {
@@ -121,25 +115,16 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 			String defaultLanguageId = LocaleUtil.toLanguageId(
 				LocaleUtil.getSiteDefault());
 
-			String[] availableLocales = StringUtil.split(
+			String[] availableLanguageIds = StringUtil.split(
 				rootElement.attributeValue(
 					"available-locales", defaultLanguageId));
 
-			String defaultLocale = rootElement.attributeValue(
+			String articleDefaultLanguageId = rootElement.attributeValue(
 				"default-locale", defaultLanguageId);
 
-			boolean supportedLocale = false;
-
-			for (String availableLocale : availableLocales) {
-				if (StringUtil.equalsIgnoreCase(availableLocale, languageId)) {
-					supportedLocale = true;
-
-					break;
-				}
-			}
-
-			if (!supportedLocale) {
-				filterByLanguage(rootElement, defaultLocale, defaultLanguageId);
+			if (!ArrayUtil.contains(availableLanguageIds, languageId)) {
+				filterByLanguage(
+					rootElement, articleDefaultLanguageId, defaultLanguageId);
 			}
 			else {
 				filterByLanguage(rootElement, languageId, defaultLanguageId);
@@ -164,18 +149,17 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 		try {
 			Document document = SAXReaderUtil.read(xml);
 
-			String structureKey = tokens.get("structure_id");
+			String ddmStructureKey = tokens.get("structure_id");
 
 			long groupId = Long.parseLong(tokens.get("article_group_id"));
 
-			DDMStructure structure = null;
-
-			structure = DDMStructureLocalServiceUtil.fetchStructure(
+			DDMStructure ddmStructure = 
+				DDMStructureLocalServiceUtil.fetchStructure(
 					groupId, ClassNameLocalServiceUtil
-						.getClassNameId(JournalArticle.class), structureKey,
+						.getClassNameId(JournalArticle.class), ddmStructureKey,
 					true);
 
-			if (Validator.isNull(structure)) {
+			if (Validator.isNull(ddmStructure)) {
 				return xml;
 			}
 
@@ -184,10 +168,11 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 			String defaultLanguageId = LocaleUtil.toLanguageId(
 				LocaleUtil.getSiteDefault());
 
-			String defaultLocale = rootElement.attributeValue(
+			String articleDefaultLanguageId = rootElement.attributeValue(
 				"default-locale", defaultLanguageId);
 
-			filterByLocalizability(rootElement, defaultLocale, structure);
+			filterByLocalizability(
+				rootElement, articleDefaultLanguageId, ddmStructure);
 
 			xml = DDMXMLUtil.formatXML(document);
 		}
@@ -199,30 +184,22 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 	}
 
 	protected void filterByLocalizability(
-			Element root, String defaultLanguageId, DDMStructure structure)
+			Element root, String defaultLanguageId, DDMStructure ddmStructure)
 		throws PortalException, SystemException {
 
-		List<Element> elements = root.elements("dynamic-element");
-
-		int listIndex = elements.size() - 1;
-
-		while (listIndex >= 0) {
-			Element element = elements.get(listIndex);
+		for (Element element : root.elements("dynamic-element")) {
 
 			String name = element.attributeValue("name");
 
-			if (!structure.hasField(name)) {
-				listIndex--;
+			if (!ddmStructure.hasField(name)) {
 				continue;
 			}
 
-			if (!structure.isFieldTransient(name)) {
-				filterFields(element, structure, name, defaultLanguageId);
+			if (!ddmStructure.isFieldTransient(name)) {
+				filterFields(element, ddmStructure, name, defaultLanguageId);
 			}
 
-			filterByLocalizability(element, defaultLanguageId, structure);
-
-			listIndex--;
+			filterByLocalizability(element, defaultLanguageId, ddmStructure);
 		}
 	}
 
