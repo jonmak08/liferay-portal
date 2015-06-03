@@ -28,6 +28,7 @@ import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.service.ClassNameLocalServiceUtil;
+import com.liferay.portlet.dynamicdatamapping.NoSuchStructureException;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMXMLUtil;
@@ -159,7 +160,13 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 						.getClassNameId(JournalArticle.class), ddmStructureKey,
 					true);
 
-			if (Validator.isNull(ddmStructure)) {
+			if (ddmStructure == null) {
+				if (_log.isWarnEnabled()) {
+					_log.warn(
+						"Not checking localization because dynamic data " +
+							"mapping structure is not available");
+				}
+
 				return xml;
 			}
 

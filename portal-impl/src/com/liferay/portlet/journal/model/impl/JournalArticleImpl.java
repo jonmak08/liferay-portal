@@ -41,6 +41,7 @@ import com.liferay.portlet.journal.util.LocaleTransformerListener;
 import com.liferay.portlet.trash.model.TrashEntry;
 import com.liferay.portlet.trash.service.TrashEntryLocalServiceUtil;
 
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -54,10 +55,16 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	public static String getContentByLocale(
 		String content, boolean templateDriven, String languageId) {
 
+		return getContentByLocale(content, languageId, null);
+	}
+
+	public static String getContentByLocale(
+		String content, String languageId, Map<String, String> tokens) {
+
 		TransformerListener transformerListener =
 			new LocaleTransformerListener();
 
-		return transformerListener.onXml(content, languageId, null);
+		return transformerListener.onXml(content, languageId, tokens);
 	}
 
 	public JournalArticleImpl() {
@@ -129,7 +136,18 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 
 	@Override
 	public String getContentByLocale(String languageId) {
-		return getContentByLocale(getContent(), isTemplateDriven(), languageId);
+		Map<String, String> tokens = new HashMap<String, String>();
+
+		String ddmStructureKey = getStructureId();
+
+		if(Validator.isNull(ddmStructureKey)) {
+			return getContentByLocale(getContent(), false, languageId);
+		}
+		else {
+			tokens.put("structure_id", ddmStructureKey);
+
+			return getContentByLocale(getContent(), languageId, tokens);
+		}
 	}
 
 	@Override
