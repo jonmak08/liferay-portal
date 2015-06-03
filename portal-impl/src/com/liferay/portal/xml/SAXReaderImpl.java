@@ -40,8 +40,10 @@ import com.liferay.util.xml.XMLSafeReader;
 import java.io.File;
 import java.io.InputStream;
 import java.io.Reader;
+
 import java.net.MalformedURLException;
 import java.net.URL;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -344,7 +346,7 @@ public class SAXReaderImpl implements SAXReader {
 	@Override
 	public Document read(File file, boolean validate) throws DocumentException {
 		Class<?> clazz = getClass();
-	
+
 		ClassLoader classLoader = clazz.getClassLoader();
 
 		ClassLoader contextClassLoader =
@@ -379,7 +381,7 @@ public class SAXReaderImpl implements SAXReader {
 		throws DocumentException {
 
 		Class<?> clazz = getClass();
-	
+
 		ClassLoader classLoader = clazz.getClassLoader();
 
 		ClassLoader contextClassLoader =
@@ -414,7 +416,7 @@ public class SAXReaderImpl implements SAXReader {
 		throws DocumentException {
 
 		Class<?> clazz = getClass();
-	
+
 		ClassLoader classLoader = clazz.getClassLoader();
 
 		ClassLoader contextClassLoader =
@@ -456,7 +458,7 @@ public class SAXReaderImpl implements SAXReader {
 		throws DocumentException {
 
 		Class<?> clazz = getClass();
-	
+
 		ClassLoader classLoader = clazz.getClassLoader();
 
 		ClassLoader contextClassLoader =
@@ -491,7 +493,7 @@ public class SAXReaderImpl implements SAXReader {
 	@Override
 	public Document read(URL url, boolean validate) throws DocumentException {
 		Class<?> clazz = getClass();
-	
+
 		ClassLoader classLoader = clazz.getClassLoader();
 
 		ClassLoader contextClassLoader =
