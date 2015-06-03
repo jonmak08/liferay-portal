@@ -23,12 +23,10 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.service.ClassNameLocalServiceUtil;
-import com.liferay.portlet.dynamicdatamapping.NoSuchStructureException;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMXMLUtil;
@@ -67,6 +65,27 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 		return filterByLanguage(xml, languageId);
 	}
 
+	protected void filter(
+			Element dynamicElementElement, DDMStructure ddmStructure,
+			String name, String defaultLanguageId)
+		throws PortalException, SystemException {
+
+		boolean localizable = GetterUtil.getBoolean(
+			ddmStructure.getFieldProperty(name, "localizable"));
+
+		List<Element> dynamicContentElements = dynamicElementElement.elements(
+			"dynamic-content");
+
+		for (Element dynamicContentElement : dynamicContentElements) {
+			String languageId = dynamicContentElement.attributeValue(
+				"language-id");
+
+			if (!localizable && !languageId.equals(defaultLanguageId)) {
+				dynamicElementElement.remove(dynamicContentElement);
+			}
+		}
+	}
+
 	protected void filterByLanguage(
 		Element root, String languageId, String defaultLanguageId) {
 
@@ -75,7 +94,6 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 		boolean hasLanguageIdElement = false;
 
 		for (Element element : root.elements()) {
-
 			String tempLanguageId = element.attributeValue(
 				"language-id", languageId);
 
@@ -154,11 +172,10 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 
 			long groupId = Long.parseLong(tokens.get("article_group_id"));
 
-			DDMStructure ddmStructure = 
+			DDMStructure ddmStructure =
 				DDMStructureLocalServiceUtil.fetchStructure(
-					groupId, ClassNameLocalServiceUtil
-						.getClassNameId(JournalArticle.class), ddmStructureKey,
-					true);
+					groupId, ClassNameLocalServiceUtil.getClassNameId(
+						JournalArticle.class), ddmStructureKey, true);
 
 			if (ddmStructure == null) {
 				if (_log.isWarnEnabled()) {
@@ -195,7 +212,6 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 		throws PortalException, SystemException {
 
 		for (Element element : root.elements("dynamic-element")) {
-
 			String name = element.attributeValue("name");
 
 			if (!ddmStructure.hasField(name)) {
@@ -207,27 +223,6 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 			}
 
 			filterByLocalizability(element, defaultLanguageId, ddmStructure);
-		}
-	}
-
-	protected void filter(
-			Element dynamicElementElement, DDMStructure ddmStructure,
-			String name, String defaultLanguageId)
-		throws PortalException, SystemException {
-
-		boolean localizable = GetterUtil.getBoolean(
-			ddmStructure.getFieldProperty(name, "localizable"));
-
-		List<Element> dynamicContentElements = dynamicElementElement.elements(
-			"dynamic-content");
-
-		for (Element dynamicContentElement : dynamicContentElements) {
-			String languageId = dynamicContentElement.attributeValue(
-				"language-id");
-
-			if (!localizable && !languageId.equals(defaultLanguageId)) {
-				dynamicElementElement.remove(dynamicContentElement);
-			}
 		}
 	}
 

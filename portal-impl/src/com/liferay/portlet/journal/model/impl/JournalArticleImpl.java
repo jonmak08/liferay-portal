@@ -140,7 +140,7 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 
 		String ddmStructureKey = getStructureId();
 
-		if(Validator.isNull(ddmStructureKey)) {
+		if (Validator.isNull(ddmStructureKey)) {
 			return getContentByLocale(getContent(), false, languageId);
 		}
 		else {
