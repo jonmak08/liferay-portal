@@ -42,8 +42,8 @@ public class FileVersionConverter extends BaseXStreamConverter {
 		HierarchicalStreamReader hierarchicalStreamReader,
 		UnmarshallingContext unmarshallingContext) {
 
-		boolean escapedModel = false;
 		DLFileVersion dlFileVersion = new DLFileVersionImpl();
+		boolean escapedModel = false;
 
 		while (hierarchicalStreamReader.hasMoreChildren()) {
 			hierarchicalStreamReader.moveDown();

@@ -45,8 +45,8 @@ public class FileEntryConverter extends BaseXStreamConverter {
 		UnmarshallingContext unmarshallingContext) {
 
 		DLFileEntry dlFileEntry = new DLFileEntryImpl();
-
 		boolean escapedModel = false;
+
 		LiferayFileVersion liferayFileVersion = null;
 
 		while (hierarchicalStreamReader.hasMoreChildren()) {

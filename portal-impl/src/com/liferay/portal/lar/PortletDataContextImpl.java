@@ -2665,17 +2665,14 @@ public class PortletDataContextImpl implements PortletDataContext {
 		_xStream.alias("WikiNode", WikiNodeImpl.class);
 		_xStream.alias("WikiPage", WikiPageImpl.class);
 
-		Converter fileEntryConverter = new FileEntryConverter();
-		Converter fileVersionConverter = new FileVersionConverter();
-		Converter folderConverter = new FolderConverter();
-
-		_xStream.registerConverter(folderConverter, XStream.PRIORITY_VERY_HIGH);
-		_xStream.registerConverter(
-			fileEntryConverter, XStream.PRIORITY_VERY_HIGH);
-		_xStream.registerConverter(
-			fileVersionConverter, XStream.PRIORITY_VERY_HIGH);
-
 		_xStream.omitField(HashMap.class, "cache_bitmask");
+
+		_xStream.registerConverter(
+			new FolderConverter(), XStream.PRIORITY_VERY_HIGH);
+		_xStream.registerConverter(
+			new FileEntryConverter(), XStream.PRIORITY_VERY_HIGH);
+		_xStream.registerConverter(
+			new FileVersionConverter(), XStream.PRIORITY_VERY_HIGH);
 	}
 
 	protected boolean isResourceMain(ClassedModel classedModel) {

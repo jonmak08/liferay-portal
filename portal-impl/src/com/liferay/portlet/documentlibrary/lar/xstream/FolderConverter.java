@@ -42,8 +42,8 @@ public class FolderConverter extends BaseXStreamConverter {
 		HierarchicalStreamReader hierarchicalStreamReader,
 		UnmarshallingContext unmarshallingContext) {
 
-		boolean escapedModel = false;
 		DLFolder dlFolder = new DLFolderImpl();
+		boolean escapedModel = false;
 
 		while (hierarchicalStreamReader.hasMoreChildren()) {
 			hierarchicalStreamReader.moveDown();
