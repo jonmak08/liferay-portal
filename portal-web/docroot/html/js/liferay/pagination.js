@@ -613,37 +613,40 @@ AUI.add(
 						var instance = this;
 
 						var items = instance.get(STR_ITEMS);
-						var page = instance.get(STR_PAGE);
-						var total = instance.get('total');
 
-						var firstPage = page <= 1;
-						var lastPage = page >= total;
+						if (items.size()) {
+							var page = instance.get(STR_PAGE);
+							var total = instance.get('total');
 
-						if (!instance.get('circular')) {
-							items.item(1).toggleClass(
+							var firstPage = page <= 1;
+							var lastPage = page >= total;
+
+							if (!instance.get('circular')) {
+								items.item(1).toggleClass(
+									CSS_DISABLED,
+									firstPage
+								);
+
+								var lastItemIndex = items.indexOf(items.last());
+
+								var nextToLastItem = lastItemIndex - 1;
+
+								items.item(nextToLastItem).toggleClass(
+									CSS_DISABLED,
+									lastPage
+								);
+							}
+
+							items.first().toggleClass(
 								CSS_DISABLED,
 								firstPage
 							);
 
-							var lastItemIndex = items.indexOf(items.last());
-
-							var nextToLastItem = lastItemIndex - 1;
-
-							items.item(nextToLastItem).toggleClass(
+							items.last().toggleClass(
 								CSS_DISABLED,
 								lastPage
 							);
 						}
-
-						items.first().toggleClass(
-							CSS_DISABLED,
-							firstPage
-						);
-
-						items.last().toggleClass(
-							CSS_DISABLED,
-							lastPage
-						);
 					},
 
 					_syncResults: function(page, itemsPerPage) {
