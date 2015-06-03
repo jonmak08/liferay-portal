@@ -490,7 +490,7 @@
 </tr>
 <tr>
 	<td>SCHEDULER_VIEW_MONTH_CURRENT_DAY</td>
-	<td>//td[contains(@class,'scheduler-view-table-colgrid-today')]</td>
+	<td>//div[contains(@class,'scheduler-view-month')]//td[contains(@class,'scheduler-view-table-data-col-title-today')]</td>
 	<td></td>
 </tr>
 <tr>
