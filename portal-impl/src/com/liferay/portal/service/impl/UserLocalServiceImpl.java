@@ -3162,10 +3162,20 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			params.put("keywords", keywords);
 		}
 
-		return search(
-			companyId, firstName, middleName, lastName, fullName, screenName,
-			emailAddress, street, city, zip, region, country, status, params,
-			andOperator, start, end, sort);
+		try {
+			SearchContext searchContext = buildSearchContext(
+				companyId, firstName, middleName, lastName, fullName,
+				screenName, emailAddress, street, city, zip, region, country,
+				status, params, andOperator, start, end, sort);
+
+			Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
+				User.class);
+
+			return indexer.search(searchContext);
+		}
+		catch (Exception e) {
+			throw new SystemException(e);
+		}
 	}
 
 	/**
@@ -3268,10 +3278,20 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			int end, Sort sort)
 		throws SystemException {
 
-		return search(
-			companyId, firstName, middleName, lastName, null, screenName,
-			emailAddress, null, null, null, null, null, status, params,
-			andSearch, start, end, sort);
+		try {
+			SearchContext searchContext = buildSearchContext(
+				companyId, firstName, middleName, lastName, null, screenName,
+				emailAddress, null, null, null, null, null, status, params,
+				andSearch, start, end, sort);
+
+			Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
+				User.class);
+
+			return indexer.search(searchContext);
+		}
+		catch (Exception e) {
+			throw new SystemException(e);
+		}
 	}
 
 	/**
@@ -5699,6 +5719,63 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 	protected String getLogin(String login) {
 		return StringUtil.lowerCase(StringUtil.trim(login));
+	}
+
+	protected SearchContext buildSearchContext(
+		long companyId, String firstName, String middleName, String lastName,
+		String fullName, String screenName, String emailAddress, String street,
+		String city, String zip, String region, String country, int status,
+		LinkedHashMap<String, Object> params, boolean andSearch, int start,
+		int end, Sort sort) {
+
+		SearchContext searchContext = new SearchContext();
+
+		searchContext.setAndSearch(andSearch);
+
+		Map<String, Serializable> attributes =
+			new HashMap<String, Serializable>();
+
+		attributes.put("city", city);
+		attributes.put("country", country);
+		attributes.put("emailAddress", emailAddress);
+		attributes.put("firstName", firstName);
+		attributes.put("fullName", fullName);
+		attributes.put("lastName", lastName);
+		attributes.put("middleName", middleName);
+		attributes.put("params", params);
+		attributes.put("region", region);
+		attributes.put("screenName", screenName);
+		attributes.put("street", street);
+		attributes.put("status", status);
+		attributes.put("zip", zip);
+
+		searchContext.setAttributes(attributes);
+
+		searchContext.setCompanyId(companyId);
+		searchContext.setEnd(end);
+
+		if (params != null) {
+			String keywords = (String)params.remove("keywords");
+
+			if (Validator.isNotNull(keywords)) {
+				searchContext.setKeywords(keywords);
+			}
+		}
+
+		QueryConfig queryConfig = new QueryConfig();
+
+		queryConfig.setHighlightEnabled(false);
+		queryConfig.setScoreEnabled(false);
+
+		searchContext.setQueryConfig(queryConfig);
+
+		if (sort != null) {
+			searchContext.setSorts(sort);
+		}
+
+		searchContext.setStart(start);
+
+		return searchContext;
 	}
 
 	protected long[] getUserIds(List<User> users) {
