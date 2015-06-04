@@ -1937,11 +1937,10 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 			return ZipWriterFactoryUtil.getZipWriter();
 		}
 
-		String path =
-			SystemProperties.get(SystemProperties.TMP_DIR) + StringPool.SLASH +
-				fileName;
-
-		return ZipWriterFactoryUtil.getZipWriter(new File(path));
+		return ZipWriterFactoryUtil.getZipWriter(
+			new File(
+				SystemProperties.get(SystemProperties.TMP_DIR) +
+					StringPool.SLASH + fileName));
 	}
 
 	protected boolean populateLayoutsJSON(
