@@ -174,6 +174,7 @@ NumberFormat numberFormat = NumberFormat.getNumberInstance(locale);
 
 										<liferay-ui:icon
 											message="<%= String.valueOf(i) %>"
+											method="get"
 											url='<%= url + namespace + curParam + "=" + i + urlAnchor %>'
 										/>
 
@@ -209,6 +210,7 @@ NumberFormat numberFormat = NumberFormat.getNumberInstance(locale);
 
 										<liferay-ui:icon
 											message="<%= String.valueOf(curDelta) %>"
+											method="get"
 											url='<%= deltaURL + "&" + namespace + deltaParam + "=" + curDelta + urlAnchor %>'
 										/>
 
