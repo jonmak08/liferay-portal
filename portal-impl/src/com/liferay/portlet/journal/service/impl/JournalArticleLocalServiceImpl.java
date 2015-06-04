@@ -6134,7 +6134,7 @@ public class JournalArticleLocalServiceImpl
 				"language-id", StringPool.BLANK);
 
 			if (!elLanguage.equals(StringPool.BLANK)) {
-				elLanguage = "_" + elLanguage;
+				elLanguage = StringPool.UNDERLINE + elLanguage;
 			}
 
 			long imageId = journalArticleImageLocalService.getArticleImageId(
@@ -6147,11 +6147,11 @@ public class JournalArticleLocalServiceImpl
 
 				imageLocalService.deleteImage(imageId);
 
-				String defaultElLanguage = "";
+				String defaultElLanguage = StringPool.BLANK;
 
 				if (Validator.isNull(elLanguage)) {
 					defaultElLanguage =
-						"_" +
+						StringPool.UNDERLINE +
 							LocaleUtil.toLanguageId(
 								LocaleUtil.getSiteDefault());
 				}
@@ -6170,7 +6170,8 @@ public class JournalArticleLocalServiceImpl
 				"/image/journal/article?img_id=" + imageId + "&t=" +
 					WebServerServletTokenUtil.getToken(imageId);
 
-			byte[] bytes = images.get(elInstanceId + "_" + elName + elLanguage);
+			byte[] bytes = images.get(
+				elInstanceId + StringPool.UNDERLINE + elName + elLanguage);
 
 			String defaultElLanguage =
 				StringPool.UNDERLINE +
@@ -6262,11 +6263,12 @@ public class JournalArticleLocalServiceImpl
 				}
 			}
 
-			defaultElLanguage = "";
+			defaultElLanguage = StringPool.BLANK;
 
 			if (Validator.isNull(elLanguage)) {
 				defaultElLanguage =
-					"_" + LocaleUtil.toLanguageId(LocaleUtil.getSiteDefault());
+					StringPool.UNDERLINE +
+					LocaleUtil.toLanguageId(LocaleUtil.getSiteDefault());
 			}
 
 			long defaultImageId =
