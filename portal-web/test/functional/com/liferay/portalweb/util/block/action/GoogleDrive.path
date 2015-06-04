@@ -40,13 +40,18 @@
 </tr>
 <!--GRID_VIEW-->	
 <tr>
+	<td>GRID_VIEW_DOCUMENT</td>
+	<td>//div[contains(@aria-label,'Files and folders grid view.')]//span[contains(.,'${key_googleDocName}')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>GRID_VIEW_DOCUMENT_1</td>
-	<td>//div[contains(@aria-label,'Files and folders grid view.')]//span[contains(.,'Google Docs Hook Setup')]</td>
+	<td>xpath=(//div[contains(@aria-label,'Files and folders grid view.')]//span[contains(.,'${key_googleDocName}')])[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>GRID_VIEW_DOCUMENT_2</td>
-	<td>//div[contains(@aria-label,'Files and folders grid view.')]//span[contains(.,'test')]</td>
+	<td>xpath=(//div[contains(@aria-label,'Files and folders grid view.')]//span[contains(.,'${key_googleDocName}')])[2]</td>
 	<td></td>
 </tr>
 <tr>
@@ -56,13 +61,18 @@
 </tr>
 <!--LIST_VIEW-->	
 <tr>
+	<td>LIST_VIEW_DOCUMENT</td>
+	<td>//div[contains(@aria-label,'Files and folders list view.')]//span[contains(.,'${key_googleDocName}')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>LIST_VIEW_DOCUMENT_1</td>
-	<td>//div[contains(@aria-label,'Files and folders list view.')]//span[contains(.,'Google Docs Hook Setup')]</td>
+	<td>xpath=(//div[contains(@aria-label,'Files and folders list view.')]//span[contains(.,'${key_googleDocName}')])[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>LIST_VIEW_DOCUMENT_2</td>
-	<td>//div[contains(@aria-label,'Files and folders list view.')]//span[contains(.,'test')]</td>
+	<td>xpath=(//div[contains(@aria-label,'Files and folders list view.')]//span[contains(.,'${key_googleDocName}')])[2]</td>
 	<td></td>
 </tr>
 </tbody>
