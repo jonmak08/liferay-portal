@@ -6172,6 +6172,18 @@ public class JournalArticleLocalServiceImpl
 
 			byte[] bytes = images.get(elInstanceId + "_" + elName + elLanguage);
 
+			String defaultElLanguage =
+				StringPool.UNDERLINE +
+				LocaleUtil.toLanguageId(LocaleUtil.getSiteDefault());
+
+			if (ArrayUtil.isEmpty(bytes) &&
+				!Validator.equals(defaultElLanguage, elLanguage)) {
+
+				bytes = images.get(
+					elInstanceId + StringPool.UNDERLINE + elName +
+						defaultElLanguage);
+			}
+
 			if (ArrayUtil.isNotEmpty(bytes)) {
 				dynamicContent.setText(elContent);
 				dynamicContent.addAttribute("id", String.valueOf(imageId));
@@ -6250,7 +6262,7 @@ public class JournalArticleLocalServiceImpl
 				}
 			}
 
-			String defaultElLanguage = "";
+			defaultElLanguage = "";
 
 			if (Validator.isNull(elLanguage)) {
 				defaultElLanguage =
