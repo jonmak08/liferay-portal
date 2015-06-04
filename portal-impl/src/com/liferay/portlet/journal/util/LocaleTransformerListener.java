@@ -161,7 +161,7 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 	protected String filterByLocalizability(
 		String xml, Map<String, String> tokens) {
 
-		if (xml == null || tokens == null) {
+		if ((xml == null) || (tokens == null)) {
 			return xml;
 		}
 
@@ -174,7 +174,8 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 
 			DDMStructure ddmStructure =
 				DDMStructureLocalServiceUtil.fetchStructure(
-					groupId, ClassNameLocalServiceUtil.getClassNameId(
+					groupId,
+					ClassNameLocalServiceUtil.getClassNameId(
 						JournalArticle.class), ddmStructureKey, true);
 
 			if (ddmStructure == null) {
