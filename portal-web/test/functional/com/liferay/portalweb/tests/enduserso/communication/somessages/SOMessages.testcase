@@ -2170,7 +2170,7 @@
 		<var name="key_pageTitle" value="Google" />
 
 		<execute function="SelectWindow" locator1="SOPage#PAGE_TITLE" />
-		<execute function="AssertElementPresent" locator1="xPath=(//button[@aria-label='Google Search'])[2]" />
+		<execute function="AssertElementPresent" locator1="SOAnnouncements#ANNOUNCEMENTS_ENTRY_IMAGE_GOOGLE" />
 		<execute function="Close#closeWindow" locator1="SOPage#PAGE_TITLE" />
 
 		<execute function="Click" locator1="SOMessagesMessage#BACK_BUTTON" />
@@ -2205,7 +2205,7 @@
 		<var name="key_pageTitle" value="Google" />
 
 		<execute function="SelectWindow" locator1="SOPage#PAGE_TITLE" />
-		<execute function="AssertElementPresent" locator1="xPath=(//button[@aria-label='Google Search'])[2]" />
+		<execute function="AssertElementPresent" locator1="SOAnnouncements#ANNOUNCEMENTS_ENTRY_IMAGE_GOOGLE" />
 		<execute function="Close#closeWindow" locator1="SOPage#PAGE_TITLE" />
 
 		<execute function="Click" locator1="SOMessagesMessage#BACK_BUTTON" />
