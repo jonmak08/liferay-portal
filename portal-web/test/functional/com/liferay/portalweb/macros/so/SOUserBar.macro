@@ -90,10 +90,10 @@
 
 				<while>
 					<not>
-						<and>
+						<or>
 							<condition function="IsVisible" locator1="SOUserBar#GO_TO_ADD_SITE_BUTTON" />
 							<equals arg1="${gotoMenuClickAttemptNumber}" arg2="5" />
-						</and>
+						</or>
 					</not>
 					<then>
 						<var method="MathUtil#sum('${gotoMenuClickAttemptNumber}', '1')" name="gotoMenuClickAttemptNumber" />
@@ -174,10 +174,10 @@
 
 		<if>
 			<not>
-				<and>
+				<or>
 					<contains string="${numberOfNotifications}" substring="{numberOfNotifications}" />
 					<equals arg1="${numberOfNotifications}" arg2="1" />
-				</and>
+				</or>
 			</not>
 			<then>
 				<execute function="AssertClick" locator1="SOUserBar#NOTIFICATION_MENU_COUNT" value1="${numberOfNotifications}" />
