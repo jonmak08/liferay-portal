@@ -327,24 +327,24 @@
 		<if>
 			<equals arg1="${minutes}" arg2="15" />
 			<then>
-				<var name="key_pixelHeight" value="26" />
+				<var name="key_pixelHeight" value="22" />
 			</then>
 			<elseif>
 				<equals arg1="${minutes}" arg2="30" />
 				<then>
-					<var name="key_pixelHeight" value="26" />
+					<var name="key_pixelHeight" value="22" />
 				</then>
 			</elseif>
 			<elseif>
 				<equals arg1="${minutes}" arg2="60" />
 				<then>
-					<var name="key_pixelHeight" value="52" />
+					<var name="key_pixelHeight" value="48" />
 				</then>
 			</elseif>
 			<elseif>
 				<equals arg1="${minutes}" arg2="120" />
 				<then>
-					<var name="key_pixelHeight" value="104" />
+					<var name="key_pixelHeight" value="100" />
 				</then>
 			</elseif>
 		</if>
