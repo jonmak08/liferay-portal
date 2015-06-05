@@ -143,11 +143,10 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 		if (Validator.isNull(ddmStructureKey)) {
 			return getContentByLocale(getContent(), false, languageId);
 		}
-		else {
-			tokens.put("structure_id", ddmStructureKey);
 
-			return getContentByLocale(getContent(), languageId, tokens);
-		}
+		tokens.put("structure_id", ddmStructureKey);
+
+		return getContentByLocale(getContent(), languageId, tokens);
 	}
 
 	@Override
