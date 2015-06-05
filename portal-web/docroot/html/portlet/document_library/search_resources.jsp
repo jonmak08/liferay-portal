@@ -156,6 +156,7 @@ else if ((searchType == DLSearchConstants.SINGLE) && !ajax) {
 								'<portlet:namespace />folderId': '<%= String.valueOf(folderId) %>',
 								'<portlet:namespace />viewEntries': <%= Boolean.TRUE.toString() %>
 							},
+							resetPagination: true,
 							src: Liferay.DL_SEARCH_END
 						}
 					);

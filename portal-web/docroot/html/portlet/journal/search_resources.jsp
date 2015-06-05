@@ -141,6 +141,7 @@ ArticleSearch searchContainer = new ArticleSearch(liferayPortletRequest, entryEn
 								'<portlet:namespace />folderId': '<%= String.valueOf(folderId) %>',
 								'<portlet:namespace />viewEntries': <%= Boolean.TRUE.toString() %>
 							},
+							resetPagination: true,
 							src: Liferay.JOURNAL_SEARCH_END
 						}
 					);
