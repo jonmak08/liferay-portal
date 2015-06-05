@@ -136,13 +136,13 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 
 	@Override
 	public String getContentByLocale(String languageId) {
-		Map<String, String> tokens = new HashMap<String, String>();
-
 		String ddmStructureKey = getStructureId();
 
 		if (Validator.isNull(ddmStructureKey)) {
 			return getContentByLocale(getContent(), false, languageId);
 		}
+
+		Map<String, String> tokens = new HashMap<String, String>();
 
 		tokens.put("structure_id", ddmStructureKey);
 
