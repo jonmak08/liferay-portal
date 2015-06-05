@@ -85,7 +85,6 @@ import com.liferay.portlet.PortletQNameUtil;
 import com.liferay.portlet.UndeployedPortlet;
 import com.liferay.portlet.expando.model.CustomAttributesDisplay;
 import com.liferay.util.ContentUtil;
-import com.liferay.util.bridges.mvc.MVCPortlet;
 
 import java.net.URL;
 
