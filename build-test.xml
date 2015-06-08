@@ -1086,6 +1086,11 @@
 		</sequential>
 	</macrodef>
 
+	<macrodef name="setup-testable-tomcat">
+		<sequential>
+		</sequential>
+	</macrodef>
+
 	<macrodef name="start-android-device">
 		<sequential>
 			<fail message="Please set the property ${mobile.android.home}." unless="mobile.android.home" />
@@ -4225,6 +4230,8 @@ osb.lcs.portlet.oauth.consumer.secret=${osb.lcs.portlet.oauth.consumer.secret}</
 					</then>
 					<else>
 						<ant antfile="build-dist.xml" target="build-dist-tomcat" inheritAll="false" />
+
+						<setup-testable-tomcat />
 
 						<antcall target="prepare-system-ext-properties" />
 					</else>
