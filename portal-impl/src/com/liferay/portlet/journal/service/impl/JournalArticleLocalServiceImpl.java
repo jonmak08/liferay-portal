@@ -6175,10 +6175,10 @@ public class JournalArticleLocalServiceImpl
 
 			String defaultElLanguage =
 				StringPool.UNDERLINE +
-				LocaleUtil.toLanguageId(LocaleUtil.getSiteDefault());
+					LocaleUtil.toLanguageId(LocaleUtil.getSiteDefault());
 
 			if (ArrayUtil.isEmpty(bytes) &&
-				!Validator.equals(defaultElLanguage, elLanguage)) {
+				!defaultElLanguage.equals(elLanguage)) {
 
 				bytes = images.get(
 					elInstanceId + StringPool.UNDERLINE + elName +
@@ -6268,7 +6268,7 @@ public class JournalArticleLocalServiceImpl
 			if (Validator.isNull(elLanguage)) {
 				defaultElLanguage =
 					StringPool.UNDERLINE +
-					LocaleUtil.toLanguageId(LocaleUtil.getSiteDefault());
+						LocaleUtil.toLanguageId(LocaleUtil.getSiteDefault());
 			}
 
 			long defaultImageId =
