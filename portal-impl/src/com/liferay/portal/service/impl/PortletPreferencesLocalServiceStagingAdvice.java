@@ -220,13 +220,12 @@ public class PortletPreferencesLocalServiceStagingAdvice
 		}
 
 		long userId = PrincipalThreadLocal.getUserId();
+		User user = UserLocalServiceUtil.fetchUser(userId);
 
-		if (userId == 0) {
+		if ((user == null) || user.isDefaultUser()) {
 			plid = layoutRevision.getLayoutRevisionId();
 		}
 		else {
-			User user = UserLocalServiceUtil.getUserById(userId);
-
 			plid = StagingUtil.getRecentLayoutRevisionId(
 				user, layoutRevision.getLayoutSetBranchId(),
 				layoutRevision.getPlid());
