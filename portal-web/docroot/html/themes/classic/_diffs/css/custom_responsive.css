@@ -207,3 +207,11 @@
 		}
 	}
 }
+
+@include respond-to(phone) {
+	.aui {
+		.dialog-iframe-popup {
+			padding: 0;
+		}
+	}
+}
