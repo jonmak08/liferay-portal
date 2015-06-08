@@ -4226,13 +4226,13 @@ osb.lcs.portlet.oauth.consumer.secret=${osb.lcs.portlet.oauth.consumer.secret}</
 					<else>
 						<ant antfile="build-dist.xml" target="build-dist-tomcat" inheritAll="false" />
 
-						<antcall target="prepare-system-ext-properties" />	
+						<antcall target="prepare-system-ext-properties" />
 					</else>
 				</if>
 
 				<replace file="${app.server.tomcat.bin.dir}/setenv${file.suffix.bat}">
 					<replacetoken><![CDATA[-Xmx1024m -XX:MaxPermSize=256m]]></replacetoken>
-					<replacevalue><![CDATA[-Xmx2048m -XX:MaxPermSize=512m -verbose:gc -Xloggc:/tmp/tomcat-gc.log -XX:+PrintGCDetails -XX:+PrintGCCause]]></replacevalue>
+					<replacevalue><![CDATA[-verbose:gc -Xloggc:/tmp/tomcat-gc.log -Xmx2048m  -XX:+PrintGCCause -XX:+PrintGCDetails -XX:MaxPermSize=512m]]></replacevalue>
 				</replace>
 
 				<antcall target="prepare-test-build-tomcat-dependents" inheritAll="false" />
