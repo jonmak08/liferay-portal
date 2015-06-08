@@ -28,12 +28,10 @@
 			</span>
 
 			<aui:script use="aui-base,event-outside,liferay-menu-toggle">
-				var triggers = A.all('#<%= id %>ResponsiveButton .btn-navbar');
-
-				triggers.each(
+				A.all('#<%= id %>ResponsiveButton .btn-navbar').each(
 					function(item, index, collection) {
-						var contentId = item.get('id');
-						var navId = item.getData('navid');
+						var contentId = item.attr('id');
+						var navId = item.attr('data-navid');
 
 						var toggleMenu = new Liferay.MenuToggle(
 							{
