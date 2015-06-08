@@ -5780,6 +5780,21 @@ Please set "ie.driver.zip" in test.properties to point to "IEDriverServer_x64_2.
 				<delete file=".testable.portal.started" failonerror="false" />
 			</then>
 		</if>
+
+		<if>
+			<available file="/tmp/tomcat-gc.log" />
+			<then>
+				<loadfile property="tomcat-gc-log" srcFile="/tmp/tomcat-gc.log" />
+
+				<echo>
+Tomcat GC log:
+
+${tomcat-gc-log}</echo>
+			</then>
+			<else>
+				<echo>Unable to read /tmp/tomcat-gc.log</echo>
+			</else>
+		</if>
 	</target>
 
 	<target name="test-integration">
