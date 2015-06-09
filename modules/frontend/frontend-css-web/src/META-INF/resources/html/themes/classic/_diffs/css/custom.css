@@ -124,6 +124,14 @@ html {
 		.nav-account-controls {
 			background-color: transparent;
 
+				.admin-links {
+					min-width: 175px;
+				}
+
+				.my-sites, .user-avatar {
+					min-width: 160px;
+				}
+
 			.navbar-nav > li > a {
 				&:focus, &:hover {
 					background-color: #2FA4F5;
