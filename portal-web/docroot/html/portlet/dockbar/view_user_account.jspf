@@ -32,8 +32,20 @@
 		</c:otherwise>
 	</c:choose>
 
+	<%
+	String fullName = user.getFullName();
+	int nameLength = fullName.length();
+
+	if (nameLength > 17) {
+		String nameBegin = fullName.substring(0, 7);
+		String nameEnd = fullName.substring(nameLength - 7);
+
+		fullName = nameBegin + "..." + nameEnd;
+	}
+	%>
+
 	<span class="user-full-name">
-		<%= HtmlUtil.escape(user.getFullName()) %>
+		<%= HtmlUtil.escape(fullName) %>
 	</span>
 </liferay-util:buffer>
 
