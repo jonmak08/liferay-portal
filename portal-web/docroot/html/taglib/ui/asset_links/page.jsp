@@ -98,7 +98,7 @@ if (assetEntryId > 0) {
 					String method = null;
 					String target = "_self";
 
-					if (themeDisplay.isStatePopUp()) {
+					if (themeDisplay.isStatePopUp() || (themeDisplay.isStateMaximized() && PropsValues.DOCKBAR_ADMINISTRATIVE_LINKS_SHOW_IN_POP_UP && PortletCategoryKeys.MY.equals(themeDisplay.getControlPanelCategory()))) {
 						method = "get";
 						target = "_blank";
 					}
