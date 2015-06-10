@@ -116,7 +116,7 @@ if (windowState.equals(WindowState.MAXIMIZED)) {
 				if (hash) {
 					var src = '';
 
-					var baseSrc = '<%= HtmlUtil.escapeJS(iFrameDisplayContext.getIframeBaseSrc()) %>';
+					var baseSrc = '<%= HtmlUtil.escapeJS(baseSrc) %>';
 
 					if (!(/^https?\:\/\//.test(hash)) || !A.Lang.String.startsWith(hash, baseSrc)) {
 						src = '<%= HtmlUtil.escapeJS(baseSrc) %>';
