@@ -412,6 +412,7 @@ public class HtmlBBCodeTranslatorImpl implements BBCodeTranslator {
 		}
 		else {
 			listStyle = "list-style: disc outside;";
+
 			tag = "ul";
 		}
 
