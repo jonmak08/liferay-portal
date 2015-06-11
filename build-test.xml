@@ -2801,6 +2801,20 @@ ${marketplace.portlet.properties}</echo>
 		/>
 	</target>
 
+	<target name="get-license-xml">
+		<if>
+			<matches pattern="http" string="${test.build.license.xml.zip.url}" />
+			<then>
+				<mkdir dir="${liferay.home}/deploy" />
+
+				<mirrors-get
+					dest="${liferay.home}/deploy/license.xml"
+					src="${test.build.license.xml.zip.url}"
+				/>
+			</then>
+		</if>
+	</target>
+
 	<target name="kill-spi">
 		<if>
 			<os family="unix" />
@@ -4530,17 +4544,7 @@ osb.lcs.portlet.oauth.consumer.secret=${osb.lcs.portlet.oauth.consumer.secret}</
 					</elseif>
 				</if>
 
-				<if>
-					<matches pattern="http" string="${test.build.license.xml.zip.url}" />
-					<then>
-						<mkdir dir="${liferay.home}/deploy" />
-
-						<mirrors-get
-							dest="${liferay.home}/deploy/license.xml"
-							src="${test.build.license.xml.zip.url}"
-						/>
-					</then>
-				</if>
+				<antcall target="get-license-xml" />
 
 				<if>
 					<matches pattern="http" string="${test.build.plugins.war.zip.url}" />
