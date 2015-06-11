@@ -193,17 +193,17 @@ public class PortalImplAlternateURLTest {
 
 		String canonicalAssetPublisherContentURL =
 			generateAssetPublisherContentURL(
-				portalDomain, StringPool.BLANK, _group.getFriendlyURL());
+				portalDomain, StringPool.BLANK, group.getFriendlyURL());
 
 		String actualAssetPublisherContentAlternateURL =
 			PortalUtil.getAlternateURL(
 				canonicalAssetPublisherContentURL,
-				getThemeDisplay(_group, canonicalAssetPublisherContentURL),
+				getThemeDisplay(group, canonicalAssetPublisherContentURL),
 				alternateLocale, layout);
 
 		String expectedAssetPublisherContentAlternateURL =
 			generateAssetPublisherContentURL(
-				portalDomain, expectedI18nPath, _group.getFriendlyURL());
+				portalDomain, expectedI18nPath, group.getFriendlyURL());
 
 		Assert.assertEquals(
 			expectedAssetPublisherContentAlternateURL,
