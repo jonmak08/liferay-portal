@@ -690,11 +690,11 @@
 
 		<execute function="AssertClick" locator1="PGStagingPublishtolivenow#CURRENT_AND_PREVIOUS_DETAILS" value1="Details" />
 
+		<execute function="Pause" locator1="3000" />
+
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGStagingPublishtolivenow#CURRENT_AND_PREVIOUS_DETAILS_STATUS" value1="${validateErrorMessage}" />
 
 		<execute function="SelectFrameTop" value1="relative=top" />
-
-		<execute function="Pause" locator1="5000" />
 
 		<execute function="Refresh" />
 	</command>
