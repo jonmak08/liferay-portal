@@ -54,6 +54,8 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
+		<execute macro="CalendarNavigator#gotoAddEvent" />
+
 		<execute macro="CalendarEvent#add">
 			<var name="calendarName" value="${siteName}" />
 			<var name="eventTitle" value="${eventTitle}" />
@@ -212,6 +214,8 @@
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
+
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="calendarName" value="${siteName}" />
@@ -465,6 +469,8 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
+		<execute macro="CalendarNavigator#gotoAddEvent" />
+
 		<execute macro="CalendarEvent#add">
 			<var name="calendarName" value="${siteName}" />
 			<var name="eventTitle" value="${eventTitle}" />
@@ -557,6 +563,8 @@
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
+
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="calendarName" value="${siteName}" />
@@ -657,6 +665,8 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
+		<execute macro="CalendarNavigator#gotoAddEvent" />
+
 		<execute macro="CalendarEvent#add">
 			<var name="calendarName" value="${siteName}" />
 			<var name="eventTitle" value="${eventTitle1}" />
@@ -673,6 +683,8 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
+		<execute macro="CalendarNavigator#gotoAddEvent" />
+
 		<execute macro="CalendarEvent#add">
 			<var name="calendarName" value="${siteName}" />
 			<var name="eventTitle" value="${eventTitle2}" />
@@ -688,6 +700,8 @@
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
+
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="calendarName" value="${siteName}" />
@@ -747,6 +761,8 @@
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
+
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
@@ -831,6 +847,8 @@
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
+
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
