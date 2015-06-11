@@ -36,6 +36,16 @@ else if (parentOrganizationId > 0) {
 
 	UsersAdminUtil.addPortletBreadcrumbEntries(parentOrganization, request, renderResponse);
 }
+
+boolean site = false;
+
+if (organization != null) {
+	Group group = organization.getGroup();
+
+	if (group.isSite()) {
+		site = true;
+	}
+}
 %>
 
 <aui:nav-bar>
@@ -82,6 +92,10 @@ else {
 	<aui:input name="redirect" type="hidden" value="<%= editOrganizationRenderURL %>" />
 	<aui:input name="backURL" type="hidden" value="<%= backURL %>" />
 	<aui:input name="organizationId" type="hidden" value="<%= organizationId %>" />
+
+	<c:if test="<%= site %>">
+		<aui:input name="site" type="hidden" value="<%= site %>" />
+	</c:if>
 
 	<%
 	request.setAttribute("addresses.className", Organization.class.getName());
