@@ -1,4 +1,8 @@
 <definition>
+	<command name="checkSocialBookmarks">
+		<execute function="Check" locator1="Checkbox#ENABLE_SOCIAL_BOOKMARKS" />
+	</command>
+
 	<command name="configureDisplayTemplatePG">
 		<if>
 			<equals arg1="${soPage}" arg2="true" />

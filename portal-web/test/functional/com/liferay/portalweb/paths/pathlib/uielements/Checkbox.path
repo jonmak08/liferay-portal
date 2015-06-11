@@ -8,6 +8,11 @@
 <tr><td rowspan="1" colspan="3">Checkbox</td></tr>
 </thead>
 <tbody>
+<tr>
+	<td>ENABLE_SOCIAL_BOOKMARKS</td>
+	<td>//label[contains(@for,'SocialBookmarksCheckbox')]/input[@type='checkbox']</td>
+	<td></td>
+</tr>
 </tbody>
 </table>
 </body>
