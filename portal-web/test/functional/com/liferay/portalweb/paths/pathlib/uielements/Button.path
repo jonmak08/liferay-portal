@@ -8,6 +8,11 @@
 <tr><td rowspan="1" colspan="3">Button</td></tr>
 </thead>
 <tbody>
+<tr>
+	<td>SAVE</td>
+	<td>//button[contains(.,'Save')]</td>
+	<td></td>
+</tr>
 </tbody>
 </table>
 </body>
