@@ -89,6 +89,62 @@
 		<execute function="AssertTextEquals" locator1="PGBlogsConfigurationScope#SCOPE_MENULIST" value1="${scopeSelection}" />
 	</command>
 
+	<command name="disableSocialBookmarkSite">
+		<var name="key_socialBookmarkSite" value="${socialBookmarkSite}" />
+
+		<execute function="Uncheck" locator1="SocialBookmarks#SOCIAL_BOOKMARKS_CONFIGURATION_CHECKBOX" />
+	</command>
+
+	<command name="disableSocialBookmarkSites">
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Blogs Page" />
+		</execute>
+
+		<execute macro="Portlet#gotoPortletOptions">
+			<var name="portletOption" value="Configuration" />
+		</execute>
+
+		<execute function="SelectFrame" locator1="IFrame#CONFIGURATION_IFRAME" />
+
+		<execute macro="BlogsPortlet#checkSocialBookmarks" />
+
+		<for list="${socialBookmarkSites}" param="socialBookmarkSite">
+			<execute macro="BlogsPortlet#disableSocialBookmarkSite">
+				<var name="socialBookmarkSites" value="${socialBookmarkSite}" />
+			</execute>
+		</for>
+
+		<execute macro="IFrame#saveConfiguration" />
+	</command>
+
+	<command name="enableSocialBookmarkSite">
+		<var name="key_socialBookmarkSite" value="${socialBookmarkSite}" />
+
+		<execute function="Check" locator1="SocialBookmarks#SOCIAL_BOOKMARKS_CONFIGURATION_CHECKBOX" />
+	</command>
+
+	<command name="enableSocialBookmarkSites">
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Blogs Page" />
+		</execute>
+
+		<execute macro="Portlet#gotoPortletOptions">
+			<var name="portletOption" value="Configuration" />
+		</execute>
+
+		<execute function="SelectFrame" locator1="IFrame#CONFIGURATION_IFRAME" />
+
+		<execute macro="BlogsPortlet#checkSocialBookmarks" />
+
+		<for list="${socialBookmarkSites}" param="socialBookmarkSite">
+			<execute macro="BlogsPortlet#enableSocialBookmarkSite">
+				<var name="socialBookmarkSites" value="${socialBookmarkSite}" />
+			</execute>
+		</for>
+
+		<execute macro="IFrame#saveConfiguration" />
+	</command>
+
 	<command name="subscribePG">
 		<execute function="AssertClick" locator1="PGBlogs#SUBSCRIBE_LINK" value1="Subscribe" />
 		<execute function="AssertTextEquals" locator1="PGBlogs#SUCCESS_MESSAGE" value1="Your request completed successfully." />
