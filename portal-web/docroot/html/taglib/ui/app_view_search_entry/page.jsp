@@ -165,7 +165,7 @@ List<String> versions = (List<String>)request.getAttribute("liferay-ui:app-view-
 					</span>
 
 					<span class="body">
-						<%= StringUtil.highlight(mbMessage.getBody(), queryTerms) %>
+						<%= HtmlUtil.escape(StringUtil.highlight(mbMessage.getBody(), queryTerms)) %>
 					</span>
 				</aui:a>
 			</div>
