@@ -30,7 +30,7 @@ import java.util.Date;
 public class TicketLocalServiceImpl extends TicketLocalServiceBaseImpl {
 
 	@Override
-	public Ticket addSingleTicket(
+	public Ticket addDistinctTicket(
 		long companyId, String className, long classPK, int type,
 		String extraInfo, Date expirationDate, ServiceContext serviceContext) {
 
