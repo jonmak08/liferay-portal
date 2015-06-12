@@ -235,6 +235,10 @@ public class HttpUtil {
 			}
 		}
 
+		if (parts.isEmpty()) {
+			return StringPool.SLASH;
+		}
+
 		StringBundler sb = new StringBundler(parts.size() * 2 + 2);
 
 		for (String part : parts) {
