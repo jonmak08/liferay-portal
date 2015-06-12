@@ -271,6 +271,7 @@
 				<classpath mode="compile">lib/development/jargs.jar</classpath>
 				<classpath mode="compile">lib/development/jarjar.jar</classpath>
 				<classpath mode="compile">lib/development/jasper.jar</classpath>
+				<classpath mode="compile">lib/development/javacpp.jar</classpath>
 				<classpath mode="compile">lib/development/jaxb-api.jar</classpath>
 				<classpath mode="compile">lib/development/jbi_rt.jar</classpath>
 				<classpath mode="compile">lib/development/jetty-server.jar</classpath>
@@ -292,9 +293,12 @@
 				<classpath mode="compile">lib/development/mockito.jar</classpath>
 				<classpath mode="compile">lib/development/mysql.jar</classpath>
 				<classpath mode="compile">lib/development/objenesis.jar</classpath>
+				<classpath mode="compile">lib/development/opencv.jar</classpath>
 				<classpath mode="compile">lib/development/orangevolt-ant-tasks.jar</classpath>
 				<classpath mode="compile">lib/development/p6spy.jar</classpath>
 				<classpath mode="compile">lib/development/persistence.jar</classpath>
+				<classpath mode="compile">lib/development/piccolo2d-core.jar</classpath>
+				<classpath mode="compile">lib/development/piccolo2d-extras.jar</classpath>
 				<classpath mode="compile">lib/development/postgresql.jar</classpath>
 				<classpath mode="compile">lib/development/powermock-mockito.jar</classpath>
 				<classpath mode="compile">lib/development/qdox.jar</classpath>
@@ -307,7 +311,7 @@
 				<classpath mode="compile">lib/development/selenium-server.jar</classpath>
 				<classpath mode="compile">lib/development/servlet-api.jar</classpath>
 				<classpath mode="compile">lib/development/sikuli-api.jar</classpath>
-				<classpath mode="compile">lib/development/sikuli-script.jar</classpath>
+				<classpath mode="compile">lib/development/sikuli-core.jar</classpath>
 				<classpath mode="compile">lib/development/smtp.jar</classpath>
 				<classpath mode="compile">lib/development/sonar-ant-task.jar</classpath>
 				<classpath mode="compile">lib/development/spring-instrument.jar</classpath>
