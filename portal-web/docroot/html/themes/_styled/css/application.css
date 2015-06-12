@@ -551,6 +551,14 @@
 	padding: 0;
 }
 
+/* ---------- CKEditor contents ---------- */
+
+.aui {
+	.cke_editable [class*="span"] {
+		float: none;
+	}
+}
+
 /* ---------- CKEditor menu ---------- */
 
 .aui {
