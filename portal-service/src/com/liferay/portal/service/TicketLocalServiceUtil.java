@@ -267,12 +267,13 @@ public class TicketLocalServiceUtil {
 		getService().setBeanIdentifier(beanIdentifier);
 	}
 
-	public static com.liferay.portal.model.Ticket addSingleTicket(
+	public static com.liferay.portal.model.Ticket addDistinctTicket(
 		long companyId, java.lang.String className, long classPK, int type,
 		java.lang.String extraInfo, java.util.Date expirationDate,
-		com.liferay.portal.service.ServiceContext serviceContext) {
+		com.liferay.portal.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.SystemException {
 		return getService()
-				   .addSingleTicket(companyId, className, classPK, type,
+				   .addDistinctTicket(companyId, className, classPK, type,
 			extraInfo, expirationDate, serviceContext);
 	}
 

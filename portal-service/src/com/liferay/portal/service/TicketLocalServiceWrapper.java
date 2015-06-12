@@ -275,11 +275,12 @@ public class TicketLocalServiceWrapper implements TicketLocalService,
 	}
 
 	@Override
-	public com.liferay.portal.model.Ticket addSingleTicket(long companyId,
+	public com.liferay.portal.model.Ticket addDistinctTicket(long companyId,
 		java.lang.String className, long classPK, int type,
 		java.lang.String extraInfo, java.util.Date expirationDate,
-		com.liferay.portal.service.ServiceContext serviceContext) {
-		return _ticketLocalService.addSingleTicket(companyId, className,
+		com.liferay.portal.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _ticketLocalService.addDistinctTicket(companyId, className,
 			classPK, type, extraInfo, expirationDate, serviceContext);
 	}
 
