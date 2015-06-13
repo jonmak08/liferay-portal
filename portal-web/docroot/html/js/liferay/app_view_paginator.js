@@ -573,6 +573,10 @@ AUI.add(
 
 							var modNumberOfPages = totalPages % numberOfPages;
 
+							if (modNumberOfPages === 0) {
+								modNumberOfPages = numberOfPages;
+							}
+
 							var deltaTotalPages = totalPages - modNumberOfPages;
 
 							if (page > numberOfPages && page <= deltaTotalPages) {
