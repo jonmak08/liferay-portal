@@ -621,7 +621,7 @@ AUI.add(
 							var firstPage = page <= 1;
 							var lastPage = page >= total;
 
-							if (!instance.get('circular')) {
+							if (!instance.get('circular') && instance.get(STR_SHOW_CONTROLS)) {
 								items.item(1).toggleClass(
 									CSS_DISABLED,
 									firstPage
@@ -667,6 +667,8 @@ AUI.add(
 								item.addClass(CSS_ACTIVE);
 							}
 						}
+
+						instance._syncNavigationUI();
 					},
 
 					_uiSetVisible: function(val) {
