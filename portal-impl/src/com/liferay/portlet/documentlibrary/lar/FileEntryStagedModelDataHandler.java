@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.BaseStagedModelDataHandler;
 import com.liferay.portal.kernel.lar.ExportImportPathUtil;
+import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.lar.PortletDataException;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
@@ -414,12 +415,14 @@ public class FileEntryStagedModelDataHandler
 				boolean indexEnabled = serviceContext.isIndexingEnabled();
 
 				boolean updateFileEntry = false;
+				boolean deleteFileEntry = false;
 
 				if (!Validator.equals(
 						fileVersion.getUuid(),
 						latestExistingFileVersion.getUuid())) {
 
 					updateFileEntry = true;
+					deleteFileEntry = true;
 				}
 				else {
 					InputStream existingFileVersionInputStream = null;
@@ -495,6 +498,14 @@ public class FileEntryStagedModelDataHandler
 							DLFileEntry.class);
 
 						indexer.reindex(liferayFileEntry.getModel());
+					}
+
+					if (deleteFileEntry &&
+						ExportImportThreadLocal.isStagingInProcess()) {
+
+						DLAppServiceUtil.deleteFileVersion(
+							latestExistingFileVersion.getFileEntryId(),
+							latestExistingFileVersion.getVersion());
 					}
 				}
 				finally {
