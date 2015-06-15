@@ -17,6 +17,7 @@ package com.liferay.portlet.documentlibrary;
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.util.StringPool;
@@ -81,7 +82,7 @@ public class InvalidFolderException extends PortalException {
 		return _folderId;
 	}
 
-	public String getMessageArgument(Locale locale) {
+	public String getMessageArgument(Locale locale) throws SystemException {
 		try {
 			if (_folderId == DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
 				return LanguageUtil.get(locale, "home");
