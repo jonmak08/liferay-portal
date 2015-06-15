@@ -51,8 +51,8 @@ portletURL.setPortletMode(PortletMode.VIEW);
 portletURL.setWindowState(WindowState.MAXIMIZED);
 %>
 
-<form action="<%= HtmlUtil.escape(portletURL.toString()) %>" class="form" method="post" name="<%= namespace %>fm" onSubmit="submitForm(this); return false;">
+<aui:form action="<%= portletURL %>" method="post" name="fm">
+	<aui:input cssClass="lfr-search-keywords" id='<%= namespace + "keywords_" + StringUtil.randomId() %>' inlineField="<%= true %>" label="" name='<%= namespace + "keywords" %>' placeholder="<%= HtmlUtil.escape(keywords) %>" size="30" title="search-web-content" type="text" useNamespace="<%= false %>" />
 
-<aui:input cssClass="lfr-search-keywords" id='<%= namespace + "keywords_" + StringUtil.randomId() %>' inlineField="<%= true %>" label="" name='<%= namespace + "keywords" %>' placeholder="<%= HtmlUtil.escape(keywords) %>" size="30" title="search-web-content" type="text" useNamespace="<%= false %>" />
-
-<aui:input alt="search" cssClass="lfr-search-button" inlineField="<%= true %>" label="" name="search" src='<%= themeDisplay.getPathThemeImages() + "/common/search.png" %>' type="image" />
+	<aui:input alt="search" cssClass="lfr-search-button" inlineField="<%= true %>" label="" name="search" src='<%= themeDisplay.getPathThemeImages() + "/common/search.png" %>' type="image" />
+</aui:form>
