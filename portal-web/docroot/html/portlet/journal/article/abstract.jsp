@@ -144,7 +144,14 @@ String toLanguageId = (String)request.getAttribute("edit_article.jsp-toLanguageI
 				}
 			);
 
-			selectSmallImageType('<%= (article != null) && Validator.isNotNull(article.getSmallImageURL()) ? 0 : 1 %>');
+			// LPS-51306
+
+			setTimeout(
+				function() {
+					selectSmallImageType('<%= (article != null) && Validator.isNotNull(article.getSmallImageURL()) ? 0 : 1 %>');
+				},
+				0
+			);
 		</aui:script>
 	</c:if>
 </aui:fieldset>
