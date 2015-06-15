@@ -188,7 +188,7 @@ public class JournalArticleFinderTest {
 	public void testFindByExpirationDate() throws Exception {
 		QueryDefinition queryDefinition = new QueryDefinition();
 
-		// test status any
+		// Status any
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_ANY);
 
@@ -203,7 +203,7 @@ public class JournalArticleFinderTest {
 
 		Assert.assertEquals(_USER_ID, article.getUserId());
 
-		// test status in trash
+		// Status in trash
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH);
 
@@ -217,7 +217,7 @@ public class JournalArticleFinderTest {
 
 		Assert.assertEquals(_USER_ID, article.getUserId());
 
-		// test status not in trash
+		// Status not in trash
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH, true);
 
@@ -260,7 +260,7 @@ public class JournalArticleFinderTest {
 	public void testQueryByC_G_F_C_A_V_T_D_C_T_S_T_D_R() throws Exception {
 		QueryDefinition queryDefinition = new QueryDefinition();
 
-		// test status any
+		// Status any
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_ANY);
 
@@ -276,7 +276,7 @@ public class JournalArticleFinderTest {
 			null, null, null, _ddmStructure.getStructureKey(), null, null, null,
 			null, true, queryDefinition, 1);
 
-		// test status in trash
+		// Status in trash
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH);
 
@@ -286,7 +286,7 @@ public class JournalArticleFinderTest {
 			null, null, null, (String)null, null, null, null, null, true,
 			queryDefinition, 1);
 
-		// test status not in trash
+		// Status not in trash
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH, true);
 
@@ -301,7 +301,7 @@ public class JournalArticleFinderTest {
 	public void testQueryByG_C_S() throws Exception {
 		QueryDefinition queryDefinition = new QueryDefinition();
 
-		// test status any
+		// Status any
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_ANY);
 
@@ -312,7 +312,7 @@ public class JournalArticleFinderTest {
 			_group.getGroupId(), JournalArticleConstants.CLASSNAME_ID_DEFAULT,
 			StringPool.BLANK, queryDefinition, 2);
 
-		// test status in trash
+		// Status in trash
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH);
 
@@ -323,7 +323,7 @@ public class JournalArticleFinderTest {
 			_group.getGroupId(), JournalArticleConstants.CLASSNAME_ID_DEFAULT,
 			StringPool.BLANK, queryDefinition, 1);
 
-		// test status not in trash
+		// Status not in trash
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH, true);
 
@@ -339,25 +339,25 @@ public class JournalArticleFinderTest {
 	public void testQueryByG_F() throws Exception {
 		QueryDefinition queryDefinition = new QueryDefinition();
 
-		// test status any
+		// Status any
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_ANY);
 
 		testQueryByG_F(_group.getGroupId(), _folderIds, queryDefinition, 4);
 
-		// test status in trash
+		// Status in trash
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH);
 
 		testQueryByG_F(_group.getGroupId(), _folderIds, queryDefinition, 1);
 
-		// test status not in trash
+		// Status not in trash
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH, true);
 
 		testQueryByG_F(_group.getGroupId(), _folderIds, queryDefinition, 3);
 
-		// test comparators
+		// Comparators
 
 		testQueryByG_F(new ArticleCreateDateComparator(true));
 		testQueryByG_F(new ArticleCreateDateComparator(false));
@@ -378,7 +378,7 @@ public class JournalArticleFinderTest {
 	@Test
 	public void testQueryByG_F_C() throws Exception {
 
-		// test status any (constructor), which is status not in trash
+		// Status any (constructor), which is status not in trash
 
 		QueryDefinition queryDefinition = new QueryDefinition(
 			WorkflowConstants.STATUS_ANY);
@@ -388,7 +388,7 @@ public class JournalArticleFinderTest {
 			_group.getGroupId(), Collections.<Long>emptyList(),
 			JournalArticleConstants.CLASSNAME_ID_DEFAULT, queryDefinition, 2);
 
-		// test status any
+		// Status any
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_ANY);
 		queryDefinition.setUserId(_USER_ID);
@@ -397,7 +397,7 @@ public class JournalArticleFinderTest {
 			_group.getGroupId(), Collections.<Long>emptyList(),
 			JournalArticleConstants.CLASSNAME_ID_DEFAULT, queryDefinition, 1);
 
-		// test status in trash
+		// Status in trash
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH);
 		queryDefinition.setUserId(_USER_ID);
@@ -406,7 +406,7 @@ public class JournalArticleFinderTest {
 			_group.getGroupId(), Collections.<Long>emptyList(),
 			JournalArticleConstants.CLASSNAME_ID_DEFAULT, queryDefinition, 1);
 
-		// test status not in trash
+		// Status not in trash
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH, true);
 		queryDefinition.setUserId(_USER_ID);
