@@ -2956,6 +2956,183 @@ ${marketplace.portlet.properties}</echo>
 		</if>
 	</target>
 
+	<target name="prepare-extraapps-plugins">
+		<fail message="Please set the property ${jenkins.shared.user.content.dir}." unless="jenkins.shared.user.content.dir" />
+		<fail message="Please set the property ${test.build.extraapps.zip.url}." unless="test.build.extraapps.zip.url" />
+		<fail message="Please set the property ${top.level.build.number}." unless="top.level.build.number" />
+		<fail message="Please set the property ${top.level.job.name}." unless="top.level.job.name" />
+
+		<mirrors-get dest="extraapps.zip" src="${test.build.extraapps.zip.url}" />
+
+		<move file="extraapps.zip" todir="${jenkins.shared.user.content.dir}/jobs/${top.level.job.name}/builds/${top.level.build.number}/downloads" />
+	</target>
+
+	<target name="prepare-lcs-gateway-bundle">
+		<ant antfile="build-dist.xml" target="unzip-tomcat" inheritAll="false">
+			<property name="app.server.parent.dir" value="${app.server.parent.dir}/gateway" />
+		</ant>
+
+		<replaceregexp
+			file="${app.server.parent.dir}/gateway/tomcat-${app.server.tomcat.version}/conf/server.xml"
+			flags="g"
+			match="=&quot;8(\d\d\d)&quot;"
+			replace="=&quot;7\1&quot;"
+		/>
+
+		<copy
+			file="${project.dir}/lib/portal/log4j.jar"
+			tofile="${app.server.parent.dir}/gateway/tomcat-${app.server.tomcat.version}/lib/log4j.jar"
+		/>
+
+		<copy
+			file="${lfrsite-lcs.dir}/jenkins/development/gateway/plugins/webs/osb-lcs-gateway-web/docroot/WEB-INF/src/gateway-ext.properties"
+			tofile="${lp.plugins.dir}/webs/osb-lcs-gateway-web/docroot/WEB-INF/src/gateway-ext.properties"
+		/>
+
+		<delete dir="${lp.plugins.dir}/dist" failonerror="false" />
+
+		<property file="${lfrsite-lcs.dir}/jenkins/build.development.properties" />
+
+		<ant dir="${lp.plugins.dir}" target="clean" inheritAll="false" />
+
+		<ant dir="${lp.plugins.dir}" target="war" >
+			<property name="plugins.includes" value="${plugins.includes.gateway}" />
+		</ant>
+
+		<copy todir="${app.server.parent.dir}/gateway/tomcat-${app.server.tomcat.version}/webapps">
+			<fileset dir="${lp.plugins.dir}/dist" />
+		</copy>
+	</target>
+
+	<target name="prepare-lcs-portal-bundle">
+		<antcall target="prepare-portal-ext-properties" />
+
+		<antcall target="rebuild-database" inheritAll="false" />
+
+		<loadfile property="lcs.portal.bundle.properties" srcFile="${lfrsite-lcs.dir}/jenkins/development/portal/artifacts/liferay/portal-ext.properties" />
+
+		<echo file="${app.server.classes.portal.dir}/portal-ext.properties" append="true">
+
+${lcs.portal.bundle.properties}</echo>
+
+		<copy
+			file="${lfrsite-lcs.dir}/jenkins/development/portal/artifacts/liferay/portal-log4j-ext.xml"
+			tofile="${app.server.classes.global.dir}/portal-log4j-ext.xml"
+		/>
+
+		<replace file="${app.server.bin.dir}/setenv${file.suffix.bat}">
+			<replacetoken><![CDATA[-Djava.net.preferIPv4Stack=true]]></replacetoken>
+			<replacevalue><![CDATA[-Djava.net.preferIPv4Stack=true -Dportal:ldap.auth.search.filter=\"(&(mail=@email_address@)(member=cn=Liferay\5C, Inc.,ou=Organizations,ou=liferay.com,o=Liferay))\" -Dportal:ldap.import.user.search.filter=\"(&(objectClass=inetOrgPerson)(member=cn=Liferay\5C, Inc.,ou=Organizations,ou=liferay.com,o=Liferay))\"]]></replacevalue>
+		</replace>
+
+		<copy
+			file="${lfrsite-lcs.dir}/jenkins/development/portal/plugins/portlets/lcs-portlet/docroot/WEB-INF/src/META-INF/portal-log4j.xml"
+			tofile="${lp.plugins.dir}/portlets/lcs-portlet/docroot/WEB-INF/src/META-INF/portal-log4j.xml"
+		/>
+
+		<copy
+			file="${lfrsite-lcs.dir}/jenkins/development/portal/plugins/portlets/lcs-portlet/docroot/WEB-INF/src/portlet-ext.properties"
+			tofile="${lp.plugins.dir}/portlets/lcs-portlet/docroot/WEB-INF/src/portlet-ext.properties"
+		/>
+
+		<copy
+			file="${lfrsite-lcs.dir}/jenkins/development/portal/plugins/portlets/osb-lcs-portlet/docroot/WEB-INF/src/META-INF/portal-log4j.xml"
+			tofile="${lp.plugins.dir}/portlets/osb-lcs-portlet/docroot/WEB-INF/src/META-INF/portal-log4j.xml"
+		/>
+
+		<copy
+			file="${lfrsite-lcs.dir}/jenkins/development/portal/plugins/portlets/osb-lcs-portlet/docroot/WEB-INF/src/portlet-ext.properties"
+			tofile="${lp.plugins.dir}/portlets/osb-lcs-portlet/docroot/WEB-INF/src/portlet-ext.properties"
+		/>
+
+		<copy
+			file="${lfrsite-lcs.dir}/jenkins/development/portal/plugins/webs/file-repository-web/docroot/WEB-INF/web.xml"
+			tofile="${lp.plugins.dir}/webs/file-repository-web/docroot/WEB-INF/web.xml"
+		/>
+
+		<property file="${lfrsite-lcs.dir}/jenkins/build.development.properties" />
+
+		<ant dir="${lp.plugins.dir}" target="clean" />
+
+		<ant antfile="build-test-plugins.xml" target="deploy-simple-server-plugins">
+			<property name="plugins.includes" value="${plugins.includes.portal}" />
+		</ant>
+	</target>
+
+	<target name="prepare-lcs-portlet-bundle">
+		<chmod perm="a+x">
+			<fileset dir="${app.server.parent.dir}/patching-tool">
+				<include name="*.sh" />
+			</fileset>
+		</chmod>
+
+		<execute dir="${app.server.parent.dir}/patching-tool">
+			patching-tool${file.suffix.bat} auto-discovery
+			patching-tool${file.suffix.bat} setup
+		</execute>
+
+		<replace file="${app.server.dir}/bin/setenv${file.suffix.bat}">
+			<replacetoken><![CDATA[-XX:MaxPermSize=256m]]></replacetoken>
+			<replacevalue><![CDATA[-XX:MaxPermSize=256m -javaagent:../../patching-tool/lib/patching-tool-agent.jar]]></replacevalue>
+		</replace>
+
+		<echo file="${lp.plugins.dir}/portlets/lcs-portlet/docroot/WEB-INF/src/portlet-ext.properties">#QA AWS
+
+osb.lcs.gateway.web.host.name=${osb.lcs.gateway.web.host.name}
+osb.lcs.gateway.web.host.port=${osb.lcs.gateway.web.host.port}
+
+osb.lcs.portlet.host.name=${osb.lcs.portlet.host.name}
+osb.lcs.portlet.host.port=${osb.lcs.portlet.host.port}
+
+osb.lcs.portlet.oauth.consumer.key=${osb.lcs.portlet.oauth.consumer.key}
+osb.lcs.portlet.oauth.consumer.secret=${osb.lcs.portlet.oauth.consumer.secret}</echo>
+
+		<property name="plugins.includes" value="lcs-portlet" />
+
+		<ant dir="${lp.plugins.dir}" target="clean" />
+
+		<ant dir="${lp.plugins.dir}" target="compile" />
+
+		<ant antfile="build-test-plugins.xml" target="deploy-simple-server-plugins" />
+	</target>
+
+	<target name="prepare-lcs-processor-bundle">
+		<ant antfile="build-dist.xml" target="unzip-tomcat" inheritAll="false">
+			<property name="app.server.parent.dir" value="${app.server.parent.dir}/processor" />
+		</ant>
+
+		<replaceregexp
+			file="${app.server.parent.dir}/processor/tomcat-${app.server.tomcat.version}/conf/server.xml"
+			flags="g"
+			match="=&quot;8(\d\d\d)&quot;"
+			replace="=&quot;9\1&quot;"
+		/>
+
+		<copy
+			file="${project.dir}/lib/portal/log4j.jar"
+			tofile="${app.server.parent.dir}/processor/tomcat-${app.server.tomcat.version}/lib/log4j.jar"
+		/>
+
+		<copy
+			file="${lfrsite-lcs.dir}/jenkins/development/processor/plugins/webs/osb-lcs-processor-web/docroot/WEB-INF/src/processor-ext.properties"
+			tofile="${lp.plugins.dir}/webs/osb-lcs-processor-web/docroot/WEB-INF/src/processor-ext.properties"
+		/>
+
+		<delete dir="${lp.plugins.dir}/dist" failonerror="false" />
+
+		<property file="${lfrsite-lcs.dir}/jenkins/build.development.properties" />
+
+		<ant dir="${lp.plugins.dir}" target="clean" inheritAll="false" />
+
+		<ant dir="${lp.plugins.dir}" target="war">
+			<property name="plugins.includes" value="${plugins.includes.processor}" />
+		</ant>
+
+		<copy todir="${app.server.parent.dir}/processor/tomcat-${app.server.tomcat.version}/webapps">
+			<fileset dir="${lp.plugins.dir}/dist" />
+		</copy>
+	</target>
+
 	<target name="prepare-portal-ext-properties">
 		<prepare-fix-pack-bundle />
 
@@ -3477,183 +3654,6 @@ hot.deploy.dependency.management.enabled=false</echo>
 				/>
 			</else>
 		</if>
-	</target>
-
-	<target name="prepare-extraapps-plugins">
-		<fail message="Please set the property ${jenkins.shared.user.content.dir}." unless="jenkins.shared.user.content.dir" />
-		<fail message="Please set the property ${test.build.extraapps.zip.url}." unless="test.build.extraapps.zip.url" />
-		<fail message="Please set the property ${top.level.build.number}." unless="top.level.build.number" />
-		<fail message="Please set the property ${top.level.job.name}." unless="top.level.job.name" />
-
-		<mirrors-get dest="extraapps.zip" src="${test.build.extraapps.zip.url}" />
-
-		<move file="extraapps.zip" todir="${jenkins.shared.user.content.dir}/jobs/${top.level.job.name}/builds/${top.level.build.number}/downloads" />
-	</target>
-
-	<target name="prepare-lcs-gateway-bundle">
-		<ant antfile="build-dist.xml" target="unzip-tomcat" inheritAll="false">
-			<property name="app.server.parent.dir" value="${app.server.parent.dir}/gateway" />
-		</ant>
-
-		<replaceregexp
-			file="${app.server.parent.dir}/gateway/tomcat-${app.server.tomcat.version}/conf/server.xml"
-			flags="g"
-			match="=&quot;8(\d\d\d)&quot;"
-			replace="=&quot;7\1&quot;"
-		/>
-
-		<copy
-			file="${project.dir}/lib/portal/log4j.jar"
-			tofile="${app.server.parent.dir}/gateway/tomcat-${app.server.tomcat.version}/lib/log4j.jar"
-		/>
-
-		<copy
-			file="${lfrsite-lcs.dir}/jenkins/development/gateway/plugins/webs/osb-lcs-gateway-web/docroot/WEB-INF/src/gateway-ext.properties"
-			tofile="${lp.plugins.dir}/webs/osb-lcs-gateway-web/docroot/WEB-INF/src/gateway-ext.properties"
-		/>
-
-		<delete dir="${lp.plugins.dir}/dist" failonerror="false" />
-
-		<property file="${lfrsite-lcs.dir}/jenkins/build.development.properties" />
-
-		<ant dir="${lp.plugins.dir}" target="clean" inheritAll="false" />
-
-		<ant dir="${lp.plugins.dir}" target="war" >
-			<property name="plugins.includes" value="${plugins.includes.gateway}" />
-		</ant>
-
-		<copy todir="${app.server.parent.dir}/gateway/tomcat-${app.server.tomcat.version}/webapps">
-			<fileset dir="${lp.plugins.dir}/dist" />
-		</copy>
-	</target>
-
-	<target name="prepare-lcs-portal-bundle">
-		<antcall target="prepare-portal-ext-properties" />
-
-		<antcall target="rebuild-database" inheritAll="false" />
-
-		<loadfile property="lcs.portal.bundle.properties" srcFile="${lfrsite-lcs.dir}/jenkins/development/portal/artifacts/liferay/portal-ext.properties" />
-
-		<echo file="${app.server.classes.portal.dir}/portal-ext.properties" append="true">
-
-${lcs.portal.bundle.properties}</echo>
-
-		<copy
-			file="${lfrsite-lcs.dir}/jenkins/development/portal/artifacts/liferay/portal-log4j-ext.xml"
-			tofile="${app.server.classes.global.dir}/portal-log4j-ext.xml"
-		/>
-
-		<replace file="${app.server.bin.dir}/setenv${file.suffix.bat}">
-			<replacetoken><![CDATA[-Djava.net.preferIPv4Stack=true]]></replacetoken>
-			<replacevalue><![CDATA[-Djava.net.preferIPv4Stack=true -Dportal:ldap.auth.search.filter=\"(&(mail=@email_address@)(member=cn=Liferay\5C, Inc.,ou=Organizations,ou=liferay.com,o=Liferay))\" -Dportal:ldap.import.user.search.filter=\"(&(objectClass=inetOrgPerson)(member=cn=Liferay\5C, Inc.,ou=Organizations,ou=liferay.com,o=Liferay))\"]]></replacevalue>
-		</replace>
-
-		<copy
-			file="${lfrsite-lcs.dir}/jenkins/development/portal/plugins/portlets/lcs-portlet/docroot/WEB-INF/src/META-INF/portal-log4j.xml"
-			tofile="${lp.plugins.dir}/portlets/lcs-portlet/docroot/WEB-INF/src/META-INF/portal-log4j.xml"
-		/>
-
-		<copy
-			file="${lfrsite-lcs.dir}/jenkins/development/portal/plugins/portlets/lcs-portlet/docroot/WEB-INF/src/portlet-ext.properties"
-			tofile="${lp.plugins.dir}/portlets/lcs-portlet/docroot/WEB-INF/src/portlet-ext.properties"
-		/>
-
-		<copy
-			file="${lfrsite-lcs.dir}/jenkins/development/portal/plugins/portlets/osb-lcs-portlet/docroot/WEB-INF/src/META-INF/portal-log4j.xml"
-			tofile="${lp.plugins.dir}/portlets/osb-lcs-portlet/docroot/WEB-INF/src/META-INF/portal-log4j.xml"
-		/>
-
-		<copy
-			file="${lfrsite-lcs.dir}/jenkins/development/portal/plugins/portlets/osb-lcs-portlet/docroot/WEB-INF/src/portlet-ext.properties"
-			tofile="${lp.plugins.dir}/portlets/osb-lcs-portlet/docroot/WEB-INF/src/portlet-ext.properties"
-		/>
-
-		<copy
-			file="${lfrsite-lcs.dir}/jenkins/development/portal/plugins/webs/file-repository-web/docroot/WEB-INF/web.xml"
-			tofile="${lp.plugins.dir}/webs/file-repository-web/docroot/WEB-INF/web.xml"
-		/>
-
-		<property file="${lfrsite-lcs.dir}/jenkins/build.development.properties" />
-
-		<ant dir="${lp.plugins.dir}" target="clean" />
-
-		<ant antfile="build-test-plugins.xml" target="deploy-simple-server-plugins">
-			<property name="plugins.includes" value="${plugins.includes.portal}" />
-		</ant>
-	</target>
-
-	<target name="prepare-lcs-portlet-bundle">
-		<chmod perm="a+x">
-			<fileset dir="${app.server.parent.dir}/patching-tool">
-				<include name="*.sh" />
-			</fileset>
-		</chmod>
-
-		<execute dir="${app.server.parent.dir}/patching-tool">
-			patching-tool${file.suffix.bat} auto-discovery
-			patching-tool${file.suffix.bat} setup
-		</execute>
-
-		<replace file="${app.server.dir}/bin/setenv${file.suffix.bat}">
-			<replacetoken><![CDATA[-XX:MaxPermSize=256m]]></replacetoken>
-			<replacevalue><![CDATA[-XX:MaxPermSize=256m -javaagent:../../patching-tool/lib/patching-tool-agent.jar]]></replacevalue>
-		</replace>
-
-		<echo file="${lp.plugins.dir}/portlets/lcs-portlet/docroot/WEB-INF/src/portlet-ext.properties">#QA AWS
-
-osb.lcs.gateway.web.host.name=${osb.lcs.gateway.web.host.name}
-osb.lcs.gateway.web.host.port=${osb.lcs.gateway.web.host.port}
-
-osb.lcs.portlet.host.name=${osb.lcs.portlet.host.name}
-osb.lcs.portlet.host.port=${osb.lcs.portlet.host.port}
-
-osb.lcs.portlet.oauth.consumer.key=${osb.lcs.portlet.oauth.consumer.key}
-osb.lcs.portlet.oauth.consumer.secret=${osb.lcs.portlet.oauth.consumer.secret}</echo>
-
-		<property name="plugins.includes" value="lcs-portlet" />
-
-		<ant dir="${lp.plugins.dir}" target="clean" />
-
-		<ant dir="${lp.plugins.dir}" target="compile" />
-
-		<ant antfile="build-test-plugins.xml" target="deploy-simple-server-plugins" />
-	</target>
-
-	<target name="prepare-lcs-processor-bundle">
-		<ant antfile="build-dist.xml" target="unzip-tomcat" inheritAll="false">
-			<property name="app.server.parent.dir" value="${app.server.parent.dir}/processor" />
-		</ant>
-
-		<replaceregexp
-			file="${app.server.parent.dir}/processor/tomcat-${app.server.tomcat.version}/conf/server.xml"
-			flags="g"
-			match="=&quot;8(\d\d\d)&quot;"
-			replace="=&quot;9\1&quot;"
-		/>
-
-		<copy
-			file="${project.dir}/lib/portal/log4j.jar"
-			tofile="${app.server.parent.dir}/processor/tomcat-${app.server.tomcat.version}/lib/log4j.jar"
-		/>
-
-		<copy
-			file="${lfrsite-lcs.dir}/jenkins/development/processor/plugins/webs/osb-lcs-processor-web/docroot/WEB-INF/src/processor-ext.properties"
-			tofile="${lp.plugins.dir}/webs/osb-lcs-processor-web/docroot/WEB-INF/src/processor-ext.properties"
-		/>
-
-		<delete dir="${lp.plugins.dir}/dist" failonerror="false" />
-
-		<property file="${lfrsite-lcs.dir}/jenkins/build.development.properties" />
-
-		<ant dir="${lp.plugins.dir}" target="clean" inheritAll="false" />
-
-		<ant dir="${lp.plugins.dir}" target="war">
-			<property name="plugins.includes" value="${plugins.includes.processor}" />
-		</ant>
-
-		<copy todir="${app.server.parent.dir}/processor/tomcat-${app.server.tomcat.version}/webapps">
-			<fileset dir="${lp.plugins.dir}/dist" />
-		</copy>
 	</target>
 
 	<target name="prepare-portal-properties">
