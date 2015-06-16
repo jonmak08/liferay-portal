@@ -1,4 +1,41 @@
 (function() {
+	var commandObject = {
+		exec: function(editor) {
+			editor.focus();
+			editor.fire('saveSnapshot');
+
+			var elementPath = new CKEDITOR.dom.elementPath(editor.getSelection().getStartElement());
+
+			var elementAction = 'apply';
+
+			var preElement = new CKEDITOR.style(
+				{
+					element: 'pre'
+				}
+			);
+
+			preElement._.enterMode = editor.config.enterMode;
+
+			if (preElement.checkActive(elementPath)) {
+				elementAction = 'remove';
+			}
+
+			preElement[elementAction](editor.document);
+
+			setTimeout(
+				function() {
+					editor.fire('saveSnapshot');
+				},
+				0
+			);
+		},
+
+		context: 'code',
+
+		allowedContent: 'code',
+		requiredContent: 'code'
+	};
+
 	CKEDITOR.plugins.add(
 	'bbcode',
 		{
@@ -21,38 +58,12 @@
 					}
 				);
 
-				var preElement = new CKEDITOR.style(
-					{
-						element: 'pre'
-					}
-				);
-
-				preElement._.enterMode = editor.config.enterMode;
+				editor.addCommand('code', commandObject);
 
 				editor.ui.addButton(
 					'Code',
 					{
-						click : function() {
-							editor.focus();
-							editor.fire('saveSnapshot');
-
-							var elementPath = new CKEDITOR.dom.elementPath(editor.getSelection().getStartElement());
-
-							var elementAction = 'apply';
-
-							if (preElement.checkActive(elementPath)) {
-								elementAction = 'remove';
-							}
-
-							preElement[elementAction](editor.document);
-
-							setTimeout(
-								function() {
-									editor.fire('saveSnapshot');
-								},
-								0
-							);
-						},
+						command: 'code',
 						icon: editor.config.imagesPath + 'code.png',
 						label: Liferay.Language.get('code')
 					}
