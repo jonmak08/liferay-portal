@@ -93,7 +93,7 @@ public class LayoutAction extends Action {
 				metaInfoCacheServletResponse);
 		}
 		finally {
-			metaInfoCacheServletResponse.finishResponse();
+			metaInfoCacheServletResponse.finishResponse(false);
 		}
 	}
 
