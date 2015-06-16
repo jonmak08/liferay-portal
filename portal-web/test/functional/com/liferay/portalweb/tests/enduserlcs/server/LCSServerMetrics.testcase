@@ -215,6 +215,10 @@
 	</command>
 
 	<command name="ViewApplicationPagesSorted" priority="3">
+		<execute macro="LCSServerMetrics#generateApplicationMetrics">
+			<var name="projectName" value="Liferay QA" />
+		</execute>
+
 		<execute macro="LCSServerNavigator#gotoServerMetrics">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="metricsTabName" value="Application" />
