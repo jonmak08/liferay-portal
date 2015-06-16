@@ -30,6 +30,7 @@ import com.liferay.portal.kernel.lar.DefaultConfigurationPortletDataHandler;
 import com.liferay.portal.kernel.lar.ExportImportHelper;
 import com.liferay.portal.kernel.lar.ExportImportHelperUtil;
 import com.liferay.portal.kernel.lar.ExportImportPathUtil;
+import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.lar.ManifestSummary;
 import com.liferay.portal.kernel.lar.MissingReference;
 import com.liferay.portal.kernel.lar.MissingReferences;
@@ -64,6 +65,7 @@ import com.liferay.portal.kernel.util.StreamUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.SystemProperties;
 import com.liferay.portal.kernel.util.TempFileUtil;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.kernel.util.TimeZoneUtil;
@@ -74,6 +76,8 @@ import com.liferay.portal.kernel.xml.ElementHandler;
 import com.liferay.portal.kernel.xml.ElementProcessor;
 import com.liferay.portal.kernel.zip.ZipReader;
 import com.liferay.portal.kernel.zip.ZipReaderFactoryUtil;
+import com.liferay.portal.kernel.zip.ZipWriter;
+import com.liferay.portal.kernel.zip.ZipWriterFactoryUtil;
 import com.liferay.portal.lar.backgroundtask.StagingIndexingBackgroundTaskExecutor;
 import com.liferay.portal.model.Company;
 import com.liferay.portal.model.Group;
@@ -398,6 +402,18 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 	}
 
 	@Override
+	public ZipWriter getLayoutSetZipWriter(long groupId) {
+		StringBundler sb = new StringBundler(4);
+
+		sb.append(groupId);
+		sb.append(StringPool.DASH);
+		sb.append(Time.getShortTimestamp());
+		sb.append(".lar");
+
+		return getZipWriter(sb.toString());
+	}
+
+	@Override
 	public ManifestSummary getManifestSummary(
 			long userId, long groupId, Map<String, String[]> parameterMap,
 			File file)
@@ -535,6 +551,18 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 		actionableDynamicQuery.setCompanyId(portletDataContext.getCompanyId());
 
 		return actionableDynamicQuery.performCount();
+	}
+
+	@Override
+	public ZipWriter getPortletZipWriter(String portletId) {
+		StringBundler sb = new StringBundler(4);
+
+		sb.append(portletId);
+		sb.append(StringPool.DASH);
+		sb.append(Time.getShortTimestamp());
+		sb.append(".lar");
+
+		return getZipWriter(sb.toString());
 	}
 
 	@Override
@@ -1899,6 +1927,21 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 		}
 
 		return new CurrentUserIdStrategy(user);
+	}
+
+	protected ZipWriter getZipWriter(String fileName) {
+		if (!ExportImportThreadLocal.isStagingInProcess() ||
+			(PropsValues.STAGING_DELETE_TEMP_LAR_ON_FAILURE &&
+			 PropsValues.STAGING_DELETE_TEMP_LAR_ON_SUCCESS)) {
+
+			return ZipWriterFactoryUtil.getZipWriter();
+		}
+
+		String path =
+			SystemProperties.get(SystemProperties.TMP_DIR) + StringPool.SLASH +
+				fileName;
+
+		return ZipWriterFactoryUtil.getZipWriter(new File(path));
 	}
 
 	protected boolean populateLayoutsJSON(
