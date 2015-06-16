@@ -40,6 +40,7 @@ import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.ResourcePermissionTestUtil;
 import com.liferay.portal.util.ResourceTypePermissionTestUtil;
 import com.liferay.portal.util.TestPropsValues;
+import com.liferay.portal.util.comparator.GroupNameComparator;
 import com.liferay.portlet.bookmarks.model.BookmarksFolder;
 
 import java.util.ArrayList;
