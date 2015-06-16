@@ -2265,6 +2265,20 @@ go]]></replacevalue>
 		</if>
 	</target>
 
+	<target name="deploy-license-xml">
+		<if>
+			<matches pattern="http" string="${test.build.license.xml.zip.url}" />
+			<then>
+				<mkdir dir="${liferay.home}/deploy" />
+
+				<mirrors-get
+					dest="${liferay.home}/deploy/license.xml"
+					src="${test.build.license.xml.zip.url}"
+				/>
+			</then>
+		</if>
+	</target>
+
 	<target name="deploy-required-plugins">
 		<ant antfile="build-test-plugins.xml" target="deploy-simple-server-plugins">
 			<property name="plugin.types" value="portlets" />
@@ -2799,20 +2813,6 @@ ${marketplace.portlet.properties}</echo>
 			file="${changelog.dir}/git-build-log.html"
 			todir="${env.JENKINS_HOME}/userContent/jobs/${env.JOB_NAME}/builds/${env.BUILD_NUMBER}"
 		/>
-	</target>
-
-	<target name="deploy-license-xml">
-		<if>
-			<matches pattern="http" string="${test.build.license.xml.zip.url}" />
-			<then>
-				<mkdir dir="${liferay.home}/deploy" />
-
-				<mirrors-get
-					dest="${liferay.home}/deploy/license.xml"
-					src="${test.build.license.xml.zip.url}"
-				/>
-			</then>
-		</if>
 	</target>
 
 	<target name="kill-spi">
