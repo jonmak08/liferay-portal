@@ -321,6 +321,7 @@ public class GroupFinderImpl
 		}
 	}
 
+	@Deprecated
 	@Override
 	public List<Group> findByLayouts(
 			long companyId, long parentGroupId, boolean site, int start,
