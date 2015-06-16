@@ -30,9 +30,7 @@
 							<execute function="Type" locator1="LRDCOMLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
 							<execute function="Type" locator1="LRDCOMLogin#PASSWORD_FIELD" value1="${userEmailPassword}" />
 
-							<execute function="AssertClickNoError" locator1="LRDCOMLogin#SIGN_IN_BUTTON" value1="Sign In" />
-
-							<execute function="Confirm#assertPartialConfirmation" value1="Are you sure you want to continue sending this information?" />
+							<execute function="AssertClickNoError" locator1="PGLogin#SIGN_IN_BUTTON" value1="Sign In" />
 						</then>
 					</if>
 
@@ -61,6 +59,8 @@
 				<execute function="AssertTextEquals" locator1="LCSPortlet#CONNECTION_STATUS" value1="Connected" />
 			</then>
 			<else>
+				<execute function="Select" locator1="LCSPortletRegistration#PROJECT_SELECT" value1="${projectName}" />
+
 				<if>
 					<equals arg1="${addEnvironment}" arg2="true" />
 					<then>

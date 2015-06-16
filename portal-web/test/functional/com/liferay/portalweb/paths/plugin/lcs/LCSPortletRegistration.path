@@ -25,7 +25,7 @@
 </tr>
 <tr>
 	<td>ENVIRONMENT_INPUT_WRAPPER</td>
-	<td>//div[@class='lcs-environment-input-wrapper']</td>
+	<td>//div[contains(@class,'lcs-environment-input-wrapper')]</td>
 	<td></td>
 </tr>
 <tr>

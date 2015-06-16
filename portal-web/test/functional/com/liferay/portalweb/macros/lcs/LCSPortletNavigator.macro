@@ -5,7 +5,7 @@
 		<if>
 			<equals arg1="${loginRequired}" arg2="true" />
 			<then>
-				<execute function="SelectWindow" locator1="Liferay - Enterprise open source portal and collaboration software | Liferay" />
+				<execute function="SelectWindow" locator1="Liferay - Welcome" />
 
 				<execute function="Type" locator1="LRDCOMLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
 				<execute function="Type" locator1="LRDCOMLogin#PASSWORD_FIELD" value1="${userEmailPassword}" />
@@ -26,7 +26,7 @@
 		<if>
 			<equals arg1="${loginRequired}" arg2="true" />
 			<then>
-				<execute function="SelectWindow" locator1="Liferay - Enterprise open source portal and collaboration software | Liferay" />
+				<execute function="SelectWindow" locator1="Liferay - Welcome" />
 
 				<execute function="Type" locator1="LRDCOMLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
 				<execute function="Type" locator1="LRDCOMLogin#PASSWORD_FIELD" value1="${userEmailPassword}" />
@@ -47,7 +47,7 @@
 		<if>
 			<equals arg1="${loginRequired}" arg2="true" />
 			<then>
-				<execute function="SelectWindow" locator1="Liferay - Enterprise open source portal and collaboration software | Liferay" />
+				<execute function="SelectWindow" locator1="Liferay - Welcome" />
 
 				<execute function="Type" locator1="LRDCOMLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
 				<execute function="Type" locator1="LRDCOMLogin#PASSWORD_FIELD" value1="${userEmailPassword}" />
