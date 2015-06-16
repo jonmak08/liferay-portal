@@ -685,7 +685,26 @@ if (!selectableTree) {
 				A.io.request(
 					themeDisplay.getPathMain() + '/portal/session_tree_js_click',
 					{
-						data: data
+						data: data,
+						on: {
+							success: function() {
+								try{
+										var checkedNodes = JSON.parse(this.get('responseData'));
+										var currentCheckedNodes = [];
+
+									if(checkedNodes && checkedNodes.length > 0 ){
+											for(k in checkedNodes){
+												currentCheckedNodes.push(checkedNodes[k]);
+										}
+									}
+
+									TreeUtil.CHECKED_NODES = currentCheckedNodes;
+								}catch(e){
+
+								}
+
+								}
+							}
 					}
 				);
 			},
