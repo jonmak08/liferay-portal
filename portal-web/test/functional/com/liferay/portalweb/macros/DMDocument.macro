@@ -909,6 +909,7 @@
 
 	<command name="removeDocumentViewPermissionsPG">
 		<var name="key_dmDocumentTitle" value="${dmDocumentTitle}" />
+		<var method="StringUtil#replace('${roleName}', ' ', '-')" name="key_roleName" />
 		<var method="StringUtil#lowerCase('${key_roleName}')" name="key_roleName" />
 
 		<execute function="Check" locator1="PGDocumentsandmedia#ENTRY_ICON_DOCUMENT_CHECKBOX" />
@@ -1245,6 +1246,7 @@
 
 	<command name="viewDocumentViewPermissionsPG">
 		<var name="key_dmDocumentTitle" value="${dmDocumentTitle}" />
+		<var method="StringUtil#replace('${roleName}', ' ', '-')" name="key_roleName" />
 		<var method="StringUtil#lowerCase('${key_roleName}')" name="key_roleName" />
 
 		<execute function="Check" locator1="PGDocumentsandmedia#ENTRY_ICON_DOCUMENT_CHECKBOX" />
@@ -1327,6 +1329,7 @@
 
 	<command name="viewFolderViewPermissionsPG">
 		<var name="key_dmDocumentTitle" value="${dmDocumentTitle}" />
+		<var method="StringUtil#replace('${roleName}', ' ', '-')" name="key_roleName" />
 		<var method="StringUtil#lowerCase('${key_roleName}')" name="key_roleName" />
 
 		<execute function="Check" locator1="PGDocumentsandmedia#ENTRY_ICON_DOCUMENT_CHECKBOX" />

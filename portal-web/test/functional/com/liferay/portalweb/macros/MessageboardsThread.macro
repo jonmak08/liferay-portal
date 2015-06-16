@@ -482,6 +482,7 @@
 	</command>
 
 	<command name="removeViewPermissionsPG">
+		<var method="StringUtil#replace('${roleName}', ' ', '-')" name="key_roleName" />
 		<var method="StringUtil#lowerCase('${key_roleName}')" name="key_roleName" />
 		<var name="key_threadSubject" value="${threadSubject}" />
 

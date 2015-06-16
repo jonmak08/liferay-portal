@@ -1027,6 +1027,7 @@
 	</command>
 
 	<command name="removeViewPermissionPG">
+		<var method="StringUtil#replace('${roleName}', ' ', '-')" name="key_roleName" />
 		<var method="StringUtil#lowerCase('${key_roleName}')" name="key_roleName" />
 
 		<execute function="AssertClick" locator1="PGWiki#NAVIGATION_ALL_PAGES" value1="All Pages" />
