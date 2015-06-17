@@ -1016,6 +1016,12 @@
 		<execute function="AssertTextEquals" locator1="PGBlogsEntry#ENTRY_CONTENT" value1="${entryContent}" />
 	</command>
 
+	<command name="viewNoCP">
+		<var name="key_entryTitle" value="${entryTitle}" />
+
+		<execute function="AssertElementNotPresent" locator1="CPBlogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
+	</command>
+
 	<command name="viewNoEditLinkPG">
 		<var name="key_entryTitle" value="${entryTitle}" />
 
