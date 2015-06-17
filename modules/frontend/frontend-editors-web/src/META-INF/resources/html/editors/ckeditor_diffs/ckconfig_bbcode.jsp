@@ -139,6 +139,8 @@ response.setContentType(ContentTypes.TEXT_JAVASCRIPT);
 
 	config.fontSize_sizes = '10/10px;12/12px;14/14px;16/16px;18/18px;24/24px;32/32px;48/48px';
 
+	config.fontSize_defaultLabel = '14';
+
 	config.format_tags = 'p;pre';
 
 	config.imagesPath = '<%= HtmlUtil.escapeJS(imagesPath) %>/message_boards/';
