@@ -190,7 +190,7 @@
 		<execute function="Type#typeFrameWaitForCKEditor" locator1="PGWikiAddpage#BODY_FIELD" value1="${wikiChildPageContent}" />
 		<execute function="AssertClick" locator1="PGWikiAddpage#PUBLISH_BUTTON" value1="Publish" />
 		<execute function="AssertTextEquals" locator1="PGWikiAddpage#PORTLET_ERROR_MESSAGE" value1="Your request failed to complete." />
-		<execute function="AssertTextEquals" locator1="PGWikiAddpage#TITLE_ERROR_MESSAGE" value1="Please enter a valid title." />\
+		<execute function="AssertTextEquals" locator1="PGWikiAddpage#TITLE_ERROR_MESSAGE" value1="Please enter a valid title." />
 		<execute function="AssertClick" locator1="PGWikiAddpage#NAVIGATION_FRONTPAGE" value1="FrontPage" />
 		<execute function="AssertClick" locator1="PGWikiAddpage#NAVIGATION_ALL_PAGES" value1="All Pages" />
 

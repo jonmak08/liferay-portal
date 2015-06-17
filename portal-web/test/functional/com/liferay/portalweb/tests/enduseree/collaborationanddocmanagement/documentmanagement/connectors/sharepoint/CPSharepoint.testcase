@@ -149,7 +149,7 @@
 
 		<execute macro="DMDocument#checkoutCP">
 			<var name="sharepointRepository" value="true" />
-		</execute>>
+		</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Documents and Media" />
