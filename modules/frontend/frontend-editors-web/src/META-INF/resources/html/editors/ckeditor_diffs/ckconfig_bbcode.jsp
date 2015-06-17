@@ -137,7 +137,7 @@ response.setContentType(ContentTypes.TEXT_JAVASCRIPT);
 
 	config.filebrowserUploadUrl = '';
 
-	config.fontSize_sizes = '10/10px;12/12px;16/16px;18/18px;24/24px;32/32px;48/48px';
+	config.fontSize_sizes = '10/10px;12/12px;14/14px;16/16px;18/18px;24/24px;32/32px;48/48px';
 
 	config.format_tags = 'p;pre';
 
