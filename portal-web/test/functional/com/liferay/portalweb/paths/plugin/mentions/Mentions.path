@@ -14,6 +14,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>MENTIONS_CHECKBOX_DISABLED</td>
+	<td>//input[contains(@id,'mentionsEnabledCheckbox') and contains(@class,'disabled')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>MENTIONS_HEADER</td>
 	<td>//h3[contains(.,'Mentions')]</td>
 	<td></td>
@@ -21,6 +26,11 @@
 <tr>
 	<td>MENTIONS_LABEL</td>
 	<td>//label[contains(.,'Enable Mentions')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MENTIONS_USER_DISPLAY_GENERIC</td>
+	<td>//div[contains(@class,'autocomplete-input-list')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -35,12 +45,17 @@
 </tr>
 <tr>
 	<td>MENTIONS_USER_FULL_NAME</td>
-	<td>//li[@data-text='${key_mentionsUserScreenName}']//span[@class='user-name' and contains (.,'${key_userFullName}')]</td>
+	<td>//li[@data-text='${key_mentionsUserScreenName}']//span[@class='user-name' and contains (.,'${key_mentionsUserFullName}')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>MENTIONS_USER_SCREEN_NAME</td>
 	<td>//li[@data-text='${key_mentionsUserScreenName}']//span[@class='user-details' and contains(.,'${key_mentionsUserScreenName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MENTIONS_USER_PROFILE_HEADER</td>
+	<td>//div[@id='heading']//span[contains(.,'${key_mentionsUserFullName}')]</td>
 	<td></td>
 </tr>
 <tr>

@@ -9,6 +9,11 @@
 </thead>
 <tbody>
 <tr>
+	<td>ERROR</td>
+	<td>//div[contains(@class,'alert') and (contains(@class,'alert-warning'))]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>SUCCESS</td>
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-success')]</td>
 	<td></td>
