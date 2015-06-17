@@ -145,7 +145,6 @@
 		</execute>
 
 		<execute macro="LCSPortlet#registerServer">
-			<var name="addEnvironment" value="true" />
 			<var name="environmentDescription" value="Environment 1 Description" />
 			<var name="environmentLocation" value="Environment 1 Location" />
 			<var name="environmentName" value="Environment 1 Name" />

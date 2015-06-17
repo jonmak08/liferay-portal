@@ -13,6 +13,12 @@
 		<execute function="AssertTextEquals" locator1="LCSPortletRegistration#ENVIRONMENT_NAME" value1="${environmentName}" />
 	</command>
 
+	<command name="addServer">
+		<execute function="Type" locator1="LCSPortletRegistration#SERVER_NAME_FIELD" value1="${serverName}" />
+		<execute function="Type" locator1="LCSPortletRegistration#SERVER_LOCATION_FIELD" value1="${serverLocation}" />
+		<execute function="Type" locator1="LCSPortletRegistration#SERVER_DESCRIPTION_FIELD" value1="${serverDescription}" />
+	</command>
+
 	<command name="authorizeLCS">
 		<if>
 			<condition function="IsElementPresent" locator1="LCSPortlet#PROJECT_HOME_LINK" value1="Project Home" />
@@ -40,6 +46,26 @@
 		</if>
 	</command>
 
+	<command name="completeRegistration">
+		<execute function="Click" locator1="LCSPortletRegistration#REGISTER_BUTTON" />
+
+		<if>
+			<equals arg1="${environmentNameIsDuplicate}" arg2="true" />
+			<then>
+				<execute function="AssertTextEquals" locator1="LCSPortletRegistration#ERROR_MESSAGE" value1="Please enter a unique environment name." />
+			</then>
+			<elseif>
+				<equals arg1="${serverNameIsDuplicate}" arg2="true" />
+				<then>
+					<execute function="AssertTextEquals" locator1="LCSPortletRegistration#ERROR_MESSAGE" value1="Please enter a unique server name." />
+				</then>
+			</elseif>
+			<else>
+				<execute function="AssertTextEquals" locator1="LCSPortlet#CONNECTION_STATUS" value1="Connected" />
+			</else>
+		</if>
+	</command>
+
 	<command name="connect">
 		<execute function="AssertClick" locator1="LCSPortlet#CONNECT_BUTTON" value1="Connect" />
 
@@ -59,39 +85,56 @@
 				<execute function="AssertTextEquals" locator1="LCSPortlet#CONNECTION_STATUS" value1="Connected" />
 			</then>
 			<else>
-				<execute function="Select" locator1="LCSPortletRegistration#PROJECT_SELECT" value1="${projectName}" />
+				<execute macro="LCSPortlet#selectProject">
+					<var name="projectName" value="${projectName}" />
+				</execute>
 
 				<if>
 					<equals arg1="${addEnvironment}" arg2="true" />
 					<then>
+						<execute macro="LCSPortlet#addEnvironment">
+							<var name="environmentDescription" value="${environmentDescription}" />
+							<var name="environmentLocation" value="${environmentLocation}" />
+							<var name="environmentName" value="${environmentName}" />
+						</execute>
+					</then>
+					<elseif>
+						<equals arg1="${addEnvironment}" arg2="false" />
+						<then>
+							<execute macro="LCSPortlet#selectEnvironment">
+								<var name="environmentName" value="${environmentName}" />
+							</execute>
+						</then>
+					</elseif>
+					<else>
 						<if>
 							<condition function="IsTextEqual" locator1="LCSPortletRegistration#ENVIRONMENT_INPUT_WRAPPER" value1="There are no environments created yet." />
 							<then>
-								<execute macro="LCSPortlet#addEnvironment" />
+								<execute macro="LCSPortlet#addEnvironment">
+									<var name="environmentDescription" value="${environmentDescription}" />
+									<var name="environmentLocation" value="${environmentLocation}" />
+									<var name="environmentName" value="${environmentName}" />
+								</execute>
 							</then>
 							<elseif>
 								<condition function="IsTextEqual#isPartialText" locator1="LCSPortletRegistration#ENVIRONMENT_INPUT_WRAPPER" value1="${environmentName}" />
 								<then>
-									<execute function="Select" locator1="LCSPortletRegistration#ENVIRONMENT_SELECT" value1="${environmentName}" />
+									<execute macro="LCSPortlet#selectEnvironment">
+										<var name="environmentName" value="${environmentName}" />
+									</execute>
 								</then>
 							</elseif>
-							<else>
-								<execute macro="LCSPortlet#addEnvironment" />
-							</else>
 						</if>
-					</then>
-					<else>
-						<execute function="Select" locator1="LCSPortletRegistration#ENVIRONMENT_SELECT" value1="${environmentName}" />
 					</else>
 				</if>
 
-				<execute function="Type" locator1="LCSPortletRegistration#SERVER_NAME_FIELD" value1="${serverName}" />
-				<execute function="Type" locator1="LCSPortletRegistration#SERVER_LOCATION_FIELD" value1="${serverLocation}" />
-				<execute function="Type" locator1="LCSPortletRegistration#SERVER_DESCRIPTION_FIELD" value1="${serverDescription}" />
+				<execute macro="LCSPortlet#addServer">
+					<var name="serverDescription" value="${serverDescription}" />
+					<var name="serverLocation" value="${serverLocation}" />
+					<var name="serverName" value="${serverName}" />
+				</execute>
 
-				<execute function="Click" locator1="LCSPortletRegistration#REGISTER_BUTTON" />
-
-				<execute function="AssertTextEquals" locator1="LCSPortlet#CONNECTION_STATUS" value1="Connected" />
+				<execute macro="LCSPortlet#completeRegistration" />
 			</else>
 		</if>
 	</command>
@@ -100,6 +143,14 @@
 		<execute function="AssertClick" locator1="LCSPortlet#RESET_CREDENTIALS_BUTTON" value1="Reset Credentials" />
 
 		<execute macro="LCSPortlet#viewBeforeAuthorization" />
+	</command>
+
+	<command name="selectEnvironment">
+		<execute function="Select" locator1="LCSPortletRegistration#ENVIRONMENT_SELECT" value1="${environmentName}" />
+	</command>
+
+	<command name="selectProject">
+		<execute function="Select" locator1="LCSPortletRegistration#PROJECT_SELECT" value1="${projectName}" />
 	</command>
 
 	<command name="viewBeforeAuthorization">
