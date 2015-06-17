@@ -3,6 +3,7 @@
 		<var name="key_myAccount" value="${myAccount}" />
 
 		<execute function="Click" locator1="Dockbar#USER_NAME" />
+
 		<execute function="AssertClick" locator1="Dockbar#USER_MY_ACCOUNT_LOCALIZED" value1="${myAccount}" />
 
 		<execute function="SelectFrame" locator1="Myaccount#MY_ACCOUNT_IFRAME" />
@@ -14,6 +15,7 @@
 		<var name="key_saveButton" value="${saveButton}" />
 
 		<execute function="AssertClick" locator1="Myaccount#SAVE_BUTTON_LOCALIZED" value1="${saveButton}" />
+
 		<execute function="AssertTextEquals" locator1="Myaccount#SUCCESS_MESSAGE" value1="${successMessage}" />
 
 		<execute function="SelectFrame" value1="relative=top" />
