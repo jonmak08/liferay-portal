@@ -31,3 +31,18 @@
 
 	<%@ include file="/html/portlet/dockbar/view_user_account.jspf" %>
 </aui:nav>
+
+<aui:script use="aui-base">
+	var docDropdown = A.all('.nav-account-controls > .dropdown');
+
+	docDropdown.each(
+		function(node) {
+			var childMenu = node.one('.dropdown-menu');
+			var menuWidth = node.get('offsetWidth');
+
+			if (childMenu) {
+				childMenu.setStyle('width', menuWidth);
+			}
+		}
+	);
+</aui:script>

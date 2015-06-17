@@ -260,6 +260,14 @@ h3 {
 			background-color: transparent;
 			float: right;
 
+			.admin-links {
+				min-width: 175px;
+			}
+
+			.my-sites, .user-avatar {
+				min-width: 160px;
+			}
+
 			@include justify-content(flex-end);
 
 			> li.open > .dropdown-toggle {
