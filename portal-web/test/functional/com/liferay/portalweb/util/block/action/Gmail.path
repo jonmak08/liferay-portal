@@ -254,6 +254,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>GMAIL_HTML_MODE_MESSAGE_BODY_LCS_INVITATION_LINK</td>
+	<td>//tr[contains(.,'Liferay Connected Services')]//td/div[@class='msg']/p/a</td>
+	<td></td>
+</tr>
+<tr>
 	<td>GMAIL_HTML_MODE_MESSAGE_BODY_LINK</td>
 	<td>//tr[contains(.,'${key_gmailAssetType}')]//td/div[@class='msg']/a[contains(.,'${key_gmailLinkName}')]</td>
 	<td></td>

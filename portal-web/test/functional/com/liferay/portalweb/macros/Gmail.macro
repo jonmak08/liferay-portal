@@ -125,6 +125,39 @@
 		</while>
 	</command>
 
+	<command name="viewLiferayConnectedServicesInvitationMail">
+		<var name="key_gmailAssetType" value="Liferay Connected Services" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="Gmail#GMAIL_HTML_MODE_MAIL_TABLE_USER_NAME" value1="Liferay Connected" />
+		<execute function="AssertClick#assertPartialTextClickAt" locator1="Gmail#GMAIL_HTML_MODE_MAIL_TABLE_MESSAGE_TITLE" value1="[LCS] Membership Invitation" />
+		<execute function="Pause" locator1="3000" />
+
+		<execute function="AssertTextEquals" locator1="Gmail#GMAIL_HTML_MODE_MESSAGE_TITLE" value1="[LCS] Membership Invitation" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="Gmail#GMAIL_HTML_MODE_MESSAGE_BODY_GREETING" value1="Dear Sir/Madam," />
+		<execute function="AssertTextEquals#assertPartialText" locator1="Gmail#GMAIL_HTML_MODE_MESSAGE_BODY" value1="${invitationSenderName} invited you to be part of the Liferay Connected Services project ${projectName}" />
+
+		<if>
+			<isset var="invitationMessage" />
+			<then>
+				<execute function="AssertTextEquals#assertPartialText" locator1="Gmail#GMAIL_HTML_MODE_MESSAGE_BODY" value1="${invitationMessage}" />
+			</then>
+		</if>
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="Gmail#GMAIL_HTML_MODE_MESSAGE_BODY" value1="Use the link below to accept this invitation and access the Liferay Connected Services site:" />
+		<execute function="AssertElementPresent" locator1="Gmail#GMAIL_HTML_MODE_MESSAGE_BODY_LCS_INVITATION_LINK" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="Gmail#GMAIL_HTML_MODE_MESSAGE_BODY_CLOSING" value1="Thank You," />
+		<execute function="AssertTextEquals#assertPartialText" locator1="Gmail#GMAIL_HTML_MODE_MESSAGE_BODY_CLOSING" value1="The Liferay Connected Services Team" />
+
+		<if>
+			<equals arg1="${useInvitationLink}" arg2="true" />
+			<then>
+				<execute function="AssertElementPresent" locator1="Gmail#GMAIL_HTML_MODE_MESSAGE_BODY_LCS_INVITATION_LINK" />
+
+				<execute function="Click" locator1="Gmail#GMAIL_HTML_MODE_MESSAGE_BODY_LCS_INVITATION_LINK" />
+			</then>
+		</if>
+	</command>
+
 	<command name="viewMail">
 		<var name="key_gmailAssetType" value="${gmailAssetType}" />
 
