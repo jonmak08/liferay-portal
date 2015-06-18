@@ -1,5 +1,5 @@
 <definition>
-	<command name="addMentionViaBlogEntryCP">
+	<command name="addMentionViaBlogsEntryCP">
 		<var name="key_entryContent" value="${entryContent}" />
 		<var name="key_mentionsUserScreenName" value="${mentionsUserScreenName}" />
 
@@ -16,7 +16,7 @@
 		<execute function="AssertTextEquals" locator1="Message#SUCCESS" value1="Your request completed successfully." />
 	</command>
 
-	<command name="addMentionViaBlogEntryPG">
+	<command name="addMentionViaBlogsEntryPG">
 		<var name="key_entryContent" value="${entryContent}" />
 		<var name="key_mentionsUserScreenName" value="${mentionsUserScreenName}" />
 
