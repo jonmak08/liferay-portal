@@ -6773,10 +6773,7 @@ public class PortalImpl implements Portal {
 			if (_securePortalPort.get() == -1) {
 				int securePortalPort = request.getServerPort();
 
-				if (_securePortalPort.compareAndSet(-1, securePortalPort) &&
-					StringUtil.equalsIgnoreCase(
-						Http.HTTPS, PropsValues.WEB_SERVER_PROTOCOL)) {
-
+				if (_securePortalPort.compareAndSet(-1, securePortalPort)) {
 					notifyPortalPortEventListeners(securePortalPort);
 					notifyPortalPortProtocolEventListeners(
 						securePortalPort, true);
