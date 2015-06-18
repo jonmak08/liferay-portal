@@ -1,0 +1,72 @@
+<definition>
+	<command name="inviteUser">
+		<execute function="AssertClick" locator1="LCSUsers#INVITE_BUTTON" value1="Invite" />
+
+		<execute function="Type" locator1="LCSUsersInviteUser#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
+		<execute function="Type" locator1="LCSUsersInviteUser#INVITATION_MENU_FIELD" value1="${invitationMessage}" />
+		<execute function="Select" locator1="LCSUsersInviteUser#ROLE_SELECT" value1="${userRole}" />
+
+		<if>
+			<not>
+				<equals arg1="${userRole}" arg2="LCS Administrator" />
+			</not>
+			<then>
+				<execute function="Select" locator1="LCSUsersInviteUser#ENVIRONMENT_SELECT" value1="${environmentName}" />
+			</then>
+		</if>
+
+		<execute function="AssertClick" locator1="LCSUsersInviteUser#SEND_EMAIL_BUTTON" value1="Send Email" />
+	</command>
+
+	<command name="loginLCS">
+		<execute function="Type" locator1="LRDCOMLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
+		<execute function="Type" locator1="LRDCOMLogin#PASSWORD_FIELD" value1="${userEmailPassword}" />
+
+		<if>
+			<condition function="IsElementPresent" locator1="PGLogin#SIGN_IN_BUTTON" value1="Sign In" />
+			<then>
+				<execute function="AssertClickNoError" locator1="PGLogin#SIGN_IN_BUTTON" value1="Sign In" />
+			</then>
+			<else>
+				<execute function="AssertClickNoError" locator1="LRDCOMLogin#SIGN_IN_BUTTON" value1="Sign In" />
+			</else>
+		</if>
+	</command>
+
+	<command name="logoutLCS">
+		<if>
+			<condition function="IsElementPresent" locator1="Dockbar#USER_NAME" />
+			<then>
+				<execute function="Click" locator1="Dockbar#USER_NAME" />
+				<execute function="Click" locator1="Dockbar#USER_SIGN_OUT" />
+			</then>
+		</if>
+	</command>
+
+	<command name="revokeLCSRole">
+		<execute macro="LCSUsers#viewLCSRole">
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userName" value="${userName}" />
+			<var name="userRole" value="${userRole}" />
+			<var name="userRoleEnvironment" value="${userRoleEnvironment}" />
+		</execute>
+
+		<var name="key_userName" value="${userName}" />
+		<var name="key_userRole" value="${userRole}" />
+
+		<execute function="AssertClick" locator1="LCSUsersManage#TABLE_REVOKE_ROLE_LINK" value1="Revoke Role" />
+	</command>
+
+	<command name="viewLCSRole">
+		<var name="key_userName" value="${userName}" />
+		<var name="key_userRole" value="${userRole}" />
+
+		<execute function="AssertTextEquals" locator1="LCSUsers#PROJECT_MEMBERS_EMAIL_ADDRESS" value1="${userEmailAddress}" />
+		<execute function="AssertTextEquals" locator1="LCSUsers#PROJECT_MEMBERS_FULL_NAME" value1="${userName}" />
+		<execute function="AssertClick" locator1="LCSUsers#PROJECT_MEMBERS_MANAGE_LINK" value1="Manage" />
+
+		<execute function="AssertTextEquals" locator1="LCSUsersManage#TABLE_ROLE" value1="${userRole}" />
+		<execute function="AssertTextEquals" locator1="LCSUsersManage#TABLE_ENVIRONMENT" value1="${userRoleEnvironment}" />
+		<execute function="AssertTextEquals" locator1="LCSUsersManage#TABLE_REVOKE_ROLE_LINK" value1="Revoke Role" />
+	</command>
+</definition>

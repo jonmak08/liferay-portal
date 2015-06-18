@@ -10,17 +10,17 @@
 <tbody>
 <tr>
 	<td>TABLE_ROLE</td>
-	<td>//form[contains(.,'${key_userName}') and contains(.,'Roles')]//tr[contains(.,'${key_roleName}')]/td[1]</td>
+	<td>//form[contains(.,'${key_userName}') and contains(.,'Roles')]//tr[contains(.,'${key_userRole}')]/td[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>TABLE_ENVIRONMENT</td>
-	<td>//form[contains(.,'${key_userName}') and contains(.,'Roles')]//tr[contains(.,'${key_roleName}')]/td[2]</td>
+	<td>//form[contains(.,'${key_userName}') and contains(.,'Roles')]//tr[contains(.,'${key_userRole}')]/td[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>TABLE_REVOKE_ROLE_LINK</td>
-	<td>//form[contains(.,'${key_userName}') and contains(.,'Roles')]//tr[contains(.,'${key_roleName}')]/td[3]/a</td>
+	<td>//form[contains(.,'${key_userName}') and contains(.,'Roles')]//tr[contains(.,'${key_userRole}')]/td[3]//a</td>
 	<td></td>
 </tr>
 <tr>

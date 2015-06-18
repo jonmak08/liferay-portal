@@ -20,7 +20,7 @@
 </tr>
 <tr>
 	<td>PROJECT_MEMBERS_MANAGE_LINK</td>
-	<td>//div[contains(.,'Project Members')]//tr[contains(.,'${key_userName}')]//td[3]/a</td>
+	<td>//div[contains(.,'Project Members')]//tr[contains(.,'${key_userName}')]//td[3]//a</td>
 	<td></td>
 </tr>
 <tr>

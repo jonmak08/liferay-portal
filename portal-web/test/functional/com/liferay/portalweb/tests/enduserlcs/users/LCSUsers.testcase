@@ -1,0 +1,147 @@
+<definition component-name="liferay-connected-services-user-management">
+	<property name="portlet.plugins.includes" value="lcs-portlet" />
+	<property name="testray.main.component.name" value="Liferay Connected Services" />
+
+	<set-up>
+		<execute macro="User#firstLoginPG" />
+	</set-up>
+
+	<command name="InviteUserToBeAdministrator" priority="5">
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#gotoUsers">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSUsers#inviteUser">
+			<var name="invitationMessage" value="LCS Invitation Message" />
+			<var name="userEmailAddress" property-value="lcs.email.address.2" />
+			<var name="userRole" value="LCS Administrator" />
+		</execute>
+
+		<execute macro="LCSUsers#logoutLCS" />
+
+		<execute macro="Navigator#closeWindow" />
+
+		<execute function="Pause" locator1="30000" />
+
+		<execute macro="Gmail#login">
+			<var name="userEmailAddress" property-value="lcs.email.address.2" />
+			<var name="userPassword" property-value="lcs.email.password.2" />
+		</execute>
+
+		<execute macro="Gmail#gotoHtmlMode" />
+
+		<execute macro="Gmail#viewLiferayConnectedServicesInvitationMail">
+			<var name="invitationMessage" value="LCS Invitation Message" />
+			<var name="invitationSenderName" value="QA Cloud 1" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="useInvitationLink" value="true" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Welcome - Liferay" />
+
+		<execute macro="LCSUsers#loginLCS">
+			<var name="userEmailAddress" property-value="lcs.email.address.2" />
+			<var name="userEmailPassword" property-value="lcs.email.password.2" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#gotoUsers" />
+
+		<execute macro="LCSUsers#viewLCSRole">
+			<var name="userEmailAddress" property-value="lcs.email.address.2" />
+			<var name="userName" value="QA Cloud 2" />
+			<var name="userRole" value="LCS Administrator" />
+			<var name="userRoleEnvironment" value="All Environments" />
+		</execute>
+
+		<execute macro="Gmail#tearDown">
+			<var name="userEmailAddress" property-value="lcs.email.address.2" />
+			<var name="userPassword" property-value="lcs.email.password.2" />
+		</execute>
+	</command>
+
+	<command name="InviteUserToBeAdministratorAndRevokeRole" priority="5">
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#gotoUsers">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSUsers#inviteUser">
+			<var name="invitationMessage" value="LCS Invitation Message" />
+			<var name="userEmailAddress" property-value="lcs.email.address.2" />
+			<var name="userRole" value="LCS Administrator" />
+		</execute>
+
+		<execute macro="LCSUsers#logoutLCS" />
+
+		<execute macro="Navigator#closeWindow" />
+
+		<execute function="Pause" locator1="30000" />
+
+		<execute macro="Gmail#login">
+			<var name="userEmailAddress" property-value="lcs.email.address.2" />
+			<var name="userPassword" property-value="lcs.email.password.2" />
+		</execute>
+
+		<execute macro="Gmail#gotoHtmlMode" />
+
+		<execute macro="Gmail#viewLiferayConnectedServicesInvitationMail">
+			<var name="invitationMessage" value="LCS Invitation Message" />
+			<var name="invitationSenderName" value="QA Cloud 1" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="useInvitationLink" value="true" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Welcome - Liferay" />
+
+		<execute macro="LCSUsers#loginLCS">
+			<var name="userEmailAddress" property-value="lcs.email.address.2" />
+			<var name="userEmailPassword" property-value="lcs.email.password.2" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#gotoUsers" />
+
+		<execute macro="LCSUsers#revokeLCSRole">
+			<var name="userEmailAddress" property-value="lcs.email.address.2" />
+			<var name="userName" value="QA Cloud 2" />
+			<var name="userRole" value="LCS Administrator" />
+			<var name="userRoleEnvironment" value="All Environments" />
+		</execute>
+
+		<execute macro="LCSUsers#logoutLCS" />
+
+		<execute macro="LCSUsers#loginLCS">
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="Gmail#tearDown">
+			<var name="userEmailAddress" property-value="lcs.email.address.2" />
+			<var name="userPassword" property-value="lcs.email.password.2" />
+		</execute>
+	</command>
+</definition>

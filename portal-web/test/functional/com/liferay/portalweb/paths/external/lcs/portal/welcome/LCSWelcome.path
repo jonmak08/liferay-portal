@@ -19,6 +19,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>GO_TO_MY_DASHBOARD_LINK</td>
+	<td>//a[contains(@id,'menu_go-to-my-dashboard')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td></td>
 	<td></td>
 	<td></td>
