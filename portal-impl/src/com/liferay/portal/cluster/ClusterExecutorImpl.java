@@ -98,16 +98,6 @@ public class ClusterExecutorImpl
 			addClusterEventListener(new LiveUsersClusterEventListenerImpl());
 		}
 
-		_secure = StringUtil.equalsIgnoreCase(
-			Http.HTTPS, PropsValues.WEB_SERVER_PROTOCOL);
-
-		if (PropsValues.PORTAL_INSTANCE_HTTPS_PORT > 0) {
-			_port = PropsValues.PORTAL_INSTANCE_HTTPS_PORT;
-		}
-		else {
-			_port = PropsValues.PORTAL_INSTANCE_HTTP_PORT;
-		}
-
 		super.afterPropertiesSet();
 	}
 
@@ -322,29 +312,19 @@ public class ClusterExecutorImpl
 
 	@Override
 	public void portalPortProtocolConfigured(int port, Boolean secure) {
-		if (!isEnabled()) {
+		if (!isEnabled() || (port <= 0) || (secure == null)) {
 			return;
 		}
 
-		if (Validator.isNotNull(secure)) {
-			String portalProtocol = _localClusterNode.getPortalProtocol();
-
-			if (((secure && portalProtocol.equals(Http.HTTPS)) ||
-				 (!secure && portalProtocol.equals(Http.HTTP))) &&
-				(_localClusterNode.getPort() == port)) {
-
-				return;
-			}
-
-			if (secure) {
-				_localClusterNode.setPortalProtocol(Http.HTTPS);
-			}
-			else {
-				_localClusterNode.setPortalProtocol(Http.HTTP);
-			}
-		}
-		else if (_localClusterNode.getPort() == port) {
+		if (Validator.isNotNull(_localClusterNode.getPortalProtocol())) {
 			return;
+		}
+
+		if (secure) {
+			_localClusterNode.setPortalProtocol(Http.HTTPS);
+		}
+		else {
+			_localClusterNode.setPortalProtocol(Http.HTTP);
 		}
 
 		try {
@@ -459,16 +439,20 @@ public class ClusterExecutorImpl
 		ClusterNode localClusterNode = new ClusterNode(
 			PortalUUIDUtil.generate(), inetAddress);
 
-		int port = _port;
+		if (StringUtil.equalsIgnoreCase(
+				Http.HTTPS, PropsValues.PORTAL_INSTANCE_PROTOCOL) &&
+			(PropsValues.PORTAL_INSTANCE_HTTPS_PORT > 0)) {
 
-		if (port <= 0) {
-			port = PortalUtil.getPortalPort(_secure);
+			localClusterNode.setPortalProtocol(Http.HTTPS);
+			localClusterNode.setPort(PropsValues.PORTAL_INSTANCE_HTTPS_PORT);
 		}
+		else if (StringUtil.equalsIgnoreCase(
+					Http.HTTP, PropsValues.PORTAL_INSTANCE_PROTOCOL) &&
+				 (PropsValues.PORTAL_INSTANCE_HTTP_PORT > 0)) {
 
-		localClusterNode.setPort(port);
-
-		localClusterNode.setPortalProtocol(
-			PropsValues.PORTAL_INSTANCE_PROTOCOL);
+			localClusterNode.setPortalProtocol(Http.HTTP);
+			localClusterNode.setPort(PropsValues.PORTAL_INSTANCE_HTTP_PORT);
+		}
 
 		_localClusterNode = localClusterNode;
 	}
@@ -614,8 +598,6 @@ public class ClusterExecutorImpl
 		new ConcurrentHashMap<Address, ClusterNode>();
 	private Address _localAddress;
 	private ClusterNode _localClusterNode;
-	private int _port;
-	private boolean _secure;
 	private boolean _shortcutLocalMethod;
 
 	private class ClusterResponseCallbackJob implements Runnable {
