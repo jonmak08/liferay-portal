@@ -1062,7 +1062,7 @@ public class StagingImpl implements Staging {
 		}
 		catch (SystemException se) {
 			if (_log.isWarnEnabled()) {
-				_log.warn("Could not get PortalPreferences", se);
+				_log.warn("Unable to get portal preferences", se);
 			}
 		}
 
@@ -1704,7 +1704,7 @@ public class StagingImpl implements Staging {
 		}
 		catch (SystemException se) {
 			if (_log.isWarnEnabled()) {
-				_log.warn("Could not get PortalPreferences", se);
+				_log.warn("Unable to get portal preferences", se);
 			}
 		}
 	}
