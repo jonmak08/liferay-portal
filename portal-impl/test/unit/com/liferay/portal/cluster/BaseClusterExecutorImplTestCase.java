@@ -135,11 +135,9 @@ public abstract class BaseClusterExecutorImplTestCase
 	}
 
 	@Aspect
-	public static class SetPortalPortAdvice {
+	public static class SetPortalPortHttpAdvice {
 
 		public static final int PORTAL_PORT = 80;
-
-		public static final int SECURE_PORTAL_PORT = 81;
 
 		@Around(
 			"set(* com.liferay.portal.util.PropsValues." +
@@ -148,6 +146,22 @@ public abstract class BaseClusterExecutorImplTestCase
 			throws Throwable {
 
 			return proceedingJoinPoint.proceed(new Object[] {PORTAL_PORT});
+		}
+	}
+
+	@Aspect
+	public static class SetPortalPortHttpsAdvice {
+
+		public static final int SECURE_PORTAL_PORT = 81;
+
+		@Around(
+			"set(* com.liferay.portal.util.PropsValues." +
+				"PORTAL_INSTANCE_HTTPS_PORT)")
+		public Object setPortalPort(ProceedingJoinPoint proceedingJoinPoint)
+			throws Throwable {
+
+			return proceedingJoinPoint.proceed(
+				new Object[] {SECURE_PORTAL_PORT});
 		}
 	}
 
@@ -181,20 +195,6 @@ public abstract class BaseClusterExecutorImplTestCase
 
 			return proceedingJoinPoint.proceed(
 				new Object[] {SECURE_PORTAL_PROTOCOL});
-		}
-
-	}
-
-	@Aspect
-	public static class SetWebServerProtocolAdvice {
-
-		@Around(
-			"set(* com.liferay.portal.util.PropsValues.WEB_SERVER_PROTOCOL)")
-		public Object setWebServerProtocol(
-				ProceedingJoinPoint proceedingJoinPoint)
-			throws Throwable {
-
-			return proceedingJoinPoint.proceed(new Object[] {"https"});
 		}
 
 	}
