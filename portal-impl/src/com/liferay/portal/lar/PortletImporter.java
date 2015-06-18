@@ -786,6 +786,26 @@ public class PortletImporter {
 				existingAssetCategory.getUuid(), groupId, parentAssetCategoryId,
 				assetCategory.getName(), assetVocabularyId, 2);
 
+			if (!existingAssetCategory.getName().equals(name)) {
+				List<AssetEntry> entries =
+					AssetEntryLocalServiceUtil.getAssetCategoryAssetEntries(
+						existingAssetCategory.getCategoryId());
+
+				for (AssetEntry entry : entries) {
+					String className = PortalUtil.getClassName(
+						entry.getClassNameId());
+
+					Map<Long, Long> newPrimaryKeysMap =
+						(Map<Long, Long>)
+							portletDataContext.getNewPrimaryKeysMap(className);
+
+					// Force reindex adding classPK to newPrimaryKeysMap
+
+					newPrimaryKeysMap.put(
+						entry.getClassPK(), entry.getClassPK());
+				}
+			}
+
 			importedAssetCategory =
 				AssetCategoryLocalServiceUtil.updateCategory(
 					userId, existingAssetCategory.getCategoryId(),
