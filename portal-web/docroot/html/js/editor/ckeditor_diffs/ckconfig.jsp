@@ -26,13 +26,14 @@
 <%@ page import="java.util.Locale" %>
 
 <%
+String colorSchemeCssClass = ParamUtil.getString(request, "colorSchemeCssClass");
+
 String contentsLanguageId = ParamUtil.getString(request, "contentsLanguageId");
 
 Locale contentsLocale = LocaleUtil.fromLanguageId(contentsLanguageId);
 
 contentsLanguageId = LocaleUtil.toLanguageId(contentsLocale);
 
-String colorSchemeCssClass = ParamUtil.getString(request, "colorSchemeCssClass");
 String cssPath = ParamUtil.getString(request, "cssPath");
 String cssClasses = ParamUtil.getString(request, "cssClasses");
 boolean inlineEdit = ParamUtil.getBoolean(request, "inlineEdit");
