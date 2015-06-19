@@ -60,6 +60,18 @@ import java.util.Set;
  */
 public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 
+	/**
+	 * Adds an asset tag.
+	 *
+	 * @param  userId the primary key of the user adding the asset tag
+	 * @param  name the asset tag's name
+	 * @param  tagProperties
+	 * @return the asset tag that was added
+	 * @throws PortalException if a user with the primary key could not be
+	 *         found, if an asset tag already exists with the name, or if a
+	 *         portal exception occurred
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public AssetTag addTag(
 			long userId, String name, String[] tagProperties,
@@ -150,6 +162,16 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return tag;
 	}
 
+	/**
+	 * Adds resources for the asset tag.
+	 *
+	 * @param  tag the asset tag for which to add resources
+	 * @param  addGroupPermissions whether to add group permissions
+	 * @param  addGuestPermissions whether to add guest permissions
+	 * @throws PortalException if resources could not be added for the asset tag
+	 *         or if a portal exception occurred
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public void addTagResources(
 			AssetTag tag, boolean addGroupPermissions,
@@ -162,6 +184,16 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 			addGroupPermissions, addGuestPermissions);
 	}
 
+	/**
+	 * Adds resources for the asset tag using the group and guest permissions.
+	 *
+	 * @param  tag the asset tag for which to add resources
+	 * @param  groupPermissions the group permissions to be applied
+	 * @param  guestPermissions the guest permissions to be applied
+	 * @throws PortalException if resources could not be added for the asset tag
+	 *         or if a portal exception occurred
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public void addTagResources(
 			AssetTag tag, String[] groupPermissions, String[] guestPermissions)
@@ -174,24 +206,21 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 	}
 
 	/**
-	 * Returns the tags matching the group and names, creating new tags with the
-	 * names if the group doesn't already have them.
+	 * Returns the asset tags matching the group and names, creating new asset
+	 * tags matching the names if the group doesn't already have them.
 	 *
 	 * <p>
-	 * For each name, if a tag with that name doesn't already exist for the
-	 * group, this method creates a new tag with that name for the group. If a
-	 * tag with that name already exists in the company group, this method
-	 * copies that company group's tag's properties to the group's new tag.
+	 * For each name, if an asset tag with the name doesn't already exist in the
+	 * group, this method creates a new asset tag with the name in the group.
 	 * </p>
 	 *
-	 * @param  userId the primary key of the user
-	 * @param  group ID the primary key of the tag's group
-	 * @param  names the tag names
-	 * @return the tags matching the group and names and new tags matching the
-	 *         names that don't already exist for the group
-	 * @throws PortalException if a matching group could not be found, if the
-	 *         tag's key or value were invalid, or if a portal exception
-	 *         occurred
+	 * @param  userId the primary key of the user checking the asset tags
+	 * @param  group the group in which to check the asset tags
+	 * @param  names the asset tag names
+	 * @return the asset tags matching the group and names and new asset tags
+	 *         matching the names that don't already exist in the group
+	 * @throws PortalException if a matching group could not be found or if a
+	 *         portal exception occurred
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
@@ -246,6 +275,18 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return tags;
 	}
 
+	/**
+	 * Returns the asset tags matching the group and names, creating new asset
+	 * tags matching the names if the group doesn't already have them.
+	 *
+	 * @param  userId the primary key of the user checking the asset tags
+	 * @param  groupId the primary key of the group in which check the asset
+	 *         tags
+	 * @param  names the asset tag names
+	 * @throws PortalException if a matching group could not be found or if a
+	 *         portal exception occurred
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public void checkTags(long userId, long groupId, String[] names)
 		throws PortalException, SystemException {
@@ -255,6 +296,17 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		checkTags(userId, group, names);
 	}
 
+	/**
+	 * Decrements the number of assets to which the asset tag has been applied.
+	 *
+	 * @param  tagId the primary key of the asset tag
+	 * @param  classNameId the class name ID of the entity to which the asset
+	 *         tag had been applied
+	 * @return the asset tag
+	 * @throws PortalException if an asset tag with the primary key could not be
+	 *         found or if a portal exception occurred
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public AssetTag decrementAssetCount(long tagId, long classNameId)
 		throws PortalException, SystemException {
@@ -270,6 +322,14 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return tag;
 	}
 
+	/**
+	 * Deletes all asset tags in the group.
+	 *
+	 * @param  groupId the primary key of the group in which to delete all asset
+	 *         tags
+	 * @throws PortalException if a portal exception occurred
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public void deleteGroupTags(long groupId)
 		throws PortalException, SystemException {
@@ -281,6 +341,13 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		}
 	}
 
+	/**
+	 * Deletes the asset tag.
+	 *
+	 * @param  tag the asset tag to be deleted
+	 * @throws PortalException if a portal exception occurred
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public void deleteTag(AssetTag tag)
 		throws PortalException, SystemException {
@@ -309,6 +376,14 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		assetEntryLocalService.reindex(entries);
 	}
 
+	/**
+	 * Deletes the asset tag.
+	 *
+	 * @param  tagId the primary key of the asset tag
+	 * @throws PortalException if no asset tag could be found with the primary
+	 *         key or if a portal exception occurred
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public void deleteTag(long tagId) throws PortalException, SystemException {
 		AssetTag tag = assetTagPersistence.findByPrimaryKey(tagId);
@@ -316,11 +391,25 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		deleteTag(tag);
 	}
 
+	/**
+	 * Returns the asset tags of the asset entry.
+	 *
+	 * @param  entryId the primary key of the asset entry
+	 * @return the asset tags of the asset entry
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public List<AssetTag> getEntryTags(long entryId) throws SystemException {
 		return assetEntryPersistence.getAssetTags(entryId);
 	}
 
+	/**
+	 * Returns the asset tags in the groups.
+	 *
+	 * @param  groupIds the primary keys of the groups
+	 * @return the asset tags in the groups
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public List<AssetTag> getGroupsTags(long[] groupIds)
 		throws SystemException {
@@ -336,11 +425,27 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return groupsTags;
 	}
 
+	/**
+	 * Returns the asset tags in the group.
+	 *
+	 * @param  groupId the primary key of the group
+	 * @return the asset tags in the group
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public List<AssetTag> getGroupTags(long groupId) throws SystemException {
 		return assetTagPersistence.findByGroupId(groupId);
 	}
 
+	/**
+	 * Returns a range of all the asset tags in the group.
+	 *
+	 * @param  groupId the primary key of the group
+	 * @param  start the lower bound of the range of asset tags
+	 * @param  end the upper bound of the range of asset tags (not inclusive)
+	 * @return the range of matching asset tags
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public List<AssetTag> getGroupTags(long groupId, int start, int end)
 		throws SystemException {
@@ -348,6 +453,13 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return assetTagPersistence.findByGroupId(groupId, start, end);
 	}
 
+	/**
+	 * Returns the number of asset tags in the group.
+	 *
+	 * @param  groupId the primary key of the group
+	 * @return the number of asset tags in the group
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public int getGroupTagsCount(long groupId) throws SystemException {
 		return assetTagPersistence.countByGroupId(groupId);
@@ -381,11 +493,29 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 			periodLength);
 	}
 
+	/**
+	 * Returns the asset tag with the primary key.
+	 *
+	 * @param  tagId the primary key of the asset tag
+	 * @return the asset tag with the primary key
+	 * @throws PortalException if an asset tag with the primary key could not be
+	 *         found
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public AssetTag getTag(long tagId) throws PortalException, SystemException {
 		return assetTagPersistence.findByPrimaryKey(tagId);
 	}
 
+	/**
+	 * Returns the asset tag with the name in the group.
+	 *
+	 * @param  groupId the primary key of the group
+	 * @param  name the name of the asset tag
+	 * @return the asset tag with the name in the group
+	 * @throws PortalException if a matching asset tag could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public AssetTag getTag(long groupId, String name)
 		throws PortalException, SystemException {
@@ -393,6 +523,14 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return assetTagFinder.findByG_N(groupId, name);
 	}
 
+	/**
+	 * Returns the primary keys of the asset tags with the names in the group.
+	 *
+	 * @param  groupId the primary key of the group
+	 * @param  names the names of the asset tags
+	 * @return the primary keys of the asset tags with the names in the group
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public long[] getTagIds(long groupId, String[] names)
 		throws PortalException, SystemException {
@@ -412,6 +550,15 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return ArrayUtil.toArray(tagIds.toArray(new Long[tagIds.size()]));
 	}
 
+	/**
+	 * Returns the primary keys of the asset tags with the name in the groups.
+	 *
+	 * @param  groupIds the primary keys of the groups
+	 * @param  name the name of the asset tags
+	 * @return the primary keys of the asset tags with the name in the groups
+	 * @throws PortalException if a portal exception occurred
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public long[] getTagIds(long[] groupIds, String name)
 		throws PortalException, SystemException {
@@ -431,6 +578,15 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return ArrayUtil.toArray(tagIds.toArray(new Long[tagIds.size()]));
 	}
 
+	/**
+	 * Returns the primary keys of the asset tags with the names in the groups.
+	 *
+	 * @param  groupIds the primary keys of the groups
+	 * @param  names the names of the asset tags
+	 * @return the primary keys of the asset tags with the names in the groups
+	 * @throws PortalException if a portal exception occurred
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public long[] getTagIds(long[] groupIds, String[] names)
 		throws PortalException, SystemException {
@@ -444,11 +600,25 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return tagsIds;
 	}
 
+	/**
+	 * Returns the names of all the asset tags.
+	 *
+	 * @return the names of all the asset tags
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public String[] getTagNames() throws SystemException {
 		return getTagNames(getTags());
 	}
 
+	/**
+	 * Returns the names of the asset tags of the entity.
+	 *
+	 * @param  classNameId the class name ID of the entity
+	 * @param  classPK the primary key of the entity
+	 * @return the names of the asset tags of the entity
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public String[] getTagNames(long classNameId, long classPK)
 		throws SystemException {
@@ -456,6 +626,14 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return getTagNames(getTags(classNameId, classPK));
 	}
 
+	/**
+	 * Returns the names of the asset tags of the entity
+	 *
+	 * @param  className the class name of the entity
+	 * @param  classPK the primary key of the entity
+	 * @return the names of the asset tags of the entity
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public String[] getTagNames(String className, long classPK)
 		throws SystemException {
@@ -463,11 +641,25 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return getTagNames(getTags(className, classPK));
 	}
 
+	/**
+	 * Returns all the asset tags.
+	 *
+	 * @return the asset tags
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public List<AssetTag> getTags() throws SystemException {
 		return assetTagPersistence.findAll();
 	}
 
+	/**
+	 * Returns the asset tags of the entity.
+	 *
+	 * @param  classNameId the class name ID of the entity
+	 * @param  classPK the primary key of the entity
+	 * @return the asset tags of the entity
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public List<AssetTag> getTags(long classNameId, long classPK)
 		throws SystemException {
@@ -500,6 +692,14 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 			groupId, classNameId, name, start, end, null);
 	}
 
+	/**
+	 * Returns the asset tags of the entity.
+	 *
+	 * @param  className the class name of the entity
+	 * @param  classPK the primary key of the entity
+	 * @return the asset tags of the entity
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	@ThreadLocalCachable
 	public List<AssetTag> getTags(String className, long classPK)
@@ -517,6 +717,17 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return assetTagFinder.countByG_C_N(groupId, classNameId, name);
 	}
 
+	/**
+	 * Returns <code>true</code> if the group contains an asset tag with the
+	 * name.
+	 *
+	 * @param  groupId the primary key of the group
+	 * @param  name the name of the asset tag
+	 * @return <code>true</code> if the group contains an asset tag with the
+	 *         name; <code>false</code> otherwise.
+	 * @throws PortalException if a portal exception occurred
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public boolean hasTag(long groupId, String name)
 		throws PortalException, SystemException {
@@ -531,6 +742,17 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		}
 	}
 
+	/**
+	 * Increments the number of assets to which the asset tag has been applied.
+	 *
+	 * @param  tagId the primary key of the asset tag
+	 * @param  classNameId the class name ID of the entity to which the asset
+	 *         tag is being applied
+	 * @return the asset tag
+	 * @throws PortalException if a asset tag with the primary key could not be
+	 *         found or if a portal exception occurred
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public AssetTag incrementAssetCount(long tagId, long classNameId)
 		throws PortalException, SystemException {
@@ -546,6 +768,18 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return tag;
 	}
 
+	/**
+	 * Replaces all occurrences of the first asset tag with the second asset tag
+	 * and deletes the first asset tag.
+	 *
+	 * @param  fromTagId the primary key of the asset tag to be replaced
+	 * @param  toTagId the primary key of the asset tag to apply to the asset
+	 *         entries of the other asset tag
+	 * @param  overrideProperties whether to override the properties of the
+	 *         second asset tag with the properties of the first asset tag
+	 * @throws PortalException if a portal exception occurred
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public void mergeTags(
 			long fromTagId, long toTagId, boolean overrideProperties)
@@ -579,6 +813,18 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		deleteTag(fromTagId);
 	}
 
+	/**
+	 * Returns the asset tags in the group whose names match the pattern and the
+	 * properties.
+	 *
+	 * @param  groupId the primary key of the group
+	 * @param  name the pattern to match
+	 * @param  tagProperties the properties to match
+	 * @param  start the lower bound of the range of asset tags
+	 * @param  end the upper bound of the range of asset tags (not inclusive)
+	 * @return the asset tags in the group whose names match the pattern
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public List<AssetTag> search(
 			long groupId, String name, String[] tagProperties, int start,
@@ -588,6 +834,18 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return search(new long[] {groupId}, name, tagProperties, start, end);
 	}
 
+	/**
+	 * Returns the asset tags in the groups whose names match the pattern and
+	 * the properties.
+	 *
+	 * @param  groupIds the primary keys of the groups
+	 * @param  name the pattern to match
+	 * @param  tagProperties the properties to match
+	 * @param  start the lower bound of the range of asset tags
+	 * @param  end the upper bound of the range of asset tags (not inclusive)
+	 * @return the asset tags in the groups whose names match the pattern
+	 * @throws SystemException if a system exception occurred
+	 */
 	@Override
 	public List<AssetTag> search(
 			long[] groupIds, String name, String[] tagProperties, int start,
