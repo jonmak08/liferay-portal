@@ -1504,7 +1504,7 @@ public class DLFileEntryLocalServiceImpl
 		String extraSettings = dlFileVersion.getExtraSettings();
 		long fileEntryTypeId = dlFileVersion.getFileEntryTypeId();
 		Map<String, Fields> fieldsMap = null;
-		InputStream is = getFileAsStream(userId, fileEntryId, version);
+		InputStream is = getFileAsStream(fileEntryId, version, false);
 		long size = dlFileVersion.getSize();
 
 		DLFileEntry dlFileEntry = updateFileEntry(
