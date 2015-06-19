@@ -22,12 +22,14 @@
 ScriptData oldScriptData = (ScriptData)request.getAttribute(WebKeys.AUI_SCRIPT_DATA);
 
 ScriptData newScriptData = new ScriptData() {
+
 	@Override
 	public void append(String portletId, StringBundler contentSB, String use) {
 		_switchToLatestCKEditor(contentSB);
 
 		super.append(portletId, contentSB, use);
 	}
+
 };
 
 request.setAttribute(WebKeys.AUI_SCRIPT_DATA, newScriptData);
