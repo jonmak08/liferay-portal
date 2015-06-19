@@ -287,8 +287,7 @@ public class DLFileEntryServiceImpl extends DLFileEntryServiceBaseImpl {
 		DLFileEntryPermission.check(
 			getPermissionChecker(), fileEntryId, ActionKeys.VIEW);
 
-		return dlFileEntryLocalService.getFileAsStream(
-			getGuestOrUserId(), fileEntryId, version);
+		return dlFileEntryLocalService.getFileAsStream(fileEntryId, version);
 	}
 
 	@Override
@@ -300,7 +299,7 @@ public class DLFileEntryServiceImpl extends DLFileEntryServiceBaseImpl {
 			getPermissionChecker(), fileEntryId, ActionKeys.VIEW);
 
 		return dlFileEntryLocalService.getFileAsStream(
-			getGuestOrUserId(), fileEntryId, version, incrementCounter);
+			fileEntryId, version, incrementCounter);
 	}
 
 	@Override
