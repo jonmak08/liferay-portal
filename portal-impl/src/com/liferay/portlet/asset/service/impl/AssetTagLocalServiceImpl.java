@@ -65,7 +65,8 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 	 *
 	 * @param  userId the primary key of the user adding the asset tag
 	 * @param  name the asset tag's name
-	 * @param  tagProperties
+	 * @param  tagProperties the tag's properties
+	 * @param  serviceContext the service context
 	 * @return the asset tag that was added
 	 * @throws PortalException if a user with the primary key could not be
 	 *         found, if an asset tag already exists with the name, or if a
@@ -529,6 +530,7 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 	 * @param  groupId the primary key of the group
 	 * @param  names the names of the asset tags
 	 * @return the primary keys of the asset tags with the names in the group
+	 * @throws PortalException if a portal exception occurred
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
