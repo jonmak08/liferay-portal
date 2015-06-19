@@ -137,12 +137,22 @@
 		</if>
 	</command>
 
+	<command name="cleanPlugins">
+		<execute function="AntCommand" locator1="build-test.xml" value1="delete-liferay-home" />
+
+		<execute function="AntCommand" locator1="build-test.xml" value1="clean-app-server-deploy-dir" />
+	</command>
+
 	<command name="deletePG">
 		<var name="portletLocator" value="//h1[@class='portlet-title']/span[contains(.,'${portletName}')]/../../menu//a[@title='Options']" />
 
 		<execute function="AssertClick" locator1="${portletLocator}" value1="Options" />
 		<execute function="AssertClickNoError" locator1="BasePortlet#REMOVE" value1="Remove" />
 		<execute function="Confirm" value1="Are you sure you want to remove this component?" />
+	</command>
+
+	<command name="deployPlugin">
+		<execute function="AntCommand" locator1="build-test-plugins.xml" value1="deploy-simple-server-plugins -Dplugins.includes=${pluginName}" />
 	</command>
 
 	<command name="dragAndDropPortletToColumnPG">

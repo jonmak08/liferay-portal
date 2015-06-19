@@ -78,6 +78,16 @@
 		<execute macro="LCSPortlet#viewDisconnected" />
 	</command>
 
+	<command name="redeployLCSPlugin">
+		<execute macro="Portlet#cleanPlugins" />
+
+		<execute macro="Portlet#deployPlugin">
+			<var name="pluginName" value="lcs-portlet" />
+		</execute>
+
+		<execute function="AntCommand" locator1="build-test.xml" value1="deploy-license-xml" />
+	</command>
+
 	<command name="registerServer">
 		<if>
 			<condition function="IsElementPresent" locator1="LCSPortlet#PROJECT_HOME_LINK" value1="Project Home" />
