@@ -1040,6 +1040,15 @@ public class LiferaySeleniumHelper {
 			return true;
 		}
 
+		// LPS-56564
+
+		if (line.contains(
+				"The web application [] appears to have " +
+					"started a thread named [HSQLDB Timer")) {
+
+			return true;
+		}
+
 		// WCM-202
 
 		if (line.contains("No score point assigners available")) {
