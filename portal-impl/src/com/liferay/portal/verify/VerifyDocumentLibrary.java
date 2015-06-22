@@ -203,7 +203,7 @@ public class VerifyDocumentLibrary extends VerifyProcess {
 
 				try {
 					inputStream = DLFileEntryLocalServiceUtil.getFileAsStream(
-						dlFileEntry.getFileEntryId(),dlFileEntry.getVersion(),
+						dlFileEntry.getFileEntryId(), dlFileEntry.getVersion(),
 						false);
 				}
 				catch (Exception e) {
