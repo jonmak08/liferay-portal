@@ -6845,8 +6845,7 @@ public class JournalArticleLocalServiceImpl
 				PortalUtil.getClassNameId(JournalArticle.class),
 				ddmStructureKey, true);
 
-			validateDDMStructureFields(
-				ddmStructure, classNameId, content);
+			validateDDMStructureFields(ddmStructure, classNameId, content);
 
 			if (Validator.isNotNull(ddmTemplateKey)) {
 				DDMTemplate ddmTemplate = ddmTemplateLocalService.getTemplate(
@@ -6976,28 +6975,7 @@ public class JournalArticleLocalServiceImpl
 	}
 
 	protected void validateDDMStructureFields(
-			DDMStructure ddmStructure, long classNameId,
-			ServiceContext serviceContext)
-		throws PortalException, SystemException {
-
-		Fields fields = DDMUtil.getFields(
-			ddmStructure.getStructureId(), serviceContext);
-
-		validateDDMStructureFields(ddmStructure, classNameId, fields);
-	}
-
-	protected void validateDDMStructureFields(
-			DDMStructure ddmStructure, long classNameId,
-			String content)
-		throws PortalException, SystemException {
-
-		Fields fields = DDMXMLUtil.getFields(ddmStructure, content);
-
-		validateDDMStructureFields(ddmStructure, classNameId, fields);
-	}
-
-	protected void validateDDMStructureFields(
-				DDMStructure ddmStructure, long classNameId, Fields fields)
+			DDMStructure ddmStructure, long classNameId, Fields fields)
 		throws PortalException, SystemException {
 
 		for (com.liferay.portlet.dynamicdatamapping.storage.Field field :
@@ -7014,6 +6992,26 @@ public class JournalArticleLocalServiceImpl
 				throw new StorageFieldRequiredException();
 			}
 		}
+	}
+
+	protected void validateDDMStructureFields(
+			DDMStructure ddmStructure, long classNameId,
+			ServiceContext serviceContext)
+		throws PortalException, SystemException {
+
+		Fields fields = DDMUtil.getFields(
+			ddmStructure.getStructureId(), serviceContext);
+
+		validateDDMStructureFields(ddmStructure, classNameId, fields);
+	}
+
+	protected void validateDDMStructureFields(
+			DDMStructure ddmStructure, long classNameId, String content)
+		throws PortalException, SystemException {
+
+		Fields fields = DDMXMLUtil.getFields(ddmStructure, content);
+
+		validateDDMStructureFields(ddmStructure, classNameId, fields);
 	}
 
 	private static final long _JOURNAL_ARTICLE_CHECK_INTERVAL =
