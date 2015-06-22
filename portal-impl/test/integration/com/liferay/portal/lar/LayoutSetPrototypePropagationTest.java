@@ -15,6 +15,7 @@
 package com.liferay.portal.lar;
 
 import com.liferay.portal.LayoutParentLayoutIdException;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.staging.MergeLayoutPrototypesThreadLocal;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -31,6 +32,7 @@ import com.liferay.portal.model.Role;
 import com.liferay.portal.model.RoleConstants;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
+import com.liferay.portal.service.LayoutServiceUtil;
 import com.liferay.portal.service.LayoutSetLocalServiceUtil;
 import com.liferay.portal.service.LayoutSetPrototypeLocalServiceUtil;
 import com.liferay.portal.service.PortletLocalServiceUtil;
@@ -176,6 +178,28 @@ public class LayoutSetPrototypePropagationTest
 		Assert.assertEquals(
 			initialMergeFailFriendlyURLLayouts.size() + 1,
 			mergeFailFriendlyURLLayouts.size());
+	}
+
+	@Test
+	public void testLayoutPropagationWhenLoadingLayoutsTreeWithLinkEnabled()
+		throws Exception {
+
+		setLinkEnabled(true);
+
+		LayoutTestUtil.addLayout(
+			_layoutSetPrototypeGroup.getGroupId(), "test", true);
+
+		Assert.assertEquals(
+			_initialPrototypeLayoutCount, getGroupLayoutCount());
+
+		LayoutServiceUtil.getLayouts(
+			group.getGroupId(), false, LayoutConstants.DEFAULT_PARENT_LAYOUT_ID,
+			false, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+
+		Thread.sleep(2000);
+
+		Assert.assertEquals(
+			_initialPrototypeLayoutCount + 1, getGroupLayoutCount());
 	}
 
 	@Test
