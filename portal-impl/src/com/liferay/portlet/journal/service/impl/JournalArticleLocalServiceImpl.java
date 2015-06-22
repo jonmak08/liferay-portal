@@ -6989,7 +6989,7 @@ public class JournalArticleLocalServiceImpl
 	protected void validateDDMStructureFields(
 			DDMStructure ddmStructure, long classNameId,
 			String content)
-		throws PortalException {
+		throws PortalException, SystemException {
 
 		Fields fields = DDMXMLUtil.getFields(ddmStructure, content);
 
@@ -6998,7 +6998,7 @@ public class JournalArticleLocalServiceImpl
 
 	protected void validateDDMStructureFields(
 				DDMStructure ddmStructure, long classNameId, Fields fields)
-		throws PortalException {
+		throws PortalException, SystemException {
 
 		for (com.liferay.portlet.dynamicdatamapping.storage.Field field :
 				fields) {
