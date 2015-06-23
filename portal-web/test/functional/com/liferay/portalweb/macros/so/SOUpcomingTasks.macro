@@ -53,7 +53,14 @@
 
 		<execute macro="SOTasks#viewTask">
 			<var name="percentCompletion" value="100" />
-		</execute>
+		<var name="taskDescription" value="${taskDescription}" />
+<var name="taskAssignee" value="${taskAssignee}" />
+<var name="currentUser" value="${currentUser}" />
+<var name="taskReporter" value="${taskReporter}" />
+<var name="dueDateUpcoming" value="${dueDateUpcoming}" />
+<var name="dueDatePastDue" value="${dueDatePastDue}" />
+<var name="taskPriority" value="${taskPriority}" />
+</execute>
 	</command>
 
 	<command name="viewUpcomingTask">
@@ -88,7 +95,19 @@
 
 					<execute macro="SOTasks#viewTaskDetails">
 						<var name="viewTaskAssigneeDetails" value="true" />
-					</execute>
+					<var name="taskDescription" value="${taskDescription}" />
+<var name="taskAssignee" value="${taskAssignee}" />
+<var name="taskReporter" value="${taskReporter}" />
+<var name="percentCompletion" value="${percentCompletion}" />
+<var name="taskPriority" value="${taskPriority}" />
+<var name="dueDate" value="${dueDate}" />
+<var name="dueDateEdit" value="${dueDateEdit}" />
+<var name="dueDateUpcoming" value="${dueDateUpcoming}" />
+<var name="dueDatePastDue" value="${dueDatePastDue}" />
+<var name="tagNumber" value="${tagNumber}" />
+<var name="numberOfTags" value="${numberOfTags}" />
+<var name="taskComment" value="${taskComment}" />
+</execute>
 				</then>
 			</elseif>
 			<else>

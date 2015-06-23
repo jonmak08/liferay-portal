@@ -168,7 +168,15 @@
 			<execute macro="DynamicDataMapping#viewField">
 				<var name="fieldFieldLabel" value="${structureFieldName}" />
 				<var method="StringUtil#replace('${structureFieldName}', ' ', '_')" name="fieldName" />
-			</execute>
+			<var name="fieldShowLabel" value="${fieldShowLabel}" />
+<var name="ddlFormTemplateMode" value="${ddlFormTemplateMode}" />
+<var name="fieldReadOnly" value="${fieldReadOnly}" />
+<var name="field" value="${field}" />
+<var name="fieldPredefinedValue" value="${fieldPredefinedValue}" />
+<var name="fieldTip" value="${fieldTip}" />
+<var name="fieldOptionsNames" value="${fieldOptionsNames}" />
+<var name="fieldOptionsvalues" value="${fieldOptionsvalues}" />
+</execute>
 		</for>
 	</command>
 </definition>

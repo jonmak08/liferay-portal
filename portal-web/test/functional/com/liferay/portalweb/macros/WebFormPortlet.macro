@@ -7,7 +7,10 @@
 		<execute macro="WebFormPortlet#editField">
 			<var name="wfFieldName" value="New Item" />
 			<var name="wfNewFieldName" value="${wfNewFieldName}" />
-		</execute>
+		<var name="wfFieldType" value="${wfFieldType}" />
+<var name="optionsList" value="${optionsList}" />
+<var name="optional" value="${optional}" />
+</execute>
 	</command>
 
 	<command name="configureSetupFormFieldsPG">

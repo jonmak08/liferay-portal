@@ -13,7 +13,11 @@
 			<var name="userLastName" value="${userLastName}" />
 			<var name="userMiddleName" value="${userMiddleName}" />
 			<var name="userScreenName" value="${userScreenName}" />
-		</execute>
+		<var name="userBirthday" value="${userBirthday}" />
+<var name="userGender" value="${userGender}" />
+<var name="userEmailAddressVariation" value="${userEmailAddressVariation}" />
+<var name="userScreenNameVariation" value="${userScreenNameVariation}" />
+</execute>
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
@@ -45,7 +49,10 @@
 			<then>
 				<execute macro="SetupWizard#configureDefaultPG">
 					<var name="setupWizardAddSampleData" value="true" />
-				</execute>
+				<var name="administratorFirstName" value="${administratorFirstName}" />
+<var name="administratorLastName" value="${administratorLastName}" />
+<var name="administratorEmail" value="${administratorEmail}" />
+</execute>
 			</then>
 			<elseif>
 				<and>
@@ -72,7 +79,10 @@
 				<execute macro="User#loginPG">
 					<var name="password" value="test" />
 					<var name="userEmailAddress" value="test@liferay.com" />
-				</execute>
+				<var name="nodePort" value="${nodePort}" />
+<var name="authenticationMethod" value="${authenticationMethod}" />
+<var name="userScreenName" value="${userScreenName}" />
+</execute>
 			</else>
 		</if>
 

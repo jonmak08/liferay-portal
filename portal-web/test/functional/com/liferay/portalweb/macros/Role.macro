@@ -42,7 +42,8 @@
 			<var name="permissionNavigationKey" value="SITE_ADMIN_PAGES_SITE_PAGES" />
 			<var name="permissionNavigationValue" value="Site Pages" />
 			<var name="roleName" value="${roleName}" />
-		</execute>
+		<var name="roleUser" value="${roleUser}" />
+</execute>
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Roles" />
@@ -54,7 +55,8 @@
 			<var name="permissionNavigationKey" value="SITE_ADMIN_PAGES_SITE_PAGES" />
 			<var name="permissionNavigationValue" value="Site Pages" />
 			<var name="roleName" value="${roleName}" />
-		</execute>
+		<var name="roleUser" value="${roleUser}" />
+</execute>
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Roles" />
@@ -66,7 +68,8 @@
 			<var name="permissionNavigationKey" value="SITE_ADMIN_PAGES_SITE_PAGES" />
 			<var name="permissionNavigationValue" value="Site Pages" />
 			<var name="roleName" value="${roleName}" />
-		</execute>
+		<var name="roleUser" value="${roleUser}" />
+</execute>
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Roles" />
@@ -78,7 +81,8 @@
 			<var name="permissionNavigationKey" value="SITE_ADMIN_PAGES_SITE_PAGES" />
 			<var name="permissionNavigationValue" value="Site Pages" />
 			<var name="roleName" value="${roleName}" />
-		</execute>
+		<var name="roleUser" value="${roleUser}" />
+</execute>
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Roles" />
@@ -90,7 +94,8 @@
 			<var name="permissionNavigationKey" value="SITE_ADMIN_PAGES_SITE_PAGES" />
 			<var name="permissionNavigationValue" value="Site Pages" />
 			<var name="roleName" value="${roleName}" />
-		</execute>
+		<var name="roleUser" value="${roleUser}" />
+</execute>
 	</command>
 
 	<command name="assignMembersOrganizationsCP">
@@ -226,12 +231,14 @@
 			<var name="permissionNavigationKey" value="${permissionNavigationKey}" />
 			<var name="permissionNavigationValue" value="${permissionNavigationValue}" />
 			<var name="roleName" value="${roleName}" />
-		</execute>
+		<var name="roleUser" value="${roleUser}" />
+</execute>
 
 		<execute macro="Role#viewPermissionCP">
 			<var name="permissionDefinitionValue" value="${permissionDefinitionValue}" />
 			<var name="permissionNavigationValue" value="${permissionNavigationValue}" />
-		</execute>
+		<var name="permissionDefinitionKey" value="${permissionDefinitionKey}" />
+</execute>
 	</command>
 
 	<command name="definePermissionPG">

@@ -655,7 +655,8 @@
 			<var name="dmDocumentDescriptionEdit" value="${dmDocumentDescriptionEdit}" />
 			<var name="dmDocumentFileEdit" value="${dmDocumentFileEdit}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
-		</execute>
+		<var name="sharepointRepository" value="${sharepointRepository}" />
+</execute>
 
 		<if>
 			<equals arg1="${checkedOut}" arg2="true" />
@@ -678,7 +679,8 @@
 			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
 			<var name="revision" value="${revision}" />
-		</execute>
+		<var name="changeLog" value="${changeLog}" />
+</execute>
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGDocumentsandmediaEditdocument#PUBLISH_BUTTON" value1="Publish" />
 
@@ -709,7 +711,8 @@
 			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
 			<var name="revision" value="${revision}" />
-		</execute>
+		<var name="changeLog" value="${changeLog}" />
+</execute>
 
 		<if>
 			<isset var="changeLog" />
@@ -731,7 +734,8 @@
 			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
 			<var name="revision" value="${revision}" />
-		</execute>
+		<var name="changeLog" value="${changeLog}" />
+</execute>
 
 		<if>
 			<isset var="changeLog" />
@@ -754,7 +758,8 @@
 			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
 			<var name="revision" value="${revision}" />
-		</execute>
+		<var name="changeLog" value="${changeLog}" />
+</execute>
 
 		<execute function="AssertClick" locator1="PGDocumentsandmediaEditdocument#SAVE_BUTTON" value1="Save" />
 
@@ -1022,7 +1027,11 @@
 	<command name="tearDownPG">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-		</execute>
+		<var name="nodePort" value="${nodePort}" />
+<var name="defaultURL" value="${defaultURL}" />
+<var name="soPage" value="${soPage}" />
+<var name="soDashboard" value="${soDashboard}" />
+</execute>
 
 		<if>
 			<condition function="IsElementPresent#isVisible" locator1="PGDocumentsandmedia#ENTRY_ICON_DOCUMENT_THUMBNAIL_GENERIC" />
@@ -1046,7 +1055,10 @@
 		<execute macro="DMDocument#viewPG">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-		</execute>
+		<var name="tagNameList" value="${tagNameList}" />
+<var name="tagName" value="${tagName}" />
+<var name="categoryName" value="${categoryName}" />
+</execute>
 
 		<if>
 			<condition function="IsElementPresent" locator1="SODocuments#DOCUMENT_BREADCRUMBS" />
@@ -1476,7 +1488,10 @@
 		<execute macro="DMDocument#viewPG">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-		</execute>
+		<var name="tagNameList" value="${tagNameList}" />
+<var name="tagName" value="${tagName}" />
+<var name="categoryName" value="${categoryName}" />
+</execute>
 
 		<if>
 			<condition function="IsElementPresent" locator1="SODocuments#DOCUMENT_BREADCRUMBS" />

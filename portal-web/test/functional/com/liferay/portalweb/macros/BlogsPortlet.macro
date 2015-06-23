@@ -98,7 +98,11 @@
 	<command name="disableSocialBookmarkSites">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Blogs Page" />
-		</execute>
+		<var name="nodePort" value="${nodePort}" />
+<var name="defaultURL" value="${defaultURL}" />
+<var name="soPage" value="${soPage}" />
+<var name="soDashboard" value="${soDashboard}" />
+</execute>
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -111,7 +115,8 @@
 		<for list="${socialBookmarkSites}" param="socialBookmarkSite">
 			<execute macro="BlogsPortlet#disableSocialBookmarkSite">
 				<var name="socialBookmarkSites" value="${socialBookmarkSite}" />
-			</execute>
+			<var name="socialBookmarkSite" value="${socialBookmarkSite}" />
+</execute>
 		</for>
 
 		<execute macro="IFrame#saveConfiguration" />
@@ -126,7 +131,11 @@
 	<command name="enableSocialBookmarkSites">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Blogs Page" />
-		</execute>
+		<var name="nodePort" value="${nodePort}" />
+<var name="defaultURL" value="${defaultURL}" />
+<var name="soPage" value="${soPage}" />
+<var name="soDashboard" value="${soDashboard}" />
+</execute>
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletOption" value="Configuration" />
@@ -139,7 +148,8 @@
 		<for list="${socialBookmarkSites}" param="socialBookmarkSite">
 			<execute macro="BlogsPortlet#enableSocialBookmarkSite">
 				<var name="socialBookmarkSites" value="${socialBookmarkSite}" />
-			</execute>
+			<var name="socialBookmarkSite" value="${socialBookmarkSite}" />
+</execute>
 		</for>
 
 		<execute macro="IFrame#saveConfiguration" />
@@ -153,7 +163,11 @@
 	<command name="tearDownConfigurationDisplaySettingsPG">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-		</execute>
+		<var name="nodePort" value="${nodePort}" />
+<var name="defaultURL" value="${defaultURL}" />
+<var name="soPage" value="${soPage}" />
+<var name="soDashboard" value="${soDashboard}" />
+</execute>
 
 		<if>
 			<equals arg1="${soPage}" arg2="true" />
@@ -180,17 +194,26 @@
 	<command name="tearDownConfigurationScopePG">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-		</execute>
+		<var name="nodePort" value="${nodePort}" />
+<var name="defaultURL" value="${defaultURL}" />
+<var name="soPage" value="${soPage}" />
+<var name="soDashboard" value="${soDashboard}" />
+</execute>
 
 		<execute macro="BlogsPortlet#configureScopePG">
 			<var name="scopeSelection" value="Liferay" />
-		</execute>
+		<var name="soPage" value="${soPage}" />
+</execute>
 	</command>
 
 	<command name="tearDownSubscribePG">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-		</execute>
+		<var name="nodePort" value="${nodePort}" />
+<var name="defaultURL" value="${defaultURL}" />
+<var name="soPage" value="${soPage}" />
+<var name="soDashboard" value="${soDashboard}" />
+</execute>
 
 		<execute function="AssertClick" locator1="PGBlogs#UNSUBSCRIBE_LINK" value1="Unsubscribe" />
 		<execute function="AssertTextEquals" locator1="PGBlogs#SUCCESS_MESSAGE" value1="Your request completed successfully." />

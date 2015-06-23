@@ -39,7 +39,8 @@
 						<for list="${templateFieldNames}" param="templateFieldName">
 							<execute macro="WebContentTemplates#addField">
 								<var name="fieldName" value="${templateFieldName}" />
-							</execute>
+							<var name="fieldNameLabel" value="${fieldNameLabel}" />
+</execute>
 						</for>
 					</then>
 				</if>
