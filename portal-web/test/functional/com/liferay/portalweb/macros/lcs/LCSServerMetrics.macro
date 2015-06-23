@@ -1,15 +1,15 @@
 <definition>
 	<command name="generateApplicationMetrics">
 		<execute macro="Page#openURL">
+			<var name="friendlyURL" value="${friendlyURL}" />
+			<var name="pageAccess" value="${pageAccess}" />
+			<var name="pageAccessURL" value="${pageAccessURL}" />
+			<var name="pageStaging" value="${pageStaging}" />
+			<var name="pageStagingURL" value="${pageStagingURL}" />
+			<var name="siteNameURL" value="${siteNameURL}" />
+			<var name="specificURL" value="${specificURL}" />
 			<var name="virtualHostsURL" value="http://localhost:8080" />
-		<var name="pageAccess" value="${pageAccess}" />
-<var name="siteNameURL" value="${siteNameURL}" />
-<var name="friendlyURL" value="${friendlyURL}" />
-<var name="pageStaging" value="${pageStaging}" />
-<var name="specificURL" value="${specificURL}" />
-<var name="pageAccessURL" value="${pageAccessURL}" />
-<var name="pageStagingURL" value="${pageStagingURL}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoMyDashboard" />
 
@@ -20,11 +20,11 @@
 		</execute>
 
 		<execute macro="LCSPortletNavigator#gotoProjectHome">
+			<var name="loginRequired" value="${loginRequired}" />
 			<var name="projectName" value="${projectName}" />
-		<var name="loginRequired" value="${loginRequired}" />
-<var name="userEmailAddress" value="${userEmailAddress}" />
-<var name="userEmailPassword" value="${userEmailPassword}" />
-</execute>
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userEmailPassword" value="${userEmailPassword}" />
+		</execute>
 	</command>
 
 	<command name="setMetricsTableItemsPerPage">

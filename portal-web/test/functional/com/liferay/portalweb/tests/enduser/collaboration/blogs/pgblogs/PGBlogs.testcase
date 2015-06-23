@@ -165,9 +165,9 @@
 		</execute>
 
 		<execute macro="BlogsEntry#viewScheduledPG">
+			<var name="entryContent" value="${entryContent}" />
 			<var name="entryTitle" value="${entryTitle}" />
-		<var name="entryContent" value="${entryContent}" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="AddBlogsEntryTitle150Characters" priority="5">
@@ -374,8 +374,8 @@
 			<var name="entryContent2" value="${entryContent2}" />
 			<var name="entryTitle" value="${entryTitle}" />
 			<var name="entryTitle2" value="${entryTitle2}" />
-		<var name="pageName" value="${pageName}" />
-</execute>
+			<var name="pageName" value="${pageName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -1275,11 +1275,11 @@
 		<execute macro="PermissionsInline#gotoBlogsEntryPG" />
 
 		<execute macro="Role#removePermissionPG">
+			<var name="entryTitle" value="${entryTitle}" />
+			<var name="pageName" value="${pageName}" />
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKey}" />
 			<var name="roleName" value="${roleName}" />
-		<var name="pageName" value="${pageName}" />
-<var name="entryTitle" value="${entryTitle}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -1364,8 +1364,8 @@
 		<execute macro="User#loginPG">
 			<var name="password" value="test" />
 			<var name="userEmailAddress" value="test@liferay.com" />
-		<var name="userScreenName" value="${userScreenName}" />
-</execute>
+			<var name="userScreenName" value="${userScreenName}" />
+		</execute>
 	</command>
 
 	<command name="ViewBlogsEntryRSS" priority="5">
@@ -1623,10 +1623,10 @@
 		<execute macro="PermissionsInline#gotoBlogsConfiguration" />
 
 		<execute macro="Role#removePermissionPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKeyView}" />
 			<var name="roleName" value="Guest" />
-		<var name="pageName" value="${pageName}" />
-</execute>
+		</execute>
 
 		<execute macro="Role#removePermissionPG">
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKeyView}" />
@@ -1647,10 +1647,10 @@
 		<execute macro="PermissionsInline#gotoBlogsConfiguration" />
 
 		<execute macro="PermissionsInline#viewPermissionsRemoved">
+			<var name="pageName" value="${pageName}" />
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKeyView}" />
 			<var name="roleName" value="Guest" />
-		<var name="pageName" value="${pageName}" />
-</execute>
+		</execute>
 
 		<execute macro="PermissionsInline#viewPermissionsRemoved">
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKeyView}" />

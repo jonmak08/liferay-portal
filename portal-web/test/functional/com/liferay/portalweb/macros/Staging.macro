@@ -494,14 +494,14 @@
 		</execute>
 
 		<execute macro="Staging#activateStagingCP">
+			<var name="contentName" value="${contentName}" />
+			<var name="editActivateStaging" value="${editActivateStaging}" />
 			<var name="pageVersioningEnabled" value="${pageVersioningEnabled}" />
 			<var name="remoteStaging" value="true" />
 			<var name="siteID" value="${siteID}" />
 			<var name="siteName" value="Site Name" />
-		<var name="contentName" value="${contentName}" />
-<var name="uncheckContent" value="${uncheckContent}" />
-<var name="editActivateStaging" value="${editActivateStaging}" />
-</execute>
+			<var name="uncheckContent" value="${uncheckContent}" />
+		</execute>
 	</command>
 
 	<command name="schedulePublishToLivePG">

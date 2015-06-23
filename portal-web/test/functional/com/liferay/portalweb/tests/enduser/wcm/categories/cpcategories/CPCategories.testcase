@@ -656,9 +656,9 @@
 		</execute>
 
 		<execute macro="Vocabulary#addViewableByCP">
+			<var name="viewableBy" value="${viewableBy}" />
 			<var name="vocabularyName" value="${vocabularyName}" />
-		<var name="viewableBy" value="${viewableBy}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Categories" />
@@ -679,9 +679,9 @@
 		</execute>
 
 		<execute macro="Vocabulary#addViewableByCP">
+			<var name="viewableBy" value="${viewableBy}" />
 			<var name="vocabularyName" value="${vocabularyName}" />
-		<var name="viewableBy" value="${viewableBy}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Categories" />
@@ -702,9 +702,9 @@
 		</execute>
 
 		<execute macro="Vocabulary#addViewableByCP">
+			<var name="viewableBy" value="${viewableBy}" />
 			<var name="vocabularyName" value="${vocabularyName}" />
-		<var name="viewableBy" value="${viewableBy}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Categories" />

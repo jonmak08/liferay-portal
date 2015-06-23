@@ -95,10 +95,10 @@
 
 		<execute macro="MessageboardsThread#editCP">
 			<var name="threadBody" value="${threadBody}" />
+			<var name="threadBodyEdit" value="${threadBodyEdit}" />
 			<var name="threadSubject" value="${threadSubject}" />
-		<var name="threadSubjectEdit" value="${threadSubjectEdit}" />
-<var name="threadBodyEdit" value="${threadBodyEdit}" />
-</execute>
+			<var name="threadSubjectEdit" value="${threadSubjectEdit}" />
+		</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Message Boards" />

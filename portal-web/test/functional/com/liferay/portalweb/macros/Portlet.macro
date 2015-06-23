@@ -36,9 +36,9 @@
 				<execute function="Refresh" />
 
 				<execute macro="Portlet#addPGCmd">
+					<var name="portletLocator" value="${portletLocator}" />
 					<var name="portletName" value="${portletName}" />
-				<var name="portletLocator" value="${portletLocator}" />
-</execute>
+				</execute>
 			</then>
 		</while>
 
@@ -64,9 +64,9 @@
 		</if>
 
 		<execute macro="Portlet#addPGCmd">
+			<var name="portletLocator" value="${portletLocator}" />
 			<var name="portletName" value="${portletName}" />
-		<var name="portletLocator" value="${portletLocator}" />
-</execute>
+		</execute>
 
 		<var name="i" value="1" />
 		<var name="key_portletName" value="${portletName}" />
@@ -86,9 +86,9 @@
 				<execute function="Refresh" />
 
 				<execute macro="Portlet#addPGCmd">
+					<var name="portletLocator" value="${portletLocator}" />
 					<var name="portletName" value="${portletName}" />
-				<var name="portletLocator" value="${portletLocator}" />
-</execute>
+				</execute>
 			</then>
 		</while>
 
@@ -285,9 +285,9 @@
 			<condition function="IsElementPresent" locator1="BasePortlet#SPECIFIC_PORTLET_TITLE" value1="${portletName}" />
 			<then>
 				<execute macro="Portlet#deletePG">
+					<var name="portletLocator" value="${portletLocator}" />
 					<var name="portletName" value="${portletName}" />
-				<var name="portletLocator" value="${portletLocator}" />
-</execute>
+				</execute>
 			</then>
 		</while>
 	</command>

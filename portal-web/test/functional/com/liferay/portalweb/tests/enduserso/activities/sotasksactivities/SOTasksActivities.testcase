@@ -52,8 +52,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -84,11 +84,11 @@
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="commentCount" value="1" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContent}" />
@@ -168,8 +168,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -220,11 +220,11 @@
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task for ${userFirstName}." />
 			<var name="commentCount" value="2" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContent1}" />
@@ -253,11 +253,11 @@
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task for ${userName}." />
 			<var name="commentCount" value="2" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContent1}" />
@@ -301,8 +301,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -342,11 +342,11 @@
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute function="AssertTextNotPresent" value1="1 Comment" />
 
@@ -393,8 +393,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -436,11 +436,11 @@
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="commentCount" value="1" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContentEdit}" />
@@ -537,8 +537,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -559,11 +559,11 @@
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewActivityEntryTimeStamp">
 			<var name="row" value="01" />
@@ -590,11 +590,11 @@
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Updated a task." />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescriptionEdit}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewActivityEntryTimeStamp">
 			<var name="row" value="01" />
@@ -604,11 +604,11 @@
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="row" value="02" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescriptionEdit}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="ViewTaskAssignedToMe" priority="4">
@@ -637,8 +637,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -659,11 +659,11 @@
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute function="SikuliAssertElementPresent" locator1="SOActivities#SCREENSHOTS_ACTIVITIES_TASK_ACTIVITY_PRIORITY_NORMAL_PNG" />
 
@@ -720,8 +720,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -755,20 +755,20 @@
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Resolved a task." />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="row" value="02" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
@@ -839,8 +839,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -874,20 +874,20 @@
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Updated a task." />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="row" value="02" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
@@ -958,8 +958,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -1039,8 +1039,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -1074,21 +1074,21 @@
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Updated a task." />
 			<var name="dueDateEdit" value="true" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="dueDateEdit" value="true" />
 			<var name="row" value="02" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
@@ -1164,8 +1164,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -1197,20 +1197,20 @@
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Updated a task." />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescriptionEdit}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="row" value="02" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescriptionEdit}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
@@ -1281,8 +1281,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -1304,11 +1304,11 @@
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute function="SikuliAssertElementPresent" locator1="SOActivities#SCREENSHOTS_ACTIVITIES_TASK_ACTIVITY_PRIORITY_HIGH_PNG" />
 
@@ -1365,8 +1365,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -1388,11 +1388,11 @@
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute function="SikuliAssertElementPresent" locator1="SOActivities#SCREENSHOTS_ACTIVITIES_TASK_ACTIVITY_PRIORITY_LOW_PNG" />
 
@@ -1449,8 +1449,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -1495,29 +1495,29 @@
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Reopened a task." />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Resolved a task." />
 			<var name="row" value="02" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="row" value="03" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
@@ -1608,8 +1608,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -1642,20 +1642,20 @@
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Resolved a task." />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="row" value="02" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
@@ -1733,8 +1733,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="SOUser#addUserWithSORole">
 			<var name="userEmailAddress" value="${userEmailAddress}" />
@@ -1792,8 +1792,8 @@
 
 		<execute macro="SOTasks#editTask">
 			<var name="taskAssigneeEdit" value="${userName}" />
-		<var name="taskDescription" value="${taskDescription}" />
-</execute>
+			<var name="taskDescription" value="${taskDescription}" />
+		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="${userEmailAddress}" />
@@ -1820,71 +1820,71 @@
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Resolved a task." />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${userFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Made 2 updates to a task." />
 			<var name="row" value="02" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="row" value="03" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Resolved a task." />
 			<var name="dashboardView" value="true" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${userFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Made 2 updates to a task." />
 			<var name="dashboardView" value="true" />
 			<var name="row" value="02" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="dashboardView" value="true" />
 			<var name="row" value="03" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoMyProfile" />
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Resolved a task." />
 			<var name="profileView" value="true" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${userFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="${adminEmailAddress}" />
@@ -1898,81 +1898,81 @@
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Resolved a task." />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${userName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Made 2 updates to a task." />
 			<var name="row" value="02" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="row" value="03" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Resolved a task." />
 			<var name="dashboardView" value="true" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${userName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Made 2 updates to a task." />
 			<var name="dashboardView" value="true" />
 			<var name="row" value="02" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="dashboardView" value="true" />
 			<var name="row" value="03" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoMyProfile" />
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Made 2 updates to a task." />
 			<var name="profileView" value="true" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="profileView" value="true" />
 			<var name="row" value="02" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${userName}" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="ViewTasksActivities" priority="5">
@@ -2003,8 +2003,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -2050,29 +2050,29 @@
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="row" value="01" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription3}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="row" value="02" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription2}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
 			<var name="row" value="03" />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="${adminName}" />
 			<var name="taskDescription" value="${taskDescription1}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="ViewTaskUnassigned" priority="4">
@@ -2101,8 +2101,8 @@
 
 		<execute macro="SOUserBar#addPortlet">
 			<var name="pageName" value="${pageName}" />
-		<var name="portletName" value="${portletName}" />
-</execute>
+			<var name="portletName" value="${portletName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -2123,11 +2123,11 @@
 
 		<execute macro="SOActivities#viewTasksActivityEntry">
 			<var name="action" value="Created a new task." />
+			<var name="siteName" value="${siteName}" />
 			<var name="taskAssignee" value="Unassigned" />
 			<var name="taskDescription" value="${taskDescription}" />
 			<var name="userName" value="${adminFirstName}" />
-		<var name="siteName" value="${siteName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 

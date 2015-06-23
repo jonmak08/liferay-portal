@@ -8,16 +8,16 @@
 		</execute>
 
 		<execute macro="User#addCP">
+			<var name="userBirthday" value="${userBirthday}" />
 			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userEmailAddressVariation" value="${userEmailAddressVariation}" />
 			<var name="userFirstName" value="${userFirstName}" />
+			<var name="userGender" value="${userGender}" />
 			<var name="userLastName" value="${userLastName}" />
 			<var name="userMiddleName" value="${userMiddleName}" />
 			<var name="userScreenName" value="${userScreenName}" />
-		<var name="userBirthday" value="${userBirthday}" />
-<var name="userGender" value="${userGender}" />
-<var name="userEmailAddressVariation" value="${userEmailAddressVariation}" />
-<var name="userScreenNameVariation" value="${userScreenNameVariation}" />
-</execute>
+			<var name="userScreenNameVariation" value="${userScreenNameVariation}" />
+		</execute>
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
@@ -48,11 +48,11 @@
 			</and>
 			<then>
 				<execute macro="SetupWizard#configureDefaultPG">
+					<var name="administratorEmail" value="${administratorEmail}" />
+					<var name="administratorFirstName" value="${administratorFirstName}" />
+					<var name="administratorLastName" value="${administratorLastName}" />
 					<var name="setupWizardAddSampleData" value="true" />
-				<var name="administratorFirstName" value="${administratorFirstName}" />
-<var name="administratorLastName" value="${administratorLastName}" />
-<var name="administratorEmail" value="${administratorEmail}" />
-</execute>
+				</execute>
 			</then>
 			<elseif>
 				<and>
@@ -77,12 +77,12 @@
 			</elseif>
 			<else>
 				<execute macro="User#loginPG">
+					<var name="authenticationMethod" value="${authenticationMethod}" />
+					<var name="nodePort" value="${nodePort}" />
 					<var name="password" value="test" />
 					<var name="userEmailAddress" value="test@liferay.com" />
-				<var name="nodePort" value="${nodePort}" />
-<var name="authenticationMethod" value="${authenticationMethod}" />
-<var name="userScreenName" value="${userScreenName}" />
-</execute>
+					<var name="userScreenName" value="${userScreenName}" />
+				</execute>
 			</else>
 		</if>
 

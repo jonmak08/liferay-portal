@@ -16,8 +16,8 @@
 			<then>
 				<execute macro="Page#selectPageTypeRadioPG">
 					<var name="pageType" value="${pageType}" />
-				<var name="portletNameList" value="${portletNameList}" />
-</execute>
+					<var name="portletNameList" value="${portletNameList}" />
+				</execute>
 			</then>
 		</if>
 
@@ -70,9 +70,9 @@
 						</if>
 
 						<execute macro="Portlet#addPGCmd">
+							<var name="portletLocator" value="${portletLocator}" />
 							<var name="portletName" value="${portletName}" />
-						<var name="portletLocator" value="${portletLocator}" />
-</execute>
+						</execute>
 					</then>
 					<else>
 						<var name="i" value="5" />

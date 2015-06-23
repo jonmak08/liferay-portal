@@ -29,10 +29,10 @@
 		</execute>
 
 		<execute macro="MessageboardsThread#moveToRecycleBinCP">
+			<var name="assetType" value="${assetType}" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
-		<var name="assetType" value="${assetType}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Recycle Bin" />
@@ -81,10 +81,10 @@
 		</execute>
 
 		<execute macro="MessageboardsThread#moveToRecycleBinCP">
+			<var name="assetType" value="${assetType}" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
-		<var name="assetType" value="${assetType}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Recycle Bin" />

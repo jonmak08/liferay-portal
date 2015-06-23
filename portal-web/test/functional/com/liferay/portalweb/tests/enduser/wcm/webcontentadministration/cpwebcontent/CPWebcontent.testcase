@@ -310,8 +310,8 @@
 			<var name="localizedContent" value="${localizedContent}" />
 			<var name="localizedLanguage" value="${localizedLanguage}" />
 			<var name="localizedTitle" value="${localizedTitle}" />
-		<var name="webContentTitle" value="${webContentTitle}" />
-</execute>
+			<var name="webContentTitle" value="${webContentTitle}" />
+		</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
@@ -319,11 +319,11 @@
 
 		<execute macro="WebContent#viewCP">
 			<var name="localizedContent" value="${localizedContent}" />
+			<var name="localizedLanguage" value="${localizedLanguage}" />
 			<var name="localizedTitle" value="${localizedTitle}" />
 			<var name="webContentContent" value="${webContentContent}" />
 			<var name="webContentTitle" value="${webContentTitle}" />
-		<var name="localizedLanguage" value="${localizedLanguage}" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="AddWebContentMultiple" priority="4">
@@ -481,12 +481,12 @@
 		</execute>
 
 		<execute macro="WebContentTemplates#addCP">
+			<var name="structureName" value="${structureName}" />
 			<var name="templateDescription" value="${templateDescription}" />
 			<var name="templateFile" value="${templateFile}" />
 			<var name="templateLanguage" value="${templateLanguage}" />
 			<var name="templateName" value="${templateName}" />
-		<var name="structureName" value="${structureName}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
@@ -541,9 +541,9 @@
 
 		<execute macro="WebContentTemplates#addCP">
 			<var name="templateDescription" value="${templateDescription}" />
+			<var name="templateLanguage" value="${templateLanguage}" />
 			<var name="templateName" value="${templateName}" />
-		<var name="templateLanguage" value="${templateLanguage}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />

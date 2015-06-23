@@ -669,11 +669,11 @@
 		</execute>
 
 		<execute macro="DMDocument#addShortcutPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmFolderName" value="${dmFolderName}" />
 			<var name="siteName" value="${siteName}" />
-		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1161,9 +1161,9 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="AddDocument" priority="5">
@@ -1210,10 +1210,10 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentFile" value="Document_1.doc" />
 			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
-		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1226,10 +1226,10 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentFile" value="Document_1.docx" />
 			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
-		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1242,10 +1242,10 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentFile" value="Document_1.jpeg" />
 			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
-		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1258,10 +1258,10 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentFile" value="Document_1.jpg" />
 			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
-		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1274,10 +1274,10 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentFile" value="Document_2.mp3" />
 			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
-		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1290,10 +1290,10 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentFile" value="Document_1.odt" />
 			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
-		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1306,10 +1306,10 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentFile" value="Document_1.pdf" />
 			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
-		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1322,10 +1322,10 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentFile" value="Document_1.png" />
 			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
-		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1338,10 +1338,10 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentFile" value="Document_1.ppt" />
 			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
-		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1354,10 +1354,10 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentFile" value="Document_1.pptx" />
 			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
-		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1370,10 +1370,10 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentFile" value="Document_1.xls" />
 			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
-		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1386,10 +1386,10 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentFile" value="Document_1.xlsx" />
 			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
-		<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="AddDocumentType" priority="4">
@@ -1470,10 +1470,10 @@
 		<execute macro="DMMetadataSet#gotoPG" />
 
 		<execute macro="DMMetadataSet#addPG">
+			<var name="dmMetadataSetFieldName" value="${dmMetadataSetFieldName}" />
 			<var name="dmMetadataSetFieldNames" value="${dmMetadataSetFieldName}" />
 			<var name="metadataSetName" value="${metadataSetName}" />
-		<var name="dmMetadataSetFieldName" value="${dmMetadataSetFieldName}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1484,11 +1484,11 @@
 
 		<execute macro="DMDocumentType#addPG">
 			<var name="dmDocumentTypeDescription" value="${dmDocumentTypeDescription}" />
+			<var name="dmDocumentTypeFieldName" value="${dmDocumentTypeFieldName}" />
 			<var name="dmDocumentTypeFieldNames" value="${dmDocumentTypeFieldName}" />
 			<var name="dmDocumentTypeName" value="${dmDocumentTypeName}" />
 			<var name="metadataSetName" value="${metadataSetName}" />
-		<var name="dmDocumentTypeFieldName" value="${dmDocumentTypeFieldName}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1738,9 +1738,9 @@
 
 		<execute macro="Site#assignRoleCP">
 			<var name="roleName" value="${roleName}" />
+			<var name="userMiddleName" value="${userMiddleName}" />
 			<var name="userScreenName" value="${userScreenName}" />
-		<var name="userMiddleName" value="${userMiddleName}" />
-</execute>
+		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="${userEmailAddress}" />
@@ -2723,9 +2723,9 @@
 
 		<execute macro="DMDocument#editCommentPG">
 			<var name="commentBody" value="${commentBodyEdit}" />
+			<var name="commentBodyEdit" value="${commentBodyEdit}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-		<var name="commentBodyEdit" value="${commentBodyEdit}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -3524,9 +3524,9 @@
 
 		<execute macro="Site#assignRoleCP">
 			<var name="roleName" value="${roleName}" />
+			<var name="userMiddleName" value="${userMiddleName}" />
 			<var name="userScreenName" value="${userScreenName}" />
-		<var name="userMiddleName" value="${userMiddleName}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -4352,10 +4352,10 @@
 			<var name="changeLog" value="${changeLog}" />
 			<var name="dmDocumentDescriptionEdit" value="${dmDocumentDescriptionEdit}" />
 			<var name="dmDocumentFileEdit" value="${dmDocumentFileEdit}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
 			<var name="revision" value="Major" />
-		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -4442,10 +4442,10 @@
 			<var name="changeLog" value="${changeLog}" />
 			<var name="dmDocumentDescriptionEdit" value="${dmDocumentDescriptionEdit}" />
 			<var name="dmDocumentFileEdit" value="${dmDocumentFileEdit}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
 			<var name="revision" value="Minor" />
-		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -4532,10 +4532,10 @@
 			<var name="changeLog" value="This is a Major Revision" />
 			<var name="dmDocumentDescriptionEdit" value="${dmDocumentDescriptionEdit1}" />
 			<var name="dmDocumentFileEdit" value="${dmDocumentFileEdit}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit1}" />
 			<var name="revision" value="Major" />
-		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -4562,12 +4562,11 @@
 		<execute macro="DMDocument#editSaveAndCheckinPG">
 			<var name="changeLog" value="" />
 			<var name="dmDocumentDescriptionEdit" value="${dmDocumentDescriptionEdit2}" />
-			<var name="dmDocumentTitle" value="${dmDocumentTitleEdit1}" />
+			<var name="dmDocumentFileEdit" value="${dmDocumentFileEdit}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit2}" />
 			<var name="revision" value="Minor" />
-		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-<var name="dmDocumentFileEdit" value="${dmDocumentFileEdit}" />
-</execute>
+		</execute>
 
 		<execute macro="SODocuments#viewPGDocumentSpecificVersionLog">
 			<var name="dmDocumentSizeSO" value="${dmDocumentSizeSO}" />
@@ -4691,9 +4690,9 @@
 		<execute macro="DMDocument#editSaveAsDraftPG">
 			<var name="dmDocumentDescriptionEdit" value="${dmDocumentDescriptionEdit}" />
 			<var name="dmDocumentFileEdit" value="${dmDocumentFileEdit}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
-		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -4706,14 +4705,14 @@
 
 		<execute macro="DMDocument#viewEditedDraftPG">
 			<var name="dmDocumentSize" value="${dmDocumentSize2}" />
+			<var name="dmDocumentSize2" value="${dmDocumentSize2}" />
 			<var name="dmDocumentSizeSO" value="${dmDocumentSizeSO2}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
 			<var name="dmDocumentUploader" value="${dmDocumentUploader}" />
 			<var name="dmDocumentVersionNumberEdit" value="${dmDocumentVersionNumber}" />
 			<var name="versionNumber" value="${dmDocumentVersionNumberEdit}" />
-		<var name="dmDocumentSize2" value="${dmDocumentSize2}" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="SearchContentDocument" priority="4">
@@ -5411,9 +5410,9 @@
 		<execute macro="DMDocument#editSaveAsDraftPG">
 			<var name="dmDocumentDescriptionEdit" value="${dmDocumentDescriptionEdit}" />
 			<var name="dmDocumentFileEdit" value="${dmDocumentFileEdit}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
-		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-</execute>
+		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="${userEmailAddress}" />

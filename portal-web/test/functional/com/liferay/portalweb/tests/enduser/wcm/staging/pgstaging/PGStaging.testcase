@@ -164,11 +164,11 @@
 		</execute>
 
 		<execute macro="DMDocument#viewPGviaStagingLocalLive">
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="documentAdded" value="false" />
 			<var name="pageName" value="${pageName}" />
 			<var name="pageStaging" value="true" />
-		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="ActivateRemoteStaging" priority="5">
@@ -262,11 +262,11 @@
 		</execute>
 
 		<execute macro="DMDocument#viewPGviaStagingLocalLive">
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="documentAdded" value="true" />
 			<var name="pageName" value="${pageName}" />
 			<var name="pageStaging" value="true" />
-		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="AddEventRepeatDaily" priority="4">
@@ -1034,8 +1034,8 @@
 
 		<execute macro="Staging#configurePublishToLive">
 			<var name="contentDeletion" value="true" />
-		<var name="pageName" value="${pageName}" />
-</execute>
+			<var name="pageName" value="${pageName}" />
+		</execute>
 
 		<execute macro="Staging#publishToLive" />
 

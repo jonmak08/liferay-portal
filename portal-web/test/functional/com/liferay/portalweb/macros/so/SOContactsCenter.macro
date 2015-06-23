@@ -30,23 +30,23 @@
 		<execute function="AssertElementPresent" locator1="SOUserBar#USER_BAR" />
 
 		<execute macro="SOContactsCenter#confirmRequestToConnect">
+			<var name="numberOfConnections" value="${numberOfConnections}" />
+			<var name="numberOfNotifications" value="${numberOfNotifications}" />
 			<var name="senderName" value="${adminName}" />
 			<var name="userName" value="${userName}" />
-		<var name="numberOfNotifications" value="${numberOfNotifications}" />
-<var name="numberOfConnections" value="${numberOfConnections}" />
-</execute>
+		</execute>
 
 		<execute function="AssertElementPresent" locator1="SOUserBar#USER_BAR" />
 	</command>
 
 	<command name="addContact">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="AssertClick" locator1="SOContactscenter#ADD_CONTACT_BUTTON" value1="Add Contact" />
 
@@ -105,12 +105,12 @@
 
 	<command name="blockUser">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userName}" />
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="SOContactscenter#CONTACTS_LIST_NAME" value1="${userListName}" />
@@ -158,8 +158,8 @@
 		<execute macro="SOUserBar#confirmRequestToConnectCmd">
 			<var name="numberOfNotifications" value="${numberOfNotifications}" />
 			<var name="senderName" value="${senderName}" />
-		<var name="senderNameList" value="${senderNameList}" />
-</execute>
+			<var name="senderNameList" value="${senderNameList}" />
+		</execute>
 
 		<execute function="Click" locator1="SODashboard#NAVIGATION_CONTACTS_CENTER" />
 
@@ -176,12 +176,12 @@
 
 	<command name="disconnectFromConnection">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userScreenName}" />
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="SOContactscenter#CONTACTS_LIST_NAME" value1="${userListName}" />
@@ -195,12 +195,12 @@
 
 	<command name="disconnectFromConnectionSelectedUsersList">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute macro="SOContactsCenter#selectUsers" />
 
@@ -235,12 +235,12 @@
 
 	<command name="downloadVCard">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -252,12 +252,12 @@
 
 	<command name="downloadVCardAllUsers">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Check" locator1="SOContactscenter#CONTACTS_LIST_ALL_CHECKBOX" />
@@ -272,12 +272,12 @@
 
 	<command name="editContact">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="My Contacts" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${contactName}" />
@@ -294,12 +294,12 @@
 
 	<command name="followUser">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userName}" />
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="SOContactscenter#CONTACTS_LIST_NAME" value1="${userListName}" />
@@ -343,12 +343,12 @@
 
 	<command name="gotoProfile">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userScreenName}" />
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="SOContactscenter#CONTACTS_LIST_NAME" value1="${userListName}" />
@@ -373,12 +373,12 @@
 
 	<command name="requestToConnect">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userScreenName}" />
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="SOContactscenter#CONTACTS_LIST_NAME" value1="${userListName}" />
@@ -423,12 +423,12 @@
 
 	<command name="selectUsers">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<if>
 			<isset var="userListNameList" />
@@ -460,12 +460,12 @@
 		<var name="recipientScreenName" value="${userScreenName}" />
 
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userScreenName}" />
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="SOContactscenter#CONTACTS_LIST_NAME" value1="${userListName}" />
@@ -509,12 +509,12 @@
 		<execute macro="SOUser#firstLoginPG" />
 
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="My Contacts" />
 		<execute function="Pause" value1="1000" />
@@ -536,12 +536,12 @@
 
 	<command name="unblockUser">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userName}" />
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="SOContactscenter#CONTACTS_LIST_NAME" value1="${userListName}" />
@@ -587,12 +587,12 @@
 
 	<command name="unfollowUser">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userName}" />
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="SOContactscenter#CONTACTS_LIST_NAME" value1="${userListName}" />
@@ -636,12 +636,12 @@
 
 	<command name="viewBlockedUser">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
 		<execute function="AssertTextEquals" locator1="SOContactscenter#CONTACTS_LIST_NAME" value1="${userListName}" />
@@ -657,12 +657,12 @@
 
 	<command name="viewBlockingUser">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
 		<execute function="AssertTextEquals" locator1="SOContactscenter#CONTACTS_LIST_NAME" value1="${userListName}" />
@@ -677,12 +677,12 @@
 
 	<command name="viewConnection">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="Connections" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -708,12 +708,12 @@
 
 	<command name="viewContact">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="My Contacts" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${contactName}" />
@@ -746,12 +746,12 @@
 
 	<command name="viewFollower">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="Followers" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -776,12 +776,12 @@
 
 	<command name="viewFollowing">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="Following" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -806,12 +806,12 @@
 
 	<command name="viewNoContact">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="My Contacts" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${contactName}" />
@@ -820,12 +820,12 @@
 
 	<command name="viewNonConnection">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -844,12 +844,12 @@
 
 	<command name="viewNonFollower">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -867,12 +867,12 @@
 
 	<command name="viewNonFollowing">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -890,12 +890,12 @@
 
 	<command name="viewPendingConnection">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -915,12 +915,12 @@
 
 	<command name="viewSiteMember">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="${siteName}" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -936,12 +936,12 @@
 
 	<command name="viewUser">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -957,12 +957,12 @@
 
 	<command name="viewUserDetailsAdditionalEmailAddress">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -975,12 +975,12 @@
 
 	<command name="viewUserDetailsAddress">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -993,12 +993,12 @@
 
 	<command name="viewUserDetailsInstantMessenger">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -1016,12 +1016,12 @@
 
 	<command name="viewUserDetailsIntroduction">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -1034,12 +1034,12 @@
 
 	<command name="viewUserDetailsPhoneNumbers">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -1061,12 +1061,12 @@
 
 	<command name="viewUserDetailsProfilePicture">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -1082,12 +1082,12 @@
 
 	<command name="viewUserDetailsProjects">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -1107,12 +1107,12 @@
 
 	<command name="viewUserDetailsProjectsEdit">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -1132,12 +1132,12 @@
 
 	<command name="viewUserDetailsSMS">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -1150,12 +1150,12 @@
 
 	<command name="viewUserDetailsSocialNetwork">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -1169,12 +1169,12 @@
 
 	<command name="viewUserDetailsWebsite">
 		<execute macro="Page#gotoPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
 			<var name="soPage" value="true" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-</execute>
+		</execute>
 
 		<execute function="Select" locator1="SOContactscenter#CONTACTS_LIST_FILTER" value1="All" />
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />

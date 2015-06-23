@@ -148,6 +148,7 @@
 
 		<execute macro="SOContactsCenter#addConnection">
 			<var name="adminEmailAddress" value="${adminEmailAddress}" />
+			<var name="adminName" value="${adminName}" />
 			<var name="senderName" value="${adminName}" />
 			<var name="userEmailAddress" value="${userEmailAddress1}" />
 			<var name="userFirstName" value="${userFirstName1}" />
@@ -156,8 +157,7 @@
 			<var name="userMiddleName" value="${userMiddleName1}" />
 			<var name="userName" value="${userName1}" />
 			<var name="userScreenName" value="${userScreenName1}" />
-		<var name="adminName" value="${adminName}" />
-</execute>
+		</execute>
 
 		<execute macro="SOContactsCenter#viewConnection">
 			<var name="userEmailAddress" value="${adminEmailAddress}" />
@@ -919,14 +919,14 @@
 		</execute>
 
 		<execute macro="SOForumsCategoryThread#viewPG">
+			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${mbCategoryName}" />
 			<var name="pageName" value="Forums" />
 			<var name="siteName" value="${siteName1}" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
-		<var name="adminName" value="${adminName}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Blogs" />

@@ -289,9 +289,9 @@
 			<then>
 				<execute macro="WikiPage#addTagPGCmd">
 					<var name="tagName" value="${tagName}" />
+					<var name="tagNameList" value="${tagNameList}" />
 					<var name="wikiPageTitle" value="${wikiPageTitle}" />
-				<var name="tagNameList" value="${tagNameList}" />
-</execute>
+				</execute>
 			</then>
 		</if>
 
@@ -468,9 +468,9 @@
 			<then>
 				<execute macro="WikiPage#addTagPGCmd">
 					<var name="tagName" value="${tagName}" />
+					<var name="tagNameList" value="${tagNameList}" />
 					<var name="wikiPageTitle" value="${wikiPageTitle}" />
-				<var name="tagNameList" value="${tagNameList}" />
-</execute>
+				</execute>
 			</then>
 		</if>
 

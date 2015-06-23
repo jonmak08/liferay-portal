@@ -52,15 +52,15 @@
 		<execute function="AssertClick" locator1="SOUpcomingTasks#VIEW_ALL_TASKS_LINK" value1="View All Tasks" />
 
 		<execute macro="SOTasks#viewTask">
+			<var name="currentUser" value="${currentUser}" />
+			<var name="dueDatePastDue" value="${dueDatePastDue}" />
+			<var name="dueDateUpcoming" value="${dueDateUpcoming}" />
 			<var name="percentCompletion" value="100" />
-		<var name="taskDescription" value="${taskDescription}" />
-<var name="taskAssignee" value="${taskAssignee}" />
-<var name="currentUser" value="${currentUser}" />
-<var name="taskReporter" value="${taskReporter}" />
-<var name="dueDateUpcoming" value="${dueDateUpcoming}" />
-<var name="dueDatePastDue" value="${dueDatePastDue}" />
-<var name="taskPriority" value="${taskPriority}" />
-</execute>
+			<var name="taskAssignee" value="${taskAssignee}" />
+			<var name="taskDescription" value="${taskDescription}" />
+			<var name="taskPriority" value="${taskPriority}" />
+			<var name="taskReporter" value="${taskReporter}" />
+		</execute>
 	</command>
 
 	<command name="viewUpcomingTask">
@@ -94,20 +94,20 @@
 					</if>
 
 					<execute macro="SOTasks#viewTaskDetails">
+						<var name="dueDate" value="${dueDate}" />
+						<var name="dueDateEdit" value="${dueDateEdit}" />
+						<var name="dueDatePastDue" value="${dueDatePastDue}" />
+						<var name="dueDateUpcoming" value="${dueDateUpcoming}" />
+						<var name="numberOfTags" value="${numberOfTags}" />
+						<var name="percentCompletion" value="${percentCompletion}" />
+						<var name="tagNumber" value="${tagNumber}" />
+						<var name="taskAssignee" value="${taskAssignee}" />
+						<var name="taskComment" value="${taskComment}" />
+						<var name="taskDescription" value="${taskDescription}" />
+						<var name="taskPriority" value="${taskPriority}" />
+						<var name="taskReporter" value="${taskReporter}" />
 						<var name="viewTaskAssigneeDetails" value="true" />
-					<var name="taskDescription" value="${taskDescription}" />
-<var name="taskAssignee" value="${taskAssignee}" />
-<var name="taskReporter" value="${taskReporter}" />
-<var name="percentCompletion" value="${percentCompletion}" />
-<var name="taskPriority" value="${taskPriority}" />
-<var name="dueDate" value="${dueDate}" />
-<var name="dueDateEdit" value="${dueDateEdit}" />
-<var name="dueDateUpcoming" value="${dueDateUpcoming}" />
-<var name="dueDatePastDue" value="${dueDatePastDue}" />
-<var name="tagNumber" value="${tagNumber}" />
-<var name="numberOfTags" value="${numberOfTags}" />
-<var name="taskComment" value="${taskComment}" />
-</execute>
+					</execute>
 				</then>
 			</elseif>
 			<else>

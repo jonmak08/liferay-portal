@@ -37,8 +37,8 @@
 			<then>
 				<execute macro="Page#selectPageTypeRadioPG">
 					<var name="pageType" value="${pageType}" />
-				<var name="portletNameList" value="${portletNameList}" />
-</execute>
+					<var name="portletNameList" value="${portletNameList}" />
+				</execute>
 			</then>
 		</if>
 
@@ -178,22 +178,22 @@
 		<description message="Navigate to Site Administration > Configuration > ${portletName}." />
 
 		<execute macro="Page#gotoCmdCP">
+			<var name="nodePort" value="${nodePort}" />
 			<var name="portletCategoryKey" value="ADMIN_SITE_ADMINISTRATION_CONFIGURATION" />
 			<var name="portletCategoryName" value="Configuration" />
 			<var name="portletName" value="${portletName}" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="siteScopeName" value="${siteScopeName}" />
-</execute>
+			<var name="siteScopeName" value="${siteScopeName}" />
+		</execute>
 	</command>
 
 	<command name="gotoContentCP" summary="Navigate to Admin > Site Administration > Content > ${portletName}">
 		<execute macro="Page#gotoCmdCP">
+			<var name="nodePort" value="${nodePort}" />
 			<var name="portletCategoryKey" value="ADMIN_SITE_ADMINISTRATION_CONTENT" />
 			<var name="portletCategoryName" value="Content" />
 			<var name="portletName" value="${portletName}" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="siteScopeName" value="${siteScopeName}" />
-</execute>
+			<var name="siteScopeName" value="${siteScopeName}" />
+		</execute>
 	</command>
 
 	<command name="gotoCP">
@@ -248,12 +248,12 @@
 		<description message="Navigate to Site Administration > Pages > ${portletName}." />
 
 		<execute macro="Page#gotoCmdCP">
+			<var name="nodePort" value="${nodePort}" />
 			<var name="portletCategoryKey" value="ADMIN_SITE_ADMINISTRATION_PAGES" />
 			<var name="portletCategoryName" value="Pages" />
 			<var name="portletName" value="${portletName}" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="siteScopeName" value="${siteScopeName}" />
-</execute>
+			<var name="siteScopeName" value="${siteScopeName}" />
+		</execute>
 	</command>
 
 	<command name="gotoPG" summary="Navigate to the page named '${pageName}'">
@@ -319,12 +319,12 @@
 		<description message="Navigate to Site Administration > Users > ${portletName}." />
 
 		<execute macro="Page#gotoCmdCP">
+			<var name="nodePort" value="${nodePort}" />
 			<var name="portletCategoryKey" value="ADMIN_SITE_ADMINISTRATION_USERS" />
 			<var name="portletCategoryName" value="Users" />
 			<var name="portletName" value="${portletName}" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="siteScopeName" value="${siteScopeName}" />
-</execute>
+			<var name="siteScopeName" value="${siteScopeName}" />
+		</execute>
 	</command>
 
 	<command name="isPresent">
@@ -404,10 +404,10 @@
 			<equals arg1="${pageType}" arg2="Panel" />
 			<then>
 				<execute macro="Page#addPageTypePanelPG">
+					<var name="componentName" value="${componentName}" />
+					<var name="portletName" value="${portletName}" />
 					<var name="portletNameList" value="${portletNameList}" />
-				<var name="componentName" value="${componentName}" />
-<var name="portletName" value="${portletName}" />
-</execute>
+				</execute>
 			</then>
 		</if>
 	</command>

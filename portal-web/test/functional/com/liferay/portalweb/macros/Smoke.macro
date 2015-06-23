@@ -1,28 +1,28 @@
 <definition>
 	<command name="runSmoke">
 		<execute macro="Page#addPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Test Page1" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-<var name="pageType" value="${pageType}" />
-<var name="pageTemplateName" value="${pageTemplateName}" />
-</execute>
+			<var name="pageTemplateName" value="${pageTemplateName}" />
+			<var name="pageType" value="${pageType}" />
+		</execute>
 
 		<execute macro="Page#addPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Test Page2" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-<var name="pageType" value="${pageType}" />
-<var name="pageTemplateName" value="${pageTemplateName}" />
-</execute>
+			<var name="pageTemplateName" value="${pageTemplateName}" />
+			<var name="pageType" value="${pageType}" />
+		</execute>
 
 		<execute macro="Page#addPG">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="Test Page3" />
-		<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-<var name="pageType" value="${pageType}" />
-<var name="pageTemplateName" value="${pageTemplateName}" />
-</execute>
+			<var name="pageTemplateName" value="${pageTemplateName}" />
+			<var name="pageType" value="${pageType}" />
+		</execute>
 
 		<var name="pageName" value="Test Page1" />
 		<var name="portletBody" value="Welcome to Liferay Portal" />
@@ -30,18 +30,18 @@
 
 		<task summary="Add a '${portletName}' portlet to the page named '${pageName}'">
 			<execute macro="Page#gotoPG">
+				<var name="defaultURL" value="${defaultURL}" />
+				<var name="nodePort" value="${nodePort}" />
 				<var name="pageName" value="${pageName}" />
-			<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-<var name="soPage" value="${soPage}" />
-<var name="soDashboard" value="${soDashboard}" />
-</execute>
+				<var name="soDashboard" value="${soDashboard}" />
+				<var name="soPage" value="${soPage}" />
+			</execute>
 
 			<execute macro="Portlet#addPG">
+				<var name="i" value="${i}" />
 				<var name="portletName" value="${portletName}" />
-			<var name="portletTypeKey" value="${portletTypeKey}" />
-<var name="i" value="${i}" />
-</execute>
+				<var name="portletTypeKey" value="${portletTypeKey}" />
+			</execute>
 
 			<execute macro="Portlet#viewTitle">
 				<var name="portletName" value="${portletName}" />
@@ -53,12 +53,12 @@
 			</execute>
 
 			<execute macro="Page#gotoPG">
+				<var name="defaultURL" value="${defaultURL}" />
+				<var name="nodePort" value="${nodePort}" />
 				<var name="pageName" value="${pageName}" />
-			<var name="nodePort" value="${nodePort}" />
-<var name="defaultURL" value="${defaultURL}" />
-<var name="soPage" value="${soPage}" />
-<var name="soDashboard" value="${soDashboard}" />
-</execute>
+				<var name="soDashboard" value="${soDashboard}" />
+				<var name="soPage" value="${soPage}" />
+			</execute>
 
 			<execute macro="Portlet#viewTitle">
 				<var name="portletName" value="${portletName}" />

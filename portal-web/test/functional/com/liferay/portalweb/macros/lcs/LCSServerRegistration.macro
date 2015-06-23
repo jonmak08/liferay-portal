@@ -5,10 +5,10 @@
 		</execute>
 
 		<execute macro="LCSPortlet#authorizeLCS">
+			<var name="projectName" value="${projectName}" />
 			<var name="userEmailAddress" value="${userEmailAddress}" />
 			<var name="userEmailPassword" value="${userEmailPassword}" />
-		<var name="projectName" value="${projectName}" />
-</execute>
+		</execute>
 
 		<execute macro="LCSPortlet#registerServer">
 			<var name="addEnvironment" value="${addEnvironment}" />
@@ -20,10 +20,10 @@
 		</execute>
 
 		<execute macro="LCSPortletNavigator#gotoProjectHome">
+			<var name="loginRequired" value="${loginRequired}" />
 			<var name="projectName" value="${projectName}" />
-		<var name="loginRequired" value="${loginRequired}" />
-<var name="userEmailAddress" value="${userEmailAddress}" />
-<var name="userEmailPassword" value="${userEmailPassword}" />
-</execute>
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userEmailPassword" value="${userEmailPassword}" />
+		</execute>
 	</command>
 </definition>

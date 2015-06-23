@@ -66,25 +66,25 @@
 			<var name="threadReplyBody" value="${threadReplyBody}" />
 			<var name="threadReplySubject" value="${threadReplySubject}" />
 			<var name="threadSplitReplyBody" value="${threadSplitReplyBody}" />
+			<var name="threadSplitReplySubject" value="${threadSplitReplySubject}" />
 			<var name="threadSplitSubject" value="${threadSplitSubject}" />
 			<var name="threadSubject" value="${threadSubject}" />
-		<var name="threadSplitReplySubject" value="${threadSplitReplySubject}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="MessageboardsThread#viewSplitThreadPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadReplyBody" value="${threadReplyBody}" />
 			<var name="threadReplySubject" value="${threadReplySubject}" />
 			<var name="threadSplitReplyBody" value="${threadSplitReplyBody}" />
+			<var name="threadSplitReplySubject" value="${threadSplitReplySubject}" />
 			<var name="threadSplitSubject" value="${threadSplitSubject}" />
 			<var name="threadSubject" value="${threadSubject}" />
-		<var name="threadSplitReplySubject" value="${threadSplitReplySubject}" />
-<var name="pageName" value="${pageName}" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="ViewNoMBThreadXSS" priority="5">

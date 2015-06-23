@@ -737,12 +737,12 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
+			<var name="commentBody" value="${commentBody}" />
 			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentVersionNumber" value="${dmDocumentVersionNumber}" />
 			<var name="tagNameList" value="${tagName1},${tagName2}" />
-		<var name="commentBody" value="${commentBody}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName1}" />
@@ -769,6 +769,7 @@
 		</execute>
 
 		<execute macro="SOForumsCategoryThread#viewPG">
+			<var name="adminName" value="${adminName}" />
 			<var name="attachmentFileName1" value="${attachmentFileName1}" />
 			<var name="attachmentFileSize1" value="${attachmentFileSize1}" />
 			<var name="categoryName" value="${categoryName}" />
@@ -781,8 +782,7 @@
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
-		<var name="adminName" value="${adminName}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName1}" />
@@ -790,6 +790,7 @@
 		</execute>
 
 		<execute macro="SOForumsCategoryThread#viewMyPostsPG">
+			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="categoryPostCount" value="2" />
 			<var name="mbThreadAttachment" value="${mbThreadAttachment}" />
@@ -800,8 +801,7 @@
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
-		<var name="adminName" value="${adminName}" />
-</execute>
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName1}" />

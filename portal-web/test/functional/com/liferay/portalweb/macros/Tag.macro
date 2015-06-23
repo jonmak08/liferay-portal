@@ -160,24 +160,24 @@
 
 	<command name="addTagsCP">
 		<execute macro="Tag#addCP">
-			<var name="tagName" value="${tagName1}" />
+			<var name="errorMessage1" value="${errorMessage1}" />
+		<var name="tagEntry" value="${tagEntry}" />
+		<var name="tagName" value="${tagName1}" />
 		<var name="tagNameVariation" value="${tagNameVariation}" />
-<var name="tagEntry" value="${tagEntry}" />
-<var name="errorMessage1" value="${errorMessage1}" />
 </execute>
 
 		<execute macro="Tag#addCP">
-			<var name="tagName" value="${tagName2}" />
+			<var name="errorMessage1" value="${errorMessage1}" />
+		<var name="tagEntry" value="${tagEntry}" />
+		<var name="tagName" value="${tagName2}" />
 		<var name="tagNameVariation" value="${tagNameVariation}" />
-<var name="tagEntry" value="${tagEntry}" />
-<var name="errorMessage1" value="${errorMessage1}" />
 </execute>
 
 		<execute macro="Tag#addCP">
-			<var name="tagName" value="${tagName3}" />
+			<var name="errorMessage1" value="${errorMessage1}" />
+		<var name="tagEntry" value="${tagEntry}" />
+		<var name="tagName" value="${tagName3}" />
 		<var name="tagNameVariation" value="${tagNameVariation}" />
-<var name="tagEntry" value="${tagEntry}" />
-<var name="errorMessage1" value="${errorMessage1}" />
 </execute>
 	</command>
 

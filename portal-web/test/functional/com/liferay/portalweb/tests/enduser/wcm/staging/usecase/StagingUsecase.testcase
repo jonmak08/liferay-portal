@@ -478,8 +478,8 @@
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Roles" />
-		<var name="roleName" value="${roleName}" />
-</execute>
+			<var name="roleName" value="${roleName}" />
+		</execute>
 
 		<execute macro="Role#definePermissionCmdCP">
 			<var name="permissionDefinitionKey" value="SITE_ADMIN_CONTENT_DOCUMENTS_AND_MEDIA_DOCUMENT_ACTION_CHECKBOX" />
@@ -567,9 +567,9 @@
 		<execute macro="Staging#gotoPublishToLive" />
 
 		<execute macro="Staging#configurePublishToLive">
+			<var name="pageName" value="${pageName}" />
 			<var name="uncheckContentNameList" value="Documents and Media" />
-		<var name="pageName" value="${pageName}" />
-</execute>
+		</execute>
 
 		<execute macro="Staging#publishToLive" />
 
@@ -592,8 +592,8 @@
 
 		<execute macro="Staging#configurePublishToLive">
 			<var name="contentDateRange" value="All" />
-		<var name="pageName" value="${pageName}" />
-</execute>
+			<var name="pageName" value="${pageName}" />
+		</execute>
 
 		<execute macro="Staging#publishToLive" />
 
@@ -642,8 +642,8 @@
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
-		<var name="roleName" value="${roleName}" />
-</execute>
+			<var name="roleName" value="${roleName}" />
+		</execute>
 
 		<execute macro="User#addCP">
 			<var name="userEmailAddress" value="userea@liferay.com" />
@@ -774,8 +774,8 @@
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
-		<var name="roleName" value="${roleName}" />
-</execute>
+			<var name="roleName" value="${roleName}" />
+		</execute>
 
 		<execute macro="User#addCP">
 			<var name="userEmailAddress" value="userea@liferay.com" />
@@ -1114,8 +1114,8 @@
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
-		<var name="roleName" value="${roleName}" />
-</execute>
+			<var name="roleName" value="${roleName}" />
+		</execute>
 
 		<execute macro="User#addCP">
 			<var name="userEmailAddress" value="userea@liferay.com" />
@@ -1191,8 +1191,8 @@
 
 		<execute macro="Staging#configurePublishToLive">
 			<var name="deleteMissingPages" value="true" />
-		<var name="pageName" value="${pageName}" />
-</execute>
+			<var name="pageName" value="${pageName}" />
+		</execute>
 
 		<execute macro="Staging#publishToLive" />
 

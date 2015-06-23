@@ -399,8 +399,8 @@
 			<then>
 				<execute macro="KBArticle#enableSocialBookmarkSites">
 					<var name="enableSocialBookmarkSites" value="${enableSocialBookmarkSites}" />
-				<var name="socialBookmarkSite" value="${socialBookmarkSite}" />
-</execute>
+					<var name="socialBookmarkSite" value="${socialBookmarkSite}" />
+				</execute>
 			</then>
 		</if>
 
@@ -409,8 +409,8 @@
 			<then>
 				<execute macro="KBArticle#disableSocialBookmarkSites">
 					<var name="disableSocialBookmarkSites" value="${disableSocialBookmarkSites}" />
-				<var name="socialBookmarkSite" value="${socialBookmarkSite}" />
-</execute>
+					<var name="socialBookmarkSite" value="${socialBookmarkSite}" />
+				</execute>
 			</then>
 		</if>
 

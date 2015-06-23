@@ -64,10 +64,10 @@
 		</execute>
 
 		<execute macro="WebContent#viewCPStatus">
+			<var name="webContentContent" value="${webContentContent}" />
 			<var name="webContentStatus" value="Draft" />
 			<var name="webContentTitle" value="${webContentTitle}" />
-		<var name="webContentContent" value="${webContentContent}" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="WithdrawTaskAssignedToMeByDetails" priority="5">
@@ -111,10 +111,10 @@
 		</execute>
 
 		<execute macro="WebContent#viewCPStatus">
+			<var name="webContentContent" value="${webContentContent}" />
 			<var name="webContentStatus" value="Draft" />
 			<var name="webContentTitle" value="${webContentTitle}" />
-		<var name="webContentContent" value="${webContentContent}" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="WithdrawTaskAssignedToMyRolesByActions" priority="5">
@@ -146,10 +146,10 @@
 		</execute>
 
 		<execute macro="WebContent#viewCPStatus">
+			<var name="webContentContent" value="${webContentContent}" />
 			<var name="webContentStatus" value="Draft" />
 			<var name="webContentTitle" value="${webContentTitle}" />
-		<var name="webContentContent" value="${webContentContent}" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="WithdrawTaskAssignedToMyRolesByDetails" priority="5">
@@ -182,10 +182,10 @@
 		</execute>
 
 		<execute macro="WebContent#viewCPStatus">
+			<var name="webContentContent" value="${webContentContent}" />
 			<var name="webContentStatus" value="Draft" />
 			<var name="webContentTitle" value="${webContentTitle}" />
-		<var name="webContentContent" value="${webContentContent}" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="WithdrawTaskCompletedNoByActions" priority="5">
