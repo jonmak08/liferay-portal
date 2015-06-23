@@ -162,7 +162,8 @@
 		<execute macro="BlogsEntry#viewCP">
 			<var name="entryAuthor" value="${entryAuthor}" />
 			<var name="entryTitle" value="${entryTitle}" />
-		</execute>
+		<var name="entryContent" value="${entryContent}" />
+</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -351,7 +352,9 @@
 		<execute macro="Organization#viewParentOrganizationCP">
 			<var name="orgName" value="${orgName2}" />
 			<var name="parentOrgExist" value="false" />
-		</execute>
+		<var name="subOrgName" value="${subOrgName}" />
+<var name="parentOrgName" value="${parentOrgName}" />
+</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -360,7 +363,9 @@
 		<execute macro="BlogsAggregatorPortlet#viewParentOrganizationPG">
 			<var name="orgName" value="${orgName2}" />
 			<var name="parentOrgExist" value="false" />
-		</execute>
+		<var name="subOrgName" value="${subOrgName}" />
+<var name="parentOrgName" value="${parentOrgName}" />
+</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />

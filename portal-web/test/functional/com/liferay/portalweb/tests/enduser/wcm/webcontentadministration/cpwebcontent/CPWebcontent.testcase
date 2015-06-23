@@ -310,7 +310,8 @@
 			<var name="localizedContent" value="${localizedContent}" />
 			<var name="localizedLanguage" value="${localizedLanguage}" />
 			<var name="localizedTitle" value="${localizedTitle}" />
-		</execute>
+		<var name="webContentTitle" value="${webContentTitle}" />
+</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
@@ -321,7 +322,8 @@
 			<var name="localizedTitle" value="${localizedTitle}" />
 			<var name="webContentContent" value="${webContentContent}" />
 			<var name="webContentTitle" value="${webContentTitle}" />
-		</execute>
+		<var name="localizedLanguage" value="${localizedLanguage}" />
+</execute>
 	</command>
 
 	<command name="AddWebContentMultiple" priority="4">
@@ -483,7 +485,8 @@
 			<var name="templateFile" value="${templateFile}" />
 			<var name="templateLanguage" value="${templateLanguage}" />
 			<var name="templateName" value="${templateName}" />
-		</execute>
+		<var name="structureName" value="${structureName}" />
+</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
@@ -539,7 +542,8 @@
 		<execute macro="WebContentTemplates#addCP">
 			<var name="templateDescription" value="${templateDescription}" />
 			<var name="templateName" value="${templateName}" />
-		</execute>
+		<var name="templateLanguage" value="${templateLanguage}" />
+</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />

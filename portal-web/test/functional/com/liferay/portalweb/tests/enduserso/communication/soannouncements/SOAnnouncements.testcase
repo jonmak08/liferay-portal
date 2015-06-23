@@ -1380,7 +1380,8 @@
 		<execute macro="SOAnnouncementsEntry#deleteViaManageEntriesPG">
 			<var name="distributionScope" value="${siteName}" />
 			<var name="entryTitle" value="${entryTitle}" />
-		</execute>
+		<var name="entryContent" value="${entryContent}" />
+</execute>
 	</command>
 
 	<command name="DeleteSOAnnouncementsEntryViaManageEntriesViaDashboard" priority="4">
@@ -1405,7 +1406,8 @@
 		<execute macro="SOAnnouncementsEntry#deleteViaManageEntriesPG">
 			<var name="distributionScope" value="${distributionScope}" />
 			<var name="entryTitle" value="${entryTitle}" />
-		</execute>
+		<var name="entryContent" value="${entryContent}" />
+</execute>
 	</command>
 
 	<command name="DisableAndEnableSOAnnouncementPortletBorders" priority="3">
@@ -1537,7 +1539,9 @@
 			<var name="entryContentEdit" value="${entryContentEdit}" />
 			<var name="entryTitleEdit" value="${entryTitleEdit}" />
 			<var name="entryURL" value="${entryURL}" />
-		</execute>
+		<var name="entryTitle" value="${entryTitle}" />
+<var name="entryContent" value="${entryContent}" />
+</execute>
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName}" />
@@ -1595,7 +1599,9 @@
 			<var name="entryContentEdit" value="${entryContentEdit}" />
 			<var name="entryTitleEdit" value="${entryTitleEdit}" />
 			<var name="entryURL" value="${entryURL}" />
-		</execute>
+		<var name="entryTitle" value="${entryTitle}" />
+<var name="entryContent" value="${entryContent}" />
+</execute>
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName}" />
@@ -1668,7 +1674,9 @@
 			<var name="entryContentEdit" value="${entryContentEdit}" />
 			<var name="entryTitleEdit" value="${entryTitleEdit}" />
 			<var name="entryURL" value="${entryURL}" />
-		</execute>
+		<var name="entryTitle" value="${entryTitle}" />
+<var name="entryContent" value="${entryContent}" />
+</execute>
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName}" />
@@ -1709,7 +1717,9 @@
 			<var name="entryContentEdit" value="${entryContentEdit}" />
 			<var name="entryTitleEdit" value="${entryTitleEdit}" />
 			<var name="entryURL" value="${entryURL}" />
-		</execute>
+		<var name="entryTitle" value="${entryTitle}" />
+<var name="entryContent" value="${entryContent}" />
+</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
@@ -1758,7 +1768,9 @@
 			<var name="entryContentEdit" value="${entryContentEdit}" />
 			<var name="entryTitleEdit" value="${entryTitleEdit}" />
 			<var name="entryURL" value="${entryURL}" />
-		</execute>
+		<var name="entryTitle" value="${entryTitle}" />
+<var name="entryContent" value="${entryContent}" />
+</execute>
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName}" />
@@ -1800,7 +1812,9 @@
 			<var name="entryContentEdit" value="${entryContentEdit}" />
 			<var name="entryTitleEdit" value="${entryTitleEdit}" />
 			<var name="entryURL" value="${entryURL}" />
-		</execute>
+		<var name="entryTitle" value="${entryTitle}" />
+<var name="entryContent" value="${entryContent}" />
+</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
@@ -1959,7 +1973,9 @@
 			<var name="entryContentEdit" value="${entryContent}" />
 			<var name="entryTitleEdit" value="${entryTitle}" />
 			<var name="entryURL" value="${entryURL}" />
-		</execute>
+		<var name="entryTitle" value="${entryTitle}" />
+<var name="entryContent" value="${entryContent}" />
+</execute>
 	</command>
 
 	<command name="MarkAsReadSOAnnouncementsEntryViaDashboard" priority="5">
@@ -1987,7 +2003,9 @@
 			<var name="entryContentEdit" value="${entryContent}" />
 			<var name="entryTitleEdit" value="${entryTitle}" />
 			<var name="entryURL" value="${entryURL}" />
-		</execute>
+		<var name="entryTitle" value="${entryTitle}" />
+<var name="entryContent" value="${entryContent}" />
+</execute>
 	</command>
 
 	<command name="MarkAsUnreadSOAnnouncementsEntry" priority="5">
@@ -2096,7 +2114,9 @@
 			<var name="entryContentEdit" value="${entryContent}" />
 			<var name="entryTitleEdit" value="${entryTitle}" />
 			<var name="entryURL" value="${entryURL}" />
-		</execute>
+		<var name="entryTitle" value="${entryTitle}" />
+<var name="entryContent" value="${entryContent}" />
+</execute>
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName}" />
@@ -2137,7 +2157,9 @@
 			<var name="entryContentEdit" value="${entryContent}" />
 			<var name="entryTitleEdit" value="${entryTitle}" />
 			<var name="entryURL" value="${entryURL}" />
-		</execute>
+		<var name="entryTitle" value="${entryTitle}" />
+<var name="entryContent" value="${entryContent}" />
+</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 

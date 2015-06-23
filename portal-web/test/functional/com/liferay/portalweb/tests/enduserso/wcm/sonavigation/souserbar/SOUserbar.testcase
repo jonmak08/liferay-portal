@@ -195,7 +195,8 @@
 
 		<execute macro="SOProfile#addProfilePicture">
 			<var name="imageFileName" value="${imageFileName1}" />
-		</execute>
+		<var name="userName" value="${userName}" />
+</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
@@ -205,7 +206,8 @@
 
 		<execute macro="SOProfile#addProfilePicture">
 			<var name="imageFileName" value="${imageFileName2}" />
-		</execute>
+		<var name="userName" value="${userName}" />
+</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
@@ -215,7 +217,8 @@
 
 		<execute macro="SOProfile#addProfilePicture">
 			<var name="imageFileName" value="${imageFileName3}" />
-		</execute>
+		<var name="userName" value="${userName}" />
+</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 

@@ -367,7 +367,8 @@
 
 		<execute macro="SitePage#copyApplicationsFromPageToPagePG">
 			<var name="sitePageName" value="${sitePageName}" />
-		</execute>
+		<var name="pageName" value="${pageName}" />
+</execute>
 	</command>
 
 	<command name="DeleteSitePages" priority="4">

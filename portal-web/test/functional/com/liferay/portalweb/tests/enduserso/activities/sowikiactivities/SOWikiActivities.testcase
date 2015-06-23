@@ -65,7 +65,9 @@
 			<var name="firstRevision" value="true" />
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+<var name="wikiPageContent" value="${wikiPageContent}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContent}" />
@@ -81,7 +83,9 @@
 			<var name="row" value="02" />
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+<var name="wikiPageContent" value="${wikiPageContent}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContent}" />
@@ -256,7 +260,8 @@
 			<var name="userName" value="${userName3}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContent1}" />
@@ -287,7 +292,8 @@
 			<var name="userName" value="${adminName}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContent1}" />
@@ -330,7 +336,8 @@
 			<var name="userName" value="${userName3}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContent1}" />
@@ -361,7 +368,8 @@
 			<var name="userName" value="${adminName}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContent1}" />
@@ -404,7 +412,8 @@
 			<var name="userName" value="${userFirstName3}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContent1}" />
@@ -435,7 +444,8 @@
 			<var name="userName" value="${adminName}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContent1}" />
@@ -478,7 +488,8 @@
 			<var name="userName" value="${userName3}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContent1}" />
@@ -509,7 +520,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContent1}" />
@@ -589,7 +601,9 @@
 			<var name="firstRevision" value="true" />
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+<var name="wikiPageContent" value="${wikiPageContent}" />
+</execute>
 
 		<execute function="AssertTextNotPresent" value1="1 Comment" />
 
@@ -662,7 +676,9 @@
 			<var name="firstRevision" value="true" />
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+<var name="wikiPageContent" value="${wikiPageContent}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContentEdit}" />
@@ -678,7 +694,9 @@
 			<var name="row" value="02" />
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+<var name="wikiPageContent" value="${wikiPageContent}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${commentContentEdit}" />
@@ -940,7 +958,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryTimeStamp">
 			<var name="row" value="01" />
@@ -979,7 +998,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiPageContentEdit}" />
 			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryTimeStamp">
 			<var name="row" value="01" />
@@ -993,7 +1013,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiPageContentEdit}" />
 			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 	</command>
 
 	<command name="ViewMoveSOWikiFrontPageChildPageToParentPageActivities" priority="4">
@@ -1068,7 +1089,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiChildPageContent}" />
 			<var name="wikiPageTitle" value="${wikiChildPageTitle}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewWikiActivityEntry">
 			<var name="action" value="Created a new wiki page in the Main wiki." />
@@ -1077,7 +1099,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiPage2Content}" />
 			<var name="wikiPageTitle" value="${wikiPage2Title}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewWikiActivityEntry">
 			<var name="action" value="Created a new wiki page in the Main wiki." />
@@ -1086,7 +1109,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiChildPageContent}" />
 			<var name="wikiPageTitle" value="${wikiChildPageTitle}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewWikiActivityEntry">
 			<var name="action" value="Updated a wiki page in the Main wiki." />
@@ -1095,7 +1119,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiFrontPageContent}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1120,7 +1145,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiChildPageContent}" />
 			<var name="wikiPageTitle" value="${wikiChildPageTitle}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewWikiActivityEntry">
 			<var name="action" value="Created a new wiki page in the Main wiki." />
@@ -1129,7 +1155,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiPage2Content}" />
 			<var name="wikiPageTitle" value="${wikiPage2Title}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewWikiActivityEntry">
 			<var name="action" value="Created a new wiki page in the Main wiki." />
@@ -1138,7 +1165,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiChildPageContent}" />
 			<var name="wikiPageTitle" value="${wikiChildPageTitle}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewWikiActivityEntry">
 			<var name="action" value="Updated a wiki page in the Main wiki." />
@@ -1147,7 +1175,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiFrontPageContent}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 	</command>
 
 	<command name="ViewMoveSOWikiPageToParentPageActivities" priority="4">
@@ -1205,7 +1234,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewWikiActivityEntry">
 			<var name="action" value="Created a new wiki page in the Main wiki." />
@@ -1214,7 +1244,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiParentPageContent}" />
 			<var name="wikiPageTitle" value="${wikiParentPageTitle}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewWikiActivityEntry">
 			<var name="action" value="Created a new wiki page in the Main wiki." />
@@ -1223,7 +1254,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName}" />
@@ -1247,7 +1279,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewWikiActivityEntry">
 			<var name="action" value="Created a new wiki page in the Main wiki." />
@@ -1256,7 +1289,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiParentPageContent}" />
 			<var name="wikiPageTitle" value="${wikiParentPageTitle}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewWikiActivityEntry">
 			<var name="action" value="Created a new wiki page in the Main wiki." />
@@ -1265,7 +1299,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 	</command>
 
 	<command name="ViewRemoveWikiFrontPageChildPageViewPermissionActivities" priority="4">
@@ -1373,7 +1408,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiChildPageContent1}" />
 			<var name="wikiPageTitle" value="${wikiChildPageTitle1}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewWikiActivityEntry">
 			<var name="action" value="Updated a wiki page in the Main wiki." />
@@ -1382,7 +1418,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiFrontPageContent}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute function="AssertTextNotPresent" value1="${wikiChildPageContent2}" />
 		<execute function="AssertTextNotPresent" value1="${wikiChildPageTitle2}" />
@@ -1436,7 +1473,8 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewWikiActivityEntry">
 			<var name="action" value="Updated a wiki page in the Main wiki." />
@@ -1444,6 +1482,7 @@
 			<var name="userName" value="${adminFirstName}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="FrontPage" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 	</command>
 </definition>

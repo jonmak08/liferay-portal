@@ -440,7 +440,8 @@
 
 		<execute macro="Team#assignMembersCP">
 			<var name="userScreenName" value="${userScreenName1}" />
-		</execute>
+		<var name="teamName" value="${teamName}" />
+</execute>
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Teams" />
@@ -450,7 +451,8 @@
 		<execute macro="Team#assignMembersCP">
 			<var name="userNameIsNotFound" value="true" />
 			<var name="userScreenName" value="${userScreenName2}" />
-		</execute>
+		<var name="teamName" value="${teamName}" />
+</execute>
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Teams" />
@@ -459,7 +461,8 @@
 
 		<execute macro="Team#assignUserGroups">
 			<var name="userGroupName" value="${userGroupName1}" />
-		</execute>
+		<var name="teamName" value="${teamName}" />
+</execute>
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Teams" />
@@ -469,7 +472,8 @@
 		<execute macro="Team#assignUserGroups">
 			<var name="userGroupName" value="${userGroupName2}" />
 			<var name="userGroupsNameIsNotAvailable" value="true" />
-		</execute>
+		<var name="teamName" value="${teamName}" />
+</execute>
 	</command>
 
 	<command name="SiteTeamsPermissions" priority="4">
@@ -562,7 +566,8 @@
 
 		<execute macro="Team#assignMembersCP">
 			<var name="userScreenName" value="${userScreenName1}" />
-		</execute>
+		<var name="teamName" value="${teamName}" />
+</execute>
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
@@ -588,7 +593,8 @@
 
 		<execute macro="PermissionsInline#gotoPagePG">
 			<var name="pageName" value="${pageName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="Role#removePermissionPG">
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKey}" />
@@ -597,7 +603,8 @@
 
 		<execute macro="PermissionsInline#gotoPagePG">
 			<var name="pageName" value="${pageName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<for list="${permissionInLineUncheckLists}" param="permissionsInLineUncheckListsCount" >
 
@@ -609,7 +616,8 @@
 
 		<execute macro="PermissionsInline#gotoPagePG">
 			<var name="pageName" value="${pageName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<for list="${permissionInLineCheckLists}" param="permissionsInLineCheckListsCount" >
 

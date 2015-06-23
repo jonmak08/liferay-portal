@@ -248,7 +248,8 @@
 			<var name="userFirstName" value="${userFirstName}" />
 			<var name="userLastName" value="${userLastName}" />
 			<var name="userScreenName" value="${userScreenName}" />
-		</execute>
+		<var name="teamName" value="${teamName}" />
+</execute>
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
@@ -350,7 +351,8 @@
 		<execute macro="Team#editCP">
 			<var name="teamDescriptionEdit" value="${teamDescriptionEdit}" />
 			<var name="teamNameEdit" value="${teamNameEdit}" />
-		</execute>
+		<var name="teamName" value="${teamName}" />
+</execute>
 
 		<execute macro="Team#viewCP">
 			<var name="teamDescription" value="${teamDescriptionEdit}" />

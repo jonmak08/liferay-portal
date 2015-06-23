@@ -68,7 +68,8 @@
 			<var name="entryContent" value="Entry Content" />
 			<var name="entryTitle" value="Entry Title" />
 			<var name="tagName" value="${tagName3}" />
-		</execute>
+		<var name="tagName3" value="${tagName3}" />
+</execute>
 	</command>
 
 	<command name="AddFrontPageTag" priority="5">

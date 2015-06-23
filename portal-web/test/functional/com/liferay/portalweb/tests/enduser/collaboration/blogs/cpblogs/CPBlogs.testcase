@@ -387,7 +387,8 @@
 		<execute macro="BlogsEntry#editTitleCP">
 			<var name="entryContent" value="${entryContent}" />
 			<var name="entryTitleEdit" value="${entryTitleEdit}" />
-		</execute>
+		<var name="entryTitle" value="${entryTitle}" />
+</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Blogs" />

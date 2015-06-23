@@ -207,7 +207,8 @@
 
 		<execute macro="WebContent#viewSelectNoPGViaWCD">
 			<var name="webContentContent" value="${webContentContent}" />
-		</execute>
+		<var name="webContentTitle" value="${webContentTitle}" />
+</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName1}" />

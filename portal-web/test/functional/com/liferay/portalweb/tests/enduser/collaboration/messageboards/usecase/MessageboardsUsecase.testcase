@@ -68,7 +68,8 @@
 			<var name="threadSplitReplyBody" value="${threadSplitReplyBody}" />
 			<var name="threadSplitSubject" value="${threadSplitSubject}" />
 			<var name="threadSubject" value="${threadSubject}" />
-		</execute>
+		<var name="threadSplitReplySubject" value="${threadSplitReplySubject}" />
+</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -81,7 +82,9 @@
 			<var name="threadSplitReplyBody" value="${threadSplitReplyBody}" />
 			<var name="threadSplitSubject" value="${threadSplitSubject}" />
 			<var name="threadSubject" value="${threadSubject}" />
-		</execute>
+		<var name="threadSplitReplySubject" value="${threadSplitReplySubject}" />
+<var name="pageName" value="${pageName}" />
+</execute>
 	</command>
 
 	<command name="ViewNoMBThreadXSS" priority="5">

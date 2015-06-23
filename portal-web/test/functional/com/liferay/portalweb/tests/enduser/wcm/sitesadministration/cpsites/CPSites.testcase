@@ -129,7 +129,8 @@
 		<execute macro="Site#viewVirtualHostsURLPG">
 			<var name="sitePageName" value="${publicSitePage}" />
 			<var name="sitePageURL" value="${publicSitePageURL}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 	</command>
 
 	<command name="AddSite" priority="5">
@@ -375,7 +376,8 @@
 		<execute macro="Site#viewSiteFriendlyURLPG">
 			<var name="sitePageName" value="${publicSitePage}" />
 			<var name="sitePageURL" value="${publicSitePageURL}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="Page#openURL">
 			<var name="friendlyURL" value="${siteFriendlyURLEdit}" />
@@ -385,7 +387,8 @@
 		<execute macro="Site#viewSiteFriendlyURLPG">
 			<var name="sitePageName" value="${privateSitePage}" />
 			<var name="sitePageURL" value="${privateSitePageURL}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 	</command>
 
 	<command name="EditSiteFriendlyURLInvalid" priority="4">

@@ -135,7 +135,8 @@
 		<execute macro="BlogsEntry#moveToRecycleBinCP">
 			<var name="entryContent" value="${entryContent}" />
 			<var name="entryTitle" value="${entryTitle}" />
-		</execute>
+		<var name="assetType" value="${assetType}" />
+</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Recycle Bin" />
@@ -162,6 +163,8 @@
 
 		<execute macro="BlogsEntry#viewCP">
 			<var name="assetName" value="${entryTitle}" />
-		</execute>
+		<var name="entryTitle" value="${entryTitle}" />
+<var name="entryContent" value="${entryContent}" />
+</execute>
 	</command>
 </definition>

@@ -1362,7 +1362,8 @@
 			<var name="threadBody" value="${threadBody1}" />
 			<var name="threadSubject" value="${threadSubject1}" />
 			<var name="userName" value="${userName3}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="microblogsEntryAuthorName" value="${userName3}" />
@@ -1393,7 +1394,8 @@
 			<var name="threadBody" value="${threadBody1}" />
 			<var name="threadSubject" value="${threadSubject1}" />
 			<var name="userName" value="${userName3}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="microblogsEntryAuthorName" value="${userName3}" />
@@ -1607,7 +1609,8 @@
 			<var name="threadBody" value="${threadBody1}" />
 			<var name="threadSubject" value="${threadSubject1}" />
 			<var name="userName" value="${userName3}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="microblogsEntryAuthorName" value="${userName3}" />
@@ -1638,7 +1641,8 @@
 			<var name="threadBody" value="${threadBody1}" />
 			<var name="threadSubject" value="${threadSubject1}" />
 			<var name="userName" value="${userName3}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="microblogsEntryAuthorName" value="${userName3}" />
@@ -1853,7 +1857,8 @@
 			<var name="threadBody" value="${threadBody1}" />
 			<var name="threadSubject" value="${threadSubject1}" />
 			<var name="userName" value="${userName1}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="microblogsEntryAuthorName" value="${userName1}" />
@@ -1914,7 +1919,8 @@
 			<var name="threadBody" value="${threadBody2}" />
 			<var name="threadSubject" value="${threadSubject2}" />
 			<var name="userName" value="${userName2}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="microblogsEntryAuthorName" value="${userName2}" />
@@ -2265,7 +2271,8 @@
 			<var name="threadSubjectEdit" value="${threadSubjectEdit}" />
 			<var name="userName" value="${adminName}" />
 			<var name="wikiPageContentEdit" value="${wikiPageContentEdit2}" />
-		</execute>
+		<var name="dmFolderDescription" value="${dmFolderDescription}" />
+</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
@@ -2418,7 +2425,8 @@
 			<var name="userMiddleName" value="${userMiddleName}" />
 			<var name="userName" value="${userName}" />
 			<var name="userScreenName" value="${userScreenName}" />
-		</execute>
+		<var name="adminName" value="${adminName}" />
+</execute>
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="${adminEmailAddress}" />
@@ -2533,7 +2541,8 @@
 			<var name="userMiddleName" value="${userMiddleName}" />
 			<var name="userName" value="${userName}" />
 			<var name="userScreenName" value="${userScreenName}" />
-		</execute>
+		<var name="adminName" value="${adminName}" />
+</execute>
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="${adminEmailAddress}" />
@@ -2636,7 +2645,8 @@
 			<var name="userMiddleName" value="${userMiddleName}" />
 			<var name="userName" value="${userName}" />
 			<var name="userScreenName" value="${userScreenName}" />
-		</execute>
+		<var name="adminName" value="${adminName}" />
+</execute>
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="${adminEmailAddress}" />
@@ -2675,7 +2685,8 @@
 		<execute macro="MessageboardsThread#addPG" >
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
-		</execute>
+		<var name="userName" value="${userName}" />
+</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Blogs" />
@@ -2686,7 +2697,8 @@
 		<execute macro="BlogsEntry#addPG">
 			<var name="entryContent" value="${entryContent}" />
 			<var name="entryTitle" value="${entryTitle}" />
-		</execute>
+		<var name="categoryName" value="${categoryName}" />
+</execute>
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="${userEmailAddress}" />
@@ -2707,7 +2719,8 @@
 		<execute macro="SOMicroblogs#addMicroblogsEntryComment">
 			<var name="microblogsEntryAuthorName" value="${adminName}" />
 			<var name="microblogsEntryCommentContent" value="${microblogsEntryCommentContent}" />
-		</execute>
+		<var name="microblogsEntryContent" value="${microblogsEntryContent}" />
+</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Forums" />
@@ -2734,7 +2747,9 @@
 		<execute macro="BlogsEntryComment#addPG">
 			<var name="entryComment" value="${entryComment}" />
 			<var name="entryTitle" value="${entryTitle}" />
-		</execute>
+		<var name="userEmailAddress" value="${userEmailAddress}" />
+<var name="userFirstName" value="${userFirstName}" />
+</execute>
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
@@ -2747,7 +2762,8 @@
 			<var name="entryTitle" value="${entryTitle}" />
 			<var name="row" value="01" />
 			<var name="userName" value="${userFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${entryComment}" />
@@ -2764,7 +2780,8 @@
 			<var name="threadBody" value="${threadReplyBody}" />
 			<var name="threadSubject" value="RE: ${threadSubject}" />
 			<var name="userName" value="${userFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewMicroblogsCommentActivityEntry">
 			<var name="commentCount" value="1" />
@@ -2785,7 +2802,8 @@
 			<var name="entryTitle" value="${entryTitle}" />
 			<var name="row" value="04" />
 			<var name="userName" value="${adminName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${entryComment}" />
@@ -2802,7 +2820,8 @@
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="commentCount" value="1" />
@@ -2823,7 +2842,8 @@
 			<var name="entryTitle" value="${entryTitle}" />
 			<var name="row" value="01" />
 			<var name="userName" value="${userFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${entryComment}" />
@@ -2840,7 +2860,8 @@
 			<var name="threadBody" value="${threadReplyBody}" />
 			<var name="threadSubject" value="RE: ${threadSubject}" />
 			<var name="userName" value="${userFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewMicroblogsCommentActivityEntry">
 			<var name="commentCount" value="1" />
@@ -2865,7 +2886,8 @@
 			<var name="entryTitle" value="${entryTitle}" />
 			<var name="row" value="01" />
 			<var name="userName" value="${userFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${entryComment}" />
@@ -2881,7 +2903,8 @@
 			<var name="threadBody" value="${threadReplyBody}" />
 			<var name="threadSubject" value="RE: ${threadSubject}" />
 			<var name="userName" value="${userFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewBlogsActivityEntry">
 			<var name="action" value="Wrote a new blog entry." />
@@ -2890,7 +2913,8 @@
 			<var name="entryTitle" value="${entryTitle}" />
 			<var name="row" value="03" />
 			<var name="userName" value="${adminName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${entryComment}" />
@@ -2906,7 +2930,8 @@
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="Page#gotoMyProfile" />
 
@@ -2918,7 +2943,8 @@
 			<var name="profileView" value="true" />
 			<var name="row" value="01" />
 			<var name="userName" value="${userFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${entryComment}" />
@@ -2935,7 +2961,8 @@
 			<var name="threadBody" value="${threadReplyBody}" />
 			<var name="threadSubject" value="RE: ${threadSubject}" />
 			<var name="userName" value="${userFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewMicroblogsCommentActivityEntry">
 			<var name="commentCount" value="1" />
@@ -2963,7 +2990,8 @@
 			<var name="entryTitle" value="${entryTitle}" />
 			<var name="row" value="01" />
 			<var name="userName" value="${userName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${entryComment}" />
@@ -2980,7 +3008,8 @@
 			<var name="threadBody" value="${threadReplyBody}" />
 			<var name="threadSubject" value="RE: ${threadSubject}" />
 			<var name="userName" value="${userName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewMicroblogsCommentActivityEntry">
 			<var name="commentCount" value="1" />
@@ -3001,7 +3030,8 @@
 			<var name="entryTitle" value="${entryTitle}" />
 			<var name="row" value="04" />
 			<var name="userName" value="${adminFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${entryComment}" />
@@ -3018,7 +3048,8 @@
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="commentCount" value="1" />
@@ -3038,7 +3069,8 @@
 			<var name="entryTitle" value="${entryTitle}" />
 			<var name="row" value="01" />
 			<var name="userName" value="${adminFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${entryComment}" />
@@ -3055,7 +3087,8 @@
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="commentCount" value="1" />
@@ -3077,7 +3110,8 @@
 			<var name="entryTitle" value="${entryTitle}" />
 			<var name="row" value="01" />
 			<var name="userName" value="${userName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${entryComment}" />
@@ -3093,7 +3127,8 @@
 			<var name="threadBody" value="${threadReplyBody}" />
 			<var name="threadSubject" value="RE: ${threadSubject}" />
 			<var name="userName" value="${userName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewBlogsActivityEntry">
 			<var name="action" value="Wrote a new blog entry." />
@@ -3102,7 +3137,8 @@
 			<var name="entryTitle" value="${entryTitle}" />
 			<var name="row" value="03" />
 			<var name="userName" value="${adminFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${entryComment}" />
@@ -3118,7 +3154,8 @@
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="Page#gotoMyProfile" />
 
@@ -3130,7 +3167,8 @@
 			<var name="profileView" value="true" />
 			<var name="row" value="01" />
 			<var name="userName" value="${adminFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewActivityEntryComment">
 			<var name="commentContent" value="${entryComment}" />
@@ -3147,7 +3185,8 @@
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminFirstName}" />
-		</execute>
+		<var name="siteName" value="${siteName}" />
+</execute>
 
 		<execute macro="SOActivities#viewMicroblogsActivityEntry">
 			<var name="commentCount" value="1" />
@@ -3394,7 +3433,8 @@
 			<var name="userMiddleName" value="${userMiddleName}" />
 			<var name="userName" value="${userName}" />
 			<var name="userScreenName" value="${userScreenName}" />
-		</execute>
+		<var name="adminName" value="${adminName}" />
+</execute>
 
 		<execute macro="SOContactsCenter#followUser">
 			<var name="userEmailAddress" value="${adminEmailAddress}" />
@@ -3557,7 +3597,8 @@
 			<var name="userFirstName" value="${userFirstName}" />
 			<var name="userLastName" value="${userLastName}" />
 			<var name="userScreenName" value="${userScreenName}" />
-		</execute>
+		<var name="userMiddleName" value="${userMiddleName}" />
+</execute>
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
@@ -3572,7 +3613,8 @@
 			<var name="userFirstName" value="${userFirstName}" />
 			<var name="userLastName" value="${userLastName}" />
 			<var name="userScreenName" value="${userScreenName}" />
-		</execute>
+		<var name="userMiddleName" value="${userMiddleName}" />
+</execute>
 
 		<execute macro="SOActivities#addSiteContent">
 			<var name="bookmarksEntryDescription" value="${bookmarksEntryDescription}01" />
@@ -3593,7 +3635,8 @@
 			<var name="threadSubject" value="${threadSubject}01" />
 			<var name="wikiPageContent" value="${wikiPageContent}01" />
 			<var name="wikiPageContentEdit" value="${wikiPageContentEdit1}" />
-		</execute>
+		<var name="wikiPageContent" value="${wikiPageContent}" />
+</execute>
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="${userEmailAddress}" />
@@ -3623,7 +3666,8 @@
 			<var name="threadSubject" value="${threadSubject}02" />
 			<var name="wikiEditOnly" value="true" />
 			<var name="wikiPageContentEdit" value="${wikiPageContentEdit2}" />
-		</execute>
+		<var name="wikiPageContent" value="${wikiPageContent}" />
+</execute>
 
 		<execute macro="Page#gotoMyProfile" />
 

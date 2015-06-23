@@ -8,7 +8,9 @@
 
 		<execute macro="SetupWizard#configureDefaultPG">
 			<var name="setupWizardAddSampleData" value="false" />
-		</execute>
+		<var name="administratorFirstName" value="${administratorFirstName}" />
+<var name="administratorLastName" value="${administratorLastName}" />
+</execute>
 
 		<execute function="AssertTextEquals" locator1="Home#BREADCRUMB_1" value1="Welcome" />
 

@@ -741,7 +741,8 @@
 			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentVersionNumber" value="${dmDocumentVersionNumber}" />
 			<var name="tagNameList" value="${tagName1},${tagName2}" />
-		</execute>
+		<var name="commentBody" value="${commentBody}" />
+</execute>
 
 		<execute macro="Page#openURL">
 			<var name="siteName" value="${siteName1}" />
@@ -780,7 +781,8 @@
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
-		</execute>
+		<var name="adminName" value="${adminName}" />
+</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName1}" />
@@ -798,7 +800,8 @@
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
-		</execute>
+		<var name="adminName" value="${adminName}" />
+</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="siteName" value="${siteName1}" />

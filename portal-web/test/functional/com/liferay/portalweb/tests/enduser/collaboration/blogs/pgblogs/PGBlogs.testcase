@@ -166,7 +166,8 @@
 
 		<execute macro="BlogsEntry#viewScheduledPG">
 			<var name="entryTitle" value="${entryTitle}" />
-		</execute>
+		<var name="entryContent" value="${entryContent}" />
+</execute>
 	</command>
 
 	<command name="AddBlogsEntryTitle150Characters" priority="5">
@@ -373,7 +374,8 @@
 			<var name="entryContent2" value="${entryContent2}" />
 			<var name="entryTitle" value="${entryTitle}" />
 			<var name="entryTitle2" value="${entryTitle2}" />
-		</execute>
+		<var name="pageName" value="${pageName}" />
+</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -1275,7 +1277,9 @@
 		<execute macro="Role#removePermissionPG">
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKey}" />
 			<var name="roleName" value="${roleName}" />
-		</execute>
+		<var name="pageName" value="${pageName}" />
+<var name="entryTitle" value="${entryTitle}" />
+</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -1360,7 +1364,8 @@
 		<execute macro="User#loginPG">
 			<var name="password" value="test" />
 			<var name="userEmailAddress" value="test@liferay.com" />
-		</execute>
+		<var name="userScreenName" value="${userScreenName}" />
+</execute>
 	</command>
 
 	<command name="ViewBlogsEntryRSS" priority="5">
@@ -1620,7 +1625,8 @@
 		<execute macro="Role#removePermissionPG">
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKeyView}" />
 			<var name="roleName" value="Guest" />
-		</execute>
+		<var name="pageName" value="${pageName}" />
+</execute>
 
 		<execute macro="Role#removePermissionPG">
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKeyView}" />
@@ -1643,7 +1649,8 @@
 		<execute macro="PermissionsInline#viewPermissionsRemoved">
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKeyView}" />
 			<var name="roleName" value="Guest" />
-		</execute>
+		<var name="pageName" value="${pageName}" />
+</execute>
 
 		<execute macro="PermissionsInline#viewPermissionsRemoved">
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKeyView}" />

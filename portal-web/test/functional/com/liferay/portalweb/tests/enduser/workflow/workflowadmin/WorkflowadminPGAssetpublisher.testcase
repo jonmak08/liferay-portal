@@ -267,7 +267,8 @@
 
 		<execute macro="BlogsEntry#viewWithWorkflowPGViaAP">
 			<var name="webContentTitle" value="${entryTitle}" />
-		</execute>
+		<var name="entryTitle" value="${entryTitle}" />
+</execute>
 	</command>
 
 	<command name="RejectMessageBoardsThreadPG" priority="5">

@@ -96,7 +96,9 @@
 		<execute macro="MessageboardsThread#editCP">
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
-		</execute>
+		<var name="threadSubjectEdit" value="${threadSubjectEdit}" />
+<var name="threadBodyEdit" value="${threadBodyEdit}" />
+</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Message Boards" />

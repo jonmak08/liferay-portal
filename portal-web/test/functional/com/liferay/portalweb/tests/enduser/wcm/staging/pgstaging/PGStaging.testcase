@@ -167,7 +167,8 @@
 			<var name="documentAdded" value="false" />
 			<var name="pageName" value="${pageName}" />
 			<var name="pageStaging" value="true" />
-		</execute>
+		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+</execute>
 	</command>
 
 	<command name="ActivateRemoteStaging" priority="5">
@@ -264,7 +265,8 @@
 			<var name="documentAdded" value="true" />
 			<var name="pageName" value="${pageName}" />
 			<var name="pageStaging" value="true" />
-		</execute>
+		<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+</execute>
 	</command>
 
 	<command name="AddEventRepeatDaily" priority="4">
@@ -1032,7 +1034,8 @@
 
 		<execute macro="Staging#configurePublishToLive">
 			<var name="contentDeletion" value="true" />
-		</execute>
+		<var name="pageName" value="${pageName}" />
+</execute>
 
 		<execute macro="Staging#publishToLive" />
 

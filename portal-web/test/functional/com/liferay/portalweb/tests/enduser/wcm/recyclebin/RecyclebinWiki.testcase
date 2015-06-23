@@ -32,7 +32,8 @@
 		<execute macro="WikiPage#moveToRecycleBinCP">
 			<var name="wikiNodeName" value="${wikiNodeName}" />
 			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-		</execute>
+		<var name="assetType" value="${assetType}" />
+</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Recycle Bin" />
@@ -57,7 +58,9 @@
 
 		<execute macro="WikiPage#viewFrontPageDefaultCP">
 			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-		</execute>
+		<var name="wikiNodeName" value="${wikiNodeName}" />
+<var name="wikiFrontPageContent" value="${wikiFrontPageContent}" />
+</execute>
 	</command>
 
 	<command name="RestoreDeleteWikiFrontpage" priority="5">
@@ -75,7 +78,8 @@
 		<execute macro="WikiPage#addFrontPageCP">
 			<var name="wikiFrontPageContent" value="${wikiFrontPageContent}" />
 			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-		</execute>
+		<var name="wikiNodeName" value="${wikiNodeName}" />
+</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Wiki" />
@@ -84,7 +88,8 @@
 		<execute macro="WikiPage#moveToRecycleBinCP">
 			<var name="wikiNodeName" value="${wikiNodeName}" />
 			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-		</execute>
+		<var name="assetType" value="${assetType}" />
+</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Recycle Bin" />
@@ -112,6 +117,7 @@
 			<var name="webContentContent" value="${webContentContent}" />
 			<var name="wikiNodeName" value="${wikiNodeName}" />
 			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-		</execute>
+		<var name="wikiFrontPageContent" value="${wikiFrontPageContent}" />
+</execute>
 	</command>
 </definition>
