@@ -819,6 +819,13 @@ jdbc.default.password=${database.password}]]></echo>
 							value="liferay.home=${test.app.server.parent.dir}"
 						/>
 
+						<replaceregexp
+							file="${test.app.server.classes.portal.dir}/portal-ext.properties"
+							flags="g"
+							match="(portlet.tck.bridge.handshake.port=)8(\d\d\d)"
+							replace="\1${test.app.server.leading.port.number}\2"
+						/>
+
 						<math
 							datatype="int"
 							operand1="${app.server.bundle.index}"
