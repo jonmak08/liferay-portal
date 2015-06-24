@@ -46,7 +46,7 @@ String title = assetRenderer.getTitle(LocaleUtil.fromLanguageId(languageId));
 boolean show = ((Boolean)request.getAttribute("view.jsp-show")).booleanValue();
 boolean print = ((Boolean)request.getAttribute("view.jsp-print")).booleanValue();
 
-if (Validator.isNull(defaultAssetPublisherPortletId) || AssetUtil.isDefaultAssetPublisher(layout, portletDisplay.getId(), portletResource)) {
+if (defaultAssetPublisher || !PortletPermissionUtil.contains(permissionChecker, layout, defaultAssetPublisherPortletId, ActionKeys.VIEW)) {
 	request.setAttribute(WebKeys.LAYOUT_ASSET_ENTRY, assetEntry);
 }
 
