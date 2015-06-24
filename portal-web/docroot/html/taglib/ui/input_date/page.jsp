@@ -77,7 +77,11 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 		</c:when>
 		<c:otherwise>
 			<aui:input disabled="<%= disabled %>" id="<%= name %>" label="" name="<%= name %>" placeholder="<%= StringUtil.toLowerCase(simpleDateFormatPattern) %>" title="" type="text" value="<%= nullable ? StringPool.BLANK : format.format(calendar.getTime()) %>" wrappedField="<%= true %>">
-				<aui:validator name="date" />
+				<aui:validator errorMessage="please-enter-a-valid-date" name="custom">
+					function(val) {
+						return document.<%= randomNamespace %>validateCustomDate(val);
+					} 
+				</aui:validator>
 			</aui:input>
 		</c:otherwise>
 	</c:choose>
@@ -86,6 +90,12 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 	<input <%= disabled ? "disabled=\"disabled\"" : "" %> id="<%= monthParamId %>" name="<%= namespace + HtmlUtil.escapeAttribute(monthParam) %>" type="hidden" value="<%= (!BrowserSnifferUtil.isMobile(request) && nullable) ? "" : monthValue %>" />
 	<input <%= disabled ? "disabled=\"disabled\"" : "" %> id="<%= yearParamId %>" name="<%= namespace + HtmlUtil.escapeAttribute(yearParam) %>" type="hidden" value="<%= (!BrowserSnifferUtil.isMobile(request) && nullable) ? "" : yearValue %>" />
 </span>
+
+<aui:script use='<%= "aui-datatype-date-parse" %>'>
+	document.<%= randomNamespace %>validateCustomDate = function(val) {
+		return A.Parsers.date('<%= mask %>', val);
+	}
+</aui:script>
 
 <aui:script use='<%= "aui-datepicker" + (BrowserSnifferUtil.isMobile(request) ? "-native" : StringPool.BLANK) %>'>
 	Liferay.component(
