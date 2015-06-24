@@ -1064,13 +1064,13 @@
 
 		<execute function="AssertClick" locator1="PGWikiWikipageDetails#MOVE_LINK" value1="Move" />
 
-		<execute function="AssertTextEquals" locator1="PGWikiWikipageRename#PORLET_BODY_TITLE_HEADER" value1="${wikiPageTitle}" />
+		<execute function="AssertTextEquals" locator1="PGWikiWikipageRename#PORTLET_BODY_TITLE_HEADER" value1="${wikiPageTitle}" />
 		<execute function="Type" locator1="PGWikiWikipageRename#NEW_TITLE_FIELD" value1="${wikiPageTitleRename}" />
 		<execute function="AssertClick" locator1="PGWikiWikipageRename#RENAME_BUTTON" value1="Rename" />
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGWikiWikipage#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="AssertTextEquals" locator1="PGWikiWikipage#WIKI_PAGE_REDIRECT_LINK" value1="${wikiPageRedirectLink}" />
-		<execute function="AssertTextNotEquals" locator1="PGWikiWikipage#PORLET_BODY_TITLE_HEADER" value1="${wikiPageTitle}" />
+		<execute function="AssertTextNotEquals" locator1="PGWikiWikipage#PORTLET_BODY_TITLE_HEADER" value1="${wikiPageTitle}" />
 	</command>
 
 	<command name="revertChangeParentWikipagetoWikipagePG">
@@ -1341,7 +1341,7 @@
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPWikiAllpages#NAVIGATION_FRONTPAGE" value1="FrontPage" />
 
-		<execute function="AssertTextEquals" locator1="CPWikiFrontpage#PORLET_BODY_TITLE_HEADER" value1="${wikiNodeName}" />
+		<execute function="AssertTextEquals" locator1="CPWikiFrontpage#PORTLET_BODY_TITLE_HEADER" value1="${wikiNodeName}" />
 		<execute function="AssertTextEquals" locator1="CPWikiFrontpage#FRONTPAGE_TITLE_HEADER" value1="FrontPage" />
 		<execute function="AssertTextEquals" locator1="CPWikiFrontpage#FRONTPAGE_BODY" value1="${wikiFrontPageContent}" />
 		<execute function="AssertElementNotPresent" locator1="CPWikiFrontpage#INFO_MESSAGE" />
