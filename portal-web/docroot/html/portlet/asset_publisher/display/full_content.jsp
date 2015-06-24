@@ -46,7 +46,9 @@ String title = assetRenderer.getTitle(LocaleUtil.fromLanguageId(languageId));
 boolean show = ((Boolean)request.getAttribute("view.jsp-show")).booleanValue();
 boolean print = ((Boolean)request.getAttribute("view.jsp-print")).booleanValue();
 
-request.setAttribute(WebKeys.LAYOUT_ASSET_ENTRY, assetEntry);
+if (Validator.isNull(defaultAssetPublisherPortletId) || AssetUtil.isDefaultAssetPublisher(layout, portletDisplay.getId(), portletResource)) {
+	request.setAttribute(WebKeys.LAYOUT_ASSET_ENTRY, assetEntry);
+}
 
 request.setAttribute("view.jsp-fullContentRedirect", currentURL);
 request.setAttribute("view.jsp-showIconLabel", true);
