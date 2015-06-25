@@ -1,0 +1,29 @@
+<definition>
+	<command name="checkOption">
+		<if>
+			<condition function="IsVisible" locator1="PGDocumentsandmediaAddGoogleDocs#PERMISSIONS_HIDE_OPTIONS" />
+			<then>
+				<execute function="AssertClick#assertPartialTextClickAt" locator1="PGDocumentsandmediaAddGoogleDocs#PERMISSIONS_MORE_OPTIONS" value1="More Options" />
+			</then>
+		</if>
+
+		<var name="key_permissionDefinitionKey" value="${permissionDefinitionKey}" />
+		<var name="key_roleName" value="${roleName}" />
+
+		<execute function="Check" locator1="PGDocumentsandmediaAddGoogleDocs#PERMISSIONS_CHECKBOX" />
+	</command>
+
+	<command name="uncheckOption">
+		<if>
+			<condition function="IsVisible" locator1="PGDocumentsandmediaAddGoogleDocs#PERMISSIONS_HIDE_OPTIONS" />
+			<then>
+				<execute function="AssertClick#assertPartialTextClickAt" locator1="PGDocumentsandmediaAddGoogleDocs#PERMISSIONS_MORE_OPTIONS" value1="More Options" />
+			</then>
+		</if>
+
+		<var name="key_permissionDefinitionKey" value="${permissionDefinitionKey}" />
+		<var name="key_roleName" value="${roleName}" />
+
+		<execute function="Uncheck" locator1="PGDocumentsandmediaAddGoogleDocs#PERMISSIONS_CHECKBOX" />
+	</command>
+</definition>

@@ -101,6 +101,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>RELATED_ASSETS_SELECT_ENTRY</td>
+	<td>//a[@role='menuitem' and contains(.,'${key_relatedAssetType}')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>RELATED_ASSETS_SELECT_BLOGS_ENTRY</td>
 	<td>//a[@role='menuitem' and contains(.,'Blogs Entry')]</td>
 	<td></td>
@@ -128,6 +133,16 @@
 <tr>
 	<td>RELATED_ASSETS_SELECT_DOCUMENT</td>
 	<td>//a[@role='menuitem' and contains(.,'Document')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RELATED_ASSETS_IFRAME</td>
+	<td>//iframe[contains(@class,'dialog-iframe-node')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>RELATED_ASSETS_ENTRY_CHOOSE_BUTTON</td>
+	<td>//button[contains(@data-assettype,'${key_relatedAssetType}') and contains(@data-assettitle,'${key_relatedAssetTitle')]</td>
 	<td></td>
 </tr>
 <tr>
