@@ -429,28 +429,33 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 				group.getCompanyId(), groupId, parameterMap,
 				getUserIdStrategy(userId, userIdStrategy), zipReader);
 
-		final ManifestSummary manifestSummary = new ManifestSummary();
+		try {
+			final ManifestSummary manifestSummary = new ManifestSummary();
 
-		XMLReader xmlReader = SecureXMLFactoryProviderUtil.newXMLReader();
+			XMLReader xmlReader = SecureXMLFactoryProviderUtil.newXMLReader();
 
-		ElementHandler elementHandler = new ElementHandler(
-			new ManifestSummaryElementProcessor(group, manifestSummary),
-			new String[] {"header", "portlet", "staged-model"});
+			ElementHandler elementHandler = new ElementHandler(
+				new ManifestSummaryElementProcessor(group, manifestSummary),
+				new String[] {"header", "portlet", "staged-model"});
 
-		xmlReader.setContentHandler(elementHandler);
+			xmlReader.setContentHandler(elementHandler);
 
-		InputStream is = portletDataContext.getZipEntryAsInputStream(
-			"/manifest.xml");
+			InputStream is = portletDataContext.getZipEntryAsInputStream(
+				"/manifest.xml");
 
-		if (is == null) {
-			throw new LARFileException("manifest.xml is not in the LAR");
+			if (is == null) {
+				throw new LARFileException("manifest.xml is not in the LAR");
+			}
+
+			String manifestXMLContent = StringUtil.read(is);
+
+			xmlReader.parse(new InputSource(new StringReader(manifestXMLContent)));
+
+			return manifestSummary;
 		}
-
-		String manifestXMLContent = StringUtil.read(is);
-
-		xmlReader.parse(new InputSource(new StringReader(manifestXMLContent)));
-
-		return manifestSummary;
+		finally {
+			zipReader.close();
+		}
 	}
 
 	@Override
@@ -1520,31 +1525,36 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 				group.getCompanyId(), groupId, parameterMap,
 				getUserIdStrategy(userId, userIdStrategy), zipReader);
 
-		XMLReader xmlReader = SecureXMLFactoryProviderUtil.newXMLReader();
+		try {
+			XMLReader xmlReader = SecureXMLFactoryProviderUtil.newXMLReader();
 
-		ElementHandler elementHandler = new ElementHandler(
-			new ElementProcessor() {
+			ElementHandler elementHandler = new ElementHandler(
+				new ElementProcessor() {
 
-				@Override
-				public void processElement(Element element) {
-					MissingReference missingReference =
-						validateMissingReference(portletDataContext, element);
+					@Override
+					public void processElement(Element element) {
+						MissingReference missingReference =
+							validateMissingReference(portletDataContext, element);
 
-					if (missingReference != null) {
-						missingReferences.add(missingReference);
+						if (missingReference != null) {
+							missingReferences.add(missingReference);
+						}
 					}
-				}
 
-			},
-			new String[] {"missing-reference"});
+				},
+				new String[] {"missing-reference"});
 
-		xmlReader.setContentHandler(elementHandler);
+			xmlReader.setContentHandler(elementHandler);
 
-		xmlReader.parse(
-			new InputSource(
-				portletDataContext.getZipEntryAsInputStream("/manifest.xml")));
+			xmlReader.parse(
+				new InputSource(
+					portletDataContext.getZipEntryAsInputStream("/manifest.xml")));
 
-		return missingReferences;
+			return missingReferences;
+		}
+		finally {
+			zipReader.close();
+		}
 	}
 
 	@Override
