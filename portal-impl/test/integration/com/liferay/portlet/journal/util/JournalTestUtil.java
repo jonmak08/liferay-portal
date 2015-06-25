@@ -489,8 +489,15 @@ public class JournalTestUtil {
 	public static Element addDynamicElementElement(
 		Element element, String type, String name) {
 
+		return addDynamicElementElement(element, "string", type, name);
+	}
+
+	public static Element addDynamicElementElement(
+		Element element, String dataType, String type, String name) {
+
 		Element dynamicElementElement = element.addElement("dynamic-element");
 
+		dynamicElementElement.addAttribute("dataType", dataType);
 		dynamicElementElement.addAttribute("name", name);
 		dynamicElementElement.addAttribute("type", type);
 
