@@ -97,6 +97,17 @@
 		<execute function="AssertTextEquals" locator1="CPPortalsettingsDisplaysettings#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
+	<command name="configureGoogleDocs">
+		<execute function="AssertClick" locator1="CPPortalsettings#MENU_MISCELLANEOUS_GOOGLE_DOCS" value1="Google Docs" />
+
+		<execute function="Type" locator1="CPPortalsettingsGoogleDocs#GOOGLE_CLIENT_ID_FIELD" value1="${googleClientID}" />
+		<execute function="Type" locator1="CPPortalsettingsGoogleDocs#GOOGLE_API_KEY_FIELD" value1="${googleClientSecret}" />
+
+		<execute function="AssertClick" locator1="CPPortalsettingsGoogleDocs#SAVE_BUTTON" value1="Save" />
+
+		<execute function="AssertTextEquals" locator1="CPPortalsettingsDisplaysettings#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+	</command>
+
 	<command name="configureTimeZone">
 		<execute function="AssertClick" locator1="CPPortalsettings#MENU_MISCELLANEOUS_DISPLAY_SETTINGS" value1="Display Settings" />
 
