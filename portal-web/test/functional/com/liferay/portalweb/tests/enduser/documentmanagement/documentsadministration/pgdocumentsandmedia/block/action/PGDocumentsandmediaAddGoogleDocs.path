@@ -137,6 +137,11 @@
 </tr>
 <!--PERMISSIONS-->
 <tr>
+	<td>PERMISSIONS_CHECKBOX</td>
+	<td>//tr[contains(.,'${key_roleName}')]//input[contains(@value,'${key_permissionDefinitionKey')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>PERMISSIONS_SELECT</td>
 	<td>//select[@id='_20_inputPermissionsViewRole']</td>
 	<td></td>
