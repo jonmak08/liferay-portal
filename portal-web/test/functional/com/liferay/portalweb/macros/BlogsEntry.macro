@@ -1223,7 +1223,8 @@
 		<execute function="Pause" locator1="3000" />
 
 		<var locator="CPBlogsEntry#ENTRY_STATS_VIEW_COUNT" name="entryViewCount" />
-		<var method="selenium#getFirstNumber('${entryViewCount}')" name="entryViewCount" />
+
+		<var method="StringUtil#extractLeadingDigits('${entryViewCount}')" name="entryViewCount" />
 
 		<if>
 			<equals arg1="${entryViewCount}" arg2="1" />
@@ -1277,7 +1278,8 @@
 		<execute function="Pause" locator1="3000" />
 
 		<var locator="PGBlogsEntry#ENTRY_STATS_VIEW_COUNT" name="entryViewCount" />
-		<var method="selenium#getFirstNumber('${entryViewCount}')" name="entryViewCount" />
+
+		<var method="StringUtil#extractLeadingDigits('${entryViewCount}')" name="entryViewCount" />
 
 		<if>
 			<equals arg1="${entryViewCount}" arg2="1" />
