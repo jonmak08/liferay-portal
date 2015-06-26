@@ -488,7 +488,7 @@
 		</execute>
 	</command>
 
-	<command name="OrganizationsView" priority="5">
+	<command known-issues="BPR-4102" name="OrganizationsView" priority="5">
 		<var name="allowManualMembershipManagement" value="true" />
 		<var name="orgName1" value="Organization Name 1" />
 		<var name="orgName2" value="Organization Name 2" />
