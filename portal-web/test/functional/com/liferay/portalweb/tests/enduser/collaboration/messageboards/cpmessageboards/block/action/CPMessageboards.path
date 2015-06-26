@@ -155,7 +155,7 @@
 </tr>
 <tr>
 	<td>THREAD_TABLE_THREAD</td>
-	<td>//div[contains(@id,'mbThreadsSearchContainer')]//tr[contains(.,'${key_threadSubject}')]/td[2]/a</td>
+	<td>//div[contains(@id,'mbThreadsSearchContainer')]//td[2]/a[contains(.,'${key_threadSubject}')]</td>
 	<td></td>
 </tr>
 <tr>

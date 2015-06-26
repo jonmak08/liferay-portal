@@ -10,7 +10,7 @@
 <tbody>
 <tr>
 	<td>SUBJECT_FIELD</td>
-	<td>//input[@id='_162_subject']</td>
+	<td>//input[contains(@id,'subject')]</td>
 	<td></td>
 </tr>
 <tr>
