@@ -53,7 +53,7 @@
 
 		<execute function="Type" locator1="CPMessageboardsPostthread#SUBJECT_FIELD" value1="${threadSubject}" />
 
-		<execute function="SikuliType" locator1="CKEditor#BODY_FIELD_2_PNG" value1="${entryContent} @${mentionsUserScreenName}" />
+		<execute function="SikuliType" locator1="CKEditor#BODY_FIELD_2_PNG" value1="${threadBody} @${mentionsUserScreenName}" />
 
 		<execute function="AssertClick" locator1="Mentions#MENTIONS_USER_DISPLAY_OPTION" value1="${mentionsUserFullName} (@${mentionsUserScreenName})" />
 
