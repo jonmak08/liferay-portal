@@ -80,6 +80,8 @@ if (!selectableTree) {
 
 	var TreeUtil = {
 		CHECKED_NODES: <%= checkedNodesJSONArray.toString() %>,
+		CURRENT_UNCHECKED_NODES: [],
+		CURRENT_CHECKED_NODES: [],
 		DEFAULT_PARENT_LAYOUT_ID: <%= LayoutConstants.DEFAULT_PARENT_LAYOUT_ID %>,
 		PAGINATION_LIMIT: <%= PropsValues.LAYOUT_MANAGE_PAGES_INITIAL_CHILDREN %>,
 		PREFIX_GROUP_ID: '_groupId_',
@@ -229,7 +231,7 @@ if (!selectableTree) {
 
 											TreeUtil.updateSessionTreeCheckedState('<%= HtmlUtil.escape(treeId) %>SelectedNode', plid, newVal);
 
-											TreeUtil.updateCheckedNodes(target, newVal);
+											TreeUtil.updateCheckedNodes(target, newVal, true);
 										}
 									},
 								</c:if>
@@ -243,7 +245,7 @@ if (!selectableTree) {
 
 									<c:if test="<%= selectableTree %>">
 										if (target.get('checked')) {
-											TreeUtil.updateCheckedNodes(target, true);
+											TreeUtil.updateCheckedNodes(target, true, false);
 										}
 
 										TreeUtil.restoreCheckedNode(target);
@@ -251,9 +253,22 @@ if (!selectableTree) {
 								},
 
 								expandedChange: function(event) {
-									var layoutId = TreeUtil.extractLayoutId(event.target);
+									var target = event.target;
+
+									var layoutId = TreeUtil.extractLayoutId(target);
+
+									var plid = TreeUtil.extractPlid(target);
 
 									TreeUtil.updateSessionTreeOpenedState('<%= HtmlUtil.escape(treeId) %>', layoutId, event.newVal);
+
+									<c:if test="<%= selectableTree %>">
+										if (AArray.indexOf(TreeUtil.CURRENT_CHECKED_NODES, plid) > -1) {
+											TreeUtil.updateCheckedNodes(target, true, true);
+										}
+										else if (AArray.indexOf(TreeUtil.CURRENT_UNCHECKED_NODES, plid) > -1) {
+											TreeUtil.updateCheckedNodes(target, false, true);
+										}
+									</c:if>
 								}
 							},
 						</c:if>
@@ -577,20 +592,50 @@ if (!selectableTree) {
 				);
 			},
 
-			updateCheckedNodes: function(node, state) {
+			updateCheckedNodes: function(node, state, recursive) {
+				var children = node.get(STR_CHILDREN);
+
 				var plid = TreeUtil.extractPlid(node);
 
 				var checkedNodes = TreeUtil.CHECKED_NODES;
+				var curCheckedNodes = TreeUtil.CURRENT_CHECKED_NODES;
+				var curUncheckedNodes = TreeUtil.CURRENT_UNCHECKED_NODES;
 
-				var index = AArray.indexOf(checkedNodes, plid);
+				var checkedIndex = AArray.indexOf(checkedNodes, plid);
+				var curCheckedIndex = AArray.indexOf(curCheckedNodes, plid);
+				var curUncheckedIndex = AArray.indexOf(curUncheckedNodes, plid);
 
 				if (state) {
-					if (index == -1) {
+					if (checkedIndex == -1) {
 						checkedNodes.push(plid);
 					}
+
+					if (curCheckedIndex == -1 && recursive) {
+						curCheckedNodes.push(plid);
+					}
+
+					if (curUncheckedIndex > -1) {
+						AArray.remove(curUncheckedNodes, curUncheckedIndex);
+					}
 				}
-				else if (index > -1) {
-					AArray.remove(checkedNodes, index);
+				else if (checkedIndex > -1) {
+					AArray.remove(checkedNodes, checkedIndex);
+					curUncheckedNodes.push(plid);
+
+					if (curCheckedIndex > -1) {
+						AArray.remove(curCheckedNodes, curCheckedIndex);
+					}
+				}
+
+				node.set('checked', state);
+
+				if (children.length && recursive) {
+					A.each(
+						children,
+						function(child) {
+							TreeUtil.updateCheckedNodes(child, state, true);
+						}
+					);
 				}
 			},
 
@@ -666,7 +711,7 @@ if (!selectableTree) {
 
 							TreeUtil.updateSessionTreeCheckedState('<%= HtmlUtil.escape(treeId) %>SelectedNode', <%= LayoutConstants.DEFAULT_PLID %>, newVal);
 
-							TreeUtil.updateCheckedNodes(event.target, newVal);
+							TreeUtil.updateCheckedNodes(event.target, newVal, true);
 						},
 					</c:if>
 
