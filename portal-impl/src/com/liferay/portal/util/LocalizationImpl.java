@@ -476,6 +476,15 @@ public class LocalizationImpl implements Localization {
 		PortletPreferences preferences, PortletRequest portletRequest,
 		String parameter) {
 
+		return getLocalizationXmlFromPreferences(
+			preferences, portletRequest, parameter, null);
+	}
+
+	@Override
+	public String getLocalizationXmlFromPreferences(
+		PortletPreferences preferences, PortletRequest portletRequest,
+		String parameter, String defaultValue) {
+
 		String xml = StringPool.BLANK;
 
 		Locale[] locales = LanguageUtil.getAvailableLocales();
@@ -488,7 +497,7 @@ public class LocalizationImpl implements Localization {
 			String localizedKey = getPreferencesKey(parameter, languageId);
 
 			String value = PrefsParamUtil.getString(
-				preferences, portletRequest, localizedKey);
+				preferences, portletRequest, localizedKey, defaultValue);
 
 			if (Validator.isNotNull(value)) {
 				xml = updateLocalization(xml, parameter, value, languageId);
@@ -497,7 +506,7 @@ public class LocalizationImpl implements Localization {
 
 		if (Validator.isNull(getLocalization(xml, defaultLanguageId))) {
 			String oldValue = PrefsParamUtil.getString(
-				preferences, portletRequest, parameter);
+				preferences, portletRequest, parameter, defaultValue);
 
 			if (Validator.isNotNull(oldValue)) {
 				xml = updateLocalization(xml, parameter, oldValue);
