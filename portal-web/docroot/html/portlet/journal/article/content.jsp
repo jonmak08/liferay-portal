@@ -433,7 +433,7 @@ if (Validator.isNotNull(content)) {
 										</label>
 
 										<div class="journal-article-component-container">
-											<liferay-ui:input-editor contentsLanguageId="<%= Validator.isNotNull(toLanguageId) ? toLanguageId : defaultLanguageId %>" editorImpl="<%= EDITOR_WYSIWYG_IMPL_KEY %>" initMethod="initEditor" name="articleContent" toolbarSet="liferay-article" width="100%" />
+											<liferay-ui:input-editor contentsLanguageId="<%= Validator.isNotNull(toLanguageId) ? toLanguageId : defaultLanguageId %>" editorImpl="<%= EDITOR_WYSIWYG_IMPL_KEY %>" name="articleContent" toolbarSet="liferay-article" width="100%" />
 										</div>
 
 										<aui:input cssClass="journal-article-localized-checkbox" label="localizable" name="localized" type="hidden" value="<%= true %>" />
@@ -507,7 +507,6 @@ if (Validator.isNotNull(content)) {
 				'submitForm',
 				function(event) {
 					if (event.form.compareTo(form)) {
-
 						field.val(window['<portlet:namespace />articleContent'].getHTML());
 					}
 				}
