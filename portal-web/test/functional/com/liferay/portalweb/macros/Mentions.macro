@@ -62,6 +62,26 @@
 		<execute function="AssertTextEquals#assertText" locator1="Message#SUCCESS" value1="Your request completed successfully." />
 	</command>
 
+	<command name="addMentionViaMessageBoardsReply">
+		<var name="key_mentionsUserScreenName" value="${mentionsUserScreenName}" />
+		<var name="key_threadBody" value="${threadBody}" />
+		<var name="key_threadSubject" value="${threadSubject}" />
+
+		<execute function="AssertClick" locator1="CPMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
+
+		<execute function="AssertClick" locator1="CPMessageboardsThread#MESSAGE_REPLY_1" value1="Reply" />
+
+		<execute function="Type" locator1="CPMessageboardsPostthread#SUBJECT_FIELD" value1="${threadReplySubject}" />
+
+		<execute function="SikuliType" locator1="CKEditor#BODY_FIELD_2_PNG" value1="${threadReplyBody} @${mentionsUserScreenName}" />
+
+		<execute function="AssertClick" locator1="Mentions#MENTIONS_USER_DISPLAY_OPTION" value1="${mentionsUserFullName} (@${mentionsUserScreenName})" />
+
+		<execute function="Click" locator1="CPMessageboardsPostthread#PUBLISH_BUTTON" value1="Publish" />
+
+		<execute function="AssertTextEquals" locator1="Message#SUCCESS" value1="Your request completed successfully." />
+	</command>
+
 	<command name="disableMentionsViaPortalSettings">
 		<execute macro="Mentions#gotoMentionsViaPortalSettings" />
 
