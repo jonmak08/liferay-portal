@@ -905,7 +905,7 @@
 		</execute>
 	</command>
 
-	<command name="SearchBlogsEntryComment" priority="5">
+	<command known-issues="LPS-56661" name="SearchBlogsEntryComment" priority="5">
 		<var name="entryComment" value="Blogs Entry Comment" />
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
