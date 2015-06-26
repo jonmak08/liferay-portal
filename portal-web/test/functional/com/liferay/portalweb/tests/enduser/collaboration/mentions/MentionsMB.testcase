@@ -1,0 +1,184 @@
+<definition component-name="portal-collaboration">
+	<property name="portlet.plugins.includes" value="mentions-portlet" />
+	<property name="testray.main.component.name" value="Mentions" />
+
+	<set-up>
+		<execute macro="User#firstLoginPG" />
+
+		<execute macro="Page#addPG">
+			<var name="pageName" value="Mentions Page" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Mentions Page" />
+		</execute>
+
+		<execute macro="Portlet#addPG">
+			<var name="portletName" value="Message Boards" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Server Administration" />
+		</execute>
+
+		<execute macro="ServerAdministration#configureMailServerSettings">
+			<var name="userName" property-value="email.address.1" />
+			<var name="userPassword" property-value="email.password.1" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Portal Instances" />
+		</execute>
+
+		<execute macro="PortalInstances#editCP">
+			<var name="mailDomain" value="gmail.com" />
+			<var name="virtualHost" value="localhost" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Users and Organizations" />
+		</execute>
+
+		<execute macro="User#addCP">
+			<var name="userEmailAddress" property-value="email.address.5" />
+			<var name="userFirstName" value="Test" />
+			<var name="userLastName" value="2" />
+			<var name="userScreenName" value="usersn" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Users and Organizations" />
+		</execute>
+
+		<execute macro="User#editPasswordCP">
+			<var name="userEmailAddress" property-value="email.address.5" />
+			<var name="userScreenName" value="usersn" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Users and Organizations" />
+		</execute>
+
+		<execute macro="User#editUserSiteCP">
+			<var name="siteName" value="Liferay" />
+			<var name="userScreenName" value="usersn" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Users and Organizations" />
+		</execute>
+
+		<execute macro="User#assignSiteRoleCP">
+			<var name="siteRoleName" value="Site Administrator" />
+			<var name="userScreenName" value="usersn" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Mentions Page" />
+		</execute>
+	</set-up>
+
+	<tear-down>
+		<execute macro="MessageboardsPortlet#tearDownConfigurationEmailPG" />
+
+		<execute macro="MessageboardsCategory#tearDownCP" />
+
+		<execute macro="MessageboardsThread#tearDownCP" />
+
+		<execute macro="Page#tearDownPG" />
+	</tear-down>
+
+	<command name="ViewMentionOnMessageBoardsThreadEmail" priority="5">
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Message Boards" />
+		</execute>
+
+		<execute macro="Mentions#addMentionViaMessageBoards">
+			<var name="mentionsUserFullName" value="Test 2" />
+			<var name="mentionsUserScreenName" value="usersn" />
+			<var name="threadBody" value="Thread Body" />
+			<var name="threadSubject" value="Thread Subject" />
+		</execute>
+
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Message Boards" />
+		</execute>
+
+		<execute macro="MessageboardsThread#viewCP">
+			<var name="threadBody" value="Thread Body" />
+			<var name="threadSubject" value="Thread Subject" />
+		</execute>
+
+		<execute macro="Mentions#viewMentionTagLink">
+			<var name="mentionsUserFullName" value="Test 2" />
+			<var name="mentionsUserScreenName" value="usersn" />
+		</execute>
+
+		<execute macro="Gmail#login" >
+			<var name="userEmailAddress" property-value="email.address.5" />
+			<var name="userPassword" property-value="email.password.5" />
+		</execute>
+
+		<execute macro="Gmail#gotoHtmlMode" />
+
+		<execute macro="Gmail#viewMail" >
+			<var name="emailFromUserName" value="Test Test" />
+			<var name="gmailAssetType" value="" />
+			<var name="gmailMessageBody" value="Thread Body" />
+			<var name="gmailMessageTitle" value="Test Test Mentioned You in a Message Boards Message" />
+		</execute>
+
+		<execute macro="Gmail#tearDown">
+			<var name="userEmailAddress" property-value="email.address.5" />
+			<var name="userPassword" value="test" />
+		</execute>
+	</command>
+
+	<command name="ViewMentionOnMessageBoardsThreadReplyEmail" priority="5">
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Message Boards" />
+		</execute>
+
+		<execute macro="MessageboardsThread#addCP">
+			<var name="threadBody" value="Thread Body" />
+			<var name="threadSubject" value="Thread Subject" />
+		</execute>
+
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Message Boards" />
+		</execute>
+
+		<execute macro="Mentions#addMentionViaMessageBoardsReply">
+			<var name="mentionsUserFullName" value="Test 2" />
+			<var name="mentionsUserScreenName" value="usersn" />
+			<var name="threadBody" value="Thread Body" />
+			<var name="threadReplyBody" value="Thread Reply Body" />
+			<var name="threadReplySubject" value="Thread Reply Subject" />
+			<var name="threadSubject" value="Thread Subject" />
+		</execute>
+
+		<execute macro="Mentions#viewMentionTagLink">
+			<var name="mentionsUserFullName" value="Test 2" />
+			<var name="mentionsUserScreenName" value="usersn" />
+		</execute>
+
+		<execute macro="Gmail#login" >
+			<var name="userEmailAddress" property-value="email.address.5" />
+			<var name="userPassword" property-value="email.password.5" />
+		</execute>
+
+		<execute macro="Gmail#gotoHtmlMode" />
+
+		<execute macro="Gmail#viewMail" >
+			<var name="emailFromUserName" value="Test Test" />
+			<var name="gmailAssetType" value="" />
+			<var name="gmailMessageBody" value="Thread Reply Body" />
+			<var name="gmailMessageTitle" value="Test Test Mentioned You in a Message Boards Message" />
+		</execute>
+
+		<execute macro="Gmail#tearDown">
+			<var name="userEmailAddress" property-value="email.address.5" />
+			<var name="userPassword" value="test" />
+		</execute>
+	</command>
+</definition>
