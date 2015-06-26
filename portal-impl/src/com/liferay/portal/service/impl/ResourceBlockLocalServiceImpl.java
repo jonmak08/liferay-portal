@@ -789,7 +789,7 @@ public class ResourceBlockLocalServiceImpl
 			updateGroupScopeResourceTypePermissions(
 				companyId, groupId, name, roleId, actionIdsLong, operator);
 
-		PermissionCacheUtil.clearResourceBlockCache(companyId, groupId, name);
+		PermissionCacheUtil.clearResourceCache();
 	}
 
 	@Override
