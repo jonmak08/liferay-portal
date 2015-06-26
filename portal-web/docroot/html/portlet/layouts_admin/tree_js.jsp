@@ -39,8 +39,8 @@ if (!selectableTree) {
 %>
 
 <aui:script use="<%= modules %>">
-	var Lang = A.Lang;
 	var AArray = A.Array;
+	var Lang = A.Lang;
 
 	var Util = Liferay.Util;
 
@@ -80,8 +80,8 @@ if (!selectableTree) {
 
 	var TreeUtil = {
 		CHECKED_NODES: <%= checkedNodesJSONArray.toString() %>,
-		CURRENT_UNCHECKED_NODES: [],
 		CURRENT_CHECKED_NODES: [],
+		CURRENT_UNCHECKED_NODES: [],
 		DEFAULT_PARENT_LAYOUT_ID: <%= LayoutConstants.DEFAULT_PARENT_LAYOUT_ID %>,
 		PAGINATION_LIMIT: <%= PropsValues.LAYOUT_MANAGE_PAGES_INITIAL_CHILDREN %>,
 		PREFIX_GROUP_ID: '_groupId_',
@@ -114,14 +114,6 @@ if (!selectableTree) {
 			return '<span class="' + data.cssClass + '" title="' + data.title + '">' + data.label + '</span>';
 		},
 
-		createListItemId: function(groupId, layoutId, plid) {
-			return '<%= HtmlUtil.escape(treeId) %>' + TreeUtil.PREFIX_LAYOUT_ID + layoutId + TreeUtil.PREFIX_PLID + plid + TreeUtil.PREFIX_GROUP_ID + groupId;
-		},
-
-		createLinkId: function(friendlyURL) {
-			return '<%= HtmlUtil.escape(treeId) %>' + TreeUtil.PREFIX_LAYOUT + friendlyURL.substring(1);
-		},
-
 		createLink: function(data) {
 			var className = 'layout-tree';
 
@@ -130,11 +122,11 @@ if (!selectableTree) {
 			}
 
 			if (!data.uuid) {
-				data.uuid = "";
+				data.uuid = '';
 			}
 
 			if (!data.id) {
-				data.id = "";
+				data.id = '';
 			}
 
 			if (<%= checkContentDisplayPage %> && !data.contentDisplayPage) {
@@ -152,11 +144,19 @@ if (!selectableTree) {
 			return '<a class="' + className + '" data-uuid="' + Util.escapeHTML(data.uuid) + '" href="' + href + '" id="' + Util.escapeHTML(data.id) + '" title="' + data.title + '">' + data.label + '</a>';
 		},
 
+		createLinkId: function(friendlyURL) {
+			return '<%= HtmlUtil.escape(treeId) %>' + TreeUtil.PREFIX_LAYOUT + friendlyURL.substring(1);
+		},
+
+		createListItemId: function(groupId, layoutId, plid) {
+			return '<%= HtmlUtil.escape(treeId) %>' + TreeUtil.PREFIX_LAYOUT_ID + layoutId + TreeUtil.PREFIX_PLID + plid + TreeUtil.PREFIX_GROUP_ID + groupId;
+		},
+
 		displayNotice: function(message, type, timeout, useAnimation) {
 			new Liferay.Notice(
 				{
 					closeText: false,
-					content: message + '<button type="button" class="close">&times;</button>',
+					content: message + '<button class="close" type="button">&times;</button>',
 					noticeClass: 'hide',
 					timeout: timeout || 10000,
 					toggleText: false,
@@ -194,9 +194,7 @@ if (!selectableTree) {
 					var nodeChildren = node.children;
 					var nodeType = node.type;
 
-					if ((nodeType === 'embedded') ||
-						(nodeType === 'link_to_layout') ||
-						(nodeType === 'url')) {
+					if (nodeType === 'embedded' || nodeType === 'link_to_layout' || nodeType === 'url') {
 
 						cssIcons = {
 							iconCollapsed: iconCssClassName,
@@ -210,12 +208,12 @@ if (!selectableTree) {
 						total = nodeChildren.total;
 					}
 
-					var expanded = (childLayouts.length > 0);
+					var expanded = childLayouts.length > 0;
 
 					var type = 'task';
 
 					<c:if test="<%= !selectableTree %>">
-						type = (total > 0) ? 'io' : 'node';
+						type = total > 0 ? 'io' : 'node';
 					</c:if>
 
 					var newNode = {
@@ -239,7 +237,7 @@ if (!selectableTree) {
 								childrenChange: function(event) {
 									var target = event.target;
 
-									target.set('alwaysShowHitArea', (event.newVal.length > 0));
+									target.set('alwaysShowHitArea', event.newVal.length > 0);
 
 									target.eachChildren(TreeUtil.restoreSelectedNode);
 
@@ -280,7 +278,7 @@ if (!selectableTree) {
 								checked: true,
 							</c:when>
 							<c:when test="<%= saveState && selectableTree %>">
-								checked: (AArray.indexOf(TreeUtil.CHECKED_NODES, String(node.plid)) > -1) ? true : false,
+								checked: AArray.indexOf(TreeUtil.CHECKED_NODES, String(node.plid)) > -1 ? true : false,
 							</c:when>
 						</c:choose>
 
@@ -548,50 +546,6 @@ if (!selectableTree) {
 				);
 			},
 
-			updatePagination: function(node) {
-				var paginationMap = {};
-
-				var updatePaginationMap = function(map, curNode) {
-					if (A.instanceOf(curNode, A.TreeNodeIO)) {
-						var paginationLimit = TreeUtil.PAGINATION_LIMIT;
-
-						var layoutId = TreeUtil.extractLayoutId(curNode);
-
-						var children = curNode.get(STR_CHILDREN);
-
-						map[layoutId] = Math.ceil(children.length / paginationLimit) * paginationLimit;
-					}
-				}
-
-				TreeUtil.invokeSessionClick(
-					{
-						cmd: 'get',
-						key: '<%= HtmlUtil.escape(treeId) %>:<%= groupId %>:<%= privateLayout %>:Pagination'
-					},
-					function(responseData) {
-						try {
-							paginationMap = A.JSON.parse(responseData);
-						}
-						catch (e) {
-						}
-
-						updatePaginationMap(paginationMap, node)
-
-						node.eachParent(
-							function(parent) {
-								updatePaginationMap(paginationMap, parent);
-							}
-						);
-
-						TreeUtil.invokeSessionClick(
-							{
-								'<%= HtmlUtil.escape(treeId) %>:<%= groupId %>:<%= privateLayout %>:Pagination': A.JSON.stringify(paginationMap)
-							}
-						);
-					}
-				);
-			},
-
 			updateCheckedNodes: function(node, state, recursive) {
 				var children = node.get(STR_CHILDREN);
 
@@ -637,6 +591,50 @@ if (!selectableTree) {
 						}
 					);
 				}
+			},
+
+			updatePagination: function(node) {
+				var paginationMap = {};
+
+				var updatePaginationMap = function(map, curNode) {
+					if (A.instanceOf(curNode, A.TreeNodeIO)) {
+						var paginationLimit = TreeUtil.PAGINATION_LIMIT;
+
+						var layoutId = TreeUtil.extractLayoutId(curNode);
+
+						var children = curNode.get(STR_CHILDREN);
+
+						map[layoutId] = Math.ceil(children.length / paginationLimit) * paginationLimit;
+					}
+				};
+
+				TreeUtil.invokeSessionClick(
+					{
+						cmd: 'get',
+						key: '<%= HtmlUtil.escape(treeId) %>:<%= groupId %>:<%= privateLayout %>:Pagination'
+					},
+					function(responseData) {
+						try {
+							paginationMap = A.JSON.parse(responseData);
+						}
+						catch (e) {
+						}
+
+						updatePaginationMap(paginationMap, node);
+
+						node.eachParent(
+							function(parent) {
+								updatePaginationMap(paginationMap, parent);
+							}
+						);
+
+						TreeUtil.invokeSessionClick(
+							{
+								'<%= HtmlUtil.escape(treeId) %>:<%= groupId %>:<%= privateLayout %>:Pagination': A.JSON.stringify(paginationMap)
+							}
+						);
+					}
+				);
 			},
 
 			updateSessionTreeCheckedState: function(treeId, nodeId, state) {
@@ -897,7 +895,7 @@ if (!selectableTree) {
 				var currentValue = History.get(HISTORY_SELECTED_PLID);
 
 				if (plid != currentValue) {
-					if ((plid == DEFAULT_PLID) && Lang.isValue(currentValue)) {
+					if (plid == DEFAULT_PLID && Lang.isValue(currentValue)) {
 						plid = null;
 					}
 
@@ -911,7 +909,7 @@ if (!selectableTree) {
 		);
 
 		function compareItemId(item, id) {
-			return (TreeUtil.extractPlid(item) == id);
+			return TreeUtil.extractPlid(item) == id;
 		}
 
 		function findNodeByPlid(node, plid) {
