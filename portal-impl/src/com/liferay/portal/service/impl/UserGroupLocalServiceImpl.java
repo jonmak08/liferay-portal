@@ -18,6 +18,7 @@ import com.liferay.portal.DuplicateUserGroupException;
 import com.liferay.portal.NoSuchUserGroupException;
 import com.liferay.portal.RequiredUserGroupException;
 import com.liferay.portal.UserGroupNameException;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.PortletDataHandlerKeys;
@@ -645,7 +646,43 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 			LinkedHashMap<String, Object> params)
 		throws SystemException {
 
-		return userGroupFinder.countByKeywords(companyId, keywords, params);
+		if (!PropsValues.USER_GROUPS_INDEXER_ENABLED ||
+			!PropsValues.USER_GROUPS_SEARCH_WITH_INDEX) {
+
+				return userGroupFinder.countByKeywords(companyId, keywords, params);
+			}
+
+			String name = null;
+			String description = null;
+			boolean andOperator = false;
+
+			if (Validator.isNotNull(keywords)) {
+				name = keywords;
+				description = keywords;
+			}
+			else {
+				andOperator = true;
+			}
+
+			if (params != null) {
+				params.put("keywords", keywords);
+			}
+
+			try {
+				Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
+					UserGroup.class);
+
+				SearchContext searchContext = buildSearchContext(
+					companyId, name, description, params, andOperator,
+					QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+
+				Hits hits = indexer.search(searchContext);
+
+				return hits.getLength();
+			}
+			catch (Exception e) {
+				throw new SystemException(e);
+			}
 	}
 
 	/**
