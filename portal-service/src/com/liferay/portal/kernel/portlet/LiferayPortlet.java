@@ -512,7 +512,8 @@ public class LiferayPortlet extends GenericPortlet {
 		return paths;
 	}
 
-	private static final String _PATH_META_INF_RESOURCES = "/META-INF/resources";
+	private static final String _PATH_META_INF_RESOURCES =
+		"/META-INF/resources";
 
 	private static final boolean _PROCESS_PORTLET_REQUEST = true;
 
