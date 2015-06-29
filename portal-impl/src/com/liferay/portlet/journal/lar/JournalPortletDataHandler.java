@@ -177,7 +177,7 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 		if (portletDataContext.getBooleanParameter(NAMESPACE, "folders")) {
 			ActionableDynamicQuery folderActionableDynamicQuery =
 				new JournalFolderExportActionableDynamicQuery(
-						portletDataContext);
+					portletDataContext);
 
 			folderActionableDynamicQuery.performActions();
 		}
