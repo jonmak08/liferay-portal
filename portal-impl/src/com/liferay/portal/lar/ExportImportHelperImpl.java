@@ -449,7 +449,8 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 
 			String manifestXMLContent = StringUtil.read(is);
 
-			xmlReader.parse(new InputSource(new StringReader(manifestXMLContent)));
+			xmlReader.parse(
+				new InputSource(new StringReader(manifestXMLContent)));
 
 			return manifestSummary;
 		}
@@ -1534,7 +1535,8 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 					@Override
 					public void processElement(Element element) {
 						MissingReference missingReference =
-							validateMissingReference(portletDataContext, element);
+							validateMissingReference(
+								portletDataContext, element);
 
 						if (missingReference != null) {
 							missingReferences.add(missingReference);
@@ -1548,7 +1550,8 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 
 			xmlReader.parse(
 				new InputSource(
-					portletDataContext.getZipEntryAsInputStream("/manifest.xml")));
+					portletDataContext.getZipEntryAsInputStream(
+						"/manifest.xml")));
 
 			return missingReferences;
 		}
