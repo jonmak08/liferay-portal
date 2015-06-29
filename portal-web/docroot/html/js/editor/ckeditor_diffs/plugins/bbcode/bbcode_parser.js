@@ -18,7 +18,7 @@
 	BBCodeUtil.escape = A.rbind('escapeHTML', LiferayUtil, true, entities);
 	BBCodeUtil.unescape = A.rbind('unescapeHTML', LiferayUtil, entities);
 }());;(function() {
-	var REGEX_BBCODE = /(?:\[((?:[a-z]|\*){1,16})(?:[=\s]([^\x00-\x1F'\(\)<>\[\]]{1,2083}))?\])|(?:\[\/([a-z]{1,16})\])/ig;
+	var REGEX_BBCODE = /(?:\[((?:[a-z]|\*){1,16})(?:[=\s]([^\x00-\x1F'<>\[\]]{1,2083}))?\])|(?:\[\/([a-z]{1,16})\])/ig;
 
 	var Lexer = function(data) {
 		var instance = this;
