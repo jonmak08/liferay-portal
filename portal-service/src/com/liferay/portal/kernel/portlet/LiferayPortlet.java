@@ -190,7 +190,7 @@ public class LiferayPortlet extends GenericPortlet {
 	}
 
 	protected void checkPath(String path) throws PortletException {
-		if (!isValidPath(path)) {
+		if (Validator.isNotNull(path) && !isValidPath(path)) {
 			throw new PortletException(
 				"Path " + path + " is not accessible by this portlet");
 		}
