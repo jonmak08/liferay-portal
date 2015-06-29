@@ -61,28 +61,26 @@ public class SeleniumBuilderFileUtil {
 	public SeleniumBuilderFileUtil(String baseDirName, String projectDirName) {
 		_baseDirName = baseDirName;
 
-		Properties properties = new Properties();
-
 		try {
 			String content = FileUtil.read(projectDirName + "/test.properties");
 
 			InputStream inputStream = new ByteArrayInputStream(
 				content.getBytes());
 
-			properties.load(inputStream);
+			_props.load(inputStream);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		_componentNames = ListUtil.fromArray(
-			StringUtil.split(properties.getProperty("component.names")));
+			StringUtil.split(_props.getProperty("component.names")));
 		_testCaseAvailablePropertyNames = ListUtil.fromArray(
 			StringUtil.split(
-				properties.getProperty("test.case.available.property.names")));
+				_props.getProperty("test.case.available.property.names")));
 		_testrayAvailableComponentNames = ListUtil.fromArray(
 			StringUtil.split(
-				properties.getProperty("testray.available.component.names")));
+				_props.getProperty("testray.available.component.names")));
 	}
 
 	public String escapeHtml(String input) {
@@ -2093,6 +2091,7 @@ public class SeleniumBuilderFileUtil {
 	private static List<String> _testrayAvailableComponentNames;
 
 	private String _baseDirName;
+	private final Properties _props = new Properties();
 	private final Pattern _varElementFunctionPattern = Pattern.compile(
 		"\\$\\{(locator|value)[0-9]+\\}");
 	private final Pattern _varElementPattern = Pattern.compile(
