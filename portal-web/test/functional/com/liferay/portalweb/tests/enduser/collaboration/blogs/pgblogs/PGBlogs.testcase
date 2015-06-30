@@ -1620,7 +1620,9 @@
 		<var name="roleName2" value="Owner" />
 		<var name="roleName3" value="Site Member" />
 
-		<execute macro="PermissionsInline#gotoBlogsConfiguration" />
+		<execute macro="PermissionsInline#gotoBlogsConfiguration">
+			<var name="pageName" value="${pageName}" />
+		</execute>
 
 		<execute macro="Role#removePermissionPG">
 			<var name="pageName" value="${pageName}" />

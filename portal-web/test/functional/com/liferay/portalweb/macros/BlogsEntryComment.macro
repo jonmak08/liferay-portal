@@ -18,7 +18,9 @@
 	</command>
 
 	<command name="addPG">
-		<execute macro="BlogsEntryComment#gotoAddPG" />
+		<execute macro="BlogsEntryComment#gotoAddPG">
+			<var name="entryTitle" value="${entryTitle}" />
+		</execute>
 
 		<execute function="Type" locator1="PGBlogsEntry#COMMENTS_BODY_FIELD" value1="${entryComment}" />
 		<execute function="Pause" value1="1000" />

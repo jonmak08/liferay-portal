@@ -33,6 +33,7 @@
 
 		<execute macro="Site#addSiteTemplateCP">
 			<var name="siteName" value="${siteName}" />
+			<var name="siteTemplateName" value="${siteTemplateName}" />
 		</execute>
 	</command>
 
@@ -82,6 +83,7 @@
 
 		<execute macro="Site#addSiteTemplateCP">
 			<var name="siteName" value="${siteName}" />
+			<var name="siteTemplateName" value="${siteTemplateName}" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
