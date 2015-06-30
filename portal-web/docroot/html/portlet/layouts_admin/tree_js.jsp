@@ -80,14 +80,15 @@ if (!selectableTree) {
 
 	var TreeUtil = {
 		CHECKED_NODES: <%= checkedNodesJSONArray.toString() %>,
-		CURRENT_UNCHECKED_NODES: [],
-		CURRENT_CHECKED_NODES: [],
 		DEFAULT_PARENT_LAYOUT_ID: <%= LayoutConstants.DEFAULT_PARENT_LAYOUT_ID %>,
 		PAGINATION_LIMIT: <%= PropsValues.LAYOUT_MANAGE_PAGES_INITIAL_CHILDREN %>,
 		PREFIX_GROUP_ID: '_groupId_',
 		PREFIX_LAYOUT: '_layout_',
 		PREFIX_LAYOUT_ID: '_layoutId_',
 		PREFIX_PLID: '_plid_',
+
+		localCheckedNodes: [],
+		localUncheckedNodes: [],
 
 		afterRenderTree: function(event) {
 			var rootNode = event.target.item(0);
@@ -110,16 +111,21 @@ if (!selectableTree) {
 			rootNode.eachChildren(TreeUtil.restoreSelectedNode);
 		},
 
-		checked: function(node) {
+		checkNodeState: function(node) {
 			var plid = TreeUtil.extractPlid(node);
 
-			if (AArray.indexOf(TreeUtil.CURRENT_CHECKED_NODES, plid) > -1) {
-				TreeUtil.updateCheckedNodes(node, true, true);
+			var checked;
+
+			if (AArray.indexOf(TreeUtil.localCheckedNodes, plid) > -1) {
+				checked = true;
 			}
-			else if (AArray.indexOf(TreeUtil.CURRENT_UNCHECKED_NODES, plid) > -1) {
-				TreeUtil.updateCheckedNodes(node, false, true);
+			else if (AArray.indexOf(TreeUtil.localUncheckedNodes, plid) > -1) {
+				checked = false;
 			}
 
+			if (!Lang.isUndefined(checked)) {
+				TreeUtil.updateCheckedNodes(node, checked, true);
+			}
 		},
 
 		createLabel: function(data) {
@@ -272,7 +278,7 @@ if (!selectableTree) {
 									TreeUtil.updateSessionTreeOpenedState('<%= HtmlUtil.escape(treeId) %>', layoutId, event.newVal);
 
 									<c:if test="<%= selectableTree %>">
-										TreeUtil.checked(target);
+										TreeUtil.checkNodeState(target);
 									</c:if>
 								}
 							},
@@ -336,7 +342,7 @@ if (!selectableTree) {
 											TreeUtil.updatePagination(instance);
 
 											<c:if test="<%= selectableTree %>">
-												TreeUtil.checked(instance);
+												TreeUtil.checkNodeState(instance);
 											</c:if>
 										</c:if>
 									}
@@ -602,41 +608,42 @@ if (!selectableTree) {
 			},
 
 			updateCheckedNodes: function(node, state, recursive) {
-				var children = node.get(STR_CHILDREN);
-
 				var plid = TreeUtil.extractPlid(node);
 
 				var checkedNodes = TreeUtil.CHECKED_NODES;
-				var curCheckedNodes = TreeUtil.CURRENT_CHECKED_NODES;
-				var curUncheckedNodes = TreeUtil.CURRENT_UNCHECKED_NODES;
+				var localCheckedNodes = TreeUtil.localCheckedNodes;
+				var localUncheckedNodes = TreeUtil.localUncheckedNodes;
 
 				var checkedIndex = AArray.indexOf(checkedNodes, plid);
-				var curCheckedIndex = AArray.indexOf(curCheckedNodes, plid);
-				var curUncheckedIndex = AArray.indexOf(curUncheckedNodes, plid);
+				var localCheckedIndex = AArray.indexOf(localCheckedNodes, plid);
+				var localUncheckedIndex = AArray.indexOf(localUncheckedNodes, plid);
 
 				if (state) {
-					if (checkedIndex == -1) {
+					if (checkedIndex === -1) {
 						checkedNodes.push(plid);
 					}
 
-					if (curCheckedIndex == -1 && recursive) {
-						curCheckedNodes.push(plid);
+					if (localCheckedIndex == -1 && recursive) {
+						localCheckedNodes.push(plid);
 					}
 
-					if (curUncheckedIndex > -1) {
-						AArray.remove(curUncheckedNodes, curUncheckedIndex);
+					if (localUncheckedIndex > -1) {
+						AArray.remove(localUncheckedNodes, localUncheckedIndex);
 					}
 				}
 				else if (checkedIndex > -1) {
 					AArray.remove(checkedNodes, checkedIndex);
-					curUncheckedNodes.push(plid);
 
-					if (curCheckedIndex > -1) {
-						AArray.remove(curCheckedNodes, curCheckedIndex);
+					localUncheckedNodes.push(plid);
+
+					if (localCheckedIndex > -1) {
+						AArray.remove(localCheckedNodes, localCheckedIndex);
 					}
 				}
 
 				node.set('checked', state);
+
+				var children = node.get(STR_CHILDREN);
 
 				if (children.length && recursive) {
 					A.each(
@@ -824,7 +831,7 @@ if (!selectableTree) {
 								TreeUtil.updatePagination(instance);
 
 								<c:if test="<%= selectableTree %>">
-									TreeUtil.checked(instance);
+									TreeUtil.checkNodeState(instance);
 								</c:if>
 							</c:if>
 						}
