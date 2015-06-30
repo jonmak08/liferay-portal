@@ -3,6 +3,10 @@ AUI.add(
 	function(A) {
 		var AArray = A.Array;
 
+		var CURRENT_CHECKED_NODES = [];
+
+		var CURRENT_UNCHECKED_NODES = [];
+
 		var Lang = A.Lang;
 
 		var STR_BOUNDING_BOX = 'boundingBox';
@@ -80,6 +84,21 @@ AUI.add(
 						);
 					},
 
+					_matchParentNode: function(node) {
+						var instance = this;
+
+						var host = instance.get(STR_HOST);
+
+						var plid = host.extractPlid(node);
+
+						if (CURRENT_CHECKED_NODES.indexOf(plid) > -1) {
+							instance._updateCheckedNodes(node, true);
+						}
+						else if (CURRENT_UNCHECKED_NODES.indexOf(plid) > -1) {
+							instance._updateCheckedNodes(node, false);
+						}
+					},
+
 					_onCheckContentDisplayTreeAppend: function(event) {
 						var instance = this;
 
@@ -113,18 +132,24 @@ AUI.add(
 
 						var expanded = event.newVal;
 
-						if (event.target === host.getChildren()[0]) {
+						var target = event.target;
+
+						if (target === host.getChildren()[0]) {
 							Liferay.Store(treeId + 'RootNode', expanded);
 						}
 						else {
-							var layoutId = host.extractLayoutId(event.target);
+							var layoutId = host.extractLayoutId(target);
 
 							instance._updateSessionTreeOpenedState(treeId, layoutId, expanded);
 						}
+
+						instance._matchParentNode(target);
 					},
 
 					_onNodeIOSuccess: function(event) {
 						var instance = this;
+
+						var target = event.target;
 
 						var host = instance.get(STR_HOST);
 
@@ -148,6 +173,8 @@ AUI.add(
 
 						var key = treeId + ':' + root.groupId + ':' + root.privateLayout + ':Pagination';
 
+						instance._matchParentNode(target);
+
 						instance._invokeSessionClick(
 							{
 								cmd: 'get',
@@ -160,9 +187,9 @@ AUI.add(
 								catch (e) {
 								}
 
-								updatePaginationMap(paginationMap, event.target);
+								updatePaginationMap(paginationMap, target);
 
-								event.target.eachParent(
+								target.eachParent(
 									function(parent) {
 										updatePaginationMap(paginationMap, parent);
 									}
@@ -247,19 +274,49 @@ AUI.add(
 					_updateCheckedNodes: function(node, state) {
 						var instance = this;
 
+						var children = node.get('children');
+
 						var plid = instance.get(STR_HOST).extractPlid(node);
 
 						var checkedNodes = instance.get(STR_CHECKED_NODES);
+						var curCheckedNodes = CURRENT_CHECKED_NODES;
+						var curUncheckedNodes = CURRENT_UNCHECKED_NODES;
 
-						var index = checkedNodes.indexOf(plid);
+						var checkedIndex = checkedNodes.indexOf(plid);
+						var curCheckedIndex = curCheckedNodes.indexOf(plid);
+						var curUncheckedIndex = curUncheckedNodes.indexOf(plid);
 
 						if (state) {
-							if (index === -1) {
+							if (checkedIndex === -1) {
 								checkedNodes.push(plid);
 							}
+
+							if (curCheckedIndex == -1) {
+								curCheckedNodes.push(plid);
+							}
+
+							if (curUncheckedIndex > -1) {
+								AArray.remove(curUncheckedNodes, curUncheckedIndex);
+							}
 						}
-						else if (index > -1) {
-							AArray.remove(checkedNodes, index);
+						else if (checkedIndex > -1) {
+							AArray.remove(checkedNodes, checkedIndex);
+							curUncheckedNodes.push(plid);
+
+							if (curCheckedIndex > -1) {
+								AArray.remove(curCheckedNodes, curCheckedIndex);
+							}
+						}
+
+						node.set('checked', state);
+
+						if (children.length) {
+							A.each(
+								children,
+								function(child) {
+									instance._updateCheckedNodes(child, state);
+								}
+							);
 						}
 					},
 
