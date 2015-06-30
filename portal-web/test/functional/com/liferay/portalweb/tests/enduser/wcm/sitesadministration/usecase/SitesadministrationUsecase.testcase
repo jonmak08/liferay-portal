@@ -17,7 +17,7 @@
 		<execute macro="Page#tearDownPG" />
 	</tear-down>
 
-	<command name="AddOrganizationSitesAndDeactivate" priority="5">
+	<command known-issues="LPS-56742" name="AddOrganizationSitesAndDeactivate" priority="5">
 		<var name="allowManualMembershipManagement" value="true" />
 		<var name="membershipType" value="Open" />
 		<var name="org1Name" value="Organization Name 1" />
@@ -476,7 +476,7 @@
 		</execute>
 	</command>
 
-	<command name="SiteTeamsPermissions" priority="4">
+	<command known-issues="LPS-56742" name="SiteTeamsPermissions" priority="4">
 		<var name="pageName" value="Blog Page Template" />
 		<var name="permissionDefinitionKey" value="CONTENT_PERMISSIONS_VIEW_CHECKBOX" />
 		<var name="permissionInLineCheckLists" value="ACTION_ADD_DISCUSSION,ACTION_ADD_LAYOUT,ACTION_CONFIGURE_PORTLETS,ACTION_CUSTOMIZE,ACTION_DELETE,ACTION_DELETE_DISCUSSION,ACTION_PERMISSIONS,ACTION_UPDATE,ACTION_UPDATE_DISCUSSION,ACTION_VIEW" />
