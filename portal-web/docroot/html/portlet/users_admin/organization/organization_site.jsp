@@ -90,6 +90,23 @@ if (organization != null) {
 				</c:otherwise>
 			</c:choose>
 
+			<c:if test="<%= site %>">
+				<%
+				LiferayPortletURL editOrganizationSiteURL = (LiferayPortletURL)PortletProviderUtil.getPortletURL(request, Group.class.getName(), PortletProvider.Action.EDIT);
+
+				editOrganizationSiteURL.setDoAsGroupId(organizationGroup.getGroupId());
+				editOrganizationSiteURL.setParameter("viewOrganizationsRedirect", currentURL);
+				%>
+
+				<liferay-ui:icon
+					cssClass="view-organization-site-link"
+					iconCssClass="icon-cog"
+					label="<%= true %>"
+					message="manage-site"
+					url="<%= editOrganizationSiteURL.toString() %>"
+				/>
+			</c:if>
+
 			<%
 			boolean hasUnlinkLayoutSetPrototypePermission = PortalPermissionUtil.contains(permissionChecker, ActionKeys.UNLINK_LAYOUT_SET_PROTOTYPE);
 			%>
@@ -136,6 +153,7 @@ if (organization != null) {
 									<c:choose>
 										<c:when test="<%= organization.getPublicLayoutsPageCount() > 0 %>">
 											<liferay-ui:icon
+												cssClass="open-pages-link"
 												iconCssClass="icon-search"
 												label="<%= true %>"
 												message="open-public-pages"
@@ -206,6 +224,7 @@ if (organization != null) {
 									<c:choose>
 										<c:when test="<%= organization.getPrivateLayoutsPageCount() > 0 %>">
 											<liferay-ui:icon
+												cssClass="open-pages-link"
 												iconCssClass="icon-search"
 												label="<%= true %>"
 												message="open-private-pages"
@@ -243,16 +262,18 @@ if (organization != null) {
 		}
 		%>
 
-		<aui:script>
-			function <portlet:namespace />isVisible(currentValue, value) {
-				return currentValue != '';
-			}
+		<c:if test="<%= !site %>">
+			<aui:script>
+				function <portlet:namespace />isVisible(currentValue, value) {
+					return currentValue != '';
+				}
 
-			Liferay.Util.toggleBoxes('<portlet:namespace />site', '<portlet:namespace />siteTemplates');
+				Liferay.Util.toggleBoxes('<portlet:namespace />site', '<portlet:namespace />siteTemplates');
 
-			Liferay.Util.toggleSelectBox('<portlet:namespace />publicLayoutSetPrototypeId', <portlet:namespace />isVisible, '<portlet:namespace />publicLayoutSetPrototypeIdOptions');
-			Liferay.Util.toggleSelectBox('<portlet:namespace />privateLayoutSetPrototypeId', <portlet:namespace />isVisible, '<portlet:namespace />privateLayoutSetPrototypeIdOptions');
-		</aui:script>
+				Liferay.Util.toggleSelectBox('<portlet:namespace />publicLayoutSetPrototypeId', <portlet:namespace />isVisible, '<portlet:namespace />publicLayoutSetPrototypeIdOptions');
+				Liferay.Util.toggleSelectBox('<portlet:namespace />privateLayoutSetPrototypeId', <portlet:namespace />isVisible, '<portlet:namespace />privateLayoutSetPrototypeIdOptions');
+			</aui:script>
+		</c:if>
 	</c:when>
 	<c:otherwise>
 		<aui:input name="site" type="hidden" value="<%= site %>" />
