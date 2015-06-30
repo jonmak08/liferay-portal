@@ -110,6 +110,18 @@ if (!selectableTree) {
 			rootNode.eachChildren(TreeUtil.restoreSelectedNode);
 		},
 
+		checked: function(node) {
+			var plid = TreeUtil.extractPlid(node);
+
+			if (AArray.indexOf(TreeUtil.CURRENT_CHECKED_NODES, plid) > -1) {
+				TreeUtil.updateCheckedNodes(node, true, true);
+			}
+			else if (AArray.indexOf(TreeUtil.CURRENT_UNCHECKED_NODES, plid) > -1) {
+				TreeUtil.updateCheckedNodes(node, false, true);
+			}
+
+		},
+
 		createLabel: function(data) {
 			return '<span class="' + data.cssClass + '" title="' + data.title + '">' + data.label + '</span>';
 		},
@@ -255,17 +267,10 @@ if (!selectableTree) {
 
 									var layoutId = TreeUtil.extractLayoutId(target);
 
-									var plid = TreeUtil.extractPlid(target);
-
 									TreeUtil.updateSessionTreeOpenedState('<%= HtmlUtil.escape(treeId) %>', layoutId, event.newVal);
 
 									<c:if test="<%= selectableTree %>">
-										if (AArray.indexOf(TreeUtil.CURRENT_CHECKED_NODES, plid) > -1) {
-											TreeUtil.updateCheckedNodes(target, true, true);
-										}
-										else if (AArray.indexOf(TreeUtil.CURRENT_UNCHECKED_NODES, plid) > -1) {
-											TreeUtil.updateCheckedNodes(target, false, true);
-										}
+										TreeUtil.checked(target);
 									</c:if>
 								}
 							},
@@ -327,6 +332,10 @@ if (!selectableTree) {
 
 										<c:if test="<%= saveState %>">
 											TreeUtil.updatePagination(instance);
+
+											<c:if test="<%= selectableTree %>">
+												TreeUtil.checked(instance);
+											</c:if>
 										</c:if>
 									}
 								}
@@ -811,6 +820,10 @@ if (!selectableTree) {
 
 							<c:if test="<%= saveState %>">
 								TreeUtil.updatePagination(instance);
+
+								<c:if test="<%= selectableTree %>">
+									TreeUtil.checked(instance);
+								</c:if>
 							</c:if>
 						}
 					}
