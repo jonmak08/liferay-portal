@@ -265,7 +265,7 @@
 			var value = instance._escapeHTML(token.value);
 
 			value = instance._handleNewLine(value);
-			
+
 			if (!instance._noParse) {
 				var length = emoticonSymbols.length;
 
