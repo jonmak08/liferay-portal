@@ -85,9 +85,19 @@ public class RatingsStatsLocalServiceImpl
 	}
 
 	@Override
+	public RatingsStats fetchStats(String className, long classPK)
+			throws SystemException {
+		long classNameId = PortalUtil.getClassNameId(className);
+
+		RatingsStats stats = ratingsStatsPersistence.fetchByC_C(
+			classNameId, classPK);
+
+		return stats;
+	}
+
+	@Override
 	public RatingsStats getStats(long statsId)
 		throws PortalException, SystemException {
-
 		return ratingsStatsPersistence.findByPrimaryKey(statsId);
 	}
 
