@@ -22,9 +22,9 @@
 
 		<execute macro="LCSFixpack#waitForFixpacksToDisplay" />
 
-		<var method="selenium#getText(//div[@class='lcs-available-fix-packs-container']//tr/td[2]/a)" name="fixpackName" />
+		<var method="selenium#getText('//div[@class=\'lcs-available-fix-packs-container\']//tr/td[2]/a')" name="fixpackName" />
 
-		<var method="selenium#getText(//div[@class='lcs-navigation-submenu']//a//span[@class='patches-count'])" name="patchesCount" />
+		<var method="selenium#getText('//div[@class=\'lcs-navigation-submenu\']//a//span[@class=\'patches-count\']')" name="patchesCount" />
 
 		<execute macro="LCSFixpack#viewFixpackViaDashboard">
 			<var name="fixpackEnvironment" value="Environment 1 Name" />

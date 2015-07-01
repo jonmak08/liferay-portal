@@ -1265,9 +1265,8 @@
 		<var locator="CPKnowledgebaseadmin#ARTICLE_TABLE_CREATE_DATE_POPUP" name="publishDate" />
 
 		<var name="key_publishDate" value="${publishDate}" />
-		<var name="separator" value=" " />
 
-		<var method="StringUtil#extractFirst('${key_publishDate}, ${separator}')" name="gmailKBArticleDate" />
+		<var method="StringUtil#extractFirst('${key_publishDate}', ' ')" name="gmailKBArticleDate" />
 
 		<execute macro="Gmail#login">
 			<var name="userEmailAddress" value="${userEmailAddress}" />
