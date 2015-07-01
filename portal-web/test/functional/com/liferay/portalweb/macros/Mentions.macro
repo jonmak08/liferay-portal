@@ -49,7 +49,7 @@
 	<command name="addMentionViaMessageBoards">
 		<var name="key_mentionsUserScreenName" value="${mentionsUserScreenName}" />
 
-		<execute function="Click#textClickAtAndWait" locator1="CPMessageboards#POST_NEW_THREAD_BUTTON" value1="Post New Thread" />
+		<execute function="AssertClick" locator1="CPMessageboards#POST_NEW_THREAD_BUTTON" value1="Post New Thread" />
 
 		<execute function="Type" locator1="CPMessageboardsPostthread#SUBJECT_FIELD" value1="${threadSubject}" />
 
@@ -57,7 +57,7 @@
 
 		<execute function="AssertClick" locator1="Mentions#MENTIONS_USER_DISPLAY_OPTION" value1="${mentionsUserFullName} (@${mentionsUserScreenName})" />
 
-		<execute function="Click#textClickAtAndWait" locator1="CPMessageboardsPostthread#PUBLISH_BUTTON" value1="Publish" />
+		<execute function="AssertClick" locator1="CPMessageboardsPostthread#PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="AssertTextEquals#assertText" locator1="Message#SUCCESS" value1="Your request completed successfully." />
 	</command>
