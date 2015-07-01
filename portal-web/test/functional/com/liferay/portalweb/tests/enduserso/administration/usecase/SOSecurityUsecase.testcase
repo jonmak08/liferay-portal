@@ -1081,6 +1081,8 @@
 
 		<execute function="AssertAlertNotPresent" />
 
+		<execute macro="CalendarNavigator#gotoAddEvent" />
+
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle}" />
 			<var name="eventType" value="${eventType}" />

@@ -335,6 +335,8 @@
 			<var name="soDashboard" value="true" />
 		</execute>
 
+		<execute macro="CalendarNavigator#gotoAddEvent" />
+
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${userEventTitle1}" />
 			<var name="eventType" value="${eventType}" />
@@ -362,6 +364,8 @@
 			<var name="pageName" value="Calendar Test Page" />
 			<var name="soDashboard" value="true" />
 		</execute>
+
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${userEventTitle2}" />
@@ -391,6 +395,8 @@
 			<var name="soDashboard" value="true" />
 		</execute>
 
+		<execute macro="CalendarNavigator#gotoAddEvent" />
+
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${userEventTitle3}" />
 			<var name="eventType" value="${eventType}" />
@@ -418,6 +424,8 @@
 			<var name="pageName" value="Calendar Test Page" />
 			<var name="soDashboard" value="true" />
 		</execute>
+
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${userEventTitle4}" />

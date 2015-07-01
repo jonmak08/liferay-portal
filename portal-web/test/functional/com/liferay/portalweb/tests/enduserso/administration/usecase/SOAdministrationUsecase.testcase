@@ -809,6 +809,8 @@
 			<var name="soPage" value="true" />
 		</execute>
 
+		<execute macro="CalendarNavigator#gotoAddEvent" />
+
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle1}" />
 			<var name="eventType" value="${eventType}" />
@@ -1106,6 +1108,8 @@
 			<var name="soPage" value="true" />
 		</execute>
 
+		<execute macro="CalendarNavigator#gotoAddEvent" />
+
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle2}" />
 			<var name="eventType" value="${eventType}" />
@@ -1147,6 +1151,8 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Calendar Test Page" />
 		</execute>
+
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="eventTitle" value="${eventTitle3}" />
