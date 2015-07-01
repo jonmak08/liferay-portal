@@ -10,7 +10,7 @@
 				<execute function="KeyPress" locator1="PGSearch#SEARCH_FIELD" value1="\RETURN" />
 			</then>
 			<else>
-				<execute function="Click#clickAtAndWait" locator1="PGSearch#SEARCH_ICON" />
+				<execute function="Click" locator1="PGSearch#SEARCH_ICON" />
 			</else>
 		</if>
 
@@ -53,7 +53,7 @@
 				<execute function="KeyPress" locator1="PGSearch#SEARCH_FIELD" value1="\RETURN" />
 			</then>
 			<else>
-				<execute function="Click#clickAtAndWait" locator1="PGSearch#SEARCH_ICON" />
+				<execute function="Click" locator1="PGSearch#SEARCH_ICON" />
 			</else>
 		</if>
 

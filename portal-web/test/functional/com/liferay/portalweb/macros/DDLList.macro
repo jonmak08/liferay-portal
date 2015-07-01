@@ -8,7 +8,7 @@
 	</command>
 
 	<command name="addViaDDLDisplayPG">
-		<execute function="Click#clickAtAndWait" locator1="PGDynamicdatalists#TOOLBAR_ADD_LIST" value1="Add List" />
+		<execute function="Click" locator1="PGDynamicdatalists#TOOLBAR_ADD_LIST" value1="Add List" />
 
 		<execute function="Type" locator1="PGDynamicdatalistsAddlist#NAME_FIELD" value1="${ddlListName}" />
 
@@ -34,7 +34,7 @@
 	</command>
 
 	<command name="deleteViaDDLDisplayPG">
-		<execute function="Click#clickAtAndWait" locator1="PGDynamicdatalists#TOOLBAR_SELECT_LIST" value1="Select List" />
+		<execute function="Click" locator1="PGDynamicdatalists#TOOLBAR_SELECT_LIST" value1="Select List" />
 
 		<execute function="SelectFrame" locator1="PGDynamicdatalistsConfiguration#CONFIGURATION_IFRAME" />
 		<execute function="Type" locator1="PGDynamicdatalistsConfiguration#BASIC_SEARCH_FIELD" value1="${ddlListName}" />
@@ -63,7 +63,7 @@
 	</command>
 
 	<command name="editViaDDLDisplayPG">
-		<execute function="Click#clickAtAndWait" locator1="PGDynamicdatalists#TOOLBAR_SELECT_LIST" value1="Select List" />
+		<execute function="Click" locator1="PGDynamicdatalists#TOOLBAR_SELECT_LIST" value1="Select List" />
 
 		<execute function="SelectFrame" locator1="PGDynamicdatalistsConfiguration#CONFIGURATION_IFRAME" />
 		<execute function="Type" locator1="PGDynamicdatalistsConfiguration#BASIC_SEARCH_FIELD" value1="${ddlListName}" />
@@ -98,7 +98,7 @@
 	</command>
 
 	<command name="selectViaDDLDisplayPG">
-		<execute function="Click#clickAtAndWait" locator1="PGDynamicdatalists#TOOLBAR_SELECT_LIST" value1="Select List" />
+		<execute function="Click" locator1="PGDynamicdatalists#TOOLBAR_SELECT_LIST" value1="Select List" />
 
 		<execute function="SelectFrame" locator1="PGDynamicdatalistsConfiguration#CONFIGURATION_IFRAME" />
 		<execute function="Type" locator1="PGDynamicdatalistsConfiguration#BASIC_SEARCH_FIELD" value1="${ddlListName}" />

@@ -1355,7 +1355,7 @@
 
 		<execute function="Type" locator1="PGLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
 		<execute function="Type" locator1="PGLogin#PASSWORD_FIELD" value1="${password}" />
-		<execute function="Click#clickAtAndWait" locator1="PGLogin#SIGN_IN_BUTTON" />
+		<execute function="Click" locator1="PGLogin#SIGN_IN_BUTTON" />
 
 		<execute function="AssertTextEquals" locator1="PGLogin#ERROR_MESSAGE_1" value1="Your request failed to complete." />
 		<execute function="AssertTextEquals" locator1="PGLogin#ERROR_MESSAGE_2" value1="Authentication failed. Please try again." />
@@ -1368,7 +1368,7 @@
 
 		<execute function="Type" locator1="PGLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
 		<execute function="Type" locator1="PGLogin#PASSWORD_FIELD" value1="${password}" />
-		<execute function="Click#clickAtAndWait" locator1="PGLogin#SIGN_IN_BUTTON" />
+		<execute function="Click" locator1="PGLogin#SIGN_IN_BUTTON" />
 	</command>
 
 	<command name="logoutAndLoginPG">
@@ -1420,7 +1420,7 @@
 			<condition function="IsElementPresent" locator1="Dockbar#USER_NAME" />
 			<then>
 				<execute function="Click" locator1="Dockbar#USER_NAME" />
-				<execute function="Click#clickAtAndWait" locator1="Dockbar#USER_SIGN_OUT" />
+				<execute function="Click" locator1="Dockbar#USER_SIGN_OUT" />
 			</then>
 		</if>
 	</command>

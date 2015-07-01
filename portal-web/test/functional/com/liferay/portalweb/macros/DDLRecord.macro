@@ -9,7 +9,7 @@
 	</command>
 
 	<command name="addViaDDLDisplayPG">
-		<execute function="Click#clickAtAndWait" locator1="PGDynamicdatalists#ADD_RECORD_BUTTON" value1="Add ${ddlDataDefinitionName}" />
+		<execute function="Click" locator1="PGDynamicdatalists#ADD_RECORD_BUTTON" value1="Add ${ddlDataDefinitionName}" />
 	</command>
 
 	<command name="deleteCP">
