@@ -99,7 +99,7 @@
 		</execute>
 	</command>
 
-	<command name="AddTaskAssignedToConnectionCommentBySOUser" priority="5">
+	<command known-issues="SOS-2566" name="AddTaskAssignedToConnectionCommentBySOUser" priority="5">
 		<var name="taskComment" value="Task Comment" />
 		<var name="taskDescription" value="Task Description" />
 		<var name="userEmailAddress" value="socialoffice01@liferay.com" />
@@ -240,7 +240,7 @@
 		</execute>
 	</command>
 
-	<command name="AddTaskAssignedToMeComment" priority="4">
+	<command known-issues="SOS-2566" name="AddTaskAssignedToMeComment" priority="4">
 		<var name="taskComment" value="Task Comment" />
 		<var name="taskDescription" value="Task Description" />
 
@@ -747,7 +747,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteTaskAssignedToConnectionCommentBySOUser" priority="5">
+	<command known-issues="SOS-2566" name="DeleteTaskAssignedToConnectionCommentBySOUser" priority="5">
 		<var name="taskComment" value="Task Comment" />
 		<var name="taskDescription" value="Task Description" />
 		<var name="userEmailAddress" value="socialoffice01@liferay.com" />
@@ -844,7 +844,7 @@
 		</execute>
 	</command>
 
-	<command name="DeleteTaskAssignedToMeComment" priority="4">
+	<command known-issues="SOS-2566" name="DeleteTaskAssignedToMeComment" priority="4">
 		<var name="taskComment" value="Task Comment" />
 		<var name="taskDescription" value="Task Description" />
 
@@ -968,7 +968,7 @@
 		</execute>
 	</command>
 
-	<command name="EditTaskAssignedToConnectionCommentBySOUser" priority="5">
+	<command known-issues="SOS-2566" name="EditTaskAssignedToConnectionCommentBySOUser" priority="5">
 		<var name="taskComment" value="Task Comment" />
 		<var name="taskCommentEdit" value="Task Comment Edit" />
 		<var name="taskDescription" value="Task Description" />
@@ -1092,7 +1092,7 @@
 		</execute>
 	</command>
 
-	<command name="EditTaskAssignedToMeComment" priority="4">
+	<command known-issues="SOS-2566" name="EditTaskAssignedToMeComment" priority="4">
 		<var name="taskComment" value="Task Comment" />
 		<var name="taskCommentEdit" value="Task Comment Edit" />
 		<var name="taskDescription" value="Task Description" />
