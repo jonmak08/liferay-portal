@@ -47,6 +47,7 @@ if (!selectableTree) {
 	var GET_LAYOUTS_URL = themeDisplay.getPathMain() + '/layouts_admin/get_layouts';
 
 	var LAYOUT_URL = '<%= portletURL + StringPool.AMPERSAND + portletDisplay.getNamespace() + "selPlid={selPlid}" + StringPool.AMPERSAND + portletDisplay.getNamespace() + "historyKey={historyKey}" %>';
+
 	var STR_CHILDREN = 'children';
 
 	var TREE_CSS_CLASSES = {
@@ -576,7 +577,7 @@ if (!selectableTree) {
 
 						map[layoutId] = Math.ceil(children.length / paginationLimit) * paginationLimit;
 					}
-				}
+				};
 
 				TreeUtil.invokeSessionClick(
 					{
@@ -590,7 +591,7 @@ if (!selectableTree) {
 						catch (e) {
 						}
 
-						updatePaginationMap(paginationMap, node)
+						updatePaginationMap(paginationMap, node);
 
 						node.eachParent(
 							function(parent) {
