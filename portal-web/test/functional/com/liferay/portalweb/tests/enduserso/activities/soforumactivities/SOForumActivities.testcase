@@ -624,7 +624,7 @@
 			<var name="siteName" value="${siteName}" />
 			<var name="threadBody" value="${threadBody1}" />
 			<var name="threadSubject" value="${threadSubject1}" />
-			<var name="userName" value="${adminFirstName}" />
+			<var name="userName" value="${adminName}" />
 		</execute>
 
 		<execute function="AssertTextNotPresent" value1="${categoryName2}" />
@@ -730,7 +730,7 @@
 			<var name="siteName" value="${siteName}" />
 			<var name="threadBody" value="${threadBody1}" />
 			<var name="threadSubject" value="${threadSubject1}" />
-			<var name="userName" value="${adminFirstName}" />
+			<var name="userName" value="${adminName}" />
 		</execute>
 
 		<execute function="AssertTextNotPresent" value1="${threadSubject2}" />

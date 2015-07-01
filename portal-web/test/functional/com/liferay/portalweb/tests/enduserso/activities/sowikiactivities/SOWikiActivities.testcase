@@ -1406,7 +1406,7 @@
 			<var name="firstRevision" value="true" />
 			<var name="row" value="01" />
 			<var name="siteName" value="${siteName}" />
-			<var name="userName" value="${adminFirstName}" />
+			<var name="userName" value="${adminName}" />
 			<var name="wikiPageContent" value="${wikiChildPageContent1}" />
 			<var name="wikiPageTitle" value="${wikiChildPageTitle1}" />
 		</execute>
@@ -1416,8 +1416,8 @@
 			<var name="firstRevision" value="true" />
 			<var name="row" value="02" />
 			<var name="siteName" value="${siteName}" />
-			<var name="userName" value="${adminFirstName}" />
-			<var name="wikiPageContent" value="${wikiFrontPageContent}" />
+			<var name="userName" value="${adminName}" />
+			<var name="wikiPageContent" value="${wikiPageContent}" />
 			<var name="wikiPageTitle" value="FrontPage" />
 		</execute>
 
