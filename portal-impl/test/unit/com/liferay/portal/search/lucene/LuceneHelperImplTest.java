@@ -70,8 +70,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -786,21 +784,6 @@ public class LuceneHelperImplTest {
 
 	}
 
-	private class MockBlockingQueue<E> extends LinkedBlockingQueue<E> {
-
-		public MockBlockingQueue(BlockingQueue<E> blockingQueue) {
-			_blockingQueue = blockingQueue;
-		}
-
-		@Override
-		public E poll(long timeout, TimeUnit unit) throws InterruptedException {
-			return _blockingQueue.poll(1000, TimeUnit.MILLISECONDS);
-		}
-
-		private BlockingQueue<E> _blockingQueue;
-
-	}
-
 	private class MockClusterExecutor implements ClusterExecutor {
 
 		@Override
@@ -864,45 +847,15 @@ public class LuceneHelperImplTest {
 
 		@Override
 		public void execute(
-				ClusterRequest clusterRequest,
-				ClusterResponseCallback clusterResponseCallback)
-			throws SystemException {
-
-			FutureClusterResponses futureClusterResponses = execute(
-				clusterRequest);
-
-			try {
-				BlockingQueue<ClusterNodeResponse> blockingQueue =
-					futureClusterResponses.get().getClusterResponses();
-
-				MockBlockingQueue<ClusterNodeResponse> mockBlockingQueue =
-					new MockBlockingQueue<ClusterNodeResponse>(blockingQueue);
-
-				clusterResponseCallback.callback(mockBlockingQueue);
-			}
-			catch (InterruptedException ie) {
-				throw new RuntimeException(ie);
-			}
+			ClusterRequest clusterRequest,
+			ClusterResponseCallback clusterResponseCallback) {
 		}
 
 		@Override
 		public void execute(
-				ClusterRequest clusterRequest,
-				ClusterResponseCallback clusterResponseCallback, long timeout,
-				TimeUnit timeUnit)
-			throws SystemException {
-
-			FutureClusterResponses futureClusterResponses = execute(
-				clusterRequest);
-
-			try {
-				clusterResponseCallback.callback(
-					futureClusterResponses.get(
-						timeout, timeUnit).getClusterResponses());
-			}
-			catch (Exception e) {
-				throw new RuntimeException(e);
-			}
+			ClusterRequest clusterRequest,
+			ClusterResponseCallback clusterResponseCallback, long timeout,
+			TimeUnit timeUnit) {
 		}
 
 		@Override
