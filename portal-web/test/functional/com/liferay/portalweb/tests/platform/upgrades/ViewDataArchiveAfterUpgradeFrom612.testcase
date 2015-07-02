@@ -5,6 +5,7 @@
 	<property name="testray.main.component.name" value="Upgrades" />
 
 	<command name="Smoke" priority="5">
+		<execute macro="User#firstLoginPG" />
 		<execute test-case="super#Smoke" />
 	</command>
 
