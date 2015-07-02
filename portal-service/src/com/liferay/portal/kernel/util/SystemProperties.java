@@ -66,11 +66,19 @@ public class SystemProperties {
 		return PropertiesUtil.fromMap(_properties);
 	}
 
+	@Deprecated
 	public static void reload() {
-		if (_loaded) {
-			return;
-		}
+	}
 
+	public static void set(String key, String value) {
+		System.setProperty(key, value);
+
+		_properties.put(key, value);
+	}
+
+	private static Map<String, String> _properties;
+
+	static {
 		Properties properties = new Properties();
 
 		Thread currentThread = Thread.currentThread();
@@ -107,7 +115,6 @@ public class SystemProperties {
 			URL url = classLoader.getResource("system-ext.properties");
 
 			if (url != null) {
-				_loaded = true;
 
 				InputStream inputStream = url.openStream();
 
@@ -157,19 +164,6 @@ public class SystemProperties {
 		// java.util.Properties
 
 		PropertiesUtil.fromProperties(properties, _properties);
-	}
-
-	public static void set(String key, String value) {
-		System.setProperty(key, value);
-
-		_properties.put(key, value);
-	}
-
-	private static boolean _loaded;
-	private static Map<String, String> _properties;
-
-	static {
-		reload();
 	}
 
 }
