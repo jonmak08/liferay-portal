@@ -51,7 +51,8 @@ public class SystemProperties {
 
 		return value;
 	}
-
+	
+	@Deprecated
 	public static String[] getArray(String key) {
 		return StringUtil.split(get(key));
 	}
