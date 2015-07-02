@@ -38,7 +38,7 @@ public class ThemeSandboxHandler extends BaseSandboxHandler {
 		String portalWebDir = PortalUtil.getPortalWebDir();
 
 		CopyTask.copyDirectory(
-			new File(portalWebDir, "html/themes/classic"), dir, null,
+			new File(portalWebDir, "/classic"), dir, null,
 			"/_diffs/**", true, true);
 	}
 
