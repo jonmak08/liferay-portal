@@ -1040,6 +1040,15 @@ public class LiferaySeleniumHelper {
 			return true;
 		}
 
+		// LPS-55297
+
+		if (line.contains(
+				"The web application [] appears to have started a thread " +
+					"named [ReferenceReaper]")) {
+
+			return true;
+		}
+
 		// LPS-56564
 
 		if (line.contains(
