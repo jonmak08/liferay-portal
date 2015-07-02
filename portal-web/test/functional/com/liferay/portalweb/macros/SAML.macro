@@ -120,6 +120,7 @@
 			<var name="nodePort" value="${nodePort}" />
 			<var name="password" value="${password}" />
 			<var name="rememberMeChecked" value="${rememberMeChecked}" />
+			<var name="specificURL" value="${specificURL}" />
 			<var name="userEmailAddress" value="test@liferay.com" />
 			<var name="userScreenName" value="${userScreenName}" />
 		</execute>
