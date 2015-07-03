@@ -57,7 +57,7 @@
 		<execute macro="DDLDataDefinition#saveCP" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLList#addViaDDLDisplayPG">
@@ -72,7 +72,7 @@
 		<execute macro="DDLList#saveViaDDLDisplayPG" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLList#viewViaDDLDisplayPG">
@@ -108,7 +108,7 @@
 		<execute macro="DDLDataDefinition#saveCP" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLList#addViaDDLDisplayPG">
@@ -123,7 +123,7 @@
 		<execute macro="DDLList#saveViaDDLDisplayPG" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLRecord#addViaDDLDisplayPG">
@@ -174,7 +174,7 @@
 		<execute macro="DDLDataDefinition#saveCP" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLList#addViaDDLDisplayPG">
@@ -189,7 +189,7 @@
 		<execute macro="DDLList#saveViaDDLDisplayPG" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLDisplayPortlet#configureListViewPG">
@@ -199,7 +199,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute function="AssertElementNotPresent" locator1="PGDynamicdatalists#ADD_RECORD_BUTTON" />
@@ -232,7 +232,7 @@
 		<execute macro="DDLDataDefinition#saveCP" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLList#addViaDDLDisplayPG">
@@ -247,7 +247,7 @@
 		<execute macro="DDLList#saveViaDDLDisplayPG" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLDisplayPortlet#configureListViewPG">
@@ -257,7 +257,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute function="AssertElementPresent" locator1="PGDynamicdatalists#SPREADSHEET_CONTAINER" />
@@ -301,7 +301,7 @@
 		<execute macro="DDLList#saveCP" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLList#deleteViaDDLDisplayPG">
@@ -337,7 +337,7 @@
 		<execute macro="DDLDataDefinition#saveCP" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLList#addViaDDLDisplayPG">
@@ -352,7 +352,7 @@
 		<execute macro="DDLList#saveViaDDLDisplayPG" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLRecord#addViaDDLDisplayPG">
@@ -401,7 +401,7 @@
 		<execute macro="DDLDataDefinition#saveCP" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLList#addViaDDLDisplayPG">
@@ -416,7 +416,7 @@
 		<execute macro="DDLList#saveViaDDLDisplayPG" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLList#editViaDDLDisplayPG">
@@ -426,7 +426,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLList#viewViaDDLDisplayPG">
@@ -463,7 +463,7 @@
 		<execute macro="DDLDataDefinition#saveCP" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLList#addViaDDLDisplayPG">
@@ -492,7 +492,7 @@
 		<execute macro="DDLRecord#publishViaDDLDisplayPG" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLRecord#editViaDDLDisplayPG">
@@ -544,7 +544,7 @@
 		<execute macro="DDLDataDefinition#saveCP" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLList#addViaDDLDisplayPG">
@@ -573,7 +573,7 @@
 		<execute macro="DDLRecord#publishViaDDLDisplayPG" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLRecord#editViaRecordViewPG">
@@ -634,7 +634,7 @@
 		<execute macro="DDLList#saveCP" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLList#selectViaDDLDisplayPG">
@@ -674,7 +674,7 @@
 		<execute macro="DDLDataDefinition#saveCP" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLList#addViaDDLDisplayPG">
@@ -689,7 +689,7 @@
 		<execute macro="DDLList#saveViaDDLDisplayPG" />
 
 		<execute macro="Page#gotoPG">
-			<var name="portletName" value="${pageName}" />
+			<var name="pageName" value="${pageName}" />
 		</execute>
 
 		<execute macro="DDLRecord#addViaDDLDisplayPG">
