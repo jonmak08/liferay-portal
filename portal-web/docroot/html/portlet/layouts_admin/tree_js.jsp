@@ -624,7 +624,7 @@ if (!selectableTree) {
 						checkedNodes.push(plid);
 					}
 
-					if (localCheckedIndex == -1 && recursive) {
+					if ((localCheckedIndex == -1) && recursive) {
 						localCheckedNodes.push(plid);
 					}
 
