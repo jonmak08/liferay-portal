@@ -81,7 +81,7 @@ public class FieldConstants {
 
 		if (Validator.isNull(type)) {
 			if (_log.isDebugEnabled()) {
-				_log.debug("Unknown Field type " + type);
+				_log.debug("Invalid type " + type);
 			}
 
 			return values.toArray(new String[values.size()]);
@@ -121,7 +121,7 @@ public class FieldConstants {
 
 		if (Validator.isNull(type)) {
 			if (_log.isDebugEnabled()) {
-				_log.debug("Unknown Field type " + type);
+				_log.debug("Invalid type " + type);
 			}
 
 			return value;
