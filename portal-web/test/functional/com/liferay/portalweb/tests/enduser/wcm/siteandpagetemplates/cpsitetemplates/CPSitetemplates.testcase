@@ -55,9 +55,7 @@
 			<var name="portletName" value="Site Templates" />
 		</execute>
 
-		<execute macro="SiteTemplates#viewDefaultCP">
-			<var name="pageTemplateName" value="${pageTemplateName}" />
-		</execute>
+		<execute macro="SiteTemplates#viewDefaultCP" />
 	</command>
 
 	<command name="EditSiteTemplate" priority="5">

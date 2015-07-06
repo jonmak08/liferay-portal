@@ -86,7 +86,6 @@
 		<execute macro="RecycleBin#restoreCP">
 			<var name="assetName" value="WC WebContent Title" />
 			<var name="assetRestoreLocation" value="Home" />
-			<var name="assetRestoreType" value="${assetRestoreType}" />
 			<var name="assetType" value="Web Content Article" />
 		</execute>
 

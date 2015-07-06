@@ -135,7 +135,6 @@
 		<execute macro="RecycleBin#restoreCP">
 			<var name="assetName" value="Blogs Entry Title" />
 			<var name="assetRestoreLocation" value="Blogs" />
-			<var name="assetRestoreType" value="${assetRestoreType}" />
 			<var name="assetType" value="Blogs Entry" />
 		</execute>
 

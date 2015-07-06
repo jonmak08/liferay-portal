@@ -433,10 +433,6 @@
 	</command>
 
 	<command name="SearchBookmark" priority="5">
-		<var name="bookmark2Description" value="This is another test bookmark!" />
-		<var name="bookmark2Name" value="Test Bookmark 2" />
-		<var name="bookmark2URL" value="http://www.digg.com" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Bookmarks" />
 		</execute>

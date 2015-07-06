@@ -108,7 +108,6 @@
 		</execute>
 
 		<execute macro="WikiPage#viewFrontPageCP">
-			<var name="webContentContent" value="${webContentContent}" />
 			<var name="wikiFrontPageContent" value="Wiki FrontPage Content" />
 			<var name="wikiNodeName" value="Main" />
 			<var name="wikiPageTitle" value="FrontPage" />

@@ -88,7 +88,6 @@
 		<execute macro="RecycleBin#restoreCP">
 			<var name="assetName" value="MB Thread Message Subject" />
 			<var name="assetRestoreLocation" value="Home" />
-			<var name="assetRestoreType" value="${assetRestoreType}" />
 			<var name="assetType" value="Message Boards Thread" />
 		</execute>
 
