@@ -53,9 +53,6 @@
 	<command name="AddWebContentRemoveGuestViewPermission" priority="5">
 		<property name="custom.properties" value="journal.article.view.permission.check.enabled=true" />
 
-		<var name="portletOption" value="Configuration" />
-		<var name="roleName" value="Guest" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
 		</execute>
@@ -70,7 +67,7 @@
 		</execute>
 
 		<execute macro="Role#removePermissionPG" >
-			<var name="key_roleName" value="${key_roleName}" />
+			<var name="key_roleName" value="Guest" />
 			<var name="permissionDefinitionKey" value="CONFIGURATION_PERMISSIONS_VIEW_CHECKBOX" />
 			<var name="roleName" value="Guest" />
 		</execute>
@@ -96,6 +93,8 @@
 		</execute>
 
 		<execute macro="PermissionsInline#gotoConfigurationPG" />
+
+		<var name="roleName" value="Guest" />
 
 		<var method="StringUtil#replace('${roleName}', ' ', '-')" name="key_roleName" />
 		<var method="StringUtil#lowerCase('${key_roleName}')" name="key_roleName" />
@@ -162,11 +161,6 @@
 	</command>
 
 	<command name="WebContentAdministrationDataValidation" priority="5">
-		<var name="webContentContent" value="WC WebContent Content" />
-		<var name="webContentContentEdit" value="WC WebContent Content Edit" />
-		<var name="webContentTitle" value="WC WebContent Title" />
-		<var name="webContentTitleEdit" value="WC WebContent Title Edit" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
 		</execute>
@@ -189,9 +183,9 @@
 		</execute>
 
 		<execute macro="WebContent#editNullCP">
-			<var name="webContentContent" value="${webContentContent}" />
+			<var name="webContentContent" value="WC WebContent Content" />
 			<var name="webContentContentEdit" value="WC WebContent Content" />
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentTitle" value="WC WebContent Title" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">

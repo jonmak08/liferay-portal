@@ -18,10 +18,7 @@
 		<property name="theme.plugins.includes" value="zoe-healthcare-theme" />
 		<property name="web.plugins.includes" value="resources-importer-web" />
 
-		<var name="allSiteNameLists" value="Liferay,Site1 Name,Site2 Name,Site3 Name,Staging Site Name,Healthcare Site Name" />
-		<var name="siteNameLists" value="Site1 Name,Site2 Name,Site3 Name" />
-
-		<for list="${siteNameLists}" param="siteNameListsCount" >
+		<for list="Site1 Name,Site2 Name,Site3 Name" param="siteNameListsCount" >
 			<execute macro="Page#gotoCP">
 				<var name="portletName" value="Sites" />
 			</execute>
@@ -90,7 +87,7 @@
 			<var name="portletName" value="Sites" />
 		</execute>
 
-		<for list="${allSiteNameLists}" param="allSiteNameListsCount" >
+		<for list="Liferay,Site1 Name,Site2 Name,Site3 Name,Staging Site Name,Healthcare Site Name" param="allSiteNameListsCount" >
 			<execute macro="Site#viewCP">
 				<var name="siteMember" value="User" />
 				<var name="siteName" value="${allSiteNameListsCount}" />
@@ -105,7 +102,7 @@
 
 		<execute function="Click#textClickAtClickDockbar" locator1="Dockbar#MY_SITES" value1="My Sites" />
 
-		<for list="${allSiteNameLists}" param="allSiteNameListsCount" >
+		<for list="Liferay,Site1 Name,Site2 Name,Site3 Name,Staging Site Name,Healthcare Site Name" param="allSiteNameListsCount" >
 			<execute macro="Dockbar#viewSitesViaMySitesDropDown">
 				<var name="siteName" value="${allSiteNameListsCount}" />
 			</execute>

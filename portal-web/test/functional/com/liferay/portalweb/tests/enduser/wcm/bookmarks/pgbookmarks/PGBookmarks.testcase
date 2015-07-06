@@ -1,9 +1,6 @@
 <definition component-name="portal-wcm">
 	<property name="testray.main.component.name" value="Bookmarks" />
 
-	<var name="pageName" value="Bookmarks Page" />
-	<var name="portletName" value="Bookmarks" />
-
 	<set-up>
 		<execute macro="User#firstLoginPG" />
 
@@ -208,15 +205,6 @@
 	</command>
 
 	<command name="EditFolderBookmark" priority="5">
-		<var name="bookmarkDescription" value="Test Bookmark Description" />
-		<var name="bookmarkDescriptionEdit" value="Test Bookmark Description Edit" />
-		<var name="bookmarkName" value="Test Bookmark Name" />
-		<var name="bookmarkNameEdit" value="Test Bookmark Name Edit" />
-		<var name="bookmarkURL" value="http://liferay.com" />
-		<var name="bookmarkURLEdit" value="http://www.alloyui.com" />
-		<var name="folderDescription" value="Test Folder Description" />
-		<var name="folderName" value="Test Folder Name" />
-
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Bookmarks Page" />
 		</execute>
@@ -250,9 +238,9 @@
 
 		<execute macro="Bookmark#editPG">
 			<var name="bookmarkName" value="Test Bookmark Name" />
-			<var name="bookmarkNameEdit" value="${bookmarkNameEdit}" />
+			<var name="bookmarkNameEdit" value="Test Bookmark Name Edit" />
 			<var name="bookmarkURL" value="http://liferay.com" />
-			<var name="bookmarkURLEdit" value="${bookmarkURLEdit}" />
+			<var name="bookmarkURLEdit" value="http://www.alloyui.com" />
 		</execute>
 	</command>
 

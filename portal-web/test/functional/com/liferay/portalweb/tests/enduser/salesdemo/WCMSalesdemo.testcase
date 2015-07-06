@@ -18,16 +18,13 @@
 	</tear-down>
 
 	<command name="SalesDemo" priority="5">
-		<var name="webContentContent" value="DHS Content" />
-		<var name="webContentTitle" value="DHS Title" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
 		</execute>
 
 		<execute macro="WebContent#addCP">
-			<var name="webContentContent" value="${webContentContent}" />
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentContent" value="DHS Content" />
+			<var name="webContentTitle" value="DHS Title" />
 		</execute>
 
 		<execute macro="Page#openURL" />
@@ -44,19 +41,19 @@
 
 		<execute macro="WebContentDisplayPortlet#searchWebContent">
 			<var name="addSearchedContent" value="true" />
-			<var name="webContentSearchValue" value="${webContentTitle}" />
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentSearchValue" value="DHS Title" />
+			<var name="webContentTitle" value="DHS Title" />
 		</execute>
 
 		<execute macro="Page#openURL" />
 
 		<execute macro="Content#addPG">
-			<var name="assetTitle" value="${webContentTitle}" />
-			<var name="webContentContent" value="${webContentContent}" />
+			<var name="assetTitle" value="DHS Title" />
+			<var name="webContentContent" value="DHS Content" />
 		</execute>
 
 		<execute macro="WebContent#viewPGViaWCD">
-			<var name="webContentContent" value="${webContentContent}" />
+			<var name="webContentContent" value="DHS Content" />
 		</execute>
 
 		<execute macro="Page#openURL" />
@@ -99,7 +96,7 @@
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="test@liferay.com" />
 			<var name="userLoginFullName" value="Test Test" />
-			<var name="webContentContent" value="${webContentContent}" />
+			<var name="webContentContent" value="DHS Content" />
 		</execute>
 
 		<execute macro="Page#addPG">

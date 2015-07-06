@@ -10,18 +10,13 @@
 	</tear-down>
 
 	<command name="DeleteMessageboardsThread" priority="5">
-		<var name="assetName" value="${threadSubject}" />
-		<var name="assetType" value="Message Boards Thread" />
-		<var name="threadBody" value="MB Thread Message Body" />
-		<var name="threadSubject" value="MB Thread Message Subject" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Message Boards" />
 		</execute>
 
 		<execute macro="MessageboardsThread#addCP">
-			<var name="threadBody" value="${threadBody}" />
-			<var name="threadSubject" value="${threadSubject}" />
+			<var name="threadBody" value="MB Thread Message Body" />
+			<var name="threadSubject" value="MB Thread Message Subject" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -29,9 +24,9 @@
 		</execute>
 
 		<execute macro="MessageboardsThread#moveToRecycleBinCP">
-			<var name="assetType" value="${assetType}" />
-			<var name="threadBody" value="${threadBody}" />
-			<var name="threadSubject" value="${threadSubject}" />
+			<var name="assetType" value="Message Boards Thread" />
+			<var name="threadBody" value="MB Thread Message Body" />
+			<var name="threadSubject" value="MB Thread Message Subject" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -39,8 +34,8 @@
 		</execute>
 
 		<execute macro="RecycleBin#deleteCP">
-			<var name="assetName" value="${threadSubject}" />
-			<var name="assetType" value="${assetType}" />
+			<var name="assetName" value="MB Thread Message Subject" />
+			<var name="assetType" value="Message Boards Thread" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -48,7 +43,7 @@
 		</execute>
 
 		<execute macro="RecycleBin#viewDefaultCP">
-			<var name="assetName" value="${threadSubject}" />
+			<var name="assetName" value="MB Thread Message Subject" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -56,12 +51,12 @@
 		</execute>
 
 		<execute macro="MessageboardsThread#viewDefaultCP">
-			<var name="threadSubject" value="${threadSubject}" />
+			<var name="threadSubject" value="MB Thread Message Subject" />
 		</execute>
 	</command>
 
 	<command name="RestoreMessageboardsThread" priority="5">
-		<var name="assetName" value="${threadSubject}" />
+		<var name="assetName" value="MB Thread Message Subject" />
 		<var name="assetRestoreLocation" value="Home" />
 		<var name="assetType" value="Message Boards Thread" />
 		<var name="threadBody" value="MB Thread Message Body" />
@@ -72,8 +67,8 @@
 		</execute>
 
 		<execute macro="MessageboardsThread#addCP">
-			<var name="threadBody" value="${threadBody}" />
-			<var name="threadSubject" value="${threadSubject}" />
+			<var name="threadBody" value="MB Thread Message Body" />
+			<var name="threadSubject" value="MB Thread Message Subject" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -81,9 +76,9 @@
 		</execute>
 
 		<execute macro="MessageboardsThread#moveToRecycleBinCP">
-			<var name="assetType" value="${assetType}" />
-			<var name="threadBody" value="${threadBody}" />
-			<var name="threadSubject" value="${threadSubject}" />
+			<var name="assetType" value="Message Boards Thread" />
+			<var name="threadBody" value="MB Thread Message Body" />
+			<var name="threadSubject" value="MB Thread Message Subject" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -91,10 +86,10 @@
 		</execute>
 
 		<execute macro="RecycleBin#restoreCP">
-			<var name="assetName" value="${threadSubject}" />
-			<var name="assetRestoreLocation" value="${assetRestoreLocation}" />
+			<var name="assetName" value="MB Thread Message Subject" />
+			<var name="assetRestoreLocation" value="Home" />
 			<var name="assetRestoreType" value="${assetRestoreType}" />
-			<var name="assetType" value="${assetType}" />
+			<var name="assetType" value="Message Boards Thread" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -102,7 +97,7 @@
 		</execute>
 
 		<execute macro="RecycleBin#viewDefaultCP">
-			<var name="assetName" value="${threadSubject}" />
+			<var name="assetName" value="MB Thread Message Subject" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -110,8 +105,8 @@
 		</execute>
 
 		<execute macro="MessageboardsThread#viewCP">
-			<var name="threadBody" value="${threadBody}" />
-			<var name="threadSubject" value="${threadSubject}" />
+			<var name="threadBody" value="MB Thread Message Body" />
+			<var name="threadSubject" value="MB Thread Message Subject" />
 		</execute>
 	</command>
 </definition>

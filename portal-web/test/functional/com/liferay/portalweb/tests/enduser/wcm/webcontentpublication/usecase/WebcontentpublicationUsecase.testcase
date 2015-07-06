@@ -1,10 +1,6 @@
 <definition component-name="portal-wcm">
 	<property name="testray.main.component.name" value="Asset Publisher" />
 
-	<var name="globalSiteName" value="Global" />
-	<var name="pageName" value="Asset Publisher Page" />
-	<var name="portletName" value="Asset Publisher" />
-
 	<set-up>
 		<execute macro="User#firstLoginPG" />
 
@@ -38,8 +34,6 @@
 	</tear-down>
 
 	<command name="AssetPublisherCategoriesLocalization" priority="3">
-		<var name="siteName" value="Liferay" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Categories" />
 		</execute>
@@ -197,8 +191,6 @@
 	</command>
 
 	<command name="AssetPublisherCategoriesNavigation" priority="3">
-		<var name="siteName" value="Liferay" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Categories" />
 		</execute>
