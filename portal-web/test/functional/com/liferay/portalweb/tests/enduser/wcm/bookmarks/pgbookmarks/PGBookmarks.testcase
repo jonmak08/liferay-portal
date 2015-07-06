@@ -198,7 +198,7 @@
 
 		<execute macro="BookmarksFolder#editPG">
 			<var name="folderDescription" value="Test Folder Description" />
-			<var name="folderDescriptionEdit" value="${folderDescriptionEdit}" />
+			<var name="folderDescriptionEdit" value="Test Folder Description Edit" />
 			<var name="folderName" value="Test Folder Name" />
 			<var name="folderNameEdit" value="Test Folder Name Edit" />
 		</execute>
