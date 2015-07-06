@@ -6,6 +6,7 @@
 
 	<command name="Smoke" priority="5">
 		<execute macro="User#firstLoginPG" />
+
 		<execute test-case="super#Smoke" />
 	</command>
 
