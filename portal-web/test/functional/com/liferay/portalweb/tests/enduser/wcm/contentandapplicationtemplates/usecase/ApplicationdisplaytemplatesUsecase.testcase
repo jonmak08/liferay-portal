@@ -33,8 +33,6 @@
 	</tear-down>
 
 	<command name="ADTAssetPublisher" priority="3">
-		<var name="siteName" value="Test Site Name" />
-
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
 			<var name="siteName" value="Test Site Name" />
@@ -129,8 +127,6 @@
 	</command>
 
 	<command name="ADTCategoriesNavigation" priority="3">
-		<var name="siteName" value="Test Site Name" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Categories" />
 			<var name="siteScopeName" value="Test Site Name" />
@@ -224,8 +220,6 @@
 	</command>
 
 	<command name="ADTDMMediaGallery" priority="3">
-		<var name="siteName" value="Test Site Name" />
-
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
 			<var name="siteName" value="Test Site Name" />
@@ -346,8 +340,6 @@
 	</command>
 
 	<command name="ADTSiteMap" priority="3">
-		<var name="siteName" value="Test Site Name" />
-
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
 			<var name="siteName" value="Test Site Name" />
@@ -463,8 +455,6 @@
 	</command>
 
 	<command name="ADTTagsNavigationPortlet" priority="3">
-		<var name="siteName" value="Test Site Name" />
-
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
 			<var name="siteName" value="Test Site Name" />
@@ -612,8 +602,6 @@
 	</command>
 
 	<command name="ADTWiki" priority="3">
-		<var name="siteName" value="Test Site Name" />
-
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
 			<var name="siteName" value="Test Site Name" />
