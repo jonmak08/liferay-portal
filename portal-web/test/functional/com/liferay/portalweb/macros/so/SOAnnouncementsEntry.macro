@@ -562,6 +562,7 @@
 					<var name="friendlyURL" value="${friendlyURL}" />
 					<var name="pageAccess" value="${pageAccess}" />
 					<var name="pageStaging" value="${pageStaging}" />
+					<var name="siteName" value="${siteName}" />
 					<var name="siteNameURL" value="${siteNameURL}" />
 					<var name="siteURL" value="${siteURL}" />
 					<var name="specificURL" value="${specificURL}" />
@@ -648,6 +649,7 @@
 					<var name="friendlyURL" value="${friendlyURL}" />
 					<var name="pageAccess" value="${pageAccess}" />
 					<var name="pageStaging" value="${pageStaging}" />
+					<var name="siteName" value="${siteName}" />
 					<var name="siteNameURL" value="${siteNameURL}" />
 					<var name="siteURL" value="${siteURL}" />
 					<var name="specificURL" value="${specificURL}" />
