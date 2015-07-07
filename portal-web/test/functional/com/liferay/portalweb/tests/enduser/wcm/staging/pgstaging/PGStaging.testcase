@@ -122,7 +122,9 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="Staging#activateStagingCP" />
+		<execute macro="Staging#activateStagingCP">
+			<var name="siteName" value="${siteName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -154,7 +156,9 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="Staging#activateStagingCP" />
+		<execute macro="Staging#activateStagingCP">
+			<var name="siteName" value="${siteName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -212,7 +216,9 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="Staging#activateStagingCP" />
+		<execute macro="Staging#activateStagingCP">
+			<var name="siteName" value="${siteName}" />
+		</execute>
 	</command>
 
 	<command name="AddDMDocumentStagingLocalLive" priority="5">
@@ -238,7 +244,9 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="Staging#activateStagingCP" />
+		<execute macro="Staging#activateStagingCP">
+			<var name="siteName" value="${siteName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
@@ -937,7 +945,9 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="Staging#activateStagingCP" />
+		<execute macro="Staging#activateStagingCP">
+			<var name="siteName" value="${siteName}" />
+		</execute>
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
@@ -1076,7 +1086,9 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="Staging#activateStagingCP" />
+		<execute macro="Staging#activateStagingCP">
+			<var name="siteName" value="${siteName}" />
+		</execute>
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
@@ -1265,7 +1277,9 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="Staging#activateStagingCP" />
+		<execute macro="Staging#activateStagingCP">
+			<var name="siteName" value="${siteName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
