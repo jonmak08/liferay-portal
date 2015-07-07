@@ -2491,6 +2491,12 @@ go]]></replacevalue>
 		</if>
 	</target>
 
+	<target name="deploy-lcs-environment-token">
+		<copy todir="${liferay.home}/data">
+			<fileset dir="${selenium.output.dir}" includes="lcs-cluster-entry-token-*.txt" />
+		</copy>
+	</target>
+
 	<target name="deploy-license-xml">
 		<if>
 			<matches pattern="http" string="${test.build.license.xml.zip.url}" />
