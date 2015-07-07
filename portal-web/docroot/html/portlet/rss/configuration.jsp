@@ -244,13 +244,13 @@ configurationRenderURL.setParameter("portletResource", portletResource);
 	function <portlet:namespace />removeSelectionForFooter() {
 		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = 'remove-footer-article';
 
-		submitForm(document.<portlet:namespace />fm, '<%= configurationActionURL.toString() %>');
+		submitForm(document.<portlet:namespace />fm, '<%= HtmlUtil.escapeJS(configurationActionURL.toString()) %>');
 	}
 
 	function <portlet:namespace />removeSelectionForHeader() {
 		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = 'remove-header-article';
 
-		submitForm(document.<portlet:namespace />fm, '<%= configurationActionURL.toString() %>');
+		submitForm(document.<portlet:namespace />fm, '<%= HtmlUtil.escapeJS(configurationActionURL.toString()) %>');
 	}
 
 	function <portlet:namespace />selectAsset(articleGroupId, articleId, assetOrder) {
@@ -265,14 +265,14 @@ configurationRenderURL.setParameter("portletResource", portletResource);
 		document.<portlet:namespace />fm.<portlet:namespace />articleId.value = articleId;
 		document.<portlet:namespace />fm.<portlet:namespace />typeSelection.value = '';
 
-		submitForm(document.<portlet:namespace />fm, '<%= configurationActionURL.toString() %>');
+		submitForm(document.<portlet:namespace />fm, '<%= HtmlUtil.escapeJS(configurationActionURL.toString()) %>');
 	}
 
 	function <portlet:namespace />saveSettings() {
 		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = '<%= Constants.UPDATE %>';
 		document.<portlet:namespace />fm.<portlet:namespace />typeSelection.value = '';
 
-		submitForm(document.<portlet:namespace />fm, '<%= configurationActionURL.toString() %>');
+		submitForm(document.<portlet:namespace />fm, '<%= HtmlUtil.escapeJS(configurationActionURL.toString()) %>');
 	}
 
 	function <portlet:namespace />selectionForHeader() {
