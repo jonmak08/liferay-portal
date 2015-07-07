@@ -40,8 +40,10 @@ import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Layout;
+import com.liferay.portal.model.LayoutTypePortletConstants;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.security.permission.PermissionChecker;
@@ -508,6 +510,15 @@ public class AssetUtil {
 		return sb.toString();
 	}
 
+	public static String getDefaultAssetPublisherId(Layout layout) {
+		UnicodeProperties typeSettingsProperties =
+			layout.getTypeSettingsProperties();
+
+		return typeSettingsProperties.getProperty(
+			LayoutTypePortletConstants.DEFAULT_ASSET_PUBLISHER_PORTLET_ID,
+			StringPool.BLANK);
+	}
+
 	public static Set<String> getLayoutTagNames(HttpServletRequest request) {
 		Set<String> tagNames = (Set<String>)request.getAttribute(
 			WebKeys.ASSET_LAYOUT_TAG_NAMES);
@@ -532,6 +543,33 @@ public class AssetUtil {
 
 				return true;
 			}
+		}
+
+		return false;
+	}
+
+	public static boolean isDefaultAssetPublisher(
+		Layout layout, String portletId, String portletResource) {
+
+		String defaultAssetPublisherPortletId = getDefaultAssetPublisherId(
+			layout);
+
+		return isDefaultAssetPublisher(
+			defaultAssetPublisherPortletId, portletId, portletResource);
+	}
+
+	public static boolean isDefaultAssetPublisher(
+		String defaultAssetPublisherPortletId, String portletId,
+		String portletResource) {
+
+		if (Validator.isNull(defaultAssetPublisherPortletId)) {
+			return false;
+		}
+
+		if (defaultAssetPublisherPortletId.equals(portletId) ||
+			defaultAssetPublisherPortletId.equals(portletResource)) {
+
+			return true;
 		}
 
 		return false;

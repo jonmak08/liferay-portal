@@ -206,15 +206,9 @@ assetEntryQuery.setPaginationType(paginationType);
 boolean showAvailableLocales = GetterUtil.getBoolean(portletPreferences.getValue("showAvailableLocales", null));
 boolean showMetadataDescriptions = GetterUtil.getBoolean(portletPreferences.getValue("showMetadataDescriptions", null), true);
 
-boolean defaultAssetPublisher = false;
+String defaultAssetPublisherPortletId = AssetUtil.getDefaultAssetPublisherId(layout);
 
-UnicodeProperties typeSettingsProperties = layout.getTypeSettingsProperties();
-
-String defaultAssetPublisherPortletId = typeSettingsProperties.getProperty(LayoutTypePortletConstants.DEFAULT_ASSET_PUBLISHER_PORTLET_ID, StringPool.BLANK);
-
-if (defaultAssetPublisherPortletId.equals(portletDisplay.getId()) || (Validator.isNotNull(defaultAssetPublisherPortletId) && defaultAssetPublisherPortletId.equals(portletResource))) {
-	defaultAssetPublisher = true;
-}
+boolean defaultAssetPublisher = AssetUtil.isDefaultAssetPublisher(defaultAssetPublisherPortletId, portletDisplay.getId(), portletResource);
 
 boolean enablePermissions = _isEnablePermissions(portletName, portletPreferences);
 
