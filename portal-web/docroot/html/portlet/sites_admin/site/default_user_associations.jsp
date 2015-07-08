@@ -253,7 +253,7 @@ for (long defaultTeamId : defaultTeamIds) {
 					dialog: {
 						constrain: true,
 						modal: true,
-						width: 600
+						width: 800
 					},
 					id: '<portlet:namespace />selectSiteRole',
 					title: '<liferay-ui:message arguments="site-role" key="select-x" />',

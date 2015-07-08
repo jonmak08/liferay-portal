@@ -742,7 +742,7 @@ String selectStyle = (String)request.getAttribute("configuration.jsp-selectStyle
 					dialog: {
 						constrain: true,
 						modal: true,
-						width: 600
+						width: 800
 					},
 					eventName: '<portlet:namespace />selectDDMStructureField',
 					id: '<portlet:namespace />selectDDMStructure' + event.currentTarget.attr('id'),

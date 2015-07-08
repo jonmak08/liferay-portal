@@ -106,7 +106,7 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "roles"
 						dialog: {
 							constrain: true,
 							modal: true,
-							width: 600
+							width: 800
 						},
 						id: '<portlet:namespace />selectRegularRole',
 						title: '<liferay-ui:message arguments="regular-role" key="select-x" />',
@@ -448,7 +448,7 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "roles"
 								dialog: {
 									constrain: true,
 									modal: true,
-									width: 600
+									width: 800
 								},
 								id: '<portlet:namespace />selectSiteRole',
 								title: '<liferay-ui:message arguments="site-role" key="select-x" />',
