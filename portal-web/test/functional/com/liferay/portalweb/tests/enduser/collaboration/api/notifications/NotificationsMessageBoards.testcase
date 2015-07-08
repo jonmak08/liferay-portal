@@ -121,7 +121,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewNoWebsiteNotificationForUpdatedThreadInCategory" priority="5">
+	<command known-issues="LPS-56826" name="ViewNoWebsiteNotificationForUpdatedThreadInCategory" priority="5">
 		<execute macro="NotificationsPortlet#gotoNotificationDelivery" />
 
 		<execute macro="NotificationsPortlet#setUserDeliveries">
@@ -193,7 +193,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewWebsiteNotificationForNewThreadInCategory" priority="5">
+	<command known-issues="LPS-56826" name="ViewWebsiteNotificationForNewThreadInCategory" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 		</execute>
@@ -262,7 +262,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewWebsiteNotificationForUpdatedThreadInCategory" priority="5">
+	<command known-issues="LPS-56826" name="ViewWebsiteNotificationForUpdatedThreadInCategory" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 		</execute>
