@@ -18,6 +18,8 @@
 	</tear-down>
 
 	<command name="AddSitePageXSS" priority="5">
+		<var name="sitePage3Name"><![CDATA[<script>alert("Site Page 3")</script> />]]></var>
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Site Page 1" />
 		</execute>
@@ -27,7 +29,7 @@
 		</execute>
 
 		<execute macro="Page#addPG">
-			<var name="sitePage3Name"><![CDATA[<script>alert("Site Page 3")</script> />]]></var>
+			<var name="pageName" value="${sitePage3Name}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -44,10 +46,10 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="sitePage3Name"><![CDATA[<script>alert("Site Page 3")</script> />]]></var>
+			<var name="pageName" value="${sitePage3Name}" />
 		</execute>
 
-		<var name="key_pageName"><![CDATA[<script>alert("Site Page 3")</script> />]]></var>
+		<var name="key_pageName" value="${sitePage3Name}" />
 
 		<execute function="AssertTextEquals" locator1="Home#PAGE" value1="${sitePage3Name}" />
 	</command>

@@ -111,7 +111,7 @@
 		</execute>
 
 		<execute macro="PermissionsInline#assertDefaultPG">
-			<var name="roleList" value="Guest,Owner,Power User,Site Member,Userf" />
+			<var name="roleList" value="Guest,Owner,Power User,Site Member,User" />
 		</execute>
 
 		<execute macro="Page#openURL">

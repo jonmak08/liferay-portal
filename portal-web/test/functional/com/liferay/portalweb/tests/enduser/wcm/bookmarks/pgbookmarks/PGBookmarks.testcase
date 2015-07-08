@@ -302,7 +302,9 @@
 			<var name="pageName" value="Bookmarks Page" />
 		</execute>
 
-		<execute macro="Portlet#deletePG" />
+		<execute macro="Portlet#deletePG">
+			<var name="portletName" value="Bookmarks" />
+		</execute>
 	</command>
 
 	<command name="SearchFolderBookmark" priority="5">
