@@ -234,9 +234,7 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 				throw new VerifyException(
 					"Duplicate element name found in structures");
 			}
-		}
 
-		for (DDMStructure structure : structures) {
 			verifyStructure(structure);
 		}
 	}
