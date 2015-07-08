@@ -1200,7 +1200,7 @@
 
 		<execute function="Type" locator1="CPUsersandorganizationsUser#SITES_SELECT_SEARCH_FIELD" value1="${siteName}" />
 
-		<execute function="KeyPress" locator1="CPUsersandorganizationsUser#SITES_SELECT_SEARCH_BUTTON" value1="\RETURN" />
+		<execute function="KeyPress" locator1="CPUsersandorganizationsUser#SITES_SELECT_SEARCH_FIELD" value1="\RETURN" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsUser#SITES_SELECT_TABLE_NAME" value1="${siteName}" />
 
