@@ -84,6 +84,8 @@
 	<command name="viewPGViaUserStatistics">
 		<var name="key_userName" value="${userName}" />
 
+		<execute function="Refresh" />
+
 		<execute function="AssertTextEquals" locator1="PGUserstatistics#RANKING_TABLE_USER_NAME" value1="${userName}" />
 		<execute function="AssertTextEquals" locator1="PGUserstatistics#RANKING_TABLE_RANK" value1="${userRank}" />
 		<execute function="AssertTextEquals" locator1="PGUserstatistics#RANKING_TABLE_CONTRIBUTION_SCORE" value1="${contributionScore}" />
