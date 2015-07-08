@@ -478,8 +478,6 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 			updateFileUploadReferences(structureLink);
 		}
 
-		updateStructure(structure, updateXSD(structure.getXsd()));
-
 		List<DDMTemplate> templates = DDMTemplateLocalServiceUtil.getTemplates(
 			structure.getGroupId(), _ddmStructureClassNameId,
 			structure.getStructureId(),
@@ -607,6 +605,8 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 	protected void verifyStructure(DDMStructure structure) throws Exception {
 		updateFileUploadReferences(structure);
 
+		updateStructure(structure, updateXSD(structure.getXsd()));
+
 		boolean modified = false;
 
 		String defaultLanguageId = structure.getDefaultLanguageId();
@@ -619,8 +619,6 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 
 		for (Node node : nodes) {
 			Element dynamicElementElement = (Element)node;
-
-			updateStructure(structure, updateXSD(structure.getXsd()));
 
 			if (createDefaultMetadataElement(
 					dynamicElementElement, defaultLanguageId)) {
