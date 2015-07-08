@@ -373,14 +373,8 @@ definePermissionsURL.setRefererPlid(plid);
 						<%
 						String actionSeparator = Validator.isNotNull(preselectedMsg) ? ActionUtil.PRESELECTED : ActionUtil.ACTION;
 
-						if (name.equals(RoleConstants.GUEST) && action.equals(ActionKeys.VIEW)) {
+						if (disabled && checked) {
 							buffer.append("<input ");
-
-							buffer.append("id=\"");
-							buffer.append(FriendlyURLNormalizerUtil.normalize(role.getName()));
-							buffer.append(actionSeparator);
-							buffer.append(action);
-							buffer.append("\" ");
 
 							buffer.append("name=\"");
 							buffer.append(renderResponse.getNamespace());
@@ -392,61 +386,42 @@ definePermissionsURL.setRefererPlid(plid);
 							buffer.append("type=\"hidden\" ");
 
 							buffer.append("value=\"true\" />");
-
-							buffer.append("<input ");
-
-							buffer.append("checked=\"checked\" ");
-
-							buffer.append("disabled=\"disabled\" ");
-
-							buffer.append("id=\"");
-							buffer.append(renderResponse.getNamespace());
-							buffer.append("guestViewPlaceholder\" ");
-
-							if (Validator.isNotNull(preselectedMsg)) {
-								buffer.append("onclick=\"return false;\" onmouseover=\"Liferay.Portal.ToolTip.show(this, '");
-								buffer.append(UnicodeLanguageUtil.format(pageContext, preselectedMsg, new Object[] {role.getTitle(locale), ResourceActionsUtil.getAction(pageContext, action), Validator.isNull(modelResource) ? selResourceDescription : ResourceActionsUtil.getModelResource(locale, resource.getName()), HtmlUtil.escape(group.getDescriptiveName(locale))}));
-								buffer.append("'); return false;\" ");
-							}
-
-							buffer.append("type=\"checkbox\" />");
 						}
-						else {
-							buffer.append("<input ");
 
-							if (checked) {
-								buffer.append("checked ");
-							}
+						buffer.append("<input ");
 
-							if (Validator.isNotNull(preselectedMsg)) {
-								buffer.append("class=\"lfr-checkbox-preselected\" ");
-							}
-
-							if (disabled) {
-								buffer.append("disabled ");
-							}
-
-							buffer.append("id=\"");
-							buffer.append(FriendlyURLNormalizerUtil.normalize(role.getName()));
-							buffer.append(actionSeparator);
-							buffer.append(action);
-							buffer.append("\" ");
-
-							buffer.append("name=\"");
-							buffer.append(renderResponse.getNamespace());
-							buffer.append(role.getRoleId());
-							buffer.append(actionSeparator);
-							buffer.append(action);
-							buffer.append("\" ");
-
-							if (Validator.isNotNull(preselectedMsg)) {
-								buffer.append("onclick=\"return false;\" onmouseover=\"Liferay.Portal.ToolTip.show(this, '");
-								buffer.append(UnicodeLanguageUtil.format(pageContext, preselectedMsg, new Object[] {role.getTitle(locale), ResourceActionsUtil.getAction(pageContext, action), Validator.isNull(modelResource) ? selResourceDescription : ResourceActionsUtil.getModelResource(locale, resource.getName()), HtmlUtil.escape(group.getDescriptiveName(locale))}));
-								buffer.append("'); return false;\" ");
-							}
-
-							buffer.append("type=\"checkbox\" />");
+						if (checked) {
+							buffer.append("checked ");
 						}
+
+						if (disabled) {
+							buffer.append("disabled ");
+						}
+
+						if (Validator.isNotNull(preselectedMsg)) {
+							buffer.append("class=\"lfr-checkbox-preselected\" ");
+						}
+
+						buffer.append("id=\"");
+						buffer.append(FriendlyURLNormalizerUtil.normalize(role.getName()));
+						buffer.append(actionSeparator);
+						buffer.append(action);
+						buffer.append("\" ");
+
+						buffer.append("name=\"");
+						buffer.append(renderResponse.getNamespace());
+						buffer.append(role.getRoleId());
+						buffer.append(actionSeparator);
+						buffer.append(action);
+						buffer.append("\" ");
+
+						if (Validator.isNotNull(preselectedMsg)) {
+							buffer.append("onclick=\"return false;\" onmouseover=\"Liferay.Portal.ToolTip.show(this, '");
+							buffer.append(UnicodeLanguageUtil.format(pageContext, preselectedMsg, new Object[] {role.getTitle(locale), ResourceActionsUtil.getAction(pageContext, action), Validator.isNull(modelResource) ? selResourceDescription : ResourceActionsUtil.getModelResource(locale, resource.getName()), HtmlUtil.escape(group.getDescriptiveName(locale))}));
+							buffer.append("'); return false;\" ");
+						}
+
+						buffer.append("type=\"checkbox\" />");
 						%>
 
 					</liferay-ui:search-container-column-text>
