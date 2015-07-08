@@ -74,11 +74,26 @@
 		<execute function="AssertTextEquals" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_BODY" value1="${contentBody}" />
 	</command>
 
+	<command name="viewNewCommentMention">
+		<var method="StringUtil#lowerCase('${assetType}')" name="assetType" />
+		<var name="key_contentBody" value="${contentBody}" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_TITLE" value1="${user} mentioned you in a comment in a ${assetType}" />
+	</command>
+
 	<command name="viewNewContent">
 		<var method="StringUtil#lowerCase('${assetType}')" name="assetType" />
 		<var name="key_contentBody" value="${contentBody}" />
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_TITLE" value1="${user} added a new ${assetType}" />
+		<execute function="AssertTextEquals" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_BODY" value1="${contentBody}" />
+	</command>
+
+	<command name="viewNewInlineMention">
+		<var method="StringUtil#lowerCase('${assetType}')" name="assetType" />
+		<var name="key_contentBody" value="${contentBody}" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_TITLE" value1="${user} mentioned you in a ${assetType}" />
 		<execute function="AssertTextEquals" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_BODY" value1="${contentBody}" />
 	</command>
 
