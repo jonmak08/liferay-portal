@@ -238,8 +238,6 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 
 		for (DDMStructure structure : structures) {
 			verifyStructure(structure);
-
-			updateFileUploadReferences(structure);
 		}
 	}
 
@@ -607,6 +605,8 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 	}
 
 	protected void verifyStructure(DDMStructure structure) throws Exception {
+		updateFileUploadReferences(structure);
+
 		boolean modified = false;
 
 		String defaultLanguageId = structure.getDefaultLanguageId();
