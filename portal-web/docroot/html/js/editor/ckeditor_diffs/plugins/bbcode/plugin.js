@@ -57,7 +57,7 @@
 
 							var preBlock = editor.document.getElementsByTag('pre').getItem(0);
 
-							if (preBlock && preBlock.getChildCount() == 0) {
+							if (preBlock && preBlock.getChildCount() === 0) {
 								preBlock.appendBogus();
 							}
 
