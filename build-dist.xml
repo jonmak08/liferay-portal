@@ -2282,7 +2282,7 @@ closeTemplate()
 				<var name="source.command" value="source" />
 
 				<if>
-					<os name="Linux" />
+					<os family="unix" />
 					<then>
 						<replace file="${app.server.weblogic.dir}/configure.sh">
 							<replacefilter token="#!/bin/sh" value="#!/bin/bash" />
@@ -2299,7 +2299,7 @@ closeTemplate()
 				/>
 
 				<if>
-					<os name="Linux" />
+					<os family="unix" />
 					<then>
 						<exec dir="${app.server.weblogic.dir}" executable="./configure.sh">
 							<env key="MW_HOME" file="${app.server.weblogic.dir}" />
