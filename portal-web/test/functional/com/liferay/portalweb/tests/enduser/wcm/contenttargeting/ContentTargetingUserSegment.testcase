@@ -1038,7 +1038,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="WCM-376" name="UserSegmentContentViewReport" priority="4">
+	<command name="UserSegmentContentViewReport" priority="4">
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
 			<var name="siteScopeName" value="Site Name" />
