@@ -489,8 +489,10 @@ public class JournalConverterImpl implements JournalConverter {
 			if (url.contains("/documents/")) {
 				fileEntry = getFileEntryByDocumentLibraryURL(url);
 			}
-			else if (url.contains("/image/image_gallery?")) {
-				fileEntry = getFileEntryByImageGalleryURL(url);
+			else if (url.contains("/image/image_gallery?") ||
+					 url.contains("/c/document_library/get_file?")) {
+
+				fileEntry = getFileEntryByOldDocumentLibraryURL(url);
 			}
 
 			if (fileEntry == null) {
@@ -641,10 +643,10 @@ public class JournalConverterImpl implements JournalConverter {
 			parts[5], groupId);
 	}
 
-	protected FileEntry getFileEntryByImageGalleryURL(String url)
+	protected FileEntry getFileEntryByOldDocumentLibraryURL(String url)
 		throws PortalException, SystemException {
 
-		Matcher matcher = _imageGalleryURLPattern.matcher(url);
+		Matcher matcher = _oldDocumentLibraryURLPattern.matcher(url);
 
 		if (!matcher.find()) {
 			return null;
@@ -1009,7 +1011,7 @@ public class JournalConverterImpl implements JournalConverter {
 	private static Map<String, String> _journalTypesToDDMTypes;
 
 	private Map<String, String> _ddmTypesToJournalTypes;
-	private final Pattern _imageGalleryURLPattern = Pattern.compile(
+	private final Pattern _oldDocumentLibraryURLPattern = Pattern.compile(
 		"uuid=([^&]+)&groupId=([^&]+)");
 
 }
