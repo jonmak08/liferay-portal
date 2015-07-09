@@ -2263,6 +2263,8 @@ public class PortletDataContextImpl implements PortletDataContext {
 			String[] assetTagNames = getAssetTagNames(clazz, classPK);
 
 			serviceContext.setAssetTagNames(assetTagNames);
+
+			serviceContext.setAssetLinkEntryIds(new long[0]);
 		}
 
 		// Expando
