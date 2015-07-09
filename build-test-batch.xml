@@ -51,7 +51,7 @@
 	<macrodef name="run-source-formatter">
 		<sequential>
 			<antcall target="test-package" inheritAll="false">
-				<param name="test.package" value="com.liferay.source.formatter" />
+				<param name="test.package" value="com.liferay.portal.tools.sourceformatter" />
 			</antcall>
 		</sequential>
 	</macrodef>
