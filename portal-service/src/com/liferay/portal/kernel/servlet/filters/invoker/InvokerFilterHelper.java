@@ -52,6 +52,10 @@ public class InvokerFilterHelper {
 		for (Map.Entry<String, Filter> entry : _filters.entrySet()) {
 			Filter filter = entry.getValue();
 
+			if (filter == null) {
+				continue;
+			}
+
 			try {
 				filter.destroy();
 			}
