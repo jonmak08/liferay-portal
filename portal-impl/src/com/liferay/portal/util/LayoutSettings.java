@@ -24,6 +24,7 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.LayoutConstants;
 import com.liferay.portal.security.permission.ActionKeys;
+import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.security.permission.PermissionThreadLocal;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portal.service.permission.LayoutPermissionUtil;
@@ -117,10 +118,16 @@ public class LayoutSettings {
 			return false;
 		}
 
+		PermissionChecker permissionChecker =
+			PermissionThreadLocal.getPermissionChecker();
+
+		if (permissionChecker == null) {
+			return false;
+		}
+
 		try {
 			return LayoutPermissionUtil.contains(
-				PermissionThreadLocal.getPermissionChecker(), layout,
-				ActionKeys.VIEW);
+				permissionChecker, layout, ActionKeys.VIEW);
 		}
 		catch (Exception e) {
 			_log.error(e);
