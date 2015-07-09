@@ -5332,12 +5332,6 @@ if (ppstate.equals("normal")) {
 		<record-test-class-file-names />
 	</target>
 
-	<target name="record-test-package-names">
-		<antcall target="record-test-class-file-names" />
-
-		<copy file="test.class.file.names.properties" tofile="test.package.names.properties" />
-	</target>
-
 	<target name="record-test-plugin-names">
 		<loadproperties srcFile="${lp.plugins.dir}/build.properties">
 			<filterchain>
