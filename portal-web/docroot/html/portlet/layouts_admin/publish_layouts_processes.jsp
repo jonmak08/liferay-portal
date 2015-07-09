@@ -66,6 +66,16 @@ String taskExecutorClassName = localPublishing ? LayoutStagingBackgroundTaskExec
 			results.addAll(BackgroundTaskLocalServiceUtil.getBackgroundTasks(liveGroupId, taskExecutorClassName, QueryUtil.ALL_POS, QueryUtil.ALL_POS, orderByComparator));
 		}
 
+		results.addAll(BackgroundTaskLocalServiceUtil.getBackgroundTasks(liveGroupId, StagingIndexingBackgroundTaskExecutor.class.getName(), BackgroundTaskConstants.STATUS_NEW));
+
+		results.addAll(BackgroundTaskLocalServiceUtil.getBackgroundTasks(liveGroupId, StagingIndexingBackgroundTaskExecutor.class.getName(), BackgroundTaskConstants.STATUS_IN_PROGRESS));
+
+		results.addAll(BackgroundTaskLocalServiceUtil.getBackgroundTasks(liveGroupId, StagingIndexingBackgroundTaskExecutor.class.getName(), BackgroundTaskConstants.STATUS_FAILED));
+
+		results.addAll(BackgroundTaskLocalServiceUtil.getBackgroundTasks(liveGroupId, StagingIndexingBackgroundTaskExecutor.class.getName(), BackgroundTaskConstants.STATUS_QUEUED));
+
+		ListUtil.sort(results, orderByComparator);
+
 		searchContainer.setTotal(results.size());
 
 		results = ListUtil.subList(results, searchContainer.getStart(), searchContainer.getEnd());
@@ -93,9 +103,15 @@ String taskExecutorClassName = localPublishing ? LayoutStagingBackgroundTaskExec
 
 		<c:if test="<%= localPublishing %>">
 			<liferay-ui:search-container-column-text name="type">
-				<c:if test="<%= backgroundTask.getGroupId() == liveGroupId %>">
+				<c:if test="<%= (backgroundTask.getGroupId() == liveGroupId) && (taskExecutorClassName.equals(backgroundTask.getTaskExecutorClassName())) %>">
 					<strong class="label label-info">
 						<liferay-ui:message key="initial-publication" />
+					</strong>
+				</c:if>
+
+				<c:if test="<%= StagingIndexingBackgroundTaskExecutor.class.getName().equals(backgroundTask.getTaskExecutorClassName()) %>">
+					<strong class="label label-info">
+						<liferay-ui:message key="reindex" />
 					</strong>
 				</c:if>
 

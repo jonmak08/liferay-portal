@@ -60,6 +60,7 @@ page import="com.liferay.portal.lar.backgroundtask.LayoutExportBackgroundTaskExe
 page import="com.liferay.portal.lar.backgroundtask.LayoutImportBackgroundTaskExecutor" %><%@
 page import="com.liferay.portal.lar.backgroundtask.LayoutRemoteStagingBackgroundTaskExecutor" %><%@
 page import="com.liferay.portal.lar.backgroundtask.LayoutStagingBackgroundTaskExecutor" %><%@
+page import="com.liferay.portal.lar.backgroundtask.StagingIndexingBackgroundTaskExecutor" %><%@
 page import="com.liferay.portal.security.auth.AuthException" %><%@
 page import="com.liferay.portal.security.auth.RemoteAuthException" %><%@
 page import="com.liferay.portal.theme.NavItem" %><%@
