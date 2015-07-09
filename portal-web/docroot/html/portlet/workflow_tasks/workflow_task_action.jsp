@@ -19,9 +19,8 @@
 <%
 String randomId = StringPool.BLANK;
 
-String closeRedirect = ParamUtil.getString(request, "closeRedirect");
-
 String redirect = ParamUtil.getString(request, "redirect");
+String closeRedirect = ParamUtil.getString(request, "closeRedirect");
 
 ResultRow row = (ResultRow)request.getAttribute(WebKeys.SEARCH_CONTAINER_RESULT_ROW);
 
