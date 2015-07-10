@@ -125,7 +125,7 @@ AUI.add(
 							else if (!value) {
 								currentTarget.val(placeholder);
 
-								currentTarget.addClass(CSSPLACEHOLDER);
+								currentTarget.addClass(CSS_PLACEHOLDER);
 							}
 						}
 					},
