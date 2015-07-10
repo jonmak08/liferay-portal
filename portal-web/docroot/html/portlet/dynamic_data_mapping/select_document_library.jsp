@@ -85,7 +85,7 @@ portletURL.setParameter("groupId", String.valueOf(groupId));
 portletURL.setParameter("folderId", String.valueOf(folderId));
 %>
 
-<aui:form method="post" name="fm">
+<aui:form action="<%= portletURL %>" method="post" name="fm">
 
 	<%
 	FileEntrySearch fileEntrySearchContainer = new FileEntrySearch(renderRequest, portletURL);
