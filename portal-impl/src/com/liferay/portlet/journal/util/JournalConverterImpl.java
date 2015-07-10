@@ -15,6 +15,7 @@
 package com.liferay.portlet.journal.util;
 
 import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -50,7 +51,6 @@ import com.liferay.portlet.dynamicdatamapping.util.DDMUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMXMLUtil;
 
 import java.io.Serializable;
-
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -620,7 +620,7 @@ public class JournalConverterImpl implements JournalConverter {
 	}
 
 	protected FileEntry getFileEntryByDocumentLibraryURL(String url)
-		throws PortalException {
+		throws PortalException, SystemException {
 
 		int x = url.indexOf("/documents/");
 
@@ -641,7 +641,7 @@ public class JournalConverterImpl implements JournalConverter {
 	}
 
 	protected FileEntry getFileEntryByImageGalleryURL(String url)
-		throws PortalException {
+		throws PortalException, SystemException {
 
 		Matcher matcher = _imageGalleryURLPattern.matcher(url);
 
