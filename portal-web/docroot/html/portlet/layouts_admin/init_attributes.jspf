@@ -99,11 +99,11 @@ catch (NoSuchLayoutException nsle) {
 
 if (Validator.isNull(tabs1)) {
 	LayoutSet layoutSet = themeDisplay.getLayoutSet();
-	
+
 	Layout refLayout = null;
-	
+
 	refLayout = LayoutLocalServiceUtil.fetchLayout(themeDisplay.getRefererPlid());
-	
+
 	if (refLayout != null) {
 		layoutSet = refLayout.getLayoutSet();
 	}
