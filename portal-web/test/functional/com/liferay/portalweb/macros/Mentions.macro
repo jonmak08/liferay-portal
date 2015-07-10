@@ -37,7 +37,9 @@
 		<var name="key_entryComment" value="${entryComment}" />
 		<var name="key_mentionsUserScreenName" value="${mentionsUserScreenName}" />
 
-		<execute function="SikuliType" locator1="CPBlogsEntry#COMMENTS_BODY_FIELD"  value1="${entryComment} @${mentionsUserScreenName}" />
+		<execute function="AssertClick#assertTextClickWaitForInlineCKEditor" locator1="Link#BE_THE_FIRST" value1="Be the first." />
+
+		<execute function="Type" locator1="TextArea#COMMENT_FIELD"  value1="${entryComment} @${mentionsUserScreenName}" />
 
 		<execute function="AssertClick" locator1="Mentions#MENTIONS_USER_DISPLAY_OPTION" value1="${mentionsUserFullName}@${mentionsUserScreenName}" />
 
