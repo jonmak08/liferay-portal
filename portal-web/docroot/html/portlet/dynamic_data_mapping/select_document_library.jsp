@@ -288,13 +288,7 @@ portletURL.setParameter("folderId", String.valueOf(folderId));
 	<%
 	}
 	else {
-		PortletURL iteratorURL = renderResponse.createRenderURL();
-
-		iteratorURL.setParameter("struts_action", "/dynamic_data_mapping/select_document_library");
-		iteratorURL.setParameter("groupId", String.valueOf(groupId));
-		iteratorURL.setParameter("folderId", String.valueOf(folderId));
-
-		fileEntrySearchContainer = new FileEntrySearch(renderRequest, displayTerms, (FileEntrySearchTerms)fileEntrySearchContainer.getSearchTerms(), "cur2", SearchContainer.DEFAULT_DELTA, iteratorURL, headerNames, "there-are-no-documents-in-this-folder");
+		fileEntrySearchContainer = new FileEntrySearch(renderRequest, displayTerms, (FileEntrySearchTerms)fileEntrySearchContainer.getSearchTerms(), "cur2", SearchContainer.DEFAULT_DELTA, portletURL, headerNames, "there-are-no-documents-in-this-folder");
 
 		try {
 			SearchContext searchContext = SearchContextFactory.getInstance(request);
