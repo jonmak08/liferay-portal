@@ -130,7 +130,7 @@
 		<execute macro="Workflow#viewDefaultMySubmissionsCP" />
 	</command>
 
-	<command name="ApproveWebContentCP" priority="5">
+	<command known-issues="LPS-57027" name="ApproveWebContentCP" priority="5">
 		<var name="webContentContent" value="WC WebContent Content" />
 		<var name="webContentTitle" value="WC WebContent Title" />
 
@@ -183,7 +183,7 @@
 		</execute>
 	</command>
 
-	<command name="RejectWebContentCP" priority="5">
+	<command known-issues="LPS-57027" name="RejectWebContentCP" priority="5">
 		<var name="webContentContent" value="WC WebContent Content" />
 		<var name="webContentTitle" value="WC WebContent Title" />
 
