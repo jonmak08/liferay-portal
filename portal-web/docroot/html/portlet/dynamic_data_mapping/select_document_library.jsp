@@ -76,9 +76,6 @@ if (folder != null) {
 	DLUtil.addPortletBreadcrumbEntries(folder, request, renderResponse);
 }
 
-int entryStart = ParamUtil.getInteger(request, "entryStart");
-int entryEnd = ParamUtil.getInteger(request, "entryEnd", PropsValues.SEARCH_CONTAINER_PAGE_DEFAULT_DELTA);
-
 String keywords = ParamUtil.getString(request, "keywords");
 
 PortletURL portletURL = renderResponse.createRenderURL();
@@ -295,7 +292,7 @@ portletURL.setParameter("folderId", String.valueOf(folderId));
 
 			searchContext.setAttribute("groupId", groupId);
 			searchContext.setAttribute("paginationType", "regular");
-			searchContext.setEnd(entryEnd);
+			searchContext.setEnd(fileEntrySearchContainer.getEnd());
 			searchContext.setFolderIds(folderIdsArray);
 			searchContext.setGroupIds(new long[] {groupId});
 			searchContext.setKeywords(keywords);
@@ -307,7 +304,7 @@ portletURL.setParameter("folderId", String.valueOf(folderId));
 
 			searchContext.setQueryConfig(queryConfig);
 
-			searchContext.setStart(entryStart);
+			searchContext.setStart(fileEntrySearchContainer.getStart());
 
 			searchContext.setScopeStrict(false);
 
