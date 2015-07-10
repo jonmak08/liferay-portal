@@ -18,22 +18,6 @@
 	</tear-down>
 
 	<command name="BlogsDemo" priority="5">
-		<var name="entryComment1" value="Blogs Entry Comment 1" />
-		<var name="entryComment2" value="Blogs Entry Comment 2" />
-		<var name="entryComment3" value="Guest Blogs Entry Comment" />
-		<var name="entryComment4" value="Blogs Entry Comment from userfn" />
-		<var name="entryComment5" value="Blogs Entry Comment 3" />
-		<var name="entryContent" value="Blogs Entry Content" />
-		<var name="entryTitle" value="Blogs Entry Title" />
-		<var name="user1Name" value="Test Test" />
-		<var name="user1Rank" value="Rank: 1" />
-		<var name="user2Name" value="userfn userln" />
-		<var name="user2Rank" value="Rank: 2" />
-		<var name="userAction1" value="Adds a Comment" />
-		<var name="userAction2" value="Reads a Blog" />
-		<var name="userAction3" value="Subscribes to a Blog" />
-		<var name="userAction4" value="Votes on a Blog" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
 		</execute>
@@ -65,20 +49,20 @@
 			<var name="contributionLimitValue" value="2" />
 			<var name="participationIncrement" value="2" />
 			<var name="participationLimitValue" value="2" />
-			<var name="userAction" value="${userAction1}" />
+			<var name="userAction" value="Adds a Comment" />
 		</execute>
 
 		<execute macro="SocialActivity#removeActionCP">
-			<var name="userAction" value="${userAction2}" />
+			<var name="userAction" value="Reads a Blog" />
 		</execute>
 
 		<execute macro="SocialActivity#removeActionCP">
-			<var name="userAction" value="${userAction3}" />
+			<var name="userAction" value="Subscribes to a Blog" />
 		</execute>
 
 		<execute macro="SocialActivity#configureActionCP">
 			<var name="participationIncrement" value="0" />
-			<var name="userAction" value="${userAction4}" />
+			<var name="userAction" value="Votes on a Blog" />
 		</execute>
 
 		<execute macro="Page#addPG">
@@ -110,8 +94,8 @@
 		</execute>
 
 		<execute macro="BlogsEntry#addPG">
-			<var name="entryContent" value="${entryContent}" />
-			<var name="entryTitle" value="${entryTitle}" />
+			<var name="entryContent" value="Blogs Entry Content" />
+			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -121,8 +105,8 @@
 		<execute macro="SocialActivity#viewPGViaUserStatistics">
 			<var name="contributionScore" value="Contribution Score: 0 (Total: 0)" />
 			<var name="participationScore" value="Participation Score: 5 (Total: 5)" />
-			<var name="userName" value="${user1Name}" />
-			<var name="userRank" value="${user1Rank}" />
+			<var name="userName" value="Test Test" />
+			<var name="userRank" value="Rank: 1" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -130,8 +114,8 @@
 		</execute>
 
 		<execute macro="BlogsEntryComment#addPG">
-			<var name="entryComment" value="${entryComment1}" />
-			<var name="entryTitle" value="${entryTitle}" />
+			<var name="entryComment" value="Blogs Entry Comment 1" />
+			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -141,8 +125,8 @@
 		<execute macro="SocialActivity#viewPGViaUserStatistics">
 			<var name="contributionScore" value="Contribution Score: 0 (Total: 0)" />
 			<var name="participationScore" value="Participation Score: 7 (Total: 7)" />
-			<var name="userName" value="${user1Name}" />
-			<var name="userRank" value="${user1Rank}" />
+			<var name="userName" value="Test Test" />
+			<var name="userRank" value="Rank: 1" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -150,8 +134,8 @@
 		</execute>
 
 		<execute macro="BlogsEntryComment#addPG">
-			<var name="entryComment" value="${entryComment2}" />
-			<var name="entryTitle" value="${entryTitle}" />
+			<var name="entryComment" value="Blogs Entry Comment 2" />
+			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -161,8 +145,8 @@
 		<execute macro="SocialActivity#viewPGViaUserStatistics">
 			<var name="contributionScore" value="Contribution Score: 0 (Total: 0)" />
 			<var name="participationScore" value="Participation Score: 9 (Total: 9)" />
-			<var name="userName" value="${user1Name}" />
-			<var name="userRank" value="${user1Rank}" />
+			<var name="userName" value="Test Test" />
+			<var name="userRank" value="Rank: 1" />
 		</execute>
 
 		<execute macro="User#logoutPG" />
@@ -172,8 +156,8 @@
 		</execute>
 
 		<execute macro="BlogsEntryComment#addPG">
-			<var name="entryComment" value="${entryComment3}" />
-			<var name="entryTitle" value="${entryTitle}" />
+			<var name="entryComment" value="Guest Blogs Entry Comment" />
+			<var name="entryTitle" value="Blogs Entry Title" />
 			<var name="userEmailAddress" value="guest@liferay.com" />
 			<var name="userFirstName" value="Guest" />
 		</execute>
@@ -187,8 +171,8 @@
 		</execute>
 
 		<execute macro="BlogsEntryComment#addPG">
-			<var name="entryComment" value="${entryComment4}" />
-			<var name="entryTitle" value="${entryTitle}" />
+			<var name="entryComment" value="Blogs Entry Comment from userfn" />
+			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -198,15 +182,15 @@
 		<execute macro="SocialActivity#viewPGViaUserStatistics">
 			<var name="contributionScore" value="Contribution Score: 2 (Total: 2)" />
 			<var name="participationScore" value="Participation Score: 9 (Total: 9)" />
-			<var name="userName" value="${user1Name}" />
-			<var name="userRank" value="${user1Rank}" />
+			<var name="userName" value="Test Test" />
+			<var name="userRank" value="Rank: 1" />
 		</execute>
 
 		<execute macro="SocialActivity#viewPGViaUserStatistics">
 			<var name="contributionScore" value="Contribution Score: 0 (Total: 0)" />
 			<var name="participationScore" value="Participation Score: 2 (Total: 2)" />
-			<var name="userName" value="${user2Name}" />
-			<var name="userRank" value="${user2Rank}" />
+			<var name="userName" value="userfn userln" />
+			<var name="userRank" value="Rank: 2" />
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
@@ -219,8 +203,8 @@
 		</execute>
 
 		<execute macro="BlogsEntryComment#addPG">
-			<var name="entryComment" value="${entryComment5}" />
-			<var name="entryTitle" value="${entryTitle}" />
+			<var name="entryComment" value="Blogs Entry Comment 3" />
+			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -230,15 +214,15 @@
 		<execute macro="SocialActivity#viewPGViaUserStatistics">
 			<var name="contributionScore" value="Contribution Score: 2 (Total: 2)" />
 			<var name="participationScore" value="Participation Score: 11 (Total: 11)" />
-			<var name="userName" value="${user1Name}" />
-			<var name="userRank" value="${user1Rank}" />
+			<var name="userName" value="Test Test" />
+			<var name="userRank" value="Rank: 1" />
 		</execute>
 
 		<execute macro="SocialActivity#viewPGViaUserStatistics">
 			<var name="contributionScore" value="Contribution Score: 0 (Total: 0)" />
 			<var name="participationScore" value="Participation Score: 2 (Total: 2)" />
-			<var name="userName" value="${user2Name}" />
-			<var name="userRank" value="${user2Rank}" />
+			<var name="userName" value="userfn userln" />
+			<var name="userRank" value="Rank: 2" />
 		</execute>
 	</command>
 
