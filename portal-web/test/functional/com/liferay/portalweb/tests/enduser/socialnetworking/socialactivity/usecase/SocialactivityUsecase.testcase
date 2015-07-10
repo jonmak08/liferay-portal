@@ -193,9 +193,10 @@
 			<var name="userRank" value="Rank: 2" />
 		</execute>
 
-		<execute macro="User#logoutAndLoginPG">
-			<var name="userLoginEmailAddress" value="test@liferay.com" />
-			<var name="userLoginFullName" value="Test Test" />
+		<execute macro="User#logoutPG" />
+
+		<execute macro="User#loginUserPG">
+			<var name="userEmailAddress" value="test@liferay.com" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
