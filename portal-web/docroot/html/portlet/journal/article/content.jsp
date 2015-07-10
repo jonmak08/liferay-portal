@@ -81,15 +81,20 @@ boolean preselectCurrentLayout = false;
 
 boolean changeStructure = GetterUtil.getBoolean(request.getAttribute("edit_article.jsp-changeStructure"));
 
+Map<String, String> tokens = new HashMap<String, String>();
+
+tokens.put("structure_id", structureId);
+tokens.put("article_group_id", Long.toString(groupId));
+
 if (article != null) {
 	if (Validator.isNull(content)) {
 		content = article.getContent();
 
 		if (Validator.isNotNull(toLanguageId)) {
-			content = JournalArticleImpl.getContentByLocale(content, Validator.isNotNull(structureId), toLanguageId);
+			content = JournalArticleImpl.getContentByLocale(content, toLanguageId, tokens);
 		}
 		else {
-			content = JournalArticleImpl.getContentByLocale(content, Validator.isNotNull(structureId), defaultLanguageId);
+			content = JournalArticleImpl.getContentByLocale(content, defaultLanguageId, tokens);
 		}
 	}
 }
