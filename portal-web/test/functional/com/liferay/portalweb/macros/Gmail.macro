@@ -23,6 +23,14 @@
 		<var name="key_userEmailAddress" value="${userEmailAddress}" />
 
 		<if>
+			<condition function="IsElementPresent" locator1="Gmail#SIGN_IN_LINK" />
+
+			<then>
+				<execute function="AssertClick" locator1="Gmail#SIGN_IN_LINK" value1="Sign in" />
+			</then>
+		</if>
+
+		<if>
 			<and>
 				<condition function="IsElementNotPresent" locator1="Gmail#GMAIL_NORMAL_MODE_USER_SCREENNAME" />
 				<condition function="IsElementNotPresent" locator1="Gmail#GMAIL_HTML_MODE_USER_SCREENNAME" />

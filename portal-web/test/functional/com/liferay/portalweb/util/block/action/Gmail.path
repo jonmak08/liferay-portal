@@ -13,6 +13,16 @@
 	<td>title=${key_pageTitle}</td>
 	<td></td>
 </tr>
+<tr>
+	<td>SIGN_IN_LINK</td>
+	<td>//div[@role='banner']//a[@id='gmail-sign-in']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 <!--LOGIN-->
 <tr>
 	<td>LOGIN_EMAIL_FIELD</td>
