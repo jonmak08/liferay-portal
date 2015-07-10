@@ -35,6 +35,7 @@ import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.InetAddressUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WeakValueConcurrentHashMap;
@@ -453,8 +454,33 @@ public class ClusterExecutorImpl
 			localClusterNode.setPortalProtocol(Http.HTTP);
 			localClusterNode.setPort(PropsValues.PORTAL_INSTANCE_HTTP_PORT);
 		}
+		else {
+			if (_log.isWarnEnabled()) {
+				StringBundler sb = new StringBundler(8);
+
+				sb.append("Unable to configure node protocol and port. ");
+				sb.append("This configuration will be inferred dynamically ");
+				sb.append("from the first request but static configuration ");
+				sb.append("is recomended to avoid comunications problems ");
+				sb.append("between nodes. Please set the right values for ");
+				sb.append("\"portal.instance.protocol\" and ");
+				sb.append("\"portal.instance.http.port\" or ");
+				sb.append("\"portal.instance.https.port\".");
+
+				_log.warn(sb.toString());
+			}
+		}
 
 		_localClusterNode = localClusterNode;
+
+		if (_log.isDebugEnabled()) {
+			StringBundler sb = new StringBundler(2);
+
+			sb.append("Initialized cluster node: ");
+			sb.append(localClusterNode.toString());
+
+			_log.debug(sb.toString());
+		}
 	}
 
 	protected boolean isShortcutLocalMethod() {
