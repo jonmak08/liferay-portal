@@ -8,6 +8,11 @@
 <tr><td rowspan="1" colspan="3">TextArea</td></tr>
 </thead>
 <tbody>
+<tr>
+	<td>COMMENT_FIELD</td>
+	<td>//textarea[contains(@name,'postReplyBody')]</td>
+	<td></td>
+</tr>
 </tbody>
 </table>
 </body>
