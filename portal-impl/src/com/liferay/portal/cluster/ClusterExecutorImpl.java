@@ -474,12 +474,8 @@ public class ClusterExecutorImpl
 		_localClusterNode = localClusterNode;
 
 		if (_log.isDebugEnabled()) {
-			StringBundler sb = new StringBundler(2);
-
-			sb.append("Initialized cluster node: ");
-			sb.append(localClusterNode.toString());
-
-			_log.debug(sb.toString());
+			_log.debug(
+				"Initialized cluster node: " + localClusterNode.toString());
 		}
 	}
 
