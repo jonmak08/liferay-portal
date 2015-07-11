@@ -148,4 +148,6 @@ response.setContentType(ContentTypes.TEXT_JAVASCRIPT);
 	config.smiley_path = '<%= HtmlUtil.escapeJS(emoticonsPath) %>' + '/';
 
 	config.smiley_symbols = ['<%= StringUtil.merge(BBCodeTranslatorUtil.getEmoticonSymbols(), "','") %>'];
+
+	config.title = false;
 })();

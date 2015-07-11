@@ -113,6 +113,8 @@ CKEDITOR.config.contentsLangDirection = '<%= HtmlUtil.escapeJS(contentsLanguageD
 
 	config.resize_enabled = <%= resizable %>;
 
+	config.title = false;
+
 	config.toolbar_creole = [
 		['Cut','Copy','Paste','PasteText','PasteFromWord'],
 		['Undo','Redo'],
