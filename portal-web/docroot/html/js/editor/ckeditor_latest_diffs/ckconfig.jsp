@@ -127,6 +127,8 @@ String contentsLanguageDir = LanguageUtil.get(contentsLocale, "lang.dir");
 
 	config.stylesCombo_stylesSet = 'liferayStyles';
 
+	config.title = false;
+
 	config.toolbar_editInPlace = [
 		['Styles'],
 		['Bold', 'Italic', 'Underline', 'Strike'],
