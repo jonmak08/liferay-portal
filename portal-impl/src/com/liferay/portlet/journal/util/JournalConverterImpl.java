@@ -1006,8 +1006,9 @@ public class JournalConverterImpl implements JournalConverter {
 	private static Map<String, String> _ddmDataTypes;
 	private static Map<String, String> _ddmMetadataAttributes;
 	private static Map<String, String> _journalTypesToDDMTypes;
+
+	private Map<String, String> _ddmTypesToJournalTypes;
 	private final Pattern _imageGalleryURLPattern = Pattern.compile(
 		"uuid=([^&]+)&groupId=([^&]+)");
-	private Map<String, String> _ddmTypesToJournalTypes;
 
 }
