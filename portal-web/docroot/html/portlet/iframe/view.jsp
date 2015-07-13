@@ -29,7 +29,7 @@ if (Validator.isNotNull(iframeVariables)) {
 	if (iframeSrc.contains(StringPool.QUESTION)) {
 		iframeSrc = iframeSrc.concat(StringPool.AMPERSAND).concat(StringUtil.merge(iframeVariables, StringPool.AMPERSAND));
 	}
-	else if (!ListUtil.isEmpty(iframeVariables)) {
+	else if (!((iframeVariables == null) || iframeVariables.isEmpty())) {
 		iframeSrc = iframeSrc.concat(StringPool.QUESTION).concat(StringUtil.merge(iframeVariables, StringPool.AMPERSAND));
 	}
 }
