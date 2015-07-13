@@ -94,6 +94,8 @@ public class UploadServletRequestImpl
 			List<LiferayFileItem> liferayFileItemsList =
 				servletFileUpload.parseRequest(_liferayServletRequest);
 
+			_liferayServletRequest.setFinishedReadingOriginalStream(true);
+
 			for (LiferayFileItem liferayFileItem : liferayFileItemsList) {
 				if (liferayFileItem.isFormField()) {
 					liferayFileItem.setString(request.getCharacterEncoding());
