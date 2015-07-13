@@ -1059,6 +1059,18 @@
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
+	<command name="editEmailAddressViaMyAccount">
+		<execute function="AssertClick" locator1="Myaccount#MENU_USER_INFORMATION_DETAILS" value1="Details" />
+
+		<execute function="Type" locator1="Myaccount#DETAILS_EMAIL_ADDRESS_FIELD" value1="${userEmailAddressEdit}" />
+
+		<execute function="AssertClick" locator1="Myaccount#SAVE_BUTTON" value1="Save" />
+
+		<execute function="AssertTextEquals" locator1="Myaccount#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+
+		<execute function="SelectFrame" value1="relative=top" />
+	</command>
+
 	<command name="editPasswordCP">
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_ALL_USERS" value1="All Users" />
 
