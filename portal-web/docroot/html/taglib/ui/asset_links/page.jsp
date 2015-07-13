@@ -108,8 +108,8 @@ if (assetEntryId > 0) {
 						<liferay-ui:icon
 							label="<%= true %>"
 							message="<%= asseLinktEntryTitle %>"
-							src="<%= assetRenderer.getIconPath(portletRequest) %>"
 							method="<%= method %>"
+							src="<%= assetRenderer.getIconPath(portletRequest) %>"
 							target="<%= target %>"
 							url="<%= urlViewInContext %>"
 						/>
