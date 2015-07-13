@@ -71,7 +71,7 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 		throws PortalException, SystemException {
 
 		boolean localizable = GetterUtil.getBoolean(
-			ddmStructure.getFieldProperty(name, "localizable"));
+			ddmStructure.getFieldProperty(name, "localizable"), true);
 
 		List<Element> dynamicContentElements = dynamicElementElement.elements(
 			"dynamic-content");

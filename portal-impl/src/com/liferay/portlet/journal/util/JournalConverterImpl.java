@@ -534,7 +534,7 @@ public class JournalConverterImpl implements JournalConverter {
 		String type = ddmStructure.getFieldType(name);
 
 		boolean localizable = GetterUtil.getBoolean(
-			ddmStructure.getFieldProperty(name, "localizable"));
+			ddmStructure.getFieldProperty(name, "localizable"), true);
 
 		List<Element> dynamicContentElements = dynamicElementElement.elements(
 			"dynamic-content");
