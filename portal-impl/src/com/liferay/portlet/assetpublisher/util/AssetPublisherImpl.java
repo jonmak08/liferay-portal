@@ -1248,28 +1248,6 @@ public class AssetPublisherImpl implements AssetPublisher {
 			_getPortletPreferencesId(plid, portletId));
 	}
 
-	private static long[] _filterAssetCategoryIds(long[] assetCategoryIds)
-		throws SystemException {
-
-		List<Long> assetCategoryIdsList = new ArrayList<Long>();
-
-		for (long assetCategoryId : assetCategoryIds) {
-			AssetCategory category =
-				AssetCategoryLocalServiceUtil.fetchAssetCategory(
-					assetCategoryId);
-
-			if (category == null) {
-				continue;
-			}
-
-			assetCategoryIdsList.add(assetCategoryId);
-		}
-
-		return ArrayUtil.toArray(
-			assetCategoryIdsList.toArray(
-				new Long[assetCategoryIdsList.size()]));
-	}
-
 	private void _checkAssetEntries(
 			com.liferay.portal.model.PortletPreferences
 			portletPreferencesModel)
@@ -1349,6 +1327,28 @@ public class AssetPublisherImpl implements AssetPublisher {
 		}
 
 		return filteredAssetEntries;
+	}
+
+	private static long[] _filterAssetCategoryIds(long[] assetCategoryIds)
+		throws SystemException {
+
+		List<Long> assetCategoryIdsList = new ArrayList<Long>();
+
+		for (long assetCategoryId : assetCategoryIds) {
+			AssetCategory category =
+				AssetCategoryLocalServiceUtil.fetchAssetCategory(
+					assetCategoryId);
+
+			if (category == null) {
+				continue;
+			}
+
+			assetCategoryIdsList.add(assetCategoryId);
+		}
+
+		return ArrayUtil.toArray(
+			assetCategoryIdsList.toArray(
+				new Long[assetCategoryIdsList.size()]));
 	}
 
 	private List<AssetEntry> _filterAssetTagNamesAssetEntries(
