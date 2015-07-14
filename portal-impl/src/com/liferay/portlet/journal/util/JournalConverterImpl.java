@@ -51,6 +51,7 @@ import com.liferay.portlet.dynamicdatamapping.util.DDMUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMXMLUtil;
 
 import java.io.Serializable;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
