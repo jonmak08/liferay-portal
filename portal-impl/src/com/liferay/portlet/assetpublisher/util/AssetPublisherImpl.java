@@ -623,6 +623,8 @@ public class AssetPublisherImpl implements AssetPublisher {
 			}
 		}
 
+		allAssetCategoryIds = _checkAssetCategories(allAssetCategoryIds);
+
 		assetEntryQuery.setAllCategoryIds(allAssetCategoryIds);
 
 		for (String assetTagName : allAssetTagNames) {
@@ -1244,6 +1246,30 @@ public class AssetPublisherImpl implements AssetPublisher {
 			permissionChecker.getUserId(),
 			com.liferay.portal.model.PortletPreferences.class.getName(),
 			_getPortletPreferencesId(plid, portletId));
+	}
+
+	private static long[] _checkAssetCategories(long[] assetCategoryIds)
+		throws SystemException {
+
+		List<Long> assetCategoryIdsList = new ArrayList<Long>();
+
+		for (long assetCategoryId : assetCategoryIds) {
+			AssetCategory category =
+				AssetCategoryLocalServiceUtil.fetchAssetCategory(
+					assetCategoryId);
+
+			if (category != null) {
+				assetCategoryIdsList.add(assetCategoryId);
+			}
+		}
+
+		long[] assetCategoryIdsArray = new long[assetCategoryIdsList.size()];
+
+		for (int i = 0; i < assetCategoryIdsList.size(); i++) {
+			assetCategoryIdsArray[i] = assetCategoryIdsList.get(i);
+		}
+
+		return assetCategoryIdsArray;
 	}
 
 	private void _checkAssetEntries(
