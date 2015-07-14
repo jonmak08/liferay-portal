@@ -999,7 +999,9 @@ public class MainServlet extends ActionServlet {
 
 		User user = UserLocalServiceUtil.getUserById(userId);
 
-		if (PropsValues.USERS_UPDATE_LAST_LOGIN) {
+		if (PropsValues.USERS_UPDATE_LAST_LOGIN ||
+			(user.getLastLoginDate() == null)) {
+
 			UserLocalServiceUtil.updateLastLogin(
 				userId, request.getRemoteAddr());
 		}
