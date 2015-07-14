@@ -1258,18 +1258,16 @@ public class AssetPublisherImpl implements AssetPublisher {
 				AssetCategoryLocalServiceUtil.fetchAssetCategory(
 					assetCategoryId);
 
-			if (category != null) {
-				assetCategoryIdsList.add(assetCategoryId);
+			if (category == null) {
+				continue;
 			}
+
+			assetCategoryIdsList.add(assetCategoryId);
 		}
 
-		long[] assetCategoryIdsArray = new long[assetCategoryIdsList.size()];
-
-		for (int i = 0; i < assetCategoryIdsList.size(); i++) {
-			assetCategoryIdsArray[i] = assetCategoryIdsList.get(i);
-		}
-
-		return assetCategoryIdsArray;
+		return ArrayUtil.toArray(
+			assetCategoryIdsList.toArray(
+				new Long[assetCategoryIdsList.size()]));
 	}
 
 	private void _checkAssetEntries(
