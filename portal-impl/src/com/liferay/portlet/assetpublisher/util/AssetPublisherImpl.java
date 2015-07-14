@@ -623,7 +623,7 @@ public class AssetPublisherImpl implements AssetPublisher {
 			}
 		}
 
-		allAssetCategoryIds = _checkAssetCategories(allAssetCategoryIds);
+		allAssetCategoryIds = _filterAssetCategoryIds(allAssetCategoryIds);
 
 		assetEntryQuery.setAllCategoryIds(allAssetCategoryIds);
 
@@ -1248,7 +1248,7 @@ public class AssetPublisherImpl implements AssetPublisher {
 			_getPortletPreferencesId(plid, portletId));
 	}
 
-	private static long[] _checkAssetCategories(long[] assetCategoryIds)
+	private static long[] _filterAssetCategoryIds(long[] assetCategoryIds)
 		throws SystemException {
 
 		List<Long> assetCategoryIdsList = new ArrayList<Long>();
