@@ -23,6 +23,7 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
@@ -170,11 +171,21 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 
 			String ddmStructureKey = tokens.get("structure_id");
 
-			long groupId = Long.parseLong(tokens.get("article_group_id"));
+			String groupId = tokens.get("article_group_id");
+
+			if (!Validator.isNumber(groupId)) {
+				if (_log.isWarnEnabled()) {
+					_log.warn(
+						"Not checking localization because dynamic data " +
+							"mapping structure is not available");
+				}
+
+				return xml;
+			}
 
 			DDMStructure ddmStructure =
 				DDMStructureLocalServiceUtil.fetchStructure(
-					groupId,
+					Long.parseLong(groupId),
 					ClassNameLocalServiceUtil.getClassNameId(
 						JournalArticle.class), ddmStructureKey, true);
 

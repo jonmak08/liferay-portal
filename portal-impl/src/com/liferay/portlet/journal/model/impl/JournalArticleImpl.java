@@ -145,6 +145,7 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 		Map<String, String> tokens = new HashMap<String, String>();
 
 		tokens.put("structure_id", ddmStructureKey);
+		tokens.put("article_group_id", Long.toString(getGroupId()));
 
 		return getContentByLocale(getContent(), languageId, tokens);
 	}
