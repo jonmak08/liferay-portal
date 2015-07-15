@@ -231,7 +231,7 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 	public void clearUserUserGroups(long userId) throws SystemException {
 		userPersistence.clearUserGroups(userId);
 
-		PermissionCacheUtil.clearCache(userId);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -672,7 +672,7 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 
 		indexer.reindex(userId);
 
-		PermissionCacheUtil.clearCache(userId);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**

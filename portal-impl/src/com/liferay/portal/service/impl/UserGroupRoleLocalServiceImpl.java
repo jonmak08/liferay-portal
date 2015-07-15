@@ -55,7 +55,7 @@ public class UserGroupRoleLocalServiceImpl
 			groupPersistence.addUser(groupId, userId);
 		}
 
-		PermissionCacheUtil.clearCache(userId);
+		PermissionCacheUtil.clearCache();
 
 		return userGroupRoles;
 	}
@@ -80,7 +80,7 @@ public class UserGroupRoleLocalServiceImpl
 			groupPersistence.addUsers(groupId, userIds);
 		}
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 
 		return userGroupRoles;
 	}
@@ -91,7 +91,7 @@ public class UserGroupRoleLocalServiceImpl
 
 		userGroupRolePersistence.remove(userGroupRole);
 
-		PermissionCacheUtil.clearCache(userGroupRole.getUserId());
+		PermissionCacheUtil.clearCache();
 
 		return userGroupRole;
 	}
@@ -111,7 +111,7 @@ public class UserGroupRoleLocalServiceImpl
 			}
 		}
 
-		PermissionCacheUtil.clearCache(userId);
+		PermissionCacheUtil.clearCache();
 	}
 
 	@Override
@@ -122,7 +122,7 @@ public class UserGroupRoleLocalServiceImpl
 			userGroupRolePersistence.removeByU_G(userId, groupId);
 		}
 
-		PermissionCacheUtil.clearCache(userId);
+		PermissionCacheUtil.clearCache();
 	}
 
 	@Override
@@ -133,7 +133,7 @@ public class UserGroupRoleLocalServiceImpl
 			userGroupRolePersistence.removeByU_G(userId, groupId);
 		}
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 	}
 
 	@Override
@@ -156,7 +156,7 @@ public class UserGroupRoleLocalServiceImpl
 			}
 		}
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 	}
 
 	@Override
@@ -173,7 +173,7 @@ public class UserGroupRoleLocalServiceImpl
 			}
 		}
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 	}
 
 	@Override
@@ -200,7 +200,7 @@ public class UserGroupRoleLocalServiceImpl
 
 		userGroupRolePersistence.removeByUserId(userId);
 
-		PermissionCacheUtil.clearCache(userId);
+		PermissionCacheUtil.clearCache();
 	}
 
 	@Override

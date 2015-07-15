@@ -276,7 +276,7 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 
 		indexer.reindex(userId);
 
-		PermissionCacheUtil.clearCache(userId);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -1454,7 +1454,7 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 
 		indexer.reindex(userId);
 
-		PermissionCacheUtil.clearCache(userId);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -1479,7 +1479,7 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 
 		indexer.reindex(userId);
 
-		PermissionCacheUtil.clearCache(userId);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**

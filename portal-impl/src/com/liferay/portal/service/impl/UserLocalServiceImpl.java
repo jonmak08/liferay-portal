@@ -448,7 +448,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		indexer.reindex(userIds);
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 
 		addDefaultRolesAndTeams(groupId, userIds);
 	}
@@ -472,7 +472,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		indexer.reindex(userIds);
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -510,7 +510,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		indexer.reindex(userIds);
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -532,7 +532,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		indexer.reindex(userIds);
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -649,7 +649,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		indexer.reindex(userIds);
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -1816,7 +1816,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		indexer.reindex(userId);
 
-		PermissionCacheUtil.clearCache(userId);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -1965,7 +1965,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		// Permission cache
 
-		PermissionCacheUtil.clearCache(user.getUserId());
+		PermissionCacheUtil.clearCache();
 
 		// Workflow
 
@@ -1993,7 +1993,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		indexer.reindex(userId);
 
-		PermissionCacheUtil.clearCache(userId);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -3715,7 +3715,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		indexer.reindex(userIds);
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -3742,7 +3742,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		indexer.reindex(userIds);
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -3763,7 +3763,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			unsetTeamUsers(team.getTeamId(), userIds);
 		}
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -3793,7 +3793,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		indexer.reindex(userIds);
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 
 		Callable<Void> callable = new Callable<Void>() {
 
@@ -3842,7 +3842,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		indexer.reindex(userIds);
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 
 		Callable<Void> callable = new Callable<Void>() {
 
@@ -3908,15 +3908,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		indexer.reindex(users);
 
-		long[] userIds = new long[users.size()];
-
-		for (int i = 0; i < users.size(); i++) {
-			User user = users.get(i);
-
-			userIds[i] = user.getUserId();
-		}
-
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -3948,7 +3940,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		indexer.reindex(userIds);
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -3969,7 +3961,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		indexer.reindex(userIds);
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -3990,7 +3982,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		indexer.reindex(userIds);
 
-		PermissionCacheUtil.clearCache(userIds);
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -5332,7 +5324,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		// Permission cache
 
-		PermissionCacheUtil.clearCache(userId);
+		PermissionCacheUtil.clearCache();
 
 		return user;
 	}
@@ -6060,7 +6052,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			indexer.reindex(new long[] {userId});
 		}
 
-		PermissionCacheUtil.clearCache(userId);
+		PermissionCacheUtil.clearCache();
 	}
 
 	protected void updateOrganizations(
@@ -6100,7 +6092,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			indexer.reindex(new long[] {userId});
 		}
 
-		PermissionCacheUtil.clearCache(userId);
+		PermissionCacheUtil.clearCache();
 	}
 
 	protected void updateUserGroupRoles(
