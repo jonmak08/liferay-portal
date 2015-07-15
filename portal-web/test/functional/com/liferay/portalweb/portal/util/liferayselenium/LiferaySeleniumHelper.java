@@ -1278,9 +1278,9 @@ public class LiferaySeleniumHelper {
 
 		Mouse mouse = new DesktopMouse();
 
-		ImageTarget imageTarget = getImageTarget(liferaySelenium, image);
-
 		ScreenRegion screenRegion = new DesktopScreenRegion();
+
+		ImageTarget imageTarget = getImageTarget(liferaySelenium, image);
 
 		ScreenRegion imageTargetScreenRegion = screenRegion.find(imageTarget);
 
@@ -1293,9 +1293,9 @@ public class LiferaySeleniumHelper {
 
 		Mouse mouse = new DesktopMouse();
 
-		ImageTarget imageTarget = getImageTarget(liferaySelenium, image);
-
 		ScreenRegion screenRegion = new DesktopScreenRegion();
+
+		ImageTarget imageTarget = getImageTarget(liferaySelenium, image);
 
 		List<ScreenRegion> imageTargetScreenRegions = screenRegion.findAll(
 			imageTarget);
