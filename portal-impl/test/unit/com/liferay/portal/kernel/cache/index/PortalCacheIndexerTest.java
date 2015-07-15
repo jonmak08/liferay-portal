@@ -54,37 +54,41 @@ public class PortalCacheIndexerTest {
 		_cacheListener = ReflectionTestUtil.getFieldValue(
 			_portalCache, "aggregatedCacheListener");
 
+		ConcurrentMap<Long, TestIndexedCacheKey> map =
+			ReflectionTestUtil.getFieldValue(
+				_portalCacheIndexer, "_indexedCacheKeys");
+
 		_mappedMethodNameCallableInvocationHandler =
-			new MappedMethodNameCallableInvocationHandler(
-				ReflectionTestUtil.getFieldValue(
-					_portalCacheIndexer, "_indexedCacheKeys"),
-				true);
+			new MappedMethodNameCallableInvocationHandler(map, true);
+
+		Object proxy = ProxyUtil.newProxyInstance(
+			ClassLoader.getSystemClassLoader(),
+			new Class<?>[] {ConcurrentMap.class},
+			_mappedMethodNameCallableInvocationHandler);
 
 		ReflectionTestUtil.setFieldValue(
-			_portalCacheIndexer, "_indexedCacheKeys",
-			ProxyUtil.newProxyInstance(
-				ClassLoader.getSystemClassLoader(),
-				new Class<?>[] {ConcurrentMap.class},
-				_mappedMethodNameCallableInvocationHandler));
+			_portalCacheIndexer, "_indexedCacheKeys", proxy);
 	}
 
 	@Test
 	public void testAddIndexedCacheKeyConcurrentPutDifferentKeys()
 		throws ReflectiveOperationException {
 
+		Callable<?> callable = new Callable<Object>() {
+
+			@Override
+			public Object call() {
+				_portalCache.put(_INDEX_1_KEY_1, _VALUE);
+
+				return null;
+			}
+
+		};
+
 		_mappedMethodNameCallableInvocationHandler.putBeforeCallable(
 			ConcurrentMap.class.getMethod(
 				"putIfAbsent", Object.class, Object.class),
-			new Callable<Void>() {
-
-				@Override
-				public Void call() {
-					_portalCache.put(_INDEX_1_KEY_1, _VALUE);
-
-					return null;
-				}
-
-			});
+			callable);
 
 		_portalCache.put(_INDEX_1_KEY_2, _VALUE);
 
@@ -97,33 +101,37 @@ public class PortalCacheIndexerTest {
 
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 
+		Callable<?> beforePutIfAbsentCallable = new Callable<Object>() {
+
+			@Override
+			public Object call() {
+				_portalCache.put(_INDEX_1_KEY_1, _VALUE);
+
+				return null;
+			}
+
+		};
+
 		_mappedMethodNameCallableInvocationHandler.putBeforeCallable(
 			ConcurrentMap.class.getMethod(
 				"putIfAbsent", Object.class, Object.class),
-			new Callable<Void>() {
+			beforePutIfAbsentCallable);
 
-				@Override
-				public Void call() {
-					_portalCache.put(_INDEX_1_KEY_1, _VALUE);
+		Callable<?> beforeReplaceCallable = new Callable<Object>() {
 
-					return null;
-				}
+			@Override
+			public Object call() {
+				_portalCache.remove(_INDEX_1_KEY_1);
 
-			});
+				return null;
+			}
+
+		};
 
 		_mappedMethodNameCallableInvocationHandler.putBeforeCallable(
 			ConcurrentMap.class.getMethod(
 				"replace", Object.class, Object.class, Object.class),
-			new Callable<Void>() {
-
-				@Override
-				public Void call() {
-					_portalCache.remove(_INDEX_1_KEY_1);
-
-					return null;
-				}
-
-			});
+			beforeReplaceCallable);
 
 		_portalCache.put(_INDEX_1_KEY_2, _VALUE);
 
@@ -155,7 +163,26 @@ public class PortalCacheIndexerTest {
 	}
 
 	@Test
-	public void testConstructor() {
+	public void testGetIndexedCacheKeysWithIndexKey() {
+		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
+
+		Set<TestIndexedCacheKey> set = _portalCacheIndexer.getIndexedCacheKeys(
+			_INDEX_1_KEY_1.getIndex());
+
+		set.clear();
+
+		assertIndexCacheSynchronization();
+	}
+
+	@Test
+	public void testGetIndexedCacheKeysWithoutIndexKey() {
+		_portalCacheIndexer.getIndexedCacheKeys(_INDEX_1_KEY_1.getIndex());
+
+		assertIndexCacheSynchronization();
+	}
+
+	@Test
+	public void testInit() {
 		_portalCache = new MemoryPortalCache<TestIndexedCacheKey, String>(
 			RandomTestUtil.randomString(), 10);
 
@@ -169,30 +196,10 @@ public class PortalCacheIndexerTest {
 	}
 
 	@Test
-	public void testGetIndexedCacheKeysWithIndexKey() {
-		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
-
-		Set<TestIndexedCacheKey> testIndexedCacheKeys =
-			_portalCacheIndexer.getIndexedCacheKeys(_INDEX_1_KEY_1.getIndex());
-
-		testIndexedCacheKeys.clear();
-
-		assertIndexCacheSynchronization();
-	}
-
-	@Test
-	public void testGetIndexedCacheKeysWithoutIndexKey() {
-		_portalCacheIndexer.getIndexedCacheKeys(_INDEX_1_KEY_1.getIndex());
-
-		assertIndexCacheSynchronization();
-	}
-
-	@Test
 	public void testNotifyEntryEvicted() {
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 
 		_portalCache.remove(_INDEX_1_KEY_1);
-
 		_cacheListener.notifyEntryEvicted(_portalCache, _INDEX_1_KEY_1, _VALUE);
 
 		assertIndexCacheSynchronization();
@@ -203,7 +210,6 @@ public class PortalCacheIndexerTest {
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 
 		_portalCache.remove(_INDEX_1_KEY_1);
-
 		_cacheListener.notifyEntryExpired(_portalCache, _INDEX_1_KEY_1, _VALUE);
 
 		assertIndexCacheSynchronization();
@@ -244,18 +250,20 @@ public class PortalCacheIndexerTest {
 
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 
+		Callable<?> callable = new Callable<Object>() {
+
+			@Override
+			public Object call() throws Exception {
+				_portalCache.put(_INDEX_1_KEY_2, _VALUE);
+
+				return null;
+			}
+
+		};
+
 		_mappedMethodNameCallableInvocationHandler.putBeforeCallable(
 			ConcurrentMap.class.getMethod("remove", Object.class, Object.class),
-			new Callable<Void>() {
-
-				@Override
-				public Void call() throws Exception {
-					_portalCache.put(_INDEX_1_KEY_2, _VALUE);
-
-					return null;
-				}
-
-			});
+			callable);
 
 		_portalCache.remove(_INDEX_1_KEY_1);
 
@@ -269,19 +277,21 @@ public class PortalCacheIndexerTest {
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 		_portalCache.put(_INDEX_1_KEY_2, _VALUE);
 
+		Callable<?> callable = new Callable<Object>() {
+
+			@Override
+			public Object call() throws Exception {
+				_portalCache.remove(_INDEX_1_KEY_1);
+
+				return null;
+			}
+
+		};
+
 		_mappedMethodNameCallableInvocationHandler.putBeforeCallable(
 			ConcurrentMap.class.getMethod(
 				"replace", Object.class, Object.class, Object.class),
-			new Callable<Void>() {
-
-				@Override
-				public Void call() throws Exception {
-					_portalCache.remove(_INDEX_1_KEY_1);
-
-					return null;
-				}
-
-			});
+			callable);
 
 		_portalCache.remove(_INDEX_1_KEY_2);
 
@@ -326,27 +336,24 @@ public class PortalCacheIndexerTest {
 	}
 
 	protected void assertIndexCacheSynchronization() {
-		Set<TestIndexedCacheKey> expectedTestIndexedCacheKeys =
-			new HashSet<TestIndexedCacheKey>(_portalCache.getKeys());
+		Set<TestIndexedCacheKey> keys = new HashSet<TestIndexedCacheKey>(
+			_portalCache.getKeys());
 
 		Set<Long> indexes = new HashSet<Long>();
 
-		for (TestIndexedCacheKey testIndexedCacheKey :
-				expectedTestIndexedCacheKeys) {
-
-			indexes.add(testIndexedCacheKey.getIndex());
+		for (TestIndexedCacheKey key : keys) {
+			indexes.add(key.getIndex());
 		}
 
-		Set<TestIndexedCacheKey> actualTestIndexedCacheKeys =
+		Set<TestIndexedCacheKey> indexedCacheKeys =
 			new HashSet<TestIndexedCacheKey>();
 
 		for (Long index : indexes) {
-			actualTestIndexedCacheKeys.addAll(
+			indexedCacheKeys.addAll(
 				_portalCacheIndexer.getIndexedCacheKeys(index));
 		}
 
-		Assert.assertEquals(
-			expectedTestIndexedCacheKeys, actualTestIndexedCacheKeys);
+		Assert.assertEquals(keys, indexedCacheKeys);
 	}
 
 	private static final TestIndexedCacheKey _INDEX_1_KEY_1 =
