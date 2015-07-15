@@ -45,6 +45,49 @@
 		</if>
 	</target>
 
+	<macrodef name="build-css">
+		<attribute name="module.dir" />
+		<attribute default="${module.dir.unix}/docroot" name="sass.docroot.dir" />
+
+		<sequential>
+			<local name="build-css.output" />
+
+			<path id="css.builder.classpath">
+				<fileset dir="${sdk.dir}/dependencies/com.liferay.css.builder/lib" includes="*.jar" />
+			</path>
+
+			<java
+				classname="com.liferay.css.builder.CSSBuilder"
+				classpathref="css.builder.classpath"
+				fork="true"
+				newenvironment="true"
+				outputproperty="build-css.output"
+			>
+				<jvmarg value="-Dliferay.lib.portal.dir=${app.server.lib.portal.dir}" />
+				<arg value="sass.compiler.class.name=${sass.compiler.class.name}" />
+				<arg value="sass.dir=/" />
+				<arg value="sass.docroot.dir=@{sass.docroot.dir}" />
+				<arg value="sass.portal.common.dir=src/META-INF/resources:${app.server.portal.dir}/html/css/common" />
+			</java>
+
+			<if>
+				<not>
+					<equals arg1="${build-css.output}" arg2="" />
+				</not>
+				<then>
+					<echo>${build-css.output}</echo>
+				</then>
+			</if>
+
+			<if>
+				<contains string="${build-css.output}" substring="Error" />
+				<then>
+					<fail>Sass to CSS Builder generated exceptions.</fail>
+				</then>
+			</if>
+		</sequential>
+	</macrodef>
+
 	<target name="clean" depends="clean-css">
 		<clean
 			module.dir="${basedir}"
