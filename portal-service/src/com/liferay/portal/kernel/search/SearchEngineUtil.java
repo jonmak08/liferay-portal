@@ -903,11 +903,11 @@ public class SearchEngineUtil {
 			return;
 		}
 
-		if (PermissionThreadLocal.isFlushResourcePermissionEnabled(
-				name, primKey)) {
-
-			_searchPermissionChecker.updatePermissionFields(name, primKey);
+		if (!PermissionThreadLocal.isFlushResourcePermissionEnabled()) {
+			return;
 		}
+
+		_searchPermissionChecker.updatePermissionFields(name, primKey);
 	}
 
 	public void setExcludedEntryClassNames(

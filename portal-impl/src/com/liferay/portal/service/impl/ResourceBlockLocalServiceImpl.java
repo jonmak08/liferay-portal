@@ -699,11 +699,9 @@ public class ResourceBlockLocalServiceImpl
 		throws PortalException, SystemException {
 
 		boolean flushResourceBlockEnabled =
-			PermissionThreadLocal.isFlushResourceBlockEnabled(
-				companyId, groupId, name);
+			PermissionThreadLocal.isFlushResourceBlockEnabled();
 
-		PermissionThreadLocal.setFlushResourceBlockEnabled(
-			companyId, groupId, name, false);
+		PermissionThreadLocal.setFlushResourceBlockEnabled(false);
 
 		try {
 			PermissionedModel permissionedModel = getPermissionedModel(
@@ -726,10 +724,9 @@ public class ResourceBlockLocalServiceImpl
 		}
 		finally {
 			PermissionThreadLocal.setFlushResourceBlockEnabled(
-				companyId, groupId, name, flushResourceBlockEnabled);
+				flushResourceBlockEnabled);
 
-			PermissionCacheUtil.clearResourceBlockCache(
-				companyId, groupId, name);
+			PermissionCacheUtil.clearResourceCache();
 		}
 	}
 
@@ -782,7 +779,7 @@ public class ResourceBlockLocalServiceImpl
 			updateGroupScopeResourceTypePermissions(
 				companyId, groupId, name, roleId, actionIdsLong, operator);
 
-		PermissionCacheUtil.clearResourceBlockCache(companyId, groupId, name);
+		PermissionCacheUtil.clearResourceCache();
 	}
 
 	@Override
@@ -839,7 +836,7 @@ public class ResourceBlockLocalServiceImpl
 			companyId, groupId, name, permissionedModel, permissionsHash,
 			resourceBlockPermissionsContainer);
 
-		PermissionCacheUtil.clearResourceBlockCache(companyId, groupId, name);
+		PermissionCacheUtil.clearResourceCache();
 	}
 
 	@Override
