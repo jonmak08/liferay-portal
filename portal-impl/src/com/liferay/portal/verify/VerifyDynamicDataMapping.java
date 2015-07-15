@@ -229,11 +229,17 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		List<DDMStructure> structures =
 			DDMStructureLocalServiceUtil.getStructures();
 
+		boolean duplicateExists = false;
+
 		for (DDMStructure structure : structures) {
 			if (checkDuplicateNames(structure)) {
-				throw new VerifyException(
-					"Duplicate element name found in structures");
+				duplicateExists = true;
 			}
+		}
+
+		if (duplicateExists) {
+			throw new VerifyException(
+				"Duplicate element name found in structures");
 		}
 
 		for (DDMStructure structure : structures) {
