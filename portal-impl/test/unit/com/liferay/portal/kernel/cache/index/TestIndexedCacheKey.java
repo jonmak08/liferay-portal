@@ -21,9 +21,9 @@ import com.liferay.portal.kernel.util.HashUtil;
  */
 public class TestIndexedCacheKey implements IndexedCacheKey<Long> {
 
-	public TestIndexedCacheKey(long indexedLong, long unindexedLong) {
+	public TestIndexedCacheKey(long indexedLong, long nonIndexedLong) {
 		_indexedLong = indexedLong;
-		_unindexedLong = unindexedLong;
+		_nonIndexedLong = nonIndexedLong;
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class TestIndexedCacheKey implements IndexedCacheKey<Long> {
 		TestIndexedCacheKey testIndexedCacheKey = (TestIndexedCacheKey)obj;
 
 		if ((testIndexedCacheKey._indexedLong == _indexedLong) &&
-			(testIndexedCacheKey._unindexedLong == _unindexedLong)) {
+			(testIndexedCacheKey._nonIndexedLong == _nonIndexedLong)) {
 
 			return true;
 		}
@@ -48,10 +48,10 @@ public class TestIndexedCacheKey implements IndexedCacheKey<Long> {
 	public int hashCode() {
 		int hashCode = HashUtil.hash(0, _indexedLong);
 
-		return HashUtil.hash(hashCode, _unindexedLong);
+		return HashUtil.hash(hashCode, _nonIndexedLong);
 	}
 
 	private final long _indexedLong;
-	private final long _unindexedLong;
+	private final long _nonIndexedLong;
 
 }
