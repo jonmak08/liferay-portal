@@ -54,6 +54,7 @@ public abstract class BaseSearchResultPermissionFilter
 			return getHits(searchContext);
 		}
 
+		double amplificationFactor = 1.0;
 		int excludedDocsSize = 0;
 		int hitsSize = 0;
 		int offset = 0;
@@ -65,8 +66,7 @@ public abstract class BaseSearchResultPermissionFilter
 		while (true) {
 			int count = end - documents.size();
 
-			int amplifiedCount = (int)(
-				count * _INDEX_PERMISSION_FILTER_SEARCH_AMPLIFICATION_FACTOR);
+			int amplifiedCount = (int)Math.ceil(count * amplificationFactor);
 
 			int amplifiedEnd = offset + amplifiedCount;
 
@@ -102,6 +102,9 @@ public abstract class BaseSearchResultPermissionFilter
 			}
 
 			offset = amplifiedEnd;
+
+			amplificationFactor = _getAmplificationFactor(
+				documents.size(), offset);
 		}
 	}
 
@@ -146,6 +149,16 @@ public abstract class BaseSearchResultPermissionFilter
 		hits.setLength(size);
 		hits.setSearchTime(
 			(float)(System.currentTimeMillis() - startTime) / Time.SECOND);
+	}
+
+	private double _getAmplificationFactor(double totalViewable, double total) {
+		if (totalViewable == 0) {
+			return _INDEX_PERMISSION_FILTER_SEARCH_AMPLIFICATION_FACTOR;
+		}
+
+		return Math.min(
+			1.0 / (totalViewable / total),
+			_INDEX_PERMISSION_FILTER_SEARCH_AMPLIFICATION_FACTOR);
 	}
 
 	private static final double
