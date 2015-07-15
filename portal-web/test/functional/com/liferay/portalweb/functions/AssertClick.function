@@ -294,6 +294,8 @@
 	</command>
 
 	<command name="pauseMakeVisibleAssertTextEqualsClickAt">
+		<execute argument1="${locator1}/.." selenium="waitForVisible" />
+
 		<execute selenium="makeVisible" />
 
 		<execute selenium="waitForVisible" />
