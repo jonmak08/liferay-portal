@@ -84,8 +84,6 @@ public class PermissionCacheUtil {
 			return;
 		}
 
-		clearLocalCache();
-
 		for (long userId : userIds) {
 			_userPermissionCheckerBagPortalCache.remove(userId);
 
@@ -108,16 +106,12 @@ public class PermissionCacheUtil {
 			return;
 		}
 
-		clearLocalCache();
-
 		_resourceBlockIdsBagCacheIndexer.removeIndexedCacheKeys(
 			ResourceBlockIdsBagKey.getIndex(companyId, groupId, name));
 	}
 
 	public static void clearResourceCache() {
 		if (!ExportImportThreadLocal.isImportInProcess()) {
-			clearLocalCache();
-
 			_resourceBlockIdsBagCache.removeAll();
 			_permissionPortalCache.removeAll();
 		}
@@ -132,8 +126,6 @@ public class PermissionCacheUtil {
 
 			return;
 		}
-
-		clearLocalCache();
 
 		_permissionPortalCacheIndexer.removeIndexedCacheKeys(
 			PermissionKey.getIndex(name, primKey));
