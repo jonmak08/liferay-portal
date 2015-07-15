@@ -72,11 +72,6 @@ public class EhcachePortalCache<K extends Serializable, V>
 	}
 
 	@Override
-	public List<K> getKeys() {
-		return (List<K>)_ehcache.getKeys();
-	}
-
-	@Override
 	public String getName() {
 		return _ehcache.getName();
 	}

@@ -70,11 +70,6 @@ public class TransactionalPortalCache<K extends Serializable, V>
 	}
 
 	@Override
-	public List<K> getKeys() {
-		return _portalCache.getKeys();
-	}
-
-	@Override
 	public String getName() {
 		return _portalCache.getName();
 	}
