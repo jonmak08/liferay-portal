@@ -1072,8 +1072,6 @@ public class ResourceLocalServiceImpl extends ResourceLocalServiceBaseImpl {
 
 			resourcePermissionPersistence.update(resourcePermission);
 		}
-
-		PermissionCacheUtil.clearResourcePermissionCache(name, primKey);
 	}
 
 	protected void updateResources(
