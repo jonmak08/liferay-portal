@@ -81,7 +81,9 @@ public class PortalCacheIndexer<I, K extends IndexedCacheKey<I>, V> {
 
 			Set<K> newIndexedCacheKeys = new HashSet<>(indexedCacheKeys);
 
-			newIndexedCacheKeys.add(indexedCacheKey);
+			if (!newIndexedCacheKeys.add(indexedCacheKey)) {
+				return;
+			}
 
 			if (_indexedCacheKeys.replace(
 					index, indexedCacheKeys, newIndexedCacheKeys)) {
@@ -103,7 +105,9 @@ public class PortalCacheIndexer<I, K extends IndexedCacheKey<I>, V> {
 
 			Set<K> newIndexedCacheKeys = new HashSet<K>(indexedCacheKeys);
 
-			newIndexedCacheKeys.remove(indexedCacheKey);
+			if (!newIndexedCacheKeys.remove(indexedCacheKey)) {
+				return;
+			}
 
 			if (newIndexedCacheKeys.isEmpty()) {
 				if (_indexedCacheKeys.remove(index, indexedCacheKeys)) {
