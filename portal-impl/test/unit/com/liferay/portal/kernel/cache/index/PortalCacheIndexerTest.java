@@ -72,7 +72,7 @@ public class PortalCacheIndexerTest {
 
 	@Test
 	public void testAddIndexedCacheKeyConcurrentPutDifferentKeys() {
-		Callable<?> callable = new Callable<Object>() {
+		Callable callable = new Callable() {
 
 			@Override
 			public Object call() {
@@ -95,7 +95,7 @@ public class PortalCacheIndexerTest {
 	public void testAddIndexedCacheKeyConcurrentPutRemove() {
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 
-		Callable<?> beforePutIfAbsentCallable = new Callable<Object>() {
+		Callable beforePutIfAbsentCallable = new Callable() {
 
 			@Override
 			public Object call() {
@@ -109,7 +109,7 @@ public class PortalCacheIndexerTest {
 		_mappedMethodNameCallableInvocationHandler.putBeforeCallable(
 			"putIfAbsent", beforePutIfAbsentCallable);
 
-		Callable<?> beforeReplaceCallable = new Callable<Object>() {
+		Callable beforeReplaceCallable = new Callable() {
 
 			@Override
 			public Object call() {
@@ -238,7 +238,7 @@ public class PortalCacheIndexerTest {
 	public void testRemoveIndexedCacheKeyConcurrentPut() {
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 
-		Callable<?> callable = new Callable<Object>() {
+		Callable callable = new Callable() {
 
 			@Override
 			public Object call() throws Exception {
@@ -262,7 +262,7 @@ public class PortalCacheIndexerTest {
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 		_portalCache.put(_INDEX_1_KEY_2, _VALUE);
 
-		Callable<?> callable = new Callable<Object>() {
+		Callable callable = new Callable() {
 
 			@Override
 			public Object call() throws Exception {
