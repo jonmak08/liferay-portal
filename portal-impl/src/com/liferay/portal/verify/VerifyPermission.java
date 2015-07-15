@@ -187,7 +187,7 @@ public class VerifyPermission extends VerifyProcess {
 			}
 		}
 
-		PermissionCacheUtil.clearResourceCache();
+		PermissionCacheUtil.clearCache();
 	}
 
 	protected void fixUserDefaultRolePermissions() throws Exception {
