@@ -79,7 +79,23 @@ public class PermissionCacheUtil {
 		}
 	}
 
-	public static void clearCache(long... userIds) {
+	public static void clearCache(long userId) {
+		if (ExportImportThreadLocal.isImportInProcess()) {
+			return;
+		}
+
+		_userPermissionCheckerBagPortalCache.remove(userId);
+
+		_userRolePortalCacheKeyManager.removeBySimpleKey(
+			UserRoleKey.getSimpleKey(userId));
+		_permissionCheckerBagPortalCacheKeyManager.removeBySimpleKey(
+			BagKey.getSimpleKey(userId));
+
+		_permissionPortalCache.removeAll();
+		_resourceBlockIdsBagCache.removeAll();
+	}
+
+	public static void clearCache(long[] userIds) {
 		if (ExportImportThreadLocal.isImportInProcess()) {
 			return;
 		}
