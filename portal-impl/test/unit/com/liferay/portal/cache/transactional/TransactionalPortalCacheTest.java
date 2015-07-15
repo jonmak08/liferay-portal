@@ -126,28 +126,6 @@ public class TransactionalPortalCacheTest {
 
 	@AdviseWith(adviceClasses = {DisableTransactionalCacheAdvice.class})
 	@Test
-	public void testGetKeys() {
-		List<String> keys = _transactionalPortalCache.getKeys();
-
-		Assert.assertTrue(keys.contains(_KEY_1));
-
-		_transactionalPortalCache.put(_KEY_2, _VALUE_2);
-
-		keys = _transactionalPortalCache.getKeys();
-
-		Assert.assertEquals(2, keys.size());
-		Assert.assertTrue(keys.contains(_KEY_2));
-
-		_transactionalPortalCache.remove(_KEY_1);
-
-		keys = _transactionalPortalCache.getKeys();
-
-		Assert.assertEquals(1, keys.size());
-		Assert.assertFalse(keys.contains(_KEY_1));
-	}
-
-	@AdviseWith(adviceClasses = {DisableTransactionalCacheAdvice.class})
-	@Test
 	public void testNoneTransactionalCache1() {
 		TransactionalPortalCacheHelper.begin();
 

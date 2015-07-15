@@ -105,15 +105,6 @@ public class IntrabandPortalCacheTest {
 		Assert.assertEquals(_testName, deserializer.readString());
 	}
 
-	@Test(expected = UnsupportedOperationException.class)
-	public void testGetKeys() {
-		IntrabandPortalCache<String, String> intrabandPortalCache =
-			new IntrabandPortalCache<String, String>(
-				_testName, _mockRegistrationReference);
-
-		intrabandPortalCache.getKeys();
-	}
-
 	@Test
 	public void testGet() {
 
