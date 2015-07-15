@@ -111,31 +111,15 @@ public class PermissionCacheUtil {
 		_resourceBlockIdsBagCache.removeAll();
 	}
 
-	public static void clearResourceBlockCache() {
-		if (ExportImportThreadLocal.isImportInProcess() ||
-			!PermissionThreadLocal.isFlushResourceBlockEnabled()) {
-
-			return;
-		}
-
-		_resourceBlockIdsBagCache.removeAll();
-	}
-
 	public static void clearResourceCache() {
-		if (!ExportImportThreadLocal.isImportInProcess()) {
-			_resourceBlockIdsBagCache.removeAll();
-			_permissionPortalCache.removeAll();
-		}
-	}
-
-	public static void clearResourcePermissionCache() {
 		if (ExportImportThreadLocal.isImportInProcess() ||
-			!PermissionThreadLocal.isFlushResourcePermissionEnabled()) {
+			!PermissionThreadLocal.isFlushEnabled()) {
 
 			return;
 		}
 
 		_permissionPortalCache.removeAll();
+		_resourceBlockIdsBagCache.removeAll();
 	}
 
 	public static PermissionCheckerBag getBag(long userId, long groupId) {

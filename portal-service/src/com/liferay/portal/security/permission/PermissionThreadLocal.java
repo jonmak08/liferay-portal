@@ -30,51 +30,16 @@ public class PermissionThreadLocal {
 		return _addResource.get();
 	}
 
-	/**
-	 * @deprecated As of 7.0.0, replaced by {@link
-	 *             #isFlushResourceBlockEnabled()} and
-	 *             {@link #isFlushResourcePermissionEnabled()}
-	 */
-	@Deprecated
 	public static boolean isFlushEnabled() {
-		if (!isFlushResourceBlockEnabled()) {
-			return false;
-		}
-
-		if (!isFlushResourcePermissionEnabled()) {
-			return false;
-		}
-
 		return _flushEnabled.get();
-	}
-
-	public static boolean isFlushResourceBlockEnabled() {
-		return _flushResourceBlockEnabled.get();
-	}
-
-	public static boolean isFlushResourcePermissionEnabled() {
-		return _flushResourcePermissionEnabled.get();
 	}
 
 	public static void setAddResource(boolean addResource) {
 		_addResource.set(addResource);
 	}
 
-	/**
-	 * @deprecated As of 7.0.0, replaced by {@link
-	 *             #setFlushResourceBlockEnabled(boolean)} and
-	 *             {@link #setFlushResourcePermissionEnabled(boolean)}
-	 */
 	public static void setIndexEnabled(boolean indexEnabled) {
 		_flushEnabled.set(indexEnabled);
-	}
-
-	public static void setFlushResourceBlockEnabled(boolean enabled) {
-		_flushResourceBlockEnabled.set(enabled);
-	}
-
-	public static void setFlushResourcePermissionEnabled(boolean enabled) {
-		_flushResourcePermissionEnabled.set(enabled);
 	}
 
 	public static void setPermissionChecker(
@@ -89,14 +54,6 @@ public class PermissionThreadLocal {
 	private static ThreadLocal<Boolean> _flushEnabled =
 		new AutoResetThreadLocal<Boolean>(
 			PermissionThreadLocal.class + "._flushEnabled", true);
-	private static final ThreadLocal<Boolean> _flushResourceBlockEnabled =
-		new AutoResetThreadLocal<Boolean>(
-			PermissionThreadLocal.class + "._flushResourceBlockEnabled", true);
-	private static final ThreadLocal<Boolean>
-		_flushResourcePermissionEnabled = new AutoResetThreadLocal<Boolean>(
-			PermissionThreadLocal.class +
-				"._flushResourcePermissionEnabled",
-			true);
 
 	private static ThreadLocal<PermissionChecker> _permissionChecker =
 		new AutoResetThreadLocal<PermissionChecker>(

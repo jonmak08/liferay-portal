@@ -899,11 +899,7 @@ public class SearchEngineUtil {
 	}
 
 	public static void updatePermissionFields(String name, String primKey) {
-		if (isIndexReadOnly()) {
-			return;
-		}
-
-		if (!PermissionThreadLocal.isFlushResourcePermissionEnabled()) {
+		if (isIndexReadOnly() || !PermissionThreadLocal.isFlushEnabled()) {
 			return;
 		}
 

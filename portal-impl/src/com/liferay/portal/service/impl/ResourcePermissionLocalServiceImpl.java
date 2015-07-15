@@ -1235,10 +1235,9 @@ public class ResourcePermissionLocalServiceImpl
 			long ownerId, Map<Long, String[]> roleIdsToActionIds)
 		throws PortalException, SystemException {
 
-		boolean flushResourcePermissionEnabled =
-			PermissionThreadLocal.isFlushResourcePermissionEnabled();
+		boolean flushEnabled = PermissionThreadLocal.isFlushEnabled();
 
-		PermissionThreadLocal.setFlushResourcePermissionEnabled(false);
+		PermissionThreadLocal.setIndexEnabled(false);
 
 		try {
 			long[] roleIds = ArrayUtil.toLongArray(roleIdsToActionIds.keySet());
@@ -1272,8 +1271,7 @@ public class ResourcePermissionLocalServiceImpl
 			}
 		}
 		finally {
-			PermissionThreadLocal.setFlushResourcePermissionEnabled(
-				flushResourcePermissionEnabled);
+			PermissionThreadLocal.setIndexEnabled(flushEnabled);
 
 			PermissionCacheUtil.clearResourceCache();
 

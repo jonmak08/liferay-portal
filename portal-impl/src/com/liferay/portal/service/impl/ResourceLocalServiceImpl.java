@@ -780,13 +780,9 @@ public class ResourceLocalServiceImpl extends ResourceLocalServiceBaseImpl {
 
 		// Permissions
 
-		boolean flushResourceBlockEnabled =
-			PermissionThreadLocal.isFlushResourceBlockEnabled();
-		boolean flushResourcePermissionEnabled =
-			PermissionThreadLocal.isFlushResourcePermissionEnabled();
+		boolean flushEnabled = PermissionThreadLocal.isFlushEnabled();
 
-		PermissionThreadLocal.setFlushResourceBlockEnabled(false);
-		PermissionThreadLocal.setFlushResourcePermissionEnabled(false);
+		PermissionThreadLocal.setIndexEnabled(false);
 
 		try {
 			addModelResources(
@@ -794,10 +790,7 @@ public class ResourceLocalServiceImpl extends ResourceLocalServiceBaseImpl {
 				guestPermissions, permissionedModel);
 		}
 		finally {
-			PermissionThreadLocal.setFlushResourceBlockEnabled(
-				flushResourceBlockEnabled);
-			PermissionThreadLocal.setFlushResourcePermissionEnabled(
-				flushResourcePermissionEnabled);
+			PermissionThreadLocal.setIndexEnabled(flushEnabled);
 
 			PermissionCacheUtil.clearResourceCache();
 
@@ -870,13 +863,9 @@ public class ResourceLocalServiceImpl extends ResourceLocalServiceBaseImpl {
 
 		// Permissions
 
-		boolean flushResourceBlockEnabled =
-			PermissionThreadLocal.isFlushResourceBlockEnabled();
-		boolean flushResourcePermissionEnabled =
-			PermissionThreadLocal.isFlushResourcePermissionEnabled();
+		boolean flushEnabled = PermissionThreadLocal.isFlushEnabled();
 
-		PermissionThreadLocal.setFlushResourceBlockEnabled(false);
-		PermissionThreadLocal.setFlushResourcePermissionEnabled(false);
+		PermissionThreadLocal.setIndexEnabled(false);
 
 		List<ResourcePermission> resourcePermissions =
 			resourcePermissionPersistence.findByC_N_S_P(
@@ -913,10 +902,7 @@ public class ResourceLocalServiceImpl extends ResourceLocalServiceBaseImpl {
 		finally {
 			ResourcePermissionsThreadLocal.setResourcePermissions(null);
 
-			PermissionThreadLocal.setFlushResourceBlockEnabled(
-				flushResourceBlockEnabled);
-			PermissionThreadLocal.setFlushResourcePermissionEnabled(
-				flushResourcePermissionEnabled);
+			PermissionThreadLocal.setIndexEnabled(flushEnabled);
 
 			PermissionCacheUtil.clearResourceCache();
 

@@ -698,10 +698,9 @@ public class ResourceBlockLocalServiceImpl
 			Map<Long, String[]> roleIdsToActionIds)
 		throws PortalException, SystemException {
 
-		boolean flushResourceBlockEnabled =
-			PermissionThreadLocal.isFlushResourceBlockEnabled();
+		boolean flushEnabled = PermissionThreadLocal.isFlushEnabled();
 
-		PermissionThreadLocal.setFlushResourceBlockEnabled(false);
+		PermissionThreadLocal.setIndexEnabled(false);
 
 		try {
 			PermissionedModel permissionedModel = getPermissionedModel(
@@ -723,8 +722,7 @@ public class ResourceBlockLocalServiceImpl
 			}
 		}
 		finally {
-			PermissionThreadLocal.setFlushResourceBlockEnabled(
-				flushResourceBlockEnabled);
+			PermissionThreadLocal.setIndexEnabled(flushEnabled);
 
 			PermissionCacheUtil.clearResourceCache();
 		}
