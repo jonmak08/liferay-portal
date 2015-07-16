@@ -31,7 +31,12 @@ public interface DDMIndexer {
 	public static final String DDM_FIELD_PREFIX =
 		DDMIndexer.DDM_FIELD_NAMESPACE + DDMIndexer.DDM_FIELD_SEPARATOR;
 
-	public static final String DDM_FIELD_SEPARATOR =
+	public static final String DDM_FIELD_PREFIX_SAFE =
+		DDMIndexer.DDM_FIELD_NAMESPACE + DDMIndexer.DDM_FIELD_SEPARATOR_SAFE;
+
+	public static final String DDM_FIELD_SEPARATOR = StringPool.FORWARD_SLASH;
+
+	public static final String DDM_FIELD_SEPARATOR_SAFE =
 		StringPool.DOUBLE_UNDERLINE;
 
 	public void addAttributes(

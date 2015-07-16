@@ -207,9 +207,9 @@ public class DDMIndexerImpl implements DDMIndexer {
 
 		StringBundler sb = new StringBundler(7);
 
-		sb.append(DDM_FIELD_PREFIX);
+		sb.append(DDM_FIELD_PREFIX_SAFE);
 		sb.append(ddmStructureId);
-		sb.append(DDM_FIELD_SEPARATOR);
+		sb.append(DDM_FIELD_SEPARATOR_SAFE);
 		sb.append(fieldName);
 
 		if (Validator.isNotNull(locale)) {

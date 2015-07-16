@@ -783,7 +783,8 @@ public class AssetUtil {
 	protected static String getDDMFormFieldType(String sortField)
 		throws Exception {
 
-		String[] sortFields = sortField.split(DDMIndexer.DDM_FIELD_SEPARATOR);
+		String[] sortFields = sortField.split(
+			DDMIndexer.DDM_FIELD_SEPARATOR_SAFE);
 
 		long ddmStructureId = GetterUtil.getLong(sortFields[1]);
 		String fieldName = sortFields[2];
@@ -797,7 +798,7 @@ public class AssetUtil {
 	protected static String getOrderByCol(
 		String sortField, int sortType, Locale locale) {
 
-		if (sortField.startsWith(DDMIndexer.DDM_FIELD_PREFIX)) {
+		if (sortField.startsWith(DDMIndexer.DDM_FIELD_PREFIX_SAFE)) {
 			sortField = sortField.concat(StringPool.UNDERLINE).concat(
 				LocaleUtil.toLanguageId(locale));
 
@@ -828,7 +829,7 @@ public class AssetUtil {
 
 		String ddmFormFieldType = sortField;
 
-		if (ddmFormFieldType.startsWith(DDMIndexer.DDM_FIELD_PREFIX)) {
+		if (ddmFormFieldType.startsWith(DDMIndexer.DDM_FIELD_PREFIX_SAFE)) {
 			ddmFormFieldType = getDDMFormFieldType(ddmFormFieldType);
 		}
 
@@ -837,7 +838,8 @@ public class AssetUtil {
 		return SortFactoryUtil.getSort(
 			AssetEntry.class, sortType,
 			getOrderByCol(sortField, sortType, locale),
-			!sortField.startsWith(DDMIndexer.DDM_FIELD_PREFIX), orderByType);
+			!sortField.startsWith(
+				DDMIndexer.DDM_FIELD_PREFIX_SAFE), orderByType);
 	}
 
 	protected static Sort[] getSorts(
