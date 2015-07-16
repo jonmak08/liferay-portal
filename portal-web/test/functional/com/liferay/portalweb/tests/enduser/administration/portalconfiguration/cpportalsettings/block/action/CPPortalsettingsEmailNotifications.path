@@ -108,7 +108,7 @@
 </tr>
 <tr>
 	<td>EMAIL_NOTIFICATIONS_ACCOUNT_CREATED_NOTIFICATION_BODY_WITH_PASSWORD_FIELD</td>
-	<td>//iframe[@title='Rich Text Editor,_130_emailUserAddedBody']</td>
+	<td>//div[contains(@id,'cke__')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -118,7 +118,7 @@
 </tr>
 <tr>
 	<td>EMAIL_NOTIFICATIONS_ACCOUNT_CREATED_NOTIFICATION_BODY_WITHOUT_PASSWORD_FIELD</td>
-	<td>//iframe[@title='Rich Text Editor,_130_emailUserAddedNoPasswordBody']</td>
+	<td>//div[contains(@id,'cke__')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -144,7 +144,7 @@
 </tr>
 <tr>
 	<td>EMAIL_NOTIFICATIONS_PASSWORD_CHANGED_NOTIFICATION_BODY_FIELD</td>
-	<td>//iframe[@title='Rich Text Editor,_130_emailPasswordSentBody']</td>
+	<td>//div[contains(@id,'cke__')]</td>
 	<td></td>
 </tr>
 </tbody>
