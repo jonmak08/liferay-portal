@@ -82,7 +82,7 @@
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ADD_ENTRY" value1="Add" />
 
 		<execute function="Type#typeWaitForCKEditor" locator1="CPBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
-		<execute function="Type#typeFrameWaitForCKEditor" locator1="CPBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CPBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
 
 		<execute function="SelectFrame" locator1="//iframe[contains(@title,'Rich Text Editor')]" />
 
@@ -294,7 +294,7 @@
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ADD_ENTRY" value1="Add" />
 
 		<execute function="Type#typeWaitForCKEditor" locator1="CPBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
-		<execute function="Type#typeFrameWaitForCKEditor" locator1="CPBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CPBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
 
 		<var method="selenium#isChecked('//input[@id=\'_161_allowPingbacksCheckbox\']')" name="check" />
 
@@ -343,7 +343,7 @@
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ADD_ENTRY" value1="Add" />
 
 		<execute function="Type#typeWaitForCKEditor" locator1="CPBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
-		<execute function="Type#typeFrameWaitForCKEditor" locator1="CPBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CPBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
 
 		<var method="selenium#isNotChecked('//input[@id=\'_161_allowPingbacksCheckbox\']')" name="check" />
 

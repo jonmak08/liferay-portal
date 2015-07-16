@@ -3,7 +3,7 @@
 		<execute function="AssertClick" locator1="PGBlogs#ADD_ENTRY_BUTTON" value1="Add Blog Entry" />
 
 		<execute function="Type" locator1="PGBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
-		<execute function="Type#typeFrameWaitForCKEditor" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
 
 		<if>
 			<condition function="IsElementNotPresent" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" />
@@ -75,7 +75,7 @@
 	<command name="addFrontPageTagPG">
 		<execute function="AssertClick" locator1="PGWiki#ADD_FRONTPAGE" value1="This page is empty. Edit it to add some text." />
 
-		<execute function="Type#typeFrameWaitForCKEditor" locator1="PGWikiAddpage#BODY_FIELD" value1="${wikiPageContent}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="PGWikiAddpage#BODY_FIELD" value1="${wikiPageContent}" />
 		<execute function="AssertClick" locator1="PGWikiAddpage#CATEGORIZATION_DROPDOWN" value1="Categorization" />
 		<execute function="Type" locator1="PGWikiAddpage#TAGS_FIELD" value1="${wikiTagName}" />
 		<execute function="AssertClick" locator1="PGWikiAddpage#PUBLISH_BUTTON" value1="Publish" />
@@ -95,7 +95,7 @@
 		<execute function="AssertClick" locator1="PGBlogs#ADD_ENTRY_BUTTON" value1="Add Blog Entry" />
 
 		<execute function="Type" locator1="PGBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
-		<execute function="Type#typeFrameWaitForCKEditor" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
 
 		<if>
 			<condition function="IsElementNotPresent" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" />
@@ -125,7 +125,7 @@
 		<execute function="AssertClick" locator1="PGBlogs#ADD_ENTRY_BUTTON" value1="Add Blog Entry" />
 
 		<execute function="Type" locator1="PGBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
-		<execute function="Type#typeFrameWaitForCKEditor" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
 
 		<if>
 			<condition function="IsElementNotPresent" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" />
@@ -185,7 +185,7 @@
 		<execute function="AssertClick" locator1="PGBlogs#ADD_ENTRY_BUTTON" value1="Add Blog Entry" />
 
 		<execute function="Type" locator1="PGBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
-		<execute function="Type#typeFrameWaitForCKEditor" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="PGBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
 
 		<if>
 			<condition function="IsElementNotPresent" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" />

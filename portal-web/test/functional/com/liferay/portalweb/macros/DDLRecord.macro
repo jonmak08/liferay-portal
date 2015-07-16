@@ -143,7 +143,7 @@
 		<if>
 			<equals arg1="${field}" arg2="HTML" />
 			<then>
-				<execute function="Type#typeFrameWaitForCKEditor" locator1="CPDynamicdatalistsListAddrecord#HTML_FIELD" value1="${ddlRecordFieldData}" />
+				<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CPDynamicdatalistsListAddrecord#HTML_FIELD" value1="${ddlRecordFieldData}" />
 			</then>
 		</if>
 
