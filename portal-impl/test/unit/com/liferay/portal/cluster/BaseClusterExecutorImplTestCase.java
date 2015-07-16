@@ -147,6 +147,7 @@ public abstract class BaseClusterExecutorImplTestCase
 
 			return proceedingJoinPoint.proceed(new Object[] {PORTAL_PORT});
 		}
+
 	}
 
 	@Aspect
