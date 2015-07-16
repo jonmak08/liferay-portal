@@ -32,7 +32,7 @@
 		</if>
 
 		<execute function="Type" locator1="CPWebcontentAddwebcontent#TITLE_FIELD" value1="${webContentTitle}" />
-		<execute function="Type#typeFrame" locator1="CPWebcontentAddwebcontent#CONTENT_FIELD" value1="${webContentContent}" />
+		<execute function="Type#typeCKEditor" locator1="CPWebcontentAddwebcontent#CONTENT_FIELD" value1="${webContentContent}" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPWebcontentAddwebcontent#PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="AssertTextEquals#assertText" locator1="CPWebcontent#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -50,7 +50,7 @@
 		<execute function="AssertClick" locator1="CPWebcontent#ADD_MENULIST_BASIC_WEB_CONTENT" value1="Basic Web Content" />
 
 		<execute function="Type" locator1="CPWebcontentAddwebcontent#TITLE_FIELD" value1="${webContentTitle}" />
-		<execute function="Type#typeFrame" locator1="CPWebcontentAddwebcontent#CONTENT_FIELD" value1="${webContentContent}" />
+		<execute function="Type#typeCKEditor" locator1="CPWebcontentAddwebcontent#CONTENT_FIELD" value1="${webContentContent}" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPWebcontentAddwebcontent#SAVE_AS_DRAFT_BUTTON" value1="Save as Draft" />
 		<execute function="AssertTextEquals" locator1="CPWebcontentAddwebcontent#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
@@ -62,7 +62,7 @@
 		<if>
 			<isset var="webContentContent" />
 			<then>
-				<execute function="Type#typeFrame" locator1="CPWebcontentAddwebcontent#CONTENT_FIELD" value1="${webContentContent}" />
+				<execute function="Type#typeCKEditor" locator1="CPWebcontentAddwebcontent#CONTENT_FIELD" value1="${webContentContent}" />
 			</then>
 		</if>
 
@@ -226,7 +226,7 @@
 		<execute function="AssertClick" locator1="CPWebcontent#ADD_MENULIST_BASIC_WEB_CONTENT" value1="Basic Web Content" />
 
 		<execute function="Type" locator1="CPWebcontentAddwebcontent#TITLE_FIELD" value1="${webContentTitle}" />
-		<execute function="Type#typeFrame" locator1="CPWebcontentAddwebcontent#CONTENT_FIELD" value1="${webContentContent}" />
+		<execute function="Type#typeCKEditor" locator1="CPWebcontentAddwebcontent#CONTENT_FIELD" value1="${webContentContent}" />
 		<execute function="AssertClick" locator1="CPWebcontentAddwebcontent#MENU_CATEGORIZATION" value1="Categorization" />
 
 		<if>
@@ -387,7 +387,7 @@
 		<execute function="AssertClick" locator1="CPWebcontent#ADD_MENULIST_BASIC_WEB_CONTENT" value1="Basic Web Content" />
 
 		<execute function="Type" locator1="CPWebcontentAddwebcontent#TITLE_FIELD" value1="${webContentTitle}" />
-		<execute function="Type#typeFrame" locator1="CPWebcontentAddwebcontent#CONTENT_FIELD" value1="${webContentContent}" />
+		<execute function="Type#typeCKEditor" locator1="CPWebcontentAddwebcontent#CONTENT_FIELD" value1="${webContentContent}" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPWebcontentAddwebcontent#SUBMIT_FOR_PUBLICATION_BUTTON" value1="Submit for Publication" />
 
 		<execute function="AssertTextEquals#assertText" locator1="CPWebcontent#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -469,7 +469,7 @@
 		<if>
 			<isset var="webContentContentEdit" />
 			<then>
-				<execute function="Type#typeFrame" locator1="CPWebcontentEditwebcontent#CONTENT_FIELD" value1="${webContentContentEdit}" />
+				<execute function="Type#typeCKEditor" locator1="CPWebcontentEditwebcontent#CONTENT_FIELD" value1="${webContentContentEdit}" />
 			</then>
 		</if>
 
@@ -499,7 +499,7 @@
 		<if>
 			<isset var="webContentContent" />
 			<then>
-				<execute function="Type#typeFrame" locator1="CPWebcontentAddwebcontent#CONTENT_FIELD" value1="${webContentContent}" />
+				<execute function="Type#typeCKEditor" locator1="CPWebcontentAddwebcontent#CONTENT_FIELD" value1="${webContentContent}" />
 			</then>
 		</if>
 
