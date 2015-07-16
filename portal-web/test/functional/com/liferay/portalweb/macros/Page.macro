@@ -97,7 +97,7 @@
 	<command name="assertNodePortPG">
 		<var name="key_nodePort" value="${nodePort}" />
 
-		<execute function="AssertTextEquals#assertPartialText" locator1="Home#NODE_NAME" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="Home#NODE_NAME" value1="${nodePort}" />
 	</command>
 
 	<command name="deleteLivePG">
