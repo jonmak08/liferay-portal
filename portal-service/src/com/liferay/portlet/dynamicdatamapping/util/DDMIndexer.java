@@ -29,8 +29,7 @@ public interface DDMIndexer {
 	public static final String DDM_FIELD_NAMESPACE = "ddm";
 
 	/**
-	 * @deprecated in 62x. See https://issues.liferay.com/browse/LPS-56859.
-	 *             Replaced by {@link #DDM_FIELD_PREFIX_SAFE}
+	 * @deprecated As of 6.2.0, replaced by {@link #DDM_FIELD_PREFIX_SAFE}
 	 */
 	@Deprecated
 	public static final String DDM_FIELD_PREFIX =
@@ -40,8 +39,7 @@ public interface DDMIndexer {
 		DDMIndexer.DDM_FIELD_NAMESPACE + DDMIndexer.DDM_FIELD_SEPARATOR_SAFE;
 
 	/**
-	 * @deprecated in 62x. See https://issues.liferay.com/browse/LPS-56859.
-	 *             Replaced by {@link #DDM_FIELD_SEPARATOR_SAFE}
+	 * @deprecated As of 6.2.0, replaced by {@link #DDM_FIELD_SEPARATOR_SAFE}
 	 */
 	@Deprecated
 	public static final String DDM_FIELD_SEPARATOR = StringPool.FORWARD_SLASH;
