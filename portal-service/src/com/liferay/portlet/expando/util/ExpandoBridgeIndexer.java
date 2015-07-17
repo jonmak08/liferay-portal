@@ -27,7 +27,7 @@ public interface ExpandoBridgeIndexer {
 
 	public static final String EXPANDO_FIELD_PREFIX =
 		ExpandoBridgeIndexer.EXPANDO_FIELD_NAMESPACE +
-			ExpandoBridgeIndexer.EXPANDO_FIELD_SEPARATOR;
+		ExpandoBridgeIndexer.EXPANDO_FIELD_SEPARATOR;
 
 	public static final String EXPANDO_FIELD_SEPARATOR =
 		StringPool.DOUBLE_UNDERLINE;
