@@ -378,6 +378,10 @@
 			<var name="pageName" value="${sitePageName}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
+			<var name="pageAccess" value="${pageAccess}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
+			<var name="sitePageName" value="${sitePageName}" />
 		</execute>
 
 		<execute function="AssertTextEquals" locator1="Home#BREADCRUMB_1" value1="${siteName}" />
