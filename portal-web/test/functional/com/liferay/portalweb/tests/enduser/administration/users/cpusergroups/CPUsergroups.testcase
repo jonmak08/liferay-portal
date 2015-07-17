@@ -242,7 +242,9 @@
 			<var name="userGroupName" value="${userGroupName}" />
 		</execute>
 
-		<execute macro="UserGroup#deleteCP" />
+		<execute macro="UserGroup#deleteCP">
+			<var name="userGroupName" value="${userGroupName}" />
+		</execute>
 	</command>
 
 	<command name="DeleteUserGroupUser" priority="4">
