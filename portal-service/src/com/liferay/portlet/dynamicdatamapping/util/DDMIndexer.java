@@ -31,8 +31,7 @@ public interface DDMIndexer {
 	public static final String DDM_FIELD_PREFIX =
 		DDMIndexer.DDM_FIELD_NAMESPACE + DDMIndexer.DDM_FIELD_SEPARATOR;
 
-	public static final String DDM_FIELD_SEPARATOR =
-		StringPool.DOUBLE_UNDERLINE;
+	public static final String DDM_FIELD_SEPARATOR = StringPool.FORWARD_SLASH;
 
 	public void addAttributes(
 		Document document, DDMStructure ddmStructure, Fields fields);
