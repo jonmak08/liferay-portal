@@ -21,6 +21,7 @@ import java.util.Properties;
 /**
  * @author Zsolt Balogh
  * @author Brian Wing Shun Chan
+ * @author Zoltán Takács
  */
 public interface Patcher {
 
@@ -50,5 +51,7 @@ public interface Patcher {
 	public Properties getProperties();
 
 	public boolean isConfigured();
+
+	public void verifyPatchLevels() throws PatchInconsistencyException;
 
 }

@@ -66,6 +66,10 @@ public class PatcherUtil {
 		_patcher = patcher;
 	}
 
+	public static void verifyPatchLevels() throws PatchInconsistencyException {
+		getPatcher().verifyPatchLevels();
+	}
+
 	private static Patcher _patcher;
 
 }
