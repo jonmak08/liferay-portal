@@ -33,6 +33,7 @@ import java.util.Properties;
 /**
  * @author Zsolt Balogh
  * @author Brian Wing Shun Chan
+ * @author Zoltán Takács
  */
 @DoPrivileged
 public class PatcherImpl implements Patcher {
@@ -135,18 +136,35 @@ public class PatcherImpl implements Patcher {
 			return _properties;
 		}
 
+		return _getProperties(PATCHER_PROPERTIES);
+	}
+
+	@Override
+	public boolean isConfigured() {
+		return _configured;
+	}
+
+	private Properties _getProperties(String propertyFileName) {
+		if (Validator.isNull(propertyFileName)) {
+			propertyFileName = PATCHER_PROPERTIES;
+		}
+
 		Properties properties = new Properties();
 
 		Class<?> clazz = getClass();
 
+		if (Validator.equals(propertyFileName, PATCHER_SERVICE_PROPERTIES)) {
+			clazz = getClass().getInterfaces()[0];
+		}
+
 		ClassLoader classLoader = clazz.getClassLoader();
 
 		InputStream inputStream = classLoader.getResourceAsStream(
-			PATCHER_PROPERTIES);
+			propertyFileName);
 
 		if (inputStream == null) {
 			if (_log.isDebugEnabled()) {
-				_log.debug("Unable to load " + PATCHER_PROPERTIES);
+				_log.debug("Unable to load " + propertyFileName);
 			}
 		}
 		else {
@@ -166,11 +184,6 @@ public class PatcherImpl implements Patcher {
 		_properties = properties;
 
 		return _properties;
-	}
-
-	@Override
-	public boolean isConfigured() {
-		return _configured;
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(PatcherImpl.class);
