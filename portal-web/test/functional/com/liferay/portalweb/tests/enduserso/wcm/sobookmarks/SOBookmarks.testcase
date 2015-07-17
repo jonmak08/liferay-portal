@@ -343,6 +343,11 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
+		<execute macro="Page#gotoPagesCP">
+			<var name="portletName" value="Site Pages" />
+			<var name="siteScopeName" value="${siteName}" />
+		</execute>
+
 		<execute macro="LAR#exportSiteCP">
 			<var name="exportPermissions" value="true" />
 			<var name="larFileName" value="${larFileName}" />
