@@ -15,22 +15,12 @@
 package com.liferay.portlet.expando.util;
 
 import com.liferay.portal.kernel.search.Document;
-import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portlet.expando.model.ExpandoBridge;
 
 /**
  * @author Raymond Augé
  */
 public interface ExpandoBridgeIndexer {
-
-	public static final String EXPANDO_FIELD_NAMESPACE = "expando";
-
-	public static final String EXPANDO_FIELD_PREFIX =
-		ExpandoBridgeIndexer.EXPANDO_FIELD_NAMESPACE +
-		ExpandoBridgeIndexer.EXPANDO_FIELD_SEPARATOR;
-
-	public static final String EXPANDO_FIELD_SEPARATOR =
-		StringPool.DOUBLE_UNDERLINE;
 
 	public void addAttributes(Document document, ExpandoBridge expandoBridge);
 
