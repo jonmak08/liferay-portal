@@ -143,6 +143,11 @@ public class PatcherImpl implements Patcher {
 	}
 
 	@Override
+	public boolean hasInconsistentPatchLevels() {
+		return _inconsistentPatchLevels;
+	}
+
+	@Override
 	public void verifyPatchLevels() throws PatchInconsistencyException {
 		Properties implJarProperty = _getProperties(PATCHER_PROPERTIES);
 		Properties serviceJarProperty = _getProperties(
@@ -178,6 +183,8 @@ public class PatcherImpl implements Patcher {
 							Arrays.toString(serviceJarPatches));
 				}
 			}
+
+			_inconsistentPatchLevels = true;
 
 			throw new PatchInconsistencyException();
 		}
@@ -240,6 +247,7 @@ public class PatcherImpl implements Patcher {
 
 	private static boolean _configured;
 	private static String[] _fixedIssueKeys;
+	private static boolean _inconsistentPatchLevels;
 	private static String[] _installedPatchNames;
 	private static File _patchDirectory;
 	private static String[] _patchLevels;
