@@ -89,6 +89,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>BODY_FIELD_IFRAME</td>
+	<td>//div[contains(@id,'cke__')]//iframe</td>
+	<td></td>
+</tr>
+<tr>
 	<td>CATEGORIZATION_DROPDOWN</td>
 	<td>//div[@id='wikiPageCategorizationPanel']/div</td>
 	<td></td>
