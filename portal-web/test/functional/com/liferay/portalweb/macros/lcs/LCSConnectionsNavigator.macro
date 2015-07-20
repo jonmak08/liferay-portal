@@ -1,0 +1,9 @@
+<definition>
+	<command name="gotoAutomaticRegistration">
+		<execute function="AssertClick" locator1="//div[@class='lcs-toolbar']//a[contains(.,'Automatic Registration')]" value1="Automatic Registration" />
+	</command>
+
+	<command name="gotoManualRegistration">
+		<execute function="AssertClick" locator1="//div[@class='lcs-toolbar']//a[contains(.,'Manual Registration')]" value1="Manual Registration" />
+	</command>
+</definition>
