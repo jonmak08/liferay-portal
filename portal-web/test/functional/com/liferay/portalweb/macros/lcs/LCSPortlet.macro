@@ -173,6 +173,14 @@
 		<execute function="AssertTextEquals" locator1="LCSPortlet#CONNECTION_STATUS" value1="Connected" />
 	</command>
 
+	<command name="viewConnectedDetails">
+		<execute macro="LCSPortlet#viewConnected" />
+
+		<execute function="AssertTextEquals" locator1="LCSPortlet#PROJECT_HOME_LINK" value1="${projectName} (Opens New Window)" />
+		<execute function="AssertTextEquals" locator1="LCSPortlet#ENVIRONMENT_LINK" value1="${environmentName} (Opens New Window)" />
+		<execute function="AssertTextEquals" locator1="LCSPortlet#SERVER_DASHBOARD_LINK" value1="${serverName} (Opens New Window)" />
+	</command>
+
 	<command name="viewDisconnected">
 		<execute function="AssertElementPresent" locator1="LCSPortlet#CONNECT_BUTTON" />
 		<execute function="AssertTextEquals" locator1="LCSPortlet#CONNECTION_STATUS" value1="Disconnected" />

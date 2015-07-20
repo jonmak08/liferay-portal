@@ -1,0 +1,95 @@
+<definition component-name="liferay-connected-services-subscriptions">
+	<property name="portlet.plugins.includes" value="lcs-portlet" />
+	<property name="testray.main.component.name" value="Liferay Connected Services" />
+
+	<set-up>
+		<execute macro="User#firstLoginPG" />
+	</set-up>
+
+	<tear-down>
+		<execute function="Click" locator1="LCSPortalNavigation#NAVIGATION_MENU_DASHBOARD" />
+
+		<execute macro="LCSEnvironment#tearDown" />
+	</tear-down>
+
+	<command name="RegisterViaToken" priority="5">
+		<execute macro="LCSPortalNavigator#openLCSPortalDashboardURL">
+			<var name="LCSPortalURL" property-value="osb.lcs.portlet.host.name" />
+		</execute>
+
+		<execute macro="LCSUsers#loginLCS">
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#selectProject">
+			<var name="projectName" value="Liferay QA" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoAddEnvironment" />
+
+		<execute macro="LCSEnvironment#addEnvironment">
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#gotoConnection" />
+
+		<execute macro="LCSConnectionsNavigator#gotoAutomaticRegistration" />
+
+		<execute macro="LCSConnections#generateEnvironmentToken">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSConnections#downloadEnvironmentToken">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSConnections#deployEnvironmentToken" />
+
+		<execute macro="Portlet#shutdownServer" />
+
+		<execute macro="Portlet#startServer" />
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<var method="selenium#getText('//div[@class='lcs-navigation-submenu']//div[@class='menu-item server ']/a/span[@class='menu-item-label']')" name="serverName" />
+
+		<echo message="${serverName}" />
+
+		<execute macro="LCSServerNavigator#gotoServerDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="${serverName}" />
+		</execute>
+
+		<execute macro="LCSServer#editServerDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverDescriptionEdit" value="Environment 1 Server 1 Description" />
+			<var name="serverLocationEdit" value="Environment 1 Server 1 Location" />
+			<var name="serverNameEdit" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="Page#openURL">
+			<var name="virtualHostsURL" value="http://localhost:8080" />
+		</execute>
+
+		<execute macro="User#firstLoginPG" />
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Liferay Connected Services" />
+		</execute>
+
+		<execute macro="LCSPortlet#viewConnectedDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+	</command>
+</definition>
