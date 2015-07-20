@@ -2454,6 +2454,14 @@ go]]></replacevalue>
 		/>
 	</target>
 
+	<target name="curl-execute">
+		<fail message="Please set the property ${curl.args}." unless="curl.args" />
+
+		<exec executable="curl">
+			<arg line="${curl.args}" />
+		</exec>
+	</target>
+
 	<target name="delete-liferay-home">
 		<if>
 			<not>
@@ -2631,14 +2639,6 @@ ${marketplace.portlet.properties}</echo>
 				</ant>
 			</then>
 		</if>
-	</target>
-
-	<target name="execute-curl">
-		<fail message="Please set the property ${curl.args}." unless="curl.args" />
-
-		<exec executable="curl">
-			<arg line="${curl.args}" />
-		</exec>
 	</target>
 
 	<target name="evaluate-logs">
