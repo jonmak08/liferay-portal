@@ -169,10 +169,9 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 			Document document = SAXReaderUtil.read(xml);
 
 			long groupId = GetterUtil.getLong(tokens.get("article_group_id"));
-			String ddmStructureKey = tokens.get("structure_id");
-
 			long classNameId = ClassNameLocalServiceUtil.getClassNameId(
 				JournalArticle.class);
+			String ddmStructureKey = tokens.get("structure_id");
 
 			DDMStructure ddmStructure =
 				DDMStructureLocalServiceUtil.fetchStructure(
