@@ -1,34 +1,4 @@
 <definition>
-	<command name="selectEnvironment">
-		<execute function="Click" locator1="LCSPortalNavigation#BREADCRUMB_ENVIRONMENT_NAME_SELECT_ICON" />
-
-		<var name="key_menuItem" value="${environmentName}" />
-
-		<execute function="AssertClick" locator1="LCSPortalNavigation#BREADCRUMB_DROPDOWN_MENU_ITEM" value1="${environmentName}" />
-
-		<execute function="AssertTextEquals" locator1="LCSPortalNavigation#BREADCRUMB_ENVIRONMENT_NAME" value1="${environmentName}" />
-	</command>
-
-	<command name="selectProject">
-		<execute function="Click" locator1="LCSPortalNavigation#BREADCRUMB_PROJECT_NAME_SELECT_ICON" />
-
-		<var name="key_menuItem" value="${projectName}" />
-
-		<execute function="AssertClick" locator1="LCSPortalNavigation#BREADCRUMB_DROPDOWN_MENU_ITEM" value1="${projectName}" />
-
-		<execute function="AssertTextEquals" locator1="LCSPortalNavigation#BREADCRUMB_PROJECT_NAME" value1="${projectName}" />
-	</command>
-
-	<command name="selectServer">
-		<execute function="Click" locator1="LCSPortalNavigation#BREADCRUMB_SERVER_NAME_SELECT_ICON" />
-
-		<var name="key_menuItem" value="${serverName}" />
-
-		<execute function="AssertClick" locator1="LCSPortalNavigation#BREADCRUMB_DROPDOWN_MENU_ITEM" value1="${serverName}" />
-
-		<execute function="AssertTextEquals" locator1="LCSPortalNavigation#BREADCRUMB_SERVER_NAME" value1="${serverName}" />
-	</command>
-
 	<command name="gotoConnection">
 		<execute function="AssertClick" locator1="LCSPortalNavigation#NAVIGATION_MENU_CONNECTION" value1="Connection" />
 	</command>
@@ -57,5 +27,35 @@
 
 	<command name="openLCSPortalURL">
 		<execute function="Open" locator1="http://${LCSPortalURL}" />
+	</command>
+
+	<command name="selectEnvironment">
+		<execute function="Click" locator1="LCSPortalNavigation#BREADCRUMB_ENVIRONMENT_NAME_SELECT_ICON" />
+
+		<var name="key_menuItem" value="${environmentName}" />
+
+		<execute function="AssertClick" locator1="LCSPortalNavigation#BREADCRUMB_DROPDOWN_MENU_ITEM" value1="${environmentName}" />
+
+		<execute function="AssertTextEquals" locator1="LCSPortalNavigation#BREADCRUMB_ENVIRONMENT_NAME" value1="${environmentName}" />
+	</command>
+
+	<command name="selectProject">
+		<execute function="Click" locator1="LCSPortalNavigation#BREADCRUMB_PROJECT_NAME_SELECT_ICON" />
+
+		<var name="key_menuItem" value="${projectName}" />
+
+		<execute function="AssertClick" locator1="LCSPortalNavigation#BREADCRUMB_DROPDOWN_MENU_ITEM" value1="${projectName}" />
+
+		<execute function="AssertTextEquals" locator1="LCSPortalNavigation#BREADCRUMB_PROJECT_NAME" value1="${projectName}" />
+	</command>
+
+	<command name="selectServer">
+		<execute function="Click" locator1="LCSPortalNavigation#BREADCRUMB_SERVER_NAME_SELECT_ICON" />
+
+		<var name="key_menuItem" value="${serverName}" />
+
+		<execute function="AssertClick" locator1="LCSPortalNavigation#BREADCRUMB_DROPDOWN_MENU_ITEM" value1="${serverName}" />
+
+		<execute function="AssertTextEquals" locator1="LCSPortalNavigation#BREADCRUMB_SERVER_NAME" value1="${serverName}" />
 	</command>
 </definition>

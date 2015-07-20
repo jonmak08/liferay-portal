@@ -1,14 +1,6 @@
 <definition>
-	<command name="generateEnvironmentToken">
-		<var name="key_environmentName" value="${environmentName}" />
-
-		<execute function="AssertClick" locator1="LCSConnections#GENERATE_BUTTON" value1="Generate" />
-
-		<execute function="AssertTextEquals" locator1="LCSConnections#ALERT_SUCCES" value1="Your request completed successfully." />
-		<execute function="AssertTextEquals" locator1="LCSConnections#ENVIRONMENT_NAME" value1="${environmentName}" />
-		<execute function="AssertElementPresent" locator1="LCSConnections#GENERATED_BY" />
-		<execute function="AssertElementPresent" locator1="LCSConnections#DATE_GENERATED" />
-		<execute function="AssertTextEquals" locator1="LCSConnections#ACTIONS_BUTTON" value1="Actions" />
+	<command name="deployEnvironmentToken">
+		<execute function="AntCommand" locator1="build-test.xml" value1="deploy-lcs-environment-token" />
 	</command>
 
 	<command name="downloadEnvironmentToken">
@@ -23,15 +15,23 @@
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
+	<command name="generateEnvironmentToken">
+		<var name="key_environmentName" value="${environmentName}" />
+
+		<execute function="AssertClick" locator1="LCSConnections#GENERATE_BUTTON" value1="Generate" />
+
+		<execute function="AssertTextEquals" locator1="LCSConnections#ALERT_SUCCES" value1="Your request completed successfully." />
+		<execute function="AssertTextEquals" locator1="LCSConnections#ENVIRONMENT_NAME" value1="${environmentName}" />
+		<execute function="AssertElementPresent" locator1="LCSConnections#GENERATED_BY" />
+		<execute function="AssertElementPresent" locator1="LCSConnections#DATE_GENERATED" />
+		<execute function="AssertTextEquals" locator1="LCSConnections#ACTIONS_BUTTON" value1="Actions" />
+	</command>
+
 	<command name="regenerateEnvironmentToken">
 		<var name="key_environmentName" value="${environmentName}" />
 
 		<execute function="AssertClick" locator1="LCSConnections#ACTIONS_BUTTON" value1="Actions" />
 
 		<execute function="AssertClick" locator1="LCSConnections#ACTIONS_DROPDOWN_REGENERATE_LINK" value1="Regenerate" />
-	</command>
-
-	<command name="deployEnvironmentToken">
-		<execute function="AntCommand" locator1="build-test.xml" value1="deploy-lcs-environment-token" />
 	</command>
 </definition>
