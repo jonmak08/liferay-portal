@@ -75,7 +75,7 @@
 	<command name="addCP">
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ADD_ENTRY" value1="Add" />
 
-		<execute function="Type#typeWaitForCKEditor" locator1="CPBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
+		<execute function="Type" locator1="CPBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
 		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CPBlogsAdd#CONTENT_FIELD" value1="${entryContent}" />
 		<execute function="AssertClick#assertTextClickAtCKEditor" locator1="CPBlogsAdd#PUBLISH_BUTTON" value1="Publish" />
 
