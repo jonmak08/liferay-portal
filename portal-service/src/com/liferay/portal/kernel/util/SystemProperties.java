@@ -20,7 +20,6 @@ import java.io.InputStream;
 import java.net.URL;
 
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -54,8 +53,11 @@ public class SystemProperties {
 
 		return value;
 	}
-	
-	@Deprecated
+
+	/**
+	 * @deprecated As of 6.2.0 use
+	 *             StringUtil.split();
+	 */
 	public static String[] getArray(String key) {
 		return StringUtil.split(get(key));
 	}
@@ -64,7 +66,9 @@ public class SystemProperties {
 		return PropertiesUtil.fromMap(_properties);
 	}
 
-	@Deprecated
+	/**
+	 * @deprecated As of 6.2.0
+	 */
 	public static void reload() {
 	}
 
@@ -118,7 +122,6 @@ public class SystemProperties {
 			URL url = classLoader.getResource("system-ext.properties");
 
 			if (url != null) {
-
 				InputStream inputStream = url.openStream();
 
 				properties.load(inputStream);
