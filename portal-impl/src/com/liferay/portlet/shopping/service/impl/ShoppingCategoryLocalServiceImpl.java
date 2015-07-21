@@ -221,7 +221,9 @@ public class ShoppingCategoryLocalServiceImpl
 	}
 
 	@Override
-	public ShoppingCategory getCategory(long groupId, String categoryName) {
+	public ShoppingCategory getCategory(long groupId, String categoryName)
+		throws SystemException {
+
 		return shoppingCategoryPersistence.fetchByG_N(groupId, categoryName);
 	}
 
