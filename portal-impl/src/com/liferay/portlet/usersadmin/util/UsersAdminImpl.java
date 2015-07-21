@@ -602,13 +602,14 @@ public class UsersAdminImpl implements UsersAdmin {
 
 		User user = PortalUtil.getSelectedUser(portletRequest);
 
-		if (user == null) {
-			return null;
+		long[] groupIds = new long[0];
+
+		if (user != null) {
+			groupIds = user.getGroupIds();
 		}
 
 		return getRequestPrimaryKeys(
-			portletRequest, user.getGroupIds(), "addGroupIds",
-			"deleteGroupIds");
+			portletRequest, groupIds, "addGroupIds", "deleteGroupIds");
 	}
 
 	@Override
@@ -659,12 +660,14 @@ public class UsersAdminImpl implements UsersAdmin {
 
 		User user = PortalUtil.getSelectedUser(portletRequest);
 
-		if (user == null) {
-			return null;
+		long[] organizationIds = new long[0];
+
+		if (user != null) {
+			organizationIds = user.getOrganizationIds();
 		}
 
 		return getRequestPrimaryKeys(
-			portletRequest, user.getOrganizationIds(), "addOrganizationIds",
+			portletRequest, organizationIds, "addOrganizationIds",
 			"deleteOrganizationIds");
 	}
 
@@ -864,12 +867,14 @@ public class UsersAdminImpl implements UsersAdmin {
 
 		User user = PortalUtil.getSelectedUser(portletRequest);
 
-		if (user == null) {
-			return null;
+		long[] roleIds = new long[0];
+
+		if (user != null) {
+			roleIds = user.getRoleIds();
 		}
 
 		return getRequestPrimaryKeys(
-			portletRequest, user.getRoleIds(), "addRoleIds", "deleteRoleIds");
+			portletRequest, roleIds, "addRoleIds", "deleteRoleIds");
 	}
 
 	@Override
@@ -906,12 +911,14 @@ public class UsersAdminImpl implements UsersAdmin {
 
 		User user = PortalUtil.getSelectedUser(portletRequest);
 
-		if (user == null) {
-			return null;
+		long[] userGroupIds = new long[0];
+
+		if (user != null) {
+			userGroupIds = user.getUserGroupIds();
 		}
 
 		return getRequestPrimaryKeys(
-			portletRequest, user.getUserGroupIds(), "addUserGroupIds",
+			portletRequest, userGroupIds, "addUserGroupIds",
 			"deleteUserGroupIds");
 	}
 
