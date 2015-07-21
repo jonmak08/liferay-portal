@@ -296,7 +296,7 @@ public class PortletRequestUtil {
 				name, WebKeys.PORTLET_RENDER_PARAMETERS) ||
 			StringUtil.equalsIgnoreCase(name, "j_password") ||
 			StringUtil.equalsIgnoreCase(name, "LAYOUT_CONTENT") ||
-			StringUtil.equalsIgnoreCase(name, "LAYOUTS") ||			
+			StringUtil.equalsIgnoreCase(name, "LAYOUTS") ||
 			StringUtil.equalsIgnoreCase(name, "USER_PASSWORD") ||
 			name.startsWith(WebKeys.AUTHENTICATION_TOKEN) ||
 			name.startsWith("javax.") ||
