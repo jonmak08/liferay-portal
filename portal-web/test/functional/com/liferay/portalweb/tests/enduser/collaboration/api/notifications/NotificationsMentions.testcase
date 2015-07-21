@@ -58,7 +58,7 @@
 		<execute macro="Page#tearDownPG" />
 	</tear-down>
 
-	<command known-issues="LPS-56972" name="ViewNotificationForCommentMentionViaBlogs" priority="4">
+	<command known-issues="LPS-56972" name="ViewNotificationForMentionViaBlogsEntryComment" priority="4">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Blogs Page" />
 		</execute>
@@ -126,7 +126,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewNotificationForInlineMentionViaBlogs" priority="4">
+	<command name="ViewNotificationForInlineMentionViaBlogsEntry" priority="4">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Blogs Page" />
 		</execute>
@@ -186,7 +186,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewNoWebsiteNotificationForCommentMentionsViaBlogs" priority="4">
+	<command name="ViewNoWebsiteNotificationForMentionViaBlogsEntryComment" priority="4">
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Server Administration" />
 		</execute>
@@ -302,7 +302,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewNoWebsiteNotificationForInlineMentionsViaBlogs" priority="4">
+	<command name="ViewNoWebsiteNotificationForInlineMentionsViaBlogsEntry" priority="4">
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Server Administration" />
 		</execute>
