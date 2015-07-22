@@ -25,7 +25,12 @@
 
 		<execute macro="Workflow#confirmAndViewSucessMessageViaActions" />
 
-		<execute function="AssertClick#assertPartialTextClickAtAndWait" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
+		<if>
+			<condition function="IsElementPresent" locator1="CPMyworkflowtasksTask#BACK" />
+			<then>
+				<execute function="AssertClick#assertPartialTextClickAtAndWait" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
+			</then>
+		</if>
 
 		<execute macro="Workflow#viewCompletedTask">
 			<var name="workflowAssetTitle" value="${workflowAssetTitle}" />
