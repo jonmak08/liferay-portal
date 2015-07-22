@@ -89,7 +89,7 @@ public class ClusterLinkImpl extends ClusterBase implements ClusterLink {
 			return;
 		}
 
-		for (JChannel jChannel : _transportJChannels) {
+		for (JChannel jChannel : _transportChannels) {
 			BaseReceiver baseReceiver = (BaseReceiver)jChannel.getReceiver();
 
 			baseReceiver.openLatch();
