@@ -25,7 +25,7 @@
 
 		<execute macro="Workflow#confirmAndViewSucessMessageViaActions" />
 
-		<execute function="Pause" locator1="1000" />
+		<execute function="AssertClick#assertPartialTextClickAtAndWait" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
 
 		<execute macro="Workflow#viewCompletedTask">
 			<var name="workflowAssetTitle" value="${workflowAssetTitle}" />
