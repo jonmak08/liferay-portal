@@ -28,7 +28,7 @@
 		<if>
 			<condition function="IsElementPresent" locator1="CPMyworkflowtasksTask#BACK" />
 			<then>
-				<execute function="AssertClick#assertPartialTextClickAtAndWait" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
+				<execute function="AssertClick#assertPartialTextClickAt" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
 			</then>
 		</if>
 
