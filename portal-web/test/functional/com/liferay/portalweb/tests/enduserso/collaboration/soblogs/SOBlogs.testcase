@@ -646,6 +646,7 @@
 			<var name="entryAddTag" value="true" />
 			<var name="entryContent" value="${entryContent}" />
 			<var name="entryTitle" value="${entryTitle}" />
+			<var name="multipleTags" value="false" />"
 			<var name="tagName" value="${tagName}" />
 		</execute>
 	</command>
@@ -1323,6 +1324,7 @@
 			<var name="entryAddTag" value="true" />
 			<var name="entryContent" value="${entryContent1}" />
 			<var name="entryTitle" value="${entryTitle1}" />
+			<var name="multipleTags" value="true" />
 			<var name="tagNameList" value="${tagName1},${tagName2}" />
 			<var name="vocabularyName" value="${vocabularyName}" />
 		</execute>
@@ -1450,6 +1452,7 @@
 
 		<execute macro="BlogsEntry#viewTagPG">
 			<var name="entryTitle" value="${entryTitle1}" />
+			<var name="multipleTags" value="true" />
 			<var name="tagNameList" value="${tagName1},${tagName2}" />
 		</execute>
 
