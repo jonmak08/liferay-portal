@@ -373,7 +373,7 @@ definePermissionsURL.setRefererPlid(plid);
 						<%
 						String actionSeparator = Validator.isNotNull(preselectedMsg) ? ActionUtil.PRESELECTED : ActionUtil.ACTION;
 
-						if (disabled && checked) {
+						if (checked && disabled) {
 							buffer.append("<input ");
 
 							buffer.append("name=\"");
