@@ -1009,8 +1009,7 @@
 
 	<command name="viewTagPG">
 		<var method="StringUtil#lowerCase('${tagName}')" name="tagName" />
-
-		<var name="key_tagName" value="tagName" />
+		<var name="key_tagName" value="${tagName}" />
 
 		<if>
 			<equals arg1="${messageTagNumber}" arg2="1" />
