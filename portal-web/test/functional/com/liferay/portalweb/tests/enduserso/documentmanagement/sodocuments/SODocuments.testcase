@@ -5159,7 +5159,7 @@
 			<var name="dmFolderName" value="${dmFolderName1}" />
 		</execute>
 
-		<execute macro="DMDocument#viewAllPG">
+		<execute macro="DMDocument#viewPGNonAuthor">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription1}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle1}" />
 			<var name="dmDocumentVersionNumber" value="${dmDocumentVersionNumber1}" />
@@ -5246,6 +5246,10 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
+		<execute macro="DMFolder#gotoPG">
+			<var name="dmFolderName" value="${dmFolderName}" />
+		</execute>
+
 		<execute macro="DMDocument#removeDocumentViewPermissionsPG">
 			<var name="dmDocumentTitle" value="${dmDocumentTitle2}" />
 			<var name="roleName" value="Guest" />
@@ -5267,7 +5271,7 @@
 
 		<execute function="AssertTextNotPresent" value1="${dmDocumentTitle2}" />
 
-		<execute macro="DMDocument#viewAllPG">
+		<execute macro="DMDocument#viewPGNonAuthor">
 			<var name="dmDocumentDescription" value="${dmDocumentDescription1}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle1}" />
 			<var name="dmDocumentVersionNumber" value="${dmDocumentVersionNumber1}" />
