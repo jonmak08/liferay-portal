@@ -32,6 +32,8 @@
 			</then>
 		</if>
 
+		<execute function="Pause" locator1="1000" />
+
 		<execute macro="Workflow#viewCompletedTask">
 			<var name="workflowAssetTitle" value="${workflowAssetTitle}" />
 			<var name="workflowAssetType" value="${workflowAssetType}" />
