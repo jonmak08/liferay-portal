@@ -1674,6 +1674,13 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 		assetEntryLocalService.updateVisible(
 			WikiPage.class.getName(), page.getResourcePrimKey(), false);
 
+		// Attachments
+
+		for (FileEntry fileEntry : page.getAttachmentsFileEntries()) {
+			PortletFileRepositoryUtil.movePortletFileEntryToTrash(
+				userId, fileEntry.getFileEntryId());
+		}
+
 		// Social
 
 		JSONObject extraDataJSONObject = JSONFactoryUtil.createJSONObject();
@@ -1811,6 +1818,13 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 			if (curPage.isInTrash()) {
 				restorePageFromTrash(userId, curPage);
 			}
+		}
+
+		// Attachments
+
+		for (FileEntry fileEntry : page.getAttachmentsFileEntries()) {
+			PortletFileRepositoryUtil.restorePortletFileEntryFromTrash(
+				userId, fileEntry.getFileEntryId());
 		}
 
 		// Trash

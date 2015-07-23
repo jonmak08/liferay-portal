@@ -22,6 +22,7 @@ import com.liferay.portal.kernel.increment.NumberIncrement;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
+import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.search.Indexer;
@@ -679,6 +680,8 @@ public class MBThreadLocalServiceImpl extends MBThreadLocalServiceBaseImpl {
 
 		Set<Long> userIds = new HashSet<Long>();
 
+		MBThread thread = mbThreadLocalService.getThread(threadId);
+
 		List<MBMessage> messages = mbMessageLocalService.getThreadMessages(
 			threadId, WorkflowConstants.STATUS_ANY);
 
@@ -717,6 +720,13 @@ public class MBThreadLocalServiceImpl extends MBThreadLocalServiceBaseImpl {
 			if (oldStatus == WorkflowConstants.STATUS_APPROVED) {
 				assetEntryLocalService.updateVisible(
 					MBMessage.class.getName(), message.getMessageId(), false);
+			}
+
+			// Attachments
+
+			for (FileEntry fileEntry : message.getAttachmentsFileEntries()) {
+				PortletFileRepositoryUtil.movePortletFileEntryToTrash(
+					thread.getStatusByUserId(), fileEntry.getFileEntryId());
 			}
 
 			// Indexer
@@ -936,6 +946,8 @@ public class MBThreadLocalServiceImpl extends MBThreadLocalServiceBaseImpl {
 
 		Set<Long> userIds = new HashSet<Long>();
 
+		MBThread thread = mbThreadLocalService.getThread(threadId);
+
 		List<MBMessage> messages = mbMessageLocalService.getThreadMessages(
 			threadId, WorkflowConstants.STATUS_ANY);
 
@@ -974,6 +986,13 @@ public class MBThreadLocalServiceImpl extends MBThreadLocalServiceBaseImpl {
 			if (oldStatus == WorkflowConstants.STATUS_APPROVED) {
 				assetEntryLocalService.updateVisible(
 					MBMessage.class.getName(), message.getMessageId(), true);
+			}
+
+			// Attachments
+
+			for (FileEntry fileEntry : message.getAttachmentsFileEntries()) {
+				PortletFileRepositoryUtil.restorePortletFileEntryFromTrash(
+					thread.getStatusByUserId(), fileEntry.getFileEntryId());
 			}
 
 			// Indexer
