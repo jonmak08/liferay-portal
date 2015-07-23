@@ -104,7 +104,8 @@ public abstract class BaseReceiver implements Receiver {
 
 	protected abstract void doReceive(Message message);
 
-	protected abstract void doViewAccepted(View oldView, View newView);
+	protected void doViewAccepted(View oldView, View newView) {
+	}
 
 	private static Log _log = LogFactoryUtil.getLog(BaseReceiver.class);
 
