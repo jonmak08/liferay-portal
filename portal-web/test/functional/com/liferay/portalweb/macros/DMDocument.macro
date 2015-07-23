@@ -1516,6 +1516,11 @@
 		</if>
 
 		<execute function="AssertTextEquals" locator1="PGDocumentsandmediaDocument#TOOLBAR_DOWNLOAD_BUTTON" value1="Download" />
+		<execute function="AssertElementNotPresent" locator1="PGDocumentsandmediaDocument#TOOLBAR_EDIT_BUTTON" value1="Edit" />
+		<execute function="AssertElementNotPresent" locator1="PGDocumentsandmediaDocument#TOOLBAR_MOVE_BUTTON" value1="Move" />
+		<execute function="AssertElementNotPresent" locator1="PGDocumentsandmediaDocument#TOOLBAR_CHECKOUT_BUTTON" value1="Checkout" />
+		<execute function="AssertElementNotPresent" locator1="PGDocumentsandmediaDocument#TOOLBAR_PERMISSIONS_BUTTON" value1="Permissions" />
+		<execute function="AssertElementNotPresent" locator1="PGDocumentsandmediaDocument#TOOLBAR_MOVE_TO_RECYCLE_BIN_BUTTON" value1="Move to the Recycle Bin" />
 
 		<execute macro="DMDocument#viewDocumentAuthorCmdPG">
 			<var name="dmDocumentAuthor" value="${dmDocumentAuthor}" />
