@@ -3377,7 +3377,7 @@
 			<var name="changeLog" value="" />
 			<var name="dmDocumentDescriptionEdit" value="${dmDocumentDescriptionEdit2}" />
 			<var name="dmDocumentFileEdit" value="${dmDocumentFileEdit}" />
-			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitleEdit1}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit2}" />
 			<var name="revision" value="Minor" />
 		</execute>
