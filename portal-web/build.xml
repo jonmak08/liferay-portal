@@ -394,15 +394,8 @@
 
 	<target name="build-ckeditor-plugins-creole">
 		<mirrors-get
-			dest="docroot/html/js/editor/ckeditor_diffs/plugins/creole/creole_parser.js"
+			dest="docroot/html/js/editor/ckeditor_diffs/plugins/creole/creole_parser_source.html"
 			src="http://www.ivan.fomichev.name/2008/04/javascript-creole-10-wiki-markup-parser.html"
-		/>
-
-		<copy
-			file="docroot/html/js/editor/ckeditor_diffs/plugins/creole/creole_parser.js"
-			overwrite="true"
-			preservelastmodified="true"
-			tofile="docroot/html/js/editor/ckeditor_latest_diffs/plugins/creole/creole_parser.js"
 		/>
 
 		<antcall target="build-ckeditor-plugins-creole-default" />
@@ -410,7 +403,7 @@
 	</target>
 
 	<target name="build-ckeditor-plugins-creole-default">
-		<loadfile property="creole_parser.content" srcfile="docroot/html/js/editor/ckeditor_diffs/plugins/creole/creole_parser.js" />
+		<loadfile property="creole_parser.content" srcfile="docroot/html/js/editor/ckeditor_diffs/plugins/creole/creole_parser_source.html" />
 
 		<script classpathref="project.classpath" language="beanshell">
 			<![CDATA[
@@ -504,7 +497,7 @@
 	</target>
 
 	<target name="build-ckeditor-plugins-creole-latest">
-		<loadfile property="creole_parser.content" srcfile="docroot/html/js/editor/ckeditor_latest_diffs/plugins/creole/creole_parser.js" />
+		<loadfile property="creole_parser.content" srcfile="docroot/html/js/editor/ckeditor_diffs/plugins/creole/creole_parser_source.html" />
 
 		<script classpathref="project.classpath" language="beanshell">
 			<![CDATA[
