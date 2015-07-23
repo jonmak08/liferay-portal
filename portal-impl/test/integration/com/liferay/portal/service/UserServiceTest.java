@@ -19,7 +19,7 @@ import com.liferay.portal.kernel.dao.orm.FinderCacheUtil;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.LocaleUtil;
-import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Organization;
@@ -34,11 +34,9 @@ import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
 import com.liferay.portal.test.TransactionalExecutionTestListener;
 import com.liferay.portal.util.GroupTestUtil;
 import com.liferay.portal.util.OrganizationTestUtil;
-import com.liferay.portal.util.PropsValues;
+import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.TestPropsValues;
 import com.liferay.portal.util.UserTestUtil;
-
-import java.lang.reflect.Field;
 
 import java.util.Calendar;
 import java.util.List;
@@ -73,15 +71,12 @@ public class UserServiceTest {
 
 	@Test
 	public void testCompanySecurityStrangersWithMX1() throws Exception {
-		Field field = ReflectionUtil.getDeclaredField(
-			PropsValues.class, "COMPANY_SECURITY_STRANGERS_WITH_MX");
-
-		Object value = field.get(null);
-
 		String name = PrincipalThreadLocal.getName();
 
 		try {
-			field.set(null, Boolean.FALSE);
+			PropsUtil.set(
+				PropsKeys.COMPANY_SECURITY_STRANGERS_WITH_MX,
+				Boolean.FALSE.toString());
 
 			PrincipalThreadLocal.setName(0);
 
@@ -92,23 +87,18 @@ public class UserServiceTest {
 		catch (ReservedUserEmailAddressException rueae) {
 		}
 		finally {
-			field.set(null, value);
-
 			PrincipalThreadLocal.setName(name);
 		}
 	}
 
 	@Test
 	public void testCompanySecurityStrangersWithMX2() throws Exception {
-		Field field = ReflectionUtil.getDeclaredField(
-			PropsValues.class, "COMPANY_SECURITY_STRANGERS_WITH_MX");
-
-		Object value = field.get(null);
-
 		String name = PrincipalThreadLocal.getName();
 
 		try {
-			field.set(null, Boolean.FALSE);
+			PropsUtil.set(
+				PropsKeys.COMPANY_SECURITY_STRANGERS_WITH_MX,
+				Boolean.FALSE.toString());
 
 			User user = addUser(false);
 
@@ -121,23 +111,18 @@ public class UserServiceTest {
 		catch (ReservedUserEmailAddressException rueae) {
 		}
 		finally {
-			field.set(null, value);
-
 			PrincipalThreadLocal.setName(name);
 		}
 	}
 
 	@Test
 	public void testCompanySecurityStrangersWithMX3() throws Exception {
-		Field field = ReflectionUtil.getDeclaredField(
-			PropsValues.class, "COMPANY_SECURITY_STRANGERS_WITH_MX");
-
-		Object value = field.get(null);
-
 		String name = PrincipalThreadLocal.getName();
 
 		try {
-			field.set(null, Boolean.FALSE);
+			PropsUtil.set(
+				PropsKeys.COMPANY_SECURITY_STRANGERS_WITH_MX,
+				Boolean.FALSE.toString());
 
 			User user = addUser(false);
 
@@ -156,8 +141,6 @@ public class UserServiceTest {
 		catch (ReservedUserEmailAddressException rueae) {
 		}
 		finally {
-			field.set(null, value);
-
 			PrincipalThreadLocal.setName(name);
 		}
 	}
