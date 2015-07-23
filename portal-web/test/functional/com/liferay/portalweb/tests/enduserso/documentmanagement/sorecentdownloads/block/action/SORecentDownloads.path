@@ -15,7 +15,7 @@
 </tr>
 <tr>
 	<td>RECENT_DOWNLOADS_DOCUMENT_TITLE</td>
-	<td>//div[contains(@class,'portlet-body')]//td[contains(.,'${key_dmDocumentTitle}')]</td>
+	<td>//div[contains(@class,'portlet-body')]//li[contains(.,'${key_dmDocumentTitle}')]</td>
 	<td></td>
 </tr>
 <tr>
