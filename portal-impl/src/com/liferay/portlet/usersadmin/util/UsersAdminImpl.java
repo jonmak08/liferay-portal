@@ -600,9 +600,9 @@ public class UsersAdminImpl implements UsersAdmin {
 	public long[] getGroupIds(PortletRequest portletRequest)
 		throws PortalException, SystemException {
 
-		User user = PortalUtil.getSelectedUser(portletRequest);
-
 		long[] groupIds = new long[0];
+
+		User user = PortalUtil.getSelectedUser(portletRequest);
 
 		if (user != null) {
 			groupIds = user.getGroupIds();
@@ -658,9 +658,9 @@ public class UsersAdminImpl implements UsersAdmin {
 	public long[] getOrganizationIds(PortletRequest portletRequest)
 		throws PortalException, SystemException {
 
-		User user = PortalUtil.getSelectedUser(portletRequest);
-
 		long[] organizationIds = new long[0];
+
+		User user = PortalUtil.getSelectedUser(portletRequest);
 
 		if (user != null) {
 			organizationIds = user.getOrganizationIds();
@@ -865,9 +865,9 @@ public class UsersAdminImpl implements UsersAdmin {
 	public long[] getRoleIds(PortletRequest portletRequest)
 		throws PortalException, SystemException {
 
-		User user = PortalUtil.getSelectedUser(portletRequest);
-
 		long[] roleIds = new long[0];
+
+		User user = PortalUtil.getSelectedUser(portletRequest);
 
 		if (user != null) {
 			roleIds = user.getRoleIds();
@@ -909,9 +909,9 @@ public class UsersAdminImpl implements UsersAdmin {
 	public long[] getUserGroupIds(PortletRequest portletRequest)
 		throws PortalException, SystemException {
 
-		User user = PortalUtil.getSelectedUser(portletRequest);
-
 		long[] userGroupIds = new long[0];
+
+		User user = PortalUtil.getSelectedUser(portletRequest);
 
 		if (user != null) {
 			userGroupIds = user.getUserGroupIds();
