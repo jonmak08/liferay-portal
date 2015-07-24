@@ -150,8 +150,8 @@
 		</sequential>
 	</macrodef>
 
-	<target name="functional-glassfish-mysql">
-		<run-functional-test app.server.type="glassfish" database.type="mysql" />
+	<target name="functional-glassfish-postgresql">
+		<run-functional-test app.server.type="glassfish" database.type="postgresql" />
 	</target>
 
 	<target name="functional-tomcat-mysql">
