@@ -138,9 +138,17 @@ jdbc.default.password=${database.password}]]></echo>
 
 					<property name="database.type" value="@{database.type}" />
 
-					<local name="database.service.name" />
+					<local name="database.service.executable" />
 
-					<get-database-property property.name="database.service.name" />
+					<get-database-property property.name="database.service.executable" />
+
+					<local name="database.service.cmd.start" />
+
+					<get-database-property property.name="database.service.cmd.start" />
+
+					<local name="database.service.cmd.stop" />
+
+					<get-database-property property.name="database.service.cmd.stop" />
 
 					<action />
 				</sequential>
@@ -155,8 +163,8 @@ jdbc.default.password=${database.password}]]></echo>
 		<sequential>
 			<database-test-for-each-action database.test.sequence="@{database.test.sequence}">
 				<action>
-					<exec executable="service" failonerror="true">
-						<arg line="${database.service.name} stop" />
+					<exec executable="${database.service.executable}" failonerror="true">
+						<arg line="${database.service.cmd.stop}" />
 					</exec>
 				</action>
 			</database-test-for-each-action>
@@ -167,8 +175,8 @@ jdbc.default.password=${database.password}]]></echo>
 
 					<set-portal-impl-portal-test-ext-properties />
 
-					<exec executable="service" failonerror="true">
-						<arg line="${database.service.name} start" />
+					<exec executable="${database.service.executable}" failonerror="true">
+						<arg line="${database.service.cmd.start}" />
 					</exec>
 
 					<antcall target="copy-optional-jars" inheritall="false" >
@@ -182,8 +190,8 @@ jdbc.default.password=${database.password}]]></echo>
 
 					<test-action />
 
-					<exec executable="service" failonerror="true">
-						<arg line="${database.service.name} stop" />
+					<exec executable="${database.service.executable}" failonerror="true">
+						<arg line="${database.service.cmd.stop}" />
 					</exec>
 				</action>
 			</database-test-for-each-action>
@@ -6443,8 +6451,8 @@ Please set "ie.driver.zip" in test.properties to point to "IEDriverServer_x64_2.
 			</test-action>
 		</database-test-run-test>
 
-		<exec executable="service" failonerror="true">
-			<arg line="${database.mysql.service.name} start" />
+		<exec executable="${database.mysql.service.executable}" failonerror="true">
+			<arg line="${database.mysql.service.cmd.start}" />
 		</exec>
 
 		<ant dir="util-java" target="test-class-group" inheritAll="false" />

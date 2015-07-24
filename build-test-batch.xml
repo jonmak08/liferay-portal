@@ -202,8 +202,8 @@
 	<target name="tck">
 		<run-batch-test test.class.group.index="${jenkins.axis.variable}">
 			<test-action>
-				<exec executable="service" failonerror="true">
-					<arg line="${database.mysql.service.name} start" />
+				<exec executable="${database.mysql.service.executable}" failonerror="true">
+					<arg line="${database.mysql.service.cmd.start}" />
 				</exec>
 
 				<antcall target="rebuild-database" inheritAll="false" />
