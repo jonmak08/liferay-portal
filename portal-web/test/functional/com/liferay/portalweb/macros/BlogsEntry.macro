@@ -113,7 +113,7 @@
 		<execute function="AssertTextEquals#assertPartialText" locator1="CPBlogsAdd#SAVE_STATUS" value1="Draft saved at" />
 
 		<execute function="AssertTextEquals" locator1="CPBlogsEdit#TITLE_FIELD" value1="${entryTitle}" />
-		<execute function="SelectFrame" locator1="CPBlogsEdit#CONTENT_FIELD" />
+		<execute function="SelectFrame" locator1="CPBlogsEdit#CONTENT_FIELD_IFRAME" />
 		<execute function="AssertTextPresent" locator1="CPBlogsEdit#CONTENT_FIELD" value1="${entryContent}" />
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
@@ -127,7 +127,7 @@
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGBlogsAdd#SAVE_STATUS" value1="Draft saved at" />
 
 		<execute function="AssertTextEquals" locator1="PGBlogsEdit#TITLE_FIELD" value1="${entryTitle}" />
-		<execute function="SelectFrame" locator1="PGBlogsEdit#CONTENT_FIELD" />
+		<execute function="SelectFrame" locator1="PGBlogsEdit#CONTENT_FIELD_IFRAME" />
 		<execute function="AssertTextPresent" locator1="PGBlogsEdit#CONTENT_FIELD" value1="${entryContent}" />
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
@@ -144,7 +144,7 @@
 		<execute function="AssertTextEquals" locator1="CPBlogsAdd#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 		<execute function="AssertTextEquals" locator1="CPBlogsEdit#TITLE_FIELD" value1="${entryTitle}" />
-		<execute function="SelectFrame" locator1="CPBlogsEdit#CONTENT_FIELD" />
+		<execute function="SelectFrame" locator1="CPBlogsEdit#CONTENT_FIELD_IFRAME" />
 		<execute function="AssertTextPresent" locator1="CPBlogsEdit#CONTENT_FIELD" value1="${entryContent}" />
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
@@ -159,7 +159,7 @@
 
 		<execute function="AssertTextEquals" locator1="PGBlogsEdit#DRAFT_STATUS" value1="Draft" />
 		<execute function="AssertTextEquals" locator1="PGBlogsEdit#TITLE_FIELD" value1="${entryTitle}" />
-		<execute function="SelectFrame" locator1="PGBlogsEdit#CONTENT_FIELD" />
+		<execute function="SelectFrame" locator1="PGBlogsEdit#CONTENT_FIELD_IFRAME" />
 		<execute function="AssertTextPresent" locator1="PGBlogsEdit#CONTENT_FIELD" value1="${entryContent}" />
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
