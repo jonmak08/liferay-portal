@@ -223,7 +223,7 @@
 
 	<command name="AddDMDocumentStagingLocalLive" priority="5">
 		<var name="dmDocumentFile" value="Document_1.docx" />
-		<var name="dmDocumentTitle" value="${dmDocumentFile}" />
+		<var name="dmDocumentTitle" value="Document_1.docx" />
 		<var name="pageName" value="Staging Test Page" />
 		<var name="siteName" value="${siteName}" />
 
@@ -257,6 +257,7 @@
 
 		<execute macro="DMDocument#addPG">
 			<var name="dmDocumentFile" value="${dmDocumentFile}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="pageStaging" value="true" />
 			<var name="stagingActivated" value="true" />
@@ -1293,6 +1294,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="pageStaging" value="true" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
