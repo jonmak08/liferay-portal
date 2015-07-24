@@ -38,12 +38,14 @@ public class SystemProperties {
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
+	@Deprecated
 	public static final String SYSTEM_PROPERTIES_FINAL =
 		"system.properties.final";
 
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
+	@Deprecated
 	public static final String SYSTEM_PROPERTIES_LOAD =
 		"system.properties.load";
 
@@ -70,6 +72,7 @@ public class SystemProperties {
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
+	@Deprecated
 	public static String[] getArray(String key) {
 		String value = get(key);
 
@@ -88,6 +91,7 @@ public class SystemProperties {
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
+	@Deprecated
 	public static void reload() {
 		if (_loaded) {
 			return;
@@ -190,6 +194,7 @@ public class SystemProperties {
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
+	@Deprecated
 	private static boolean _loaded;
 	private static Map<String, String> _properties;
 
