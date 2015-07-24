@@ -69,6 +69,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>CONTENT_FIELD_IFRAME</td>
+	<td>//div[contains(@id,'cke__')]//iframe</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ALLOW_PINGBACKS_CHECKBOX</td>
 	<td>//input[@id='_33_allowPingbacksCheckbox']</td>
 	<td></td>
