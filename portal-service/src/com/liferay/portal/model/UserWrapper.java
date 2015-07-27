@@ -1254,6 +1254,11 @@ public class UserWrapper implements User, ModelWrapper<User> {
 	}
 
 	@Override
+	public java.lang.String getShortFullName(int length) {
+		return _user.getShortFullName(length);
+	}
+
+	@Override
 	public java.util.List<com.liferay.portal.model.Group> getSiteGroups()
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _user.getSiteGroups();

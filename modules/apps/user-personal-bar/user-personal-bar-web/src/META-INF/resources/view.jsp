@@ -35,7 +35,7 @@
 	</c:choose>
 
 	<span class="user-full-name">
-		<%= HtmlUtil.escape(user.getFullName()) %>
+		<%= HtmlUtil.escape(user.getShortFullName(17)) %>
 	</span>
 </liferay-util:buffer>
 

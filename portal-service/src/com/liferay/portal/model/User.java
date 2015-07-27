@@ -385,6 +385,8 @@ public interface User extends UserModel, PersistedModel {
 
 	public java.util.List<com.liferay.portal.model.Role> getRoles();
 
+	public java.lang.String getShortFullName(int length);
+
 	public java.util.List<com.liferay.portal.model.Group> getSiteGroups()
 		throws com.liferay.portal.kernel.exception.PortalException;
 

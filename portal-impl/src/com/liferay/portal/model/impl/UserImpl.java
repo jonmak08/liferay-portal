@@ -759,6 +759,10 @@ public class UserImpl extends UserBaseImpl {
 		return RoleLocalServiceUtil.getUserRoles(getUserId());
 	}
 
+	public String getShortFullName(int length) {
+		return StringUtil.truncateMiddle(getFullName(), length);
+	}
+
 	@Override
 	public List<Group> getSiteGroups() throws PortalException {
 		return getSiteGroups(false);

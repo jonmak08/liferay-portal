@@ -237,6 +237,53 @@ public class StringUtil {
 	}
 
 	/**
+	 * Returns the original string truncated in the middle to a specified
+	 * length
+	 *
+	 * <p>
+	 * Example:
+	 * </p>
+	 *
+	 * <p>
+	 * <pre>
+	 * <code>
+	 * truncateMiddle("abcdefghijklm", 9) returns "abc...klm"
+	 * truncateMiddle("abcdefghijk lmnopq", 15) returns "abcdef...lmnopq"
+	 * truncateMiddle("abcdefghijk lmnopq", 18) returns "abcdefgh... lmnopq"
+	 * truncateMiddle("abcde ijkl", 10) returns "abcde ijkl"
+	 * </code>
+	 * </pre>
+	 * </p>
+	 *
+	 * @param  s the string to truncate in the middle
+	 * @param  length the length to reduce the string to
+	 * @return the truncated string
+	 */
+	public static String truncateMiddle(String s, int length) {
+		int stringLength = s.length();
+
+		if (stringLength <= length) {
+			return s;
+		}
+
+		int evenOdd = 3;
+
+		if (length % 2 == 0) {
+			length -= 1;
+			evenOdd = 4;
+		}
+
+		int halfLength = (length - 3)/2;
+
+		int nameBeginLength = halfLength + evenOdd;
+
+		String nameBegin = shorten(s, nameBeginLength, StringPool.TRIPLE_PERIOD);
+		String nameEnd = s.substring(stringLength - halfLength);
+
+		return nameBegin + nameEnd;
+	}
+
+	/**
 	 * Returns <code>true</code> if the string contains the text as a comma
 	 * delimited list entry.
 	 *

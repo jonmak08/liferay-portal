@@ -124,6 +124,20 @@ html {
 		.nav-account-controls {
 			background-color: transparent;
 
+			.admin-links {
+				min-width: 175px;
+			}
+
+			.my-sites, .user-avatar {
+				min-width: 160px;
+			}
+
+			@include respond-to(phone, tablet) {
+				.admin-links, .my-sites, .user-avatar {
+					min-width: 0;
+				}
+			}
+
 			.navbar-nav > li > a {
 				&:focus, &:hover {
 					background-color: #2FA4F5;

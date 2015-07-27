@@ -22,6 +22,26 @@ AUI.add(
 
 					Liferay.once('initDockbar', instance._init, instance);
 
+					var navAccountControls = dockBar.one(SELECTOR_NAV_ACCOUNT_CONTROLS);
+
+					if (navAccountControls) {
+						var dropdown = navAccountControls.all('li.dropdown');
+
+						if (dropdown) {
+							dropdown.each(instance._setDropdownWidth);
+
+							A.getWin().on(
+								'resize',
+								A.debounce(
+									function() {
+										dropdown.each(instance._setDropdownWidth);
+									},
+									100
+								)
+							);
+						}
+					}
+
 					var eventHandle = dockBar.on(
 						['focus', 'mousemove', 'touchstart'],
 						function(event) {
@@ -57,6 +77,16 @@ AUI.add(
 					BODY.addClass('dockbar-ready');
 
 					Liferay.on(['noticeHide', 'noticeShow'], instance._toggleControlsOffset, instance);
+				}
+			},
+
+			_setDropdownWidth: function(item) {
+				var dropdownMenu = item.one('.dropdown-menu');
+
+				if (dropdownMenu) {
+					var dropdownWidth = item.get('offsetWidth');
+
+					dropdownMenu.setStyle('min-width', dropdownWidth);
 				}
 			},
 
