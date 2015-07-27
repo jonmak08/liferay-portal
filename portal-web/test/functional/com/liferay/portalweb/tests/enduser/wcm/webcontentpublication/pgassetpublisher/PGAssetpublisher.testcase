@@ -96,8 +96,6 @@
 	</command>
 
 	<command name="ConfigureAPPortletDisplaytemplateFullContentWithBookmarks" priority="4">
-		<var name="bookmarkURL" value="http://www.liferay.com" />
-
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Bookmarks Page" />
 		</execute>
@@ -126,6 +124,7 @@
 		<execute macro="Bookmark#addPG">
 			<var name="bookmarkDescription" value="Test Bookmark Description" />
 			<var name="bookmarkName" value="Test Bookmark Name" />
+			<var name="bookmarkURL" value="http://www.liferay.com" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -146,8 +145,6 @@
 	</command>
 
 	<command name="ConfigureAPPortletDisplaytemplateTableWithBookmarks" priority="4">
-		<var name="bookmarkURL" value="http://www.liferay.com" />
-
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Bookmarks Page" />
 		</execute>
@@ -176,6 +173,7 @@
 		<execute macro="Bookmark#addPG">
 			<var name="bookmarkDescription" value="Test Bookmark Description" />
 			<var name="bookmarkName" value="Test Bookmark Name" />
+			<var name="bookmarkURL" value="http://www.liferay.com" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -198,8 +196,6 @@
 	</command>
 
 	<command name="ConfigureAPPortletDisplaytemplateTitlelistWithBookmarks" priority="4">
-		<var name="bookmarkURL" value="http://www.liferay.com" />
-
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Bookmarks Page" />
 		</execute>
@@ -228,6 +224,7 @@
 		<execute macro="Bookmark#addPG">
 			<var name="bookmarkDescription" value="Test Bookmark Description" />
 			<var name="bookmarkName" value="Test Bookmark Name" />
+			<var name="bookmarkURL" value="http://www.liferay.com" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -367,8 +364,6 @@
 	</command>
 
 	<command name="ConfigureAPPortletWithSelectedBookmarksEntry" priority="4">
-		<var name="bookmarkURL" value="http://www.liferay.com" />
-
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Bookmarks Page" />
 		</execute>
@@ -397,6 +392,7 @@
 		<execute macro="Bookmark#addPG">
 			<var name="bookmarkDescription" value="Test Bookmark Description" />
 			<var name="bookmarkName" value="Test Bookmark Name" />
+			<var name="bookmarkURL" value="http://www.liferay.com" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
