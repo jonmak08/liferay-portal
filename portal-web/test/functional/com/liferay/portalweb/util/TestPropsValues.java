@@ -233,6 +233,9 @@ public class TestPropsValues extends com.liferay.portal.util.TestPropsValues {
 	public static final boolean SAVE_SOURCE = GetterUtil.getBoolean(
 		TestPropsUtil.get("save.source"));
 
+	public static final String SELENIUM_CHROME_DRIVER_EXECUTABLE =
+		TestPropsUtil.get("selenium.chrome.driver.executable");
+
 	public static final String SELENIUM_EXECUTABLE_DIR_NAME = TestPropsUtil.get(
 		"selenium.executable.dir");
 
