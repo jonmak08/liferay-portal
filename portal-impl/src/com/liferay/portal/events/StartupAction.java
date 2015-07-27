@@ -58,7 +58,7 @@ import com.liferay.portlet.messageboards.util.MBMessageIndexer;
 import javax.portlet.MimeResponse;
 import javax.portlet.PortletRequest;
 
-import org.apache.struts.taglib.tiles.ComponentConstants;
+import org.apache.struts.tiles.taglib.ComponentConstants;
 
 /**
  * @author Brian Wing Shun Chan

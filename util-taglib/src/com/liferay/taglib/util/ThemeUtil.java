@@ -57,8 +57,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.PageContext;
 
-import org.apache.struts.taglib.tiles.ComponentConstants;
 import org.apache.struts.tiles.ComponentContext;
+import org.apache.struts.tiles.taglib.ComponentConstants;
 
 /**
  * @author Brian Wing Shun Chan

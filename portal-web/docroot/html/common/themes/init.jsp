@@ -23,5 +23,5 @@ page import="com.liferay.portal.monitoring.statistics.portal.PortalRequestDataSa
 page import="com.liferay.portal.security.ldap.LDAPSettingsUtil" %><%@
 page import="com.liferay.taglib.aui.ScriptTag" %>
 
-<%@ page import="org.apache.struts.taglib.tiles.ComponentConstants" %><%@
-page import="org.apache.struts.tiles.ComponentContext" %>
+<%@ page import="org.apache.struts.tiles.ComponentContext" %><%@
+page import="org.apache.struts.tiles.taglib.ComponentConstants" %>
