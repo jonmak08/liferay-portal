@@ -128,12 +128,17 @@ jdbc.default.password=${database.password}]]></echo>
 	</macrodef>
 
 	<macrodef name="database-test-for-each-action">
+		<attribute name="app.server.type" />
 		<attribute name="database.test.sequence" />
 		<element name="action" />
 
 		<sequential>
 			<for list="@{database.test.sequence}" param="database.type">
 				<sequential>
+					<local name="app.server.lib.global.dir" />
+
+					<propertycopy from="app.server.@{app.server.type}.lib.global.dir" name="app.server.lib.global.dir" />
+
 					<local name="database.type" />
 
 					<property name="database.type" value="@{database.type}" />
@@ -157,11 +162,12 @@ jdbc.default.password=${database.password}]]></echo>
 	</macrodef>
 
 	<macrodef name="database-test-run-test">
+		<attribute default="tomcat" name="app.server.type" />
 		<attribute name="database.test.sequence" />
 		<element name="test-action" />
 
 		<sequential>
-			<database-test-for-each-action database.test.sequence="@{database.test.sequence}">
+			<database-test-for-each-action app.server.type="@{app.server.type}" database.test.sequence="@{database.test.sequence}">
 				<action>
 					<exec executable="${database.service.executable}" failonerror="true">
 						<arg line="${database.service.cmd.stop}" />
@@ -169,7 +175,7 @@ jdbc.default.password=${database.password}]]></echo>
 				</action>
 			</database-test-for-each-action>
 
-			<database-test-for-each-action database.test.sequence="@{database.test.sequence}">
+			<database-test-for-each-action app.server.type="@{app.server.type}" database.test.sequence="@{database.test.sequence}">
 				<action>
 					<set-portal-impl-portal-ext-properties />
 
@@ -182,6 +188,11 @@ jdbc.default.password=${database.password}]]></echo>
 					<antcall target="copy-optional-jars" inheritall="false" >
 						<param name="database.type" value="${database.type}" />
 						<param name="todir" value="lib/development" />
+					</antcall>
+
+					<antcall target="copy-optional-jars" inheritall="false" >
+						<param name="database.type" value="@{database.type}" />
+						<param name="todir" value="${app.server.lib.global.dir}" />
 					</antcall>
 
 					<antcall target="rebuild-database" inheritall="false" >
