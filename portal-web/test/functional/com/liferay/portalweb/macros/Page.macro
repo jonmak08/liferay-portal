@@ -45,6 +45,7 @@
 			<isset var="pageType" />
 			<then>
 				<execute macro="Page#selectPageTypeRadioPG">
+					<var name="componentName" value="${componentName}" />
 					<var name="pageType" value="${pageType}" />
 					<var name="portletNameList" value="${portletNameList}" />
 				</execute>
