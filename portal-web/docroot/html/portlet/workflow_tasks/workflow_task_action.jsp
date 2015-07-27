@@ -20,6 +20,11 @@
 String randomId = StringPool.BLANK;
 
 String redirect = ParamUtil.getString(request, "redirect");
+
+if (redirect.equals(StringPool.BLANK)) {
+	redirect = currentURL;
+}
+
 String closeRedirect = ParamUtil.getString(request, "closeRedirect");
 
 ResultRow row = (ResultRow)request.getAttribute(WebKeys.SEARCH_CONTAINER_RESULT_ROW);
