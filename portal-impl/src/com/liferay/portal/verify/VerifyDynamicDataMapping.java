@@ -91,12 +91,6 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 
 		String title = fileName;
 
-		int index = title.indexOf(CharPool.PERIOD);
-
-		if (index > 0) {
-			title = title.substring(0, index);
-		}
-
 		try {
 			File file = DLStoreUtil.getFile(
 				companyId, CompanyConstants.SYSTEM, filePath);
