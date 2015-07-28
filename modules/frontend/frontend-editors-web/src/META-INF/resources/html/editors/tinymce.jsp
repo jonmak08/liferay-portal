@@ -34,10 +34,15 @@ String editorName = (String)request.getAttribute("liferay-ui:input-editor:editor
 String initMethod = (String)request.getAttribute("liferay-ui:input-editor:initMethod");
 String name = namespace + GetterUtil.getString((String)request.getAttribute("liferay-ui:input-editor:name"));
 
+String onBlurMethod = (String)request.getAttribute("liferay-ui:input-editor:onBlurMethod");
+
 String onChangeMethod = (String)request.getAttribute("liferay-ui:input-editor:onChangeMethod");
 
 if (Validator.isNotNull(onChangeMethod)) {
 	onChangeMethod = namespace + onChangeMethod;
+}
+else if (Validator.isNotNull(onBlurMethod)) {
+	onChangeMethod = namespace + onBlurMethod;
 }
 
 String onInitMethod = (String)request.getAttribute("liferay-ui:input-editor:onInitMethod");
