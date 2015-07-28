@@ -310,7 +310,6 @@ AUI.add(
 					btnNavigation.on(
 						EVENT_CLICK,
 						function(event) {
-							btnNavigation.toggleClass('open');
 							navigation.toggleClass('open');
 						}
 					);
