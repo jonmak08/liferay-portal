@@ -198,7 +198,7 @@
 		</ignore-error>
 		<ignore-error description="LPS-55160">
 			<contains></contains>
-			<matches>.*ThreadName=JMX Core MBean Deregistration;.*osgi.compendium:service=.*version=1.[0-9]+.*</matches>
+			<matches>.*osgi.compendium:service=.*version=1.[0-9]+.*</matches>
 		</ignore-error>
 		<ignore-error description="LPS-55297">
 			<contains>The web application [] appears to have started a thread named [ReferenceReaper]</contains>
