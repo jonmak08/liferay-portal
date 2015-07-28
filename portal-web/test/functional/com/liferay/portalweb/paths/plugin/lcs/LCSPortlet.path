@@ -34,6 +34,16 @@
 	<td></td>
 </tr>
 <tr>
+	<td>LOCAL_CLUSTER_NODE_ID</td>
+	<td>//div[@class='lcs-cluster-info']//dl[contains(.,'Local Cluster Node ID')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SIBLING_CLUSTER_NODE_IDS</td>
+	<td>//div[@class='lcs-cluster-info']//dl[contains(.,'Sibling Cluster Node IDs')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>CONNECT_BUTTON</td>
 	<td>//button[contains(.,'Connect')]</td>
 	<td></td>
