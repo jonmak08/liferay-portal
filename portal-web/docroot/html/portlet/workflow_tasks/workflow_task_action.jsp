@@ -21,7 +21,7 @@ String randomId = StringPool.BLANK;
 
 String redirect = ParamUtil.getString(request, "redirect");
 
-if (redirect.equals(StringPool.BLANK)) {
+if (Validator.isNull(redirect)) {
 	redirect = currentURL;
 }
 
