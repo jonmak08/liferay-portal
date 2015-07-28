@@ -1086,6 +1086,15 @@ public class LiferaySeleniumHelper {
 			return true;
 		}
 
+		// LPS-55160
+
+		if (line.matches(
+				".*ThreadName=JMX Core MBean Deregistration;" +
+					".*osgi.compendium:service=.*version=1.[0-9]+.*")) {
+
+			return true;
+		}
+
 		// LPS-55297
 
 		if (line.contains(
