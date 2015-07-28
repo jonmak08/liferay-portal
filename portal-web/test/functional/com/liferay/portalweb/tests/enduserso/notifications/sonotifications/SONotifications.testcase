@@ -1084,7 +1084,7 @@
 		<execute macro="SOUserBar#markNotificationsAsRead" />
 	</command>
 
-	<command name="UnsubscribeFromAndResubscribeToMicroblogsEntryCommentNotifications" priority="5">
+	<command known-issues="LRQA-17050" name="UnsubscribeFromAndResubscribeToMicroblogsEntryCommentNotifications" priority="5">
 		<var name="microblogsEntryCommentContent1" value="Microblogs Post Comment1" />
 		<var name="microblogsEntryCommentContent10" value="Microblogs Post Comment10" />
 		<var name="microblogsEntryCommentContent2" value="Microblogs Post Comment2" />
@@ -3028,7 +3028,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewMicroblogsEntryCommentNotificationNonAuthor" priority="4">
+	<command known-issues="LRQA-17050" name="ViewMicroblogsEntryCommentNotificationNonAuthor" priority="4">
 		<var name="microblogsEntryCommentContent1" value="Microblogs Post1 Comment1" />
 		<var name="microblogsEntryCommentContent2" value="Microblogs Post1 Comment2" />
 		<var name="microblogsEntryCommentContent3" value="Microblogs Post1 Comment3" />
@@ -3421,7 +3421,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewMicroblogsEntryCommentOnMentionMicroblogNotificationWithOtherNotificationsDisabled" priority="4">
+	<command known-issues="LRQA-17050" name="ViewMicroblogsEntryCommentOnMentionMicroblogNotificationWithOtherNotificationsDisabled" priority="4">
 		<var name="microblogsEntryCommentContent1" value="Microblogs Post1 Comment1" />
 		<var name="microblogsEntryCommentContent2" value="Microblogs Post1 Comment2" />
 		<var name="microblogsEntryCommentContent3" value="Microblogs Post2 Comment" />
@@ -3586,7 +3586,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewMicroblogsEntryCommentOnOwnMicroblogNotificationWithOtherNotificationsDisabled" priority="4">
+	<command known-issues="LRQA-17050" name="ViewMicroblogsEntryCommentOnOwnMicroblogNotificationWithOtherNotificationsDisabled" priority="4">
 		<var name="microblogsEntryCommentContent1" value="Microblogs Post1 Comment1" />
 		<var name="microblogsEntryCommentContent2" value="Microblogs Post1 Comment2" />
 		<var name="microblogsEntryCommentContent3" value="Microblogs Post2 Comment" />
@@ -3750,7 +3750,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewMicroblogsEntryMentionNotificationWithOtherNotificationsDisabled" priority="4">
+	<command known-issues="LRQA-17050" name="ViewMicroblogsEntryMentionNotificationWithOtherNotificationsDisabled" priority="4">
 		<var name="microblogsEntryCommentContent1" value="Microblogs Post1 Comment1" />
 		<var name="microblogsEntryCommentContent2" value="Microblogs Post1 Comment2" />
 		<var name="microblogsEntryCommentContent3" value="Microblogs Post2 Comment" />
@@ -5829,7 +5829,7 @@
 		<execute macro="SOContactsCenter#requestToConnect">
 			<var name="userEmailAddress" value="${adminEmailAddress}" />
 			<var name="userListName" value="${adminListName}" />
-			<var name="userName" value="${userName}" />
+			<var name="userName" value="${adminName}" />
 			<var name="userScreenName" value="${adminScreenName}" />
 		</execute>
 
