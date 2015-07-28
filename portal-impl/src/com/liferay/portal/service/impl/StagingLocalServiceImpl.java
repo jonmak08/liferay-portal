@@ -386,6 +386,7 @@ public class StagingLocalServiceImpl extends StagingLocalServiceBaseImpl {
 
 		try {
 			ExportImportThreadLocal.setLayoutImportInProcess(true);
+			ExportImportThreadLocal.setLayoutStagingInProcess(true);
 
 			Folder folder = PortletFileRepositoryUtil.getPortletFolder(
 				stagingRequestId);
@@ -399,6 +400,7 @@ public class StagingLocalServiceImpl extends StagingLocalServiceBaseImpl {
 		}
 		finally {
 			ExportImportThreadLocal.setLayoutImportInProcess(false);
+			ExportImportThreadLocal.setLayoutStagingInProcess(false);
 		}
 	}
 
