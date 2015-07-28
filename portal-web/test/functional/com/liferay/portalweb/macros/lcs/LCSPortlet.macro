@@ -64,6 +64,10 @@
 				<execute function="AssertTextEquals" locator1="LCSPortlet#CONNECTION_STATUS" value1="Connected" />
 			</else>
 		</if>
+
+		<execute macro="LCSPortlet#viewCluster">
+			<var name="clusterEnabled" value="${clusterEnabled}" />
+		</execute>
 	</command>
 
 	<command name="connect">
@@ -166,6 +170,16 @@
 	<command name="viewBeforeAuthorization">
 		<execute function="AssertTextEquals" locator1="LCSPortletRegistration#INFO_MESSAGE" value1="Please authorize Liferay Connected Services to start receiving your portal metrics data." />
 		<execute function="AssertElementPresent" locator1="LCSPortletRegistration#AUTHORIZE_ACCESS_BUTTON" />
+	</command>
+
+	<command name="viewCluster">
+		<if>
+			<equals arg1="${clusterEnabled}" arg2="true" />
+			<then>
+				<execute function="AssertElementPresent" locator1="LCSPortlet#LOCAL_CLUSTER_NODE_ID" />
+				<execute function="AssertElementPresent" locator1="LCSPortlet#SIBLING_CLUSTER_NODE_IDS" />
+			</then>
+		</if>
 	</command>
 
 	<command name="viewConnected">
