@@ -371,6 +371,7 @@
 		</execute>
 
 		<execute macro="DMDocument#viewPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentTitle" value="${dmDocument1Title}" />
 		</execute>
 
@@ -383,6 +384,7 @@
 		</execute>
 
 		<execute macro="DMDocument#viewPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentTitle" value="${dmDocument2Title}" />
 		</execute>
 
@@ -395,6 +397,7 @@
 		</execute>
 
 		<execute macro="DMDocument#viewPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentTitle" value="${dmDocument3Title}" />
 		</execute>
 	</command>
@@ -426,6 +429,7 @@
 		</execute>
 
 		<execute macro="DMDocument#viewPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 		</execute>
 	</command>
@@ -623,6 +627,7 @@
 		</execute>
 
 		<execute macro="DMDocument#viewPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 		</execute>
 	</command>
@@ -818,6 +823,7 @@
 		</execute>
 
 		<execute macro="DMDocument#editPG">
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
 		</execute>
 	</command>
@@ -873,6 +879,7 @@
 		</execute>
 
 		<execute macro="DMDocument#editPG">
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
 		</execute>
 
@@ -893,9 +900,11 @@
 
 	<command name="EditFolderDocumentFile" priority="5">
 		<var name="dmDocumentDescription" value="DM Document Description" />
+		<var name="dmDocumentDescriptionEdit" value="DM Document Description Edit" />
 		<var name="dmDocumentFile" value="Document_1.doc" />
 		<var name="dmDocumentFileEdit" value="Document_2.doc" />
 		<var name="dmDocumentTitle" value="DM Document Title" />
+		<var name="dmDocumentTitleEdit" value="DM Document Title Edit" />
 		<var name="dmDocumentVersionNumber" value="1.1" />
 		<var name="dmFolderDescription" value="DM Folder Description" />
 		<var name="dmFolderName" value="DM Folder Name" />
@@ -920,7 +929,10 @@
 		</execute>
 
 		<execute macro="DMDocument#editPG">
+			<var name="dmDocumentDescriptionEdit" value="${dmDocumentDescriptionEdit}" />
 			<var name="dmDocumentFileEdit" value="${dmDocumentFileEdit}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
 			<var name="dmDocumentVersion" value="${dmDocumentVersionNumber}" />
 		</execute>
 
@@ -968,6 +980,7 @@
 		</execute>
 
 		<execute macro="DMDocument#editPG">
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
 		</execute>
 
@@ -1026,6 +1039,7 @@
 		</execute>
 
 		<execute macro="DMDocument#editPG">
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
 		</execute>
 
@@ -1200,6 +1214,7 @@
 		</execute>
 
 		<execute macro="DMDocument#viewPG">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 		</execute>
 	</command>
@@ -1216,9 +1231,11 @@
 
 	<command name="RevertVersionFolderDocumentFile" priority="5">
 		<var name="dmDocumentDescription" value="DM Document Description" />
+		<var name="dmDocumentDescriptionEdit" value="DM Document Description Edit" />
 		<var name="dmDocumentFile" value="Document_1.doc" />
 		<var name="dmDocumentFileEdit" value="Document_2.doc" />
 		<var name="dmDocumentTitle" value="DM Document Title" />
+		<var name="dmDocumentTitleEdit" value="DM Document Title Edit" />
 		<var name="dmDocumentVersionNumber1" value="1.0" />
 		<var name="dmDocumentVersionNumber2" value="1.1" />
 		<var name="dmDocumentVersionNumber3" value="2.0" />
@@ -1249,7 +1266,10 @@
 		</execute>
 
 		<execute macro="DMDocument#editPG">
+			<var name="dmDocumentDescriptionEdit" value="${dmDocumentDescriptionEdit}" />
 			<var name="dmDocumentFileEdit" value="${dmDocumentFileEdit}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
 			<var name="dmDocumentVersionNumber" value="${dmDocumentVersionNumber2}" />
 		</execute>
 
