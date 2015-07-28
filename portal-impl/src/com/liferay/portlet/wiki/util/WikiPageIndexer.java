@@ -181,7 +181,7 @@ public class WikiPageIndexer extends BaseIndexer {
 		else if (obj instanceof WikiPage) {
 			WikiPage page = (WikiPage)obj;
 
-			deleteDocument(page.getCompanyId(), page.getPageId());
+			deleteDocument(page.getCompanyId(), page.getResourcePrimKey());
 		}
 	}
 
@@ -191,7 +191,7 @@ public class WikiPageIndexer extends BaseIndexer {
 
 		Document document = getBaseModelDocument(PORTLET_ID, page);
 
-		document.addUID(PORTLET_ID, page.getNodeId(), page.getTitle());
+		document.addUID(PORTLET_ID, page.getResourcePrimKey());
 
 		String content = HtmlUtil.extractText(
 			WikiUtil.convert(page, null, null, null));
