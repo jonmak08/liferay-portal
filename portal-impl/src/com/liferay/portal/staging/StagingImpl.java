@@ -786,9 +786,8 @@ public class StagingImpl implements Staging {
 
 				errorMessage = LanguageUtil.get(
 					locale,
-					"there-are-missing-references-that-could-not-be-found-" +
-						"in-the-live-environment-the-following-elements-are-" +
-							"published-from-their-own-site");
+					"there-are-missing-references-that-could-not-be-found-in-" +
+						"the-live-environment");
 			}
 			else {
 				errorMessage = LanguageUtil.get(
