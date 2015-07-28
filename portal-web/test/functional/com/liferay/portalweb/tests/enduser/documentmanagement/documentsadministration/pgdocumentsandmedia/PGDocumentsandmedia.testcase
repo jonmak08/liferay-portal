@@ -945,8 +945,8 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
-			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+			<var name="dmDocumentDescription" value="${dmDocumentDescriptionEdit}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitleEdit}" />
 			<var name="dmDocumentVersionNumber" value="${dmDocumentVersionNumber}" />
 		</execute>
 	</command>
@@ -1282,8 +1282,8 @@
 		</execute>
 
 		<execute macro="DMDocument#viewAllPG">
-			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+			<var name="dmDocumentDescription" value="${dmDocumentDescriptionEdit}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitleEdit}" />
 			<var name="dmDocumentVersionNumber" value="${dmDocumentVersionNumber2}" />
 		</execute>
 
@@ -1296,7 +1296,7 @@
 		</execute>
 
 		<execute macro="DMDocument#revertPG">
-			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitleEdit}" />
 			<var name="dmDocumentVersionNumber" value="${dmDocumentVersionNumber1}" />
 		</execute>
 
