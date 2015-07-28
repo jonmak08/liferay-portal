@@ -339,8 +339,6 @@ public class ProcessExecutor {
 		return _executorService;
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(ProcessExecutor.class);
-
 	private static volatile ExecutorService _executorService;
 	private static Set<Process> _managedProcesses =
 		new ConcurrentHashSet<Process>();
@@ -647,6 +645,7 @@ public class ProcessExecutor {
 			}
 		}
 
+		private static Log _log = LogFactoryUtil.getLog(SubprocessReactor.class);
 		private final Process _process;
 
 	}
