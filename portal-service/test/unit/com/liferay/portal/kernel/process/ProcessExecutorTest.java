@@ -423,7 +423,7 @@ public class ProcessExecutorTest {
 	@Test
 	public void testBrokenPiping() throws Exception {
 		CaptureHandler captureHandler = JDKLoggerTestUtil.configureJDKLogger(
-			ProcessExecutor.class.getName(), Level.SEVERE);
+			_getDeclaredClassName("SubprocessReactor"), Level.SEVERE);
 
 		try {
 			List<LogRecord> logRecords = captureHandler.getLogRecords();
@@ -725,7 +725,7 @@ public class ProcessExecutorTest {
 			new ExceptionPipingBackProcessCallable();
 
 		CaptureHandler captureHandler = JDKLoggerTestUtil.configureJDKLogger(
-			ProcessExecutor.class.getName(), Level.SEVERE);
+			_getDeclaredClassName("SubprocessReactor"), Level.SEVERE);
 
 		try {
 			Future<Serializable> noticeableFuture = ProcessExecutor.execute(
@@ -840,7 +840,7 @@ public class ProcessExecutorTest {
 			// Warn level
 
 			captureHandler = JDKLoggerTestUtil.configureJDKLogger(
-				ProcessExecutor.class.getName(), Level.WARNING);
+				_getDeclaredClassName("SubprocessReactor"), Level.WARNING);
 
 			List<LogRecord> logRecords = captureHandler.getLogRecords();
 
@@ -1104,7 +1104,7 @@ public class ProcessExecutorTest {
 				new UnserializablePipingBackProcessCallable();
 
 		CaptureHandler captureHandler = JDKLoggerTestUtil.configureJDKLogger(
-			ProcessExecutor.class.getName(), Level.SEVERE);
+			_getDeclaredClassName("SubprocessReactor"), Level.SEVERE);
 
 		try {
 			Future<Serializable> noticeableFuture = ProcessExecutor.execute(
@@ -1223,6 +1223,18 @@ public class ProcessExecutorTest {
 		}
 
 		return arguments;
+	}
+
+	private static String _getDeclaredClassName(String className)
+		throws SecurityException {
+
+		for (Class<?> clazz : ProcessExecutor.class.getDeclaredClasses()) {
+			if (clazz.equals(className)) {
+				return clazz.getName();
+			}
+		}
+
+		return StringPool.BLANK;
 	}
 
 	private static ExecutorService _getExecutorService() throws Exception {
