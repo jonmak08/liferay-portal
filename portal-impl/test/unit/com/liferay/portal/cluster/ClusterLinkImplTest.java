@@ -44,7 +44,6 @@ import org.aspectj.lang.annotation.Aspect;
 
 import org.jgroups.Channel.State;
 import org.jgroups.JChannel;
-import org.jgroups.View;
 import org.jgroups.util.UUID;
 
 import org.junit.Assert;
@@ -737,6 +736,8 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 			}
 		}
 
+		clusterLinkImpl.initialize();
+
 		return clusterLinkImpl;
 	}
 
@@ -783,34 +784,6 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 			_localAddress = address;
 		}
 
-		@Override
-		public void receive(org.jgroups.Message message) {
-			org.jgroups.Address sourceJGroupsAddress = message.getSrc();
-
-			Message content = (Message)message.getObject();
-
-			String messageKey = (String)content.getPayload();
-
-			try {
-				if (sourceJGroupsAddress.equals(
-						_localAddress.getRealAddress())) {
-
-					_localMessageExchanger.exchange(messageKey);
-				}
-				else {
-					_remoteMessageExchanger.exchange(messageKey);
-				}
-			}
-			catch (InterruptedException ie) {
-				Assert.fail();
-			}
-		}
-
-		@Override
-		public void viewAccepted(View view) {
-			super.view = view;
-		}
-
 		public String waitLocalMessage() throws Exception {
 			try {
 				return _localMessageExchanger.exchange(
@@ -836,6 +809,29 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 			new Exchanger<String>();
 		private Exchanger<String> _remoteMessageExchanger =
 			new Exchanger<String>();
+
+		@Override
+		protected void doReceive(org.jgroups.Message message) {
+			org.jgroups.Address sourceJGroupsAddress = message.getSrc();
+
+			Message content = (Message)message.getObject();
+
+			String messageKey = (String)content.getPayload();
+
+			try {
+				if (sourceJGroupsAddress.equals(
+						_localAddress.getRealAddress())) {
+
+					_localMessageExchanger.exchange(messageKey);
+				}
+				else {
+					_remoteMessageExchanger.exchange(messageKey);
+				}
+			}
+			catch (InterruptedException ie) {
+				Assert.fail();
+			}
+		}
 
 	}
 
