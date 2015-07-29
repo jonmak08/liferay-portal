@@ -543,7 +543,7 @@ public class JournalConverterImpl implements JournalConverter {
 			Locale locale = LocaleUtil.fromLanguageId(defaultLanguageId);
 
 			String languageId = dynamicContentElement.attributeValue(
-				"language-id");
+				"language-id", defaultLanguageId);
 
 			if (!localizable && !languageId.equals(defaultLanguageId)) {
 				continue;

@@ -78,7 +78,7 @@ public class LocaleTransformerListener extends BaseTransformerListener {
 
 		for (Element dynamicContentElement : dynamicContentElements) {
 			String languageId = dynamicContentElement.attributeValue(
-				"language-id");
+				"language-id", defaultLanguageId);
 
 			if (!localizable && !languageId.equals(defaultLanguageId)) {
 				dynamicElementElement.remove(dynamicContentElement);
