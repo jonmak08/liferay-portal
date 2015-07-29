@@ -17,7 +17,7 @@
 		<execute macro="Page#tearDownPG" />
 	</tear-down>
 
-	<command known-issues="LPS-56742" name="AddOrganizationSitesAndDeactivate" priority="5">
+	<command name="AddOrganizationSitesAndDeactivate" priority="5">
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
 		</execute>
@@ -443,7 +443,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-56742" name="SiteTeamsPermissions" priority="4">
+	<command name="SiteTeamsPermissions" priority="4">
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
 		</execute>

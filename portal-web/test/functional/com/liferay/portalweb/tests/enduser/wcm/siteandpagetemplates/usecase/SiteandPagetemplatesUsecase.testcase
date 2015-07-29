@@ -15,7 +15,7 @@
 		<execute macro="DMDocument#tearDownCP" />
 	</tear-down>
 
-	<command known-issues="LPS-56742" name="SitesDynamicTemplateInheritance" priority="4">
+	<command name="SitesDynamicTemplateInheritance" priority="4">
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
