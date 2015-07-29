@@ -645,7 +645,9 @@ public class ProcessExecutor {
 			}
 		}
 
-		private static Log _log = LogFactoryUtil.getLog(SubprocessReactor.class);
+		private static Log _log = LogFactoryUtil.getLog(
+			SubprocessReactor.class);
+
 		private final Process _process;
 
 	}
