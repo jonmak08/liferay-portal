@@ -395,7 +395,9 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 			}
 
 			for (Group group : groups) {
-				if (ResourcePermissionLocalServiceUtil.hasResourcePermission(
+				if (advancedPermissionChecker.isGroupAdmin(
+						group.getGroupId()) ||
+					ResourcePermissionLocalServiceUtil.hasResourcePermission(
 						companyId, className, ResourceConstants.SCOPE_GROUP,
 						String.valueOf(group.getGroupId()), role.getRoleId(),
 						ActionKeys.VIEW)) {
