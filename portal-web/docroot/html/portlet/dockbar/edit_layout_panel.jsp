@@ -89,7 +89,9 @@
 					function(event) {
 						var form = event.form;
 
-						if (form.hasClass('edit-layout-form')) {
+						var iconFileName = A.one('#<portlet:namespace />iconFileName').val();
+
+						if (form.hasClass('edit-layout-form') && !iconFileName) {
 							event.preventDefault();
 
 							<liferay-portlet:renderURL varImpl="redirectURL">
