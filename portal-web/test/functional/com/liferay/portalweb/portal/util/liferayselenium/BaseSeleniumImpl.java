@@ -450,6 +450,11 @@ public abstract class BaseSeleniumImpl
 	}
 
 	@Override
+	public boolean isSikuliImagePresent(String image) throws Exception {
+		return LiferaySeleniumHelper.isSikuliImagePresent(this, image);
+	}
+
+	@Override
 	public boolean isTCatEnabled() {
 		return LiferaySeleniumHelper.isTCatEnabled();
 	}
