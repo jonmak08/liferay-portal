@@ -6,9 +6,9 @@
 	<command name="downloadEnvironmentToken">
 		<var name="key_environmentName" value="${environmentName}" />
 
-		<execute function="AssertClick" locator1="LCSConnections#ACTIONS_BUTTON" value1="Actions" />
+		<execute function="AssertClick" locator1="LCSConnection#ACTIONS_BUTTON" value1="Actions" />
 
-		<execute function="AssertClick" locator1="LCSConnections#ACTIONS_DROPDOWN_DOWNLOAD_LINK" value1="Download" />
+		<execute function="AssertClick" locator1="LCSConnection#ACTIONS_DROPDOWN_DOWNLOAD_LINK" value1="Download" />
 
 		<execute function="DownloadTempFile" />
 
@@ -18,20 +18,20 @@
 	<command name="generateEnvironmentToken">
 		<var name="key_environmentName" value="${environmentName}" />
 
-		<execute function="AssertClick" locator1="LCSConnections#GENERATE_BUTTON" value1="Generate" />
+		<execute function="AssertClick" locator1="LCSConnection#GENERATE_BUTTON" value1="Generate" />
 
-		<execute function="AssertTextEquals" locator1="LCSConnections#ALERT_SUCCES" value1="Your request completed successfully." />
-		<execute function="AssertTextEquals" locator1="LCSConnections#ENVIRONMENT_NAME" value1="${environmentName}" />
-		<execute function="AssertElementPresent" locator1="LCSConnections#GENERATED_BY" />
-		<execute function="AssertElementPresent" locator1="LCSConnections#DATE_GENERATED" />
-		<execute function="AssertTextEquals" locator1="LCSConnections#ACTIONS_BUTTON" value1="Actions" />
+		<execute function="AssertTextEquals" locator1="LCSConnection#ALERT_SUCCES" value1="Your request completed successfully." />
+		<execute function="AssertTextEquals" locator1="LCSConnection#ENVIRONMENT_NAME" value1="${environmentName}" />
+		<execute function="AssertElementPresent" locator1="LCSConnection#GENERATED_BY" />
+		<execute function="AssertElementPresent" locator1="LCSConnection#DATE_GENERATED" />
+		<execute function="AssertTextEquals" locator1="LCSConnection#ACTIONS_BUTTON" value1="Actions" />
 	</command>
 
 	<command name="regenerateEnvironmentToken">
 		<var name="key_environmentName" value="${environmentName}" />
 
-		<execute function="AssertClick" locator1="LCSConnections#ACTIONS_BUTTON" value1="Actions" />
+		<execute function="AssertClick" locator1="LCSConnection#ACTIONS_BUTTON" value1="Actions" />
 
-		<execute function="AssertClick" locator1="LCSConnections#ACTIONS_DROPDOWN_REGENERATE_LINK" value1="Regenerate" />
+		<execute function="AssertClick" locator1="LCSConnection#ACTIONS_DROPDOWN_REGENERATE_LINK" value1="Regenerate" />
 	</command>
 </definition>

@@ -36,17 +36,17 @@
 
 		<execute macro="LCSPortalNavigator#gotoConnection" />
 
-		<execute macro="LCSConnectionsNavigator#gotoAutomaticRegistration" />
+		<execute macro="LCSConnectionNavigator#gotoAutomaticRegistration" />
 
-		<execute macro="LCSConnections#generateEnvironmentToken">
+		<execute macro="LCSConnection#generateEnvironmentToken">
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSConnections#downloadEnvironmentToken">
+		<execute macro="LCSConnection#downloadEnvironmentToken">
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSConnections#deployEnvironmentToken" />
+		<execute macro="LCSConnection#deployEnvironmentToken" />
 
 		<execute macro="Portlet#shutdownServer" />
 

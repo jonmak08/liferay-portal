@@ -1,11 +1,11 @@
 <html>
 <head>
-<title>LCSConnections</title>
+<title>LCSConnection</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">LCSConnections</td></tr>
+<tr><td rowspan="1" colspan="3">LCSConnection</td></tr>
 </thead>
 <tbody>
 <tr>
