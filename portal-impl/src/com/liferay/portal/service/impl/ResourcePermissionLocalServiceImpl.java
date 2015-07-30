@@ -147,8 +147,6 @@ public class ResourcePermissionLocalServiceImpl
 		updateResourcePermission(
 			companyId, name, scope, primKey, roleId, 0, new String[] {actionId},
 			ResourcePermissionConstants.OPERATOR_ADD);
-
-		PermissionCacheUtil.clearResourcePermissionCache(name, primKey);
 	}
 
 	/**
@@ -330,8 +328,6 @@ public class ResourcePermissionLocalServiceImpl
 			deleteResourcePermission(
 				resourcePermission.getResourcePermissionId());
 		}
-
-		PermissionCacheUtil.clearResourcePermissionCache(name, primKey);
 	}
 
 	@Override
@@ -989,8 +985,6 @@ public class ResourcePermissionLocalServiceImpl
 		updateResourcePermission(
 			companyId, name, scope, primKey, roleId, 0, new String[] {actionId},
 			ResourcePermissionConstants.OPERATOR_REMOVE);
-
-		PermissionCacheUtil.clearResourcePermissionCache(name, primKey);
 	}
 
 	/**
@@ -1023,9 +1017,6 @@ public class ResourcePermissionLocalServiceImpl
 				companyId, name, scope, resourcePermission.getPrimKey(), roleId,
 				0, new String[] {actionId},
 				ResourcePermissionConstants.OPERATOR_REMOVE);
-
-			PermissionCacheUtil.clearResourcePermissionCache(
-				name, resourcePermission.getPrimKey());
 		}
 	}
 
@@ -1233,8 +1224,6 @@ public class ResourcePermissionLocalServiceImpl
 		resourcePermission.setActionIds(actionIdsLong);
 
 		resourcePermissionPersistence.update(resourcePermission);
-
-		PermissionCacheUtil.clearResourcePermissionCache(name, primKey);
 
 		SearchEngineUtil.updatePermissionFields(name, primKey);
 	}
