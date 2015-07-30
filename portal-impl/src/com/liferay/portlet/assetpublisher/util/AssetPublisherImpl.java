@@ -1253,8 +1253,12 @@ public class AssetPublisherImpl implements AssetPublisher {
 			portletPreferencesModel)
 		throws PortalException, SystemException {
 
-		Layout layout = LayoutLocalServiceUtil.getLayout(
+		Layout layout = LayoutLocalServiceUtil.fetchLayout(
 			portletPreferencesModel.getPlid());
+
+		if (layout == null) {
+			return;
+		}
 
 		PortletPreferences portletPreferences =
 			PortletPreferencesFactoryUtil.fromXML(
