@@ -4,6 +4,6 @@
 	</command>
 
 	<command name="gotoManualRegistration">
-		<execute function="AssertClick" locator1="//div[@class='lcs-toolbar']//a[contains(.,'Manual Registration')]" value1="Manual Registration" />
+		<execute function="AssertClick" locator1="//div[@class='lcs-toolbar']//a[contains(.,'Client Downloads')]" value1="Client Downloads" />
 	</command>
 </definition>
