@@ -95,11 +95,6 @@
 	<td>//div[@class='lcs-alerts-container']//tr[contains(.,'${key_serverName}')]/td[3]/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>

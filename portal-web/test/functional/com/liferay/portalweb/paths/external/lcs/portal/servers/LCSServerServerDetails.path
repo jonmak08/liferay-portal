@@ -170,11 +170,6 @@
 	<td>//div[@class='lcs-about-hardware']//tr[contains(.,'${key_serverPropertyName}')]/td[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>

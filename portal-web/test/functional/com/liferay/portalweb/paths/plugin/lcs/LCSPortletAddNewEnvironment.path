@@ -28,11 +28,6 @@
 	<td>//div[contains(@class,'lcs-cluster-entry-dialog-content')]//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>
