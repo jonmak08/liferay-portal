@@ -319,7 +319,6 @@ else {
 						<%
 						List<Layout> exportLayouts = new ArrayList<Layout>();
 
-						
 						if (!selectedLayouts.isEmpty()) {
 							exportLayouts = selectedLayouts;
 						}
