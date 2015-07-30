@@ -45,19 +45,17 @@ public class PortalCacheIndexerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		_portalCache = new MemoryPortalCache<TestIndexedCacheKey, String>(
-			_CACHE_NAME, 10);
+		_portalCache = new MemoryPortalCache<TestKey, String>(_CACHE_NAME, 10);
 
 		_portalCacheIndexer =
-			new PortalCacheIndexer<Long, TestIndexedCacheKey, String>(
-				_portalCache);
+			new PortalCacheIndexer<Long, TestKey, String>(
+				_indexAccessor, _portalCache);
 
-		Set<CacheListener<TestIndexedCacheKey, String>> cacheListeners =
+		Set<CacheListener<TestKey, String>> cacheListeners =
 			ReflectionTestUtil.getFieldValue(_portalCache, "_cacheListeners");
 
-		List<CacheListener<TestIndexedCacheKey, String>> cacheListenerList =
-			new ArrayList<CacheListener<TestIndexedCacheKey, String>>(
-				cacheListeners);
+		List<CacheListener<TestKey, String>> cacheListenerList =
+			new ArrayList<CacheListener<TestKey, String>>(cacheListeners);
 
 		_cacheListener = cacheListenerList.get(0);
 
@@ -124,14 +122,13 @@ public class PortalCacheIndexerTest {
 
 	@Test
 	public void testConstructor() {
-		_portalCache = new MemoryPortalCache<TestIndexedCacheKey, String>(
-			_CACHE_NAME, 10);
+		_portalCache = new MemoryPortalCache<TestKey, String>(_CACHE_NAME, 10);
 
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 
 		_portalCacheIndexer =
-			new PortalCacheIndexer<Long, TestIndexedCacheKey, String>(
-				_portalCache);
+			new PortalCacheIndexer<Long, TestKey, String>(
+				_indexAccessor, _portalCache);
 
 		assertIndexCacheSynchronization();
 	}
@@ -140,17 +137,18 @@ public class PortalCacheIndexerTest {
 	public void testGetIndexedCacheKeysWithIndexKey() {
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 
-		Set<TestIndexedCacheKey> testIndexedCacheKeys =
-			_portalCacheIndexer.getIndexedCacheKeys(_INDEX_1_KEY_1.getIndex());
+		Set<TestKey> testKeys = _portalCacheIndexer.getIndexedCacheKeys(
+			_indexAccessor.getIndex(_INDEX_1_KEY_1));
 
-		testIndexedCacheKeys.clear();
+		testKeys.clear();
 
 		assertIndexCacheSynchronization();
 	}
 
 	@Test
 	public void testGetIndexedCacheKeysWithoutIndexKey() {
-		_portalCacheIndexer.getIndexedCacheKeys(_INDEX_1_KEY_1.getIndex());
+		_portalCacheIndexer.getIndexedCacheKeys(
+			_indexAccessor.getIndex(_INDEX_1_KEY_1));
 
 		assertIndexCacheSynchronization();
 	}
@@ -258,7 +256,8 @@ public class PortalCacheIndexerTest {
 	public void testRemoveIndexedCacheKeysWithIndex() {
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 
-		_portalCacheIndexer.removeIndexedCacheKeys(_INDEX_1_KEY_1.getIndex());
+		_portalCacheIndexer.removeIndexedCacheKeys(
+			_indexAccessor.getIndex(_INDEX_1_KEY_1));
 
 		assertIndexCacheSynchronization();
 	}
@@ -267,7 +266,8 @@ public class PortalCacheIndexerTest {
 	public void testRemoveIndexedCacheKeysWithoutIndex() {
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 
-		_portalCacheIndexer.removeIndexedCacheKeys(_INDEX_2_KEY_3.getIndex());
+		_portalCacheIndexer.removeIndexedCacheKeys(
+			_indexAccessor.getIndex(_INDEX_2_KEY_3));
 
 		assertIndexCacheSynchronization();
 	}
@@ -292,47 +292,42 @@ public class PortalCacheIndexerTest {
 	}
 
 	protected void assertIndexCacheSynchronization() {
-		Set<TestIndexedCacheKey> expectedTestIndexedCacheKeys =
-			new HashSet<TestIndexedCacheKey>(_portalCache.getKeys());
+		Set<TestKey> expectedTestKeys =
+			new HashSet<TestKey>(_portalCache.getKeys());
 
 		Set<Long> indexes = new HashSet<Long>();
 
-		for (TestIndexedCacheKey testIndexedCacheKey :
-				expectedTestIndexedCacheKeys) {
-
-			indexes.add(testIndexedCacheKey.getIndex());
+		for (TestKey testKey : expectedTestKeys) {
+			indexes.add(_indexAccessor.getIndex(testKey));
 		}
 
-		Set<TestIndexedCacheKey> actualTestIndexedCacheKeys =
-			new HashSet<TestIndexedCacheKey>();
+		Set<TestKey> actualTestKeys = new HashSet<TestKey>();
 
 		for (Long index : indexes) {
-			actualTestIndexedCacheKeys.addAll(
+			actualTestKeys.addAll(
 				_portalCacheIndexer.getIndexedCacheKeys(index));
 		}
 
-		Assert.assertEquals(
-			expectedTestIndexedCacheKeys, actualTestIndexedCacheKeys);
+		Assert.assertEquals(expectedTestKeys, actualTestKeys);
 	}
 
 	private static final String _CACHE_NAME = "Cache Name";
 
-	private static final TestIndexedCacheKey _INDEX_1_KEY_1 =
-		new TestIndexedCacheKey(1L, 1L);
+	private static final TestKey _INDEX_1_KEY_1 = new TestKey(1L, 1L);
 
-	private static final TestIndexedCacheKey _INDEX_1_KEY_2 =
-		new TestIndexedCacheKey(1L, 2L);
+	private static final TestKey _INDEX_1_KEY_2 = new TestKey(1L, 2L);
 
-	private static final TestIndexedCacheKey _INDEX_2_KEY_3 =
-		new TestIndexedCacheKey(2L, 3L);
+	private static final TestKey _INDEX_2_KEY_3 = new TestKey(2L, 3L);
 
 	private static final String _VALUE = "VALUE";
 
-	private CacheListener<TestIndexedCacheKey, String> _cacheListener;
+	private static final IndexAccessor<Long, TestKey> _indexAccessor =
+		new TestKeyIndexAccessor();
+
+	private CacheListener<TestKey, String> _cacheListener;
 	private MappedMethodNameCallableInvocationHandler
 		_mappedMethodNameCallableInvocationHandler;
-	private PortalCache<TestIndexedCacheKey, String> _portalCache;
-	private PortalCacheIndexer<Long, TestIndexedCacheKey, String>
-		_portalCacheIndexer;
+	private PortalCache<TestKey, String> _portalCache;
+	private PortalCacheIndexer<Long, TestKey, String> _portalCacheIndexer;
 
 }

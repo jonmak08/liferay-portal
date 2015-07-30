@@ -16,7 +16,7 @@ package com.liferay.portal.security.permission;
 
 import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
 import com.liferay.portal.kernel.cache.PortalCache;
-import com.liferay.portal.kernel.cache.index.IndexedCacheKey;
+import com.liferay.portal.kernel.cache.index.IndexAccessor;
 import com.liferay.portal.kernel.cache.index.PortalCacheIndexer;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.util.AutoResetThreadLocal;
@@ -32,6 +32,8 @@ import java.io.Serializable;
 import java.util.Map;
 
 import org.apache.commons.collections.map.LRUMap;
+
+import java.io.Serializable;
 
 /**
  * @author Charles May
@@ -111,7 +113,8 @@ public class PermissionCacheUtil {
 		clearLocalCache();
 
 		_resourceBlockIdsBagCacheIndexer.removeIndexedCacheKeys(
-			ResourceBlockIdsBagKey.getIndex(companyId, groupId, name));
+			ResourceBlockIdsBagKeyIndexAccessor.getIndex(
+				companyId, groupId, name));
 	}
 
 	public static void clearResourceCache() {
@@ -136,7 +139,7 @@ public class PermissionCacheUtil {
 		clearLocalCache();
 
 		_permissionPortalCacheIndexer.removeIndexedCacheKeys(
-			PermissionKey.getIndex(name, primKey));
+			PermissionKeyIndexAccessor.getIndex(name, primKey));
 	}
 
 	public static PermissionCheckerBag getBag(long userId, long groupId) {
@@ -277,7 +280,7 @@ public class PermissionCacheUtil {
 	private static final PortalCacheIndexer<Long, BagKey, PermissionCheckerBag>
 		_permissionCheckerBagPortalCacheIndexer =
 			new PortalCacheIndexer<Long, BagKey, PermissionCheckerBag>(
-				_permissionCheckerBagPortalCache);
+				new BagKeyIndexAccessor(), _permissionCheckerBagPortalCache);
 	private static final PortalCache<PermissionKey, Boolean>
 		_permissionPortalCache = MultiVMPoolUtil.getCache(
 			PERMISSION_CACHE_NAME,
@@ -285,7 +288,7 @@ public class PermissionCacheUtil {
 	private static final PortalCacheIndexer<String, PermissionKey, Boolean>
 		_permissionPortalCacheIndexer =
 			new PortalCacheIndexer<String, PermissionKey, Boolean>(
-				_permissionPortalCache);
+				new PermissionKeyIndexAccessor(), _permissionPortalCache);
 	private static final
 		PortalCache<ResourceBlockIdsBagKey, ResourceBlockIdsBag>
 			_resourceBlockIdsBagCache = MultiVMPoolUtil.getCache(
@@ -295,6 +298,7 @@ public class PermissionCacheUtil {
 		<String, ResourceBlockIdsBagKey, ResourceBlockIdsBag>
 			_resourceBlockIdsBagCacheIndexer = new PortalCacheIndexer
 				<String, ResourceBlockIdsBagKey, ResourceBlockIdsBag>(
+					new ResourceBlockIdsBagKeyIndexAccessor(),
 					_resourceBlockIdsBagCache);
 	private static final PortalCache<Long, UserPermissionCheckerBag>
 		_userPermissionCheckerBagPortalCache = MultiVMPoolUtil.getCache(
@@ -307,9 +311,9 @@ public class PermissionCacheUtil {
 	private static final PortalCacheIndexer<Long, UserRoleKey, Boolean>
 		_userRolePortalCacheIndexer =
 			new PortalCacheIndexer<Long, UserRoleKey, Boolean>(
-				_userRolePortalCache);
+				new UserRoleKeyIndexAccessor(), _userRolePortalCache);
 
-	private static class BagKey implements IndexedCacheKey<Long> {
+	private static class BagKey implements Serializable {
 
 		@Override
 		public boolean equals(Object obj) {
@@ -320,11 +324,6 @@ public class PermissionCacheUtil {
 			}
 
 			return false;
-		}
-
-		@Override
-		public Long getIndex() {
-			return _userId;
 		}
 
 		@Override
@@ -346,11 +345,17 @@ public class PermissionCacheUtil {
 
 	}
 
-	private static class PermissionKey implements IndexedCacheKey<String> {
+	private static class BagKeyIndexAccessor
+		implements IndexAccessor<Long, BagKey> {
 
-		public static String getIndex(String name, String primKey) {
-			return name.concat(StringPool.UNDERLINE).concat(primKey);
+		@Override
+		public Long getIndex(BagKey key) {
+			return key._userId;
 		}
+
+	}
+
+	private static class PermissionKey implements Serializable {
 
 		@Override
 		public boolean equals(Object obj) {
@@ -367,11 +372,6 @@ public class PermissionCacheUtil {
 			}
 
 			return false;
-		}
-
-		@Override
-		public String getIndex() {
-			return getIndex(_name, _primKey);
 		}
 
 		@Override
@@ -410,22 +410,21 @@ public class PermissionCacheUtil {
 
 	}
 
-	private static class ResourceBlockIdsBagKey
-		implements IndexedCacheKey<String> {
+	private static class PermissionKeyIndexAccessor
+		implements IndexAccessor<String, PermissionKey> {
 
-		public static String getIndex(
-			long companyId, long groupId, String name) {
-
-			StringBundler sb = new StringBundler(5);
-
-			sb.append(companyId);
-			sb.append(StringPool.UNDERLINE);
-			sb.append(groupId);
-			sb.append(StringPool.UNDERLINE);
-			sb.append(name);
-
-			return sb.toString();
+		public static String getIndex(String name, String primKey) {
+			return name.concat(StringPool.UNDERLINE).concat(primKey);
 		}
+
+		@Override
+		public String getIndex(PermissionKey key) {
+			return getIndex(key._name, key._primKey);
+		}
+
+	}
+
+	private static class ResourceBlockIdsBagKey implements Serializable {
 
 		@Override
 		public boolean equals(Object obj) {
@@ -441,11 +440,6 @@ public class PermissionCacheUtil {
 			}
 
 			return false;
-		}
-
-		@Override
-		public String getIndex() {
-			return getIndex(_companyId, _groupId, _name);
 		}
 
 		@Override
@@ -477,7 +471,31 @@ public class PermissionCacheUtil {
 
 	}
 
-	private static class UserRoleKey implements IndexedCacheKey<Long> {
+	private static class ResourceBlockIdsBagKeyIndexAccessor
+		implements IndexAccessor<String, ResourceBlockIdsBagKey> {
+
+		public static String getIndex(
+			long companyId, long groupId, String name) {
+
+			StringBundler sb = new StringBundler(5);
+
+			sb.append(companyId);
+			sb.append(StringPool.UNDERLINE);
+			sb.append(groupId);
+			sb.append(StringPool.UNDERLINE);
+			sb.append(name);
+
+			return sb.toString();
+		}
+
+		@Override
+		public String getIndex(ResourceBlockIdsBagKey key) {
+			return getIndex(key._companyId, key._groupId, key._name);
+		}
+
+	}
+
+	private static class UserRoleKey implements Serializable {
 
 		@Override
 		public boolean equals(Object obj) {
@@ -490,11 +508,6 @@ public class PermissionCacheUtil {
 			}
 
 			return false;
-		}
-
-		@Override
-		public Long getIndex() {
-			return _userId;
 		}
 
 		@Override
@@ -513,6 +526,16 @@ public class PermissionCacheUtil {
 
 		private final long _roleId;
 		private final long _userId;
+
+	}
+
+	private static class UserRoleKeyIndexAccessor
+		implements IndexAccessor<Long, UserRoleKey> {
+
+		@Override
+		public Long getIndex(UserRoleKey key) {
+			return key._userId;
+		}
 
 	}
 
