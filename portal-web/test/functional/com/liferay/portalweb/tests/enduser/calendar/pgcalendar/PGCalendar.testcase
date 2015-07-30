@@ -3517,7 +3517,7 @@
 				                "com.liferay.portlet.journal.model.JournalFolder",
 				                "com.liferay.knowledgebase.model.KBArticle",
 				                "com.liferay.portlet.messageboards.model.MBMessage",
-				                "com.liferay.portlet.wiki.model.WikiPage"
+				                "com.liferay.portlet.wiki.model.WikiPage",
 				                "com.liferay.calendar.model.CalendarBooking"
 				            ]
 				        },
