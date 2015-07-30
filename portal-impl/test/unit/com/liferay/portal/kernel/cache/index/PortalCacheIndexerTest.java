@@ -49,7 +49,7 @@ public class PortalCacheIndexerTest {
 
 		_portalCacheIndexer =
 			new PortalCacheIndexer<Long, TestKey, String>(
-				_indexAccessor, _portalCache);
+				_indexEncoder, _portalCache);
 
 		Set<CacheListener<TestKey, String>> cacheListeners =
 			ReflectionTestUtil.getFieldValue(_portalCache, "_cacheListeners");
@@ -128,7 +128,7 @@ public class PortalCacheIndexerTest {
 
 		_portalCacheIndexer =
 			new PortalCacheIndexer<Long, TestKey, String>(
-				_indexAccessor, _portalCache);
+				_indexEncoder, _portalCache);
 
 		assertIndexCacheSynchronization();
 	}
@@ -138,7 +138,7 @@ public class PortalCacheIndexerTest {
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 
 		Set<TestKey> testKeys = _portalCacheIndexer.getKeys(
-			_indexAccessor.getIndex(_INDEX_1_KEY_1));
+			_indexEncoder.encode(_INDEX_1_KEY_1));
 
 		testKeys.clear();
 
@@ -147,7 +147,7 @@ public class PortalCacheIndexerTest {
 
 	@Test
 	public void testGetIndexedCacheKeysWithoutIndexKey() {
-		_portalCacheIndexer.getKeys(_indexAccessor.getIndex(_INDEX_1_KEY_1));
+		_portalCacheIndexer.getKeys(_indexEncoder.encode(_INDEX_1_KEY_1));
 
 		assertIndexCacheSynchronization();
 	}
@@ -255,7 +255,7 @@ public class PortalCacheIndexerTest {
 	public void testRemoveIndexedCacheKeysWithIndex() {
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 
-		_portalCacheIndexer.removeKeys(_indexAccessor.getIndex(_INDEX_1_KEY_1));
+		_portalCacheIndexer.removeKeys(_indexEncoder.encode(_INDEX_1_KEY_1));
 
 		assertIndexCacheSynchronization();
 	}
@@ -264,7 +264,7 @@ public class PortalCacheIndexerTest {
 	public void testRemoveIndexedCacheKeysWithoutIndex() {
 		_portalCache.put(_INDEX_1_KEY_1, _VALUE);
 
-		_portalCacheIndexer.removeKeys(_indexAccessor.getIndex(_INDEX_2_KEY_3));
+		_portalCacheIndexer.removeKeys(_indexEncoder.encode(_INDEX_2_KEY_3));
 
 		assertIndexCacheSynchronization();
 	}
@@ -295,7 +295,7 @@ public class PortalCacheIndexerTest {
 		Set<Long> indexes = new HashSet<Long>();
 
 		for (TestKey testKey : expectedTestKeys) {
-			indexes.add(_indexAccessor.getIndex(testKey));
+			indexes.add(_indexEncoder.encode(testKey));
 		}
 
 		Set<TestKey> actualTestKeys = new HashSet<TestKey>();
@@ -317,8 +317,8 @@ public class PortalCacheIndexerTest {
 
 	private static final String _VALUE = "VALUE";
 
-	private static final IndexAccessor<Long, TestKey> _indexAccessor =
-		new TestKeyIndexAccessor();
+	private static final IndexEncoder<Long, TestKey> _indexEncoder =
+		new TestKeyIndexEncoder();
 
 	private CacheListener<TestKey, String> _cacheListener;
 	private MappedMethodCallableInvocationHandler
