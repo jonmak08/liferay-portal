@@ -3569,6 +3569,7 @@
 
 		<execute macro="SearchPortlet#configureAdvancedSearchPG">
 			<var name="advancedSearchConfiguration" value="${advancedSearchConfiguration}" />
+			<var name="portletName" value="Search" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
