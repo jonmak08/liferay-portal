@@ -191,19 +191,13 @@ public class JavaClass {
 		JavaTerm javaTerm, String annotation, String requiredMethodNameRegex,
 		int requiredMethodType, String fileName) {
 
-		String methodContent = javaTerm.getContent();
 		String methodName = javaTerm.getName();
 
 		Pattern pattern = Pattern.compile(requiredMethodNameRegex);
 
 		Matcher matcher = pattern.matcher(methodName);
 
-		if (methodContent.contains(
-				_indent + StringPool.AT + annotation + "\n") ||
-			methodContent.contains(
-				_indent + StringPool.AT + annotation +
-					StringPool.OPEN_PARENTHESIS)) {
-
+		if (javaTerm.hasAnnotation(annotation)) {
 			if (!matcher.find()) {
 				BaseSourceProcessor.processErrorMessage(
 					fileName,
@@ -217,9 +211,7 @@ public class JavaClass {
 						fileName);
 			}
 		}
-		else if (matcher.find() &&
-				 !methodContent.contains(_indent + "@Override")) {
-
+		else if (matcher.find() && !javaTerm.hasAnnotation("Override")) {
 			BaseSourceProcessor.processErrorMessage(
 				fileName,
 				"Annotation @" + annotation + " required for " + methodName +
