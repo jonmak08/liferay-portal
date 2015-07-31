@@ -53,6 +53,8 @@
 
 		<execute function="AssertClick" locator1="CPDocumentsandmediaAdddocument#PUBLISH_BUTTON" value1="Publish" />
 
+		<execute function="Pause" locator1="10000" />
+
 		<execute function="AssertTextEquals" locator1="CPDocumentsandmedia#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="AssertTextEquals" locator1="CPDocumentsandmedia#DOCUMENT_CONTAINER_DOCUMENT_TITLE" value1="${dmDocumentTitle}" />
 	</command>
