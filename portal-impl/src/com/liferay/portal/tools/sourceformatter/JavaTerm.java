@@ -14,6 +14,7 @@
 
 package com.liferay.portal.tools.sourceformatter;
 
+import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -117,6 +118,18 @@ public class JavaTerm {
 		}
 
 		return false;
+	}
+
+	public boolean hasReturnType() {
+		if (!ArrayUtil.contains(JavaClass.TYPE_METHOD, _type)) {
+			return false;
+		}
+
+		int i = _content.indexOf(_name);
+
+		String methodSignature = StringUtil.trim(_content.substring(0, i));
+
+		return !methodSignature.endsWith(" void");
 	}
 
 	public void setType(int type) {
