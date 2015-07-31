@@ -18,7 +18,12 @@
 
 		<execute function="Click" locator1="LCSServerServerDetails#SERVER_LOCATION_SAVE_ICON" />
 
-		<execute function="Select" locator1="LCSServerServerDetails#ENVIRONMENT_SELECT" value1="${environmentName}" />
+		<if>
+			<isset var="environmentName" />
+			<then>
+				<execute function="Select" locator1="LCSServerServerDetails#ENVIRONMENT_SELECT" value1="${environmentName}" />
+			</then>
+		</if>
 	</command>
 
 	<command name="unregisterServer">

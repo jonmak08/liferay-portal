@@ -53,5 +53,12 @@
 		<execute function="AssertTextEquals" locator1="LCSEnvironmentEnvironmentDetails#ENVIRONMENT_NAME" value1="${environmentName}" />
 		<execute function="AssertTextEquals" locator1="LCSEnvironmentEnvironmentDetails#ENVIRONMENT_DESCRIPTION" value1="${environmentDescription}" />
 		<execute function="AssertTextEquals" locator1="LCSEnvironmentEnvironmentDetails#ENVIRONMENT_LOCATION" value1="${environmentLocation}" />
+
+		<if>
+			<equals arg1="${serverClusterEnabled}" arg2="true" />
+			<then>
+				<execute function="AssertTextEquals" locator1="LCSEnvironmentEnvironmentDetails#ENVIRONMENT_TYPE" value1="Cluster" />
+			</then>
+		</if>
 	</command>
 </definition>
