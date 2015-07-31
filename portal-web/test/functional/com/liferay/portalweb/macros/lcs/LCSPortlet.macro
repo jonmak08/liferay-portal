@@ -33,10 +33,7 @@
 					<if>
 						<condition function="IsElementPresent" locator1="LRDCOMLogin#EMAIL_ADDRESS_FIELD" />
 						<then>
-							<execute function="Type" locator1="LRDCOMLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
-							<execute function="Type" locator1="LRDCOMLogin#PASSWORD_FIELD" value1="${userEmailPassword}" />
-
-							<execute function="AssertClickNoError" locator1="PGLogin#SIGN_IN_BUTTON" value1="Sign In" />
+							<execute macro="LCSUsers#loginLCS" />
 						</then>
 					</if>
 
@@ -64,10 +61,6 @@
 				<execute function="AssertTextEquals" locator1="LCSPortlet#CONNECTION_STATUS" value1="Connected" />
 			</else>
 		</if>
-
-		<execute macro="LCSPortlet#viewCluster">
-			<var name="clusterEnabled" value="${clusterEnabled}" />
-		</execute>
 	</command>
 
 	<command name="connect">
@@ -148,6 +141,19 @@
 					<var name="serverName" value="${serverName}" />
 				</execute>
 
+				<if>
+					<equals arg1="${registerAllClusterNodes}" arg2="true" />
+					<then>
+						<execute function="Check" locator1="LCSPortletRegistration#REGISTER_ALL_NODES_OF_THIS_CLUSTER_CHECKBOX" />
+					</then>
+					<elseif>
+						<equals arg1="${registerAllClusterNodes}" arg2="false" />
+						<then>
+							<execute function="Uncheck" locator1="LCSPortletRegistration#REGISTER_ALL_NODES_OF_THIS_CLUSTER_CHECKBOX" />
+						</then>
+					</elseif>
+				</if>
+
 				<execute macro="LCSPortlet#completeRegistration" />
 			</else>
 		</if>
@@ -173,13 +179,7 @@
 	</command>
 
 	<command name="viewCluster">
-		<if>
-			<equals arg1="${clusterEnabled}" arg2="true" />
-			<then>
-				<execute function="AssertElementPresent" locator1="LCSPortlet#LOCAL_CLUSTER_NODE_ID" />
-				<execute function="AssertElementPresent" locator1="LCSPortlet#SIBLING_CLUSTER_NODE_IDS" />
-			</then>
-		</if>
+		<execute function="AssertElementPresent" locator1="LCSPortlet#CLUSTER_NODE_ID" />
 	</command>
 
 	<command name="viewConnected">
@@ -198,5 +198,31 @@
 	<command name="viewDisconnected">
 		<execute function="AssertElementPresent" locator1="LCSPortlet#CONNECT_BUTTON" />
 		<execute function="AssertTextEquals" locator1="LCSPortlet#CONNECTION_STATUS" value1="Disconnected" />
+	</command>
+
+	<command name="viewRegisteredServer">
+		<execute function="AssertTextEquals" locator1="LCSPortlet#PROJECT_HOME_LINK" value1="${projectName} (Opens New Window)" />
+		<execute function="AssertTextEquals" locator1="LCSPortlet#ENVIRONMENT_LINK" value1="${environmentName} (Opens New Window)" />
+		<execute function="AssertTextEquals" locator1="LCSPortlet#SERVER_DASHBOARD_LINK" value1="${serverName} (Opens New Window)" />
+
+		<if>
+			<equals arg1="${serverClusterEnabled}" arg2="true" />
+			<then>
+				<execute macro="LCSPortlet#viewCluster" />
+			</then>
+		</if>
+
+		<if>
+			<equals arg1="${serverConnectionStatus}" arg2="Connected" />
+			<then>
+				<execute macro="LCSPortlet#viewConnected" />
+			</then>
+			<elseif>
+				<equals arg1="${serverConnectionStatus}" arg2="Disconnected" />
+				<then>
+					<execute macro="LCSPortlet#viewDisconnected" />
+				</then>
+			</elseif>
+		</if>
 	</command>
 </definition>

@@ -12,9 +12,19 @@
 
 		<execute macro="LCSPortlet#registerServer">
 			<var name="addEnvironment" value="${addEnvironment}" />
-			<var name="clusterEnabled" value="${clusterEnabled}" />
 			<var name="environmentName" value="${environmentName}" />
 			<var name="projectName" value="${projectName}" />
+			<var name="registerAllClusterNodes" value="${registerAllClusterNodes}" />
+			<var name="serverDescription" value="${serverDescription}" />
+			<var name="serverLocation" value="${serverLocation}" />
+			<var name="serverName" value="${serverName}" />
+		</execute>
+
+		<execute macro="LCSPortlet#viewRegisteredServer">
+			<var name="environmentName" value="${environmentName}" />
+			<var name="projectName" value="${projectName}" />
+			<var name="serverClusterEnabled" value="${serverClusterEnabled}" />
+			<var name="serverConnectionStatus" value="Connected" />
 			<var name="serverDescription" value="${serverDescription}" />
 			<var name="serverLocation" value="${serverLocation}" />
 			<var name="serverName" value="${serverName}" />

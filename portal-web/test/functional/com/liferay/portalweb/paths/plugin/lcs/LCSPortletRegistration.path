@@ -69,6 +69,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>REGISTER_ALL_NODES_OF_THIS_CLUSTER_CHECKBOX</td>
+	<td>//input[contains(@id,'registerAllClusterNodesCheckbox')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>BACK_BUTTON</td>
 	<td>//button[contains(.,'Back')]</td>
 	<td></td>
