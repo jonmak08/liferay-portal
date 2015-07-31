@@ -607,7 +607,7 @@ public class JavaClass {
 					if (Validator.isNotNull(javaTermName)) {
 						javaTerm = new JavaTerm(
 							javaTermName, javaTermType, javaTermContent,
-							javaTermLineCount);
+							javaTermLineCount, _indent);
 
 						javaTerms.add(javaTerm);
 					}
@@ -642,7 +642,8 @@ public class JavaClass {
 			}
 
 			javaTerm = new JavaTerm(
-				javaTermName, javaTermType, javaTermContent, javaTermLineCount);
+				javaTermName, javaTermType, javaTermContent, javaTermLineCount,
+				_indent);
 
 			javaTerms.add(javaTerm);
 		}
