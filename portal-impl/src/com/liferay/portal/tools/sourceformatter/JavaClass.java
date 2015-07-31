@@ -137,6 +137,16 @@ public class JavaClass {
 			JavaTerm javaTerm = itr.next();
 
 			if (isInJavaTermTypeGroup(javaTerm.getType(), TYPE_CLASS)) {
+				if (_fileName.endsWith("LocalServiceImpl.java") &&
+					javaTerm.hasAnnotation("Indexable") &&
+					!javaTerm.hasReturnType()) {
+
+					JavaSourceProcessor.processErrorMessage(
+						_fileName,
+						"Missing return type for method with @Indexable: " +
+							_fileName + " " + javaTerm.getLineCount());
+				}
+
 				String javaTermContent = javaTerm.getContent();
 
 				int pos = javaTermContent.indexOf("\n" + _indent + "static {");
