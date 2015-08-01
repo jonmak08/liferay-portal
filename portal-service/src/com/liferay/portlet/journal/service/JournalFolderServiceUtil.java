@@ -151,6 +151,15 @@ public class JournalFolderServiceUtil {
 				   .getFoldersAndArticles(groupId, folderId, start, end, obc);
 	}
 
+	public static java.util.List<java.lang.Object> getFoldersAndArticles(
+		long groupId, long userId, long folderId, int status, int start,
+		int end, com.liferay.portal.kernel.util.OrderByComparator obc)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService()
+				   .getFoldersAndArticles(groupId, userId, folderId, status,
+			start, end, obc);
+	}
+
 	public static int getFoldersAndArticlesCount(long groupId,
 		java.util.List<java.lang.Long> folderIds, int status)
 		throws com.liferay.portal.kernel.exception.SystemException {
@@ -166,6 +175,13 @@ public class JournalFolderServiceUtil {
 	public static int getFoldersAndArticlesCount(long groupId, long folderId,
 		int status) throws com.liferay.portal.kernel.exception.SystemException {
 		return getService().getFoldersAndArticlesCount(groupId, folderId, status);
+	}
+
+	public static int getFoldersAndArticlesCount(long groupId, long userId,
+		long folderId, int status)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService()
+				   .getFoldersAndArticlesCount(groupId, userId, folderId, status);
 	}
 
 	public static int getFoldersCount(long groupId, long parentFolderId)
