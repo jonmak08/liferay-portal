@@ -189,6 +189,8 @@
 
 	<macrodef name="run-batch-test">
 		<attribute name="test.class.group.index" />
+		<attribute name="tomcat.gc.log" default="false" />
+		<attribute name="tsant.gc.log" default="false" />
 		<attribute name="unit.test" default="false" />
 		<element name="test-action" />
 		<sequential>
@@ -218,7 +220,10 @@
 						</then>
 					</if>
 
-					<print-gc-logs />
+					<print-gc-logs
+						tomcat.gc.log="@{tomcat.gc.log}"
+						tsant.gc.log="@{tsant.gc.log}"
+					/>
 				</then>
 			</if>
 		</sequential>
@@ -227,6 +232,8 @@
 	<macrodef name="run-functional-test">
 		<attribute name="app.server.type" />
 		<attribute name="database.type" />
+		<attribute name="tomcat.gc.log" default="false" />
+		<attribute name="tsant.gc.log" default="false" />
 		<sequential>
 			<property name="test.class" value="${axis.variable}" />
 
@@ -262,7 +269,7 @@
 				</then>
 			</if>
 
-			<print-gc-logs />
+			<print-gc-logs tomcat.gc.log="@{tomcat.gc.log}" tsant.gc.log="@{tsant.gc.log}" />
 		</sequential>
 	</macrodef>
 
@@ -351,7 +358,7 @@
 	</target>
 
 	<target name="tck">
-		<run-batch-test test.class.group.index="${jenkins.axis.variable}">
+		<run-batch-test test.class.group.index="${jenkins.axis.variable}" tomcat.gc.log="true" tsant.gc.log="true">
 			<test-action>
 				<exec executable="${database.mysql.service.executable}" failonerror="true">
 					<arg line="${database.mysql.service.cmd.start}" />
