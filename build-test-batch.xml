@@ -21,6 +21,84 @@
 		</sequential>
 	</macrodef>
 
+	<macrodef name="database-test-action">
+		<attribute name="app.server.type" />
+		<attribute name="database.type" />
+		<element name="action" />
+
+		<sequential>
+			<local name="app.server.lib.global.dir" />
+
+			<propertycopy from="app.server.@{app.server.type}.lib.global.dir" name="app.server.lib.global.dir" />
+
+			<local name="database.type" />
+
+			<property name="database.type" value="@{database.type}" />
+
+			<local name="database.service.executable" />
+
+			<get-database-property property.name="database.service.executable" />
+
+			<local name="database.service.cmd.start" />
+
+			<get-database-property property.name="database.service.cmd.start" />
+
+			<local name="database.service.cmd.stop" />
+
+			<get-database-property property.name="database.service.cmd.stop" />
+
+			<action />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="database-test-run-test">
+		<attribute default="tomcat" name="app.server.type" />
+		<attribute name="database.type" />
+		<element name="test-action" />
+
+		<sequential>
+			<database-test-action app.server.type="@{app.server.type}" database.type="@{database.type}">
+				<action>
+					<exec executable="${database.service.executable}" failonerror="true">
+						<arg line="${database.service.cmd.stop}" />
+					</exec>
+				</action>
+			</database-test-action>
+
+			<database-test-action app.server.type="@{app.server.type}" database.type="@{database.type}">
+				<action>
+					<set-portal-impl-portal-ext-properties />
+
+					<set-portal-impl-portal-test-ext-properties />
+
+					<exec executable="${database.service.executable}" failonerror="true">
+						<arg line="${database.service.cmd.start}" />
+					</exec>
+
+					<antcall target="copy-optional-jars" inheritall="false" >
+						<param name="database.type" value="${database.type}" />
+						<param name="todir" value="lib/development" />
+					</antcall>
+
+					<antcall target="copy-optional-jars" inheritall="false" >
+						<param name="database.type" value="@{database.type}" />
+						<param name="todir" value="${app.server.lib.global.dir}" />
+					</antcall>
+
+					<antcall target="rebuild-database" inheritall="false" >
+						<param name="database.type" value="${database.type}" />
+					</antcall>
+
+					<test-action />
+
+					<exec executable="${database.service.executable}" failonerror="true">
+						<arg line="${database.service.cmd.stop}" />
+					</exec>
+				</action>
+			</database-test-action>
+		</sequential>
+	</macrodef>
+
 	<macrodef name="merge-test-results">
 		<sequential>
 			<antcall target="merge-test-results" />
@@ -42,6 +120,17 @@
 				<param name="test.class.groups.size" value="${test.batch.size}" />
 				<param name="test.plugin.groups.size" value="${test.batch.size}" />
 			</antcall>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="print-test-class-group">
+		<attribute name="test.class.group.index" />
+		<sequential>
+			<property file="${project.dir}/test.class.file.names.properties" />
+
+			<propertycopy from="TEST_CLASS_GROUP_@{test.class.group.index}" name="test.class.group" />
+
+			<echo>TEST_CLASS_GROUP_@{test.class.group.index}=${test.class.group}</echo>
 		</sequential>
 	</macrodef>
 
@@ -124,8 +213,10 @@
 		<sequential>
 			<run-batch-test test.class.group.index="${jenkins.axis.variable}">
 				<test-action>
-					<database-test-run-test database.test.sequence="@{database.type}">
+					<database-test-run-test database.type="@{database.type}">
 						<test-action>
+							<print-test-class-group test.class.group.index="@{test.class.group.index}" />
+
 							<ant dir="portal-impl" target="test-class-group" inheritAll="false">
 								<property name="database.type" value="@{database.type}" />
 								<property name="test.class.group.index" value="@{test.class.group.index}" />
@@ -185,7 +276,7 @@
 	<target name="portal-web">
 		<run-batch-test test.class.group.index="${jenkins.axis.variable}">
 			<test-action>
-				<database-test-run-test database.test.sequence="mysql">
+				<database-test-run-test database.type="mysql">
 					<test-action>
 						<run-build-selenium />
 
