@@ -246,6 +246,9 @@ public class LuceneHelperImpl implements LuceneHelper {
 			QueryParser queryParser = new QueryParser(
 				getVersion(), field, analyzer);
 
+			value = StringUtil.replace(
+				value, _KEYWORDS_LOWERCASE, _KEYWORDS_UPPERCASE);
+
 			Query query = queryParser.parse(value);
 
 			BooleanClause.Occur occur = null;
@@ -1105,6 +1108,14 @@ public class LuceneHelperImpl implements LuceneHelper {
 		GetterUtil.getInteger(
 			PropsUtil.get(PropsKeys.LUCENE_BOOLEAN_QUERY_CLAUSE_MAX_SIZE),
 			BooleanQuery.getMaxClauseCount());
+
+	private static final String[] _KEYWORDS_LOWERCASE = {
+		" and ", " not ", " or "
+	};
+
+	private static final String[] _KEYWORDS_UPPERCASE = {
+		" AND ", " NOT ", " OR "
+	};
 
 	private static Log _log = LogFactoryUtil.getLog(LuceneHelperImpl.class);
 
