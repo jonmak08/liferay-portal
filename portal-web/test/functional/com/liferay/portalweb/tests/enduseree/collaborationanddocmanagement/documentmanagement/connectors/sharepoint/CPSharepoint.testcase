@@ -522,7 +522,7 @@
 
 		<execute macro="DMDocument#viewSearchResultsCP">
 			<var name="dmDocumentTitle" value="Document_2.odt" />
-			<var name="dmParentFolder" value="Home" />
+			<var name="dmParentFolder" value="Home » Sharepoint Repository Name" />
 		</execute>
 	</command>
 
