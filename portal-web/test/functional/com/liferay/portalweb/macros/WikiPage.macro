@@ -1268,6 +1268,17 @@
 		<execute function="AssertTextEquals" locator1="PGWikiWikipageAttachments#ATTACHMENT_TABLE_REMOVE" value1="Remove" />
 	</command>
 
+	<command name="viewChildPagePG">
+		<var name="key_wikiChildPageTitle" value="${wikiChildPageTitle}" />
+
+		<execute function="AssertTextEquals" locator1="PGWiki#WIKI_PAGE_CHILD_PAGE_HEADER" value1="Children Pages" />
+
+		<execute function="AssertClick" locator1="PGWiki#WIKI_PAGE_CHILD_PAGE_TITLE" value1="${wikiChildPageTitle}" />
+
+		<execute function="AssertTextEquals" locator1="PGWiki#WIKI_PAGE_TITLE" value1="${wikiChildPageTitle}" />
+		<execute function="AssertTextEquals" locator1="PGWiki#WIKI_PAGE_BODY" value1="${wikiChildPageContent}" />
+	</command>
+
 	<command name="viewChildPagePGViaWD">
 		<execute function="AssertTextEquals" locator1="PGWikidisplay#WIKI_PAGE_TITLE" value1="${wikiPageTitle}" />
 		<execute function="AssertTextEquals" locator1="PGWikidisplay#WIKI_PAGE_BODY" value1="${wikiPageContent}" />
