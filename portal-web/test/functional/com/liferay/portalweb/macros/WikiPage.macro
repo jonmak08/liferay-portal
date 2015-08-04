@@ -143,6 +143,9 @@
 		<execute function="Confirm" value1="You may lose some formatting when switching from Creole to HTML. Do you want to continue?" />
 		<execute function="AssertClick" locator1="PGWikiAddpage#SOURCE_HTML_BUTTON" value1="Source" />
 		<execute function="Type#sendKeysNoError" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${welcomeToLiferay}" />
+
+		<execute function="Pause" locator1="1000" />
+
 		<execute function="AssertClick" locator1="PGWikiAddpage#PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="AssertTextEquals" locator1="PGWiki#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -277,6 +280,7 @@
 					<execute function="Confirm" value1="You may lose some formatting when switching from Creole to HTML. Do you want to continue?" />
 					<execute function="AssertClick" locator1="PGWikiAddpage#SOURCE_HTML_BUTTON" value1="Source" />
 					<execute function="Type#sendKeysNoError" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${wikiPageContent}" />
+					<execute function="Pause" locator1="1000" />
 				</then>
 			</elseif>
 			<else>
@@ -441,6 +445,8 @@
 					<execute function="Confirm" value1="You may lose some formatting when switching from Creole to HTML. Do you want to continue?" />
 					<execute function="AssertClick" locator1="PGWikiAddpage#SOURCE_HTML_BUTTON" value1="Source" />
 					<execute function="Type#sendKeysNoError" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${welcomeToLiferay}" />
+
+					<execute function="Pause" locator1="3000" />
 				</then>
 			</elseif>
 			<elseif>
