@@ -68,13 +68,7 @@ public class MemoryPortalCache<K extends Serializable, V>
 
 	@Override
 	public List<K> getKeys() {
-		List<K> keys = new ArrayList<K>();
-
-		for (K key : _map.keySet()) {
-			keys.add(key);
-		}
-
-		return keys;
+		return new ArrayList<K>(_map.keySet());
 	}
 
 	@Override
