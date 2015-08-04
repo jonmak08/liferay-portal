@@ -25,6 +25,7 @@ import java.sql.ResultSet;
 
 /**
  * @author Douglas Wong
+ * @author Bryan Engler
  */
 public class VerifyAsset extends VerifyProcess {
 
