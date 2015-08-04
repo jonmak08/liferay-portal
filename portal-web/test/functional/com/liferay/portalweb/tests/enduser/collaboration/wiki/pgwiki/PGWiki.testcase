@@ -91,7 +91,14 @@
 			<var name="pageName" value="${pageName}" />
 		</execute>
 
-		<execute macro="WikiPage#viewChildPagePGViaWD">
+		<execute macro="WikiPage#viewPG">
+			<var name="wikiPageContent" value="${wikiPageContent}" />
+			<var name="wikiPageRevision" value="1.1" />
+			<var name="wikiPageTitle" value="${wikiPageTitle}" />
+			<var name="wikiPageUsername" value="Test Test" />
+		</execute>
+
+		<execute macro="WikiPage#viewChildPagePG">
 			<var name="wikiChildPageContent" value="${wikiChildPageHTMLContent}" />
 			<var name="wikiChildPageTitle" value="${wikiChildPageTitle}" />
 			<var name="wikiPageTitle" value="${wikiPageTitle}" />
