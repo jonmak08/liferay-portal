@@ -76,13 +76,62 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 			<input class="form-control" <%= disabled ? "disabled=\"disabled\"" : "" %> id="<%= nameId %>" name="<%= namespace + HtmlUtil.escapeAttribute(name) %>" type="date" value="<%= format.format(calendar.getTime()) %>" />
 		</c:when>
 		<c:otherwise>
-			<aui:input disabled="<%= disabled %>" id="<%= HtmlUtil.getAUICompatibleId(name) %>" label="" name="<%= name %>" placeholder="<%= StringUtil.toLowerCase(simpleDateFormatPattern) %>" title="" type="text" value="<%= nullable ? StringPool.BLANK : format.format(calendar.getTime()) %>" wrappedField="<%= true %>">
-				<aui:validator errorMessage="please-enter-a-valid-date" name="custom">
-					function(val) {
-						return AUI().use('aui-datatype-date-parse').Parsers.date('<%= mask %>', val);
+			<aui:input disabled="<%= disabled %>" id="<%= HtmlUtil.getAUICompatibleId(name) %>" label="" name="<%= name %>" placeholder="<%= StringUtil.toLowerCase(simpleDateFormatPattern) %>" title="" type="text" value="<%= nullable ? StringPool.BLANK : format.format(calendar.getTime()) %>" wrappedField="<%= true %>" />
+
+			<aui:script use="aui-form-validator">
+				var node = A.one('#<%= nameId %>');
+
+				var form = node.ancestor('form');
+
+				if (form) {
+					var DEFAULTS_FORM_VALIDATOR = A.config.FormValidator;
+
+					A.mix(
+						DEFAULTS_FORM_VALIDATOR.STRINGS,
+						{
+							<portlet:namespace /><%= name %>: '<%= UnicodeLanguageUtil.get(request, "please-enter-a-valid-date") %>'
+						},
+						true
+					);
+
+					A.mix(
+						DEFAULTS_FORM_VALIDATOR.RULES,
+						{
+							<portlet:namespace /><%= name %>: function(val) {
+								return AUI().use('aui-datatype-date-parse').Parsers.date('<%= mask %>', val);
+							}
+						},
+						true
+					);
+
+					var inputDateFormValidator = document.inputDateFormValidator;
+
+					var customRules = {
+						<portlet:namespace /><%= name %>: {
+							<portlet:namespace /><%= name %>: true
+						}
 					}
-				</aui:validator>
-			</aui:input>
+
+					if (!inputDateFormValidator) {
+						document.inputDateFormValidator = new A.FormValidator(
+							{
+								boundingBox: form,
+								rules: customRules,
+								validateOnBlur: false
+							}
+						);
+					}
+					else {
+						var rules = inputDateFormValidator.get('rules');
+
+						A.mix(
+							rules,
+							customRules,
+							true
+						);
+					}
+				}
+			</aui:script>
 		</c:otherwise>
 	</c:choose>
 
@@ -97,6 +146,11 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 		function() {
 			var datePicker = new A.DatePicker<%= BrowserSnifferUtil.isMobile(request) ? "Native" : StringPool.BLANK %>(
 				{
+					after: {
+						selectionChange: function(event) {
+							document.inputDateFormValidator.validateField('<portlet:namespace /><%= name %>');
+						}
+					},
 					calendar: {
 
 						<%
