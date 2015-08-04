@@ -571,15 +571,19 @@ AUI.add(
 						}
 
 						var sortButtonContainer = instance.byId('sortButtonContainer');
+
 						var manageButtonContainer = instance.byId('manageButtonContainer');
+
 						var newSortButtonContainer = instance.one('#sortButton #' + instance.NS + 'sortButtonContainer', content);
 
 						if (newSortButtonContainer) {
 							manageButtonContainer.show();
+
 							sortButtonContainer.replace(newSortButtonContainer);
 						}
 						else {
 							manageButtonContainer.hide();
+
 							sortButtonContainer.empty();
 						}
 					},
