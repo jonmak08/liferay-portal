@@ -114,7 +114,7 @@ portletURL.setParameter("tabs3", tabs3);
 						name="name"
 					>
 
-						<%= HtmlUtil.escape(user2.getFullName()) %>
+						<%= (user2.getFullName()) %>
 
 						<%
 						PasswordPolicyRel passwordPolicyRel = PasswordPolicyRelLocalServiceUtil.fetchPasswordPolicyRel(User.class.getName(), user.getUserId());
