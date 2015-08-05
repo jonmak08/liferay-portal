@@ -139,9 +139,13 @@
 		<execute function="AssertClick" locator1="PGWiki#ADD_CHILD_PAGE" value1="Add Child Page" />
 
 		<execute function="Type" locator1="PGWikiAddpage#TITLE_FIELD" value1="${wikiChildPageTitle}" />
+
 		<execute function="SelectNoError#pauseSelect" locator1="PGWikiAddpage#FORMAT_DROPDOWN" value1="HTML" />
+
 		<execute function="Confirm" value1="You may lose some formatting when switching from Creole to HTML. Do you want to continue?" />
+
 		<execute function="AssertClick" locator1="PGWikiAddpage#SOURCE_HTML_BUTTON" value1="Source" />
+
 		<execute function="Type#sendKeysNoError" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${welcomeToLiferay}" />
 
 		<execute function="Pause" locator1="1000" />
@@ -153,6 +157,7 @@
 		<var name="key_wikiChildPageTitle" value="${wikiChildPageTitle}" />
 
 		<execute function="AssertClick" locator1="PGWiki#WIKI_PAGE_CHILD_PAGE_TITLE" value1="${wikiChildPageTitle}" />
+
 		<execute function="AssertTextEquals" locator1="PGWiki#WIKI_PAGE_TITLE" value1="${wikiChildPageTitle}" />
 		<execute function="AssertTextEquals" locator1="PGWiki#WIKI_PAGE_BODY" value1="${wikiChildPageHTMLContent}" />
 	</command>
@@ -165,10 +170,15 @@
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGWikidisplay#ADD_CHILD_PAGE" value1="Add Child Page" />
 
 		<execute function="Type" locator1="PGWikidisplayAddpage#TITLE_FIELD" value1="${wikiChildPageTitle}" />
+
 		<execute function="SelectNoError" locator1="PGWikidisplayAddpage#FORMAT_DROPDOWN" value1="HTML" />
+
 		<execute function="Confirm" value1="You may lose some formatting when switching from Creole to HTML. Do you want to continue?" />
+
 		<execute function="AssertClick" locator1="PGWikidisplayAddpage#SOURCE_HTML_BUTTON" value1="Source" />
+
 		<execute function="Type#sendKeysNoError" locator1="PGWikidisplayAddpage#CK_EDITOR_SOURCE_FIELD" value1="${welcomeToLiferay}" />
+
 		<execute function="AssertClick#assertTextClickAtAndWaitCKEditor" locator1="PGWikidisplayAddpage#PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="AssertTextEquals" locator1="PGWikidisplay#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -176,6 +186,7 @@
 		<var name="key_wikiChildPageTitle" value="${wikiChildPageTitle}" />
 
 		<execute function="AssertClick" locator1="PGWikidisplay#WIKI_PAGE_CHILD_PAGE_TITLE" value1="${wikiChildPageTitle}" />
+
 		<execute function="AssertTextEquals" locator1="PGWikidisplay#WIKI_PAGE_TITLE" value1="${wikiChildPageTitle}" />
 		<execute function="AssertTextEquals" locator1="PGWikidisplay#WIKI_PAGE_BODY" value1="${wikiChildPageHTMLContent}" />
 	</command>
