@@ -4346,6 +4346,29 @@ hot.deploy.dependency.management.enabled=false</echo>
 		</if>
 	</target>
 
+	<target name="prepare-selenium-browser-driver">
+		<if>
+			<equals arg1="${browser.type}" arg2="googlechrome" />
+			<then>
+				<prepare-chrome-driver />
+			</then>
+		</if>
+
+		<if>
+			<equals arg1="${browser.type}" arg2="ie" />
+			<then>
+				<prepare-ie-driver />
+			</then>
+		</if>
+
+		<if>
+			<equals arg1="${browser.type}" arg2="safari" />
+			<then>
+				<prepare-safari-driver />
+			</then>
+		</if>
+	</target>
+
 	<target name="prepare-selenium-browser-properties">
 		<if>
 			<equals arg1="${browser.type}" arg2="firefox" />
@@ -6295,26 +6318,7 @@ jdbc.default.password=${database.mysql.password}</echo>
 
 		<mkdir dir="${selenium.output.dir}" />
 
-		<if>
-			<equals arg1="${browser.type}" arg2="googlechrome" />
-			<then>
-				<prepare-chrome-driver />
-			</then>
-		</if>
-
-		<if>
-			<equals arg1="${browser.type}" arg2="ie" />
-			<then>
-				<prepare-ie-driver />
-			</then>
-		</if>
-
-		<if>
-			<equals arg1="${browser.type}" arg2="safari" />
-			<then>
-				<prepare-safari-driver />
-			</then>
-		</if>
+		<antcall target="prepare-selenium-browser-driver" />
 
 		<antcall target="copy-sikuli-temp-files" />
 
