@@ -61,12 +61,7 @@
 
 		<execute macro="Workflow#confirmAndViewSucessMessageViaDetails" />
 
-		<if>
-			<condition function="IsElementPresent" locator1="CPMyworkflowtasksTask#BACK" />
-			<then>
-				<execute function="AssertClick#assertPartialTextClickAt" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
-			</then>
-		</if>
+		<execute function="AssertClick#assertPartialTextClickAtAndWait" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
 
 		<execute macro="Workflow#viewCompletedTask">
 			<var name="workflowAssetTitle" value="${workflowAssetTitle}" />
@@ -245,13 +240,6 @@
 
 		<execute macro="Workflow#confirmAndViewSucessMessageViaActions" />
 
-		<if>
-			<condition function="IsElementPresent" locator1="CPMyworkflowtasksTask#BACK" />
-			<then>
-				<execute function="AssertClick#assertPartialTextClickAt" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
-			</then>
-		</if>
-
 		<execute macro="Workflow#viewCompletedTask">
 			<var name="workflowAssetTitle" value="${workflowAssetTitle}" />
 			<var name="workflowAssetType" value="${workflowAssetType}" />
@@ -277,12 +265,7 @@
 
 		<execute macro="Workflow#confirmAndViewSucessMessageViaDetails" />
 
-		<if>
-			<condition function="IsElementPresent" locator1="CPMyworkflowtasksTask#BACK" />
-			<then>
-				<execute function="AssertClick#assertPartialTextClickAt" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
-			</then>
-		</if>
+		<execute function="AssertClick#assertPartialTextClickAtAndWait" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
 
 		<execute macro="Workflow#viewCompletedTask">
 			<var name="workflowAssetTitle" value="${workflowAssetTitle}" />
@@ -306,13 +289,6 @@
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="CPMyworkflowtasks#ASSIGNED_TO_ME_MENULIST_RESUBMIT" value1="Resubmit" />
 
 		<execute macro="Workflow#confirmAndViewSucessMessageViaActions" />
-
-		<if>
-			<condition function="IsElementPresent" locator1="CPMyworkflowtasksTask#BACK" />
-			<then>
-				<execute function="AssertClick#assertPartialTextClickAt" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
-			</then>
-		</if>
 
 		<execute macro="Workflow#viewCompletedTask">
 			<var name="workflowAssetTitle" value="${workflowAssetTitle}" />
@@ -339,12 +315,7 @@
 
 		<execute macro="Workflow#confirmAndViewSucessMessageViaDetails" />
 
-		<if>
-			<condition function="IsElementPresent" locator1="CPMyworkflowtasksTask#BACK" />
-			<then>
-				<execute function="AssertClick#assertPartialTextClickAt" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
-			</then>
-		</if>
+		<execute function="AssertClick#assertPartialTextClickAtAndWait" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
 
 		<execute macro="Workflow#viewCompletedTask">
 			<var name="workflowAssetTitle" value="${workflowAssetTitle}" />
