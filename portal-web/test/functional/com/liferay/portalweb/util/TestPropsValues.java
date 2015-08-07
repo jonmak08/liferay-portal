@@ -242,6 +242,9 @@ public class TestPropsValues extends com.liferay.portal.util.TestPropsValues {
 	public static final String SELENIUM_HOST = TestPropsUtil.get(
 		"selenium.host");
 
+	public static final String SELENIUM_IE_DRIVER_EXECUTABLE =
+		TestPropsUtil.get("selenium.ie.driver.executable");
+
 	public static final String SELENIUM_IMPLEMENTATION = TestPropsUtil.get(
 		"selenium.implementation");
 
