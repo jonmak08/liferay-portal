@@ -133,7 +133,12 @@ if (Validator.isNotNull(content)) {
 		}
 
 		if (ddmStructure == null) {
-			content = contentDoc.getRootElement().element("static-content").getText();
+			if (contentDoc.getRootElement().element("static-content") == null) {
+				content = "";
+			}
+			else {
+				content = contentDoc.getRootElement().element("static-content").getText();
+			}
 		}
 	}
 	catch (Exception e) {
