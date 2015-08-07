@@ -58,7 +58,7 @@
 		<execute macro="Workflow#tearDownSiteWorkflow" />
 	</tear-down>
 
-	<command known-issues="LPS-57027" name="ApprovePageRevisionPG" priority="5">
+	<command name="ApprovePageRevisionPG" priority="5">
 		<var name="pageName" value="Page Revision Page" />
 
 		<execute macro="Page#addWithWorkflowPG">
@@ -149,7 +149,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-57027" name="RejectPageRevisionPG" priority="5">
+	<command name="RejectPageRevisionPG" priority="5">
 		<var name="pageName" value="Page Revision Page" />
 
 		<execute macro="Page#addWithWorkflowPG">
