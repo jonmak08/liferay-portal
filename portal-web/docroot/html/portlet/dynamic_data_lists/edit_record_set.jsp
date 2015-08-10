@@ -107,7 +107,7 @@ if (ddmStructureId > 0) {
 				<aui:option><%= LanguageUtil.get(pageContext, "no-workflow") %></aui:option>
 
 				<%
-				List<WorkflowDefinition> workflowDefinitions = WorkflowDefinitionManagerUtil.getActiveWorkflowDefinitions(company.getCompanyId(), 0, 100, null);
+				List<WorkflowDefinition> workflowDefinitions = WorkflowDefinitionManagerUtil.getActiveWorkflowDefinitions(company.getCompanyId(), QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 
 				for (WorkflowDefinition workflowDefinition : workflowDefinitions) {
 					boolean selected = false;
