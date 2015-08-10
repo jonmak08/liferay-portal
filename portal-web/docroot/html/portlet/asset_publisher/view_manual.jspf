@@ -31,6 +31,7 @@ request.setAttribute("view.jsp-results", assetEntries);
 		<%= PortletDisplayTemplateUtil.renderDDMTemplate(pageContext, portletDisplayDDMTemplateId, assetEntries, contextObjects) %>
 	</c:when>
 	<c:when test="<%= !assetEntries.isEmpty() %>">
+
 		<%
 		for (int assetEntryIndex = 0; assetEntryIndex < assetEntries.size(); assetEntryIndex++) {
 			AssetEntry assetEntry = assetEntries.get(assetEntryIndex);
@@ -67,8 +68,10 @@ request.setAttribute("view.jsp-results", assetEntries);
 			}
 		}
 		%>
+
 	</c:when>
 	<c:otherwise>
+
 		<%
 		if (!showPortletWithNoResults && !hasAddPortletURLs && !((assetCategoryId > 0) || Validator.isNotNull(assetTagName))) {
 			renderRequest.setAttribute(WebKeys.PORTLET_CONFIGURATOR_VISIBILITY, Boolean.TRUE);
