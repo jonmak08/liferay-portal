@@ -81,14 +81,14 @@ boolean preselectCurrentLayout = false;
 
 boolean changeStructure = GetterUtil.getBoolean(request.getAttribute("edit_article.jsp-changeStructure"));
 
-Map<String, String> tokens = new HashMap<String, String>();
-
-tokens.put("structure_id", structureId);
-tokens.put("article_group_id", Long.toString(groupId));
-
 if (article != null) {
 	if (Validator.isNull(content)) {
 		content = article.getContent();
+
+		Map<String, String> tokens = new HashMap<String, String>();
+
+		tokens.put("article_group_id", String.valueOf(groupId));
+		tokens.put("structure_id", structureId);
 
 		if (Validator.isNotNull(toLanguageId)) {
 			content = JournalArticleImpl.getContentByLocale(content, toLanguageId, tokens);
