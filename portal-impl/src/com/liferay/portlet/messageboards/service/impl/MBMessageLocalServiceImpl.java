@@ -1361,6 +1361,20 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 	}
 
 	@Override
+	public void moveDiscussionToTrash(String className, long classPK)
+		throws SystemException {
+
+		List<MBMessage> messages = getMessages(
+			className, classPK, WorkflowConstants.STATUS_APPROVED);
+
+		for (MBMessage message : messages) {
+			message.setStatus(WorkflowConstants.STATUS_IN_TRASH);
+
+			mbMessageLocalService.updateMBMessage(message);
+		}
+	}
+
+	@Override
 	public long moveMessageAttachmentToTrash(
 			long userId, long messageId, String fileName)
 		throws PortalException, SystemException {
@@ -1376,6 +1390,20 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 			userId, fileEntry.getFileEntryId());
 
 		return fileEntry.getFileEntryId();
+	}
+
+	@Override
+	public void restoreDiscussionFromTrash(String className, long classPK)
+		throws SystemException {
+
+		List<MBMessage> messages = getMessages(
+			className, classPK, WorkflowConstants.STATUS_IN_TRASH);
+
+		for (MBMessage message : messages) {
+			message.setStatus(WorkflowConstants.STATUS_APPROVED);
+
+			mbMessageLocalService.updateMBMessage(message);
+		}
 	}
 
 	@Override

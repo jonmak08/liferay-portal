@@ -3585,6 +3585,13 @@ public class JournalArticleLocalServiceImpl
 			JournalArticle.class.getName(), article.getResourcePrimKey(),
 			false);
 
+		// Comment
+
+		if (PropsValues.JOURNAL_ARTICLE_COMMENTS_ENABLED) {
+			mbMessageLocalService.moveDiscussionToTrash(
+				JournalArticle.class.getName(), article.getResourcePrimKey());
+		}
+
 		// Social
 
 		JSONObject extraDataJSONObject = JSONFactoryUtil.createJSONObject();
@@ -3771,6 +3778,13 @@ public class JournalArticleLocalServiceImpl
 
 		trashEntryLocalService.deleteEntry(
 			JournalArticle.class.getName(), article.getResourcePrimKey());
+
+		// Comment
+
+		if (PropsValues.JOURNAL_ARTICLE_COMMENTS_ENABLED) {
+			mbMessageLocalService.restoreDiscussionFromTrash(
+				JournalArticle.class.getName(), article.getResourcePrimKey());
+		}
 
 		// Social
 

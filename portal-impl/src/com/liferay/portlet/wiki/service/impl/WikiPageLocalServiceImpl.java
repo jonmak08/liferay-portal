@@ -1681,6 +1681,11 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 				userId, fileEntry.getFileEntryId());
 		}
 
+		// Comment
+
+		mbMessageLocalService.moveDiscussionToTrash(
+			WikiPage.class.getName(), page.getResourcePrimKey());
+
 		// Social
 
 		JSONObject extraDataJSONObject = JSONFactoryUtil.createJSONObject();
@@ -1826,6 +1831,11 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 			PortletFileRepositoryUtil.restorePortletFileEntryFromTrash(
 				userId, fileEntry.getFileEntryId());
 		}
+
+		// Comment
+
+		mbMessageLocalService.restoreDiscussionFromTrash(
+			WikiPage.class.getName(), page.getResourcePrimKey());
 
 		// Trash
 

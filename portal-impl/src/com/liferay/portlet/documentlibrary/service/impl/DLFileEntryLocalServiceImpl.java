@@ -1795,6 +1795,17 @@ public class DLFileEntryLocalServiceImpl
 			new LiferayFileVersion(dlFileVersion), oldStatus, status,
 			workflowContext, serviceContext);
 
+		if (PropsValues.DL_FILE_ENTRY_COMMENTS_ENABLED) {
+			if (status == WorkflowConstants.STATUS_IN_TRASH) {
+				mbMessageLocalService.moveDiscussionToTrash(
+					DLFileEntry.class.getName(), dlFileEntry.getFileEntryId());
+			}
+			else if (oldStatus == WorkflowConstants.STATUS_IN_TRASH) {
+				mbMessageLocalService.restoreDiscussionFromTrash(
+					DLFileEntry.class.getName(), dlFileEntry.getFileEntryId());
+			}
+		}
+
 		// Indexer
 
 		if (((status == WorkflowConstants.STATUS_APPROVED) ||
