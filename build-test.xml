@@ -107,26 +107,6 @@
 		</sequential>
 	</macrodef>
 
-	<macrodef name="generate-jdbc-properties">
-		<attribute name="properties.file" />
-		<element name="post-action" optional="true" />
-
-		<sequential>
-			<get-database-property property.name="database.driver" />
-			<get-database-property property.name="database.password" />
-			<get-database-property property.name="database.url" />
-			<get-database-property property.name="database.username" />
-
-			<echo file="@{properties.file}"><![CDATA[liferay.home=${project.dir}
-jdbc.default.driverClassName=${database.driver}
-jdbc.default.url=${database.url}
-jdbc.default.username=${database.username}
-jdbc.default.password=${database.password}]]></echo>
-
-			<post-action />
-		</sequential>
-	</macrodef>
-
 	<macrodef name="database-test-for-each-action">
 		<attribute name="app.server.type" />
 		<attribute name="database.test.sequence" />
@@ -206,6 +186,26 @@ jdbc.default.password=${database.password}]]></echo>
 					</exec>
 				</action>
 			</database-test-for-each-action>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="generate-jdbc-properties">
+		<attribute name="properties.file" />
+		<element name="post-action" optional="true" />
+
+		<sequential>
+			<get-database-property property.name="database.driver" />
+			<get-database-property property.name="database.password" />
+			<get-database-property property.name="database.url" />
+			<get-database-property property.name="database.username" />
+
+			<echo file="@{properties.file}"><![CDATA[liferay.home=${project.dir}
+jdbc.default.driverClassName=${database.driver}
+jdbc.default.url=${database.url}
+jdbc.default.username=${database.username}
+jdbc.default.password=${database.password}]]></echo>
+
+			<post-action />
 		</sequential>
 	</macrodef>
 
@@ -4913,6 +4913,10 @@ hot.deploy.dependency.management.enabled=false</echo>
 		<ant antfile="build-test-plugins.xml" target="deploy-simple-server-plugins" />
 	</target>
 
+	<target name="prepare-system-ext-properties">
+		<echo file="${app.server.classes.portal.dir}/system-ext.properties">log.sanitizer.enabled=false</echo>
+	</target>
+
 	<target name="prepare-test-build">
 		<record-git-commit-portal />
 
@@ -5184,28 +5188,6 @@ ANT_OPTS=${env.ANT_OPTS}</echo>
 		<antcall if:set="env.JENKINS_HOME" target="clean-up-java-processes" inheritAll="false" />
 	</target>
 
-	<target name="prepare-test-build-unit">
-		<record-git-commit-portal />
-
-		<antcall target="start" inheritAll="false" />
-
-		<antcall target="compile-test" inheritAll="false" />
-
-		<record-test-class-file-names />
-
-		<antcall target="record-test-plugin-names" inheritAll="false" />
-
-		<echo if:set="env.JENKINS_HOME">
-ANT_OPTS=${env.ANT_OPTS}</echo>
-
-		<antcall if:set="env.JENKINS_HOME" target="clean-up-db2-processes" inheritAll="false" />
-		<antcall if:set="env.JENKINS_HOME" target="clean-up-java-processes" inheritAll="false" />
-	</target>
-
-	<target name="prepare-system-ext-properties">
-		<echo file="${app.server.classes.portal.dir}/system-ext.properties">log.sanitizer.enabled=false</echo>
-	</target>
-
 	<target name="prepare-test-build-tomcat-dependents">
 		<if>
 			<equals arg1="${test.build.bundle.tcat}" arg2="true" />
@@ -5236,6 +5218,24 @@ plugins.includes=marketplace-portlet</echo>
 				<delete file="${lp.plugins.dir}/build.${user.name}.properties" />
 			</then>
 		</if>
+	</target>
+
+	<target name="prepare-test-build-unit">
+		<record-git-commit-portal />
+
+		<antcall target="start" inheritAll="false" />
+
+		<antcall target="compile-test" inheritAll="false" />
+
+		<record-test-class-file-names />
+
+		<antcall target="record-test-plugin-names" inheritAll="false" />
+
+		<echo if:set="env.JENKINS_HOME">
+ANT_OPTS=${env.ANT_OPTS}</echo>
+
+		<antcall if:set="env.JENKINS_HOME" target="clean-up-db2-processes" inheritAll="false" />
+		<antcall if:set="env.JENKINS_HOME" target="clean-up-java-processes" inheritAll="false" />
 	</target>
 
 	<target name="prepare-test-bundle">
