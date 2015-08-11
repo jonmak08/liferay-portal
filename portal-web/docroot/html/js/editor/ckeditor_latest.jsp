@@ -19,7 +19,18 @@
 <%@ taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
 <%
-ScriptData oldScriptData = (ScriptData)request.getAttribute(WebKeys.AUI_SCRIPT_DATA);
+OutputData newOutputData = new OutputData() {
+
+	@Override
+	public void addData(String outputKey, String webKey, StringBundler sb) {
+		_replaceVariationsSB(sb);
+
+		super.addData(outputKey, webKey, sb);
+	}
+
+};
+
+request.setAttribute(WebKeys.OUTPUT_DATA, newOutputData);
 
 ScriptData newScriptData = new ScriptData() {
 
@@ -40,18 +51,6 @@ request.setAttribute(WebKeys.AUI_SCRIPT_DATA, newScriptData);
 </liferay-util:buffer>
 
 <%= _replaceVariations(html) %>
-
-<%
-OutputData outputData = (OutputData)request.getAttribute(WebKeys.OUTPUT_DATA);
-
-StringBundler outputDataSB = outputData.getData("js_editor_ckeditor_skip_editor_loading", WebKeys.PAGE_TOP);
-
-_replaceVariationsSB(outputDataSB);
-
-oldScriptData.merge(newScriptData);
-
-request.setAttribute(WebKeys.AUI_SCRIPT_DATA, oldScriptData);
-%>
 
 <%!
 private static String _replaceVariations(String content) {
