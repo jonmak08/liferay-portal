@@ -117,7 +117,7 @@
 
 		<execute macro="SpamModerationPortlet#navigateToWikis" />
 
-		<execute macro="SpamModerationPortlet#MarkAsNotSpam">
+		<execute macro="SpamModerationPortlet#markAsNotSpam">
 			<var name="assetType" value="wikiPage" />
 			<var name="wikiPageRevision" value="1.0" />
 			<var name="wikiPageTitle" value="Wiki Page Title" />
