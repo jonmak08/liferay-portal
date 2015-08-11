@@ -25,7 +25,7 @@ ScriptData newScriptData = new ScriptData() {
 
 	@Override
 	public void append(String portletId, StringBundler contentSB, String use) {
-		_switchToLatestCKEditor(contentSB);
+		_replaceVariationsSB(contentSB);
 
 		super.append(portletId, contentSB, use);
 	}
@@ -42,7 +42,7 @@ OutputData outputData = (OutputData)request.getAttribute(WebKeys.OUTPUT_DATA);
 
 StringBundler outputDataSB = outputData.getData("js_editor_ckeditor_skip_editor_loading", WebKeys.PAGE_TOP);
 
-_switchToLatestCKEditor(outputDataSB);
+_replaceVariationsSB(outputDataSB);
 
 oldScriptData.merge(newScriptData);
 
@@ -50,10 +50,16 @@ request.setAttribute(WebKeys.AUI_SCRIPT_DATA, oldScriptData);
 %>
 
 <%!
-private static void _switchToLatestCKEditor(StringBundler sb) {
+private static String _replaceVariations(String content) {
+	content = StringUtil.replace(content, "/ckeditor/", "/ckeditor_latest/");
+
+	return content;
+}
+
+private static void _replaceVariationsSB(StringBundler sb) {
 	String content = sb.toString();
 
-	content = StringUtil.replace(content, "/ckeditor/", "/ckeditor_latest/");
+	content = _replaceVariations(content);
 
 	sb.setIndex(0);
 
