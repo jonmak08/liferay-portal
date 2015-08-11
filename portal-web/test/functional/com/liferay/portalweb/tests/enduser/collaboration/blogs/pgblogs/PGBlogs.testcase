@@ -1287,9 +1287,13 @@
 
 		<execute macro="User#logoutPG" />
 
+		<execute function="Pause" locator1="3000" />
+
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 		</execute>
+
+		<execute function="Pause" locator1="3000" />
 
 		<execute macro="BlogsEntryComment#viewPG">
 			<var name="entryComment" value="${guestEntryComment}" />
