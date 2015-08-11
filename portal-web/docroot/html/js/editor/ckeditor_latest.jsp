@@ -35,7 +35,11 @@ ScriptData newScriptData = new ScriptData() {
 request.setAttribute(WebKeys.AUI_SCRIPT_DATA, newScriptData);
 %>
 
-<liferay-util:include page="/html/js/editor/ckeditor.jsp" />
+<liferay-util:buffer var="html">
+	<liferay-util:include page="/html/js/editor/ckeditor.jsp" />
+</liferay-util:buffer>
+
+<%= _replaceVariations(html) %>
 
 <%
 OutputData outputData = (OutputData)request.getAttribute(WebKeys.OUTPUT_DATA);
