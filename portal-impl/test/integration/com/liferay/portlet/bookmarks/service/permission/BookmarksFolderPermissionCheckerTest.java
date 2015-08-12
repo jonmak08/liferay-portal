@@ -12,16 +12,16 @@
  * details.
  */
 
-package com.liferay.portlet.shopping.service.permission;
+package com.liferay.portlet.bookmarks.service.permission;
 
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.security.permission.ActionKeys;
+import com.liferay.portal.service.ServiceTestUtil;
 import com.liferay.portal.service.permission.BasePermissionTestCase;
 import com.liferay.portal.test.EnvironmentExecutionTestListener;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
-import com.liferay.portlet.shopping.model.ShoppingCategory;
-import com.liferay.portlet.shopping.model.ShoppingItem;
-import com.liferay.portlet.shopping.util.ShoppingTestUtil;
+import com.liferay.portlet.bookmarks.model.BookmarksFolder;
+import com.liferay.portlet.bookmarks.util.BookmarksTestUtil;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -33,44 +33,44 @@ import org.junit.runner.RunWith;
  */
 @ExecutionTestListeners(listeners = {EnvironmentExecutionTestListener.class})
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
-public class ShoppingItemPermissionTest extends BasePermissionTestCase {
+public class BookmarksFolderPermissionCheckerTest
+	extends BasePermissionTestCase {
 
 	@Test
 	public void testContains() throws Exception {
 		Assert.assertTrue(
-			ShoppingItemPermission.contains(
-				permissionChecker, _item, ActionKeys.VIEW));
+			BookmarksFolderPermission.contains(
+				permissionChecker, _folder, ActionKeys.VIEW));
 		Assert.assertTrue(
-			ShoppingItemPermission.contains(
-				permissionChecker, _subitem, ActionKeys.VIEW));
+			BookmarksFolderPermission.contains(
+				permissionChecker, _subfolder, ActionKeys.VIEW));
 
 		removePortletModelViewPermission();
 
 		Assert.assertFalse(
-			ShoppingItemPermission.contains(
-				permissionChecker, _item, ActionKeys.VIEW));
+			BookmarksFolderPermission.contains(
+				permissionChecker, _folder, ActionKeys.VIEW));
 		Assert.assertFalse(
-			ShoppingItemPermission.contains(
-				permissionChecker, _subitem, ActionKeys.VIEW));
+			BookmarksFolderPermission.contains(
+				permissionChecker, _subfolder, ActionKeys.VIEW));
 	}
 
 	@Override
 	protected void doSetUp() throws Exception {
-		_item = ShoppingTestUtil.addItem(group.getGroupId());
+		_folder = BookmarksTestUtil.addFolder(
+			group.getGroupId(), ServiceTestUtil.randomString());
 
-		ShoppingCategory category = ShoppingTestUtil.addCategory(
-			group.getGroupId());
-
-		_subitem = ShoppingTestUtil.addItem(
-			group.getGroupId(), category.getCategoryId());
+		_subfolder = BookmarksTestUtil.addFolder(
+			_folder.getFolderId(), ServiceTestUtil.randomString(),
+			serviceContext);
 	}
 
 	@Override
 	protected String getResourceName() {
-		return ShoppingPermission.RESOURCE_NAME;
+		return BookmarksPermission.RESOURCE_NAME;
 	}
 
-	private ShoppingItem _item;
-	private ShoppingItem _subitem;
+	private BookmarksFolder _folder;
+	private BookmarksFolder _subfolder;
 
 }

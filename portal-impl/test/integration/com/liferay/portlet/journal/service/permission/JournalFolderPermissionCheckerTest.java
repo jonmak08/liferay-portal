@@ -12,17 +12,19 @@
  * details.
  */
 
-package com.liferay.portlet.bookmarks.service.permission;
+package com.liferay.portlet.journal.service.permission;
 
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
+import com.liferay.portal.model.ResourceConstants;
+import com.liferay.portal.model.RoleConstants;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.service.ServiceTestUtil;
 import com.liferay.portal.service.permission.BasePermissionTestCase;
 import com.liferay.portal.test.EnvironmentExecutionTestListener;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
-import com.liferay.portlet.bookmarks.model.BookmarksEntry;
-import com.liferay.portlet.bookmarks.model.BookmarksFolder;
-import com.liferay.portlet.bookmarks.util.BookmarksTestUtil;
+import com.liferay.portal.util.RoleTestUtil;
+import com.liferay.portlet.journal.model.JournalFolder;
+import com.liferay.portlet.journal.util.JournalTestUtil;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -34,44 +36,53 @@ import org.junit.runner.RunWith;
  */
 @ExecutionTestListeners(listeners = {EnvironmentExecutionTestListener.class})
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
-public class BookmarksEntryPermissionTest extends BasePermissionTestCase {
+public class JournalFolderPermissionCheckerTest extends BasePermissionTestCase {
 
 	@Test
 	public void testContains() throws Exception {
 		Assert.assertTrue(
-			BookmarksEntryPermission.contains(
-				permissionChecker, _entry.getEntryId(), ActionKeys.VIEW));
+			JournalFolderPermission.contains(
+				permissionChecker, _folder, ActionKeys.VIEW));
 		Assert.assertTrue(
-			BookmarksEntryPermission.contains(
-				permissionChecker, _subentry.getEntryId(), ActionKeys.VIEW));
+			JournalFolderPermission.contains(
+				permissionChecker, _subfolder, ActionKeys.VIEW));
 
 		removePortletModelViewPermission();
 
 		Assert.assertFalse(
-			BookmarksEntryPermission.contains(
-				permissionChecker, _entry.getEntryId(), ActionKeys.VIEW));
+			JournalFolderPermission.contains(
+				permissionChecker, _folder, ActionKeys.VIEW));
 		Assert.assertFalse(
-			BookmarksEntryPermission.contains(
-				permissionChecker, _subentry.getEntryId(), ActionKeys.VIEW));
+			JournalFolderPermission.contains(
+				permissionChecker, _subfolder, ActionKeys.VIEW));
 	}
 
 	@Override
 	protected void doSetUp() throws Exception {
-		_entry = BookmarksTestUtil.addEntry(group.getGroupId(), true);
-
-		BookmarksFolder folder = BookmarksTestUtil.addFolder(
+		_folder = JournalTestUtil.addFolder(
 			group.getGroupId(), ServiceTestUtil.randomString());
 
-		_subentry = BookmarksTestUtil.addEntry(
-			folder.getFolderId(), true, serviceContext);
+		_subfolder = JournalTestUtil.addFolder(
+			group.getGroupId(), _folder.getFolderId(),
+			ServiceTestUtil.randomString());
 	}
 
 	@Override
 	protected String getResourceName() {
-		return BookmarksPermission.RESOURCE_NAME;
+		return JournalPermission.RESOURCE_NAME;
 	}
 
-	private BookmarksEntry _entry;
-	private BookmarksEntry _subentry;
+	@Override
+	protected void removePortletModelViewPermission() throws Exception {
+		super.removePortletModelViewPermission();
+
+		RoleTestUtil.removeResourcePermission(
+			RoleConstants.GUEST, getResourceName(),
+			ResourceConstants.SCOPE_INDIVIDUAL,
+			String.valueOf(group.getGroupId()), ActionKeys.VIEW);
+	}
+
+	private JournalFolder _folder;
+	private JournalFolder _subfolder;
 
 }

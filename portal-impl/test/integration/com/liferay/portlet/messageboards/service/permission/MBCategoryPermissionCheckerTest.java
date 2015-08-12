@@ -12,16 +12,15 @@
  * details.
  */
 
-package com.liferay.portlet.bookmarks.service.permission;
+package com.liferay.portlet.messageboards.service.permission;
 
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.security.permission.ActionKeys;
-import com.liferay.portal.service.ServiceTestUtil;
 import com.liferay.portal.service.permission.BasePermissionTestCase;
 import com.liferay.portal.test.EnvironmentExecutionTestListener;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
-import com.liferay.portlet.bookmarks.model.BookmarksFolder;
-import com.liferay.portlet.bookmarks.util.BookmarksTestUtil;
+import com.liferay.portlet.messageboards.model.MBCategory;
+import com.liferay.portlet.messageboards.util.MBTestUtil;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -33,43 +32,41 @@ import org.junit.runner.RunWith;
  */
 @ExecutionTestListeners(listeners = {EnvironmentExecutionTestListener.class})
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
-public class BookmarksFolderPermissionTest extends BasePermissionTestCase {
+public class MBCategoryPermissionCheckerTest extends BasePermissionTestCase {
 
 	@Test
 	public void testContains() throws Exception {
 		Assert.assertTrue(
-			BookmarksFolderPermission.contains(
-				permissionChecker, _folder, ActionKeys.VIEW));
+			MBCategoryPermission.contains(
+				permissionChecker, _category, ActionKeys.VIEW));
 		Assert.assertTrue(
-			BookmarksFolderPermission.contains(
-				permissionChecker, _subfolder, ActionKeys.VIEW));
+			MBCategoryPermission.contains(
+				permissionChecker, _subcategory, ActionKeys.VIEW));
 
 		removePortletModelViewPermission();
 
 		Assert.assertFalse(
-			BookmarksFolderPermission.contains(
-				permissionChecker, _folder, ActionKeys.VIEW));
+			MBCategoryPermission.contains(
+				permissionChecker, _category, ActionKeys.VIEW));
 		Assert.assertFalse(
-			BookmarksFolderPermission.contains(
-				permissionChecker, _subfolder, ActionKeys.VIEW));
+			MBCategoryPermission.contains(
+				permissionChecker, _subcategory, ActionKeys.VIEW));
 	}
 
 	@Override
 	protected void doSetUp() throws Exception {
-		_folder = BookmarksTestUtil.addFolder(
-			group.getGroupId(), ServiceTestUtil.randomString());
+		_category = MBTestUtil.addCategory(group.getGroupId());
 
-		_subfolder = BookmarksTestUtil.addFolder(
-			_folder.getFolderId(), ServiceTestUtil.randomString(),
-			serviceContext);
+		_subcategory = MBTestUtil.addCategory(
+			group.getGroupId(), _category.getCategoryId());
 	}
 
 	@Override
 	protected String getResourceName() {
-		return BookmarksPermission.RESOURCE_NAME;
+		return MBPermission.RESOURCE_NAME;
 	}
 
-	private BookmarksFolder _folder;
-	private BookmarksFolder _subfolder;
+	private MBCategory _category;
+	private MBCategory _subcategory;
 
 }
