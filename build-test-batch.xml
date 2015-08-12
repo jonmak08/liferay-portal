@@ -243,6 +243,9 @@
 		<attribute name="database.type" />
 
 		<sequential>
+			<property name="testray.main.component.name" value="Integration" />
+			<property name="testray.testcase.priority" value="4" />
+
 			<run-batch-test>
 				<test-action>
 					<database-test-run-test database.type="@{database.type}">
@@ -294,6 +297,9 @@
 	</target>
 
 	<target name="plugins">
+		<property name="testray.main.component.name" value="Plugins" />
+		<property name="testray.testcase.priority" value="4" />
+
 		<run-batch-test>
 			<test-action>
 				<ant antfile="build-test-plugins.xml" target="test-plugin-group">
@@ -308,6 +314,9 @@
 	</target>
 
 	<target name="portal-web">
+		<property name="testray.main.component.name" value="Portal Web" />
+		<property name="testray.testcase.priority" value="4" />
+
 		<run-batch-test>
 			<test-action>
 				<database-test-run-test database.type="mysql">
@@ -331,6 +340,9 @@
 	</target>
 
 	<target name="tck">
+		<property name="testray.main.component.name" value="TCK" />
+		<property name="testray.testcase.priority" value="4" />
+
 		<run-batch-test tomcat.gc.log="true" tsant.gc.log="true">
 			<test-action>
 				<database-test-run-test database.type="mysql" stop.app.server="true">
@@ -353,6 +365,9 @@
 	</target>
 
 	<target name="unit">
+		<property name="testray.main.component.name" value="Unit" />
+		<property name="testray.testcase.priority" value="4" />
+
 		<run-batch-test>
 			<test-action>
 				<ant dir="portal-service" target="test-class-group" inheritAll="false">
