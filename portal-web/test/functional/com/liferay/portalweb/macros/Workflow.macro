@@ -54,8 +54,6 @@
 
 		<execute macro="Workflow#confirmAndViewSucessMessageViaDetails" />
 
-		<execute function="AssertClick#assertPartialTextClickAt" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
-
 		<execute macro="Workflow#viewCompletedTask">
 			<var name="workflowAssetTitle" value="${workflowAssetTitle}" />
 			<var name="workflowAssetType" value="${workflowAssetType}" />
@@ -113,8 +111,6 @@
 		</if>
 
 		<execute macro="Workflow#confirmAndViewSucessMessageViaDetails" />
-
-		<execute function="AssertClick#assertPartialTextClickAt" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
 
 		<execute macro="Workflow#viewTaskAssignedToMe">
 			<var name="workflowAssetTitle" value="${workflowAssetTitle}" />
@@ -258,8 +254,6 @@
 
 		<execute macro="Workflow#confirmAndViewSucessMessageViaDetails" />
 
-		<execute function="AssertClick#assertPartialTextClickAt" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
-
 		<execute macro="Workflow#viewCompletedTask">
 			<var name="workflowAssetTitle" value="${workflowAssetTitle}" />
 			<var name="workflowAssetType" value="${workflowAssetType}" />
@@ -307,8 +301,6 @@
 		<execute function="AssertClick" locator1="CPMyworkflowtasksTask#MENU_RESUBMIT" value1="Resubmit" />
 
 		<execute macro="Workflow#confirmAndViewSucessMessageViaDetails" />
-
-		<execute function="AssertClick#assertPartialTextClickAt" locator1="CPMyworkflowtasksTask#BACK" value1="Back" />
 
 		<execute macro="Workflow#viewCompletedTask">
 			<var name="workflowAssetTitle" value="${workflowAssetTitle}" />
