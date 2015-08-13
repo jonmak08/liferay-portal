@@ -658,16 +658,6 @@ public class JournalArticleFinderImpl
 	}
 
 	@Override
-	public List<JournalArticle> findByG_C_S(
-			long groupId, long classNameId, String ddmStructureKey,
-			QueryDefinition queryDefinition)
-		throws SystemException {
-
-		return doFindByG_C_S(
-			groupId, classNameId, ddmStructureKey, queryDefinition, false);
-	}
-
-	@Override
 	public List<JournalArticle> findByG_F_C(
 			long groupId, List<Long> folderIds, long classNameId,
 			QueryDefinition queryDefinition)
@@ -675,6 +665,16 @@ public class JournalArticleFinderImpl
 
 		return doFindByG_F_C(
 			groupId, folderIds, classNameId, queryDefinition, false);
+	}
+
+	@Override
+	public List<JournalArticle> findByG_C_S(
+			long groupId, long classNameId, String ddmStructureKey,
+			QueryDefinition queryDefinition)
+		throws SystemException {
+
+		return doFindByG_C_S(
+			groupId, classNameId, ddmStructureKey, queryDefinition, false);
 	}
 
 	@Override
