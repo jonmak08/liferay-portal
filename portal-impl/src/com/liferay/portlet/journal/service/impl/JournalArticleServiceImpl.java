@@ -987,8 +987,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 		throws PortalException, SystemException {
 
 		return getGroupArticles(
-			groupId, userId, rootFolderId, status,
-			JournalArticleConstants.OWNER_ID_DEFAULT, start, end,
+			groupId, userId, rootFolderId, status, false, start, end,
 			orderByComparator);
 	}
 
@@ -1037,9 +1036,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 	 *         with the "STATUS_" prefix.
 	 * @param  start the lower bound of the range of web content articles to
 	 *         return
-	 * @param  ownerId the userId of the web content article's owner
-	 *         (optionally <code>0</code>). Only used if userId is
-	 *         <code>0</code>
+	 * @param  includeOwner whether to include the user web content or not
 	 * @param  end the upper bound of the range of web content articles to
 	 *         return (not inclusive)
 	 * @param  orderByComparator the comparator to order the web content
@@ -1053,7 +1050,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 	@Override
 	public List<JournalArticle> getGroupArticles(
 			long groupId, long userId, long rootFolderId, int status,
-			long ownerId, int start, int end,
+			boolean includeOwner, int start, int end,
 			OrderByComparator orderByComparator)
 		throws PortalException, SystemException {
 
@@ -1069,7 +1066,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 
 		return journalArticleFinder.filterFindByG_U_F_C(
 			groupId, userId, folderIds,
-			JournalArticleConstants.CLASSNAME_ID_DEFAULT, ownerId,
+			JournalArticleConstants.CLASSNAME_ID_DEFAULT, includeOwner,
 			queryDefinition);
 	}
 
@@ -1102,8 +1099,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 		throws PortalException, SystemException {
 
 		return getGroupArticlesCount(
-			groupId, userId, rootFolderId, status,
-			JournalArticleConstants.OWNER_ID_DEFAULT);
+			groupId, userId, rootFolderId, status, false);
 	}
 
 	/**
@@ -1117,9 +1113,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 	 * @param  status the web content article's workflow status. For more
 	 *         information see {@link WorkflowConstants} for constants starting
 	 *         with the "STATUS_" prefix.
-	 * @param  ownerId the userId of the web content article's owner
-	 *         (optionally <code>0</code>). Only used if userId is
-	 *         <code>0</code>
+	 * @param  includeOwner whether to include the user web content or not
 	 * @return the range of matching web content articles ordered by the
 	 *         comparator
 	 * @throws PortalException if the root folder could not be found, if the
@@ -1129,7 +1123,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 	@Override
 	public int getGroupArticlesCount(
 			long groupId, long userId, long rootFolderId, int status,
-			long ownerId)
+			boolean includeOwner)
 		throws PortalException, SystemException {
 
 		List<Long> folderIds = new ArrayList<Long>();
@@ -1143,7 +1137,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 
 		return journalArticleFinder.filterCountByG_U_F_C(
 			groupId, userId, folderIds,
-			JournalArticleConstants.CLASSNAME_ID_DEFAULT, ownerId,
+			JournalArticleConstants.CLASSNAME_ID_DEFAULT, includeOwner,
 			queryDefinition);
 	}
 

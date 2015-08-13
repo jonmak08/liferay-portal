@@ -162,8 +162,7 @@ public class JournalFolderServiceImpl extends JournalFolderServiceBaseImpl {
 		throws SystemException {
 
 		return getFoldersAndArticles(
-			groupId, JournalFolderConstants.DEFAULT_USER_ID, folderId, status,
-			start, end, obc);
+			groupId, 0, folderId, status, start, end, obc);
 	}
 
 	@Override
@@ -229,8 +228,7 @@ public class JournalFolderServiceImpl extends JournalFolderServiceBaseImpl {
 			long groupId, long folderId, int status)
 		throws SystemException {
 
-		return getFoldersAndArticlesCount(
-			groupId, JournalFolderConstants.DEFAULT_USER_ID, folderId, status);
+		return getFoldersAndArticlesCount(groupId, 0, folderId, status);
 	}
 
 	@Override
