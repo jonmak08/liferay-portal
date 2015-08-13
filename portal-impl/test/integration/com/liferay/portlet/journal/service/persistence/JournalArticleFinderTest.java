@@ -76,6 +76,8 @@ public class JournalArticleFinderTest {
 
 	@Before
 	public void setUp() throws Exception {
+		_articles.clear();
+
 		_group = GroupTestUtil.addGroup();
 
 		_ddmStructure = DDMStructureTestUtil.addStructure(
@@ -140,8 +142,53 @@ public class JournalArticleFinderTest {
 	}
 
 	@Test
+	public void testDraftArticles() throws Exception {
+		QueryDefinition queryDefinition = new QueryDefinition(
+			WorkflowConstants.STATUS_ANY);
+
+		testQueryByG_C(
+			_group.getGroupId(), Collections.<Long>emptyList(),
+			JournalArticleConstants.CLASSNAME_ID_DEFAULT, queryDefinition, 2);
+
+		DDMTemplate ddmTemplate = DDMTemplateTestUtil.addTemplate(
+				_group.getGroupId(), _ddmStructure.getStructureId());
+
+		queryDefinition.setUserId(TestPropsValues.getUserId());
+
+		JournalArticle article = JournalTestUtil.addArticleWithXMLContent(
+			_group.getGroupId(), _folder.getFolderId(),
+			JournalArticleConstants.CLASSNAME_ID_DEFAULT,
+			"<title>Article 1</title>",
+			_ddmStructure.getStructureKey(),
+			ddmTemplate.getTemplateKey());
+
+		article.setUserId(_USER_ID);
+		article.setStatus(WorkflowConstants.STATUS_DRAFT);
+
+		JournalArticleLocalServiceUtil.updateJournalArticle(article);
+
+		_articles.add(article);
+
+		queryDefinition.setStatus(WorkflowConstants.STATUS_APPROVED);
+		queryDefinition.setUserId(_USER_ID);
+		queryDefinition.setIncludeOwner(true);
+
+		testQueryByG_C(
+			_group.getGroupId(), Collections.<Long>emptyList(),
+			JournalArticleConstants.CLASSNAME_ID_DEFAULT, queryDefinition, 3);
+
+		queryDefinition.setIncludeOwner(false);
+
+		testQueryByG_C(
+			_group.getGroupId(), Collections.<Long>emptyList(),
+			JournalArticleConstants.CLASSNAME_ID_DEFAULT, queryDefinition, 0);
+	}
+
+	@Test
 	public void testFindByExpirationDate() throws Exception {
 		QueryDefinition queryDefinition = new QueryDefinition();
+
+		// test status any
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_ANY);
 
@@ -156,6 +203,8 @@ public class JournalArticleFinderTest {
 
 		Assert.assertEquals(_USER_ID, article.getUserId());
 
+		// test status in trash
+
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH);
 
 		articles = JournalArticleFinderUtil.findByExpirationDate(
@@ -168,6 +217,8 @@ public class JournalArticleFinderTest {
 
 		Assert.assertEquals(_USER_ID, article.getUserId());
 
+		// test status not in trash
+
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH, true);
 
 		articles = JournalArticleFinderUtil.findByExpirationDate(
@@ -179,10 +230,6 @@ public class JournalArticleFinderTest {
 
 	@Test
 	public void testFindByR_D() throws Exception {
-		Calendar calendar = new GregorianCalendar();
-
-		calendar.add(Calendar.DATE, -2);
-
 		JournalArticle article = JournalArticleFinderUtil.findByR_D(
 			_article.getResourcePrimKey(), new Date());
 
@@ -213,6 +260,8 @@ public class JournalArticleFinderTest {
 	public void testQueryByC_G_F_C_A_V_T_D_C_T_S_T_D_R() throws Exception {
 		QueryDefinition queryDefinition = new QueryDefinition();
 
+		// test status any
+
 		queryDefinition.setStatus(WorkflowConstants.STATUS_ANY);
 
 		testQueryByC_G_F_C_A_V_T_D_C_T_S_T_D_R(
@@ -227,6 +276,8 @@ public class JournalArticleFinderTest {
 			null, null, null, _ddmStructure.getStructureKey(), null, null, null,
 			null, true, queryDefinition, 1);
 
+		// test status in trash
+
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH);
 
 		testQueryByC_G_F_C_A_V_T_D_C_T_S_T_D_R(
@@ -234,6 +285,8 @@ public class JournalArticleFinderTest {
 			JournalArticleConstants.CLASSNAME_ID_DEFAULT, null, null, "Article",
 			null, null, null, (String)null, null, null, null, null, true,
 			queryDefinition, 1);
+
+		// test status not in trash
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH, true);
 
@@ -248,6 +301,8 @@ public class JournalArticleFinderTest {
 	public void testQueryByG_C_S() throws Exception {
 		QueryDefinition queryDefinition = new QueryDefinition();
 
+		// test status any
+
 		queryDefinition.setStatus(WorkflowConstants.STATUS_ANY);
 
 		testQueryByG_C_S(
@@ -257,6 +312,8 @@ public class JournalArticleFinderTest {
 			_group.getGroupId(), JournalArticleConstants.CLASSNAME_ID_DEFAULT,
 			StringPool.BLANK, queryDefinition, 2);
 
+		// test status in trash
+
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH);
 
 		testQueryByG_C_S(
@@ -265,6 +322,8 @@ public class JournalArticleFinderTest {
 		testQueryByG_C_S(
 			_group.getGroupId(), JournalArticleConstants.CLASSNAME_ID_DEFAULT,
 			StringPool.BLANK, queryDefinition, 1);
+
+		// test status not in trash
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH, true);
 
@@ -280,17 +339,25 @@ public class JournalArticleFinderTest {
 	public void testQueryByG_F() throws Exception {
 		QueryDefinition queryDefinition = new QueryDefinition();
 
+		// test status any
+
 		queryDefinition.setStatus(WorkflowConstants.STATUS_ANY);
 
 		testQueryByG_F(_group.getGroupId(), _folderIds, queryDefinition, 4);
+
+		// test status in trash
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH);
 
 		testQueryByG_F(_group.getGroupId(), _folderIds, queryDefinition, 1);
 
+		// test status not in trash
+
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH, true);
 
 		testQueryByG_F(_group.getGroupId(), _folderIds, queryDefinition, 3);
+
+		// test comparators
 
 		testQueryByG_F(new ArticleCreateDateComparator(true));
 		testQueryByG_F(new ArticleCreateDateComparator(false));
@@ -309,26 +376,43 @@ public class JournalArticleFinderTest {
 	}
 
 	@Test
-	public void testQueryByG_U_F_C() throws Exception {
-		QueryDefinition queryDefinition = new QueryDefinition();
+	public void testQueryByG_F_C() throws Exception {
 
-		queryDefinition.setStatus(WorkflowConstants.STATUS_ANY);
+		// test status any (constructor), which is status not in trash
 
-		testQueryByG_U_C(
-			_group.getGroupId(), TestPropsValues.getUserId(),
-			Collections.<Long>emptyList(),
+		QueryDefinition queryDefinition = new QueryDefinition(
+			WorkflowConstants.STATUS_ANY);
+		queryDefinition.setUserId(TestPropsValues.getUserId());
+
+		testQueryByG_C(
+			_group.getGroupId(), Collections.<Long>emptyList(),
 			JournalArticleConstants.CLASSNAME_ID_DEFAULT, queryDefinition, 2);
 
-		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH);
+		// test status any
 
-		testQueryByG_U_C(
-			_group.getGroupId(), _USER_ID, Collections.<Long>emptyList(),
+		queryDefinition.setStatus(WorkflowConstants.STATUS_ANY);
+		queryDefinition.setUserId(_USER_ID);
+
+		testQueryByG_C(
+			_group.getGroupId(), Collections.<Long>emptyList(),
 			JournalArticleConstants.CLASSNAME_ID_DEFAULT, queryDefinition, 1);
 
-		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH, true);
+		// test status in trash
 
-		testQueryByG_U_C(
-			_group.getGroupId(), _USER_ID, Collections.<Long>emptyList(),
+		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH);
+		queryDefinition.setUserId(_USER_ID);
+
+		testQueryByG_C(
+			_group.getGroupId(), Collections.<Long>emptyList(),
+			JournalArticleConstants.CLASSNAME_ID_DEFAULT, queryDefinition, 1);
+
+		// test status not in trash
+
+		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH, true);
+		queryDefinition.setUserId(_USER_ID);
+
+		testQueryByG_C(
+			_group.getGroupId(), Collections.<Long>emptyList(),
 			JournalArticleConstants.CLASSNAME_ID_DEFAULT, queryDefinition, 0);
 	}
 
@@ -380,6 +464,24 @@ public class JournalArticleFinderTest {
 				title, description, content, type, ddmStructureKey,
 				ddmTemplateKey, displayDateGT, displayDateLT, reviewDate,
 				andOperator, queryDefinition);
+
+		actualCount = articles.size();
+
+		Assert.assertEquals(expectedCount, actualCount);
+	}
+
+	protected void testQueryByG_C(
+			long groupId, List<Long> folderIds, long classNameId,
+			QueryDefinition queryDefinition, int expectedCount)
+		throws Exception {
+
+		int actualCount = JournalArticleFinderUtil.countByG_F_C(
+			groupId, folderIds, classNameId, queryDefinition);
+
+		List<JournalArticle> articles = JournalArticleFinderUtil.findByG_F_C(
+			groupId, folderIds, classNameId, queryDefinition);
+
+		Assert.assertEquals(expectedCount, actualCount);
 
 		actualCount = articles.size();
 
@@ -447,24 +549,6 @@ public class JournalArticleFinderTest {
 				_group.getGroupId(), _folderIds, queryDefinition);
 
 		Assert.assertEquals(expectedArticles, actualArticles);
-	}
-
-	protected void testQueryByG_U_C(
-			long groupId, long userId, List<Long> folderIds, long classNameId,
-			QueryDefinition queryDefinition, int expectedCount)
-		throws Exception {
-
-		int actualCount = JournalArticleFinderUtil.countByG_U_F_C(
-			groupId, userId, folderIds, classNameId, queryDefinition);
-
-		Assert.assertEquals(expectedCount, actualCount);
-
-		List<JournalArticle> articles = JournalArticleFinderUtil.findByG_U_F_C(
-			groupId, userId, folderIds, classNameId, queryDefinition);
-
-		actualCount = articles.size();
-
-		Assert.assertEquals(expectedCount, actualCount);
 	}
 
 	private static final long _USER_ID = 1234L;
