@@ -167,7 +167,8 @@ public class CustomSQL {
 			}
 			else {
 				sql = sql.replace(
-					_USER_ID_KEYWORD, tableName.concat(_USER_ID_CONDITION_DEFAULT));
+					_USER_ID_KEYWORD,
+					tableName.concat(_USER_ID_CONDITION_DEFAULT));
 
 				sql = sql.replace(_USER_ID_AND_OR_CONNECTOR, " AND ");
 			}
@@ -863,13 +864,6 @@ public class CustomSQL {
 
 	private static final String _ORDER_BY_CLAUSE = " ORDER BY ";
 
-	private static final String _USER_ID_AND_OR_CONNECTOR =
-		"[$USER_ID_AND_OR_CONNECTOR$]";
-
-	private static final String _USER_ID_CONDITION_DEFAULT = "userId = ?";
-
-	private static final String _USER_ID_KEYWORD = "[$USER_ID$]";
-
 	private static final String _STATUS_CONDITION_DEFAULT = "status = ?";
 
 	private static final String _STATUS_CONDITION_EMPTY =
@@ -878,6 +872,13 @@ public class CustomSQL {
 	private static final String _STATUS_CONDITION_INVERSE = "status != ?";
 
 	private static final String _STATUS_KEYWORD = "[$STATUS$]";
+
+	private static final String _USER_ID_AND_OR_CONNECTOR =
+		"[$USER_ID_AND_OR_CONNECTOR$]";
+
+	private static final String _USER_ID_CONDITION_DEFAULT = "userId = ?";
+
+	private static final String _USER_ID_KEYWORD = "[$USER_ID$]";
 
 	private static Log _log = LogFactoryUtil.getLog(CustomSQL.class);
 
