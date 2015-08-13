@@ -1,0 +1,39 @@
+<definition>
+	<command name="viewAlertDashboard">
+		<var name="key_environmentName" value="${environmentName}" />
+		<var name="key_serverName" value="${serverName}" />
+
+		<execute function="AssertTextEquals" locator1="LCSDashboard#ALERTS_ALERT" value1="${alertMessage}" />
+		<execute function="AssertTextEquals" locator1="LCSDashboard#ALERTS_ENVIRONMENT" value1="${environmentName}" />
+		<execute function="AssertTextEquals" locator1="LCSDashboard#ALERTS_SERVER_LINK" value1="${serverName}" />
+		<execute function="AssertTextEquals" locator1="LCSDashboard#ALERTS_LOCATION" value1="${serverLocation}" />
+	</command>
+
+	<command name="viewAlertEnvironment">
+		<var name="key_serverName" value="${serverName}" />
+
+		<execute function="AssertTextEquals" locator1="LCSEnvironment#ALERTS_ALERT" value1="${alertMessage}" />
+		<execute function="AssertTextEquals" locator1="LCSEnvironment#ALERTS_SERVER_LINK" value1="${serverName}" />
+		<execute function="AssertTextEquals" locator1="LCSEnvironment#ALERTS_LOCATION" value1="${serverLocation}" />
+	</command>
+
+	<command name="viewAlertServer">
+		<execute function="AssertTextEquals" locator1="LCSServer#ALERTS_ALERT_1" value1="${alertMessage}" />
+	</command>
+
+	<command name="viewNoAlertDashboard">
+		<var name="key_serverName" value="${serverName}" />
+
+		<execute function="AssertElementNotPresent" locator1="LCSDashboard#ALERTS_ALERT" />
+	</command>
+
+	<command name="viewNoAlertEnvironment">
+		<var name="key_serverName" value="${serverName}" />
+
+		<execute function="AssertElementNotPresent" locator1="LCSEnvironment#ALERTS_ALERT" />
+	</command>
+
+	<command name="viewNoAlertServer">
+		<execute function="AssertElementNotPresent" locator1="LCSServer#ALERTS_ALERT_1" />
+	</command>
+</definition>
