@@ -153,11 +153,11 @@ int total = 0;
 			status = WorkflowConstants.STATUS_ANY;
 		}
 
-		total = JournalArticleServiceUtil.getGroupArticlesCount(scopeGroupId, userId, folderId, status);
+		total = JournalArticleServiceUtil.getGroupArticlesCount(scopeGroupId, userId, folderId, status, themeDisplay.getUserId());
 
 		searchContainer.setTotal(total);
 
-		results = JournalArticleServiceUtil.getGroupArticles(scopeGroupId, userId, folderId, status, searchContainer.getStart(), searchContainer.getEnd(), searchContainer.getOrderByComparator());
+		results = JournalArticleServiceUtil.getGroupArticles(scopeGroupId, userId, folderId, status, themeDisplay.getUserId(), searchContainer.getStart(), searchContainer.getEnd(), searchContainer.getOrderByComparator());
 		%>
 
 	</c:when>
