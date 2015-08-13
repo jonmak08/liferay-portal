@@ -2127,7 +2127,9 @@
 			<var name="kfFormName" value="Created Task Form" />
 		</execute>
 
-		<execute macro="KaleoFormsAdmin#saveProcess" />
+		<execute macro="KaleoFormsAdmin#saveProcess">
+			<var name="kfProcessName" value="${kfProcessName}" />
+		</execute>
 
 		<execute macro="KaleoFormsAdmin#viewProcess">
 			<var name="kfProcessName" value="${kfProcessName}" />
@@ -4561,7 +4563,9 @@
 			<var name="kfFormName" value="Edited Create Task Form" />
 		</execute>
 
-		<execute macro="KaleoFormsAdmin#saveProcess" />
+		<execute macro="KaleoFormsAdmin#saveProcess">
+			<var name="kfProcessName" value="${kfProcessName}" />
+		</execute>
 
 		<execute macro="KaleoFormsAdmin#viewProcess">
 			<var name="kfProcessName" value="${kfProcessName}" />
@@ -4749,7 +4753,9 @@
 			<var name="kfFormName" value="New Review Task Form" />
 		</execute>
 
-		<execute macro="KaleoFormsAdmin#saveProcess" />
+		<execute macro="KaleoFormsAdmin#saveProcess">
+			<var name="kfProcessName" value="${kfProcessName}" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="kfProcessName" value="${kfProcessName}" />
