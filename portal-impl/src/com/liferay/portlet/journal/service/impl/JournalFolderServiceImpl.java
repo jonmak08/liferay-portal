@@ -23,6 +23,7 @@ import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.journal.model.JournalFolder;
+import com.liferay.portlet.journal.model.JournalFolderConstants;
 import com.liferay.portlet.journal.service.base.JournalFolderServiceBaseImpl;
 import com.liferay.portlet.journal.service.permission.JournalFolderPermission;
 
@@ -160,11 +161,9 @@ public class JournalFolderServiceImpl extends JournalFolderServiceBaseImpl {
 			OrderByComparator obc)
 		throws SystemException {
 
-		QueryDefinition queryDefinition = new QueryDefinition(
-			status, start, end, obc);
-
-		return journalFolderFinder.filterFindF_A_ByG_F(
-			groupId, folderId, queryDefinition);
+		return getFoldersAndArticles(
+			groupId, JournalFolderConstants.DEFAULT_USER_ID, folderId, status,
+			start, end, obc);
 	}
 
 	@Override
@@ -175,6 +174,19 @@ public class JournalFolderServiceImpl extends JournalFolderServiceBaseImpl {
 
 		return getFoldersAndArticles(
 			groupId, folderId, WorkflowConstants.STATUS_ANY, start, end, obc);
+	}
+
+	@Override
+	public List<Object> getFoldersAndArticles(
+			long groupId, long userId, long folderId, int status, int start,
+			int end, OrderByComparator obc)
+		throws SystemException {
+
+		QueryDefinition queryDefinition = new QueryDefinition(
+			status, start, end, obc);
+
+		return journalFolderFinder.filterFindF_A_ByG_U_F(
+			groupId, userId, folderId, queryDefinition);
 	}
 
 	@Override
@@ -217,8 +229,17 @@ public class JournalFolderServiceImpl extends JournalFolderServiceBaseImpl {
 			long groupId, long folderId, int status)
 		throws SystemException {
 
-		return journalFolderFinder.filterCountF_A_ByG_F(
-			groupId, folderId, new QueryDefinition(status));
+		return getFoldersAndArticlesCount(
+			groupId, JournalFolderConstants.DEFAULT_USER_ID, folderId, status);
+	}
+
+	@Override
+	public int getFoldersAndArticlesCount(
+			long groupId, long userId, long folderId, int status)
+		throws SystemException {
+
+		return journalFolderFinder.filterCountF_A_ByG_U_F(
+			groupId, userId, folderId, new QueryDefinition(status));
 	}
 
 	@Override

@@ -24,6 +24,7 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.security.permission.InlineSQLHelperUtil;
 import com.liferay.portal.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portlet.journal.model.JournalArticle;
@@ -43,14 +44,14 @@ import java.util.List;
 public class JournalFolderFinderImpl extends BasePersistenceImpl<JournalFolder>
 	implements JournalFolderFinder {
 
-	public static final String COUNT_A_BY_G_F =
-		JournalFolderFinder.class.getName() + ".countA_ByG_F";
+	public static final String COUNT_A_BY_G_U_F =
+		JournalFolderFinder.class.getName() + ".countA_ByG_U_F";
 
 	public static final String COUNT_F_BY_G_F =
 		JournalFolderFinder.class.getName() + ".countF_ByG_F";
 
-	public static final String FIND_A_BY_G_F =
-		JournalFolderFinder.class.getName() + ".findA_ByG_F";
+	public static final String FIND_A_BY_G_U_F =
+		JournalFolderFinder.class.getName() + ".findA_ByG_U_F";
 
 	public static final String FIND_F_BY_NO_ASSETS =
 		JournalFolderFinder.class.getName() + ".findByF_ByNoAssets";
@@ -59,27 +60,33 @@ public class JournalFolderFinderImpl extends BasePersistenceImpl<JournalFolder>
 		JournalFolderFinder.class.getName() + ".findF_ByG_F";
 
 	@Override
-	public int countF_A_ByG_F(
-			long groupId, long folderId, QueryDefinition queryDefinition)
+	public int countF_A_ByG_U_F(
+			long groupId, long userId, long folderId,
+			QueryDefinition queryDefinition)
 		throws SystemException {
 
-		return doCountF_A_ByG_F(groupId, folderId, queryDefinition, false);
+		return doCountF_A_ByG_U_F(
+			groupId, userId, folderId, queryDefinition, false);
 	}
 
 	@Override
-	public int filterCountF_A_ByG_F(
-			long groupId, long folderId, QueryDefinition queryDefinition)
+	public int filterCountF_A_ByG_U_F(
+			long groupId, long userId, long folderId,
+			QueryDefinition queryDefinition)
 		throws SystemException {
 
-		return doCountF_A_ByG_F(groupId, folderId, queryDefinition, true);
+		return doCountF_A_ByG_U_F(
+			groupId, userId, folderId, queryDefinition, true);
 	}
 
 	@Override
-	public List<Object> filterFindF_A_ByG_F(
-			long groupId, long folderId, QueryDefinition queryDefinition)
+	public List<Object> filterFindF_A_ByG_U_F(
+			long groupId, long userId, long folderId,
+			QueryDefinition queryDefinition)
 		throws SystemException {
 
-		return doFindF_A_ByG_F(groupId, folderId, queryDefinition, true);
+		return doFindF_A_ByG_U_F(
+			groupId, userId, folderId, queryDefinition, true);
 	}
 
 	@Override
@@ -106,16 +113,18 @@ public class JournalFolderFinderImpl extends BasePersistenceImpl<JournalFolder>
 	}
 
 	@Override
-	public List<Object> findF_A_ByG_F(
-			long groupId, long folderId, QueryDefinition queryDefinition)
+	public List<Object> findF_A_ByG_U_F(
+			long groupId, long userId, long folderId,
+			QueryDefinition queryDefinition)
 		throws SystemException {
 
-		return doFindF_A_ByG_F(groupId, folderId, queryDefinition, false);
+		return doFindF_A_ByG_U_F(
+			groupId, userId, folderId, queryDefinition, false);
 	}
 
-	protected int doCountF_A_ByG_F(
-			long groupId, long folderId, QueryDefinition queryDefinition,
-			boolean inlineSQLHelper)
+	protected int doCountF_A_ByG_U_F(
+			long groupId, long userId, long folderId,
+			QueryDefinition queryDefinition, boolean inlineSQLHelper)
 		throws SystemException {
 
 		Session session = null;
@@ -132,10 +141,21 @@ public class JournalFolderFinderImpl extends BasePersistenceImpl<JournalFolder>
 			sb.append(") UNION ALL (");
 			sb.append(
 				getArticlesSQL(
-					COUNT_A_BY_G_F, groupId, queryDefinition, inlineSQLHelper));
+					COUNT_A_BY_G_U_F, groupId, queryDefinition,
+					inlineSQLHelper));
 			sb.append(StringPool.CLOSE_PARENTHESIS);
 
 			String sql = updateSQL(sb.toString(), folderId);
+
+			String ownerClause = StringPool.BLANK;
+
+			if (userId > 0) {
+				ownerClause =
+					"((JournalArticle.userId = ?) AND (JournalArticle.status " +
+						"!= ?)) OR";
+			}
+
+			sql = StringUtil.replace(sql, "[$OWNER$] OR ", ownerClause);
 
 			SQLQuery q = session.createSQLQuery(sql);
 
@@ -151,6 +171,12 @@ public class JournalFolderFinderImpl extends BasePersistenceImpl<JournalFolder>
 			}
 
 			qPos.add(groupId);
+
+			if (userId > 0) {
+				qPos.add(userId);
+				qPos.add(WorkflowConstants.STATUS_IN_TRASH);
+			}
+
 			qPos.add(queryDefinition.getStatus());
 
 			if (folderId >= 0) {
@@ -179,9 +205,9 @@ public class JournalFolderFinderImpl extends BasePersistenceImpl<JournalFolder>
 		}
 	}
 
-	protected List<Object> doFindF_A_ByG_F(
-			long groupId, long folderId, QueryDefinition queryDefinition,
-			boolean inlineSQLHelper)
+	protected List<Object> doFindF_A_ByG_U_F(
+			long groupId, long userId, long folderId,
+			QueryDefinition queryDefinition, boolean inlineSQLHelper)
 		throws SystemException {
 
 		Session session = null;
@@ -198,10 +224,21 @@ public class JournalFolderFinderImpl extends BasePersistenceImpl<JournalFolder>
 			sb.append(") UNION ALL (");
 			sb.append(
 				getArticlesSQL(
-					FIND_A_BY_G_F, groupId, queryDefinition, inlineSQLHelper));
+					FIND_A_BY_G_U_F, groupId, queryDefinition,
+					inlineSQLHelper));
 			sb.append(StringPool.CLOSE_PARENTHESIS);
 
 			String sql = updateSQL(sb.toString(), folderId);
+
+			String ownerClause = StringPool.BLANK;
+
+			if (userId > 0) {
+				ownerClause =
+					"((JournalArticle.userId = ?) AND (JournalArticle.status " +
+						"!= ?)) OR ";
+			}
+
+			sql = StringUtil.replace(sql, "[$OWNER$] OR ", ownerClause);
 
 			sql = CustomSQLUtil.replaceOrderBy(
 				sql, queryDefinition.getOrderByComparator());
@@ -223,6 +260,12 @@ public class JournalFolderFinderImpl extends BasePersistenceImpl<JournalFolder>
 			}
 
 			qPos.add(groupId);
+
+			if (userId > 0) {
+				qPos.add(userId);
+				qPos.add(WorkflowConstants.STATUS_IN_TRASH);
+			}
+
 			qPos.add(queryDefinition.getStatus());
 
 			if (folderId >= 0) {
