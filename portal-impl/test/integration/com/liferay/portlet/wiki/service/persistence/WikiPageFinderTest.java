@@ -63,8 +63,6 @@ public class WikiPageFinderTest {
 	public void setUp() throws Exception {
 		_group = GroupTestUtil.addGroup();
 
-		_user = UserTestUtil.addGroupUser(_group, RoleConstants.USER);
-
 		_node = WikiTestUtil.addNode(
 			TestPropsValues.getUserId(), _group.getGroupId(),
 			RandomTestUtil.randomString(), RandomTestUtil.randomString(50));
@@ -72,6 +70,8 @@ public class WikiPageFinderTest {
 		WikiTestUtil.addPage(
 			TestPropsValues.getUserId(), _group.getGroupId(), _node.getNodeId(),
 			RandomTestUtil.randomString(), true);
+
+		_user = UserTestUtil.addGroupUser(_group, RoleConstants.USER);
 
 		WikiTestUtil.addPage(
 			_user.getUserId(), _group.getGroupId(), _node.getNodeId(),
