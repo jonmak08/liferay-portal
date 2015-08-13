@@ -153,7 +153,7 @@ public class JournalArticleFinderTest {
 		DDMTemplate ddmTemplate = DDMTemplateTestUtil.addTemplate(
 				_group.getGroupId(), _ddmStructure.getStructureId());
 
-		queryDefinition.setUserId(TestPropsValues.getUserId());
+		queryDefinition.setOwnerUserId(TestPropsValues.getUserId());
 
 		JournalArticle article = JournalTestUtil.addArticleWithXMLContent(
 			_group.getGroupId(), _folder.getFolderId(),
@@ -170,7 +170,7 @@ public class JournalArticleFinderTest {
 		_articles.add(article);
 
 		queryDefinition.setIncludeOwner(true);
-		queryDefinition.setUserId(_USER_ID);
+		queryDefinition.setOwnerUserId(_USER_ID);
 		queryDefinition.setStatus(WorkflowConstants.STATUS_APPROVED);
 
 		testQueryByG_C(
@@ -386,7 +386,7 @@ public class JournalArticleFinderTest {
 		QueryDefinition queryDefinition = new QueryDefinition(
 			WorkflowConstants.STATUS_ANY);
 
-		queryDefinition.setUserId(TestPropsValues.getUserId());
+		queryDefinition.setOwnerUserId(TestPropsValues.getUserId());
 
 		testQueryByG_C(
 			_group.getGroupId(), Collections.<Long>emptyList(),
@@ -395,7 +395,7 @@ public class JournalArticleFinderTest {
 		// Status any
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_ANY);
-		queryDefinition.setUserId(_USER_ID);
+		queryDefinition.setOwnerUserId(_USER_ID);
 
 		testQueryByG_C(
 			_group.getGroupId(), Collections.<Long>emptyList(),
@@ -404,7 +404,7 @@ public class JournalArticleFinderTest {
 		// Status in trash
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH);
-		queryDefinition.setUserId(_USER_ID);
+		queryDefinition.setOwnerUserId(_USER_ID);
 
 		testQueryByG_C(
 			_group.getGroupId(), Collections.<Long>emptyList(),
@@ -413,7 +413,7 @@ public class JournalArticleFinderTest {
 		// Status not in trash
 
 		queryDefinition.setStatus(WorkflowConstants.STATUS_IN_TRASH, true);
-		queryDefinition.setUserId(_USER_ID);
+		queryDefinition.setOwnerUserId(_USER_ID);
 
 		testQueryByG_C(
 			_group.getGroupId(), Collections.<Long>emptyList(),
