@@ -182,10 +182,10 @@ public class JournalFolderServiceImpl extends JournalFolderServiceBaseImpl {
 		throws SystemException {
 
 		QueryDefinition queryDefinition = new QueryDefinition(
-			status, start, end, obc);
+			status, userId, true, start, end, obc);
 
 		return journalFolderFinder.filterFindF_A_ByG_U_F(
-			groupId, userId, folderId, queryDefinition);
+			groupId, folderId, queryDefinition);
 	}
 
 	@Override
@@ -236,8 +236,11 @@ public class JournalFolderServiceImpl extends JournalFolderServiceBaseImpl {
 			long groupId, long userId, long folderId, int status)
 		throws SystemException {
 
+		QueryDefinition queryDefinition = new QueryDefinition(
+			status, userId, true);
+
 		return journalFolderFinder.filterCountF_A_ByG_U_F(
-			groupId, userId, folderId, new QueryDefinition(status));
+			groupId, folderId, queryDefinition);
 	}
 
 	@Override

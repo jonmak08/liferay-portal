@@ -305,7 +305,7 @@ public class JournalFolderLocalServiceImpl
 			WorkflowConstants.STATUS_ANY);
 
 		return journalFolderFinder.findF_A_ByG_U_F(
-			groupId, 0, folderId, queryDefinition);
+			groupId, folderId, queryDefinition);
 	}
 
 	@Override
@@ -316,7 +316,7 @@ public class JournalFolderLocalServiceImpl
 		QueryDefinition queryDefinition = new QueryDefinition(status);
 
 		return journalFolderFinder.findF_A_ByG_U_F(
-			groupId, 0, folderId, queryDefinition);
+			groupId, folderId, queryDefinition);
 	}
 
 	@Override
@@ -329,7 +329,7 @@ public class JournalFolderLocalServiceImpl
 			WorkflowConstants.STATUS_ANY, start, end, obc);
 
 		return journalFolderFinder.findF_A_ByG_U_F(
-			groupId, 0, folderId, queryDefinition);
+			groupId, folderId, queryDefinition);
 	}
 
 	@Override
@@ -363,9 +363,11 @@ public class JournalFolderLocalServiceImpl
 	public int getFoldersAndArticlesCount(long groupId, long folderId)
 		throws SystemException {
 
+		QueryDefinition queryDefinition = new QueryDefinition(
+			WorkflowConstants.STATUS_ANY);
+
 		return journalFolderFinder.countF_A_ByG_U_F(
-			groupId, 0, folderId,
-			new QueryDefinition(WorkflowConstants.STATUS_ANY));
+			groupId, folderId, queryDefinition);
 	}
 
 	@Override
@@ -373,8 +375,11 @@ public class JournalFolderLocalServiceImpl
 			long groupId, long folderId, int status)
 		throws SystemException {
 
+		QueryDefinition queryDefinition = new QueryDefinition(
+			status, 0, false);
+
 		return journalFolderFinder.countF_A_ByG_U_F(
-			groupId, 0, folderId, new QueryDefinition(status));
+			groupId, folderId, queryDefinition);
 	}
 
 	@Override
