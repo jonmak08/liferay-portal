@@ -1188,67 +1188,6 @@ public class JournalArticleFinderImpl
 			queryDefinition, inlineSQLHelper);
 	}
 
-	protected List<JournalArticle> doFindByG_C_S(
-			long groupId, long classNameId, String[] ddmStructureKeys,
-			QueryDefinition queryDefinition, boolean inlineSQLHelper)
-		throws SystemException {
-
-		Session session = null;
-
-		try {
-			session = openSession();
-
-			String sql = CustomSQLUtil.get(
-				FIND_BY_G_C_S, queryDefinition, "JournalArticle");
-
-			sql = replaceStatusJoin(sql, queryDefinition);
-
-			sql = CustomSQLUtil.replaceOrderBy(
-				sql, queryDefinition.getOrderByComparator("JournalArticle"));
-
-			if (groupId <= 0) {
-				sql = StringUtil.replace(
-					sql, "(JournalArticle.groupId = ?) AND", StringPool.BLANK);
-			}
-
-			sql = StringUtil.replace(
-				sql, "[$DDM_STRUCTURE_KEY$]",
-				getDDMStructureKeys(
-					ddmStructureKeys, JournalArticleImpl.TABLE_NAME));
-
-			if (inlineSQLHelper) {
-				sql = InlineSQLHelperUtil.replacePermissionCheck(
-					sql, JournalArticle.class.getName(),
-					"JournalArticle.resourcePrimKey", groupId);
-			}
-
-			SQLQuery q = session.createSQLQuery(sql);
-
-			q.addEntity(
-				JournalArticleImpl.TABLE_NAME, JournalArticleImpl.class);
-
-			QueryPos qPos = QueryPos.getInstance(q);
-
-			if (groupId > 0) {
-				qPos.add(groupId);
-			}
-
-			qPos.add(classNameId);
-			qPos.add(ddmStructureKeys);
-			qPos.add(queryDefinition.getStatus());
-
-			return (List<JournalArticle>)QueryUtil.list(
-				q, getDialect(), queryDefinition.getStart(),
-				queryDefinition.getEnd());
-		}
-		catch (Exception e) {
-			throw new SystemException(e);
-		}
-		finally {
-			closeSession(session);
-		}
-	}
-
 	protected List<JournalArticle> doFindByG_F_C(
 			long groupId, List<Long> folderIds, long classNameId,
 			QueryDefinition queryDefinition,
@@ -1306,6 +1245,67 @@ public class JournalArticleFinderImpl
 				qPos.add(folderId);
 			}
 
+			qPos.add(queryDefinition.getStatus());
+
+			return (List<JournalArticle>)QueryUtil.list(
+				q, getDialect(), queryDefinition.getStart(),
+				queryDefinition.getEnd());
+		}
+		catch (Exception e) {
+			throw new SystemException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected List<JournalArticle> doFindByG_C_S(
+			long groupId, long classNameId, String[] ddmStructureKeys,
+			QueryDefinition queryDefinition, boolean inlineSQLHelper)
+		throws SystemException {
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			String sql = CustomSQLUtil.get(
+				FIND_BY_G_C_S, queryDefinition, "JournalArticle");
+
+			sql = replaceStatusJoin(sql, queryDefinition);
+
+			sql = CustomSQLUtil.replaceOrderBy(
+				sql, queryDefinition.getOrderByComparator("JournalArticle"));
+
+			if (groupId <= 0) {
+				sql = StringUtil.replace(
+					sql, "(JournalArticle.groupId = ?) AND", StringPool.BLANK);
+			}
+
+			sql = StringUtil.replace(
+				sql, "[$DDM_STRUCTURE_KEY$]",
+				getDDMStructureKeys(
+					ddmStructureKeys, JournalArticleImpl.TABLE_NAME));
+
+			if (inlineSQLHelper) {
+				sql = InlineSQLHelperUtil.replacePermissionCheck(
+					sql, JournalArticle.class.getName(),
+					"JournalArticle.resourcePrimKey", groupId);
+			}
+
+			SQLQuery q = session.createSQLQuery(sql);
+
+			q.addEntity(
+				JournalArticleImpl.TABLE_NAME, JournalArticleImpl.class);
+
+			QueryPos qPos = QueryPos.getInstance(q);
+
+			if (groupId > 0) {
+				qPos.add(groupId);
+			}
+
+			qPos.add(classNameId);
+			qPos.add(ddmStructureKeys);
 			qPos.add(queryDefinition.getStatus());
 
 			return (List<JournalArticle>)QueryUtil.list(
