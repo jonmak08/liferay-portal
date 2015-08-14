@@ -32,6 +32,10 @@
 
 				urlControlPanelSitesPortlet = HttpUtil.setParameter(urlControlPanelSitesPortlet, "controlPanelCategory", controlPanelCategory);
 
+				if (PortletCategoryKeys.MY.equals(controlPanelCategory)) {
+					urlControlPanelSitesPortlet = HttpUtil.setParameter(urlControlPanelSitesPortlet, "doAsGroupId", group.getGroupId());
+				}
+
 				boolean selected = curPortletId.equals(ppid);
 
 				String portletControlPanelEntryCategory = portlet.getControlPanelEntryCategory();
