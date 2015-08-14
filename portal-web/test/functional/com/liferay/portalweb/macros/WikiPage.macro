@@ -843,6 +843,7 @@
 		<execute function="AssertTextEquals" locator1="CPWikiAllpages#WIKI_PAGE_TABLE_REVISION" value1="${wikiPageRevision}" />
 		<execute function="AssertTextEquals" locator1="CPWikiAllpages#WIKI_PAGE_TABLE_USER" value1="${wikiPageUsername}" />
 		<execute function="AssertElementPresent" locator1="CPWikiAllpages#WIKI_PAGE_TABLE_DATE" />
+		<execute function="Pause" locator1="1000" />
 		<execute function="AssertClick" locator1="CPWikiAllpages#WIKI_PAGE_TABLE_PAGE" value1="${wikiPageTitle}" />
 	</command>
 
@@ -964,6 +965,7 @@
 	</command>
 
 	<command name="markAsSpamCP">
+		<execute function="Pause" locator1="3000" />
 		<execute function="AssertClick" locator1="CPWikiWikipage#WIKI_PAGE_ACTIONS_MARK_AS_SPAM" value1="Mark as Spam" />
 		<execute function="AssertTextEquals" locator1="CPWikiWikipage#SUCCESS_MESSAGE" value1="Version ${wikiPageRevision} was marked as spam." />
 	</command>
