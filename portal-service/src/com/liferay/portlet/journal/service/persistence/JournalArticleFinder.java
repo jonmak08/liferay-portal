@@ -49,6 +49,11 @@ public interface JournalArticleFinder {
 		com.liferay.portal.kernel.dao.orm.QueryDefinition queryDefinition)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
+	public int countByG_U_F_C(long groupId, long userId,
+		java.util.List<java.lang.Long> folderIds, long classNameId,
+		com.liferay.portal.kernel.dao.orm.QueryDefinition queryDefinition)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
 	public int countByC_G_F_C_A_V_T_D_C_T_S_T_D_R(long companyId, long groupId,
 		java.util.List<java.lang.Long> folderIds, long classNameId,
 		java.lang.String articleId, java.lang.Double version,
@@ -104,6 +109,11 @@ public interface JournalArticleFinder {
 
 	public int filterCountByG_C_S(long groupId, long classNameId,
 		java.lang.String ddmStructureKey,
+		com.liferay.portal.kernel.dao.orm.QueryDefinition queryDefinition)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	public int filterCountByG_U_F_C(long groupId, long userId,
+		java.util.List<java.lang.Long> folderIds, long classNameId,
 		com.liferay.portal.kernel.dao.orm.QueryDefinition queryDefinition)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -165,6 +175,12 @@ public interface JournalArticleFinder {
 
 	public java.util.List<com.liferay.portlet.journal.model.JournalArticle> filterFindByG_C_S(
 		long groupId, long classNameId, java.lang.String ddmStructureKey,
+		com.liferay.portal.kernel.dao.orm.QueryDefinition queryDefinition)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	public java.util.List<com.liferay.portlet.journal.model.JournalArticle> filterFindByG_U_F_C(
+		long groupId, long userId, java.util.List<java.lang.Long> folderIds,
+		long classNameId,
 		com.liferay.portal.kernel.dao.orm.QueryDefinition queryDefinition)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -246,6 +262,12 @@ public interface JournalArticleFinder {
 
 	public java.util.List<com.liferay.portlet.journal.model.JournalArticle> findByG_C_S(
 		long groupId, long classNameId, java.lang.String[] ddmStructureKeys,
+		com.liferay.portal.kernel.dao.orm.QueryDefinition queryDefinition)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	public java.util.List<com.liferay.portlet.journal.model.JournalArticle> findByG_U_F_C(
+		long groupId, long userId, java.util.List<java.lang.Long> folderIds,
+		long classNameId,
 		com.liferay.portal.kernel.dao.orm.QueryDefinition queryDefinition)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
