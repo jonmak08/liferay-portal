@@ -165,6 +165,20 @@ public class JournalArticleFinderImpl
 			groupId, classNameId, ddmStructureKeys, queryDefinition, false);
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #countByG_F_C(long, List,
+	 *             long, QueryDefinition)}
+	 */
+	@Deprecated
+	@Override
+	public int countByG_U_F_C(
+			long groupId, long userId, List<Long> folderIds, long classNameId,
+			QueryDefinition queryDefinition)
+		throws SystemException {
+
+		return countByG_F_C(groupId, folderIds, classNameId, queryDefinition);
+	}
+
 	@Override
 	public int countByC_G_F_C_A_V_T_D_C_T_S_T_D_R(
 			long companyId, long groupId, List<Long> folderIds,
@@ -292,6 +306,21 @@ public class JournalArticleFinderImpl
 
 		return doCountByG_C_S(
 			groupId, classNameId, ddmStructureKey, queryDefinition, true);
+	}
+
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #filterCountByG_F_C(long,
+	 *             List, long, QueryDefinition)}
+	 */
+	@Deprecated
+	@Override
+	public int filterCountByG_U_F_C(
+			long groupId, long userId, List<Long> folderIds, long classNameId,
+			QueryDefinition queryDefinition)
+		throws SystemException {
+
+		return filterCountByG_F_C(
+			groupId, folderIds, classNameId, queryDefinition);
 	}
 
 	@Override
@@ -423,6 +452,21 @@ public class JournalArticleFinderImpl
 
 		return doFindByG_C_S(
 			groupId, classNameId, ddmStructureKey, queryDefinition, true);
+	}
+
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #filterFindByG_F_C(long,
+	 *             List, long, QueryDefinition)}
+	 */
+	@Deprecated
+	@Override
+	public List<JournalArticle> filterFindByG_U_F_C(
+			long groupId, long userId, List<Long> folderIds, long classNameId,
+			QueryDefinition queryDefinition)
+		throws SystemException {
+
+		return filterFindByG_F_C(
+			groupId, folderIds, classNameId, queryDefinition);
 	}
 
 	@Override
@@ -685,6 +729,20 @@ public class JournalArticleFinderImpl
 
 		return doFindByG_C_S(
 			groupId, classNameId, ddmStructureKeys, queryDefinition, false);
+	}
+
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #findByG_F_C(long,
+	 *             List, long, QueryDefinition)}
+	 */
+	@Deprecated
+	@Override
+	public List<JournalArticle> findByG_U_F_C(
+			long groupId, long userId, List<Long> folderIds, long classNameId,
+			QueryDefinition queryDefinition)
+		throws SystemException {
+
+		return findByG_F_C(groupId, folderIds, classNameId, queryDefinition);
 	}
 
 	@Override

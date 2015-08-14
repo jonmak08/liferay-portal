@@ -44,11 +44,25 @@ import java.util.List;
 public class JournalFolderFinderImpl extends BasePersistenceImpl<JournalFolder>
 	implements JournalFolderFinder {
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #COUNT_A_BY_G_U_F}
+	 */
+	@Deprecated
+	public static final String COUNT_A_BY_G_F =
+		JournalFolderFinder.class.getName() + ".countA_ByG_F";
+
 	public static final String COUNT_A_BY_G_U_F =
 		JournalFolderFinder.class.getName() + ".countA_ByG_U_F";
 
 	public static final String COUNT_F_BY_G_F =
 		JournalFolderFinder.class.getName() + ".countF_ByG_F";
+
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #FIND_A_BY_G_U_F}
+	 */
+	@Deprecated
+	public static final String FIND_A_BY_G_F =
+		JournalFolderFinder.class.getName() + ".findA_ByG_F";
 
 	public static final String FIND_A_BY_G_U_F =
 		JournalFolderFinder.class.getName() + ".findA_ByG_U_F";
