@@ -50,7 +50,7 @@ import org.junit.runner.RunWith;
  * @author Andrew Betts
  */
 @ExecutionTestListeners(
-		listeners = {
+	listeners = {
 		EnvironmentExecutionTestListener.class,
 		SynchronousDestinationExecutionTestListener.class,
 		TransactionalExecutionTestListener.class
@@ -85,7 +85,7 @@ public class WikiPageFinderTest {
 
 		WikiPageLocalServiceUtil.updateWikiPage(userDraft);
 	}
-	
+
 	@After
 	public void tearDown() throws Exception {
 		GroupLocalServiceUtil.deleteGroup(_group);

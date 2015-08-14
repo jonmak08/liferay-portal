@@ -56,11 +56,11 @@ public class WikiPageFinderImpl
 	public static final String FIND_BY_CREATE_DATE =
 		WikiPageFinder.class.getName() + ".findByCreateDate";
 
-	public static final String FIND_BY_NO_ASSETS =
-		WikiPageFinder.class.getName() + ".findByNoAssets";
-
 	public static final String FIND_BY_G_N_H_S =
 		WikiPageFinder.class.getName() + ".findByG_N_H_S";
+
+	public static final String FIND_BY_NO_ASSETS =
+		WikiPageFinder.class.getName() + ".findByNoAssets";
 
 	@Override
 	public int countByCreateDate(

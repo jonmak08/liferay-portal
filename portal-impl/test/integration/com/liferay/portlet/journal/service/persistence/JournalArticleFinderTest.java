@@ -149,15 +149,14 @@ public class JournalArticleFinderTest {
 			JournalArticleConstants.CLASSNAME_ID_DEFAULT, queryDefinition, 2);
 
 		DDMTemplate ddmTemplate = DDMTemplateTestUtil.addTemplate(
-				_group.getGroupId(), _ddmStructure.getStructureId());
+			_group.getGroupId(), _ddmStructure.getStructureId());
 
 		queryDefinition.setOwnerUserId(TestPropsValues.getUserId());
 
 		JournalArticle article = JournalTestUtil.addArticleWithXMLContent(
 			_group.getGroupId(), _folder.getFolderId(),
 			JournalArticleConstants.CLASSNAME_ID_DEFAULT,
-			"<title>Article 1</title>",
-			_ddmStructure.getStructureKey(),
+			"<title>Article 1</title>", _ddmStructure.getStructureKey(),
 			ddmTemplate.getTemplateKey());
 
 		article.setUserId(_USER_ID);

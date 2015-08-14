@@ -882,8 +882,7 @@ public class JournalArticleFinderImpl
 
 	protected int doCountByG_F_C(
 			long groupId, List<Long> folderIds, long classNameId,
-			QueryDefinition queryDefinition,
-			boolean inlineSQLHelper)
+			QueryDefinition queryDefinition, boolean inlineSQLHelper)
 		throws SystemException {
 
 		Session session = null;
@@ -1248,8 +1247,7 @@ public class JournalArticleFinderImpl
 
 	protected List<JournalArticle> doFindByG_F_C(
 			long groupId, List<Long> folderIds, long classNameId,
-			QueryDefinition queryDefinition,
-			boolean inlineSQLHelper)
+			QueryDefinition queryDefinition, boolean inlineSQLHelper)
 		throws SystemException {
 
 		Session session = null;

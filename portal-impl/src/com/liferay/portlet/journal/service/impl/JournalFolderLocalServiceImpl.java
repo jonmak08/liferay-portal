@@ -375,8 +375,7 @@ public class JournalFolderLocalServiceImpl
 			long groupId, long folderId, int status)
 		throws SystemException {
 
-		QueryDefinition queryDefinition = new QueryDefinition(
-			status, 0, false);
+		QueryDefinition queryDefinition = new QueryDefinition(status, 0, false);
 
 		return journalFolderFinder.countF_A_ByG_F(
 			groupId, folderId, queryDefinition);
