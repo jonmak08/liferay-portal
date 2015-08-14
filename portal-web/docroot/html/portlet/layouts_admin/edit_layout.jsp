@@ -294,7 +294,7 @@ boolean showAddAction = ParamUtil.getBoolean(request, "showAddAction", true);
 						else if (dataValue == 'copy-applications') {
 							content = A.one('#<portlet:namespace />copyPortletsFromPage');
 
-							popUp = Liferay.Util.Window.getWindow(
+							popup = Liferay.Util.Window.getWindow(
 								{
 									dialog: {
 										bodyContent: content.show()
@@ -303,15 +303,15 @@ boolean showAddAction = ParamUtil.getBoolean(request, "showAddAction", true);
 								}
 							);
 
-							popUp.show();
+							popup.show();
 
-							var submitButton = popUp.get('contentBox').one('#<portlet:namespace />copySubmitButton');
+							var submitButton = popup.get('contentBox').one('#<portlet:namespace />copySubmitButton');
 
 							if (submitButton) {
 								submitButton.on(
 									'click',
 									function(event) {
-										popUp.hide();
+										popup.hide();
 
 										var form = A.one('#<portlet:namespace />fm');
 
@@ -352,8 +352,6 @@ boolean showAddAction = ParamUtil.getBoolean(request, "showAddAction", true);
 		window,
 		'<portlet:namespace />saveLayout',
 		function(action) {
-			var A = AUI();
-
 			action = action || '<%= Constants.UPDATE %>';
 
 			if (action == '<%= Constants.DELETE %>') {
