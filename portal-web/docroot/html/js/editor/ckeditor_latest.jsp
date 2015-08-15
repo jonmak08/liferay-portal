@@ -55,7 +55,6 @@ request.setAttribute(WebKeys.AUI_SCRIPT_DATA, newScriptData);
 <%!
 private static String _replaceVariations(String content) {
 	content = StringUtil.replace(content, "/ckeditor/", "/ckeditor_latest/");
-
 	content = StringUtil.replace(content, "CKEDITOR.env.isCompatible = true;", "");
 
 	return content;
