@@ -19,19 +19,6 @@
 <%@ taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
 <%
-OutputData newOutputData = new OutputData() {
-
-	@Override
-	public void addData(String outputKey, String webKey, StringBundler sb) {
-		_replaceVariations(sb);
-
-		super.addData(outputKey, webKey, sb);
-	}
-
-};
-
-request.setAttribute(WebKeys.OUTPUT_DATA, newOutputData);
-
 ScriptData newScriptData = new ScriptData() {
 
 	@Override
@@ -44,6 +31,19 @@ ScriptData newScriptData = new ScriptData() {
 };
 
 request.setAttribute(WebKeys.AUI_SCRIPT_DATA, newScriptData);
+
+OutputData newOutputData = new OutputData() {
+
+	@Override
+	public void addData(String outputKey, String webKey, StringBundler sb) {
+		_replaceVariations(sb);
+
+		super.addData(outputKey, webKey, sb);
+	}
+
+};
+
+request.setAttribute(WebKeys.OUTPUT_DATA, newOutputData);
 %>
 
 <liferay-util:buffer var="html">
