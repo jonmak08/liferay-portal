@@ -23,7 +23,7 @@ OutputData newOutputData = new OutputData() {
 
 	@Override
 	public void addData(String outputKey, String webKey, StringBundler sb) {
-		_replaceVariationsSB(sb);
+		_replaceVariations(sb);
 
 		super.addData(outputKey, webKey, sb);
 	}
@@ -36,7 +36,7 @@ ScriptData newScriptData = new ScriptData() {
 
 	@Override
 	public void append(String portletId, StringBundler contentSB, String use) {
-		_replaceVariationsSB(contentSB);
+		_replaceVariations(contentSB);
 
 		super.append(portletId, contentSB, use);
 	}
@@ -61,7 +61,7 @@ private static String _replaceVariations(String content) {
 	return content;
 }
 
-private static void _replaceVariationsSB(StringBundler sb) {
+private static void _replaceVariations(StringBundler sb) {
 	String content = sb.toString();
 
 	content = _replaceVariations(content);
