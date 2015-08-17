@@ -32,7 +32,7 @@
 
 				urlControlPanelSitesPortlet = HttpUtil.setParameter(urlControlPanelSitesPortlet, "controlPanelCategory", controlPanelCategory);
 
-				if (PortletCategoryKeys.MY.equals(controlPanelCategory)) {
+				if (controlPanelCategory.equals(PortletCategoryKeys.MY)) {
 					urlControlPanelSitesPortlet = HttpUtil.setParameter(urlControlPanelSitesPortlet, "doAsGroupId", group.getGroupId());
 				}
 
