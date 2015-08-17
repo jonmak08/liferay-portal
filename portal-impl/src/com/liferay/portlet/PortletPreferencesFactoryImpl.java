@@ -509,23 +509,8 @@ public class PortletPreferencesFactoryImpl
 			String defaultPreferences)
 		throws SystemException {
 
-		try {
-			LayoutTypePortlet layoutTypePortlet =
-				(LayoutTypePortlet)layout.getLayoutType();
-
-			if (layoutTypePortlet.hasPortletId(portletId)) {
-				return getPortletSetup(
-					scopeGroupId, layout, portletId, defaultPreferences, false);
-			}
-		}
-		catch (PortalException pe) {
-			if (_log.isDebugEnabled()) {
-				_log.debug(pe, pe);
-			}
-		}
-
 		return getPortletSetup(
-			scopeGroupId, layout, portletId, defaultPreferences, true);
+			scopeGroupId, layout, portletId, defaultPreferences, false);
 	}
 
 	@Override
