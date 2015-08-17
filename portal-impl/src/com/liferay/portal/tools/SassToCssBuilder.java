@@ -67,6 +67,10 @@ public class SassToCssBuilder {
 		int x = cacheFileName.lastIndexOf(StringPool.SLASH);
 		int y = cacheFileName.lastIndexOf(StringPool.PERIOD);
 
+		if (y == -1) {
+			y = cacheFileName.length();
+		}
+
 		return cacheFileName.substring(0, x + 1) + ".sass-cache/" +
 			cacheFileName.substring(x + 1, y) + suffix +
 				cacheFileName.substring(y);
