@@ -135,19 +135,21 @@ if (assetCategoryId > 0) {
 		allAssetCategoryIds = ArrayUtil.append(allAssetCategoryIds, assetCategoryId);
 	}
 
-	AssetCategory assetCategory = AssetCategoryLocalServiceUtil.getCategory(assetCategoryId);
+	AssetCategory assetCategory = AssetCategoryLocalServiceUtil.fetchCategory(assetCategoryId);
 
-	assetCategory = assetCategory.toEscapedModel();
+	if (assetCategory != null) {
+		assetCategory = assetCategory.toEscapedModel();
 
-	assetCategoryTitle = assetCategory.getTitle(locale);
+		assetCategoryTitle = assetCategory.getTitle(locale);
 
-	AssetVocabulary assetVocabulary = AssetVocabularyLocalServiceUtil.getAssetVocabulary(assetCategory.getVocabularyId());
+		AssetVocabulary assetVocabulary = AssetVocabularyLocalServiceUtil.getAssetVocabulary(assetCategory.getVocabularyId());
 
-	assetVocabulary = assetVocabulary.toEscapedModel();
+		assetVocabulary = assetVocabulary.toEscapedModel();
 
-	assetVocabularyTitle = assetVocabulary.getTitle(locale);
+		assetVocabularyTitle = assetVocabulary.getTitle(locale);
 
-	PortalUtil.setPageKeywords(assetCategoryTitle, request);
+		PortalUtil.setPageKeywords(assetCategoryTitle, request);
+	}
 }
 
 String assetTagName = ParamUtil.getString(request, "tag");
@@ -156,6 +158,10 @@ if (Validator.isNotNull(assetTagName)) {
 	allAssetTagNames = new String[] {assetTagName};
 
 	long[] assetTagIds = AssetTagLocalServiceUtil.getTagIds(siteGroupIds, allAssetTagNames);
+
+	if (assetTagIds.length == 0) {
+		assetTagIds = new long[] {ResourceConstants.PRIMKEY_DNE};
+	}
 
 	assetEntryQuery.setAnyTagIds(assetTagIds);
 

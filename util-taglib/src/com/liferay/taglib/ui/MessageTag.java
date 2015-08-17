@@ -70,7 +70,9 @@ public class MessageTag extends TagSupport {
 
 			JspWriter jspWriter = pageContext.getOut();
 
-			jspWriter.write(value);
+			if (value != null) {
+				jspWriter.write(value);
+			}
 
 			return EVAL_PAGE;
 		}

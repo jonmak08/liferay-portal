@@ -27,6 +27,7 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.model.Layout;
+import com.liferay.portal.model.ResourceConstants;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.asset.model.AssetCategory;
@@ -150,6 +151,10 @@ public class AssetEntryQuery {
 		if (Validator.isNotNull(tagName)) {
 			_allTagIds = AssetTagLocalServiceUtil.getTagIds(
 				themeDisplay.getSiteGroupId(), new String[] {tagName});
+
+			if (_allTagIds.length == 0) {
+				_allTagIds = new long[] {ResourceConstants.PRIMKEY_DNE};
+			}
 
 			_allTagIdsArray = new long[][] {_allTagIds};
 		}
