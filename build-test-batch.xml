@@ -200,12 +200,12 @@
 	<macrodef name="run-batch-test">
 		<attribute name="tomcat.gc.log" default="false" />
 		<attribute name="tsant.gc.log" default="false" />
-		<element name="clean-up" optional="true" />
-		<element name="prepare-test" />
 		<element name="test-action" />
+		<element name="test-set-up" optional="true" />
+		<element name="test-tear-down" optional="true" />
 
 		<sequential>
-			<prepare-test />
+			<test-set-up />
 
 			<test-action />
 
@@ -215,7 +215,7 @@
 
 			<check-deprecated-method />
 
-			<clean-up />
+			<test-tear-down />
 
 			<print-gc-logs
 				tomcat.gc.log="@{tomcat.gc.log}"
@@ -235,6 +235,7 @@
 		<attribute name="database.type" />
 		<attribute name="tomcat.gc.log" default="false" />
 		<attribute name="tsant.gc.log" default="false" />
+
 		<sequential>
 			<var name="app.server.type" unset="true" />
 
@@ -243,18 +244,6 @@
 			<property name="test.class" value="${axis.variable}" />
 
 			<run-batch-test tomcat.gc.log="@{tomcat.gc.log}" tsant.gc.log="@{tsant.gc.log}">
-				<prepare-test>
-					<antcall target="start" />
-
-					<ant antfile="build-dist.xml" target="build-dist-@{app.server.type}" />
-
-					<antcall target="record-test-generated-properties" />
-
-					<echo if:set="env.JENKINS_HOME">ANT_OPTS=${env.ANT_OPTS}</echo>
-
-					<antcall if:set="env.JENKINS_HOME" inheritAll="false" target="clean-up-java-processes" />
-				</prepare-test>
-
 				<test-action>
 					<database-test-run-test app.server.type="@{app.server.type}" database.type="@{database.type}">
 						<test-action>
@@ -266,7 +255,19 @@
 					</database-test-run-test>
 				</test-action>
 
-				<clean-up>
+				<test-set-up>
+					<antcall target="start" />
+
+					<ant antfile="build-dist.xml" target="build-dist-@{app.server.type}" />
+
+					<antcall target="record-test-generated-properties" />
+
+					<echo if:set="env.JENKINS_HOME">ANT_OPTS=${env.ANT_OPTS}</echo>
+
+					<antcall if:set="env.JENKINS_HOME" inheritAll="false" target="clean-up-java-processes" />
+				</test-set-up>
+
+				<test-tear-down>
 					<if>
 						<available file=".testable.portal.started" />
 						<then>
@@ -275,19 +276,16 @@
 							<delete file=".testable.portal.started" failonerror="false" />
 						</then>
 					</if>
-				</clean-up>
+				</test-tear-down>
 			</run-batch-test>
 		</sequential>
 	</macrodef>
 
 	<macrodef name="run-integration-test">
 		<attribute name="database.type" />
+
 		<sequential>
 			<run-batch-test>
-				<prepare-test>
-					<prepare-test-build />
-				</prepare-test>
-
 				<test-action>
 					<database-test-run-test database.type="@{database.type}">
 						<test-action>
@@ -301,6 +299,10 @@
 						</test-action>
 					</database-test-run-test>
 				</test-action>
+
+				<test-set-up>
+					<prepare-test-build />
+				</test-set-up>
 			</run-batch-test>
 		</sequential>
 	</macrodef>
@@ -335,24 +337,20 @@
 
 	<target name="plugins">
 		<run-batch-test>
-			<prepare-test>
-				<prepare-test-build />
-			</prepare-test>
-
 			<test-action>
 				<ant antfile="build-test-plugins.xml" target="test-plugin-group">
 					<property name="test.plugin.group.index" value="${axis.variable}" />
 				</ant>
 			</test-action>
+
+			<test-set-up>
+				<prepare-test-build />
+			</test-set-up>
 		</run-batch-test>
 	</target>
 
 	<target name="portal-web">
 		<run-batch-test>
-			<prepare-test>
-				<prepare-test-build />
-			</prepare-test>
-
 			<test-action>
 				<database-test-run-test database.type="mysql">
 					<test-action>
@@ -367,15 +365,15 @@
 					</test-action>
 				</database-test-run-test>
 			</test-action>
+
+			<test-set-up>
+				<prepare-test-build />
+			</test-set-up>
 		</run-batch-test>
 	</target>
 
 	<target name="tck">
 		<run-batch-test tomcat.gc.log="true" tsant.gc.log="true">
-			<prepare-test>
-				<prepare-test-build />
-			</prepare-test>
-
 			<test-action>
 				<database-test-run-test database.type="mysql" stop.app.server="true">
 					<test-action>
@@ -389,15 +387,15 @@
 					</test-action>
 				</database-test-run-test>
 			</test-action>
+
+			<test-set-up>
+				<prepare-test-build />
+			</test-set-up>
 		</run-batch-test>
 	</target>
 
 	<target name="unit">
 		<run-batch-test>
-			<prepare-test>
-				<prepare-test-build-unit />
-			</prepare-test>
-
 			<test-action>
 				<ant dir="portal-service" target="test-class-group" inheritAll="false">
 					<property name="test.class.group.index" value="${axis.variable}" />
@@ -412,6 +410,10 @@
 					<property name="test.class.group.index" value="${axis.variable}" />
 				</ant>
 			</test-action>
+
+			<test-set-up>
+				<prepare-test-build-unit />
+			</test-set-up>
 		</run-batch-test>
 	</target>
 </project>
