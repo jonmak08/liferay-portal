@@ -787,13 +787,15 @@ public class PortletImporter {
 				assetCategory.getName(), assetVocabularyId, 2);
 
 			if (!existingAssetCategory.getName().equals(name)) {
-				List<AssetEntry> entries =
+				List<AssetEntry> assetCategoryAssetEntries =
 					AssetEntryLocalServiceUtil.getAssetCategoryAssetEntries(
 						existingAssetCategory.getCategoryId());
 
-				for (AssetEntry entry : entries) {
+				for (AssetEntry assetCategoryAssetEntry :
+						assetCategoryAssetEntries) {
+
 					String className = PortalUtil.getClassName(
-						entry.getClassNameId());
+						assetCategoryAssetEntry.getClassNameId());
 
 					Map<Long, Long> newPrimaryKeysMap =
 						(Map<Long, Long>)
@@ -802,7 +804,8 @@ public class PortletImporter {
 					// Force reindex adding classPK to newPrimaryKeysMap
 
 					newPrimaryKeysMap.put(
-						entry.getClassPK(), entry.getClassPK());
+						assetCategoryAssetEntry.getClassPK(),
+						assetCategoryAssetEntry.getClassPK());
 				}
 			}
 
