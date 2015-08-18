@@ -247,7 +247,10 @@ public class AssetUtil {
 			List<Long> viewableTagIds = new ArrayList<Long>();
 
 			for (long tagId : tagIds) {
-				if (AssetTagPermission.contains(
+				AssetTag tag = AssetTagLocalServiceUtil.fetchAssetTag(tagId);
+
+				if ((tag != null) &&
+					AssetTagPermission.contains(
 						permissionChecker, tagId, ActionKeys.VIEW)) {
 
 					viewableTagIds.add(tagId);
