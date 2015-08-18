@@ -160,6 +160,7 @@ else if (!portletId.equals(PortletKeys.DOCUMENT_LIBRARY) && !ArrayUtil.contains(
 
 boolean enableRatings = GetterUtil.getBoolean(portletPreferences.getValue("enableRatings", null), true);
 boolean enableCommentRatings = GetterUtil.getBoolean(portletPreferences.getValue("enableCommentRatings", null), true);
+boolean showComments = ParamUtil.getBoolean(request, "showComments", true);
 
 Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZone);
 %>
