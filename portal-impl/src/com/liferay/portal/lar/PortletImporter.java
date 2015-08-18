@@ -786,7 +786,7 @@ public class PortletImporter {
 				existingAssetCategory.getUuid(), groupId, parentAssetCategoryId,
 				assetCategory.getName(), assetVocabularyId, 2);
 
-			if (!existingAssetCategory.getName().equals(name)) {
+			if (!Validator.equals(existingAssetCategory.getName(), name)) {
 				List<AssetEntry> assetCategoryAssetEntries =
 					AssetEntryLocalServiceUtil.getAssetCategoryAssetEntries(
 						existingAssetCategory.getCategoryId());
@@ -801,7 +801,7 @@ public class PortletImporter {
 						(Map<Long, Long>)
 							portletDataContext.getNewPrimaryKeysMap(className);
 
-					// Force reindex adding classPK to newPrimaryKeysMap
+					// Force reindex
 
 					newPrimaryKeysMap.put(
 						assetCategoryAssetEntry.getClassPK(),
