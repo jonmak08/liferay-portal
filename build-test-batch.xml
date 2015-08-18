@@ -55,12 +55,12 @@
 		<attribute default="false" name="stop.app.server" />
 		<attribute default="tomcat" name="app.server.type" />
 		<attribute name="database.type" />
+		<attribute name="database.version" default="${database.@{database.type}.version}" />
 		<element name="test-action" />
 
 		<sequential>
-			<var name="database.type" unset="true" />
-
-			<property name="database.type" value="@{database.type}" />
+			<var name="database.type" value="@{database.type}" />
+			<var name="database.version" value="@{database.version}" />
 
 			<database-test-action app.server.type="@{app.server.type}" database.type="@{database.type}">
 				<action>
@@ -189,14 +189,15 @@
 
 	<macrodef name="run-functional-test">
 		<attribute name="app.server.type" />
+		<attribute name="app.server.version" default="${app.server.@{app.server.type}.version}" />
 		<attribute name="database.type" />
+		<attribute name="database.version" default="${database.@{database.type}.version}" />
 		<attribute name="tomcat.gc.log" default="false" />
 		<attribute name="tsant.gc.log" default="false" />
 
 		<sequential>
-			<var name="app.server.type" unset="true" />
-
-			<property name="app.server.type" value="@{app.server.type}" />
+			<var name="app.server.type" value="@{app.server.type}" />
+			<var name="app.server.version" value="@{app.server.version}" />
 
 			<property name="test.class" value="${axis.variable}" />
 
