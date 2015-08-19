@@ -189,6 +189,7 @@ String[][] categorySections = {mainSections, seoSections, advancedSections, misc
 	<aui:input name="groupId" type="hidden" value="<%= groupId %>" />
 	<aui:input name="liveGroupId" type="hidden" value="<%= liveGroupId %>" />
 	<aui:input name="stagingGroupId" type="hidden" value="<%= stagingGroupId %>" />
+	<aui:input name="forceDisable" type="hidden" value="<%= false %>" />
 
 	<%
 	request.setAttribute("site.group", group);

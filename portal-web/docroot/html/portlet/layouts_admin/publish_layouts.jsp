@@ -65,6 +65,8 @@ long layoutSetBranchId = ParamUtil.getLong(request, "layoutSetBranchId");
 String layoutSetBranchName = ParamUtil.getString(request, "layoutSetBranchName");
 
 boolean localPublishing = true;
+boolean stagedLocally = liveGroup.isStaged() && !liveGroup.isStagedRemotely();
+boolean stagedRemotely = liveGroup.isStaged() && !stagedLocally;
 
 if (liveGroup.isStaged()) {
 	if (liveGroup.isStagedRemotely()) {
