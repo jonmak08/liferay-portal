@@ -65,6 +65,7 @@ public class SassToCssBuilder {
 			fileName, StringPool.BACK_SLASH, StringPool.SLASH);
 
 		int x = cacheFileName.lastIndexOf(StringPool.SLASH);
+
 		int y = cacheFileName.lastIndexOf(StringPool.PERIOD);
 
 		if (y == -1) {
