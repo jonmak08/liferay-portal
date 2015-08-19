@@ -5720,15 +5720,6 @@ if (ppstate.equals("normal")) {
 	</target>
 
 	<target name="record-test-case-method-names">
-		<if>
-			<not>
-				<equals arg1="test.poshi.runner.local.release" arg2="true" />
-			</not>
-			<then>
-				<property name="test.poshi.runner.local.release" value="false" />
-			</then>
-		</if>
-
 		<gradle-execute failonerror="false" task="writePoshiProperties">
 			<arg value="--build-file=portal-web/build-test.gradle" />
 			<arg value="-Plocal=${test.poshi.runner.local.release}" />
@@ -5746,15 +5737,6 @@ if (ppstate.equals("normal")) {
 
 	<target name="record-test-generated-properties">
 		<fail message="Please set the property ${test.class}." unless="test.class" />
-
-		<if>
-			<not>
-				<equals arg1="test.poshi.runner.local.release" arg2="true" />
-			</not>
-			<then>
-				<property name="test.poshi.runner.local.release" value="false" />
-			</then>
-		</if>
 
 		<get-poshi-test-name />
 
@@ -5997,15 +5979,6 @@ if (ppstate.equals("normal")) {
 
 		<property name="test.console.log.file.name" value="${liferay.home}/logs/liferay.${current.date}.xml" />
 
-		<if>
-			<not>
-				<equals arg1="test.poshi.runner.local.release" arg2="true" />
-			</not>
-			<then>
-				<property name="test.poshi.runner.local.release" value="false" />
-			</then>
-		</if>
-
 		<gradle-execute failonerror="false" task="runPoshi">
 			<arg value="--build-file=portal-web/build-test.gradle" />
 			<arg value="-Plocal=${test.poshi.runner.local.release}" />
@@ -6021,15 +5994,6 @@ if (ppstate.equals("normal")) {
 	</target>
 
 	<target name="run-poshi-validation">
-		<if>
-			<not>
-				<equals arg1="test.poshi.runner.local.release" arg2="true" />
-			</not>
-			<then>
-				<property name="test.poshi.runner.local.release" value="false" />
-			</then>
-		</if>
-
 		<gradle-execute failonerror="false" task="validatePoshi">
 			<arg value="--build-file=portal-web/build-test.gradle" />
 			<arg value="-Plocal=${test.poshi.runner.local.release}" />
