@@ -398,7 +398,7 @@
 
 	<command name="advancedSearchCP">
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_ALL_USERS" value1="All Users" />
-		<execute function="AssertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED" />
+		<execute function="Click" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED" />
 
 		<if>
 			<equals arg1="${userAdvancedSearch}" arg2="First Name" />
@@ -415,7 +415,7 @@
 				<if>
 					<condition function="IsNotVisible" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED_DIALOG" />
 					<then>
-						<execute function="AssertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED" />
+						<execute function="Click" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED" />
 					</then>
 				</if>
 
@@ -438,7 +438,7 @@
 					<if>
 						<condition function="IsNotVisible" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED_DIALOG" />
 						<then>
-							<execute function="AssertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED" />
+							<execute function="Click" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED" />
 						</then>
 					</if>
 
@@ -462,7 +462,7 @@
 					<if>
 						<condition function="IsNotVisible" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED_DIALOG" />
 						<then>
-							<execute function="AssertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED" />
+							<execute function="Click" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED" />
 						</then>
 					</if>
 
@@ -486,7 +486,7 @@
 					<if>
 						<condition function="IsNotVisible" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED_DIALOG" />
 						<then>
-							<execute function="AssertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED" />
+							<execute function="Click" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED" />
 						</then>
 					</if>
 
@@ -510,7 +510,7 @@
 					<if>
 						<condition function="IsNotVisible" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED_DIALOG" />
 						<then>
-							<execute function="AssertClick" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED" />
+							<execute function="Click" locator1="CPUsersandorganizationsViewusers#BASIC_SEARCH_ADVANCED" />
 						</then>
 					</if>
 

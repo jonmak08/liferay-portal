@@ -269,7 +269,7 @@
 
 	<command name="advancedSearchCP">
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_ALL_ORGANIZATIONS" value1="All Organizations" />
-		<execute function="AssertClick" locator1="CPUsersandorganizationsVieworganizations#BASIC_SEARCH_ADVANCED" />
+		<execute function="Click" locator1="CPUsersandorganizationsVieworganizations#BASIC_SEARCH_ADVANCED" />
 
 		<if>
 			<equals arg1="${orgAdvancedSearch}" arg2="Name" />
