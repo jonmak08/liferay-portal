@@ -618,6 +618,12 @@ public class StagingLocalServiceImpl extends StagingLocalServiceBaseImpl {
 			groupId, privateLayout, true);
 	}
 
+	protected void disableRemoteStaging(String remoteURL, long remoteGroupId)
+		throws PortalException {
+
+		disableRemoteStaging(remoteURL, remoteGroupId, false);
+	}
+
 	protected void disableRemoteStaging(
 			String remoteURL, long remoteGroupId, boolean forceDisable)
 		throws PortalException {
