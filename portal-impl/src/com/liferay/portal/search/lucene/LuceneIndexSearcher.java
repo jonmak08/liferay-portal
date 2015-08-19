@@ -668,7 +668,8 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 			if (subsetScore > 0) {
 				if (scoredFieldNamesCount == -1) {
 					scoredFieldNamesCount =
-						LuceneHelperUtil.countScoredFieldNames(luceneQuery,
+						LuceneHelperUtil.countScoredFieldNames(
+							luceneQuery,
 							ArrayUtil.toStringArray(
 								indexedFieldNames.toArray()));
 				}
