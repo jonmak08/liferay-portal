@@ -40,7 +40,7 @@ String modifiedLabel = StringPool.BLANK;
 int index = 0;
 
 if (fieldParamSelection.equals("0")) {
-	modifiedLabel = LanguageUtil.get(pageContext, facetConfiguration.getLabel());
+	modifiedLabel = LanguageUtil.get(pageContext, HtmlUtil.escape(facetConfiguration.getLabel()));
 }
 %>
 
