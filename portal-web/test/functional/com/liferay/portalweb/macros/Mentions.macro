@@ -7,7 +7,11 @@
 
 		<execute function="Type#typeWaitForCKEditor" locator1="CPBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
 
-		<execute function="SikuliType" locator1="CKEditor#BODY_FIELD_PNG" value1="${entryContent} @${mentionsUserScreenName}" />
+		<execute function="SelectFrame" locator1="CKEditor#BODY_FIELD_IFRAME" />
+
+		<execute function="Type#sendKeys" locator1="CKEditor#BODY" value1="${entryContent} @${mentionsUserScreenName}" />
+
+		<execute function="SelectFrame#selectFrameTop" />
 
 		<execute function="AssertClick" locator1="Mentions#MENTIONS_USER_DISPLAY_OPTION" value1="${mentionsUserFullName} (@${mentionsUserScreenName})" />
 
@@ -23,6 +27,10 @@
 		<execute function="AssertClick" locator1="PGBlogs#ADD_ENTRY_BUTTON" value1="Add Blog Entry" />
 
 		<execute function="Type#typeWaitForCKEditor" locator1="PGBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
+
+		<execute function="SelectFrame" locator1="CKEditor#BODY_FIELD_IFRAME" />
+
+		<execute function="AssertClick" locator1="CKEditor#BODY" />
 
 		<execute function="SikuliType" locator1="CKEditor#BODY_FIELD_PNG" value1="${entryContent} @${mentionsUserScreenName}" />
 
