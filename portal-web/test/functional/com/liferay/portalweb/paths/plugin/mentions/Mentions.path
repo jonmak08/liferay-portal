@@ -35,7 +35,7 @@
 </tr>
 <tr>
 	<td>MENTIONS_USER_DISPLAY_OPTION</td>
-	<td>//li[@data-text='${key_mentionsUserScreenName}']</td>
+	<td>//div[contains(@class,'lfr-autocomplete-input-list')]//li[contains(@data-text,'${key_mentionsUserScreenName}')]</td>
 	<td></td>
 </tr>
 <tr>
