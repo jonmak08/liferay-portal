@@ -9,8 +9,23 @@
 </thead>
 <tbody>
 <tr>
+	<td>BODY</td>
+	<td>//body[contains(@class,'cke_editable')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>BODY_FIELD</td>
 	<td>//div[contains(@id,'cke__')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BODY_FIELD_LOCALIZED</td>
+	<td>//div[contains(@id,'cke__')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>BODY_FIELD_IFRAME</td>
+	<td>//div[contains(@id,'cke')]//iframe</td>
 	<td></td>
 </tr>
 <tr>
@@ -26,6 +41,21 @@
 <tr>
 	<td>BODY_FIELD_SOURCE_ON</td>
 	<td>//div[@id='cke_1_contents']/textarea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>IFRAME</td>
+	<td>//iframe[contains(@class,'cke_panel')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>IFRAME_LOCALIZED</td>
+	<td>//iframe[contains(@title,'_editor')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SOURCE_URL</td>
+	<td>//input[contains(@id,'sourceURL')]</td>
 	<td></td>
 </tr>
 <tr>
