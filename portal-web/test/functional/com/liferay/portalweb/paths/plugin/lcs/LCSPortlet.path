@@ -39,6 +39,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>APPLY_TO_ALL_NODES_CHECKBOX</td>
+	<td>//input[contains(@id,'applyToSiblingClusterNodesCheckbox')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>CONNECT_BUTTON</td>
 	<td>//button[contains(.,'Connect')]</td>
 	<td></td>
