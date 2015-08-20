@@ -15,6 +15,7 @@
 package com.liferay.portlet.documentlibrary.service;
 
 import com.liferay.portal.kernel.repository.model.FileEntry;
+import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.search.SearchEngineUtil;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.util.ContentTypes;
@@ -34,6 +35,8 @@ import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.model.DLFileVersion;
 import com.liferay.portlet.documentlibrary.model.DLFolderConstants;
+import com.liferay.portlet.documentlibrary.service.impl.DLFileEntryLocalServiceImpl;
+import com.liferay.portlet.documentlibrary.util.DLAppTestUtil;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -48,6 +51,7 @@ import org.junit.runner.RunWith;
 
 /**
  * @author Michael C. Han
+ * @author Sergio González
  */
 @ExecutionTestListeners(
 	listeners = {
@@ -65,6 +69,47 @@ public class DLFileEntryLocalServiceTest {
 	@After
 	public void tearDown() throws Exception {
 		GroupLocalServiceUtil.deleteGroup(_group);
+	}
+
+	@Test
+	public void testDeleteFileEntries() throws Exception {
+
+		ServiceContext serviceContext =
+				ServiceContextTestUtil.getServiceContext(_group.getGroupId());
+
+		Folder folder = DLAppTestUtil.addFolder(
+						_group.getGroupId(),
+						DLFolderConstants.DEFAULT_PARENT_FOLDER_ID,
+						RandomTestUtil.randomString());
+
+		for (int i = 0; i < 20; i++) {
+			FileEntry fileEntry = DLAppLocalServiceUtil.addFileEntry(
+					TestPropsValues.getUserId(), _group.getGroupId(),
+					folder.getFolderId(), RandomTestUtil.randomString(),
+					ContentTypes.TEXT_PLAIN, RandomTestUtil.randomString(),
+					StringPool.BLANK, StringPool.BLANK,
+					RandomTestUtil.randomBytes(), serviceContext);
+
+			DLAppLocalServiceUtil.moveFileEntryToTrash(
+				TestPropsValues.getUserId(), fileEntry.getFileEntryId());
+		}
+
+		for (int i = 0; i < DLFileEntryLocalServiceImpl.DELETE_INTERVAL; i++) {
+			DLAppLocalServiceUtil.addFileEntry(
+					TestPropsValues.getUserId(), _group.getGroupId(),
+					folder.getFolderId(), RandomTestUtil.randomString(),
+					ContentTypes.TEXT_PLAIN, RandomTestUtil.randomString(),
+					StringPool.BLANK, StringPool.BLANK,
+					RandomTestUtil.randomBytes(), serviceContext);
+		}
+
+		DLFileEntryLocalServiceUtil.deleteFileEntries(
+			_group.getGroupId(), folder.getFolderId(), false);
+
+		int fileEntriesCount = DLFileEntryLocalServiceUtil.getFileEntriesCount(
+			_group.getGroupId(), folder.getFolderId());
+
+		Assert.assertEquals(20, fileEntriesCount);
 	}
 
 	@Test
