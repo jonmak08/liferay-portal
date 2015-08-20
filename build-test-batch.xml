@@ -577,6 +577,10 @@ echo "Sent notification."]]>
 		</run-batch-test>
 	</target>
 
+	<target name="dist-jdk7">
+		<prepare-test-build-dist app.server.type="${axis.variable}" />
+	</target>
+
 	<target name="functional-glassfish3-postgresql94-jdk7">
 		<run-functional-test app.server.type="glassfish" database.type="postgresql" />
 	</target>
