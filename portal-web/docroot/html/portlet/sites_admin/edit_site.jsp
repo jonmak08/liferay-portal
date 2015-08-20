@@ -234,7 +234,7 @@ String[][] categorySections = {mainSections, seoSections, advancedSections, misc
 				</c:otherwise>
 			</c:choose>
 
-			if (stagingTypeEl && (stagingTypeEl.val() != oldValue)) {
+			if (!forceDisable && stagingTypeEl && (stagingTypeEl.val() != oldValue)) {
 				var currentValue = stagingTypeEl.val();
 
 				ok = false;
