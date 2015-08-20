@@ -105,14 +105,19 @@
 		<if>
 			<isset var="kbArticleAttachment" />
 			<then>
-				<execute macro="KBArticle#selectAttachmentCP" />
+				<execute macro="KBArticle#selectAttachmentCP">
+					<var name="kbArticleAttachment" value="${kbArticleAttachment}" />
+				</execute>
 			</then>
 		</if>
 
 		<if>
 			<isset var="categoryName" />
 			<then>
-				<execute macro="KBArticle#selectCategoryCP" />
+				<execute macro="KBArticle#selectCategoryCP">
+					<var name="categoryName" value="${categoryName}" />
+					<var name="vocabularyName" value="${vocabularyName}" />
+				</execute>
 			</then>
 		</if>
 
