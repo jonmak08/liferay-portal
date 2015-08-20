@@ -43,6 +43,10 @@
 		</if>
 	</command>
 
+	<command name="checkApplyToAllNodes">
+		<execute function="Check" locator1="LCSPortlet#APPLY_TO_ALL_NODES_CHECKBOX" />
+	</command>
+
 	<command name="completeRegistration">
 		<execute function="Click" locator1="LCSPortletRegistration#REGISTER_BUTTON" />
 
@@ -171,6 +175,10 @@
 
 	<command name="selectProject">
 		<execute function="Select" locator1="LCSPortletRegistration#PROJECT_SELECT" value1="${projectName}" />
+	</command>
+
+	<command name="uncheckApplyToAllNodes">
+		<execute function="Uncheck" locator1="LCSPortlet#APPLY_TO_ALL_NODES_CHECKBOX" />
 	</command>
 
 	<command name="viewBeforeAuthorization">
