@@ -239,6 +239,23 @@ public class SAXReaderUtil {
 		_saxReader = saxReader;
 	}
 
+	/**
+	 * @deprecated As of 6.2.0, renamed to {@link #setSAXReader}
+	 */
+	public void setSecureSAXReader(SAXReader saxReader) {
+		setSAXReader(saxReader);
+	}
+
+	/**
+	 * @deprecated As of 6.2.0, renamed to {@link
+	 * UnsecureSAXReaderUtil#setSAXReader()}
+	 */
+	public void setUnsecureSAXReader(SAXReader unsecureSAXReader) {
+		UnsecureSAXReaderUtil unsecureSAXReaderUtil =
+			new UnsecureSAXReaderUtil();
+		unsecureSAXReaderUtil.setSAXReader(unsecureSAXReader);
+	}
+
 	private static final boolean _XML_SECURITY_ENABLED = GetterUtil.getBoolean(
 		PropsUtil.get(PropsKeys.XML_SECURITY_ENABLED));
 
