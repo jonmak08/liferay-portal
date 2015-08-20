@@ -64,7 +64,7 @@
 			<equals arg1="${kbArticleAddViaSource}" arg2="true" />
 			<then>
 				<execute function="AssertClick" locator1="CPKnowledgebaseadminAddarticle#SOURCE_BUTTON" value1="Source" />
-				<execute function="Type" locator1="CPKnowledgebaseadminAddarticle#CONTENT_BODY_SOURCE_ON" value1="${kbArticleContentSource}" />
+				<execute function="Type#sendKeys" locator1="CPKnowledgebaseadminAddarticle#CONTENT_BODY_SOURCE_ON" value1="${kbArticleContentSource}" />
 			</then>
 			<else>
 				<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CPKnowledgebaseadminAddarticle#CONTENT_FIELD" value1="${kbArticleContent}" />
