@@ -73,22 +73,20 @@ public class DLFileEntryLocalServiceTest {
 
 	@Test
 	public void testDeleteFileEntries() throws Exception {
-
 		ServiceContext serviceContext =
-				ServiceContextTestUtil.getServiceContext(_group.getGroupId());
+			ServiceContextTestUtil.getServiceContext(_group.getGroupId());
 
 		Folder folder = DLAppTestUtil.addFolder(
-						_group.getGroupId(),
-						DLFolderConstants.DEFAULT_PARENT_FOLDER_ID,
-						RandomTestUtil.randomString());
+			_group.getGroupId(), DLFolderConstants.DEFAULT_PARENT_FOLDER_ID,
+			RandomTestUtil.randomString());
 
 		for (int i = 0; i < 20; i++) {
 			FileEntry fileEntry = DLAppLocalServiceUtil.addFileEntry(
-					TestPropsValues.getUserId(), _group.getGroupId(),
-					folder.getFolderId(), RandomTestUtil.randomString(),
-					ContentTypes.TEXT_PLAIN, RandomTestUtil.randomString(),
-					StringPool.BLANK, StringPool.BLANK,
-					RandomTestUtil.randomBytes(), serviceContext);
+				TestPropsValues.getUserId(), _group.getGroupId(),
+				folder.getFolderId(), RandomTestUtil.randomString(),
+				ContentTypes.TEXT_PLAIN, RandomTestUtil.randomString(),
+				StringPool.BLANK, StringPool.BLANK,
+				RandomTestUtil.randomBytes(), serviceContext);
 
 			DLAppLocalServiceUtil.moveFileEntryToTrash(
 				TestPropsValues.getUserId(), fileEntry.getFileEntryId());
@@ -96,11 +94,11 @@ public class DLFileEntryLocalServiceTest {
 
 		for (int i = 0; i < DLFileEntryLocalServiceImpl.DELETE_INTERVAL; i++) {
 			DLAppLocalServiceUtil.addFileEntry(
-					TestPropsValues.getUserId(), _group.getGroupId(),
-					folder.getFolderId(), RandomTestUtil.randomString(),
-					ContentTypes.TEXT_PLAIN, RandomTestUtil.randomString(),
-					StringPool.BLANK, StringPool.BLANK,
-					RandomTestUtil.randomBytes(), serviceContext);
+				TestPropsValues.getUserId(), _group.getGroupId(),
+				folder.getFolderId(), RandomTestUtil.randomString(),
+				ContentTypes.TEXT_PLAIN, RandomTestUtil.randomString(),
+				StringPool.BLANK, StringPool.BLANK,
+				RandomTestUtil.randomBytes(), serviceContext);
 		}
 
 		DLFileEntryLocalServiceUtil.deleteFileEntries(
