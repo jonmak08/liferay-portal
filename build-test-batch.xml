@@ -487,9 +487,7 @@ echo "Sent notification."]]>
 							</antcall>
 						</then>
 						<else>
-							<antcall target="start" />
-
-							<ant antfile="build-dist.xml" target="build-dist-${app.server.type}" />
+							<prepare-test-environment app.server.type="${app.server.type}" />
 						</else>
 					</if>
 
@@ -506,7 +504,6 @@ echo "Sent notification."]]>
 					</if>
 
 					<antcall target="record-test-generated-properties" />
-
 				</test-set-up>
 
 				<test-tear-down>
@@ -548,7 +545,7 @@ echo "Sent notification."]]>
 				</test-action>
 
 				<test-set-up>
-					<prepare-test-build />
+					<prepare-test-environment />
 				</test-set-up>
 			</run-batch-test>
 		</sequential>
@@ -575,7 +572,7 @@ echo "Sent notification."]]>
 			</test-action>
 
 			<test-set-up>
-				<prepare-test-build />
+				<prepare-test-environment />
 			</test-set-up>
 		</run-batch-test>
 	</target>
@@ -659,7 +656,7 @@ echo "Sent notification."]]>
 			</test-action>
 
 			<test-set-up>
-				<prepare-test-build />
+				<prepare-test-environment />
 			</test-set-up>
 		</run-batch-test>
 	</target>
@@ -699,7 +696,7 @@ echo "Sent notification."]]>
 			</test-action>
 
 			<test-set-up>
-				<prepare-test-build />
+				<prepare-test-environment />
 			</test-set-up>
 		</run-batch-test>
 	</target>
@@ -722,7 +719,7 @@ echo "Sent notification."]]>
 			</test-action>
 
 			<test-set-up>
-				<prepare-test-build />
+				<prepare-test-environment />
 
 				<antcall target="prepare-system-ext-properties" />
 			</test-set-up>
@@ -751,7 +748,7 @@ echo "Sent notification."]]>
 			</test-action>
 
 			<test-set-up>
-				<prepare-test-build-unit />
+				<prepare-test-environment />
 			</test-set-up>
 		</run-batch-test>
 	</target>
