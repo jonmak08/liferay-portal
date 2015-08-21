@@ -1,0 +1,1459 @@
+<definition component-name="liferay-connected-services-project-administration">
+	<property name="portlet.plugins.includes" value="lcs-portlet" />
+	<property name="testray.main.component.name" value="Liferay Connected Services" />
+	<property name="cluster.enabled" value="true" />
+
+	<set-up>
+		<execute macro="User#firstLoginPG" />
+	</set-up>
+
+	<tear-down>
+		<execute function="Click" locator1="LCSPortalNavigation#NAVIGATION_MENU_DASHBOARD" />
+
+		<execute macro="LCSEnvironment#tearDown" />
+	</tear-down>
+
+	<command name="DisconnectAllAndReconnectAll" priority="4">
+		<property name="app.server.bundles.size" value="1" />
+
+		<execute macro="Page#assertNodePortPG">
+			<var name="nodePort" value="8080" />
+		</execute>
+
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="registerAllClusterNodes" value="true" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<var name="key_positionValue" value="2" />
+
+		<var locator="LCSPortalNavigation#NAVIGATION_MENU_SERVER_SPECIFIC" name="serverName2" />
+
+		<execute macro="LCSServerNavigator#gotoServerDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="${serverName2}" />
+		</execute>
+
+		<execute macro="LCSServer#editServerDetails">
+			<var name="serverDescriptionEdit" value="Environment 1 Server 2 Description" />
+			<var name="serverLocationEdit" value="Environment 1 Server 2 Location" />
+			<var name="serverNameEdit" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewConnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="LCSPortlet#checkApplyToAllNodes" />
+
+		<execute macro="LCSPortlet#disconnect" />
+
+		<execute function="SelectWindow" locator1="Server - Liferay" />
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSAlerts#viewAlertDashboard">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertDashboard">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertEnvironment">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertEnvironment">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewDisconnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertServer">
+			<var name="alertMessage" value="The server is offline." />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertServer">
+			<var name="alertMessage" value="The server is offline." />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="LCSPortlet#checkApplyToAllNodes" />
+
+		<execute macro="LCSPortlet#connect" />
+
+		<execute function="SelectWindow" locator1="Server - Liferay" />
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewConnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+	</command>
+
+	<command name="DisconnectAllAndReconnectSequentially" priority="4">
+		<property name="app.server.bundles.size" value="1" />
+
+		<execute macro="Page#assertNodePortPG">
+			<var name="nodePort" value="8080" />
+		</execute>
+
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="registerAllClusterNodes" value="true" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<var name="key_positionValue" value="2" />
+
+		<var locator="LCSPortalNavigation#NAVIGATION_MENU_SERVER_SPECIFIC" name="serverName2" />
+
+		<execute macro="LCSServerNavigator#gotoServerDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="${serverName2}" />
+		</execute>
+
+		<execute macro="LCSServer#editServerDetails">
+			<var name="serverDescriptionEdit" value="Environment 1 Server 2 Description" />
+			<var name="serverLocationEdit" value="Environment 1 Server 2 Location" />
+			<var name="serverNameEdit" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewConnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="LCSPortlet#checkApplyToAllNodes" />
+
+		<execute macro="LCSPortlet#disconnect" />
+
+		<execute function="SelectWindow" locator1="Server - Liferay" />
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSAlerts#viewAlertDashboard">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertDashboard">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertEnvironment">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertEnvironment">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewDisconnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertServer">
+			<var name="alertMessage" value="The server is offline." />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertServer">
+			<var name="alertMessage" value="The server is offline." />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="LCSPortlet#uncheckApplyToAllNodes" />
+
+		<execute macro="LCSPortlet#connect" />
+
+		<execute function="SelectWindow" locator1="Server - Liferay" />
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertDashboard">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertEnvironment">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewDisconnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertServer">
+			<var name="alertMessage" value="The server is offline." />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="User#loginPG">
+			<var name="nodePort" value="9080" />
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="test@liferay.com" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Liferay Connected Services" />
+			<var name="virtualHostsURL" value="http://localhost:9080" />
+		</execute>
+
+		<execute macro="LCSPortlet#uncheckApplyToAllNodes" />
+
+		<execute macro="LCSPortlet#connect" />
+
+		<execute macro="LCSPortletNavigator#gotoProjectHome">
+			<var name="projectName" value="Liferay QA" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewConnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+	</command>
+
+	<command name="DisconnectSequentiallyAndReconnectAll" priority="4">
+		<property name="app.server.bundles.size" value="1" />
+
+		<execute macro="Page#assertNodePortPG">
+			<var name="nodePort" value="8080" />
+		</execute>
+
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="registerAllClusterNodes" value="true" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<var name="key_positionValue" value="2" />
+
+		<var locator="LCSPortalNavigation#NAVIGATION_MENU_SERVER_SPECIFIC" name="serverName2" />
+
+		<execute macro="LCSServerNavigator#gotoServerDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="${serverName2}" />
+		</execute>
+
+		<execute macro="LCSServer#editServerDetails">
+			<var name="serverDescriptionEdit" value="Environment 1 Server 2 Description" />
+			<var name="serverLocationEdit" value="Environment 1 Server 2 Location" />
+			<var name="serverNameEdit" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewConnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="LCSPortlet#uncheckApplyToAllNodes" />
+
+		<execute macro="LCSPortlet#disconnect" />
+
+		<execute function="SelectWindow" locator1="Server - Liferay" />
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSAlerts#viewAlertDashboard">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertEnvironment">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewDisconnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertServer">
+			<var name="alertMessage" value="The server is offline." />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="User#loginPG">
+			<var name="nodePort" value="9080" />
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="test@liferay.com" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Liferay Connected Services" />
+			<var name="virtualHostsURL" value="http://localhost:9080" />
+		</execute>
+
+		<execute macro="LCSPortlet#uncheckApplyToAllNodes" />
+
+		<execute macro="LCSPortlet#disconnect" />
+
+		<execute macro="LCSPortletNavigator#gotoProjectHome">
+			<var name="projectName" value="Liferay QA" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSAlerts#viewAlertDashboard">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertDashboard">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertEnvironment">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertEnvironment">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewDisconnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertServer">
+			<var name="alertMessage" value="The server is offline." />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertServer">
+			<var name="alertMessage" value="The server is offline." />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertDashboard">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertEnvironment">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewDisconnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertServer">
+			<var name="alertMessage" value="The server is offline." />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="User#loginPG">
+			<var name="nodePort" value="8080" />
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="test@liferay.com" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Liferay Connected Services" />
+			<var name="virtualHostsURL" value="http://localhost:8080" />
+		</execute>
+
+		<execute macro="LCSPortlet#uncheckApplyToAllNodes" />
+
+		<execute macro="LCSPortlet#connect" />
+
+		<execute function="SelectWindow" locator1="Server - Liferay" />
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertDashboard">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertEnvironment">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewDisconnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertServer">
+			<var name="alertMessage" value="The server is offline." />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="User#loginPG">
+			<var name="nodePort" value="9080" />
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="test@liferay.com" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Liferay Connected Services" />
+			<var name="virtualHostsURL" value="http://localhost:9080" />
+		</execute>
+
+		<execute macro="LCSPortlet#uncheckApplyToAllNodes" />
+
+		<execute macro="LCSPortlet#connect" />
+
+		<execute macro="LCSPortletNavigator#gotoProjectHome">
+			<var name="projectName" value="Liferay QA" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewConnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+	</command>
+
+	<command name="DisconnectSequentiallyAndReconnectSequentially" priority="4">
+		<property name="app.server.bundles.size" value="1" />
+
+		<execute macro="Page#assertNodePortPG">
+			<var name="nodePort" value="8080" />
+		</execute>
+
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="registerAllClusterNodes" value="true" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<var name="key_positionValue" value="2" />
+
+		<var locator="LCSPortalNavigation#NAVIGATION_MENU_SERVER_SPECIFIC" name="serverName2" />
+
+		<execute macro="LCSServerNavigator#gotoServerDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="${serverName2}" />
+		</execute>
+
+		<execute macro="LCSServer#editServerDetails">
+			<var name="serverDescriptionEdit" value="Environment 1 Server 2 Description" />
+			<var name="serverLocationEdit" value="Environment 1 Server 2 Location" />
+			<var name="serverNameEdit" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewConnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="LCSPortlet#uncheckApplyToAllNodes" />
+
+		<execute macro="LCSPortlet#disconnect" />
+
+		<execute function="SelectWindow" locator1="Server - Liferay" />
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSAlerts#viewAlertDashboard">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertEnvironment">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewDisconnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertServer">
+			<var name="alertMessage" value="The server is offline." />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute function="SelectWindow" locator1="Liferay Connected Services - Liferay" />
+
+		<execute macro="User#loginPG">
+			<var name="nodePort" value="9080" />
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="test@liferay.com" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Liferay Connected Services" />
+			<var name="virtualHostsURL" value="http://localhost:9080" />
+		</execute>
+
+		<execute macro="LCSPortlet#uncheckApplyToAllNodes" />
+
+		<execute macro="LCSPortlet#disconnect" />
+
+		<execute macro="LCSPortletNavigator#gotoProjectHome">
+			<var name="projectName" value="Liferay QA" />
+			<var name="userEmailAddress" property-value="lcs.email.address.1" />
+			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSAlerts#viewAlertDashboard">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertDashboard">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertEnvironment">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertEnvironment">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewDisconnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertServer">
+			<var name="alertMessage" value="The server is offline." />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertServer">
+			<var name="alertMessage" value="The server is offline." />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertDashboard">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertEnvironment">
+			<var name="alertMessage" value="The server is offline." />
+			<var name="serverLocation" value="Environment 1 Server 2 Location" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewDisconnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewAlertServer">
+			<var name="alertMessage" value="The server is offline." />
+		</execute>
+
+		<execute macro="LCSServer#viewDisconnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="User#loginPG">
+			<var name="nodePort" value="8080" />
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="test@liferay.com" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Liferay Connected Services" />
+			<var name="virtualHostsURL" value="http://localhost:8080" />
+		</execute>
+
+		<execute macro="LCSPortlet#checkApplyToAllNodes" />
+
+		<execute macro="LCSPortlet#connect" />
+
+		<execute function="SelectWindow" locator1="Server - Liferay" />
+
+		<execute macro="LCSPortalNavigator#gotoDashboard" />
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertDashboard">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertEnvironment">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSEnvironment#viewConnectedEnvironmentIcon">
+			<var name="environmentName" value="Environment 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+
+		<execute macro="LCSAlerts#viewNoAlertServer" />
+
+		<execute macro="LCSServer#viewConnectedServerIcon">
+			<var name="serverName" value="Environment 1 Server 2 Name" />
+		</execute>
+	</command>
+</definition>
