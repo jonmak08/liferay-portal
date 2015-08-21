@@ -24,14 +24,22 @@
 
 	<c:choose>
 		<c:when test="<%= themeDisplay.isStatePopUp() || Validator.isNotNull(controlPanelCategory) %>">
-			Liferay.Util.getTop().Liferay.fire(
-				'popupReady',
-				{
-					doc: document,
-					win: window,
-					windowName: Liferay.Util.getWindowName()
-				}
-			);
+			function firePopupReady() {
+				Liferay.Util.getTop().Liferay.fire(
+					'popupReady',
+					{
+						doc: document,
+						win: window,
+						windowName: Liferay.Util.getWindowName()
+					}
+				);
+			}
+
+			firePopupReady();
+
+			<c:if test="<%= PropsValues.JAVASCRIPT_SINGLE_PAGE_APPLICATION_ENABLED %>">
+				Liferay.on('surfaceEndNavigate', firePopupReady);
+			</c:if>
 		</c:when>
 		<c:otherwise>
 
