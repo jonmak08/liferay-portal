@@ -23,7 +23,7 @@ String redirect = ParamUtil.getString(request, "redirect");
 
 JournalArticle article = null;
 
-String articleGroupName = StringPool.BLANK;
+String articleGroupNameDisplay = StringPool.BLANK;
 
 String defaultType = "-1";
 
@@ -36,10 +36,6 @@ try {
 		article = article.toEscapedModel();
 
 		articleGroupId = article.getGroupId();
-
-		Group articleGroup = GroupLocalServiceUtil.getGroup(articleGroupId);
-
-		articleGroupName = articleGroup.getDescriptiveName(locale);
 
 		if (type.equals(defaultType)) {
 			type = article.getType();
@@ -69,18 +65,19 @@ catch (NoSuchArticleException nsae) {
 		</span>
 
 		<span class="displaying-article-id-holder <%= article == null ? "hide" : StringPool.BLANK %>">
+			<liferay-ui:message key="displaying-content" />: <span class="displaying-article-id"><%= article != null ? article.getTitle(locale) : StringPool.BLANK %></span>
 
-			<%
-			StringBundler articleDisplayNameSb = new StringBundler(5);
+			<c:if test="<%= article.getGroupId() != themeDisplay.getScopeGroupId() %>">
 
-			articleDisplayNameSb.append(article.getTitle(locale));
-			articleDisplayNameSb.append(StringPool.SPACE);
-			articleDisplayNameSb.append(StringPool.OPEN_PARENTHESIS);
-			articleDisplayNameSb.append(articleGroupName);
-			articleDisplayNameSb.append(StringPool.CLOSE_PARENTHESIS);
-			%>
+				<%
+				Group articleGroup = GroupLocalServiceUtil.getGroup(article.getGroupId());
 
-			<liferay-ui:message key="displaying-content" />: <span class="displaying-article-id"><%= article != null ? articleDisplayNameSb.toString() : StringPool.BLANK %></span>
+				articleGroupNameDisplay = StringPool.OPEN_PARENTHESIS + articleGroup.getDescriptiveName(locale) + StringPool.CLOSE_PARENTHESIS;
+				%>
+
+			</c:if>
+
+			<span id="display-article-group"><%= articleGroupNameDisplay %></span>
 		</span>
 	</div>
 
@@ -199,11 +196,15 @@ catch (NoSuchArticleException nsae) {
 	searchTerms.setFolderIds(new ArrayList<Long>());
 	searchTerms.setVersion(-1);
 
-	Group searchGroup = GroupLocalServiceUtil.getGroup(searchTerms.getGroupId());
-
-	String searchGroupName = searchGroup.getDescriptiveName(locale);
-
 	boolean includeScheduledArticles = true;
+
+	String searchGroupName = StringPool.BLANK;
+
+	if (searchTerms.getGroupId() != themeDisplay.getScopeGroupId()) {
+		Group searchGroup = GroupLocalServiceUtil.getGroup(searchTerms.getGroupId());
+
+		searchGroupName = searchGroup.getDescriptiveName(locale);
+	}
 
 	List<JournalArticle> results = null;
 	int total = 0;
@@ -217,26 +218,20 @@ catch (NoSuchArticleException nsae) {
 	for (int i = 0; i < results.size(); i++) {
 		JournalArticle curArticle = results.get(i);
 
-		StringBundler curArticleDisplayNameSb = new StringBundler(5);
-
-		curArticleDisplayNameSb.append(curArticle.getTitle(locale));
-		curArticleDisplayNameSb.append(StringPool.SPACE);
-		curArticleDisplayNameSb.append(StringPool.OPEN_PARENTHESIS);
-		curArticleDisplayNameSb.append(searchGroupName);
-		curArticleDisplayNameSb.append(StringPool.CLOSE_PARENTHESIS);
-
 		ResultRow row = new ResultRow(null, HtmlUtil.escapeAttribute(curArticle.getArticleId()) + EditArticleAction.VERSION_SEPARATOR + curArticle.getVersion(), i);
 
-		StringBundler sb = new StringBundler(9);
+		StringBundler sb = new StringBundler(11);
 
 		sb.append("javascript:");
 		sb.append(renderResponse.getNamespace());
 		sb.append("selectArticle('");
 		sb.append(String.valueOf(curArticle.getGroupId()));
 		sb.append("','");
+		sb.append(HtmlUtil.escapeJS(searchGroupName));
+		sb.append("','");
 		sb.append(HtmlUtil.escapeJS(curArticle.getArticleId()));
 		sb.append("','");
-		sb.append(HtmlUtil.escapeJS(curArticleDisplayNameSb.toString()));
+		sb.append(HtmlUtil.escapeJS(curArticle.getTitle(locale)));
 		sb.append("');");
 
 		String rowHREF = sb.toString();
@@ -334,7 +329,7 @@ catch (NoSuchArticleException nsae) {
 	Liferay.provide(
 		window,
 		'<portlet:namespace />selectArticle',
-		function(articleGroupId, articleId, articleTitle) {
+		function(articleGroupId, articleGroupName, articleId, articleTitle) {
 			var A = AUI();
 
 			document.<portlet:namespace />fm.<portlet:namespace />groupId.value = articleGroupId;
@@ -348,6 +343,16 @@ catch (NoSuchArticleException nsae) {
 
 			displayArticleId.set('innerHTML', Liferay.Util.escapeHTML(articleTitle) + ' (<%= UnicodeLanguageUtil.get(pageContext, "modified") %>)');
 			displayArticleId.addClass('modified');
+
+			var displayArticleGroup = A.one('#display-article-group');
+
+			var articleGroupNameDisplay = '<%= StringPool.BLANK %>';
+
+			if (articleGroupName.length) {
+				articleGroupNameDisplay = '<%= StringPool.OPEN_PARENTHESIS %>' + articleGroupName + '<%= StringPool.CLOSE_PARENTHESIS %>';
+			}
+
+			displayArticleGroup.set('innerHTML', Liferay.Util.escapeHTML(articleGroupNameDisplay));
 		},
 		['aui-base']
 	);
