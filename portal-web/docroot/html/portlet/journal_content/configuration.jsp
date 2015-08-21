@@ -23,6 +23,8 @@ String redirect = ParamUtil.getString(request, "redirect");
 
 JournalArticle article = null;
 
+String articleGroupName = StringPool.BLANK;
+
 String defaultType = "-1";
 
 String type = ParamUtil.getString(request, "type", defaultType);
@@ -34,6 +36,10 @@ try {
 		article = article.toEscapedModel();
 
 		articleGroupId = article.getGroupId();
+
+		Group articleGroup = GroupLocalServiceUtil.getGroup(articleGroupId);
+
+		articleGroupName = articleGroup.getDescriptiveName(locale);
 
 		if (type.equals(defaultType)) {
 			type = article.getType();
@@ -63,7 +69,7 @@ catch (NoSuchArticleException nsae) {
 		</span>
 
 		<span class="displaying-article-id-holder <%= article == null ? "hide" : StringPool.BLANK %>">
-			<liferay-ui:message key="displaying-content" />: <span class="displaying-article-id"><%= article != null ? article.getTitle(locale) : StringPool.BLANK %></span>
+			<liferay-ui:message key="displaying-content" />: <span class="displaying-article-id"><%= article != null ? article.getTitle(locale) + StringPool.SPACE + StringPool.OPEN_PARENTHESIS + articleGroupName + StringPool.CLOSE_PARENTHESIS : StringPool.BLANK %></span>
 		</span>
 	</div>
 
@@ -182,6 +188,10 @@ catch (NoSuchArticleException nsae) {
 	searchTerms.setFolderIds(new ArrayList<Long>());
 	searchTerms.setVersion(-1);
 
+	Group searchGroup = GroupLocalServiceUtil.getGroup(searchTerms.getGroupId());
+
+	String searchGroupName = searchGroup.getDescriptiveName(locale);
+
 	boolean includeScheduledArticles = true;
 
 	List<JournalArticle> results = null;
@@ -207,7 +217,7 @@ catch (NoSuchArticleException nsae) {
 		sb.append("','");
 		sb.append(HtmlUtil.escapeJS(curArticle.getArticleId()));
 		sb.append("','");
-		sb.append(HtmlUtil.escapeJS(curArticle.getTitle(locale)));
+		sb.append(HtmlUtil.escapeJS(curArticle.getTitle(locale) + StringPool.SPACE + StringPool.OPEN_PARENTHESIS + searchGroupName + StringPool.CLOSE_PARENTHESIS));
 		sb.append("');");
 
 		String rowHREF = sb.toString();
