@@ -69,7 +69,18 @@ catch (NoSuchArticleException nsae) {
 		</span>
 
 		<span class="displaying-article-id-holder <%= article == null ? "hide" : StringPool.BLANK %>">
-			<liferay-ui:message key="displaying-content" />: <span class="displaying-article-id"><%= article != null ? article.getTitle(locale) + StringPool.SPACE + StringPool.OPEN_PARENTHESIS + articleGroupName + StringPool.CLOSE_PARENTHESIS : StringPool.BLANK %></span>
+
+			<%
+			StringBundler articleDisplayNameSb = new StringBundler(5);
+
+			articleDisplayNameSb.append(article.getTitle(locale));
+			articleDisplayNameSb.append(StringPool.SPACE);
+			articleDisplayNameSb.append(StringPool.OPEN_PARENTHESIS);
+			articleDisplayNameSb.append(articleGroupName);
+			articleDisplayNameSb.append(StringPool.CLOSE_PARENTHESIS);
+			%>
+
+			<liferay-ui:message key="displaying-content" />: <span class="displaying-article-id"><%= article != null ? articleDisplayNameSb.toString() : StringPool.BLANK %></span>
 		</span>
 	</div>
 
@@ -206,6 +217,14 @@ catch (NoSuchArticleException nsae) {
 	for (int i = 0; i < results.size(); i++) {
 		JournalArticle curArticle = results.get(i);
 
+		StringBundler curArticleDisplayNameSb = new StringBundler(5);
+
+		curArticleDisplayNameSb.append(curArticle.getTitle(locale));
+		curArticleDisplayNameSb.append(StringPool.SPACE);
+		curArticleDisplayNameSb.append(StringPool.OPEN_PARENTHESIS);
+		curArticleDisplayNameSb.append(searchGroupName);
+		curArticleDisplayNameSb.append(StringPool.CLOSE_PARENTHESIS);
+
 		ResultRow row = new ResultRow(null, HtmlUtil.escapeAttribute(curArticle.getArticleId()) + EditArticleAction.VERSION_SEPARATOR + curArticle.getVersion(), i);
 
 		StringBundler sb = new StringBundler(9);
@@ -217,7 +236,7 @@ catch (NoSuchArticleException nsae) {
 		sb.append("','");
 		sb.append(HtmlUtil.escapeJS(curArticle.getArticleId()));
 		sb.append("','");
-		sb.append(HtmlUtil.escapeJS(curArticle.getTitle(locale) + StringPool.SPACE + StringPool.OPEN_PARENTHESIS + searchGroupName + StringPool.CLOSE_PARENTHESIS));
+		sb.append(HtmlUtil.escapeJS(curArticleDisplayNameSb.toString()));
 		sb.append("');");
 
 		String rowHREF = sb.toString();
