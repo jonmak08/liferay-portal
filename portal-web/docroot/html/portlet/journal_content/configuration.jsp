@@ -344,13 +344,13 @@ catch (NoSuchArticleException nsae) {
 			displayArticleId.set('innerHTML', Liferay.Util.escapeHTML(articleTitle) + ' (<%= UnicodeLanguageUtil.get(pageContext, "modified") %>)');
 			displayArticleId.addClass('modified');
 
-			var displayArticleGroup = A.one('#display-article-group');
-
-			var articleGroupNameDisplay = '<%= StringPool.BLANK %>';
+			var articleGroupNameDisplay = '';
 
 			if (articleGroupName.length) {
-				articleGroupNameDisplay = '<%= StringPool.OPEN_PARENTHESIS %>' + articleGroupName + '<%= StringPool.CLOSE_PARENTHESIS %>';
+				articleGroupNameDisplay = '(' + articleGroupName + ')';
 			}
+
+			var displayArticleGroup = A.one('#display-article-group');
 
 			displayArticleGroup.set('innerHTML', Liferay.Util.escapeHTML(articleGroupNameDisplay));
 		},
