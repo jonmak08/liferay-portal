@@ -118,6 +118,7 @@ if (portletId.equals(PortletKeys.PORTLET_CONFIGURATION)) {
 boolean showActions = PrefsParamUtil.getBoolean(portletPreferences, request, "showActions");
 boolean showAssetMetadata = ParamUtil.getBoolean(request, "showAssetMetadata");
 boolean showAddFolderButton = false;
+boolean showComments = ParamUtil.getBoolean(request, "showComments", true);
 boolean showFolderMenu = PrefsParamUtil.getBoolean(portletPreferences, request, "showFolderMenu");
 boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 boolean showMinimalActionButtons = ParamUtil.getBoolean(request, "showMinimalActionButtons");
@@ -160,7 +161,6 @@ else if (!portletId.equals(PortletKeys.DOCUMENT_LIBRARY) && !ArrayUtil.contains(
 
 boolean enableRatings = GetterUtil.getBoolean(portletPreferences.getValue("enableRatings", null), true);
 boolean enableCommentRatings = GetterUtil.getBoolean(portletPreferences.getValue("enableCommentRatings", null), true);
-boolean showComments = ParamUtil.getBoolean(request, "showComments", true);
 
 Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZone);
 %>
