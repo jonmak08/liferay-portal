@@ -23,8 +23,6 @@ String redirect = ParamUtil.getString(request, "redirect");
 
 JournalArticle article = null;
 
-String articleGroupNameDisplay = StringPool.BLANK;
-
 String defaultType = "-1";
 
 String type = ParamUtil.getString(request, "type", defaultType);
@@ -67,17 +65,21 @@ catch (NoSuchArticleException nsae) {
 		<span class="displaying-article-id-holder <%= article == null ? "hide" : StringPool.BLANK %>">
 			<liferay-ui:message key="displaying-content" />: <span class="displaying-article-id"><%= article != null ? article.getTitle(locale) : StringPool.BLANK %></span>
 
+			<%
+			String articleGroupDescriptiveNameWithParentheses = StringPool.BLANK;
+			%>
+
 			<c:if test="<%= article.getGroupId() != themeDisplay.getScopeGroupId() %>">
 
 				<%
 				Group articleGroup = GroupLocalServiceUtil.getGroup(article.getGroupId());
 
-				articleGroupNameDisplay = StringPool.OPEN_PARENTHESIS + articleGroup.getDescriptiveName(locale) + StringPool.CLOSE_PARENTHESIS;
+				articleGroupDescriptiveNameWithParentheses = StringPool.OPEN_PARENTHESIS + articleGroup.getDescriptiveName(locale) + StringPool.CLOSE_PARENTHESIS;
 				%>
 
 			</c:if>
 
-			<span id="display-article-group"><%= articleGroupNameDisplay %></span>
+			<span id="display-article-group"><%= articleGroupDescriptiveNameWithParentheses %></span>
 		</span>
 	</div>
 
@@ -198,12 +200,12 @@ catch (NoSuchArticleException nsae) {
 
 	boolean includeScheduledArticles = true;
 
-	String searchGroupName = StringPool.BLANK;
+	String searchGroupDescriptiveName = StringPool.BLANK;
 
 	if (searchTerms.getGroupId() != themeDisplay.getScopeGroupId()) {
 		Group searchGroup = GroupLocalServiceUtil.getGroup(searchTerms.getGroupId());
 
-		searchGroupName = searchGroup.getDescriptiveName(locale);
+		searchGroupDescriptiveName = searchGroup.getDescriptiveName(locale);
 	}
 
 	List<JournalArticle> results = null;
@@ -227,7 +229,7 @@ catch (NoSuchArticleException nsae) {
 		sb.append("selectArticle('");
 		sb.append(String.valueOf(curArticle.getGroupId()));
 		sb.append("','");
-		sb.append(HtmlUtil.escapeJS(searchGroupName));
+		sb.append(HtmlUtil.escapeJS(searchGroupDescriptiveName));
 		sb.append("','");
 		sb.append(HtmlUtil.escapeJS(curArticle.getArticleId()));
 		sb.append("','");
@@ -329,7 +331,7 @@ catch (NoSuchArticleException nsae) {
 	Liferay.provide(
 		window,
 		'<portlet:namespace />selectArticle',
-		function(articleGroupId, articleGroupName, articleId, articleTitle) {
+		function(articleGroupId, articleGroupDescriptiveName, articleId, articleTitle) {
 			var A = AUI();
 
 			document.<portlet:namespace />fm.<portlet:namespace />groupId.value = articleGroupId;
@@ -344,15 +346,15 @@ catch (NoSuchArticleException nsae) {
 			displayArticleId.set('innerHTML', Liferay.Util.escapeHTML(articleTitle) + ' (<%= UnicodeLanguageUtil.get(pageContext, "modified") %>)');
 			displayArticleId.addClass('modified');
 
-			var articleGroupNameDisplay = '';
+			var articleGroupDescriptiveNameWithParentheses = '';
 
-			if (articleGroupName.length) {
-				articleGroupNameDisplay = '(' + articleGroupName + ')';
+			if (articleGroupDescriptiveName.length) {
+				articleGroupDescriptiveNameWithParentheses = '(' + articleGroupDescriptiveName + ')';
 			}
 
 			var displayArticleGroup = A.one('#display-article-group');
 
-			displayArticleGroup.set('innerHTML', Liferay.Util.escapeHTML(articleGroupNameDisplay));
+			displayArticleGroup.set('innerHTML', Liferay.Util.escapeHTML(articleGroupDescriptiveNameWithParentheses));
 		},
 		['aui-base']
 	);
