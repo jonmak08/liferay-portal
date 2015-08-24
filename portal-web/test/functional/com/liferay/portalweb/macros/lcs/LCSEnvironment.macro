@@ -29,13 +29,29 @@
 	<command name="viewConnectedEnvironmentIcon">
 		<var name="key_environmentName" value="${environmentName}" />
 
-		<execute function="AssertElementPresent" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT_ONLINE_ICON" />
+		<if>
+			<equals arg1="${clusterEnabled}" arg2="true" />
+			<then>
+				<execute function="AssertElementPresent" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT_CLUSTER_ONLINE_ICON" />
+			</then>
+			<else>
+				<execute function="AssertElementPresent" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT_ONLINE_ICON" />
+			</else>
+		</if>
 	</command>
 
 	<command name="viewDisconnectedEnvironmentIcon">
 		<var name="key_environmentName" value="${environmentName}" />
 
-		<execute function="AssertElementPresent" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT_OFFLINE_ICON" />
+		<if>
+			<equals arg1="${clusterEnabled}" arg2="true" />
+			<then>
+				<execute function="AssertElementPresent" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT_CLUSTER_OFFLINE_ICON" />
+			</then>
+			<else>
+				<execute function="AssertElementPresent" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT_OFFLINE_ICON" />
+			</else>
+		</if>
 	</command>
 
 	<command name="viewEmptyEnvironment">

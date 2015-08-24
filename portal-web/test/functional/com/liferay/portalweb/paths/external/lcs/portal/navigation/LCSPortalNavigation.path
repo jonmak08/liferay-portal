@@ -54,11 +54,20 @@
 	<td></td>
 </tr>
 <tr>
+	<td>NAVIGATION_MENU_ENVIRONMENT_CLUSTER_OFFLINE_ICON</td>
+	<td>//div[@class='lcs-navigation-submenu']//a[contains(.,'${key_environmentName}')]/span[contains(@class,'lcs-content-type-icon cluster offline')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>NAVIGATION_MENU_ENVIRONMENT_ONLINE_ICON</td>
 	<td>//div[@class='lcs-navigation-submenu']//a[contains(.,'${key_environmentName}')]/span[contains(@class,'lcs-content-type-icon group online')]</td>
 	<td></td>
 </tr>
-
+<tr>
+	<td>NAVIGATION_MENU_ENVIRONMENT_CLUSTER_ONLINE_ICON</td>
+	<td>//div[@class='lcs-navigation-submenu']//a[contains(.,'${key_environmentName}')]/span[contains(@class,'lcs-content-type-icon cluster online')]</td>
+	<td></td>
+</tr>
 <tr>
 	<td>NAVIGATION_MENU_ENVIRONMENT_PATCHES_COUNT</td>
 	<td>//div[@class='lcs-navigation-submenu']//a[contains(.,'${key_environmentName}')]//span[@class='patches-count']</td>
