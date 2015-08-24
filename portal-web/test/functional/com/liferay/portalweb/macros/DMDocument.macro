@@ -580,68 +580,76 @@
 
 		<execute function="AssertClick" locator1="PGDocumentsandmedia#ENTRY_ICON_DOCUMENT_TITLE" value1="${dmDocumentTitle}" />
 
-		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGDocumentsandmediaDocument#TOOLBAR_EDIT_BUTTON" value1="Edit" />
-
 		<if>
-			<not>
-				<contains string="${dmDocumentFileEdit}" substring="{dmDocumentFileEdit}" />
-			</not>
+			<equals arg1="${checkedOut}" arg2="true" />
 			<then>
-				<execute function="UploadCommonFile" locator1="PGDocumentsandmediaAdddocument#FILE_FIELD" value1="${dmDocumentFileEdit}" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="PGDocumentsandmedia#ERROR_MESSAGE" value1="You cannot modify this document because it was locked by ${userName}" />
 			</then>
-		</if>
+			<else>
+				<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGDocumentsandmediaDocument#TOOLBAR_EDIT_BUTTON" value1="Edit" />
 
-		<if>
-			<not>
-				<contains string="${dmDocumentTitleEdit}" substring="{dmDocumentTitleEdit}" />
-			</not>
-			<then>
-				<execute function="Type" locator1="PGDocumentsandmediaEditdocument#TITLE_FIELD" value1="${dmDocumentTitleEdit}"  />
-			</then>
-		</if>
-
-		<if>
-			<not>
-				<contains string="${dmDocumentDescriptionEdit}" substring="{dmDocumentDescriptionEdit}" />
-			</not>
-			<then>
-				<execute function="Type" locator1="PGDocumentsandmediaEditdocument#DESCRIPTION_FIELD" value1="${dmDocumentDescriptionEdit}" />
-			</then>
-		</if>
-
-		<if>
-			<not>
-				<contains string="${dmDocumentTagName}" substring="{dmDocumentTagName}" />
-			</not>
-			<then>
-				<execute macro="PGDocumentsandmediaEditdocument#showCategorization" />
-
-				<execute function="Type" locator1="PGDocumentsandmediaEditdocument#CATEGORIZATION_TAGS_FIELD" value1="${dmDocumentTagName}" />
-			</then>
-		</if>
-
-		<if>
-			<not>
-				<contains string="${revision}" substring="{revision}" />
-			</not>
-			<then>
 				<if>
-					<equals arg1="${revision}" arg2="Major" />
+					<not>
+						<contains string="${dmDocumentFileEdit}" substring="{dmDocumentFileEdit}" />
+					</not>
 					<then>
-						<execute function="Click" locator1="PGDocumentsandmediaEditdocument#MAJOR_REVISION_BUTTON" />
+						<execute function="UploadCommonFile" locator1="PGDocumentsandmediaAdddocument#FILE_FIELD" value1="${dmDocumentFileEdit}" />
 					</then>
-					<else>
-						<execute function="Click" locator1="PGDocumentsandmediaEditdocument#MINOR_REVISION_BUTTON" />
-					</else>
 				</if>
-			</then>
-		</if>
 
-		<if>
-			<isset var="changeLog" />
-			<then>
-				<execute function="Type" locator1="PGDocumentsandmediaCheckin#CHANGE_LOG" value1="${changeLog}" />
-			</then>
+				<if>
+					<not>
+						<contains string="${dmDocumentTitleEdit}" substring="{dmDocumentTitleEdit}" />
+					</not>
+					<then>
+						<execute function="Type" locator1="PGDocumentsandmediaEditdocument#TITLE_FIELD" value1="${dmDocumentTitleEdit}"  />
+					</then>
+				</if>
+
+				<if>
+					<not>
+						<contains string="${dmDocumentDescriptionEdit}" substring="{dmDocumentDescriptionEdit}" />
+					</not>
+					<then>
+						<execute function="Type" locator1="PGDocumentsandmediaEditdocument#DESCRIPTION_FIELD" value1="${dmDocumentDescriptionEdit}" />
+					</then>
+				</if>
+
+				<if>
+					<not>
+						<contains string="${dmDocumentTagName}" substring="{dmDocumentTagName}" />
+					</not>
+					<then>
+						<execute macro="PGDocumentsandmediaEditdocument#showCategorization" />
+
+						<execute function="Type" locator1="PGDocumentsandmediaEditdocument#CATEGORIZATION_TAGS_FIELD" value1="${dmDocumentTagName}" />
+					</then>
+				</if>
+
+				<if>
+					<not>
+						<contains string="${revision}" substring="{revision}" />
+					</not>
+					<then>
+						<if>
+							<equals arg1="${revision}" arg2="Major" />
+							<then>
+								<execute function="Click" locator1="PGDocumentsandmediaEditdocument#MAJOR_REVISION_BUTTON" />
+							</then>
+							<else>
+								<execute function="Click" locator1="PGDocumentsandmediaEditdocument#MINOR_REVISION_BUTTON" />
+							</else>
+						</if>
+					</then>
+				</if>
+
+				<if>
+					<isset var="changeLog" />
+					<then>
+						<execute function="Type" locator1="PGDocumentsandmediaCheckin#CHANGE_LOG" value1="${changeLog}" />
+					</then>
+				</if>
+			</else>
 		</if>
 	</command>
 
@@ -775,15 +783,14 @@
 			<var name="revision" value="${revision}" />
 		</execute>
 
-		<execute function="AssertClick" locator1="PGDocumentsandmediaEditdocument#SAVE_BUTTON" value1="Save" />
-
 		<if>
 			<equals arg1="${checkedOut}" arg2="true" />
 			<then>
-				<execute function="AssertTextEquals" locator1="//h3[@class='header-title']" value1="Error" />
 				<execute function="AssertTextEquals#assertPartialText" locator1="PGDocumentsandmedia#ERROR_MESSAGE" value1="You cannot modify this document because it was locked by ${userName}" />
 			</then>
 			<else>
+				<execute function="AssertClick" locator1="PGDocumentsandmediaEditdocument#SAVE_BUTTON" value1="Save" />
+
 				<execute function="AssertTextEquals#assertPartialText" locator1="PGDocumentsandmedia#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 			</else>
 		</if>
