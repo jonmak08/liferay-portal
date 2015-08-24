@@ -30,7 +30,7 @@ JSONArray rangesJSONArray = dataJSONObject.getJSONArray("ranges");
 
 	<ul class="nav nav-pills nav-stacked range">
 		<li class="facet-value default <%= Validator.isNull(fieldParam) ? "active" : StringPool.BLANK %>">
-			<a data-value="" href="javascript:;"><liferay-ui:message key="any-range" /></a>
+			<a data-value="" href="javascript:;"><liferay-ui:message key="<%= HtmlUtil.escape(facetConfiguration.getLabel()) %>" /></a>
 		</li>
 
 		<%

@@ -30,7 +30,7 @@ int maxTerms = dataJSONObject.getInt("maxTerms");
 
 	<ul class="nav nav-pills nav-stacked term-list">
 		<li class="facet-value default <%= Validator.isNull(fieldParam) ? "active" : StringPool.BLANK %>">
-			<a data-value="" href="javascript:;"><liferay-ui:message key="any-term" /></a>
+			<a data-value="" href="javascript:;"><liferay-ui:message key="<%= HtmlUtil.escape(facetConfiguration.getLabel()) %>" /></a>
 		</li>
 
 		<%
