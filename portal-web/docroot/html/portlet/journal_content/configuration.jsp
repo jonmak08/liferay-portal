@@ -69,7 +69,7 @@ catch (NoSuchArticleException nsae) {
 			String articleGroupDescriptiveNameWithParentheses = StringPool.BLANK;
 			%>
 
-			<c:if test="<%= article.getGroupId() != themeDisplay.getScopeGroupId() %>">
+			<c:if test="<%= article != null && article.getGroupId() != themeDisplay.getScopeGroupId() %>">
 
 				<%
 				Group articleGroup = GroupLocalServiceUtil.getGroup(article.getGroupId());
