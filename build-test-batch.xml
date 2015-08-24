@@ -212,8 +212,8 @@
 	</macrodef>
 
 	<macrodef name="build-testray-results">
-		<attribute name="test.results.dir" default="${default.test.results.dir}" />
-		<attribute name="test.results.fileset" default="**/TEST-*.xml" />
+		<attribute default="${default.test.results.dir}" name="test.results.dir" />
+		<attribute default="**/TEST-*.xml" name="test.results.fileset" />
 
 		<sequential>
 			<for param="file.name">
@@ -244,8 +244,8 @@
 	</macrodef>
 
 	<macrodef name="copy-testray-results">
-		<attribute name="test.results.dest.dir" default="${default.test.results.dir}" />
-		<attribute name="test.results.fileset" default="**/TEST-*.xml" />
+		<attribute default="${default.test.results.dir}" name="test.results.dest.dir" />
+		<attribute default="**/TEST-*.xml" name="test.results.fileset" />
 
 		<sequential>
 			<copy flatten="true" todir="@{test.results.dest.dir}">
@@ -299,10 +299,10 @@
 	</macrodef>
 
 	<macrodef name="database-test-run-test">
-		<attribute default="false" name="stop.app.server" />
 		<attribute default="tomcat" name="app.server.type" />
 		<attribute name="database.type" />
-		<attribute name="database.version" default="${database.@{database.type}.version}" />
+		<attribute default="${database.@{database.type}.version}" name="database.version" />
+		<attribute default="false" name="stop.app.server" />
 		<element name="test-action" />
 
 		<sequential>
@@ -361,9 +361,9 @@
 	</macrodef>
 
 	<macrodef name="generate-testray-axis-result">
-		<attribute name="job.failure.message" default="" />
-		<attribute name="test.results.axis.dir" default="${default.test.results.axis.dir}" />
-		<attribute name="test.results.axis.file.name" default="${default.test.results.axis.file.name}" />
+		<attribute default="" name="job.failure.message" />
+		<attribute default="${default.test.results.axis.dir}" name="test.results.axis.dir" />
+		<attribute default="${default.test.results.axis.file.name}" name="test.results.axis.file.name" />
 
 		<sequential>
 			<local name="test.results.axis.file" />
@@ -477,10 +477,10 @@
 	</macrodef>
 
 	<macrodef name="merge-testray-results">
-		<attribute name="test.results.dir" default="${default.test.results.dir}" />
-		<attribute name="test.results.fileset" default="*.xml" />
-		<attribute name="test.results.suite.dir" default="${default.test.results.suite.dir}" />
-		<attribute name="test.results.suite.file.name" default="${default.test.results.suite.file.name}" />
+		<attribute default="${default.test.results.dir}" name="test.results.dir" />
+		<attribute default="*.xml" name="test.results.fileset" />
+		<attribute default="${default.test.results.suite.dir}" name="test.results.suite.dir" />
+		<attribute default="${default.test.results.suite.file.name}" name="test.results.suite.file.name" />
 
 		<sequential>
 			<local name="test.results.suite.file" />
@@ -573,10 +573,10 @@
 	</macrodef>
 
 	<macrodef name="prepare-testray-results">
-		<attribute name="job.failure.message" default="" />
-		<attribute name="test.results.dir" default="${default.test.results.dir}" />
-		<attribute name="test.results.suite.dir" default="${default.test.results.suite.dir}" />
-		<attribute name="test.results.suite.file.name" default="${default.test.results.suite.file.name}" />
+		<attribute default="" name="job.failure.message" />
+		<attribute default="${default.test.results.dir}" name="test.results.dir" />
+		<attribute default="${default.test.results.suite.dir}" name="test.results.suite.dir" />
+		<attribute default="${default.test.results.suite.file.name}" name="test.results.suite.file.name" />
 
 		<sequential>
 			<set-testray-required-properties />
@@ -600,6 +600,7 @@
 
 	<macrodef name="print-test-class-group">
 		<attribute name="test.class.group.index" />
+
 		<sequential>
 			<property file="${project.dir}/test.class.file.names.properties" />
 
@@ -610,8 +611,8 @@
 	</macrodef>
 
 	<macrodef name="run-batch-test">
-		<attribute name="tomcat.gc.log" default="false" />
-		<attribute name="tsant.gc.log" default="false" />
+		<attribute default="false" name="tomcat.gc.log" />
+		<attribute default="false" name="tsant.gc.log" />
 		<element name="test-action" />
 		<element name="test-set-up" optional="true" />
 		<element name="test-tear-down" optional="true" />
@@ -659,11 +660,11 @@
 
 	<macrodef name="run-functional-test">
 		<attribute name="app.server.type" />
-		<attribute name="app.server.version" default="${app.server.@{app.server.type}.version}" />
+		<attribute default="${app.server.@{app.server.type}.version}" name="app.server.version" />
 		<attribute name="database.type" />
-		<attribute name="database.version" default="${database.@{database.type}.version}" />
-		<attribute name="tomcat.gc.log" default="false" />
-		<attribute name="tsant.gc.log" default="false" />
+		<attribute default="${database.@{database.type}.version}" name="database.version" />
+		<attribute default="false" name="tomcat.gc.log" />
+		<attribute default="false" name="tsant.gc.log" />
 
 		<sequential>
 			<var name="app.server.type" value="@{app.server.type}" />
@@ -747,7 +748,7 @@
 	</macrodef>
 
 	<macrodef name="send-testray-results">
-		<attribute name="test.results.suite.dir" default="${default.test.results.suite.dir}" />
+		<attribute default="${default.test.results.suite.dir}" name="test.results.suite.dir" />
 		<attribute name="testray.results.dir" />
 
 		<sequential>
