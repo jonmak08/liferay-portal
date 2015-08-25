@@ -218,16 +218,17 @@ public class JSONWebServiceActionParameters {
 			parameterNames.addAll(multipartParameterMap.keySet());
 		}
 
-		for (String name : parameterNames) {
+		for (String parameterName : parameterNames) {
 			Object value = null;
 
 			if ((uploadServletRequest != null) &&
-				(uploadServletRequest.getFileName(name) != null)) {
+				(uploadServletRequest.getFileName(parameterName) != null)) {
 
-				value = uploadServletRequest.getFile(name, true);
+				value = uploadServletRequest.getFile(parameterName, true);
 			}
 			else {
-				String[] parameterValues = request.getParameterValues(name);
+				String[] parameterValues = request.getParameterValues(
+					parameterName);
 
 				if (parameterValues.length == 1) {
 					value = parameterValues[0];
@@ -237,9 +238,9 @@ public class JSONWebServiceActionParameters {
 				}
 			}
 
-			name = CamelCaseUtil.normalizeCamelCase(name);
+			parameterName = CamelCaseUtil.normalizeCamelCase(parameterName);
 
-			_parameters.put(name, value);
+			_parameters.put(parameterName, value);
 		}
 	}
 
