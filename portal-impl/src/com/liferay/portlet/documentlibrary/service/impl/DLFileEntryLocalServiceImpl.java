@@ -116,7 +116,6 @@ import com.liferay.portlet.expando.model.ExpandoBridge;
 import com.liferay.portlet.expando.model.ExpandoColumnConstants;
 import com.liferay.portlet.expando.model.ExpandoRow;
 import com.liferay.portlet.expando.model.ExpandoTable;
-import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
 import com.liferay.portlet.expando.util.ExpandoBridgeUtil;
 
 import java.awt.image.RenderedImage;
@@ -534,19 +533,6 @@ public class DLFileEntryLocalServiceImpl
 			dlFileVersionLocalService.getLatestFileVersion(fileEntryId, false);
 
 		long dlFileVersionId = dlFileVersion.getFileVersionId();
-
-		Map<String, Serializable> expandoBridgeAttributes =
-			serviceContext.getExpandoBridgeAttributes();
-
-		if (expandoBridgeAttributes.isEmpty()) {
-			ExpandoBridge expandoBridge =
-				ExpandoBridgeFactoryUtil.getExpandoBridge(
-					serviceContext.getCompanyId(), DLFileEntry.class.getName(),
-					dlFileVersionId);
-
-			serviceContext.setExpandoBridgeAttributes(
-				expandoBridge.getAttributes());
-		}
 
 		serviceContext.setUserId(userId);
 
@@ -1975,7 +1961,14 @@ public class DLFileEntryLocalServiceImpl
 		dlFileVersion.setStatusByUserId(user.getUserId());
 		dlFileVersion.setStatusByUserName(user.getFullName());
 		dlFileVersion.setStatusDate(dlFileEntry.getModifiedDate());
-		dlFileVersion.setExpandoBridgeAttributes(serviceContext);
+
+		DLFileVersion latestFileVersion =
+				dlFileVersionLocalService.getLatestFileVersion(
+					dlFileEntry.getFileEntryId(), false);
+
+		ExpandoBridgeUtil.setExpandoBridgeAttributes(
+			latestFileVersion.getExpandoBridge(),
+			dlFileVersion.getExpandoBridge(), serviceContext);
 
 		dlFileVersionPersistence.update(dlFileVersion);
 
