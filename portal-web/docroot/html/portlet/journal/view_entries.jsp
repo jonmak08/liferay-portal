@@ -243,7 +243,7 @@ for (int i = 0; i < results.size(); i++) {
 					tempRowURL.setParameter("folderId", String.valueOf(curArticle.getFolderId()));
 					tempRowURL.setParameter("articleId", curArticle.getArticleId());
 
-					tempRowURL.setParameter("status", String.valueOf(status));
+					tempRowURL.setParameter("status", String.valueOf(curArticle.getStatus()));
 
 					request.setAttribute("view_entries.jsp-article", curArticle);
 
