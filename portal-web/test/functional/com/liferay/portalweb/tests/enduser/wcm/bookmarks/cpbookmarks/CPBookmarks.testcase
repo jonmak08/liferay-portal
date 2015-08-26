@@ -316,7 +316,7 @@
 		</execute>
 	</command>
 
-	<command name="MergeSubfolderBookmarkToFolder" priority="5">
+	<command known-issues="LPS-58160" name="MergeSubfolderBookmarkToFolder" priority="5">
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Bookmarks" />
 		</execute>
