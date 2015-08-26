@@ -248,12 +248,13 @@ else {
 		{
 			createPageMessage: '<liferay-ui:message key="loading" />',
 			focusItem: A.one('#<portlet:namespace />addLayoutName'),
+			formName: '<portlet:namespace /><%= addPageFormName %>',
 			namespace: '<portlet:namespace />',
 			nodeList: A.one('#<portlet:namespace />templateList'),
 			nodeSelector: '.lfr-page-template',
 			parentLayoutId: <%= parentLayoutId %>,
 			refresh: <%= layout.isTypeControlPanel() %>,
-			selected: !A.one('#<portlet:namespace />addPageFm').ancestor().hasClass('hide'),
+			selected: !A.one('#<portlet:namespace /><%= addPageFormName %>').ancestor().hasClass('hide'),
 			toggleOnCancel: <%= portletName.equals(PortletKeys.DOCKBAR) %>
 		}
 	);
