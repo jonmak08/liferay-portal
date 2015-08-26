@@ -226,6 +226,7 @@ boolean showAddAction = ParamUtil.getBoolean(request, "showAddAction", true);
 				</c:if>
 
 				<aui:script use="liferay-util-window">
+					var addLayoutPopup;
 					var content;
 					var popUp;
 
@@ -241,8 +242,8 @@ boolean showAddAction = ParamUtil.getBoolean(request, "showAddAction", true);
 						if (dataValue === 'add-child-page') {
 							content = A.one('#<portlet:namespace />addLayout');
 
-							if (!popUp) {
-								popUp = Liferay.Util.Window.getWindow(
+							if (!addLayoutPopup) {
+								addLayoutPopup = Liferay.Util.Window.getWindow(
 									{
 										dialog: {
 											bodyContent: content.show(),
@@ -254,15 +255,15 @@ boolean showAddAction = ParamUtil.getBoolean(request, "showAddAction", true);
 								);
 							}
 
-							popUp.show();
+							addLayoutPopup.show();
 
-							var cancelButton = popUp.get('contentBox').one('#<portlet:namespace />cancelAddOperation');
+							var cancelButton = addLayoutPopup.get('contentBox').one('#<portlet:namespace />cancelAddOperation');
 
 							if (cancelButton) {
 								cancelButton.on(
 									'click',
 									function(event) {
-										popUp.hide();
+										addLayoutPopup.hide();
 									}
 								);
 							}

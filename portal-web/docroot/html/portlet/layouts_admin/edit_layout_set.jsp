@@ -211,7 +211,7 @@ boolean hasViewPagesPermission = (pagesCount > 0) && (liveGroup.isStaged() || se
 </aui:script>
 
 <aui:script use="liferay-util-window">
-	var popup;
+	var addLayoutPopup;
 
 	var clickHandler = function(event) {
 		var dataValue = event.target.ancestor('li').attr('data-value');
@@ -223,8 +223,8 @@ boolean hasViewPagesPermission = (pagesCount > 0) && (liveGroup.isStaged() || se
 		if (dataValue === 'add-page' || dataValue === 'add-child-page') {
 			var content = A.one('#<portlet:namespace />addLayout');
 
-			if (!popup) {
-				popup = Liferay.Util.Window.getWindow(
+			if (!addLayoutPopup) {
+				addLayoutPopup = Liferay.Util.Window.getWindow(
 					{
 						dialog: {
 							bodyContent: content.show(),
@@ -236,15 +236,15 @@ boolean hasViewPagesPermission = (pagesCount > 0) && (liveGroup.isStaged() || se
 				);
 			}
 
-			popup.show();
+			addLayoutPopup.show();
 
-			var cancelButton = popup.get('contentBox').one('#<portlet:namespace />cancelAddOperation');
+			var cancelButton = addLayoutPopup.get('contentBox').one('#<portlet:namespace />cancelAddOperation');
 
 			if (cancelButton) {
 				cancelButton.on(
 					'click',
 					function(event) {
-						popup.hide();
+						addLayoutPopup.hide();
 					}
 				);
 			}
