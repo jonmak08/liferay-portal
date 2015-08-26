@@ -71,8 +71,14 @@ boolean hasAddPageLayoutsPermission = GroupPermissionUtil.contains(permissionChe
 boolean hasViewPagesPermission = (pagesCount > 0) && (liveGroup.isStaged() || selGroup.isLayoutSetPrototype() || selGroup.isStagingGroup() || portletName.equals(PortletKeys.MY_SITES) || portletName.equals(PortletKeys.GROUP_PAGES) || portletName.equals(PortletKeys.SITES_ADMIN) || portletName.equals(PortletKeys.USERS_ADMIN));
 %>
 
-<div class="add-content-menu hide" id="<portlet:namespace />addLayout">
-	<liferay-util:include page="/html/portlet/layouts_admin/add_layout.jsp" />
+<%
+String randomNamespace = PortalUtil.generateRandomKey(request, "layouts_admin_add_layout") + StringPool.UNDERLINE;
+%>
+
+<div class="add-content-menu hide" id="<portlet:namespace /><%= randomNamespace %>addLayout">
+	<liferay-util:include page="/html/portlet/layouts_admin/add_layout.jsp">
+		<liferay-util:param name="randomNamespace" value="<%= randomNamespace %>" />
+	</liferay-util:include>
 </div>
 
 <aui:nav-bar>
@@ -221,7 +227,7 @@ boolean hasViewPagesPermission = (pagesCount > 0) && (liveGroup.isStaged() || se
 
 	var processDataValue = function(dataValue) {
 		if (dataValue === 'add-page' || dataValue === 'add-child-page') {
-			var content = A.one('#<portlet:namespace />addLayout');
+			var content = A.one('#<portlet:namespace /><%= randomNamespace %>addLayout');
 
 			if (!addLayoutPopup) {
 				addLayoutPopup = Liferay.Util.Window.getWindow(

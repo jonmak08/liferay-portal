@@ -22,6 +22,9 @@
 long parentPlid = LayoutConstants.DEFAULT_PLID;
 long parentLayoutId = LayoutConstants.DEFAULT_PARENT_LAYOUT_ID;
 
+String randomNamespace = ParamUtil.getString(request, "randomNamespace");
+String addPageFormName = randomNamespace + "addPageFm";
+
 if (layout.isTypeControlPanel()) {
 	if (selPlid != 0) {
 		selLayout = LayoutLocalServiceUtil.getLayout(selPlid);
@@ -51,7 +54,7 @@ else {
 	<portlet:param name="struts_action" value='<%= portletName.equals(PortletKeys.DOCKBAR) ? "/layouts_admin/add_layout" : "/layouts_admin/edit_layouts" %>' />
 </portlet:renderURL>
 
-<aui:form action="<%= editLayoutActionURL %>" enctype="multipart/form-data" method="post" name="addPageFm" onSubmit="event.preventDefault()">
+<aui:form action="<%= editLayoutActionURL %>" enctype="multipart/form-data" method="post" name="<%= addPageFormName %>" onSubmit="event.preventDefault()">
 	<aui:input id="addLayoutCMD" name="<%= Constants.CMD %>" type="hidden" value="<%= Constants.ADD %>" />
 	<aui:input id="addLayoutRedirect" name="redirect" type="hidden" value="<%= portletName.equals(PortletKeys.DOCKBAR) ? editLayoutRenderURL : currentURL %>" />
 	<aui:input id="addLayoutGroupId" name="groupId" type="hidden" value="<%= groupId %>" />

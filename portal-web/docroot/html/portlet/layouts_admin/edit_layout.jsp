@@ -109,9 +109,15 @@ String displayStyle = ParamUtil.getString(request, "displayStyle");
 boolean showAddAction = ParamUtil.getBoolean(request, "showAddAction", true);
 %>
 
+<%
+String randomNamespace = PortalUtil.generateRandomKey(request, "layouts_admin_add_layout") + StringPool.UNDERLINE;
+%>
+
 <c:if test="<%= !portletName.equals(PortletKeys.DOCKBAR) %>">
-	<div class="add-content-menu hide" id="<portlet:namespace />addLayout">
-		<liferay-util:include page="/html/portlet/layouts_admin/add_layout.jsp" />
+	<div class="add-content-menu hide" id="<portlet:namespace /><%= randomNamespace %>addLayout">
+		<liferay-util:include page="/html/portlet/layouts_admin/add_layout.jsp">
+			<liferay-util:param name="randomNamespace" value="<%= randomNamespace %>" />
+		</liferay-util:include>
 	</div>
 </c:if>
 
@@ -240,7 +246,7 @@ boolean showAddAction = ParamUtil.getBoolean(request, "showAddAction", true);
 
 					var processDataValue = function(dataValue) {
 						if (dataValue === 'add-child-page') {
-							content = A.one('#<portlet:namespace />addLayout');
+							content = A.one('#<portlet:namespace /><%= randomNamespace %>addLayout');
 
 							if (!addLayoutPopup) {
 								addLayoutPopup = Liferay.Util.Window.getWindow(
