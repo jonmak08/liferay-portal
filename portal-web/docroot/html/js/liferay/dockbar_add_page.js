@@ -18,9 +18,9 @@ AUI.add(
 
 		var SELECTOR_TOGGLER_HEADER = '.toggler-header';
 
-		var STR_ADD_PAGE_FORM = 'addPageFm';
-
 		var STR_CANCEL_ADD_OPERATION = 'cancelAddOperation';
+
+		var STR_FORM_NAME = 'formName';
 
 		var STR_HIDDEN_CHECKBOX = 'addLayoutHiddenCheckbox';
 
@@ -48,6 +48,9 @@ AUI.add(
 
 				ATTRS: {
 					createPageMessage: {
+						validator: Lang.isString
+					},
+					formName: {
 						validator: Lang.isString
 					},
 					parentLayoutId: {
@@ -85,7 +88,7 @@ AUI.add(
 							}
 						).plug(Liferay.TogglerKeyFilter);
 
-						instance._addForm = instance.byId(STR_ADD_PAGE_FORM);
+						instance._addForm = instance.byId(instance.get(STR_FORM_NAME));
 
 						instance._cancelButton = instance.byId(STR_CANCEL_ADD_OPERATION);
 
