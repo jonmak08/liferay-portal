@@ -154,6 +154,8 @@
 			form.on(
 				'submit',
 				function(event) {
+					event.preventDefault();
+
 					var redirect = form.one('#<portlet:namespace />redirect');
 
 					if (redirect) {
@@ -161,6 +163,8 @@
 
 						redirect.val(redirectVal + window.location.hash);
 					}
+
+					submitForm(form);
 				}
 			);
 
