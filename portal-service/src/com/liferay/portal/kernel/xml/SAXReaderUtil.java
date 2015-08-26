@@ -253,6 +253,7 @@ public class SAXReaderUtil {
 	public void setUnsecureSAXReader(SAXReader unsecureSAXReader) {
 		UnsecureSAXReaderUtil unsecureSAXReaderUtil =
 			new UnsecureSAXReaderUtil();
+
 		unsecureSAXReaderUtil.setSAXReader(unsecureSAXReader);
 	}
 
