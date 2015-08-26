@@ -149,6 +149,21 @@
 		<liferay-util:include page="/html/portlet/login/navigation.jsp" />
 
 		<aui:script use="aui-base">
+			var form = A.one(document.<portlet:namespace />fm);
+
+			form.on(
+				'submit',
+				function(event) {
+					var redirect = form.one('#<portlet:namespace />redirect');
+
+					if (redirect) {
+						var redirectVal = redirect.val();
+
+						redirect.val(redirectVal + window.location.hash);
+					}
+				}
+			);
+
 			var password = A.one('#<portlet:namespace />password');
 
 			if (password) {
