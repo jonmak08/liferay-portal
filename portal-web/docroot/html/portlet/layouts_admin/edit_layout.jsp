@@ -247,7 +247,6 @@ boolean showAddAction = ParamUtil.getBoolean(request, "showAddAction", true);
 										dialog: {
 											bodyContent: content.show(),
 											cssClass: 'lfr-add-dialog',
-											destroyOnHide: true,
 											width: 800
 										},
 										title: '<%= UnicodeLanguageUtil.get(pageContext, "add-child-page") %>'
