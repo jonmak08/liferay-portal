@@ -4240,6 +4240,14 @@ hot.deploy.dependency.management.enabled=false</echo>
 		<antcall target="prepare-selenium-browser-properties" />
 		<antcall target="prepare-selenium-database-properties" />
 		<antcall target="prepare-selenium-email-properties" />
+
+		<if>
+			<equals arg1="${test.poshi.runner.enabled}" arg2="true" />
+			<then>
+				<antcall target="prepare-selenium-poshi-runner-properties" />
+			</then>
+		</if>
+
 		<antcall target="prepare-selenium-required-properties" />
 		<antcall target="prepare-selenium-testcase-properties" />
 
