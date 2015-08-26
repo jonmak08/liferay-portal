@@ -162,7 +162,7 @@ YUI.add(
 
 						if (currentTargetAncestor) {
 							if (!currentTargetAncestor.hasClass('current-scope')) {
-								event.halt();
+								event.halt(true);
 							}
 
 							instance._parseCommandLog(currentTargetAncestor);
@@ -186,7 +186,7 @@ YUI.add(
 
 						if (currentTargetAncestor) {
 							if (!currentTargetAncestor.hasClass('current-scope')) {
-								event.halt();
+								event.halt(true);
 							}
 
 							instance._displayNode(currentTargetAncestor);
