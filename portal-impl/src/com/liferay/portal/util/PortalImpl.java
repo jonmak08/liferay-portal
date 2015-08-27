@@ -5212,6 +5212,14 @@ public class PortalImpl implements Portal {
 				return (UploadServletRequest)currentRequest;
 			}
 
+			Class<?> currentRequestClass = currentRequest.getClass();
+
+			String currentRequestClassName = currentRequestClass.getName();
+
+			if (!currentRequestClassName.startsWith("com.liferay.")) {
+				break;
+			}
+
 			if (currentRequest instanceof
 					PersistentHttpServletRequestWrapper) {
 
