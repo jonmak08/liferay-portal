@@ -22,6 +22,7 @@ import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
+import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
 import com.liferay.portal.util.HtmlImpl;
 import com.liferay.portal.util.LocalizationImpl;
 import com.liferay.portal.xml.SAXReaderImpl;
@@ -42,7 +43,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 @PrepareForTest(
 	{
 		HtmlUtil.class, LocaleUtil.class, LocalizationUtil.class,
-		PropsUtil.class, SAXReaderUtil.class
+		PropsUtil.class, SAXReaderUtil.class, UnsecureSAXReaderUtil.class
 	})
 @RunWith(PowerMockRunner.class)
 public class BaseDDMTest extends PowerMockito {
@@ -56,6 +57,7 @@ public class BaseDDMTest extends PowerMockito {
 		setUpLocalizationUtil();
 		setUpPropsUtil();
 		setUpSAXReaderUtil();
+		setUpUnsecureSAXReaderUtil();
 	}
 
 	protected Element addTextElement(
@@ -191,6 +193,16 @@ public class BaseDDMTest extends PowerMockito {
 
 		when(
 			SAXReaderUtil.getSAXReader()
+		).thenReturn(
+			new SAXReaderImpl()
+		);
+	}
+
+	protected void setUpUnsecureSAXReaderUtil() {
+		spy(UnsecureSAXReaderUtil.class);
+
+		when(
+			UnsecureSAXReaderUtil.getSAXReader()
 		).thenReturn(
 			new SAXReaderImpl()
 		);
