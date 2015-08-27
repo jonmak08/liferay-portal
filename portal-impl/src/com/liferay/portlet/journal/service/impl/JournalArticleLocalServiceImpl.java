@@ -1913,7 +1913,7 @@ public class JournalArticleLocalServiceImpl
 
 		if ((themeDisplay == null) &&
 			(xmlRequest.equals("<request/>") ||
-				xmlRequest.equals("<request />"))) {
+			 xmlRequest.equals("<request />"))) {
 
 			tokens.put("company_id", String.valueOf(article.getCompanyId()));
 
