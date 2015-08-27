@@ -33,7 +33,7 @@ import org.junit.runner.RunWith;
  */
 @ExecutionTestListeners(listeners = {EnvironmentExecutionTestListener.class})
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
-public class MBMessagePermissionCheckerTest extends BasePermissionTestCase {
+public class MBMessagePermissionTest extends BasePermissionTestCase {
 
 	@Test
 	public void testContains() throws Exception {

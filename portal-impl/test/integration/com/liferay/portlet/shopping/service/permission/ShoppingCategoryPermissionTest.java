@@ -20,7 +20,6 @@ import com.liferay.portal.service.permission.BasePermissionTestCase;
 import com.liferay.portal.test.EnvironmentExecutionTestListener;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
 import com.liferay.portlet.shopping.model.ShoppingCategory;
-import com.liferay.portlet.shopping.model.ShoppingItem;
 import com.liferay.portlet.shopping.util.ShoppingTestUtil;
 
 import org.junit.Assert;
@@ -33,36 +32,33 @@ import org.junit.runner.RunWith;
  */
 @ExecutionTestListeners(listeners = {EnvironmentExecutionTestListener.class})
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
-public class ShoppingItemPermissionCheckerTest extends BasePermissionTestCase {
+public class ShoppingCategoryPermissionTest extends BasePermissionTestCase {
 
 	@Test
 	public void testContains() throws Exception {
 		Assert.assertTrue(
-			ShoppingItemPermission.contains(
-				permissionChecker, _item, ActionKeys.VIEW));
+			ShoppingCategoryPermission.contains(
+				permissionChecker, _category, ActionKeys.VIEW));
 		Assert.assertTrue(
-			ShoppingItemPermission.contains(
-				permissionChecker, _subitem, ActionKeys.VIEW));
+			ShoppingCategoryPermission.contains(
+				permissionChecker, _subcategory, ActionKeys.VIEW));
 
 		removePortletModelViewPermission();
 
 		Assert.assertFalse(
-			ShoppingItemPermission.contains(
-				permissionChecker, _item, ActionKeys.VIEW));
+			ShoppingCategoryPermission.contains(
+				permissionChecker, _category, ActionKeys.VIEW));
 		Assert.assertFalse(
-			ShoppingItemPermission.contains(
-				permissionChecker, _subitem, ActionKeys.VIEW));
+			ShoppingCategoryPermission.contains(
+				permissionChecker, _subcategory, ActionKeys.VIEW));
 	}
 
 	@Override
 	protected void doSetUp() throws Exception {
-		_item = ShoppingTestUtil.addItem(group.getGroupId());
+		_category = ShoppingTestUtil.addCategory(group.getGroupId());
 
-		ShoppingCategory category = ShoppingTestUtil.addCategory(
-			group.getGroupId());
-
-		_subitem = ShoppingTestUtil.addItem(
-			group.getGroupId(), category.getCategoryId());
+		_subcategory = ShoppingTestUtil.addCategory(
+			group.getGroupId(), _category.getCategoryId());
 	}
 
 	@Override
@@ -70,7 +66,7 @@ public class ShoppingItemPermissionCheckerTest extends BasePermissionTestCase {
 		return ShoppingPermission.RESOURCE_NAME;
 	}
 
-	private ShoppingItem _item;
-	private ShoppingItem _subitem;
+	private ShoppingCategory _category;
+	private ShoppingCategory _subcategory;
 
 }

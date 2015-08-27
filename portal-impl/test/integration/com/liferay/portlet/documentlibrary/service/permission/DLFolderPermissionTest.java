@@ -37,7 +37,7 @@ import org.junit.runner.RunWith;
  */
 @ExecutionTestListeners(listeners = {EnvironmentExecutionTestListener.class})
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
-public class DLFolderPermissionCheckerTest extends BasePermissionTestCase {
+public class DLFolderPermissionTest extends BasePermissionTestCase {
 
 	@Test
 	public void testContains() throws Exception {

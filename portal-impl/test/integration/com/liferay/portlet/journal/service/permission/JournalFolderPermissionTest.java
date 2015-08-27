@@ -12,10 +12,8 @@
  * details.
  */
 
-package com.liferay.portlet.documentlibrary.service.permission;
+package com.liferay.portlet.journal.service.permission;
 
-import com.liferay.portal.kernel.repository.model.FileEntry;
-import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.model.ResourceConstants;
 import com.liferay.portal.model.RoleConstants;
@@ -25,8 +23,8 @@ import com.liferay.portal.service.permission.BasePermissionTestCase;
 import com.liferay.portal.test.EnvironmentExecutionTestListener;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
 import com.liferay.portal.util.RoleTestUtil;
-import com.liferay.portlet.documentlibrary.model.DLFolderConstants;
-import com.liferay.portlet.documentlibrary.util.DLAppTestUtil;
+import com.liferay.portlet.journal.model.JournalFolder;
+import com.liferay.portlet.journal.util.JournalTestUtil;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -38,45 +36,40 @@ import org.junit.runner.RunWith;
  */
 @ExecutionTestListeners(listeners = {EnvironmentExecutionTestListener.class})
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
-public class DLFileEntryPermissionCheckerTest extends BasePermissionTestCase {
+public class JournalFolderPermissionTest extends BasePermissionTestCase {
 
 	@Test
 	public void testContains() throws Exception {
 		Assert.assertTrue(
-			DLFileEntryPermission.contains(
-				permissionChecker, _fileEntry, ActionKeys.VIEW));
+			JournalFolderPermission.contains(
+				permissionChecker, _folder, ActionKeys.VIEW));
 		Assert.assertTrue(
-			DLFileEntryPermission.contains(
-				permissionChecker, _subfileEntry, ActionKeys.VIEW));
+			JournalFolderPermission.contains(
+				permissionChecker, _subfolder, ActionKeys.VIEW));
 
 		removePortletModelViewPermission();
 
 		Assert.assertFalse(
-			DLFileEntryPermission.contains(
-				permissionChecker, _fileEntry, ActionKeys.VIEW));
+			JournalFolderPermission.contains(
+				permissionChecker, _folder, ActionKeys.VIEW));
 		Assert.assertFalse(
-			DLFileEntryPermission.contains(
-				permissionChecker, _subfileEntry, ActionKeys.VIEW));
+			JournalFolderPermission.contains(
+				permissionChecker, _subfolder, ActionKeys.VIEW));
 	}
 
 	@Override
 	protected void doSetUp() throws Exception {
-		_fileEntry = DLAppTestUtil.addFileEntry(
-			group.getGroupId(), DLFolderConstants.DEFAULT_PARENT_FOLDER_ID,
-			ServiceTestUtil.randomString());
+		_folder = JournalTestUtil.addFolder(
+			group.getGroupId(), ServiceTestUtil.randomString());
 
-		Folder folder = DLAppTestUtil.addFolder(
-			group.getGroupId(), DLFolderConstants.DEFAULT_PARENT_FOLDER_ID,
-			ServiceTestUtil.randomString(), true);
-
-		_subfileEntry = DLAppTestUtil.addFileEntry(
-			group.getGroupId(), folder.getFolderId(),
+		_subfolder = JournalTestUtil.addFolder(
+			group.getGroupId(), _folder.getFolderId(),
 			ServiceTestUtil.randomString());
 	}
 
 	@Override
 	protected String getResourceName() {
-		return DLPermission.RESOURCE_NAME;
+		return JournalPermission.RESOURCE_NAME;
 	}
 
 	@Override
@@ -89,7 +82,7 @@ public class DLFileEntryPermissionCheckerTest extends BasePermissionTestCase {
 			String.valueOf(group.getGroupId()), ActionKeys.VIEW);
 	}
 
-	private FileEntry _fileEntry;
-	private FileEntry _subfileEntry;
+	private JournalFolder _folder;
+	private JournalFolder _subfolder;
 
 }

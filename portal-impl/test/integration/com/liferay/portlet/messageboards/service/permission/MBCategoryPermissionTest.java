@@ -12,15 +12,15 @@
  * details.
  */
 
-package com.liferay.portlet.shopping.service.permission;
+package com.liferay.portlet.messageboards.service.permission;
 
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.service.permission.BasePermissionTestCase;
 import com.liferay.portal.test.EnvironmentExecutionTestListener;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
-import com.liferay.portlet.shopping.model.ShoppingCategory;
-import com.liferay.portlet.shopping.util.ShoppingTestUtil;
+import com.liferay.portlet.messageboards.model.MBCategory;
+import com.liferay.portlet.messageboards.util.MBTestUtil;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -32,42 +32,41 @@ import org.junit.runner.RunWith;
  */
 @ExecutionTestListeners(listeners = {EnvironmentExecutionTestListener.class})
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
-public class ShoppingCategoryPermissionCheckerTest
-	extends BasePermissionTestCase {
+public class MBCategoryPermissionTest extends BasePermissionTestCase {
 
 	@Test
 	public void testContains() throws Exception {
 		Assert.assertTrue(
-			ShoppingCategoryPermission.contains(
+			MBCategoryPermission.contains(
 				permissionChecker, _category, ActionKeys.VIEW));
 		Assert.assertTrue(
-			ShoppingCategoryPermission.contains(
+			MBCategoryPermission.contains(
 				permissionChecker, _subcategory, ActionKeys.VIEW));
 
 		removePortletModelViewPermission();
 
 		Assert.assertFalse(
-			ShoppingCategoryPermission.contains(
+			MBCategoryPermission.contains(
 				permissionChecker, _category, ActionKeys.VIEW));
 		Assert.assertFalse(
-			ShoppingCategoryPermission.contains(
+			MBCategoryPermission.contains(
 				permissionChecker, _subcategory, ActionKeys.VIEW));
 	}
 
 	@Override
 	protected void doSetUp() throws Exception {
-		_category = ShoppingTestUtil.addCategory(group.getGroupId());
+		_category = MBTestUtil.addCategory(group.getGroupId());
 
-		_subcategory = ShoppingTestUtil.addCategory(
+		_subcategory = MBTestUtil.addCategory(
 			group.getGroupId(), _category.getCategoryId());
 	}
 
 	@Override
 	protected String getResourceName() {
-		return ShoppingPermission.RESOURCE_NAME;
+		return MBPermission.RESOURCE_NAME;
 	}
 
-	private ShoppingCategory _category;
-	private ShoppingCategory _subcategory;
+	private MBCategory _category;
+	private MBCategory _subcategory;
 
 }

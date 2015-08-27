@@ -35,8 +35,7 @@ import org.junit.runner.RunWith;
  */
 @ExecutionTestListeners(listeners = {EnvironmentExecutionTestListener.class})
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
-public class JournalArticlePermissionCheckerTest
-	extends BasePermissionTestCase {
+public class JournalArticlePermissionTest extends BasePermissionTestCase {
 
 	@Test
 	public void testContains() throws Exception {
