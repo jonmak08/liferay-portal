@@ -1905,13 +1905,13 @@ public class JournalArticleLocalServiceImpl
 		boolean cacheable = true;
 
 		if (Validator.isNull(xmlRequest)) {
-			xmlRequest = "<request />";
+			xmlRequest = "<request/>";
 		}
 
 		Map<String, String> tokens = JournalUtil.getTokens(
 			article.getGroupId(), themeDisplay, xmlRequest);
 
-		if ((themeDisplay == null) && xmlRequest.equals("<request />")) {
+		if ((themeDisplay == null) && xmlRequest.equals("<request/>")) {
 			tokens.put("company_id", String.valueOf(article.getCompanyId()));
 
 			Group companyGroup = groupLocalService.getCompanyGroup(
