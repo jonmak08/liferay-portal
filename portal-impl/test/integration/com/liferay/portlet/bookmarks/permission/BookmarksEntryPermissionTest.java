@@ -51,7 +51,7 @@ import org.junit.runner.RunWith;
  */
 @ExecutionTestListeners(listeners = {EnvironmentExecutionTestListener.class})
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
-public class BookmarksEntryResourceBlockLocalServiceTest {
+public class BookmarksEntryPermissionTest {
 
 	@After
 	public void tearDown() throws Exception {
