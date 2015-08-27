@@ -17,6 +17,7 @@ package com.liferay.portlet.dynamicdatamapping.model.impl;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.util.test.RandomTestUtil;
 import com.liferay.portlet.dynamicdatamapping.BaseDDMTest;
+import com.liferay.portlet.dynamicdatamapping.NoSuchStructureException;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
 
@@ -99,7 +100,15 @@ public class DDMStructureImplTest extends BaseDDMTest {
 
 					Long structureId = (Long)args[0];
 
-					return _structures.get(structureId);
+					DDMStructure ddmStructure = _structures.get(structureId);
+
+					if (ddmStructure == null) {
+						throw new NoSuchStructureException(
+							"No DDMStructure exists with the primary key " +
+							structureId);
+					}
+
+					return ddmStructure;
 				}
 
 			}
