@@ -592,7 +592,7 @@
 <!--PAGINATION-->
 <tr>
 	<td>PAGINATION_PREVIOUS</td>
-	<td>//div[contains(@class,'document-entries-pagination')]/ul/li[contains(.,'Prev')]/a</td>
+	<td>//div[contains(@class,'document-entries-pagination')]/ul/li[contains(.,'Previous')]/a</td>
 	<td></td>
 </tr>
 <tr>
