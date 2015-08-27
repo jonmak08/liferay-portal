@@ -96,7 +96,7 @@ public class BookmarksEntryPermissionTest {
 	}
 
 	@Test
-	public void testGetRoles() throws Exception {
+	public void testGetRolesWithPermission() throws Exception {
 		TestDocument testDocument = new TestDocument(
 			_bookmarksEntry1.getGroupId(), _bookmarksEntry1.getEntryId());
 
