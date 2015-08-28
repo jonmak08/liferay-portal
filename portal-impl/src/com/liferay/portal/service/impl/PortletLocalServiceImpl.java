@@ -700,10 +700,10 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 					pluginPackage));
 
 			Set<String> liferayPortletIds = _readLiferayPortletXML(
-				xmls[2], portletsPool);
+				servletContext, xmls[2], portletsPool);
 
 			liferayPortletIds.addAll(
-				_readLiferayPortletXML(xmls[3], portletsPool));
+				_readLiferayPortletXML(servletContext, xmls[3], portletsPool));
 
 			// Check for missing entries in liferay-portlet.xml
 
@@ -785,7 +785,7 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 					servletURLPatterns, pluginPackage));
 
 			Set<String> liferayPortletIds = _readLiferayPortletXML(
-				servletContextName, xmls[2], portletsPool);
+				servletContextName, servletContext, xmls[2], portletsPool);
 
 			// Check for missing entries in liferay-portlet.xml
 
@@ -1173,16 +1173,17 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 	}
 
 	private Set<String> _readLiferayPortletXML(
-			String xml, Map<String, Portlet> portletsPool)
-		throws Exception {
+			ServletContext servletContext, String xml, Map<String,
+			Portlet> portletsPool) throws Exception {
 
-		return _readLiferayPortletXML(StringPool.BLANK, xml, portletsPool);
+		return _readLiferayPortletXML(
+			StringPool.BLANK, servletContext, xml, portletsPool);
 	}
 
 	private void _readLiferayPortletXML(
-		String servletContextName, Map<String, Portlet> portletsPool,
-		Set<String> liferayPortletIds, Map<String, String> roleMappers,
-		Element portletElement) {
+		String servletContextName, ServletContext servletContext,
+		Map<String, Portlet> portletsPool, Set<String> liferayPortletIds,
+		Map<String, String> roleMappers, Element portletElement) {
 
 		String portletId = portletElement.elementText("portlet-name");
 
@@ -1640,10 +1641,15 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 
 		portletModel.setAutopropagatedParameters(autopropagatedParameters);
 
+		boolean defaultRequiresNamespacedParameters = GetterUtil.getBoolean(
+			servletContext.getInitParameter(
+				"portlet-requires-namespaced-parameters"),
+			portletModel.isRequiresNamespacedParameters());
+
 		portletModel.setRequiresNamespacedParameters(
 			GetterUtil.getBoolean(
 				portletElement.elementText("requires-namespaced-parameters"),
-				portletModel.isRequiresNamespacedParameters()));
+				defaultRequiresNamespacedParameters));
 		portletModel.setActionTimeout(
 			GetterUtil.getInteger(
 				portletElement.elementText("action-timeout"),
@@ -1782,8 +1788,8 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 	}
 
 	private Set<String> _readLiferayPortletXML(
-			String servletContextName, String xml,
-			Map<String, Portlet> portletsPool)
+			String servletContextName, ServletContext servletContext,
+			String xml, Map<String, Portlet> portletsPool)
 		throws Exception {
 
 		Set<String> liferayPortletIds = new HashSet<String>();
@@ -1827,8 +1833,8 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 
 		for (Element portletElement : rootElement.elements("portlet")) {
 			_readLiferayPortletXML(
-				servletContextName, portletsPool, liferayPortletIds,
-				roleMappers, portletElement);
+				servletContextName, servletContext, portletsPool,
+				liferayPortletIds, roleMappers, portletElement);
 		}
 
 		return liferayPortletIds;
