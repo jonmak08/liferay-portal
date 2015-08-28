@@ -1640,7 +1640,7 @@ public class WebDriverToSeleniumBridge
 	protected Set<Integer> getSpecialCharIndexes(String value) {
 		Set<Integer> specialCharIndexes = new TreeSet<Integer>();
 
-		Set<String> specialChars = new TreeSet<>();
+		Set<String> specialChars = new TreeSet<String>();
 
 		specialChars.addAll(_keysSpecialChars.keySet());
 
