@@ -381,6 +381,7 @@ public final class CommandLoggerHandler {
 
 		LoggerElement loggerElement = new LoggerElement();
 
+		loggerElement.setClassName("label");
 		loggerElement.setName("span");
 		loggerElement.setText(StringUtil.upperCaseFirstLetter(screenshotName));
 
