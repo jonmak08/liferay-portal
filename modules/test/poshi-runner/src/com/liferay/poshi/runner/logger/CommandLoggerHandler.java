@@ -363,7 +363,7 @@ public final class CommandLoggerHandler {
 
 		loggerElement.setAttribute(
 			"data-errorlinkid", "screenshots-" + errorLinkId);
-		loggerElement.setClassName("errorPanel screenshots toggle");
+		loggerElement.setClassName("screenshots-log");
 
 		loggerElement.addChildLoggerElement(
 			_getScreenshotContainerLoggerElement("before", errorLinkId));
