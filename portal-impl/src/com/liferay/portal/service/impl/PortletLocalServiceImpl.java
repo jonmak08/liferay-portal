@@ -1173,8 +1173,9 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 	}
 
 	private Set<String> _readLiferayPortletXML(
-			ServletContext servletContext, String xml, Map<String,
-			Portlet> portletsPool) throws Exception {
+			ServletContext servletContext, String xml,
+			Map<String, Portlet> portletsPool)
+		throws Exception {
 
 		return _readLiferayPortletXML(
 			StringPool.BLANK, servletContext, xml, portletsPool);
