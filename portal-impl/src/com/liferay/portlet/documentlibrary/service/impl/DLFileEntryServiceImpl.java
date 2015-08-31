@@ -104,8 +104,11 @@ public class DLFileEntryServiceImpl extends DLFileEntryServiceBaseImpl {
 			ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
+		boolean isLocked = lockLocalService.isLocked(
+			DLFileEntry.class.getName(), fileEntryId);
+
 		try {
-			if (!hasFileEntryLock(fileEntryId) &&
+			if (isLocked && !hasFileEntryLock(fileEntryId) &&
 				!DLFileEntryPermission.contains(
 					getPermissionChecker(), fileEntryId,
 					ActionKeys.OVERRIDE_CHECKOUT)) {
