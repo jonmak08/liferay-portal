@@ -316,7 +316,7 @@ public class LayoutTypePortletTest {
 
 		portlets = layoutTypePortlet.getAllPortlets();
 
-		Assert.assertEquals(0, portlets.size());
+		Assert.assertEquals(1, portlets.size());
 	}
 
 	@Test
