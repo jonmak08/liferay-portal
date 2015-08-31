@@ -970,11 +970,11 @@ public class PortletExporter {
 		Portlet portlet = PortletLocalServiceUtil.getPortletById(
 			portletDataContext.getCompanyId(), portletId);
 
-		if (portlet == null) {
+		if ((portlet == null) || portlet.isUndeployedPortlet()) {
 			if (_log.isDebugEnabled()) {
 				_log.debug(
 					"Do not export portlet " + portletId +
-						" because the portlet does not exist");
+						" because the portlet is not deployed");
 			}
 
 			return;

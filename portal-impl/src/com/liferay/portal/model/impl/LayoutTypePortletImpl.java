@@ -314,7 +314,7 @@ public class LayoutTypePortletImpl
 			Portlet portlet = PortletLocalServiceUtil.getPortletById(
 				getCompanyId(), portletId);
 
-			if ((portlet != null) && !portlet.isUndeployedPortlet()) {
+			if (portlet != null) {
 				portlets.add(portlet);
 			}
 		}
