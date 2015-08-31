@@ -2968,25 +2968,6 @@ ${marketplace.portlet.properties}</echo>
 		</if>
 	</target>
 
-	<target name="evaluate-logs">
-		<if>
-			<isset property="print.logs" />
-			<then>
-				<loadfile property="log.content" srcfile="log">
-					<filterchain>
-						<expandproperties />
-					</filterchain>
-				</loadfile>
-
-				<echo>Displaying Logs:</echo>
-				<echo></echo>
-				<echo>${log.content}</echo>
-			</then>
-		</if>
-
-		<antcall target="clean-up-logs" />
-	</target>
-
 	<target name="generate-backup-results-xml">
 		<if>
 			<and>
