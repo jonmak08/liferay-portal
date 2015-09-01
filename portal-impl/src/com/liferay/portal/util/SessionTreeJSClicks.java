@@ -148,7 +148,11 @@ public class SessionTreeJSClicks {
 		HttpServletRequest request, String treeId) {
 
 		try {
-			return get(request, treeId);
+			PortalPreferences portalPreferences =
+				PortletPreferencesFactoryUtil.getPortalPreferences(request);
+
+			return portalPreferences.getValue(
+				SessionTreeJSClicks.class.getName(), treeId);
 		}
 		catch (Exception e) {
 			_log.error(e, e);
@@ -241,21 +245,6 @@ public class SessionTreeJSClicks {
 		}
 	}
 
-	protected static String get(HttpServletRequest request, String key) {
-		try {
-			PortalPreferences preferences =
-				PortletPreferencesFactoryUtil.getPortalPreferences(request);
-
-			return preferences.getValue(
-				SessionTreeJSClicks.class.getName(), key);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-
-			return null;
-		}
-	}
-
 	protected static List<String> getLayoutIds(
 			HttpServletRequest request, boolean privateLayout,
 			long parentLayoutId, List<String> layoutIds)
@@ -274,21 +263,6 @@ public class SessionTreeJSClicks {
 		}
 
 		return layoutIds;
-	}
-
-	protected static void put(
-		HttpServletRequest request, String key, String value) {
-
-		try {
-			PortalPreferences preferences =
-				PortletPreferencesFactoryUtil.getPortalPreferences(request);
-
-			preferences.setValue(
-				SessionTreeJSClicks.class.getName(), key, value);
-		}
-		catch (Exception e) {
-			_log.error(e, e);
-		}
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(SessionTreeJSClicks.class);
