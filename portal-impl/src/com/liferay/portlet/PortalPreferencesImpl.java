@@ -152,21 +152,40 @@ public class PortalPreferencesImpl
 	}
 
 	@Override
-	public void reset(String key) throws ReadOnlyException {
+	public void reset(final String key) throws ReadOnlyException {
 		if (isReadOnly(key)) {
 			throw new ReadOnlyException(key);
 		}
 
-		Map<String, Preference> modifiedPreferences = getModifiedPreferences();
+		Callable<Void> callable = new Callable<Void>() {
 
-		modifiedPreferences.remove(key);
+			@Override
+			public Void call() {
+				Map<String, Preference> modifiedPreferences =
+					getModifiedPreferences();
+
+				modifiedPreferences.remove(key);
+
+				return null;
+			}
+		};
+
+		try {
+			validateStore(callable, key);
+		}
+		catch (ConcurrentModificationException cme) {
+			throw cme;
+		}
+		catch (Throwable t) {
+			_log.error(t, t);
+		}
 	}
 
 	@Override
 	public void resetValues(String namespace) {
-		try {
-			Map<String, Preference> preferences = getPreferences();
+		Map<String, Preference> preferences = getPreferences();
 
+		try {
 			for (Map.Entry<String, Preference> entry : preferences.entrySet()) {
 				String key = entry.getKey();
 
@@ -174,11 +193,12 @@ public class PortalPreferencesImpl
 					reset(key);
 				}
 			}
-
-			store();
 		}
-		catch (Exception e) {
-			_log.error(e, e);
+		catch (ConcurrentModificationException cme) {
+			throw cme;
+		}
+		catch (Throwable t) {
+			_log.error(t, t);
 		}
 	}
 
@@ -193,52 +213,87 @@ public class PortalPreferencesImpl
 	}
 
 	@Override
-	public void setValue(String namespace, String key, String value) {
+	public void setValue(
+		final String namespace, final String key, final String value) {
+
 		if (Validator.isNull(key) || key.equals(_RANDOM_KEY)) {
 			return;
 		}
 
-		key = _encodeKey(namespace, key);
-
 		try {
-			if (value != null) {
-				super.setValue(key, value);
-			}
-			else {
-				reset(key);
-			}
+			Callable<Void> callable = new Callable<Void>() {
+
+				@Override
+				public Void call() throws ReadOnlyException {
+					String encodedKey = _encodeKey(namespace, key);
+
+					if (value != null) {
+						PortalPreferencesImpl.super.setValue(encodedKey, value);
+					}
+					else {
+						reset(encodedKey);
+					}
+
+					return null;
+				}
+
+			};
 
 			if (_signedIn) {
-				store();
+				validateStore(callable, _encodeKey(namespace, key));
+			}
+			else {
+				callable.call();
 			}
 		}
-		catch (Exception e) {
-			_log.error(e, e);
+		catch (ConcurrentModificationException cme) {
+			throw cme;
+		}
+		catch (Throwable t) {
+			_log.error(t, t);
 		}
 	}
 
 	@Override
-	public void setValues(String namespace, String key, String[] values) {
+	public void setValues(
+		final String namespace, final String key, final String[] values) {
+
 		if (Validator.isNull(key) || key.equals(_RANDOM_KEY)) {
 			return;
 		}
 
-		key = _encodeKey(namespace, key);
-
 		try {
-			if (values != null) {
-				super.setValues(key, values);
-			}
-			else {
-				reset(key);
-			}
+			Callable<Void> callable = new Callable<Void>() {
+
+				@Override
+				public Void call() throws ReadOnlyException {
+					String encodedKey = _encodeKey(namespace, key);
+
+					if (values != null) {
+						PortalPreferencesImpl.super.setValues(
+							encodedKey, values);
+					}
+					else {
+						reset(encodedKey);
+					}
+
+					return null;
+				}
+
+			};
 
 			if (_signedIn) {
-				store();
+				validateStore(callable, _encodeKey(namespace, key));
+			}
+			else {
+				callable.call();
 			}
 		}
-		catch (Exception e) {
-			_log.error(e, e);
+		catch (ConcurrentModificationException cme) {
+			throw cme;
+		}
+		catch (Throwable t) {
+			_log.error(t, t);
 		}
 	}
 
