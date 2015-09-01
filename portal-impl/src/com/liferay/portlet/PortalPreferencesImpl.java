@@ -14,20 +14,30 @@
 
 package com.liferay.portlet;
 
+import com.liferay.portal.kernel.dao.orm.LockMode;
+import com.liferay.portal.kernel.dao.orm.Session;
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.transaction.TransactionAttribute;
+import com.liferay.portal.kernel.transaction.TransactionInvokerUtil;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.service.PortalPreferencesLocalServiceUtil;
+import com.liferay.portal.service.persistence.PortalPreferencesPersistence;
+import com.liferay.portal.service.persistence.PortalPreferencesUtil;
 
 import java.io.IOException;
 import java.io.Serializable;
 
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Callable;
 
 import javax.portlet.ReadOnlyException;
 
@@ -38,6 +48,18 @@ import javax.portlet.ReadOnlyException;
 public class PortalPreferencesImpl
 	extends BasePreferencesImpl
 	implements Cloneable, PortalPreferences, Serializable {
+
+	public static final TransactionAttribute TRANSACTION_ATTRIBUTE;
+
+	static {
+		TransactionAttribute.Builder builder =
+			new TransactionAttribute.Builder();
+
+		builder.setRollbackForClasses(
+			PortalException.class, SystemException.class);
+
+		TRANSACTION_ATTRIBUTE = builder.build();
+	}
 
 	public PortalPreferencesImpl() {
 		this(0, 0, null, Collections.<String, Preference>emptyMap(), false);
@@ -217,6 +239,91 @@ public class PortalPreferencesImpl
 		}
 		catch (Exception e) {
 			_log.error(e, e);
+		}
+	}
+
+	private Callable<Boolean> _createValidateCallable(
+		final String[] originalValues, final String key) {
+
+		final long ownerId = getOwnerId();
+		final int ownerType = getOwnerType();
+
+		return new Callable<Boolean>() {
+
+			@Override
+			public Boolean call() throws Exception {
+				com.liferay.portal.model.PortalPreferences
+					preferences = PortalPreferencesUtil.fetchByO_O(
+						ownerId, ownerType, false);
+
+				PortalPreferencesPersistence persistence =
+					PortalPreferencesUtil.getPersistence();
+
+				Session session = persistence.getCurrentSession();
+
+				session.evict(preferences);
+
+				preferences = (com.liferay.portal.model.PortalPreferences)
+					session.get(
+						com.liferay.portal.model.impl.
+							PortalPreferencesImpl.class,
+						preferences.getPrimaryKey(), LockMode.UPGRADE);
+
+				PortalPreferencesImpl portalPreferencesImpl =
+					(PortalPreferencesImpl)
+						PortletPreferencesFactoryUtil.fromXML(
+							ownerId, ownerType, preferences.getPreferences());
+
+				if (getOriginalXML().equals(preferences.getPreferences())) {
+					store();
+
+					return true;
+				}
+
+				if (!Arrays.equals(
+						originalValues,
+						portalPreferencesImpl.getValues(key, (String[])null))) {
+
+					return false;
+				}
+
+				reset();
+
+				setOriginalPreferences(
+					portalPreferencesImpl.getOriginalPreferences());
+
+				setOriginalXML(preferences.getPreferences());
+
+				return null;
+			}
+
+		};
+	}
+
+	protected void validateStore(final Callable<?> callable, final String key)
+		throws Throwable {
+
+		while (true) {
+			final String[] originalValues = super.getValues(key, null);
+
+			callable.call();
+
+			Boolean success = TransactionInvokerUtil.invoke(
+				TRANSACTION_ATTRIBUTE,
+				_createValidateCallable(originalValues, key));
+
+			if (success == null) {
+				continue;
+			}
+
+			if (!success) {
+				PortalPreferencesWrapperCacheUtil.remove(
+					getOwnerId(), getOwnerType());
+
+				throw new ConcurrentModificationException();
+			}
+
+			break;
 		}
 	}
 
