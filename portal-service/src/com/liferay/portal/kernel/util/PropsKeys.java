@@ -2165,6 +2165,8 @@ public interface PropsKeys {
 
 	public static final String RSS_FEED_DISPLAY_STYLE_DEFAULT = "rss.feed.display.style.default";
 
+	public static final String RSS_FEED_REFRESH_TIME = "rss.feed.refresh.time";
+
 	public static final String RSS_FEED_TYPE_DEFAULT = "rss.feed.type.default";
 
 	public static final String RSS_FEED_TYPES = "rss.feed.types";

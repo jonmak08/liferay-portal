@@ -1660,6 +1660,8 @@ public class PropsValues {
 
 	public static String RSS_FEED_DISPLAY_STYLE_DEFAULT = PropsUtil.get(PropsKeys.RSS_FEED_DISPLAY_STYLE_DEFAULT);
 
+	public static long RSS_FEED_REFRESH_TIME = GetterUtil.getLong(PropsUtil.get(PropsKeys.RSS_FEED_REFRESH_TIME));
+
 	public static String RSS_FEED_TYPE_DEFAULT = PropsUtil.get(PropsKeys.RSS_FEED_TYPE_DEFAULT);
 
 	public static String[] RSS_FEED_TYPES = PropsUtil.getArray(PropsKeys.RSS_FEED_TYPES);
