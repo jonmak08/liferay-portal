@@ -52,13 +52,13 @@
 		<aui:option label="view-in-context" selected='<%= assetLinkBehavior.equals("viewInPortlet") %>' value="viewInPortlet" />
 	</aui:select>
 
-	<aui:select helpMessage="number-of-items-to-display-help" label="number-of-items-to-display" name="preferences--delta--">
+	<aui:select helpMessage="number-of-items-to-display-help" label="number-of-items-to-display" name="preferences--pageDelta--">
 
 		<%
 		for (int currentDelta : PropsValues.SEARCH_CONTAINER_PAGE_DELTA_VALUES) {
 		%>
 
-			<aui:option label="<%= currentDelta %>" selected="<%= (delta == currentDelta) %>" />
+			<aui:option label="<%= currentDelta %>" selected="<%= (pageDelta == currentDelta) %>" />
 
 		<%
 		}

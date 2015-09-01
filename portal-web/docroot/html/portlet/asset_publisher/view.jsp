@@ -148,10 +148,10 @@ boolean hasAddPortletURLs = false;
 <%
 PortletURL portletURL = renderResponse.createRenderURL();
 
-SearchContainer searchContainer = new SearchContainer(renderRequest, null, null, SearchContainer.DEFAULT_CUR_PARAM, delta, portletURL, null, null);
+SearchContainer searchContainer = new SearchContainer(renderRequest, null, null, SearchContainer.DEFAULT_CUR_PARAM, pageDelta, portletURL, null, null);
 
 if (!paginationType.equals("none")) {
-	searchContainer.setDelta(delta);
+	searchContainer.setDelta(pageDelta);
 	searchContainer.setDeltaConfigurable(false);
 }
 %>

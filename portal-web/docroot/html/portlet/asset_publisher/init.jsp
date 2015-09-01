@@ -199,10 +199,10 @@ String orderByType1 = GetterUtil.getString(portletPreferences.getValue("orderByT
 String orderByType2 = GetterUtil.getString(portletPreferences.getValue("orderByType2", "ASC"));
 boolean excludeZeroViewCount = GetterUtil.getBoolean(portletPreferences.getValue("excludeZeroViewCount", null));
 
-int delta = GetterUtil.getInteger(portletPreferences.getValue("delta", null), SearchContainer.DEFAULT_DELTA);
+int pageDelta = GetterUtil.getInteger(portletPreferences.getValue("pageDelta", null), SearchContainer.DEFAULT_DELTA);
 
 if (portletName.equals(PortletKeys.RECENT_CONTENT)) {
-	delta = PropsValues.RECENT_CONTENT_MAX_DISPLAY_ITEMS;
+	pageDelta = PropsValues.RECENT_CONTENT_MAX_DISPLAY_ITEMS;
 }
 
 String paginationType = GetterUtil.getString(portletPreferences.getValue("paginationType", "none"));
