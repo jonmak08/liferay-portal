@@ -225,7 +225,7 @@ AUI.add(
 					_bindTagsSelector: function() {
 						var instance = this;
 
-						instance._submitFormListener = A.Do.before(instance._onSubmitForm, window, 'submitForm', instance);
+						instance._submitFormListener = A.Do.before(instance._addEntries, window, 'submitForm', instance);
 
 						instance.get('boundingBox').on('keypress', instance._onKeyPress, instance);
 					},
@@ -415,22 +415,6 @@ AUI.add(
 							}
 							else if (MAP_INVALID_CHARACTERS[String.fromCharCode(charCode)]) {
 								event.halt();
-							}
-						}
-					},
-
-					_onSubmitForm: function(form) {
-						var instance = this;
-
-						var inputNode = instance.inputNode;
-
-						var ancestorForm = inputNode.ancestor('form');
-
-						if (form && ancestorForm) {
-							var formNode = ancestorForm._node;
-
-							if (form.id === formNode.id) {
-								instance._addEntries();
 							}
 						}
 					},
