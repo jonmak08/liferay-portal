@@ -306,6 +306,16 @@ public abstract class BasePreferencesImpl implements Serializable {
 		return false;
 	}
 
+	protected void setOriginalPreferences(
+		Map<String, Preference> originalPreferences) {
+
+		_originalPreferences = originalPreferences;
+	}
+
+	protected void setOriginalXML(String originalXML) {
+		_originalXML = originalXML;
+	}
+
 	protected String toXML() {
 		if ((_modifiedPreferences == null) && (_originalXML != null)) {
 			return _originalXML;
