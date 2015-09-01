@@ -198,7 +198,7 @@ public class LoginAction extends PortletAction {
 
 			PortletPreferences portletPreferences =
 				PortletPreferencesFactoryUtil.getStrictPortletSetup(
-						themeDisplay.getLayout(), portletId);
+					themeDisplay.getLayout(), portletId);
 
 			String authType = portletPreferences.getValue("authType", null);
 
