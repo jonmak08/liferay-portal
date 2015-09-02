@@ -73,7 +73,7 @@ PasswordPolicy passwordPolicy = user.getPasswordPolicy();
 					</c:if>
 
 					<c:if test="<%= upe.getType() == UserPasswordException.PASSWORD_NOT_CHANGEABLE %>">
-						<liferay-ui:message key="your-password-cannot-be-changed" />
+						<liferay-ui:message key="passwords-are-not-allowed-to-be-changed-under-the-current-password-policy" />
 					</c:if>
 
 					<c:if test="<%= upe.getType() == UserPasswordException.PASSWORD_SAME_AS_CURRENT %>">
