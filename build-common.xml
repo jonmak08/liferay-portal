@@ -826,6 +826,7 @@ Please set the environment variable ANT_OPTS to the recommended value of
 
 	<macrodef name="gradle-execute">
 		<attribute default="true" name="failonerror" />
+		<attribute default="true" name="forcedcacheenabled" />
 		<attribute name="task" />
 		<element implicit="true" name="args" optional="true" />
 
@@ -844,6 +845,7 @@ Please set the environment variable ANT_OPTS to the recommended value of
 
 			<exec executable="${project.dir}/tools/gradle/gradlew${gradlew.suffix}" failonerror="@{failonerror}">
 				<args />
+				<arg value="-Dforced.cache.enabled=@{forcedcacheenabled}" />
 				<arg value="@{task}" />
 			</exec>
 		</sequential>
