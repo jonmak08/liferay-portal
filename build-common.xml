@@ -845,6 +845,7 @@ Please set the environment variable ANT_OPTS to the recommended value of
 
 			<exec executable="${project.dir}/tools/gradle/gradlew${gradlew.suffix}" failonerror="@{failonerror}">
 				<args />
+				<arg value="--gradle-user-home=${project.dir}/.gradle" />
 				<arg value="-Dforced.cache.enabled=@{forcedcacheenabled}" />
 				<arg value="@{task}" />
 			</exec>
