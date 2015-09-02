@@ -12,6 +12,7 @@ _sass_cache_*.css
 cobertura.ser
 log
 
+**/.gradle
 **/.sonar
 
 /*.ant-*
