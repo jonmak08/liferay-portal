@@ -841,6 +841,11 @@ if (!selectableTree) {
 				formatter: TreeUtil.formatJSONResults,
 				url: GET_LAYOUTS_URL
 			},
+
+			<c:if test="<%= draggableTree %>">
+				lazyLoad: false,
+			</c:if>
+
 			on: {
 				<c:if test="<%= saveState && selectableTree %>">
 					append: function(event) {
