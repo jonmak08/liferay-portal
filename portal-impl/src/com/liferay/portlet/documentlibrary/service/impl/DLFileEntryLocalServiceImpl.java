@@ -72,9 +72,12 @@ import com.liferay.portal.repository.liferayrepository.model.LiferayFileEntry;
 import com.liferay.portal.repository.liferayrepository.model.LiferayFileVersion;
 import com.liferay.portal.security.auth.PrincipalThreadLocal;
 import com.liferay.portal.service.ServiceContext;
+import com.liferay.portal.util.Portal;
 import com.liferay.portal.util.PortalUtil;
+import com.liferay.portal.util.PortletKeys;
 import com.liferay.portal.util.PrefsPropsUtil;
 import com.liferay.portal.util.PropsValues;
+import com.liferay.portlet.PortletURLFactoryUtil;
 import com.liferay.portlet.documentlibrary.DuplicateFileException;
 import com.liferay.portlet.documentlibrary.DuplicateFolderNameException;
 import com.liferay.portlet.documentlibrary.FileExtensionException;
@@ -124,6 +127,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.portlet.PortletRequest;
+import javax.portlet.PortletURL;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Provides the local service for accessing, adding, checking in/out, deleting,
@@ -1759,6 +1767,11 @@ public class DLFileEntryLocalServiceImpl
 				dlFileEntry.setSize(dlFileVersion.getSize());
 
 				dlFileEntryPersistence.update(dlFileEntry);
+
+				String fileEntryURL = getFileEntryURL(
+					dlFileEntry, serviceContext);
+
+				serviceContext.setAttribute("entryURL", fileEntryURL);
 			}
 		}
 		else {
@@ -1827,6 +1840,49 @@ public class DLFileEntryLocalServiceImpl
 		}
 
 		return dlFileEntry;
+	}
+
+	protected String getFileEntryURL(
+			DLFileEntry dlFileEntry, ServiceContext serviceContext)
+		throws PortalException, SystemException {
+
+		HttpServletRequest request = serviceContext.getRequest();
+
+		if (request == null) {
+			if (Validator.isNull(serviceContext.getLayoutFullURL())) {
+				return StringPool.BLANK;
+			}
+
+			return serviceContext.getLayoutFullURL() +
+				Portal.FRIENDLY_URL_SEPARATOR +
+				"document_library/view_file_entry" +
+				dlFileEntry.getFileEntryId();
+		}
+
+		String layoutURL = getLayoutURL(
+				dlFileEntry.getGroupId(), PortletKeys.DOCUMENT_LIBRARY,
+				serviceContext);
+
+		if (Validator.isNotNull(layoutURL)) {
+			return layoutURL + Portal.FRIENDLY_URL_SEPARATOR +
+				"document_library/view_file_entry" +
+					dlFileEntry.getFileEntryId();
+		}
+		else {
+			long controlPanelPlid = PortalUtil.getControlPanelPlid(
+				serviceContext.getCompanyId());
+
+			PortletURL portletURL = PortletURLFactoryUtil.create(
+				request, PortletKeys.DOCUMENT_LIBRARY, controlPanelPlid,
+				PortletRequest.RENDER_PHASE);
+
+			portletURL.setParameter(
+				"struts_action", "/document_library/view_file_entry");
+			portletURL.setParameter(
+				"fileEntryId", String.valueOf(dlFileEntry.getFileEntryId()));
+
+			return portletURL.toString();
+		}
 	}
 
 	@Override
