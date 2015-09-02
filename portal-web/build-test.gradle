@@ -1,6 +1,8 @@
 buildscript {
 	repositories {
-		mavenLocal()
+		if (!Boolean.getBoolean("maven.local.ignore")) {
+			mavenLocal()
+		}
 
 		maven {
 			url "http://cdn.repository.liferay.com/nexus/content/groups/public"
@@ -31,7 +33,9 @@ poshiRunner {
 }
 
 repositories {
-	mavenLocal()
+	if (!Boolean.getBoolean("maven.local.ignore")) {
+		mavenLocal()
+	}
 
 	maven {
 		url "http://cdn.repository.liferay.com/nexus/content/groups/public"
