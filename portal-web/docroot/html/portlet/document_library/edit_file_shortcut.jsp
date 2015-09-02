@@ -96,7 +96,7 @@ portletURL.setParameter("fileShortcutId", String.valueOf(fileShortcutId));
 		</div>
 
 		<%
-		String toGroupName = BeanPropertiesUtil.getString(toGroup, "name");
+		String toGroupName = (toGroup == null) ? "" : HtmlUtil.escape(toGroup.getDescriptiveName());
 		%>
 
 		<div class="control-group">
