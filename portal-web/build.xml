@@ -1518,6 +1518,13 @@ Please set the property "jdk.6.home" in build.properties.
 		<ant dir=".." target="deploy-properties" inheritAll="false" />
 	</target>
 
+	<target name="update-gradle-cache">
+		<gradle-execute forcedcacheenabled="false" task="updateGradleCache">
+			<arg value="--build-file=build-test.gradle" />
+			<arg value="-Dmaven.local.ignore=true" />
+		</gradle-execute>
+	</target>
+
 	<target name="war" depends="compile">
 		<antcall target="build-alloy" />
 		<antcall target="build-ckeditor" />
