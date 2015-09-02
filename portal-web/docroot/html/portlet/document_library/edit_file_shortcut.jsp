@@ -96,7 +96,11 @@ portletURL.setParameter("fileShortcutId", String.valueOf(fileShortcutId));
 		</div>
 
 		<%
-		String toGroupName = (toGroup == null) ? "" : HtmlUtil.escape(toGroup.getDescriptiveName());
+		String toGroupName = StringPool.BLANK;
+
+		if (toGroup != null) {
+			toGroupName = HtmlUtil.escape(toGroup.getDescriptiveName());
+		}
 		%>
 
 		<div class="control-group">
