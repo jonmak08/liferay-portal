@@ -120,7 +120,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewNoSubscribeLinksNoWithEmailNotificationsDisabled" priority="5">
+	<command name="ViewNoSubscribeLinksWithEmailNotificationsDisabled" priority="5">
 		<var name="categoryName" value="MB Category Name" />
 		<var name="messageAddedEmailEnabled" value="false" />
 		<var name="messageUpdatedEmailEnabled" value="false" />
