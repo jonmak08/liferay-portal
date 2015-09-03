@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.dao.orm.EntityCacheUtil;
 import com.liferay.portal.kernel.dao.orm.FinderCacheUtil;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
 import com.liferay.portal.kernel.transaction.TransactionAttribute.Builder;
 import com.liferay.portal.kernel.transaction.TransactionInvokerUtil;
@@ -25,6 +26,7 @@ import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.service.persistence.PortalPreferencesPersistence;
 import com.liferay.portal.service.persistence.PortalPreferencesUtil;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
+import com.liferay.portal.test.MainServletExecutionTestListener;
 import com.liferay.portal.util.PortletKeys;
 
 import java.lang.reflect.InvocationHandler;
@@ -46,6 +48,7 @@ import org.junit.runner.RunWith;
  * @author Matthew Tambara
  * @author Shuyang Zhou
  */
+@ExecutionTestListeners(listeners = {MainServletExecutionTestListener.class})
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
 public class PortalPreferencesImplTest {
 
