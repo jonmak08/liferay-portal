@@ -157,21 +157,21 @@ public class PortalPreferencesImpl
 			throw new ReadOnlyException(key);
 		}
 
-		Callable<Void> callable = new Callable<Void>() {
-
-			@Override
-			public Void call() {
-				Map<String, Preference> modifiedPreferences =
-					getModifiedPreferences();
-
-				modifiedPreferences.remove(key);
-
-				return null;
-			}
-		};
-
 		try {
-			validateStore(callable, key);
+			validateStore(
+				new Callable<Void>() {
+
+					@Override
+					public Void call() {
+						Map<String, Preference> modifiedPreferences =
+							getModifiedPreferences();
+
+						modifiedPreferences.remove(key);
+
+						return null;
+					}
+
+				}, key);
 		}
 		catch (ConcurrentModificationException cme) {
 			throw cme;
@@ -197,8 +197,8 @@ public class PortalPreferencesImpl
 		catch (ConcurrentModificationException cme) {
 			throw cme;
 		}
-		catch (Throwable t) {
-			_log.error(t, t);
+		catch (Exception e) {
+			_log.error(e, e);
 		}
 	}
 
@@ -300,21 +300,19 @@ public class PortalPreferencesImpl
 	private Callable<Boolean> _createValidateCallable(
 		final String[] originalValues, final String key) {
 
-		final long ownerId = getOwnerId();
-		final int ownerType = getOwnerType();
-
 		return new Callable<Boolean>() {
 
 			@Override
 			public Boolean call() throws Exception {
 				com.liferay.portal.model.PortalPreferences
 					preferences = PortalPreferencesUtil.fetchByO_O(
-						ownerId, ownerType, false);
+						getOwnerId(), getOwnerType(), false);
 
-				PortalPreferencesPersistence persistence =
+				PortalPreferencesPersistence portalPreferencesPersistence =
 					PortalPreferencesUtil.getPersistence();
 
-				Session session = persistence.getCurrentSession();
+				Session session =
+					portalPreferencesPersistence.getCurrentSession();
 
 				session.evict(preferences);
 
@@ -327,9 +325,12 @@ public class PortalPreferencesImpl
 				PortalPreferencesImpl portalPreferencesImpl =
 					(PortalPreferencesImpl)
 						PortletPreferencesFactoryUtil.fromXML(
-							ownerId, ownerType, preferences.getPreferences());
+							getOwnerId(), getOwnerType(),
+							preferences.getPreferences());
 
-				if (getOriginalXML().equals(preferences.getPreferences())) {
+				String originalXML = getOriginalXML();
+
+				if (originalXML.equals(preferences.getPreferences())) {
 					store();
 
 					return true;
@@ -359,19 +360,19 @@ public class PortalPreferencesImpl
 		throws Throwable {
 
 		while (true) {
-			final String[] originalValues = super.getValues(key, null);
+			String[] originalValues = super.getValues(key, null);
 
 			callable.call();
 
-			Boolean success = TransactionInvokerUtil.invoke(
+			Boolean result = TransactionInvokerUtil.invoke(
 				TRANSACTION_ATTRIBUTE,
 				_createValidateCallable(originalValues, key));
 
-			if (success == null) {
+			if (result == null) {
 				continue;
 			}
 
-			if (!success) {
+			if (!result) {
 				PortalPreferencesWrapperCacheUtil.remove(
 					getOwnerId(), getOwnerType());
 
