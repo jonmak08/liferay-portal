@@ -227,11 +227,11 @@ public class PortalPreferencesImpl
 				public Void call() throws ReadOnlyException {
 					String encodedKey = _encodeKey(namespace, key);
 
-					if (value != null) {
-						PortalPreferencesImpl.super.setValue(encodedKey, value);
+					if (value == null) {
+						reset(encodedKey);
 					}
 					else {
-						reset(encodedKey);
+						PortalPreferencesImpl.super.setValue(encodedKey, value);
 					}
 
 					return null;
@@ -269,12 +269,12 @@ public class PortalPreferencesImpl
 				public Void call() throws ReadOnlyException {
 					String encodedKey = _encodeKey(namespace, key);
 
-					if (values != null) {
-						PortalPreferencesImpl.super.setValues(
-							encodedKey, values);
+					if (values == null) {
+						reset(encodedKey);
 					}
 					else {
-						reset(encodedKey);
+						PortalPreferencesImpl.super.setValues(
+							encodedKey, values);
 					}
 
 					return null;
