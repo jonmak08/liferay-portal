@@ -74,6 +74,7 @@ AUI.add(
 					initializer: function(config) {
 						var instance = this;
 
+						var formName = instance.get(STR_FORM_NAME);
 						var nodeList = instance.get(STR_NODE_LIST);
 
 						instance._togglerDelegate = new A.TogglerDelegate(
@@ -88,12 +89,9 @@ AUI.add(
 							}
 						).plug(Liferay.TogglerKeyFilter);
 
-						instance._addForm = instance.byId(instance.get(STR_FORM_NAME));
-
+						instance._addForm = instance.byId(formName);
 						instance._cancelButton = instance.byId(STR_CANCEL_ADD_OPERATION);
-
 						instance._hiddenCheckbox = instance.byId(STR_HIDDEN_CHECKBOX);
-
 						instance._nameInput = instance.byId(STR_NAME);
 
 						instance._loadingMask = new A.LoadingMask(
