@@ -232,9 +232,9 @@ String randomNamespace = PortalUtil.generateRandomKey(request, "layouts_admin_ad
 				</c:if>
 
 				<aui:script use="liferay-util-window">
-					var addLayoutPopup;
+					var addLayoutPopUp;
 					var content;
-					var popUp;
+					var copyApplicationsPopUp
 
 					var clickHandler = function(event) {
 						var target = event.target;
@@ -248,8 +248,8 @@ String randomNamespace = PortalUtil.generateRandomKey(request, "layouts_admin_ad
 						if (dataValue === 'add-child-page') {
 							content = A.one('#<portlet:namespace /><%= randomNamespace %>addLayout');
 
-							if (!addLayoutPopup) {
-								addLayoutPopup = Liferay.Util.Window.getWindow(
+							if (!addLayoutPopUp) {
+								addLayoutPopUp = Liferay.Util.Window.getWindow(
 									{
 										dialog: {
 											bodyContent: content.show(),
@@ -261,15 +261,15 @@ String randomNamespace = PortalUtil.generateRandomKey(request, "layouts_admin_ad
 								);
 							}
 
-							addLayoutPopup.show();
+							addLayoutPopUp.show();
 
-							var cancelButton = addLayoutPopup.get('contentBox').one('#<portlet:namespace />cancelAddOperation');
+							var cancelButton = addLayoutPopUp.get('contentBox').one('#<portlet:namespace />cancelAddOperation');
 
 							if (cancelButton) {
 								cancelButton.on(
 									'click',
 									function(event) {
-										addLayoutPopup.hide();
+										addLayoutPopUp.hide();
 									}
 								);
 							}
@@ -300,7 +300,7 @@ String randomNamespace = PortalUtil.generateRandomKey(request, "layouts_admin_ad
 						else if (dataValue == 'copy-applications') {
 							content = A.one('#<portlet:namespace />copyPortletsFromPage');
 
-							popUp = Liferay.Util.Window.getWindow(
+							copyApplicationsPopUp = Liferay.Util.Window.getWindow(
 								{
 									dialog: {
 										bodyContent: content.show()
@@ -309,15 +309,15 @@ String randomNamespace = PortalUtil.generateRandomKey(request, "layouts_admin_ad
 								}
 							);
 
-							popUp.show();
+							copyApplicationsPopUp.show();
 
-							var submitButton = popUp.get('contentBox').one('#<portlet:namespace />copySubmitButton');
+							var submitButton = copyApplicationsPopUp.get('contentBox').one('#<portlet:namespace />copySubmitButton');
 
 							if (submitButton) {
 								submitButton.on(
 									'click',
 									function(event) {
-										popUp.hide();
+										copyApplicationsPopUp.hide();
 
 										var form = A.one('#<portlet:namespace />fm');
 
