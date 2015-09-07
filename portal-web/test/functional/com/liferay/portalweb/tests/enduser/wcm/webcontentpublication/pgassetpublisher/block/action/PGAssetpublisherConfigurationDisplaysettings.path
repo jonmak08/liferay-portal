@@ -45,7 +45,7 @@
 </tr>
 <tr>
 	<td>NUMBER_OF_ITEMS_TO_DISPLAY_SELECT</td>
-	<td>//select[@id='_86_delta']</td>
+	<td>//select[@id='_86_delta'] | //select[@id='_86_pageDelta']</td>
 	<td></td>
 </tr>
 <tr>
