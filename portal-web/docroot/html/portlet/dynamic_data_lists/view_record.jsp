@@ -52,18 +52,18 @@ DDLRecordVersion latestRecordVersion = record.getLatestRecordVersion();
 <aui:fieldset>
 
 	<%
-	Fields fields = null;
-
-	if (recordVersion != null) {
-		fields = StorageEngineUtil.getFields(recordVersion.getDDMStorageId());
-	}
-
 	long classNameId = PortalUtil.getClassNameId(DDMStructure.class);
 	long classPK = ddmStructure.getPrimaryKey();
 
 	if (formDDMTemplateId > 0) {
 		classNameId = PortalUtil.getClassNameId(DDMTemplate.class);
 		classPK = formDDMTemplateId;
+	}
+
+	Fields fields = null;
+
+	if (recordVersion != null) {
+		fields = StorageEngineUtil.getFields(recordVersion.getDDMStorageId());
 	}
 	%>
 
