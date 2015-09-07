@@ -32,8 +32,9 @@ public class JSSourceProcessor extends BaseSourceProcessor {
 	@Override
 	protected void format() throws Exception {
 		String[] excludes = {
-			"**\\js\\aui\\**", "**\\js\\editor\\**", "**\\js\\misc\\**",
-			"**\\r2.js", "**\\tools\\**", "**\\VAADIN\\**"
+			"**\\*.min.js", "**\\*.nocsf.js", "**\\js\\aui\\**",
+			"**\\js\\editor\\**", "**\\js\\misc\\**", "**\\r2.js",
+			"**\\tools\\**", "**\\VAADIN\\**"
 		};
 		String[] includes = {"**\\*.js"};
 
