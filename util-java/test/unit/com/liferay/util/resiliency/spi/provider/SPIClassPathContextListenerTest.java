@@ -32,6 +32,7 @@ import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.util.PropsImpl;
 
 import java.io.File;
@@ -495,7 +496,9 @@ public class SPIClassPathContextListenerTest {
 
 		// Does not exist
 
-		deleteFile(new File(_CONTEXT_PATH, dirName));
+		File file = new File(_CONTEXT_PATH, dirName);
+
+		deleteFile(file);
 
 		SPIClassPathContextListener spiClassPathContextListener =
 			new SPIClassPathContextListener();
@@ -508,13 +511,11 @@ public class SPIClassPathContextListenerTest {
 		}
 		catch (RuntimeException re) {
 			Assert.assertEquals(
-				"Unable to find directory " + _CONTEXT_PATH +
-					dirName, re.getMessage());
+				"Unable to find directory " + file.getAbsolutePath(),
+				re.getMessage());
 		}
 
 		// Not a directory
-
-		File file = new File(_CONTEXT_PATH, dirName);
 
 		file.deleteOnExit();
 
@@ -528,15 +529,16 @@ public class SPIClassPathContextListenerTest {
 		}
 		catch (RuntimeException re) {
 			Assert.assertEquals(
-				"Unable to find directory " + _CONTEXT_PATH +
-					dirName, re.getMessage());
+				"Unable to find directory " + file.getAbsolutePath(),
+				re.getMessage());
 		}
 		finally {
 			file.delete();
 		}
 	}
 
-	private static String _CONTEXT_PATH = System.getProperty("java.io.tmpdir");
+	private static String _CONTEXT_PATH = StringUtil.toLowerCase(
+		System.getProperty("java.io.tmpdir"));
 
 	private static String _EMBEDDED_LIB_DIR_NAME = "/embeddedLib";
 
