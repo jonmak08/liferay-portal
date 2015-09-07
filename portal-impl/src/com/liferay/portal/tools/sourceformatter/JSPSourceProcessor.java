@@ -340,14 +340,16 @@ public class JSPSourceProcessor extends BaseSourceProcessor {
 		newContent = StringUtil.replace(
 			newContent,
 			new String[] {
-				"<br/>", "\"/>", "\" >", "@page import", "\"%>", ")%>", "else{",
-				"for(", "function (", "if(", "javascript: ", "while(", "){\n",
-				";;\n", "\n\n\n"
+				StringPool.TAB + "else{", StringPool.TAB + "for(",
+				StringPool.TAB + "if(", StringPool.TAB + "while(", "<br/>",
+				"\"/>", "\" >", "@page import", "\"%>", ")%>", "function (",
+				"javascript: ", "){\n", ";;\n", "\n\n\n"
 			},
 			new String[] {
-				"<br />", "\" />", "\">", "@ page import", "\" %>", ") %>",
-				"else {", "for (", "function(", "if (", "javascript:",
-				"while (", ") {\n", ";\n", "\n\n"
+				StringPool.TAB + "else {", StringPool.TAB + "for (",
+				StringPool.TAB + "if (", StringPool.TAB + "while (", "<br />",
+				"\" />", "\">", "@ page import", "\" %>", ") %>", "function(",
+				"javascript:", ") {\n", ";\n", "\n\n"
 			});
 
 		newContent = fixCompatClassImports(absolutePath, newContent);

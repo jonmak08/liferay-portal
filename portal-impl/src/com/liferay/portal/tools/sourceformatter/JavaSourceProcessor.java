@@ -593,12 +593,16 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 		newContent = StringUtil.replace(
 			newContent,
 			new String[] {
-				";\n/**", "\t/*\n\t *", "catch(", "else{", "if(", "for(",
-				"while(", "List <", "){\n", "]{\n"
+				StringPool.TAB + "catch(", StringPool.TAB + "else{",
+				StringPool.TAB + "if(", StringPool.TAB + "for(",
+				StringPool.TAB + "while(", ";\n/**", "\t/*\n\t *", "List <",
+				"){\n", "]{\n"
 			},
 			new String[] {
-				";\n\n/**", "\t/**\n\t *", "catch (", "else {", "if (", "for (",
-				"while (", "List<", ") {\n", "] {\n"
+				StringPool.TAB + "catch (", StringPool.TAB + "else {",
+				StringPool.TAB + "if (", StringPool.TAB + "for (",
+				StringPool.TAB + "while (", ";\n\n/**", "\t/**\n\t *", "List<",
+				") {\n", "] {\n"
 			});
 
 		while (true) {
