@@ -6341,8 +6341,6 @@ jdbc.default.password=${database.mysql.password}</echo>
 			</then>
 		</if>
 
-		<antcall target="prepare-selenium" />
-
 		<delete dir="${selenium.output.dir}" />
 
 		<mkdir dir="${selenium.output.dir}" />
