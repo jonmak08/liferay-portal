@@ -8029,7 +8029,7 @@ public class PortalImpl implements Portal {
 	private Pattern _bannedResourceIdPattern = Pattern.compile(
 		PropsValues.PORTLET_RESOURCE_ID_BANNED_PATHS_REGEXP,
 		Pattern.CASE_INSENSITIVE);
-	private final Set<String> _computerAddresses = new ConcurrentHashSet<>();
+	private final Set<String> _computerAddresses = new HashSet<>();
 	private String _computerName;
 	private String[] _customSqlKeys;
 	private String[] _customSqlValues;
