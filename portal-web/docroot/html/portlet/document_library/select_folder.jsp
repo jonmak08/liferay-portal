@@ -138,13 +138,7 @@ if (folder != null) {
 			<liferay-ui:search-container-column-text
 				name="folder"
 			>
-				<liferay-ui:icon
-					image="<%= image %>"
-					label="<%= true %>"
-					localizeMessage="<%= false %>"
-					message="<%= HtmlUtil.escape(curFolder.getName()) %>"
-					url="<%= (rowURL != null) ? rowURL.toString() : StringPool.BLANK %>"
-				/>
+				<liferay-ui:icon image="<%= image %>" label="<%= true %>" message="<%= HtmlUtil.escape(curFolder.getName()) %>" url="<%= (rowURL != null) ? rowURL.toString() : StringPool.BLANK %>" />
 			</liferay-ui:search-container-column-text>
 
 			<liferay-ui:search-container-column-text
