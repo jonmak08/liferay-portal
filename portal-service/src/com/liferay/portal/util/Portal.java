@@ -499,7 +499,7 @@ public interface Portal {
 
 	public long[] getCompanyIds();
 
-	public String getComputerAddress();
+	public Set<String> getComputerAddresses();
 
 	public String getComputerName();
 
