@@ -82,7 +82,7 @@
 <!--PAGINATION-->
 <tr>
 	<td>PAGINATION_ITEMS_PER_PAGE</td>
-	<td>//div[contains(@class,'lfr-pagination-delta-selector')]</td>
+	<td>//div[contains(@class,'lfr-pagination-delta-selector')]//a</td>
 	<td></td>
 </tr>
 <tr>

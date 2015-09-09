@@ -19,8 +19,8 @@
 	</command>
 
 	<command name="loginLCS">
-		<execute function="Type" locator1="LRDCOMLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
-		<execute function="Type" locator1="LRDCOMLogin#PASSWORD_FIELD" value1="${userEmailPassword}" />
+		<execute function="Type" locator1="PGLogin#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
+		<execute function="Type" locator1="PGLogin#PASSWORD_FIELD" value1="${userEmailPassword}" />
 
 		<if>
 			<condition function="IsElementPresent" locator1="PGLogin#SIGN_IN_BUTTON" value1="Sign In" />

@@ -31,7 +31,7 @@
 					<execute function="Click" locator1="LCSPortletRegistration#AUTHORIZE_ACCESS_BUTTON" />
 
 					<if>
-						<condition function="IsElementPresent" locator1="LRDCOMLogin#EMAIL_ADDRESS_FIELD" />
+						<condition function="IsElementPresent" locator1="PGLogin#EMAIL_ADDRESS_FIELD" />
 						<then>
 							<execute macro="LCSUsers#loginLCS" />
 						</then>
