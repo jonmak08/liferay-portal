@@ -12,6 +12,8 @@
 
 		<execute macro="LCSPortlet#registerServer">
 			<var name="addEnvironment" value="${addEnvironment}" />
+			<var name="environmentDescription" value="${environmentDescription}" />
+			<var name="environmentLocation" value="${environmentLocation}" />
 			<var name="environmentName" value="${environmentName}" />
 			<var name="projectName" value="${projectName}" />
 			<var name="registerAllClusterNodes" value="${registerAllClusterNodes}" />

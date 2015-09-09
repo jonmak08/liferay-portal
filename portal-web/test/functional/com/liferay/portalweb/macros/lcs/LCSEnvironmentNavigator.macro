@@ -14,7 +14,9 @@
 	</command>
 
 	<command name="gotoEnvironmentDetails">
-		<execute macro="LCSEnvironmentNavigator#gotoEnvironment" />
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
+			<var name="environmentName" value="${environmentName}" />
+		</execute>
 
 		<execute function="AssertClick" locator1="LCSEnvironment#ENVIRONMENT_DETAILS_BUTTON" value1="Environment Details" />
 	</command>

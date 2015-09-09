@@ -33,7 +33,10 @@
 					<if>
 						<condition function="IsElementPresent" locator1="PGLogin#EMAIL_ADDRESS_FIELD" />
 						<then>
-							<execute macro="LCSUsers#loginLCS" />
+							<execute macro="LCSUsers#loginLCS">
+								<var name="userEmailAddress" value="${userEmailAddress}" />
+								<var name="userEmailPassword" value="${userEmailPassword}" />
+							</execute>
 						</then>
 					</if>
 
