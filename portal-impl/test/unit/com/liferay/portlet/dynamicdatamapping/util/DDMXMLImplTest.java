@@ -21,7 +21,7 @@ import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.Node;
 import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
-import com.liferay.portlet.dynamicdatamapping.BaseDDMTest;
+import com.liferay.portlet.dynamicdatamapping.BaseDDMTestCase;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,7 +37,7 @@ import org.junit.Test;
  * @author Manuel de la Peña
  * @author Miguel Angelo Caldas Gallindo
  */
-public class DDMXMLImplTest extends BaseDDMTest {
+public class DDMXMLImplTest extends BaseDDMTestCase {
 
 	@Before
 	@Override

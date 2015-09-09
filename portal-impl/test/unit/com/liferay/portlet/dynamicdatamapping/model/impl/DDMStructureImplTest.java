@@ -16,7 +16,7 @@ package com.liferay.portlet.dynamicdatamapping.model.impl;
 
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.util.RandomTestUtil;
-import com.liferay.portlet.dynamicdatamapping.BaseDDMTest;
+import com.liferay.portlet.dynamicdatamapping.BaseDDMTestCase;
 import com.liferay.portlet.dynamicdatamapping.NoSuchStructureException;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
@@ -38,7 +38,7 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
  * @author Miguel Angelo Caldas Gallindo
  */
 @PrepareForTest({DDMStructureLocalServiceUtil.class})
-public class DDMStructureImplTest extends BaseDDMTest {
+public class DDMStructureImplTest extends BaseDDMTestCase {
 
 	@Before
 	@Override

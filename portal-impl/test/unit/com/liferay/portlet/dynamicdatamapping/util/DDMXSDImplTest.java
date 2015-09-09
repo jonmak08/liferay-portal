@@ -17,7 +17,7 @@ package com.liferay.portlet.dynamicdatamapping.util;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
-import com.liferay.portlet.dynamicdatamapping.BaseDDMTest;
+import com.liferay.portlet.dynamicdatamapping.BaseDDMTestCase;
 
 import java.util.Map;
 
@@ -30,7 +30,7 @@ import org.springframework.mock.web.MockPageContext;
 /**
  * @author Pablo Carvalho
  */
-public class DDMXSDImplTest extends BaseDDMTest {
+public class DDMXSDImplTest extends BaseDDMTestCase {
 
 	@Before
 	@Override
