@@ -22,8 +22,8 @@
 			<var name="serverDescription" value="Environment 1 Server 1 Description" />
 			<var name="serverLocation" value="Environment 1 Server 1 Location" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
-			<var name="userEmailAddress" property-value="lcs.email.address.1" />
-			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+			<var method="TestPropsUtil#get('lcs.email.address.1')" name="userEmailAddress" />
+			<var method="TestPropsUtil#get('lcs.email.password.1')" name="userEmailPassword" />
 		</execute>
 
 		<execute macro="LCSServerNavigator#gotoServerDetails">
@@ -76,8 +76,8 @@
 			<var name="serverDescription" value="Environment 1 Server 1 Description" />
 			<var name="serverLocation" value="Environment 1 Server 1 Location" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
-			<var name="userEmailAddress" property-value="lcs.email.address.1" />
-			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+			<var method="TestPropsUtil#get('lcs.email.address.1')" name="userEmailAddress" />
+			<var method="TestPropsUtil#get('lcs.email.password.1')" name="userEmailPassword" />
 			<var name="virtualHostsURL" value="http://www.able.com:8080" />
 		</execute>
 
@@ -114,8 +114,8 @@
 			<var name="serverDescription" value="Environment 1 Server 1 Description" />
 			<var name="serverLocation" value="Environment 1 Server 1 Location" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
-			<var name="userEmailAddress" property-value="lcs.email.address.1" />
-			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+			<var method="TestPropsUtil#get('lcs.email.address.1')" name="userEmailAddress" />
+			<var method="TestPropsUtil#get('lcs.email.password.1')" name="userEmailPassword" />
 		</execute>
 
 		<execute macro="LCSServerNavigator#gotoServerDetails">
@@ -140,8 +140,8 @@
 		<execute macro="LCSPortlet#viewBeforeAuthorization" />
 
 		<execute macro="LCSPortlet#authorizeLCS">
-			<var name="userEmailAddress" property-value="lcs.email.address.1" />
-			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+			<var method="TestPropsUtil#get('lcs.email.address.1')" name="userEmailAddress" />
+			<var method="TestPropsUtil#get('lcs.email.password.1')" name="userEmailPassword" />
 		</execute>
 
 		<execute macro="LCSPortlet#registerServer">
@@ -181,8 +181,8 @@
 			<var name="serverDescription" value="Environment 1 Server 1 Description" />
 			<var name="serverLocation" value="Environment 1 Server 1 Location" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
-			<var name="userEmailAddress" property-value="lcs.email.address.1" />
-			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+			<var method="TestPropsUtil#get('lcs.email.address.1')" name="userEmailAddress" />
+			<var method="TestPropsUtil#get('lcs.email.password.1')" name="userEmailPassword" />
 		</execute>
 
 		<execute macro="LCSServerNavigator#gotoServerDetails">
@@ -217,8 +217,8 @@
 			<var name="serverDescription" value="Environment 1 Server 1 Description" />
 			<var name="serverLocation" value="Environment 1 Server 1 Location" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
-			<var name="userEmailAddress" property-value="lcs.email.address.1" />
-			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+			<var method="TestPropsUtil#get('lcs.email.address.1')" name="userEmailAddress" />
+			<var method="TestPropsUtil#get('lcs.email.password.1')" name="userEmailPassword" />
 		</execute>
 
 		<execute macro="LCSServerNavigator#gotoServerProperties">
@@ -227,8 +227,8 @@
 		</execute>
 
 		<execute macro="LCSServer#viewServerProperties">
-			<var name="appServerType" property-value="app.server.type" />
-			<var name="databaseType" property-value="database.type" />
+			<var method="TestPropsUtil#get('app.server.type')" name="appServerType" />
+			<var method="TestPropsUtil#get('database.type')" name="databaseType" />
 		</execute>
 	</command>
 </definition>

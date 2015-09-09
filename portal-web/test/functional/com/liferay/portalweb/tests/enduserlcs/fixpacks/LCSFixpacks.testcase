@@ -16,8 +16,8 @@
 			<var name="serverDescription" value="Environment 1 Server 1 Description" />
 			<var name="serverLocation" value="Environment 1 Server 1 Location" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
-			<var name="userEmailAddress" property-value="lcs.email.address.1" />
-			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+			<var method="TestPropsUtil#get('lcs.email.address.1')" name="userEmailAddress" />
+			<var method="TestPropsUtil#get('lcs.email.password.1')" name="userEmailPassword" />
 		</execute>
 
 		<execute macro="LCSFixpack#waitForFixpacksToDisplay" />
@@ -83,8 +83,8 @@
 
 		<execute macro="LCSPortletNavigator#gotoProjectHome">
 			<var name="projectName" value="Liferay QA" />
-			<var name="userEmailAddress" property-value="lcs.email.address.1" />
-			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+			<var method="TestPropsUtil#get('lcs.email.address.1')" name="userEmailAddress" />
+			<var method="TestPropsUtil#get('lcs.email.password.1')" name="userEmailPassword" />
 		</execute>
 
 		<execute macro="LCSFixpack#viewFixpackCountAfterPatchInstallation">

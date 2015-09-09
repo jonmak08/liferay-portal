@@ -18,8 +18,8 @@
 		</execute>
 
 		<execute macro="LCSUsers#loginLCS">
-			<var name="userEmailAddress" property-value="lcs.email.address.1" />
-			<var name="userEmailPassword" property-value="lcs.email.password.1" />
+			<var method="TestPropsUtil#get('lcs.email.address.1')" name="userEmailAddress" />
+			<var method="TestPropsUtil#get('lcs.email.password.1')" name="userEmailPassword" />
 		</execute>
 
 		<execute macro="LCSPortalNavigator#selectProject">
