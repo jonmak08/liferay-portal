@@ -1840,58 +1840,6 @@ public class DLFileEntryLocalServiceImpl
 		return dlFileEntry;
 	}
 
-	protected String getFileEntryURL(
-			DLFileEntry dlFileEntry, ServiceContext serviceContext)
-		throws PortalException, SystemException {
-
-		HttpServletRequest request = serviceContext.getRequest();
-
-		if (request == null) {
-			if (Validator.isNull(serviceContext.getLayoutFullURL())) {
-				return StringPool.BLANK;
-			}
-
-			StringBundler sb = new StringBundler(4);
-
-			sb.append(serviceContext.getLayoutFullURL());
-			sb.append(Portal.FRIENDLY_URL_SEPARATOR);
-			sb.append("document_library/view_file_entry");
-			sb.append(dlFileEntry.getFileEntryId());
-
-			return sb.toString();
-		}
-
-		String layoutURL = getLayoutURL(
-			dlFileEntry.getGroupId(), PortletKeys.DOCUMENT_LIBRARY,
-			serviceContext);
-
-		if (Validator.isNotNull(layoutURL)) {
-			StringBundler sb = new StringBundler(4);
-
-			sb.append(layoutURL);
-			sb.append(Portal.FRIENDLY_URL_SEPARATOR);
-			sb.append("document_library/view_file_entry");
-			sb.append(dlFileEntry.getFileEntryId());
-
-			return sb.toString();
-		}
-		else {
-			long controlPanelPlid = PortalUtil.getControlPanelPlid(
-				serviceContext.getCompanyId());
-
-			PortletURL portletURL = PortletURLFactoryUtil.create(
-				request, PortletKeys.DOCUMENT_LIBRARY, controlPanelPlid,
-				PortletRequest.RENDER_PHASE);
-
-			portletURL.setParameter(
-				"struts_action", "/document_library/view_file_entry");
-			portletURL.setParameter(
-				"fileEntryId", String.valueOf(dlFileEntry.getFileEntryId()));
-
-			return portletURL.toString();
-		}
-	}
-
 	@Override
 	public boolean verifyFileEntryCheckOut(long fileEntryId, String lockUuid)
 		throws PortalException, SystemException {
@@ -2125,6 +2073,58 @@ public class DLFileEntryLocalServiceImpl
 			dlFileEntryMetadataLocalService.updateFileEntryMetadata(
 				companyId, ddmStructures, fileEntryTypeId, fileEntryId,
 				toFileVersionId, fieldsMap, serviceContext);
+		}
+	}
+
+	protected String getFileEntryURL(
+			DLFileEntry dlFileEntry, ServiceContext serviceContext)
+		throws PortalException, SystemException {
+
+		HttpServletRequest request = serviceContext.getRequest();
+
+		if (request == null) {
+			if (Validator.isNull(serviceContext.getLayoutFullURL())) {
+				return StringPool.BLANK;
+			}
+
+			StringBundler sb = new StringBundler(4);
+
+			sb.append(serviceContext.getLayoutFullURL());
+			sb.append(Portal.FRIENDLY_URL_SEPARATOR);
+			sb.append("document_library/view_file_entry");
+			sb.append(dlFileEntry.getFileEntryId());
+
+			return sb.toString();
+		}
+
+		String layoutURL = getLayoutURL(
+			dlFileEntry.getGroupId(), PortletKeys.DOCUMENT_LIBRARY,
+			serviceContext);
+
+		if (Validator.isNotNull(layoutURL)) {
+			StringBundler sb = new StringBundler(4);
+
+			sb.append(layoutURL);
+			sb.append(Portal.FRIENDLY_URL_SEPARATOR);
+			sb.append("document_library/view_file_entry");
+			sb.append(dlFileEntry.getFileEntryId());
+
+			return sb.toString();
+		}
+		else {
+			long controlPanelPlid = PortalUtil.getControlPanelPlid(
+				serviceContext.getCompanyId());
+
+			PortletURL portletURL = PortletURLFactoryUtil.create(
+				request, PortletKeys.DOCUMENT_LIBRARY, controlPanelPlid,
+				PortletRequest.RENDER_PHASE);
+
+			portletURL.setParameter(
+				"struts_action", "/document_library/view_file_entry");
+			portletURL.setParameter(
+				"fileEntryId", String.valueOf(dlFileEntry.getFileEntryId()));
+
+			return portletURL.toString();
 		}
 	}
 
