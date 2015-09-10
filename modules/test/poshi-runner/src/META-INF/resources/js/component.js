@@ -363,7 +363,7 @@ YUI.add(
 						xmlLog.delegate(
 							'click',
 							A.bind('handleErrorBtns', instance),
-							'.btn-error, .btn-screenshot'
+							'.btn-error'
 						);
 					},
 
@@ -533,13 +533,6 @@ YUI.add(
 						var instance = this;
 
 						var consoleLog = command.one('.console');
-						var screenshots = command.one('.screenshots');
-
-						if (screenshots) {
-							screenshots.removeAttribute('Class');
-							screenshots.addClass('screenshots-log');
-							consoleLog.append(screenshots);
-						}
 
 						var functionLinkId = command.getData(ATTR_DATA_FUNCTION_LINK_ID);
 
