@@ -211,6 +211,9 @@ public class SQLTransformer {
 		else if (_vendorHypersonic) {
 			return matcher.replaceAll("CONVERT($1, SQL_VARCHAR)");
 		}
+		else if (_vendorMySQL) {
+			return matcher.replaceAll("CAST($1 AS CHAR)");
+		}
 		else if (_vendorOracle) {
 			return matcher.replaceAll("CAST($1 AS VARCHAR(4000))");
 		}
@@ -222,9 +225,6 @@ public class SQLTransformer {
 		}
 		else if (_vendorSybase) {
 			return matcher.replaceAll("CAST($1 AS NVARCHAR(5461))");
-		}
-		else if (_vendorMySQL) {
-			return matcher.replaceAll("CAST($1 AS CHAR)");
 		}
 		else {
 			return matcher.replaceAll("$1");
