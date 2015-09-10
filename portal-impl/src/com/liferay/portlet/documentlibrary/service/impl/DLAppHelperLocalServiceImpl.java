@@ -500,9 +500,15 @@ public class DLAppHelperLocalServiceImpl
 
 				// Asset
 
-				assetEntryLocalService.updateVisible(
+				AssetEntry assetEntry = assetEntryLocalService.fetchEntry(
 					DLFileEntryConstants.getClassName(),
-					dlFileEntry.getFileEntryId(), false);
+					dlFileEntry.getFileEntryId());
+
+				if (assetEntry != null) {
+					assetEntryLocalService.updateVisible(
+						DLFileEntryConstants.getClassName(),
+						dlFileEntry.getFileEntryId(), false);
+				}
 
 				// Index
 
@@ -909,9 +915,15 @@ public class DLAppHelperLocalServiceImpl
 					dlFileEntry.getLatestFileVersion(false);
 
 				if (latestDlFileVersion.isApproved()) {
-					assetEntryLocalService.updateVisible(
+					AssetEntry assetEntry = assetEntryLocalService.fetchEntry(
 						DLFileEntryConstants.getClassName(),
-						dlFileEntry.getFileEntryId(), true);
+						dlFileEntry.getFileEntryId());
+
+					if (assetEntry != null) {
+						assetEntryLocalService.updateVisible(
+							DLFileEntryConstants.getClassName(),
+							dlFileEntry.getFileEntryId(), true);
+					}
 				}
 
 				// Index
@@ -1487,9 +1499,15 @@ public class DLAppHelperLocalServiceImpl
 					}
 				}
 
-				assetEntryLocalService.updateVisible(
+				AssetEntry assetEntry = assetEntryLocalService.fetchEntry(
 					DLFileEntryConstants.getClassName(),
-					fileEntry.getFileEntryId(), true);
+					fileEntry.getFileEntryId());
+
+				if (assetEntry != null) {
+					assetEntryLocalService.updateVisible(
+						DLFileEntryConstants.getClassName(),
+						fileEntry.getFileEntryId(), true);
+				}
 			}
 
 			// Sync
@@ -1547,9 +1565,15 @@ public class DLAppHelperLocalServiceImpl
 				}
 			}
 
-			assetEntryLocalService.updateVisible(
-				DLFileEntryConstants.getClassName(), fileEntry.getFileEntryId(),
-				visible);
+			AssetEntry assetEntry = assetEntryLocalService.fetchEntry(
+				DLFileEntryConstants.getClassName(),
+				fileEntry.getFileEntryId());
+
+			if (assetEntry != null) {
+				assetEntryLocalService.updateVisible(
+					DLFileEntryConstants.getClassName(),
+					fileEntry.getFileEntryId(), visible);
+			}
 		}
 	}
 
