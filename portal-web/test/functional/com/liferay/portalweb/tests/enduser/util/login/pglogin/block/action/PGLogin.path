@@ -45,7 +45,7 @@
 </tr>
 <tr>
 	<td>SIGN_IN_BUTTON</td>
-	<td>//form[contains(@class,'sign-in-form')]/div/button</td>
+	<td>//form[contains(@class,'sign-in-form')]//div/button</td>
 	<td>Sign In Button</td>
 </tr>
 <tr>
