@@ -17,7 +17,7 @@
 <%@ include file="/html/portlet/layouts_admin/init.jsp" %>
 
 <%
-String randomNamespace = PortalUtil.generateRandomKey(request, "layouts_admin_add_layout") + StringPool.UNDERLINE;
+String randomNamespace = PortalUtil.generateRandomKey(request, "portlet_layouts_admin_edit_layout") + StringPool.UNDERLINE;
 
 String closeRedirect = ParamUtil.getString(request, "closeRedirect");
 
