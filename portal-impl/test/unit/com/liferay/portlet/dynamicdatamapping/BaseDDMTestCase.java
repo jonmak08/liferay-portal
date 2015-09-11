@@ -109,7 +109,7 @@ public class BaseDDMTestCase extends PowerMockito {
 		Document document = createEmptyDocument();
 
 		addTextElement(
-				document.getRootElement(), "Unlocalizable", "Text 2", false);
+			document.getRootElement(), "Unlocalizable", "Text 2", false);
 
 		return document;
 	}
