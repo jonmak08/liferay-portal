@@ -3527,7 +3527,9 @@ public class PortalImpl implements Portal {
 
 		HttpServletRequest originalRequest = request;
 
-		while (originalRequest instanceof HttpServletRequestWrapper) {
+		while (originalRequest.getClass().getName().startsWith(
+					"com.liferay.")) {
+
 			if (originalRequest instanceof
 					PersistentHttpServletRequestWrapper) {
 
