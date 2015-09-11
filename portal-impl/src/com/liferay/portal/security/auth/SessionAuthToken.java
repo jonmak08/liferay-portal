@@ -24,7 +24,9 @@ import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.SecurityPortletContainerWrapper;
 import com.liferay.util.PwdGenerator;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -135,7 +137,15 @@ public class SessionAuthToken implements AuthToken {
 	protected String getSessionAuthenticationToken(
 		HttpServletRequest request, String key, boolean createToken) {
 
-		HttpSession session = request.getSession();
+		ServletRequest originalRequest = request;
+
+		while (originalRequest instanceof HttpServletRequestWrapper) {
+			originalRequest =
+				((HttpServletRequestWrapper)originalRequest).getRequest();
+		}
+
+		HttpSession session =
+			((HttpServletRequest)originalRequest).getSession();
 
 		String tokenKey = WebKeys.AUTHENTICATION_TOKEN.concat(key);
 
