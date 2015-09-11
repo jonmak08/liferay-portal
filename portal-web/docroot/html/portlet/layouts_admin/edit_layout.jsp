@@ -234,7 +234,7 @@ String randomNamespace = PortalUtil.generateRandomKey(request, "layouts_admin_ad
 				<aui:script use="liferay-util-window">
 					var addLayoutPopUp;
 					var content;
-					var copyApplicationsPopUp
+					var copyApplicationsPopUp;
 
 					var clickHandler = function(event) {
 						var target = event.target;

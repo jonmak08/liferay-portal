@@ -229,7 +229,8 @@ else {
 		%>
 
 		<aui:script use="aui-base">
-			Liferay.fire('dockbaraddpage:addPage',
+			Liferay.fire(
+				'dockbaraddpage:addPage',
 				{
 					data: {
 						layoutId: <%= addedLayout.getLayoutId() %>,
