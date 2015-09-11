@@ -20,10 +20,12 @@ import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.lar.MissingReferences;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.model.BackgroundTask;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portal.spring.transaction.TransactionalCallableUtil;
+import com.liferay.portal.util.PropsValues;
 
 import java.io.File;
 import java.io.Serializable;
@@ -126,8 +128,24 @@ public class PortletStagingBackgroundTaskExecutor
 					userId, targetPlid, targetGroupId, portletId, parameterMap,
 					larFile);
 			}
-			finally {
-				larFile.delete();
+			catch (Exception e) {
+				if (PropsValues.STAGING_DELETE_TEMP_LAR_ON_FAILURE) {
+					FileUtil.delete(larFile);
+				}
+				else if ((larFile != null) && _log.isErrorEnabled()) {
+					_log.error(
+						"Kept temporary LAR file " + larFile.getAbsolutePath());
+				}
+
+				throw e;
+			}
+
+			if (PropsValues.STAGING_DELETE_TEMP_LAR_ON_SUCCESS) {
+				FileUtil.delete(larFile);
+			}
+			else if ((larFile != null) && _log.isDebugEnabled()) {
+				_log.debug(
+					"Kept temporary LAR file " + larFile.getAbsolutePath());
 			}
 
 			return missingReferences;
