@@ -17,6 +17,8 @@
 <%@ include file="/html/portlet/layouts_admin/init.jsp" %>
 
 <%
+String randomNamespace = PortalUtil.generateRandomKey(request, "layouts_admin_add_layout") + StringPool.UNDERLINE;
+
 String closeRedirect = ParamUtil.getString(request, "closeRedirect");
 
 Group selGroup = (Group)request.getAttribute(WebKeys.GROUP);
@@ -69,10 +71,6 @@ boolean hasExportImportLayoutsPermission = GroupPermissionUtil.contains(permissi
 boolean hasAddPageLayoutsPermission = GroupPermissionUtil.contains(permissionChecker, groupId, ActionKeys.ADD_LAYOUT);
 
 boolean hasViewPagesPermission = (pagesCount > 0) && (liveGroup.isStaged() || selGroup.isLayoutSetPrototype() || selGroup.isStagingGroup() || portletName.equals(PortletKeys.MY_SITES) || portletName.equals(PortletKeys.GROUP_PAGES) || portletName.equals(PortletKeys.SITES_ADMIN) || portletName.equals(PortletKeys.USERS_ADMIN));
-%>
-
-<%
-String randomNamespace = PortalUtil.generateRandomKey(request, "layouts_admin_add_layout") + StringPool.UNDERLINE;
 %>
 
 <div class="add-content-menu hide" id="<portlet:namespace /><%= randomNamespace %>addLayout">

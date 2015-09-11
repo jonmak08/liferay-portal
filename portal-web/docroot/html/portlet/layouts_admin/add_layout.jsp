@@ -19,11 +19,12 @@
 <%@ include file="/html/portlet/layouts_admin/init_attributes.jspf" %>
 
 <%
+String randomNamespace = ParamUtil.getString(request, "randomNamespace");
+
+String addPageFormName = randomNamespace + "addPageFm";
+
 long parentPlid = LayoutConstants.DEFAULT_PLID;
 long parentLayoutId = LayoutConstants.DEFAULT_PARENT_LAYOUT_ID;
-
-String randomNamespace = ParamUtil.getString(request, "randomNamespace");
-String addPageFormName = randomNamespace + "addPageFm";
 
 if (layout.isTypeControlPanel()) {
 	if (selPlid != 0) {
