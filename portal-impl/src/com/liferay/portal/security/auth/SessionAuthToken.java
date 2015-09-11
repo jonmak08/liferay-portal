@@ -135,10 +135,7 @@ public class SessionAuthToken implements AuthToken {
 	protected String getSessionAuthenticationToken(
 		HttpServletRequest request, String key, boolean createToken) {
 
-		HttpServletRequest originalHttpRequest =
-			PortalUtil.getOriginalServletRequest(request);
-
-		HttpSession session = originalHttpRequest.getSession();
+		HttpSession session = request.getSession();
 
 		String tokenKey = WebKeys.AUTHENTICATION_TOKEN.concat(key);
 
