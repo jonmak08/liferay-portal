@@ -596,6 +596,10 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 
 		int total = hitDocs.getTotalHits();
 
+		if (total > PropsValues.INDEX_SEARCH_LIMIT) {
+			total = PropsValues.INDEX_SEARCH_LIMIT;
+		}
+
 		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS)) {
 			start = 0;
 			end = total;
@@ -637,7 +641,9 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 
 		QueryConfig queryConfig = query.getQueryConfig();
 
-		for (int i = start; i < start + subsetTotal; i++) {
+		for (int i = start;
+				(i < start + subsetTotal) && (i < hitDocs.getSize()); i++) {
+
 			int docId = hitDocs.getDocId(i);
 
 			org.apache.lucene.document.Document document = indexSearcher.doc(
@@ -768,6 +774,17 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 			}
 			else if (_browseResult != null) {
 				return _browseResult.getNumHits();
+			}
+
+			throw new IllegalStateException();
+		}
+
+		public int getSize() {
+			if (_topFieldDocs != null) {
+				return _topFieldDocs.scoreDocs.length;
+			}
+			else if (_browseHits != null) {
+				return _browseHits.length;
 			}
 
 			throw new IllegalStateException();
