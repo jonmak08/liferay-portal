@@ -2111,21 +2111,20 @@ public class DLFileEntryLocalServiceImpl
 
 			return sb.toString();
 		}
-		else {
-			long controlPanelPlid = PortalUtil.getControlPanelPlid(
-				serviceContext.getCompanyId());
 
-			PortletURL portletURL = PortletURLFactoryUtil.create(
-				request, PortletKeys.DOCUMENT_LIBRARY, controlPanelPlid,
-				PortletRequest.RENDER_PHASE);
+		long controlPanelPlid = PortalUtil.getControlPanelPlid(
+			serviceContext.getCompanyId());
 
-			portletURL.setParameter(
-				"struts_action", "/document_library/view_file_entry");
-			portletURL.setParameter(
-				"fileEntryId", String.valueOf(dlFileEntry.getFileEntryId()));
+		PortletURL portletURL = PortletURLFactoryUtil.create(
+			request, PortletKeys.DOCUMENT_LIBRARY, controlPanelPlid,
+			PortletRequest.RENDER_PHASE);
 
-			return portletURL.toString();
-		}
+		portletURL.setParameter(
+			"struts_action", "/document_library/view_file_entry");
+		portletURL.setParameter(
+			"fileEntryId", String.valueOf(dlFileEntry.getFileEntryId()));
+
+		return portletURL.toString();
 	}
 
 	protected String getNextVersion(
