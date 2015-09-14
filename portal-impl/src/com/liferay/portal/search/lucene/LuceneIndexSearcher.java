@@ -632,8 +632,8 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 
 		int subsetTotal = end - start;
 
-		if (subsetTotal > PropsValues.INDEX_SEARCH_LIMIT) {
-			subsetTotal = PropsValues.INDEX_SEARCH_LIMIT;
+		if (subsetTotal > hitDocs.getSize()) {
+			subsetTotal = hitDocs.getSize();
 		}
 
 		List<Document> subsetDocs = new ArrayList<Document>(subsetTotal);
@@ -641,8 +641,7 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 
 		QueryConfig queryConfig = query.getQueryConfig();
 
-		for (int i = start;
-				(i < start + subsetTotal) && (i < hitDocs.getSize()); i++) {
+		for (int i = start; i < start + subsetTotal; i++) {
 
 			int docId = hitDocs.getDocId(i);
 
