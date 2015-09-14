@@ -72,8 +72,8 @@ public class DDMStructureImplTest extends BaseDDMTestCase {
 	protected DDMStructure createStructure(String name, String... fieldNames) {
 		DDMStructure structure = new DDMStructureImpl();
 
-		structure.setName(name);
 		structure.setStructureId(RandomTestUtil.randomLong());
+		structure.setName(name);
 
 		Document document = createDocument(fieldNames);
 
@@ -105,7 +105,7 @@ public class DDMStructureImplTest extends BaseDDMTestCase {
 					if (ddmStructure == null) {
 						throw new NoSuchStructureException(
 							"No DDMStructure exists with the primary key " +
-							structureId);
+								structureId);
 					}
 
 					return ddmStructure;
