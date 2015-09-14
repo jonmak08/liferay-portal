@@ -123,7 +123,7 @@
 </tr>
 <tr>
 	<td>ADD_PAGE_BUTTON</td>
-	<td>//div[@id='_127_addLayout']//button[contains(.,'Add Page')]</td>
+	<td>//div[contains(@id,'addLayout')]//button[contains(.,'Add Page')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -216,7 +216,6 @@
 <!--CUSTOM_FIELDS-->
 <!--ADVANCED-->
 <!--MOBILE_RULE_GROUPS-->
-
 </tbody>
 </table>
 </body>
