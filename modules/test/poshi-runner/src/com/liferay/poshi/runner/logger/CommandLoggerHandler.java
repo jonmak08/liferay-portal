@@ -158,12 +158,17 @@ public final class CommandLoggerHandler {
 		return loggerElement;
 	}
 
-	private static LoggerElement _getConsoleLoggerElement(int errorLinkId) {
+	private static LoggerElement _getConsoleLoggerElement(int errorLinkId)
+		throws Exception {
+
 		LoggerElement loggerElement = new LoggerElement();
 
 		loggerElement.setAttribute(
 			"data-errorlinkid", "console-" + errorLinkId);
 		loggerElement.setClassName("console errorPanel toggle");
+
+		loggerElement.addChildLoggerElement(
+			_getScreenshotsLoggerElement(_errorLinkId));
 
 		loggerElement.addChildLoggerElement(
 			SummaryLoggerHandler.getSummarySnapshotLoggerElement());
@@ -191,9 +196,6 @@ public final class CommandLoggerHandler {
 
 		loggerElement.addChildLoggerElement(
 			_getConsoleLoggerElement(_errorLinkId));
-
-		loggerElement.addChildLoggerElement(
-			_getScreenshotsLoggerElement(_errorLinkId));
 
 		_errorLinkId++;
 
@@ -361,7 +363,7 @@ public final class CommandLoggerHandler {
 
 		loggerElement.setAttribute(
 			"data-errorlinkid", "screenshots-" + errorLinkId);
-		loggerElement.setClassName("errorPanel screenshots toggle");
+		loggerElement.setClassName("screenshots-log");
 
 		loggerElement.addChildLoggerElement(
 			_getScreenshotContainerLoggerElement("before", errorLinkId));
@@ -379,6 +381,7 @@ public final class CommandLoggerHandler {
 
 		LoggerElement loggerElement = new LoggerElement();
 
+		loggerElement.setClassName("label");
 		loggerElement.setName("span");
 		loggerElement.setText(StringUtil.upperCaseFirstLetter(screenshotName));
 
