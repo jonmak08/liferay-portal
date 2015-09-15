@@ -63,6 +63,10 @@ public class GZipResponse extends MetaInfoCacheServletResponse {
 		_firefox = BrowserSnifferUtil.isFirefox(request);
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #finishResponse(boolean)}}
+	 */
+	@Deprecated
 	@Override
 	public void finishResponse() throws IOException {
 		finishResponse(false);
