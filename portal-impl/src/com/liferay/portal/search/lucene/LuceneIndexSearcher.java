@@ -642,7 +642,6 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 		QueryConfig queryConfig = query.getQueryConfig();
 
 		for (int i = start; i < start + subsetTotal; i++) {
-
 			int docId = hitDocs.getDocId(i);
 
 			org.apache.lucene.document.Document document = indexSearcher.doc(
