@@ -11,6 +11,10 @@
 		<path location="${project.dir.native}" />
 	</pathconvert>
 
+	<pathconvert pathsep="/" property="project.dir.unix">
+		<path location="${project.dir.native}" />
+	</pathconvert>
+
 	<property name="test.properties" value="com/liferay/portal/tools/dependencies/portal-tools.properties" />
 
 	<property environment="env" />
