@@ -312,6 +312,24 @@ public class PortalImpl implements Portal {
 		}
 
 		try {
+			InetAddress inetAddress = InetAddress.getByName(_computerName);
+
+			_computerAddress = inetAddress.getHostAddress();
+		}
+		catch (UnknownHostException uhe) {
+		}
+
+		if (Validator.isNull(_computerAddress)) {
+			try {
+				InetAddress inetAddress = InetAddress.getLocalHost();
+
+				_computerAddress = inetAddress.getHostAddress();
+			}
+			catch (UnknownHostException uhe) {
+			}
+		}
+
+		try {
 			List<NetworkInterface> networkInterfaces = Collections.list(
 				NetworkInterface.getNetworkInterfaces());
 
@@ -1514,6 +1532,14 @@ public class PortalImpl implements Portal {
 	@Override
 	public long[] getCompanyIds() {
 		return PortalInstances.getCompanyIds();
+	}
+
+	/**
+	 * @deprecated As of 6.2.0, replaced by {@link #getComputerAddresses()}
+	 */
+	@Override
+	public String getComputerAddress() {
+		return _computerAddress;
 	}
 
 	@Override
@@ -8029,6 +8055,7 @@ public class PortalImpl implements Portal {
 	private Pattern _bannedResourceIdPattern = Pattern.compile(
 		PropsValues.PORTLET_RESOURCE_ID_BANNED_PATHS_REGEXP,
 		Pattern.CASE_INSENSITIVE);
+	private String _computerAddress;
 	private final Set<String> _computerAddresses = new HashSet<String>();
 	private String _computerName;
 	private String[] _customSqlKeys;

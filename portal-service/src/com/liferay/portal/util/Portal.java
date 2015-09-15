@@ -499,6 +499,11 @@ public interface Portal {
 
 	public long[] getCompanyIds();
 
+	/**
+	 * @deprecated As of 6.2.0, replaced by {@link #getComputerAddresses()}
+	 */
+	public String getComputerAddress();
+
 	public Set<String> getComputerAddresses();
 
 	public String getComputerName();

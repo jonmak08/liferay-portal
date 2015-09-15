@@ -376,6 +376,13 @@ public class PortalUtil {
 		return getPortal().getCompanyIds();
 	}
 
+	/**
+	 * @deprecated As of 6.2.0, replaced by {@link #getComputerAddresses()}
+	 */
+	public static String getComputerAddress() {
+		return getPortal().getComputerAddress();
+	}
+
 	public static Set<String> getComputerAddresses() {
 		return getPortal().getComputerAddresses();
 	}
