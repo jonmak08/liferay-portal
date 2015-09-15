@@ -64,6 +64,11 @@ public class GZipResponse extends MetaInfoCacheServletResponse {
 	}
 
 	@Override
+	public void finishResponse() throws IOException {
+		finishResponse(false);
+	}
+
+	@Override
 	public void finishResponse(boolean reapplyMetaData) throws IOException {
 
 		// Is the response committed?
