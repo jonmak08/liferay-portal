@@ -145,7 +145,8 @@ public class LayoutStagedModelDataHandler
 	}
 
 	protected void deleteMissingLayoutFriendlyURLs(
-		PortletDataContext portletDataContext, Layout layout) {
+			PortletDataContext portletDataContext, Layout layout)
+		throws SystemException {
 
 		Map<Long, Long> layoutFriendlyURLIds =
 			(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
