@@ -498,7 +498,7 @@ public class MetaInfoCacheServletResponseTest {
 		outerMetaInfoCacheServletResponse.addHeader("name1", "value2");
 		outerMetaInfoCacheServletResponse.addHeader("name2", "value1");
 
-		outerMetaInfoCacheServletResponse.finishResponse(false);
+		outerMetaInfoCacheServletResponse.finishResponse();
 
 		Map<String, Set<Header>> headers =
 			innerMetaInfoCacheServletResponse.getHeaders();
