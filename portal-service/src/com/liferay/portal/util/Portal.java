@@ -500,8 +500,9 @@ public interface Portal {
 	public long[] getCompanyIds();
 
 	/**
-	 * @deprecated As of 6.2.0, replaced by {@link #getComputerAddresses()}
+	 * @deprecated As of 7.0.0, replaced by {@link #getComputerAddresses()}
 	 */
+	@Deprecated
 	public String getComputerAddress();
 
 	public Set<String> getComputerAddresses();

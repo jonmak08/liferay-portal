@@ -1535,8 +1535,9 @@ public class PortalImpl implements Portal {
 	}
 
 	/**
-	 * @deprecated As of 6.2.0, replaced by {@link #getComputerAddresses()}
+	 * @deprecated As of 7.0.0, replaced by {@link #getComputerAddresses()}
 	 */
+	@Deprecated
 	@Override
 	public String getComputerAddress() {
 		return _computerAddress;
@@ -8056,7 +8057,7 @@ public class PortalImpl implements Portal {
 		PropsValues.PORTLET_RESOURCE_ID_BANNED_PATHS_REGEXP,
 		Pattern.CASE_INSENSITIVE);
 	private String _computerAddress;
-	private final Set<String> _computerAddresses = new HashSet<String>();
+	private Set<String> _computerAddresses = new HashSet<String>();
 	private String _computerName;
 	private String[] _customSqlKeys;
 	private String[] _customSqlValues;
