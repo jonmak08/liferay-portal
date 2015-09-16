@@ -538,7 +538,9 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 			var fileOrTileValid = !!fileValue || !!titleValue;
 
 			if (fileOrTileValid) {
-				<%= HtmlUtil.escape(uploadProgressId) %>.startProgress();
+				if (fileValue) {
+					<%= HtmlUtil.escape(uploadProgressId) %>.startProgress();
+				}
 
 				document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = '<%= (fileEntry == null) ? Constants.ADD : Constants.UPDATE %>';
 
