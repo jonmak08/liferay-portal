@@ -383,7 +383,9 @@ public class DocumentImpl implements Document {
 
 	@Override
 	public void addKeywordSortable(String name, String[] values) {
-		createField(name, values);
+		Field field = new Field(name, values);
+
+		_fields.put(name, field);
 
 		createSortableTextField(name, values);
 	}
