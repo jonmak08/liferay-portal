@@ -35,6 +35,7 @@ import com.liferay.portlet.asset.service.persistence.AssetEntryQueryTestUtil;
 import com.liferay.portlet.asset.util.AssetUtil;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.model.DDMTemplate;
+import com.liferay.portlet.dynamicdatamapping.storage.FieldConstants;
 import com.liferay.portlet.dynamicdatamapping.util.DDMIndexerUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMStructureTestUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMTemplateTestUtil;
@@ -57,8 +58,8 @@ public abstract class TestOrderHelper {
 	public void testOrderByDDMBooleanField() throws Exception {
 		testOrderByDDMField(
 			new String[] {"false", "true", "false", "true"},
-			new String[] {"false", "false", "true", "true"}, "boolean",
-			"checkbox");
+			new String[] {"false", "false", "true", "true"},
+			FieldConstants.BOOLEAN, "checkbox");
 	}
 
 	public void testOrderByDDMBooleanFieldRepeatable() throws Exception {
@@ -69,32 +70,35 @@ public abstract class TestOrderHelper {
 			new String[] {
 				"false|false", "false|false", "true|true", "true|true"
 			},
-			"boolean", "checkbox");
+			FieldConstants.BOOLEAN, "checkbox");
 	}
 
 	public void testOrderByDDMIntegerField() throws Exception {
 		testOrderByDDMField(
 			new String[] {"1", "10", "3", "2"},
-			new String[] {"1", "2", "3", "10"}, "integer", "ddm-integer");
+			new String[] {"1", "2", "3", "10"}, FieldConstants.INTEGER,
+			"ddm-integer");
 	}
 
 	public void testOrderByDDMIntegerFieldRepeatable() throws Exception {
 		testOrderByDDMFieldRepeatable(
 			new String[] {"50", "707|25", "1|99|42"},
-			new String[] {"1|99|42", "707|25", "50"}, "integer", "ddm-integer");
+			new String[] {"1|99|42", "707|25", "50"}, FieldConstants.INTEGER,
+			"ddm-integer");
 	}
 
 	public void testOrderByDDMNumberField() throws Exception {
 		testOrderByDDMField(
 			new String[] {"3", "3.14", "12.34", "2.72", "1.41", "23.45", "20"},
 			new String[] {"1.41", "2.72", "3", "3.14", "12.34", "20", "23.45"},
-			"number", "ddm-number");
+			FieldConstants.NUMBER, "ddm-number");
 	}
 
 	public void testOrderByDDMNumberFieldRepeatable() throws Exception {
 		testOrderByDDMFieldRepeatable(
 			new String[] {"20|12.34", "16.0", "3.14"},
-			new String[] {"3.14", "20|12.34", "16.0"}, "number", "ddm-number");
+			new String[] {"3.14", "20|12.34", "16.0"}, FieldConstants.NUMBER,
+			"ddm-number");
 	}
 
 	public void testOrderByDDMTextField() throws Exception {
@@ -280,9 +284,9 @@ public abstract class TestOrderHelper {
 	}
 
 	protected void testOrderByDDMField(
-				String[] unsortedValues, String[] sortedValues, String dataType,
-				String indexType, String type)
-			throws Exception {
+			String[] unsortedValues, String[] sortedValues, String dataType,
+			String indexType, String type)
+		throws Exception {
 
 		_unsortedValues = unsortedValues;
 		_sortedValues = sortedValues;
@@ -300,7 +304,7 @@ public abstract class TestOrderHelper {
 		throws Exception {
 
 		testOrderByDDMFieldRepeatable(
-				unsortedValues, sortedValues, dataType, "text", type);
+			unsortedValues, sortedValues, dataType, "text", type);
 	}
 
 	protected void testOrderByDDMFieldRepeatable(
@@ -320,9 +324,9 @@ public abstract class TestOrderHelper {
 
 	protected void testOrderByDDMTextField(String indexType) throws Exception {
 		testOrderByDDMField(
-				new String[] {"a", "D", "c", "B"},
-				new String[] {"a", "B", "c", "D"}, "string", indexType,
-				"text");
+			new String[] {"a", "D", "c", "B"},
+			new String[] {"a", "B", "c", "D"}, FieldConstants.STRING, indexType,
+			"text");
 	}
 
 	private String _dataType;
