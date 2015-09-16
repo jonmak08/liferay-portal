@@ -715,7 +715,7 @@ public class GroupServiceImpl extends GroupServiceBaseImpl {
 					filteredUserSiteGroupsCount--;
 				}
 				else {
-					userSiteGroups.add(0, organization.getGroup());
+					userSiteGroups.add(organization.getGroup());
 
 					filteredUserSiteGroupsCount++;
 				}
@@ -730,7 +730,7 @@ public class GroupServiceImpl extends GroupServiceBaseImpl {
 							continue;
 						}
 
-						userSiteGroups.add(0, ancestorOrganization.getGroup());
+						userSiteGroups.add(ancestorOrganization.getGroup());
 
 						filteredUserSiteGroupsCount++;
 					}
