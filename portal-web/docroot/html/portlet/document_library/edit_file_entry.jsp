@@ -522,8 +522,13 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 		return document.<portlet:namespace />fm.<portlet:namespace />title.value + ' ' + document.<portlet:namespace />fm.<portlet:namespace />description.value;
 	}
 
-	function <portlet:namespace />saveFileEntry(draft) {
-			var fileTitleErrorNode = AUI().use('aui-node').one('#<portlet:namespace /><%= HtmlUtil.escape(fileTitleErrorId) %>');
+	Liferay.provide(
+		window,
+		'<portlet:namespace />saveFileEntry',
+		function(draft) {
+			var A = AUI();
+
+			var fileTitleErrorNode = A.one('#<portlet:namespace /><%= HtmlUtil.escape(fileTitleErrorId) %>');
 
 			fileTitleErrorNode.addClass('helper-hidden');
 
@@ -546,7 +551,9 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 			else {
 				fileTitleErrorNode.removeClass('helper-hidden');
 			}
-	}
+		},
+		['aui-node']
+	);
 
 	function <portlet:namespace />validateTitle() {
 		Liferay.Form.get('<portlet:namespace />fm').formValidator.validateField('<portlet:namespace />title');
