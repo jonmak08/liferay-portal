@@ -363,7 +363,7 @@ public class JournalConverterUtilTest extends BaseDDMServiceTestCase {
 		Fields actualFields = JournalConverterUtil.getDDMFields(
 			_ddmStructure, content);
 
-		assertEquals(expectedFields, actualFields);
+		Assert.assertEquals(expectedFields, actualFields);
 	}
 
 	@Test
@@ -410,7 +410,7 @@ public class JournalConverterUtilTest extends BaseDDMServiceTestCase {
 			Fields actualFields = JournalConverterUtil.getDDMFields(
 				_ddmStructure, document.asXML());
 
-			assertEquals(expectedFields, actualFields);
+			Assert.assertEquals(expectedFields, actualFields);
 		}
 	}
 
@@ -450,7 +450,7 @@ public class JournalConverterUtilTest extends BaseDDMServiceTestCase {
 		Fields actualFields = JournalConverterUtil.getDDMFields(
 			_ddmStructure, content);
 
-		assertEquals(expectedFields, actualFields);
+		Assert.assertEquals(expectedFields, actualFields);
 	}
 
 	@Test
@@ -471,7 +471,7 @@ public class JournalConverterUtilTest extends BaseDDMServiceTestCase {
 		Fields actualFields = JournalConverterUtil.getDDMFields(
 			_ddmStructure, content);
 
-		assertEquals(expectedFields, actualFields);
+		Assert.assertEquals(expectedFields, actualFields);
 	}
 
 	@Test
@@ -495,7 +495,7 @@ public class JournalConverterUtilTest extends BaseDDMServiceTestCase {
 		Fields actualFields = JournalConverterUtil.getDDMFields(
 			_ddmStructure, content);
 
-		assertEquals(expectedFields, actualFields);
+		Assert.assertEquals(expectedFields, actualFields);
 	}
 
 	@Test
@@ -507,7 +507,7 @@ public class JournalConverterUtilTest extends BaseDDMServiceTestCase {
 		Fields actualFields = JournalConverterUtil.getDDMFields(
 			_ddmStructure, content);
 
-		assertEquals(expectedFields, actualFields);
+		Assert.assertEquals(expectedFields, actualFields);
 	}
 
 	@Test
@@ -552,34 +552,6 @@ public class JournalConverterUtilTest extends BaseDDMServiceTestCase {
 			actualXSD);
 
 		Assert.assertEquals(expectedMap, actualMap);
-	}
-
-	protected void assertEquals(Fields expectedFields, Fields actualFields) {
-		Field expectedFieldsDisplayField = expectedFields.get(
-			DDMImpl.FIELDS_DISPLAY_NAME);
-
-		String expectedFieldsDisplayFieldValue =
-			(String)expectedFieldsDisplayField.getValue();
-
-		String regex = DDMImpl.INSTANCE_SEPARATOR.concat("\\w{8}");
-
-		expectedFieldsDisplayFieldValue =
-			expectedFieldsDisplayFieldValue.replaceAll(regex, StringPool.BLANK);
-
-		expectedFieldsDisplayField.setValue(expectedFieldsDisplayFieldValue);
-
-		Field actualFieldsDisplayField = actualFields.get(
-			DDMImpl.FIELDS_DISPLAY_NAME);
-
-		String actualFieldsDisplayFieldValue =
-			(String)actualFieldsDisplayField.getValue();
-
-		actualFieldsDisplayFieldValue =
-			actualFieldsDisplayFieldValue.replaceAll(regex, StringPool.BLANK);
-
-		actualFieldsDisplayField.setValue(actualFieldsDisplayFieldValue);
-
-		Assert.assertEquals(expectedFields, actualFields);
 	}
 
 	protected void assertEquals(String expectedContent, String actualContent)
