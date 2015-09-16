@@ -19,8 +19,6 @@
 <%
 String cmd = ParamUtil.getString(request, Constants.CMD, Constants.EDIT);
 
-String fileTitleErrorId = "fileTitleError";
-
 String redirect = ParamUtil.getString(request, "redirect");
 String uploadExceptionRedirect = ParamUtil.getString(request, "uploadExceptionRedirect", currentURL);
 
@@ -314,7 +312,7 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 			</c:if>
 		</div>
 
-		<div class="alert alert-error hide" id="<portlet:namespace /><%= fileTitleErrorId %>">
+		<div class="alert alert-error hide" id="<portlet:namespace />fileTitleError">
 			<liferay-ui:message key="you-must-specify-a-file-or-a-title" />
 		</div>
 
@@ -525,7 +523,7 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 	function <portlet:namespace />saveFileEntry(draft) {
 		var className = 'alert alert-danger';
 
-		var fileTitleErrorNode = document.getElementById('<portlet:namespace /><%= HtmlUtil.escape(fileTitleErrorId) %>');
+		var fileTitleErrorNode = document.getElementById('<portlet:namespace />fileTitleError');
 
 		var form = document.<portlet:namespace />fm;
 
@@ -552,7 +550,7 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 			else {
 				fileTitleErrorNode.className = className + ' show';
 
-				window.location.hash = '<portlet:namespace /><%= HtmlUtil.escape(fileTitleErrorId) %>';
+				window.location.hash = '<portlet:namespace />fileTitleError';
 			}
 		}
 	}
