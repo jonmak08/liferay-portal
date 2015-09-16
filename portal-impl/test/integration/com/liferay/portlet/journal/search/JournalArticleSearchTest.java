@@ -194,6 +194,14 @@ public class JournalArticleSearchTest extends BaseSearchTestCase {
 	}
 
 	@Test
+	public void testOrderByDDMTextFieldKeyword() throws Exception {
+		TestOrderHelper testOrderHelper =
+			new JournalArticleSearchTestOrderHelper(group);
+
+		testOrderHelper.testOrderByDDMTextFieldKeyword();
+	}
+
+	@Test
 	public void testOrderByDDMTextFieldRepeatable() throws Exception {
 		TestOrderHelper testOrderHelper =
 			new JournalArticleSearchTestOrderHelper(group);

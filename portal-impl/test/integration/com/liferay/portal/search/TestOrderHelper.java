@@ -98,9 +98,11 @@ public abstract class TestOrderHelper {
 	}
 
 	public void testOrderByDDMTextField() throws Exception {
-		testOrderByDDMField(
-			new String[] {"A", "D", "C", "B"},
-			new String[] {"A", "B", "C", "D"}, "string", "text");
+		testOrderByDDMTextField("text");
+	}
+
+	public void testOrderByDDMTextFieldKeyword() throws Exception {
+		testOrderByDDMTextField("keyword");
 	}
 
 	public void testOrderByDDMTextFieldRepeatable() throws Exception {
@@ -118,8 +120,8 @@ public abstract class TestOrderHelper {
 
 	protected DDMStructure addDDMStructure() throws Exception {
 		String definition = DDMStructureTestUtil.getSampleStructureXSD(
-			"name", _dataType, _repeatable, _type, new Locale[] {LocaleUtil.US},
-			LocaleUtil.US);
+			"name", _dataType, _indexType, _repeatable, _type,
+			new Locale[] {LocaleUtil.US}, LocaleUtil.US);
 
 		return DDMStructureTestUtil.addStructure(
 			_serviceContext.getScopeGroupId(),
@@ -273,9 +275,19 @@ public abstract class TestOrderHelper {
 			String type)
 		throws Exception {
 
+		testOrderByDDMField(
+			unsortedValues, sortedValues, dataType, "text", type);
+	}
+
+	protected void testOrderByDDMField(
+				String[] unsortedValues, String[] sortedValues, String dataType,
+				String indexType, String type)
+			throws Exception {
+
 		_unsortedValues = unsortedValues;
 		_sortedValues = sortedValues;
 		_dataType = dataType;
+		_indexType = indexType;
 		_type = type;
 		_repeatable = false;
 
@@ -287,17 +299,35 @@ public abstract class TestOrderHelper {
 			String type)
 		throws Exception {
 
+		testOrderByDDMFieldRepeatable(
+				unsortedValues, sortedValues, dataType, "text", type);
+	}
+
+	protected void testOrderByDDMFieldRepeatable(
+			String[] unsortedValues, String[] sortedValues, String dataType,
+			String indexType, String type)
+		throws Exception {
+
 		_unsortedValues = unsortedValues;
 		_sortedValues = sortedValues;
 		_dataType = dataType;
+		_indexType = indexType;
 		_type = type;
 		_repeatable = true;
 
 		testOrderByDDMField();
 	}
 
+	protected void testOrderByDDMTextField(String indexType) throws Exception {
+		testOrderByDDMField(
+				new String[] {"a", "D", "c", "B"},
+				new String[] {"a", "B", "c", "D"}, "string", indexType,
+				"text");
+	}
+
 	private String _dataType;
 	private final Group _group;
+	private String _indexType;
 	private boolean _repeatable;
 	private final ServiceContext _serviceContext;
 	private String[] _sortedValues;

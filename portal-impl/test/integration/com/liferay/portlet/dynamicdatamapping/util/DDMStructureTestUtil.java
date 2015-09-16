@@ -228,12 +228,13 @@ public class DDMStructureTestUtil {
 		String name, Locale[] availableLocales, Locale defaultLocale) {
 
 		return getSampleStructureXSD(
-			name, "string", true, "text", availableLocales, defaultLocale);
+			name, "string", "text", true, "keyword", availableLocales,
+			defaultLocale);
 	}
 
 	public static String getSampleStructureXSD(
-		String name, String dataType, boolean repeatable, String type,
-		Locale[] availableLocales, Locale defaultLocale) {
+		String name, String dataType, String indexType, boolean repeatable,
+		String type, Locale[] availableLocales, Locale defaultLocale) {
 
 		Document document = createDocumentStructure(
 			availableLocales, defaultLocale);
@@ -244,7 +245,7 @@ public class DDMStructureTestUtil {
 			"dynamic-element");
 
 		dynamicElementElement.addAttribute("dataType", dataType);
-		dynamicElementElement.addAttribute("indexType", "text");
+		dynamicElementElement.addAttribute("indexType", indexType);
 		dynamicElementElement.addAttribute("name", name);
 		dynamicElementElement.addAttribute(
 			"repeatable", Boolean.toString(repeatable));

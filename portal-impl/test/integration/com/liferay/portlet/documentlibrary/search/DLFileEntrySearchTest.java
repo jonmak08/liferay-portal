@@ -142,6 +142,14 @@ public class DLFileEntrySearchTest extends BaseSearchTestCase {
 	}
 
 	@Test
+	public void testOrderByDDMTextFieldKeyword() throws Exception {
+		TestOrderHelper testOrderHelper = new DLFileEntrySearchTestOrderHelper(
+			group);
+
+		testOrderHelper.testOrderByDDMTextFieldKeyword();
+	}
+
+	@Test
 	public void testOrderByDDMTextFieldRepeatable() throws Exception {
 		TestOrderHelper testOrderHelper = new DLFileEntrySearchTestOrderHelper(
 			group);
@@ -424,7 +432,9 @@ public class DLFileEntrySearchTest extends BaseSearchTestCase {
 				sb.append(StringPool.PIPE);
 			}
 
-			sb.setIndex(sb.index() - 1);
+			if (sb.length() >0 ) {
+				sb.setIndex(sb.index() - 1);
+			}
 
 			return sb.toString();
 		}
