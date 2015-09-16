@@ -6876,7 +6876,11 @@ public class JournalArticleLocalServiceImpl
 				PortalUtil.getClassNameId(JournalArticle.class),
 				ddmStructureKey, true);
 
-			validateDDMStructureFields(ddmStructure, classNameId, content);
+			Locale[] contentLocales = LocaleUtil.fromLanguageIds(
+				LocalizationUtil.getAvailableLanguageIds(content));
+
+			validateDDMStructureFields(
+				ddmStructure, classNameId, content, contentLocales);
 
 			if (Validator.isNotNull(ddmTemplateKey)) {
 				DDMTemplate ddmTemplate = ddmTemplateLocalService.getTemplate(
@@ -7006,7 +7010,8 @@ public class JournalArticleLocalServiceImpl
 	}
 
 	protected void validateDDMStructureFields(
-			DDMStructure ddmStructure, long classNameId, Fields fields)
+			DDMStructure ddmStructure, long classNameId, Fields fields,
+			Locale[] locales)
 		throws PortalException, SystemException {
 
 		for (com.liferay.portlet.dynamicdatamapping.storage.Field field :
@@ -7016,33 +7021,37 @@ public class JournalArticleLocalServiceImpl
 				throw new StorageFieldNameException();
 			}
 
-			if (ddmStructure.getFieldRequired(field.getName()) &&
-				Validator.isNull(field.getValue()) &&
-				(classNameId == JournalArticleConstants.CLASSNAME_ID_DEFAULT)) {
+			for (Locale locale : locales) {
+				if (ddmStructure.getFieldRequired(field.getName()) &&
+					Validator.isNull(field.getValue(locale)) &&
+					(classNameId ==
+						JournalArticleConstants.CLASSNAME_ID_DEFAULT)) {
 
-				throw new StorageFieldRequiredException();
+					throw new StorageFieldRequiredException();
+				}
 			}
 		}
 	}
 
 	protected void validateDDMStructureFields(
 			DDMStructure ddmStructure, long classNameId,
-			ServiceContext serviceContext)
+			ServiceContext serviceContext, Locale[] locales)
 		throws PortalException, SystemException {
 
 		Fields fields = DDMUtil.getFields(
 			ddmStructure.getStructureId(), serviceContext);
 
-		validateDDMStructureFields(ddmStructure, classNameId, fields);
+		validateDDMStructureFields(ddmStructure, classNameId, fields, locales);
 	}
 
 	protected void validateDDMStructureFields(
-			DDMStructure ddmStructure, long classNameId, String content)
+			DDMStructure ddmStructure, long classNameId, String content,
+			Locale[] locales)
 		throws PortalException, SystemException {
 
 		Fields fields = DDMXMLUtil.getFields(ddmStructure, content);
 
-		validateDDMStructureFields(ddmStructure, classNameId, fields);
+		validateDDMStructureFields(ddmStructure, classNameId, fields, locales);
 	}
 
 	private static final long _JOURNAL_ARTICLE_CHECK_INTERVAL =
