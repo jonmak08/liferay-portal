@@ -23,6 +23,10 @@
 			<%
 			Group group = layout.getGroup();
 
+			long groupClassNameId = group.getClassNameId();
+
+			long layoutPrototypeClassNameId = ClassNameLocalServiceUtil.getClassNameId(LayoutPrototype.class);
+
 			boolean hasLayoutAddPermission = false;
 
 			if (layout.getParentLayoutId() == LayoutConstants.DEFAULT_PARENT_LAYOUT_ID) {
@@ -45,10 +49,16 @@
 
 					boolean stateMaximized = ParamUtil.getBoolean(request, "stateMaximized");
 
-					boolean hasAddContentAndApplicationsPermission = !stateMaximized && layout.isTypePortlet() && !layout.isLayoutPrototypeLinkActive() && (hasLayoutUpdatePermission || (layoutTypePortlet.isCustomizable() && layoutTypePortlet.isCustomizedView() && hasLayoutCustomizePermission));
+					boolean hasAddApplicationsPermission = !stateMaximized && layout.isTypePortlet() && !layout.isLayoutPrototypeLinkActive() && (hasLayoutUpdatePermission || (layoutTypePortlet.isCustomizable() && layoutTypePortlet.isCustomizedView() && hasLayoutCustomizePermission));
 
-					if (hasAddContentAndApplicationsPermission) {
-						tabs1Names = ArrayUtil.append(tabs1Names, "content,applications");
+					boolean hasAddContentPermission = hasAddApplicationsPermission && (groupClassNameId != layoutPrototypeClassNameId);
+
+					if (hasAddContentPermission) {
+						tabs1Names = ArrayUtil.append(tabs1Names, "content");
+					}
+
+					if (hasAddApplicationsPermission) {
+						tabs1Names = ArrayUtil.append(tabs1Names, "applications");
 					}
 
 					if (hasLayoutAddPermission) {
@@ -70,11 +80,13 @@
 						type="pills"
 						value="<%= selectedTab %>"
 					>
-						<c:if test="<%= hasAddContentAndApplicationsPermission %>">
+						<c:if test="<%= hasAddContentPermission %>">
 							<liferay-ui:section>
 								<liferay-util:include page="/html/portlet/dockbar/add_content.jsp" />
 							</liferay-ui:section>
+						</c:if>
 
+						<c:if test="<%= hasAddApplicationsPermission %>">
 							<liferay-ui:section>
 								<liferay-util:include page="/html/portlet/dockbar/add_application.jsp" />
 							</liferay-ui:section>
