@@ -92,7 +92,7 @@ String scopeAvailableFields = ParamUtil.getString(request, "scopeAvailableFields
 			</div>
 		</c:if>
 
-		<aui:input autoFocus="<%= windowState.equals(LiferayWindowState.POP_UP) %>" name="name" />
+		<aui:input name="name" />
 
 		<liferay-ui:panel collapsible="<%= true %>" extended="<%= false %>" id="detailsMetadataFields" persistState="<%= true %>" title="details">
 			<aui:input name="description" />

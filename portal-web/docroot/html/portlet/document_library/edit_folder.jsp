@@ -94,7 +94,7 @@ if (workflowEnabled) {
 				<aui:input name="parentFolder" type="resource" value="<%= parentFolderName %>" />
 			</c:if>
 
-			<aui:input autoFocus="<%= windowState.equals(WindowState.NORMAL) %>" name="name" />
+			<aui:input name="name" />
 
 			<c:if test="<%= (parentFolder == null) || parentFolder.isSupportsMetadata() %>">
 				<aui:input name="description" />
