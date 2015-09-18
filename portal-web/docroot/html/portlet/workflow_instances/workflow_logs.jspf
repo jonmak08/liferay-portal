@@ -25,7 +25,13 @@ for (WorkflowLog workflowLog : workflowLogs) {
 		actorName = curRole.getDescriptiveName();
 	}
 	else if (workflowLog.getUserId() != 0) {
-		curUser = UserLocalServiceUtil.getUser(workflowLog.getUserId());
+		curUser = UserLocalServiceUtil.fetchUser(workflowLog.getUserId());
+
+		if (curUser == null) {
+			curUser = UserLocalServiceUtil.getDefaultUser(
+				company.getCompanyId());
+		}
+
 		actorName = curUser.getFullName();
 	}
 %>

@@ -57,8 +57,13 @@ public class LayoutRevisionAssetRendererFactory
 			LayoutSetBranchLocalServiceUtil.getLayoutSetBranch(
 				layoutRevision.getLayoutSetBranchId());
 
-		User user = UserLocalServiceUtil.getUserById(
+		User user = UserLocalServiceUtil.fetchUserById(
 			layoutRevision.getUserId());
+
+		if (user == null) {
+			user = UserLocalServiceUtil.getDefaultUser(
+				layoutRevision.getCompanyId());
+		}
 
 		AssetEntry assetEntry = AssetEntryLocalServiceUtil.createAssetEntry(
 			classPK);
