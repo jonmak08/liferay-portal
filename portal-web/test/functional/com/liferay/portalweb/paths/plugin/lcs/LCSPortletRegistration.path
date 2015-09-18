@@ -25,7 +25,7 @@
 </tr>
 <tr>
 	<td>PROJECT_SELECT</td>
-	<td>//select[contains(@id,'lcsportlet_corpProject')]</td>
+	<td>//select[contains(@id,'lcsProjectId')]</td>
 	<td></td>
 </tr>
 <tr>
