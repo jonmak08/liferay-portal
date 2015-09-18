@@ -16,6 +16,8 @@ package com.liferay.portal.asset;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.model.LayoutRevision;
@@ -61,6 +63,12 @@ public class LayoutRevisionAssetRendererFactory
 			layoutRevision.getUserId());
 
 		if (user == null) {
+			if (_log.isDebugEnabled()) {
+				_log.debug(
+					"the user with userId " + layoutRevision.getUserId() +
+						"no longer exist");
+			}
+
 			user = UserLocalServiceUtil.getDefaultUser(
 				layoutRevision.getCompanyId());
 		}
@@ -130,5 +138,8 @@ public class LayoutRevisionAssetRendererFactory
 	}
 
 	private static final boolean _SELECTABLE = false;
+
+	private static Log _log = LogFactoryUtil.getLog(
+		LayoutRevisionAssetRendererFactory.class);
 
 }
