@@ -19,8 +19,93 @@
 	<td></td>
 </tr>
 <tr>
-	<td>ENVIRONMENT_DETAILS_BUTTON</td>
-	<td>//div[@class='item settings ']//a[contains(.,'Environment Details')]</td>
+	<td>ENVIRONMENT_NAME</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//td[contains(@id,'environmentName')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_NAME_EDIT_INPUT</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//td[contains(@id,'environmentName')]//input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_NAME_EDIT_ICON</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//td[contains(@id,'environmentName')]/span[contains(@class,'icon-pencil')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_NAME_SAVE_ICON</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//td[contains(@id,'environmentName')]/span[contains(@class,'icon-save')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_NAME_REMOVE_ICON</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//td[contains(@id,'environmentName')]/span[contains(@class,'icon-remove')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_DESCRIPTION</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//td[contains(@id,'environmentDescription')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_DESCRIPTION_EDIT_INPUT</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//td[contains(@id,'environmentDescription')]//input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_DESCRIPTION_EDIT_ICON</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//td[contains(@id,'environmentDescription')]/span[contains(@class,'icon-pencil')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_DESCRIPTION_SAVE_ICON</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//td[contains(@id,'environmentDescription')]/span[contains(@class,'icon-save')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_DESCRIPTION_REMOVE_ICON</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//td[contains(@id,'environmentDescription')]/span[contains(@class,'icon-remove')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_LOCATION</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//td[contains(@id,'environmentLocation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_LOCATION_EDIT_INPUT</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//td[contains(@id,'environmentLocation')]//input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_LOCATION_EDIT_ICON</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//td[contains(@id,'environmentLocation')]/span[contains(@class,'icon-pencil')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_LOCATION_SAVE_ICON</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//td[contains(@id,'environmentLocation')]/span[contains(@class,'icon-save')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_LOCATION_REMOVE_ICON</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//td[contains(@id,'environmentLocation')]/span[contains(@class,'icon-remove')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_TYPE</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//tr[contains(.,'Environment Type')]//td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SUBSCRIPTION_TYPE</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Environment')]//tr[contains(.,'Subscription Type')]//td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>DELETE_BUTTON</td>
+	<td>//button[contains(.,'Delete')]</td>
 	<td></td>
 </tr>
 <tr>

@@ -34,7 +34,7 @@
 			<var method="TestPropsUtil#get('lcs.email.password.1')" name="userEmailPassword" />
 		</execute>
 
-		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
@@ -90,7 +90,7 @@
 			<var method="TestPropsUtil#get('lcs.email.password.1')" name="userEmailPassword" />
 		</execute>
 
-		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 

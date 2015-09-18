@@ -12,12 +12,4 @@
 
 		<execute function="AssertClick#assertPartialTextClickAt" locator1="LCSPortalNavigation#NAVIGATION_MENU_ENVIRONMENT" value1="${environmentName}" />
 	</command>
-
-	<command name="gotoEnvironmentDetails">
-		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
-			<var name="environmentName" value="${environmentName}" />
-		</execute>
-
-		<execute function="AssertClick" locator1="LCSEnvironment#ENVIRONMENT_DETAILS_BUTTON" value1="Environment Details" />
-	</command>
 </definition>

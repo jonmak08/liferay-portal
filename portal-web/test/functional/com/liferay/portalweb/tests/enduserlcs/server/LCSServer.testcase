@@ -81,7 +81,7 @@
 			<var name="virtualHostsURL" value="http://www.able.com:8080" />
 		</execute>
 
-		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 

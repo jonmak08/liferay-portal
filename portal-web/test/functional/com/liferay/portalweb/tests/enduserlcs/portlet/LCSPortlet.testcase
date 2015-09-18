@@ -122,7 +122,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
@@ -180,7 +180,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
@@ -274,7 +274,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
@@ -403,7 +403,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
@@ -499,7 +499,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
@@ -578,7 +578,7 @@
 
 		<execute function="SelectWindow" locator1="Server - Liferay" />
 
-		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 

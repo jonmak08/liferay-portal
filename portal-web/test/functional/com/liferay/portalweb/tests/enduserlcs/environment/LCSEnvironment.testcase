@@ -34,7 +34,7 @@
 			<var name="environmentName" value="Environment 2 Name" />
 		</execute>
 
-		<execute macro="LCSEnvironmentNavigator#gotoEnvironmentDetails">
+		<execute macro="LCSEnvironmentNavigator#gotoEnvironment">
 			<var name="environmentName" value="Environment 2 Name" />
 		</execute>
 
