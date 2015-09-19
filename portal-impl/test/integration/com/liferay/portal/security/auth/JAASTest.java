@@ -136,6 +136,16 @@ public class JAASTest {
 
 		MainServlet mainServlet = new MainServlet();
 
+		ServletContext mockServletContext = new AutoDeployMockServletContext();
+
+		try {
+			mainServlet.init(new MockServletConfig(mockServletContext));
+		}
+		catch (ServletException se) {
+			throw new RuntimeException(
+				"The main servlet could not be initialized");
+		}
+
 		MockHttpServletRequest mockHttpServletRequest =
 			new MockHttpServletRequest(
 				mainServlet.getServletContext(), HttpMethods.GET,
