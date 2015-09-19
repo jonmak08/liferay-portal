@@ -34,6 +34,7 @@ import com.liferay.portal.servlet.MainServlet;
 import com.liferay.portal.test.EnvironmentExecutionTestListener;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
 import com.liferay.portal.test.mock.AutoDeployMockServletContext;
+import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.TestPropsValues;
 
@@ -105,6 +106,58 @@ public class JAASTest {
 
 		_jaasAuthTypeField.set(null, _jaasAuthType);
 		_jaasEnabledField.set(null, _jaasEnabled);
+	}
+
+	@Test
+	public void testGetUser() throws Exception {
+		_jaasAuthTypeField.set(null, "screenName");
+
+		final IntegerWrapper counter = new IntegerWrapper();
+
+		JAASHelper jaasHelper = JAASHelper.getInstance();
+
+		JAASHelper.setInstance(
+			new JAASHelper() {
+
+				@Override
+				protected long doGetJaasUserId(long companyId, String name)
+					throws PortalException, SystemException {
+
+					try {
+						return super.doGetJaasUserId(companyId, name);
+					}
+					finally {
+						counter.increment();
+					}
+				}
+
+			}
+		);
+
+		MainServlet mainServlet = new MainServlet();
+
+		MockHttpServletRequest mockHttpServletRequest =
+			new MockHttpServletRequest(
+				mainServlet.getServletContext(), HttpMethods.GET,
+				StringPool.SLASH);
+
+		mockHttpServletRequest.setRemoteUser(
+			String.valueOf(_user.getScreenName()));
+
+		try {
+			User user = PortalUtil.getUser(mockHttpServletRequest);
+
+			Assert.assertEquals(1, counter.getValue());
+			Assert.assertEquals(_user.getUserId(), user.getUserId());
+
+			user = PortalUtil.getUser(mockHttpServletRequest);
+
+			Assert.assertEquals(1, counter.getValue());
+			Assert.assertEquals(_user.getUserId(), user.getUserId());
+		}
+		finally {
+			JAASHelper.setInstance(jaasHelper);
+		}
 	}
 
 	@Test
@@ -306,28 +359,6 @@ public class JAASTest {
 
 	@Test
 	public void testProcessLoginEvents() throws Exception {
-		final IntegerWrapper counter = new IntegerWrapper();
-
-		JAASHelper jaasHelper = JAASHelper.getInstance();
-
-		JAASHelper.setInstance(
-			new JAASHelper() {
-
-				@Override
-				protected long doGetJaasUserId(long companyId, String name)
-					throws PortalException, SystemException {
-
-					try {
-						return super.doGetJaasUserId(companyId, name);
-					}
-					finally {
-						counter.increment();
-					}
-				}
-
-			}
-		);
-
 		MainServlet mainServlet = new MainServlet();
 
 		ServletContext mockServletContext = new AutoDeployMockServletContext();
@@ -360,7 +391,6 @@ public class JAASTest {
 			mainServlet.service(
 				mockHttpServletRequest, new MockHttpServletResponse());
 
-			Assert.assertEquals(2, counter.getValue());
 			Assert.assertTrue(preJAASAction.isRan());
 			Assert.assertTrue(postJAASAction.isRan());
 
@@ -373,8 +403,6 @@ public class JAASTest {
 				PropsKeys.LOGIN_EVENTS_PRE, postJAASAction);
 			EventsProcessorUtil.unregisterEvent(
 				PropsKeys.LOGIN_EVENTS_POST, postJAASAction);
-
-			JAASHelper.setInstance(jaasHelper);
 		}
 	}
 
