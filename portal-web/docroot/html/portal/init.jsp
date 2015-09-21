@@ -18,6 +18,7 @@
 
 <%@ page import="com.liferay.portal.DuplicateUserEmailAddressException" %><%@
 page import="com.liferay.portal.LayoutPermissionException" %><%@
+page import="com.liferay.portal.NoSuchTicketException" %><%@
 page import="com.liferay.portal.PortletActiveException" %><%@
 page import="com.liferay.portal.RequiredLayoutException" %><%@
 page import="com.liferay.portal.RequiredRoleException" %><%@
