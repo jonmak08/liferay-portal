@@ -287,7 +287,7 @@
 				Group_
 			WHERE
 				(groupId > ?) AND
-				(companyId = ?) AND
+				(Group_.companyId = ?) AND
 				(parentGroupId = ?)
 			ORDER BY
 				groupId ASC
@@ -678,7 +678,7 @@
 				Organization_
 			WHERE
 				(organizationId > ?) AND
-				(companyId = ?) AND
+				(Organization_.companyId = ?) AND
 				(parentOrganizationId = ?)
 			ORDER BY
 				organizationId ASC

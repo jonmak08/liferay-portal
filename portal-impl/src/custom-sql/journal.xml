@@ -225,11 +225,11 @@
 			FROM
 				JournalFeed
 			WHERE
-				(companyId = ?) AND
+				(JournalFeed.companyId = ?) AND
 				(groupId = ?) AND
 				(
 					(feedId LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
-					(lower(name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+					(lower(JournalFeed.name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(lower(description) LIKE ? [$AND_OR_NULL_CHECK$])
 				)
 		]]>
@@ -241,11 +241,11 @@
 			FROM
 				JournalFeed
 			WHERE
-				(companyId = ?) AND
+				(JournalFeed.companyId = ?) AND
 				(groupId = ?) AND
 				(
 					(feedId LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
-					(lower(name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+					(lower(JournalFeed.name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(lower(description) LIKE ? [$AND_OR_NULL_CHECK$])
 				)
 			ORDER BY
