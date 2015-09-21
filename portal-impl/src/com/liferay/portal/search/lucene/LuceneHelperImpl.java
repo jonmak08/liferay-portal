@@ -864,6 +864,8 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 			InetAddress inetAddress = clusterNode.getInetAddress();
 
+			String hostname = inetAddress.getCanonicalHostName();
+
 			String fileName = PortalUtil.getPathContext();
 
 			if (!fileName.endsWith(StringPool.SLASH)) {
@@ -872,8 +874,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 			fileName = fileName.concat("lucene/dump");
 
-			URL url = new URL(
-				protocol, inetAddress.getHostAddress(), port, fileName);
+			URL url = new URL(protocol, hostname, port, fileName);
 
 			String transientToken = (String)clusterNodeResponse.getResult();
 
