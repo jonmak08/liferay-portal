@@ -295,7 +295,7 @@ ArticleSearch searchContainer = new ArticleSearch(liferayPortletRequest, entryEn
 										actionJsp="/html/portlet/journal/article_action.jsp"
 										containerName="<%= JournalUtil.getAbsolutePath(liferayPortletRequest, article.getFolderId()) %>"
 										cssClass='<%= MathUtil.isEven(i) ? "alt" : StringPool.BLANK %>'
-										description="<%= article.getDescription(locale) %>"
+										description="<%= LocalizationUtil.getLocalization(article.getContent(), themeDisplay.getLanguageId()) %>"
 										mbMessages="<%= searchResult.getMBMessages() %>"
 										queryTerms="<%= hits.getQueryTerms() %>"
 										rowCheckerId="<%= HtmlUtil.escape(article.getArticleId()) %>"
@@ -395,7 +395,7 @@ ArticleSearch searchContainer = new ArticleSearch(liferayPortletRequest, entryEn
 										actionJsp="/html/portlet/journal/article_action.jsp"
 										containerName="<%= JournalUtil.getAbsolutePath(liferayPortletRequest, curArticle.getFolderId()) %>"
 										cssClass='<%= MathUtil.isEven(i) ? "alt" : StringPool.BLANK %>'
-										description="<%= curArticle.getDescription(locale) %>"
+										description="<%= LocalizationUtil.getLocalization(curArticle.getContent(), themeDisplay.getLanguageId()) %>"
 										queryTerms="<%= queryTerms %>"
 										rowCheckerId="<%= HtmlUtil.escape(curArticle.getArticleId()) %>"
 										rowCheckerName="<%= JournalArticle.class.getSimpleName() %>"
