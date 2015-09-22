@@ -232,7 +232,7 @@ public class JournalTestUtilTest {
 	}
 
 	@Test
-	public void testDeleteDDMStructureWithDefaultValues() throws Exception {
+	public void testDeleteDDMStructure() throws Exception {
 		String content = DDMStructureTestUtil.getSampleStructuredContent();
 
 		DDMStructure ddmStructure = DDMStructureTestUtil.addStructure(
@@ -251,12 +251,11 @@ public class JournalTestUtilTest {
 
 		try {
 			Assert.assertNull(
-				"Default values of deleted DDMStructure were not removed",
 				JournalArticleLocalServiceUtil.getArticle(
 					ddmStructure.getGroupId(), DDMStructure.class.getName(),
 					ddmStructure.getStructureId()));
 		}
-		catch (NoSuchArticleException e) {
+		catch (NoSuchArticleException nsae) {
 		}
 	}
 
