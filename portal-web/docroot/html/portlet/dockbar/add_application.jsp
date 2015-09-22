@@ -184,7 +184,7 @@ refererURL.setParameter("updateLayout", "true");
 			inputNode: searchApplication,
 			namespace: '<portlet:namespace />',
 			nodeList: A.one('#<portlet:namespace />applicationList'),
-			nodeSelector: '.lfr-content-item .add-content-item',
+			nodeSelector: '.add-content-item',
 			selected: !A.one('#<portlet:namespace />addApplicationForm').ancestor().hasClass('hide')
 		}
 	);
