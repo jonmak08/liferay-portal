@@ -299,7 +299,7 @@ public class DLFileEntryTypeFinderImpl
 		sb.append("(SELECT {DLFileEntryType.*} From DLFileEntryType WHERE ");
 		sb.append("((DLFileEntryType.companyId = 0) AND (groupId = 0) AND (");
 		sb.append(
-				"(lower(DLFileEntryType.name) LIKE ? [$AND_OR_NULL_CHECK$]) ");
+			"(lower(DLFileEntryType.name) LIKE ? [$AND_OR_NULL_CHECK$]) ");
 		sb.append("[$AND_OR_CONNECTOR$] ");
 		sb.append("(description LIKE ? [$AND_OR_NULL_CHECK$]) ");
 		sb.append("))) UNION ALL (");
