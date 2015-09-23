@@ -831,6 +831,14 @@ public class JournalArticleLocalServiceWrapper
 			includeTrashedEntries);
 	}
 
+	@Override
+	public void deleteArticles(long groupId, java.lang.String className,
+		long classPK)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		_journalArticleLocalService.deleteArticles(groupId, className, classPK);
+	}
+
 	/**
 	* Deletes the layout's association with the web content articles for the
 	* group.
