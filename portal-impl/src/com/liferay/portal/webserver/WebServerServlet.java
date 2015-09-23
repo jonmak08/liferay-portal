@@ -63,6 +63,7 @@ import com.liferay.portal.repository.liferayrepository.model.LiferayFileEntry;
 import com.liferay.portal.repository.liferayrepository.model.LiferayFileVersion;
 import com.liferay.portal.security.auth.PrincipalException;
 import com.liferay.portal.security.auth.PrincipalThreadLocal;
+import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.security.permission.PermissionCheckerFactoryUtil;
 import com.liferay.portal.security.permission.PermissionThreadLocal;
@@ -93,6 +94,9 @@ import com.liferay.portlet.documentlibrary.util.PDFProcessor;
 import com.liferay.portlet.documentlibrary.util.PDFProcessorUtil;
 import com.liferay.portlet.documentlibrary.util.VideoProcessor;
 import com.liferay.portlet.documentlibrary.util.VideoProcessorUtil;
+import com.liferay.portlet.journal.model.JournalArticleImage;
+import com.liferay.portlet.journal.service.JournalArticleImageLocalServiceUtil;
+import com.liferay.portlet.journal.service.permission.JournalArticlePermission;
 import com.liferay.portlet.trash.util.TrashUtil;
 
 import java.awt.image.RenderedImage;
@@ -577,6 +581,19 @@ public class WebServerServlet extends HttpServlet {
 				!imageIdToken.equals(DigesterUtil.digest(user.getUserUuid()))) {
 
 				return 0;
+			}
+		}
+
+		if (imageId > 0) {
+			JournalArticleImage journalArticleImage =
+				JournalArticleImageLocalServiceUtil.fetchJournalArticleImage(
+					imageId);
+
+			if (journalArticleImage != null) {
+				JournalArticlePermission.check(
+					PermissionThreadLocal.getPermissionChecker(),
+					journalArticleImage.getGroupId(),
+					journalArticleImage.getArticleId(), ActionKeys.VIEW);
 			}
 		}
 
