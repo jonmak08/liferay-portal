@@ -1,0 +1,265 @@
+<html>
+<head>
+<title>LCSServerOverview</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSServerOverview</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>SERVER_NAME</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//td[contains(@id,'serverName')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_NAME_EDIT_ICON</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//td[contains(@id,'serverName')]//span[contains(@class,'icon-pencil')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_NAME_EDIT_INPUT</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//td[contains(@id,'serverName')]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_NAME_SAVE_ICON</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//td[contains(@id,'serverName')]/span[contains(@class,'icon-save')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_NAME_REMOVE_INPUT</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//td[contains(@id,'serverName')]/span[contains(@class,'icon-remove')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_DESCRIPTION</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//td[contains(@id,'serverDescription')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_DESCRIPTION_EDIT_ICON</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//td[contains(@id,'serverDescription')]//span[contains(@class,'icon-pencil')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_DESCRIPTION_EDIT_INPUT</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//td[contains(@id,'serverDescription')]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_DESCRIPTION_SAVE_ICON</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//td[contains(@id,'serverDescription')]/span[contains(@class,'icon-save')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_DESCRIPTION_REMOVE_INPUT</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//td[contains(@id,'serverDescription')]/span[contains(@class,'icon-remove')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_LOCATION</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//td[contains(@id,'serverLocation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_LOCATION_EDIT_ICON</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//td[contains(@id,'serverLocation')]//span[contains(@class,'icon-pencil')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_LOCATION_EDIT_INPUT</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//td[contains(@id,'serverLocation')]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_LOCATION_SAVE_ICON</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//td[contains(@id,'serverLocation')]/span[contains(@class,'icon-save')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_LOCATION_REMOVE_INPUT</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//td[contains(@id,'serverLocation')]/span[contains(@class,'icon-remove')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ENVIRONMENT_SELECT</td>
+	<td>//div[contains(@class,'settings-container') and contains(.,'Server')]//select[contains(@id,'environmentId')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>UNREGISTER_BUTTON</td>
+	<td>//button[contains(.,'Unregister')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--NAVIGATION-->
+<tr>
+	<td>NAVIGATION_SERVER_SETTINGS</td>
+	<td>//ul[contains(@class,'nav-tabs')]//a[contains(.,'Settings')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_SERVER_PROPERTIES</td>
+	<td>//ul[contains(@class,'nav-tabs')]//a[contains(.,'Properties')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--SERVER_PROPERTIES-->
+<tr>
+	<td>SERVER_PROPERTIES_ERROR_MESSAGE</td>
+	<td>//div[contains(@class,'lcs-server-details')]/div[@class='portlet-msg-error']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_SOFTWARE_TABLE</td>
+	<td>//div[@class='lcs-about-software']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_SOFTWARE_PORTAL_BUILD_NUMBER</td>
+	<td>//div[@class='lcs-about-software']//tr[contains(.,'Portal Build Number')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_SOFTWARE_PORTAL_EDITION</td>
+	<td>//div[@class='lcs-about-software']//tr[contains(.,'Portal Edition')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_SOFTWARE_PATCHING_TOOL_VERSION</td>
+	<td>//div[@class='lcs-about-software']//tr[contains(.,'Patching Tool Version')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_SOFTWARE_PROPERTY_NAME</td>
+	<td>//div[@class='lcs-about-software']//tr[contains(.,'${key_serverPropertyName}')]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_SOFTWARE_PROPERTY_VALUE</td>
+	<td>//div[@class='lcs-about-software']//tr[contains(.,'${key_serverPropertyName}')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_HARDWARE_TABLE</td>
+	<td>//div[@class='lcs-about-hardware']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_HARDWARE_PROPERTY_NAME</td>
+	<td>//div[@class='lcs-about-hardware']//tr[contains(.,'${key_serverPropertyName}')]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SERVER_PROPERTIES_HARDWARE_PROPERTY_VALUE</td>
+	<td>//div[@class='lcs-about-hardware']//tr[contains(.,'${key_serverPropertyName}')]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--FIX_PACKS_NAVIGATION-->
+<tr>
+	<td>FIX_PACKS_NAVIGATION_AVAILABLE</td>
+	<td>//ul[contains(@class,'nav-tabs')]//a[contains(.,'Available')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_NAVIGATION_INSTALLED</td>
+	<td>//ul[contains(@class,'nav-tabs')]//a[contains(.,'Installed')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--FIX_PACKS_AVAILABLE-->
+<tr>
+	<td>FIX_PACKS_AVAILABLE_INFO_MESSAGE</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//div[contains(@class,'alert-info')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_AVAILABLE_DOWNLOAD_BUTTON</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//button[contains(.,'Download')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_AVAILABLE_TABLE_CHECKBOX_ALL</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr/th/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_AVAILABLE_TABLE_CHECKBOX</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[1]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_AVAILABLE_TABLE_NAME</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_AVAILABLE_TABLE_STATUS</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_AVAILABLE_TABLE_DOWNLOAD_LINK</td>
+	<td>//div[@class='lcs-available-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]/td[4]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--FIX_PACKS_INSTALLED-->
+<tr>
+	<td>FIX_PACKS_INSTALLED_INFO_MESSAGE</td>
+	<td>//div[@class='lcs-fix-packs-container']//div[contains(@class,'alert-info')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIX_PACKS_INSTALLED_TABLE_NAME</td>
+	<td>//div[@class='lcs-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--ALERTS-->
+<tr>
+	<td>ALERTS_ALERT_1</td>
+	<td>//div[contains(@class,'lcs-alerts-container')]//tr[1]/td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ALERTS_ALERT_2</td>
+	<td>//div[contains(@class,'lcs-alerts-container')]//tr[2]/td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ALERTS_ALERT_3</td>
+	<td>//div[contains(@class,'lcs-alerts-container')]//tr[3]/td</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
