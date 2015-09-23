@@ -167,17 +167,17 @@
 <!--ALERTS-->
 <tr>
 	<td>ALERTS_ALERT</td>
-	<td>//div[@class='lcs-alerts-container']//tr[contains(.,'${key_serverName}')]/td[1]</td>
+	<td>//div[contains(@class,'lcs-alerts-container')]//tr[contains(.,'${key_serverName}')]/td[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ALERTS_SERVER_LINK</td>
-	<td>//div[@class='lcs-alerts-container']//tr[contains(.,'${key_serverName}')]/td[2]/a</td>
+	<td>//div[contains(@class,'lcs-alerts-container')]//tr[contains(.,'${key_serverName}')]/td[2]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ALERTS_LOCATION</td>
-	<td>//div[@class='lcs-alerts-container']//tr[contains(.,'${key_serverName}')]/td[3]</td>
+	<td>//div[contains(@class,'lcs-alerts-container')]//tr[contains(.,'${key_serverName}')]/td[3]</td>
 	<td></td>
 </tr>
 </tbody>

@@ -87,22 +87,22 @@
 <!--ALERTS-->
 <tr>
 	<td>ALERTS_ALERT</td>
-	<td>//div[@class='lcs-alerts-container']//tr[contains(.,'${key_environmentName}') and contains(.,'${key_serverName}')]/td[1]</td>
+	<td>//div[contains(@class,'lcs-alerts-container')]//tr[contains(.,'${key_environmentName}') and contains(.,'${key_serverName}')]/td[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ALERTS_ENVIRONMENT</td>
-	<td>//div[@class='lcs-alerts-container']//tr[contains(.,'${key_environmentName}') and contains(.,'${key_serverName}')]/td[2]</td>
+	<td>//div[contains(@class,'lcs-alerts-container')]//tr[contains(.,'${key_environmentName}') and contains(.,'${key_serverName}')]/td[2]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ALERTS_SERVER_LINK</td>
-	<td>//div[@class='lcs-alerts-container']//tr[contains(.,'${key_environmentName}') and contains(.,'${key_serverName}')]/td[3]/a</td>
+	<td>//div[contains(@class,'lcs-alerts-container')]//tr[contains(.,'${key_environmentName}') and contains(.,'${key_serverName}')]/td[3]/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ALERTS_LOCATION</td>
-	<td>//div[@class='lcs-alerts-container']//tr[contains(.,'${key_environmentName}') and contains(.,'${key_serverName}')]/td[4]</td>
+	<td>//div[contains(@class,'lcs-alerts-container')]//tr[contains(.,'${key_environmentName}') and contains(.,'${key_serverName}')]/td[4]</td>
 	<td></td>
 </tr>
 </tbody>
