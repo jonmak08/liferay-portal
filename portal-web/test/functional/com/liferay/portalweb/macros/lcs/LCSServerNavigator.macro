@@ -1,10 +1,10 @@
 <definition>
 	<command name="gotoFixpacksAvailable">
-		<execute function="Click" locator1="LCSServer#FIX_PACKS_NAVIGATION_AVAILABLE" />
+		<execute function="Click" locator1="LCSServerOverview#FIX_PACKS_NAVIGATION_AVAILABLE" />
 	</command>
 
 	<command name="gotoFixpacksInstalled">
-		<execute function="Click" locator1="LCSServer#FIX_PACKS_NAVIGATION_INSTALLED" />
+		<execute function="Click" locator1="LCSServerOverview#FIX_PACKS_NAVIGATION_INSTALLED" />
 	</command>
 
 	<command name="gotoServer">
@@ -17,13 +17,13 @@
 		<execute function="AssertClick#assertPartialTextClickAt" locator1="LCSPortalNavigation#NAVIGATION_MENU_SERVER" value1="${serverName}" />
 	</command>
 
-	<command name="gotoServerDetails">
+	<command name="gotoServerOverview">
 		<execute macro="LCSServerNavigator#gotoServer">
 			<var name="environmentName" value="${environmentName}" />
 			<var name="serverName" value="${serverName}" />
 		</execute>
 
-		<execute function="AssertClick" locator1="LCSServer#TOOLBAR_SERVER_DETAILS_BUTTON" value1="Server Details" />
+		<execute function="AssertClick" locator1="LCSServer#TOOLBAR_OVERVIEW_BUTTON" value1="Overview" />
 	</command>
 
 	<command name="gotoServerMetrics">
@@ -59,8 +59,8 @@
 			<var name="serverName" value="${serverName}" />
 		</execute>
 
-		<execute function="AssertClick" locator1="LCSServer#TOOLBAR_SERVER_DETAILS_BUTTON" value1="Server Details" />
+		<execute function="AssertClick" locator1="LCSServer#TOOLBAR_OVERVIEW_BUTTON" value1="Overview" />
 
-		<execute function="AssertClick" locator1="LCSServerServerDetails#NAVIGATION_SERVER_PROPERTIES" value1="Server Properties" />
+		<execute function="AssertClick" locator1="LCSServerOverview#NAVIGATION_SERVER_PROPERTIES" value1="Properties" />
 	</command>
 </definition>

@@ -132,7 +132,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServer">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
@@ -190,7 +190,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServer">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
@@ -230,7 +230,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServer">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
@@ -284,7 +284,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServer">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
@@ -324,7 +324,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServer">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
@@ -361,7 +361,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServer">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
@@ -413,7 +413,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServer">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
@@ -455,7 +455,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServer">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
@@ -509,7 +509,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServer">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
@@ -551,7 +551,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServer">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
@@ -608,7 +608,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServer">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>

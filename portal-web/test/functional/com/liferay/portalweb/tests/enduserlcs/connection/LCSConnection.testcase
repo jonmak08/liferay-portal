@@ -60,7 +60,7 @@
 
 		<echo message="${serverName}" />
 
-		<execute macro="LCSServerNavigator#gotoServerDetails">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="${serverName}" />
 		</execute>

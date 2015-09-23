@@ -26,7 +26,7 @@
 			<var method="TestPropsUtil#get('lcs.email.password.1')" name="userEmailPassword" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServerDetails">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
@@ -38,7 +38,7 @@
 			<var name="serverNameEdit" value="Environment 1 Server 1 Name Edit" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServerDetails">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name Edit" />
 		</execute>
@@ -91,7 +91,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServerDetails">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
@@ -118,7 +118,7 @@
 			<var method="TestPropsUtil#get('lcs.email.password.1')" name="userEmailPassword" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServerDetails">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
@@ -158,7 +158,7 @@
 			<var name="projectName" value="Liferay QA" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServerDetails">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
@@ -185,7 +185,7 @@
 			<var method="TestPropsUtil#get('lcs.email.password.1')" name="userEmailPassword" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServerDetails">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>

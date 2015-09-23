@@ -2,16 +2,16 @@
 	<command name="downloadFixpack">
 		<var name="key_fixpackName" value="${fixpackName}" />
 
-		<execute function="AssertTextEquals" locator1="LCSServer#FIX_PACKS_AVAILABLE_TABLE_NAME" value1="${fixpackName}" />
+		<execute function="AssertTextEquals" locator1="LCSServerOverview#FIX_PACKS_AVAILABLE_TABLE_NAME" value1="${fixpackName}" />
 
-		<execute function="Check" locator1="LCSServer#FIX_PACKS_AVAILABLE_TABLE_CHECKBOX" />
+		<execute function="Check" locator1="LCSServerOverview#FIX_PACKS_AVAILABLE_TABLE_CHECKBOX" />
 
-		<execute function="AssertClickNoError" locator1="LCSServer#FIX_PACKS_AVAILABLE_DOWNLOAD_BUTTON" value1="Download" />
+		<execute function="AssertClickNoError" locator1="LCSServerOverview#FIX_PACKS_AVAILABLE_DOWNLOAD_BUTTON" value1="Download" />
 
 		<execute function="Confirm" value1="Are you sure you want to download the selected fix packs?" />
 
 		<execute function="AssertTextEquals" locator1="LCSServer#ALERT_SUCCESS" value1="Completed all downloads." />
-		<execute function="AssertTextEquals" locator1="LCSServer#ALERTS_ALERT_1" value1="Completed download for ${fixpackName}. Please restart the server." />
+		<execute function="AssertTextEquals" locator1="LCSServerOverview#ALERTS_ALERT_1" value1="Completed download for ${fixpackName}. Please restart the server." />
 	</command>
 
 	<command name="viewFixpackCountAfterPatchInstallation">
@@ -52,8 +52,8 @@
 	<command name="viewFixpackViaServerAvailable">
 		<var name="key_fixpackName" value="${fixpackName}" />
 
-		<execute function="AssertTextEquals" locator1="LCSServer#FIX_PACKS_AVAILABLE_TABLE_NAME" value1="${fixpackName}" />
-		<execute function="AssertTextEquals" locator1="LCSServer#FIX_PACKS_AVAILABLE_TABLE_STATUS" value1="${fixpackStatus}" />
+		<execute function="AssertTextEquals" locator1="LCSServerOverview#FIX_PACKS_AVAILABLE_TABLE_NAME" value1="${fixpackName}" />
+		<execute function="AssertTextEquals" locator1="LCSServerOverview#FIX_PACKS_AVAILABLE_TABLE_STATUS" value1="${fixpackStatus}" />
 	</command>
 
 	<command name="viewFixpackViaServerInstalled">
@@ -61,7 +61,7 @@
 
 		<var name="key_fixpackName" value="${fixpackName}" />
 
-		<execute function="AssertTextEquals" locator1="LCSServer#FIX_PACKS_INSTALLED_TABLE_NAME" value1="${fixpackName}" />
+		<execute function="AssertTextEquals" locator1="LCSServerOverview#FIX_PACKS_INSTALLED_TABLE_NAME" value1="${fixpackName}" />
 	</command>
 
 	<command name="viewNoFixpackViaDashboard">
@@ -88,7 +88,7 @@
 
 		<var name="key_fixpackName" value="${fixpackName}" />
 
-		<execute function="AssertElementNotPresent" locator1="LCSServer#FIX_PACKS_AVAILABLE_TABLE_NAME" />
+		<execute function="AssertElementNotPresent" locator1="LCSServerOverview#FIX_PACKS_AVAILABLE_TABLE_NAME" />
 	</command>
 
 	<command name="viewNoFixpackViaServerInstalled">
@@ -96,7 +96,7 @@
 
 		<var name="key_fixpackName" value="${fixpackName}" />
 
-		<execute function="AssertElementNotPresent#assertNotVisible" locator1="LCSServer#FIX_PACKS_INSTALLED_TABLE_NAME" />
+		<execute function="AssertElementNotPresent#assertNotVisible" locator1="LCSServerOverview#FIX_PACKS_INSTALLED_TABLE_NAME" />
 	</command>
 
 	<command name="waitForFixpacksToDisplay">

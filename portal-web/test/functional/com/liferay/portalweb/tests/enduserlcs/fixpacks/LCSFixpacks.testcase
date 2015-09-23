@@ -45,7 +45,7 @@
 			<var name="fixpackStatus" value="Available" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServer">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>
@@ -104,7 +104,7 @@
 			<var name="fixpackName" value="${fixpackName}" />
 		</execute>
 
-		<execute macro="LCSServerNavigator#gotoServer">
+		<execute macro="LCSServerNavigator#gotoServerOverview">
 			<var name="environmentName" value="Environment 1 Name" />
 			<var name="serverName" value="Environment 1 Server 1 Name" />
 		</execute>

@@ -18,7 +18,7 @@
 	</command>
 
 	<command name="viewAlertServer">
-		<execute function="AssertTextEquals" locator1="LCSServer#ALERTS_ALERT_1" value1="${alertMessage}" />
+		<execute function="AssertTextEquals" locator1="LCSServerOverview#ALERTS_ALERT_1" value1="${alertMessage}" />
 	</command>
 
 	<command name="viewNoAlertDashboard">
@@ -34,6 +34,6 @@
 	</command>
 
 	<command name="viewNoAlertServer">
-		<execute function="AssertElementNotPresent" locator1="LCSServer#ALERTS_ALERT_1" />
+		<execute function="AssertElementNotPresent" locator1="LCSServerOverview#ALERTS_ALERT_1" />
 	</command>
 </definition>
