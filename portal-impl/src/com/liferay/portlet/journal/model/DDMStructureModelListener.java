@@ -12,21 +12,16 @@
  * details.
  */
 
-package com.liferay.journal.model.listener;
+package com.liferay.portlet.journal.model;
 
-import com.liferay.dynamic.data.mapping.model.DDMStructure;
-import com.liferay.journal.service.JournalArticleLocalService;
 import com.liferay.portal.ModelListenerException;
 import com.liferay.portal.model.BaseModelListener;
-import com.liferay.portal.model.ModelListener;
-
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Reference;
+import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
+import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 
 /**
  * @author Jorge Díaz
  */
-@Component(immediate = true, service = ModelListener.class)
 public class DDMStructureModelListener extends BaseModelListener<DDMStructure> {
 
 	@Override
@@ -34,7 +29,7 @@ public class DDMStructureModelListener extends BaseModelListener<DDMStructure> {
 		throws ModelListenerException {
 
 		try {
-			_journalArticleLocalService.deleteArticles(
+			JournalArticleLocalServiceUtil.deleteArticles(
 				ddmStructure.getGroupId(), DDMStructure.class.getName(),
 				ddmStructure.getStructureId());
 		}
@@ -42,14 +37,5 @@ public class DDMStructureModelListener extends BaseModelListener<DDMStructure> {
 			throw new ModelListenerException(e);
 		}
 	}
-
-	@Reference
-	protected void setJournalArticleLocalService(
-		JournalArticleLocalService journalArticleLocalService) {
-
-		_journalArticleLocalService = journalArticleLocalService;
-	}
-
-	private JournalArticleLocalService _journalArticleLocalService;
 
 }

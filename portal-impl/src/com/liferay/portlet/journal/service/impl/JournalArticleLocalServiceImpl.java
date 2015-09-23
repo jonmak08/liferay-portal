@@ -1256,9 +1256,9 @@ public class JournalArticleLocalServiceImpl
 
 	@Override
 	public void deleteArticles(long groupId, String className, long classPK)
-		throws PortalException {
+		throws PortalException, SystemException {
 
-		long classNameId = classNameLocalService.getClassNameId(className);
+		long classNameId = PortalUtil.getClassNameId(className);
 
 		List<JournalArticle> articles = journalArticlePersistence.findByG_C_C(
 			groupId, classNameId, classPK);
