@@ -1601,13 +1601,6 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
-			<description>Marks the first day of the week. The default value is <![CDATA[<code>Calendar.SUNDAY - 2</code>]]>.</description>
-			<name>firstDayOfWeek</name>
-			<required>false</required>
-			<rtexprvalue>true</rtexprvalue>
-			<type>int</type>
-		</attribute>
-		<attribute>
 			<description><![CDATA[Sets the name of the component's form.]]></description>
 			<name>formName</name>
 			<required>false</required>
