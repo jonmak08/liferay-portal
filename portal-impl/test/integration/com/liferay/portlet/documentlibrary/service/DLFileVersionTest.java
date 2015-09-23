@@ -28,6 +28,7 @@ import com.liferay.portal.service.ServiceTestUtil;
 import com.liferay.portal.test.EnvironmentExecutionTestListener;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
 import com.liferay.portal.util.PortalUtil;
+import com.liferay.portal.util.RandomTestUtil;
 import com.liferay.portal.util.TestPropsValues;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryConstants;
@@ -37,13 +38,13 @@ import com.liferay.portlet.documentlibrary.model.DLFileVersion;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.storage.Field;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
+import com.liferay.portlet.dynamicdatamapping.util.DDMImpl;
 import com.liferay.portlet.expando.model.ExpandoColumnConstants;
 import com.liferay.portlet.expando.model.ExpandoTable;
 import com.liferay.portlet.expando.service.ExpandoColumnLocalServiceUtil;
 import com.liferay.portlet.expando.service.ExpandoTableLocalServiceUtil;
 
 import java.io.Serializable;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -264,12 +265,16 @@ public class DLFileVersionTest extends BaseDLAppTestCase {
 			Set<String> names = ddmStructure.getFieldNames();
 
 			for (String name : names) {
-				if (!ddmStructure.isFieldPrivate(name)) {
-					Field field = new Field(
-						ddmStructure.getStructureId(), name, StringPool.BLANK);
+				Field field = new Field(
+					ddmStructure.getStructureId(), name, StringPool.BLANK);
 
-					fields.put(field);
+				if (ddmStructure.isFieldPrivate(name)) {
+					field.setValue(
+						RandomTestUtil.randomString() +
+							DDMImpl.INSTANCE_SEPARATOR);
 				}
+
+				fields.put(field);
 			}
 
 			serviceContext.setAttribute(
