@@ -445,6 +445,17 @@ public class WebServerServlet extends HttpServlet {
 		long imageId = getImageId(request);
 
 		if (imageId > 0) {
+			JournalArticleImage journalArticleImage =
+				JournalArticleImageLocalServiceUtil.fetchJournalArticleImage(
+					imageId);
+
+			if (journalArticleImage != null) {
+				JournalArticlePermission.check(
+					PermissionThreadLocal.getPermissionChecker(),
+					journalArticleImage.getGroupId(),
+					journalArticleImage.getArticleId(), ActionKeys.VIEW);
+			}
+
 			image = ImageServiceUtil.getImage(imageId);
 
 			String path = GetterUtil.getString(request.getPathInfo());
@@ -581,19 +592,6 @@ public class WebServerServlet extends HttpServlet {
 				!imageIdToken.equals(DigesterUtil.digest(user.getUserUuid()))) {
 
 				return 0;
-			}
-		}
-
-		if (imageId > 0) {
-			JournalArticleImage journalArticleImage =
-				JournalArticleImageLocalServiceUtil.fetchJournalArticleImage(
-					imageId);
-
-			if (journalArticleImage != null) {
-				JournalArticlePermission.check(
-					PermissionThreadLocal.getPermissionChecker(),
-					journalArticleImage.getGroupId(),
-					journalArticleImage.getArticleId(), ActionKeys.VIEW);
 			}
 		}
 
