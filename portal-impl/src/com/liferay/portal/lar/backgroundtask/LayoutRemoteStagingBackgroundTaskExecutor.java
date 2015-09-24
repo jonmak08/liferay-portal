@@ -21,6 +21,8 @@ import com.liferay.portal.kernel.lar.ExportImportHelperUtil;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.lar.MissingReferences;
 import com.liferay.portal.kernel.lar.PortletDataHandlerKeys;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.staging.StagingUtil;
 import com.liferay.portal.kernel.util.DateRange;
 import com.liferay.portal.kernel.util.FileUtil;
@@ -149,17 +151,32 @@ public class LayoutRemoteStagingBackgroundTaskExecutor
 					sourceGroupId, privateLayout, dateRange, endDate);
 			}
 		}
+		catch (Exception e) {
+			if (PropsValues.STAGING_DELETE_TEMP_LAR_ON_FAILURE) {
+				FileUtil.delete(file);
+			}
+			else if ((file != null) && _log.isErrorEnabled()) {
+				_log.error("Kept temporary LAR file " + file.getAbsolutePath());
+			}
+
+			throw e;
+		}
 		finally {
 			ExportImportThreadLocal.setLayoutStagingInProcess(false);
 
 			StreamUtil.cleanUp(fileInputStream);
 
-			FileUtil.delete(file);
-
 			if (stagingRequestId > 0) {
 				StagingServiceHttp.cleanUpStagingRequest(
 					httpPrincipal, stagingRequestId);
 			}
+		}
+
+		if (PropsValues.STAGING_DELETE_TEMP_LAR_ON_SUCCESS) {
+			FileUtil.delete(file);
+		}
+		else if ((file != null) && _log.isDebugEnabled()) {
+			_log.debug("Kept temporary LAR file " + file.getAbsolutePath());
 		}
 
 		return processMissingReferences(backgroundTask, missingReferences);
@@ -255,5 +272,8 @@ public class LayoutRemoteStagingBackgroundTaskExecutor
 
 		return missingRemoteParentLayouts;
 	}
+
+	private static Log _log = LogFactoryUtil.getLog(
+		LayoutRemoteStagingBackgroundTaskExecutor.class);
 
 }
