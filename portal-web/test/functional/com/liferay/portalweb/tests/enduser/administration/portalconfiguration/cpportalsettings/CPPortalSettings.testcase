@@ -422,7 +422,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPagesCP">
-			<var name="childSiteName" value="${siteScopeName}" />
+			<var name="siteScopeName" value="${siteScopeName}" />
 			<var name="portletName" value="Site Pages" />
 		</execute>
 
