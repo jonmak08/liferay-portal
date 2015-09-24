@@ -230,12 +230,12 @@
 <!--SERVER-->
 <tr>
 	<td>SERVER_CURRENT_THREADS_BAR_CHART</td>
-	<td>//div[contains(@id,'currentThreadsChartContainer')]</td>
+	<td>xpath=(//div[@class='lcs-server-charts-container'])[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>SERVER_JDBC_CONNECTION_POOLS_BAR_CHART</td>
-	<td>//div[contains(@id,'jdbcChartContainer')]</td>
+	<td>xpath=(//div[@class='lcs-server-charts-container'])[2]</td>
 	<td></td>
 </tr>
 </tbody>
