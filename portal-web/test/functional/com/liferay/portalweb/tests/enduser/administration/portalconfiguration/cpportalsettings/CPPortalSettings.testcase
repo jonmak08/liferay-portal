@@ -422,8 +422,8 @@
 		</execute>
 
 		<execute macro="Page#gotoPagesCP">
-			<var name="siteScopeName" value="${siteScopeName}" />
 			<var name="portletName" value="Site Pages" />
+			<var name="siteScopeName" value="${siteScopeName}" />
 		</execute>
 
 		<execute macro="SitePage#addCP">
