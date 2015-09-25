@@ -61,15 +61,18 @@
 			<if>
 				<not>
 					<or>
+						<equals arg1="${browser.type}" arg2="android" />
+						<equals arg1="${browser.type}" arg2="androidchrome" />
+						<equals arg1="${browser.type}" arg2="firefox" />
 						<equals arg1="${browser.type}" arg2="chrome" />
 						<equals arg1="${browser.type}" arg2="edge" />
-						<equals arg1="${browser.type}" arg2="firefox" />
 						<equals arg1="${browser.type}" arg2="internetexplorer" />
+						<equals arg1="${browser.type}" arg2="iossafari" />
 						<equals arg1="${browser.type}" arg2="safari" />
 					</or>
 				</not>
 				<then>
-					<fail>Please set "browser.type" to one of the following:${line.separator}chrome, edge, firefox, internetexplorer, safari.</fail>
+					<fail>Please set "browser.type" to one of the following:${line.separator}android, androidchrome, chrome, edge, firefox, internetexplorer, iossafari, or safari.</fail>
 				</then>
 			</if>
 
@@ -600,7 +603,7 @@ counter.jdbc.prefix=jdbc.counter.]]></echo>
 
 	<macrodef name="get-test-url">
 		<sequential>
-			<get-testcase-property property.name="mobile.device.type" />
+			<get-testcase-property property.name="browser.type" />
 
 			<get-testcase-property property.name="testcase.url" />
 
@@ -610,7 +613,11 @@ counter.jdbc.prefix=jdbc.counter.]]></echo>
 					<var name="test.url" value="${test.url}" />
 				</then>
 				<elseif>
-					<isset property="mobile.device.type" />
+					<or>
+						<equals arg1="${browser.type}" arg2="android" />
+						<equals arg1="${browser.type}" arg2="androidchrome" />
+						<equals arg1="${browser.type}" arg2="iossafari" />
+					</or>
 					<then>
 						<get-ip-address />
 
@@ -1835,8 +1842,8 @@ org.apache.catalina.startup.ClassLoaderFactory.level=INFO]]>
 		<sequential>
 			<if>
 				<or>
-					<equals arg1="${mobile.device.type}" arg2="android" />
-					<equals arg1="${mobile.device.type}" arg2="androidchrome" />
+					<equals arg1="${browser.type}" arg2="android" />
+					<equals arg1="${browser.type}" arg2="androidchrome" />
 				</or>
 				<then>
 					<fail message="Please set the property ${mobile.android.home}." unless="mobile.android.home" />
@@ -1860,7 +1867,7 @@ org.apache.catalina.startup.ClassLoaderFactory.level=INFO]]>
 					</parallel>
 				</then>
 				<elseif>
-					<equals arg1="${mobile.device.type}" arg2="ios" />
+					<equals arg1="${browser.type}" arg2="iossafari" />
 					<then>
 						<parallel>
 							<daemons>
@@ -2658,7 +2665,7 @@ go]]></replacevalue>
 
 	<target name="clean-up-mobile-device">
 		<if>
-			<equals arg1="${mobile.device.type}" arg2="android" />
+			<equals arg1="${browser.type}" arg2="android" />
 			<then>
 				<stop-android-device />
 			</then>
@@ -2681,7 +2688,11 @@ go]]></replacevalue>
 		</if>
 
 		<if>
-			<isset property="mobile.device.type" />
+			<or>
+				<equals arg1="${browser.type}" arg2="android" />
+				<equals arg1="${browser.type}" arg2="androidchrome" />
+				<equals arg1="${browser.type}" arg2="iossafari" />
+			</or>
 			<then>
 				<stop-appium />
 			</then>
@@ -3699,7 +3710,7 @@ osb.lcs.portlet.oauth.consumer.secret=${osb.lcs.portlet.oauth.consumer.secret}</
 
 	<target name="prepare-mobile-device">
 		<if>
-			<equals arg1="${mobile.device.type}" arg2="android" />
+			<equals arg1="${browser.type}" arg2="android" />
 			<then>
 				<start-android-device />
 			</then>
@@ -3916,10 +3927,14 @@ javascript.fast.load=false</echo>
 			</then>
 		</if>
 
-		<get-testcase-property property.name="mobile.device.type" />
+		<get-testcase-property property.name="browser.type" />
 
 		<if>
-			<isset property="mobile.device.type" />
+			<or>
+				<equals arg1="${browser.type}" arg2="android" />
+				<equals arg1="${browser.type}" arg2="androidchrome" />
+				<equals arg1="${browser.type}" arg2="iossafari" />
+			</or>
 			<then>
 				<get-ip-address />
 
@@ -4804,7 +4819,11 @@ hot.deploy.dependency.management.enabled=false</echo>
 		</if>
 
 		<if>
-			<isset property="mobile.device.type" />
+			<or>
+				<equals arg1="${browser.type}" arg2="android" />
+				<equals arg1="${browser.type}" arg2="androidchrome" />
+				<equals arg1="${browser.type}" arg2="iossafari" />
+			</or>
 			<then>
 				<start-appium />
 			</then>
@@ -5076,7 +5095,7 @@ hot.deploy.dependency.management.enabled=false</echo>
 
 	<target name="prepare-selenium-mobile-properties">
 		<if>
-			<equals arg1="${mobile.device.type}" arg2="androidchrome" />
+			<equals arg1="${browser.type}" arg2="androidchrome" />
 			<then>
 				<exec executable="/bin/bash" outputproperty="mobile.device.name" os="${os.apple},${os.unix}">
 					<arg value="-c" />
@@ -5088,12 +5107,16 @@ hot.deploy.dependency.management.enabled=false</echo>
 		</if>
 
 		<if>
-			<isset property="mobile.device.type" />
+			<or>
+				<equals arg1="${browser.type}" arg2="android" />
+				<equals arg1="${browser.type}" arg2="androidchrome" />
+				<equals arg1="${browser.type}" arg2="iossafari" />
+			</or>
 			<then>
 				<echo append="true" file="${test.ext.properties.file}">
+					browser.type=${browser.type}
 					mobile.android.home=${mobile.android.home}
 					mobile.device.name=${mobile.device.name}
-					mobile.device.type=${mobile.device.type}
 				</echo>
 			</then>
 		</if>
@@ -5133,13 +5156,17 @@ hot.deploy.dependency.management.enabled=false</echo>
 			</then>
 		</if>
 
-		<get-testcase-property property.name="mobile.device.type" />
+		<get-testcase-property property.name="browser.type" />
 
 		<if>
-			<isset property="mobile.device.type" />
+			<or>
+				<equals arg1="${browser.type}" arg2="android" />
+				<equals arg1="${browser.type}" arg2="androidchrome" />
+				<equals arg1="${browser.type}" arg2="iossafari" />
+			</or>
 			<then>
 				<echo append="true" file="${test.ext.properties.file}">
-					mobile.device.type=${mobile.device.type}
+					browser.type=${browser.type}
 				</echo>
 			</then>
 		</if>
