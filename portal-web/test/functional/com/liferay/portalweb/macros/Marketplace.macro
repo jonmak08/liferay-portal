@@ -132,6 +132,8 @@
 		<var name="pageName4" value="Wiki Test Page" />
 		<var name="pageName5" value="Calendar Test Page" />
 		<var name="pageName6" value="Bookmarks Test Page" />
+		<var name="siteName" value="${siteName}" />
+		<var name="siteURL" value="${siteURL}" />
 		<var name="wikiChildPageContent1" value="Wiki Front Page Child Page Content 1" />
 		<var name="wikiChildPageContent2" value="Wiki Front Page Child Page Content 2" />
 		<var name="wikiChildPageContent3" value="Wiki Front Page Child Page Content 3" />
@@ -147,6 +149,8 @@
 			<var name="pageName" value="${pageName1}" />
 			<var name="pageTemplateName" value="${pageTemplateName}" />
 			<var name="pageType" value="${pageType}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -154,12 +158,16 @@
 			<var name="pageName" value="${pageName1}" />
 			<var name="portletName" value="Blogs" />
 			<var name="portletTypeKey" value="${portletTypeKey}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName1}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -175,6 +183,8 @@
 			<var name="entryInvalidTitleLength" value="${entryInvalidTitleLength}" />
 			<var name="entryTitle" value="${entryTitle1}" />
 			<var name="entryValidTitleLength" value="${entryValidTitleLength}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="tagName" value="${tagName}" />
 			<var name="vocabularyName" value="${vocabularyName}" />
 		</execute>
@@ -184,12 +194,16 @@
 			<var name="entryAuthorLastName" value="${entryAuthorLastName}" />
 			<var name="entryContent" value="${entryContent1}" />
 			<var name="entryTitle" value="${entryTitle1}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName1}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -197,6 +211,8 @@
 		<execute macro="BlogsEntryComment#addPG">
 			<var name="entryComment" value="${entryComment1}" />
 			<var name="entryTitle" value="${entryTitle1}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="userEmailAddress" value="${userEmailAddress}" />
 			<var name="userFirstName" value="${userFirstName}" />
 		</execute>
@@ -205,6 +221,8 @@
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName1}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -220,6 +238,8 @@
 			<var name="entryInvalidTitleLength" value="${entryInvalidTitleLength}" />
 			<var name="entryTitle" value="${entryTitle2}" />
 			<var name="entryValidTitleLength" value="${entryValidTitleLength}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="tagName" value="${tagName}" />
 			<var name="vocabularyName" value="${vocabularyName}" />
 		</execute>
@@ -229,12 +249,16 @@
 			<var name="entryAuthorLastName" value="${entryAuthorLastName}" />
 			<var name="entryContent" value="${entryContent2}" />
 			<var name="entryTitle" value="${entryTitle2}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName1}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -242,6 +266,8 @@
 		<execute macro="BlogsEntryComment#addPG">
 			<var name="entryComment" value="${entryComment2}" />
 			<var name="entryTitle" value="${entryTitle2}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="userEmailAddress" value="${userEmailAddress}" />
 			<var name="userFirstName" value="${userFirstName}" />
 		</execute>
@@ -250,6 +276,8 @@
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName1}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -265,6 +293,8 @@
 			<var name="entryInvalidTitleLength" value="${entryInvalidTitleLength}" />
 			<var name="entryTitle" value="${entryTitle3}" />
 			<var name="entryValidTitleLength" value="${entryValidTitleLength}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="tagName" value="${tagName}" />
 			<var name="vocabularyName" value="${vocabularyName}" />
 		</execute>
@@ -274,12 +304,16 @@
 			<var name="entryAuthorLastName" value="${entryAuthorLastName}" />
 			<var name="entryContent" value="${entryContent3}" />
 			<var name="entryTitle" value="${entryTitle3}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName1}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -287,6 +321,8 @@
 		<execute macro="BlogsEntryComment#addPG">
 			<var name="entryComment" value="${entryComment3}" />
 			<var name="entryTitle" value="${entryTitle3}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="userEmailAddress" value="${userEmailAddress}" />
 			<var name="userFirstName" value="${userFirstName}" />
 		</execute>
@@ -297,6 +333,8 @@
 			<var name="pageName" value="${pageName2}" />
 			<var name="pageTemplateName" value="${pageTemplateName}" />
 			<var name="pageType" value="${pageType}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -304,12 +342,16 @@
 			<var name="pageName" value="${pageName2}" />
 			<var name="portletName" value="Documents and Media" />
 			<var name="portletTypeKey" value="${portletTypeKey}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName2}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -322,6 +364,8 @@
 			<var name="dmDocumentSize" value="${dmDocumentSize1}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle1}" />
 			<var name="dmDocumentTypeName" value="${dmDocumentTypeName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="stagingActivated" value="${stagingActivated}" />
 			<var name="tagName" value="${tagName}" />
 			<var name="tagNameList" value="${tagNameList}" />
@@ -331,6 +375,8 @@
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName2}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -339,11 +385,15 @@
 			<var name="dmFolder" value="${dmFolder}" />
 			<var name="dmFolderDescription" value="${dmFolderDescription}" />
 			<var name="dmFolderName" value="${dmFolderName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="viewableBy" value="${viewableBy}" />
 		</execute>
 
 		<execute macro="DMFolder#gotoPG">
 			<var name="dmFolderName" value="${dmFolderName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="DMDocument#addPG">
@@ -353,6 +403,8 @@
 			<var name="dmDocumentFile" value="${dmDocumentFile2}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle2}" />
 			<var name="dmDocumentTypeName" value="${dmDocumentTypeName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="stagingActivated" value="${stagingActivated}" />
 			<var name="tagName" value="${tagName}" />
 			<var name="tagNameList" value="${tagNameList}" />
@@ -362,6 +414,8 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="dmDocumentDescription" value="${dmDocumentDescription2}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle2}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="tagName" value="${tagName}" />
 			<var name="tagNameList" value="${tagNameList}" />
 		</execute>
@@ -370,12 +424,16 @@
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName2}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="DMFolder#gotoPG">
 			<var name="dmFolderName" value="${dmFolderName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="DMDocument#addPG">
@@ -385,6 +443,8 @@
 			<var name="dmDocumentFile" value="${dmDocumentFile3}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle3}" />
 			<var name="dmDocumentTypeName" value="${dmDocumentTypeName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="stagingActivated" value="${stagingActivated}" />
 			<var name="tagName" value="${tagName}" />
 			<var name="tagNameList" value="${tagNameList}" />
@@ -394,6 +454,8 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="dmDocumentDescription" value="${dmDocumentDescription3}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle3}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="tagName" value="${tagName}" />
 			<var name="tagNameList" value="${tagNameList}" />
 		</execute>
@@ -402,12 +464,16 @@
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName2}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="DMFolder#gotoPG">
 			<var name="dmFolderName" value="${dmFolderName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="DMDocument#addPG">
@@ -417,6 +483,8 @@
 			<var name="dmDocumentFile" value="${dmDocumentFile4}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle4}" />
 			<var name="dmDocumentTypeName" value="${dmDocumentTypeName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="stagingActivated" value="${stagingActivated}" />
 			<var name="tagName" value="${tagName}" />
 			<var name="tagNameList" value="${tagNameList}" />
@@ -426,6 +494,8 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="dmDocumentDescription" value="${dmDocumentDescription4}" />
 			<var name="dmDocumentTitle" value="${dmDocumentTitle4}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="tagName" value="${tagName}" />
 			<var name="tagNameList" value="${tagNameList}" />
 		</execute>
@@ -436,6 +506,8 @@
 			<var name="pageName" value="${pageName3}" />
 			<var name="pageTemplateName" value="${pageTemplateName}" />
 			<var name="pageType" value="${pageType}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -443,12 +515,16 @@
 			<var name="pageName" value="${pageName3}" />
 			<var name="portletName" value="Message Boards" />
 			<var name="portletTypeKey" value="${portletTypeKey}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName3}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -457,17 +533,23 @@
 			<var name="categoryDescription" value="${categoryDescription}" />
 			<var name="categoryName" value="${mbCategoryName}" />
 			<var name="displayStyle" value="${displayStyle}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="MessageboardsCategory#viewPG">
 			<var name="categoryDescription" value="${categoryDescription}" />
 			<var name="categoryName" value="${mbCategoryName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName3}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -476,6 +558,8 @@
 			<var name="categoryDescription" value="${categoryDescription}" />
 			<var name="categoryDescriptionEnabled" value="${categoryDescriptionEnabled}" />
 			<var name="categoryName" value="${mbCategoryName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="subCategoryEnabled" value="${subCategoryEnabled}" />
 			<var name="subCategoryName" value="${subCategoryName}" />
 		</execute>
@@ -489,6 +573,8 @@
 			<var name="preview" value="${preview}" />
 			<var name="priority" value="${priority}" />
 			<var name="saveAsDraft" value="${saveAsDraft}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="source" value="${source}" />
 			<var name="threadAddTag" value="${threadAddTag}" />
 			<var name="threadBody" value="${mbThreadBody}" />
@@ -503,6 +589,8 @@
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName3}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -511,6 +599,8 @@
 			<var name="categoryDescription" value="${categoryDescription}" />
 			<var name="categoryDescriptionEnabled" value="${categoryDescriptionEnabled}" />
 			<var name="categoryName" value="${mbCategoryName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="subCategoryEnabled" value="${subCategoryEnabled}" />
 			<var name="subCategoryName" value="${subCategoryName}" />
 		</execute>
@@ -519,6 +609,8 @@
 			<var name="fontSize" value="${fontSize}" />
 			<var name="markAsQuestion" value="false" />
 			<var name="postCount" value="1" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="threadBody" value="${mbThreadBody}" />
 			<var name="threadBody2" value="${threadBody2}" />
 			<var name="threadSubject" value="${mbThreadSubject}" />
@@ -533,6 +625,8 @@
 			<var name="pageName" value="${pageName4}" />
 			<var name="pageTemplateName" value="${pageTemplateName}" />
 			<var name="pageType" value="${pageType}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -540,12 +634,16 @@
 			<var name="pageName" value="${pageName4}" />
 			<var name="portletName" value="Wiki" />
 			<var name="portletTypeKey" value="${portletTypeKey}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="WikiPage#addFrontPagePG">
 			<var name="creoleSource" value="${creoleSource}" />
 			<var name="htmlSource" value="${htmlSource}" />
 			<var name="pageAddTag" value="${pageAddTag}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="tagName" value="${tagName}" />
 			<var name="wikiNodeName" value="${wikiNodeName}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
@@ -556,11 +654,15 @@
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName4}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="WikiPage#addChildPagePG">
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="wikiChildPageContent" value="${wikiChildPageContent1}" />
 			<var name="wikiChildPageTitle" value="${wikiChildPageTitle1}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
@@ -571,11 +673,15 @@
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName4}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="WikiPage#addChildPagePG">
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="wikiChildPageContent" value="${wikiChildPageContent2}" />
 			<var name="wikiChildPageTitle" value="${wikiChildPageTitle2}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
@@ -586,11 +692,15 @@
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName4}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="WikiPage#addChildPagePG">
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="wikiChildPageContent" value="${wikiChildPageContent3}" />
 			<var name="wikiChildPageTitle" value="${wikiChildPageTitle3}" />
 			<var name="wikiPageContent" value="${wikiPageContent}" />
@@ -603,6 +713,8 @@
 			<var name="pageName" value="${pageName5}" />
 			<var name="pageTemplateName" value="${pageTemplateName}" />
 			<var name="pageType" value="${pageType}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -610,12 +722,16 @@
 			<var name="pageName" value="${pageName5}" />
 			<var name="portletName" value="Calendar" />
 			<var name="portletTypeKey" value="${portletTypeKey}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName5}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -634,6 +750,8 @@
 			<var name="pageName" value="${pageName5}" />
 			<var name="reminders" value="${reminders}" />
 			<var name="rsvp" value="${rsvp}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="startDate" value="${startDate}" />
 			<var name="startDateTime" value="${startDateTime}" />
 			<var name="user" value="${user}" />
@@ -643,18 +761,24 @@
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName5}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="CalendarEvent#view">
 			<var name="eventTitle" value="${eventTitle1}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName5}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -673,6 +797,8 @@
 			<var name="pageName" value="${pageName5}" />
 			<var name="reminders" value="${reminders}" />
 			<var name="rsvp" value="${rsvp}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="startDate" value="${startDate}" />
 			<var name="startDateTime" value="${startDateTime}" />
 			<var name="user" value="${user}" />
@@ -682,18 +808,24 @@
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName5}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="CalendarEvent#view">
 			<var name="eventTitle" value="${eventTitle2}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName5}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -712,6 +844,8 @@
 			<var name="pageName" value="${pageName5}" />
 			<var name="reminders" value="${reminders}" />
 			<var name="rsvp" value="${rsvp}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="startDate" value="${startDate}" />
 			<var name="startDateTime" value="${startDateTime}" />
 			<var name="user" value="${user}" />
@@ -721,12 +855,16 @@
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName5}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="CalendarEvent#view">
 			<var name="eventTitle" value="${eventTitle3}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#addPG">
@@ -735,6 +873,8 @@
 			<var name="pageName" value="${pageName6}" />
 			<var name="pageTemplateName" value="${pageTemplateName}" />
 			<var name="pageType" value="${pageType}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -742,12 +882,16 @@
 			<var name="pageName" value="${pageName6}" />
 			<var name="portletName" value="Bookmarks" />
 			<var name="portletTypeKey" value="${portletTypeKey}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName6}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -755,111 +899,149 @@
 		<execute macro="BookmarksFolder#addPG">
 			<var name="folderDescription" value="${bookmarkFolderDescription}" />
 			<var name="folderName" value="${bookmarkFolderName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName6}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BookmarksFolder#gotoPG">
 			<var name="folderName" value="${bookmarkFolderName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Bookmark#addPG">
 			<var name="bookmarkDescription" value="${bookmarkDescription1}" />
 			<var name="bookmarkName" value="${bookmarkName1}" />
 			<var name="bookmarkURL" value="${bookmarkURL1}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName6}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BookmarksFolder#gotoPG">
 			<var name="folderName" value="${bookmarkFolderName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Bookmark#viewPG">
 			<var name="bookmarkName" value="${bookmarkName1}" />
 			<var name="bookmarkURL" value="${bookmarkURL1}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName6}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BookmarksFolder#gotoPG">
 			<var name="folderName" value="${bookmarkFolderName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Bookmark#addPG">
 			<var name="bookmarkDescription" value="${bookmarkDescription2}" />
 			<var name="bookmarkName" value="${bookmarkName2}" />
 			<var name="bookmarkURL" value="${bookmarkURL2}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName6}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BookmarksFolder#gotoPG">
 			<var name="folderName" value="${bookmarkFolderName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Bookmark#viewPG">
 			<var name="bookmarkName" value="${bookmarkName2}" />
 			<var name="bookmarkURL" value="${bookmarkURL2}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName6}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BookmarksFolder#gotoPG">
 			<var name="folderName" value="${bookmarkFolderName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Bookmark#addPG">
 			<var name="bookmarkDescription" value="${bookmarkDescription3}" />
 			<var name="bookmarkName" value="${bookmarkName3}" />
 			<var name="bookmarkURL" value="${bookmarkURL3}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName6}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BookmarksFolder#gotoPG">
 			<var name="folderName" value="${bookmarkFolderName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 
 		<execute macro="Bookmark#viewPG">
 			<var name="bookmarkName" value="${bookmarkName3}" />
 			<var name="bookmarkURL" value="${bookmarkURL3}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 		</execute>
 	</command>
 </definition>

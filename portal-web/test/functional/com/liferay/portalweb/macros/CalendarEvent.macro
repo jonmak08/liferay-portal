@@ -210,6 +210,9 @@
 						<var name="defaultURL" value="${defaultURL}" />
 						<var name="nodePort" value="${nodePort}" />
 						<var name="pageName" value="${pageName}" />
+						<var name="pageStaging" value="${pageStaging}" />
+						<var name="siteName" value="${siteName}" />
+						<var name="siteURL" value="${siteURL}" />
 						<var name="soDashboard" value="${soDashboard}" />
 						<var name="soPage" value="${soPage}" />
 					</execute>
@@ -280,6 +283,9 @@
 						<var name="defaultURL" value="${defaultURL}" />
 						<var name="nodePort" value="${nodePort}" />
 						<var name="pageName" value="${pageName}" />
+						<var name="pageStaging" value="${pageStaging}" />
+						<var name="siteName" value="${siteName}" />
+						<var name="siteURL" value="${siteURL}" />
 						<var name="soDashboard" value="${soDashboard}" />
 						<var name="soPage" value="${soPage}" />
 					</execute>
@@ -473,6 +479,9 @@
 					<var name="defaultURL" value="${defaultURL}" />
 					<var name="nodePort" value="${nodePort}" />
 					<var name="pageName" value="${pageName}" />
+					<var name="pageStaging" value="${pageStaging}" />
+					<var name="siteName" value="${siteName}" />
+					<var name="siteURL" value="${siteURL}" />
 					<var name="soDashboard" value="${soDashboard}" />
 					<var name="soPage" value="${soPage}" />
 				</execute>
@@ -519,6 +528,9 @@
 						<var name="defaultURL" value="${defaultURL}" />
 						<var name="nodePort" value="${nodePort}" />
 						<var name="pageName" value="${pageName}" />
+						<var name="pageStaging" value="${pageStaging}" />
+						<var name="siteName" value="${siteName}" />
+						<var name="siteURL" value="${siteURL}" />
 						<var name="soDashboard" value="${soDashboard}" />
 						<var name="soPage" value="${soPage}" />
 					</execute>
@@ -930,6 +942,9 @@
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName}" />
+			<var name="pageStaging" value="${pageStaging}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
@@ -1032,6 +1047,9 @@
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="pageName" value="${pageName}" />
+			<var name="pageStaging" value="${pageStaging}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="siteURL" value="${siteURL}" />
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
