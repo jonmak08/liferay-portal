@@ -235,7 +235,7 @@
 </tr>
 <tr>
 	<td>FIX_PACKS_INSTALLED_TABLE_NAME</td>
-	<td>//div[@class='lcs-fix-packs-container']//tr[contains(.,'${key_fixpackName}')]</td>
+	<td>//div[contains(@class,'lcs-fix-packs-container')]//div[contains(@id,'TabsSection')][2]//tr[contains(.,'${key_fixpackName}')]</td>
 	<td></td>
 </tr>
 <tr>

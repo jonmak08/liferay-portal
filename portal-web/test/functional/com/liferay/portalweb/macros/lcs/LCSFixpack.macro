@@ -11,7 +11,6 @@
 		<execute function="Confirm" value1="Are you sure you want to download the selected fix packs?" />
 
 		<execute function="AssertTextEquals" locator1="LCSServer#ALERT_SUCCESS" value1="Completed all downloads." />
-		<execute function="AssertTextEquals" locator1="LCSServerOverview#ALERTS_ALERT_1" value1="Completed download for ${fixpackName}. Please restart the server." />
 	</command>
 
 	<command name="viewFixpackCountAfterPatchInstallation">
@@ -96,7 +95,11 @@
 
 		<var name="key_fixpackName" value="${fixpackName}" />
 
-		<execute function="AssertElementNotPresent#assertNotVisible" locator1="LCSServerOverview#FIX_PACKS_INSTALLED_TABLE_NAME" />
+		<execute function="AssertElementNotPresent" locator1="LCSServerOverview#FIX_PACKS_INSTALLED_TABLE_NAME" />
+	</command>
+
+	<command name="viewFixpackSuccessMessage">
+		<execute function="AssertTextEquals" locator1="LCSServer#ALERT_SUCCESS" value1="${fixpackSuccessMessage}" />
 	</command>
 
 	<command name="waitForFixpacksToDisplay">

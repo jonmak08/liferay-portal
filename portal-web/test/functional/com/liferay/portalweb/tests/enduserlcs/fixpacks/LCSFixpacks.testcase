@@ -113,6 +113,10 @@
 			<var name="fixpackName" value="${fixpackName}" />
 		</execute>
 
+		<execute macro="LCSFixpack#viewFixpackSuccessMessage">
+			<var name="fixpackSuccessMessage" value="The server has the latest fix packs." />
+		</execute>
+
 		<execute macro="LCSFixpack#viewFixpackViaServerInstalled">
 			<var name="fixpackName" value="${fixpackName}" />
 		</execute>
