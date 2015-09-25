@@ -736,6 +736,8 @@
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
+		<execute macro="CalendarNavigator#gotoAddEvent" />
+
 		<execute macro="CalendarEvent#add">
 			<var name="addRSVPEnabled" value="${addRSVPEnabled}" />
 			<var name="calendarName" value="${calendarName}" />
@@ -783,6 +785,8 @@
 			<var name="soPage" value="${soPage}" />
 		</execute>
 
+		<execute macro="CalendarNavigator#gotoAddEvent" />
+
 		<execute macro="CalendarEvent#add">
 			<var name="addRSVPEnabled" value="${addRSVPEnabled}" />
 			<var name="calendarName" value="${calendarName}" />
@@ -829,6 +833,8 @@
 			<var name="soDashboard" value="${soDashboard}" />
 			<var name="soPage" value="${soPage}" />
 		</execute>
+
+		<execute macro="CalendarNavigator#gotoAddEvent" />
 
 		<execute macro="CalendarEvent#add">
 			<var name="addRSVPEnabled" value="${addRSVPEnabled}" />
