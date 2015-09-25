@@ -1278,34 +1278,6 @@
 	</command>
 
 	<command name="tearDown">
-		<if>
-			<equals arg1="${marketplace}" arg2="true" />
-			<then>
-				<execute macro="Page#addPG">
-					<var name="defaultURL" value="${defaultURL}" />
-					<var name="nodePort" value="${nodePort}" />
-					<var name="pageName" value="Marketplace Calendar Testing" />
-					<var name="pageTemplateName" value="${pageTemplateName}" />
-					<var name="pageType" value="${pageType}" />
-				</execute>
-
-				<execute macro="Portlet#addPG">
-					<var name="i" value="${i}" />
-					<var name="pageName" value="Marketplace Calendar Testing" />
-					<var name="portletName" value="Calendar" />
-					<var name="portletTypeKey" value="${portletTypeKey}" />
-				</execute>
-
-				<execute macro="Page#gotoPG">
-					<var name="defaultURL" value="${defaultURL}" />
-					<var name="nodePort" value="${nodePort}" />
-					<var name="pageName" value="Marketplace Calendar Testing" />
-					<var name="soDashboard" value="${soDashboard}" />
-					<var name="soPage" value="${soPage}" />
-				</execute>
-			</then>
-		</if>
-
 		<execute macro="CalendarEvent#delete" />
 	</command>
 
