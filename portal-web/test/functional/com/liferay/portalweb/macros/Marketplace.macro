@@ -168,8 +168,6 @@
 			<var name="pageName" value="${pageName1}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BlogsEntry#addPG">
@@ -204,8 +202,6 @@
 			<var name="pageName" value="${pageName1}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BlogsEntryComment#addPG">
@@ -223,8 +219,6 @@
 			<var name="pageName" value="${pageName1}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BlogsEntry#addPG">
@@ -259,8 +253,6 @@
 			<var name="pageName" value="${pageName1}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BlogsEntryComment#addPG">
@@ -278,8 +270,6 @@
 			<var name="pageName" value="${pageName1}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BlogsEntry#addPG">
@@ -314,8 +304,6 @@
 			<var name="pageName" value="${pageName1}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BlogsEntryComment#addPG">
@@ -352,8 +340,6 @@
 			<var name="pageName" value="${pageName2}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="DMDocument#addPG">
@@ -377,8 +363,6 @@
 			<var name="pageName" value="${pageName2}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="DMFolder#addPG">
@@ -426,8 +410,6 @@
 			<var name="pageName" value="${pageName2}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="DMFolder#gotoPG">
@@ -466,8 +448,6 @@
 			<var name="pageName" value="${pageName2}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="DMFolder#gotoPG">
@@ -525,8 +505,6 @@
 			<var name="pageName" value="${pageName3}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="MessageboardsCategory#addPG">
@@ -550,8 +528,6 @@
 			<var name="pageName" value="${pageName3}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="MessageboardsCategory#gotoPG">
@@ -591,8 +567,6 @@
 			<var name="pageName" value="${pageName3}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="MessageboardsCategory#gotoPG">
@@ -656,8 +630,6 @@
 			<var name="pageName" value="${pageName4}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="WikiPage#addChildPagePG">
@@ -675,8 +647,6 @@
 			<var name="pageName" value="${pageName4}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="WikiPage#addChildPagePG">
@@ -694,8 +664,6 @@
 			<var name="pageName" value="${pageName4}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="WikiPage#addChildPagePG">
@@ -732,8 +700,6 @@
 			<var name="pageName" value="${pageName5}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="CalendarNavigator#gotoAddEvent" />
@@ -765,8 +731,6 @@
 			<var name="pageName" value="${pageName5}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="CalendarEvent#view">
@@ -781,8 +745,6 @@
 			<var name="pageName" value="${pageName5}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="CalendarNavigator#gotoAddEvent" />
@@ -814,8 +776,6 @@
 			<var name="pageName" value="${pageName5}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="CalendarEvent#view">
@@ -830,8 +790,6 @@
 			<var name="pageName" value="${pageName5}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="CalendarNavigator#gotoAddEvent" />
@@ -863,8 +821,6 @@
 			<var name="pageName" value="${pageName5}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="CalendarEvent#view">
@@ -898,8 +854,6 @@
 			<var name="pageName" value="${pageName6}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BookmarksFolder#addPG">
@@ -915,8 +869,6 @@
 			<var name="pageName" value="${pageName6}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BookmarksFolder#gotoPG">
@@ -939,8 +891,6 @@
 			<var name="pageName" value="${pageName6}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BookmarksFolder#gotoPG">
@@ -962,8 +912,6 @@
 			<var name="pageName" value="${pageName6}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BookmarksFolder#gotoPG">
@@ -986,8 +934,6 @@
 			<var name="pageName" value="${pageName6}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BookmarksFolder#gotoPG">
@@ -1009,8 +955,6 @@
 			<var name="pageName" value="${pageName6}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BookmarksFolder#gotoPG">
@@ -1033,8 +977,6 @@
 			<var name="pageName" value="${pageName6}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
-			<var name="soDashboard" value="${soDashboard}" />
-			<var name="soPage" value="${soPage}" />
 		</execute>
 
 		<execute macro="BookmarksFolder#gotoPG">
