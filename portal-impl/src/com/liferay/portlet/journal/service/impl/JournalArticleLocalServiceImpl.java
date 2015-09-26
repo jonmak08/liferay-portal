@@ -7024,7 +7024,8 @@ public class JournalArticleLocalServiceImpl
 					JournalArticleConstants.CLASSNAME_ID_DEFAULT)) {
 
 				throw new StorageFieldRequiredException(
-						"Required field value is not present for " + locale);
+						"Required field value is not present for " +
+						defaultLocale);
 			}
 		}
 	}
