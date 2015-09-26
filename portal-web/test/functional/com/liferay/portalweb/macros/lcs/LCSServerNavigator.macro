@@ -17,15 +17,6 @@
 		<execute function="AssertClick#assertPartialTextClickAt" locator1="LCSPortalNavigation#NAVIGATION_MENU_SERVER" value1="${serverName}" />
 	</command>
 
-	<command name="gotoServerOverview">
-		<execute macro="LCSServerNavigator#gotoServer">
-			<var name="environmentName" value="${environmentName}" />
-			<var name="serverName" value="${serverName}" />
-		</execute>
-
-		<execute function="AssertClick" locator1="LCSServer#TOOLBAR_OVERVIEW_BUTTON" value1="Overview" />
-	</command>
-
 	<command name="gotoServerMetrics">
 		<execute macro="LCSServerNavigator#gotoServer">
 			<var name="environmentName" value="${environmentName}" />
@@ -51,6 +42,15 @@
 				</execute>
 			</then>
 		</if>
+	</command>
+
+	<command name="gotoServerOverview">
+		<execute macro="LCSServerNavigator#gotoServer">
+			<var name="environmentName" value="${environmentName}" />
+			<var name="serverName" value="${serverName}" />
+		</execute>
+
+		<execute function="AssertClick" locator1="LCSServer#TOOLBAR_OVERVIEW_BUTTON" value1="Overview" />
 	</command>
 
 	<command name="gotoServerProperties">

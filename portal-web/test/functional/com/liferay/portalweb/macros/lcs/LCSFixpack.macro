@@ -29,6 +29,10 @@
 		</if>
 	</command>
 
+	<command name="viewFixpackSuccessMessage">
+		<execute function="AssertTextEquals" locator1="LCSServer#ALERT_SUCCESS" value1="${fixpackSuccessMessage}" />
+	</command>
+
 	<command name="viewFixpackViaDashboard">
 		<var name="key_fixpackName" value="${fixpackName}" />
 
@@ -96,10 +100,6 @@
 		<var name="key_fixpackName" value="${fixpackName}" />
 
 		<execute function="AssertElementNotPresent" locator1="LCSServerOverview#FIX_PACKS_INSTALLED_TABLE_NAME" />
-	</command>
-
-	<command name="viewFixpackSuccessMessage">
-		<execute function="AssertTextEquals" locator1="LCSServer#ALERT_SUCCESS" value1="${fixpackSuccessMessage}" />
 	</command>
 
 	<command name="waitForFixpacksToDisplay">
