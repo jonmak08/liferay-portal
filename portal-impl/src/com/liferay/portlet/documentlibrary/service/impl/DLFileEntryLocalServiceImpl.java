@@ -2795,7 +2795,8 @@ public class DLFileEntryLocalServiceImpl
 		DLFileEntryLocalServiceImpl.class);
 
 	@BeanReference(
-		name = "com.liferay.portlet.documentlibrary.store.IgnoreDuplicatesDLStore"
+		name =
+			"com.liferay.portlet.documentlibrary.store.IgnoreDuplicatesDLStore"
 	)
 	private DLStore _dlStore;
 

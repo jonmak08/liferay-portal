@@ -244,8 +244,7 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 	}
 
 	private static void recoverAndRetryOnFailure(
-			StoreAction recoverStoreAction,
-			StoreAction storeAction)
+			StoreAction recoverStoreAction, StoreAction storeAction)
 		throws PortalException, SystemException {
 
 		try {
