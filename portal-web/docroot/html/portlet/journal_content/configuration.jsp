@@ -198,7 +198,7 @@ catch (NoSuchArticleException nsae) {
 	searchTerms.setFolderIds(new ArrayList<Long>());
 	searchTerms.setVersion(-1);
 
-	boolean includeScheduledArticles = true;
+	boolean showNonindexable = true;
 
 	String searchGroupDescriptiveName = StringPool.BLANK;
 
