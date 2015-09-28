@@ -305,50 +305,26 @@ public class JournalArticleIndexer extends BaseIndexer {
 		LinkedHashMap<String, Object> params =
 			(LinkedHashMap<String, Object>)searchContext.getAttribute("params");
 
-		boolean includeScheduledArticles = false;
+		boolean showNonindexable = false;
 
 		if (params != null) {
-			includeScheduledArticles = GetterUtil.getBoolean(
-				params.get("includeScheduledArticles"));
+			showNonindexable = GetterUtil.getBoolean(
+				params.get("showNonindexable"));
 		}
 
-		if (includeScheduledArticles) {
-			BooleanQuery statusQuery = BooleanQueryFactoryUtil.create(
-				searchContext);
+		super.addStatus(contextQuery, searchContext);
 
-			BooleanQuery statusHeadQuery = BooleanQueryFactoryUtil.create(
-				searchContext);
+		boolean head = GetterUtil.getBoolean(
+			searchContext.getAttribute("head"), Boolean.TRUE);
+		boolean relatedClassName = GetterUtil.getBoolean(
+			searchContext.getAttribute("relatedClassName"));
 
-			statusHeadQuery.addRequiredTerm("head", Boolean.TRUE);
-			statusHeadQuery.addRequiredTerm(
-				Field.STATUS, WorkflowConstants.STATUS_APPROVED);
-
-			statusQuery.add(statusHeadQuery, BooleanClauseOccur.SHOULD);
-
-			BooleanQuery statusScheduledHeadQuery =
-				BooleanQueryFactoryUtil.create(searchContext);
-
-			statusScheduledHeadQuery.addRequiredTerm(
-				"scheduledHead", Boolean.TRUE);
-			statusScheduledHeadQuery.addRequiredTerm(
-				Field.STATUS, WorkflowConstants.STATUS_SCHEDULED);
-
-			statusQuery.add(
-				statusScheduledHeadQuery, BooleanClauseOccur.SHOULD);
-
-			contextQuery.add(statusQuery, BooleanClauseOccur.MUST);
+		if (head && !relatedClassName && !showNonindexable) {
+			contextQuery.addRequiredTerm("head", Boolean.TRUE);
 		}
-		else {
-			super.addStatus(contextQuery, searchContext);
 
-			boolean head = GetterUtil.getBoolean(
-				searchContext.getAttribute("head"), Boolean.TRUE);
-			boolean relatedClassName = GetterUtil.getBoolean(
-				searchContext.getAttribute("relatedClassName"));
-
-			if (head && !relatedClassName) {
-				contextQuery.addRequiredTerm("head", Boolean.TRUE);
-			}
+		if (!relatedClassName && showNonindexable) {
+			contextQuery.addRequiredTerm("headListable", Boolean.TRUE);
 		}
 	}
 
