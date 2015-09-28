@@ -4280,14 +4280,14 @@ hot.deploy.dependency.management.enabled=false</echo>
 		<if>
 			<and>
 				<isset property="test.batch.max.group.size" />
-				<isset property="test.batch.property.name" />
-				<isset property="test.batch.property.value" />
+				<isset property="test.batch.property.names" />
+				<isset property="test.batch.property.values" />
 			</and>
 			<then>
 				<echo append="true" file="${test.ext.properties.file}">
 					test.batch.max.group.size=${test.batch.max.group.size}
-					test.batch.property.name=${test.batch.property.name}
-					test.batch.property.value=${test.batch.property.value}
+					test.batch.property.names=${test.batch.property.names}
+					test.batch.property.values=${test.batch.property.values}
 				</echo>
 			</then>
 		</if>
