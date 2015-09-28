@@ -2563,6 +2563,8 @@ public interface PropsKeys {
 
 	public static final String UPLOAD_SERVLET_REQUEST_IMPL_TEMP_DIR = "com.liferay.portal.upload.UploadServletRequestImpl.temp.dir";
 
+	public static final String USE_SUBJECT_ALTERNATIVE_NAME = "use.subject.alternative.name";
+
 	public static final String USER_GROUPS_COPY_LAYOUTS_TO_USER_PERSONAL_SITE = "user.groups.copy.layouts.to.user.personal.site";
 
 	public static final String USER_GROUPS_INDEXER_ENABLED = "user.groups.indexer.enabled";
