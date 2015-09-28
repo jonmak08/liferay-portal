@@ -7024,8 +7024,7 @@ public class JournalArticleLocalServiceImpl
 					JournalArticleConstants.CLASSNAME_ID_DEFAULT)) {
 
 				throw new StorageFieldRequiredException(
-						"Required field value is not present for " +
-						defaultLocale);
+					"Required field value is not present for " + defaultLocale);
 			}
 		}
 	}
@@ -7039,7 +7038,7 @@ public class JournalArticleLocalServiceImpl
 			ddmStructure.getStructureId(), serviceContext);
 
 		validateDDMStructureFields(
-				ddmStructure, classNameId, fields, defaultLocale);
+			ddmStructure, classNameId, fields, defaultLocale);
 	}
 
 	protected void validateDDMStructureFields(
@@ -7050,7 +7049,7 @@ public class JournalArticleLocalServiceImpl
 		Fields fields = DDMXMLUtil.getFields(ddmStructure, content);
 
 		validateDDMStructureFields(
-				ddmStructure, classNameId, fields, defaultLocale);
+			ddmStructure, classNameId, fields, defaultLocale);
 	}
 
 	private static final long _JOURNAL_ARTICLE_CHECK_INTERVAL =
