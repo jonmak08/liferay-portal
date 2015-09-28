@@ -683,9 +683,8 @@ public class JournalArticleIndexer extends BaseIndexer {
 
 		if (PropsValues.JOURNAL_ARTICLE_INDEX_ALL_VERSIONS) {
 			articles =
-				JournalArticleLocalServiceUtil.
-					getIndexableArticlesByResourcePrimKey(
-						article.getResourcePrimKey());
+				JournalArticleLocalServiceUtil.getArticlesByResourcePrimKey(
+					article.getResourcePrimKey());
 		}
 		else {
 			articles = new ArrayList<JournalArticle>();
