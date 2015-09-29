@@ -147,12 +147,6 @@ public class I18nServlet extends HttpServlet {
 
 		String i18nPath = StringPool.SLASH + i18nLanguageId;
 
-		if (!PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE &&
-			!LanguageUtil.isAvailableLocale(i18nLanguageId)) {
-
-			return null;
-		}
-
 		Locale locale = LocaleUtil.fromLanguageId(i18nLanguageId);
 
 		if (Validator.isNull(locale.getCountry())) {
@@ -162,6 +156,12 @@ public class I18nServlet extends HttpServlet {
 			locale = LanguageUtil.getLocale(locale.getLanguage());
 
 			i18nLanguageId = LocaleUtil.toLanguageId(locale);
+		}
+
+		if (!PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE &&
+			!LanguageUtil.isAvailableLocale(i18nLanguageId)) {
+
+				return null;
 		}
 
 		String redirect = path;
