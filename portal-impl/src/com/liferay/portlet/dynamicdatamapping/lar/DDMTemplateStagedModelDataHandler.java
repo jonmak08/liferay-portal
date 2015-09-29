@@ -22,8 +22,6 @@ import com.liferay.portal.kernel.lar.ExportImportPathUtil;
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.lar.PortletDataException;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
-import com.liferay.portal.kernel.log.Log;
-import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
@@ -411,8 +409,5 @@ public class DDMTemplateStagedModelDataHandler
 
 		template.prepareLocalizedFieldsForImport(defaultImportLocale);
 	}
-
-	private static Log _log = LogFactoryUtil.getLog(
-		DDMTemplateStagedModelDataHandler.class);
 
 }
