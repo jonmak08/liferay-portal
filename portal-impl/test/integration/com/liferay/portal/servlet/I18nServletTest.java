@@ -37,43 +37,40 @@ import org.junit.runner.RunWith;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 /**
- *
  * @author Juan Gonzalez
- *
  */
 @ExecutionTestListeners(
-		listeners = {
-			MainServletExecutionTestListener.class,
-			TransactionalExecutionTestListener.class
-		})
-	@RunWith(LiferayIntegrationJUnitTestRunner.class)
-	@Transactional
+	listeners = {
+		MainServletExecutionTestListener.class,
+		TransactionalExecutionTestListener.class
+	})
+@RunWith(LiferayIntegrationJUnitTestRunner.class)
+@Transactional
 public class I18nServletTest {
 
 	@BeforeClass
 	public static void setUpClass() throws Exception {
-
 		_availableLocales = LanguageUtil.getAvailableLocales();
 
 		CompanyTestUtil.resetCompanyLocales(
-				PortalUtil.getDefaultCompanyId(),
-				new Locale[] {
-					LocaleUtil.SPAIN, LocaleUtil.US});
+			PortalUtil.getDefaultCompanyId(),
+			new Locale[] {LocaleUtil.SPAIN, LocaleUtil.US});
 	}
 
 	@AfterClass
 	public static void tearDownClass() throws Exception {
 		CompanyTestUtil.resetCompanyLocales(
-				PortalUtil.getDefaultCompanyId(), _availableLocales);
+			PortalUtil.getDefaultCompanyId(), _availableLocales);
 	}
 
 	@Test
 	public void testI18nNotUseDefaultExistentLocale() throws Exception {
 		boolean originalLocaleUseDefault =
-						PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE;
+			PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE;
 
 		try {
 			PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE = false;
+
 			Locale expectedLocale = _defaultLocale;
 
 			String[] expectedArray = getI18nDataExpectedArray(expectedLocale);
@@ -89,10 +86,11 @@ public class I18nServletTest {
 	@Test
 	public void testI18nNotUseDefaultNonDefaultLocale() throws Exception {
 		boolean originalLocaleUseDefault =
-						PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE;
+			PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE;
 
 		try {
 			PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE = false;
+
 			Locale expectedLocale = _nonDefaultLocale;
 
 			String[] expectedArray = getI18nDataExpectedArray(expectedLocale);
@@ -101,14 +99,14 @@ public class I18nServletTest {
 		}
 		finally {
 			PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE =
-							originalLocaleUseDefault;
+				originalLocaleUseDefault;
 		}
 	}
 
 	@Test
 	public void testI18nNotUseDefaultNonExistentLocale() throws Exception {
 		boolean originalLocaleUseDefault =
-						PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE;
+			PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE;
 
 		try {
 			PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE = false;
@@ -119,17 +117,18 @@ public class I18nServletTest {
 		}
 		finally {
 			PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE =
-							originalLocaleUseDefault;
+				originalLocaleUseDefault;
 		}
 	}
 
 	@Test
 	public void testI18nUseDefault() throws Exception {
 		boolean originalLocaleUseDefault =
-						PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE;
+			PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE;
 
 		try {
 			PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE = true;
+
 			Locale expectedLocale = _defaultLocale;
 
 			String[] expectedArray = getI18nDataExpectedArray(expectedLocale);
@@ -138,7 +137,7 @@ public class I18nServletTest {
 		}
 		finally {
 			PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE =
-							originalLocaleUseDefault;
+				originalLocaleUseDefault;
 		}
 	}
 
@@ -154,7 +153,7 @@ public class I18nServletTest {
 		throws Exception {
 
 		MockHttpServletRequest mockHttpServletRequest =
-						new MockHttpServletRequest();
+			new MockHttpServletRequest();
 
 		StringBuilder sb = new StringBuilder(2);
 
@@ -166,7 +165,7 @@ public class I18nServletTest {
 		mockHttpServletRequest.setPathInfo(StringPool.SLASH);
 
 		String[] actualI18NDataArray = _i18nServlet.getI18nData(
-						mockHttpServletRequest);
+			mockHttpServletRequest);
 
 		Assert.assertArrayEquals(expectedDataArray, actualI18NDataArray);
 	}
