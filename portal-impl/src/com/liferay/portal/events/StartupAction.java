@@ -41,6 +41,7 @@ import com.liferay.portal.kernel.resiliency.spi.agent.annotation.Direction;
 import com.liferay.portal.kernel.resiliency.spi.agent.annotation.DistributedRegistry;
 import com.liferay.portal.kernel.resiliency.spi.agent.annotation.MatchType;
 import com.liferay.portal.kernel.scheduler.SchedulerEngineHelperUtil;
+import com.liferay.portal.kernel.scheduler.SchedulerException;
 import com.liferay.portal.kernel.search.IndexerRegistryUtil;
 import com.liferay.portal.kernel.servlet.JspFactorySwapper;
 import com.liferay.portal.kernel.template.TemplateManagerUtil;
@@ -220,7 +221,12 @@ public class StartupAction extends SimpleAction {
 			_log.debug("Initialize scheduler engine lifecycle");
 		}
 
-		SchedulerEngineHelperUtil.initialize();
+		try {
+			SchedulerEngineHelperUtil.initialize();
+		}
+		catch (SchedulerException se) {
+			_log.error(se, se);
+		}
 
 		// Verify
 
