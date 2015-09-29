@@ -1755,6 +1755,7 @@ public class DLFileEntryLocalServiceImpl
 					dlFileEntry.getVersion(),
 					dlFileVersion.getVersion()) <= 0) {
 
+				dlFileEntry.setModifiedDate(dlFileVersion.getCreateDate());
 				dlFileEntry.setExtension(dlFileVersion.getExtension());
 				dlFileEntry.setMimeType(dlFileVersion.getMimeType());
 				dlFileEntry.setTitle(dlFileVersion.getTitle());
@@ -1763,7 +1764,6 @@ public class DLFileEntryLocalServiceImpl
 				dlFileEntry.setFileEntryTypeId(
 					dlFileVersion.getFileEntryTypeId());
 				dlFileEntry.setVersion(dlFileVersion.getVersion());
-				dlFileEntry.setModifiedDate(dlFileVersion.getCreateDate());
 				dlFileEntry.setSize(dlFileVersion.getSize());
 
 				dlFileEntryPersistence.update(dlFileEntry);
@@ -2343,8 +2343,8 @@ public class DLFileEntryLocalServiceImpl
 			dlFileVersionPersistence.findByFileEntryId(fileEntryId);
 
 		for (DLFileVersion dlFileVersion : dlFileVersions) {
-			dlFileVersion.setFolderId(newFolderId);
 			dlFileVersion.setModifiedDate(serviceContext.getModifiedDate(null));
+			dlFileVersion.setFolderId(newFolderId);
 			dlFileVersion.setTreePath(dlFileVersion.buildTreePath());
 
 			dlFileVersionPersistence.update(dlFileVersion);
