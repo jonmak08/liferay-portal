@@ -155,12 +155,8 @@ public class I18nServletTest {
 		MockHttpServletRequest mockHttpServletRequest =
 			new MockHttpServletRequest();
 
-		StringBuilder sb = new StringBuilder(2);
-
-		sb.append(StringPool.SLASH);
-		sb.append(LocaleUtil.toLanguageId(locale));
-
-		mockHttpServletRequest.setServletPath(sb.toString());
+		mockHttpServletRequest.setServletPath(
+			StringPool.SLASH + LocaleUtil.toLanguageId(locale));
 
 		mockHttpServletRequest.setPathInfo(StringPool.SLASH);
 
