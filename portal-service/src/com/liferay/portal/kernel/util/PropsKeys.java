@@ -667,8 +667,6 @@ public interface PropsKeys {
 
 	public static final String DL_EMAIL_FROM_NAME = "dl.email.from.name";
 
-	public static final String DL_FILE_ENTRY_CHECK_LEGACY_IG_REQUESTS_ENABLED = "dl.file.entry.check.legacy.ig.requests.enabled";
-
 	public static final String DL_FILE_ENTRY_COMMENTS_ENABLED = "dl.file.entry.comments.enabled";
 
 	public static final String DL_FILE_ENTRY_CONVERSIONS_ENABLED = "dl.file.entry.conversions.enabled";
@@ -2714,6 +2712,8 @@ public interface PropsKeys {
 	public static final String WEB_SERVER_PROXY_LEGACY_MODE = "web.server.proxy.legacy.mode";
 
 	public static final String WEB_SERVER_SERVLET_ACCEPT_RANGES_MIME_TYPES = "web.server.servlet.accept.ranges.mime.types";
+
+	public static final String WEB_SERVER_SERVLET_CHECK_LEGACY_IMAGE_GALLERY_REQUEST_ENABLED = "web.server.servlet.check.legacy.image.gallery.request.enabled";
 
 	public static final String WEB_SERVER_SERVLET_DIRECTORY_INDEXING_ENABLED = "web.server.servlet.directory.indexing.enabled";
 
