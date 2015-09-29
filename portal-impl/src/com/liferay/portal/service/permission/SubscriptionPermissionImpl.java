@@ -127,13 +127,13 @@ public class SubscriptionPermissionImpl implements SubscriptionPermission {
 
 		if (Validator.equals(
 				inferredClassName,
-			"com.liferay.portlet.documentlibrary.model.DLFileEntry")) {
+				"com.liferay.portlet.documentlibrary.model.DLFileEntry")) {
 
 			DLFileEntry dlFileEntry =
 				DLFileEntryLocalServiceUtil.getDLFileEntry(inferredClassPK);
 
 			DLFolder dlFolder = DLFolderUtil.fetchByPrimaryKey(
-					dlFileEntry.getFolderId());
+				dlFileEntry.getFolderId());
 
 			if (Validator.isNotNull(dlFolder)) {
 				return DLFolderPermission.contains(
