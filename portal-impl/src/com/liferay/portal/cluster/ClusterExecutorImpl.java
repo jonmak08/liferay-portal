@@ -55,7 +55,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -417,17 +416,28 @@ public class ClusterExecutorImpl
 
 	@Override
 	protected void initChannels() throws Exception {
-		Properties controlProperties = PropsUtil.getProperties(
-			PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_CONTROL, false);
-
-		String controlProperty = controlProperties.getProperty(
+		String channelName = PropsUtil.get(
+			PropsKeys.CLUSTER_LINK_CHANNEL_NAME_CONTROL);
+		String controlProperty = PropsUtil.get(
 			PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_CONTROL);
+
+		if (Validator.isNull(channelName)) {
+			throw new IllegalStateException(
+				"Set \"" + PropsKeys.CLUSTER_LINK_CHANNEL_NAME_CONTROL +
+					"\"");
+		}
+
+		if (Validator.isNull(controlProperty)) {
+			throw new IllegalStateException(
+				"Set \"" + PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_CONTROL +
+					"\"");
+		}
 
 		ClusterRequestReceiver clusterRequestReceiver =
 			new ClusterRequestReceiver(this);
 
 		_controlJChannel = createJChannel(
-			controlProperty, clusterRequestReceiver, _DEFAULT_CLUSTER_NAME);
+			controlProperty, clusterRequestReceiver, channelName);
 	}
 
 	protected void initLocalClusterNode() throws Exception {
@@ -602,9 +612,6 @@ public class ClusterExecutorImpl
 			_log.error("Unable to send notify message", e);
 		}
 	}
-
-	private static final String _DEFAULT_CLUSTER_NAME =
-		"LIFERAY-CONTROL-CHANNEL";
 
 	private static Log _log = LogFactoryUtil.getLog(ClusterExecutorImpl.class);
 

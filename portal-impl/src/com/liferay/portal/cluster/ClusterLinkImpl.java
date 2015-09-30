@@ -23,6 +23,7 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.util.PropsUtil;
 
 import java.net.InetAddress;
@@ -154,6 +155,8 @@ public class ClusterLinkImpl extends ClusterBase implements ClusterLink {
 
 	@Override
 	protected void initChannels() throws Exception {
+		Properties channelNameProperties = PropsUtil.getProperties(
+			PropsKeys.CLUSTER_LINK_CHANNEL_NAME_TRANSPORT, true);
 		Properties transportProperties = PropsUtil.getProperties(
 			PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_TRANSPORT, true);
 
@@ -179,21 +182,23 @@ public class ClusterLinkImpl extends ClusterBase implements ClusterLink {
 		for (int i = 0; i < keys.size(); i++) {
 			String customName = keys.get(i);
 
+			String channelName = channelNameProperties.getProperty(customName);
 			String value = transportProperties.getProperty(customName);
+
+			if (Validator.isNull(value) || Validator.isNull(channelName)) {
+				continue;
+			}
 
 			JChannel jChannel = createJChannel(
 				value,
 				new ClusterForwardReceiver(
 					_localTransportAddresses, _clusterForwardMessageListener),
-					_LIFERAY_TRANSPORT_CHANNEL + i);
+				channelName);
 
 			_localTransportAddresses.add(jChannel.getAddress());
 			_transportChannels.add(jChannel);
 		}
 	}
-
-	private static final String _LIFERAY_TRANSPORT_CHANNEL =
-		"LIFERAY-TRANSPORT-CHANNEL-";
 
 	private static Log _log = LogFactoryUtil.getLog(ClusterLinkImpl.class);
 
