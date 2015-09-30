@@ -34,6 +34,7 @@ import com.liferay.portal.kernel.executor.PortalExecutorManagerUtil;
 import com.liferay.portal.kernel.portlet.PortletClassLoaderUtil;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.MethodKey;
+import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 import com.liferay.portal.util.PortalImpl;
@@ -45,6 +46,7 @@ import java.lang.reflect.InvocationTargetException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Exchanger;
 import java.util.concurrent.ExecutionException;
@@ -179,6 +181,53 @@ public abstract class BaseClusterExecutorImplTestCase
 
 			return proceedingJoinPoint.proceed(new Object[] {PORTAL_PROTOCOL});
 		}
+
+	}
+
+	@Aspect
+	public static class ControlChannelConfigurationAdvice {
+
+		public static void setClusterName(String clusterName) {
+			_CLUSTER_NAME = clusterName;
+		}
+
+		public static void setClusterPropertiesString(
+			String clusterPropertiesString) {
+
+			_CLUSTER_PROPERTIES_STRING = clusterPropertiesString;
+		}
+
+		@Around(
+			"execution(* com.liferay.portal.util.PropsUtil.get(String))")
+		public Object getTransportationConfigurationProperties(
+				ProceedingJoinPoint proceedingJoinPoint)
+			throws Throwable {
+
+			Object[] arguments = proceedingJoinPoint.getArgs();
+
+			if (PropsKeys.CLUSTER_LINK_CHANNEL_NAME_CONTROL.equals(
+					arguments[0])) {
+
+				if (_CLUSTER_NAME != null) {
+					return _CLUSTER_NAME;
+				}
+
+				return _UUID.toString();
+			}
+			else if (PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_CONTROL.equals(
+						arguments[0]) &&
+					 (_CLUSTER_PROPERTIES_STRING != null)) {
+
+				return _CLUSTER_PROPERTIES_STRING;
+			}
+
+			return proceedingJoinPoint.proceed();
+		}
+
+		private static final UUID _UUID = UUID.randomUUID();
+
+		private static String _CLUSTER_NAME;
+		private static String _CLUSTER_PROPERTIES_STRING;
 
 	}
 

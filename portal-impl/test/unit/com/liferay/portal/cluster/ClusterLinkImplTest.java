@@ -21,17 +21,19 @@ import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.test.CaptureHandler;
 import com.liferay.portal.kernel.test.CodeCoverageAssertor;
 import com.liferay.portal.kernel.test.JDKLoggerTestUtil;
-import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.test.AdviseWith;
 import com.liferay.portal.test.AspectJMockingNewClassLoaderJUnitTestRunner;
 
 import java.lang.reflect.Field;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
+import java.util.UUID;
 import java.util.concurrent.Exchanger;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -44,7 +46,6 @@ import org.aspectj.lang.annotation.Aspect;
 
 import org.jgroups.Channel.State;
 import org.jgroups.JChannel;
-import org.jgroups.util.UUID;
 
 import org.junit.Assert;
 import org.junit.ClassRule;
@@ -330,6 +331,25 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 		}
 		catch (IllegalStateException ise) {
 		}
+	}
+
+	@AdviseWith(
+		adviceClasses = {
+			EnableClusterLinkAdvice.class,
+			TransportationConfigurationAdvice.class
+		}
+
+	)
+	@Test
+	public void testInitChannel3() throws Exception {
+		TransportationConfigurationAdvice.setChannelCount(2);
+		TransportationConfigurationAdvice.setBadConfiguration(true);
+
+		ClusterLinkImpl clusterLinkImpl = getClusterLinkImpl();
+
+		List<JChannel> jChannels = getJChannels(clusterLinkImpl);
+
+		Assert.assertTrue(jChannels.isEmpty());
 	}
 
 	@AdviseWith(adviceClasses = {DisableClusterLinkAdvice.class})
@@ -672,8 +692,18 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 	@Aspect
 	public static class TransportationConfigurationAdvice {
 
+		public static void setBadConfiguration(boolean badConfiguration) {
+			_BAD_CONFIGURATION = badConfiguration;
+		}
+
 		public static void setChannelCount(int channelCount) {
 			_CHANNEL_COUNT = channelCount;
+
+			for (int i = 0; i < channelCount; i++) {
+				UUID uuid = UUID.randomUUID();
+
+				_CHANNEL_NAMES.add(uuid.toString());
+			}
 		}
 
 		@Around(
@@ -685,16 +715,42 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 
 			Object[] arguments = proceedingJoinPoint.getArgs();
 
-			if (PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_TRANSPORT.equals(
+			Properties properties = new Properties();
+
+			if (PropsKeys.CLUSTER_LINK_CHANNEL_NAME_TRANSPORT.equals(
 					arguments[0]) &&
 				Boolean.TRUE.equals(arguments[1])) {
 
-				Properties properties = new Properties();
+				for (int i = 0; i < _CHANNEL_COUNT; i++) {
+					String channelName = null;
+
+					if (_BAD_CONFIGURATION && ((i % 2) == 0)) {
+						channelName = StringPool.BLANK;
+					}
+					else {
+						channelName = _CHANNEL_NAMES.get(i);
+					}
+
+					properties.put(String.valueOf(i), channelName);
+				}
+
+				return properties;
+			}
+			else if (PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_TRANSPORT.equals(
+						arguments[0]) &&
+					 Boolean.TRUE.equals(arguments[1])) {
 
 				for (int i = 0; i < _CHANNEL_COUNT; i++) {
-					properties.put(
-						PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_TRANSPORT +
-							CharPool.POUND + i, "udp.xml");
+					String propertiesString = null;
+
+					if (_BAD_CONFIGURATION && ((i % 2) != 0)) {
+						propertiesString = StringPool.BLANK;
+					}
+					else {
+						propertiesString = "udp.xml";
+					}
+
+					properties.put(String.valueOf(i), propertiesString);
 				}
 
 				return properties;
@@ -704,13 +760,17 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 		}
 
 		private static int _CHANNEL_COUNT = 0;
+		private static boolean _BAD_CONFIGURATION = false;
+		private static List<String> _CHANNEL_NAMES = new ArrayList<String>();
 
 	}
 
 	protected Message createMessage() {
 		Message message = new Message();
 
-		message.setPayload(UUID.randomUUID().toString());
+		UUID uuid = UUID.randomUUID();
+
+		message.setPayload(uuid.toString());
 
 		return message;
 	}

@@ -29,6 +29,7 @@ import com.liferay.portal.kernel.test.CodeCoverageAssertor;
 import com.liferay.portal.kernel.test.JDKLoggerTestUtil;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.MethodHandler;
+import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.StringPool;
@@ -44,6 +45,7 @@ import java.lang.reflect.Field;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -69,6 +71,7 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 
 	@AdviseWith(
 		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
 			EnableClusterLinkAdvice.class,
 			EnableClusterExecutorDebugAdvice.class, EnableLiveUsersAdvice.class
 		}
@@ -186,7 +189,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 		}
 	}
 
-	@AdviseWith(adviceClasses = {EnableClusterLinkAdvice.class})
+	@AdviseWith(
+		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
+			EnableClusterLinkAdvice.class
+		}
+	)
 	@Test
 	public void testClusterTopology() throws Exception {
 		ClusterExecutorImpl clusterExecutorImpl1 = null;
@@ -243,6 +251,7 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 
 	@AdviseWith(
 		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
 			EnableAutoDetectAdvice.class, EnableClusterLinkAdvice.class,
 			InetAddressUtilExceptionAdvice.class, JChannelExceptionAdvice.class
 		}
@@ -274,6 +283,41 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 			List<LogRecord> logRecords = captureHandler.getLogRecords();
 
 			clusterExecutorImpl = new ClusterExecutorImpl();
+
+			ControlChannelConfigurationAdvice.setClusterName(StringPool.BLANK);
+
+			try {
+				clusterExecutorImpl.initChannels();
+
+				Assert.fail();
+			}
+			catch (Exception e) {
+				Assert.assertEquals(
+					"Set \"" + PropsKeys.CLUSTER_LINK_CHANNEL_NAME_CONTROL +
+					"\"", e.getMessage());
+			}
+
+			UUID uuid = UUID.randomUUID();
+
+			ControlChannelConfigurationAdvice.setClusterName(uuid.toString());
+			ControlChannelConfigurationAdvice.setClusterPropertiesString(
+				StringPool.BLANK);
+
+			try {
+				clusterExecutorImpl.initChannels();
+
+				Assert.fail();
+			}
+			catch (Exception e) {
+				Assert.assertEquals(
+					"Set \"" +
+						PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_CONTROL +
+							"\"",
+					e.getMessage());
+			}
+
+			ControlChannelConfigurationAdvice.setClusterPropertiesString(
+				"udp.xml");
 
 			clusterExecutorImpl.initChannels();
 			clusterExecutorImpl.initSystemProperties();
@@ -332,7 +376,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 		}
 	}
 
-	@AdviseWith(adviceClasses = {EnableClusterLinkAdvice.class})
+	@AdviseWith(
+		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
+			EnableClusterLinkAdvice.class
+		}
+	)
 	@Test
 	public void testExecuteByFireAndForget() throws Exception {
 		ClusterExecutorImpl clusterExecutorImpl1 = null;
@@ -394,7 +443,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 		}
 	}
 
-	@AdviseWith(adviceClasses = {EnableClusterLinkAdvice.class})
+	@AdviseWith(
+		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
+			EnableClusterLinkAdvice.class
+		}
+	)
 	@Test
 	public void testExecuteByLocalMethod1() throws Exception {
 		ClusterExecutorImpl clusterExecutorImpl = null;
@@ -426,7 +480,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 		}
 	}
 
-	@AdviseWith(adviceClasses = {EnableClusterLinkAdvice.class})
+	@AdviseWith(
+		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
+			EnableClusterLinkAdvice.class
+		}
+	)
 	@Test
 	public void testExecuteByLocalMethod2() throws Exception {
 		ClusterExecutorImpl clusterExecutorImpl = null;
@@ -456,7 +515,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 		}
 	}
 
-	@AdviseWith(adviceClasses = {EnableClusterLinkAdvice.class})
+	@AdviseWith(
+		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
+			EnableClusterLinkAdvice.class
+		}
+	)
 	@Test
 	public void testExecuteByLocalMethod3() throws Exception {
 		ClusterExecutorImpl clusterExecutorImpl = null;
@@ -488,7 +552,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 		}
 	}
 
-	@AdviseWith(adviceClasses = {EnableClusterLinkAdvice.class})
+	@AdviseWith(
+		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
+			EnableClusterLinkAdvice.class
+		}
+	)
 	@Test
 	public void testExecuteByLocalMethod4() throws Exception {
 		ClusterExecutorImpl clusterExecutorImpl = null;
@@ -515,7 +584,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 		}
 	}
 
-	@AdviseWith(adviceClasses = {EnableClusterLinkAdvice.class})
+	@AdviseWith(
+		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
+			EnableClusterLinkAdvice.class
+		}
+	)
 	@Test
 	public void testExecuteByShortcutMethod() throws Exception {
 		ClusterExecutorImpl clusterExecutorImpl = null;
@@ -593,7 +667,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 		}
 	}
 
-	@AdviseWith(adviceClasses = {EnableClusterLinkAdvice.class})
+	@AdviseWith(
+		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
+			EnableClusterLinkAdvice.class
+		}
+	)
 	@Test
 	public void testExecuteBySkipLocal() throws Exception {
 		ClusterExecutorImpl clusterExecutorImpl = null;
@@ -669,7 +748,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 		}
 	}
 
-	@AdviseWith(adviceClasses = {EnableClusterLinkAdvice.class})
+	@AdviseWith(
+		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
+			EnableClusterLinkAdvice.class
+		}
+	)
 	@Test
 	public void testExecuteWithCallBack1() throws Exception {
 		ClusterExecutorImpl clusterExecutorImpl = null;
@@ -707,7 +791,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 		}
 	}
 
-	@AdviseWith(adviceClasses = {EnableClusterLinkAdvice.class})
+	@AdviseWith(
+		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
+			EnableClusterLinkAdvice.class
+		}
+	)
 	@Test
 	public void testExecuteWithCallBack2() throws Exception {
 		ClusterExecutorImpl clusterExecutorImpl = null;
@@ -821,7 +910,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 		}
 	}
 
-	@AdviseWith(adviceClasses = {EnableClusterLinkAdvice.class})
+	@AdviseWith(
+		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
+			EnableClusterLinkAdvice.class
+		}
+	)
 	@Test
 	public void testGetMethods2() throws Exception {
 		ClusterExecutorImpl clusterExecutorImpl1 = null;
@@ -901,7 +995,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 		}
 	}
 
-	@AdviseWith(adviceClasses = {EnableClusterLinkAdvice.class})
+	@AdviseWith(
+		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
+			EnableClusterLinkAdvice.class
+		}
+	)
 	@Test
 	public void testMemberRemoved() throws Exception {
 		ClusterExecutorImpl clusterExecutorImpl = null;
@@ -933,7 +1032,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 		}
 	}
 
-	@AdviseWith(adviceClasses = {EnableClusterLinkAdvice.class})
+	@AdviseWith(
+		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
+			EnableClusterLinkAdvice.class
+		}
+	)
 	@Test
 	public void testPortalPortConfigured1() throws Exception {
 		ClusterExecutorImpl clusterExecutorImpl = null;
@@ -967,7 +1071,12 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 		}
 	}
 
-	@AdviseWith(adviceClasses = {EnableClusterLinkAdvice.class})
+	@AdviseWith(
+		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
+			EnableClusterLinkAdvice.class
+		}
+	)
 	@Test
 	public void testPortalPortProtocolConfigured1() throws Exception {
 		ClusterExecutorImpl clusterExecutorImpl1 = null;
@@ -1026,10 +1135,10 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 
 	@AdviseWith(
 		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
 			EnableClusterLinkAdvice.class, SetPortalPortHttpAdvice.class,
 			SetPortalProtocolHttpAdvice.class
 		}
-
 	)
 	@Test
 	public void testPortalPortProtocolConfigured2() throws Exception {
@@ -1064,10 +1173,10 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 
 	@AdviseWith(
 		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
 			EnableClusterLinkAdvice.class, SetPortalPortHttpsAdvice.class,
-			SetPortalProtocolHttpsAdvice.class,
+			SetPortalProtocolHttpsAdvice.class
 		}
-
 	)
 	@Test
 	public void testPortalPortProtocolConfigured3() throws Exception {
@@ -1104,10 +1213,10 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 
 	@AdviseWith(
 		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
 			EnableClusterLinkAdvice.class, SetPortalPortHttpsAdvice.class,
-			SetPortalProtocolHttpAdvice.class,
+			SetPortalProtocolHttpAdvice.class
 		}
-
 	)
 	@Test
 	public void testPortalPortProtocolConfigured4() throws Exception {
@@ -1140,10 +1249,10 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 
 	@AdviseWith(
 		adviceClasses = {
+			ControlChannelConfigurationAdvice.class,
 			EnableClusterLinkAdvice.class, SetPortalPortHttpAdvice.class,
-			SetPortalProtocolHttpsAdvice.class,
+			SetPortalProtocolHttpsAdvice.class
 		}
-
 	)
 	@Test
 	public void testPortalPortProtocolConfigured5() throws Exception {
