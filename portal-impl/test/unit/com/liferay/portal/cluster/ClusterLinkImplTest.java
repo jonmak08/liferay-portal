@@ -299,7 +299,6 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 			EnableClusterLinkAdvice.class,
 			TransportationConfigurationAdvice.class
 		}
-
 	)
 	@Test
 	public void testInitChannel1() throws Exception {
@@ -320,7 +319,6 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 			EnableClusterLinkAdvice.class,
 			TransportationConfigurationAdvice.class
 		}
-
 	)
 	@Test
 	public void testInitChannel2() throws Exception {
@@ -338,7 +336,6 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 			EnableClusterLinkAdvice.class,
 			TransportationConfigurationAdvice.class
 		}
-
 	)
 	@Test
 	public void testInitChannel3() throws Exception {
@@ -369,7 +366,6 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 			EnableClusterLinkAdvice.class,
 			TransportationConfigurationAdvice.class
 		}
-
 	)
 	@Test
 	public void testSendMulticastMessage2() throws Exception {
@@ -434,7 +430,6 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 			EnableClusterLinkAdvice.class,
 			TransportationConfigurationAdvice.class
 		}
-
 	)
 	@Test
 	public void testSendMulticastMessage3() throws Exception {
@@ -482,7 +477,6 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 			EnableClusterLinkAdvice.class,
 			TransportationConfigurationAdvice.class
 		}
-
 	)
 	@Test
 	public void testSendMulticastMessage4() throws Exception {
@@ -543,7 +537,6 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 			EnableClusterLinkAdvice.class,
 			TransportationConfigurationAdvice.class
 		}
-
 	)
 	@Test
 	public void testSendUnicastMessage2() throws Exception {
@@ -596,7 +589,6 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 			EnableClusterLinkAdvice.class,
 			TransportationConfigurationAdvice.class
 		}
-
 	)
 	@Test
 	public void testSendUnicastMessage3() throws Exception {
@@ -645,7 +637,6 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 			EnableClusterLinkAdvice.class,
 			TransportationConfigurationAdvice.class
 		}
-
 	)
 	@Test
 	public void testSendUnicastMessage4() throws Exception {
@@ -717,9 +708,12 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 
 			Properties properties = new Properties();
 
-			if (PropsKeys.CLUSTER_LINK_CHANNEL_NAME_TRANSPORT.equals(
-					arguments[0]) &&
-				Boolean.TRUE.equals(arguments[1])) {
+			String prefix = (String)arguments[0];
+
+			boolean removePrefix = (Boolean)arguments[1];
+
+			if (PropsKeys.CLUSTER_LINK_CHANNEL_NAME_TRANSPORT.equals(prefix) &&
+				removePrefix) {
 
 				for (int i = 0; i < _CHANNEL_COUNT; i++) {
 					String channelName = null;
@@ -737,8 +731,8 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 				return properties;
 			}
 			else if (PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_TRANSPORT.equals(
-						arguments[0]) &&
-					 Boolean.TRUE.equals(arguments[1])) {
+						prefix) &&
+					 removePrefix) {
 
 				for (int i = 0; i < _CHANNEL_COUNT; i++) {
 					String propertiesString = null;

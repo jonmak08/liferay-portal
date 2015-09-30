@@ -294,7 +294,8 @@ public class ClusterExecutorImplTest extends BaseClusterExecutorImplTestCase {
 			catch (Exception e) {
 				Assert.assertEquals(
 					"Set \"" + PropsKeys.CLUSTER_LINK_CHANNEL_NAME_CONTROL +
-					"\"", e.getMessage());
+						"\"",
+					e.getMessage());
 			}
 
 			UUID uuid = UUID.randomUUID();

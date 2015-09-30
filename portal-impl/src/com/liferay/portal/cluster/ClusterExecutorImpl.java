@@ -418,14 +418,15 @@ public class ClusterExecutorImpl
 	protected void initChannels() throws Exception {
 		String channelName = PropsUtil.get(
 			PropsKeys.CLUSTER_LINK_CHANNEL_NAME_CONTROL);
-		String controlProperty = PropsUtil.get(
-			PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_CONTROL);
 
 		if (Validator.isNull(channelName)) {
 			throw new IllegalStateException(
 				"Set \"" + PropsKeys.CLUSTER_LINK_CHANNEL_NAME_CONTROL +
 					"\"");
 		}
+
+		String controlProperty = PropsUtil.get(
+			PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_CONTROL);
 
 		if (Validator.isNull(controlProperty)) {
 			throw new IllegalStateException(

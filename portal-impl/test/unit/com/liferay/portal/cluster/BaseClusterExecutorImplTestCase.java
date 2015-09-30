@@ -205,9 +205,9 @@ public abstract class BaseClusterExecutorImplTestCase
 
 			Object[] arguments = proceedingJoinPoint.getArgs();
 
-			if (PropsKeys.CLUSTER_LINK_CHANNEL_NAME_CONTROL.equals(
-					arguments[0])) {
+			String key = (String)arguments[0];
 
+			if (PropsKeys.CLUSTER_LINK_CHANNEL_NAME_CONTROL.equals(key)) {
 				if (_CLUSTER_NAME != null) {
 					return _CLUSTER_NAME;
 				}
@@ -215,7 +215,7 @@ public abstract class BaseClusterExecutorImplTestCase
 				return _UUID.toString();
 			}
 			else if (PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_CONTROL.equals(
-						arguments[0]) &&
+						key) &&
 					 (_CLUSTER_PROPERTIES_STRING != null)) {
 
 				return _CLUSTER_PROPERTIES_STRING;
