@@ -431,13 +431,17 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 				}
 			}
 
-			for (long groupId : groupIds) {
-				if (ResourcePermissionLocalServiceUtil.hasResourcePermission(
-						companyId, className, ResourceConstants.SCOPE_GROUP,
-						String.valueOf(groupId), role.getRoleId(),
-						ActionKeys.VIEW)) {
+			if (!ArrayUtil.isEmpty(groupIds)) {
+				for (long groupId : groupIds) {
+					if (ResourcePermissionLocalServiceUtil.
+							hasResourcePermission(
+									companyId, className,
+									ResourceConstants.SCOPE_GROUP,
+									String.valueOf(groupId), role.getRoleId(),
+									ActionKeys.VIEW)) {
 
-					groupsQuery.addTerm(Field.GROUP_ID, groupId);
+						groupsQuery.addTerm(Field.GROUP_ID, groupId);
+					}
 				}
 			}
 
