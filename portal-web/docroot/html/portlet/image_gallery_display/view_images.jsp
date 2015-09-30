@@ -162,6 +162,14 @@ List results = searchContainer.getResults();
 					<portlet:param name="folderId" value="<%= String.valueOf(curFolder.getFolderId()) %>" />
 				</portlet:renderURL>
 
+				<%
+				String curFolderTitle = curFolder.getName();
+
+				if (Validator.isNotNull(curFolder.getDescription())) {
+					curFolderTitle += " - " + curFolder.getDescription();
+				}
+				%>
+
 				<c:choose>
 					<c:when test="<%= curFolder.isMountPoint() %>">
 
@@ -173,7 +181,7 @@ List results = searchContainer.getResults();
 						%>
 
 							<div class="image-icon">
-								<a class="image-link" href="<%= viewFolderURL.toString() %>" title="<%= HtmlUtil.escape(curFolder.getName()) + " - " + HtmlUtil.escape(curFolder.getDescription()) %>">
+								<a class="image-link" href="<%= viewFolderURL.toString() %>" title="<%= HtmlUtil.escape(curFolderTitle) %>">
 									<span class="image-thumbnail">
 										<img alt="<liferay-ui:message key="repository" />" border="no" src="<%= folderImageSrc %>" style="max-height: <%= PropsValues.DL_FILE_ENTRY_THUMBNAIL_MAX_HEIGHT %>px; max-width: <%= PropsValues.DL_FILE_ENTRY_THUMBNAIL_MAX_WIDTH %>px;" />
 									</span>
@@ -203,7 +211,7 @@ List results = searchContainer.getResults();
 					</c:when>
 					<c:otherwise>
 						<div class="image-icon">
-							<a class="image-link" href="<%= viewFolderURL.toString() %>" title="<%= HtmlUtil.escape(curFolder.getName()) + " - " + HtmlUtil.escape(curFolder.getDescription()) %>">
+							<a class="image-link" href="<%= viewFolderURL.toString() %>" title="<%= HtmlUtil.escape(curFolderTitle) %>">
 
 								<%
 									int curFoldersCount = DLAppServiceUtil.getFoldersCount(curFolder.getRepositoryId(), curFolder.getFolderId());
