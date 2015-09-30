@@ -1569,6 +1569,8 @@ public interface PropsKeys {
 
 	public static final String LUCENE_CLUSTER_INDEX_LOADING_SYNC_TIMEOUT = "lucene.cluster.index.loading.sync.timeout";
 
+	public static final String LUCENE_CLUSTER_INDEX_LOADING_USE_CANONICAL_HOST_NAME = "lucene.cluster.index.loading.use.canonical.host.name";
+
 	public static final String LUCENE_COMMIT_BATCH_SIZE = "lucene.commit.batch.size";
 
 	public static final String LUCENE_COMMIT_TIME_INTERVAL = "lucene.commit.time.interval";
@@ -2562,8 +2564,6 @@ public interface PropsKeys {
 	public static final String UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE = "com.liferay.portal.upload.UploadServletRequestImpl.max.size";
 
 	public static final String UPLOAD_SERVLET_REQUEST_IMPL_TEMP_DIR = "com.liferay.portal.upload.UploadServletRequestImpl.temp.dir";
-
-	public static final String USE_SUBJECT_ALTERNATIVE_NAME = "use.subject.alternative.name";
 
 	public static final String USER_GROUPS_COPY_LAYOUTS_TO_USER_PERSONAL_SITE = "user.groups.copy.layouts.to.user.personal.site";
 

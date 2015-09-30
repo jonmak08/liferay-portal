@@ -866,7 +866,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 			String hostName = null;
 
-			if (PropsValues.USE_SUBJECT_ALTERNATIVE_NAME) {
+			if (PropsValues.LUCENE_CLUSTER_INDEX_USE_CANONICAL_HOST_NAME) {
 				hostName = inetAddress.getCanonicalHostName();
 			}
 			else {

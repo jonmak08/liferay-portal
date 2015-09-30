@@ -1160,6 +1160,8 @@ public class PropsValues {
 
 	public static final long LUCENE_CLUSTER_INDEX_LOADING_SYNC_TIMEOUT = GetterUtil.getLong(PropsUtil.get(PropsKeys.LUCENE_CLUSTER_INDEX_LOADING_SYNC_TIMEOUT));
 
+	public static final boolean LUCENE_CLUSTER_INDEX_USE_CANONICAL_HOST_NAME = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.LUCENE_CLUSTER_INDEX_LOADING_USE_CANONICAL_HOST_NAME));
+
 	public static final int LUCENE_COMMIT_BATCH_SIZE = GetterUtil.getInteger(PropsUtil.get(PropsKeys.LUCENE_COMMIT_BATCH_SIZE));
 
 	public static final int LUCENE_COMMIT_TIME_INTERVAL = GetterUtil.getInteger(PropsUtil.get(PropsKeys.LUCENE_COMMIT_TIME_INTERVAL));
@@ -1927,8 +1929,6 @@ public class PropsValues {
 	public static final boolean TUNNELING_SERVLET_SHARED_SECRET_HEX = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.TUNNELING_SERVLET_SHARED_SECRET_HEX));
 
 	public static final boolean UPGRADE_DATABASE_TRANSACTIONS_DISABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.UPGRADE_DATABASE_TRANSACTIONS_DISABLED));
-
-	public static final boolean USE_SUBJECT_ALTERNATIVE_NAME = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.USE_SUBJECT_ALTERNATIVE_NAME));
 
 	public static boolean USER_GROUPS_COPY_LAYOUTS_TO_USER_PERSONAL_SITE = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.USER_GROUPS_COPY_LAYOUTS_TO_USER_PERSONAL_SITE));
 
