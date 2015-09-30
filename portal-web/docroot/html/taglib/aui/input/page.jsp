@@ -270,9 +270,11 @@ boolean choiceField = checkboxField || radioField;
 		<label <%= labelTag %>>
 			<%= labelContent %>
 	</c:if>
+
 	<c:if test="<%= choiceField %>">
 		<%= labelContent %>
 	</c:if>
+
 	<c:if test='<%= inlineLabel.equals("right") %>'>
 		</label>
 	</c:if>
