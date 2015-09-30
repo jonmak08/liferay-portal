@@ -255,8 +255,9 @@ public class AssetUtil {
 				AssetTag tag = AssetTagLocalServiceUtil.fetchAssetTag(tagId);
 
 				if ((tag != null) &&
-					AssetTagPermission.contains(
-						permissionChecker, tagId, ActionKeys.VIEW)) {
+					(!PropsValues.ASSET_TAG_PERMISSIONS_ENABLED ||
+					 AssetTagPermission.contains(
+						permissionChecker, tagId, ActionKeys.VIEW))) {
 
 					viewableTagIds.add(tagId);
 				}
