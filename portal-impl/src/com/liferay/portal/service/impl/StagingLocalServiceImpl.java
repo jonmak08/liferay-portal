@@ -532,7 +532,7 @@ public class StagingLocalServiceImpl extends StagingLocalServiceBaseImpl {
 			PropsKeys.LOCALES,
 			liveTypeSettingsProperties.getProperty(PropsKeys.LOCALES));
 		stagingTypeSettingsProperties.setProperty(
-			"inheritLocales", Boolean.FALSE.toString());
+			GroupConstants.TYPE_SETTINGS_KEY_INHERIT_LOCALES, Boolean.FALSE.toString());
 		stagingTypeSettingsProperties.setProperty(
 			"languageId",
 			liveTypeSettingsProperties.getProperty(
