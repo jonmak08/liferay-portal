@@ -3251,7 +3251,7 @@ public class PortalImpl implements Portal {
 				try {
 					inheritLocales = LanguageUtil.isInheritLocales(groupId);
 				}
-				catch (PortalException pe) {
+				catch (Exception pe) {
 					_log.error(pe);
 				}
 

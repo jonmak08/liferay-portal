@@ -1062,7 +1062,7 @@ public class LanguageImpl implements Language, Serializable {
 	private Map<String, String> _charEncodings;
 	private Set<String> _duplicateLanguageCodes;
 	private final Map<Long, Map<String, Locale>> _groupLanguageCodeLocalesMap =
-		new HashMap<>();
+		new HashMap<Long, Map<String, Locale>>();
 	private Map<Long, Locale[]> _groupLocalesMap =
 		new HashMap<Long, Locale[]>();
 	private Map<Long, Set<Locale>> _groupLocalesSet =
