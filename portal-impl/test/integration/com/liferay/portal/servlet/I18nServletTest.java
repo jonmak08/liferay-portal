@@ -119,8 +119,9 @@ public class I18nServletTest {
 		String languageId = LocaleUtil.toLanguageId(locale);
 		String i18nPath = StringPool.SLASH + languageId;
 		String path = StringPool.SLASH;
+		String languageCode = locale.getLanguage();
 
-		return new String[] {languageId, i18nPath, path};
+		return new String[] {languageId, i18nPath, path, languageCode};
 	}
 
 	protected void testGetI18nData(Locale locale, String[] expectedI18nData)
