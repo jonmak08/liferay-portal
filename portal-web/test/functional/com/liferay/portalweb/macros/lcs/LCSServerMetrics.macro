@@ -28,14 +28,6 @@
 		</execute>
 	</command>
 
-	<command name="setMetricsTableItemsPerPage">
-		<execute function="Click" locator1="LCSServerMetrics#PAGINATION_ITEMS_PER_PAGE" />
-
-		<var name="key_itemsPerPage" value="${itemsPerPage}" />
-
-		<execute function="Click" locator1="LCSServerMetrics#PAGINATION_ITEMS_PER_PAGE_MENU_ITEM" value1="${itemsPerPage}" />
-	</command>
-
 	<command name="sortMetricsTable">
 		<var name="key_headerName" value="${headerName}" />
 
