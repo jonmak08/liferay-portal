@@ -935,16 +935,16 @@ public class LanguageImpl implements Language, Serializable {
 	}
 
 	private Locale _getLocale(long groupId, String languageCode) {
-		Map<String, Locale> localesMap = _groupLocalesByLanguageMap.get(
+		Map<String, Locale> localesMap = _groupLanguageCodeLocalesMap.get(
 			groupId);
 
-		if (localesMap != null) {
-			return localesMap.get(languageCode);
+		if (localesMap == null) {
+			_initGroupLocales(groupId);
+
+			localesMap = _groupLanguageCodeLocalesMap.get(groupId);
 		}
 
-		_initGroupLocales(groupId);
-
-		return _groupLocalesByLanguageMap.get(groupId).get(languageCode);
+		return localesMap.get(languageCode);
 	}
 
 	private Locale _getLocale(String languageCode) {
@@ -1021,13 +1021,13 @@ public class LanguageImpl implements Language, Serializable {
 			localesSet.add(locale);
 		}
 
-		_groupLocalesByLanguageMap.put(groupId, localesMap);
+		_groupLanguageCodeLocalesMap.put(groupId, localesMap);
 		_groupLocalesMap.put(groupId, locales);
 		_groupLocalesSet.put(groupId, localesSet);
 	}
 
 	private void _resetAvailableGroupLocales(long groupId) {
-		_groupLocalesByLanguageMap.remove(groupId);
+		_groupLanguageCodeLocalesMap.remove(groupId);
 		_groupLocalesMap.remove(groupId);
 		_groupLocalesSet.remove(groupId);
 	}
@@ -1061,8 +1061,8 @@ public class LanguageImpl implements Language, Serializable {
 
 	private Map<String, String> _charEncodings;
 	private Set<String> _duplicateLanguageCodes;
-	private final Map<Long, Map<String, Locale>> _groupLocalesByLanguageMap =
-					new HashMap<>();
+	private final Map<Long, Map<String, Locale>> _groupLanguageCodeLocalesMap =
+		new HashMap<>();
 	private Map<Long, Locale[]> _groupLocalesMap =
 		new HashMap<Long, Locale[]>();
 	private Map<Long, Set<Locale>> _groupLocalesSet =
