@@ -276,7 +276,7 @@ public class VerifyJournal extends VerifyProcess {
 	}
 
 	protected void verifyArticleContents() throws Exception {
-		List<JournalArticle> articles = 
+		List<JournalArticle> articles =
 			JournalArticleLocalServiceUtil.getArticles();
 
 		for (JournalArticle article : articles) {
