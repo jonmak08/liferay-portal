@@ -5351,8 +5351,6 @@ hot.deploy.dependency.management.enabled=false</echo>
 						<ant antfile="build-dist.xml" target="build-dist-tomcat" inheritAll="false" />
 
 						<setup-testable-tomcat />
-
-						<antcall target="prepare-system-ext-properties" />
 					</else>
 				</if>
 
