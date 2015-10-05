@@ -483,7 +483,9 @@
 
 		<execute macro="Page#gotoMyProfile" />
 
-		<execute macro="SOProfile#viewProfilePicture" />
+		<execute macro="SOProfile#viewProfilePicture">
+			<var name="userName" value="${userName}" />
+		</execute>
 
 		<execute function="SikuliAssertElementPresent" locator1="SOProfile#SCREENSHOTS_PROFILE_PICTURE_PNG" />
 
@@ -498,7 +500,9 @@
 
 		<execute macro="Page#gotoMyProfile" />
 
-		<execute macro="SOProfile#viewProfilePicture" />
+		<execute macro="SOProfile#viewProfilePicture">
+			<var name="userName" value="${userName}" />
+		</execute>
 
 		<execute function="SikuliAssertElementPresent" locator1="SOProfile#SCREENSHOTS_PROFILE_PICTURE_EDIT_PNG" />
 	</command>

@@ -1435,6 +1435,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -1449,6 +1450,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -1461,6 +1463,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -1504,6 +1507,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -1574,6 +1578,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -1588,6 +1593,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -1597,6 +1603,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -1611,6 +1618,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -1676,6 +1684,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -1690,6 +1699,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -1699,6 +1709,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -1713,6 +1724,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -1762,6 +1774,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -2451,6 +2464,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -2466,6 +2480,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -2475,6 +2490,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -2491,6 +2507,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -2540,6 +2557,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -2617,6 +2635,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -2651,6 +2670,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -4662,6 +4682,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -4676,6 +4697,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -4706,6 +4728,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -4734,6 +4757,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -4791,6 +4815,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -4805,6 +4830,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -4814,6 +4840,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -4846,6 +4873,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -4878,6 +4906,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -5004,6 +5033,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -5019,6 +5049,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -5028,6 +5059,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -5062,6 +5094,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -5095,6 +5128,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -5955,6 +5989,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -5978,6 +6013,7 @@
 		<execute macro="Notifications#viewDefaultContent" />
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -5992,6 +6028,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -6954,6 +6991,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -6992,6 +7030,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>
@@ -7006,6 +7045,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
+			<var name="pageName" value="${pageName}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
 		</execute>

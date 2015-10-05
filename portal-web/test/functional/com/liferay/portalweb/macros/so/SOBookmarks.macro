@@ -73,7 +73,9 @@
 	<command name="viewBookmarksEntry">
 		<var name="key_bookmarksEntryName" value="${bookmarksEntryName}" />
 
-		<execute macro="SOBookmarks#viewBookmarksEntryPopUp" />
+		<execute macro="SOBookmarks#viewBookmarksEntryPopUp">
+			<var name="bookmarksEntryName" value="${bookmarksEntryName}" />
+		</execute>
 
 		<execute function="AssertClick" locator1="SOBookmarks#BOOKMARKS_ENTRY_ACTIONS" value1="Actions" />
 		<execute function="AssertClick" locator1="SOBookmarks#BOOKMARKS_ACTIONS_MENULIST_EDIT" value1="Edit" />

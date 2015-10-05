@@ -180,7 +180,7 @@
 	</command>
 
 	<command name="viewLinkPrivateMessaging">
-		<execute function="AssertTextEquals" locator1="SOMessages#INFO_MESSAGE" value1="No messages found." />
+		<execute function="AssertTextEquals" locator1="SOMessages#INFO_MESSAGE" value1="No messages were found." />
 		<execute function="AssertElementNotPresent#assertNotVisible" locator1="SOMessages#MARK_AS_UNREAD_BUTTON" value1="Mark as Unread" />
 		<execute function="AssertElementNotPresent#assertNotVisible" locator1="SOMessages#MARK_AS_READ_BUTTON" value1="Mark as Read" />
 		<execute function="AssertElementNotPresent#assertNotVisible" locator1="SOMessages#DELETE_BUTTON" value1="Delete" />
