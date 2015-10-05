@@ -615,7 +615,7 @@ public class ServletResponseUtil {
 			}
 
 			if (contentLength > 0) {
-				response.setContentLength((int)contentLength);
+				setContentLength(response, contentLength);
 			}
 
 			response.flushBuffer();
