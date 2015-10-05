@@ -911,6 +911,10 @@
 		<run-functional-test app.server.type="glassfish" database.type="postgresql" />
 	</target>
 
+	<target name="functional-tomcat-hypersonic">
+		<run-functional-test app.server.type="tomcat" database.type="hypersonic" />
+	</target>
+
 	<target name="functional-tomcat-mysql">
 		<run-functional-test app.server.type="tomcat" database.type="mysql" />
 	</target>
