@@ -136,22 +136,29 @@ public class SessionAuthToken implements AuthToken {
 	protected String getSessionAuthenticationToken(
 		HttpServletRequest request, String key, boolean createToken) {
 
+		String tokenKey = WebKeys.AUTHENTICATION_TOKEN.concat(key);
+
 		HttpServletRequest currentRequest = request;
+
+		HttpSession session = null;
+
+		String sessionAuthenticationToken = null;
 
 		while (currentRequest instanceof HttpServletRequestWrapper) {
 			HttpServletRequestWrapper httpServletRequestWrapper =
 				(HttpServletRequestWrapper)currentRequest;
 
+			session = currentRequest.getSession();
+
+			sessionAuthenticationToken = (String)session.getAttribute(tokenKey);
+
+			if (Validator.isNotNull(sessionAuthenticationToken)) {
+				break;
+			}
+
 			currentRequest =
 				(HttpServletRequest)httpServletRequestWrapper.getRequest();
 		}
-
-		HttpSession session = currentRequest.getSession();
-
-		String tokenKey = WebKeys.AUTHENTICATION_TOKEN.concat(key);
-
-		String sessionAuthenticationToken = (String)session.getAttribute(
-			tokenKey);
 
 		if (createToken && Validator.isNull(sessionAuthenticationToken)) {
 			sessionAuthenticationToken = PwdGenerator.getPassword(
