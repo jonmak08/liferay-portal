@@ -913,6 +913,8 @@ public interface PropsKeys {
 
 	public static final String FLAGS_REASONS = "flags.reasons";
 
+	public static final String FREEMARKER_ENGINE_ALLOWED_CLASSES = "freemarker.engine.allowed.classes";
+
 	public static final String FREEMARKER_ENGINE_CACHE_ENABLED = "freemarker.engine.cache.enabled";
 
 	public static final String FREEMARKER_ENGINE_LOCALIZED_LOOKUP = "freemarker.engine.localized.lookup";
