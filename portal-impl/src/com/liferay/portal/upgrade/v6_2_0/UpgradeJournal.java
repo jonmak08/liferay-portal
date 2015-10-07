@@ -102,7 +102,7 @@ public class UpgradeJournal extends BaseUpgradePortletPreferences {
 			ps.setString(
 				14,
 				JournalConverterImpl.getDDMXSD(
-					xsd, getCompanyDefaultLocale(companyId)));
+					xsd, getDefaultLocale(companyId)));
 			ps.setString(15, storageType);
 			ps.setInt(16, type);
 
@@ -233,7 +233,7 @@ public class UpgradeJournal extends BaseUpgradePortletPreferences {
 		super.doUpgrade();
 	}
 
-	protected Locale getCompanyDefaultLocale(long companyId) throws Exception {
+	protected Locale getDefaultLocale(long companyId) throws Exception {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
