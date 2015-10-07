@@ -75,6 +75,17 @@ public class LiferayTemplateClassResolver implements TemplateClassResolver {
 			}
 		}
 
+		for (String restrictedPackageName :
+			PropsValues.FREEMARKER_ENGINE_RESTRICTED_PACKAGES) {
+
+			if (className.startsWith(restrictedPackageName)) {
+				throw new TemplateException(
+					"Instantiating " + className + " is not allowed in the " +
+						"template for security reasons",
+					environment);
+			}
+		}
+
 		boolean allowed = false;
 
 		String[] allowedClassNames = GetterUtil.getStringValues(
