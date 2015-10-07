@@ -21,7 +21,7 @@
 <!--FIND_MEMBERS-->
 <tr>
 	<td>FIND_MEMBERS_SEARCH_FIELD</td>
-	<td>//input[@class='invite-user-search']</td>
+	<td>//input[contains(@class,'invite-user-search')]</td>
 	<td></td>
 </tr>
 <tr>
