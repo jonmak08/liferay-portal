@@ -19,7 +19,7 @@
 
 		<execute macro="SOUserBar#addSOSite">
 			<var name="siteDescription" value="${siteDescription}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteType" value="${siteType}" />
 		</execute>
 	</set-up>
@@ -43,7 +43,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -53,7 +53,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -68,7 +68,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -77,7 +77,7 @@
 			<var name="categoryName" value="${categoryName1}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="1" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody1}" />
 			<var name="threadCount" value="1" />
 			<var name="threadSubject" value="${threadSubject1}" />
@@ -86,7 +86,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -96,7 +96,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -111,7 +111,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -120,7 +120,7 @@
 			<var name="categoryName" value="${categoryName2}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="1" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody2}" />
 			<var name="threadCount" value="1" />
 			<var name="threadSubject" value="${threadSubject2}" />
@@ -129,7 +129,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -139,7 +139,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -154,7 +154,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -163,7 +163,7 @@
 			<var name="categoryName" value="${categoryName3}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="1" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody3}" />
 			<var name="threadCount" value="1" />
 			<var name="threadSubject" value="${threadSubject3}" />
@@ -178,7 +178,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -189,7 +189,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -203,7 +203,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -213,7 +213,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -225,7 +225,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -244,7 +244,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -254,7 +254,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -266,7 +266,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -283,7 +283,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -296,7 +296,7 @@
 		<execute macro="SOForumsCategoryThread#viewSubcategoryPG">
 			<var name="adminName" value="${adminName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="subCategoryEnabled" value="${subCategoryEnabled}" />
 			<var name="subCategoryName" value="${subCategoryName}" />
 			<var name="threadBody" value="${threadBody}" />
@@ -312,7 +312,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -322,7 +322,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -337,7 +337,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -345,7 +345,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
@@ -353,7 +353,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -361,7 +361,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
@@ -369,7 +369,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -377,7 +377,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
@@ -391,7 +391,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -401,7 +401,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -417,7 +417,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -426,7 +426,7 @@
 			<var name="anonymous" value="true" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="Anonymous" />
@@ -434,7 +434,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -443,7 +443,7 @@
 			<var name="anonymous" value="true" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="Anonymous" />
@@ -451,7 +451,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -460,7 +460,7 @@
 			<var name="anonymous" value="true" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="Anonymous" />
@@ -476,7 +476,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -486,7 +486,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -503,7 +503,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -514,7 +514,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="numberOfAttachments" value="1" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadAddAttachment" value="true" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
@@ -523,7 +523,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -533,7 +533,7 @@
 			<var name="mbThreadAttachment" value="${mbThreadAttachment}" />
 			<var name="mbThreadAttachmentFileSize" value="${mbThreadAttachmentFileSize}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
@@ -541,7 +541,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -551,7 +551,7 @@
 			<var name="mbThreadAttachment" value="${mbThreadAttachment}" />
 			<var name="mbThreadAttachmentFileSize" value="${mbThreadAttachmentFileSize}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
@@ -565,7 +565,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -575,7 +575,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -590,7 +590,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -613,7 +613,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -623,7 +623,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -639,7 +639,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -656,7 +656,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -664,7 +664,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="markAsAnswer" value="true" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadReplyBody" value="${threadReplyBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
@@ -680,7 +680,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -690,7 +690,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -705,7 +705,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -721,7 +721,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -731,7 +731,7 @@
 			<var name="categoryPostCount" value="2" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
@@ -739,7 +739,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -748,7 +748,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
@@ -756,7 +756,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -765,7 +765,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
@@ -773,7 +773,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -781,7 +781,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="replyNumber" value="2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadReplyBody" value="${threadReplyBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
@@ -813,7 +813,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -827,13 +827,13 @@
 		</execute>
 
 		<execute macro="SOUserBar#joinSOSite">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteType" value="${siteType}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -850,7 +850,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -866,7 +866,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -875,7 +875,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${userFullName}" />
@@ -883,7 +883,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -892,7 +892,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${userFullName}" />
@@ -900,7 +900,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -910,7 +910,7 @@
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="2" />
 			<var name="siteMember" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadReplyBody" value="${threadReplyBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
@@ -926,7 +926,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -936,7 +936,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -951,7 +951,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -967,7 +967,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -976,7 +976,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
@@ -984,7 +984,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -993,7 +993,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
@@ -1001,7 +1001,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1011,7 +1011,7 @@
 			<var name="pageName" value="${pageName}" />
 			<var name="replyContainsQuote" value="true" />
 			<var name="replyNumber" value="2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadBodyQuote" value="${threadBody}" />
 			<var name="threadReplyBody" value="${threadReplyBody}" />
@@ -1033,7 +1033,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1043,7 +1043,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1058,7 +1058,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1073,7 +1073,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1088,7 +1088,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1097,7 +1097,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="${postCount}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody1}" />
 			<var name="threadCount" value="${threadCount}" />
 			<var name="threadSubject" value="${threadSubject1}" />
@@ -1106,7 +1106,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1115,7 +1115,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="${postCount}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody2}" />
 			<var name="threadCount" value="${threadCount}" />
 			<var name="threadSubject" value="${threadSubject2}" />
@@ -1124,7 +1124,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1133,7 +1133,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="${postCount}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody3}" />
 			<var name="threadCount" value="${threadCount}" />
 			<var name="threadSubject" value="${threadSubject3}" />
@@ -1164,7 +1164,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1178,13 +1178,13 @@
 		</execute>
 
 		<execute macro="SOUserBar#joinSOSite">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteType" value="${siteType}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1201,7 +1201,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1210,7 +1210,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="siteMember" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${userFullName}" />
@@ -1218,7 +1218,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1226,7 +1226,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${userFullName}" />
@@ -1234,7 +1234,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1242,7 +1242,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${userFullName}" />
@@ -1257,7 +1257,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1267,7 +1267,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1284,7 +1284,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1292,7 +1292,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadPriority" value="${threadPriority}" />
 			<var name="threadSubject" value="${threadSubject}" />
@@ -1301,7 +1301,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1310,7 +1310,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="1" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadPriority" value="${threadPriority}" />
 			<var name="threadSubject" value="${threadSubject}" />
@@ -1319,7 +1319,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1328,7 +1328,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="1" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadPriority" value="${threadPriority}" />
 			<var name="threadSubject" value="${threadSubject}" />
@@ -1344,7 +1344,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1354,7 +1354,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1371,7 +1371,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1379,7 +1379,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="tagName" value="${tagName}" />
 			<var name="threadAddTag" value="true" />
 			<var name="threadBody" value="${threadBody}" />
@@ -1396,7 +1396,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1406,7 +1406,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1423,7 +1423,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1431,7 +1431,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadPriority" value="${threadPriority}" />
 			<var name="threadSubject" value="${threadSubject}" />
@@ -1440,7 +1440,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1449,7 +1449,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="1" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadPriority" value="${threadPriority}" />
 			<var name="threadSubject" value="${threadSubject}" />
@@ -1458,7 +1458,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1467,7 +1467,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="1" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadPriority" value="${threadPriority}" />
 			<var name="threadSubject" value="${threadSubject}" />
@@ -1482,7 +1482,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1492,7 +1492,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1507,7 +1507,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1557,7 +1557,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1567,7 +1567,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1582,7 +1582,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1604,7 +1604,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1613,7 +1613,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="1" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody1}" />
 			<var name="threadCount" value="1" />
 			<var name="threadSubject" value="${threadSubject1}" />
@@ -1622,7 +1622,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1638,13 +1638,13 @@
 		</execute>
 
 		<execute macro="SOUserBar#joinSOSite">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteType" value="${siteType}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1654,7 +1654,7 @@
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="2" />
 			<var name="siteMember" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody1}" />
 			<var name="threadCount" value="2" />
 			<var name="threadSubject" value="${threadSubject1}" />
@@ -1663,7 +1663,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1673,7 +1673,7 @@
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="2" />
 			<var name="siteMember" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody2}" />
 			<var name="threadCount" value="2" />
 			<var name="threadSubject" value="${threadSubject2}" />
@@ -1688,7 +1688,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1698,7 +1698,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1734,7 +1734,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1745,7 +1745,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1778,7 +1778,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1792,19 +1792,19 @@
 		</execute>
 
 		<execute macro="SOUserBar#joinSOSite">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteType" value="${siteType}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1824,7 +1824,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1832,7 +1832,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${userFullName}" />
@@ -1845,7 +1845,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1860,7 +1860,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1873,7 +1873,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1888,7 +1888,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1897,7 +1897,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="siteMember" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${userFullName}" />
@@ -1909,7 +1909,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1923,7 +1923,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1940,7 +1940,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1950,7 +1950,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1962,7 +1962,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1979,7 +1979,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1995,7 +1995,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2024,7 +2024,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2034,7 +2034,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2049,7 +2049,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2063,7 +2063,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2091,7 +2091,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2101,7 +2101,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2113,7 +2113,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2130,7 +2130,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2148,7 +2148,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2161,7 +2161,7 @@
 		<execute macro="SOForumsCategoryThread#viewSubcategoryPG">
 			<var name="adminName" value="${adminName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="subCategoryEnabled" value="${subCategoryEnabled}" />
 			<var name="subCategoryName" value="${subCategoryName}" />
 			<var name="threadBody" value="${threadBodyEdit}" />
@@ -2179,7 +2179,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2189,7 +2189,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2204,7 +2204,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2220,7 +2220,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2228,7 +2228,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBodyEdit}" />
 			<var name="threadSubject" value="${threadSubjectEdit}" />
 			<var name="userName" value="${adminName}" />
@@ -2266,7 +2266,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2276,7 +2276,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2295,7 +2295,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2311,7 +2311,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2327,7 +2327,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2338,7 +2338,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2355,7 +2355,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2379,7 +2379,7 @@
 		<execute macro="LAR#exportSiteCP">
 			<var name="exportPermissions" value="true" />
 			<var name="larFileName" value="${larFileName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2387,26 +2387,26 @@
 
 		<execute macro="SOUserBar#addSOSite">
 			<var name="siteDescription" value="${siteDescription}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteType" value="${siteType}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="LAR#importSiteCP">
 			<var name="importPermissions" value="true" />
 			<var name="larFileName" value="${larFileName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2417,7 +2417,7 @@
 			<var name="messageRating1" value="+1" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="3" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody1}" />
 			<var name="threadCount" value="1" />
 			<var name="threadSubject" value="${threadSubject1}" />
@@ -2426,7 +2426,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2438,7 +2438,7 @@
 			<var name="postCount" value="2" />
 			<var name="questionAnswers" value="1" />
 			<var name="questionVotes" value="0" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody2}" />
 			<var name="threadCount" value="1" />
 			<var name="threadSubject" value="${threadSubject2}" />
@@ -2456,7 +2456,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2467,7 +2467,7 @@
 			<var name="messageRating1" value="+1" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="3" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody1}" />
 			<var name="threadCount" value="1" />
 			<var name="threadSubject" value="${threadSubject1}" />
@@ -2476,7 +2476,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2488,7 +2488,7 @@
 			<var name="postCount" value="2" />
 			<var name="questionAnswers" value="1" />
 			<var name="questionVotes" value="0" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody2}" />
 			<var name="threadCount" value="1" />
 			<var name="threadSubject" value="${threadSubject2}" />
@@ -2507,7 +2507,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2517,7 +2517,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2532,7 +2532,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2546,7 +2546,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2554,7 +2554,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
@@ -2562,7 +2562,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2590,7 +2590,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2600,7 +2600,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2615,7 +2615,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2625,7 +2625,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2637,7 +2637,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2645,7 +2645,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName2}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadCount" value="${threadCount}" />
 			<var name="threadSubject" value="${threadSubject}" />
@@ -2654,7 +2654,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2672,7 +2672,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2682,7 +2682,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2697,7 +2697,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2708,7 +2708,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2721,7 +2721,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2739,7 +2739,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2749,7 +2749,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2765,7 +2765,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2781,7 +2781,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2789,7 +2789,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
@@ -2804,7 +2804,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2814,7 +2814,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2829,7 +2829,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2846,7 +2846,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2862,7 +2862,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2870,7 +2870,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBodyEdit}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
@@ -2889,7 +2889,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2899,7 +2899,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2914,7 +2914,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2930,7 +2930,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2946,7 +2946,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2962,7 +2962,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2972,7 +2972,7 @@
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="${postCount}" />
 			<var name="replyNumber" value="2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadReplyBody" value="${threadReplyBody1}" />
 			<var name="threadSubject" value="${threadSubject}" />
@@ -2981,7 +2981,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2991,7 +2991,7 @@
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="${postCount}" />
 			<var name="replyNumber" value="3" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadReplyBody" value="${threadReplyBody2}" />
 			<var name="threadSubject" value="${threadSubject}" />
@@ -3000,7 +3000,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3010,7 +3010,7 @@
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="${postCount}" />
 			<var name="replyNumber" value="4" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadReplyBody" value="${threadReplyBody3}" />
 			<var name="threadSubject" value="${threadSubject}" />
@@ -3026,7 +3026,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3036,7 +3036,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3051,7 +3051,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3067,14 +3067,14 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="SOForumsCategoryThread#viewReplyPG">
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadReplyBody" value="${threadReplyBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
@@ -3089,7 +3089,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3099,7 +3099,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3115,7 +3115,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3131,7 +3131,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3139,7 +3139,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
@@ -3154,7 +3154,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3164,7 +3164,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3179,7 +3179,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3196,7 +3196,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3212,7 +3212,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3220,7 +3220,7 @@
 			<var name="adminName" value="${adminName}" />
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBodyEdit}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${adminName}" />
@@ -3234,7 +3234,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3244,7 +3244,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3259,7 +3259,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3270,7 +3270,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3281,7 +3281,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3320,7 +3320,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3335,17 +3335,17 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="SOSite#joinSitePG">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3360,7 +3360,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3569,7 +3569,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3579,7 +3579,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3594,7 +3594,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3604,7 +3604,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3619,7 +3619,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3635,7 +3635,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3644,7 +3644,7 @@
 			<var name="categoryName" value="${categoryName1}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="${postCount}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody1}" />
 			<var name="threadCount" value="${threadCount}" />
 			<var name="threadSubject" value="${threadSubject1}" />
@@ -3653,7 +3653,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3687,7 +3687,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3697,7 +3697,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3712,7 +3712,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3727,7 +3727,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3747,7 +3747,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3756,7 +3756,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="postCount" value="${postCount}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody1}" />
 			<var name="threadCount" value="${threadCount}" />
 			<var name="threadSubject" value="${threadSubject1}" />
@@ -3765,7 +3765,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3786,7 +3786,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3801,7 +3801,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3813,7 +3813,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3824,7 +3824,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3834,7 +3834,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3864,7 +3864,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3878,13 +3878,13 @@
 		</execute>
 
 		<execute macro="SOUserBar#joinSOSite">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteType" value="${siteType}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3915,7 +3915,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3941,7 +3941,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3950,7 +3950,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="siteMember" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${userFullName}" />
@@ -3958,7 +3958,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3967,7 +3967,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="siteMember" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${userFullName}" />
@@ -3975,7 +3975,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -3984,7 +3984,7 @@
 			<var name="categoryName" value="${categoryName}" />
 			<var name="pageName" value="${pageName}" />
 			<var name="siteMember" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="threadBody" value="${threadBody}" />
 			<var name="threadSubject" value="${threadSubject}" />
 			<var name="userName" value="${userFullName}" />
@@ -4015,7 +4015,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -4034,7 +4034,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -4049,13 +4049,13 @@
 		</execute>
 
 		<execute macro="SOUserBar#joinSOSite">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteType" value="${siteType}" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -4071,7 +4071,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -4094,7 +4094,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -4129,7 +4129,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -4137,7 +4137,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -4148,7 +4148,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -4159,7 +4159,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -4170,7 +4170,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -4181,7 +4181,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Open Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 

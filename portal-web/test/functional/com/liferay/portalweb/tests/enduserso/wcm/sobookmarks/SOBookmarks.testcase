@@ -223,7 +223,9 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="SOBookmarks#deleteBookmarksEntry" />
+		<execute macro="SOBookmarks#deleteBookmarksEntry">
+			<var name="bookmarksEntryName" value="${bookmarksEntryName}" />
+		</execute>
 	</command>
 
 	<command name="EditBookmarksEntryTest" priority="5">
@@ -258,6 +260,7 @@
 
 		<execute macro="SOBookmarks#editBookmarksEntry">
 			<var name="bookmarksEntryDescriptionEdit" value="${bookmarksEntryDescriptionEdit}" />
+			<var name="bookmarksEntryName" value="${bookmarksEntryName}" />
 			<var name="bookmarksEntryNameEdit" value="${bookmarksEntryNameEdit}" />
 			<var name="bookmarksEntryUrlEdit" value="${bookmarksEntryUrlEdit}" />
 		</execute>
