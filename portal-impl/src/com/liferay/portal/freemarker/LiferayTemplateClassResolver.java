@@ -37,8 +37,8 @@ public class LiferayTemplateClassResolver implements TemplateClassResolver {
 			String className, Environment environment, Template template)
 		throws TemplateException {
 
-		if (className.equals(ObjectConstructor.class.getName()) ||
-			className.equals(Execute.class.getName())) {
+		if (className.equals(Execute.class.getName()) ||
+			className.equals(ObjectConstructor.class.getName())) {
 
 			throw new TemplateException(
 				"Instantiating " + className + " is not allowed in the " +
@@ -46,10 +46,10 @@ public class LiferayTemplateClassResolver implements TemplateClassResolver {
 				environment);
 		}
 
-		String[] restrictedClasses = GetterUtil.getStringValues(
+		String[] restrictedClassNames = GetterUtil.getStringValues(
 			_freemarkerEngineConfiguration.restrictedClasses());
 
-		for (String restrictedClassName : restrictedClasses) {
+		for (String restrictedClassName : restrictedClassNames) {
 			if (restrictedClassName.equals(StringPool.STAR)) {
 				throw new TemplateException(
 					"Instantiating " + className + " is not allowed in the " +
@@ -66,7 +66,8 @@ public class LiferayTemplateClassResolver implements TemplateClassResolver {
 							"the template for security reasons",
 						environment);
 				}
-			} else if (className.equals(restrictedClassName)) {
+			}
+			else if (className.equals(restrictedClassName)) {
 				throw new TemplateException(
 					"Instantiating " + className + " is not allowed in the " +
 						"template for security reasons",
@@ -76,10 +77,10 @@ public class LiferayTemplateClassResolver implements TemplateClassResolver {
 
 		boolean allowed = false;
 
-		String[] allowedClasses = GetterUtil.getStringValues(
+		String[] allowedClassNames = GetterUtil.getStringValues(
 			_freemarkerEngineConfiguration.allowedClasses());
 
-		for (String allowedClassName : allowedClasses) {
+		for (String allowedClassName : allowedClassNames) {
 			if (allowedClassName.equals(StringPool.STAR)) {
 				allowed = true;
 				break;
