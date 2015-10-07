@@ -47,7 +47,7 @@ public class LiferayTemplateClassResolver implements TemplateClassResolver {
 		}
 
 		String[] restrictedClassNames = GetterUtil.getStringValues(
-			_freemarkerEngineConfiguration.restrictedClasses());
+			PropsValues.FREEMARKER_ENGINE_RESTRICTED_CLASSES);
 
 		for (String restrictedClassName : restrictedClassNames) {
 			if (restrictedClassName.equals(StringPool.STAR)) {
@@ -78,7 +78,7 @@ public class LiferayTemplateClassResolver implements TemplateClassResolver {
 		boolean allowed = false;
 
 		String[] allowedClassNames = GetterUtil.getStringValues(
-			_freemarkerEngineConfiguration.allowedClasses());
+			PropsValues.FREEMARKER_ENGINE_ALLOWED_CLASSES);
 
 		for (String allowedClassName : allowedClassNames) {
 			if (allowedClassName.equals(StringPool.STAR)) {
