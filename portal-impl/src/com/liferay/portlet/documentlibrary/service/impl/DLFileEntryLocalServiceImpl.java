@@ -1369,6 +1369,49 @@ public class DLFileEntryLocalServiceImpl
 	}
 
 	@Override
+	public String getUniqueTitle(
+			long groupId, long folderId, long fileEntryId, String title,
+			String extension)
+		throws PortalException, SystemException {
+
+		String titleExtension = StringPool.BLANK;
+		String titleWithoutExtension = title;
+
+		if (title.endsWith(StringPool.PERIOD.concat(extension))) {
+			titleExtension = extension;
+			titleWithoutExtension = FileUtil.stripExtension(title);
+		}
+
+		String uniqueTitle = title;
+
+		for (int i = 1;;) {
+			try {
+				validateFile(
+					groupId, folderId, fileEntryId, uniqueTitle,
+					extension);
+
+				return uniqueTitle;
+			}
+			catch (PortalException pe) {
+				if (!(pe instanceof DuplicateFolderNameException) &&
+					 !(pe instanceof DuplicateFileException)) {
+
+					throw pe;
+				}
+			}
+
+			uniqueTitle =
+				titleWithoutExtension + StringPool.UNDERLINE +
+					String.valueOf(i++);
+
+			if (Validator.isNotNull(titleExtension)) {
+				uniqueTitle = uniqueTitle.concat(
+					StringPool.PERIOD.concat(titleExtension));
+			}
+		}
+	}
+
+	@Override
 	public boolean hasExtraSettings() throws SystemException {
 		if (dlFileEntryFinder.countByExtraSettings() > 0) {
 			return true;

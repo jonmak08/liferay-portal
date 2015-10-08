@@ -28,7 +28,6 @@ import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileVersion;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.util.ContentTypes;
-import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.MimeTypesUtil;
@@ -490,54 +489,12 @@ public class VerifyDocumentLibrary extends VerifyProcess {
 	protected void renameDuplicateTitle(DLFileEntry dlFileEntry)
 		throws PortalException, SystemException {
 
-		String uniqueTitle = getUniqueTitle(
+		String uniqueTitle = DLFileEntryLocalServiceUtil.getUniqueTitle(
 				dlFileEntry.getGroupId(), dlFileEntry.getFolderId(),
 				dlFileEntry.getFileEntryId(), dlFileEntry.getTitle(),
 				dlFileEntry.getExtension());
 
 		renameTitle(dlFileEntry, uniqueTitle);
-	}
-
-	protected String getUniqueTitle(
-			long groupId, long folderId, long fileEntryId, String title,
-			String extension)
-		throws PortalException, SystemException {
-
-		String titleExtension = StringPool.BLANK;
-		String titleWithoutExtension = title;
-
-		if (title.endsWith(StringPool.PERIOD.concat(extension))) {
-			titleExtension = extension;
-			titleWithoutExtension = FileUtil.stripExtension(title);
-		}
-
-		String uniqueTitle = title;
-
-		for (int i = 1;;) {
-			try {
-				DLFileEntryLocalServiceUtil.validateFile(
-					groupId, folderId, fileEntryId, uniqueTitle,
-					extension);
-
-				return uniqueTitle;
-			}
-			catch (PortalException pe) {
-				if (!(pe instanceof DuplicateFolderNameException) &&
-					 !(pe instanceof DuplicateFileException)) {
-
-					throw pe;
-				}
-			}
-
-			uniqueTitle =
-				titleWithoutExtension + StringPool.UNDERLINE +
-					String.valueOf(i++);
-
-			if (Validator.isNotNull(titleExtension)) {
-				uniqueTitle = uniqueTitle.concat(
-					StringPool.PERIOD.concat(titleExtension));
-			}
-		}
 	}
 
 	protected void renameTitle(DLFileEntry dlFileEntry, String newTitle)
