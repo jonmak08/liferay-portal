@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.ListUtil;
@@ -144,6 +145,10 @@ public class DLFileVersionLocalServiceImpl
 	public void setTreePaths(final long folderId, final String treePath)
 		throws PortalException, SystemException {
 
+		if (treePath == null) {
+			throw new IllegalArgumentException("Tree path is null");
+		}
+
 		ActionableDynamicQuery actionableDynamicQuery =
 			new DLFileVersionActionableDynamicQuery() {
 
@@ -157,7 +162,10 @@ public class DLFileVersionLocalServiceImpl
 				Property treePathProperty = PropertyFactoryUtil.forName(
 					"treePath");
 
-				dynamicQuery.add(treePathProperty.ne(treePath));
+				dynamicQuery.add(
+					RestrictionsFactoryUtil.or(
+						treePathProperty.isNull(),
+						treePathProperty.ne(treePath)));
 			}
 
 			@Override
