@@ -501,7 +501,7 @@ public class VerifyDocumentLibrary extends VerifyProcess {
 	protected String getUniqueTitle(
 			long groupId, long folderId, long fileEntryId, String title,
 			String extension)
-		throws PortalException {
+		throws PortalException, SystemException {
 
 		String titleExtension = StringPool.BLANK;
 		String titleWithoutExtension = title;
