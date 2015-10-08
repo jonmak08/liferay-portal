@@ -801,6 +801,15 @@ public class DLFileEntryLocalServiceUtil {
 		return getService().getOrphanedFileEntries();
 	}
 
+	public static java.lang.String getUniqueTitle(long groupId, long folderId,
+		long fileEntryId, java.lang.String title, java.lang.String extension)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService()
+				   .getUniqueTitle(groupId, folderId, fileEntryId, title,
+			extension);
+	}
+
 	public static boolean hasExtraSettings()
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getService().hasExtraSettings();

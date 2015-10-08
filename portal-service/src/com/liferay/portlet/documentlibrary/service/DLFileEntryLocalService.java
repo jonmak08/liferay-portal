@@ -665,6 +665,12 @@ public interface DLFileEntryLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public java.lang.String getUniqueTitle(long groupId, long folderId,
+		long fileEntryId, java.lang.String title, java.lang.String extension)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public boolean hasExtraSettings()
 		throws com.liferay.portal.kernel.exception.SystemException;
 
