@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.lar.ExportImportPathUtil;
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.lar.PortletDataException;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
+import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
@@ -36,6 +37,7 @@ import com.liferay.portal.repository.liferayrepository.model.LiferayFolder;
 import com.liferay.portal.service.RepositoryLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.util.PortalUtil;
+import com.liferay.portlet.documentlibrary.lar.FileEntryUtil;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryType;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryTypeConstants;
 import com.liferay.portlet.documentlibrary.model.DLFolder;
@@ -334,10 +336,14 @@ public class FolderStagedModelDataHandler
 		Folder folder = FolderUtil.fetchByR_P_N(groupId, parentFolderId, name);
 
 		if (folder == null) {
-			return name;
-		}
+			FileEntry fileEntry = FileEntryUtil.fetchByR_F_T(
+				groupId, parentFolderId, name);
 
-		if (Validator.isNotNull(uuid) && uuid.equals(folder.getUuid())) {
+			if (fileEntry == null) {
+				return name;
+			}
+		}
+		else if (Validator.isNotNull(uuid) && uuid.equals(folder.getUuid())) {
 			return name;
 		}
 
