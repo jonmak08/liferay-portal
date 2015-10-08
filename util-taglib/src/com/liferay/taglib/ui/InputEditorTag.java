@@ -15,6 +15,8 @@
 package com.liferay.taglib.ui;
 
 import com.liferay.portal.kernel.editor.EditorUtil;
+import com.liferay.portal.kernel.servlet.BrowserSnifferUtil;
+import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -148,24 +150,54 @@ public class InputEditorTag extends IncludeTag {
 
 		String editorImpl = EditorUtil.getEditorValue(request, _editorImpl);
 
-		String ckEditorVersion = PropsUtil.get(
-			PropsKeys.EDITOR_CKEDITOR_VERSION);
+		if (Validator.equals(editorImpl, "ckeditor")) {
+			String ckEditorVersion = PropsUtil.get(
+				PropsKeys.EDITOR_CKEDITOR_VERSION);
 
-		if (Validator.equals(editorImpl, "ckeditor") &&
-			Validator.equals(ckEditorVersion, "latest")) {
+			if (Validator.equals(ckEditorVersion, "latest")) {
+				float ckEditorVersionLatestChrome = GetterUtil.getFloat(PropsUtil.get(
+					PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_CHROME));
+				float ckEditorVersionLatestFirefox = GetterUtil.getFloat(PropsUtil.get(
+					PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX));
+				float ckEditorVersionLatestIE = GetterUtil.getFloat(PropsUtil.get(
+					PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_IE));
 
-			StringBundler sb = new StringBundler(5);
+				float majorVersion = BrowserSnifferUtil.getMajorVersion(request);
 
-			sb.append("/html/js/editor/");
-			sb.append(editorImpl);
-			sb.append(StringPool.UNDERLINE);
-			sb.append(ckEditorVersion);
-			sb.append(".jsp");
+				if (BrowserSnifferUtil.isChrome(request)) {
+					if (ckEditorVersionLatestChrome < majorVersion) {
+						ckEditorVersion = "default";
+					}
+				}
+				else if (BrowserSnifferUtil.isFirefox(request)) {
+					if (ckEditorVersionLatestFirefox < majorVersion) {
+						ckEditorVersion = "default";
+					}
+				}
+				else if (BrowserSnifferUtil.isIe(request)) {
+					if (ckEditorVersionLatestIE < majorVersion) {
+						ckEditorVersion = "default";
+					}
+				}
+				else {
+					ckEditorVersion = "default";
+				}
+			}
 
-			_page = sb.toString();
-		}
-		else {
-			_page = "/html/js/editor/" + editorImpl + ".jsp";
+			if (Validator.equals(ckEditorVersion, "latest")) {
+				StringBundler sb = new StringBundler(5);
+
+				sb.append("/html/js/editor/");
+				sb.append(editorImpl);
+				sb.append(StringPool.UNDERLINE);
+				sb.append(ckEditorVersion);
+				sb.append(".jsp");
+
+				_page = sb.toString();
+			}
+			else {
+				_page = "/html/js/editor/" + editorImpl + ".jsp";
+			}
 		}
 
 		request.setAttribute(
