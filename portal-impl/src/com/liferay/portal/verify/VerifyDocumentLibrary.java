@@ -514,15 +514,6 @@ public class VerifyDocumentLibrary extends VerifyProcess {
 		String uniqueTitle = title;
 
 		for (int i = 1;;) {
-			uniqueTitle =
-				titleWithoutExtension + StringPool.UNDERLINE +
-					String.valueOf(i);
-
-			if (Validator.isNotNull(titleExtension)) {
-				uniqueTitle = uniqueTitle.concat(
-					StringPool.PERIOD.concat(titleExtension));
-			}
-
 			try {
 				DLFileEntryLocalServiceUtil.validateFile(
 					groupId, folderId, fileEntryId, uniqueTitle,
@@ -536,8 +527,15 @@ public class VerifyDocumentLibrary extends VerifyProcess {
 
 					throw pe;
 				}
+			}
 
-				i++;
+			uniqueTitle =
+				titleWithoutExtension + StringPool.UNDERLINE +
+					String.valueOf(i++);
+
+			if (Validator.isNotNull(titleExtension)) {
+				uniqueTitle = uniqueTitle.concat(
+					StringPool.PERIOD.concat(titleExtension));
 			}
 		}
 	}
