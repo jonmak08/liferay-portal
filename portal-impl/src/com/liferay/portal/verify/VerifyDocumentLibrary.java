@@ -490,19 +490,31 @@ public class VerifyDocumentLibrary extends VerifyProcess {
 	protected void renameDuplicateTitle(DLFileEntry dlFileEntry)
 		throws PortalException, SystemException {
 
-		String title = dlFileEntry.getTitle();
+		String uniqueTitle = getUniqueTitle(
+				dlFileEntry.getGroupId(), dlFileEntry.getFolderId(),
+				dlFileEntry.getFileEntryId(), dlFileEntry.getTitle(),
+				dlFileEntry.getExtension());
+
+		renameTitle(dlFileEntry, uniqueTitle);
+	}
+
+	protected String getUniqueTitle(
+			long groupId, long folderId, long fileEntryId, String title,
+			String extension)
+		throws PortalException {
+
 		String titleExtension = StringPool.BLANK;
-		String titleWithoutExtension = dlFileEntry.getTitle();
+		String titleWithoutExtension = title;
 
-		if (title.endsWith(
-				StringPool.PERIOD.concat(dlFileEntry.getExtension()))) {
-
-			titleExtension = dlFileEntry.getExtension();
+		if (title.endsWith(StringPool.PERIOD.concat(extension))) {
+			titleExtension = extension;
 			titleWithoutExtension = FileUtil.stripExtension(title);
 		}
 
+		String uniqueTitle = title;
+
 		for (int i = 1;;) {
-			String uniqueTitle =
+			uniqueTitle =
 				titleWithoutExtension + StringPool.UNDERLINE +
 					String.valueOf(i);
 
@@ -513,13 +525,10 @@ public class VerifyDocumentLibrary extends VerifyProcess {
 
 			try {
 				DLFileEntryLocalServiceUtil.validateFile(
-					dlFileEntry.getGroupId(), dlFileEntry.getFolderId(),
-					dlFileEntry.getFileEntryId(), uniqueTitle,
-					dlFileEntry.getExtension());
+					groupId, folderId, fileEntryId, uniqueTitle,
+					extension);
 
-				renameTitle(dlFileEntry, uniqueTitle);
-
-				return;
+				return uniqueTitle;
 			}
 			catch (PortalException pe) {
 				if (!(pe instanceof DuplicateFolderNameException) &&
