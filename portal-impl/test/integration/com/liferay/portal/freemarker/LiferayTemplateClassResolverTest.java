@@ -14,10 +14,9 @@
 
 package com.liferay.portal.freemarker;
 
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.util.PropsUtil;
 import freemarker.template.TemplateException;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -30,21 +29,13 @@ public class LiferayTemplateClassResolverTest {
 	@Before
 	public void setUp() {
 		_liferayTemplateClassResolver = new LiferayTemplateClassResolver();
-
-		Map<String, Object> properties = new HashMap<>();
-
-		_liferayTemplateClassResolver.activate(properties);
 	}
 
 	@Test()
 	public void testResolveAllowedClass1() throws Exception {
-		Map<String, Object> properties = new HashMap<>();
-
-		properties.put(
-			"allowedClasses", "freemarker.template.utility.ClassUtil");
-		properties.put("restrictedClasses", "");
-
-		_liferayTemplateClassResolver.activate(properties);
+		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
+			"freemarker.template.utility.ClassUtil");
+		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_RESTRICTED_CLASSES, "");
 
 		_liferayTemplateClassResolver.resolve(
 			"freemarker.template.utility.ClassUtil", null, null);
@@ -52,12 +43,9 @@ public class LiferayTemplateClassResolverTest {
 
 	@Test()
 	public void testResolveAllowedClass2() throws Exception {
-		Map<String, Object> properties = new HashMap<>();
-
-		properties.put("allowedClasses", "freemarker.template.utility.*");
-		properties.put("restrictedClasses", "");
-
-		_liferayTemplateClassResolver.activate(properties);
+		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
+				"freemarker.template.utility.*");
+		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_RESTRICTED_CLASSES, "");
 
 		_liferayTemplateClassResolver.resolve(
 			"freemarker.template.utility.ClassUtil", null, null);
@@ -77,12 +65,9 @@ public class LiferayTemplateClassResolverTest {
 
 	@Test(expected = TemplateException.class)
 	public void testResolveRestrictedClass2() throws Exception {
-		Map<String, Object> properties = new HashMap<>();
-
-		properties.put("allowedClasses", "freemarker.template.utility.*");
-		properties.put("restrictedClasses", "");
-
-		_liferayTemplateClassResolver.activate(properties);
+		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
+			"freemarker.template.utility.*");
+		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_RESTRICTED_CLASSES, "");
 
 		_liferayTemplateClassResolver.resolve(
 			"freemarker.template.utility.Execute", null, null);
@@ -90,12 +75,10 @@ public class LiferayTemplateClassResolverTest {
 
 	@Test(expected = TemplateException.class)
 	public void testResolveRestrictedClass3() throws Exception {
-		Map<String, Object> properties = new HashMap<>();
-
-		properties.put("allowedClasses", "com.liferay.portal.model.User");
-		properties.put("restrictedClasses", "com.liferay.portal.model.*");
-
-		_liferayTemplateClassResolver.activate(properties);
+		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
+			"com.liferay.portal.model.User");
+		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_RESTRICTED_CLASSES,
+				"com.liferay.portal.model.*");
 
 		_liferayTemplateClassResolver.resolve(
 			"com.liferay.portal.model.User", null, null);
