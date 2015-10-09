@@ -14,9 +14,9 @@
 
 package com.liferay.portal.freemarker;
 
-import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.util.PropsValues;
 
 import freemarker.core.Environment;
@@ -76,7 +76,7 @@ public class LiferayTemplateClassResolver implements TemplateClassResolver {
 		}
 
 		for (String restrictedPackageName :
-			PropsValues.FREEMARKER_ENGINE_RESTRICTED_PACKAGES) {
+				PropsValues.FREEMARKER_ENGINE_RESTRICTED_PACKAGES) {
 
 			if (className.startsWith(restrictedPackageName)) {
 				throw new TemplateException(

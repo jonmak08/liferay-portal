@@ -16,6 +16,7 @@ package com.liferay.portal.freemarker;
 
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.util.PropsUtil;
+
 import freemarker.template.TemplateException;
 
 import org.junit.Before;
@@ -33,8 +34,9 @@ public class LiferayTemplateClassResolverTest {
 
 	@Test()
 	public void testResolveAllowedClass1() throws Exception {
-		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
-			"freemarker.template.utility.ClassUtil");
+		PropsUtil.set(
+			PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
+				"freemarker.template.utility.ClassUtil");
 		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_RESTRICTED_CLASSES, "");
 
 		_liferayTemplateClassResolver.resolve(
@@ -43,7 +45,8 @@ public class LiferayTemplateClassResolverTest {
 
 	@Test()
 	public void testResolveAllowedClass2() throws Exception {
-		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
+		PropsUtil.set(
+			PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
 				"freemarker.template.utility.*");
 		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_RESTRICTED_CLASSES, "");
 
@@ -65,8 +68,9 @@ public class LiferayTemplateClassResolverTest {
 
 	@Test(expected = TemplateException.class)
 	public void testResolveRestrictedClass2() throws Exception {
-		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
-			"freemarker.template.utility.*");
+		PropsUtil.set(
+			PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
+				"freemarker.template.utility.*");
 		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_RESTRICTED_CLASSES, "");
 
 		_liferayTemplateClassResolver.resolve(
@@ -75,9 +79,11 @@ public class LiferayTemplateClassResolverTest {
 
 	@Test(expected = TemplateException.class)
 	public void testResolveRestrictedClass3() throws Exception {
-		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
-			"com.liferay.portal.model.User");
-		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_RESTRICTED_CLASSES,
+		PropsUtil.set(
+			PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
+				"com.liferay.portal.model.User");
+		PropsUtil.set(
+			PropsKeys.FREEMARKER_ENGINE_RESTRICTED_CLASSES,
 				"com.liferay.portal.model.*");
 
 		_liferayTemplateClassResolver.resolve(
