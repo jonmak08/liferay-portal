@@ -65,6 +65,7 @@ import com.liferay.portlet.trash.util.TrashUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
+
 import java.util.List;
 import java.util.Map;
 
@@ -373,7 +374,7 @@ public class FileEntryStagedModelDataHandler
 
 				String fileEntryTitle =
 					DLFileEntryLocalServiceUtil.getUniqueTitle(
-						portletDataContext.getScopeGroupId(), folderId, -1,
+						portletDataContext.getScopeGroupId(), folderId, 0,
 						fileEntry.getTitle(), fileEntry.getExtension());
 
 				importedFileEntry = DLAppLocalServiceUtil.addFileEntry(
@@ -494,14 +495,14 @@ public class FileEntryStagedModelDataHandler
 		}
 		else {
 			String fileEntryTitle = DLFileEntryLocalServiceUtil.getUniqueTitle(
-					portletDataContext.getScopeGroupId(), folderId, -1,
+					portletDataContext.getScopeGroupId(), folderId, 0,
 					fileEntry.getTitle(), fileEntry.getExtension());
 
 			importedFileEntry = DLAppLocalServiceUtil.addFileEntry(
 				userId, portletDataContext.getScopeGroupId(), folderId,
-				titleWithExtension, fileEntry.getMimeType(),
-				fileEntryTitle, fileEntry.getDescription(), null, is,
-				fileEntry.getSize(), serviceContext);
+				titleWithExtension, fileEntry.getMimeType(), fileEntryTitle,
+				fileEntry.getDescription(), null, is, fileEntry.getSize(),
+				serviceContext);
 		}
 
 		if (portletDataContext.getBooleanParameter(

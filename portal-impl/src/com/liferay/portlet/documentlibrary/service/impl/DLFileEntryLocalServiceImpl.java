@@ -1384,11 +1384,10 @@ public class DLFileEntryLocalServiceImpl
 
 		String uniqueTitle = title;
 
-		for (int i = 1;;) {
+		for (int i = 1;; i++) {
 			try {
 				validateFile(
-					groupId, folderId, fileEntryId, uniqueTitle,
-					extension);
+					groupId, folderId, fileEntryId, uniqueTitle, extension);
 
 				return uniqueTitle;
 			}
@@ -1402,7 +1401,7 @@ public class DLFileEntryLocalServiceImpl
 
 			uniqueTitle =
 				titleWithoutExtension + StringPool.UNDERLINE +
-					String.valueOf(i++);
+					String.valueOf(i);
 
 			if (Validator.isNotNull(titleExtension)) {
 				uniqueTitle = uniqueTitle.concat(

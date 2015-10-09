@@ -34,7 +34,6 @@ import com.liferay.portal.kernel.util.MimeTypesUtil;
 import com.liferay.portal.kernel.util.StreamUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.repository.liferayrepository.model.LiferayFileEntry;
 import com.liferay.portal.repository.liferayrepository.model.LiferayFileVersion;
@@ -490,9 +489,9 @@ public class VerifyDocumentLibrary extends VerifyProcess {
 		throws PortalException, SystemException {
 
 		String uniqueTitle = DLFileEntryLocalServiceUtil.getUniqueTitle(
-				dlFileEntry.getGroupId(), dlFileEntry.getFolderId(),
-				dlFileEntry.getFileEntryId(), dlFileEntry.getTitle(),
-				dlFileEntry.getExtension());
+			dlFileEntry.getGroupId(), dlFileEntry.getFolderId(),
+			dlFileEntry.getFileEntryId(), dlFileEntry.getTitle(),
+			dlFileEntry.getExtension());
 
 		renameTitle(dlFileEntry, uniqueTitle);
 	}
