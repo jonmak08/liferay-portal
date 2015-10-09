@@ -998,7 +998,7 @@ Please set the environment variable ANT_OPTS to the recommended value of
 						override="true"
 						property="mirrors.src"
 						regexp="http://"
-						replace="http://mirrors/"
+						replace="http://mirrors.lax.liferay.com/"
 					/>
 
 					<if>
