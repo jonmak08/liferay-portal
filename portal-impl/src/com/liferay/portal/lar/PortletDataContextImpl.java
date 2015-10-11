@@ -64,6 +64,7 @@ import com.liferay.portal.model.ClassedModel;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.Lock;
+import com.liferay.portal.model.OrgLabor;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.model.PortletModel;
 import com.liferay.portal.model.ResourceConstants;
@@ -88,6 +89,7 @@ import com.liferay.portal.util.PortletKeys;
 import com.liferay.portlet.asset.model.AssetCategory;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.model.AssetLink;
+import com.liferay.portlet.asset.model.AssetTag;
 import com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil;
 import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
 import com.liferay.portlet.asset.service.AssetLinkLocalServiceUtil;
@@ -101,6 +103,8 @@ import com.liferay.portlet.documentlibrary.lar.xstream.FolderConverter;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileEntryImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileShortcutImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLFolderImpl;
+import com.liferay.portlet.dynamicdatamapping.storage.Field;
+import com.liferay.portlet.dynamicdatamapping.storage.Fields;
 import com.liferay.portlet.expando.model.ExpandoBridge;
 import com.liferay.portlet.expando.model.ExpandoColumn;
 import com.liferay.portlet.expando.service.ExpandoColumnLocalServiceUtil;
@@ -127,10 +131,14 @@ import com.liferay.portlet.wiki.model.impl.WikiNodeImpl;
 import com.liferay.portlet.wiki.model.impl.WikiPageImpl;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.security.NoTypePermission;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+
+import java.sql.Time;
+import java.sql.Timestamp;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -138,6 +146,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -2643,6 +2652,30 @@ public class PortletDataContextImpl implements PortletDataContext {
 
 	protected void initXStream() {
 		_xStream = new XStream();
+
+		// Permissions
+
+		// Wipe all of them
+
+		_xStream.addPermission(NoTypePermission.NONE);
+
+		// Define permissions
+
+		_xStream.allowTypes(
+			new Class[] {
+				byte[].class, Date.class, Field.class, Fields.class,
+				InputStream.class, Integer.class, Locale.class, String.class,
+				Time.class, Timestamp.class
+			});
+
+		_xStream.allowTypeHierarchy(AssetLink.class);
+		_xStream.allowTypeHierarchy(AssetTag.class);
+		_xStream.allowTypeHierarchy(List.class);
+		_xStream.allowTypeHierarchy(Lock.class);
+		_xStream.allowTypeHierarchy(Map.class);
+		_xStream.allowTypeHierarchy(OrgLabor.class);
+		_xStream.allowTypeHierarchy(RatingsEntry.class);
+		_xStream.allowTypeHierarchy(StagedModel.class);
 
 		_xStream.alias("BlogsEntry", BlogsEntryImpl.class);
 		_xStream.alias("BookmarksFolder", BookmarksFolderImpl.class);
