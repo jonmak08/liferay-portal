@@ -156,7 +156,8 @@ public class InputEditorTag extends IncludeTag {
 				PropsKeys.EDITOR_CKEDITOR_VERSION);
 
 			if (Validator.equals(ckEditorVersion, "latest")) {
-				float majorVersion = BrowserSnifferUtil.getMajorVersion(request);
+				float majorVersion = BrowserSnifferUtil.getMajorVersion(
+					request);
 
 				boolean useLatestCkeditorVersion = true;
 
