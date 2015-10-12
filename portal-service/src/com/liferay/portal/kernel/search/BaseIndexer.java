@@ -33,6 +33,7 @@ import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashRenderer;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -145,6 +146,34 @@ public abstract class BaseIndexer implements Indexer {
 		catch (Exception e) {
 			throw new SearchException(e);
 		}
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		if (object == this) {
+			return true;
+		}
+
+		if (!(object instanceof Indexer)) {
+			return false;
+		}
+
+		Indexer indexer = (Indexer)object;
+
+		String[] classNames1 = getClassNames();
+		String[] classNames2 = indexer.getClassNames();
+
+		if (classNames1.length != classNames2.length) {
+			return false;
+		}
+
+		for (int i = 0; i < classNames1.length; i++) {
+			if (!Validator.equals(classNames1[i], classNames2[i])) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	@Override
@@ -347,6 +376,19 @@ public abstract class BaseIndexer implements Indexer {
 		catch (Exception e) {
 			throw new SearchException(e);
 		}
+	}
+
+	@Override
+	public int hashCode() {
+		String[] classNames = getClassNames();
+
+		int hash = 0;
+
+		for (String className : classNames) {
+			hash = HashUtil.hash(hash, className);
+		}
+
+		return hash;
 	}
 
 	@Override

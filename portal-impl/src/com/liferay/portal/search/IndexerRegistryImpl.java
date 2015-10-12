@@ -19,9 +19,10 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.DummyIndexer;
 import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistry;
-import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.spring.aop.ServiceBeanAopCacheManagerUtil;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -38,7 +39,7 @@ public class IndexerRegistryImpl implements IndexerRegistry {
 
 	@Override
 	public List<Indexer> getIndexers() {
-		return ListUtil.fromMapValues(_indexers);
+		return new ArrayList<Indexer>(new HashSet<Indexer>(_indexers.values()));
 	}
 
 	@Override
