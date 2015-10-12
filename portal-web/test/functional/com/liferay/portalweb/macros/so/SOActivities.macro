@@ -1212,7 +1212,12 @@
 		<execute function="AssertTextEquals" locator1="SOActivities#ACTIVITIES_ACTION" value1="${microblogsEntryContent}" />
 		<execute function="AssertClick" locator1="SOActivities#ACTIVITIES_VIEW_MICROBLOGS" value1="View Microblogs" />
 
-		<execute macro="SOMicroblogs#viewMicroblogsEntryAuthor" />
+		<execute macro="SOMicroblogs#viewMicroblogsEntryAuthor">
+			<var name="microblogsEntryAuthorName" value="${microblogsEntryAuthorName}" />
+			<var name="microblogsEntryContent" value="${microblogsEntryContent}" />
+			<var name="microblogsEntryPartialContent" value="${microblogsEntryPartialContent}" />
+			<var name="microblogsEntryRepostAuthorName" value="${microblogsEntryAuthorName}" />
+		</execute>
 
 		<var name="key_microblogsEntryContent" value="${microblogsEntryContent}" />
 
@@ -1279,14 +1284,24 @@
 		<execute function="AssertTextEquals" locator1="SOActivities#ACTIVITIES_ACTION" value1="${microblogsEntryContent}" />
 		<execute function="AssertClick" locator1="SOActivities#ACTIVITIES_ACTION_LINK" value1="${microblogsEntryTagValue}" />
 
-		<execute macro="SOMicroblogs#viewMicroblogsEntryAuthor" />
+		<execute macro="SOMicroblogs#viewMicroblogsEntryAuthor">
+			<var name="microblogsEntryAuthorName" value="${microblogsEntryAuthorName}" />
+			<var name="microblogsEntryContent" value="${microblogsEntryContent}" />
+			<var name="microblogsEntryPartialContent" value="${microblogsEntryPartialContent}" />
+			<var name="microblogsEntryRepostAuthorName" value="${microblogsEntryAuthorName}" />
+		</execute>
 
 		<execute function="AssertTextEquals" locator1="SOMicroblogs#TAB_TAG_VALUE" value1="${microblogsEntryTagValue}" />
 		<execute function="AssertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />
 		<execute function="AssertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT_TAG" value1="${microblogsEntryTagValue}" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="SOMicroblogs#TAB_TAG_VALUE" value1="${microblogsEntryTagValue}" />
 
-		<execute macro="SOMicroblogs#viewMicroblogsEntryAuthor" />
+		<execute macro="SOMicroblogs#viewMicroblogsEntryAuthor">
+			<var name="microblogsEntryAuthorName" value="${microblogsEntryAuthorName}" />
+			<var name="microblogsEntryContent" value="${microblogsEntryContent}" />
+			<var name="microblogsEntryPartialContent" value="${microblogsEntryPartialContent}" />
+			<var name="microblogsEntryRepostAuthorName" value="${microblogsEntryAuthorName}" />
+		</execute>
 
 		<execute function="AssertTextEquals" locator1="SOMicroblogs#TAB_TAG_VALUE" value1="${microblogsEntryTagValue}" />
 		<execute function="AssertTextEquals" locator1="SOMicroblogs#MICROBLOGS_ENTRY_CONTENT" value1="${microblogsEntryContent}" />

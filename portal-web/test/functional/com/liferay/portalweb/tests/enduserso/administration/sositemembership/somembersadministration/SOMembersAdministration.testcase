@@ -1250,6 +1250,7 @@
 			<var name="userFirstName" value="${userFirstName}" />
 			<var name="userLastName" value="${userLastName}" />
 			<var name="userMiddleName" value="${userMiddleName}" />
+			<var name="userName" value="${userName}" />
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
@@ -1964,6 +1965,7 @@
 			<var name="userFirstName" value="${userFirstName}" />
 			<var name="userLastName" value="${userLastName}" />
 			<var name="userMiddleName" value="${userMiddleName}" />
+			<var name="userName" value="${userName}" />
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
@@ -2029,6 +2031,7 @@
 			<var name="userFirstName" value="${userFirstName}" />
 			<var name="userLastName" value="${userLastName}" />
 			<var name="userMiddleName" value="${userMiddleName}" />
+			<var name="userName" value="${userName}" />
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
@@ -2093,6 +2096,7 @@
 			<var name="userFirstName" value="${userFirstName}" />
 			<var name="userLastName" value="${userLastName}" />
 			<var name="userMiddleName" value="${userMiddleName}" />
+			<var name="userName" value="${userName}" />
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">

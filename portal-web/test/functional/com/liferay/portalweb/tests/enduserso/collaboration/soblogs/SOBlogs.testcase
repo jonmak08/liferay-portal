@@ -572,6 +572,7 @@
 		</execute>
 
 		<execute macro="Site#assignRoleCP">
+			<var name="roleName" value="${roleName}" />
 			<var name="userLoginEmailAddress" value="${adminEmailAddress}" />
 			<var name="userMiddleName" value="${userMiddleName}" />
 			<var name="userScreenName" value="${userScreenName}" />
@@ -1281,6 +1282,7 @@
 		</execute>
 
 		<execute macro="Site#assignRoleCP">
+			<var name="roleName" value="${roleName}" />
 			<var name="userLoginEmailAddress" value="${adminEmailAddress}" />
 			<var name="userMiddleName" value="${userMiddleName}" />
 			<var name="userScreenName" value="${userScreenName}" />
@@ -1723,6 +1725,7 @@
 		</execute>
 
 		<execute macro="Site#assignRoleCP">
+			<var name="roleName" value="${roleName}" />
 			<var name="userLoginEmailAddress" value="${adminEmailAddress}" />
 			<var name="userMiddleName" value="${userMiddleName}" />
 			<var name="userScreenName" value="${userScreenName}" />
