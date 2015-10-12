@@ -149,6 +149,8 @@ public class InputEditorTag extends IncludeTag {
 
 		String editorImpl = EditorUtil.getEditorValue(request, _editorImpl);
 
+		_page = "/html/js/editor/" + editorImpl + ".jsp";
+
 		if (Validator.equals(editorImpl, "ckeditor")) {
 			String ckEditorVersion = PropsUtil.get(
 				PropsKeys.EDITOR_CKEDITOR_VERSION);
@@ -156,13 +158,15 @@ public class InputEditorTag extends IncludeTag {
 			if (Validator.equals(ckEditorVersion, "latest")) {
 				float majorVersion = BrowserSnifferUtil.getMajorVersion(request);
 
+				boolean useLatestCkeditorVersion = true;
+
 				if (BrowserSnifferUtil.isChrome(request)) {
 					float latestChrome = Float.valueOf(
 						PropsUtil.get(
 							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_CHROME));
 
 					if (latestChrome > majorVersion) {
-						ckEditorVersion = "default";
+						useLatestCkeditorVersion = false;
 					}
 				}
 				else if (BrowserSnifferUtil.isFirefox(request)) {
@@ -171,7 +175,7 @@ public class InputEditorTag extends IncludeTag {
 							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX));
 
 					if (latestFirefox > majorVersion) {
-						ckEditorVersion = "default";
+						useLatestCkeditorVersion = false;
 					}
 				}
 				else if (BrowserSnifferUtil.isIe(request)) {
@@ -180,27 +184,24 @@ public class InputEditorTag extends IncludeTag {
 							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_IE));
 
 					if (latestIe > majorVersion) {
-						ckEditorVersion = "default";
+						useLatestCkeditorVersion = false;
 					}
 				}
 				else {
-					ckEditorVersion = "default";
+					useLatestCkeditorVersion = false;
 				}
-			}
 
-			if (Validator.equals(ckEditorVersion, "latest")) {
-				StringBundler sb = new StringBundler(5);
+				if (useLatestCkeditorVersion) {
+					StringBundler sb = new StringBundler(5);
 
-				sb.append("/html/js/editor/");
-				sb.append(editorImpl);
-				sb.append(StringPool.UNDERLINE);
-				sb.append(ckEditorVersion);
-				sb.append(".jsp");
+					sb.append("/html/js/editor/");
+					sb.append(editorImpl);
+					sb.append(StringPool.UNDERLINE);
+					sb.append(ckEditorVersion);
+					sb.append(".jsp");
 
-				_page = sb.toString();
-			}
-			else {
-				_page = "/html/js/editor/" + editorImpl + ".jsp";
+					_page = sb.toString();
+				}
 			}
 		}
 
