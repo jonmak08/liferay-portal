@@ -180,6 +180,7 @@
 	<command name="gotoMentionsViaSiteSettings">
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
+			<var name="siteName" value="${siteName}" />
 		</execute>
 
 		<execute function="AssertClick" locator1="CPSitesettings#MENU_MENTIONS" value1="Mentions" />
@@ -192,7 +193,9 @@
 
 		<execute function="AssertNotChecked" locator1="Mentions#MENTIONS_CHECKBOX" />
 
-		<execute macro="Mentions#gotoMentionsViaSiteSettings" />
+		<execute macro="Mentions#gotoMentionsViaSiteSettings">
+			<var name="siteName" value="${siteName}" />
+		</execute>
 
 		<execute function="AssertTextEquals" locator1="Message#ERROR" value1="Mentions are disabled in the portal." />
 		<execute function="AssertElementPresent" locator1="Mentions#MENTIONS_CHECKBOX_DISABLED" />
