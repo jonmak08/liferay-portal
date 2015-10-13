@@ -106,7 +106,7 @@ public class ClusterLinkImpl extends ClusterBase implements ClusterLink {
 		JChannel jChannel = getChannel(priority);
 
 		try {
-			jChannel.send(null, message);
+			sendJGroupsMessage(jChannel, null, message);
 		}
 		catch (Exception e) {
 			_log.error("Unable to send multicast message " + message, e);
@@ -127,7 +127,7 @@ public class ClusterLinkImpl extends ClusterBase implements ClusterLink {
 		JChannel jChannel = getChannel(priority);
 
 		try {
-			jChannel.send(jGroupsAddress, message);
+			sendJGroupsMessage(jChannel, jGroupsAddress, message);
 		}
 		catch (Exception e) {
 			_log.error("Unable to send unicast message " + message, e);

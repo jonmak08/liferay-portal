@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.jgroups.Channel;
+import org.jgroups.JChannel;
 import org.jgroups.Message;
 import org.jgroups.View;
 
@@ -159,11 +159,11 @@ public class ClusterRequestReceiver extends BaseReceiver {
 			_clusterExecutorImpl.generateClusterNodeResponse(
 				clusterRequest, returnValue, exception);
 
-		Channel channel = _clusterExecutorImpl.getControlChannel();
+		JChannel jChannel = _clusterExecutorImpl.getControlChannel();
 
 		try {
-			channel.send(
-				(org.jgroups.Address)address.getRealAddress(),
+			_clusterExecutorImpl.sendJGroupsMessage(
+				jChannel, (org.jgroups.Address)address.getRealAddress(),
 				clusterNodeResponse);
 		}
 		catch (Exception e) {

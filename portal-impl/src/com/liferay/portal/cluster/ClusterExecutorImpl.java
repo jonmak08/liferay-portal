@@ -149,7 +149,7 @@ public class ClusterExecutorImpl
 
 		if (clusterRequest.isMulticast()) {
 			try {
-				_controlJChannel.send(null, clusterRequest);
+				sendJGroupsMessage(_controlJChannel, null, clusterRequest);
 			}
 			catch (Exception e) {
 				throw new SystemException(
@@ -162,7 +162,8 @@ public class ClusterExecutorImpl
 					(org.jgroups.Address)address.getRealAddress();
 
 				try {
-					_controlJChannel.send(jGroupsAddress, clusterRequest);
+					sendJGroupsMessage(
+						_controlJChannel, jGroupsAddress, clusterRequest);
 				}
 				catch (Exception e) {
 					throw new SystemException(
@@ -335,7 +336,7 @@ public class ClusterExecutorImpl
 			ClusterRequest clusterRequest = ClusterRequest.createClusterRequest(
 				ClusterMessageType.UPDATE, _localClusterNode);
 
-			_controlJChannel.send(null, clusterRequest);
+			sendJGroupsMessage(_controlJChannel, null, clusterRequest);
 		}
 		catch (Exception e) {
 			_log.error("Unable to determine configure node port", e);
@@ -607,7 +608,7 @@ public class ClusterExecutorImpl
 			ClusterMessageType.NOTIFY, _localClusterNode);
 
 		try {
-			_controlJChannel.send(null, clusterRequest);
+			sendJGroupsMessage(_controlJChannel, null, clusterRequest);
 		}
 		catch (Exception e) {
 			_log.error("Unable to send notify message", e);
