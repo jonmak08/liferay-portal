@@ -22,9 +22,9 @@
 String ckEditorVersion = PropsUtil.get(PropsKeys.EDITOR_CKEDITOR_VERSION);
 
 if (Validator.equals(ckEditorVersion, "latest")) {
-	float majorVersion = BrowserSnifferUtil.getMajorVersion(request);
-
 	ckEditorVersion = StringPool.UNDERLINE + ckEditorVersion;
+
+	float majorVersion = BrowserSnifferUtil.getMajorVersion(request);
 
 	if (BrowserSnifferUtil.isChrome(request)) {
 		ckEditorVersion = _setCkeditorVersion(PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_CHROME, majorVersion, ckEditorVersion);
