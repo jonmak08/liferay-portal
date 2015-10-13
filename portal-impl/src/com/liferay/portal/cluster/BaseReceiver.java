@@ -14,11 +14,14 @@
 
 package com.liferay.portal.cluster;
 
+import com.liferay.portal.kernel.io.Deserializer;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+
+import java.nio.ByteBuffer;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -105,6 +108,34 @@ public abstract class BaseReceiver implements Receiver {
 	protected abstract void doReceive(Message message);
 
 	protected void doViewAccepted(View oldView, View newView) {
+	}
+
+	protected Object retrievePayload(Message message) {
+		byte[] rawBuffer = message.getRawBuffer();
+
+		if (rawBuffer == null) {
+			if (_log.isWarnEnabled()) {
+				_log.warn("Message content is null");
+			}
+
+			return null;
+		}
+
+		ByteBuffer byteBuffer = ByteBuffer.wrap(
+			rawBuffer, message.getOffset(), message.getLength());
+
+		Deserializer deserializer = new Deserializer(byteBuffer.slice());
+
+		try {
+			return deserializer.readObject();
+		}
+		catch (ClassNotFoundException cnfe) {
+			if (_log.isWarnEnabled()) {
+				_log.warn("Unable to deserialize message paload", cnfe);
+			}
+		}
+
+		return null;
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(BaseReceiver.class);

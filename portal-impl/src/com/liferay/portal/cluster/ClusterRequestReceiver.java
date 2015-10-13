@@ -45,13 +45,9 @@ public class ClusterRequestReceiver extends BaseReceiver {
 
 	@Override
 	protected void doReceive(Message message) {
-		Object obj = message.getObject();
+		Object obj = retrievePayload(message);
 
 		if (obj == null) {
-			if (_log.isWarnEnabled()) {
-				_log.warn("Message content is null");
-			}
-
 			return;
 		}
 

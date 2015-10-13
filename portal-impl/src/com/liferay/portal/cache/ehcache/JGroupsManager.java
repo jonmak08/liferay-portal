@@ -267,13 +267,9 @@ public class JGroupsManager implements CacheManagerPeerProvider, CachePeer {
 
 		@Override
 		protected void doReceive(Message message) {
-			Object object = message.getObject();
+			Object object = retrievePayload(message);
 
 			if (object == null) {
-				if (_log.isWarnEnabled()) {
-					_log.warn("Message content is null");
-				}
-
 				return;
 			}
 
