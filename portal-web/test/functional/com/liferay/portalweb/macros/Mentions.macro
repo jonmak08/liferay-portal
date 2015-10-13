@@ -1,4 +1,25 @@
 <definition>
+	<command name="addDisabledMentionsViaBlogsCP">
+		<var name="key_entryContent" value="${entryContent}" />
+		<var name="key_mentionsUserScreenName" value="${mentionsUserScreenName}" />
+
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ADD_ENTRY" value1="Add" />
+
+		<execute function="Type#typeWaitForCKEditor" locator1="CPBlogsAdd#TITLE_FIELD" value1="${entryTitle}" />
+
+		<execute function="SelectFrame" locator1="CKEditor#BODY_FIELD_IFRAME" />
+
+		<execute function="Type#sendKeys" locator1="CKEditor#BODY" value1="${entryContent} @${mentionsUserScreenName}" />
+
+		<execute function="SelectFrame#selectFrameTop" />
+
+		<execute function="AssertElementNotPresent" locator1="Mentions#MENTIONS_USER_DISPLAY_OPTION" value1="${mentionsUserFullName} (@${mentionsUserScreenName})" />
+
+		<execute function="AssertClick#assertTextClickAtCKEditor" locator1="CPBlogsAdd#PUBLISH_BUTTON" value1="Publish" />
+
+		<execute function="AssertTextEquals" locator1="Message#SUCCESS" value1="Your request completed successfully." />
+	</command>
+
 	<command name="addMentionViaBlogsEntryCP">
 		<var name="key_entryContent" value="${entryContent}" />
 		<var name="key_mentionsUserScreenName" value="${mentionsUserScreenName}" />
