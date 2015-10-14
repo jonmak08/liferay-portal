@@ -636,18 +636,24 @@ public class DDMXSDImpl implements DDMXSD {
 
 		Document document = dynamicElementElement.getDocument();
 
-		String[] availableLanguageIds =
-			LocalizationUtil.getAvailableLanguageIds(document);
-
-		String defaultLanguageId = LocalizationUtil.getDefaultLanguageId(
-			document);
+		String defaultLanguageId =
+			GetterUtil.getString(
+				pageContext.getAttribute("contentDefaultLanguageId"));
 
 		String editingLanguageId = LocaleUtil.toLanguageId(locale);
 
+		if (Validator.isNull(defaultLanguageId)) {
+			defaultLanguageId = editingLanguageId;
+		}
+
 		String structureLanguageId = editingLanguageId;
 
+		String[] availableLanguageIds =
+			LocalizationUtil.getAvailableLanguageIds(document);
+
 		if (!ArrayUtil.contains(availableLanguageIds, editingLanguageId)) {
-			structureLanguageId = defaultLanguageId;
+			structureLanguageId = LocalizationUtil.getDefaultLanguageId(
+				document);
 		}
 
 		Element metadataElement =

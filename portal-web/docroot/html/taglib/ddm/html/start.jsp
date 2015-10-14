@@ -20,6 +20,10 @@
 	<c:if test="<%= Validator.isNotNull(xsd) %>">
 
 		<%
+		if (fields != null) {
+			pageContext.setAttribute("contentDefaultLanguageId", LanguageUtil.getLanguageId(fields.getDefaultLocale()));
+		}
+
 		pageContext.setAttribute("checkRequired", checkRequired);
 		%>
 
