@@ -866,9 +866,15 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 
 		@Override
 		protected void doReceive(org.jgroups.Message message) {
+			Object object = retrievePayload(message);
+
+			if (object == null) {
+				return;
+			}
+
 			org.jgroups.Address sourceJGroupsAddress = message.getSrc();
 
-			Message content = (Message)message.getObject();
+			Message content = (Message)object;
 
 			String messageKey = (String)content.getPayload();
 

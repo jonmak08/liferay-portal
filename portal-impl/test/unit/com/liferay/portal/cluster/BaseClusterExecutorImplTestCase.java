@@ -492,7 +492,11 @@ public abstract class BaseClusterExecutorImplTestCase
 		public void receive(Message message) {
 			super.receive(message);
 
-			Object object = message.getObject();
+			Object object = retrievePayload(message);
+
+			if (object == null) {
+				return;
+			}
 
 			try {
 				org.jgroups.Address srcJAddress = message.getSrc();
