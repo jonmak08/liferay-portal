@@ -14,16 +14,19 @@
 
 package com.liferay.portal.freemarker;
 
-import com.liferay.portal.kernel.util.PropsKeys;
-import com.liferay.portal.util.PropsUtil;
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.util.PropsValues;
 
 import freemarker.template.TemplateException;
+
+import java.lang.reflect.Field;
 
 import org.junit.Before;
 import org.junit.Test;
 
 /**
  * @author Tomas Polesovsky
+ * @author Tibor Lipusz
  */
 public class LiferayTemplateClassResolverTest {
 
@@ -34,60 +37,65 @@ public class LiferayTemplateClassResolverTest {
 
 	@Test()
 	public void testResolveAllowedClass1() throws Exception {
-		PropsUtil.set(
-			PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
-				"freemarker.template.utility.ClassUtil");
-		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_RESTRICTED_CLASSES, "");
-
-		_liferayTemplateClassResolver.resolve(
-			"freemarker.template.utility.ClassUtil", null, null);
+		testResolve(
+			"freemarker.template.utility.ClassUtil", "",
+			"freemarker.template.utility.ClassUtil");
 	}
 
 	@Test()
 	public void testResolveAllowedClass2() throws Exception {
-		PropsUtil.set(
-			PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
-				"freemarker.template.utility.*");
-		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_RESTRICTED_CLASSES, "");
-
-		_liferayTemplateClassResolver.resolve(
-			"freemarker.template.utility.ClassUtil", null, null);
+		testResolve(
+			"freemarker.template.utility.*", "",
+			"freemarker.template.utility.ClassUtil");
 	}
 
 	@Test(expected = TemplateException.class)
 	public void testResolvePortalClass() throws Exception {
-		_liferayTemplateClassResolver.resolve(
-			"com.liferay.portal.model.User", null, null);
+		testResolve("", "", "com.liferay.portal.model.User");
 	}
 
 	@Test(expected = TemplateException.class)
 	public void testResolveRestrictedClass1() throws Exception {
-		_liferayTemplateClassResolver.resolve(
-			"freemarker.template.utility.Execute", null, null);
+		testResolve("", "", "freemarker.template.utility.Execute");
 	}
 
 	@Test(expected = TemplateException.class)
 	public void testResolveRestrictedClass2() throws Exception {
-		PropsUtil.set(
-			PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
-				"freemarker.template.utility.*");
-		PropsUtil.set(PropsKeys.FREEMARKER_ENGINE_RESTRICTED_CLASSES, "");
-
-		_liferayTemplateClassResolver.resolve(
-			"freemarker.template.utility.Execute", null, null);
+		testResolve(
+			"freemarker.template.utility.*", "",
+			"freemarker.template.utility.Execute");
 	}
 
 	@Test(expected = TemplateException.class)
 	public void testResolveRestrictedClass3() throws Exception {
-		PropsUtil.set(
-			PropsKeys.FREEMARKER_ENGINE_ALLOWED_CLASSES,
-				"com.liferay.portal.model.User");
-		PropsUtil.set(
-			PropsKeys.FREEMARKER_ENGINE_RESTRICTED_CLASSES,
-				"com.liferay.portal.model.*");
+		testResolve(
+			"com.liferay.portal.model.User", "com.liferay.portal.model.*",
+			"com.liferay.portal.model.User");
+	}
 
-		_liferayTemplateClassResolver.resolve(
-			"com.liferay.portal.model.User", null, null);
+	protected void testResolve(
+			String allowedClasses, String restrictedClasses,
+			String resolveClass)
+		throws Exception {
+
+		Field allowedClassesField = ReflectionUtil.getDeclaredField(
+			PropsValues.class, "FREEMARKER_ENGINE_ALLOWED_CLASSES");
+		Field restrictedClassesField = ReflectionUtil.getDeclaredField(
+			PropsValues.class, "FREEMARKER_ENGINE_RESTRICTED_CLASSES");
+
+		Object allowedClassesValue = allowedClassesField.get(null);
+		Object restrictedClassesValue = restrictedClassesField.get(null);
+
+		try {
+			allowedClassesField.set(null, new String[] {allowedClasses});
+			restrictedClassesField.set(null, new String[] {restrictedClasses});
+
+			_liferayTemplateClassResolver.resolve(resolveClass, null, null);
+		}
+		finally {
+			allowedClassesField.set(null, allowedClassesValue);
+			restrictedClassesField.set(null, restrictedClassesValue);
+		}
 	}
 
 	private LiferayTemplateClassResolver _liferayTemplateClassResolver;
