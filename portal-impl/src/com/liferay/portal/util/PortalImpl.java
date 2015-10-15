@@ -3358,7 +3358,7 @@ public class PortalImpl implements Portal {
 			}
 		}
 
-		// Get locale from group
+		// Get locale from the group
 
 		if (groupId > 0) {
 			try {
