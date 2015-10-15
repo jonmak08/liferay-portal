@@ -541,6 +541,10 @@ public class BookmarksEntryLocalServiceImpl
 
 					updateBookmarksEntry(entry);
 
+					if (!reindex) {
+						return;
+					}
+
 					indexer.reindex(entry);
 				}
 			};
