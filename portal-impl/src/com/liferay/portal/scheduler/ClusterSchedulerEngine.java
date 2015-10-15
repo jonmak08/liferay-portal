@@ -559,18 +559,10 @@ public class ClusterSchedulerEngine
 			return (T)clusterNodeResponse.getResult();
 		}
 		catch (Exception e) {
-			_log.error(
+			throw new SchedulerException(
 				"Unable to load scheduled jobs from cluster node " +
 					address.getDescription(),
 				e);
-		}
-
-		try {
-			return (T)methodHandler.invoke(false);
-		}
-		catch (Exception e) {
-			throw new SchedulerException(
-				"Unable to load scheduled jobs from local node", e);
 		}
 	}
 
