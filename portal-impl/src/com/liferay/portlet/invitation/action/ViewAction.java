@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.model.Company;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.User;
 import com.liferay.portal.struts.PortletAction;
@@ -95,7 +96,10 @@ public class ViewAction extends PortletAction {
 
 		String fromAddress = user.getEmailAddress();
 		String fromName = user.getFullName();
-		String mx = themeDisplay.getCompany().getMx();
+
+		Company company = themeDisplay.getCompany();
+
+		String mx = company.getMx();
 
 		InternetAddress from = new InternetAddress(fromAddress, fromName);
 
