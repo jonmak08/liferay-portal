@@ -46,7 +46,6 @@ import com.liferay.portal.kernel.util.KeyValuePair;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.PrimitiveLongList;
-import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -87,7 +86,7 @@ import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.TeamLocalServiceUtil;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PortletKeys;
-import com.liferay.portal.util.PropsUtil;
+import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.asset.model.AssetCategory;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.model.AssetLink;
@@ -2672,8 +2671,8 @@ public class PortletDataContextImpl implements PortletDataContext {
 		List<Class> allowedTypes = new ArrayList<Class>(
 			ListUtil.toList(defaultTypes));
 
-		String[] classNames = PropsUtil.getArray(
-			PropsKeys.STAGING_XSTREAM_CLASS_WHITELIST);
+		String[] classNames = GetterUtil.getStringValues(
+			PropsValues.STAGING_XSTREAM_CLASS_WHITELIST);
 
 		for (String className : classNames) {
 			try {

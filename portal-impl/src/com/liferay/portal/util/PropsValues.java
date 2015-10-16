@@ -1858,6 +1858,8 @@ public class PropsValues {
 
 	public static final int STAGING_REMOTE_TRANSFER_BUFFER_SIZE = GetterUtil.getInteger(PropsUtil.get(PropsKeys.STAGING_REMOTE_TRANSFER_BUFFER_SIZE));
 
+	public static String[] STAGING_XSTREAM_CLASS_WHITELIST = PropsUtil.getArray(PropsKeys.STAGING_XSTREAM_CLASS_WHITELIST);
+
 	public static boolean STRIP_CSS_SASS_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.STRIP_CSS_SASS_ENABLED));
 
 	public static final String[] STRIP_IGNORE_PATHS = PropsUtil.getArray(PropsKeys.STRIP_IGNORE_PATHS);
