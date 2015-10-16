@@ -135,13 +135,13 @@ public class ViewAction extends PortletAction {
 				fromAddress, fromName, layoutFullURL, portalURL
 			});
 
-		Company company = themeDisplay.getCompany();
-
 		for (String emailAddress : validEmailAddresses) {
 			InternetAddress to = new InternetAddress(emailAddress);
 
 			MailMessage message = new MailMessage(
 				from, to, subject, body, true);
+
+			Company company = themeDisplay.getCompany();
 
 			message.setMessageId(
 				PortalUtil.getMailId(
