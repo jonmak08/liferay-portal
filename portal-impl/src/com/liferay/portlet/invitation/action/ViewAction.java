@@ -97,10 +97,6 @@ public class ViewAction extends PortletAction {
 		String fromAddress = user.getEmailAddress();
 		String fromName = user.getFullName();
 
-		Company company = themeDisplay.getCompany();
-
-		String mx = company.getMx();
-
 		InternetAddress from = new InternetAddress(fromAddress, fromName);
 
 		Layout layout = themeDisplay.getLayout();
@@ -138,6 +134,8 @@ public class ViewAction extends PortletAction {
 				fromAddress, fromName, layoutFullURL, portalURL
 			});
 
+		Company company = themeDisplay.getCompany();
+
 		for (String emailAddress : validEmailAddresses) {
 			InternetAddress to = new InternetAddress(emailAddress);
 
@@ -145,7 +143,8 @@ public class ViewAction extends PortletAction {
 				from, to, subject, body, true);
 
 			message.setMessageId(
-				PortalUtil.getMailId(mx, "invitation", user.getUserId()));
+				PortalUtil.getMailId(
+					company.getMx(), "invitation", user.getUserId()));
 
 			MailServiceUtil.sendEmail(message);
 		}
