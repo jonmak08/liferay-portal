@@ -1374,14 +1374,6 @@ public class DLFileEntryLocalServiceImpl
 			String extension)
 		throws PortalException, SystemException {
 
-		String titleExtension = StringPool.BLANK;
-		String titleWithoutExtension = title;
-
-		if (title.endsWith(StringPool.PERIOD.concat(extension))) {
-			titleExtension = extension;
-			titleWithoutExtension = FileUtil.stripExtension(title);
-		}
-
 		String uniqueTitle = title;
 
 		for (int i = 1;; i++) {
@@ -1399,14 +1391,8 @@ public class DLFileEntryLocalServiceImpl
 				}
 			}
 
-			uniqueTitle =
-				titleWithoutExtension + StringPool.UNDERLINE +
-					String.valueOf(i);
-
-			if (Validator.isNotNull(titleExtension)) {
-				uniqueTitle = uniqueTitle.concat(
-					StringPool.PERIOD.concat(titleExtension));
-			}
+			uniqueTitle = FileUtil.appendParentheticalSuffix(
+				title, String.valueOf(i));
 		}
 	}
 
