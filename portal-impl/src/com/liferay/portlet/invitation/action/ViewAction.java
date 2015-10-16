@@ -32,6 +32,7 @@ import com.liferay.portal.util.WebKeys;
 import com.liferay.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portlet.invitation.util.InvitationUtil;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -142,9 +143,11 @@ public class ViewAction extends PortletAction {
 			MailMessage message = new MailMessage(
 				from, to, subject, body, true);
 
+			Date date = new Date();
+
 			message.setMessageId(
 				PortalUtil.getMailId(
-					company.getMx(), "invitation", user.getUserId()));
+					company.getMx(), "invitation", date.getTime()));
 
 			MailServiceUtil.sendEmail(message);
 		}
