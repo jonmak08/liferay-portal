@@ -32,6 +32,12 @@ import java.util.Properties;
  */
 public class FileUtil {
 
+	public static String appendParentheticalSuffix(
+		String fileName, String suffix) {
+
+		return getFile().appendParentheticalSuffix(fileName, suffix);
+	}
+
 	public static void copyDirectory(File source, File destination)
 		throws IOException {
 
