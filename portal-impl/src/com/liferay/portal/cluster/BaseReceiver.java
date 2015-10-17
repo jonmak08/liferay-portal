@@ -131,7 +131,7 @@ public abstract class BaseReceiver implements Receiver {
 		}
 		catch (ClassNotFoundException cnfe) {
 			if (_log.isWarnEnabled()) {
-				_log.warn("Unable to deserialize message paload", cnfe);
+				_log.warn("Unable to deserialize message payload", cnfe);
 			}
 		}
 
