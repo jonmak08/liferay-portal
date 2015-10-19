@@ -2668,24 +2668,16 @@ public class PortletDataContextImpl implements PortletDataContext {
 			Time.class, Timestamp.class
 		};
 
-		List<Class> allowedTypes = new ArrayList<Class>(
-			ListUtil.toList(defaultTypes));
+		List<String> allowedTypes = new ArrayList<String>();
 
-		String[] classNames = GetterUtil.getStringValues(
-			PropsValues.STAGING_XSTREAM_CLASS_WHITELIST);
-
-		for (String className : classNames) {
-			try {
-				Class clazz = Class.forName(className);
-
-				allowedTypes.add(clazz);
-			}
-			catch (Exception e) {
-				continue;
-			}
+		for (Class clazz : defaultTypes) {
+			allowedTypes.add(clazz.getName());
 		}
 
-		_xStream.allowTypes(allowedTypes.toArray(new Class[] {}));
+		allowedTypes.addAll(
+			ListUtil.toList(PropsValues.STAGING_XSTREAM_CLASS_WHITELIST));
+
+		_xStream.allowTypes(allowedTypes.toArray(new String[] {}));
 
 		_xStream.allowTypeHierarchy(AssetLink.class);
 		_xStream.allowTypeHierarchy(AssetTag.class);
