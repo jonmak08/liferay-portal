@@ -1472,8 +1472,8 @@
 		<!-- Page Comments -->
 
 		<action path="/page_comments/edit_page_discussion" type="com.liferay.portlet.messageboards.action.EditDiscussionAction">
-			<forward name="portlet.message_boards.error" path="portlet.page_comments.error" />
 			<forward name="portlet.message_boards.edit_discussion" path="portlet.page_comments.view" />
+			<forward name="portlet.message_boards.error" path="portlet.page_comments.error" />
 		</action>
 
 		<action path="/page_comments/view" forward="portlet.page_comments.view" />
