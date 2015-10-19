@@ -2677,7 +2677,7 @@ public class PortletDataContextImpl implements PortletDataContext {
 		allowedTypes.addAll(
 			ListUtil.toList(PropsValues.STAGING_XSTREAM_CLASS_WHITELIST));
 
-		_xStream.allowTypes(allowedTypes.toArray(new String[] {}));
+		_xStream.allowTypes(allowedTypes.toArray(new String[0]));
 
 		_xStream.allowTypeHierarchy(AssetLink.class);
 		_xStream.allowTypeHierarchy(AssetTag.class);
