@@ -274,23 +274,24 @@ public class IndexAccessorImpl implements IndexAccessor {
 
 			indexReader.flush();
 			indexReader.close();
-		} else {
+		}
+		else {
 			IndexCommitSerializationUtil.deserializeIndex(
-					inputStream, tempDirectory);
+				inputStream, tempDirectory);
 
-				_indexSearcherManager.close();
+			_indexSearcherManager.close();
 
-				_indexWriter.close();
+			_indexWriter.close();
 
-				_deleteDirectory();
+			_deleteDirectory();
 
-				for (String file : tempDirectory.listAll()) {
-					tempDirectory.copy(getLuceneDir(), file, file);
-				}
+			for (String file : tempDirectory.listAll()) {
+				tempDirectory.copy(getLuceneDir(), file, file);
+			}
 
-				_initIndexWriter();
+			_initIndexWriter();
 
-				_indexSearcherManager = new IndexSearcherManager(_indexWriter);
+			_indexSearcherManager = new IndexSearcherManager(_indexWriter);
 		}
 
 		tempDirectory.close();
