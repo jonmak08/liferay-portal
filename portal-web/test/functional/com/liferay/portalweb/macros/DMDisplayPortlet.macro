@@ -11,6 +11,14 @@
 
 	<command name="viewPaginationControlsPG">
 		<execute function="AssertTextEquals" locator1="PGDocumentlibrarydisplay#PAGINATION_NEXT" value1="Next" />
-		<execute function="AssertTextEquals" locator1="PGDocumentlibrarydisplay#PAGINATION_PREVIOUS" value1="Previous" />
+		<if>
+			<conditionfunction="IsElementPresent#isVisible"locator1="PGDocumentlibrarydisplay#PAGINATION_PREVIOUS"/>
+			<then>
+				<executefunction="AssertTextEquals"locator1="PGDocumentlibrarydisplay#PAGINATION_PREVIOUS"value1="Previous"/>
+			</then>
+			<else>
+				<executefunction="AssertTextPresent"locator1="PGDocumentlibrarydisplay#PAGINATION_PREVIOUS"value1="Previous"/>
+			</else>
+		</if>
 	</command>
 </definition>
