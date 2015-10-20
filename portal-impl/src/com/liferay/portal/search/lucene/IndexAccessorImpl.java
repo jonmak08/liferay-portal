@@ -25,6 +25,7 @@ import com.liferay.portal.kernel.resiliency.spi.SPIUtil;
 import com.liferay.portal.kernel.search.SearchEngineUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.InstanceFactory;
+import com.liferay.portal.kernel.util.OSDetector;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.search.lucene.dump.DumpIndexDeletionPolicy;
 import com.liferay.portal.search.lucene.dump.IndexCommitSerializationUtil;
@@ -242,7 +243,9 @@ public class IndexAccessorImpl implements IndexAccessor {
 
 		Directory tempDirectory = FSDirectory.open(tempFile);
 
-		if (PropsValues.INDEX_DUMP_PROCESS_DOCUMENTS_ENABLED) {
+		if (OSDetector.isWindows() &&
+			PropsValues.INDEX_DUMP_PROCESS_DOCUMENTS_ENABLED) {
+
 			IndexCommitSerializationUtil.deserializeIndex(
 				inputStream, tempDirectory);
 
