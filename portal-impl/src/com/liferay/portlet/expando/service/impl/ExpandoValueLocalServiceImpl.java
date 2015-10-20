@@ -1050,6 +1050,10 @@ public class ExpandoValueLocalServiceImpl
 			else if (type == ExpandoColumnConstants.STRING_ARRAY) {
 				value.setStringArray((String[])attributeValue);
 			}
+			else if (type == ExpandoColumnConstants.STRING_LOCALIZED) {
+				value.setStringMap(
+					(Map<Locale, String>)attributeValue, Locale.getDefault());
+			}
 			else {
 				value.setString((String)attributeValue);
 			}
