@@ -229,7 +229,8 @@
 		<if>
 			<isset var="categoryTag" />
 			<then>
-				<execute function="AssertClick" locator1="PGDocumentsandmediaAddmultipledocuments#TAGS_ENTRY_BOX" />
+				<executefunction="AssertElementPresent"locator1="PGDocumentsandmediaAddmultipledocuments#TAGS_ENTRY_BOX"/>
+				<executefunction="Click"locator1="PGDocumentsandmediaAddmultipledocuments#TAGS_ENTRY_BOX"/>
 				<execute function="Type" locator1="PGDocumentsandmediaAddmultipledocuments#TAGS_ENTRY_BOX" value1="${categoryTag}" />
 				<execute function="AssertClick" locator1="PGDocumentsandmediaAddmultipledocuments#TAGS_ADD_BUTTON" value1="Add" />
 				<execute function="AssertTextEquals" locator1="PGDocumentsandmediaAddmultipledocuments#CATEGORIZATION_TAG" value1="${categoryTag}" />
