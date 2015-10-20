@@ -567,7 +567,7 @@
 
 		<execute macro="DMDocument#addPGViaFlashUploader">
 			<var name="categoryName" value="Category Name" />
-			<var name="categoryTag" value="Category Tag" />
+			<var name="categoryTag" value="category tag" />
 			<var name="dmDocumentFileList" value="${dmDocumentFileList}" />
 			<var name="uploadCommonFile" value="${uploadCommonFile}" />
 		</execute>
