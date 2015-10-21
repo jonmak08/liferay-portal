@@ -521,22 +521,22 @@ public class BookmarksEntryLocalServiceImpl
 				BookmarksEntry.class.getName());
 
 		ActionableDynamicQuery actionableDynamicQuery =
-				new BookmarksEntryActionableDynamicQuery() {
+			new BookmarksEntryActionableDynamicQuery() {
 
 				@Override
 				protected void addCriteria(DynamicQuery dynamicQuery) {
 					Property folderIdProperty = PropertyFactoryUtil.forName(
-							"folderId");
+						"folderId");
 
-						dynamicQuery.add(folderIdProperty.eq(folderId));
+					dynamicQuery.add(folderIdProperty.eq(folderId));
 
-						Property treePathProperty = PropertyFactoryUtil.forName(
-							"treePath");
+					Property treePathProperty = PropertyFactoryUtil.forName(
+						"treePath");
 
-						dynamicQuery.add(
-							RestrictionsFactoryUtil.or(
-								treePathProperty.isNull(),
-								treePathProperty.ne(treePath)));
+					dynamicQuery.add(
+						RestrictionsFactoryUtil.or(
+							treePathProperty.isNull(),
+							treePathProperty.ne(treePath)));
 				}
 
 				@Override
@@ -555,6 +555,7 @@ public class BookmarksEntryLocalServiceImpl
 
 					indexer.reindex(entry);
 				}
+
 			};
 
 		actionableDynamicQuery.performActions();
