@@ -66,7 +66,7 @@ response.setContentType(ContentTypes.TEXT_JAVASCRIPT);
 	String contentsLanguageDir = LanguageUtil.get(contentsLocale, "lang.dir");
 	%>
 
-CKEDITOR.config.contentsLangDirection = '<%= HtmlUtil.escapeJS(contentsLanguageDir) %>';
+	config.contentsLangDirection = '<%= HtmlUtil.escapeJS(contentsLanguageDir) %>';
 
 	config.contentsLanguage = '<%= contentsLanguageId.replace("iw_", "he_") %>';
 
