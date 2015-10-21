@@ -2662,18 +2662,9 @@ public class PortletDataContextImpl implements PortletDataContext {
 
 		// Define permissions
 
-		Class[] defaultTypes = new Class[] {
-			byte[].class, Date.class, Field.class, Fields.class,
-			InputStream.class, Integer.class, Locale.class, String.class,
-			Time.class, Timestamp.class
-		};
-
 		List<String> allowedTypes = new ArrayList<String>();
 
-		for (Class clazz : defaultTypes) {
-			allowedTypes.add(clazz.getName());
-		}
-
+		allowedTypes.addAll(_xStreamDefaultAllowedTypes);
 		allowedTypes.addAll(
 			ListUtil.toList(PropsValues.STAGING_XSTREAM_CLASS_WHITELIST));
 
@@ -2728,8 +2719,16 @@ public class PortletDataContextImpl implements PortletDataContext {
 		return true;
 	}
 
+	private static final Class[] _XSTREAM_DEFAULT_ALLOWED_CLASSES =
+		new Class[] {
+			byte[].class, Date.class, Field.class, Fields.class,
+			InputStream.class, Integer.class, Locale.class, String.class,
+			Time.class, Timestamp.class
+		};
+
 	private static Log _log = LogFactoryUtil.getLog(
 		PortletDataContextImpl.class);
+	private static List<String> _xStreamDefaultAllowedTypes;
 
 	private Map<String, long[]> _assetCategoryIdsMap =
 		new HashMap<String, long[]>();
@@ -2786,5 +2785,13 @@ public class PortletDataContextImpl implements PortletDataContext {
 	private transient XStream _xStream;
 	private transient ZipReader _zipReader;
 	private transient ZipWriter _zipWriter;
+
+	static {
+		_xStreamDefaultAllowedTypes = new ArrayList<String>();
+
+		for (Class clazz : _XSTREAM_DEFAULT_ALLOWED_CLASSES) {
+			_xStreamDefaultAllowedTypes.add(clazz.getName());
+		}
+	}
 
 }
