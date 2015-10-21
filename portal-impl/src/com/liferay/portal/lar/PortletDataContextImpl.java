@@ -2679,6 +2679,13 @@ public class PortletDataContextImpl implements PortletDataContext {
 		_xStream.allowTypeHierarchy(RatingsEntry.class);
 		_xStream.allowTypeHierarchy(StagedModel.class);
 
+		_xStream.allowTypesByWildcard(
+			new String[] {
+				"com.liferay.portal.model.*", "com.liferay.portal.model.impl.*",
+				"com.thoughtworks.xstream.mapper.DynamicProxyMapper*"
+			}
+		);
+
 		_xStream.alias("BlogsEntry", BlogsEntryImpl.class);
 		_xStream.alias("BookmarksFolder", BookmarksFolderImpl.class);
 		_xStream.alias("BookmarksEntry", BookmarksEntryImpl.class);
