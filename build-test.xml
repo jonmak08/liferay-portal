@@ -4456,6 +4456,15 @@ hot.deploy.dependency.management.enabled=false</echo>
 				</echo>
 			</then>
 		</if>
+
+		<if>
+			<equals arg1="${test.portal.instance}" arg2="true" />
+			<then>
+				<echo append="true" file="${test.ext.properties.file}">
+					test.portal.instance=true
+				</echo>
+			</then>
+		</if>
 	</target>
 
 	<target name="prepare-selenium">
