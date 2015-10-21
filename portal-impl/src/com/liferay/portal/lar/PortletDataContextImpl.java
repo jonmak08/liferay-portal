@@ -133,6 +133,7 @@ import com.liferay.portlet.wiki.model.impl.WikiPageImpl;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.security.NoTypePermission;
+import com.thoughtworks.xstream.security.PrimitiveTypePermission;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -2662,6 +2663,10 @@ public class PortletDataContextImpl implements PortletDataContext {
 
 			_xStream.addPermission(NoTypePermission.NONE);
 
+			// Allow primitives
+
+			_xStream.addPermission(PrimitiveTypePermission.PRIMITIVES);
+
 			// Define permissions
 
 			List<String> allowedTypes = new ArrayList<String>();
@@ -2733,8 +2738,8 @@ public class PortletDataContextImpl implements PortletDataContext {
 	private static final Class[] _XSTREAM_DEFAULT_ALLOWED_CLASSES =
 		new Class[] {
 			byte[].class, Date.class, Field.class, Fields.class,
-			InputStream.class, Integer.class, Locale.class, String.class,
-			Time.class, Timestamp.class
+			InputStream.class, Locale.class, String.class, Time.class,
+			Timestamp.class
 		};
 
 	private static Log _log = LogFactoryUtil.getLog(
