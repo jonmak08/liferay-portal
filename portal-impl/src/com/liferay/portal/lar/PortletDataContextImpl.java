@@ -2655,46 +2655,6 @@ public class PortletDataContextImpl implements PortletDataContext {
 	protected void initXStream() {
 		_xStream = new XStream();
 
-		if (PropsValues.STAGING_XSTREAM_SECURITY_ENABLED) {
-
-			// Permissions
-
-			// Wipe all of them
-
-			_xStream.addPermission(NoTypePermission.NONE);
-
-			// Allow primitives
-
-			_xStream.addPermission(PrimitiveTypePermission.PRIMITIVES);
-
-			// Define permissions
-
-			List<String> allowedTypes = new ArrayList<String>();
-
-			allowedTypes.addAll(_xStreamDefaultAllowedTypes);
-			allowedTypes.addAll(
-				ListUtil.toList(PropsValues.STAGING_XSTREAM_CLASS_WHITELIST));
-
-			_xStream.allowTypes(allowedTypes.toArray(new String[0]));
-
-			_xStream.allowTypeHierarchy(AssetLink.class);
-			_xStream.allowTypeHierarchy(AssetTag.class);
-			_xStream.allowTypeHierarchy(List.class);
-			_xStream.allowTypeHierarchy(Lock.class);
-			_xStream.allowTypeHierarchy(Map.class);
-			_xStream.allowTypeHierarchy(OrgLabor.class);
-			_xStream.allowTypeHierarchy(RatingsEntry.class);
-			_xStream.allowTypeHierarchy(StagedModel.class);
-
-			_xStream.allowTypesByWildcard(
-				new String[] {
-					"com.liferay.portal.model.*",
-					"com.liferay.portal.model.impl.*",
-					"com.thoughtworks.xstream.mapper.DynamicProxyMapper*"
-				}
-			);
-		}
-
 		_xStream.alias("BlogsEntry", BlogsEntryImpl.class);
 		_xStream.alias("BookmarksFolder", BookmarksFolderImpl.class);
 		_xStream.alias("BookmarksEntry", BookmarksEntryImpl.class);
@@ -2723,6 +2683,47 @@ public class PortletDataContextImpl implements PortletDataContext {
 			new FileEntryConverter(), XStream.PRIORITY_VERY_HIGH);
 		_xStream.registerConverter(
 			new FileVersionConverter(), XStream.PRIORITY_VERY_HIGH);
+
+		if (!PropsValues.STAGING_XSTREAM_SECURITY_ENABLED) {
+			return;
+		}
+
+		// Permissions
+
+		// Wipe all of them
+
+		_xStream.addPermission(NoTypePermission.NONE);
+
+		// Allow primitives
+
+		_xStream.addPermission(PrimitiveTypePermission.PRIMITIVES);
+
+		// Define permissions
+
+		List<String> allowedTypes = new ArrayList<String>();
+
+		allowedTypes.addAll(_xStreamDefaultAllowedTypes);
+		allowedTypes.addAll(
+			ListUtil.toList(PropsValues.STAGING_XSTREAM_CLASS_WHITELIST));
+
+		_xStream.allowTypes(allowedTypes.toArray(new String[0]));
+
+		_xStream.allowTypeHierarchy(AssetLink.class);
+		_xStream.allowTypeHierarchy(AssetTag.class);
+		_xStream.allowTypeHierarchy(List.class);
+		_xStream.allowTypeHierarchy(Lock.class);
+		_xStream.allowTypeHierarchy(Map.class);
+		_xStream.allowTypeHierarchy(OrgLabor.class);
+		_xStream.allowTypeHierarchy(RatingsEntry.class);
+		_xStream.allowTypeHierarchy(StagedModel.class);
+
+		_xStream.allowTypesByWildcard(
+			new String[] {
+				"com.liferay.portal.model.*",
+				"com.liferay.portal.model.impl.*",
+				"com.thoughtworks.xstream.mapper.DynamicProxyMapper*"
+			}
+		);
 	}
 
 	protected boolean isResourceMain(ClassedModel classedModel) {
