@@ -2654,37 +2654,41 @@ public class PortletDataContextImpl implements PortletDataContext {
 	protected void initXStream() {
 		_xStream = new XStream();
 
-		// Permissions
+		if (PropsValues.STAGING_XSTREAM_SECURITY_ENABLED) {
 
-		// Wipe all of them
+			// Permissions
 
-		_xStream.addPermission(NoTypePermission.NONE);
+			// Wipe all of them
 
-		// Define permissions
+			_xStream.addPermission(NoTypePermission.NONE);
 
-		List<String> allowedTypes = new ArrayList<String>();
+			// Define permissions
 
-		allowedTypes.addAll(_xStreamDefaultAllowedTypes);
-		allowedTypes.addAll(
-			ListUtil.toList(PropsValues.STAGING_XSTREAM_CLASS_WHITELIST));
+			List<String> allowedTypes = new ArrayList<String>();
 
-		_xStream.allowTypes(allowedTypes.toArray(new String[0]));
+			allowedTypes.addAll(_xStreamDefaultAllowedTypes);
+			allowedTypes.addAll(
+				ListUtil.toList(PropsValues.STAGING_XSTREAM_CLASS_WHITELIST));
 
-		_xStream.allowTypeHierarchy(AssetLink.class);
-		_xStream.allowTypeHierarchy(AssetTag.class);
-		_xStream.allowTypeHierarchy(List.class);
-		_xStream.allowTypeHierarchy(Lock.class);
-		_xStream.allowTypeHierarchy(Map.class);
-		_xStream.allowTypeHierarchy(OrgLabor.class);
-		_xStream.allowTypeHierarchy(RatingsEntry.class);
-		_xStream.allowTypeHierarchy(StagedModel.class);
+			_xStream.allowTypes(allowedTypes.toArray(new String[0]));
 
-		_xStream.allowTypesByWildcard(
-			new String[] {
-				"com.liferay.portal.model.*", "com.liferay.portal.model.impl.*",
-				"com.thoughtworks.xstream.mapper.DynamicProxyMapper*"
-			}
-		);
+			_xStream.allowTypeHierarchy(AssetLink.class);
+			_xStream.allowTypeHierarchy(AssetTag.class);
+			_xStream.allowTypeHierarchy(List.class);
+			_xStream.allowTypeHierarchy(Lock.class);
+			_xStream.allowTypeHierarchy(Map.class);
+			_xStream.allowTypeHierarchy(OrgLabor.class);
+			_xStream.allowTypeHierarchy(RatingsEntry.class);
+			_xStream.allowTypeHierarchy(StagedModel.class);
+
+			_xStream.allowTypesByWildcard(
+				new String[] {
+					"com.liferay.portal.model.*",
+					"com.liferay.portal.model.impl.*",
+					"com.thoughtworks.xstream.mapper.DynamicProxyMapper*"
+				}
+			);
+		}
 
 		_xStream.alias("BlogsEntry", BlogsEntryImpl.class);
 		_xStream.alias("BookmarksFolder", BookmarksFolderImpl.class);

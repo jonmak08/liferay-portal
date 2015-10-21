@@ -1862,6 +1862,8 @@ public class PropsValues {
 
 	public static String[] STAGING_XSTREAM_CLASS_WHITELIST = PropsUtil.getArray(PropsKeys.STAGING_XSTREAM_CLASS_WHITELIST);
 
+	public static final boolean STAGING_XSTREAM_SECURITY_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.STAGING_XSTREAM_SECURITY_ENABLED));
+
 	public static boolean STRIP_CSS_SASS_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.STRIP_CSS_SASS_ENABLED));
 
 	public static final String[] STRIP_IGNORE_PATHS = PropsUtil.getArray(PropsKeys.STRIP_IGNORE_PATHS);

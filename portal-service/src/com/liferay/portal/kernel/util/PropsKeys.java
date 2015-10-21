@@ -2477,6 +2477,8 @@ public interface PropsKeys {
 
 	public static final String STAGING_XSTREAM_CLASS_WHITELIST = "staging.xstream.class.whitelist";
 
+	public static final String STAGING_XSTREAM_SECURITY_ENABLED = "staging.xstream.security.enabled";
+
 	public static final String STRIP_CSS_SASS_ENABLED = "strip.css.sass.enabled";
 
 	public static final String STRIP_IGNORE_PATHS = "strip.ignore.paths";
