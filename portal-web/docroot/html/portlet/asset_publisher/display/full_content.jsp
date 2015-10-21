@@ -18,6 +18,7 @@
 
 <%
 String redirect = ParamUtil.getString(request, "redirect");
+String showComments = ParamUtil.getString(request, "showComments", "false");
 
 if (Validator.isNull(redirect)) {
 	redirect = ParamUtil.getString(PortalUtil.getOriginalServletRequest(request), "redirect");
@@ -157,7 +158,7 @@ request.setAttribute("view.jsp-showIconLabel", true);
 		%>
 
 		<liferay-util:include page="<%= path %>" portletId="<%= assetRendererFactory.getPortletId() %>">
-			<liferay-util:param name="showComments" value="<%= Boolean.FALSE.toString() %>" />
+			<liferay-util:param name="showComments" value="<%= showComments %>" />
 			<liferay-util:param name="showHeader" value="<%= Boolean.FALSE.toString() %>" />
 		</liferay-util:include>
 
