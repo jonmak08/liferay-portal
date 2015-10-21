@@ -26,6 +26,7 @@ import com.liferay.portal.kernel.struts.LastPath;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -121,9 +122,19 @@ public class FriendlyURLServlet extends HttpServlet {
 			forcePermanentRedirect = (Boolean)redirectArray[1];
 
 			if (request.getAttribute(WebKeys.LAST_PATH) == null) {
-				LastPath lastPath = new LastPath(
-					_friendlyURLPathPrefix, pathInfo,
-					request.getParameterMap());
+				String lifecycle = ParamUtil.getString(
+					request, "p_p_lifecycle");
+
+				LastPath lastPath = null;
+
+				if (lifecycle.equals("1")) {
+					lastPath = new LastPath(_friendlyURLPathPrefix, pathInfo);
+				}
+				else {
+					lastPath = new LastPath(
+						_friendlyURLPathPrefix, pathInfo,
+						request.getParameterMap());
+				}
 
 				request.setAttribute(WebKeys.LAST_PATH, lastPath);
 			}
