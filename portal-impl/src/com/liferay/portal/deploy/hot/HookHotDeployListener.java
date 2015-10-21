@@ -1616,8 +1616,13 @@ public class HookHotDeployListener
 
 			if (locale != null) {
 				languagesContainer.addLanguage(locale, languageMap);
+
+				if (!languageMap.isEmpty()) {
+					baseLanguageMap = languageMap;
+				}
 			}
-			else if (!languageMap.isEmpty()) {
+
+			if (baseLanguageMap == null) {
 				baseLanguageMap = languageMap;
 			}
 		}
