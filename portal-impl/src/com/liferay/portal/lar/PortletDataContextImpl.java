@@ -2655,6 +2655,8 @@ public class PortletDataContextImpl implements PortletDataContext {
 	protected void initXStream() {
 		_xStream = new XStream();
 
+		// Aliases
+
 		_xStream.alias("BlogsEntry", BlogsEntryImpl.class);
 		_xStream.alias("BookmarksFolder", BookmarksFolderImpl.class);
 		_xStream.alias("BookmarksEntry", BookmarksEntryImpl.class);
@@ -2675,7 +2677,11 @@ public class PortletDataContextImpl implements PortletDataContext {
 		_xStream.alias("WikiNode", WikiNodeImpl.class);
 		_xStream.alias("WikiPage", WikiPageImpl.class);
 
+		// Omit fields
+
 		_xStream.omitField(HashMap.class, "cache_bitmask");
+
+		// Register converters
 
 		_xStream.registerConverter(
 			new FolderConverter(), XStream.PRIORITY_VERY_HIGH);
@@ -2694,15 +2700,14 @@ public class PortletDataContextImpl implements PortletDataContext {
 
 		_xStream.addPermission(NoTypePermission.NONE);
 
-		// Allow primitives
+		// Add permissions
 
 		_xStream.addPermission(PrimitiveTypePermission.PRIMITIVES);
 
-		// Define permissions
-
 		List<String> allowedTypes = new ArrayList<String>();
 
-		allowedTypes.addAll(_xStreamDefaultAllowedTypes);
+		allowedTypes.addAll(
+			ListUtil.toList(_XSTREAM_DEFAULT_ALLOWED_CLASS_NAMES));
 		allowedTypes.addAll(
 			ListUtil.toList(PropsValues.STAGING_XSTREAM_CLASS_WHITELIST));
 
@@ -2719,8 +2724,7 @@ public class PortletDataContextImpl implements PortletDataContext {
 
 		_xStream.allowTypesByWildcard(
 			new String[] {
-				"com.liferay.portal.model.*",
-				"com.liferay.portal.model.impl.*",
+				"com.liferay.portal.model.*", "com.liferay.portal.model.impl.*",
 				"com.thoughtworks.xstream.mapper.DynamicProxyMapper*"
 			}
 		);
@@ -2736,16 +2740,16 @@ public class PortletDataContextImpl implements PortletDataContext {
 		return true;
 	}
 
-	private static final Class[] _XSTREAM_DEFAULT_ALLOWED_CLASSES =
-		new Class[] {
-			byte[].class, Date.class, Field.class, Fields.class,
-			InputStream.class, Locale.class, String.class, Time.class,
-			Timestamp.class
+	private static final String[] _XSTREAM_DEFAULT_ALLOWED_CLASS_NAMES =
+		new String[] {
+			byte[].class.getName(), Date.class.getName(), Field.class.getName(),
+			Fields.class.getName(), InputStream.class.getName(),
+			Locale.class.getName(), String.class.getName(),
+			Time.class.getName(), Timestamp.class.getName()
 		};
 
 	private static Log _log = LogFactoryUtil.getLog(
 		PortletDataContextImpl.class);
-	private static List<String> _xStreamDefaultAllowedTypes;
 
 	private Map<String, long[]> _assetCategoryIdsMap =
 		new HashMap<String, long[]>();
@@ -2802,13 +2806,5 @@ public class PortletDataContextImpl implements PortletDataContext {
 	private transient XStream _xStream;
 	private transient ZipReader _zipReader;
 	private transient ZipWriter _zipWriter;
-
-	static {
-		_xStreamDefaultAllowedTypes = new ArrayList<String>();
-
-		for (Class clazz : _XSTREAM_DEFAULT_ALLOWED_CLASSES) {
-			_xStreamDefaultAllowedTypes.add(clazz.getName());
-		}
-	}
 
 }
