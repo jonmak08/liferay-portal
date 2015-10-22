@@ -130,9 +130,7 @@ long parentCategoryId = BeanParamUtil.getLong(category, request, "parentCategory
 		function() {
 			var A = AUI();
 
-			document.<portlet:namespace />fm.<portlet:namespace />parentCategoryId.value = "<%= ShoppingCategoryConstants.DEFAULT_PARENT_CATEGORY_ID %>";
-
-			document.getElementById('<portlet:namespace />parentCategoryName').value = '';
+			Liferay.Util.removeEntitySelection('parentCategoryId', 'parentCategoryName', this, '<portlet:namespace />');
 
 			var mergeWithParent = A.one('#<portlet:namespace />merge-with-parent-checkbox-div');
 			var mergeWithParentCategory = A.one('#<portlet:namespace />mergeWithParentCategoryCheckbox');

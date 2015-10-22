@@ -142,7 +142,11 @@ int priceId = ParamUtil.getInteger(request, "priceId", -1);
 
 				<aui:button onClick="<%= taglibOpenCategoryWindow %>" value="select" />
 
-				<aui:button onClick='<%= renderResponse.getNamespace() + "removeCategory();" %>' value="remove" />
+				<%
+				String taglibRemoveFolder = "Liferay.Util.removeEntitySelection('categoryId', 'categoryName', this, '" + renderResponse.getNamespace() + "');";
+				%>
+
+				<aui:button onClick="<%= taglibRemoveFolder %>" value="remove" />
 			</div>
 		</c:if>
 
@@ -569,12 +573,6 @@ int priceId = ParamUtil.getInteger(request, "priceId", -1);
 		void("");
 
 		itemQuantitiesWindow.focus();
-	}
-
-	function <portlet:namespace />removeCategory() {
-		document.<portlet:namespace />fm.<portlet:namespace />categoryId.value = "<%= ShoppingCategoryConstants.DEFAULT_PARENT_CATEGORY_ID %>";
-
-		document.getElementById('<portlet:namespace />categoryName').value = '';
 	}
 
 	function <portlet:namespace />saveItem() {
