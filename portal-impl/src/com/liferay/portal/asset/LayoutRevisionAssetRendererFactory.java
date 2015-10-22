@@ -65,8 +65,7 @@ public class LayoutRevisionAssetRendererFactory
 		if (user == null) {
 			if (_log.isDebugEnabled()) {
 				_log.debug(
-					"the user with userId " + layoutRevision.getUserId() +
-						"no longer exist");
+					"User " + layoutRevision.getUserId() + " does not exist");
 			}
 
 			user = UserLocalServiceUtil.getDefaultUser(
