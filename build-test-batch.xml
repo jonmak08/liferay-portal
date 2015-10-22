@@ -932,6 +932,26 @@
 		<run-functional-test app.server.type="glassfish" database.type="postgresql" />
 	</target>
 
+	<target name="functional-release-glassfish-mysql">
+		<run-functional-test-release
+			app.server.type="glassfish"
+			database.type="mysql"
+			release.bundle="true"
+			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
+			test.build.license.xml.zip.url="${test.build.license.xml.zip.url}"
+		/>
+	</target>
+
+	<target name="functional-release-jboss-mysql">
+		<run-functional-test-release
+			app.server.type="jboss"
+			database.type="mysql"
+			release.bundle="true"
+			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
+			test.build.license.xml.zip.url="${test.build.license.xml.zip.url}"
+		/>
+	</target>
+
 	<target name="functional-release-tomcat-mysql">
 		<set-tomcat-version-number liferay.portal.bundle="${test.portal.bundle.version}" />
 
