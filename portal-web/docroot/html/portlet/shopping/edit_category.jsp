@@ -85,7 +85,7 @@ long parentCategoryId = BeanParamUtil.getLong(category, request, "parentCategory
 
 				<aui:button onClick="<%= taglibOpenCategoryWindow %>" value="select" />
 
-				<aui:button onClick='<%= renderResponse.getNamespace() + "removeCategory();" %>' value="remove" />
+				<aui:button onClick='<%= renderResponse.getNamespace() + "removeCategory(this);" %>' value="remove" />
 			</div>
 
 			<div id="<portlet:namespace />merge-with-parent-checkbox-div"
@@ -127,10 +127,10 @@ long parentCategoryId = BeanParamUtil.getLong(category, request, "parentCategory
 	Liferay.provide(
 		window,
 		'<portlet:namespace />removeCategory',
-		function() {
+		function(button) {
 			var A = AUI();
 
-			Liferay.Util.removeEntitySelection('parentCategoryId', 'parentCategoryName', this, '<portlet:namespace />');
+			Liferay.Util.removeEntitySelection('parentCategoryId', 'parentCategoryName', button, '<portlet:namespace />');
 
 			var mergeWithParent = A.one('#<portlet:namespace />merge-with-parent-checkbox-div');
 			var mergeWithParentCategory = A.one('#<portlet:namespace />mergeWithParentCategoryCheckbox');
