@@ -197,6 +197,7 @@
 
 				if (loc.indexOf('#') > -1) {
 					var locationPieces = loc.split('#');
+
 					loc = locationPieces[0];
 					anchorHash = locationPieces[1];
 				}
@@ -660,7 +661,10 @@
 
 		showCapsLock: function(event, span) {
 			var keyCode = event.keyCode ? event.keyCode : event.which;
-			var shiftKey = event.shiftKey ? event.shiftKey : ((keyCode == 16) ? true : false);
+
+			var shiftKeyCode = ((keyCode == 16) ? true : false);
+
+			var shiftKey = event.shiftKey ? event.shiftKey : shiftKeyCode;
 
 			if (((keyCode >= 65 && keyCode <= 90) && !shiftKey) ||
 				((keyCode >= 97 && keyCode <= 122) && shiftKey)) {
@@ -1213,9 +1217,9 @@
 
 					Event.purgeElement(el, false);
 
-					item.href = 'javascript:;';
-					item.disabled = true;
 					item.action = '';
+					item.disabled = true;
+					item.href = 'javascript:;';
 					item.onsubmit = emptyFnFalse;
 				}
 			}
@@ -1813,35 +1817,40 @@
 		Util,
 		'selectEntityHandler',
 		function(container, selectEventName, disableButton) {
-			container = A.one(container);
+			var containerNode = A.one(container);
+
 			var openingLiferay = Util.getOpener().Liferay;
-			var selectorButtons = container.all('.selector-button');
 
-			container.delegate(
-				'click',
-				function(event) {
-					var currentTarget = event.currentTarget;
+			if (containerNode) {
+				var selectorButtons = containerNode.all('.selector-button');
 
-					if (disableButton !== false) {
+				containerNode.delegate(
+					'click',
+					function(event) {
+						var currentTarget = event.currentTarget;
+
+						if (disableButton !== false) {
+							selectorButtons.attr('disabled', false);
+
+							currentTarget.attr('disabled', true);
+						}
+
+						var result = Util.getAttributes(currentTarget, 'data-');
+
+						openingLiferay.fire(selectEventName, result);
+
+						Util.getWindow().hide();
+					},
+					'.selector-button'
+				);
+
+				openingLiferay.on(
+					'entitySelectionRemoved',
+					function(event) {
 						selectorButtons.attr('disabled', false);
-
-						currentTarget.attr('disabled', true);
 					}
-
-					var result = Util.getAttributes(currentTarget, 'data-');
-
-					openingLiferay.fire(selectEventName, result);
-
-					Util.getWindow().hide();
-				},
-				'.selector-button'
-			);
-
-			openingLiferay.on('entitySelectionRemoved',
-				function(event) {
-					selectorButtons.attr('disabled', false);
-				}
-			);
+				);
+			}
 		},
 		['aui-base']
 	);
