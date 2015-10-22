@@ -1837,7 +1837,7 @@
 
 						var result = Util.getAttributes(currentTarget, 'data-');
 
-						openingLiferay.fire(selectEventName, result);
+						Util.getOpener().Liferay.fire(selectEventName, result);
 
 						Util.getWindow().hide();
 					},
