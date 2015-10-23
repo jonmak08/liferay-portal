@@ -4630,10 +4630,7 @@ hot.deploy.dependency.management.enabled=false</echo>
 		</if>
 
 		<if>
-			<or>
-				<equals arg1="${test.skip.tear.down}" arg2="false" />
-				<equals arg1="${test.skip.tear.down}" arg2="true" />
-			</or>
+			<isset property="test.skip.tear.down" />
 			<then>
 				<echo append="true" file="${test.ext.properties.file}">
 					test.skip.tear.down=${test.skip.tear.down}
