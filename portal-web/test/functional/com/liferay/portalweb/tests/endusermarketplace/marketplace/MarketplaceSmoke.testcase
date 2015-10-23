@@ -1,4 +1,5 @@
 <definition component-name="marketplace">
+	<property name="community.app.acceptance" value="true" />
 	<property name="portlet.plugins.includes" value="calendar-portlet" />
 	<property name="testray.main.component.name" value="Marketplace" />
 
