@@ -252,8 +252,8 @@ public class LocalizationImplTest {
 
 		Map<Locale, String> localizationMap = new HashMap<Locale, String>();
 
-		localizationMap.put(LocaleUtil.US, englishChunkText);
 		localizationMap.put(LocaleUtil.SPAIN, spanishChunkText);
+		localizationMap.put(LocaleUtil.US, englishChunkText);
 
 		String xml = LocalizationUtil.updateLocalization(
 			localizationMap, _xml, "static-content", "en_US");
