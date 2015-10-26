@@ -16,9 +16,6 @@
 			<then>
 				<execute function="AssertTextEquals" locator1="PGDocumentlibrarydisplay#PAGINATION_PREVIOUS" value1="Previous" />
 			</then>
-			<else>
-				<execute function="AssertTextPresent" locator1="PGDocumentlibrarydisplay#PAGINATION_PREVIOUS" value1="Previous" />
-			</else>
 		</if>
 	</command>
 </definition>
