@@ -5852,7 +5852,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	}
 
 	protected boolean isUserAllowedToAuthenticate(User user)
-		throws PortalException {
+		throws PortalException, SystemException {
 
 		if (user.isDefaultUser()) {
 			if (_log.isInfoEnabled()) {
