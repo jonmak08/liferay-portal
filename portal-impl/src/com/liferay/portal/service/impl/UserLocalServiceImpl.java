@@ -5810,7 +5810,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			// Let LDAP handle max failure event
 
 			if (!LDAPSettingsUtil.isPasswordPolicyEnabled(
-				user.getCompanyId())) {
+					user.getCompanyId())) {
 
 				PasswordPolicy passwordPolicy = user.getPasswordPolicy();
 
@@ -5827,16 +5827,12 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 							PropsKeys.AUTH_MAX_FAILURES, user.getCompanyId(),
 							login, headerMap, parameterMap);
 					}
-					else if (authType.equals(
-						CompanyConstants.AUTH_TYPE_SN)) {
-
+					else if (authType.equals(CompanyConstants.AUTH_TYPE_SN)) {
 						AuthPipeline.onMaxFailuresByScreenName(
 							PropsKeys.AUTH_MAX_FAILURES, user.getCompanyId(),
 							login, headerMap, parameterMap);
 					}
-					else if (authType.equals(
-						CompanyConstants.AUTH_TYPE_ID)) {
-
+					else if (authType.equals(CompanyConstants.AUTH_TYPE_ID)) {
 						AuthPipeline.onMaxFailuresByUserId(
 							PropsKeys.AUTH_MAX_FAILURES, user.getCompanyId(),
 							user.getUserId(), headerMap, parameterMap);
