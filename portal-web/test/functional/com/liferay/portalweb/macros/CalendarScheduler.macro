@@ -323,6 +323,8 @@
 	</command>
 
 	<command name="viewEventDefaultColor">
+		<var name="key_eventTitle" value="${eventTitle}" />
+
 		<execute function="AssertElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_SPECIFIC_BACKGROUND_COLOR_DEFAULT" />
 		<execute function="AssertElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_SPECIFIC_FONT_COLOR_DEFAULT" />
 	</command>
