@@ -59,7 +59,7 @@ if (assetRendererFactory != null) {
 		viewFullContentURL.setParameter("returnToFullPageURL", returnToFullPageURL);
 	}
 
-	if (Validator.equals(className, DLFileEntryConstants.getClassName())) {
+	if (className.equals(DLFileEntryConstants.getClassName())) {
 		viewFullContentURL.setParameter("showComments", "true");
 	}
 
