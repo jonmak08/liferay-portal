@@ -300,9 +300,9 @@
 		<var name="key_calendarName" value="${calendarName}" />
 
 		<execute function="SelectFrame" locator1="PGCalendarCalendarSettings#CALENDAR_SETTING_IFRAME" />
-		<execute function="AssertTextEquals" locator1="PGCalendarCalendarSettings#HEADER_TITLE" value1="${calendarName}" />
+		<execute function="AssertTextEquals" locator1="PGCalendarCalendarSettings#HEADER_TITLE" value1="Liferay - ${calendarName}" />
 		<execute function="AssertClick" locator1="PGCalendarCalendarSettings#NAVIGATION_NOTIFICATION_TEMPLATES_TAB" value1="Notification Templates" />
-		<execute function="AssertTextEquals" locator1="PGCalendarCalendarSettings#NOTIFICATION_TEMPLATES_HEADER_TITLE" value1="${calendarName}" />
+		<execute function="AssertTextEquals" locator1="PGCalendarCalendarSettings#NOTIFICATION_TEMPLATES_HEADER_TITLE" value1="Liferay - ${calendarName}" />
 
 		<execute function="Pause" locator1="5000" />
 
