@@ -229,6 +229,8 @@
 		<if>
 			<isset var="categoryTag" />
 			<then>
+				<var name="key_categoryTag" value="${categoryTag}" />
+
 				<execute function="AssertElementPresent" locator1="PGDocumentsandmediaAddmultipledocuments#TAGS_ENTRY_BOX" />
 				<execute function="Click" locator1="PGDocumentsandmediaAddmultipledocuments#TAGS_ENTRY_BOX" />
 				<execute function="Type" locator1="PGDocumentsandmediaAddmultipledocuments#TAGS_ENTRY_BOX" value1="${categoryTag}" />

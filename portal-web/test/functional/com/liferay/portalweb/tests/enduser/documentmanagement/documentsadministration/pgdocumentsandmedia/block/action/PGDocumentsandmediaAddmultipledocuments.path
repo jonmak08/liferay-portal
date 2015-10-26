@@ -98,7 +98,7 @@
 </tr>
 <tr>
 	<td>CATEGORIZATION_TAG</td>
-	<td>//div[contains(@id,'assetTagsSelector')]//span[contains(.,'${categoryTag}')]</td>
+	<td>//div[contains(@id,'assetTagsSelector')]//span[contains(.,'${key_categoryTag}')]</td>
 	<td></td>
 </tr>
 </tbody>
