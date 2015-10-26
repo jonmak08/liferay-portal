@@ -18,7 +18,6 @@
 
 <%
 String redirect = ParamUtil.getString(request, "redirect");
-boolean showComments = ParamUtil.getBoolean(request, "showComments");
 
 if (Validator.isNull(redirect)) {
 	redirect = ParamUtil.getString(PortalUtil.getOriginalServletRequest(request), "redirect");
@@ -39,6 +38,8 @@ int assetEntryIndex = ((Integer)request.getAttribute("view.jsp-assetEntryIndex")
 AssetEntry assetEntry = (AssetEntry)request.getAttribute("view.jsp-assetEntry");
 AssetRendererFactory assetRendererFactory = (AssetRendererFactory)request.getAttribute("view.jsp-assetRendererFactory");
 AssetRenderer assetRenderer = (AssetRenderer)request.getAttribute("view.jsp-assetRenderer");
+
+boolean showComments = ParamUtil.getBoolean(request, "showComments");
 
 String languageId = LanguageUtil.getLanguageId(request);
 

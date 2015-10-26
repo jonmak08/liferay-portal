@@ -59,10 +59,6 @@ if (assetRendererFactory != null) {
 		viewFullContentURL.setParameter("returnToFullPageURL", returnToFullPageURL);
 	}
 
-	if (className.equals(DLFileEntryConstants.getClassName())) {
-		viewFullContentURL.setParameter("showComments", Boolean.TRUE.toString());
-	}
-
 	viewFullContentURL.setParameter("assetEntryId", String.valueOf(assetEntry.getEntryId()));
 	viewFullContentURL.setParameter("type", assetRendererFactory.getType());
 
@@ -72,6 +68,10 @@ if (assetRendererFactory != null) {
 		}
 
 		viewFullContentURL.setParameter("urlTitle", assetRenderer.getUrlTitle());
+	}
+
+	if (className.equals(DLFileEntryConstants.getClassName())) {
+		viewFullContentURL.setParameter("showComments", Boolean.TRUE.toString());
 	}
 
 	if (viewInContext || !assetEntry.isVisible()) {
