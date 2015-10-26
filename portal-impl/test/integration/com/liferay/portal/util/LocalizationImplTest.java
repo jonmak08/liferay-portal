@@ -246,22 +246,22 @@ public class LocalizationImplTest {
 	}
 
 	@Test
-	public void testUpdateLocalizationChunkText() {
-		String englishChunkText = "foo&bar";
-		String spanishChunkText = "bar&foo";
+	public void testUpdateLocalizationWithAmpersand() {
+		String englishValue = "foo&bar";
+		String spanishValue = "bar&foo";
 
 		Map<Locale, String> localizationMap = new HashMap<Locale, String>();
 
-		localizationMap.put(LocaleUtil.SPAIN, spanishChunkText);
-		localizationMap.put(LocaleUtil.US, englishChunkText);
+		localizationMap.put(LocaleUtil.SPAIN, spanishValue);
+		localizationMap.put(LocaleUtil.US, englishValue);
 
 		String xml = LocalizationUtil.updateLocalization(
 			localizationMap, _xml, "static-content", "en_US");
 
 		Assert.assertEquals(
-			englishChunkText, LocalizationUtil.getLocalization(xml, "en_US"));
+			englishValue, LocalizationUtil.getLocalization(xml, "en_US"));
 		Assert.assertEquals(
-			spanishChunkText, LocalizationUtil.getLocalization(xml, "es_ES"));
+			spanishValue, LocalizationUtil.getLocalization(xml, "es_ES"));
 	}
 
 	private String _englishHello = "Hello World";
