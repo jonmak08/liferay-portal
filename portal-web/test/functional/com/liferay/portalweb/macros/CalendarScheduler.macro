@@ -314,9 +314,7 @@
 	</command>
 
 	<command name="viewEventColor">
-		<var name="key_backgroundColor" value="${eventBackgroundColorRGB}" />
 		<var name="key_eventTitle" value="${eventTitle}" />
-		<var name="key_fontColor" value="${eventFontColorRGB}" />
 
 		<execute function="AssertElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_SPECIFIC_BACKGROUND_COLOR" />
 		<execute function="AssertElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_SPECIFIC_FONT_COLOR" />

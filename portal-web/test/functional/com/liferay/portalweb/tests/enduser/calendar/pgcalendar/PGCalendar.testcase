@@ -2539,7 +2539,6 @@
 		<execute macro="Calendar#view">
 			<var name="calendarName" value="My Calendar Name Edit" />
 			<var name="calendarType" value="My Calendars" />
-			<var name="resourceNameList" value="${resourceNameList}" />
 			<var name="user" value="Test Test" />
 		</execute>
 	</command>
