@@ -60,7 +60,7 @@ if (assetRendererFactory != null) {
 	}
 
 	if (className.equals(DLFileEntryConstants.getClassName())) {
-		viewFullContentURL.setParameter("showComments", "true");
+		viewFullContentURL.setParameter("showComments", Boolean.TRUE.toString());
 	}
 
 	viewFullContentURL.setParameter("assetEntryId", String.valueOf(assetEntry.getEntryId()));
