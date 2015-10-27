@@ -95,10 +95,10 @@ public class GetPageAttachmentAction extends PortletAction {
 			if (fileName.startsWith(
 					MediaWikiImporter.SHARED_IMAGES_TITLE + StringPool.SLASH)) {
 
-				String[] paths = fileName.split(
+				String[] fileNameParts = fileName.split(
 					MediaWikiImporter.SHARED_IMAGES_TITLE + StringPool.SLASH);
 
-				fileName = paths[1];
+				fileName = fileNameParts[1];
 
 				title = MediaWikiImporter.SHARED_IMAGES_TITLE;
 			}
