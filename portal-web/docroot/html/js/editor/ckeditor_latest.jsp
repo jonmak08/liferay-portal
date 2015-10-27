@@ -19,40 +19,89 @@
 <%@ taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
 <%
-ScriptData newScriptData = new ScriptData() {
+CustomCKEditorOutputData newOutputData = new CustomCKEditorOutputData(request);
+CustomCKEditorScriptData newScriptData = new CustomCKEditorScriptData(request);
 
-	@Override
-	public void append(String portletId, StringBundler contentSB, String use) {
-		_replaceVariations(contentSB);
-
-		super.append(portletId, contentSB, use);
-	}
-
-};
-
-request.setAttribute(WebKeys.AUI_SCRIPT_DATA, newScriptData);
-
-OutputData newOutputData = new OutputData() {
-
-	@Override
-	public void addData(String outputKey, String webKey, StringBundler sb) {
-		_replaceVariations(sb);
-
-		super.addData(outputKey, webKey, sb);
-	}
-
-};
-
-request.setAttribute(WebKeys.OUTPUT_DATA, newOutputData);
+newOutputData.wrap();
+newScriptData.wrap();
 %>
 
 <liferay-util:buffer var="html">
 	<liferay-util:include page="/html/js/editor/ckeditor.jsp" />
 </liferay-util:buffer>
 
+<%
+newOutputData.unwrap();
+newScriptData.unwrap();
+%>
+
 <%= _replaceVariations(html) %>
 
 <%!
+private static class CustomCKEditorScriptData extends ScriptData {
+
+	public CustomCKEditorScriptData(HttpServletRequest request) {
+		_request = request;
+	}
+
+	@Override
+	public void append(String portletId, StringBundler contentSB, String use) {
+		_replaceVariations(contentSB);
+
+		_scriptData.append(portletId, contentSB, use);
+	}
+
+	public void unwrap() {
+		_request.setAttribute(WebKeys.AUI_SCRIPT_DATA, _scriptData);
+	}
+
+	public void wrap() {
+		_scriptData = (ScriptData)_request.getAttribute(WebKeys.AUI_SCRIPT_DATA);
+
+		if (_scriptData == null) {
+			_scriptData = new ScriptData();
+		}
+
+		_request.setAttribute(WebKeys.AUI_SCRIPT_DATA, this);
+	}
+
+	private HttpServletRequest _request;
+	private ScriptData _scriptData;
+
+}
+
+private static class CustomCKEditorOutputData extends OutputData {
+
+	public CustomCKEditorOutputData(HttpServletRequest request) {
+		_request = request;
+	}
+
+	@Override
+	public void addData(String outputKey, String webKey, StringBundler sb) {
+		_replaceVariations(sb);
+
+		_outputData.addData(outputKey, webKey, sb);
+	}
+
+	public void unwrap() {
+		_request.setAttribute(WebKeys.OUTPUT_DATA, _outputData);
+	}
+
+	public void wrap() {
+		_outputData = (OutputData)_request.getAttribute(WebKeys.OUTPUT_DATA);
+
+		if (_outputData == null) {
+			_outputData = new OutputData();
+		}
+
+		_request.setAttribute(WebKeys.OUTPUT_DATA, this);
+	}
+
+	private OutputData _outputData;
+	private HttpServletRequest _request;
+
+}
+
 private static String _replaceVariations(String content) {
 	content = StringUtil.replace(content, "/ckeditor/", "/ckeditor_latest/");
 	content = StringUtil.replace(content, "CKEDITOR.env.isCompatible = true;", "");
