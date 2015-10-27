@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.portletfilerepository.PortletFileRepositoryUtil;
 import com.liferay.portal.struts.ActionConstants;
@@ -30,6 +31,7 @@ import com.liferay.portlet.documentlibrary.NoSuchFileException;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.trash.util.TrashUtil;
 import com.liferay.portlet.wiki.NoSuchPageException;
+import com.liferay.portlet.wiki.importers.mediawiki.MediaWikiImporter;
 import com.liferay.portlet.wiki.model.WikiPage;
 import com.liferay.portlet.wiki.service.WikiPageServiceUtil;
 
@@ -89,13 +91,20 @@ public class GetPageAttachmentAction extends PortletAction {
 			long nodeId = ParamUtil.getLong(request, "nodeId");
 			String title = ParamUtil.getString(request, "title");
 			String fileName = ParamUtil.getString(request, "fileName");
+
+			if (fileName.startsWith(
+					MediaWikiImporter.SHARED_IMAGES_TITLE + StringPool.SLASH)) {
+
+				String[] paths = fileName.split(
+					MediaWikiImporter.SHARED_IMAGES_TITLE + StringPool.SLASH);
+
+				fileName = paths[1];
+
+				title = MediaWikiImporter.SHARED_IMAGES_TITLE;
+			}
+
 			int status = ParamUtil.getInteger(
 				request, "status", WorkflowConstants.STATUS_APPROVED);
-
-			if (fileName.contains("SharedImages/")) {
-					fileName = fileName.split("SharedImages/")[1];
-					title = "SharedImages";
-				}
 
 			getFile(nodeId, title, fileName, status, request, response);
 
