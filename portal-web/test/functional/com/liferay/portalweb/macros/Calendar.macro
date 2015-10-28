@@ -312,7 +312,16 @@
 		</if>
 
 		<execute function="AssertClick" locator1="PGCalendarCalendarSettings#NAVIGATION_NOTIFICATION_TEMPLATES_TAB" value1="Notification Templates" />
-		<execute function="AssertTextEquals" locator1="PGCalendarCalendarSettings#NOTIFICATION_TEMPLATES_HEADER_TITLE" value1="Liferay - ${calendarName}" />
+
+		<if>
+			<isset var="site" />
+			<then>
+				<execute function="AssertTextEquals" locator1="PGCalendarCalendarSettings#NOTIFICATION_TEMPLATES_HEADER_TITLE" value1="${site} - ${calendarName}" />
+			</then>
+			<else>
+				<execute function="AssertTextEquals" locator1="PGCalendarCalendarSettings#NOTIFICATION_TEMPLATES_HEADER_TITLE" value1="${calendarName}" />
+			</else>
+		</if>
 
 		<execute function="Pause" locator1="5000" />
 
