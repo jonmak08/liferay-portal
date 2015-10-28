@@ -1041,6 +1041,7 @@
 						</ant>
 
 						<ant antfile="build-test-tck.xml" target="test-class-group">
+							<property name="hot.deploy.dependency.management.enabled" value="false" />
 							<property name="test.class.group.index" value="${axis.variable}" />
 						</ant>
 					</test-action>
@@ -1049,10 +1050,6 @@
 
 			<test-set-up>
 				<prepare-test-build />
-
-				<antcall target="prepare-portal-ext-properties">
-					<param name="hot.deploy.dependency.management.enabled" value="false" />
-				</antcall>
 
 				<antcall target="prepare-system-ext-properties" />
 			</test-set-up>
