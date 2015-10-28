@@ -934,7 +934,7 @@
 	</target>
 
 	<target name="functional-release-glassfish-mysql">
-		<run-functional-test-release
+		<run-functional-test
 			app.server.type="glassfish"
 			database.type="mysql"
 			release.bundle="true"
@@ -944,7 +944,7 @@
 	</target>
 
 	<target name="functional-release-jboss-mysql">
-		<run-functional-test-release
+		<run-functional-test
 			app.server.type="jboss"
 			database.type="mysql"
 			release.bundle="true"
