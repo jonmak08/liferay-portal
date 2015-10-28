@@ -937,9 +937,9 @@
 		<run-functional-test
 			app.server.type="glassfish"
 			database.type="mysql"
-			release.bundle="true"
+			test.license.xml.url="${test.license.xml.url}"
 			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
-			test.build.license.xml.zip.url="${test.build.license.xml.zip.url}"
+			test.release.bundle="true"
 		/>
 	</target>
 
@@ -947,9 +947,9 @@
 		<run-functional-test
 			app.server.type="jboss"
 			database.type="mysql"
-			release.bundle="true"
+			test.license.xml.url="${test.license.xml.url}"
 			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
-			test.build.license.xml.zip.url="${test.build.license.xml.zip.url}"
+			test.release.bundle="true"
 		/>
 	</target>
 
@@ -1041,7 +1041,6 @@
 						</ant>
 
 						<ant antfile="build-test-tck.xml" target="test-class-group">
-							<property name="hot.deploy.dependency.management.enabled" value="false" />
 							<property name="test.class.group.index" value="${axis.variable}" />
 						</ant>
 					</test-action>
@@ -1050,6 +1049,8 @@
 
 			<test-set-up>
 				<prepare-test-build />
+
+				<antcall target="prepare-portal-ext-properties" />
 
 				<antcall target="prepare-system-ext-properties" />
 			</test-set-up>
