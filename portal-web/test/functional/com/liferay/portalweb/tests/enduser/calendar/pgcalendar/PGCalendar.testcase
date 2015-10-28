@@ -246,7 +246,6 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteScopeName" value="Liferay" />
 		</execute>
 
 		<execute macro="Site#addMemberCP">
@@ -701,7 +700,6 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteScopeName" value="Liferay" />
 		</execute>
 
 		<execute macro="Site#addMemberCP">
@@ -1047,7 +1045,6 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteScopeName" value="Liferay" />
 		</execute>
 
 		<execute macro="Site#addMemberCP">
@@ -2712,7 +2709,6 @@
 			<var name="fromAddressEdit" value="testedit@liferay.com" />
 			<var name="fromNameEdit" value="Calendar Resource Name Edit" />
 			<var name="inviteEmail" value="true" />
-			<var name="site" value="Liferay" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -2753,7 +2749,6 @@
 			<var name="fromAddressEdit" value="testedit@liferay.com" />
 			<var name="fromNameEdit" value="Calendar Resource Name Edit" />
 			<var name="reminderEmail" value="true" />
-			<var name="site" value="Liferay" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -4253,7 +4248,6 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteScopeName" value="Liferay" />
 		</execute>
 
 		<execute macro="Site#addMemberCP">
