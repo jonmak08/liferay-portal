@@ -1803,9 +1803,31 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 			if (assetCategory != null) {
 				uuid = assetCategory.getUuid();
 
-				portletDataContext.addReferenceElement(
-					portlet, rootElement, assetCategory, AssetCategory.class,
-					PortletDataContext.REFERENCE_TYPE_DEPENDENCY, true);
+				if (assetCategory.getGroupId() !=
+						portletDataContext.getGroupId()) {
+
+					Group originalGroup = GroupLocalServiceUtil.getGroup(
+						assetCategory.getGroupId());
+
+					if (originalGroup.isStaged()) {
+						long liveGroupId = originalGroup.getLiveGroupId();
+
+						if (Validator.isNull(liveGroupId)) {
+							liveGroupId = Long.valueOf(
+								originalGroup.getTypeSettingsProperty(
+									"remoteGroupId"));
+						}
+
+						uuid = uuid + StringPool.POUND + String.valueOf(
+							liveGroupId);
+					}
+				}
+				else {
+					portletDataContext.addReferenceElement(
+						portlet, rootElement, assetCategory,
+						AssetCategory.class,
+						PortletDataContext.REFERENCE_TYPE_DEPENDENCY, true);
+				}
 			}
 		}
 		else if (className.equals(AssetVocabulary.class.getName())) {
@@ -1945,6 +1967,18 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 			if (assetCategory == null) {
 				assetCategory = AssetCategoryUtil.fetchByUUID_G(
 					uuid, companyGroupId);
+			}
+
+			if (assetCategory == null) {
+				String[] uuidGroupId = StringUtil.split(uuid, StringPool.POUND);
+
+				if (uuidGroupId.length > 1) {
+					uuid = uuidGroupId[0];
+					long groupId = GetterUtil.getLong(uuidGroupId[1]);
+
+					assetCategory = AssetCategoryUtil.fetchByUUID_G(
+						uuid, groupId);
+				}
 			}
 
 			if (assetCategory != null) {
