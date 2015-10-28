@@ -36,6 +36,7 @@ import com.liferay.portal.kernel.lar.MissingReference;
 import com.liferay.portal.kernel.lar.MissingReferences;
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.lar.PortletDataContextFactoryUtil;
+import com.liferay.portal.kernel.lar.PortletDataException;
 import com.liferay.portal.kernel.lar.PortletDataHandler;
 import com.liferay.portal.kernel.lar.PortletDataHandlerControl;
 import com.liferay.portal.kernel.lar.PortletDataHandlerKeys;
@@ -749,6 +750,37 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 				deleteTimestampParameters(sb, beginPos);
 			}
 			catch (Exception e) {
+				if (e instanceof PortletDataException) {
+					PortletDataException pde = (PortletDataException)e;
+
+					if (pde.getType() == PortletDataException.INVALID_GROUP) {
+						Group originalGroup = GroupLocalServiceUtil.getGroup(
+							fileEntry.getGroupId());
+
+						if (originalGroup.isStaged()) {
+							long liveGroupId = originalGroup.getLiveGroupId();
+
+							if (Validator.isNull(liveGroupId)) {
+								liveGroupId = GetterUtil.getLong(
+									originalGroup.getTypeSettingsProperty(
+										"remoteGroupId"));
+							}
+
+							String url = sb.substring(beginPos, endPos);
+
+							url = StringUtil.replace(
+								url, String.valueOf(originalGroup.getGroupId()),
+								String.valueOf(liveGroupId));
+
+							sb.replace(beginPos, endPos, url);
+
+							endPos = beginPos - 1;
+
+							continue;
+						}
+					}
+				}
+
 				if (_log.isDebugEnabled()) {
 					_log.debug(e, e);
 				}
