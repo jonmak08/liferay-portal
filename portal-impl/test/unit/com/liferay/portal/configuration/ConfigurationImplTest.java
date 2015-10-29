@@ -27,6 +27,7 @@ import java.net.URLStreamHandlerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 import java.util.UUID;
 
 import org.junit.Assert;
