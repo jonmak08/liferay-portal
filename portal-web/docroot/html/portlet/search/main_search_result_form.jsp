@@ -79,7 +79,7 @@ if (assetRendererFactory != null) {
 
 		String viewFullContentURLString = viewFullContentURL.toString();
 
-		viewFullContentURLString = HttpUtil.setParameter(viewFullContentURLString, "redirect", currentURL);
+		viewFullContentURLString = HttpUtil.setParameter(viewFullContentURLString, PortalUtil.getPortletNamespace(PortletKeys.ASSET_PUBLISHER) + "redirect", currentURL);
 
 		viewURL = assetRenderer.getURLViewInContext(liferayPortletRequest, liferayPortletResponse, viewFullContentURLString);
 
