@@ -15,7 +15,7 @@
 --%>
 
 <%
-PortalRequestDataSample portalRequestDataSample = new PortalRequestDataSample(company.getCompanyId(), themeDisplay.getSiteGroupId(), request.getRemoteUser(), request.getRequestURI(), request.getRequestURL().toString() + ".jsp_display");
+PortalRequestDataSample portalRequestDataSample = new PortalRequestDataSample(company.getCompanyId(), themeDisplay.getSiteGroupId(), request.getHeader(HttpHeaders.REFERER), request.getRemoteAddr(), request.getRemoteUser(), request.getRequestURI(), request.getRequestURL().toString() + ".jsp_display", request.getHeader(HttpHeaders.USER_AGENT));
 
 portalRequestDataSample.setDescription("Portal Request");
 

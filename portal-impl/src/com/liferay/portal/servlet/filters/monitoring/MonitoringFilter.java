@@ -20,6 +20,7 @@ import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
 import com.liferay.portal.kernel.monitoring.RequestStatus;
 import com.liferay.portal.kernel.monitoring.statistics.DataSampleThreadLocal;
+import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -118,9 +119,11 @@ public class MonitoringFilter extends BasePortalFilter {
 
 		if (_monitoringPortalRequest) {
 			portalRequestDataSample = new PortalRequestDataSample(
-				companyId, groupId, request.getRemoteUser(),
+				companyId, groupId, request.getHeader(HttpHeaders.REFERER),
+				request.getRemoteAddr(), request.getRemoteUser(),
 				request.getRequestURI(),
-				GetterUtil.getString(request.getRequestURL()));
+				GetterUtil.getString(request.getRequestURL()),
+				request.getHeader(HttpHeaders.USER_AGENT));
 
 			DataSampleThreadLocal.initialize();
 		}
