@@ -5902,11 +5902,13 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		TransactionCommitCallbackRegistryUtil.registerCallback(callable);
 	}
 
-	protected void resetFailedLoginAttempts(User user) {
+	protected void resetFailedLoginAttempts(User user) throws SystemException {
 		resetFailedLoginAttempts(user, false);
 	}
 
-	protected void resetFailedLoginAttempts(User user, boolean forceUpdate) {
+	protected void resetFailedLoginAttempts(User user, boolean forceUpdate)
+		throws SystemException {
+
 		if (forceUpdate || (user.getFailedLoginAttempts() > 0)) {
 			user.setFailedLoginAttempts(0);
 
