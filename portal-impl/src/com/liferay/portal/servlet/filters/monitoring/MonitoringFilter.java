@@ -14,13 +14,19 @@
 
 package com.liferay.portal.servlet.filters.monitoring;
 
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
 import com.liferay.portal.kernel.monitoring.RequestStatus;
 import com.liferay.portal.kernel.monitoring.statistics.DataSampleThreadLocal;
 import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.model.Layout;
 import com.liferay.portal.monitoring.statistics.portal.PortalRequestDataSample;
 import com.liferay.portal.monitoring.statistics.service.ServiceMonitorAdvice;
+import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portal.servlet.filters.BasePortalFilter;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PropsValues;
@@ -68,6 +74,37 @@ public class MonitoringFilter extends BasePortalFilter {
 		return true;
 	}
 
+	protected long getGroupId(HttpServletRequest request) {
+		long groupId = ParamUtil.getLong(request, "groupId");
+
+		if (groupId > 0) {
+			return groupId;
+		}
+
+		Layout layout = (Layout)request.getAttribute(WebKeys.LAYOUT);
+
+		if (layout != null) {
+			return layout.getGroupId();
+		}
+
+		long plid = ParamUtil.getLong(request, "p_l_id");
+
+		if (plid > 0) {
+			try {
+				layout = LayoutLocalServiceUtil.getLayout(plid);
+
+				groupId = layout.getGroupId();
+			}
+			catch (Exception e) {
+				if (_log.isDebugEnabled()) {
+					_log.debug("Unable to retrieve layout " + plid, e);
+				}
+			}
+		}
+
+		return groupId;
+	}
+
 	@Override
 	protected void processFilter(
 			HttpServletRequest request, HttpServletResponse response,
@@ -75,12 +112,14 @@ public class MonitoringFilter extends BasePortalFilter {
 		throws IOException, ServletException {
 
 		long companyId = PortalUtil.getCompanyId(request);
+		long groupId = getGroupId(request);
 
 		PortalRequestDataSample portalRequestDataSample = null;
 
 		if (_monitoringPortalRequest) {
 			portalRequestDataSample = new PortalRequestDataSample(
-				companyId, request.getRemoteUser(), request.getRequestURI(),
+				companyId, groupId, request.getRemoteUser(),
+				request.getRequestURI(),
 				GetterUtil.getString(request.getRequestURL()));
 
 			DataSampleThreadLocal.initialize();
@@ -96,6 +135,8 @@ public class MonitoringFilter extends BasePortalFilter {
 
 			if (portalRequestDataSample != null) {
 				portalRequestDataSample.capture(RequestStatus.SUCCESS);
+
+				portalRequestDataSample.setGroupId(getGroupId(request));
 			}
 		}
 		catch (Exception e) {
@@ -123,6 +164,9 @@ public class MonitoringFilter extends BasePortalFilter {
 				DataSampleThreadLocal.getDataSamples());
 		}
 	}
+
+	private static final Log _log = LogFactoryUtil.getLog(
+		MonitoringFilter.class);
 
 	private static boolean _monitoringPortalRequest =
 		PropsValues.MONITORING_PORTAL_REQUEST;

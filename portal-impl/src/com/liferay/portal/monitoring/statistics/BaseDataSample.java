@@ -67,6 +67,11 @@ public class BaseDataSample implements DataSample, Serializable {
 	}
 
 	@Override
+	public long getGroupId(){
+		return _groupId;
+	}
+
+	@Override
 	public String getName() {
 		return _name;
 	}
@@ -110,6 +115,10 @@ public class BaseDataSample implements DataSample, Serializable {
 		_description = description;
 	}
 
+	public void setGroupId(long groupId) {
+		_groupId = groupId;
+	}
+
 	public void setName(String name) {
 		_name = name;
 	}
@@ -128,7 +137,7 @@ public class BaseDataSample implements DataSample, Serializable {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(19);
+		StringBundler sb = new StringBundler(21);
 
 		sb.append("{attributes=");
 		sb.append(_attributes);
@@ -138,6 +147,8 @@ public class BaseDataSample implements DataSample, Serializable {
 		sb.append(_description);
 		sb.append(", duration=");
 		sb.append(_duration);
+		sb.append(", groupId=");
+		sb.append(_groupId);
 		sb.append(", name=");
 		sb.append(_name);
 		sb.append(", namespace=");
@@ -159,6 +170,7 @@ public class BaseDataSample implements DataSample, Serializable {
 	private long _companyId;
 	private String _description;
 	private long _duration;
+	private long _groupId;
 	private String _name;
 	private String _namespace;
 	private RequestStatus _requestStatus;

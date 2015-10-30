@@ -28,6 +28,8 @@ public interface DataSample {
 
 	public long getDuration();
 
+	public long getGroupId();
+
 	public String getName();
 
 	public String getNamespace();

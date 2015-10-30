@@ -14,14 +14,23 @@
 
 package com.liferay.portal.monitoring.statistics.portlet;
 
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.GroupThreadLocal;
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.monitoring.MonitorNames;
 import com.liferay.portal.monitoring.statistics.BaseDataSample;
+import com.liferay.portal.theme.ThemeDisplay;
+import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.PortletResponseImpl;
 
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Karthik Sudarshan
@@ -34,18 +43,21 @@ public class PortletRequestDataSample extends BaseDataSample {
 		PortletRequestType requestType, PortletRequest portletRequest,
 		PortletResponse portletResponse) {
 
+		_requestType = requestType;
+
 		PortletResponseImpl portletResponseImpl =
 			(PortletResponseImpl)portletResponse;
 
 		Portlet portlet = portletResponseImpl.getPortlet();
 
 		setCompanyId(portlet.getCompanyId());
-		setUser(portletRequest.getRemoteUser());
-		setNamespace(MonitorNames.PORTLET);
+		setGroupId(portletRequest);
 		setName(portlet.getPortletName());
-		_portletId = portlet.getPortletId();
+		setNamespace(MonitorNames.PORTLET);
+		setUser(portletRequest.getRemoteUser());
+
 		_displayName = portlet.getDisplayName();
-		_requestType = requestType;
+		_portletId = portlet.getPortletId();
 	}
 
 	public String getDisplayName() {
@@ -77,8 +89,47 @@ public class PortletRequestDataSample extends BaseDataSample {
 		return sb.toString();
 	}
 
-	private String _displayName;
-	private String _portletId;
-	private PortletRequestType _requestType;
+	protected void setGroupId(PortletRequest portletRequest) {
+		long groupId = GroupThreadLocal.getGroupId();
+
+		if (groupId != 0) {
+			setGroupId(groupId);
+
+			return;
+		}
+
+		HttpServletRequest httpServletRequest =
+			PortalUtil.getHttpServletRequest(portletRequest);
+
+		ThemeDisplay themeDisplay =
+			(ThemeDisplay) httpServletRequest.getAttribute(
+				WebKeys.THEME_DISPLAY);
+
+		if (themeDisplay != null) {
+			groupId = themeDisplay.getScopeGroupId();
+
+			setGroupId(groupId);
+
+			return;
+		}
+
+		try {
+			groupId = PortalUtil.getScopeGroupId(portletRequest);
+
+			setGroupId(groupId);
+		}
+		catch (Exception e) {
+			if (_log.isDebugEnabled()) {
+				_log.debug("Unable to obtain scope group ID", e);
+			}
+		}
+	}
+
+	private static final Log _log = LogFactoryUtil.getLog(
+		PortletRequestDataSample.class);
+
+	private final String _displayName;
+	private final String _portletId;
+	private final PortletRequestType _requestType;
 
 }
