@@ -6114,7 +6114,7 @@ if (ppstate.equals("normal")) {
 					</then>
 				</if>
 
-				<beanshell>
+				<script classpathref="project.classpath" language="beanshell">
 					<![CDATA[
 						import java.util.regex.Matcher;
 						import java.util.regex.Pattern;
@@ -6151,7 +6151,7 @@ if (ppstate.equals("normal")) {
 
 						project.setProperty("test.generated.properties.content", sb.toString());
 					]]>
-				</beanshell>
+				</script>
 
 				<echo>##</echo>
 				<echo>## test.generated.properties</echo>
