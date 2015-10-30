@@ -114,6 +114,16 @@ public class MonitoringFilter extends BasePortalFilter {
 		return groupId;
 	}
 
+	protected String getRemoteUser(HttpServletRequest request) {
+		String remoteUser = request.getRemoteUser();
+
+		if (remoteUser == null) {
+			remoteUser = String.valueOf(request.getAttribute(WebKeys.USER_ID));
+		}
+
+		return remoteUser;
+	}
+
 	protected void incrementProcessFilterCount() {
 		AtomicInteger processFilterCount = _processFilterCount.get();
 
@@ -128,6 +138,7 @@ public class MonitoringFilter extends BasePortalFilter {
 
 		long companyId = PortalUtil.getCompanyId(request);
 		long groupId = getGroupId(request);
+		String remoteUser = getRemoteUser(request);
 
 		PortalRequestDataSample portalRequestDataSample = null;
 
@@ -136,8 +147,7 @@ public class MonitoringFilter extends BasePortalFilter {
 		if (_monitoringPortalRequest) {
 			portalRequestDataSample = new PortalRequestDataSample(
 				companyId, groupId, request.getHeader(HttpHeaders.REFERER),
-				request.getRemoteAddr(), request.getRemoteUser(),
-				request.getRequestURI(),
+				request.getRemoteAddr(), remoteUser, request.getRequestURI(),
 				GetterUtil.getString(request.getRequestURL()),
 				request.getHeader(HttpHeaders.USER_AGENT));
 
