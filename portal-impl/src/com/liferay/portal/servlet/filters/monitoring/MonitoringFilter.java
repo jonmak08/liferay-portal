@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.messaging.MessageBusUtil;
 import com.liferay.portal.kernel.monitoring.RequestStatus;
 import com.liferay.portal.kernel.monitoring.statistics.DataSampleThreadLocal;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -34,6 +35,7 @@ import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.MonitoringPortlet;
 
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -75,6 +77,12 @@ public class MonitoringFilter extends BasePortalFilter {
 		return true;
 	}
 
+	protected int decrementProcessFilterCount() {
+		AtomicInteger processFilterCount = _processFilterCount.get();
+
+		return processFilterCount.decrementAndGet();
+	}
+
 	protected long getGroupId(HttpServletRequest request) {
 		long groupId = ParamUtil.getLong(request, "groupId");
 
@@ -106,6 +114,12 @@ public class MonitoringFilter extends BasePortalFilter {
 		return groupId;
 	}
 
+	protected void incrementProcessFilterCount() {
+		AtomicInteger processFilterCount = _processFilterCount.get();
+
+		processFilterCount.incrementAndGet();
+	}
+
 	@Override
 	protected void processFilter(
 			HttpServletRequest request, HttpServletResponse response,
@@ -116,6 +130,8 @@ public class MonitoringFilter extends BasePortalFilter {
 		long groupId = getGroupId(request);
 
 		PortalRequestDataSample portalRequestDataSample = null;
+
+		incrementProcessFilterCount();
 
 		if (_monitoringPortalRequest) {
 			portalRequestDataSample = new PortalRequestDataSample(
@@ -163,14 +179,23 @@ public class MonitoringFilter extends BasePortalFilter {
 				DataSampleThreadLocal.addDataSample(portalRequestDataSample);
 			}
 
-			MessageBusUtil.sendMessage(
-				DestinationNames.MONITORING,
-				DataSampleThreadLocal.getDataSamples());
+			if (decrementProcessFilterCount() == 0) {
+				MessageBusUtil.sendMessage(
+						DestinationNames.MONITORING,
+						DataSampleThreadLocal.getDataSamples());
+
+				_processFilterCount.remove();
+			}
 		}
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		MonitoringFilter.class);
+
+	private static final ThreadLocal<AtomicInteger> _processFilterCount =
+		new AutoResetThreadLocal<AtomicInteger>(
+			MonitoringFilter.class + "._processFilterCount",
+			new AtomicInteger(0));
 
 	private static boolean _monitoringPortalRequest =
 		PropsValues.MONITORING_PORTAL_REQUEST;
