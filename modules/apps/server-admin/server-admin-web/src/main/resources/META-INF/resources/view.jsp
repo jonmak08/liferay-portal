@@ -52,16 +52,6 @@
 			<c:choose>
 				<c:when test='<%= tabs1.equals("server") %>'>
 					<liferay-util:include page="/server.jsp" servletContext="<%= application %>" />
-
-					<aui:script use="liferay-admin">
-						new Liferay.Portlet.Admin(
-							{
-								form: document.<portlet:namespace />fm,
-								namespace: '<portlet:namespace />',
-								url: '<portlet:actionURL name="/server_admin/edit_server" />'
-							}
-						);
-					</aui:script>
 				</c:when>
 			</c:choose>
 		</aui:form>
