@@ -85,7 +85,24 @@
 						}
 					};
 
-					submitForm(document.<portlet:namespace />fm, '<%= editServerURL %>');
+					if (data['cmd'] != null && data['cmd'] == 'installXuggler') {
+						$.ajax(
+							{
+								url: form.attr('action'),
+								data: form.serialize()
+							}
+						).done(function( responseData ) {
+								var adminXugglerPanel = responseData.find('#adminXugglerPanel');
+
+								var adminXugglerPanelHTML = adminXugglerPanel.html();
+
+								$('#adminXugglerPanel').html(adminXugglerPanelHTML);
+							}
+						);
+					}
+					else {
+						submitForm(document.<portlet:namespace />fm, '<%= editServerURL %>');
+					}
 				}
 			);
 		</aui:script>
