@@ -66,7 +66,7 @@
 
 		<portlet:actionURL name="/server_admin/edit_server" var="editServerURL" />
 
-		<aui:script>
+		<aui:script use="aui-loading-mask-deprecated">
 			AUI.$('#<portlet:namespace />fm').on(
 				'click',
 				'.save-server-button',
@@ -85,18 +85,30 @@
 						}
 					};
 
-					if (data['cmd'] != null && data['cmd'] == 'installXuggler') {
+					if ((data['cmd'] != null) && (data['cmd'] == 'installXuggler')) {
+						var loadingMask = new A.LoadingMask(
+							{
+								'strings.loading': '<%= LanguageUtil.get(request, "xuggler-library-is-being-installed") %>',
+								target: A.one('#adminXugglerPanel')
+							}
+						);
+
+						loadingMask.show();
+
 						$.ajax(
 							{
-								url: form.attr('action'),
+								url: '<%= editServerURL %>',
 								data: form.serialize()
 							}
-						).done(function( responseData ) {
-								var adminXugglerPanel = responseData.find('#adminXugglerPanel');
+						).done(
+							function(responseData) {
+								var adminXugglerPanel = AUI.$(responseData).find('#adminXugglerPanel');
 
 								var adminXugglerPanelHTML = adminXugglerPanel.html();
 
-								$('#adminXugglerPanel').html(adminXugglerPanelHTML);
+								AUI.$('#adminXugglerPanel').html(adminXugglerPanelHTML);
+
+								loadingMask.hide();
 							}
 						);
 					}
