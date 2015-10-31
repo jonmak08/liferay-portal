@@ -985,7 +985,7 @@
 		<run-integration-test database.type="postgresql" />
 	</target>
 
-	<target name="plugins-compiler">
+	<target name="plugins-compile">
 		<property name="testray.main.component.name" value="Plugins" />
 		<property name="testray.testcase.priority" value="4" />
 
