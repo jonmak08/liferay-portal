@@ -78,7 +78,7 @@ public class VerifyJournal extends VerifyProcess {
 
 	@Override
 	protected void doVerify() throws Exception {
-		verifyArticleContents();
+		verifyArticleContent();
 		verifyContent();
 		verifyDynamicElements();
 		updateFolderAssets();
@@ -275,7 +275,7 @@ public class VerifyJournal extends VerifyProcess {
 		}
 	}
 
-	protected void verifyArticleContents() throws Exception {
+	protected void verifyArticleContent() throws Exception {
 		List<JournalArticle> articles =
 			JournalArticleLocalServiceUtil.getArticles();
 
