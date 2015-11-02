@@ -96,21 +96,21 @@
 						loadingMask.show();
 
 						$.ajax(
+							'<%= editServerURL %>',
 							{
-								url: '<%= editServerURL %>',
-								data: form.serialize()
-							}
-						).done(
-							function(responseData) {
-								var adminXugglerPanel = AUI.$(responseData).find('#adminXugglerPanel');
+								data: form.serialize(),
+								complete: function() {
+									form.children('#<portlet:namespace />cmd').remove();
 
-								var adminXugglerPanelHTML = adminXugglerPanel.html();
+									loadingMask.hide();
+								},
+								success: function(responseData) {
+									var adminXugglerPanel = AUI.$(responseData).find('#adminXugglerPanel');
 
-								AUI.$('#adminXugglerPanel').html(adminXugglerPanelHTML);
+									var adminXugglerPanelHTML = adminXugglerPanel.html();
 
-								form.children('#<portlet:namespace />cmd').remove();
-
-								loadingMask.hide();
+									AUI.$('#adminXugglerPanel').html(adminXugglerPanelHTML);
+								}
 							}
 						);
 					}
