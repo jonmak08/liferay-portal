@@ -76,12 +76,14 @@ request.setAttribute("search.jsp-returnToFullPageURL", portletDisplay.getURLBack
 
 						var fieldValues = item.attr('data-fieldValues').split();
 
+						var form = A.one('#<portlet:namespace />fm');
+
 						A.Array.each(
 							fieldValues,
 							function(item, index, collection) {
 								var values = item.split('|');
 
-								var field = A.one('#' + values[0]);
+								var field = form.one('#' + values[0]);
 
 								if (field) {
 									field.val(values[1]);
