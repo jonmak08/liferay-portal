@@ -108,6 +108,8 @@
 
 								AUI.$('#adminXugglerPanel').html(adminXugglerPanelHTML);
 
+								form.children('#<portlet:namespace />cmd').remove();
+
 								loadingMask.hide();
 							}
 						);
