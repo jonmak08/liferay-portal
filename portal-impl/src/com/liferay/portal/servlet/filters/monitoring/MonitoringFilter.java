@@ -35,6 +35,7 @@ import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.MonitoringPortlet;
 
 import java.io.IOException;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.servlet.FilterChain;
@@ -199,8 +200,7 @@ public class MonitoringFilter extends BasePortalFilter {
 		}
 	}
 
-	private static final Log _log = LogFactoryUtil.getLog(
-		MonitoringFilter.class);
+	private static Log _log = LogFactoryUtil.getLog(MonitoringFilter.class);
 
 	private static final ThreadLocal<AtomicInteger> _processFilterCount =
 		new AutoResetThreadLocal<AtomicInteger>(

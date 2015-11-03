@@ -67,7 +67,7 @@ public class BaseDataSample implements DataSample, Serializable {
 	}
 
 	@Override
-	public long getGroupId(){
+	public long getGroupId() {
 		return _groupId;
 	}
 

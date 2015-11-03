@@ -14,8 +14,6 @@
 
 package com.liferay.portal.monitoring.statistics.portlet;
 
-import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GroupThreadLocal;
@@ -30,6 +28,7 @@ import com.liferay.portlet.PortletResponseImpl;
 
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
+
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -102,7 +101,7 @@ public class PortletRequestDataSample extends BaseDataSample {
 			PortalUtil.getHttpServletRequest(portletRequest);
 
 		ThemeDisplay themeDisplay =
-			(ThemeDisplay) httpServletRequest.getAttribute(
+			(ThemeDisplay)httpServletRequest.getAttribute(
 				WebKeys.THEME_DISPLAY);
 
 		if (themeDisplay != null) {
@@ -125,7 +124,7 @@ public class PortletRequestDataSample extends BaseDataSample {
 		}
 	}
 
-	private static final Log _log = LogFactoryUtil.getLog(
+	private static Log _log = LogFactoryUtil.getLog(
 		PortletRequestDataSample.class);
 
 	private final String _displayName;
