@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.util.ReflectionUtil;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import java.util.Arrays;
@@ -165,6 +166,9 @@ public class ReflectionTestUtil {
 		try {
 			return (T)method.invoke(null, parameters);
 		}
+		catch (InvocationTargetException ite) {
+			return ReflectionUtil.throwException(ite.getCause());
+		}
 		catch (Exception e) {
 			return ReflectionUtil.throwException(e);
 		}
@@ -180,6 +184,9 @@ public class ReflectionTestUtil {
 		try {
 			return (T)method.invoke(instance, parameters);
 		}
+		catch (InvocationTargetException ite) {
+			return ReflectionUtil.throwException(ite.getCause());
+		}
 		catch (Exception e) {
 			return ReflectionUtil.throwException(e);
 		}
@@ -194,6 +201,9 @@ public class ReflectionTestUtil {
 
 		try {
 			return (T)method.invoke(instance, parameters);
+		}
+		catch (InvocationTargetException ite) {
+			return ReflectionUtil.throwException(ite.getCause());
 		}
 		catch (Exception e) {
 			return ReflectionUtil.throwException(e);
