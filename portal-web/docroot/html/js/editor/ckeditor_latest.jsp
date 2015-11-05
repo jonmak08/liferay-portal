@@ -20,9 +20,11 @@
 
 <%
 CustomCKEditorOutputData newOutputData = new CustomCKEditorOutputData(request);
-CustomCKEditorScriptData newScriptData = new CustomCKEditorScriptData(request);
 
 newOutputData.wrap();
+
+CustomCKEditorScriptData newScriptData = new CustomCKEditorScriptData(request);
+
 newScriptData.wrap();
 %>
 
@@ -32,6 +34,7 @@ newScriptData.wrap();
 
 <%
 newOutputData.unwrap();
+
 newScriptData.unwrap();
 %>
 
