@@ -14,6 +14,16 @@
  */
 --%>
 
-<%@ include file="/html/taglib/init.jsp" %>
+<%@ include file="/init.jsp" %>
+
+<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
+taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %>
+
+<%@ page import="com.liferay.portal.kernel.portlet.LiferayWindowState" %><%@
+page import="com.liferay.portal.kernel.util.Constants" %><%@
+page import="com.liferay.portal.util.PortletKeys" %><%@
+page import="com.liferay.portlet.PortletURLFactoryUtil" %>
+
+<%@ page import="javax.portlet.ResourceURL" %>
 
 <portlet:defineObjects />
