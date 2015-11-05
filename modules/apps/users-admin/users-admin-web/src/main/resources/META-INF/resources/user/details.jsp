@@ -158,7 +158,7 @@ if (selContact != null) {
 			<c:if test="<%= selUser != null %>">
 				<c:choose>
 					<c:when test='<%= UsersAdminUtil.hasUpdateFieldPermission(permissionChecker, user, selUser, "portrait") %>'>
-						<liferay-ui:logo-selector
+						<liferay-frontend:logo-selector
 							currentLogoURL="<%= selUser.getPortraitURL(themeDisplay) %>"
 							defaultLogo="<%= selUser.getPortraitId() == 0 %>"
 							defaultLogoURL="<%= UserConstants.getPortraitURL(themeDisplay.getPathImage(), selUser.isMale(), 0, null) %>"

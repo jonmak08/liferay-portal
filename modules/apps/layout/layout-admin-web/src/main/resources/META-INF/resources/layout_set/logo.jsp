@@ -52,7 +52,7 @@ boolean showButtons = GroupPermissionUtil.contains(permissionChecker, layoutsAdm
 	String companyLogoURL = themeDisplay.getPathImage() + "/company_logo?img_id=" + company.getLogoId() + "&t=" + WebServerServletTokenUtil.getToken(company.getLogoId());
 	%>
 
-	<liferay-ui:logo-selector
+	<liferay-frontend:logo-selector
 		currentLogoURL='<%= (selLayoutSet.getLogoId() == 0) ? companyLogoURL : themeDisplay.getPathImage() + "/layout_set_logo?img_id=" + selLayoutSet.getLogoId() + "&t=" + WebServerServletTokenUtil.getToken(selLayoutSet.getLogoId()) %>'
 		defaultLogo="<%= selLayoutSet.getLogoId() == 0 %>"
 		defaultLogoURL="<%= companyLogoURL %>"

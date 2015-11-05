@@ -92,16 +92,16 @@ public class LogoSelectorTag extends IncludeTag {
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
 		request.setAttribute(
-			"liferay-ui:logo-selector:currentLogoURL", _currentLogoURL);
+			"liferay-frontend:logo-selector:currentLogoURL", _currentLogoURL);
 		request.setAttribute(
-			"liferay-ui:logo-selector:defaultLogo",
+			"liferay-frontend:logo-selector:defaultLogo",
 			String.valueOf(_defaultLogo));
 		request.setAttribute(
-			"liferay-ui:logo-selector:defaultLogoURL", _defaultLogoURL);
+			"liferay-frontend:logo-selector:defaultLogoURL", _defaultLogoURL);
 		request.setAttribute(
-			"liferay-ui:logo-selector:editLogoFn", _editLogoFn);
+			"liferay-frontend:logo-selector:editLogoFn", _editLogoFn);
 		request.setAttribute(
-			"liferay-ui:logo-selector:logoDisplaySelector",
+			"liferay-frontend:logo-selector:logoDisplaySelector",
 			_logoDisplaySelector);
 
 		if (_maxFileSize == 0) {
@@ -114,17 +114,18 @@ public class LogoSelectorTag extends IncludeTag {
 		}
 
 		request.setAttribute(
-			"liferay-ui:logo-selector:maxFileSize",
+			"liferay-frontend:logo-selector:maxFileSize",
 			String.valueOf(_maxFileSize));
 
 		request.setAttribute(
-			"liferay-ui:logo-selector:showBackground",
+			"liferay-frontend:logo-selector:showBackground",
 			String.valueOf(_showBackground));
 		request.setAttribute(
-			"liferay-ui:logo-selector:showButtons",
+			"liferay-frontend:logo-selector:showButtons",
 			String.valueOf(_showButtons));
 		request.setAttribute(
-			"liferay-ui:logo-selector:tempImageFileName", _tempImageFileName);
+			"liferay-frontend:logo-selector:tempImageFileName",
+			_tempImageFileName);
 	}
 
 	private static final String _PAGE = "/logo_selector/page.jsp";

@@ -52,7 +52,7 @@ UnicodeProperties layoutTypeSettings = selLayout.getTypeSettingsProperties();
 	<aui:input label="target" name="TypeSettingsProperties--target--" size="15" type="text" value="<%= HtmlUtil.escapeAttribute(curTarget) %>" />
 
 	<aui:field-wrapper helpMessage="this-icon-will-be-shown-in-the-navigation-menu" label="icon" name="iconFileName">
-		<liferay-ui:logo-selector
+		<liferay-frontend:logo-selector
 			currentLogoURL='<%= (selLayout.getIconImageId() == 0) ? themeDisplay.getPathThemeImages() + "/spacer.png" : themeDisplay.getPathImage() + "/logo?img_id=" + selLayout.getIconImageId() + "&t=" + WebServerServletTokenUtil.getToken(selLayout.getIconImageId()) %>'
 			defaultLogo="<%= selLayout.getIconImageId() == 0 %>"
 			defaultLogoURL='<%= themeDisplay.getPathThemeImages() + "/spacer.png" %>'

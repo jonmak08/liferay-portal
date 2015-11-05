@@ -19,15 +19,15 @@
 <%
 String randomNamespace = PortalUtil.generateRandomKey(request, "taglib_ui_logo_selector") + StringPool.UNDERLINE;
 
-String currentLogoURL = (String)request.getAttribute("liferay-ui:logo-selector:currentLogoURL");
-boolean defaultLogo = GetterUtil.getBoolean((String)request.getAttribute("liferay-ui:logo-selector:defaultLogo"));
-String defaultLogoURL = (String)request.getAttribute("liferay-ui:logo-selector:defaultLogoURL");
-String editLogoFn = GetterUtil.getString((String)request.getAttribute("liferay-ui:logo-selector:editLogoFn"));
-String logoDisplaySelector = (String)request.getAttribute("liferay-ui:logo-selector:logoDisplaySelector");
-long maxFileSize = GetterUtil.getLong((String)request.getAttribute("liferay-ui:logo-selector:maxFileSize"));
-boolean showBackground = GetterUtil.getBoolean((String)request.getAttribute("liferay-ui:logo-selector:showBackground"));
+String currentLogoURL = (String)request.getAttribute("liferay-frontend:logo-selector:currentLogoURL");
+boolean defaultLogo = GetterUtil.getBoolean((String)request.getAttribute("liferay-frontend:logo-selector:defaultLogo"));
+String defaultLogoURL = (String)request.getAttribute("liferay-frontend:logo-selector:defaultLogoURL");
+String editLogoFn = GetterUtil.getString((String)request.getAttribute("liferay-frontend:logo-selector:editLogoFn"));
+String logoDisplaySelector = (String)request.getAttribute("liferay-frontend:logo-selector:logoDisplaySelector");
+long maxFileSize = GetterUtil.getLong((String)request.getAttribute("liferay-frontend:logo-selector:maxFileSize"));
+boolean showBackground = GetterUtil.getBoolean((String)request.getAttribute("liferay-frontend:logo-selector:showBackground"));
 boolean showButtons = GetterUtil.getBoolean((String)request.getAttribute("liferay-ui:form-navigator:showButtons"));
-String tempImageFileName = (String)request.getAttribute("liferay-ui:logo-selector:tempImageFileName");
+String tempImageFileName = (String)request.getAttribute("liferay-frontend:logo-selector:tempImageFileName");
 
 boolean deleteLogo = ParamUtil.getBoolean(request, "deleteLogo");
 long fileEntryId = ParamUtil.getLong(request, "fileEntryId");
