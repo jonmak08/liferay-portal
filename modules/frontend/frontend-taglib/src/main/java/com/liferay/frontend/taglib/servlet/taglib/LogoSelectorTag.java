@@ -118,8 +118,7 @@ public class LogoSelectorTag extends IncludeTag {
 			"liferay-ui:logo-selector:tempImageFileName", _tempImageFileName);
 	}
 
-	private static final String _PAGE =
-		"/html/taglib/ui/logo_selector/page.jsp";
+	private static final String _PAGE = "/logo_selector/page.jsp";
 
 	private String _currentLogoURL;
 	private boolean _defaultLogo;
