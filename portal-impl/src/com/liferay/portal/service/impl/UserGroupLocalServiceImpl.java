@@ -647,9 +647,10 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 		throws SystemException {
 
 		if (!PropsValues.USER_GROUPS_INDEXER_ENABLED ||
-			!PropsValues.USER_GROUPS_SEARCH_WITH_INDEX) {
+			!PropsValues.USER_GROUPS_SEARCH_WITH_INDEX ||
+			isUseCustomSQL(params)) {
 
-				return userGroupFinder.countByKeywords(companyId, keywords, params);
+			return userGroupFinder.countByKeywords(companyId, keywords, params);
 			}
 
 			String name = null;
@@ -970,6 +971,14 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 		}
 	}
 
+	protected boolean isUseCustomSQL(LinkedHashMap<String, Object> params) {
+		if (params.isEmpty()) {
+			return false;
+		}
+
+		return true;
+	}
+	
 	protected void validate(long userGroupId, long companyId, String name)
 		throws PortalException, SystemException {
 

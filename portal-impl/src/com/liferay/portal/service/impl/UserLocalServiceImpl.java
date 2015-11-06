@@ -3302,7 +3302,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		throws SystemException {
 
 		if (!PropsValues.USERS_INDEXER_ENABLED ||
-			!PropsValues.USERS_SEARCH_WITH_INDEX) {
+			!PropsValues.USERS_SEARCH_WITH_INDEX || isUseCustomSQL(params)) {
 
 			return userFinder.countByKeywords(
 				companyId, keywords, status, params);
@@ -3391,7 +3391,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		throws SystemException {
 
 		if (!PropsValues.USERS_INDEXER_ENABLED ||
-			!PropsValues.USERS_SEARCH_WITH_INDEX) {
+			!PropsValues.USERS_SEARCH_WITH_INDEX || isUseCustomSQL(params)) {
 
 			return userFinder.countByC_FN_MN_LN_SN_EA_S(
 				companyId, firstName, middleName, lastName, screenName,
@@ -5881,6 +5881,29 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		checkPasswordExpired(user);
 
 		return true;
+	}
+
+	protected boolean isUseCustomSQL(LinkedHashMap<String, Object> params) {
+		for (String key : params.keySet()) {
+			if (!key.equals("inherit") &&
+				!key.equals("usersGroups") &&
+				!key.equals("usersOrgs") &&
+				!key.equals("usersOrgsCount") &&
+				!key.equals("usersRoles") &&
+				!key.equals("usersTeams") &&
+				!key.equals("usersUserGroups")) {
+
+				return true;
+			}
+		}
+
+		Boolean inherit = (Boolean)params.get("inherit");
+
+		if ((inherit != null) && inherit) {
+			return true;
+		}
+
+		return false;
 	}
 
 	protected void reindex(final User user) {
