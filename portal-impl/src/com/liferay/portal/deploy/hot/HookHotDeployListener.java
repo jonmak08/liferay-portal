@@ -1560,6 +1560,9 @@ public class HookHotDeployListener
 
 		Map<String, String> baseLanguageMap = null;
 
+		Locale rootLocale = null;
+		Map<String, String> rootLanguageMap = null;
+
 		for (Element languagePropertiesElement : languagePropertiesElements) {
 			Properties properties = null;
 
@@ -1601,7 +1604,13 @@ public class HookHotDeployListener
 
 			Map<String, String> languageMap = new HashMap<String, String>();
 
-			if (baseLanguageMap != null) {
+			if ((locale != null) && (rootLocale != null) &&
+				Validator.equals(
+					locale.getLanguage(), rootLocale.getLanguage())) {
+
+				languageMap.putAll(rootLanguageMap);
+			}
+			else if (baseLanguageMap != null) {
 				languageMap.putAll(baseLanguageMap);
 			}
 
@@ -1617,12 +1626,12 @@ public class HookHotDeployListener
 			if (locale != null) {
 				languagesContainer.addLanguage(locale, languageMap);
 
-				if (!languageMap.isEmpty()) {
-					baseLanguageMap = languageMap;
+				if (Validator.isNull(locale.getCountry())) {
+					rootLocale = locale;
+					rootLanguageMap = languageMap;
 				}
 			}
-
-			if (baseLanguageMap == null) {
+			else if ((baseLanguageMap == null) && !languageMap.isEmpty()) {
 				baseLanguageMap = languageMap;
 			}
 		}
