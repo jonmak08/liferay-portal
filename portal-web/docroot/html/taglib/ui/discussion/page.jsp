@@ -405,7 +405,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 													<c:if test="<%= MBDiscussionPermission.contains(permissionChecker, company.getCompanyId(), scopeGroupId, permissionClassName, permissionClassPK, message.getMessageId(), message.getUserId(), ActionKeys.UPDATE_DISCUSSION) %>">
 
 														<%
-														String taglibEditURL = "javascript:" + randomNamespace + "showForm('" + randomNamespace + "editForm" + i + "', '" + namespace + randomNamespace + "editReplyBody" + i + "');" + randomNamespace + "hideForm('" + randomNamespace + "postReplyForm" + i + "', '" + namespace + randomNamespace + "postReplyBody" + i + "', '')";
+														String taglibEditURL = "javascript:" + randomNamespace + "showForm('" + randomNamespace + "editForm" + i + "', '" + namespace + randomNamespace + "editReplyBody" + i + "', true);" + randomNamespace + "hideForm('" + randomNamespace + "postReplyForm" + i + "', '" + namespace + randomNamespace + "postReplyBody" + i + "', '')";
 														%>
 
 														<li class="lfr-discussion-edit">
@@ -575,9 +575,13 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 			document.getElementById("<%= randomNamespace %>messageScroll" + messageId).scrollIntoView();
 		}
 
-		function <%= randomNamespace %>showForm(rowId, textAreaId) {
+		function <%= randomNamespace %>showForm(rowId, textAreaId, edit) {
 			document.getElementById(rowId).style.display = "block";
 			document.getElementById(textAreaId).focus();
+
+			if (!edit) {
+				document.getElementById(textAreaId).value = '';
+			}
 		}
 
 		Liferay.provide(
