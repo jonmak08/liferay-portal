@@ -6213,12 +6213,15 @@ public class JournalArticleLocalServiceImpl
 			byte[] bytes = images.get(
 				elInstanceId + StringPool.UNDERLINE + elName + elLanguage);
 
+			Image image = imageLocalService.fetchImage(imageId);
+
 			String defaultElLanguage =
 				StringPool.UNDERLINE +
 					LocaleUtil.toLanguageId(LocaleUtil.getSiteDefault());
 
 			if (ArrayUtil.isEmpty(bytes) &&
-				!defaultElLanguage.equals(elLanguage)) {
+				!defaultElLanguage.equals(elLanguage) &&
+				Validator.isNull(image)) {
 
 				bytes = images.get(
 					elInstanceId + StringPool.UNDERLINE + elName +
@@ -6268,8 +6271,6 @@ public class JournalArticleLocalServiceImpl
 
 				continue;
 			}
-
-			Image image = imageLocalService.getImage(imageId);
 
 			if (image != null) {
 				dynamicContent.setText(elContent);
