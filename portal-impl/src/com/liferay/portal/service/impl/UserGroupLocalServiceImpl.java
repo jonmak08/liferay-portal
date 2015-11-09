@@ -651,39 +651,39 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 			isUseCustomSQL(params)) {
 
 			return userGroupFinder.countByKeywords(companyId, keywords, params);
-			}
+		}
 
-			String name = null;
-			String description = null;
-			boolean andOperator = false;
+		String name = null;
+		String description = null;
+		boolean andOperator = false;
 
-			if (Validator.isNotNull(keywords)) {
-				name = keywords;
-				description = keywords;
-			}
-			else {
-				andOperator = true;
-			}
+		if (Validator.isNotNull(keywords)) {
+			name = keywords;
+			description = keywords;
+		}
+		else {
+			andOperator = true;
+		}
 
-			if (params != null) {
-				params.put("keywords", keywords);
-			}
+		if (params != null) {
+			params.put("keywords", keywords);
+		}
 
-			try {
-				Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
-					UserGroup.class);
+		try {
+			Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
+				UserGroup.class);
 
-				SearchContext searchContext = buildSearchContext(
-					companyId, name, description, params, andOperator,
-					QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+			SearchContext searchContext = buildSearchContext(
+				companyId, name, description, params, andOperator,
+				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 
-				Hits hits = indexer.search(searchContext);
+			Hits hits = indexer.search(searchContext);
 
-				return hits.getLength();
-			}
-			catch (Exception e) {
-				throw new SystemException(e);
-			}
+			return hits.getLength();
+		}
+		catch (Exception e) {
+			throw new SystemException(e);
+		}
 	}
 
 	/**
