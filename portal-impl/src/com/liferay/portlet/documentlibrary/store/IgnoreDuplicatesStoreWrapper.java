@@ -37,7 +37,7 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 		throws PortalException, SystemException {
 
 		recoverAndRetryOnFailure(
-			deleteFileStoreAction(
+			createDeleteFileStoreAction(
 				companyId, repositoryId, fileName, Store.VERSION_DEFAULT),
 			new StoreAction() {
 
@@ -57,7 +57,7 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 		throws PortalException, SystemException {
 
 		recoverAndRetryOnFailure(
-			deleteFileStoreAction(
+			createDeleteFileStoreAction(
 				companyId, repositoryId, fileName, Store.VERSION_DEFAULT),
 			new StoreAction() {
 
@@ -78,7 +78,7 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 		throws PortalException, SystemException {
 
 		recoverAndRetryOnFailure(
-			deleteFileStoreAction(
+			createDeleteFileStoreAction(
 				companyId, repositoryId, fileName, Store.VERSION_DEFAULT),
 			new StoreAction() {
 
@@ -98,7 +98,7 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 		throws PortalException, SystemException {
 
 		recoverAndRetryOnFailure(
-			deleteFileStoreAction(
+			createDeleteFileStoreAction(
 				companyId, repositoryId, fileName, toVersionLabel),
 			new StoreAction() {
 
@@ -121,7 +121,7 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 		throws PortalException, SystemException {
 
 		recoverAndRetryOnFailure(
-			deleteFileStoreAction(companyId, newRepositoryId, fileName),
+			createDeleteFileStoreAction(companyId, newRepositoryId, fileName),
 			new StoreAction() {
 
 				@Override
@@ -141,7 +141,7 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 		throws PortalException, SystemException {
 
 		recoverAndRetryOnFailure(
-			deleteFileStoreAction(companyId, repositoryId, newFileName),
+			createDeleteFileStoreAction(companyId, repositoryId, newFileName),
 			new StoreAction() {
 
 				@Override
@@ -162,7 +162,7 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 		throws PortalException, SystemException {
 
 		recoverAndRetryOnFailure(
-			deleteFileStoreAction(
+			createDeleteFileStoreAction(
 				companyId, repositoryId, fileName, versionLabel),
 			new StoreAction() {
 
@@ -183,7 +183,7 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 		throws PortalException, SystemException {
 
 		recoverAndRetryOnFailure(
-			deleteFileStoreAction(
+			createDeleteFileStoreAction(
 				companyId, repositoryId, fileName, versionLabel),
 			new StoreAction() {
 
@@ -206,7 +206,7 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 		throws PortalException, SystemException {
 
 		recoverAndRetryOnFailure(
-			deleteFileStoreAction(
+			createDeleteFileStoreAction(
 				companyId, repositoryId, fileName, versionLabel),
 			new StoreAction() {
 
@@ -228,7 +228,7 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 		throws PortalException, SystemException {
 
 		recoverAndRetryOnFailure(
-			deleteFileStoreAction(
+			createDeleteFileStoreAction(
 				companyId, repositoryId, fileName, toVersionLabel),
 			new StoreAction() {
 
@@ -243,7 +243,7 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 		);
 	}
 
-	private static void recoverAndRetryOnFailure(
+	protected static void recoverAndRetryOnFailure(
 			StoreAction recoverStoreAction, StoreAction storeAction)
 		throws PortalException, SystemException {
 
@@ -257,7 +257,7 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 		}
 	}
 
-	private StoreAction deleteFileStoreAction(
+	protected StoreAction createDeleteFileStoreAction(
 		final long companyId, final long repositoryId, final String fileName) {
 
 		return new StoreAction() {
@@ -270,7 +270,7 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 		};
 	}
 
-	private StoreAction deleteFileStoreAction(
+	protected StoreAction createDeleteFileStoreAction(
 		final long companyId, final long repositoryId, final String fileName,
 		final String versionLabel) {
 
