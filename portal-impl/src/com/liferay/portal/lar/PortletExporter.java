@@ -548,10 +548,10 @@ public class PortletExporter {
 				AssetCategoryLocalServiceUtil.getCategories(
 					className, GetterUtil.getLong(classPK));
 
-			for (AssetCategory assestCategory : assetCategories) {
+			for (AssetCategory assetCategory : assetCategories) {
 				exportAssetCategory(
 					portletDataContext, assetVocabulariesElement,
-					assetCategoriesElement, assestCategory);
+					assetCategoriesElement, assetCategory);
 			}
 		}
 	}
