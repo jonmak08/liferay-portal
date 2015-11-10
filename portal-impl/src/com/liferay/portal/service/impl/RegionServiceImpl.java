@@ -66,9 +66,9 @@ public class RegionServiceImpl extends RegionServiceBaseImpl {
 	@Override
 	public Region fetchRegion(long regionId) throws SystemException {
 		return regionPersistence.fetchByPrimaryKey(regionId);
-		}
+	}
 
-		@Override
+	@Override
 	public Region fetchRegion(long countryId, String regionCode)
 		throws SystemException {
 
