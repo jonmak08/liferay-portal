@@ -402,8 +402,8 @@ public class EditFileEntryAction extends PortletAction {
 			while (true) {
 				try {
 					DLAppLocalServiceUtil.getFileEntry(
-						themeDisplay.getScopeGroupId(),
-						tempFileEntry.getFolderId(), selectedFileName);
+						themeDisplay.getScopeGroupId(), folderId,
+						selectedFileName);
 
 					StringBundler sb = new StringBundler(5);
 
