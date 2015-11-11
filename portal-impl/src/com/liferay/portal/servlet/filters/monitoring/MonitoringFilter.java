@@ -51,8 +51,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class MonitoringFilter extends BasePortalFilter {
 
-	public static final String GET_STATUS_METHOD = "getStatus";
-
 	public static boolean isMonitoringPortalRequest() {
 		return _monitoringPortalRequest;
 	}
@@ -171,10 +169,11 @@ public class MonitoringFilter extends BasePortalFilter {
 				portalRequestDataSample.capture(RequestStatus.SUCCESS);
 
 				portalRequestDataSample.setGroupId(getGroupId(request));
+
 				try {
 					Method getStatusMethod =
 						HttpServletResponse.class.getDeclaredMethod(
-							GET_STATUS_METHOD);
+							"getStatus");
 
 					int status = (Integer)getStatusMethod.invoke(response);
 
@@ -182,7 +181,7 @@ public class MonitoringFilter extends BasePortalFilter {
 				}
 				catch (Exception e) {
 					if (_log.isDebugEnabled()) {
-						_log.debug(e);
+						_log.debug(e, e);
 					}
 				}
 			}

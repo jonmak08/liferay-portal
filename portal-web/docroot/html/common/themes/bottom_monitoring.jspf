@@ -21,9 +21,7 @@ if (portalRequestDataSample != null) {
 	portalRequestDataSample.capture(RequestStatus.SUCCESS);
 
 	try {
-		Method getStatusMethod =
-			HttpServletResponse.class.getDeclaredMethod(
-				MonitoringFilter.GET_STATUS_METHOD);
+		Method getStatusMethod = HttpServletResponse.class.getDeclaredMethod("getStatus");
 
 		int status = (Integer)getStatusMethod.invoke(response);
 
