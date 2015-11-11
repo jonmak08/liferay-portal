@@ -124,8 +124,7 @@ public abstract class BaseStoreWrapper implements Store {
 
 		Store store = getStore();
 
-		return store.getFile(
-			companyId, repositoryId, fileName, versionLabel);
+		return store.getFile(companyId, repositoryId, fileName, versionLabel);
 	}
 
 	public byte[] getFileAsBytes(
@@ -217,8 +216,7 @@ public abstract class BaseStoreWrapper implements Store {
 
 		Store store = getStore();
 
-		return store.hasFile(
-			companyId, repositoryId, fileName, versionLabel);
+		return store.hasFile(companyId, repositoryId, fileName, versionLabel);
 	}
 
 	public void move(String srcDir, String destDir) throws SystemException {
@@ -234,8 +232,7 @@ public abstract class BaseStoreWrapper implements Store {
 
 		Store store = getStore();
 
-		store.updateFile(
-			companyId, repositoryId, newRepositoryId, fileName);
+		store.updateFile(companyId, repositoryId, newRepositoryId, fileName);
 	}
 
 	public void updateFile(
@@ -266,8 +263,7 @@ public abstract class BaseStoreWrapper implements Store {
 
 		Store store = getStore();
 
-		store.updateFile(
-			companyId, repositoryId, fileName, versionLabel, file);
+		store.updateFile(companyId, repositoryId, fileName, versionLabel, file);
 	}
 
 	public void updateFile(
@@ -277,8 +273,7 @@ public abstract class BaseStoreWrapper implements Store {
 
 		Store store = getStore();
 
-		store.updateFile(
-			companyId, repositoryId, fileName, versionLabel, is);
+		store.updateFile(companyId, repositoryId, fileName, versionLabel, is);
 	}
 
 	public void updateFileVersion(

@@ -45,8 +45,7 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 				public void execute() throws PortalException, SystemException {
 					Store store = getStore();
 
-					store.addFile(
-						companyId, repositoryId, fileName, bytes);
+					store.addFile(companyId, repositoryId, fileName, bytes);
 				}
 
 			});
