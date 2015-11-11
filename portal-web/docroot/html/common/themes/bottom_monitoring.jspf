@@ -20,7 +20,17 @@ PortalRequestDataSample portalRequestDataSample = (PortalRequestDataSample)reque
 if (portalRequestDataSample != null) {
 	portalRequestDataSample.capture(RequestStatus.SUCCESS);
 
-	portalRequestDataSample.setStatusCode(response.getStatus());
+	try {
+		Method getStatusMethod =
+			HttpServletResponse.class.getDeclaredMethod(
+				MonitoringFilter.GET_STATUS_METHOD);
+
+		int status = (Integer)getStatusMethod.invoke(response);
+
+		portalRequestDataSample.setStatusCode(status);
+	}
+	catch (Exception e) {
+	}
 
 	DataSampleThreadLocal.addDataSample(portalRequestDataSample);
 }

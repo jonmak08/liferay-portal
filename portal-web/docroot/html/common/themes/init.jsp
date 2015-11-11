@@ -22,7 +22,10 @@ page import="com.liferay.portal.kernel.monitoring.statistics.DataSampleThreadLoc
 page import="com.liferay.portal.kernel.servlet.HttpHeaders" %><%@
 page import="com.liferay.portal.monitoring.statistics.portal.PortalRequestDataSample" %><%@
 page import="com.liferay.portal.security.ldap.LDAPSettingsUtil" %><%@
+page import="com.liferay.portal.servlet.filters.monitoring.MonitoringFilter" %><%@
 page import="com.liferay.taglib.aui.ScriptTag" %>
+
+<%@ page import="java.lang.reflect.Method" %>
 
 <%@ page import="org.apache.struts.taglib.tiles.ComponentConstants" %><%@
 page import="org.apache.struts.tiles.ComponentContext" %>

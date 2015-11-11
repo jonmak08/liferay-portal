@@ -36,6 +36,8 @@ import com.liferay.portlet.MonitoringPortlet;
 
 import java.io.IOException;
 
+import java.lang.reflect.Method;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.servlet.FilterChain;
@@ -48,6 +50,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author Michael C. Han
  */
 public class MonitoringFilter extends BasePortalFilter {
+
+	public static final String GET_STATUS_METHOD = "getStatus";
 
 	public static boolean isMonitoringPortalRequest() {
 		return _monitoringPortalRequest;
@@ -167,7 +171,20 @@ public class MonitoringFilter extends BasePortalFilter {
 				portalRequestDataSample.capture(RequestStatus.SUCCESS);
 
 				portalRequestDataSample.setGroupId(getGroupId(request));
-				portalRequestDataSample.setStatusCode(response.getStatus());
+				try {
+					Method getStatusMethod =
+						HttpServletResponse.class.getDeclaredMethod(
+							GET_STATUS_METHOD);
+
+					int status = (Integer)getStatusMethod.invoke(response);
+
+					portalRequestDataSample.setStatusCode(status);
+				}
+				catch (Exception e) {
+					if (_log.isDebugEnabled()) {
+						_log.debug(e);
+					}
+				}
 			}
 		}
 		catch (Exception e) {
