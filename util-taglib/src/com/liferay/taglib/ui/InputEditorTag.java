@@ -16,14 +16,13 @@ package com.liferay.taglib.ui;
 
 import com.liferay.portal.kernel.editor.EditorUtil;
 import com.liferay.portal.kernel.servlet.BrowserSnifferUtil;
-import com.liferay.portal.kernel.util.PropsKeys;
-import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.theme.ThemeDisplay;
+import com.liferay.portal.util.PropsValues;
 import com.liferay.taglib.util.IncludeTag;
 
 import java.util.Map;
@@ -150,36 +149,23 @@ public class InputEditorTag extends IncludeTag {
 		String editorImpl = EditorUtil.getEditorValue(request, _editorImpl);
 
 		if (Validator.equals(editorImpl, "ckeditor")) {
-			String ckEditorVersion = PropsUtil.get(
-				PropsKeys.EDITOR_CKEDITOR_VERSION);
+			String ckEditorVersion = PropsValues.EDITOR_CKEDITOR_VERSION;
 
 			if (Validator.equals(ckEditorVersion, "latest")) {
 				float majorVersion = BrowserSnifferUtil.getMajorVersion(request);
 
 				if (BrowserSnifferUtil.isChrome(request)) {
-					float latestChrome = Float.valueOf(
-						PropsUtil.get(
-							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_CHROME));
-
-					if (latestChrome < majorVersion) {
+					if (PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_CHROME < majorVersion) {
 						ckEditorVersion = "default";
 					}
 				}
 				else if (BrowserSnifferUtil.isFirefox(request)) {
-					float latestFirefox = Float.valueOf(
-						PropsUtil.get(
-							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX));
-
-					if (latestFirefox < majorVersion) {
+					if (PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX < majorVersion) {
 						ckEditorVersion = "default";
 					}
 				}
 				else if (BrowserSnifferUtil.isIe(request)) {
-					float latestIe = Float.valueOf(
-						PropsUtil.get(
-							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_IE));
-
-					if (latestIe < majorVersion) {
+					if (PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_IE < majorVersion) {
 						ckEditorVersion = "default";
 					}
 				}
