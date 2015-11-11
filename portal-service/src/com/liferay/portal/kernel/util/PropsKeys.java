@@ -843,12 +843,6 @@ public interface PropsKeys {
 
 	public static final String EDITOR_CKEDITOR_VERSION = "editor.ckeditor.version";
 
-	public static final String EDITOR_CKEDITOR_VERSION_LATEST_CHROME = "editor.ckeditor.version.latest.chrome";
-
-	public static final String EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX = "editor.ckeditor.version.latest.firefox";
-
-	public static final String EDITOR_CKEDITOR_VERSION_LATEST_IE = "editor.ckeditor.version.latest.ie";
-
 	public static final String EDITOR_INLINE_EDITING_ENABLED = "editor.inline.editing.enabled";
 
 	public static final String EDITOR_WYSIWYG_DEFAULT = "editor.wysiwyg.default";
