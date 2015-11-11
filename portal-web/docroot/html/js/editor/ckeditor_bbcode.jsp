@@ -22,20 +22,27 @@
 String ckEditorVersion = PropsUtil.get(PropsKeys.EDITOR_CKEDITOR_VERSION);
 
 if (Validator.equals(ckEditorVersion, "latest")) {
+	float ckEditorVersionLatestChrome = GetterUtil.getFloat(PropsUtil.get(
+		PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_CHROME));
+	float ckEditorVersionLatestFirefox = GetterUtil.getFloat(PropsUtil.get(
+		PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX));
+	float ckEditorVersionLatestIE = GetterUtil.getFloat(PropsUtil.get(
+		PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_IE));
+
 	float majorVersion = BrowserSnifferUtil.getMajorVersion(request);
 
 	if (BrowserSnifferUtil.isChrome(request)) {
-		if (PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_CHROME < majorVersion) {
+		if (ckEditorVersionLatestChrome < majorVersion) {
 			ckEditorVersion = "default";
 		}
 	}
 	else if (BrowserSnifferUtil.isFirefox(request)) {
-		if (PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX < majorVersion) {
+		if (ckEditorVersionLatestFirefox < majorVersion) {
 			ckEditorVersion = "default";
 		}
 	}
 	else if (BrowserSnifferUtil.isIe(request)) {
-		if (PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_IE < majorVersion) {
+		if (ckEditorVersionLatestIE < majorVersion) {
 			ckEditorVersion = "default";
 		}
 	}
