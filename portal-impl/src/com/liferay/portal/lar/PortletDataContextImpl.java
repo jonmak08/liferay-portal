@@ -304,6 +304,11 @@ public class PortletDataContextImpl implements PortletDataContext {
 			long classPK = getClassPK(classedModel);
 
 			addAssetCategories(clazz, classPK);
+
+			if (classedModel instanceof ResourcedModel) {
+				updateAsetCategoriesPrimaryKeyString(clazz, classedModel);
+			}
+
 			addAssetLinks(clazz, classPK);
 			addAssetTags(clazz, classPK);
 			addExpando(element, path, classedModel, clazz);
@@ -2742,6 +2747,22 @@ public class PortletDataContextImpl implements PortletDataContext {
 		}
 
 		return true;
+	}
+
+	protected void updateAsetCategoriesPrimaryKeyString(
+		Class<?> clazz, ClassedModel classedModel) {
+
+		long classPK = getClassPK(classedModel);
+
+		String primaryKeyString = getPrimaryKeyString(clazz, classPK);
+
+		long primaryKey = (Long)classedModel.getPrimaryKeyObj();
+
+		String updatedPrimaryKeyString = getPrimaryKeyString(
+			primaryKeyString, primaryKey);
+
+		String[] uuids = _assetCategoryUuidsMap.remove(primaryKeyString);
+		_assetCategoryUuidsMap.put(updatedPrimaryKeyString, uuids);
 	}
 
 	private static final String[] _XSTREAM_DEFAULT_ALLOWED_CLASS_NAMES =
