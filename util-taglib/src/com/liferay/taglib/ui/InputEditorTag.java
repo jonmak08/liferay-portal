@@ -161,7 +161,7 @@ public class InputEditorTag extends IncludeTag {
 						PropsUtil.get(
 							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_CHROME));
 
-					if (latestChrome > majorVersion) {
+					if (latestChrome < majorVersion) {
 						ckEditorVersion = "default";
 					}
 				}
@@ -170,7 +170,7 @@ public class InputEditorTag extends IncludeTag {
 						PropsUtil.get(
 							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX));
 
-					if (latestFirefox > majorVersion) {
+					if (latestFirefox < majorVersion) {
 						ckEditorVersion = "default";
 					}
 				}
@@ -179,7 +179,7 @@ public class InputEditorTag extends IncludeTag {
 						PropsUtil.get(
 							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_IE));
 
-					if (latestIe > majorVersion) {
+					if (latestIe < majorVersion) {
 						ckEditorVersion = "default";
 					}
 				}

@@ -24,26 +24,31 @@ String ckEditorVersion = PropsUtil.get(PropsKeys.EDITOR_CKEDITOR_VERSION);
 if (Validator.equals(ckEditorVersion, "latest")) {
 	float majorVersion = BrowserSnifferUtil.getMajorVersion(request);
 
-	ckEditorVersion = StringPool.UNDERLINE + ckEditorVersion;
-
 	if (BrowserSnifferUtil.isChrome(request)) {
-		if (PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_CHROME > majorVersion) {
-			ckEditorVersion = StringPool.BLANK;
+		if (PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_CHROME < majorVersion) {
+			ckEditorVersion = "default";
 		}
 	}
 	else if (BrowserSnifferUtil.isFirefox(request)) {
-		if (PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX > majorVersion) {
-			ckEditorVersion = StringPool.BLANK;
+		if (PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX < majorVersion) {
+			ckEditorVersion = "default";
 		}
 	}
 	else if (BrowserSnifferUtil.isIe(request)) {
-		if (PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_IE > majorVersion) {
-			ckEditorVersion = StringPool.BLANK;
+		if (PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_IE < majorVersion) {
+			ckEditorVersion = "default";
 		}
 	}
 	else {
-		ckEditorVersion = StringPool.BLANK;
+		ckEditorVersion = "default";
 	}
+}
+
+if (Validator.equals(ckEditorVersion, "latest")) {
+	ckEditorVersion = StringPool.UNDERLINE + ckEditorVersion;
+}
+else {
+	ckEditorVersion = StringPool.BLANK;
 }
 %>
 
