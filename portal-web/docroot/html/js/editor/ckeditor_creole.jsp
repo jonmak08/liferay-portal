@@ -27,13 +27,19 @@ if (Validator.equals(ckEditorVersion, "latest")) {
 	ckEditorVersion = StringPool.UNDERLINE + ckEditorVersion;
 
 	if (BrowserSnifferUtil.isChrome(request)) {
-		ckEditorVersion = _setCkeditorVersion(PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_CHROME, majorVersion, ckEditorVersion);
+		if (PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_CHROME > majorVersion) {
+			ckEditorVersion = StringPool.BLANK;
+		}
 	}
 	else if (BrowserSnifferUtil.isFirefox(request)) {
-		ckEditorVersion = _setCkeditorVersion(PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX, majorVersion, ckEditorVersion);
+		if (PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX > majorVersion) {
+			ckEditorVersion = StringPool.BLANK;
+		}
 	}
 	else if (BrowserSnifferUtil.isIe(request)) {
-		ckEditorVersion = _setCkeditorVersion(PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_IE, majorVersion, ckEditorVersion);
+		if (PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_IE > majorVersion) {
+			ckEditorVersion = StringPool.BLANK;
+		}
 	}
 	else {
 		ckEditorVersion = StringPool.BLANK;
@@ -45,18 +51,3 @@ if (Validator.equals(ckEditorVersion, "latest")) {
 	<liferay-util:param name="ckEditorConfigFileName" value="ckconfig_creole.jsp" />
 	<liferay-util:param name="hideImageResizing" value="<%= Boolean.TRUE.toString() %>" />
 </liferay-util:include>
-
-<%!
-private String _setCkeditorVersion(float propertyValue, float majorVersion, String ckEditorVersion) {
-	if (Validator.isNotNull(propertyValue)) {
-		if (propertyValue > majorVersion) {
-			ckEditorVersion = StringPool.BLANK;
-		}
-	}
-	else {
-		return StringPool.BLANK;
-	}
-
-	return ckEditorVersion;
-}
-%>

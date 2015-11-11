@@ -162,22 +162,31 @@ public class InputEditorTag extends IncludeTag {
 				boolean useLatestCkeditorVersion = true;
 
 				if (BrowserSnifferUtil.isChrome(request)) {
-					useLatestCkeditorVersion = setCkeditorVersion(
+					float latestChrome = Float.valueOf(
 						PropsUtil.get(
-							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_CHROME),
-						majorVersion);
+							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_CHROME));
+
+					if (latestChrome > majorVersion) {
+						useLatestCkeditorVersion = false;
+					}
 				}
 				else if (BrowserSnifferUtil.isFirefox(request)) {
-					useLatestCkeditorVersion = setCkeditorVersion(
+					float latestFirefox = Float.valueOf(
 						PropsUtil.get(
-							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX),
-						majorVersion);
+							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX));
+
+					if (latestFirefox > majorVersion) {
+						useLatestCkeditorVersion = false;
+					}
 				}
 				else if (BrowserSnifferUtil.isIe(request)) {
-					useLatestCkeditorVersion = setCkeditorVersion(
+					float latestIe = Float.valueOf(
 						PropsUtil.get(
-							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_IE),
-						majorVersion);
+							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_IE));
+
+					if (latestIe > majorVersion) {
+						useLatestCkeditorVersion = false;
+					}
 				}
 				else {
 					useLatestCkeditorVersion = false;
@@ -237,23 +246,6 @@ public class InputEditorTag extends IncludeTag {
 			String.valueOf(_skipEditorLoading));
 		request.setAttribute("liferay-ui:input-editor:toolbarSet", _toolbarSet);
 		request.setAttribute("liferay-ui:input-editor:width", _width);
-	}
-
-	private boolean setCkeditorVersion(
-		String propertyValue, float majorVersion) {
-
-		if (Validator.isNotNull(propertyValue)) {
-			float propertyFloatValue = Float.valueOf(propertyValue);
-
-			if (propertyFloatValue > majorVersion) {
-				return false;
-			}
-		}
-		else {
-			return false;
-		}
-
-		return true;
 	}
 
 	private Map<String, String> _configParams;
