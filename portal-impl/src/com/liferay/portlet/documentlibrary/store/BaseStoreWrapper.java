@@ -32,32 +32,42 @@ public abstract class BaseStoreWrapper implements Store {
 	public void addDirectory(long companyId, long repositoryId, String dirName)
 		throws PortalException, SystemException {
 
-		getStore().addDirectory(companyId, repositoryId, dirName);
+		Store store = getStore();
+
+		store.addDirectory(companyId, repositoryId, dirName);
 	}
 
 	public void addFile(
 			long companyId, long repositoryId, String fileName, byte[] bytes)
 		throws PortalException, SystemException {
 
-		getStore().addFile(companyId, repositoryId, fileName, bytes);
+		Store store = getStore();
+
+		store.addFile(companyId, repositoryId, fileName, bytes);
 	}
 
 	public void addFile(
 			long companyId, long repositoryId, String fileName, File file)
 		throws PortalException, SystemException {
 
-		getStore().addFile(companyId, repositoryId, fileName, file);
+		Store store = getStore();
+
+		store.addFile(companyId, repositoryId, fileName, file);
 	}
 
 	public void addFile(
 			long companyId, long repositoryId, String fileName, InputStream is)
 		throws PortalException, SystemException {
 
-		getStore().addFile(companyId, repositoryId, fileName, is);
+		Store store = getStore();
+
+		store.addFile(companyId, repositoryId, fileName, is);
 	}
 
 	public void checkRoot(long companyId) throws SystemException {
-		getStore().checkRoot(companyId);
+		Store store = getStore();
+
+		store.checkRoot(companyId);
 	}
 
 	public void copyFileVersion(
@@ -65,7 +75,9 @@ public abstract class BaseStoreWrapper implements Store {
 			String fromVersionLabel, String toVersionLabel)
 		throws PortalException, SystemException {
 
-		getStore().copyFileVersion(
+		Store store = getStore();
+
+		store.copyFileVersion(
 			companyId, repositoryId, fileName, fromVersionLabel,
 			toVersionLabel);
 	}
@@ -74,13 +86,17 @@ public abstract class BaseStoreWrapper implements Store {
 			long companyId, long repositoryId, String dirName)
 		throws PortalException, SystemException {
 
-		getStore().deleteDirectory(companyId, repositoryId, dirName);
+		Store store = getStore();
+
+		store.deleteDirectory(companyId, repositoryId, dirName);
 	}
 
 	public void deleteFile(long companyId, long repositoryId, String fileName)
 		throws PortalException, SystemException {
 
-		getStore().deleteFile(companyId, repositoryId, fileName);
+		Store store = getStore();
+
+		store.deleteFile(companyId, repositoryId, fileName);
 	}
 
 	public void deleteFile(
@@ -88,13 +104,17 @@ public abstract class BaseStoreWrapper implements Store {
 			String versionLabel)
 		throws PortalException, SystemException {
 
-		getStore().deleteFile(companyId, repositoryId, fileName, versionLabel);
+		Store store = getStore();
+
+		store.deleteFile(companyId, repositoryId, fileName, versionLabel);
 	}
 
 	public File getFile(long companyId, long repositoryId, String fileName)
 		throws PortalException, SystemException {
 
-		return getStore().getFile(companyId, repositoryId, fileName);
+		Store store = getStore();
+
+		return store.getFile(companyId, repositoryId, fileName);
 	}
 
 	public File getFile(
@@ -102,7 +122,9 @@ public abstract class BaseStoreWrapper implements Store {
 			String versionLabel)
 		throws PortalException, SystemException {
 
-		return getStore().getFile(
+		Store store = getStore();
+
+		return store.getFile(
 			companyId, repositoryId, fileName, versionLabel);
 	}
 
@@ -110,7 +132,9 @@ public abstract class BaseStoreWrapper implements Store {
 			long companyId, long repositoryId, String fileName)
 		throws PortalException, SystemException {
 
-		return getStore().getFileAsBytes(companyId, repositoryId, fileName);
+		Store store = getStore();
+
+		return store.getFileAsBytes(companyId, repositoryId, fileName);
 	}
 
 	public byte[] getFileAsBytes(
@@ -118,7 +142,9 @@ public abstract class BaseStoreWrapper implements Store {
 			String versionLabel)
 		throws PortalException, SystemException {
 
-		return getStore().getFileAsBytes(
+		Store store = getStore();
+
+		return store.getFileAsBytes(
 			companyId, repositoryId, fileName, versionLabel);
 	}
 
@@ -126,7 +152,9 @@ public abstract class BaseStoreWrapper implements Store {
 			long companyId, long repositoryId, String fileName)
 		throws PortalException, SystemException {
 
-		return getStore().getFileAsStream(companyId, repositoryId, fileName);
+		Store store = getStore();
+
+		return store.getFileAsStream(companyId, repositoryId, fileName);
 	}
 
 	public InputStream getFileAsStream(
@@ -134,40 +162,52 @@ public abstract class BaseStoreWrapper implements Store {
 			String versionLabel)
 		throws PortalException, SystemException {
 
-		return getStore().getFileAsStream(
+		Store store = getStore();
+
+		return store.getFileAsStream(
 			companyId, repositoryId, fileName, versionLabel);
 	}
 
 	public String[] getFileNames(long companyId, long repositoryId)
 		throws SystemException {
 
-		return getStore().getFileNames(companyId, repositoryId);
+		Store store = getStore();
+
+		return store.getFileNames(companyId, repositoryId);
 	}
 
 	public String[] getFileNames(
 			long companyId, long repositoryId, String dirName)
 		throws PortalException, SystemException {
 
-		return getStore().getFileNames(companyId, repositoryId, dirName);
+		Store store = getStore();
+
+		return store.getFileNames(companyId, repositoryId, dirName);
 	}
 
 	public long getFileSize(long companyId, long repositoryId, String fileName)
 		throws PortalException, SystemException {
 
-		return getStore().getFileSize(companyId, repositoryId, fileName);
+		Store store = getStore();
+
+		return store.getFileSize(companyId, repositoryId, fileName);
 	}
 
 	public boolean hasDirectory(
 			long companyId, long repositoryId, String dirName)
 		throws PortalException, SystemException {
 
-		return getStore().hasDirectory(companyId, repositoryId, dirName);
+		Store store = getStore();
+
+		return store.hasDirectory(companyId, repositoryId, dirName);
 	}
 
 	public boolean hasFile(long companyId, long repositoryId, String fileName)
 		throws PortalException, SystemException {
 
-		return getStore().hasFile(companyId, repositoryId, fileName);
+		Store store = getStore();
+
+		return store.hasFile(companyId, repositoryId, fileName);
 	}
 
 	public boolean hasFile(
@@ -175,12 +215,16 @@ public abstract class BaseStoreWrapper implements Store {
 			String versionLabel)
 		throws PortalException, SystemException {
 
-		return getStore().hasFile(
+		Store store = getStore();
+
+		return store.hasFile(
 			companyId, repositoryId, fileName, versionLabel);
 	}
 
 	public void move(String srcDir, String destDir) throws SystemException {
-		getStore().move(srcDir, destDir);
+		Store store = getStore();
+
+		store.move(srcDir, destDir);
 	}
 
 	public void updateFile(
@@ -188,7 +232,9 @@ public abstract class BaseStoreWrapper implements Store {
 			String fileName)
 		throws PortalException, SystemException {
 
-		getStore().updateFile(
+		Store store = getStore();
+
+		store.updateFile(
 			companyId, repositoryId, newRepositoryId, fileName);
 	}
 
@@ -197,7 +243,9 @@ public abstract class BaseStoreWrapper implements Store {
 			String newFileName)
 		throws PortalException, SystemException {
 
-		getStore().updateFile(companyId, repositoryId, fileName, newFileName);
+		Store store = getStore();
+
+		store.updateFile(companyId, repositoryId, fileName, newFileName);
 	}
 
 	public void updateFile(
@@ -205,7 +253,9 @@ public abstract class BaseStoreWrapper implements Store {
 			String versionLabel, byte[] bytes)
 		throws PortalException, SystemException {
 
-		getStore().updateFile(
+		Store store = getStore();
+
+		store.updateFile(
 			companyId, repositoryId, fileName, versionLabel, bytes);
 	}
 
@@ -214,7 +264,9 @@ public abstract class BaseStoreWrapper implements Store {
 			String versionLabel, File file)
 		throws PortalException, SystemException {
 
-		getStore().updateFile(
+		Store store = getStore();
+
+		store.updateFile(
 			companyId, repositoryId, fileName, versionLabel, file);
 	}
 
@@ -223,7 +275,9 @@ public abstract class BaseStoreWrapper implements Store {
 			String versionLabel, InputStream is)
 		throws PortalException, SystemException {
 
-		getStore().updateFile(
+		Store store = getStore();
+
+		store.updateFile(
 			companyId, repositoryId, fileName, versionLabel, is);
 	}
 
@@ -232,7 +286,9 @@ public abstract class BaseStoreWrapper implements Store {
 			String fromVersionLabel, String toVersionLabel)
 		throws PortalException, SystemException {
 
-		getStore().updateFileVersion(
+		Store store = getStore();
+
+		store.updateFileVersion(
 			companyId, repositoryId, fileName, fromVersionLabel,
 			toVersionLabel);
 	}

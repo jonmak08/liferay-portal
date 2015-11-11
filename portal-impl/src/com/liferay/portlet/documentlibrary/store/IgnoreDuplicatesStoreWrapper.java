@@ -43,7 +43,9 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 
 				@Override
 				public void execute() throws PortalException, SystemException {
-					getStore().addFile(
+					Store store = getStore();
+
+					store.addFile(
 						companyId, repositoryId, fileName, bytes);
 				}
 
@@ -63,12 +65,12 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 
 				@Override
 				public void execute() throws PortalException, SystemException {
-					getStore().addFile(companyId, repositoryId, fileName, file);
+					Store store = getStore();
+
+					store.addFile(companyId, repositoryId, fileName, file);
 				}
 
-			}
-		);
-
+			});
 	}
 
 	@Override
@@ -84,10 +86,12 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 
 				@Override
 				public void execute() throws PortalException, SystemException {
-					getStore().addFile(companyId, repositoryId, fileName, is);
+					Store store = getStore();
+
+					store.addFile(companyId, repositoryId, fileName, is);
 				}
 
-		});
+			});
 	}
 
 	@Override
@@ -104,14 +108,14 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 
 				@Override
 				public void execute() throws PortalException, SystemException {
-					getStore().copyFileVersion(
+					Store store = getStore();
+
+					store.copyFileVersion(
 						companyId, repositoryId, fileName, fromVersionLabel,
 						toVersionLabel);
 				}
 
-			}
-		);
-
+			});
 	}
 
 	@Override
@@ -126,12 +130,13 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 
 				@Override
 				public void execute() throws PortalException, SystemException {
-					getStore().updateFile(
+					Store store = getStore();
+
+					store.updateFile(
 						companyId, repositoryId, newRepositoryId, fileName);
 				}
 
-			}
-		);
+			});
 	}
 
 	@Override
@@ -146,12 +151,13 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 
 				@Override
 				public void execute() throws PortalException, SystemException {
-					getStore().updateFile(
+					Store store = getStore();
+
+					store.updateFile(
 						companyId, repositoryId, fileName, newFileName);
 				}
 
-			}
-		);
+			});
 	}
 
 	@Override
@@ -168,12 +174,13 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 
 				@Override
 				public void execute() throws PortalException, SystemException {
-					getStore().updateFile(
+					Store store = getStore();
+
+					store.updateFile(
 						companyId, repositoryId, fileName, versionLabel, bytes);
 				}
-			}
 
-		);
+			});
 	}
 
 	@Override
@@ -189,13 +196,13 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 
 				@Override
 				public void execute() throws PortalException, SystemException {
-					getStore().updateFile(
+					Store store = getStore();
+
+					store.updateFile(
 						companyId, repositoryId, fileName, versionLabel, file);
 				}
 
-			}
-		);
-
+			});
 	}
 
 	@Override
@@ -212,12 +219,13 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 
 				@Override
 				public void execute() throws PortalException, SystemException {
-					getStore().updateFile(
+					Store store = getStore();
+
+					store.updateFile(
 						companyId, repositoryId, fileName, versionLabel, is);
 				}
 
-			}
-		);
+			});
 	}
 
 	@Override
@@ -234,13 +242,14 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 
 				@Override
 				public void execute() throws PortalException, SystemException {
-					getStore().updateFileVersion(
+					Store store = getStore();
+
+					store.updateFileVersion(
 						companyId, repositoryId, fileName, fromVersionLabel,
 						toVersionLabel);
 				}
 
-			}
-		);
+			});
 	}
 
 	protected static void recoverAndRetryOnFailure(
@@ -264,7 +273,9 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 
 			@Override
 			public void execute() throws PortalException, SystemException {
-				getStore().deleteFile(companyId, repositoryId, fileName);
+				Store store = getStore();
+
+				store.deleteFile(companyId, repositoryId, fileName);
 			}
 
 		};
@@ -278,7 +289,9 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 
 			@Override
 			public void execute() throws PortalException, SystemException {
-				getStore().deleteFile(
+				Store store = getStore();
+
+				store.deleteFile(
 					companyId, repositoryId, fileName, versionLabel);
 			}
 

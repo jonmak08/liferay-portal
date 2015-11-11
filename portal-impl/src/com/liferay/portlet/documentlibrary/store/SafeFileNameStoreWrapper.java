@@ -60,7 +60,9 @@ public class SafeFileNameStoreWrapper extends BaseStoreWrapper {
 
 		renameUnsafeFile(companyId, repositoryId, fileName, safeFileName);
 
-		getStore().addFile(companyId, repositoryId, safeFileName, bytes);
+		Store store = getStore();
+
+		store.addFile(companyId, repositoryId, safeFileName, bytes);
 	}
 
 	@Override
@@ -72,7 +74,9 @@ public class SafeFileNameStoreWrapper extends BaseStoreWrapper {
 
 		renameUnsafeFile(companyId, repositoryId, fileName, safeFileName);
 
-		getStore().addFile(companyId, repositoryId, safeFileName, file);
+		Store store = getStore();
+
+		store.addFile(companyId, repositoryId, safeFileName, file);
 	}
 
 	@Override
@@ -84,12 +88,16 @@ public class SafeFileNameStoreWrapper extends BaseStoreWrapper {
 
 		renameUnsafeFile(companyId, repositoryId, fileName, safeFileName);
 
-		getStore().addFile(companyId, repositoryId, safeFileName, is);
+		Store store = getStore();
+
+		store.addFile(companyId, repositoryId, safeFileName, is);
 	}
 
 	@Override
 	public void checkRoot(long companyId) throws SystemException {
-		getStore().checkRoot(companyId);
+		Store store = getStore();
+
+		store.checkRoot(companyId);
 	}
 
 	@Override
@@ -102,7 +110,9 @@ public class SafeFileNameStoreWrapper extends BaseStoreWrapper {
 
 		renameUnsafeFile(companyId, repositoryId, fileName, safeFileName);
 
-		getStore().copyFileVersion(
+		Store store = getStore();
+
+		store.copyFileVersion(
 			companyId, repositoryId, safeFileName, fromVersionLabel,
 			toVersionLabel);
 	}
@@ -289,7 +299,9 @@ public class SafeFileNameStoreWrapper extends BaseStoreWrapper {
 	public String[] getFileNames(long companyId, long repositoryId)
 		throws SystemException {
 
-		String[] fileNames = getStore().getFileNames(companyId, repositoryId);
+		Store store = getStore();
+
+		String[] fileNames = store.getFileNames(companyId, repositoryId);
 
 		String[] decodedFileNames = new String[fileNames.length];
 
@@ -351,9 +363,11 @@ public class SafeFileNameStoreWrapper extends BaseStoreWrapper {
 			long companyId, long repositoryId, String dirName)
 		throws PortalException, SystemException {
 
+		Store store = getStore();
+
 		String safeDirName = FileUtil.encodeSafeFileName(dirName);
 
-		return getStore().hasDirectory(companyId, repositoryId, safeDirName);
+		return store.hasDirectory(companyId, repositoryId, safeDirName);
 	}
 
 	@Override
@@ -395,7 +409,9 @@ public class SafeFileNameStoreWrapper extends BaseStoreWrapper {
 
 	@Override
 	public void move(String srcDir, String destDir) throws SystemException {
-		getStore().move(srcDir, destDir);
+		Store store = getStore();
+
+		store.move(srcDir, destDir);
 	}
 
 	@Override
@@ -408,7 +424,9 @@ public class SafeFileNameStoreWrapper extends BaseStoreWrapper {
 
 		renameUnsafeFile(companyId, repositoryId, fileName, safeFileName);
 
-		getStore().updateFile(
+		Store store = getStore();
+
+		store.updateFile(
 			companyId, repositoryId, newRepositoryId, safeFileName);
 	}
 
@@ -446,7 +464,9 @@ public class SafeFileNameStoreWrapper extends BaseStoreWrapper {
 
 		renameUnsafeFile(companyId, repositoryId, fileName, safeFileName);
 
-		getStore().updateFile(
+		Store store = getStore();
+
+		store.updateFile(
 			companyId, repositoryId, safeFileName, versionLabel, bytes);
 	}
 
@@ -460,7 +480,9 @@ public class SafeFileNameStoreWrapper extends BaseStoreWrapper {
 
 		renameUnsafeFile(companyId, repositoryId, fileName, safeFileName);
 
-		getStore().updateFile(
+		Store store = getStore();
+
+		store.updateFile(
 			companyId, repositoryId, safeFileName, versionLabel, file);
 	}
 
@@ -474,7 +496,9 @@ public class SafeFileNameStoreWrapper extends BaseStoreWrapper {
 
 		renameUnsafeFile(companyId, repositoryId, fileName, safeFileName);
 
-		getStore().updateFile(
+		Store store = getStore();
+
+		store.updateFile(
 			companyId, repositoryId, safeFileName, versionLabel, is);
 	}
 
@@ -488,7 +512,9 @@ public class SafeFileNameStoreWrapper extends BaseStoreWrapper {
 
 		renameUnsafeFile(companyId, repositoryId, fileName, safeFileName);
 
-		getStore().updateFileVersion(
+		Store store = getStore();
+
+		store.updateFileVersion(
 			companyId, repositoryId, safeFileName, fromVersionLabel,
 			toVersionLabel);
 	}
