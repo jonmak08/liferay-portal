@@ -131,6 +131,11 @@ public class JournalArticleAssetRenderer
 	}
 
 	@Override
+	public int getStatus() {
+		return _article.getStatus();
+	}
+
+	@Override
 	public String getSummary(Locale locale) {
 		String summary = _article.getDescription(locale);
 

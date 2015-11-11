@@ -79,6 +79,11 @@ public class DDLRecordAssetRenderer extends BaseAssetRenderer {
 	}
 
 	@Override
+	public int getStatus() {
+		return _recordVersion.getStatus();
+	}
+
+	@Override
 	public String getSummary(Locale locale) {
 		return StringPool.BLANK;
 	}

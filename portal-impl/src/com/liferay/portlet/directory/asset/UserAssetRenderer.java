@@ -63,6 +63,11 @@ public class UserAssetRenderer extends BaseAssetRenderer {
 	}
 
 	@Override
+	public int getStatus() {
+		return _user.getStatus();
+	}
+
+	@Override
 	public String getSummary(Locale locale) {
 		return _user.getComments();
 	}

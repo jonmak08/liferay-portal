@@ -96,6 +96,11 @@ public class BlogsEntryAssetRenderer
 	}
 
 	@Override
+	public int getStatus() {
+		return _entry.getStatus();
+	}
+
+	@Override
 	public String getSummary(Locale locale) {
 		String summary = _entry.getDescription();
 

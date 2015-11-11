@@ -481,6 +481,20 @@ public class AssetPublisherImpl implements AssetPublisher {
 			boolean checkPermission)
 		throws Exception {
 
+		return getAssetEntries(
+			portletRequest, portletPreferences, permissionChecker, groupIds,
+			assetEntryXmls, deleteMissingAssetEntries, checkPermission, false);
+	}
+
+	@Override
+	public List<AssetEntry> getAssetEntries(
+			PortletRequest portletRequest,
+			PortletPreferences portletPreferences,
+			PermissionChecker permissionChecker, long[] groupIds,
+			String[] assetEntryXmls, boolean deleteMissingAssetEntries,
+			boolean checkPermission, boolean includeNonVisibleAssets)
+		throws Exception {
+
 		List<AssetEntry> assetEntries = new ArrayList<AssetEntry>();
 
 		List<String> missingAssetEntryUuids = new ArrayList<String>();
@@ -511,7 +525,7 @@ public class AssetPublisherImpl implements AssetPublisher {
 				continue;
 			}
 
-			if (!assetEntry.isVisible()) {
+			if (!assetEntry.isVisible() && !includeNonVisibleAssets) {
 				continue;
 			}
 
@@ -521,7 +535,7 @@ public class AssetPublisherImpl implements AssetPublisher {
 						assetEntry.getClassName());
 
 			AssetRenderer assetRenderer = assetRendererFactory.getAssetRenderer(
-				assetEntry.getClassPK());
+				assetEntry.getClassPK(), AssetRendererFactory.TYPE_LATEST);
 
 			if (!assetRendererFactory.isActive(
 					permissionChecker.getCompanyId())) {
@@ -534,7 +548,7 @@ public class AssetPublisherImpl implements AssetPublisher {
 			}
 
 			if (checkPermission &&
-				(!assetRenderer.isDisplayable() ||
+				((!assetRenderer.isDisplayable() && !includeNonVisibleAssets) ||
 				 !assetRenderer.hasViewPermission(permissionChecker))) {
 
 				continue;

@@ -65,6 +65,11 @@ public class MBCategoryAssetRenderer extends BaseAssetRenderer {
 	}
 
 	@Override
+	public int getStatus() {
+		return _category.getStatus();
+	}
+
+	@Override
 	public String getSummary(Locale locale) {
 		return HtmlUtil.stripHtml(_category.getDescription());
 	}

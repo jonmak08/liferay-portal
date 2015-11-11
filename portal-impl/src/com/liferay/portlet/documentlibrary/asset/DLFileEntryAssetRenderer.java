@@ -142,6 +142,11 @@ public class DLFileEntryAssetRenderer
 	}
 
 	@Override
+	public int getStatus() {
+		return _fileVersion.getStatus();
+	}
+
+	@Override
 	public String getSummary(Locale locale) {
 		return HtmlUtil.stripHtml(_fileEntry.getDescription());
 	}

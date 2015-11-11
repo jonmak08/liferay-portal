@@ -100,6 +100,11 @@ public class JournalFolderAssetRenderer
 	}
 
 	@Override
+	public int getStatus() {
+		return _folder.getStatus();
+	}
+
+	@Override
 	public String getSummary(Locale locale) {
 		return HtmlUtil.stripHtml(_folder.getDescription());
 	}

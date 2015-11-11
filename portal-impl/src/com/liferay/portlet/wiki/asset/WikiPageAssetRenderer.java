@@ -103,6 +103,11 @@ public class WikiPageAssetRenderer
 	}
 
 	@Override
+	public int getStatus() {
+		return _page.getStatus();
+	}
+
+	@Override
 	public String getSummary(Locale locale) {
 		String content = _page.getContent();
 

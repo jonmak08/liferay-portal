@@ -91,6 +91,11 @@ public class MBMessageAssetRenderer
 	}
 
 	@Override
+	public int getStatus() {
+		return _message.getStatus();
+	}
+
+	@Override
 	public String getSummary(Locale locale) {
 		return HtmlUtil.extractText(_message.getBody());
 	}

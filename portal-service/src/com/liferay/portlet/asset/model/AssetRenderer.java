@@ -73,6 +73,8 @@ public interface AssetRenderer {
 
 	public String getSearchSummary(Locale locale);
 
+	public int getStatus();
+
 	public String getSummary(Locale locale);
 
 	public String getThumbnailPath(PortletRequest portletRequest)

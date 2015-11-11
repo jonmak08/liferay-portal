@@ -25,6 +25,7 @@ import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.security.permission.PermissionChecker;
@@ -124,6 +125,11 @@ public abstract class BaseAssetRenderer implements AssetRenderer {
 	@Override
 	public String getSearchSummary(Locale locale) {
 		return getSummary(locale);
+	}
+
+	@Override
+	public int getStatus() {
+		return WorkflowConstants.STATUS_APPROVED;
 	}
 
 	@Override

@@ -82,6 +82,11 @@ public class BookmarksEntryAssetRenderer
 	}
 
 	@Override
+	public int getStatus() {
+		return _entry.getStatus();
+	}
+
+	@Override
 	public String getSummary(Locale locale) {
 		return HtmlUtil.stripHtml(_entry.getDescription());
 	}
