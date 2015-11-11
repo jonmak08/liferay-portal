@@ -56,14 +56,18 @@ import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.LayoutConstants;
 import com.liferay.portal.model.LayoutTypePortlet;
 import com.liferay.portal.model.Lock;
+import com.liferay.portal.model.PersistedModel;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.model.PortletConstants;
 import com.liferay.portal.model.PortletItem;
 import com.liferay.portal.model.PortletPreferences;
+import com.liferay.portal.model.StagedModel;
 import com.liferay.portal.model.User;
 import com.liferay.portal.model.impl.LayoutImpl;
 import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
+import com.liferay.portal.service.PersistedModelLocalService;
+import com.liferay.portal.service.PersistedModelLocalServiceRegistryUtil;
 import com.liferay.portal.service.PortletItemLocalServiceUtil;
 import com.liferay.portal.service.PortletLocalServiceUtil;
 import com.liferay.portal.service.PortletPreferencesLocalServiceUtil;
@@ -549,6 +553,32 @@ public class PortletExporter {
 					className, GetterUtil.getLong(classPK));
 
 			for (AssetCategory assetCategory : assetCategories) {
+				if (portletDataContext.isCompanyStagedGroupedModel(
+						assetCategory)) {
+
+					if (assetCategoryEntryParts.length > 2) {
+						classPK = assetCategoryEntryParts[2];
+					}
+
+					PersistedModelLocalService persistedModelLocalService =
+						PersistedModelLocalServiceRegistryUtil.
+							getPersistedModelLocalService(className);
+
+					PersistedModel persistedModel =
+						persistedModelLocalService.getPersistedModel(
+							Long.valueOf(classPK));
+
+					StagedModel stagedModel = (StagedModel)persistedModel;
+
+					portletDataContext.addReferenceElement(
+						stagedModel,
+						portletDataContext.getExportDataElement(stagedModel),
+						assetCategory, AssetCategory.class,
+						PortletDataContext.REFERENCE_TYPE_DEPENDENCY, true);
+
+					return;
+				}
+
 				exportAssetCategory(
 					portletDataContext, assetVocabulariesElement,
 					assetCategoriesElement, assetCategory);
