@@ -56,7 +56,7 @@
 			<var name="environmentName" value="Environment 1 Name" />
 		</execute>
 
-		<var method="selenium#getText('//div[@class='lcs-navigation-submenu']//div[@class='menu-item server ']/a/span[@class='menu-item-label']')" name="serverName" />
+		<var method="selenium#getElementText('//div[@class='lcs-navigation-submenu']//div[@class='menu-item server ']/a/span[@class='menu-item-label']')" name="serverName" />
 
 		<echo message="${serverName}" />
 
