@@ -200,18 +200,38 @@ String emailBody = PrefsParamUtil.getString(portletPreferences, request, emailBo
 					<dd>
 						<liferay-ui:message key="the-web-content-version" />
 					</dd>
-					<dt>
-						[$FROM_ADDRESS$]
-					</dt>
-					<dd>
-						<%= HtmlUtil.escape(emailFromAddress) %>
-					</dd>
-					<dt>
-						[$FROM_NAME$]
-					</dt>
-					<dd>
-						<%= HtmlUtil.escape(emailFromName) %>
-					</dd>
+
+					<c:choose>
+						<c:when test='<%= tabs2.equals("web-content-approval-requested-email") %>'>
+							<dt>
+								[$FROM_ADDRESS$]
+							</dt>
+							<dd>
+								<liferay-ui:message key="the-address-of-the-email-sender" />
+							</dd>
+							<dt>
+								[$FROM_NAME$]
+							</dt>
+							<dd>
+								<liferay-ui:message key="the-name-of-the-email-sender" />
+							</dd>
+						</c:when>
+						<c:otherwise>
+							<dt>
+								[$FROM_ADDRESS$]
+							</dt>
+							<dd>
+								<%= HtmlUtil.escape(emailFromAddress) %>
+							</dd>
+							<dt>
+								[$FROM_NAME$]
+							</dt>
+							<dd>
+								<%= HtmlUtil.escape(emailFromName) %>
+							</dd>
+						</c:otherwise>
+					</c:choose>
+
 					<dt>
 						[$PORTAL_URL$]
 					</dt>
@@ -224,18 +244,38 @@ String emailBody = PrefsParamUtil.getString(portletPreferences, request, emailBo
 					<dd>
 						<%= HtmlUtil.escape(PortalUtil.getPortletTitle(renderResponse)) %>
 					</dd>
-					<dt>
-						[$TO_ADDRESS$]
-					</dt>
-					<dd>
-						<liferay-ui:message key="the-address-of-the-email-recipient" />
-					</dd>
-					<dt>
-						[$TO_NAME$]
-					</dt>
-					<dd>
-						<liferay-ui:message key="the-name-of-the-email-recipient" />
-					</dd>
+
+					<c:choose>
+						<c:when test='<%= tabs2.equals("web-content-approval-requested-email") %>'>
+							<dt>
+								[$TO_ADDRESS$]
+							</dt>
+							<dd>
+								<%= HtmlUtil.escape(emailFromAddress) %>
+							</dd>
+							<dt>
+								[$TO_NAME$]
+							</dt>
+							<dd>
+								<%= HtmlUtil.escape(emailFromName) %>
+							</dd>
+						</c:when>
+						<c:otherwise>
+							<dt>
+								[$TO_ADDRESS$]
+							</dt>
+							<dd>
+								<liferay-ui:message key="the-address-of-the-email-recipient" />
+							</dd>
+							<dt>
+								[$TO_NAME$]
+							</dt>
+							<dd>
+								<liferay-ui:message key="the-name-of-the-email-recipient" />
+							</dd>
+						</c:otherwise>
+					</c:choose>
+
 				</dl>
 			</div>
 		</c:when>
