@@ -516,12 +516,10 @@ public class Table {
 				}
 			}
 
-			if (databaseMetaData.supportsBatchUpdates()) {
-				if (count != 0) {
-					ps.executeBatch();
+			if (count != 0) {
+				ps.executeBatch();
 
-					ps.close();
-				}
+				ps.close();
 			}
 		}
 		finally {
