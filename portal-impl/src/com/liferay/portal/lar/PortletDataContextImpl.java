@@ -2762,6 +2762,7 @@ public class PortletDataContextImpl implements PortletDataContext {
 			primaryKeyString, primaryKey);
 
 		String[] uuids = _assetCategoryUuidsMap.remove(primaryKeyString);
+
 		_assetCategoryUuidsMap.put(updatedPrimaryKeyString, uuids);
 	}
 
