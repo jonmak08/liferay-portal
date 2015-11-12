@@ -39,6 +39,9 @@ if (Validator.equals(ckEditorVersion, "latest")) {
 		ckEditorVersion = StringPool.BLANK;
 	}
 }
+else {
+	ckEditorVersion = StringPool.BLANK;
+}
 %>
 
 <liferay-util:include page='<%= "/html/js/editor/ckeditor" + ckEditorVersion + ".jsp" %>'>
