@@ -306,7 +306,7 @@ public class PortletDataContextImpl implements PortletDataContext {
 			addAssetCategories(clazz, classPK);
 
 			if (classedModel instanceof ResourcedModel) {
-				updateAsetCategoriesPrimaryKeyString(clazz, classedModel);
+				updateAssetCategoriesPrimaryKeyString(clazz, classedModel);
 			}
 
 			addAssetLinks(clazz, classPK);
@@ -2749,7 +2749,7 @@ public class PortletDataContextImpl implements PortletDataContext {
 		return true;
 	}
 
-	protected void updateAsetCategoriesPrimaryKeyString(
+	protected void updateAssetCategoriesPrimaryKeyString(
 		Class<?> clazz, ClassedModel classedModel) {
 
 		long classPK = getClassPK(classedModel);
