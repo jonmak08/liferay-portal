@@ -6219,9 +6219,8 @@ public class JournalArticleLocalServiceImpl
 				StringPool.UNDERLINE +
 					LocaleUtil.toLanguageId(LocaleUtil.getSiteDefault());
 
-			if (ArrayUtil.isEmpty(bytes) &&
-				!defaultElLanguage.equals(elLanguage) &&
-				Validator.isNull(image)) {
+			if ((image == null) && ArrayUtil.isEmpty(bytes) &&
+				!defaultElLanguage.equals(elLanguage)) {
 
 				bytes = images.get(
 					elInstanceId + StringPool.UNDERLINE + elName +
