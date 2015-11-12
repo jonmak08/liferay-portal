@@ -6852,7 +6852,9 @@ public class JournalArticleLocalServiceImpl
 
 		Locale[] availableLocales = LanguageUtil.getAvailableLocales(groupId);
 
-		if (!ArrayUtil.contains(availableLocales, articleDefaultLocale)) {
+		if (!ArrayUtil.contains(availableLocales, articleDefaultLocale) &&
+			!ExportImportThreadLocal.isImportInProcess()) {
+
 			LocaleException le = new LocaleException(
 				LocaleException.TYPE_CONTENT,
 				"The locale " + articleDefaultLocale +
