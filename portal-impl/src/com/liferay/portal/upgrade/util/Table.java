@@ -451,7 +451,7 @@ public class Table {
 	public void populateTable(String tempFileName, Connection con)
 		throws Exception {
 
-		PreparedStatement ps = AutoBatchPreparedStatementUtil.autoBath(
+		PreparedStatement ps = AutoBatchPreparedStatementUtil.autoBatch(
 			con.prepareStatement(getInsertSQL()));
 
 		UnsyncBufferedReader unsyncBufferedReader = new UnsyncBufferedReader(
