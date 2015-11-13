@@ -15,6 +15,7 @@
 package com.liferay.portlet.dynamicdatamapping;
 
 import com.liferay.portlet.dynamicdatamapping.model.impl.DDMStructureImplTest;
+import com.liferay.portlet.dynamicdatamapping.util.DDMImplTest;
 import com.liferay.portlet.dynamicdatamapping.util.DDMXMLImplTest;
 import com.liferay.portlet.dynamicdatamapping.util.DDMXSDImplTest;
 
@@ -28,7 +29,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses(
 	{
-		DDMStructureImplTest.class, DDMXMLImplTest.class, DDMXSDImplTest.class
+		DDMStructureImplTest.class, DDMXMLImplTest.class, DDMXSDImplTest.class,
+		DDMImplTest.class
 	})
 public class DDMTestSuite {
 }

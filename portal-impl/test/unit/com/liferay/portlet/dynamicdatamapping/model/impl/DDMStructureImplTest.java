@@ -14,23 +14,13 @@
 
 package com.liferay.portlet.dynamicdatamapping.model.impl;
 
-import com.liferay.portal.kernel.xml.Document;
-import com.liferay.portal.util.RandomTestUtil;
 import com.liferay.portlet.dynamicdatamapping.BaseDDMTestCase;
-import com.liferay.portlet.dynamicdatamapping.NoSuchStructureException;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import org.mockito.Matchers;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
 
 import org.powermock.core.classloader.annotations.PrepareForTest;
 
@@ -68,54 +58,5 @@ public class DDMStructureImplTest extends BaseDDMTestCase {
 		Assert.assertTrue(childStructure.hasField("field04"));
 		Assert.assertFalse(childStructure.hasField("fieldNotFound"));
 	}
-
-	protected DDMStructure createStructure(String name, String... fieldNames) {
-		DDMStructure structure = new DDMStructureImpl();
-
-		structure.setStructureId(RandomTestUtil.randomLong());
-		structure.setName(name);
-
-		Document document = createDocument(fieldNames);
-
-		structure.setDocument(document);
-
-		_structures.put(structure.getStructureId(), structure);
-
-		return structure;
-	}
-
-	protected void setUpDDMStructureLocalServiceUtil() throws Exception {
-		mockStatic(DDMStructureLocalServiceUtil.class);
-
-		when(
-			DDMStructureLocalServiceUtil.getStructure(Matchers.anyLong())
-		).then(
-			new Answer<DDMStructure>() {
-
-				@Override
-				public DDMStructure answer(InvocationOnMock invocationOnMock)
-					throws Throwable {
-
-					Object[] args = invocationOnMock.getArguments();
-
-					Long structureId = (Long)args[0];
-
-					DDMStructure ddmStructure = _structures.get(structureId);
-
-					if (ddmStructure == null) {
-						throw new NoSuchStructureException(
-							"No DDMStructure exists with the primary key " +
-								structureId);
-					}
-
-					return ddmStructure;
-				}
-
-			}
-		);
-	}
-
-	private Map<Long, DDMStructure> _structures =
-		new HashMap<Long, DDMStructure>();
 
 }
