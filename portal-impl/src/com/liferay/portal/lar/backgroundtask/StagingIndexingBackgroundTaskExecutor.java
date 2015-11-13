@@ -187,9 +187,7 @@ public class StagingIndexingBackgroundTaskExecutor
 
 		Set<Long> ddmStructureIdsWithChildren = new HashSet<Long>();
 
-		for (int i = 0; i < ddmStructureIds.size(); i++) {
-			long structureId = ddmStructureIds.get(i);
-
+		for (long structureId : ddmStructureIds) {
 			DDMStructure ddmStructure =
 				DDMStructureLocalServiceUtil.getDDMStructure(structureId);
 
