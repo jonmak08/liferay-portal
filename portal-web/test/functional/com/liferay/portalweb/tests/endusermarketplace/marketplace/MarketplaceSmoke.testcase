@@ -1,6 +1,5 @@
 <definition component-name="marketplace">
 	<property name="community.app.acceptance" value="true" />
-	<property name="portlet.plugins.includes" value="calendar-portlet" />
 	<property name="testray.main.component.name" value="Marketplace" />
 
 	<set-up>
@@ -17,33 +16,6 @@
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
-
-		<execute function="Type" locator1="CPSites#BASIC_SEARCH_FIELD" value1="Site Name" />
-
-		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPSites#BASIC_SEARCH_BUTTON" value1="Search" />
-
-		<if>
-			<condition function="IsElementPresent" locator1="CPSites#SITE_TABLE_ACTIONS_GENERIC" />
-			<then>
-				<execute macro="Page#gotoPG" >
-					<var name="pageName" value="Calendar Test Page" />
-					<var name="siteName" value="Site Name" />
-					<var name="siteURL" value="true" />
-				</execute>
-			</then>
-			<else>
-				<execute macro="Page#gotoPG" >
-					<var name="pageName" value="Calendar Test Page" />
-				</execute>
-			</else>
-		</if>
-
-		<if>
-			<condition function="IsElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_GENERIC" />
-			<then>
-				<execute macro="CalendarEvent#tearDown" />
-			</then>
-		</if>
 
 		<execute macro="MessageboardsCategory#tearDownCP" />
 

@@ -113,16 +113,6 @@
 		<var name="entryTitle1" value="Blogs Entry 1 Title" />
 		<var name="entryTitle2" value="Blogs Entry 2 Title" />
 		<var name="entryTitle3" value="Blogs Entry 3 Title" />
-		<var name="eventDescription1" value="Calendar Event Description" />
-		<var name="eventDescription2" value="Weekly Repeating Event Description" />
-		<var name="eventDescription3" value="Monthly Repeating Event Description" />
-		<var name="eventTitle1" value="Calendar Event Title" />
-		<var name="eventTitle2" value="Calendar Event Repeating Title" />
-		<var name="eventTitle3" value="Calendar Event All Day Title" />
-		<var name="eventType1" value="Regular" />
-		<var name="eventType2" value="Repeating" />
-		<var name="eventType3" value="All Day" />
-		<var name="frequency" value="Weekly" />
 		<var name="mbCategoryName" value="MB Category Name" />
 		<var name="mbThreadBody" value="MB Category Thread Message Body" />
 		<var name="mbThreadSubject" value="MB Category Thread Message Subject" />
@@ -130,8 +120,7 @@
 		<var name="pageName2" value="Documents and Media Test Page" />
 		<var name="pageName3" value="Message Boards Test Page" />
 		<var name="pageName4" value="Wiki Test Page" />
-		<var name="pageName5" value="Calendar Test Page" />
-		<var name="pageName6" value="Bookmarks Test Page" />
+		<var name="pageName5" value="Bookmarks Test Page" />
 		<var name="siteName" value="${siteName}" />
 		<var name="siteURL" value="${siteURL}" />
 		<var name="wikiChildPageContent1" value="Wiki Front Page Child Page Content 1" />
@@ -688,160 +677,6 @@
 		<execute macro="Portlet#addPG">
 			<var name="i" value="${i}" />
 			<var name="pageName" value="${pageName5}" />
-			<var name="portletName" value="Calendar" />
-			<var name="portletTypeKey" value="${portletTypeKey}" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteURL" value="${siteURL}" />
-		</execute>
-
-		<execute macro="Page#gotoPG">
-			<var name="defaultURL" value="${defaultURL}" />
-			<var name="nodePort" value="${nodePort}" />
-			<var name="pageName" value="${pageName5}" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteURL" value="${siteURL}" />
-		</execute>
-
-		<execute macro="CalendarNavigator#gotoAddEvent" />
-
-		<execute macro="CalendarEvent#add">
-			<var name="addRSVPEnabled" value="${addRSVPEnabled}" />
-			<var name="calendarName" value="${calendarName}" />
-			<var name="endDate" value="${endDate}" />
-			<var name="endDateTime" value="${endDateTime}" />
-			<var name="eventComment" value="${eventComment}" />
-			<var name="eventCommentEnabled" value="${eventCommentEnabled}" />
-			<var name="eventTitle" value="${eventTitle1}" />
-			<var name="eventType" value="${eventType1}" />
-			<var name="frequency" value="${frequency}" />
-			<var name="optionSet" value="${optionSet}" />
-			<var name="pageName" value="${pageName5}" />
-			<var name="reminders" value="${reminders}" />
-			<var name="rsvp" value="${rsvp}" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteURL" value="${siteURL}" />
-			<var name="startDate" value="${startDate}" />
-			<var name="startDateTime" value="${startDateTime}" />
-			<var name="user" value="${user}" />
-		</execute>
-
-		<execute macro="Page#gotoPG">
-			<var name="defaultURL" value="${defaultURL}" />
-			<var name="nodePort" value="${nodePort}" />
-			<var name="pageName" value="${pageName5}" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteURL" value="${siteURL}" />
-		</execute>
-
-		<execute macro="CalendarEvent#view">
-			<var name="eventTitle" value="${eventTitle1}" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteURL" value="${siteURL}" />
-		</execute>
-
-		<execute macro="Page#gotoPG">
-			<var name="defaultURL" value="${defaultURL}" />
-			<var name="nodePort" value="${nodePort}" />
-			<var name="pageName" value="${pageName5}" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteURL" value="${siteURL}" />
-		</execute>
-
-		<execute macro="CalendarNavigator#gotoAddEvent" />
-
-		<execute macro="CalendarEvent#add">
-			<var name="addRSVPEnabled" value="${addRSVPEnabled}" />
-			<var name="calendarName" value="${calendarName}" />
-			<var name="endDate" value="${endDate}" />
-			<var name="endDateTime" value="${endDateTime}" />
-			<var name="eventComment" value="${eventComment}" />
-			<var name="eventCommentEnabled" value="${eventCommentEnabled}" />
-			<var name="eventTitle" value="${eventTitle2}" />
-			<var name="eventType" value="${eventType2}" />
-			<var name="frequency" value="${frequency}" />
-			<var name="optionSet" value="${optionSet}" />
-			<var name="pageName" value="${pageName5}" />
-			<var name="reminders" value="${reminders}" />
-			<var name="rsvp" value="${rsvp}" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteURL" value="${siteURL}" />
-			<var name="startDate" value="${startDate}" />
-			<var name="startDateTime" value="${startDateTime}" />
-			<var name="user" value="${user}" />
-		</execute>
-
-		<execute macro="Page#gotoPG">
-			<var name="defaultURL" value="${defaultURL}" />
-			<var name="nodePort" value="${nodePort}" />
-			<var name="pageName" value="${pageName5}" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteURL" value="${siteURL}" />
-		</execute>
-
-		<execute macro="CalendarEvent#view">
-			<var name="eventTitle" value="${eventTitle2}" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteURL" value="${siteURL}" />
-		</execute>
-
-		<execute macro="Page#gotoPG">
-			<var name="defaultURL" value="${defaultURL}" />
-			<var name="nodePort" value="${nodePort}" />
-			<var name="pageName" value="${pageName5}" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteURL" value="${siteURL}" />
-		</execute>
-
-		<execute macro="CalendarNavigator#gotoAddEvent" />
-
-		<execute macro="CalendarEvent#add">
-			<var name="addRSVPEnabled" value="${addRSVPEnabled}" />
-			<var name="calendarName" value="${calendarName}" />
-			<var name="endDate" value="${endDate}" />
-			<var name="endDateTime" value="${endDateTime}" />
-			<var name="eventComment" value="${eventComment}" />
-			<var name="eventCommentEnabled" value="${eventCommentEnabled}" />
-			<var name="eventTitle" value="${eventTitle3}" />
-			<var name="eventType" value="${eventType3}" />
-			<var name="frequency" value="${frequency}" />
-			<var name="optionSet" value="${optionSet}" />
-			<var name="pageName" value="${pageName5}" />
-			<var name="reminders" value="${reminders}" />
-			<var name="rsvp" value="${rsvp}" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteURL" value="${siteURL}" />
-			<var name="startDate" value="${startDate}" />
-			<var name="startDateTime" value="${startDateTime}" />
-			<var name="user" value="${user}" />
-		</execute>
-
-		<execute macro="Page#gotoPG">
-			<var name="defaultURL" value="${defaultURL}" />
-			<var name="nodePort" value="${nodePort}" />
-			<var name="pageName" value="${pageName5}" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteURL" value="${siteURL}" />
-		</execute>
-
-		<execute macro="CalendarEvent#view">
-			<var name="eventTitle" value="${eventTitle3}" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteURL" value="${siteURL}" />
-		</execute>
-
-		<execute macro="Page#addPG">
-			<var name="defaultURL" value="${defaultURL}" />
-			<var name="nodePort" value="${nodePort}" />
-			<var name="pageName" value="${pageName6}" />
-			<var name="pageTemplateName" value="${pageTemplateName}" />
-			<var name="pageType" value="${pageType}" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteURL" value="${siteURL}" />
-		</execute>
-
-		<execute macro="Portlet#addPG">
-			<var name="i" value="${i}" />
-			<var name="pageName" value="${pageName6}" />
 			<var name="portletName" value="Bookmarks" />
 			<var name="portletTypeKey" value="${portletTypeKey}" />
 			<var name="siteName" value="${siteName}" />
@@ -851,7 +686,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
-			<var name="pageName" value="${pageName6}" />
+			<var name="pageName" value="${pageName5}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
 		</execute>
@@ -866,7 +701,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
-			<var name="pageName" value="${pageName6}" />
+			<var name="pageName" value="${pageName5}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
 		</execute>
@@ -888,7 +723,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
-			<var name="pageName" value="${pageName6}" />
+			<var name="pageName" value="${pageName5}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
 		</execute>
@@ -909,7 +744,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
-			<var name="pageName" value="${pageName6}" />
+			<var name="pageName" value="${pageName5}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
 		</execute>
@@ -931,7 +766,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
-			<var name="pageName" value="${pageName6}" />
+			<var name="pageName" value="${pageName5}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
 		</execute>
@@ -952,7 +787,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
-			<var name="pageName" value="${pageName6}" />
+			<var name="pageName" value="${pageName5}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
 		</execute>
@@ -974,7 +809,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="defaultURL" value="${defaultURL}" />
 			<var name="nodePort" value="${nodePort}" />
-			<var name="pageName" value="${pageName6}" />
+			<var name="pageName" value="${pageName5}" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
 		</execute>
