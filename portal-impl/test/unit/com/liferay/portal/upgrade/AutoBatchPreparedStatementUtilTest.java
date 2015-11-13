@@ -66,7 +66,7 @@ public class AutoBatchPreparedStatementUtilTest {
 
 		Assert.assertTrue(methods.toString(), methods.isEmpty());
 
-		// AddBatch fallbacks to executeUpdate
+		// Calling addBatch fallbacks to executeUpdate
 
 		preparedStatement.addBatch();
 
@@ -75,7 +75,7 @@ public class AutoBatchPreparedStatementUtilTest {
 			PreparedStatement.class.getMethod("executeUpdate"),
 			methods.remove(0));
 
-		// ExecuteBatch does nothing
+		// Calling executeBatch does nothing
 
 		Assert.assertArrayEquals(new int[0], preparedStatement.executeBatch());
 		Assert.assertTrue(methods.toString(), methods.isEmpty());
@@ -127,7 +127,8 @@ public class AutoBatchPreparedStatementUtilTest {
 				0,
 				ReflectionTestUtil.getFieldValue(invocationHandler, "_count"));
 
-			// AddBatch passes through, within hibernate jdbc batch size
+			// Calling addBatch passes through when within the Hibernate JDBC
+			// batch size
 
 			preparedStatement.addBatch();
 
@@ -139,8 +140,8 @@ public class AutoBatchPreparedStatementUtilTest {
 				1,
 				ReflectionTestUtil.getFieldValue(invocationHandler, "_count"));
 
-			// AddBatch passes through and triggers executeBatch,
-			// when exceeding hibernate jdbc batch size
+			// Calling addBatch passes through and triggers executeBatch when
+			// exceeding the Hibernate JDBC batch size
 
 			preparedStatement.addBatch();
 
@@ -155,7 +156,8 @@ public class AutoBatchPreparedStatementUtilTest {
 				0,
 				ReflectionTestUtil.getFieldValue(invocationHandler, "_count"));
 
-			// AddBatch passes through, within hibernate jdbc batch size
+			// Calling addBatch passes through when within the Hibernate JDBC
+			// batch size
 
 			preparedStatement.addBatch();
 
@@ -167,7 +169,7 @@ public class AutoBatchPreparedStatementUtilTest {
 				1,
 				ReflectionTestUtil.getFieldValue(invocationHandler, "_count"));
 
-			// ExecuteBatch passes through when batch is not empty
+			// Calling executeBatch passes through when batch is not empty
 
 			preparedStatement.executeBatch();
 
