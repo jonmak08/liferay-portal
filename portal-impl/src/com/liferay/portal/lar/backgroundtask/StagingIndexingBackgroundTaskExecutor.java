@@ -48,8 +48,10 @@ import java.io.Serializable;
 import java.lang.reflect.Method;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Mate Thurzo
@@ -183,7 +185,7 @@ public class StagingIndexingBackgroundTaskExecutor
 			return;
 		}
 
-		final String[] ddmStructureKeys = new String[ddmStructureIds.size()];
+		Set<Long> ddmStructureIdsWithChildren = new HashSet<Long>();
 
 		for (int i = 0; i < ddmStructureIds.size(); i++) {
 			long structureId = ddmStructureIds.get(i);
@@ -191,7 +193,26 @@ public class StagingIndexingBackgroundTaskExecutor
 			DDMStructure ddmStructure =
 				DDMStructureLocalServiceUtil.getDDMStructure(structureId);
 
+			List<Long> ddmChildrenStructureIds =
+					DDMStructureLocalServiceUtil.getChildrenStructureIds(
+							ddmStructure.getGroupId(),
+							ddmStructure.getStructureId());
+
+			ddmStructureIdsWithChildren.addAll(ddmChildrenStructureIds);
+		}
+
+		final String[] ddmStructureKeys =
+				new String[ddmStructureIdsWithChildren.size()];
+
+		int i = 0;
+
+		for (long structureId : ddmStructureIdsWithChildren) {
+			DDMStructure ddmStructure =
+				DDMStructureLocalServiceUtil.getDDMStructure(structureId);
+
 			ddmStructureKeys[i] = ddmStructure.getStructureKey();
+
+			i++;
 		}
 
 		// Journal
@@ -216,7 +237,7 @@ public class StagingIndexingBackgroundTaskExecutor
 
 			Object object = method.invoke(
 				DLFileEntryLocalServiceUtil.class, groupId,
-				ArrayUtil.toLongArray(ddmStructureIds));
+				ArrayUtil.toLongArray(ddmStructureIdsWithChildren));
 
 			if (object != null) {
 				dlFileEntries = (List<DLFileEntry>)object;
@@ -225,7 +246,7 @@ public class StagingIndexingBackgroundTaskExecutor
 		catch (Exception e) {
 			List<DLFileEntry> allDlFileEntries =
 				DLFileEntryLocalServiceUtil.getDDMStructureFileEntries(
-					ArrayUtil.toLongArray(ddmStructureIds));
+					ArrayUtil.toLongArray(ddmStructureIdsWithChildren));
 
 			for (DLFileEntry dlFileEntry : allDlFileEntries) {
 				if (groupId == dlFileEntry.getGroupId()) {
