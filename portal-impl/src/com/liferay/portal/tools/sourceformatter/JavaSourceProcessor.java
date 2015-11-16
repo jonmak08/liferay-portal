@@ -852,6 +852,17 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 			}
 		}
 
+		// LPS-60473
+
+		if (newContent.contains(".supportsBatchUpdates()") &&
+			!fileName.endsWith("AutoBatchPreparedStatementUtil.java")) {
+
+			processErrorMessage(
+				fileName,
+				"Use AutoBatchPreparedStatementUtil instead of " +
+					"DatabaseMetaData.supportsBatchUpdates: " + fileName);
+		}
+
 		newContent = formatJava(fileName, absolutePath, newContent);
 
 		newContent = StringUtil.replace(newContent, "\n\n\n", "\n\n");
