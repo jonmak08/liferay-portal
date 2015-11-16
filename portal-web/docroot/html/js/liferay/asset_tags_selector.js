@@ -65,7 +65,7 @@ AUI.add(
 			'<input class="lfr-tag-selector-input search-query span12" placeholder="{0}" type="text" />' +
 		'</form>';
 
-		var TPL_SUGGESTIONS_QUERY = 'select * from search.termextract where context="{0}"';
+		var TPL_SUGGESTIONS_QUERY = 'select * from contentanalysis.analyze where context="{0}"';
 
 		var TPL_TAGS_CONTAINER = '<div class="' + CSS_TAGS_LIST + '"></div>';
 
