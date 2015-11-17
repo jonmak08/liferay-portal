@@ -130,4 +130,5 @@ public class ValidatorTagImpl
 
 	private String _body;
 	private boolean _custom;
+
 }
