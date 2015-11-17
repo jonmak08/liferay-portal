@@ -283,7 +283,7 @@ public class MBThreadIndexer extends BaseIndexer {
 			}
 
 			@Override
-			protected void performAction(Object object) throws PortalException {
+			protected void performAction(Object object) {
 				MBThread thread = (MBThread)object;
 
 				try {
@@ -291,12 +291,12 @@ public class MBThreadIndexer extends BaseIndexer {
 
 					addDocument(document);
 				}
-				catch (PortalException e) {
+				catch (PortalException pe) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
 							"Unable to index message boards thread " +
 								thread.getThreadId(),
-							e);
+							pe);
 					}
 				}
 			}

@@ -213,7 +213,7 @@ public class SCIndexer extends BaseIndexer {
 			new SCProductEntryActionableDynamicQuery() {
 
 			@Override
-			protected void performAction(Object object) throws PortalException {
+			protected void performAction(Object object) {
 				SCProductEntry productEntry = (SCProductEntry)object;
 
 				try {
@@ -221,12 +221,12 @@ public class SCIndexer extends BaseIndexer {
 
 					addDocument(document);
 				}
-				catch (PortalException e) {
+				catch (PortalException pe) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
 							"Unable to software catalog product entry " +
 								productEntry.getProductEntryId(),
-							e);
+							pe);
 					}
 				}
 			}

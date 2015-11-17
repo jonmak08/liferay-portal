@@ -195,7 +195,7 @@ public class BlogsIndexer extends BaseIndexer {
 			}
 
 			@Override
-			protected void performAction(Object object) throws PortalException {
+			protected void performAction(Object object) {
 				BlogsEntry entry = (BlogsEntry)object;
 
 				try {
@@ -203,12 +203,12 @@ public class BlogsIndexer extends BaseIndexer {
 
 					addDocument(document);
 				}
-				catch (PortalException e) {
+				catch (PortalException pe) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
 							"Unable to index blogs entry " +
 								entry.getEntryId(),
-							e);
+							pe);
 					}
 				}
 			}

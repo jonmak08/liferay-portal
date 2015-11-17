@@ -305,7 +305,7 @@ public class OrganizationIndexer extends BaseIndexer {
 			new OrganizationActionableDynamicQuery() {
 
 			@Override
-			protected void performAction(Object object) throws PortalException {
+			protected void performAction(Object object) {
 				Organization organization = (Organization)object;
 
 				try {
@@ -313,12 +313,12 @@ public class OrganizationIndexer extends BaseIndexer {
 
 					addDocument(document);
 				}
-				catch (PortalException e) {
+				catch (PortalException pe) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
 							"Unable to index organization " +
 								organization.getOrganizationId(),
-							e);
+							pe);
 					}
 				}
 			}

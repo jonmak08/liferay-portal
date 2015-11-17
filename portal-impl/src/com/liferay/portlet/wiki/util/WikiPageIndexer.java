@@ -311,7 +311,7 @@ public class WikiPageIndexer extends BaseIndexer {
 			}
 
 			@Override
-			protected void performAction(Object object) throws PortalException {
+			protected void performAction(Object object) {
 				WikiPage page = (WikiPage)object;
 
 				try {
@@ -319,11 +319,11 @@ public class WikiPageIndexer extends BaseIndexer {
 
 					addDocument(document);
 				}
-				catch (PortalException e) {
+				catch (PortalException pe) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
 							"Unable to index wiki page " + page.getPageId(),
-							e);
+							pe);
 					}
 				}
 			}

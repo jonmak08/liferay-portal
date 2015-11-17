@@ -213,7 +213,7 @@ public class DLFolderIndexer extends BaseIndexer {
 			}
 
 			@Override
-			protected void performAction(Object object) throws PortalException {
+			protected void performAction(Object object) {
 				DLFolder dlFolder = (DLFolder)object;
 
 				try {
@@ -223,12 +223,12 @@ public class DLFolderIndexer extends BaseIndexer {
 						addDocument(document);
 					}
 				}
-				catch (PortalException e) {
+				catch (PortalException pe) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
 							"Unable to index document library folder " +
 								dlFolder.getFolderId(),
-							e);
+							pe);
 					}
 				}
 			}

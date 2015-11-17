@@ -833,8 +833,7 @@ public class JournalArticleIndexer extends BaseIndexer {
 			new JournalArticleActionableDynamicQuery() {
 
 			@Override
-			protected void performAction(Object object)
-				throws PortalException, SystemException {
+			protected void performAction(Object object) throws SystemException {
 
 				JournalArticle article = (JournalArticle)object;
 
@@ -855,12 +854,12 @@ public class JournalArticleIndexer extends BaseIndexer {
 
 					addDocument(document);
 				}
-				catch (PortalException e) {
+				catch (PortalException pe) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
 							"Unable to index journal article " +
 								article.getId(),
-							e);
+							pe);
 					}
 				}
 			}

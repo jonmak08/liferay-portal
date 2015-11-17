@@ -594,7 +594,7 @@ public class DLFileEntryIndexer extends BaseIndexer {
 			}
 
 			@Override
-			protected void performAction(Object object) throws PortalException {
+			protected void performAction(Object object) {
 				DLFileEntry dlFileEntry = (DLFileEntry)object;
 
 				try {
@@ -604,12 +604,12 @@ public class DLFileEntryIndexer extends BaseIndexer {
 						addDocument(document);
 					}
 				}
-				catch (PortalException e) {
+				catch (PortalException pe) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
 							"Unable to index document library file entry " +
 								dlFileEntry.getFileEntryId(),
-							e);
+							pe);
 					}
 				}
 			}

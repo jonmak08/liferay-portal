@@ -190,7 +190,7 @@ public class BookmarksEntryIndexer extends BaseIndexer {
 			}
 
 			@Override
-			protected void performAction(Object object) throws PortalException {
+			protected void performAction(Object object) {
 				BookmarksEntry entry = (BookmarksEntry)object;
 
 				try {
@@ -198,12 +198,12 @@ public class BookmarksEntryIndexer extends BaseIndexer {
 
 					addDocument(document);
 				}
-				catch (PortalException e) {
+				catch (PortalException pe) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
 							"Unable to index bookmarks entry " +
 								entry.getEntryId(),
-							e);
+							pe);
 					}
 				}
 			}

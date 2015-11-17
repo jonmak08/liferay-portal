@@ -227,7 +227,7 @@ public class UserGroupIndexer extends BaseIndexer {
 			new UserGroupActionableDynamicQuery() {
 
 			@Override
-			protected void performAction(Object object) throws PortalException {
+			protected void performAction(Object object) {
 				UserGroup userGroup = (UserGroup)object;
 
 				try {
@@ -235,12 +235,12 @@ public class UserGroupIndexer extends BaseIndexer {
 
 					addDocument(document);
 				}
-				catch (PortalException e) {
+				catch (PortalException pe) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
 							"Unable to index user group " +
 								userGroup.getUserGroupId(),
-							e);
+							pe);
 					}
 				}
 			}

@@ -166,7 +166,7 @@ public class WikiNodeIndexer extends BaseIndexer {
 			}
 
 			@Override
-			protected void performAction(Object object) throws PortalException {
+			protected void performAction(Object object) {
 				WikiNode node = (WikiNode)object;
 
 				try {
@@ -174,11 +174,11 @@ public class WikiNodeIndexer extends BaseIndexer {
 
 					addDocument(document);
 				}
-				catch (PortalException e) {
+				catch (PortalException pe) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
 							"Unable to index wiki node " + node.getNodeId(),
-							e);
+							pe);
 					}
 				}
 			}

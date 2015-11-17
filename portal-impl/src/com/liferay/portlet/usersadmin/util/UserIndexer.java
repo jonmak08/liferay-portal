@@ -442,7 +442,7 @@ public class UserIndexer extends BaseIndexer {
 			new UserActionableDynamicQuery() {
 
 			@Override
-			protected void performAction(Object object) throws PortalException {
+			protected void performAction(Object object) {
 				User user = (User)object;
 
 				if (!user.isDefaultUser()) {
@@ -451,11 +451,10 @@ public class UserIndexer extends BaseIndexer {
 
 						addDocument(document);
 					}
-					catch (PortalException e) {
+					catch (PortalException pe) {
 						if (_log.isWarnEnabled()) {
 							_log.warn(
-								"Unable to index user " + user.getUserId(),
-								e);
+								"Unable to index user " + user.getUserId(), pe);
 						}
 					}
 				}

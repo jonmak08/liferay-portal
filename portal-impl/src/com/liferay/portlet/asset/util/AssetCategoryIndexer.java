@@ -224,7 +224,7 @@ public class AssetCategoryIndexer extends BaseIndexer {
 			new AssetCategoryActionableDynamicQuery() {
 
 			@Override
-			protected void performAction(Object object) throws PortalException {
+			protected void performAction(Object object) {
 				AssetCategory category = (AssetCategory)object;
 
 				try {
@@ -234,12 +234,12 @@ public class AssetCategoryIndexer extends BaseIndexer {
 						documents.add(document);
 					}
 				}
-				catch (PortalException e) {
+				catch (PortalException pe) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
 							"Unable to index asset category " +
 								category.getCategoryId(),
-							e);
+							pe);
 					}
 				}
 			}
