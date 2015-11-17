@@ -207,9 +207,20 @@ public class BookmarksFolderIndexer extends BaseIndexer {
 			protected void performAction(Object object) throws PortalException {
 				BookmarksFolder folder = (BookmarksFolder)object;
 
-				Document document = getDocument(folder);
+				try {
+					Document document = getDocument(folder);
 
-				addDocument(document);
+					addDocument(document);
+				}
+				catch (PortalException e) {
+					if (_log.isWarnEnabled()) {
+						_log.warn(
+							"Unable to index bookmark folder: " +
+								folder.getFolderId() + " - " +
+								folder.getName(),
+							e);
+					}
+				}
 			}
 
 		};

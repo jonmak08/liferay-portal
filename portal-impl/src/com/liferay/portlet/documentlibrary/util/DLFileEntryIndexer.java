@@ -597,10 +597,21 @@ public class DLFileEntryIndexer extends BaseIndexer {
 			protected void performAction(Object object) throws PortalException {
 				DLFileEntry dlFileEntry = (DLFileEntry)object;
 
-				Document document = getDocument(dlFileEntry);
+				try {
+					Document document = getDocument(dlFileEntry);
 
-				if (document != null) {
-					addDocument(document);
+					if (document != null) {
+						addDocument(document);
+					}
+				}
+				catch (PortalException e) {
+					if (_log.isWarnEnabled()) {
+						_log.warn(
+							"Unable to index file entry: " +
+								dlFileEntry.getFileEntryId() + " - " +
+								dlFileEntry.getTitle(),
+							e);
+					}
 				}
 			}
 

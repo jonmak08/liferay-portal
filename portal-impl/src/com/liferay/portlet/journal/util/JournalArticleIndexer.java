@@ -850,9 +850,21 @@ public class JournalArticleIndexer extends BaseIndexer {
 					article = latestIndexableArticle;
 				}
 
-				Document document = getDocument(article);
+				try {
+					Document document = getDocument(article);
 
-				addDocument(document);
+					addDocument(document);
+				}
+				catch (PortalException e) {
+					if (_log.isWarnEnabled()) {
+						_log.warn(
+							"Unable to index article: " +
+								article.getArticleId() + " - " +
+								article.getTitle() + " - " +
+								article.getVersion(),
+							e);
+					}
+				}
 			}
 
 		};

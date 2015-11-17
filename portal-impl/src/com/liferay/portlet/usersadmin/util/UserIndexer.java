@@ -18,6 +18,8 @@ import com.liferay.portal.NoSuchContactException;
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.BaseIndexer;
 import com.liferay.portal.kernel.search.BooleanClauseOccur;
 import com.liferay.portal.kernel.search.BooleanQuery;
@@ -444,9 +446,20 @@ public class UserIndexer extends BaseIndexer {
 				User user = (User)object;
 
 				if (!user.isDefaultUser()) {
-					Document document = getDocument(user);
+					try {
+						Document document = getDocument(user);
 
-					addDocument(document);
+						addDocument(document);
+					}
+					catch (PortalException e) {
+						if (_log.isWarnEnabled()) {
+							_log.warn(
+								"Unable to index user: " +
+									user.getUserId() + " - " +
+									user.getScreenName(),
+								e);
+						}
+					}
 				}
 			}
 
@@ -457,5 +470,7 @@ public class UserIndexer extends BaseIndexer {
 
 		actionableDynamicQuery.performActions();
 	}
+
+	private static Log _log = LogFactoryUtil.getLog(UserIndexer.class);
 
 }

@@ -20,6 +20,8 @@ import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.BaseIndexer;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.DocumentImpl;
@@ -167,9 +169,19 @@ public class WikiNodeIndexer extends BaseIndexer {
 			protected void performAction(Object object) throws PortalException {
 				WikiNode node = (WikiNode)object;
 
-				Document document = getDocument(node);
+				try {
+					Document document = getDocument(node);
 
-				addDocument(document);
+					addDocument(document);
+				}
+				catch (PortalException e) {
+					if (_log.isWarnEnabled()) {
+						_log.warn(
+							"Unable to node: " + node.getNodeId() + " - " +
+								node.getName(),
+							e);
+					}
+				}
 			}
 
 		};
@@ -179,5 +191,7 @@ public class WikiNodeIndexer extends BaseIndexer {
 
 		actionableDynamicQuery.performActions();
 	}
+
+	private static Log _log = LogFactoryUtil.getLog(WikiNodeIndexer.class);
 
 }

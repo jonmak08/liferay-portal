@@ -20,6 +20,8 @@ import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.BaseIndexer;
 import com.liferay.portal.kernel.search.BooleanQuery;
 import com.liferay.portal.kernel.search.Document;
@@ -284,9 +286,19 @@ public class MBThreadIndexer extends BaseIndexer {
 			protected void performAction(Object object) throws PortalException {
 				MBThread thread = (MBThread)object;
 
-				Document document = getDocument(thread);
+				try {
+					Document document = getDocument(thread);
 
-				addDocument(document);
+					addDocument(document);
+				}
+				catch (PortalException e) {
+					if (_log.isWarnEnabled()) {
+						_log.warn(
+							"Unable to index thread: " +
+								thread.getThreadId(),
+							e);
+					}
+				}
 			}
 
 		};
@@ -297,5 +309,7 @@ public class MBThreadIndexer extends BaseIndexer {
 
 		actionableDynamicQuery.performActions();
 	}
+
+	private static Log _log = LogFactoryUtil.getLog(MBThreadIndexer.class);
 
 }

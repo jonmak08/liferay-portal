@@ -410,9 +410,19 @@ public class MBMessageIndexer extends BaseIndexer {
 					return;
 				}
 
-				Document document = getDocument(message);
+				try {
+					Document document = getDocument(message);
 
-				addDocument(document);
+					addDocument(document);
+				}
+				catch (PortalException e) {
+					if (_log.isWarnEnabled()) {
+						_log.warn(
+							"Unable to index message: " +
+								message.getMessageId(),
+							e);
+					}
+				}
 			}
 
 		};

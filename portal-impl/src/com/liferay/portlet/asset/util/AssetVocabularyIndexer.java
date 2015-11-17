@@ -191,10 +191,21 @@ public class AssetVocabularyIndexer extends BaseIndexer {
 			protected void performAction(Object object) throws PortalException {
 				AssetVocabulary vocabulary = (AssetVocabulary)object;
 
-				Document document = getDocument(vocabulary);
+				try {
+					Document document = getDocument(vocabulary);
 
-				if (document != null) {
-					documents.add(document);
+					if (document != null) {
+						documents.add(document);
+					}
+				}
+				catch (PortalException e) {
+					if (_log.isWarnEnabled()) {
+						_log.warn(
+							"Unable to index vocabulary: " +
+								vocabulary.getVocabularyId() + " - " +
+								vocabulary.getName(),
+							e);
+					}
 				}
 			}
 

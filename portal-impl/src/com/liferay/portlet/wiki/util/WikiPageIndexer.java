@@ -20,6 +20,8 @@ import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.BaseIndexer;
 import com.liferay.portal.kernel.search.BooleanClauseOccur;
 import com.liferay.portal.kernel.search.BooleanQuery;
@@ -308,9 +310,19 @@ public class WikiPageIndexer extends BaseIndexer {
 			protected void performAction(Object object) throws PortalException {
 				WikiPage page = (WikiPage)object;
 
-				Document document = getDocument(page);
+				try {
+					Document document = getDocument(page);
 
-				addDocument(document);
+					addDocument(document);
+				}
+				catch (PortalException e) {
+					if (_log.isWarnEnabled()) {
+						_log.warn(
+							"Unable to page: " + page.getPageId() + " - " +
+								page.getTitle(),
+							e);
+					}
+				}
 			}
 
 		};
@@ -321,5 +333,7 @@ public class WikiPageIndexer extends BaseIndexer {
 
 		actionableDynamicQuery.performActions();
 	}
+
+	private static Log _log = LogFactoryUtil.getLog(WikiPageIndexer.class);
 
 }

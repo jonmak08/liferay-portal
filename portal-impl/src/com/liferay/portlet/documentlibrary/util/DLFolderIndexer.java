@@ -216,10 +216,21 @@ public class DLFolderIndexer extends BaseIndexer {
 			protected void performAction(Object object) throws PortalException {
 				DLFolder dlFolder = (DLFolder)object;
 
-				Document document = getDocument(dlFolder);
+				try {
+					Document document = getDocument(dlFolder);
 
-				if (document != null) {
-					addDocument(document);
+					if (document != null) {
+						addDocument(document);
+					}
+				}
+				catch (PortalException e) {
+					if (_log.isWarnEnabled()) {
+						_log.warn(
+							"Unable to index file entry: " +
+								dlFolder.getFolderId() + " - " +
+								dlFolder.getName(),
+							e);
+					}
 				}
 			}
 

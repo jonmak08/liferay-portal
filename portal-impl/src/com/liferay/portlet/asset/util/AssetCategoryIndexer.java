@@ -227,10 +227,21 @@ public class AssetCategoryIndexer extends BaseIndexer {
 			protected void performAction(Object object) throws PortalException {
 				AssetCategory category = (AssetCategory)object;
 
-				Document document = getDocument(category);
+				try {
+					Document document = getDocument(category);
 
-				if (document != null) {
-					documents.add(document);
+					if (document != null) {
+						documents.add(document);
+					}
+				}
+				catch (PortalException e) {
+					if (_log.isWarnEnabled()) {
+						_log.warn(
+							"Unable to index category: " +
+								category.getCategoryId() + " - " +
+								category.getName(),
+							e);
+					}
 				}
 			}
 

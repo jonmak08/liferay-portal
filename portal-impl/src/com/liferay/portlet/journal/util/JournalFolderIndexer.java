@@ -196,10 +196,21 @@ public class JournalFolderIndexer extends BaseIndexer {
 			protected void performAction(Object object) throws PortalException {
 				JournalFolder folder = (JournalFolder)object;
 
-				Document document = getDocument(folder);
+				try {
+					Document document = getDocument(folder);
 
-				if (document != null) {
-					addDocument(document);
+					if (document != null) {
+						addDocument(document);
+					}
+				}
+				catch (PortalException e) {
+					if (_log.isWarnEnabled()) {
+						_log.warn(
+							"Unable to index folder: " +
+								folder.getFolderId() + " - " +
+								folder.getName(),
+							e);
+					}
 				}
 			}
 
