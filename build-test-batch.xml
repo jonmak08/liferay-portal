@@ -933,7 +933,7 @@
 		<run-functional-test app.server.type="glassfish" database.type="postgresql" />
 	</target>
 
-	<target name="functional-release-glassfish-mysql">
+	<target name="functional-bundle-glassfish-mysql">
 		<run-functional-test
 			app.server.type="glassfish"
 			database.type="mysql"
@@ -943,7 +943,7 @@
 		/>
 	</target>
 
-	<target name="functional-release-jboss-mysql">
+	<target name="functional-bundle-jboss-mysql">
 		<run-functional-test
 			app.server.type="jboss"
 			database.type="mysql"
@@ -953,7 +953,7 @@
 		/>
 	</target>
 
-	<target name="functional-release-tomcat-mysql">
+	<target name="functional-bundle-tomcat-mysql">
 		<set-tomcat-version-number liferay.portal.bundle="${test.portal.bundle.version}" />
 
 		<run-functional-test
@@ -1002,7 +1002,7 @@
 		</run-batch-test>
 	</target>
 
-	<target name="plugins-functional-release-tomcat-mysql">
+	<target name="plugins-functional-bundle-tomcat-mysql">
 		<set-tomcat-version-number liferay.portal.bundle="${test.portal.bundle.version}" />
 
 		<run-functional-test
