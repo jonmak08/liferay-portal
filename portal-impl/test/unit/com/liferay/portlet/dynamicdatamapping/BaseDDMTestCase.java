@@ -107,8 +107,8 @@ public class BaseDDMTestCase extends PowerMockito {
 	protected Field createBRField(
 		long ddmStructureId, String fieldName, List<Serializable> ptValues) {
 
-			return new MockField(
-				ddmStructureId, fieldName, ptValues, LocaleUtil.BRAZIL);
+		return new MockField(
+			ddmStructureId, fieldName, ptValues, LocaleUtil.BRAZIL);
 	}
 
 	protected Document createDocument(String... fieldNames) {
@@ -134,12 +134,12 @@ public class BaseDDMTestCase extends PowerMockito {
 	}
 
 	protected Field createField(
-			long ddmStructureId, String fieldName, List<Serializable> values) {
+		long ddmStructureId, String fieldName, List<Serializable> values) {
 
-			Field field = new MockField(
-				ddmStructureId, fieldName, values, LocaleUtil.US);
+		Field field = new MockField(
+			ddmStructureId, fieldName, values, LocaleUtil.US);
 
-			return field;
+		return field;
 	}
 
 	protected Fields createFields(Field... fieldsArray) {
@@ -153,7 +153,7 @@ public class BaseDDMTestCase extends PowerMockito {
 	}
 
 	protected Field createFieldsDisplayField(
-			long ddmStructureId, String value) {
+		long ddmStructureId, String value) {
 
 		Field fieldsDisplayField = new MockField(
 			ddmStructureId, DDMImpl.FIELDS_DISPLAY_NAME,
@@ -201,18 +201,18 @@ public class BaseDDMTestCase extends PowerMockito {
 	}
 
 	protected DDMTemplate createTemplate(
-			long templateId, String name, String mode, String script) {
+		long templateId, String name, String mode, String script) {
 
-			DDMTemplate template = new DDMTemplateImpl();
+		DDMTemplate template = new DDMTemplateImpl();
 
-			template.setTemplateId(templateId);
-			template.setName(name);
-			template.setMode(mode);
-			template.setScript(script);
+		template.setTemplateId(templateId);
+		template.setName(name);
+		template.setMode(mode);
+		template.setScript(script);
 
-			_templates.put(template.getTemplateId(), template);
+		_templates.put(template.getTemplateId(), template);
 
-			return template;
+		return template;
 	}
 
 	protected List<Serializable> createValuesList(String... valuesString) {
@@ -334,7 +334,6 @@ public class BaseDDMTestCase extends PowerMockito {
 	}
 
 	protected void setUpPropsUtil() {
-
 		mockStatic(PropsUtil.class);
 
 		when(
@@ -392,14 +391,13 @@ public class BaseDDMTestCase extends PowerMockito {
 	}
 
 	private Map<Long, DDMStructure> _structures =
-			new HashMap<Long, DDMStructure>();
+		new HashMap<Long, DDMStructure>();
 	protected Map<Long, DDMTemplate> _templates =
-			new HashMap<Long, DDMTemplate>();
+		new HashMap<Long, DDMTemplate>();
 
 	protected class MockField extends Field {
 
 		public MockField(long ddmStructureId, String name, Serializable value) {
-
 			super(ddmStructureId, name, value);
 		}
 
