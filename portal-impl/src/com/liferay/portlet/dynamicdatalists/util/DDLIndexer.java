@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.dynamicdatalists.util;
 
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -23,7 +24,6 @@ import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchEngineUtil;
-import com.liferay.portal.kernel.search.SearchException;
 import com.liferay.portal.kernel.search.Summary;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
@@ -295,12 +295,12 @@ public class DDLIndexer extends BaseIndexer {
 
 				documents.add(document);
 			}
-			catch (SearchException e) {
+			catch (PortalException pe) {
 				if (_log.isWarnEnabled()) {
 					_log.warn(
 						"Unable to index dynamic data lists record " +
 							record.getRecordId(),
-						e);
+						pe);
 				}
 			}
 		}
