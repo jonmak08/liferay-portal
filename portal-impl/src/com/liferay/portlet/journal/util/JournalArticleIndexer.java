@@ -858,10 +858,8 @@ public class JournalArticleIndexer extends BaseIndexer {
 				catch (PortalException e) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
-							"Unable to index article: " +
-								article.getArticleId() + " - " +
-								article.getTitle() + " - " +
-								article.getVersion(),
+							"Unable to index journal article " +
+								article.getId(),
 							e);
 					}
 				}

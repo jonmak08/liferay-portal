@@ -146,9 +146,8 @@ public class CalIndexer extends BaseIndexer {
 				catch (PortalException e) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
-							"Unable to index cal event: " +
-								event.getEventId() + " - " +
-								event.getTitle(),
+							"Unable to index calendar event " +
+								event.getEventId(),
 							e);
 					}
 				}

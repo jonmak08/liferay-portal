@@ -294,7 +294,7 @@ public class MBThreadIndexer extends BaseIndexer {
 				catch (PortalException e) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
-							"Unable to index thread: " +
+							"Unable to index message boards thread " +
 								thread.getThreadId(),
 							e);
 					}

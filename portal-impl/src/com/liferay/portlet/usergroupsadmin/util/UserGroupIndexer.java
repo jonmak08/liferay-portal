@@ -238,9 +238,8 @@ public class UserGroupIndexer extends BaseIndexer {
 				catch (PortalException e) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
-							"Unable to user group: " +
-								userGroup.getUserGroupId() + " - " +
-								userGroup.getName(),
+							"Unable to index user group " +
+								userGroup.getUserGroupId(),
 							e);
 					}
 				}
