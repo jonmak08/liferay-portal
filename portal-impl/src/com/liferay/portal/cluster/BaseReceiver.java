@@ -23,6 +23,7 @@ import java.io.OutputStream;
 
 import java.nio.ByteBuffer;
 
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 import org.jgroups.Address;
@@ -45,6 +46,10 @@ public abstract class BaseReceiver implements Receiver {
 
 	public View getView() {
 		return _view;
+	}
+
+	public Address getCoordinator() {
+		return _coordinator;
 	}
 
 	public void openLatch() {
@@ -86,6 +91,10 @@ public abstract class BaseReceiver implements Receiver {
 		if (_view == null) {
 			_view = view;
 
+			List<Address> members = view.getMembers();
+
+			_coordinator = members.get(0);
+
 			return;
 		}
 
@@ -103,11 +112,26 @@ public abstract class BaseReceiver implements Receiver {
 		_view = view;
 
 		doViewAccepted(oldView, view);
+
+		List<Address> members = view.getMembers();
+
+		Address newCoordinator = members.get(0);
+
+		if (_coordinator.equals(newCoordinator)) {
+			return;
+		}
+
+		_coordinator = newCoordinator;
+
+		doCoordinatorUpdated(newCoordinator);
 	}
 
 	protected abstract void doReceive(Message message);
 
 	protected void doViewAccepted(View oldView, View newView) {
+	}
+
+	protected void doCoordinatorUpdated(Address coordinator) {
 	}
 
 	protected Object retrievePayload(Message message) {
@@ -142,5 +166,6 @@ public abstract class BaseReceiver implements Receiver {
 
 	private final CountDownLatch _countDownLatch = new CountDownLatch(1);
 	private volatile View _view;
+	private volatile Address _coordinator;
 
 }
