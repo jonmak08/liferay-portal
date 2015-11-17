@@ -352,12 +352,6 @@ public class SchedulerEngineHelperUtil {
 		getSchedulerEngineHelper().update(trigger, storageType);
 	}
 
-	public static void updateMemorySchedulerClusterMaster()
-		throws SchedulerException {
-
-		getSchedulerEngineHelper().updateMemorySchedulerClusterMaster();
-	}
-
 	public void setSchedulerEngineHelper(
 		SchedulerEngineHelper schedulerEngineHelper) {
 
