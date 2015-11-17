@@ -52,6 +52,8 @@ public class CompanyThreadLocal {
 		}
 
 		if (companyId > 0) {
+			_companyId.set(companyId);
+
 			try {
 				Company company = CompanyLocalServiceUtil.getCompany(companyId);
 
@@ -61,8 +63,6 @@ public class CompanyThreadLocal {
 			catch (Exception e) {
 				_log.error(e, e);
 			}
-
-			_companyId.set(companyId);
 		}
 		else {
 			LocaleThreadLocal.setDefaultLocale(null);
