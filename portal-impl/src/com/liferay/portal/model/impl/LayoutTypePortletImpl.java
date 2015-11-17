@@ -14,6 +14,7 @@
 
 package com.liferay.portal.model.impl;
 
+import com.liferay.counter.service.CounterLocalServiceUtil;
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -43,6 +44,7 @@ import com.liferay.portal.model.Portlet;
 import com.liferay.portal.model.PortletConstants;
 import com.liferay.portal.model.PortletPreferences;
 import com.liferay.portal.model.PortletPreferencesIds;
+import com.liferay.portal.model.ResourcePermission;
 import com.liferay.portal.model.Theme;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.security.permission.PermissionChecker;
@@ -51,6 +53,7 @@ import com.liferay.portal.service.LayoutTemplateLocalServiceUtil;
 import com.liferay.portal.service.PluginSettingLocalServiceUtil;
 import com.liferay.portal.service.PortletLocalServiceUtil;
 import com.liferay.portal.service.PortletPreferencesLocalServiceUtil;
+import com.liferay.portal.service.ResourcePermissionLocalServiceUtil;
 import com.liferay.portal.service.permission.LayoutPermissionUtil;
 import com.liferay.portal.service.permission.PortletPermissionUtil;
 import com.liferay.portal.util.PortalUtil;
@@ -1394,6 +1397,37 @@ public class LayoutTypePortletImpl
 		}
 	}
 
+	protected void copyResourcePermissions(
+			String sourcePortletId, String targetPortletId)
+		throws SystemException {
+
+		Layout layout = getLayout();
+
+		Portlet portlet = PortletLocalServiceUtil.getPortletById(
+			getCompanyId(), sourcePortletId);
+
+		String sourcePortletPrimaryKey = PortletPermissionUtil.getPrimaryKey(
+			layout.getPlid(), sourcePortletId);
+
+		List<ResourcePermission> resourcePermissions =
+			ResourcePermissionLocalServiceUtil.getResourcePermissions(
+				portlet.getCompanyId(), portlet.getPortletName(),
+				PortletKeys.PREFS_OWNER_TYPE_USER, sourcePortletPrimaryKey);
+
+		for (ResourcePermission resourcePermission : resourcePermissions) {
+			String targetPortletPrimaryKey =
+				PortletPermissionUtil.getPrimaryKey(
+					layout.getPlid(), targetPortletId);
+
+			resourcePermission.setResourcePermissionId(
+				CounterLocalServiceUtil.increment());
+			resourcePermission.setPrimKey(targetPortletPrimaryKey);
+
+			ResourcePermissionLocalServiceUtil.addResourcePermission(
+				resourcePermission);
+		}
+	}
+
 	protected String getColumn(String portletId) {
 		String portletIdColumnId = StringPool.BLANK;
 
@@ -1680,6 +1714,13 @@ public class LayoutTypePortletImpl
 
 		for (String portletId : portletIds) {
 			try {
+				if (!PortletPermissionUtil.contains(
+						permissionChecker, getLayout(), portletId,
+						ActionKeys.VIEW, true)) {
+
+					continue;
+				}
+
 				String rootPortletId = PortletConstants.getRootPortletId(
 					portletId);
 
@@ -1723,6 +1764,13 @@ public class LayoutTypePortletImpl
 
 				copyPreferences(
 					_portalPreferences.getUserId(), portletId, newPortletId);
+
+				try {
+					copyResourcePermissions(portletId, newPortletId);
+				}
+				catch (SystemException se) {
+					_log.error(se, se);
+				}
 			}
 			else {
 				newPortletId = portletId;
