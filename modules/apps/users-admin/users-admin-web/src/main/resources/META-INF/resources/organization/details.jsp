@@ -125,7 +125,7 @@ User selUser = (User)request.getAttribute("user.selUser");
 				long logoId = organization.getLogoId();
 				%>
 
-				<liferay-ui:logo-selector
+				<liferay-frontend:logo-selector
 					currentLogoURL='<%= themeDisplay.getPathImage() + "/organization_logo?img_id=" + logoId + "&t=" + WebServerServletTokenUtil.getToken(logoId) %>'
 					defaultLogo="<%= logoId == 0 %>"
 					defaultLogoURL='<%= themeDisplay.getPathImage() + "/organization_logo?img_id=0" %>'
