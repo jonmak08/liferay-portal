@@ -189,6 +189,7 @@ String eventName = "_" + HtmlUtil.escapeJS(portletResource) + "_selectAsset";
 <aui:script use="aui-base">
 	function selectAsset(assetEntryId, assetClassName, assetType, assetEntryTitle, groupName) {
 		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = 'add-selection';
+		document.<portlet:namespace />fm.<portlet:namespace />redirect.value = '<%= HtmlUtil.escapeJS(currentURL) %>';
 		document.<portlet:namespace />fm.<portlet:namespace />assetEntryId.value = assetEntryId;
 		document.<portlet:namespace />fm.<portlet:namespace />assetEntryType.value = assetClassName;
 
