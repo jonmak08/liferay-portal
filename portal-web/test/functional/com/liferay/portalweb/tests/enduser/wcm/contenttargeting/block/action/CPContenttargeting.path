@@ -20,12 +20,12 @@
 </tr>
 <tr>
 	<td>ADD_USER_SEGMENT_BUTTON</td>
-	<td>//ul[@aria-label='Audience Targeting']/li/a[contains(.,'Add User Segment')]</td>
+	<td>//a[@title='Add User Segment']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ADD_CAMPAIGN_BUTTON</td>
-	<td>//ul[@aria-label='Audience Targeting']/li/a[contains(.,'Add Campaign')]</td>
+	<td>//a[@title='Add Campaign']</td>
 	<td></td>
 </tr>
 <tr>
