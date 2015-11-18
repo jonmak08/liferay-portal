@@ -47,6 +47,8 @@ public interface ClusterExecutor {
 
 	public List<Address> getClusterNodeAddresses();
 
+	public Address getCoordinatorAddress();
+
 	public List<ClusterNode> getClusterNodes();
 
 	public ClusterNode getLocalClusterNode() throws SystemException;

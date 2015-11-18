@@ -77,6 +77,10 @@ public class ClusterExecutorImpl
 	public static final String CLUSTER_EXECUTOR_CALLBACK_THREAD_POOL =
 		"CLUSTER_EXECUTOR_CALLBACK_THREAD_POOL";
 
+	public Address getCoordinatorAddress() {
+		return new AddressImpl(_baseReceiver.getCoordinator());
+	}
+
 	@Override
 	public void addClusterEventListener(
 		ClusterEventListener clusterEventListener) {
@@ -276,10 +280,7 @@ public class ClusterExecutorImpl
 			_log.error("Unable to determine local network address", e);
 		}
 
-		ClusterRequestReceiver clusterRequestReceiver =
-			(ClusterRequestReceiver)_controlJChannel.getReceiver();
-
-		clusterRequestReceiver.openLatch();
+		_baseReceiver.openLatch();
 	}
 
 	@Override
@@ -435,11 +436,10 @@ public class ClusterExecutorImpl
 					"\"");
 		}
 
-		ClusterRequestReceiver clusterRequestReceiver =
-			new ClusterRequestReceiver(this);
+		_baseReceiver = new ClusterRequestReceiver(this);
 
 		_controlJChannel = createJChannel(
-			controlProperty, clusterRequestReceiver, channelName);
+			controlProperty, _baseReceiver, channelName);
 	}
 
 	protected void initLocalClusterNode() throws Exception {
@@ -630,6 +630,7 @@ public class ClusterExecutorImpl
 	private Address _localAddress;
 	private ClusterNode _localClusterNode;
 	private boolean _shortcutLocalMethod;
+	private BaseReceiver _baseReceiver;
 
 	private class ClusterResponseCallbackJob implements Runnable {
 
