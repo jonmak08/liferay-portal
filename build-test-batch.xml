@@ -768,6 +768,7 @@
 		<attribute default="" name="test.plugin.zip.url" />
 		<attribute default="" name="test.portal.bundle.zip.url" />
 		<attribute default="false" name="test.release.bundle" />
+		<attribute default="" name="test.sql.zip.url" />
 		<attribute default="false" name="tomcat.gc.log" />
 		<attribute default="false" name="tsant.gc.log" />
 
@@ -791,8 +792,6 @@
 				</test-action>
 
 				<test-set-up>
-					<antcall target="start" />
-
 					<if>
 						<equals arg1="@{test.release.bundle}" arg2="true" />
 						<then>
@@ -807,8 +806,14 @@
 							<antcall target="deploy-license-xml">
 								<param name="test.build.license.xml.zip.url" value="@{test.license.xml.url}" />
 							</antcall>
+
+							<antcall target="deploy-sql-zip">
+								<param name="test.sql.zip.url" value="@{test.sql.zip.url}" />
+							</antcall>
 						</then>
 						<else>
+							<antcall target="start" />
+
 							<ant antfile="build-dist.xml" target="build-dist-${app.server.type}" />
 						</else>
 					</if>
@@ -954,6 +959,7 @@
 			test.plugin.zip.url="${test.plugin.zip.url}"
 			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
 			test.release.bundle="true"
+			test.sql.zip.url="${test.sql.zip.url}"
 		/>
 	</target>
 
@@ -965,6 +971,7 @@
 			test.plugin.zip.url="${test.plugin.zip.url}"
 			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
 			test.release.bundle="true"
+			test.sql.zip.url="${test.sql.zip.url}"
 		/>
 	</target>
 
@@ -978,6 +985,7 @@
 			test.plugin.zip.url="${test.plugin.zip.url}"
 			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
 			test.release.bundle="true"
+			test.sql.zip.url="${test.sql.zip.url}"
 		/>
 	</target>
 
@@ -1027,6 +1035,7 @@
 			test.license.xml.url="${test.license.xml.url}"
 			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
 			test.release.bundle="true"
+			test.sql.zip.url="${test.sql.zip.url}"
 		/>
 	</target>
 
