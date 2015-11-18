@@ -15,6 +15,8 @@
 package com.liferay.portal.cluster;
 
 import com.liferay.portal.kernel.cluster.Address;
+import com.liferay.portal.kernel.cluster.ClusterEvent;
+import com.liferay.portal.kernel.cluster.ClusterEventType;
 import com.liferay.portal.kernel.cluster.ClusterException;
 import com.liferay.portal.kernel.cluster.ClusterInvokeThreadLocal;
 import com.liferay.portal.kernel.cluster.ClusterMessageType;
@@ -90,6 +92,12 @@ public class ClusterRequestReceiver extends BaseReceiver {
 		if (!departAddresses.isEmpty()) {
 			_clusterExecutorImpl.memberRemoved(departAddresses);
 		}
+	}
+
+	@Override
+	protected void doCoordinatorUpdated(org.jgroups.Address coordinator) {
+		_clusterExecutorImpl.fireClusterEvent(
+			new ClusterEvent(ClusterEventType.COORDINATOR_UPDATE));
 	}
 
 	protected List<Address> getDepartAddresses(View oldView, View newView) {
