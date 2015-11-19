@@ -49,7 +49,7 @@ boolean showAssetCount = dataJSONObject.getBoolean("showAssetCount", true);
 
 			Group group = GroupLocalServiceUtil.fetchGroup(curGroupId);
 
-			if ((group == null) || ((GroupConstants.TYPE_SITE_PRIVATE == group.getType()) && !permissionChecker.isGroupMember(curGroupId))) {
+			if ((group == null) || ((group.getType() == GroupConstants.TYPE_SITE_PRIVATE) && !permissionChecker.isGroupMember(curGroupId))) {
 				continue;
 			}
 		%>
