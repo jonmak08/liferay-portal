@@ -29,8 +29,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses(
 	{
-		DDMStructureImplTest.class, DDMXMLImplTest.class, DDMXSDImplTest.class,
-		DDMImplTest.class
+		DDMImplTest.class, DDMStructureImplTest.class, DDMXMLImplTest.class,
+		DDMXSDImplTest.class		
 	})
 public class DDMTestSuite {
 }
