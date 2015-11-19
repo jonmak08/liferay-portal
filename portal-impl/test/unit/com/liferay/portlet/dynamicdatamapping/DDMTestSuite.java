@@ -30,7 +30,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses(
 	{
 		DDMImplTest.class, DDMStructureImplTest.class, DDMXMLImplTest.class,
-		DDMXSDImplTest.class		
+		DDMXSDImplTest.class
 	})
 public class DDMTestSuite {
 }
