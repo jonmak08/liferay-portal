@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.DateUtil;
 import com.liferay.portal.kernel.util.FileUtil;
+import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StreamUtil;
@@ -54,6 +55,7 @@ import org.jets3t.service.model.S3Bucket;
 import org.jets3t.service.model.S3Object;
 import org.jets3t.service.model.StorageObject;
 import org.jets3t.service.security.AWSCredentials;
+import org.jets3t.service.utils.MultipartUtils;
 
 /**
  * @author Brian Wing Shun Chan
@@ -85,20 +87,25 @@ public class S3Store extends BaseStore {
 		throws SystemException {
 
 		try {
-			S3Object s3Object = new S3Object(
-				_s3Bucket,
-				getKey(companyId, repositoryId, fileName, VERSION_DEFAULT));
+			File file = FileUtil.createTempFile(is);
 
-			s3Object.setDataInputStream(is);
-
-			_s3Service.putObject(_s3Bucket, s3Object);
+			addFile(companyId, repositoryId, fileName, file);
 		}
-		catch (S3ServiceException s3se) {
-			throw new SystemException(s3se);
+		catch (java.io.IOException ioe) {
+			throw new SystemException(ioe);
 		}
 		finally {
 			StreamUtil.cleanUp(is);
 		}
+	}
+
+	@Override
+	public void addFile(
+			long companyId, long repositoryId, String fileName, File file)
+		throws SystemException {
+
+		putObject(
+			getKey(companyId, repositoryId, fileName, VERSION_DEFAULT), file);
 	}
 
 	@Override
@@ -332,11 +339,8 @@ public class S3Store extends BaseStore {
 
 				String newKey = newPrefix + oldKey.substring(x);
 
-				newS3Object = new S3Object(_s3Bucket, newKey);
+				putObject(newKey, tempFile);
 
-				newS3Object.setDataInputStream(is);
-
-				_s3Service.putObject(_s3Bucket, newS3Object);
 				_s3Service.deleteObject(_s3Bucket, oldKey);
 			}
 		}
@@ -392,11 +396,8 @@ public class S3Store extends BaseStore {
 
 				String newKey = newPrefix + oldKey.substring(x);
 
-				newS3Object = new S3Object(_s3Bucket, newKey);
+				putObject(newKey, tempFile);
 
-				newS3Object.setDataInputStream(is);
-
-				_s3Service.putObject(_s3Bucket, newS3Object);
 				_s3Service.deleteObject(_s3Bucket, oldKey);
 			}
 		}
@@ -420,20 +421,26 @@ public class S3Store extends BaseStore {
 		throws SystemException {
 
 		try {
-			S3Object s3Object = new S3Object(
-				_s3Bucket,
-				getKey(companyId, repositoryId, fileName, versionLabel));
+			File file = FileUtil.createTempFile(is);
 
-			s3Object.setDataInputStream(is);
-
-			_s3Service.putObject(_s3Bucket, s3Object);
+			updateFile(companyId, repositoryId, fileName, versionLabel, file);
 		}
-		catch (S3ServiceException s3se) {
-			throw new SystemException(s3se);
+		catch (Exception e) {
+			throw new SystemException(e);
 		}
 		finally {
 			StreamUtil.cleanUp(is);
 		}
+	}
+
+	@Override
+	public void updateFile(
+			long companyId, long repositoryId, String fileName,
+			String versionLabel, File file)
+		throws PortalException, SystemException {
+
+		putObject(
+			getKey(companyId, repositoryId, fileName, versionLabel), file);
 	}
 
 	protected void cleanUpTempFiles() {
@@ -680,11 +687,35 @@ public class S3Store extends BaseStore {
 		return tempFile;
 	}
 
+	protected void putObject(String key, File file) throws SystemException {
+		try {
+			S3Object s3Object = new S3Object(file);
+
+			s3Object.setKey(key);
+			s3Object.setBucketName(_BUCKET_NAME);
+
+			List objectsToUploadAsMultipart = new ArrayList<S3Object>();
+
+			objectsToUploadAsMultipart.add(s3Object);
+
+			MultipartUtils multipartUtils = new MultipartUtils(_PART_SIZE);
+
+			multipartUtils.uploadObjects(
+				_BUCKET_NAME, _s3Service, objectsToUploadAsMultipart, null);
+		}
+		catch (Exception e) {
+			throw new SystemException(e);
+		}
+	}
+
 	private static final String _ACCESS_KEY = PropsUtil.get(
 		PropsKeys.DL_STORE_S3_ACCESS_KEY);
 
 	private static final String _BUCKET_NAME = PropsUtil.get(
 		PropsKeys.DL_STORE_S3_BUCKET_NAME);
+
+	private static final long _PART_SIZE = GetterUtil.getLong(
+		PropsUtil.get(PropsKeys.DL_STORE_S3_PART_SIZE), 20971520);
 
 	private static final String _SECRET_KEY = PropsUtil.get(
 		PropsKeys.DL_STORE_S3_SECRET_KEY);
