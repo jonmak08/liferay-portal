@@ -23,18 +23,19 @@ boolean incomplete = ParamUtil.getBoolean(request, "incomplete", true);
 
 String treeLoading = PortalUtil.generateRandomKey(request, "treeLoading");
 
-String treeId = ParamUtil.getString(request, "treeId");
-boolean checkContentDisplayPage = ParamUtil.getBoolean(request, "checkContentDisplayPage", false);
-boolean defaultStateChecked = ParamUtil.getBoolean(request, "defaultStateChecked", false);
-boolean draggableTree = ParamUtil.getBoolean(request, "draggableTree", true);
-boolean expandFirstNode = ParamUtil.getBoolean(request, "expandFirstNode", true);
-boolean saveState = ParamUtil.getBoolean(request, "saveState", true);
-boolean selectableTree = ParamUtil.getBoolean(request, "selectableTree");
-long treeGroupId = ParamUtil.getLong(request, "groupId", 0);
+long treeGroupId = ParamUtil.getLong(request, "groupId");
 
 if (treeGroupId > 0) {
 	groupId = treeGroupId;
 }
+
+String treeId = ParamUtil.getString(request, "treeId");
+boolean checkContentDisplayPage = ParamUtil.getBoolean(request, "checkContentDisplayPage");
+boolean defaultStateChecked = ParamUtil.getBoolean(request, "defaultStateChecked");
+boolean draggableTree = ParamUtil.getBoolean(request, "draggableTree", true);
+boolean expandFirstNode = ParamUtil.getBoolean(request, "expandFirstNode", true);
+boolean saveState = ParamUtil.getBoolean(request, "saveState", true);
+boolean selectableTree = ParamUtil.getBoolean(request, "selectableTree");
 
 String modules = "aui-io-request,aui-tree-view,dataschema-xml,datatype-xml,liferay-store";
 
