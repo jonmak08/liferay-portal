@@ -2213,6 +2213,18 @@
 				</licenses>
 			</library>
 			<library>
+				<file-name>lib/portal/java-xmlbuilder-1.1.jar</file-name>
+				<version>1.1</version>
+				<project-name>XML Builder</project-name>
+				<project-url>https://github.com/jmurty/java-xmlbuilder</project-url>
+				<licenses>
+					<license>
+						<license-name>Apache License 2.0</license-name>
+						<license-url>http://www.apache.org/licenses/LICENSE-2.0</license-url>
+					</license>
+				</licenses>
+			</library>
+			<library>
 				<file-name>lib/portal/javassist.jar</file-name>
 				<version>3.15.0</version>
 				<project-name>Javassist</project-name>
