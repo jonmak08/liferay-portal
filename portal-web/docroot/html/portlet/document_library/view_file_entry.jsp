@@ -218,7 +218,7 @@ request.setAttribute("view_file_entry.jsp-fileEntry", fileEntry);
 							</span>
 						</c:if>
 
-						<c:if test="<%= enableRelatedAssets && fileEntry.isSupportsSocial() %>">
+						<c:if test="<%= (layoutAssetEntry != null) && enableRelatedAssets && fileEntry.isSupportsSocial() %>">
 							<div class="entry-links">
 								<liferay-ui:asset-links
 									assetEntryId="<%= layoutAssetEntry.getEntryId() %>"
