@@ -1791,6 +1791,7 @@ module.framework.base.dir=${liferay.home}/osgi]]></echo>
 				</then>
 				<elseif>
 					<or>
+						<equals arg1="@{liferay.portal.bundle}" arg2="6.2.1" />
 						<equals arg1="@{liferay.portal.bundle}" arg2="6.2.2" />
 						<equals arg1="@{liferay.portal.bundle}" arg2="6.2.3" />
 						<equals arg1="@{liferay.portal.bundle}" arg2="6.2.10.1" />
