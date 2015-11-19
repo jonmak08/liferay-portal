@@ -761,6 +761,7 @@
 	<command name="removeParentArticleCP">
 		<execute function="SelectFrame" locator1="CPKnowledgebaseadminSelectParent#SELECT_PARENT_IFRAME" />
 		<execute function="Click" locator1="CPKnowledgebaseadminSelectParent#REMOVE_BUTTON" />
+		<execute function="SelectFrame" value1="relative=top" />
 
 		<execute function="AssertTextEquals" locator1="CPKnowledgebaseadminMoveArticle#NEW_PARENT_TITLE_FIELD" value1="" />
 		<execute function="Click" locator1="CPKnowledgebaseadminMoveArticle#MOVE_BUTTON" />
