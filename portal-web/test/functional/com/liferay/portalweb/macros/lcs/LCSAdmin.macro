@@ -1,0 +1,124 @@
+<definition>
+	<command name="filterUptimesByCurrentMonth">
+		<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_PROJECT_SELECT" value1="${projectName} - ${projectCreatorEmailAddress}" />
+		<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_ENVIRONMENT_SELECT" value1="${environmentName}" />
+		<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_NODE_SELECT" value1="${serverName}" />
+
+		<var method="selenium#getCurrentMonth()" name="monthValue" />
+
+		<var method="MathUtil#difference('${monthValue}', '1')" name="monthOptionValue" />
+
+		<if>
+			<equals arg1="${monthOptionValue}" arg2="0" />
+			<then>
+				<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_MONTH_SELECT" value1="January" />
+			</then>
+			<elseif>
+				<equals arg1="${monthOptionValue}" arg2="1" />
+				<then>
+					<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_MONTH_SELECT" value1="February" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${monthOptionValue}" arg2="2" />
+				<then>
+					<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_MONTH_SELECT" value1="March" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${monthOptionValue}" arg2="3" />
+				<then>
+					<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_MONTH_SELECT" value1="April" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${monthOptionValue}" arg2="4" />
+				<then>
+					<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_MONTH_SELECT" value1="May" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${monthOptionValue}" arg2="5" />
+				<then>
+					<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_MONTH_SELECT" value1="June" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${monthOptionValue}" arg2="6" />
+				<then>
+					<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_MONTH_SELECT" value1="July" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${monthOptionValue}" arg2="7" />
+				<then>
+					<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_MONTH_SELECT" value1="August" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${monthOptionValue}" arg2="8" />
+				<then>
+					<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_MONTH_SELECT" value1="September" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${monthOptionValue}" arg2="9" />
+				<then>
+					<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_MONTH_SELECT" value1="October" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${monthOptionValue}" arg2="10" />
+				<then>
+					<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_MONTH_SELECT" value1="November" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${monthOptionValue}" arg2="11" />
+				<then>
+					<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_MONTH_SELECT" value1="December" />
+				</then>
+			</elseif>
+		</if>
+
+		<var method="selenium#getCurrentYear()" name="yearValue" />
+
+		<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_YEAR_SELECT" value1="${yearValue}" />
+	</command>
+
+	<command name="filterUptimesViewCurrentMonthSelenium">
+		<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_PROJECT_SELECT" value1="${projectName} - ${projectCreatorEmailAddress}" />
+		<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_ENVIRONMENT_SELECT" value1="${environmentName}" />
+		<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_NODE_SELECT" value1="${serverName}" />
+
+		<var method="selenium#getCurrentMonth()" name="monthValue" />
+
+		<var method="MathUtil#difference('${monthValue}', '1')" name="monthOptionValue" />
+
+		<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_MONTH_SELECT" value1="value=${monthOptionValue}" />
+
+		<var method="selenium#getCurrentYear()" name="yearValue" />
+
+		<execute function="Select" locator1="LCSAdmin#UPTIMES_FILTER_YEAR_SELECT" value1="${yearValue}" />
+	</command>
+
+	<command name="viewNoUptimes">
+		<execute function="AssertTextEquals" locator1="LCSAdmin#ALERT_INFO" value1="There are no uptimes." />
+	</command>
+
+	<command name="viewUptime">
+		<var name="key_row" value="${uptimesRow}" />
+
+		<execute function="AssertTextEquals" locator1="LCSAdmin#UPTIMES_RESULT_PROJECT" value1="${projectName}" />
+		<execute function="AssertTextEquals" locator1="LCSAdmin#UPTIMES_RESULT_ENVIRONMENT" value1="${environmentName}" />
+		<execute function="AssertTextEquals" locator1="LCSAdmin#UPTIMES_RESULT_SERVER" value1="${serverName}" />
+	</command>
+
+	<command name="viewUptimeRowEmpty">
+		<var name="key_row" value="${uptimesRow}" />
+
+		<execute function="AssertNotVisible" locator1="LCSAdmin#UPTIMES_RESULT_PROJECT" value1="${projectName}" />
+		<execute function="AssertNotVisible" locator1="LCSAdmin#UPTIMES_RESULT_ENVIRONMENT" value1="${environmentName}" />
+		<execute function="AssertNotVisible" locator1="LCSAdmin#UPTIMES_RESULT_SERVER" value1="${serverName}" />
+	</command>
+</definition>

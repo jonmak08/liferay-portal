@@ -1,0 +1,108 @@
+<definition component-name="liferay-connected-services-project-administration">
+	<property name="portlet.plugins.includes" value="lcs-portlet" />
+	<property name="testray.main.component.name" value="Liferay Connected Services" />
+
+	<set-up>
+		<execute macro="User#firstLoginPG" />
+	</set-up>
+
+	<command name="ViewUptimes" priority="5">
+		<execute macro="LCSServerRegistration#connectToLCSPortal">
+			<var name="addEnvironment" value="true" />
+			<var name="environmentDescription" value="Environment 1 Description" />
+			<var name="environmentLocation" value="Environment 1 Location" />
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var method="TestPropsUtil#get('lcs.email.address.1')" name="userEmailAddress" />
+			<var method="TestPropsUtil#get('lcs.email.password.1')" name="userEmailPassword" />
+		</execute>
+
+		<execute macro="LCSServerNavigator#gotoServerOverview">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSServer#viewServerDetails">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="serverDescription" value="Environment 1 Server 1 Description" />
+			<var name="serverLocation" value="Environment 1 Server 1 Location" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="LCS Admin" />
+			<var name="virtualHostsURL" property-value="osb.lcs.portlet.host.name" />
+		</execute>
+
+		<execute macro="LCSAdminNavigator#gotoTab">
+			<var name="tabName" value="Uptimes" />
+		</execute>
+
+		<execute macro="LCSAdmin#viewNoUptimes" />
+
+		<execute macro="LCSAdmin#filterUptimesByCurrentMonth">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var method="TestPropsUtil#get('lcs.email.address.1')" name="projectCreatorEmailAddress" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAdmin#viewUptime">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="uptimesRow" value="1" />
+		</execute>
+
+		<execute macro="LCSAdmin#viewUptimeRowEmpty">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="uptimesRow" value="2" />
+		</execute>
+
+		<execute macro="Portlet#shutdownServer" />
+
+		<execute macro="Portlet#startServer" />
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="LCS Admin" />
+			<var name="virtualHostsURL" property-value="osb.lcs.portlet.host.name" />
+		</execute>
+
+		<execute macro="LCSAdminNavigator#gotoTab">
+			<var name="tabName" value="Uptimes" />
+		</execute>
+
+		<execute macro="LCSAdmin#filterUptimesByCurrentMonth">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var method="TestPropsUtil#get('lcs.email.address.1')" name="projectCreatorEmailAddress" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+		</execute>
+
+		<execute macro="LCSAdmin#viewUptime">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="uptimesRow" value="1" />
+		</execute>
+
+		<execute macro="LCSAdmin#viewUptime">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="uptimesRow" value="2" />
+		</execute>
+
+		<execute macro="LCSAdmin#viewUptimeRowEmpty">
+			<var name="environmentName" value="Environment 1 Name" />
+			<var name="projectName" value="Liferay QA" />
+			<var name="serverName" value="Environment 1 Server 1 Name" />
+			<var name="uptimesRow" value="3" />
+		</execute>
+	</command>
+</definition>
