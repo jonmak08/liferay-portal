@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>LCSAdmin</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">LCSAdmin</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>ALERT_INFO</td>
+	<td>//div[@class='alert alert-info']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>UPTIMES_FILTER_PROJECT_SELECT</td>
+	<td>//div[@class='row-fluid ']/div[@class='column ' and contains(.,'Project')]//select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>UPTIMES_FILTER_ENVIRONMENT_SELECT</td>
+	<td>//div[@class='row-fluid ']/div[@class='column ' and contains(.,'Environment')]//select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>UPTIMES_FILTER_NODE_SELECT</td>
+	<td>//div[@class='row-fluid ']/div[@class='column ' and contains(.,'Node')]//select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>UPTIMES_FILTER_MONTH_SELECT</td>
+	<td>//div[@class='row-fluid ']/div[@class='column ' and contains(.,'Month')]//select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>UPTIMES_FILTER_YEAR_SELECT</td>
+	<td>//div[@class='row-fluid ']/div[@class='column ' and contains(.,'Year')]//select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>UPTIMES_RESULT_PROJECT</td>
+	<td>//div[@class='lfr-search-container ']//tr[${key_row}]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>UPTIMES_RESULT_ENVIRONMENT</td>
+	<td>//div[@class='lfr-search-container ']//tr[${key_row}]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>UPTIMES_RESULT_SERVER</td>
+	<td>//div[@class='lfr-search-container ']//tr[${key_row}]/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
