@@ -40,11 +40,19 @@ public class ValidatorTagImpl
 	public ValidatorTagImpl(
 		String name, String errorMessage, String body, boolean custom) {
 
+		this(name, errorMessage, body, custom, true);
+	}
+
+	public ValidatorTagImpl(
+		String name, String errorMessage, String body, boolean custom,
+		boolean customValidatorRequired) {
+
 		setName(name);
 		setErrorMessage(errorMessage);
 
 		_body = body;
 		_custom = custom;
+		_customValidatorRequired = customValidatorRequired;
 	}
 
 	@Override
@@ -53,6 +61,7 @@ public class ValidatorTagImpl
 
 		_body = null;
 		_custom = false;
+		_customValidatorRequired = true;
 	}
 
 	@Override
@@ -94,7 +103,7 @@ public class ValidatorTagImpl
 		}
 
 		ValidatorTag validatorTag = new ValidatorTagImpl(
-			name, getErrorMessage(), _body, _custom);
+			name, getErrorMessage(), _body, _custom, _customValidatorRequired);
 
 		baseValidatorTagSupport.addValidatorTag(name, validatorTag);
 
@@ -126,11 +135,21 @@ public class ValidatorTagImpl
 		return _custom;
 	}
 
+	@Override
+	public boolean isCustomValidatorRequired() {
+		return _customValidatorRequired;
+	}
+
+	public void setCustomValidatorRequired(boolean customValidatorRequired) {
+		_customValidatorRequired = customValidatorRequired;
+	}
+
 	public void setBody(String body) {
 		_body = body;
 	}
 
 	private String _body;
 	private boolean _custom;
+	private boolean _customValidatorRequired = true;
 
 }

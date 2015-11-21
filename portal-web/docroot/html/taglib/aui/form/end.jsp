@@ -47,6 +47,7 @@
 							{
 								body: <%= validatorTag.getBody() %>,
 								custom: <%= validatorTag.isCustom() %>,
+								customValidatorRequired: <%= validatorTag.isCustomValidatorRequired() %>,
 								errorMessage: '<%= UnicodeLanguageUtil.get(request, validatorTag.getErrorMessage()) %>',
 								fieldName: '<%= namespace + HtmlUtil.escapeJS(fieldName) %>',
 								validatorName: '<%= validatorTag.getName() %>'
