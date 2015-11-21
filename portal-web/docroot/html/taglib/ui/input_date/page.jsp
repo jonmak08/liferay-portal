@@ -83,6 +83,7 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 						return AUI().use('aui-datatype-date-parse').Parsers.date('<%= mask %>', val);
 					}
 				</aui:validator>
+				<aui:validator name="requireValidation" />
 			</aui:input>
 		</c:otherwise>
 	</c:choose>

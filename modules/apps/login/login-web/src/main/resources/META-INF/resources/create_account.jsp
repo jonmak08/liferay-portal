@@ -147,6 +147,7 @@ birthdayCalendar.set(Calendar.YEAR, 1970);
 						<aui:validator errorMessage="<%= screenNameValidator.getDescription(locale) %>" name="custom">
 							<%= screenNameValidator.getAUIValidatorJS() %>
 						</aui:validator>
+						<aui:validator name="requireValidation" />
 					</c:if>
 				</aui:input>
 			</c:if>

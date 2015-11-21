@@ -326,6 +326,7 @@ if (portletTitleBasedNavigation) {
 						return ((val != '') || A.one('#<portlet:namespace />file').val() != '');
 					}
 				</aui:validator>
+				<aui:validator name="requireValidation" />
 			</aui:input>
 
 			<c:if test="<%= (folder == null) || folder.isSupportsMetadata() %>">
