@@ -228,8 +228,12 @@
 
 	<command name="viewMessageList">
 		<if>
-			<isset var="partialMessageBody" />
-
+			<and>
+				<isset var="partialMessageBody" />
+				<not>
+					<contains string="${partialMessageBody}" substring="{partialMessageBody}" />
+				</not>
+			</and>
 			<then>
 				<var name="key_messageBody" value="${partialMessageBody}" />
 			</then>

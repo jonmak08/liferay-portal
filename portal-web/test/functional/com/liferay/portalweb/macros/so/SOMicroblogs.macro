@@ -52,6 +52,7 @@
 			<then>
 				<execute macro="SOMicroblogs#displayMicroblogsCommentTextFieldCmd">
 					<var name="commentCount" value="${commentCount}" />
+					<var name="microblogsEntryContent" value="${microblogsEntryContent}" />
 				</execute>
 
 				<execute function="Click" locator1="SOMicroblogs#MICROBLOGS_ENTRY_COMMENT_CONTENT_FIELD" />
@@ -75,6 +76,7 @@
 			<else>
 				<execute macro="SOMicroblogs#displayMicroblogsCommentTextFieldCmd">
 					<var name="commentCount" value="${commentCount}" />
+					<var name="microblogsEntryContent" value="${microblogsEntryContent}" />
 				</execute>
 
 				<execute function="Click" locator1="SOMicroblogs#MICROBLOGS_CONTENT_FIELD" />
@@ -106,6 +108,7 @@
 
 		<execute macro="SOMicroblogs#displayMicroblogsCommentTextFieldCmd">
 			<var name="commentCount" value="${commentCount}" />
+			<var name="microblogsEntryContent" value="${microblogsEntryContent}" />
 		</execute>
 
 		<if>
@@ -172,6 +175,7 @@
 
 		<execute macro="SOMicroblogs#displayMicroblogsCommentTextFieldCmd">
 			<var name="commentCount" value="${commentCount}" />
+			<var name="microblogsEntryContent" value="${microblogsEntryContent}" />
 		</execute>
 
 		<execute function="Click" locator1="SOMicroblogsProfile#MICROBLOGS_ENTRY_COMMENT_CONTENT_FIELD" />
@@ -419,6 +423,8 @@
 	</command>
 
 	<command name="displayMicroblogsCommentTextFieldCmd">
+		<var name="key_microblogsEntryContent" value="${microblogsEntryContent}" />
+
 		<if>
 			<not>
 				<contains string="${commentCount}" substring="{commentCount}" />

@@ -287,6 +287,8 @@
 
 		<execute macro="Site#assignRoleCP">
 			<var name="roleName" value="${roleName}" />
+			<var name="userFirstName" value="${userFirstName}" />
+			<var name="userLastName" value="${userLastName}" />
 			<var name="userLoginEmailAddress" value="${adminEmailAddress}" />
 			<var name="userMiddleName" value="${userMiddleName}" />
 			<var name="userScreenName" value="${userScreenName}" />
@@ -636,6 +638,8 @@
 
 		<execute macro="Site#assignRoleCP">
 			<var name="roleName" value="${roleName}" />
+			<var name="userFirstName" value="${userFirstName}" />
+			<var name="userLastName" value="${userLastName}" />
 			<var name="userLoginEmailAddress" value="${adminEmailAddress}" />
 			<var name="userMiddleName" value="${userMiddleName}" />
 			<var name="userScreenName" value="${userScreenName}" />
@@ -986,6 +990,8 @@
 
 		<execute macro="Site#assignRoleCP">
 			<var name="roleName" value="${roleName}" />
+			<var name="userFirstName" value="${userFirstName}" />
+			<var name="userLastName" value="${userLastName}" />
 			<var name="userLoginEmailAddress" value="${adminEmailAddress}" />
 			<var name="userMiddleName" value="${userMiddleName}" />
 			<var name="userScreenName" value="${userScreenName}" />
@@ -1333,6 +1339,8 @@
 
 		<execute macro="Site#assignRoleCP">
 			<var name="roleName" value="${roleName}" />
+			<var name="userFirstName" value="${userFirstName}" />
+			<var name="userLastName" value="${userLastName}" />
 			<var name="userLoginEmailAddress" value="${adminEmailAddress}" />
 			<var name="userMiddleName" value="${userMiddleName}" />
 			<var name="userScreenName" value="${userScreenName}" />
@@ -2507,6 +2515,7 @@
 			<var name="pageName" value="Calendar" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
+			<var name="soPage" value="true" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -2906,6 +2915,7 @@
 			<var name="pageName" value="Calendar" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="true" />
+			<var name="soPage" value="true" />
 		</execute>
 
 		<execute macro="Page#gotoPG">

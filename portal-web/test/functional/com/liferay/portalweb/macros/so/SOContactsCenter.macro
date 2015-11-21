@@ -502,7 +502,14 @@
 
 		<execute function="Click" locator1="SODashboard#NAVIGATION_MESSAGES" />
 
-		<execute macro="SOMessages#viewMessageList" />
+		<execute macro="SOMessages#viewMessageList">
+			<var name="connectionName" value="${connectionName}" />
+			<var name="connectionNameList" value="${connectionNameList}" />
+			<var name="connectionUserDeleted" value="${connectionUserDeleted}" />
+			<var name="messageBody" value="${messageBody}" />
+			<var name="messageSubject" value="${messageSubject}" />
+			<var name="partialMessageBody" value="${partialMessageBody}" />
+		</execute>
 	</command>
 
 	<command name="tearDownContacts">

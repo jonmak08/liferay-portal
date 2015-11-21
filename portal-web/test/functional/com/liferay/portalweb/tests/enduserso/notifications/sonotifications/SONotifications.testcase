@@ -575,6 +575,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Microblogs" />
 			<var name="soDashboard" value="true" />
+			<var name="soPage" value="true" />
 		</execute>
 
 		<execute macro="SOMicroblogs#addMicroblogsEntry">
@@ -1931,6 +1932,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Contacts Center" />
 			<var name="soDashboard" value="true" />
+			<var name="soPage" value="true" />
 		</execute>
 
 		<execute function="Type#typePause" locator1="SOContactscenter#CONTACTS_LIST_SEARCH" value1="${userFirstName}" />
@@ -2343,7 +2345,7 @@
 		<execute function="Check" locator1="SOMessages#MESSAGE_CHECKBOX" />
 		<execute function="AssertClickNoError" locator1="SOMessages#DELETE_BUTTON" value1="Delete" />
 		<execute function="Confirm" value1="Are you sure you want to delete the selected messages?" />
-		<execute function="AssertTextEquals" locator1="SOMessages#INFO_MESSAGE" value1="No messages found." />
+		<execute function="AssertTextEquals" locator1="SOMessages#INFO_MESSAGE" value1="No messages were found." />
 
 		<execute macro="SOUserBar#gotoDashboardPG" />
 
@@ -2676,7 +2678,9 @@
 
 		<execute function="AssertTextEquals" locator1="SOUserBar#NOTIFICATION_MENU_COUNT" value1="1" />
 
-		<execute macro="SOMembersAdministration#viewIgnoreMemberInvite" />
+		<execute macro="SOMembersAdministration#viewIgnoreMemberInvite">
+			<var name="siteName" value="${siteName}" />
+		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="siteDescription" value="${siteDescription}" />
@@ -2691,7 +2695,11 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
-		<execute macro="SOMembersPortlet#viewNonMember" />
+		<execute macro="SOMembersPortlet#viewNonMember">
+			<var name="userEmailAddress" value="${userEmailAddress}" />
+			<var name="userFirstName" value="${userFirstName}" />
+			<var name="userLastName" value="${userLastName}" />
+		</execute>
 	</command>
 
 	<command name="ViewMessageAttachmentNotificationsMultipleUsers" priority="5">
@@ -2755,6 +2763,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Messages" />
 			<var name="soDashboard" value="true" />
+			<var name="soPage" value="true" />
 		</execute>
 
 		<execute macro="SOMessages#sendMessage">
@@ -2907,6 +2916,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Messages" />
 			<var name="soDashboard" value="true" />
+			<var name="soPage" value="true" />
 		</execute>
 
 		<execute macro="SOMessages#sendMessage">
@@ -4441,6 +4451,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Microblogs" />
 			<var name="soDashboard" value="true" />
+			<var name="soPage" value="true" />
 		</execute>
 
 		<execute macro="SOMicroblogs#addMicroblogsEntry">
@@ -5196,6 +5207,7 @@
 			<var name="changeLog" value="${changeLog}" />
 			<var name="dmDocumentDescriptionEdit" value="${dmDocumentDescriptionEdit}" />
 			<var name="dmDocumentFileEdit" value="${dmDocumentFileEdit}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit}" />
 			<var name="revision" value="Minor" />
 		</execute>
@@ -5921,7 +5933,9 @@
 
 		<execute macro="Page#gotoMyProfile" />
 
-		<execute macro="SOProfile#viewProfilePicture" />
+		<execute macro="SOProfile#viewProfilePicture">
+			<var name="userName" value="${userName}" />
+		</execute>
 
 		<execute function="SikuliAssertElementPresent" locator1="SOProfile#SCREENSHOTS_PROFILE_PICTURE_EDIT_PNG" />
 
@@ -5935,6 +5949,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Messages" />
 			<var name="soDashboard" value="true" />
+			<var name="soPage" value="true" />
 		</execute>
 
 		<execute macro="SOMessages#sendMessage">

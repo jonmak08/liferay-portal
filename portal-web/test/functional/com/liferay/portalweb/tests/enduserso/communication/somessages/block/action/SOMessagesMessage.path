@@ -136,7 +136,7 @@
 </tr>
 <tr>
 	<td>PRIVATE_MESSAGE_REPLY_BODY_FIELD</td>
-	<td>//textarea[@class='message-body']</td>
+	<td>//textarea[contains(@class,'message-body')]</td>
 	<td></td>
 </tr>
 <tr>
