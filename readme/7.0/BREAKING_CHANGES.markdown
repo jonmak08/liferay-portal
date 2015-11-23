@@ -2834,3 +2834,30 @@ method to generate the UI.
 
 This change was made as a part of the ongoing strategy to modularize Liferay
 Portal.
+
+---------------------------------------
+
+### The liferay-ui:logo-selector taglib has been deprecated and replaced with liferay-frontend:logo-selector taglib
+- **Date:** 2015-Nov-20
+- **JIRA Ticket:** LPS-60460
+
+#### What changed?
+
+The `liferay-ui:logo` taglib has been deprecated and replaced with
+`liferay-frontend:logo-selector` taglib.
+
+#### Who is affected?
+
+Plugins or templates that are using the `liferay-ui:logo-selector` tag need
+to update their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-frontend` tag library if it isn't already
+and update the tag namespace from `liferay-ui:logo-selector` to
+`liferay-frontend:logo-selector`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.
