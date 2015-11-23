@@ -2834,3 +2834,29 @@ method to generate the UI.
 
 This change was made as a part of the ongoing strategy to modularize Liferay
 Portal.
+
+---------------------------------------
+
+### The liferay-ui:toggle taglib has been deprecated and replaced with liferay-frontend:toggle taglib
+- **Date:** 2015-Nov-20
+- **JIRA Ticket:** LPS-60696
+
+#### What changed?
+
+The `liferay-ui:toggle` taglib has been deprecated and replaced with
+`liferay-frontend:toggle` taglib.
+
+#### Who is affected?
+
+Plugins or templates that are using the `liferay-ui:toggle` tag need
+to update their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-frontend` tag library if it isn't already and
+update the tag namespace from `liferay-ui:toggle` to `liferay-frontend:toggle`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.
