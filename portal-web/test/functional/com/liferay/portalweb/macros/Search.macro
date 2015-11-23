@@ -80,8 +80,17 @@
 
 		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
 
-		<execute function="AssertTextEquals" locator1="PGSearch#INCREMENTAL_SEARCH_SUGGESTION" value1="${kbArticleTitle}" />
-		<execute function="AssertClick" locator1="PGSearch#INCREMENTAL_SEARCH_SUGGESTION" value1="${kbArticleTitle}" />
+		<if>
+			<isset var="kbFolderName" />
+			<then>
+				<execute function="AssertTextEquals" locator1="PGSearch#INCREMENTAL_SEARCH_SUGGESTION" value1="${kbFolderName} > ${kbArticleTitle}" />
+				<execute function="AssertClick" locator1="PGSearch#INCREMENTAL_SEARCH_SUGGESTION" value1="${kbFolderName} > ${kbArticleTitle}" />
+			</then>
+			<else>
+				<execute function="AssertTextEquals" locator1="PGSearch#INCREMENTAL_SEARCH_SUGGESTION" value1="${kbArticleTitle}" />
+				<execute function="AssertClick" locator1="PGSearch#INCREMENTAL_SEARCH_SUGGESTION" value1="${kbArticleTitle}" />
+			</else>
+		</if>
 	</command>
 
 	<command name="viewSearchNoPG">
