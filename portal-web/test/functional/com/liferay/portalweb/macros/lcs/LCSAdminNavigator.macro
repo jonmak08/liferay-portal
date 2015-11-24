@@ -1,7 +1,0 @@
-<definition>
-	<command name="gotoTab">
-		<var name="key_tabName" value="${tabName}" />
-
-		<execute function="Click" locator1="LCSAdminNavigation#NAVIGATION_TAB" />
-	</command>
-</definition>
