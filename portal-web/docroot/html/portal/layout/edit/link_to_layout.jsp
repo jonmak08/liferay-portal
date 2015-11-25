@@ -27,7 +27,7 @@ if (selLayout != null) {
 }
 %>
 
-<aui:select label="link-to-layout" name="TypeSettingsProperties--linkToLayoutId--" showEmptyOption="<%= true %>">
+<aui:select label="link-to-layout" name="TypeSettingsProperties--linkToLayoutId--" showEmptyOption="<%= false %>">
 
 	<%
 	List layoutList = (List)request.getAttribute(WebKeys.LAYOUT_LISTER_LIST);
