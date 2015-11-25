@@ -36,12 +36,14 @@ import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 import com.liferay.portal.util.PortalImpl;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PropsImpl;
 import com.liferay.portal.uuid.PortalUUIDImpl;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.ArrayList;
@@ -358,12 +360,19 @@ public abstract class BaseClusterExecutorImplTestCase
 		clusterExecutorImpl.setShortcutLocalMethod(true);
 
 		if (useMockReceiver) {
+			MockClusterRequestReceiver mockClusterRequestReceiver =
+				new MockClusterRequestReceiver(clusterExecutorImpl);
+
 			Channel channel = clusterExecutorImpl.getControlChannel();
 
-			channel.setReceiver(
-				new MockClusterRequestReceiver(clusterExecutorImpl));
+			channel.setReceiver(mockClusterRequestReceiver);
 
 			clusterExecutorImpl.bindInetAddress = null;
+
+			Field field = ReflectionUtil.getDeclaredField(
+				ClusterExecutorImpl.class, "_baseReceiver");
+
+			field.set(clusterExecutorImpl, mockClusterRequestReceiver);
 		}
 
 		clusterExecutorImpl.initialize();

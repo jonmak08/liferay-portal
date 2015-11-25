@@ -1286,6 +1286,10 @@ public class ClusterSchedulerEngineTest {
 			return Collections.emptyList();
 		}
 
+		public Address getCoordinatorAddress() {
+			return null;
+		}
+
 		@Override
 		public ClusterNode getLocalClusterNode() {
 			return null;
