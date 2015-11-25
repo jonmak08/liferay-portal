@@ -550,6 +550,7 @@
 
 		<execute macro="Search#viewIncrementalSearchPG">
 			<var name="kbArticleTitle" value="Knowledge Base Article 2 Title" />
+			<var name="kbFolderName" value="KB Folder" />
 			<var name="searchTerm" value="Knowledge" />
 		</execute>
 
