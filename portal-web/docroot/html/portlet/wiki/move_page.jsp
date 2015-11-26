@@ -37,7 +37,7 @@ String newTitle = ParamUtil.get(request, "newTitle", StringPool.BLANK);
 	<portlet:param name="struts_action" value="/wiki/move_page" />
 </portlet:actionURL>
 
-<aui:form action="<%= movePageURL %>" method="post" name="fm" onSubmit='<%= "event.preventDefault(); " + renderResponse.getNamespace() + "changeParent();" %>'>
+<aui:form action="<%= movePageURL %>" method="post" name="fm" onSubmit='<%= "event.preventDefault();" + renderResponse.getNamespace() + "changeParent();" %>'>
 	<aui:input name="<%= Constants.CMD %>" type="hidden" />
 	<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
 	<aui:input name="nodeId" type="hidden" value="<%= node.getNodeId() %>" />
@@ -182,19 +182,19 @@ String newTitle = ParamUtil.get(request, "newTitle", StringPool.BLANK);
 
 <aui:script>
 	function <portlet:namespace />changeParent() {
-		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = "changeParent";
+		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = 'changeParent';
 
 		submitForm(document.<portlet:namespace />fm);
 	}
 
 	function <portlet:namespace />publishPage() {
-		document.<portlet:namespace />fm.<portlet:namespace />workflowAction.value = "<%= WorkflowConstants.ACTION_PUBLISH %>";
+		document.<portlet:namespace />fm.<portlet:namespace />workflowAction.value = '<%= WorkflowConstants.ACTION_PUBLISH %>';
 
 		<portlet:namespace />changeParent();
 	}
 
 	function <portlet:namespace />renamePage() {
-		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = "rename";
+		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = 'rename';
 
 		submitForm(document.<portlet:namespace />fm);
 	}
