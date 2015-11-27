@@ -436,7 +436,7 @@ public class AssetCategoryLocalServiceImpl
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 			AssetCategory.class);
 
-		indexer.reindex(toCategoryId);
+		indexer.reindex(AssetCategory.class.getName(), toCategoryId);
 
 		deleteCategory(fromCategoryId);
 	}
