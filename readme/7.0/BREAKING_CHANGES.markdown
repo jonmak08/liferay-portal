@@ -2918,3 +2918,30 @@ There is no need to change anything, since this functionality is no used.
 #### Why was this change made?
 
 This change was made as a part of the ongoing strategies to cleanup unused
+
+---------------------------------------
+
+### The liferay-ui:diff-version-comparator has been deprecated and replaced with liferay-frontend:diff-version-comparator
+- **Date:** 2015-Nov-24
+- **JIRA Ticket:** LPS-60718
+
+#### What changed?
+
+The `liferay-ui:diff-version-comparator` taglib has been deprecated and replaced
+with `liferay-frontend:diff-version-comparator` taglib.
+
+#### Who is affected?
+
+Plugins or templates that are using the `liferay-ui:diff-version-comparator` tag
+need to update their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-frontend` tag library if it isn't already
+and update the tag namespace from `liferay-ui:diff-version-comparator` to
+`liferay-frontend:diff-version-comparator`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.
