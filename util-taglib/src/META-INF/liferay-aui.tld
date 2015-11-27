@@ -2690,7 +2690,7 @@
 		<body-content>JSP</body-content>
 	</tag>
 	<tag>
-		<description><![CDATA[Creates a UI component for managing translation of associated content.]]></description>
+		<description><![CDATA[Deprecated as of 7.0, replaced by liferay-ddm:translation-manager.]]></description>
 		<name>translation-manager</name>
 		<tag-class>com.liferay.taglib.aui.TranslationManagerTag</tag-class>
 		<body-content>JSP</body-content>

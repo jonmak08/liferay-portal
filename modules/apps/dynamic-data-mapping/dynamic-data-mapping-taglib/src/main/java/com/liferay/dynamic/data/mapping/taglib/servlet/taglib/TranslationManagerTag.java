@@ -12,18 +12,15 @@
  * details.
  */
 
-package com.liferay.taglib.aui;
+package com.liferay.dynamic.data.mapping.taglib.servlet.taglib;
 
-import com.liferay.taglib.aui.base.BaseTranslationManagerTag;
+import com.liferay.dynamic.data.mapping.taglib.servlet.taglib.base.BaseTranslationManagerTag;
 
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
  * @author Julio Camarero
- * @deprecated As of 7.0.0, replaced by {@link
- *             com.liferay.dynamic.data.mapping.taglib.servlet.taglib.TranslationManagerTag}
  */
-@Deprecated
 public class TranslationManagerTag extends BaseTranslationManagerTag {
 }

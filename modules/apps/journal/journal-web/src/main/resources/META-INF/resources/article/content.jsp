@@ -165,7 +165,7 @@ boolean changeStructure = GetterUtil.getBoolean(request.getAttribute("edit_artic
 				</aui:row>
 			</div>
 
-			<aui:translation-manager
+			<liferay-ddm:translation-manager
 				availableLocales="<%= availableLocales %>"
 				defaultLanguageId="<%= defaultLanguageId %>"
 				id="translationManager"

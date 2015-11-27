@@ -2918,3 +2918,28 @@ There is no need to change anything, since this functionality is no used.
 #### Why was this change made?
 
 This change was made as a part of the ongoing strategies to cleanup unused
+
+### The aui:translation-manager has been deprecated and replaced with liferay-ddm:translation-manager
+- **Date:** 2015-Nov-23
+- **JIRA Ticket:** LPS-60722
+
+#### What changed?
+
+The `aui:translation-manager` taglib has been deprecated and replaced with
+`liferay-ddm:translation-manager` taglib.
+
+#### Who is affected?
+
+Plugins or templates that are using the `aui:translation-manager` tag need
+to update their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-ddm` tag library if it isn't already
+and update the tag namespace from `aui:translation-manager` to
+`liferay-ddm:translation-manager`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.
