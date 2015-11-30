@@ -689,16 +689,16 @@ public class S3Store extends BaseStore {
 
 	protected void putObject(String key, File file) throws SystemException {
 		try {
-			S3Object s3Object = new S3Object(file);
-
-			s3Object.setKey(key);
-			s3Object.setBucketName(_BUCKET_NAME);
+			MultipartUtils multipartUtils = new MultipartUtils(_PART_SIZE);
 
 			List<StorageObject> s3Objects = new ArrayList<StorageObject>();
 
-			s3Objects.add(s3Object);
+			S3Object s3Object = new S3Object(file);
 
-			MultipartUtils multipartUtils = new MultipartUtils(_PART_SIZE);
+			s3Object.setBucketName(_BUCKET_NAME);
+			s3Object.setKey(key);
+
+			s3Objects.add(s3Object);
 
 			multipartUtils.uploadObjects(
 				_BUCKET_NAME, _s3Service, s3Objects, null);
