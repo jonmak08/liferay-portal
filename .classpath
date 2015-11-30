@@ -193,6 +193,7 @@
 	<classpathentry kind="lib" path="lib/portal/jakarta-regexp.jar"/>
 	<classpathentry kind="lib" path="lib/portal/jamwiki-core.jar"/>
 	<classpathentry kind="lib" path="lib/portal/java-diff.jar"/>
+	<classpathentry kind="lib" path="lib/portal/java-xmlbuilder.jar"/>
 	<classpathentry kind="lib" path="lib/portal/javassist.jar"/>
 	<classpathentry kind="lib" path="lib/portal/javax.inject.jar"/>
 	<classpathentry kind="lib" path="lib/portal/jaxb-impl.jar"/>

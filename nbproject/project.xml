@@ -417,6 +417,7 @@
 				<classpath mode="compile">lib/portal/jakarta-regexp.jar</classpath>
 				<classpath mode="compile">lib/portal/jamwiki-core.jar</classpath>
 				<classpath mode="compile">lib/portal/java-diff.jar</classpath>
+				<classpath mode="compile">lib/portal/java-xmlbuilder.jar</classpath>
 				<classpath mode="compile">lib/portal/javassist.jar</classpath>
 				<classpath mode="compile">lib/portal/javax.inject.jar</classpath>
 				<classpath mode="compile">lib/portal/jaxb-impl.jar</classpath>
