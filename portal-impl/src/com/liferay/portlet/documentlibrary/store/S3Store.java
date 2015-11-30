@@ -715,7 +715,7 @@ public class S3Store extends BaseStore {
 		PropsKeys.DL_STORE_S3_BUCKET_NAME);
 
 	private static final long _PART_SIZE = GetterUtil.getLong(
-		PropsUtil.get(PropsKeys.DL_STORE_S3_PART_SIZE), 20971520);
+		PropsUtil.get(PropsKeys.DL_STORE_S3_PART_SIZE));
 
 	private static final String _SECRET_KEY = PropsUtil.get(
 		PropsKeys.DL_STORE_S3_SECRET_KEY);
