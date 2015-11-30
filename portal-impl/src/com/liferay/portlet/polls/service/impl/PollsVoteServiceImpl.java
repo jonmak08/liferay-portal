@@ -39,9 +39,9 @@ public class PollsVoteServiceImpl extends PollsVoteServiceBaseImpl {
 
 		try {
 			userId = getUserId();
-			
+
 			User user = UserLocalServiceUtil.getUser(userId);
-			
+
 			if (user.isDefaultUser()) {
 				userId = counterLocalService.increment();
 			}
