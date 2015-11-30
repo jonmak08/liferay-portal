@@ -91,7 +91,7 @@ public class S3Store extends BaseStore {
 
 			addFile(companyId, repositoryId, fileName, file);
 		}
-		catch (java.io.IOException ioe) {
+		catch (IOException ioe) {
 			throw new SystemException(ioe);
 		}
 		finally {
@@ -694,14 +694,14 @@ public class S3Store extends BaseStore {
 			s3Object.setKey(key);
 			s3Object.setBucketName(_BUCKET_NAME);
 
-			List objectsToUploadAsMultipart = new ArrayList<S3Object>();
+			List<StorageObject> s3Objects = new ArrayList<StorageObject>();
 
-			objectsToUploadAsMultipart.add(s3Object);
+			s3Objects.add(s3Object);
 
 			MultipartUtils multipartUtils = new MultipartUtils(_PART_SIZE);
 
 			multipartUtils.uploadObjects(
-				_BUCKET_NAME, _s3Service, objectsToUploadAsMultipart, null);
+				_BUCKET_NAME, _s3Service, s3Objects, null);
 		}
 		catch (Exception e) {
 			throw new SystemException(e);
