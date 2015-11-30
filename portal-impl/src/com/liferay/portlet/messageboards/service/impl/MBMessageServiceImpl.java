@@ -120,19 +120,9 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 			String fileName, File file, ServiceContext serviceContext)
 		throws FileNotFoundException, PortalException, SystemException {
 
-		List<ObjectValuePair<String, InputStream>> inputStreamOVPs =
-			new ArrayList<ObjectValuePair<String, InputStream>>(1);
-
-		InputStream inputStream = new FileInputStream(file);
-
-		ObjectValuePair<String, InputStream> inputStreamOVP =
-			new ObjectValuePair<String, InputStream>(fileName, inputStream);
-
-		inputStreamOVPs.add(inputStreamOVP);
-
 		return addMessage(
 			groupId, categoryId, subject, body,
-			MBMessageConstants.DEFAULT_FORMAT, inputStreamOVPs, false,
+			MBMessageConstants.DEFAULT_FORMAT, fileName, file, false,
 			MBThreadConstants.PRIORITY_NOT_GIVEN, false, serviceContext);
 	}
 
@@ -167,6 +157,29 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 			getGuestOrUserId(), null, groupId, categoryId, subject, body,
 			format, inputStreamOVPs, anonymous, priority, allowPingbacks,
 			serviceContext);
+	}
+
+	@Override
+	public MBMessage addMessage(
+			long groupId, long categoryId, String subject, String body,
+			String format, String fileName, File file, boolean anonymous,
+			double priority, boolean allowPingbacks,
+			ServiceContext serviceContext)
+		throws FileNotFoundException, PortalException, SystemException {
+
+		List<ObjectValuePair<String, InputStream>> inputStreamOVPs =
+			new ArrayList<ObjectValuePair<String, InputStream>>();
+
+		InputStream inputStream = new FileInputStream(file);
+
+		ObjectValuePair<String, InputStream> inputStreamOVP =
+			new ObjectValuePair<String, InputStream>(fileName, inputStream);
+
+		inputStreamOVPs.add(inputStreamOVP);
+
+		return addMessage(
+			groupId, categoryId, subject, body, format, inputStreamOVPs,
+			anonymous, priority, allowPingbacks, serviceContext);
 	}
 
 	@Override
