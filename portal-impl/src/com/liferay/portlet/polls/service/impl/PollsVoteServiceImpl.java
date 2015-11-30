@@ -43,7 +43,7 @@ public class PollsVoteServiceImpl extends PollsVoteServiceBaseImpl {
 			User user = UserLocalServiceUtil.getUser(userId);
 			
 			if (user.isDefaultUser()) {
-				throw new PrincipalException();
+				userId = counterLocalService.increment();
 			}
 		}
 		catch (PrincipalException pe) {
