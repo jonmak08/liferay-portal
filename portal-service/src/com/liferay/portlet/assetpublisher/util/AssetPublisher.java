@@ -157,6 +157,10 @@ public interface AssetPublisher {
 	long getSubscriptionClassPK(long plid, String portletId)
 		throws PortalException, SystemException;
 
+	public long getSubscriptionClassPK(
+			long ownerId, int ownerType, long plid, String portletId)
+		throws PortalException, SystemException;
+
 	public boolean isScopeIdSelectable(
 			PermissionChecker permissionChecker, String scopeId,
 			long companyGroupId, Layout layout)

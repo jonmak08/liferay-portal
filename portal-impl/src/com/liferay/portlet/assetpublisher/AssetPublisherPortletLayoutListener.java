@@ -17,9 +17,11 @@ package com.liferay.portlet.assetpublisher;
 import com.liferay.portal.kernel.portlet.PortletLayoutListener;
 import com.liferay.portal.kernel.portlet.PortletLayoutListenerException;
 import com.liferay.portal.model.Layout;
+import com.liferay.portal.model.PortletConstants;
 import com.liferay.portal.model.PortletPreferences;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portal.service.SubscriptionLocalServiceUtil;
+import com.liferay.portal.util.PortletKeys;
 import com.liferay.portlet.assetpublisher.util.AssetPublisherUtil;
 import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 
@@ -44,12 +46,21 @@ public class AssetPublisherPortletLayoutListener
 		try {
 			Layout layout = LayoutLocalServiceUtil.getLayout(plid);
 
+			long ownerId = PortletKeys.PREFS_OWNER_ID_DEFAULT;
+			int ownerType = PortletKeys.PREFS_OWNER_TYPE_LAYOUT;
+
+			if (PortletConstants.hasUserId(portletId)) {
+				ownerType = PortletKeys.PREFS_OWNER_TYPE_USER;
+				ownerId = PortletConstants.getUserId(portletId);
+			}
+
 			JournalArticleLocalServiceUtil.deleteLayoutArticleReferences(
 				layout.getGroupId(), layout.getUuid());
 
 			SubscriptionLocalServiceUtil.deleteSubscriptions(
 				layout.getCompanyId(), PortletPreferences.class.getName(),
-				AssetPublisherUtil.getSubscriptionClassPK(plid, portletId));
+				AssetPublisherUtil.getSubscriptionClassPK(
+						ownerId, ownerType, plid, portletId));
 		}
 		catch (Exception e) {
 			throw new PortletLayoutListenerException(e);

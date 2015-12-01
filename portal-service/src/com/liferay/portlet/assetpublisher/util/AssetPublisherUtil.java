@@ -259,6 +259,14 @@ public class AssetPublisherUtil {
 		return getAssetPublisher().getSubscriptionClassPK(plid, portletId);
 	}
 
+	public static long getSubscriptionClassPK(
+			long ownerId, int ownerType, long plid, String portletId)
+		throws PortalException, SystemException {
+
+		return getAssetPublisher().getSubscriptionClassPK(
+			ownerId, ownerType, plid, portletId);
+	}
+
 	public static boolean isScopeIdSelectable(
 			PermissionChecker permissionChecker, String scopeId,
 			long companyGroupId, Layout layout)
