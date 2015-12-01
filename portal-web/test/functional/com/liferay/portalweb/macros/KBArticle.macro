@@ -473,7 +473,9 @@
 		<if>
 			<isset var="kbAttachmentLink" />
 			<then>
-				<execute macro="KBArticle#linkAttachmentInArticle" />
+				<execute macro="KBArticle#linkAttachmentInArticle">
+					<var name="kbAttachmentLink" value="${kbAttachmentLink}" />
+				</execute>
 			</then>
 		</if>
 
