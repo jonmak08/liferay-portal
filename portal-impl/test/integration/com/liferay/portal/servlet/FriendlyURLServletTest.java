@@ -17,6 +17,7 @@ package com.liferay.portal.servlet;
 import com.liferay.portal.NoSuchGroupException;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.transaction.Transactional;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.service.ServiceContext;
@@ -28,10 +29,10 @@ import com.liferay.portal.test.TransactionalExecutionTestListener;
 import com.liferay.portal.util.GroupTestUtil;
 import com.liferay.portal.util.LayoutTestUtil;
 import com.liferay.portal.util.Portal;
+import com.liferay.portal.util.PropsValues;
+import com.liferay.portal.util.WebKeys;
 
 import java.util.Collections;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.junit.After;
 import org.junit.Before;
@@ -59,6 +60,8 @@ public class FriendlyURLServletTest {
 		ServiceContext serviceContext = ServiceTestUtil.getServiceContext();
 
 		ServiceContextThreadLocal.pushServiceContext(serviceContext);
+
+		_group = GroupTestUtil.addGroup();
 	}
 
 	@After
@@ -76,6 +79,28 @@ public class FriendlyURLServletTest {
 		testGetRedirect(
 			getPath(group, layout), Portal.PATH_MAIN,
 			new Object[] {getURL(layout), false});
+	}
+
+	@Test
+	public void testGetRedirectWithInvalidI18nPath() throws Exception {
+		Layout layout = LayoutTestUtil.addLayout(
+			_group.getGroupId(), ServiceTestUtil.randomString());
+
+		_mockHttpServletRequest.setAttribute(WebKeys.I18N_LANGUAGE_CODE, "fr");
+		_mockHttpServletRequest.setPathInfo(StringPool.SLASH);
+
+		String requestURI =
+			PropsValues.LAYOUT_FRIENDLY_URL_PUBLIC_SERVLET_MAPPING +
+				getPath(_group, layout);
+
+		_mockHttpServletRequest.setRequestURI(requestURI);
+
+		testGetRedirect(
+			_group.getFriendlyURL(), Portal.PATH_MAIN,
+			new Object[] {"/en" + requestURI, true});
+		testGetRedirect(
+			getPath(_group, layout), Portal.PATH_MAIN,
+			new Object[] {"/en" + requestURI, true});
 	}
 
 	@Test
@@ -105,12 +130,17 @@ public class FriendlyURLServletTest {
 		throws Exception {
 
 		Object[] actualRedirectArray = _friendlyURLServlet.getRedirect(
-			_request, path, mainPath, Collections.<String, String[]>emptyMap());
+			_mockHttpServletRequest, path, mainPath,
+			Collections.<String, String[]>emptyMap());
 
 		Assert.assertEquals(actualRedirectArray, expectedRedirectArray);
 	}
 
 	private FriendlyURLServlet _friendlyURLServlet = new FriendlyURLServlet();
-	private HttpServletRequest _request = new MockHttpServletRequest();
+
+	private Group _group;
+
+	private MockHttpServletRequest _mockHttpServletRequest =
+		new MockHttpServletRequest();
 
 }
