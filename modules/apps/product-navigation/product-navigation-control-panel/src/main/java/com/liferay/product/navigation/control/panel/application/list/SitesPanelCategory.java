@@ -15,7 +15,6 @@
 package com.liferay.product.navigation.control.panel.application.list;
 
 import com.liferay.application.list.BasePanelCategory;
-import com.liferay.application.list.PanelAppRegistry;
 import com.liferay.application.list.PanelCategory;
 import com.liferay.application.list.constants.PanelCategoryKeys;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -28,7 +27,6 @@ import com.liferay.portal.service.permission.PortalPermissionUtil;
 import java.util.Locale;
 
 import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Eudaldo Alonso
@@ -36,26 +34,26 @@ import org.osgi.service.component.annotations.Reference;
 @Component(
 	immediate = true,
 	property = {
-		"panel.category.key=" + PanelCategoryKeys.ROOT,
-		"service.ranking:Integer=100"
+		"panel.category.key=" + PanelCategoryKeys.CONTROL_PANEL,
+		"service.ranking:Integer=300"
 	},
 	service = PanelCategory.class
 )
-public class ControlPanelCategory extends BasePanelCategory {
+public class SitesPanelCategory extends BasePanelCategory {
 
 	@Override
 	public String getIconCssClass() {
-		return "icon-tasks";
+		return "icon-sitemap";
 	}
 
 	@Override
 	public String getKey() {
-		return PanelCategoryKeys.CONTROL_PANEL;
+		return PanelCategoryKeys.CONTROL_PANEL_SITES;
 	}
 
 	@Override
 	public String getLabel(Locale locale) {
-		return LanguageUtil.get(locale, "control-panel");
+		return LanguageUtil.get(locale, "sites");
 	}
 
 	@Override
@@ -71,12 +69,5 @@ public class ControlPanelCategory extends BasePanelCategory {
 
 		return false;
 	}
-
-	@Reference(unbind = "-")
-	protected void setPanelAppRegistry(PanelAppRegistry panelAppRegistry) {
-		_panelAppRegistry = panelAppRegistry;
-	}
-
-	private volatile PanelAppRegistry _panelAppRegistry;
 
 }

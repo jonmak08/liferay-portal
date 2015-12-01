@@ -75,6 +75,7 @@ if (sapEntry != null) {
 				return !regex.test(val);
 			}
 		</aui:validator>
+		<aui:validator name="requireValidation" />
 	</aui:input>
 
 	<aui:input name="enabled" />
