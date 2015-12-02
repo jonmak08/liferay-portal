@@ -451,6 +451,9 @@ public abstract class BaseModelHintsImpl implements ModelHints {
 					String validatorValue = GetterUtil.getString(
 						validatorElement.getText());
 					boolean customValidator = isCustomValidator(validatorName);
+					boolean customValidatorRequired = GetterUtil.getBoolean(
+						validatorElement.attributeValue(
+							"customValidatorRequired"));
 
 					if (customValidator) {
 						validatorName = buildCustomValidatorName(validatorName);
@@ -458,7 +461,8 @@ public abstract class BaseModelHintsImpl implements ModelHints {
 
 					Tuple fieldValidator = new Tuple(
 						fieldName, validatorName, validatorErrorMessage,
-						validatorValue, customValidator);
+						validatorValue, customValidator,
+						customValidatorRequired);
 
 					fieldValidators.put(validatorName, fieldValidator);
 				}

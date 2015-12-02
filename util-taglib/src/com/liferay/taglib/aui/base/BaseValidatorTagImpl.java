@@ -30,12 +30,20 @@ public abstract class BaseValidatorTagImpl extends com.liferay.taglib.BaseBodyTa
 		return super.doStartTag();
 	}
 
+	public boolean getCustomValidatorRequired() {
+		return _customValidatorRequired;
+	}
+
 	public java.lang.String getErrorMessage() {
 		return _errorMessage;
 	}
 
 	public java.lang.String getName() {
 		return _name;
+	}
+
+	public void setCustomValidatorRequired(boolean customValidatorRequired) {
+		_customValidatorRequired = customValidatorRequired;
 	}
 
 	public void setErrorMessage(java.lang.String errorMessage) {
@@ -47,6 +55,7 @@ public abstract class BaseValidatorTagImpl extends com.liferay.taglib.BaseBodyTa
 	}
 
 	protected void cleanUp() {
+		_customValidatorRequired = false;
 		_errorMessage = null;
 		_name = null;
 	}
@@ -58,6 +67,7 @@ public abstract class BaseValidatorTagImpl extends com.liferay.taglib.BaseBodyTa
 	private static final String _PAGE =
 		"/html/taglib/aui/validator/page.jsp";
 
+	private boolean _customValidatorRequired = false;
 	private java.lang.String _errorMessage = null;
 	private java.lang.String _name = null;
 

@@ -1629,6 +1629,12 @@
 		<description>Creates a component to validate input fields.</description>
 		<attributes>
 			<attribute>
+				<description>Whether custom validator rules force a field to be required. The default value is <code>true</code>.</description>
+				<name>customValidatorRequired</name>
+				<inputType>boolean</inputType>
+				<outputType>boolean</outputType>
+			</attribute>
+			<attribute>
 				<description>A custom error message to replace the default validation error message</description>
 				<name>errorMessage</name>
 				<inputType>java.lang.String</inputType>
