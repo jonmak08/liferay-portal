@@ -136,7 +136,7 @@ request.setAttribute("view.jsp-showIconLabel", true);
 
 		<c:if test="<%= assetPublisherDisplayContext.isEnableFlags() %>">
 			<div class="asset-flag">
-				<liferay-ui:flags
+				<liferay-frontend:flags
 					className="<%= assetEntry.getClassName() %>"
 					classPK="<%= assetEntry.getClassPK() %>"
 					contentTitle="<%= title %>"

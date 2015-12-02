@@ -348,7 +348,7 @@ AssetEntry assetEntry = (AssetEntry)request.getAttribute("view_entry_content.jsp
 
 					<c:if test="<%= viewSingleEntry && blogsPortletInstanceConfiguration.enableFlags() %>">
 						<div class="flags">
-							<liferay-ui:flags
+							<liferay-frontend:flags
 								className="<%= BlogsEntry.class.getName() %>"
 								classPK="<%= entry.getEntryId() %>"
 								contentTitle="<%= entry.getTitle() %>"
