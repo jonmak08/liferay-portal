@@ -78,16 +78,11 @@ public class SerialBackgroundTaskExecutor
 
 				break;
 			}
-			catch (ORMException | SystemException e) {
-				if (_log.isDebugEnabled()) {
-					_log.debug("Unable to acquire acquiring lock", e);
-				}
-
-				try {
-					Thread.sleep(50);
-				}
-				catch (InterruptedException ie) {
-				}
+			catch (ORMException e) {
+				handleException(e);
+			}
+			catch (SystemException se) {
+				handleException(se);
 			}
 		}
 
@@ -96,6 +91,18 @@ public class SerialBackgroundTaskExecutor
 		}
 
 		return lock;
+	}
+
+	protected void handleException(Exception e) {
+		if (_log.isDebugEnabled()) {
+			_log.debug("Unable to acquire acquiring lock", e);
+		}
+
+		try {
+			Thread.sleep(50);
+		}
+		catch (InterruptedException ie) {
+		}
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(
