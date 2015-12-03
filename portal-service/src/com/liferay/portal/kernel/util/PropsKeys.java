@@ -1057,6 +1057,8 @@ public interface PropsKeys {
 
 	public static final String INDEX_SEARCH_HIGHLIGHT_SNIPPET_SIZE = "index.search.highlight.snippet.size";
 
+	public static final String INDEX_SEARCH_LEADING_WILDCARD_ENABLED = "index.search.leading.wildcard.enabled";
+
 	public static final String INDEX_SEARCH_LIMIT = "index.search.limit";
 
 	public static final String INDEX_SEARCH_QUERY_INDEXING_ENABLED = "index.search.query.indexing.enabled";
