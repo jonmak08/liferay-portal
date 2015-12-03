@@ -1339,7 +1339,7 @@ public class HookHotDeployListener
 			sb.append("Custom JSP files:\n");
 
 			for (int i = 0; i < customJsps.size(); i++) {
-				String customJsp = customJsps.get(0);
+				String customJsp = customJsps.get(i);
 
 				sb.append(customJsp);
 
