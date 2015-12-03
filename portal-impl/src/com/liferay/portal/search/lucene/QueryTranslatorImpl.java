@@ -117,10 +117,6 @@ public class QueryTranslatorImpl implements QueryTranslator {
 
 				if (Validator.equals(term.field(), Field.TREE_PATH)) {
 					text = text.replaceAll("/", "\\\\/");
-				}
-
-				if (text.matches("^\\s*\\*.*(?m)")) {
-					text = text.replaceFirst("\\*", StringPool.BLANK);
 
 					_textField.set(term, text);
 				}
