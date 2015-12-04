@@ -314,7 +314,7 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 			</c:if>
 		</div>
 
-		<div class="alert alert-error hide" id="<portlet:namespace /><%= fileTitleErrorId %>">
+		<div class="alert alert-error helper-hidden" id="<portlet:namespace /><%= fileTitleErrorId %>">
 			<liferay-ui:message key="you-must-specify-a-file-or-a-title" />
 		</div>
 
@@ -522,22 +522,18 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 		return document.<portlet:namespace />fm.<portlet:namespace />title.value + ' ' + document.<portlet:namespace />fm.<portlet:namespace />description.value;
 	}
 
-	function <portlet:namespace />validateTitle() {
-		Liferay.Form.get('<portlet:namespace />fm').formValidator.validateField('<portlet:namespace />title');
-	}
+	Liferay.provide(
+		window,
+		'<portlet:namespace />saveFileEntry',
+		function(draft) {
+			var A = AUI();
 
-	function <portlet:namespace />saveFileEntry(draft) {
-		var className = 'alert alert-danger';
+			var fileTitleErrorNode = A.one('#<portlet:namespace /><%= HtmlUtil.escape(fileTitleErrorId) %>');
 
-		var fileTitleErrorNode = document.getElementById('<portlet:namespace /><%= HtmlUtil.escape(fileTitleErrorId) %>');
+			fileTitleErrorNode.addClass('helper-hidden');
 
-		var form = document.<portlet:namespace />fm;
-
-		if (form && fileTitleErrorNode) {
-			fileTitleErrorNode.className = className + ' hide';
-
-			var fileValue = form.<portlet:namespace />file.value;
-			var titleValue = form.<portlet:namespace />title.value;
+			var fileValue = document.<portlet:namespace />fm.<portlet:namespace />file.value;
+			var titleValue = document.<portlet:namespace />fm.<portlet:namespace />title.value;
 
 			var fileOrTileValid = !!fileValue || !!titleValue;
 
@@ -546,20 +542,23 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 					<%= HtmlUtil.escape(uploadProgressId) %>.startProgress();
 				}
 
-				form.<portlet:namespace /><%= Constants.CMD %>.value = '<%= (fileEntry == null) ? Constants.ADD : Constants.UPDATE %>';
+				document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = '<%= (fileEntry == null) ? Constants.ADD : Constants.UPDATE %>';
 
 				if (draft) {
-					form.<portlet:namespace />workflowAction.value = '<%= WorkflowConstants.ACTION_SAVE_DRAFT %>';
+					document.<portlet:namespace />fm.<portlet:namespace />workflowAction.value = '<%= WorkflowConstants.ACTION_SAVE_DRAFT %>';
 				}
 
-				submitForm(form);
+				submitForm(document.<portlet:namespace />fm);
 			}
 			else {
-				fileTitleErrorNode.className = className + ' show';
-
-				window.location.href = '#<portlet:namespace /><%= HtmlUtil.escape(fileTitleErrorId) %>';
+				fileTitleErrorNode.removeClass('helper-hidden');
 			}
-		}
+		},
+		['aui-node']
+	);
+
+	function <portlet:namespace />validateTitle() {
+		Liferay.Form.get('<portlet:namespace />fm').formValidator.validateField('<portlet:namespace />title');
 	}
 </aui:script>
 
