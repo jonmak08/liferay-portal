@@ -19,8 +19,6 @@
 <%
 String cmd = ParamUtil.getString(request, Constants.CMD, Constants.EDIT);
 
-String fileTitleErrorId = "fileTitleError";
-
 String redirect = ParamUtil.getString(request, "redirect");
 String uploadExceptionRedirect = ParamUtil.getString(request, "uploadExceptionRedirect", currentURL);
 
@@ -314,17 +312,19 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 			</c:if>
 		</div>
 
-		<div class="alert alert-error helper-hidden" id="<portlet:namespace /><%= fileTitleErrorId %>">
-			<liferay-ui:message key="you-must-specify-a-file-or-a-title" />
-		</div>
-
 		<aui:input autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" name="file" onChange='<%= renderResponse.getNamespace() + "validateTitle();" %>' style="width: auto;" type="file">
 			<aui:validator name="acceptFiles">
 				'<%= StringUtil.merge(PrefsPropsUtil.getStringArray(PropsKeys.DL_FILE_EXTENSIONS, StringPool.COMMA)) %>'
 			</aui:validator>
 		</aui:input>
 
-		<aui:input name="title" />
+		<aui:input name="title">
+			<aui:validator errorMessage="you-must-specify-a-file-or-a-title" name="custom">
+				function(val, fieldNode, ruleValue) {
+					return ((val != '') || A.one('#<portlet:namespace />file').val() != '');
+				}
+			</aui:validator>
+		</aui:input>
 
 		<c:if test="<%= ((folder == null) || folder.isSupportsMetadata()) %>">
 			<aui:input name="description" />
@@ -523,31 +523,19 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 	}
 
 	function <portlet:namespace />saveFileEntry(draft) {
-			var fileTitleErrorNode = AUI().use('aui-node').one('#<portlet:namespace /><%= HtmlUtil.escape(fileTitleErrorId) %>');
-
-			fileTitleErrorNode.addClass('helper-hidden');
-
 			var fileValue = document.<portlet:namespace />fm.<portlet:namespace />file.value;
-			var titleValue = document.<portlet:namespace />fm.<portlet:namespace />title.value;
 
-			var fileOrTileValid = !!fileValue || !!titleValue;
-
-			if (fileOrTileValid) {
-				if (fileValue) {
-					<%= HtmlUtil.escape(uploadProgressId) %>.startProgress();
-				}
-
-				document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = '<%= (fileEntry == null) ? Constants.ADD : Constants.UPDATE %>';
-
-				if (draft) {
-					document.<portlet:namespace />fm.<portlet:namespace />workflowAction.value = '<%= WorkflowConstants.ACTION_SAVE_DRAFT %>';
-				}
-
-				submitForm(document.<portlet:namespace />fm);
+			if (fileValue) {
+				<%= HtmlUtil.escape(uploadProgressId) %>.startProgress();
 			}
-			else {
-				fileTitleErrorNode.removeClass('helper-hidden');
+
+			document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = '<%= (fileEntry == null) ? Constants.ADD : Constants.UPDATE %>';
+
+			if (draft) {
+				document.<portlet:namespace />fm.<portlet:namespace />workflowAction.value = '<%= WorkflowConstants.ACTION_SAVE_DRAFT %>';
 			}
+
+			submitForm(document.<portlet:namespace />fm);
 	}
 
 	function <portlet:namespace />validateTitle() {
