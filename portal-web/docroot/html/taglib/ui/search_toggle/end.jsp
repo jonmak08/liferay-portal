@@ -86,6 +86,7 @@
 
 	toggleAdvancedNode.on('click', togglePopover);
 	keywordsNode.on('key', togglePopover, 'down:38,40');
+	advancedNode.delegate('key', togglePopover, 'down:27', 'input, select');
 </aui:script>
 
 <c:if test="<%= autoFocus %>">
