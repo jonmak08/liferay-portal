@@ -669,11 +669,9 @@
 	</command>
 
 	<command name="editCP">
-		<var name="key_dmDocumentTitle" value="${dmDocumentTitle}" />
-
-		<execute function="MouseOver" locator1="CPDocumentsandmedia#DOCUMENT_CONTAINER_DOCUMENT" />
-		<execute function="Click" locator1="CPDocumentsandmedia#DOCUMENT_CONTAINER_DOCUMENT_DROPDOWN" />
-		<execute function="AssertClick" locator1="CPDocumentsandmedia#DOCUMENT_MENULIST_EDIT" value1="Edit" />
+		<execute macro="DMNavigator#gotoEditDocument">
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+		</execute>
 
 		<execute macro="DMDocument#editCmdCP">
 			<var name="checkedOut" value="${checkedOut}" />
