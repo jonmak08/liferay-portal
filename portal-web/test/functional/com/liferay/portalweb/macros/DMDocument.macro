@@ -1,4 +1,16 @@
 <definition>
+	<var name="assetType" value="Document" />
+	<var name="dmDocumentTypeName" value="Basic Document" />
+
+	<command name="addCategories">
+		<execute macro="DMDocument#showCategorization" />
+
+		<execute macro="AssetCategorization#addMultipleCategories">
+			<var name="categoryNameList" value="${categoryNameList}" />
+			<var name="vocabularyName" value="${vocabularyName}" />
+		</execute>
+	</command>
+
 	<command name="addCommentPG">
 		<var name="key_dmDocumentTitle" value="${dmDocumentTitle}" />
 
@@ -40,6 +52,30 @@
 			<else>
 				<execute function="UploadCommonFile" locator1="CPDocumentsandmediaAdddocument#FILE_FIELD" value1="${dmDocumentFile}" />
 			</else>
+		</if>
+
+		<if>
+			<isset var="tagNameList" />
+			<then>
+				<execute macro="DMDocument#showCategorization" />
+
+				<for list="${tagNameList}" param="tagName">
+					<execute function="AssertClick" locator1="AssetCategorization#TAGS_ADD_BUTTON" value1="Add" />
+					<execute function="Type" locator1="AssetCategorization#TAGS_FIELD" value1="${tagName}" />
+				</for>
+
+				<execute function="AssertClick" locator1="AssetCategorization#TAGS_ADD_BUTTON" value1="Add" />
+			</then>
+		</if>
+
+		<if>
+			<isset var="vocabularyName" />
+			<then>
+				<execute macro="DMDocument#addCategories">
+					<var name="categoryNameList" value="${categoryNameList}" />
+					<var name="vocabularyName" value="${vocabularyName}" />
+				</execute>
+			</then>
 		</if>
 
 		<execute function="Type" locator1="CPDocumentsandmediaAdddocument#TITLE_FIELD" value1="${dmDocumentTitle}" />
