@@ -522,6 +522,10 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 		return document.<portlet:namespace />fm.<portlet:namespace />title.value + ' ' + document.<portlet:namespace />fm.<portlet:namespace />description.value;
 	}
 
+	function <portlet:namespace />validateTitle() {
+		Liferay.Form.get('<portlet:namespace />fm').formValidator.validateField('<portlet:namespace />title');
+	}
+
 	function <portlet:namespace />saveFileEntry(draft) {
 		var className = 'alert alert-danger';
 
@@ -533,10 +537,11 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 			fileTitleErrorNode.className = className + ' hide';
 
 			var fileValue = form.<portlet:namespace />file.value;
+			var titleValue = form.<portlet:namespace />title.value;
 
-			var hasFieldValue = !!(fileValue || form.<portlet:namespace />title.value);
+			var fileOrTileValid = !!fileValue || !!titleValue;
 
-			if (hasFieldValue) {
+			if (fileOrTileValid) {
 				if (fileValue) {
 					<%= HtmlUtil.escape(uploadProgressId) %>.startProgress();
 				}
@@ -552,13 +557,9 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 			else {
 				fileTitleErrorNode.className = className + ' show';
 
-				window.location.hash = '<portlet:namespace /><%= HtmlUtil.escape(fileTitleErrorId) %>';
+				window.location.href = '#<portlet:namespace /><%= HtmlUtil.escape(fileTitleErrorId) %>';
 			}
 		}
-	}
-
-	function <portlet:namespace />validateTitle() {
-		Liferay.Form.get('<portlet:namespace />fm').formValidator.validateField('<portlet:namespace />title');
 	}
 </aui:script>
 
