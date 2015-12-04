@@ -95,6 +95,133 @@
 		<execute function="AssertTextEquals" locator1="CPDocumentsandmedia#DOCUMENT_CONTAINER_DOCUMENT_TITLE" value1="${dmDocumentTitle}" />
 	</command>
 
+	<command name="addDocumentTypeCmdCP">
+		<execute macro="DMNavigator#gotoAddDocumentType">
+			<var name="dmDocumentTypeName" value="${dmDocumentTypeName}" />
+		</execute>
+
+		<execute function="UploadCommonFile" locator1="TextInput#FILE" value1="${dmDocumentFile}" />
+		<execute function="Type" locator1="TextInput#TITLE" value1="${dmDocumentTitle}" />
+		<execute function="Type" locator1="TextArea#DESCRIPTION" value1="${dmDocumentDescription}" />
+
+		<if>
+			<isset var="selectOption" />
+			<then>
+				<execute function="Select" locator1="DocumentsAndMediaEditCustomDocumentType#SELECT_OPTIONS_SELECT" value1="${selectOption}" />
+			</then>
+		</if>
+
+		<if>
+			<isset var="textField" />
+			<then>
+				<var name="key_fieldName" value="Text" />
+
+				<execute function="Type" locator1="DocumentsAndMediaEditCustomDocumentType#TEXT_FIELD" value1="${textField}" />
+			</then>
+		</if>
+
+		<if>
+			<isset var="numberField" />
+			<then>
+				<var name="key_fieldName" value="Number" />
+
+				<execute function="Type" locator1="DocumentsAndMediaEditCustomDocumentType#NUMBER_FIELD" value1="${numberField}" />
+			</then>
+		</if>
+
+		<if>
+			<isset var="booleanField" />
+			<then>
+				<var name="key_fieldName" value="Boolean" />
+
+				<execute function="Check" locator1="DocumentsAndMediaEditCustomDocumentType#BOOLEAN_CHECKBOX" value1="${booleanField}" />
+			</then>
+		</if>
+	</command>
+
+	<command name="addDocumentTypeCP">
+		<execute macro="DMDocument#addDocumentTypeCmdCP">
+			<var name="booleanField" value="${booleanField}" />
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
+			<var name="dmDocumentFile" value="${dmDocumentFile}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+			<var name="dmDocumentTypeName" value="${dmDocumentTypeName}" />
+			<var name="numberField" value="${numberField}" />
+			<var name="selectOption" value="${selectOption}" />
+			<var name="textField" value="${textField}" />
+		</execute>
+
+		<execute function="AssertClick" locator1="Button#PUBLISH" value1="Publish" />
+		<execute function="AssertTextEquals" locator1="Message#SUCCESS" value1="Your request completed successfully." />
+	</command>
+
+	<command name="addDocumentTypePG">
+		<var name="key_dmDocumentTypeName" value="${dmDocumentTypeName}" />
+
+		<execute function="Click#makeVisibleClickAt" locator1="Portlet#ICON_PLUS_SIGN" />
+
+		<execute function="AssertClick" locator1="MenuItem#DOCUMENT_TYPE" value1="${dmDocumentTypeName}" />
+
+		<execute macro="DMDocument#editDocument">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
+			<var name="dmDocumentFile" value="${dmDocumentFile}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+		</execute>
+
+		<if>
+			<isset var="selectOption" />
+			<then>
+				<execute function="Select" locator1="DocumentsAndMediaEditCustomDocumentType#SELECT_OPTIONS_SELECT" value1="${selectOption}" />
+			</then>
+		</if>
+
+		<if>
+			<isset var="textField" />
+			<then>
+				<var name="key_fieldName" value="Text" />
+
+				<execute function="Type" locator1="DocumentsAndMediaEditCustomDocumentType#TEXT_FIELD" value1="${textField}" />
+			</then>
+		</if>
+
+		<if>
+			<isset var="numberField" />
+			<then>
+				<var name="key_fieldName" value="Number" />
+
+				<execute function="Type" locator1="DocumentsAndMediaEditCustomDocumentType#NUMBER_FIELD" value1="${numberField}" />
+			</then>
+		</if>
+
+		<if>
+			<isset var="booleanField" />
+			<then>
+				<var name="key_fieldName" value="Boolean" />
+
+				<execute function="Check" locator1="DocumentsAndMediaEditCustomDocumentType#BOOLEAN_CHECKBOX" value1="${booleanField}" />
+			</then>
+		</if>
+
+		<execute function="AssertClick" locator1="Button#PUBLISH" value1="Publish" />
+		<execute function="AssertTextEquals" locator1="Message#SUCCESS" value1="Your request completed successfully." />
+	</command>
+
+	<command name="addDocumentTypeWithWorkflowCP">
+		<execute macro="DMDocument#addDocumentTypeCmdCP">
+			<var name="booleanField" value="${booleanField}" />
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
+			<var name="dmDocumentFile" value="${dmDocumentFile}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+			<var name="dmDocumentTypeName" value="${dmDocumentTypeName}" />
+			<var name="numberField" value="${numberField}" />
+			<var name="selectOption" value="${selectOption}" />
+			<var name="textField" value="${textField}" />
+		</execute>
+
+		<execute function="AssertClick" locator1="Button#SUBMIT_FOR_PUBLICATION" value1="Submit for Publication" />
+		<execute function="AssertTextEquals" locator1="Message#SUCCESS" value1="Your request completed successfully." />
+	</command>
+
 	<command name="addGoogleDoc">
 		<execute function="AssertClick#waitForDMHomeAssertTextEqualsClick" locator1="PGDocumentsandmedia#TOOLBAR_ADD" value1="Add" />
 
@@ -134,9 +261,11 @@
 			</else>
 		</if>
 
-		<execute function="UploadCommonFile" locator1="PGDocumentsandmediaAdddocument#FILE_FIELD" value1="${dmDocumentFile}" />
-		<execute function="Type" locator1="PGDocumentsandmediaAdddocument#TITLE_FIELD" value1="${dmDocumentTitle}" />
-		<execute function="Type" locator1="PGDocumentsandmediaAdddocument#DESCRIPTION_FIELD" value1="${dmDocumentDescription}" />
+		<execute macro="DMDocument#editDocument">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
+			<var name="dmDocumentFile" value="${dmDocumentFile}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+		</execute>
 
 		<if>
 			<isset var="categoryName" />
@@ -335,9 +464,11 @@
 			<var name="dmDocumentTypeName" value="${dmDocumentTypeName}" />
 		</execute>
 
-		<execute function="UploadCommonFile" locator1="TextInput#FILE" value1="${dmDocumentFile}" />
-		<execute function="Type" locator1="TextInput#TITLE" value1="${dmDocumentTitle}" />
-		<execute function="AssertClick" locator1="Button#SUBMIT_FOR_PUBLICATION" value1="Submit for Publication" />
+		<execute macro="DMDocument#editDocument">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
+			<var name="dmDocumentFile" value="${dmDocumentFile}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+		</execute>
 
 		<execute macro="Button#clickSubmitForPublication" />
 
@@ -746,6 +877,18 @@
 		<execute function="AssertTextEquals" locator1="CPDocumentsandmedia#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
+	<command name="editDocument">
+		<execute function="UploadCommonFile" locator1="TextInput#FILE" value1="${dmDocumentFile}" />
+		<execute function="Type" locator1="DocumentsAndMediaEditDocument#TITLE_FIELD" value1="${dmDocumentTitle}" />
+
+		<if>
+			<isset var="dmDocumentDescription" />
+			<then>
+				<execute function="Type" locator1="DocumentsAndMediaEditDocument#DESCRIPTION_FIELD" value1="${dmDocumentDescription}" />
+			</then>
+		</if>
+	</command>
+
 	<command name="editPG">
 		<execute macro="DMDocument#editCmdPG">
 			<var name="changeLog" value="${changeLog}" />
@@ -1019,9 +1162,12 @@
 		<execute function="AssertClick#waitForDMHomeAssertTextEqualsClick" locator1="PGDocumentsandmediaFolder#TOOLBAR_ADD" value1="Add" />
 		<execute function="AssertClick" locator1="PGDocumentsandmediaFolder#ADD_MENULIST_BASIC_DOCUMENT" value1="Basic Document" />
 
-		<execute function="UploadCommonFile" locator1="PGDocumentsandmediaAdddocument#FILE_FIELD" value1="${dmDocumentFile}" />
-		<execute function="Type" locator1="PGDocumentsandmediaAdddocument#TITLE_FIELD" value1="${dmDocumentTitle}" />
-		<execute function="Type" locator1="PGDocumentsandmediaAdddocument#DESCRIPTION_FIELD" value1="${dmDocumentDescription}" />
+		<execute macro="DMDocument#editDocument">
+			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
+			<var name="dmDocumentFile" value="${dmDocumentFile}" />
+			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+		</execute>
+
 		<execute function="AssertClick" locator1="PGDocumentsandmediaAdddocument#SAVE_AS_DRAFT_BUTTON" value1="Save as Draft" />
 
 		<execute function="AssertTextEquals" locator1="PGDocumentsandmediaFolder#SUCCESS_MESSAGE" value1="Your request completed successfully." />
