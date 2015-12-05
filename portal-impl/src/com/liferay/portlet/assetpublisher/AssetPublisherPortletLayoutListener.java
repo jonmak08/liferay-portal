@@ -60,7 +60,7 @@ public class AssetPublisherPortletLayoutListener
 			SubscriptionLocalServiceUtil.deleteSubscriptions(
 				layout.getCompanyId(), PortletPreferences.class.getName(),
 				AssetPublisherUtil.getSubscriptionClassPK(
-						ownerId, ownerType, plid, portletId));
+					ownerId, ownerType, plid, portletId));
 		}
 		catch (Exception e) {
 			throw new PortletLayoutListenerException(e);
