@@ -46,6 +46,9 @@ public class AssetPublisherPortletLayoutListener
 		try {
 			Layout layout = LayoutLocalServiceUtil.getLayout(plid);
 
+			JournalArticleLocalServiceUtil.deleteLayoutArticleReferences(
+				layout.getGroupId(), layout.getUuid());
+
 			long ownerId = PortletKeys.PREFS_OWNER_ID_DEFAULT;
 			int ownerType = PortletKeys.PREFS_OWNER_TYPE_LAYOUT;
 
@@ -53,9 +56,6 @@ public class AssetPublisherPortletLayoutListener
 				ownerType = PortletKeys.PREFS_OWNER_TYPE_USER;
 				ownerId = PortletConstants.getUserId(portletId);
 			}
-
-			JournalArticleLocalServiceUtil.deleteLayoutArticleReferences(
-				layout.getGroupId(), layout.getUuid());
 
 			SubscriptionLocalServiceUtil.deleteSubscriptions(
 				layout.getCompanyId(), PortletPreferences.class.getName(),
