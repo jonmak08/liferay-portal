@@ -294,6 +294,22 @@
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGDocumentsandmedia#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
+	<command name="addWithWorkflowCP">
+		<execute macro="DMNavigator#gotoAddDocumentType">
+			<var name="dmDocumentTypeName" value="${dmDocumentTypeName}" />
+		</execute>
+
+		<execute function="UploadCommonFile" locator1="TextInput#FILE" value1="${dmDocumentFile}" />
+		<execute function="Type" locator1="TextInput#TITLE" value1="${dmDocumentTitle}" />
+		<execute function="AssertClick" locator1="Button#SUBMIT_FOR_PUBLICATION" value1="Submit for Publication" />
+
+		<execute macro="Button#clickSubmitForPublication" />
+
+		<var name="key_dmDocumentTitle" value="${dmDocumentTitle}" />
+
+		<execute function="AssertTextEquals" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_DOCUMENT_TITLE" value1="${dmDocumentTitle}" />
+	</command>
+
 	<command name="cancelCheckoutPG">
 		<var name="key_dmDocumentTitle" value="${dmDocumentTitle}" />
 
