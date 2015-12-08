@@ -319,9 +319,9 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 		</aui:input>
 
 		<aui:input name="title">
-			<aui:validator errorMessage="you-must-specify-a-file-or-a-title" name="custom">
-				function(val, fieldNode, ruleValue) {
-					return ((val != '') || A.one('#<portlet:namespace />file').val() != '');
+			<aui:validator errorMessage="you-must-specify-a-file-or-a-title" name="required">
+				function() {
+					return !A.one('#<portlet:namespace />file').val();
 				}
 			</aui:validator>
 		</aui:input>
