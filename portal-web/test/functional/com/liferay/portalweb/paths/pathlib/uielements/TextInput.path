@@ -8,6 +8,16 @@
 <tr><td rowspan="1" colspan="3">TextInput</td></tr>
 </thead>
 <tbody>
+<tr>
+	<td>FILE</td>
+	<td>//input[contains(@id,'file') and @type='file']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TITLE</td>
+	<td>//input[contains(@id,'title')]</td>
+	<td></td>
+</tr>
 </tbody>
 </table>
 </body>

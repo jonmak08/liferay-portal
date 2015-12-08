@@ -8,6 +8,26 @@
 <tr><td rowspan="1" colspan="3">MenuItem</td></tr>
 </thead>
 <tbody>
+<tr>
+	<td>DOCUMENT_TYPE</td>
+	<td>//div[contains(@class,'open')]//a[contains(.,'${key_dmDocumentTypeName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>DOCUMENT_TYPES</td>
+	<td>//a[@role='menuitem']//span[contains(.,'Document Types')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>EDIT</td>
+	<td>//div[contains(@class,'open')]//a[contains(.,'Edit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>METADATA_SETS</td>
+	<td>//a[@role='menuitem']//span[contains(.,'Metadata Sets')]</td>
+	<td></td>
+</tr>
 </tbody>
 </table>
 </body>

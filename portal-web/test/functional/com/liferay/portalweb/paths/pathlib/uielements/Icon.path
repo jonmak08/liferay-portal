@@ -8,6 +8,11 @@
 <tr><td rowspan="1" colspan="3">Icon</td></tr>
 </thead>
 <tbody>
+<tr>
+	<td>INFO</td>
+	<td>//div[contains(@class,'management-bar-default')]//a[contains(@class,'infoPanelToggler')]</td>
+	<td></td>
+</tr>
 </tbody>
 </table>
 </body>
