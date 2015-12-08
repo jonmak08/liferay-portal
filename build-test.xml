@@ -4699,6 +4699,7 @@ include-and-override=${liferay.home}/portal-setup-wizard.properties</echo>
 	<target name="prepare-selenium-browser">
 		<echo append="true" file="${test.ext.properties.file}">
 			browser.type=${browser.type}
+			browser.version=${browser.version}
 		</echo>
 
 		<if>
@@ -4773,7 +4774,6 @@ include-and-override=${liferay.home}/portal-setup-wizard.properties</echo>
 			<then>
 				<echo append="true" file="${test.ext.properties.file}">
 					selenium.desired.capabilities.platform=${selenium.desired.capabilities.platform}
-					selenium.desired.capabilities.version=${selenium.desired.capabilities.version}
 					selenium.remote.driver.enabled=${selenium.remote.driver.enabled}
 					selenium.remote.driver.hub=${selenium.remote.driver.hub}
 				</echo>
