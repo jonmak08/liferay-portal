@@ -38,12 +38,12 @@ public class LiveUsersClusterEventListenerImpl implements ClusterEventListener {
 
 		ClusterEventType clusterEventType = clusterEvent.getClusterEventType();
 
-		if (clusterEventType.equals(ClusterEventType.DEPART)) {
+		if (clusterEventType == ClusterEventType.DEPART) {
 			for (ClusterNode clusterNode : clusterNodes) {
 				_processDepartEvent(clusterNode);
 			}
 		}
-		else if (clusterEventType.equals(ClusterEventType.JOIN)) {
+		else if (clusterEventType == ClusterEventType.JOIN) {
 			for (ClusterNode clusterNode : clusterNodes) {
 				_processJoinEvent(clusterNode);
 			}

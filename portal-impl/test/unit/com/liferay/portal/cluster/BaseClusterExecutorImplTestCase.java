@@ -439,10 +439,10 @@ public abstract class BaseClusterExecutorImplTestCase
 				ClusterEventType clusterEventType =
 					clusterEvent.getClusterEventType();
 
-				if (clusterEventType.equals(ClusterEventType.DEPART)) {
+				if (clusterEventType == ClusterEventType.DEPART) {
 					_departMessageExchanger.exchange(clusterEvent);
 				}
-				else if (clusterEventType.equals(ClusterEventType.JOIN)) {
+				else if (clusterEventType == ClusterEventType.JOIN) {
 					_joinMessageExchanger.exchange(clusterEvent);
 				}
 			}

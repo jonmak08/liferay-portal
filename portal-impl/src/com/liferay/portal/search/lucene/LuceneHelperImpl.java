@@ -1170,7 +1170,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 			ClusterEventType clusterEventType =
 				clusterEvent.getClusterEventType();
 
-			if (!clusterEventType.equals(ClusterEventType.JOIN)) {
+			if (clusterEventType != ClusterEventType.JOIN) {
 				return;
 			}
 
