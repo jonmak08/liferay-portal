@@ -15,6 +15,7 @@
 package com.liferay.taglib.aui;
 
 import com.liferay.portal.kernel.util.TextFormatter;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.taglib.aui.base.BaseFieldWrapperTag;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +26,26 @@ import javax.servlet.http.HttpServletRequest;
  * @author Brian Wing Shun Chan
  */
 public class FieldWrapperTag extends BaseFieldWrapperTag {
+
+	@Override
+	protected String getEndPage() {
+		if (Validator.isNotNull(getMarkupView())) {
+			return "/html/taglib/aui/field_wrapper/" + getMarkupView() +
+				"/end.jsp";
+		}
+
+		return "/html/taglib/aui/field_wrapper/end.jsp";
+	}
+
+	@Override
+	protected String getStartPage() {
+		if (Validator.isNotNull(getMarkupView())) {
+			return "/html/taglib/aui/field_wrapper/" + getMarkupView() +
+				"/start.jsp";
+		}
+
+		return "/html/taglib/aui/field_wrapper/start.jsp";
+	}
 
 	@Override
 	protected boolean isCleanUpSetAttributes() {

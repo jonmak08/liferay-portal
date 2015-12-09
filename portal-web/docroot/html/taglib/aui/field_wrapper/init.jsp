@@ -28,6 +28,7 @@ java.lang.String inlineLabel = GetterUtil.getString((java.lang.String)request.ge
 java.lang.String label = GetterUtil.getString((java.lang.String)request.getAttribute("aui:field-wrapper:label"));
 boolean last = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:field-wrapper:last")));
 boolean localizeLabel = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:field-wrapper:localizeLabel")), true);
+java.lang.String markupView = GetterUtil.getString((java.lang.String)request.getAttribute("aui:icon:markupView"));
 java.lang.String name = GetterUtil.getString((java.lang.String)request.getAttribute("aui:field-wrapper:name"));
 boolean required = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:field-wrapper:required")));
 Map<String, Object> dynamicAttributes = (Map<String, Object>)request.getAttribute("aui:field-wrapper:dynamicAttributes");
