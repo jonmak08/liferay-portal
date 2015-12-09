@@ -123,6 +123,7 @@
 
 			<arg value="${project.dir}/util-taglib/src/META-INF/liferay-aui.tld" />
 			<arg value="${project.dir}/modules/apps/application-list/application-list-taglib/src/main/resources/META-INF/resources/liferay-application-list.tld" />
+			<arg value="${project.dir}/modules/apps/asset/asset-taglib/src/main/resources/META-INF/resources/liferay-asset.tld" />
 			<arg value="${project.dir}/modules/apps/dynamic-data-mapping/dynamic-data-mapping-taglib/src/main/resources/META-INF/resources/liferay-ddm.tld" />
 			<arg value="${project.dir}/modules/frontend/frontend-taglib/src/main/resources/META-INF/resources/liferay-frontend.tld" />
 			<arg value="${project.dir}/util-taglib/src/META-INF/liferay-portlet-ext.tld" />
