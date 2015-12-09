@@ -1222,6 +1222,15 @@
 		</if>
 	</command>
 
+	<command name="showCategorization">
+		<if>
+			<condition function="IsElementNotPresent#isNotVisible" locator1="AssetCategorization#TAGS_FIELD" />
+			<then>
+				<execute function="AssertClick" locator1="PGDocumentsandmediaEditdocument#CATEGORIZATION_PANEL_COLLAPSED" value1="Categorization" />
+			</then>
+		</if>
+	</command>
+
 	<command name="tearDownCP">
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Documents and Media" />
