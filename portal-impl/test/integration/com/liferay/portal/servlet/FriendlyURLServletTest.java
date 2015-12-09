@@ -17,6 +17,7 @@ package com.liferay.portal.servlet;
 import com.liferay.portal.NoSuchGroupException;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.transaction.Transactional;
+import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Layout;
@@ -32,7 +33,10 @@ import com.liferay.portal.util.Portal;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.WebKeys;
 
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
 
 import org.junit.After;
 import org.junit.Before;
@@ -62,6 +66,11 @@ public class FriendlyURLServletTest {
 		ServiceContextThreadLocal.pushServiceContext(serviceContext);
 
 		_group = GroupTestUtil.addGroup();
+
+		List<Locale> availableLocales = Arrays.asList(LocaleUtil.US);
+
+		_group = GroupTestUtil.updateDisplaySettings(
+			_group.getGroupId(), availableLocales, LocaleUtil.US);
 	}
 
 	@After
@@ -86,7 +95,7 @@ public class FriendlyURLServletTest {
 		Layout layout = LayoutTestUtil.addLayout(
 			_group.getGroupId(), ServiceTestUtil.randomString());
 
-		_mockHttpServletRequest.setAttribute(WebKeys.I18N_LANGUAGE_CODE, "fr");
+		_mockHttpServletRequest.setAttribute(WebKeys.I18N_PATH, "/fr");
 		_mockHttpServletRequest.setPathInfo(StringPool.SLASH);
 
 		String requestURI =
