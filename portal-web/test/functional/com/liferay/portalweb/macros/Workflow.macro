@@ -544,13 +544,6 @@
 	</command>
 
 	<command name="viewPreviewCategories">
-		<if>
-			<condition function="IsElementPresent" locator1="WorkflowSubmissionsTask#PREVIEW_MORE_DETAILS_HEADER_COLLAPSED" />
-			<then>
-				<execute function="AssertClick" locator1="WorkflowSubmissionsTask#PREVIEW_MORE_DETAILS_HEADER_COLLAPSED" value1="More Details" />
-			</then>
-		</if>
-
 		<execute function="AssertTextEquals#assertPartialText" locator1="WorkflowSubmissionsTask#PREVIEW_MORE_DETAILS_VOCABULARY" value1="${vocabularyName}:" />
 
 		<for list="${categoryNameList}" param="categoryName">

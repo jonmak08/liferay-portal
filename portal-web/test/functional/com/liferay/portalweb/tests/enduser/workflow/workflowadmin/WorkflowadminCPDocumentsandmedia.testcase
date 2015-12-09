@@ -17,10 +17,8 @@
 
 		<property name="custom.properties" value="dl.file.entry.drafts.enabled=true" />
 
-		<execute macro="Navigator#openURL" />
-
-		<execute macro="ProductMenu#gotoSitesContent">
-			<var name="portlet" value="Categories" />
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Categories" />
 		</execute>
 
 		<execute macro="Vocabulary#addCP">
@@ -32,10 +30,8 @@
 			<var name="vocabularyName" value="Vocabulary Name" />
 		</execute>
 
-		<execute macro="Navigator#openURL" />
-
-		<execute macro="ProductMenu#gotoSitesContent">
-			<var name="portlet" value="Categories" />
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Categories" />
 		</execute>
 
 		<execute macro="Category#addCP">
@@ -43,10 +39,8 @@
 			<var name="vocabularyName" value="Vocabulary Name" />
 		</execute>
 
-		<execute macro="Navigator#openURL" />
-
-		<execute macro="ProductMenu#gotoSitesContent">
-			<var name="portlet" value="Documents and Media" />
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Documents and Media" />
 		</execute>
 
 		<execute macro="DMFolder#addCP">
@@ -55,15 +49,14 @@
 		</execute>
 
 		<execute macro="DMFolder#configureWorkflowCP">
+			<var name="dmDocumentTypeName" value="Basic Document" />
 			<var name="dmFolderName" value="DM Folder Name" />
 			<var name="workflowDefinition" value="Single Approver (Version 1)" />
-			<var name="workflowRestriction" value="Default Workflow" />
+			<var name="workflowRestriction" value="Specific Restrictions" />
 		</execute>
 
-		<execute macro="Navigator#openURL" />
-
-		<execute macro="ProductMenu#gotoSitesContent">
-			<var name="portlet" value="Documents and Media" />
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Documents and Media" />
 		</execute>
 
 		<execute macro="DMFolder#gotoCP">
@@ -102,10 +95,8 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
-		<execute macro="Navigator#openURL" />
-
-		<execute macro="ProductMenu#gotoSitesContent">
-			<var name="portlet" value="Documents and Media" />
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Documents and Media" />
 		</execute>
 
 		<execute macro="DMFolder#gotoCP">
