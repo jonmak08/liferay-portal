@@ -23,6 +23,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Country;
+import com.liferay.portal.security.ac.AccessControlled;
 import com.liferay.portal.security.auth.PrincipalException;
 import com.liferay.portal.service.base.CountryServiceBaseImpl;
 
@@ -99,6 +100,7 @@ public class CountryServiceImpl extends CountryServiceBaseImpl {
 		return countryPersistence.findAll();
 	}
 
+	@AccessControlled(guestAccessEnabled = true)
 	@Override
 	public List<Country> getCountries(boolean active) throws SystemException {
 		return countryPersistence.findByActive(active);

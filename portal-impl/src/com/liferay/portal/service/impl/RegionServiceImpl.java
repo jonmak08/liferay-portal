@@ -20,6 +20,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Region;
+import com.liferay.portal.security.ac.AccessControlled;
 import com.liferay.portal.security.auth.PrincipalException;
 import com.liferay.portal.service.base.RegionServiceBaseImpl;
 
@@ -104,6 +105,7 @@ public class RegionServiceImpl extends RegionServiceBaseImpl {
 		return regionPersistence.findByCountryId(countryId);
 	}
 
+	@AccessControlled(guestAccessEnabled = true)
 	@Override
 	public List<Region> getRegions(long countryId, boolean active)
 		throws SystemException {
