@@ -14,6 +14,7 @@
 
 package com.liferay.taglib.ui;
 
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.servlet.http.HttpServletRequest;
@@ -39,6 +40,10 @@ public class CustomAttributeTag extends IncludeTag {
 		_label = label;
 	}
 
+	public void setMarkupView(String markupView) {
+		_markupView = markupView;
+	}
+
 	public void setName(String name) {
 		_name = name;
 	}
@@ -49,12 +54,17 @@ public class CustomAttributeTag extends IncludeTag {
 		_classPK = 0;
 		_editable = false;
 		_label = false;
+		_markupView = null;
 		_name = null;
 	}
 
 	@Override
 	protected String getPage() {
-		return _PAGE;
+		if (Validator.isNotNull(_markupView)) {
+			return "/html/taglib/ui/custom_attribute/" + _markupView + "/page.jsp";
+		}
+
+		return "/html/taglib/ui/custom_attribute/page.jsp";
 	}
 
 	@Override
@@ -67,6 +77,8 @@ public class CustomAttributeTag extends IncludeTag {
 			"liferay-ui:custom-attribute:editable", String.valueOf(_editable));
 		request.setAttribute(
 			"liferay-ui:custom-attribute:label", String.valueOf(_label));
+		request.setAttribute(
+			"liferay-ui:custom-attribute:markupView", String.valueOf(_markupView));
 		request.setAttribute("liferay-ui:custom-attribute:name", _name);
 	}
 
@@ -77,6 +89,7 @@ public class CustomAttributeTag extends IncludeTag {
 	private long _classPK;
 	private boolean _editable;
 	private boolean _label;
+	private String _markupView;
 	private String _name;
 
 }

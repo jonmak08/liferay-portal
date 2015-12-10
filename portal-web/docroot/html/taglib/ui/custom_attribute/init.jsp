@@ -20,3 +20,16 @@
 page import="com.liferay.portlet.expando.model.ExpandoTableConstants" %><%@
 page import="com.liferay.portlet.expando.service.permission.ExpandoColumnPermissionUtil" %><%@
 page import="com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil" %>
+
+<%
+String randomNamespace = PortalUtil.generateRandomKey(request, "taglib_ui_custom_attribute_page") + StringPool.UNDERLINE;
+
+String className = (String)request.getAttribute("liferay-ui:custom-attribute:className");
+long classPK = GetterUtil.getLong((String)request.getAttribute("liferay-ui:custom-attribute:classPK"));
+boolean editable = GetterUtil.getBoolean((String)request.getAttribute("liferay-ui:custom-attribute:editable"));
+boolean label = GetterUtil.getBoolean((String)request.getAttribute("liferay-ui:custom-attribute:label"));
+String markupView = GetterUtil.getString((String)request.getAttribute("liferay-ui:custom-attribute:markupView"));
+String name = (String)request.getAttribute("liferay-ui:custom-attribute:name");
+
+ExpandoBridge expandoBridge = ExpandoBridgeFactoryUtil.getExpandoBridge(company.getCompanyId(), className, classPK);
+%>
