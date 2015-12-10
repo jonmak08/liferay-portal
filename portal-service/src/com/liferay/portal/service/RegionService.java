@@ -100,6 +100,7 @@ public interface RegionService extends BaseService {
 		long countryId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
+	@AccessControlled(guestAccessEnabled = true)
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public java.util.List<com.liferay.portal.model.Region> getRegions(
 		long countryId, boolean active)
