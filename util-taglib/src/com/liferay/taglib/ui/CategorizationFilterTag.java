@@ -14,6 +14,7 @@
 
 package com.liferay.taglib.ui;
 
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.portlet.PortletURL;
@@ -29,6 +30,10 @@ public class CategorizationFilterTag extends IncludeTag {
 		_assetType = assetType;
 	}
 
+	public void setMarkupView(String markupView) {
+		_markupView = markupView;
+	}
+
 	public void setPortletURL(PortletURL portletURL) {
 		_portletURL = portletURL;
 	}
@@ -36,12 +41,18 @@ public class CategorizationFilterTag extends IncludeTag {
 	@Override
 	protected void cleanUp() {
 		_assetType = null;
+		_markupView = null;
 		_portletURL = null;
 	}
 
 	@Override
 	protected String getPage() {
-		return _PAGE;
+		if (Validator.isNotNull(_markupView)) {
+			return "/html/taglib/ui/categorization_filter/" + _markupView +
+				"/page.jsp";
+		}
+
+		return "/html/taglib/ui/categorization_filter/page.jsp";
 	}
 
 	@Override
@@ -52,10 +63,8 @@ public class CategorizationFilterTag extends IncludeTag {
 			"liferay-ui:categorization-filter:portletURL", _portletURL);
 	}
 
-	private static final String _PAGE =
-		"/html/taglib/ui/categorization_filter/page.jsp";
-
 	private String _assetType;
+	private String _markupView;
 	private PortletURL _portletURL;
 
 }
