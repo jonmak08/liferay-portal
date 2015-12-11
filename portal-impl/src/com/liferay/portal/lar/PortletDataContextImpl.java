@@ -2771,7 +2771,8 @@ public class PortletDataContextImpl implements PortletDataContext {
 			byte[].class.getName(), Date.class.getName(), Field.class.getName(),
 			Fields.class.getName(), InputStream.class.getName(),
 			Locale.class.getName(), String.class.getName(),
-			Time.class.getName(), Timestamp.class.getName()
+			String[].class.getName(), Time.class.getName(),
+			Timestamp.class.getName()
 		};
 
 	private static Log _log = LogFactoryUtil.getLog(
