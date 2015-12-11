@@ -1195,7 +1195,14 @@
 	</command>
 
 	<command name="viewKBDisplayPG">
-		<execute function="AssertHTMLSourceTextPresent" value1="${kbArticleTitle} - Liferay"  />
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+		
+		<if>
+			<condition function="IsElementPresent" locator1="PGKnowledgebasedisplay#ARTICLE_NAVIGATION"/>
+			<then>
+				<execute function="AssertHTMLSourceTextPresent" value1="${kbArticleTitle} - Liferay"  />
+			</then>
+		</if>
 
 		<if>
 			<isset var="kbArticleFriendlyURL" />
