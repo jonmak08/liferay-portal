@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.ratings.taglib.servlet.taglib;
 
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PrefsParamUtil;
