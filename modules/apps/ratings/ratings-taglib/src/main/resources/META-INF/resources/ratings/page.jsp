@@ -14,7 +14,7 @@
  */
 --%>
 
-<%@ include file="/html/taglib/ui/ratings/init.jsp" %>
+<%@ include file="/ratings/init.jsp" %>
 
 <%
 String randomNamespace = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page") + StringPool.UNDERLINE;

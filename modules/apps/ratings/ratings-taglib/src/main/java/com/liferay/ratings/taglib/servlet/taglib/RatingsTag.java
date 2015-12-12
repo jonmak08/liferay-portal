@@ -178,7 +178,7 @@ public class RatingsTag extends IncludeTag {
 
 	private static final String _DEFAULT_TYPE = RatingsType.STARS.getValue();
 
-	private static final String _PAGE = "/html/taglib/ui/ratings/page.jsp";
+	private static final String _PAGE = "/ratings/page.jsp";
 
 	private String _className;
 	private long _classPK;
