@@ -19,16 +19,16 @@
 <%
 String randomNamespace = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page") + StringPool.UNDERLINE;
 
-String className = (String)request.getAttribute("liferay-ui:ratings:className");
-long classPK = GetterUtil.getLong((String)request.getAttribute("liferay-ui:ratings:classPK"));
-int numberOfStars = GetterUtil.getInteger((String)request.getAttribute("liferay-ui:ratings:numberOfStars"));
-RatingsEntry ratingsEntry = (RatingsEntry)request.getAttribute("liferay-ui:ratings:ratingsEntry");
-RatingsStats ratingsStats = (RatingsStats)request.getAttribute("liferay-ui:ratings:ratingsStats");
-boolean round = GetterUtil.getBoolean((String)request.getAttribute("liferay-ui:ratings:round"), true);
-boolean setRatingsEntry = GetterUtil.getBoolean((String)request.getAttribute("liferay-ui:ratings:setRatingsEntry"));
-boolean setRatingsStats = GetterUtil.getBoolean((String)request.getAttribute("liferay-ui:ratings:setRatingsStats"));
-String type = GetterUtil.getString((String)request.getAttribute("liferay-ui:ratings:type"));
-String url = (String)request.getAttribute("liferay-ui:ratings:url");
+String className = (String)request.getAttribute("liferay-ratings:ratings:className");
+long classPK = GetterUtil.getLong((String)request.getAttribute("liferay-ratings:ratings:classPK"));
+int numberOfStars = GetterUtil.getInteger((String)request.getAttribute("liferay-ratings:ratings:numberOfStars"));
+RatingsEntry ratingsEntry = (RatingsEntry)request.getAttribute("liferay-ratings:ratings:ratingsEntry");
+RatingsStats ratingsStats = (RatingsStats)request.getAttribute("liferay-ratings:ratings:ratingsStats");
+boolean round = GetterUtil.getBoolean((String)request.getAttribute("liferay-ratings:ratings:round"), true);
+boolean setRatingsEntry = GetterUtil.getBoolean((String)request.getAttribute("liferay-ratings:ratings:setRatingsEntry"));
+boolean setRatingsStats = GetterUtil.getBoolean((String)request.getAttribute("liferay-ratings:ratings:setRatingsStats"));
+String type = GetterUtil.getString((String)request.getAttribute("liferay-ratings:ratings:type"));
+String url = (String)request.getAttribute("liferay-ratings:ratings:url");
 
 if (numberOfStars < 1) {
 	numberOfStars = 1;

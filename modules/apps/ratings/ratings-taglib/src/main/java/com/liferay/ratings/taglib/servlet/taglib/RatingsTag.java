@@ -154,23 +154,23 @@ public class RatingsTag extends IncludeTag {
 
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:ratings:className", _className);
+		request.setAttribute("liferay-ratings:ratings:className", _className);
 		request.setAttribute(
-			"liferay-ui:ratings:classPK", String.valueOf(_classPK));
+			"liferay-ratings:ratings:classPK", String.valueOf(_classPK));
 		request.setAttribute(
-			"liferay-ui:ratings:numberOfStars", String.valueOf(_numberOfStars));
-		request.setAttribute("liferay-ui:ratings:ratingsEntry", _ratingsEntry);
-		request.setAttribute("liferay-ui:ratings:ratingsStats", _ratingsStats);
+			"liferay-ratings:ratings:numberOfStars", String.valueOf(_numberOfStars));
+		request.setAttribute("liferay-ratings:ratings:ratingsEntry", _ratingsEntry);
+		request.setAttribute("liferay-ratings:ratings:ratingsStats", _ratingsStats);
 		request.setAttribute(
-			"liferay-ui:ratings:round", String.valueOf(_round));
+			"liferay-ratings:ratings:round", String.valueOf(_round));
 		request.setAttribute(
-			"liferay-ui:ratings:setRatingsEntry",
+			"liferay-ratings:ratings:setRatingsEntry",
 			String.valueOf(_setRatingsEntry));
 		request.setAttribute(
-			"liferay-ui:ratings:setRatingsStats",
+			"liferay-ratings:ratings:setRatingsStats",
 			String.valueOf(_setRatingsStats));
-		request.setAttribute("liferay-ui:ratings:type", getType(request));
-		request.setAttribute("liferay-ui:ratings:url", _url);
+		request.setAttribute("liferay-ratings:ratings:type", getType(request));
+		request.setAttribute("liferay-ratings:ratings:url", _url);
 	}
 
 	@Override
