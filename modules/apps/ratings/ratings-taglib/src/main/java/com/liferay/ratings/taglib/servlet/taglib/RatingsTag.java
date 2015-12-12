@@ -30,11 +30,13 @@ import com.liferay.portlet.ratings.definition.PortletRatingsDefinitionUtil;
 import com.liferay.portlet.ratings.model.RatingsEntry;
 import com.liferay.portlet.ratings.model.RatingsStats;
 import com.liferay.portlet.ratings.transformer.RatingsDataTransformerUtil;
+import com.liferay.ratings.taglib.servlet.ServletContextUtil;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.portlet.PortletPreferences;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Brian Wing Shun Chan
@@ -169,6 +171,13 @@ public class RatingsTag extends IncludeTag {
 			String.valueOf(_setRatingsStats));
 		request.setAttribute("liferay-ui:ratings:type", getType(request));
 		request.setAttribute("liferay-ui:ratings:url", _url);
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
