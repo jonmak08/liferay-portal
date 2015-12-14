@@ -365,7 +365,7 @@ renderResponse.setTitle(trashRenderer.getTitle(locale));
 		%>
 
 		<div class="asset-ratings">
-			<liferay-ui:ratings
+			<liferay-ratings:ratings
 				className="<%= className %>"
 				classPK="<%= classPK %>"
 			/>
