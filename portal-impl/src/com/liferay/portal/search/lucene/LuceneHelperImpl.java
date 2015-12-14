@@ -1021,6 +1021,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 				if (like) {
 					termValue = termValue.toLowerCase(queryParser.getLocale());
+
 					termValue = termValue.concat(StringPool.STAR);
 
 					if (PropsValues.INDEX_SEARCH_LEADING_WILDCARD_ENABLED) {
