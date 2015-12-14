@@ -16,6 +16,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<%@ taglib uri="http://liferay.com/tld/ratings" prefix="liferay-ratings" %>
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
 <%@ page import="com.liferay.journal.model.JournalArticle" %>
@@ -32,7 +33,7 @@ String viewMode = ParamUtil.getString(request, "viewMode");
 
 <c:if test="<%= !viewMode.equals(Constants.PRINT) %>">
 	<div class="content-metadata-asset-addon-entry content-metadata-ratings">
-		<liferay-ui:ratings
+		<liferay-ratings:ratings
 			className="<%= JournalArticle.class.getName() %>"
 			classPK="<%= articleDisplay.getResourcePrimKey() %>"
 		/>
