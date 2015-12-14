@@ -40,7 +40,10 @@ import javax.servlet.http.HttpServletRequest;
  * @author Brian Wing Shun Chan
  * @author Shuyang Zhou
  * @author Roberto Díaz
+ * @deprecated As of 7.0.0, replaced by {@link
+ *             com.liferay.ratings.taglib.servlet.taglib.RatingsTag}
  */
+@Deprecated
 public class RatingsTag extends IncludeTag {
 
 	public void setClassName(String className) {
