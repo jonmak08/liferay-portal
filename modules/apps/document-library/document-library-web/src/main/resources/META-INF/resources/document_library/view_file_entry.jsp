@@ -204,7 +204,7 @@ if (portletTitleBasedNavigation) {
 
 						<c:if test="<%= dlPortletInstanceSettings.isEnableRatings() && fileEntry.isSupportsSocial() %>">
 							<span class="lfr-asset-ratings">
-								<liferay-ui:ratings
+								<liferay-ratings:ratings
 									className="<%= DLFileEntryConstants.getClassName() %>"
 									classPK="<%= fileEntryId %>"
 								/>
