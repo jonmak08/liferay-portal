@@ -349,7 +349,7 @@ contextObjects.put("wikiPortletInstanceOverriddenConfiguration", wikiPortletInst
 
 		<c:if test="<%= wikiPortletInstanceSettingsHelper.isEnablePageRatings() %>">
 			<div class="page-ratings">
-				<liferay-ui:ratings
+				<liferay-ratings:ratings
 					className="<%= WikiPage.class.getName() %>"
 					classPK="<%= wikiPage.getResourcePrimKey() %>"
 				/>
