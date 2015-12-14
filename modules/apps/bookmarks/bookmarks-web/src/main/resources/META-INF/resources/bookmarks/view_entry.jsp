@@ -128,7 +128,7 @@ if (portletTitleBasedNavigation) {
 			</c:if>
 
 			<div class="lfr-asset-ratings">
-				<liferay-ui:ratings
+				<liferay-ratings:ratings
 					className="<%= BookmarksEntry.class.getName() %>"
 					classPK="<%= entryId %>"
 				/>
