@@ -14,22 +14,13 @@
 
 package com.liferay.portal.scheduler;
 
-import com.liferay.portal.cluster.AddressImpl;
+import com.liferay.portal.cluster.ClusterMasterExecutorImpl;
 import com.liferay.portal.cluster.ClusterableContextThreadLocal;
-import com.liferay.portal.kernel.cluster.Address;
-import com.liferay.portal.kernel.cluster.AddressSerializerUtil;
-import com.liferay.portal.kernel.cluster.ClusterEventListener;
-import com.liferay.portal.kernel.cluster.ClusterExecutor;
-import com.liferay.portal.kernel.cluster.ClusterExecutorUtil;
 import com.liferay.portal.kernel.cluster.ClusterInvokeAcceptor;
 import com.liferay.portal.kernel.cluster.ClusterInvokeThreadLocal;
-import com.liferay.portal.kernel.cluster.ClusterMessageType;
-import com.liferay.portal.kernel.cluster.ClusterNode;
-import com.liferay.portal.kernel.cluster.ClusterNodeResponse;
-import com.liferay.portal.kernel.cluster.ClusterRequest;
-import com.liferay.portal.kernel.cluster.ClusterResponseCallback;
+import com.liferay.portal.kernel.cluster.ClusterMasterExecutorUtil;
 import com.liferay.portal.kernel.cluster.Clusterable;
-import com.liferay.portal.kernel.cluster.FutureClusterResponses;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.scheduler.JobState;
@@ -50,36 +41,24 @@ import com.liferay.portal.kernel.util.ObjectValuePair;
 import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
-import com.liferay.portal.model.Lock;
-import com.liferay.portal.model.impl.LockImpl;
-import com.liferay.portal.service.LockLocalService;
-import com.liferay.portal.service.LockLocalServiceUtil;
-import com.liferay.portal.service.impl.LockLocalServiceImpl;
 import com.liferay.portal.util.PortalImpl;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.uuid.PortalUUIDImpl;
 
-import java.io.DataInput;
-import java.io.DataOutput;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
 import java.io.Serializable;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import java.net.InetAddress;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
@@ -102,14 +81,7 @@ public class ClusterSchedulerEngineTest {
 
 		portalUUIDUtil.setPortalUUID(new PortalUUIDImpl());
 
-		Field field = ReflectionUtil.getDeclaredField(
-			LockLocalServiceUtil.class, "_service");
-
-		LockLocalService lockLocalService = new MockLockLocalService();
-
-		field.set(null, lockLocalService);
-
-		field = ClusterableContextThreadLocal.class.getDeclaredField(
+		Field field = ClusterableContextThreadLocal.class.getDeclaredField(
 			"_contextThreadLocal");
 
 		field.setAccessible(true);
@@ -138,13 +110,16 @@ public class ClusterSchedulerEngineTest {
 		if (_clusterSchedulerEngine != null) {
 			_clusterSchedulerEngine.shutdown();
 		}
-
-		ClusterExecutorUtil.destroy();
 	}
 
 	@Test
 	public void testDelete1() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(true, 4, 2);
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(4, 2);
+
+		_setupClusterMasterExecutor(true, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			mockSchedulerEngine);
 
 		List<SchedulerResponse> schedulerResponses =
 			_clusterSchedulerEngine.getScheduledJobs();
@@ -184,7 +159,12 @@ public class ClusterSchedulerEngineTest {
 
 	@Test
 	public void testDelete2() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(false, 4, 2);
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(4, 2);
+
+		_setupClusterMasterExecutor(false, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			new MockSchedulerEngine(0, 2));
 
 		Map<String, SchedulerResponse> schedulerResponses =
 			_getMemoryClusteredJobs(_clusterSchedulerEngine);
@@ -206,8 +186,13 @@ public class ClusterSchedulerEngineTest {
 	}
 
 	@Test
-	public void testGetSchedulerJobs1() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(true, 2, 2);
+	public void testGetSchedulerJobs() throws Exception {
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(2, 2);
+
+		_setupClusterMasterExecutor(true, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			mockSchedulerEngine);
 
 		SchedulerResponse schedulerResponse =
 			_clusterSchedulerEngine.getScheduledJob(
@@ -256,70 +241,28 @@ public class ClusterSchedulerEngineTest {
 	}
 
 	@Test
-	public void testGetSchedulerJobs2() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(false, 2, 2);
+	public void testMasterToSlave() throws Exception {
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(2, 2);
 
-		SchedulerResponse schedulerResponse =
-			_clusterSchedulerEngine.getScheduledJob(
-				_TEST_JOB_NAME_0, _MEMORY_CLUSTER_TEST_GROUP_NAME);
+		MockClusterMasterExecutor mockClusterMasterExecutor =
+			_setupClusterMasterExecutor(true, mockSchedulerEngine);
 
-		Assert.assertNotNull(schedulerResponse);
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			mockSchedulerEngine);
 
-		List<SchedulerResponse> schedulerResponses =
-			_clusterSchedulerEngine.getScheduledJobs(
-				_MEMORY_CLUSTER_TEST_GROUP_NAME);
-
-		Assert.assertEquals(2, schedulerResponses.size());
-
-		schedulerResponses = _clusterSchedulerEngine.getScheduledJobs();
-
-		Assert.assertEquals(4, schedulerResponses.size());
-	}
-
-	@Test
-	public void testMasterToSlave1() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(true, 2, 2);
-
-		Assert.assertTrue(_isMaster(_clusterSchedulerEngine));
+		Assert.assertTrue(ClusterMasterExecutorUtil.isMaster());
 
 		Map<String, SchedulerResponse> schedulerResponseMap =
 			_getMemoryClusteredJobs(_clusterSchedulerEngine);
 
 		Assert.assertTrue(schedulerResponseMap.isEmpty());
 
-		String newMaster = AddressSerializerUtil.serialize(
-			MockClusterExecutor._anotherAddress);
+		mockClusterMasterExecutor.setMockSchedulerEngine(
+			new MockSchedulerEngine(2, 2));
 
-		MockLockLocalService.setLock(newMaster);
+		mockClusterMasterExecutor.setMaster(false);
 
-		Assert.assertFalse(_isMaster(_clusterSchedulerEngine));
-
-		_clusterSchedulerEngine.getScheduledJobs();
-
-		schedulerResponseMap = _getMemoryClusteredJobs(_clusterSchedulerEngine);
-
-		Assert.assertEquals(2, schedulerResponseMap.size());
-	}
-
-	@Test
-	public void testMasterToSlave2() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(true, 2, 2);
-
-		Assert.assertTrue(_isMaster(_clusterSchedulerEngine));
-
-		Map<String, SchedulerResponse> schedulerResponseMap =
-			_getMemoryClusteredJobs(_clusterSchedulerEngine);
-
-		Assert.assertTrue(schedulerResponseMap.isEmpty());
-
-		String newMaster = AddressSerializerUtil.serialize(
-			MockClusterExecutor._anotherAddress);
-
-		MockLockLocalService.setLock(newMaster);
-
-		Assert.assertFalse(_isMaster(_clusterSchedulerEngine));
-
-		MockClusterExecutor.fireClusterEventListener();
+		Assert.assertFalse(ClusterMasterExecutorUtil.isMaster());
 
 		schedulerResponseMap = _getMemoryClusteredJobs(_clusterSchedulerEngine);
 
@@ -328,7 +271,12 @@ public class ClusterSchedulerEngineTest {
 
 	@Test
 	public void testPauseAndResume1() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(true, 2, 2);
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(2, 2);
+
+		_setupClusterMasterExecutor(true, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			mockSchedulerEngine);
 
 		SchedulerResponse schedulerResponse =
 			_clusterSchedulerEngine.getScheduledJob(
@@ -415,7 +363,12 @@ public class ClusterSchedulerEngineTest {
 
 	@Test
 	public void testPauseAndResume2() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(false, 2, 2);
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(2, 2);
+
+		_setupClusterMasterExecutor(false, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			new MockSchedulerEngine(0, 2));
 
 		SchedulerResponse schedulerResponse = _getMemoryClusteredJob(
 			_clusterSchedulerEngine, _TEST_JOB_NAME_0,
@@ -469,7 +422,12 @@ public class ClusterSchedulerEngineTest {
 
 	@Test
 	public void testSchedule1() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(true, 1, 0);
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(1, 0);
+
+		_setupClusterMasterExecutor(true, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			mockSchedulerEngine);
 
 		List<SchedulerResponse> schedulerResponses =
 			_clusterSchedulerEngine.getScheduledJobs();
@@ -503,7 +461,12 @@ public class ClusterSchedulerEngineTest {
 
 	@Test
 	public void testSchedule2() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(false, 1, 0);
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(1, 0);
+
+		_setupClusterMasterExecutor(false, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			new MockSchedulerEngine(0, 0));
 
 		Map<String, SchedulerResponse> schedulerResponses =
 			_getMemoryClusteredJobs(_clusterSchedulerEngine);
@@ -527,7 +490,12 @@ public class ClusterSchedulerEngineTest {
 
 		// Persisted storage type
 
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(false, 4, 2);
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(4, 2);
+
+		_setupClusterMasterExecutor(false, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			new MockSchedulerEngine(0, 2));
 
 		_clusterSchedulerEngine.delete(
 			_TEST_JOB_NAME_PREFIX + CharPool.NUMBER_0,
@@ -596,13 +564,18 @@ public class ClusterSchedulerEngineTest {
 
 	@Test
 	public void testSetClusterableThreadLocal2() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(false, 2, 2);
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(2, 2);
+
+		_setupClusterMasterExecutor(false, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			new MockSchedulerEngine(0, 2));
 
 		_clusterSchedulerEngine.delete(_PERSISTENT_TEST_GROUP_NAME);
 
 		Map<String, Serializable> context = _collectThreadLocalContext();
 
-		Assert.assertTrue(_clusterInvokeAcceptor.accept(context));
+		Assert.assertFalse(_clusterInvokeAcceptor.accept(context));
 
 		_clusterSchedulerEngine.delete(_MEMORY_CLUSTER_TEST_GROUP_NAME);
 
@@ -617,21 +590,27 @@ public class ClusterSchedulerEngineTest {
 
 	@Test
 	public void testSlaveToMaster() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(false, 2, 0);
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(2, 0);
 
-		Assert.assertFalse(_isMaster(_clusterSchedulerEngine));
+		_setupClusterMasterExecutor(false, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			new MockSchedulerEngine(0, 0));
+
+		Assert.assertFalse(ClusterMasterExecutorUtil.isMaster());
 
 		Map<String, SchedulerResponse> schedulerResponseMap =
 			_getMemoryClusteredJobs(_clusterSchedulerEngine);
 
 		Assert.assertEquals(2, schedulerResponseMap.size());
 
-		String newMaster = AddressSerializerUtil.serialize(
-			ClusterExecutorUtil.getLocalClusterNodeAddress());
+		MockClusterMasterExecutor mockClusterMasterExecutor =
+			(MockClusterMasterExecutor)
+				ClusterMasterExecutorUtil.getClusterMasterExecutor();
 
-		MockLockLocalService.setLock(newMaster);
+		mockClusterMasterExecutor.setMaster(true);
 
-		Assert.assertTrue(_isMaster(_clusterSchedulerEngine));
+		Assert.assertTrue(ClusterMasterExecutorUtil.isMaster());
 
 		_clusterSchedulerEngine.pause(
 			_TEST_JOB_NAME_0, _MEMORY_CLUSTER_TEST_GROUP_NAME);
@@ -645,7 +624,12 @@ public class ClusterSchedulerEngineTest {
 
 	@Test
 	public void testSuppressError1() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(true, 1, 0);
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(1, 0);
+
+		_setupClusterMasterExecutor(true, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			mockSchedulerEngine);
 
 		SchedulerResponse schedulerResponse =
 			_clusterSchedulerEngine.getScheduledJob(
@@ -673,26 +657,38 @@ public class ClusterSchedulerEngineTest {
 
 	@Test
 	public void testSuppressError2() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(false, 1, 0);
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(1, 0);
+
+		_setupClusterMasterExecutor(false, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			new MockSchedulerEngine(0, 0));
 
 		SchedulerResponse schedulerResponse =
-			_clusterSchedulerEngine.getScheduledJob(
-				_TEST_JOB_NAME_0, _MEMORY_CLUSTER_TEST_GROUP_NAME);
+			_getMemoryClusteredJob(
+				_clusterSchedulerEngine, _TEST_JOB_NAME_0,
+				_MEMORY_CLUSTER_TEST_GROUP_NAME);
 
 		_assertSuppressErrorValue(schedulerResponse, null);
 
 		_clusterSchedulerEngine.suppressError(
 			_TEST_JOB_NAME_0, _MEMORY_CLUSTER_TEST_GROUP_NAME);
 
-		schedulerResponse = _clusterSchedulerEngine.getScheduledJob(
-			_TEST_JOB_NAME_0, _MEMORY_CLUSTER_TEST_GROUP_NAME);
+		schedulerResponse = _getMemoryClusteredJob(
+			_clusterSchedulerEngine, _TEST_JOB_NAME_0,
+			_MEMORY_CLUSTER_TEST_GROUP_NAME);
 
 		_assertSuppressErrorValue(schedulerResponse, null);
 	}
 
 	@Test
 	public void testUnschedule1() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(true, 2, 0);
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(2, 0);
+
+		_setupClusterMasterExecutor(true, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			mockSchedulerEngine);
 
 		SchedulerResponse schedulerResponse =
 			_clusterSchedulerEngine.getScheduledJob(
@@ -754,7 +750,12 @@ public class ClusterSchedulerEngineTest {
 
 	@Test
 	public void testUnschedule2() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(false, 4, 0);
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(4, 0);
+
+		_setupClusterMasterExecutor(false, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			new MockSchedulerEngine(0, 0));
 
 		SchedulerResponse schedulerResponse = _getMemoryClusteredJob(
 			_clusterSchedulerEngine, _TEST_JOB_NAME_0,
@@ -790,7 +791,12 @@ public class ClusterSchedulerEngineTest {
 
 	@Test
 	public void testUpdate1() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(true, 2, 0);
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(2, 0);
+
+		_setupClusterMasterExecutor(true, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			mockSchedulerEngine);
 
 		SchedulerResponse schedulerResponse =
 			_clusterSchedulerEngine.getScheduledJob(
@@ -824,7 +830,12 @@ public class ClusterSchedulerEngineTest {
 
 	@Test
 	public void testUpdate2() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(false, 2, 0);
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(2, 0);
+
+		_setupClusterMasterExecutor(false, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			new MockSchedulerEngine(0, 0));
 
 		SchedulerResponse schedulerResponse = _getMemoryClusteredJob(
 			_clusterSchedulerEngine, _TEST_JOB_NAME_0,
@@ -855,20 +866,6 @@ public class ClusterSchedulerEngineTest {
 		}
 		catch (SchedulerException se) {
 		}
-	}
-
-	@Test
-	public void testUpdateMemorySchedulerClusterMaster() throws Exception {
-		_clusterSchedulerEngine = _getClusterSchedulerEngine(false, 2, 0);
-
-		Assert.assertFalse(_isMaster(_clusterSchedulerEngine));
-
-		MockClusterExecutor.removeClusterNode(
-			MockClusterExecutor._anotherAddress);
-
-		_clusterSchedulerEngine.updateMemorySchedulerClusterMaster();
-
-		Assert.assertTrue(_isMaster(_clusterSchedulerEngine));
 	}
 
 	private void _assertSuppressErrorValue(
@@ -914,34 +911,27 @@ public class ClusterSchedulerEngineTest {
 		return context;
 	}
 
+	private MockClusterMasterExecutor _setupClusterMasterExecutor(
+		boolean master, MockSchedulerEngine mockSchedulerEngine) {
+
+		MockClusterMasterExecutor mockClusterMasterExecutor =
+			new MockClusterMasterExecutor(master, mockSchedulerEngine);
+
+		ClusterMasterExecutorUtil clusterMasterExecutorUtil =
+			new ClusterMasterExecutorUtil();
+
+		clusterMasterExecutorUtil.setClusterMasterExecutor(
+			mockClusterMasterExecutor);
+
+		return mockClusterMasterExecutor;
+	}
+
 	private ClusterSchedulerEngine _getClusterSchedulerEngine(
-			boolean master, int memoryClusterJobs, int persistentJobs)
+			MockSchedulerEngine mockSchedulerEngine)
 		throws Exception {
-
-		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(
-			memoryClusterJobs, persistentJobs);
-
-		MockClusterExecutor mockClusterExecutor = new MockClusterExecutor(
-			true, mockSchedulerEngine);
-
-		ClusterExecutorUtil clusterExecutorUtil = new ClusterExecutorUtil();
-
-		clusterExecutorUtil.setClusterExecutor(mockClusterExecutor);
 
 		ClusterSchedulerEngine clusterSchedulerEngine =
 			new ClusterSchedulerEngine(mockSchedulerEngine);
-
-		Address masterAddress = null;
-
-		if (master) {
-			masterAddress = ClusterExecutorUtil.getLocalClusterNodeAddress();
-		}
-		else {
-			masterAddress = MockClusterExecutor._anotherAddress;
-		}
-
-		MockLockLocalService.setLock(
-			AddressSerializerUtil.serialize(masterAddress));
 
 		SchedulerEngineHelperImpl schedulerEngineHelperImpl =
 			new SchedulerEngineHelperImpl();
@@ -953,8 +943,6 @@ public class ClusterSchedulerEngineTest {
 
 		schedulerEngineHelperUtil.setSchedulerEngineHelper(
 			schedulerEngineHelperImpl);
-
-		clusterSchedulerEngine.initialize();
 
 		clusterSchedulerEngine.start();
 
@@ -1034,20 +1022,6 @@ public class ClusterSchedulerEngineTest {
 		return schedulerResponses;
 	}
 
-	private boolean _isMaster(ClusterSchedulerEngine clusterSchedulerEngine)
-		throws Exception {
-
-		Field localClusterNodeAddressField = ReflectionUtil.getDeclaredField(
-			ClusterSchedulerEngine.class, "_localClusterNodeAddress");
-
-		String localClusterNodeAddress =
-			(String)localClusterNodeAddressField.get(clusterSchedulerEngine);
-
-		Lock lock = MockLockLocalService.getLock();
-
-		return localClusterNodeAddress.equals(lock.getOwner());
-	}
-
 	private static final long _DEFAULT_INTERVAL = 20000;
 
 	private static final String _INVALID_JOB_NAME = "wrong.job.name";
@@ -1071,233 +1045,43 @@ public class ClusterSchedulerEngineTest {
 	private static final String _TEST_JOB_NAME_PREFIX = "test.job.";
 
 	private static ClusterInvokeAcceptor _clusterInvokeAcceptor;
-	private static MethodKey _getScheduledJobMethodKey = new MethodKey(
-		SchedulerEngineHelperUtil.class, "getScheduledJob", String.class,
-		String.class, StorageType.class);
-	private static MethodKey _getScheduledJobsMethodKey1 = new MethodKey(
-		SchedulerEngineHelperUtil.class, "getScheduledJobs");
-	private static MethodKey _getScheduledJobsMethodKey2 = new MethodKey(
-		SchedulerEngineHelperUtil.class, "getScheduledJobs", String.class,
-		StorageType.class);
-	private static MethodKey _getScheduledJobsMethodKey3 = new MethodKey(
-		SchedulerEngineHelperUtil.class, "getScheduledJobs", StorageType.class);
 	private static ThreadLocal<HashMap<String, Serializable>>
 		_threadLocalContext;
 
 	private ClusterSchedulerEngine _clusterSchedulerEngine;
 
-	private static class MockAddress implements org.jgroups.Address {
+	private static class MockClusterMasterExecutor
+		extends ClusterMasterExecutorImpl {
 
-		@SuppressWarnings("unused")
-		public MockAddress() {
-		}
+		public MockClusterMasterExecutor(
+			boolean master, MockSchedulerEngine mockSchedulerEngine) {
 
-		public MockAddress(long timestamp) {
-			_timestamp = timestamp;
-		}
-
-		@Override
-		public int hashCode() {
-			return 11 * (int)_timestamp;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			MockAddress mockAddress = (MockAddress)obj;
-
-			if (_timestamp == mockAddress.getTimestamp()) {
-				return true;
-			}
-
-			return false;
-		}
-
-		@Override
-		public int compareTo(org.jgroups.Address jGroupsAddress) {
-			return 0;
-		}
-
-		public long getTimestamp() {
-			return _timestamp;
-		}
-
-		@Override
-		public void readExternal(ObjectInput objectInput) throws IOException {
-			_timestamp = objectInput.readLong();
-		}
-
-		@Override
-		public void readFrom(DataInput dataInput) throws Exception {
-			_timestamp = dataInput.readLong();
-		}
-
-		@Override
-		public int size() {
-			return 0;
-		}
-
-		@Override
-		public void writeExternal(ObjectOutput objectOutput)
-			throws IOException {
-
-			objectOutput.writeLong(_timestamp);
-		}
-
-		@Override
-		public void writeTo(DataOutput dataOutput) throws Exception {
-			dataOutput.writeLong(_timestamp);
-		}
-
-		private long _timestamp;
-
-	}
-
-	private static class MockClusterExecutor implements ClusterExecutor {
-
-		public static void fireClusterEventListener() {
-			for (ClusterEventListener clusterEventListener :
-					_clusterEventListeners) {
-
-				clusterEventListener.processClusterEvent(null);
-			}
-		}
-
-		public static void removeClusterNode(Address address) {
-			_addresses.remove(address);
-		}
-
-		public MockClusterExecutor(
-			boolean enabled, MockSchedulerEngine mockSchedulerEngine) {
-
-			_enabled = enabled;
+			_master = master;
 			_mockSchedulerEngine = mockSchedulerEngine;
-
-			long timestamp = System.currentTimeMillis();
-
-			_localAddress = new AddressImpl(new MockAddress(timestamp));
-			_anotherAddress = new AddressImpl(
-				new MockAddress(timestamp + 1000));
-
-			_addresses.add(_localAddress);
-			_addresses.add(_anotherAddress);
-		}
-
-		@Override
-		public void addClusterEventListener(
-			ClusterEventListener clusterEventListener) {
-
-			_clusterEventListeners.add(clusterEventListener);
 		}
 
 		@Override
 		public void destroy() {
-			_addresses.clear();
 		}
 
 		@Override
-		public FutureClusterResponses execute(ClusterRequest clusterRequest) {
-			List<Address> addresses = new ArrayList<Address>();
+		public <T> Future<T> executeOnMaster(MethodHandler methodHandler)
+			throws SystemException {
 
-			Collection<Address> clusterNodeAddresses =
-				clusterRequest.getTargetClusterNodeAddresses();
+			MethodKey methodKey = methodHandler.getMethodKey();
 
-			if (clusterNodeAddresses != null) {
-				addresses.addAll(clusterNodeAddresses);
+			if (!methodKey.equals(_getScheduledJobsMethodKey)) {
+				return null;
 			}
-
-			FutureClusterResponses futureClusterResponses =
-				new FutureClusterResponses(addresses);
-
-			for (Address address : addresses) {
-				ClusterNodeResponse clusterNodeResponse =
-					new ClusterNodeResponse();
-
-				clusterNodeResponse.setAddress(address);
-				clusterNodeResponse.setClusterMessageType(
-					ClusterMessageType.EXECUTE);
-				clusterNodeResponse.setMulticast(clusterRequest.isMulticast());
-				clusterNodeResponse.setUuid(clusterRequest.getUuid());
-
-				MockAddress mockAddress = (MockAddress)address.getRealAddress();
-
-				try {
-					clusterNodeResponse.setClusterNode(
-						new ClusterNode(
-							String.valueOf(mockAddress.getTimestamp()),
-							InetAddress.getLocalHost()));
-
-					clusterNodeResponse.setResult(
-						_invoke(clusterRequest.getMethodHandler()));
-				}
-				catch (Exception e) {
-				}
-
-				futureClusterResponses.addClusterNodeResponse(
-					clusterNodeResponse);
-			}
-
-			return futureClusterResponses;
-		}
-
-		@Override
-		public void execute(
-			ClusterRequest clusterRequest,
-			ClusterResponseCallback clusterResponseCallback) {
-
-			FutureClusterResponses futureClusterResponses = execute(
-				clusterRequest);
 
 			try {
-				clusterResponseCallback.callback(futureClusterResponses.get());
+				return new MockFuture<T>(
+					(T)_mockSchedulerEngine.getScheduledJobs(
+						StorageType.MEMORY_CLUSTERED));
 			}
-			catch (InterruptedException ie) {
+			catch (SchedulerException se) {
+				throw new SystemException(se);
 			}
-		}
-
-		@Override
-		public void execute(
-			ClusterRequest clusterRequest,
-			ClusterResponseCallback clusterResponseCallback, long timeout,
-			TimeUnit timeUnit) {
-
-			FutureClusterResponses futureClusterResponses = execute(
-				clusterRequest);
-
-			try {
-				clusterResponseCallback.callback(
-					futureClusterResponses.get(timeout, timeUnit));
-			}
-			catch (Exception e) {
-			}
-		}
-
-		@Override
-		public List<ClusterEventListener> getClusterEventListeners() {
-			return Collections.unmodifiableList(_clusterEventListeners);
-		}
-
-		@Override
-		public List<Address> getClusterNodeAddresses() {
-			return Collections.unmodifiableList(_addresses);
-		}
-
-		@Override
-		public List<ClusterNode> getClusterNodes() {
-			return Collections.emptyList();
-		}
-
-		public Address getCoordinatorAddress() {
-			return null;
-		}
-
-		@Override
-		public ClusterNode getLocalClusterNode() {
-			return null;
-		}
-
-		@Override
-		public Address getLocalClusterNodeAddress() {
-			return _localAddress;
 		}
 
 		@Override
@@ -1305,133 +1089,73 @@ public class ClusterSchedulerEngineTest {
 		}
 
 		@Override
-		public boolean isClusterNodeAlive(Address address) {
-			return _addresses.contains(address);
-		}
-
-		@Override
-		public boolean isClusterNodeAlive(String clusterNodeId) {
-			return false;
-		}
-
-		@Override
 		public boolean isEnabled() {
-			return _enabled;
+			return true;
 		}
 
 		@Override
-		public void removeClusterEventListener(
-			ClusterEventListener clusterEventListener) {
-
-			_clusterEventListeners.remove(clusterEventListener);
+		public boolean isMaster() {
+			return _master;
 		}
 
-		private Object _invoke(MethodHandler methodHandler)
-			throws SchedulerException {
+		public void setMockSchedulerEngine(
+			MockSchedulerEngine mockSchedulerEngine) {
 
-			MethodKey methodKey = methodHandler.getMethodKey();
-
-			if (methodKey.equals(_getScheduledJobMethodKey)) {
-				String groupName = (String)methodHandler.getArguments()[1];
-				StorageType storageType =
-					(StorageType)methodHandler.getArguments()[2];
-
-				return _mockSchedulerEngine.getScheduledJob(
-					(String)methodHandler.getArguments()[0],
-					_namespaceGroupName(groupName, storageType));
-			}
-			else if (methodKey.equals(_getScheduledJobsMethodKey1)) {
-				return _mockSchedulerEngine.getScheduledJobs();
-			}
-			else if (methodKey.equals(_getScheduledJobsMethodKey2)) {
-				String groupName = (String)methodHandler.getArguments()[0];
-				StorageType storageType =
-					(StorageType)methodHandler.getArguments()[1];
-
-				return _mockSchedulerEngine.getScheduledJobs(
-					_namespaceGroupName(groupName, storageType));
-			}
-			else if (methodKey.equals(_getScheduledJobsMethodKey3)) {
-				StorageType storageType =
-					(StorageType)methodHandler.getArguments()[0];
-
-				return _mockSchedulerEngine.getScheduledJobs(storageType);
-			}
-
-			return null;
+			_mockSchedulerEngine = mockSchedulerEngine;
 		}
 
-		private String _namespaceGroupName(
-			String groupName, StorageType storageType) {
+		public boolean setMaster(boolean master) {
+			if (master != _master) {
+				_master = master;
 
-			String namespaceGroupName = storageType.toString();
+				notifyMasterTokenTransitionListeners(master);
+			}
 
-			namespaceGroupName = namespaceGroupName.concat(
-				StringPool.POUND).concat(groupName);
-
-			return namespaceGroupName;
+			return master;
 		}
 
-		private static List<Address> _addresses = new ArrayList<Address>();
-		private static Address _anotherAddress;
-		private static List<ClusterEventListener> _clusterEventListeners =
-			new ArrayList<ClusterEventListener>();
+		private static final MethodKey _getScheduledJobsMethodKey =
+			new MethodKey(
+				SchedulerEngineHelperUtil.class, "getScheduledJobs",
+				StorageType.class);
 
-		private boolean _enabled;
-		private Address _localAddress;
+		private boolean _master;
 		private MockSchedulerEngine _mockSchedulerEngine;
 
 	}
 
-	private static class MockLockLocalService extends LockLocalServiceImpl {
+	private static class MockFuture<T> implements Future<T> {
 
-		public static void setLock(String owner) {
-			Lock lock = new LockImpl();
-
-			lock.setOwner(owner);
-
-			_lock = lock;
-		}
-
-		public static Lock getLock() {
-			return _lock;
+		public MockFuture(T result) {
+			_result = result;
 		}
 
 		@Override
-		public Lock lock(String className, String key, String owner) {
-			if (_lock == null) {
-				Lock lock = new LockImpl();
-
-				lock.setKey(key);
-				lock.setOwner(owner);
-
-				_lock = lock;
-			}
-
-			return _lock;
+		public boolean cancel(boolean mayInterruptIfRunning) {
+			return false;
 		}
 
 		@Override
-		public Lock lock(
-			String className, String key, String expectedOwner,
-			String updatedOwner) {
-
-			Lock lock = new LockImpl();
-
-			lock.setKey(key);
-			lock.setOwner(updatedOwner);
-
-			_lock = lock;
-
-			return lock;
+		public boolean isCancelled() {
+			return false;
 		}
 
 		@Override
-		public void unlock(String className, String key, String owner) {
-			_lock = null;
+		public boolean isDone() {
+			return true;
 		}
 
-		private static Lock _lock;
+		@Override
+		public T get() {
+			return _result;
+		}
+
+		@Override
+		public T get(long timeout, TimeUnit unit) {
+			return _result;
+		}
+
+		private final T _result;
 
 	}
 
