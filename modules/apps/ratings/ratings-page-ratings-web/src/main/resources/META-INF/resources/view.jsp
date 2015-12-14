@@ -16,7 +16,7 @@
 
 <%@ include file="/init.jsp" %>
 
-<liferay-ui:ratings
+<liferay-ratings:ratings
 	className="<%= Layout.class.getName() %>"
 	classPK="<%= layout.getPlid() %>"
 />
