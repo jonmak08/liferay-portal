@@ -1710,7 +1710,6 @@
 			<var name="endDateTime" value="PM" />
 			<var name="startDateTime" value="PM" />
 		</execute>
-
 	</command>
 
 	<command name="DeactivateAndDeleteSiteCalendarAndViewSiteCalendarEvent" priority="5">
