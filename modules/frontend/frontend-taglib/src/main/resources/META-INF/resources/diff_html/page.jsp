@@ -17,8 +17,8 @@
 <%@ include file="/init.jsp" %>
 
 <%
-String diffHtmlResults = (String)request.getAttribute("liferay-ui:diff-html:diffHtmlResults");
-String infoMessage = (String)request.getAttribute("liferay-ui:diff-html:infoMessage");
+String diffHtmlResults = (String)request.getAttribute("liferay-frontend:diff-html:diffHtmlResults");
+String infoMessage = (String)request.getAttribute("liferay-frontend:diff-html:infoMessage");
 %>
 
 <div id="<portlet:namespace />diffContainerHtmlResults">
