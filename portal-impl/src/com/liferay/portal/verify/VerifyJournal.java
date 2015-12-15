@@ -76,6 +76,8 @@ public class VerifyJournal extends VerifyProcess {
 
 	public static final int NUM_OF_ARTICLES = 5;
 
+	public static final int ARTICLE_INTERVAL = 500;
+
 	@Override
 	protected void doVerify() throws Exception {
 		verifyArticleContent();
@@ -276,21 +278,48 @@ public class VerifyJournal extends VerifyProcess {
 	}
 
 	protected void verifyArticleContent() throws Exception {
-		List<JournalArticle> articles =
-			JournalArticleLocalServiceUtil.getArticles();
 
-		for (JournalArticle article : articles) {
-			String content = JournalConverterUtil.updateDynamicElements(
+		ActionableDynamicQuery actionableDynamicQuery =
+			new JournalArticleActionableDynamicQuery() {
+
+				@Override
+				public void performAction(Object object) {
+					JournalArticle article = (JournalArticle)object;
+
+					try {
+						verifyInstanceId(article);
+					}
+					catch (Exception e) {
+						_log.error(
+							"Unable to update content for article " +
+								article.getId(),
+							e);
+					}
+				}
+
+		};
+
+		actionableDynamicQuery.setInterval(ARTICLE_INTERVAL);
+		actionableDynamicQuery.performActions();
+
+		if (_log.isDebugEnabled()) {
+			_log.debug("InstanceId verified for articles");
+		}
+	}
+
+	protected void verifyInstanceId(JournalArticle article)
+			throws Exception {
+
+		String content = JournalConverterUtil.updateDynamicElements(
 				article.getContent());
 
-			if (content.equals(article.getContent())) {
-				continue;
-			}
-
-			article.setContent(content);
-
-			JournalArticleLocalServiceUtil.updateJournalArticle(article);
+		if (content.equals(article.getContent())) {
+			return;
 		}
+
+		article.setContent(content);
+
+		JournalArticleLocalServiceUtil.updateJournalArticle(article);
 	}
 
 	protected void verifyContent() throws Exception {
@@ -637,6 +666,7 @@ public class VerifyJournal extends VerifyProcess {
 			DataAccess.cleanUp(con, ps, rs);
 		}
 	}
+
 
 	private static Log _log = LogFactoryUtil.getLog(VerifyJournal.class);
 
