@@ -49,7 +49,7 @@ public class DiffHtmlTag extends IncludeTag {
 		request.setAttribute("liferay-ui:diff-html:infoMessage", _infoMessage);
 	}
 
-	private static final String _PAGE = "/html/taglib/ui/diff_html/page.jsp";
+	private static final String _PAGE = "/diff_html/page.jsp";
 
 	private String _diffHtmlResults;
 	private String _infoMessage;

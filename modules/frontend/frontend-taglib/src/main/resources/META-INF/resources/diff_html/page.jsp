@@ -14,7 +14,7 @@
  */
 --%>
 
-<%@ include file="/html/taglib/init.jsp" %>
+<%@ include file="/init.jsp" %>
 
 <%
 String diffHtmlResults = (String)request.getAttribute("liferay-ui:diff-html:diffHtmlResults");
