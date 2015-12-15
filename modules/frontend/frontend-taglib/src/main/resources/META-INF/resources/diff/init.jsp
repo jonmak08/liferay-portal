@@ -14,23 +14,8 @@
  */
 --%>
 
-<%@ include file="/document_library/init.jsp" %>
+<%@ include file="/init.jsp" %>
 
-<%
-String backURL = ParamUtil.getString(request, "backURL");
-
-String sourceName = (String)renderRequest.getAttribute(WebKeys.SOURCE_NAME);
-String targetName = (String)renderRequest.getAttribute(WebKeys.TARGET_NAME);
-List[] diffResults = (List[])renderRequest.getAttribute(WebKeys.DIFF_RESULTS);
-%>
-
-<liferay-ui:header
-	backURL="<%= backURL %>"
-	title="compare-versions"
-/>
-
-<liferay-frontend:diff
-	diffResults="<%= diffResults %>"
-	sourceName="<%= sourceName %>"
-	targetName="<%= targetName %>"
-/>
+<%@ page import="com.liferay.portal.kernel.diff.Diff" %><%@
+page import="com.liferay.portal.kernel.diff.DiffResult" %><%@
+page import="com.liferay.portal.kernel.util.StringUtil" %>
