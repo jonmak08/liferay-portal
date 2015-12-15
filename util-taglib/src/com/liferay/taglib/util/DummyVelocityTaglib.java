@@ -230,6 +230,11 @@ public class DummyVelocityTaglib implements VelocityTaglib {
 		return null;
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             com.liferay.ratings.taglib.servlet.taglib.RatingsTag}
+	 */
+	@Deprecated
 	@Override
 	public RatingsTag getRatingsTag() {
 		return null;
@@ -412,6 +417,11 @@ public class DummyVelocityTaglib implements VelocityTaglib {
 	public void quickAccess(String contentId) {
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             com.liferay.ratings.taglib.servlet.taglib.RatingsTag}
+	 */
+	@Deprecated
 	@Override
 	public void ratings(
 		String className, long classPK, int numberOfStars, String type,

@@ -483,6 +483,11 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 		return quickAccessTag;
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             com.liferay.ratings.taglib.servlet.taglib.RatingsTag}
+	 */
+	@Deprecated
 	@Override
 	public RatingsTag getRatingsTag() throws Exception {
 		RatingsTag ratingsTag = new RatingsTag();
@@ -831,6 +836,11 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 		quickAccessTag.runTag();
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             com.liferay.ratings.taglib.servlet.taglib.RatingsTag}
+	 */
+	@Deprecated
 	@Override
 	public void ratings(
 			String className, long classPK, int numberOfStars, String type,

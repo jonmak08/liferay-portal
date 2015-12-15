@@ -159,6 +159,11 @@ public interface VelocityTaglib {
 
 	public QuickAccessTag getQuickAccessTag() throws Exception;
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             com.liferay.ratings.taglib.servlet.taglib.RatingsTag}
+	 */
+	@Deprecated
 	public RatingsTag getRatingsTag() throws Exception;
 
 	public String getSetting(String name);
@@ -274,6 +279,11 @@ public interface VelocityTaglib {
 
 	public void quickAccess(String contentId) throws Exception;
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             com.liferay.ratings.taglib.servlet.taglib.RatingsTag}
+	 */
+	@Deprecated
 	public void ratings(
 			String className, long classPK, int numberOfStars, String type,
 			String url)

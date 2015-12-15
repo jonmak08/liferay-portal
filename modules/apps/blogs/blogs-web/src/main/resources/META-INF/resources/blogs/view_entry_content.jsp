@@ -321,7 +321,7 @@ AssetEntry assetEntry = (AssetEntry)request.getAttribute("view_entry_content.jsp
 
 					<c:if test="<%= blogsPortletInstanceConfiguration.enableRatings() %>">
 						<div class="ratings">
-							<liferay-ui:ratings
+							<liferay-ratings:ratings
 								className="<%= BlogsEntry.class.getName() %>"
 								classPK="<%= entry.getEntryId() %>"
 							/>

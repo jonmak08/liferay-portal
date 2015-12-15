@@ -14,16 +14,9 @@
  */
 --%>
 
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+<%@ include file="/init.jsp" %>
 
-<%@ taglib uri="http://liferay.com/tld/ratings" prefix="liferay-ratings" %><%@
-taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
-taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
-
-<%@ page import="com.liferay.portal.model.Layout" %>
-
-<portlet:defineObjects />
-
-<liferay-theme:defineObjects/>
-
-<%@ include file="/init-ext.jsp" %>
+<%@ page import="com.liferay.portlet.ratings.model.RatingsEntry" %><%@
+page import="com.liferay.portlet.ratings.model.RatingsStats" %><%@
+page import="com.liferay.portlet.ratings.service.RatingsEntryLocalServiceUtil" %><%@
+page import="com.liferay.portlet.ratings.service.RatingsStatsLocalServiceUtil" %>

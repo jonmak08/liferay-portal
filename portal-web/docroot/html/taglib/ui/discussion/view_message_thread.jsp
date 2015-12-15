@@ -178,7 +178,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 
 			<div class="lfr-discussion-controls">
 				<c:if test="<%= commentTreeDisplayContext.isRatingsVisible() %>">
-					<liferay-ui:ratings
+					<liferay-ratings:ratings
 						className="<%= CommentConstants.getDiscussionClassName() %>"
 						classPK="<%= discussionComment.getCommentId() %>"
 						ratingsEntry="<%= discussionComment.getRatingsEntry() %>"

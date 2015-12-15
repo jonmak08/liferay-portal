@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.ratings.taglib.servlet.taglib;
 
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PrefsParamUtil;
@@ -30,20 +30,19 @@ import com.liferay.portlet.ratings.definition.PortletRatingsDefinitionUtil;
 import com.liferay.portlet.ratings.model.RatingsEntry;
 import com.liferay.portlet.ratings.model.RatingsStats;
 import com.liferay.portlet.ratings.transformer.RatingsDataTransformerUtil;
+import com.liferay.ratings.taglib.servlet.ServletContextUtil;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.portlet.PortletPreferences;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Brian Wing Shun Chan
  * @author Shuyang Zhou
  * @author Roberto Díaz
- * @deprecated As of 7.0.0, replaced by {@link
- *             com.liferay.ratings.taglib.servlet.taglib.RatingsTag}
  */
-@Deprecated
 public class RatingsTag extends IncludeTag {
 
 	public void setClassName(String className) {
@@ -155,23 +154,30 @@ public class RatingsTag extends IncludeTag {
 
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:ratings:className", _className);
+		request.setAttribute("liferay-ratings:ratings:className", _className);
 		request.setAttribute(
-			"liferay-ui:ratings:classPK", String.valueOf(_classPK));
+			"liferay-ratings:ratings:classPK", String.valueOf(_classPK));
 		request.setAttribute(
-			"liferay-ui:ratings:numberOfStars", String.valueOf(_numberOfStars));
-		request.setAttribute("liferay-ui:ratings:ratingsEntry", _ratingsEntry);
-		request.setAttribute("liferay-ui:ratings:ratingsStats", _ratingsStats);
+			"liferay-ratings:ratings:numberOfStars", String.valueOf(_numberOfStars));
+		request.setAttribute("liferay-ratings:ratings:ratingsEntry", _ratingsEntry);
+		request.setAttribute("liferay-ratings:ratings:ratingsStats", _ratingsStats);
 		request.setAttribute(
-			"liferay-ui:ratings:round", String.valueOf(_round));
+			"liferay-ratings:ratings:round", String.valueOf(_round));
 		request.setAttribute(
-			"liferay-ui:ratings:setRatingsEntry",
+			"liferay-ratings:ratings:setRatingsEntry",
 			String.valueOf(_setRatingsEntry));
 		request.setAttribute(
-			"liferay-ui:ratings:setRatingsStats",
+			"liferay-ratings:ratings:setRatingsStats",
 			String.valueOf(_setRatingsStats));
-		request.setAttribute("liferay-ui:ratings:type", getType(request));
-		request.setAttribute("liferay-ui:ratings:url", _url);
+		request.setAttribute("liferay-ratings:ratings:type", getType(request));
+		request.setAttribute("liferay-ratings:ratings:url", _url);
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
@@ -181,7 +187,7 @@ public class RatingsTag extends IncludeTag {
 
 	private static final String _DEFAULT_TYPE = RatingsType.STARS.getValue();
 
-	private static final String _PAGE = "/html/taglib/ui/ratings/page.jsp";
+	private static final String _PAGE = "/ratings/page.jsp";
 
 	private String _className;
 	private long _classPK;
