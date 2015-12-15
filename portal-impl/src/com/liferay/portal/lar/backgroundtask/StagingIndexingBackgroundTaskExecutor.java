@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.lar.PortletDataHandlerKeys;
 import com.liferay.portal.kernel.log.Log;
@@ -39,6 +40,7 @@ import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
+import com.liferay.portlet.dynamicdatamapping.service.persistence.DDMStructureUtil;
 import com.liferay.portlet.journal.model.JournalArticle;
 import com.liferay.portlet.journal.service.persistence.JournalArticleActionableDynamicQuery;
 import com.liferay.portlet.journal.util.JournalArticleIndexer;
@@ -192,9 +194,8 @@ public class StagingIndexingBackgroundTaskExecutor
 				DDMStructureLocalServiceUtil.getDDMStructure(structureId);
 
 			List<Long> ddmChildrenStructureIds =
-					DDMStructureLocalServiceUtil.getChildrenStructureIds(
-							ddmStructure.getGroupId(),
-							ddmStructure.getStructureId());
+				getChildrenStructureIds(
+					ddmStructure.getGroupId(), ddmStructure.getStructureId());
 
 			ddmStructureIdsWithChildren.addAll(ddmChildrenStructureIds);
 		}
@@ -282,6 +283,34 @@ public class StagingIndexingBackgroundTaskExecutor
 		}
 
 		return false;
+	}
+
+	protected void getChildrenStructureIds(
+			List<Long> structureIds, long groupId, long parentStructureId)
+		throws PortalException, SystemException {
+
+		List<DDMStructure> structures = DDMStructureUtil.findByG_P(
+			groupId, parentStructureId);
+
+		for (DDMStructure structure : structures) {
+			structureIds.add(structure.getStructureId());
+
+			getChildrenStructureIds(
+				structureIds, structure.getGroupId(),
+				structure.getStructureId());
+		}
+	}
+
+	protected List<Long> getChildrenStructureIds(long groupId, long structureId)
+		throws PortalException, SystemException {
+
+		List<Long> structureIds = new ArrayList<Long>();
+
+		getChildrenStructureIds(structureIds, groupId, structureId);
+
+		structureIds.add(0, structureId);
+
+		return structureIds;
 	}
 
 	@Override
