@@ -187,31 +187,27 @@ public class StagingIndexingBackgroundTaskExecutor
 			return;
 		}
 
-		Set<Long> ddmStructureIdsWithChildren = new HashSet<Long>();
+		Set<Long> descendantDDMStructureIds = new HashSet<Long>();
 
 		for (long structureId : ddmStructureIds) {
 			DDMStructure ddmStructure =
 				DDMStructureLocalServiceUtil.getDDMStructure(structureId);
 
-			List<Long> ddmChildrenStructureIds =
-				getChildrenStructureIds(
-					ddmStructure.getGroupId(), ddmStructure.getStructureId());
-
-			ddmStructureIdsWithChildren.addAll(ddmChildrenStructureIds);
+			descendantDDMStructureIds.addAll(
+				getDescendantDDMStructureIds(
+					ddmStructure.getGroupId(), ddmStructure.getStructureId()));
 		}
-
-		final String[] ddmStructureKeys =
-				new String[ddmStructureIdsWithChildren.size()];
 
 		int i = 0;
 
-		for (long structureId : ddmStructureIdsWithChildren) {
+		String[] ddmStructureKeys =
+			new String[descendantDDMStructureIds.size()];
+
+		for (long ddmStructureId : descendantDDMStructureIds) {
 			DDMStructure ddmStructure =
-				DDMStructureLocalServiceUtil.getDDMStructure(structureId);
+				DDMStructureLocalServiceUtil.getDDMStructure(ddmStructureId);
 
-			ddmStructureKeys[i] = ddmStructure.getStructureKey();
-
-			i++;
+			ddmStructureKeys[i++] = ddmStructure.getStructureKey();
 		}
 
 		// Journal
@@ -236,7 +232,7 @@ public class StagingIndexingBackgroundTaskExecutor
 
 			Object object = method.invoke(
 				DLFileEntryLocalServiceUtil.class, groupId,
-				ArrayUtil.toLongArray(ddmStructureIdsWithChildren));
+				ArrayUtil.toLongArray(descendantDDMStructureIds));
 
 			if (object != null) {
 				dlFileEntries = (List<DLFileEntry>)object;
@@ -245,7 +241,7 @@ public class StagingIndexingBackgroundTaskExecutor
 		catch (Exception e) {
 			List<DLFileEntry> allDlFileEntries =
 				DLFileEntryLocalServiceUtil.getDDMStructureFileEntries(
-					ArrayUtil.toLongArray(ddmStructureIdsWithChildren));
+					ArrayUtil.toLongArray(descendantDDMStructureIds));
 
 			for (DLFileEntry dlFileEntry : allDlFileEntries) {
 				if (groupId == dlFileEntry.getGroupId()) {
@@ -285,32 +281,33 @@ public class StagingIndexingBackgroundTaskExecutor
 		return false;
 	}
 
-	protected void getChildrenStructureIds(
-			List<Long> structureIds, long groupId, long parentStructureId)
+	protected void getDescendantDDMStructureIds(
+			List<Long> ddmStructureIds, long groupId, long parentDDMStructureId)
 		throws PortalException, SystemException {
 
-		List<DDMStructure> structures = DDMStructureUtil.findByG_P(
-			groupId, parentStructureId);
+		List<DDMStructure> ddmStructures = DDMStructureUtil.findByG_P(
+			groupId, parentDDMStructureId);
 
-		for (DDMStructure structure : structures) {
-			structureIds.add(structure.getStructureId());
+		for (DDMStructure ddmStructure : ddmStructures) {
+			ddmStructureIds.add(ddmStructure.getStructureId());
 
-			getChildrenStructureIds(
-				structureIds, structure.getGroupId(),
-				structure.getStructureId());
+			getDescendantDDMStructureIds(
+				ddmStructureIds, ddmStructure.getGroupId(),
+				ddmStructure.getStructureId());
 		}
 	}
 
-	protected List<Long> getChildrenStructureIds(long groupId, long structureId)
+	protected List<Long> getDescendantDDMStructureIds(
+			long groupId, long ddmStructureId)
 		throws PortalException, SystemException {
 
-		List<Long> structureIds = new ArrayList<Long>();
+		List<Long> ddmStructureIds = new ArrayList<Long>();
 
-		getChildrenStructureIds(structureIds, groupId, structureId);
+		getDescendantDDMStructureIds(ddmStructureIds, groupId, ddmStructureId);
 
-		structureIds.add(0, structureId);
+		ddmStructureIds.add(0, ddmStructureId);
 
-		return structureIds;
+		return ddmStructureIds;
 	}
 
 	@Override
