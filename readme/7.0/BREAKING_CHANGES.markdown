@@ -3192,3 +3192,30 @@ the tag namespace from `liferay-ui:trash-undo` to `liferay-trash:undo`.
 
 This change was made as a part of the ongoing strategy to modularize Liferay
 Portal by means of an OSGi container.
+
+---------------------------------------
+
+### The liferay-ui:breadcrumb taglib has been deprecated and replaced with liferay-site-navigation:breadcrumb taglib
+- **Date:** 2015-Dec-16
+- **JIRA Ticket:** LPS-61148
+
+#### What changed?
+
+The `liferay-ui:breadcrumb` taglib has been deprecated and replaced with
+`liferay-site-navigation:breadcrumb` taglib.
+
+#### Who is affected?
+
+Plugins or templates that are using the `liferay-ui:breadcrumb` tag need
+to update their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-site-navigation` tag library if it isn't already
+and update the tag namespace from `liferay-ui:breadcrumb` to
+`liferay-site-navigation:breadcrumb`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.
