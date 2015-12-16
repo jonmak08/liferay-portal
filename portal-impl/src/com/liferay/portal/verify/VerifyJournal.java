@@ -303,15 +303,14 @@ public class VerifyJournal extends VerifyProcess {
 		actionableDynamicQuery.performActions();
 
 		if (_log.isDebugEnabled()) {
-			_log.debug("InstanceId verified for articles");
+			_log.debug("Instance id verified for articles");
 		}
 	}
 
-	protected void verifyInstanceId(JournalArticle article)
-			throws Exception {
+	protected void verifyInstanceId(JournalArticle article) throws Exception {
 
 		String content = JournalConverterUtil.updateDynamicElements(
-				article.getContent());
+			article.getContent());
 
 		if (content.equals(article.getContent())) {
 			return;
@@ -666,7 +665,6 @@ public class VerifyJournal extends VerifyProcess {
 			DataAccess.cleanUp(con, ps, rs);
 		}
 	}
-
 
 	private static Log _log = LogFactoryUtil.getLog(VerifyJournal.class);
 
