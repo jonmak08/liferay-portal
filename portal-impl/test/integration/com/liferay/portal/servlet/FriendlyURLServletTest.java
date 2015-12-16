@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.service.ServiceContext;
@@ -33,9 +34,7 @@ import com.liferay.portal.util.Portal;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.WebKeys;
 
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import java.util.Locale;
 
 import org.junit.After;
@@ -67,10 +66,8 @@ public class FriendlyURLServletTest {
 
 		_group = GroupTestUtil.addGroup();
 
-		List<Locale> availableLocales = Arrays.asList(LocaleUtil.US);
-
-		_group = GroupTestUtil.updateDisplaySettings(
-			_group.getGroupId(), availableLocales, LocaleUtil.US);
+		_layout = LayoutTestUtil.addLayout(
+			_group.getGroupId(), ServiceTestUtil.randomString());
 	}
 
 	@After
@@ -80,36 +77,21 @@ public class FriendlyURLServletTest {
 
 	@Test
 	public void testGetRedirectWithExistentSite() throws Exception {
-		Group group = GroupTestUtil.addGroup();
-
-		Layout layout = LayoutTestUtil.addLayout(
-			group.getGroupId(), ServiceTestUtil.randomString());
-
 		testGetRedirect(
-			getPath(group, layout), Portal.PATH_MAIN,
-			new Object[] {getURL(layout), false});
+			getPath(_group, _layout), Portal.PATH_MAIN,
+			new Object[] {getURL(_layout), false});
 	}
 
 	@Test
-	public void testGetRedirectWithInvalidI18nPath() throws Exception {
-		Layout layout = LayoutTestUtil.addLayout(
-			_group.getGroupId(), ServiceTestUtil.randomString());
+	public void testGetRedirectWithI18nPath() throws Exception {
+		Locale[] availableLocales =
+			new Locale[] {LocaleUtil.US, LocaleUtil.HUNGARY};
 
-		_mockHttpServletRequest.setAttribute(WebKeys.I18N_PATH, "/fr");
-		_mockHttpServletRequest.setPathInfo(StringPool.SLASH);
+		_group = GroupTestUtil.updateDisplaySettings(
+			_group.getGroupId(), availableLocales, LocaleUtil.US);
 
-		String requestURI =
-			PropsValues.LAYOUT_FRIENDLY_URL_PUBLIC_SERVLET_MAPPING +
-				getPath(_group, layout);
-
-		_mockHttpServletRequest.setRequestURI(requestURI);
-
-		testGetRedirect(
-			_group.getFriendlyURL(), Portal.PATH_MAIN,
-			new Object[] {"/en" + requestURI, true});
-		testGetRedirect(
-			getPath(_group, layout), Portal.PATH_MAIN,
-			new Object[] {"/en" + requestURI, true});
+		testGetI18nRedirect("/fr", "/en");
+		testGetI18nRedirect("/hu", "/hu");
 	}
 
 	@Test
@@ -134,6 +116,36 @@ public class FriendlyURLServletTest {
 			"&p_v_l_s_g_id=0";
 	}
 
+	protected void testGetI18nRedirect(String i18nPath, String expectedI18nPath)
+		throws Exception {
+
+		_mockHttpServletRequest.setAttribute(WebKeys.I18N_PATH, i18nPath);
+		_mockHttpServletRequest.setPathInfo(StringPool.SLASH);
+
+		String requestURI =
+			PropsValues.LAYOUT_FRIENDLY_URL_PUBLIC_SERVLET_MAPPING +
+				getPath(_group, _layout);
+
+		_mockHttpServletRequest.setRequestURI(requestURI);
+
+		String actualURL = getURL(_layout);
+
+		boolean redirect = false;
+
+		if (!Validator.equals(i18nPath, expectedI18nPath)) {
+			actualURL = expectedI18nPath + requestURI;
+
+			redirect = true;
+		}
+
+		testGetRedirect(
+			_group.getFriendlyURL(), Portal.PATH_MAIN,
+			new Object[] {actualURL, redirect});
+		testGetRedirect(
+			getPath(_group, _layout), Portal.PATH_MAIN,
+			new Object[] {actualURL, redirect});
+	}
+
 	protected void testGetRedirect(
 			String path, String mainPath, Object[] expectedRedirectArray)
 		throws Exception {
@@ -148,6 +160,8 @@ public class FriendlyURLServletTest {
 	private FriendlyURLServlet _friendlyURLServlet = new FriendlyURLServlet();
 
 	private Group _group;
+
+	private Layout _layout;
 
 	private MockHttpServletRequest _mockHttpServletRequest =
 		new MockHttpServletRequest();
