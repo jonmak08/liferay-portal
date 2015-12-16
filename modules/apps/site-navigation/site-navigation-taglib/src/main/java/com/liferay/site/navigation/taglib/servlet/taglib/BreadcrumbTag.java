@@ -147,12 +147,12 @@ public class BreadcrumbTag extends IncludeTag {
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
 		request.setAttribute(
-			"liferay-ui:breadcrumb:breadcrumbEntries",
+			"liferay-site-navigation:breadcrumb:breadcrumbEntries",
 			getBreadcrumbEntries(request));
 		request.setAttribute(
-			"liferay-ui:breadcrumb:displayStyle", getDisplayStyle());
+			"liferay-site-navigation:breadcrumb:displayStyle", getDisplayStyle());
 		request.setAttribute(
-			"liferay-ui:breadcrumb:displayStyleGroupId",
+			"liferay-site-navigation:breadcrumb:displayStyleGroupId",
 			getDisplayStyleGroupId());
 	}
 

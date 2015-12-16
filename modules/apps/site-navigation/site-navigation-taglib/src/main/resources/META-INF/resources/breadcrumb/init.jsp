@@ -20,7 +20,7 @@
 page import="com.liferay.portlet.dynamicdatamapping.DDMTemplate" %>
 
 <%
-List<BreadcrumbEntry> breadcrumbEntries = (List<BreadcrumbEntry>)request.getAttribute("liferay-ui:breadcrumb:breadcrumbEntries");
-String displayStyle = GetterUtil.getString((String)request.getAttribute("liferay-ui:breadcrumb:displayStyle"));
-long displayStyleGroupId = GetterUtil.getLong(request.getAttribute("liferay-ui:breadcrumb:displayStyleGroupId"), scopeGroupId);
+List<BreadcrumbEntry> breadcrumbEntries = (List<BreadcrumbEntry>)request.getAttribute("liferay-site-navigation:breadcrumb:breadcrumbEntries");
+String displayStyle = GetterUtil.getString((String)request.getAttribute("liferay-site-navigation:breadcrumb:displayStyle"));
+long displayStyleGroupId = GetterUtil.getLong(request.getAttribute("liferay-site-navigation:breadcrumb:displayStyleGroupId"), scopeGroupId);
 %>
