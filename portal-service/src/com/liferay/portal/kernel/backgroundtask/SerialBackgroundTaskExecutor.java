@@ -79,10 +79,10 @@ public class SerialBackgroundTaskExecutor
 				break;
 			}
 			catch (ORMException e) {
-				handleException(e);
+				handleLockException(e);
 			}
 			catch (SystemException se) {
-				handleException(se);
+				handleLockException(se);
 			}
 		}
 
@@ -93,7 +93,7 @@ public class SerialBackgroundTaskExecutor
 		return lock;
 	}
 
-	protected void handleException(Exception e) {
+	protected void handleLockException(Exception e) {
 		if (_log.isDebugEnabled()) {
 			_log.debug("Unable to acquire acquiring lock", e);
 		}
