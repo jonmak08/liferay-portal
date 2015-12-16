@@ -147,7 +147,7 @@ public class BreadcrumbTag extends IncludeTag {
 			getDisplayStyleGroupId());
 	}
 
-	private static final String _PAGE = "/html/taglib/ui/breadcrumb/page.jsp";
+	private static final String _PAGE = "/breadcrumb/page.jsp";
 
 	private long _ddmTemplateGroupId;
 	private String _ddmTemplateKey;

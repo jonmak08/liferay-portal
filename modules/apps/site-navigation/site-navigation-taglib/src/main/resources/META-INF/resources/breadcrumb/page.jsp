@@ -14,7 +14,7 @@
  */
 --%>
 
-<%@ include file="/html/taglib/ui/breadcrumb/init.jsp" %>
+<%@ include file="/breadcrumb/init.jsp" %>
 
 <div id="<portlet:namespace />breadcrumbs-defaultScreen">
 	<h1 class="hide-accessible"><liferay-ui:message key="breadcrumbs" /></h1>
