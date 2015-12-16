@@ -346,8 +346,7 @@ public class FriendlyURLServlet extends HttpServlet {
 			if (pos != 0) {
 				if (pos != -1) {
 					layoutFriendlyURLCompositeFriendlyURL =
-						layoutFriendlyURLCompositeFriendlyURL.substring(
-							0, pos);
+						layoutFriendlyURLCompositeFriendlyURL.substring(0, pos);
 				}
 
 				if (isI18nRedirect(request, group.getGroupId()) ||
@@ -356,8 +355,7 @@ public class FriendlyURLServlet extends HttpServlet {
 						layout.getFriendlyURL(locale))) {
 
 					Locale originalLocale = setAlternativeLayoutFriendlyURL(
-						request, layout,
-						layoutFriendlyURLCompositeFriendlyURL);
+						request, layout, layoutFriendlyURLCompositeFriendlyURL);
 
 					String redirect = PortalUtil.getLocalizedFriendlyURL(
 						request, layout, locale, originalLocale);
