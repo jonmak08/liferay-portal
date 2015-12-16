@@ -78,8 +78,8 @@ public class SerialBackgroundTaskExecutor
 
 				break;
 			}
-			catch (ORMException e) {
-				handleLockException(e);
+			catch (ORMException orme) {
+				handleLockException(orme);
 			}
 			catch (SystemException se) {
 				handleLockException(se);
