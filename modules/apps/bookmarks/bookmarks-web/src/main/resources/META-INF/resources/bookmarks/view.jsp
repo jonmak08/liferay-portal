@@ -98,7 +98,7 @@ BookmarksUtil.addPortletBreadcrumbEntries(folder, request, renderResponse);
 	<div class="sidenav-content">
 		<div class="bookmakrs-breadcrumb" id="<portlet:namespace />breadcrumbContainer">
 			<c:if test='<%= !navigation.equals("recent") && !navigation.equals("mine") %>'>
-				<liferay-ui:breadcrumb showCurrentGroup="<%= false %>" showGuestGroup="<%= false %>" showLayout="<%= false %>" showParentGroups="<%= false %>" />
+				<liferay-site-navigation:breadcrumb showCurrentGroup="<%= false %>" showGuestGroup="<%= false %>" showLayout="<%= false %>" showParentGroups="<%= false %>" />
 			</c:if>
 		</div>
 
