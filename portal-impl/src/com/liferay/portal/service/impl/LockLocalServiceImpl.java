@@ -153,7 +153,7 @@ public class LockLocalServiceImpl extends LockLocalServiceBaseImpl {
 			if (lock.isExpired()) {
 				expireLock(lock);
 
-				lock = lockPersistence.fetchByC_K(className, key);
+				lockPersistence.flush();
 
 				lock = null;
 			}
