@@ -112,6 +112,6 @@ portletURL.setParameter("mvcRenderCommandName", "/message_boards/view");
 
 <c:if test="<%= layout.isTypeControlPanel() %>">
 	<div id="breadcrumb">
-		<liferay-ui:breadcrumb showCurrentGroup="<%= false %>" showGuestGroup="<%= false %>" showLayout="<%= false %>" showPortletBreadcrumb="<%= true %>" />
+		<liferay-site-navigation:breadcrumb showCurrentGroup="<%= false %>" showGuestGroup="<%= false %>" showLayout="<%= false %>" showPortletBreadcrumb="<%= true %>" />
 	</div>
 </c:if>
