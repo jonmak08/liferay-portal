@@ -295,7 +295,7 @@ if (Validator.isNotNull(keywords)) {
 			/>
 		</c:if>
 
-		<liferay-ui:breadcrumb
+		<liferay-site-navigation:breadcrumb
 			showCurrentGroup="<%= false %>"
 			showGuestGroup="<%= false %>"
 			showLayout="<%= false %>"

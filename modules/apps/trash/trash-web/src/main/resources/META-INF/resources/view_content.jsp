@@ -87,7 +87,7 @@ renderResponse.setTitle(trashRenderer.getTitle(locale));
 <liferay-util:include page="/restore_path.jsp" servletContext="<%= application %>" />
 
 <div class="asset-content container-fluid-1280">
-	<liferay-ui:breadcrumb
+	<liferay-site-navigation:breadcrumb
 		showCurrentGroup="<%= false %>"
 		showGuestGroup="<%= false %>"
 		showLayout="<%= false %>"
