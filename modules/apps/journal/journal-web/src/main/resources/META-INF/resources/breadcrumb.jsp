@@ -20,7 +20,7 @@
 JournalPortletUtil.addPortletBreadcrumbEntries(journalDisplayContext.getFolder(), request, journalDisplayContext.getPortletURL());
 %>
 
-<liferay-ui:breadcrumb
+<liferay-site-navigation:breadcrumb
 	showCurrentGroup="<%= false %>"
 	showGuestGroup="<%= false %>"
 	showLayout="<%= false %>"
