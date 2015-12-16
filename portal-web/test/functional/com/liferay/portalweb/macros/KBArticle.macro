@@ -1196,11 +1196,11 @@
 
 	<command name="viewKBDisplayPG">
 		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
-		
+
 		<if>
-			<condition function="IsElementPresent" locator1="PGKnowledgebasedisplay#ARTICLE_NAVIGATION"/>
+			<condition function="IsElementPresent" locator1="PGKnowledgebasedisplay#ARTICLE_NAVIGATION" />
 			<then>
-				<execute function="AssertHTMLSourceTextPresent" value1="${kbArticleTitle} - Liferay"  />
+				<execute function="AssertHTMLSourceTextPresent" value1="${kbArticleTitle} - Liferay" />
 			</then>
 		</if>
 
