@@ -16,7 +16,7 @@
 
 <%@ include file="/init.jsp" %>
 
-<liferay-ui:language
+<liferay-site-navigation:language
 	ddmTemplateGroupId="<%= siteNavigationLanguageDisplayContext.getDisplayStyleGroupId() %>"
 	ddmTemplateKey="<%= siteNavigationLanguageDisplayContext.getDDMTemplateKey() %>"
 	displayCurrentLocale="<%= languagePortletInstanceConfiguration.displayCurrentLocale() %>"
