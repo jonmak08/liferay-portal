@@ -45,6 +45,8 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Brian Wing Shun Chan
+ * @deprecated As of 7.0.0, replaced by {@link
+ *             com.liferay.site.navigation.taglib.servlet.taglib.LanguageTag}
  */
 public class LanguageTag extends IncludeTag {
 
