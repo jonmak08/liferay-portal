@@ -14,7 +14,7 @@
  */
 --%>
 
-<%@ include file="/html/taglib/ui/language/init.jsp" %>
+<%@ include file="/language/init.jsp" %>
 
 <%
 Map<String, Object> contextObjects = new HashMap<String, Object>();

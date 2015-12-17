@@ -259,7 +259,7 @@ public class LanguageTag extends IncludeTag {
 		request.setAttribute("liferay-ui:language:name", _name);
 	}
 
-	private static final String _PAGE = "/html/taglib/ui/language/page.jsp";
+	private static final String _PAGE = "/language/page.jsp";
 
 	private long _ddmTemplateGroupId;
 	private String _ddmTemplateKey;
