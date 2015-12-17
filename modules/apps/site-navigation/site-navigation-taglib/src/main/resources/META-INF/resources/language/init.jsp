@@ -20,10 +20,10 @@
 page import="com.liferay.portlet.dynamicdatamapping.DDMTemplate" %>
 
 <%
-String formName = (String)request.getAttribute("liferay-ui:language:formName");
-String formAction = (String)request.getAttribute("liferay-ui:language:formAction");
-String displayStyle = GetterUtil.getString((String)request.getAttribute("liferay-ui:language:displayStyle"));
-long displayStyleGroupId = GetterUtil.getLong(request.getAttribute("liferay-ui:language:displayStyleGroupId"), scopeGroupId);
-List<LanguageEntry> languageEntries = (List<LanguageEntry>)request.getAttribute("liferay-ui:language:languageEntries");
-String name = (String)request.getAttribute("liferay-ui:language:name");
+String formName = (String)request.getAttribute("liferay-site-navigation:language:formName");
+String formAction = (String)request.getAttribute("liferay-site-navigation:language:formAction");
+String displayStyle = GetterUtil.getString((String)request.getAttribute("liferay-site-navigation:language:displayStyle"));
+long displayStyleGroupId = GetterUtil.getLong(request.getAttribute("liferay-site-navigation:language:displayStyleGroupId"), scopeGroupId);
+List<LanguageEntry> languageEntries = (List<LanguageEntry>)request.getAttribute("liferay-site-navigation:language:languageEntries");
+String name = (String)request.getAttribute("liferay-site-navigation:language:name");
 %>

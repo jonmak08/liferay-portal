@@ -250,22 +250,22 @@ public class LanguageTag extends IncludeTag {
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
 		request.setAttribute(
-			"liferay-ui:language:displayCurrentLocale",
+			"liferay-site-navigation:language:displayCurrentLocale",
 			String.valueOf(_displayCurrentLocale));
 		request.setAttribute(
-			"liferay-ui:language:displayStyle", getDisplayStyle());
+			"liferay-site-navigation:language:displayStyle", getDisplayStyle());
 		request.setAttribute(
-			"liferay-ui:language:displayStyleGroupId",
+			"liferay-site-navigation:language:displayStyleGroupId",
 			getDisplayStyleGroupId());
-		request.setAttribute("liferay-ui:language:formAction", getFormAction());
-		request.setAttribute("liferay-ui:language:formName", _formName);
+		request.setAttribute("liferay-site-navigation:language:formAction", getFormAction());
+		request.setAttribute("liferay-site-navigation:language:formName", _formName);
 		request.setAttribute(
-			"liferay-ui:language:languageEntries",
+			"liferay-site-navigation:language:languageEntries",
 			getLanguageEntries(
 				getLocales(), _displayCurrentLocale, getFormAction(),
 				getNamespacedName()));
-		request.setAttribute("liferay-ui:language:languageId", _languageId);
-		request.setAttribute("liferay-ui:language:name", _name);
+		request.setAttribute("liferay-site-navigation:language:languageId", _languageId);
+		request.setAttribute("liferay-site-navigation:language:name", _name);
 	}
 
 	private static final String _PAGE = "/language/page.jsp";
