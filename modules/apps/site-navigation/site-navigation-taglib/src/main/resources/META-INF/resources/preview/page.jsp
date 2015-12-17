@@ -19,10 +19,10 @@
 <%
 String randomNamespace = PortalUtil.generateRandomKey(request, "taglib_portlet_preview_page") + StringPool.UNDERLINE;
 
-String portletResource = (String)request.getAttribute("liferay-portlet:preview:portletName");
-String queryString = (String)request.getAttribute("liferay-portlet:preview:queryString");
-boolean showBorders = GetterUtil.getBoolean((String)request.getAttribute("liferay-portlet:preview:showBorders"));
-String width = (String)request.getAttribute("liferay-portlet:preview:width");
+String portletResource = (String)request.getAttribute("liferay-site-navigation:preview:portletName");
+String queryString = (String)request.getAttribute("liferay-site-navigation:preview:queryString");
+boolean showBorders = GetterUtil.getBoolean((String)request.getAttribute("liferay-site-navigation:preview:showBorders"));
+String width = (String)request.getAttribute("liferay-site-navigation:preview:width");
 
 String previewWidth = ParamUtil.getString(request, "previewWidth");
 
