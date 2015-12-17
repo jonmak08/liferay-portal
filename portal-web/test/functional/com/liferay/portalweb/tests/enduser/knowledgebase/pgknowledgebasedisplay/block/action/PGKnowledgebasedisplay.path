@@ -241,7 +241,7 @@
 <!--FOLDER_NAVIGATION-->
 <tr>
 	<td>FOLDER_NAVIGATION_MENULIST</td>
-	<td>//div[@class='control-group']/select[contains(@id,'rootKBFolder')]</td>
+	<td>//div[contains(@class,'control-group')]/select[contains(@id,'rootKBFolder')]</td>
 	<td></td>
 </tr>
 <tr>
