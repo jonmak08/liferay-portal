@@ -48,12 +48,12 @@ public class PreviewTag extends IncludeTag {
 		throws Exception {
 
 		request.setAttribute(
-			"liferay-portlet:preview:portletName", portletName);
+			"liferay-site-navigation:preview:portletName", portletName);
 		request.setAttribute(
-			"liferay-portlet:preview:queryString", queryString);
+			"liferay-site-navigation:preview:queryString", queryString);
 		request.setAttribute(
-			"liferay-portlet:preview:showBorders", String.valueOf(showBorders));
-		request.setAttribute("liferay-portlet:preview:width", width);
+			"liferay-site-navigation:preview:showBorders", String.valueOf(showBorders));
+		request.setAttribute("liferay-site-navigation:preview:width", width);
 
 		RequestDispatcher requestDispatcher =
 			servletContext.getRequestDispatcher(page);
