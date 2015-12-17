@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.taglib.portletext;
+package com.liferay.site.navigation.taglib.servlet.taglib;
 
 import com.liferay.taglib.servlet.PipingServletResponse;
 import com.liferay.taglib.util.IncludeTag;
