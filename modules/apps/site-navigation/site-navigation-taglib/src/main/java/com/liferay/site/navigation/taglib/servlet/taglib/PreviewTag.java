@@ -95,7 +95,7 @@ public class PreviewTag extends IncludeTag {
 		return _PAGE;
 	}
 
-	private static final String _PAGE = "/html/taglib/portlet/preview/page.jsp";
+	private static final String _PAGE = "/preview/page.jsp";
 
 	private String _portletName;
 	private String _queryString;
