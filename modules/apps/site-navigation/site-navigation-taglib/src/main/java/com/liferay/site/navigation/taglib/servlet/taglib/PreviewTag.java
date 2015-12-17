@@ -14,6 +14,7 @@
 
 package com.liferay.site.navigation.taglib.servlet.taglib;
 
+import com.liferay.site.navigation.taglib.servlet.ServletContextUtil;
 import com.liferay.taglib.servlet.PipingServletResponse;
 import com.liferay.taglib.util.IncludeTag;
 
@@ -22,6 +23,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Brian Wing Shun Chan
@@ -72,6 +74,13 @@ public class PreviewTag extends IncludeTag {
 		catch (Exception e) {
 			throw new JspException(e);
 		}
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	public void setPortletName(String portletName) {
