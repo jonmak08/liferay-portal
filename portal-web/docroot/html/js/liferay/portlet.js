@@ -147,7 +147,6 @@
 				placeHolder = A.one(placeHolder);
 			}
 
-			var positionOptions = options.positionOptions;
 			var beforePortletLoaded = options.beforePortletLoaded;
 			var onCompleteFn = options.onComplete;
 
