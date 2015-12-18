@@ -430,13 +430,13 @@
 		</execute>
 	</command>
 
-	<command known-issues="BPR-4102" name="OrganizationsView" priority="5">
+	<command name="OrganizationsView" priority="5">
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
 		</execute>
 
 		<execute macro="Organization#addCP">
-			<var name="orgName" value="Organization Name 1}" />
+			<var name="orgName" value="Organization Name 1" />
 			<var name="orgType" value="Regular Organization" />
 		</execute>
 
