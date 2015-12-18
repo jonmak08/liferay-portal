@@ -1234,6 +1234,7 @@
 	<command name="tearDownCP">
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Documents and Media" />
+			<var name="siteScopeName" value="${siteScopeName}" />
 		</execute>
 
 		<if>
