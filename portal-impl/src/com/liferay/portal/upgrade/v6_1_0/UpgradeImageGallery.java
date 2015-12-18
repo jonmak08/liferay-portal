@@ -48,7 +48,6 @@ import com.liferay.portlet.documentlibrary.util.ImageProcessorUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
@@ -610,6 +609,39 @@ public class UpgradeImageGallery extends UpgradeProcess {
 		}
 	}
 
+	protected long getMaxFileVersionId(long fileEntryId) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			con = DataAccess.getUpgradeOptimizedConnection();
+
+			ps = con.prepareStatement(
+				"select max(fileVersionId) from DLFileVersion where " +
+					"fileEntryId = " + fileEntryId);
+
+			rs = ps.executeQuery();
+
+			rs.next();
+
+			return rs.getLong(1);
+		}
+		catch (SQLException e) {
+			if (_log.isWarnEnabled()) {
+				_log.warn(
+					"Unable to find max fileVersionId for document " +
+						fileEntryId,
+					e);
+			}
+		}
+		finally {
+			DataAccess.cleanUp(con, ps, rs);
+		}
+
+		return 0;
+	}
+
 	protected List<String> getResourceActionIds(
 		Map<String, Long> bitwiseValues, long actionIdsLong) {
 
@@ -685,55 +717,29 @@ public class UpgradeImageGallery extends UpgradeProcess {
 			}
 		}
 
-		long thumbnailImageId = 0;
+		if ((smallImageId != 0) || (custom1ImageId != 0) ||
+			(custom2ImageId != 0)) {
 
-		if (smallImageId != 0) {
-			thumbnailImageId = smallImageId;
-		}
-		else if (custom1ImageId != 0) {
-			thumbnailImageId = custom1ImageId;
-		}
-		else if (custom2ImageId != 0) {
-			thumbnailImageId = custom2ImageId;
-		}
+			long fileVersionId = getMaxFileVersionId(fileEntryId);
 
-		Image thumbnailImage = null;
-
-		if (thumbnailImageId != 0) {
-			thumbnailImage = ImageLocalServiceUtil.getImage(thumbnailImageId);
-
-			Connection con = null;
-			PreparedStatement ps = null;
-			ResultSet rs = null;
-
-			try {
-				con = DataAccess.getUpgradeOptimizedConnection();
-
-				ps = con.prepareStatement(
-					"select max(fileVersionId) from DLFileVersion where " +
-						"fileEntryId = " + fileEntryId);
-
-				rs = ps.executeQuery();
-
-				if (rs.next()) {
-					long fileVersionId = rs.getLong(1);
-
-					InputStream is = getHookImageAsStream(thumbnailImage);
-
-					ImageProcessorUtil.storeThumbnail(
+			if (fileVersionId != 0) {
+				if (smallImageId != 0) {
+					moveThumbnail(
 						companyId, groupId, fileEntryId, fileVersionId,
-						custom1ImageId, custom2ImageId, is,
-						thumbnailImage.getType());
+						largeImageId, smallImageId, 0, 0);
 				}
-			}
-			catch (Exception e) {
-				if (_log.isWarnEnabled()) {
-					_log.warn(
-						"Ignoring exception for image " + thumbnailImageId, e);
+
+				if (custom1ImageId != 0) {
+					moveThumbnail(
+						companyId, groupId, fileEntryId, fileVersionId,
+						largeImageId, custom1ImageId, custom1ImageId, 0);
 				}
-			}
-			finally {
-				DataAccess.cleanUp(con, ps, rs);
+
+				if (custom2ImageId != 0) {
+					moveThumbnail(
+						companyId, groupId, fileEntryId, fileVersionId,
+						largeImageId, custom2ImageId, 0, custom2ImageId);
+				}
 			}
 		}
 
@@ -741,12 +747,6 @@ public class UpgradeImageGallery extends UpgradeProcess {
 			_sourceHook.deleteImage(largeImage);
 
 			runSQL("delete from Image where imageId = " + largeImageId);
-		}
-
-		if ((largeImageId != thumbnailImageId) && (thumbnailImageId != 0)) {
-			_sourceHook.deleteImage(thumbnailImage);
-
-			runSQL("delete from Image where imageId = " + thumbnailImageId);
 		}
 	}
 
@@ -816,6 +816,37 @@ public class UpgradeImageGallery extends UpgradeProcess {
 
 		if (_sourceHookClassName.equals(DatabaseHook.class.getName())) {
 			runSQL("update Image set text_ = ''");
+		}
+	}
+
+	protected void moveThumbnail(
+			long companyId, long groupId, long fileEntryId, long fileVersionId,
+			long largeImageId, long thumbnailImageId, long custom1ImageId,
+			long custom2ImageId)
+		throws Exception {
+
+		Image thumbnailImage = null;
+
+		try {
+			thumbnailImage = getImage(thumbnailImageId);
+
+			InputStream is = getHookImageAsStream(thumbnailImage);
+
+			ImageProcessorUtil.storeThumbnail(
+				companyId, groupId, fileEntryId, fileVersionId, custom1ImageId,
+				custom2ImageId, is, thumbnailImage.getType());
+		}
+		catch (Exception e) {
+			if (_log.isWarnEnabled()) {
+				_log.warn(
+					"Ignoring exception for image " + thumbnailImageId, e);
+			}
+		}
+
+		if (largeImageId != thumbnailImageId) {
+			_sourceHook.deleteImage(thumbnailImage);
+
+			runSQL("delete from Image where imageId = " + thumbnailImageId);
 		}
 	}
 
