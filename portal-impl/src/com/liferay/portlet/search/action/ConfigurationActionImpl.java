@@ -100,7 +100,7 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
 				(displayAssetTagsFacet && fieldName.equals("assetTagNames")) ||
 				(displayAssetTypeFacet && fieldName.equals("entryClassName")) ||
 				(displayFolderFacet && fieldName.equals("folderId")) ||
-				(displayUserFacet && fieldName.equals("userId")) ||
+				(displayUserFacet && fieldName.equals("userName")) ||
 				(displayModifiedRangeFacet && fieldName.equals("modified"))) {
 
 				newFacetsJSONArray.put(oldFacetJSONObject);
