@@ -284,8 +284,10 @@
 
 					instance.refreshLayout(portletBound);
 
+					Util.addInputType(portletBound);
+
 					if (window.location.hash) {
-						window.location.hash = 'p_p_id_' + portletId + '_';
+						window.location.hash = 'p_' + portletId;
 					}
 
 					portletBoundary = portletBound;
