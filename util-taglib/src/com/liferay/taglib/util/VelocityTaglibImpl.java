@@ -625,6 +625,11 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 		journalContentSearchTag.runTag();
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             com.liferay.site.navigation.taglib.servlet.taglib.LanguageTag}
+	 */
+	@Deprecated
 	@Override
 	public void language() throws Exception {
 		LanguageTag languageTag = new LanguageTag();
@@ -634,6 +639,11 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 		languageTag.runTag();
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             com.liferay.site.navigation.taglib.servlet.taglib.LanguageTag}
+	 */
+	@Deprecated
 	@Override
 	public void language(
 			String formName, String formAction, String name,
@@ -652,6 +662,11 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 		languageTag.runTag();
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             com.liferay.site.navigation.taglib.servlet.taglib.LanguageTag}
+	 */
+	@Deprecated
 	@Override
 	public void language(
 			String formName, String formAction, String name,
