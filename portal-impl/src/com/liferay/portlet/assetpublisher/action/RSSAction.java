@@ -308,16 +308,16 @@ public class RSSAction extends com.liferay.portal.struts.RSSAction {
 
 		Set<String> defaultOrderValues = new HashSet<String>();
 
-		defaultOrderValues.add(Field.TITLE);
 		defaultOrderValues.add(Field.CREATE_DATE);
-		defaultOrderValues.add(Field.MODIFIED_DATE);
-		defaultOrderValues.add(Field.PUBLISH_DATE);
 		defaultOrderValues.add(Field.EXPIRATION_DATE);
+		defaultOrderValues.add(Field.MODIFIED_DATE);
 		defaultOrderValues.add(Field.PRIORITY);
+		defaultOrderValues.add(Field.PUBLISH_DATE);
+		defaultOrderValues.add(Field.TITLE);
 
 		if (!PropsValues.ASSET_PUBLISHER_SEARCH_WITH_INDEX) {
-			defaultOrderValues.add(Field.VIEW_COUNT);
 			defaultOrderValues.add(Field.RATINGS);
+			defaultOrderValues.add(Field.VIEW_COUNT);
 		}
 
 		String orderByColumn1 = portletPreferences.getValue(
