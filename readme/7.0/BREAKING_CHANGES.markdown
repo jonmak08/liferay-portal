@@ -3140,3 +3140,30 @@ update the tag namespace from `liferay-ui:diff` to `liferay-frontend:diff`.
 
 This change was made as a part of the ongoing strategy to modularize Liferay
 Portal by means of an OSGi container.
+
+---------------------------------------
+
+### The liferay-ui:discussion taglib has been removed and replaced with liferay-comment:discussion
+- **Date:** 2015-DEC-11
+- **JIRA Ticket:** LPS-61259
+
+#### What changed?
+
+The `liferay-ui:discussion` taglib has been removed and replaced with
+`liferay-comment:discussion` taglib.
+
+#### Who is affected?
+
+Plugins or templates that are using the `liferay-ui:discussion` tag need to
+update their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-comment` tag library if it isn't already and
+update the tag namespace from `liferay-ui:discussion` to
+`liferay-comment:discussion`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.

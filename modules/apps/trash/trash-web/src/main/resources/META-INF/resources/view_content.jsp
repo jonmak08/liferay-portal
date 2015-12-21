@@ -387,7 +387,7 @@ renderResponse.setTitle(trashRenderer.getTitle(locale));
 			</div>
 
 			<div class="asset-discussion">
-				<liferay-ui:discussion
+				<liferay-comment:discussion
 					className="<%= className %>"
 					classPK="<%= classPK %>"
 					formName='<%= "fm" + classPK %>'

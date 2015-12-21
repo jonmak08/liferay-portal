@@ -49,23 +49,24 @@ public class GetCommentsStrutsAction extends BaseStrutsAction {
 		String className = ParamUtil.getString(namespacedRequest, "className");
 
 		namespacedRequest.setAttribute(
-			"liferay-ui:discussion:className", className);
+			"liferay-comment:discussion:className", className);
 
 		long classPK = ParamUtil.getLong(namespacedRequest, "classPK");
 
 		namespacedRequest.setAttribute(
-			"liferay-ui:discussion:classPK", String.valueOf(classPK));
+			"liferay-comment:discussion:classPK", String.valueOf(classPK));
 
 		boolean hideControls = ParamUtil.getBoolean(
 			namespacedRequest, "hideControls");
 
 		namespacedRequest.setAttribute(
-			"liferay-ui:discussion:hideControls", String.valueOf(hideControls));
+			"liferay-comment:discussion:hideControls",
+			String.valueOf(hideControls));
 
 		int index = ParamUtil.getInteger(namespacedRequest, "index");
 
 		namespacedRequest.setAttribute(
-			"liferay-ui:discussion:index", String.valueOf(index));
+			"liferay-comment:discussion:index", String.valueOf(index));
 
 		String portletId = ParamUtil.getString(namespacedRequest, "portletId");
 
@@ -75,30 +76,30 @@ public class GetCommentsStrutsAction extends BaseStrutsAction {
 			namespacedRequest, "randomNamespace");
 
 		namespacedRequest.setAttribute(
-			"liferay-ui:discussion:randomNamespace", randomNamespace);
+			"liferay-comment:discussion:randomNamespace", randomNamespace);
 
 		boolean ratingsEnabled = ParamUtil.getBoolean(
 			namespacedRequest, "ratingsEnabled");
 
 		namespacedRequest.setAttribute(
-			"liferay-ui:discussion:ratingsEnabled",
+			"liferay-comment:discussion:ratingsEnabled",
 			String.valueOf(ratingsEnabled));
 
 		int rootIndexPage = ParamUtil.getInteger(
 			namespacedRequest, "rootIndexPage");
 
 		namespacedRequest.setAttribute(
-			"liferay-ui:discussion:rootIndexPage",
+			"liferay-comment:discussion:rootIndexPage",
 			String.valueOf(rootIndexPage));
 
 		long userId = ParamUtil.getLong(namespacedRequest, "userId");
 
 		namespacedRequest.setAttribute(
-			"liferay-ui:discussion:userId", String.valueOf(userId));
+			"liferay-comment:discussion:userId", String.valueOf(userId));
 
 		RequestDispatcher requestDispatcher =
 			namespacedRequest.getRequestDispatcher(
-				"/html/taglib/ui/discussion/page_resources.jsp");
+				"/discussion/page_resources.jsp");
 
 		requestDispatcher.include(namespacedRequest, response);
 

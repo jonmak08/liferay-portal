@@ -32,7 +32,7 @@ public class DiscussionTaglibHelper {
 			HttpServletRequest request = getRequest();
 
 			_className = (String)request.getAttribute(
-				"liferay-ui:discussion:className");
+				"liferay-comment:discussion:className");
 		}
 
 		return _className;
@@ -43,7 +43,8 @@ public class DiscussionTaglibHelper {
 			HttpServletRequest request = getRequest();
 
 			_classPK = GetterUtil.getLong(
-				(String)request.getAttribute("liferay-ui:discussion:classPK"));
+				(String)request.getAttribute(
+					"liferay-comment:discussion:classPK"));
 		}
 
 		return _classPK;
@@ -54,7 +55,7 @@ public class DiscussionTaglibHelper {
 			HttpServletRequest request = getRequest();
 
 			_formAction = (String)request.getAttribute(
-				"liferay-ui:discussion:formAction");
+				"liferay-comment:discussion:formAction");
 		}
 
 		return _formAction;
@@ -65,7 +66,7 @@ public class DiscussionTaglibHelper {
 			HttpServletRequest request = getRequest();
 
 			_formName = (String)request.getAttribute(
-				"liferay-ui:discussion:formName");
+				"liferay-comment:discussion:formName");
 		}
 
 		return _formName;
@@ -76,7 +77,7 @@ public class DiscussionTaglibHelper {
 			HttpServletRequest request = getRequest();
 
 			_paginationURL = (String)request.getAttribute(
-				"liferay-ui:discussion:paginationURL");
+				"liferay-comment:discussion:paginationURL");
 		}
 
 		return _paginationURL;
@@ -87,7 +88,7 @@ public class DiscussionTaglibHelper {
 			HttpServletRequest request = getRequest();
 
 			_redirect = (String)request.getAttribute(
-				"liferay-ui:discussion:redirect");
+				"liferay-comment:discussion:redirect");
 		}
 
 		return _redirect;
@@ -98,7 +99,8 @@ public class DiscussionTaglibHelper {
 			HttpServletRequest request = getRequest();
 
 			_userId = GetterUtil.getLong(
-				(String)request.getAttribute("liferay-ui:discussion:userId"));
+				(String)request.getAttribute(
+					"liferay-comment:discussion:userId"));
 		}
 
 		return _userId;
@@ -110,7 +112,7 @@ public class DiscussionTaglibHelper {
 
 			_assetEntryVisible = GetterUtil.getBoolean(
 				(String)request.getAttribute(
-					"liferay-ui:discussion:assetEntryVisible"));
+					"liferay-comment:discussion:assetEntryVisible"));
 		}
 
 		return _assetEntryVisible;
@@ -122,7 +124,7 @@ public class DiscussionTaglibHelper {
 
 			_hideControls = GetterUtil.getBoolean(
 				(String)request.getAttribute(
-					"liferay-ui:discussion:hideControls"));
+					"liferay-comment:discussion:hideControls"));
 		}
 
 		return _hideControls;
@@ -134,7 +136,7 @@ public class DiscussionTaglibHelper {
 
 			_ratingsEnabled = GetterUtil.getBoolean(
 				(String)request.getAttribute(
-					"liferay-ui:discussion:ratingsEnabled"));
+					"liferay-comment:discussion:ratingsEnabled"));
 		}
 
 		return _ratingsEnabled;

@@ -1,0 +1,11 @@
+Bundle-Name: Liferay Comment Taglib
+Bundle-SymbolicName: com.liferay.comment.taglib
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.comment.taglib.servlet.taglib
+Include-Resource:\
+	classes,\
+	META-INF/resources=src/main/resources/META-INF/resources
+Provide-Capability:\
+	osgi.extender;osgi.extender="jsp.taglib";uri="http://liferay.com/tld/comment";version:Version="1.0.0"
+Web-ContextPath: /comment-taglib

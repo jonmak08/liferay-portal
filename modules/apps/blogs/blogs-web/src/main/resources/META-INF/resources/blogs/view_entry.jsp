@@ -183,7 +183,7 @@ Discussion discussion = CommentManagerUtil.getDiscussion(user.getUserId(), scope
 			<aui:input inlineLabel="left" name="trackbackURL" type="resource" value='<%= PortalUtil.getLayoutFullURL(themeDisplay) + Portal.FRIENDLY_URL_SEPARATOR + "blogs/trackback/" + entry.getUrlTitle() %>' />
 		</c:if>
 
-		<liferay-ui:discussion
+		<liferay-comment:discussion
 			className="<%= BlogsEntry.class.getName() %>"
 			classPK="<%= entry.getEntryId() %>"
 			formName="fm2"

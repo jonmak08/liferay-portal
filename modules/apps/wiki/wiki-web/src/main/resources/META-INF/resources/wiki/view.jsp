@@ -360,7 +360,7 @@ contextObjects.put("wikiPortletInstanceOverriddenConfiguration", wikiPortletInst
 			<liferay-ui:panel-container extended="<%= false %>" id="wikiCommentsPanelContainer" persistState="<%= true %>">
 				<liferay-ui:panel collapsible="<%= true %>" extended="<%= true %>" id="wikiCommentsPanel" persistState="<%= true %>" title="comments">
 
-					<liferay-ui:discussion
+					<liferay-comment:discussion
 						className="<%= WikiPage.class.getName() %>"
 						classPK="<%= wikiPage.getResourcePrimKey() %>"
 						formName="fm2"
