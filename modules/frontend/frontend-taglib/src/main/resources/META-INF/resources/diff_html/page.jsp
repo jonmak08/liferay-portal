@@ -40,8 +40,8 @@ String infoMessage = (String)request.getAttribute("liferay-frontend:diff-html:in
 						if ((imageChangeType == 'diff-removed-image') ||
 							(imageChangeType == 'diff-added-image')) {
 
-							var filter = null;
 							var existingDivs = image.parentNode.getElementsByTagName('div');
+							var filter = null;
 
 							if ((existingDivs.length > 0) &&
 								(existingDivs[0].className == imageChangeType)) {
@@ -51,7 +51,7 @@ String infoMessage = (String)request.getAttribute("liferay-frontend:diff-html:in
 							else {
 								filter = document.createElement('div');
 
-								filter.className= image.getAttribute('changeType');
+								filter.className = image.getAttribute('changeType');
 							}
 
 							filter.style.height = image.offsetHeight - 4 + 'px';

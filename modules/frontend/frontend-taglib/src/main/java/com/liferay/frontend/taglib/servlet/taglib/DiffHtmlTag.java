@@ -34,6 +34,13 @@ public class DiffHtmlTag extends IncludeTag {
 	}
 
 	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
+	}
+
+	@Override
 	protected void cleanUp() {
 		_diffHtmlResults = null;
 		_infoMessage = null;
@@ -49,13 +56,6 @@ public class DiffHtmlTag extends IncludeTag {
 		request.setAttribute(
 			"liferay-frontend:diff-html:diffHtmlResults", _diffHtmlResults);
 		request.setAttribute("liferay-frontend:diff-html:infoMessage", _infoMessage);
-	}
-
-	@Override
-	public void setPageContext(PageContext pageContext) {
-		super.setPageContext(pageContext);
-
-		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	private static final String _PAGE = "/diff_html/page.jsp";
