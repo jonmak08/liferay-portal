@@ -207,7 +207,7 @@ if (Validator.isNotNull(languageId)) {
 				</div>
 
 				<div class="diff-container">
-					<liferay-ui:diff-html
+					<liferay-frontend:diff-html
 						diffHtmlResults="<%= diffHtmlResults %>"
 					/>
 				</div>
