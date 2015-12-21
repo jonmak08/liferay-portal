@@ -12,8 +12,9 @@
  * details.
  */
 
-package com.liferay.taglib.portletext;
+package com.liferay.site.navigation.taglib.servlet.taglib;
 
+import com.liferay.site.navigation.taglib.servlet.ServletContextUtil;
 import com.liferay.taglib.servlet.PipingServletResponse;
 import com.liferay.taglib.util.IncludeTag;
 
@@ -22,14 +23,11 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Brian Wing Shun Chan
- * @deprecated As of 7.0.0, replaced by {@link
- *             com.liferay.site.navigation.taglib.servlet.taglib.
- *             PreviewTag}
  */
-@Deprecated
 public class PreviewTag extends IncludeTag {
 
 	public static void doTag(
@@ -50,12 +48,12 @@ public class PreviewTag extends IncludeTag {
 		throws Exception {
 
 		request.setAttribute(
-			"liferay-portlet:preview:portletName", portletName);
+			"liferay-site-navigation:preview:portletName", portletName);
 		request.setAttribute(
-			"liferay-portlet:preview:queryString", queryString);
+			"liferay-site-navigation:preview:queryString", queryString);
 		request.setAttribute(
-			"liferay-portlet:preview:showBorders", String.valueOf(showBorders));
-		request.setAttribute("liferay-portlet:preview:width", width);
+			"liferay-site-navigation:preview:showBorders", String.valueOf(showBorders));
+		request.setAttribute("liferay-site-navigation:preview:width", width);
 
 		RequestDispatcher requestDispatcher =
 			servletContext.getRequestDispatcher(page);
@@ -76,6 +74,13 @@ public class PreviewTag extends IncludeTag {
 		catch (Exception e) {
 			throw new JspException(e);
 		}
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	public void setPortletName(String portletName) {
@@ -99,7 +104,7 @@ public class PreviewTag extends IncludeTag {
 		return _PAGE;
 	}
 
-	private static final String _PAGE = "/html/taglib/portlet/preview/page.jsp";
+	private static final String _PAGE = "/preview/page.jsp";
 
 	private String _portletName;
 	private String _queryString;

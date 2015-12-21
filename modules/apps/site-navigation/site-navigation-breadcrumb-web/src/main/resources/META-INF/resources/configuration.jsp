@@ -56,7 +56,7 @@
 		</aui:form>
 	</aui:col>
 	<aui:col width="<%= 50 %>">
-		<liferay-portlet:preview
+		<liferay-site-navigation:preview
 			portletName="<%= siteNavigationBreadcrumbDisplayContext.getPortletResource() %>"
 			showBorders="<%= true %>"
 		/>
