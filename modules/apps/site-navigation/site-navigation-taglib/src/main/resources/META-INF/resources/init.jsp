@@ -14,10 +14,38 @@
  */
 --%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+
+<%@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
+
 <%@ page import="com.liferay.portal.kernel.portletdisplaytemplate.PortletDisplayTemplateManagerUtil" %><%@
 page import="com.liferay.portal.kernel.util.GetterUtil" %><%@
-page import="com.liferay.portal.util.PortalUtil" %>
+page import="com.liferay.portal.kernel.util.JavaConstants" %><%@
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+page import="com.liferay.portal.kernel.util.StringUtil" %><%@
+page import="com.liferay.portal.kernel.util.Validator" %><%@
+page import="com.liferay.portal.util.PortalUtil" %><%@
+page import="com.liferay.taglib.aui.AUIUtil" %>
+
+<%@ page import="javax.portlet.PortletRequest" %><%@
+page import="javax.portlet.PortletResponse" %>
 
 <%@ page import="java.util.HashMap" %><%@
 page import="java.util.List" %><%@
 page import="java.util.Map" %>
+
+<liferay-theme:defineObjects />
+
+<%
+PortletRequest portletRequest = (PortletRequest)request.getAttribute(JavaConstants.JAVAX_PORTLET_REQUEST);
+
+PortletResponse portletResponse = (PortletResponse)request.getAttribute(JavaConstants.JAVAX_PORTLET_RESPONSE);
+
+String namespace = AUIUtil.getNamespace(portletRequest, portletResponse);
+
+if (Validator.isNull(namespace)) {
+	namespace = AUIUtil.getNamespace(request);
+}
+%>
