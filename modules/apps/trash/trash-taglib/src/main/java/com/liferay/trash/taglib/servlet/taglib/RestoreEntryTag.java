@@ -15,10 +15,12 @@
 package com.liferay.trash.taglib.servlet.taglib;
 
 import com.liferay.taglib.util.IncludeTag;
+import com.liferay.trash.taglib.servlet.ServletContextUtil;
 
 import javax.portlet.PortletURL;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Roberto Diaz
@@ -27,6 +29,13 @@ public class RestoreEntryTag extends IncludeTag {
 
 	public void setOverrideMessage(String overrideMessage) {
 		_overrideMessage = overrideMessage;
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	public void setRenameMessage(String renameMessage) {
