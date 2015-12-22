@@ -86,7 +86,7 @@ public class AssetTagsNavigationTag extends IncludeTag {
 	}
 
 	private static final String _PAGE =
-		"/html/taglib/ui/asset_tags_navigation/page.jsp";
+		"/asset_tags_navigation/page.jsp";
 
 	private long _classNameId;
 	private String _displayStyle = "cloud";
