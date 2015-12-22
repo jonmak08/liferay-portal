@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.asset.taglib.servlet.taglib;
 
 import com.liferay.taglib.util.IncludeTag;
 
@@ -27,6 +27,6 @@ public class AssetTagsErrorTag extends IncludeTag {
 	}
 
 	private static final String _PAGE =
-		"/html/taglib/ui/asset_tags_error/page.jsp";
+		"/asset_tags_error/page.jsp";
 
 }
