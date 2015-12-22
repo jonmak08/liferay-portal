@@ -12,19 +12,17 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.frontend.taglib.servlet.taglib;
 
+import com.liferay.frontend.taglib.servlet.ServletContextUtil;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Julio Camarero
- * @deprecated As of 7.0.0, replaced by {@link
- *             com.liferay.frontend.taglib.servlet.taglib.
- *             DiffVersionComparatorTag}
  */
-@Deprecated
 public class DiffHtmlTag extends IncludeTag {
 
 	public void setDiffHtmlResults(String diffHtmlResults) {
@@ -33,6 +31,13 @@ public class DiffHtmlTag extends IncludeTag {
 
 	public void setInfoMessage(String infoMessage) {
 		_infoMessage = infoMessage;
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	@Override
@@ -49,11 +54,11 @@ public class DiffHtmlTag extends IncludeTag {
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
 		request.setAttribute(
-			"liferay-ui:diff-html:diffHtmlResults", _diffHtmlResults);
-		request.setAttribute("liferay-ui:diff-html:infoMessage", _infoMessage);
+			"liferay-frontend:diff-html:diffHtmlResults", _diffHtmlResults);
+		request.setAttribute("liferay-frontend:diff-html:infoMessage", _infoMessage);
 	}
 
-	private static final String _PAGE = "/html/taglib/ui/diff_html/page.jsp";
+	private static final String _PAGE = "/diff_html/page.jsp";
 
 	private String _diffHtmlResults;
 	private String _infoMessage;
