@@ -247,6 +247,8 @@
 			<var name="checkedOut" value="true" />
 			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
 			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit2}" />
+			<var name="userFirstName" value="${userFirstName}" />
+			<var name="userLastName" value="${userLastName}" />
 			<var name="userName" value="${userFirstName} ${userLastName}" />
 		</execute>
 
