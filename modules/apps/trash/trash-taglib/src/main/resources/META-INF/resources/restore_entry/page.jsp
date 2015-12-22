@@ -14,7 +14,7 @@
  */
 --%>
 
-<%@ include file="/html/taglib/ui/restore_entry/init.jsp" %>
+<%@ include file="/restore_entry/init.jsp" %>
 
 <%
 String overrideMessage = (String)request.getAttribute("liferay-trash:restore-entry:overrideMessage");

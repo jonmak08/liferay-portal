@@ -69,8 +69,7 @@ public class RestoreEntryTag extends IncludeTag {
 	private static final String _OVERRIDE_MESSAGE =
 		"overwrite-the-existing-entry-with-the-one-from-the-recycle-bin";
 
-	private static final String _PAGE =
-		"/html/taglib/ui/restore_entry/page.jsp";
+	private static final String _PAGE = "/restore_entry/page.jsp";
 
 	private static final String _RENAME_MESSAGE =
 		"keep-both-entries-and-rename-the-entry-from-the-recycle-bin-as";
