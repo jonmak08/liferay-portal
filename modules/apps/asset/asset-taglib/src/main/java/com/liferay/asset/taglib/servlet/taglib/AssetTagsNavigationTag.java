@@ -14,9 +14,11 @@
 
 package com.liferay.asset.taglib.servlet.taglib;
 
+import com.liferay.asset.taglib.servlet.ServletContextUtil;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Alvaro del Castillo
@@ -41,6 +43,13 @@ public class AssetTagsNavigationTag extends IncludeTag {
 		_maxAssetTags = maxAssetTags;
 	}
 
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
+	}
+	
 	public void setShowAssetCount(boolean showAssetCount) {
 		_showAssetCount = showAssetCount;
 	}
