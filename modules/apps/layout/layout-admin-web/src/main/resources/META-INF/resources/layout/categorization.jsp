@@ -26,7 +26,7 @@ Layout selLayout = layoutsAdminDisplayContext.getSelLayout();
 
 <liferay-ui:asset-categories-error />
 
-<liferay-ui:asset-tags-error />
+<liferay-asset:asset-tags-error />
 
 <aui:input name="categories" type="assetCategories" />
 

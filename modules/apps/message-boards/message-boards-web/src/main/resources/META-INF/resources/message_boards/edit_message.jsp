@@ -243,7 +243,7 @@ if (portletTitleBasedNavigation) {
 
 		<liferay-ui:asset-categories-error />
 
-		<liferay-ui:asset-tags-error />
+		<liferay-asset:asset-tags-error />
 
 		<aui:model-context bean="<%= message %>" model="<%= MBMessage.class %>" />
 
