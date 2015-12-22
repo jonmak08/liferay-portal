@@ -3192,3 +3192,30 @@ the tag namespace from `liferay-ui:trash-undo` to `liferay-trash:undo`.
 
 This change was made as a part of the ongoing strategy to modularize Liferay
 Portal by means of an OSGi container.
+
+---------------------------------------
+
+### The liferay-ui:restore-entry taglib has been removed and replaced with liferay-trash:restore-entry taglib
+- **Date:** 2015-Dec-22
+- **JIRA Ticket:** LPS-61146
+
+#### What changed?
+
+The `liferay-ui:restore-entry` taglib has been removed and replaced with
+`liferay-trash:restore-entry` taglib.
+
+#### Who is affected?
+
+Plugins or templates that are using the `liferay-ui:restore-entry` tag need to
+update their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-trash` tag library if it isn't already and update
+the tag namespace from `liferay-ui:restore-entry` to
+`liferay-trash:restore-entry`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.
