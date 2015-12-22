@@ -18,7 +18,7 @@
 
 <liferay-portlet:actionURL name="/wiki/edit_page_attachment" varImpl="restoreURL" />
 
-<liferay-ui:restore-entry
+<liferay-trash:restore-entry
 	overrideMessage="overwrite-the-existing-attachment-with-the-removed-one"
 	renameMessage="keep-both-attachments-and-rename-the-removed-attachment-as"
 	restoreURL="<%= restoreURL %>"

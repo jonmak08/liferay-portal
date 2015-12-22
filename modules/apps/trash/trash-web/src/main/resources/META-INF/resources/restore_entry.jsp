@@ -18,6 +18,6 @@
 
 <liferay-portlet:actionURL name="restoreEntry" varImpl="restoreURL" />
 
-<liferay-ui:restore-entry
+<liferay-trash:restore-entry
 	restoreURL="<%= restoreURL %>"
 />

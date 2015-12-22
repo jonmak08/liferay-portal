@@ -18,7 +18,7 @@
 
 <liferay-portlet:actionURL name="/message_boards/edit_message_attachments" varImpl="restoreURL" />
 
-<liferay-ui:restore-entry
+<liferay-trash:restore-entry
 	overrideMessage="overwrite-the-existing-attachment-with-the-removed-one"
 	renameMessage="keep-both-attachments-and-rename-the-removed-attachment-as"
 	restoreURL="<%= restoreURL %>"
