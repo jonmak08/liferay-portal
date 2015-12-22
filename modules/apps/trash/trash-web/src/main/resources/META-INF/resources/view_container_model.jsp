@@ -69,7 +69,7 @@ renderResponse.setTitle(LanguageUtil.format(request, "select-x", containerModelN
 </div>
 
 <aui:form cssClass="container-fluid-1280" method="post" name="selectContainerFm">
-	<liferay-ui:breadcrumb showGuestGroup="<%= false %>" showLayout="<%= false %>" showParentGroups="<%= false %>" />
+	<liferay-site-navigation:breadcrumb showGuestGroup="<%= false %>" showLayout="<%= false %>" showParentGroups="<%= false %>" />
 
 	<aui:button-row>
 

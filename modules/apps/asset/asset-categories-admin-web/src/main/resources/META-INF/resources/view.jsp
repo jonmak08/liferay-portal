@@ -123,7 +123,7 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "vocabul
 </portlet:actionURL>
 
 <aui:form action="<%= deleteVocabularyURL %>" cssClass="container-fluid-1280" name="fm">
-	<liferay-ui:breadcrumb
+	<liferay-site-navigation:breadcrumb
 		showCurrentGroup="<%= false %>"
 		showGuestGroup="<%= false %>"
 		showLayout="<%= false %>"

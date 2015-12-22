@@ -35,7 +35,7 @@ JournalPortletUtil.addPortletBreadcrumbEntries(folder, request, portletURL);
 %>
 
 <aui:form method="post" name="selectFolderFm">
-	<liferay-ui:breadcrumb showCurrentGroup="<%= false %>" showGuestGroup="<%= false %>" showLayout="<%= false %>" showParentGroups="<%= false %>" />
+	<liferay-site-navigation:breadcrumb showCurrentGroup="<%= false %>" showGuestGroup="<%= false %>" showLayout="<%= false %>" showParentGroups="<%= false %>" />
 
 	<aui:button-row>
 
