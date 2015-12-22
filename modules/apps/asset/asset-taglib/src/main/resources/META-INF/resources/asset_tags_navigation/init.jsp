@@ -14,8 +14,51 @@
  */
 --%>
 
-<%@ include file="/init.jsp" %>
+<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+
+<%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %><%@
+taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
+
+<%@ page import="com.liferay.portal.kernel.util.GetterUtil" %><%@
+page import="com.liferay.portal.kernel.util.HtmlUtil" %><%@
+page import="com.liferay.portal.kernel.util.JavaConstants" %><%@
+page import="com.liferay.portal.kernel.util.ListUtil" %><%@
+page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
+page import="com.liferay.portal.kernel.util.StringBundler" %><%@
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+page import="com.liferay.portal.kernel.util.Validator" %><%@
+page import="com.liferay.portal.kernel.util.WebKeys" %><%@
+page import="com.liferay.portal.util.PortalUtil" %>
+
+<%@ page import="com.liferay.portlet.asset.model.AssetTag" %><%@
+page import="com.liferay.portlet.asset.service.AssetTagServiceUtil" %><%@
+page import="com.liferay.portlet.PortletURLUtil" %>
+
+<%@ page import="java.util.List" %>
+
+<%@ page import="javax.portlet.PortletRequest" %><%@
+page import="javax.portlet.PortletResponse" %><%@
+page import="javax.portlet.PortletURL" %>
 
 <%@ page import="com.liferay.portlet.asset.util.comparator.AssetTagCountComparator" %>
 
+<liferay-theme:defineObjects />
+
 <portlet:defineObjects />
+
+<%
+PortletRequest portletRequest = (PortletRequest)request.getAttribute(JavaConstants.JAVAX_PORTLET_REQUEST);
+
+PortletResponse portletResponse = (PortletResponse)request.getAttribute(JavaConstants.JAVAX_PORTLET_RESPONSE);
+
+String currentURL = null;
+
+if ((portletRequest != null) && (portletResponse != null)) {
+	PortletURL currentURLObj = PortletURLUtil.getCurrent(PortalUtil.getLiferayPortletRequest(portletRequest), PortalUtil.getLiferayPortletResponse(portletResponse));
+	
+	currentURL = currentURLObj.toString();
+}
+else {
+	currentURL = PortalUtil.getCurrentURL(request);
+}
+%>
