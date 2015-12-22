@@ -17,9 +17,9 @@
 <%@ include file="/html/taglib/ui/restore_entry/init.jsp" %>
 
 <%
-String overrideMessage = (String)request.getAttribute("liferay-ui:restore-entry:overrideMessage");
-String renameMessage = (String)request.getAttribute("liferay-ui:restore-entry:renameMessage");
-PortletURL restoreURL = (PortletURL)request.getAttribute("liferay-ui:restore-entry:restoreURL");
+String overrideMessage = (String)request.getAttribute("liferay-trash:restore-entry:overrideMessage");
+String renameMessage = (String)request.getAttribute("liferay-trash:restore-entry:renameMessage");
+PortletURL restoreURL = (PortletURL)request.getAttribute("liferay-trash:restore-entry:restoreURL");
 
 String redirect = ParamUtil.getString(request, "redirect");
 

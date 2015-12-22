@@ -57,11 +57,11 @@ public class RestoreEntryTag extends IncludeTag {
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
 		request.setAttribute(
-			"liferay-ui:restore-entry:overrideMessage", _overrideMessage);
+			"liferay-trash:restore-entry:overrideMessage", _overrideMessage);
 		request.setAttribute(
-			"liferay-ui:restore-entry:renameMessage", _renameMessage);
+			"liferay-trash:restore-entry:renameMessage", _renameMessage);
 		request.setAttribute(
-			"liferay-ui:restore-entry:restoreURL", _restoreURL);
+			"liferay-trash:restore-entry:restoreURL", _restoreURL);
 	}
 
 	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
