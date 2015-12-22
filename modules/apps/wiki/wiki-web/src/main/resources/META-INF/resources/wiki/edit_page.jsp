@@ -210,7 +210,7 @@ if (Validator.isNull(redirect)) {
 
 	<liferay-ui:asset-categories-error />
 
-	<liferay-ui:asset-tags-error />
+	<liferay-asset:asset-tags-error />
 
 	<c:if test="<%= newPage %>">
 		<c:choose>
