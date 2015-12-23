@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.asset.taglib.servlet.taglib;
 
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portlet.asset.model.AssetEntry;
@@ -58,6 +58,6 @@ public class InputAssetLinksTag extends AssetLinksTag {
 	}
 
 	private static final String _PAGE =
-		"/html/taglib/ui/input_asset_links/page.jsp";
+		"/input_asset_links/page.jsp";
 
 }
