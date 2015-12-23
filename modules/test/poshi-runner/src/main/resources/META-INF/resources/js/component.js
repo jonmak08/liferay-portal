@@ -181,8 +181,7 @@ YUI.add(
 
 							var linkedFunction = xmlLog.one('.line-group[data-functionLinkId="' + functionLinkId + '"]');
 
-							instance._displayNode(linkedFunction);
-							instance._scrollToNode(linkedFunction);
+							instance._displayNode(linkedFunction, true);
 							instance._selectCurrentScope(linkedFunction);
 						}
 					},
@@ -197,8 +196,7 @@ YUI.add(
 								event.halt(true);
 							}
 
-							instance._displayNode(currentTargetAncestor);
-							instance._scrollToNode(currentTargetAncestor);
+							instance._displayNode(currentTargetAncestor, true);
 							instance._selectCurrentScope(currentTargetAncestor);
 						}
 					},
@@ -273,7 +271,7 @@ YUI.add(
 						var failure = errorNodes.item(newIndex);
 
 						instance._selectCurrentScope(failure);
-						instance._scrollToNode(failure);
+						instance._displayNode(failure, true);
 					},
 
 					handleLineTrigger: function(id, starting) {
@@ -467,7 +465,7 @@ YUI.add(
 						return returnVal;
 					},
 
-					_displayNode: function(node) {
+					_displayNode: function(node, scrollTo) {
 						var instance = this;
 
 						node = node || instance.get(STR_ERRORS).last();
@@ -476,12 +474,12 @@ YUI.add(
 							var parentContainers = node.ancestors('.child-container');
 
 							if (parentContainers) {
-								instance._expandParentContainers(parentContainers, node);
+								instance._expandParentContainers(parentContainers, node, scrollTo);
 							}
 						}
 					},
 
-					_expandParentContainers: function(parentContainers, node) {
+					_expandParentContainers: function(parentContainers, node, scrollTo) {
 						var instance = this;
 
 						var timeout = 0;
@@ -494,13 +492,18 @@ YUI.add(
 							timeout = 10;
 						}
 
-						if (parentContainers.size()) {
-							A.later(
-								timeout,
-								instance,
-								A.bind('_expandParentContainers', instance, parentContainers, node)
-							);
-						}
+						A.later(
+							timeout,
+							instance,
+							function() {
+								if (parentContainers.size()) {
+									instance._expandParentContainers(parentContainers, node, scrollTo);
+								}
+								else if (scrollTo) {
+									instance._scrollToNode(node);
+								}
+							}
+						);
 					},
 
 					_getCommandLogNode: function(logId) {
@@ -793,8 +796,6 @@ YUI.add(
 										}
 									}
 								).run();
-									}
-								);
 							}
 						}
 					},
@@ -898,14 +899,12 @@ YUI.add(
 						}
 
 						if (errorNodes.size() > 0) {
-							errorNodes.each(instance._displayNode, instance);
-
 							var failNodes = errorNodes.filter(SELECTOR_FAIL);
 
 							var lastFailNode = failNodes.first();
 
+							instance._displayNode(lastFailNode, true);
 							instance._selectCurrentScope(lastFailNode);
-							instance._scrollToNode(lastFailNode);
 						}
 					},
 
