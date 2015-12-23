@@ -77,6 +77,11 @@
 	}
 }
 
+.input-xxlarge {
+	box-sizing: border-box;
+	max-width: 100%;
+}
+
 .lfr-ddm-container {
 	.control-group label {
 		margin-left: 0;
