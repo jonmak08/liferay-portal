@@ -215,7 +215,7 @@ if (portletTitleBasedNavigation) {
 
 						<c:if test="<%= (layoutAssetEntry != null) && dlPortletInstanceSettings.isEnableRelatedAssets() && fileEntry.isSupportsSocial() %>">
 							<div class="entry-links">
-								<liferay-ui:asset-links
+								<liferay-asset:asset-links
 									assetEntryId="<%= layoutAssetEntry.getEntryId() %>"
 								/>
 							</div>

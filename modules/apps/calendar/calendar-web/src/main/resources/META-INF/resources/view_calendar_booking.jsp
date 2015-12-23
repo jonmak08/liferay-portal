@@ -130,7 +130,7 @@ AssetEntry layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(CalendarBookin
 	</div>
 
 	<div class="entry-links">
-		<liferay-ui:asset-links
+		<liferay-asset:asset-links
 			assetEntryId="<%= layoutAssetEntry.getEntryId() %>"
 		/>
 	</div>

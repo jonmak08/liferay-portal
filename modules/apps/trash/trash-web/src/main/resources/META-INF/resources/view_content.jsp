@@ -376,7 +376,7 @@ renderResponse.setTitle(trashRenderer.getTitle(locale));
 		%>
 
 		<div class="asset-related-assets">
-			<liferay-ui:asset-links
+			<liferay-asset:asset-links
 				assetEntryId="<%= assetEntry.getEntryId() %>"
 			/>
 		</div>
