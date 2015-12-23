@@ -164,6 +164,13 @@ public class PortletURLUtil {
 	public static String getRefreshURL(
 		HttpServletRequest request, ThemeDisplay themeDisplay) {
 
+		return getRefreshURL(request, themeDisplay, true);
+	}
+
+	public static String getRefreshURL(
+		HttpServletRequest request, ThemeDisplay themeDisplay,
+		boolean includeParameters) {
+
 		StringBundler sb = new StringBundler(32);
 
 		sb.append(themeDisplay.getPathMain());
@@ -257,17 +264,19 @@ public class PortletURLUtil {
 			return sb.toString();
 		}
 
-		Map<String, String[]> parameters = getRefreshURLParameters(request);
+		if (includeParameters) {
+			Map<String, String[]> parameters = getRefreshURLParameters(request);
 
-		for (Map.Entry<String, String[]> entry : parameters.entrySet()) {
-			String name = entry.getKey();
-			String[] values = entry.getValue();
+			for (Map.Entry<String, String[]> entry : parameters.entrySet()) {
+				String name = entry.getKey();
+				String[] values = entry.getValue();
 
-			for (int i = 0; i < values.length; i++) {
-				sb.append(StringPool.AMPERSAND);
-				sb.append(name);
-				sb.append(StringPool.EQUAL);
-				sb.append(HttpUtil.encodeURL(values[i]));
+				for (int i = 0; i < values.length; i++) {
+					sb.append(StringPool.AMPERSAND);
+					sb.append(name);
+					sb.append(StringPool.EQUAL);
+					sb.append(HttpUtil.encodeURL(values[i]));
+				}
 			}
 		}
 
