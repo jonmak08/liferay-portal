@@ -143,7 +143,7 @@ public abstract class HitsOpenSearchImpl extends BaseOpenSearchImpl {
 					portletId = result.get(Field.PORTLET_ID);
 				}
 
-				String snippet = results.snippet(i);
+				String snippet = result.get(Field.SNIPPET);
 
 				long resultGroupId = GetterUtil.getLong(
 					result.get(Field.GROUP_ID));
@@ -165,6 +165,10 @@ public abstract class HitsOpenSearchImpl extends BaseOpenSearchImpl {
 				Summary summary = getSummary(
 					indexer, result, themeDisplay.getLocale(), snippet,
 					portletURL);
+
+				if (summary == null) {
+					continue;
+				}
 
 				String title = summary.getTitle();
 				String url = getURL(
