@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.asset.taglib.servlet.taglib;
 
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.StringPool;
@@ -84,7 +84,7 @@ public class AssetLinksTag extends IncludeTag {
 			String.valueOf(_assetEntryId));
 	}
 
-	private static final String _PAGE = "/html/taglib/ui/asset_links/page.jsp";
+	private static final String _PAGE = "/asset_links/page.jsp";
 
 	private long _assetEntryId;
 	private String _className = StringPool.BLANK;
