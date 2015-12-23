@@ -14,6 +14,7 @@
 
 package com.liferay.asset.taglib.servlet.taglib;
 
+import com.liferay.asset.taglib.servlet.ServletContextUtil;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portlet.asset.model.AssetEntry;
@@ -21,6 +22,7 @@ import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Juan Fernández
@@ -50,6 +52,13 @@ public class AssetLinksTag extends IncludeTag {
 
 	public void setClassPK(long classPK) {
 		_classPK = classPK;
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	@Override
