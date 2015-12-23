@@ -26,7 +26,7 @@ import javax.servlet.jsp.PageContext;
  * @author Juan Fernández
  * @author Shuyang Zhou
  */
-public class InputAssetLinksTag extends AssetLinksTag {
+public class AssetLinksSelectorTag extends AssetLinksTag {
 
 	@Override
 	protected String getPage() {
@@ -60,13 +60,13 @@ public class InputAssetLinksTag extends AssetLinksTag {
 		}
 
 		request.setAttribute(
-			"liferay-asset:input-asset-links:assetEntryId",
+			"liferay-asset:asset-links-selector:assetEntryId",
 			String.valueOf(assetEntryId));
 		request.setAttribute(
-			"liferay-asset:input-asset-links:className", className);
+			"liferay-asset:asset-links-selector:className", className);
 	}
 
 	private static final String _PAGE =
-		"/input_asset_links/page.jsp";
+		"/asset_links_selector/page.jsp";
 
 }

@@ -14,7 +14,7 @@
  */
 --%>
 
-<%@ include file="/input_asset_links/init.jsp" %>
+<%@ include file="/asset_links_selector/init.jsp" %>
 
 <liferay-ui:icon-menu
 	cssClass="select-existing-selector"

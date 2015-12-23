@@ -370,7 +370,7 @@ if (portletTitleBasedNavigation) {
 			</c:if>
 
 			<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="related-assets">
-				<liferay-asset:input-asset-links
+				<liferay-asset:asset-links-selector
 					className="<%= MBMessage.class.getName() %>"
 					classPK="<%= (message != null) ? message.getMessageId() : 0 %>"
 				/>

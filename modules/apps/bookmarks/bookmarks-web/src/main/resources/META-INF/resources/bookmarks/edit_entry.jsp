@@ -170,7 +170,7 @@ if (portletTitleBasedNavigation) {
 			</aui:fieldset>
 
 			<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="related-assets">
-				<liferay-asset:input-asset-links
+				<liferay-asset:asset-links-selector
 					className="<%= BookmarksEntry.class.getName() %>"
 					classPK="<%= entryId %>"
 				/>
