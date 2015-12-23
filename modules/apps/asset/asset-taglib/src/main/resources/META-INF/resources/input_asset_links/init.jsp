@@ -14,6 +14,17 @@
  */
 --%>
 
+<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
+taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
+taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
+
+<%@ page import="com.liferay.portal.kernel.util.HtmlUtil" %><%@
+page import="com.liferay.portal.kernel.util.UnicodeFormatter" %>
+
+<%@ page import="com.liferay.portlet.asset.model.AssetEntry" %>
+
+<%@ page import="java.util.Map" %>
+
 <%@ page import="com.liferay.taglib.ui.display.context.InputAssetLinksDisplayContext" %>
 
 <%
