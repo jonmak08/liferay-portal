@@ -51,10 +51,10 @@ public class InputAssetLinksTag extends AssetLinksTag {
 		}
 
 		request.setAttribute(
-			"liferay-ui:input-asset-links:assetEntryId",
+			"liferay-asset:input-asset-links:assetEntryId",
 			String.valueOf(assetEntryId));
 		request.setAttribute(
-			"liferay-ui:input-asset-links:className", className);
+			"liferay-asset:input-asset-links:className", className);
 	}
 
 	private static final String _PAGE =
