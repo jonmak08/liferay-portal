@@ -89,7 +89,7 @@ public class AssetLinksTag extends IncludeTag {
 		}
 
 		request.setAttribute(
-			"liferay-ui:asset-links:assetEntryId",
+			"liferay-asset:asset-links:assetEntryId",
 			String.valueOf(_assetEntryId));
 	}
 
