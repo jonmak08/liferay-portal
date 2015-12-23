@@ -3224,6 +3224,32 @@ Portal by means of an OSGi container.
 
 ---------------------------------------
 
+### Removed the liferay-ui:asset-tags-error Tag and Replaced with liferay-asset:asset-tags-error Tag
+- **Date:** 2015-Dec-22
+- **JIRA Ticket:** LPS-61563
+
+#### What changed?
+
+The `liferay-ui:asset-tags-error` tag has been removed and replaced with the
+`liferay-asset:asset-tags-error` tag.
+
+#### Who is affected?
+
+Plugins or templates that are using the `liferay-ui:asset-tags-error` tag need to
+update their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-asset` tag library (if necessary) and
+update the tag namespace from `liferay-ui:asset-tags-error` to
+`liferay-asset:asset-tags-error`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.
+---------------------------------------
+
 ### The `${theme}` variable is no longer injected in the Freemarker context
 - **Date:** 2016-Jan-06
 - **JIRA Ticket:** LPS-61683
