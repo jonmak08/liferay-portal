@@ -95,8 +95,11 @@
 		<property name="ignore.errors" value="java.lang.IllegalStateException|Exception in thread &quot;TrueZIP ArchiveController Shutdown Hook&quot; java.lang.NoClassDefFoundError: de/schlichtherle/io/ArchiveControllers$ControllerEnumeration" />
 		<property name="ignore.errors.delimiter" value="|" />
 
+		<!-- Change the layout to 70/30 to widen the portlet so to avoid "Element cannot be scrolled into view" error -->
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
+			<var name="pageType" value="2 Columns (70/30)" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -880,8 +883,11 @@
 		<property name="ignore.errors" value="java.lang.IllegalStateException|Exception in thread &quot;TrueZIP ArchiveController Shutdown Hook&quot; java.lang.NoClassDefFoundError: de/schlichtherle/io/ArchiveControllers$ControllerEnumeration" />
 		<property name="ignore.errors.delimiter" value="|" />
 
+		<!-- Change the layout to 70/30 to widen the portlet so to avoid "Element cannot be scrolled into view" error -->
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
+			<var name="pageType" value="2 Columns (70/30)" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -948,8 +954,11 @@
 		<property name="ignore.errors" value="java.lang.IllegalStateException|Exception in thread &quot;TrueZIP ArchiveController Shutdown Hook&quot; java.lang.NoClassDefFoundError: de/schlichtherle/io/ArchiveControllers$ControllerEnumeration" />
 		<property name="ignore.errors.delimiter" value="|" />
 
+		<!-- Change the layout to 70/30 to widen the portlet so to avoid "Element cannot be scrolled into view" error -->
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
+			<var name="pageType" value="2 Columns (70/30)" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -1006,8 +1015,11 @@
 		<property name="ignore.errors" value="java.lang.IllegalStateException|Exception in thread &quot;TrueZIP ArchiveController Shutdown Hook&quot; java.lang.NoClassDefFoundError: de/schlichtherle/io/ArchiveControllers$ControllerEnumeration" />
 		<property name="ignore.errors.delimiter" value="|" />
 
+		<!-- Change the layout to 70/30 to widen the portlet so to avoid "Element cannot be scrolled into view" error -->
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
+			<var name="pageType" value="2 Columns (70/30)" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -1272,8 +1284,12 @@
 	</command>
 
 	<command name="ViewKBArticlesHierarchyWithinFolders" priority="4">
+
+		<!-- Change the layout to 70/30 to widen the portlet so to avoid "Element cannot be scrolled into view" error -->
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
+			<var name="pageType" value="2 Columns (70/30)" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
@@ -2463,8 +2479,11 @@
 	<command name="ViewUnchangedKBArticlePriorityAfterEdit" priority="5">
 		<var name="kbArticleCounterList" value="1,2,3" />
 
+		<!-- Change the layout to 70/30 to widen the portlet so to avoid "Element cannot be scrolled into view" error -->
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
+			<var name="pageType" value="2 Columns (70/30)" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
