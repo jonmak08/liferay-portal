@@ -828,7 +828,7 @@ public class UpgradeImageGallery extends UpgradeProcess {
 		Image thumbnailImage = null;
 
 		try {
-			thumbnailImage = getImage(thumbnailImageId);
+			thumbnailImage = ImageLocalServiceUtil.getImage(thumbnailImageId);
 
 			InputStream is = getHookImageAsStream(thumbnailImage);
 
