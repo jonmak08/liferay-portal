@@ -23,6 +23,7 @@ import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.upload.UploadException;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
 import com.liferay.portal.kernel.util.Constants;
+import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PropertiesParamUtil;
@@ -174,7 +175,8 @@ public class EditLayoutSetAction extends EditLayoutsAction {
 				device + "ThemeSettingsProperties--" + key +
 					StringPool.DOUBLE_DASH;
 
-			String value = ParamUtil.getString(actionRequest, property);
+			String value = ParamUtil.getString(
+					actionRequest, HtmlUtil.escapeAttribute(property));
 
 			if (!value.equals(themeSetting.getValue())) {
 				typeSettingsProperties.setProperty(
