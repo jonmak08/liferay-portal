@@ -86,6 +86,9 @@ public class DDMXSDImplTest extends BaseDDMTestCase {
 		Element fieldElement = addTextElement(
 			rootElement, "Unlocalizable", "Unlocalizable", false);
 
+		_mockPageContext.setAttribute(
+			"contentDefaultLanguageId", LocaleUtil.US.getLanguage());
+
 		Map<String, Object> fieldContext = _ddmXSD.getFieldContext(
 			_mockPageContext, _PORTLET_NAMESPACE, _NAMESPACE, fieldElement,
 			LocaleUtil.BRAZIL);
