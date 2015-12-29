@@ -48,7 +48,7 @@
 		</aui:form>
 	</aui:col>
 	<aui:col width="<%= 50 %>">
-		<liferay-portlet:preview
+		<liferay-site-navigation:preview
 			portletName="<%= portletResource %>"
 			queryString="struts_action=/sites_directory/view"
 			showBorders="<%= true %>"
