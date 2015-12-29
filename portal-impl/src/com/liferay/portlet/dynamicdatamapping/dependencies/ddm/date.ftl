@@ -14,7 +14,7 @@
 
 	<#assign fieldValue = calendarFactory.getCalendar(predefinedDate?long)>
 <#else>
-	<#assign calendar = calendarFactory.getCalendar(timeZone)>
+	<#assign calendar = calendarFactory.getCalendar(GMT)>
 
 	<#assign fieldValue = calendarFactory.getCalendar(calendar.get(YEAR), calendar.get(MONTH), calendar.get(DATE))>
 
