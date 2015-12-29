@@ -48,6 +48,7 @@ import com.liferay.portlet.documentlibrary.util.ImageProcessorUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
+
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
