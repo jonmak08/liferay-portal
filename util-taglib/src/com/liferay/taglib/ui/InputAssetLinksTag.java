@@ -23,7 +23,10 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @author Juan Fernández
  * @author Shuyang Zhou
+ * @deprecated As of 7.0.0, replaced by {@link
+ *             com.liferay.asset.taglib.servlet.taglib.AssetLinksSelectorTag}
  */
+@Deprecated
 public class InputAssetLinksTag extends AssetLinksTag {
 
 	@Override
