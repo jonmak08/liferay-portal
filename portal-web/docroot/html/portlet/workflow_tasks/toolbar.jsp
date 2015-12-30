@@ -17,21 +17,15 @@
 <%@ include file="/html/portlet/workflow_tasks/init.jsp" %>
 
 <%
-String toolbarItem = ParamUtil.getString(request, "toolbarItem", "assigned-to-me");
+String tabs1 = ParamUtil.getString(request, "tabs1", "pending");
+
+PortletURL portletURL = renderResponse.createRenderURL();
+
+portletURL.setParameter("tabs1", tabs1);
 %>
 
-<aui:nav-bar>
-	<aui:nav>
-		<portlet:renderURL var="assignedToMeURL">
-			<portlet:param name="struts_action" value="/workflow_tasks/view" />
-			<portlet:param name="toolbarItem" value="assigned-to-me" />
-		</portlet:renderURL>
-
-		<portlet:renderURL var="completedURL">
-			<portlet:param name="struts_action" value="/workflow_tasks/view" />
-			<portlet:param name="toolbarItem" value="my-completed-tasks" />
-		</portlet:renderURL>
-
-		<aui:nav-item href="<%= completedURL %>" iconCssClass="icon-plus" label="my-completed-tasks" selected='<%= toolbarItem.equals("my-completed-tasks") %>' />
-	</aui:nav>
-</aui:nav-bar>
+<aui:form action="<%= portletURL.toString() %>" method="post" name="fm">
+	<aui:nav-bar>
+		<aui:nav-bar-search cssClass="pull-right" file="/html/portlet/workflow_tasks/workflow_search_tasks.jsp" />
+	</aui:nav-bar>
+</aui:form>
