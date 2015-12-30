@@ -45,9 +45,6 @@ public class UserGroupFinderImpl
 	public static final String COUNT_BY_C_N_D =
 		UserGroupFinder.class.getName() + ".countByC_N_D";
 
-	public static final String FIND_BY_C_N =
-		UserGroupFinder.class.getName() + ".findByC_N";
-
 	public static final String FIND_BY_C_N_D =
 		UserGroupFinder.class.getName() + ".findByC_N_D";
 
@@ -182,50 +179,12 @@ public class UserGroupFinderImpl
 			obc);
 	}
 
+	@Deprecated
 	@Override
 	public UserGroup findByC_N(long companyId, String name)
 		throws NoSuchUserGroupException, SystemException {
 
-		name = StringUtil.lowerCase(name);
-
-		Session session = null;
-
-		try {
-			session = openSession();
-
-			String sql = CustomSQLUtil.get(FIND_BY_C_N);
-
-			SQLQuery q = session.createSQLQuery(sql);
-
-			q.addEntity("UserGroup", UserGroupImpl.class);
-
-			QueryPos qPos = QueryPos.getInstance(q);
-
-			qPos.add(companyId);
-			qPos.add(name);
-
-			List<UserGroup> userGroups = q.list();
-
-			if (!userGroups.isEmpty()) {
-				return userGroups.get(0);
-			}
-		}
-		catch (Exception e) {
-			throw new SystemException(e);
-		}
-		finally {
-			closeSession(session);
-		}
-
-		StringBundler sb = new StringBundler(5);
-
-		sb.append("No UserGroup exists with the key {companyId=");
-		sb.append(companyId);
-		sb.append(", name=");
-		sb.append(name);
-		sb.append("}");
-
-		throw new NoSuchUserGroupException(sb.toString());
+		return UserGroupUtil.findByC_N(companyId, name);
 	}
 
 	@Override
