@@ -18,6 +18,7 @@
 
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 
+<%@ taglib uri="http://liferay.com/tld/site-navigation" prefix="liferay-site-navigation" %>
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
 <%@ page import="com.liferay.journal.model.JournalArticleDisplay" %>
@@ -49,7 +50,7 @@ String viewMode = ParamUtil.getString(request, "viewMode");
 
 	<c:if test="<%= availableLocales.length > 1 %>">
 		<div class="locale-actions user-tool-asset-addon-entry">
-			<liferay-ui:language formAction="<%= currentURL %>" languageId="<%= LanguageUtil.getLanguageId(request) %>" languageIds="<%= availableLocales %>" />
+			<liferay-site-navigation:language formAction="<%= currentURL %>" languageId="<%= LanguageUtil.getLanguageId(request) %>" languageIds="<%= availableLocales %>" />
 		</div>
 	</c:if>
 </c:if>
