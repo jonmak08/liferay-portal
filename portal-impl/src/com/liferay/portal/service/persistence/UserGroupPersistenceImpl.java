@@ -44,6 +44,10 @@ import com.liferay.portal.model.UserGroup;
 import com.liferay.portal.model.impl.UserGroupImpl;
 import com.liferay.portal.model.impl.UserGroupModelImpl;
 import com.liferay.portal.security.permission.InlineSQLHelperUtil;
+import com.liferay.portal.service.persistence.GroupPersistence;
+import com.liferay.portal.service.persistence.TeamPersistence;
+import com.liferay.portal.service.persistence.UserGroupPersistence;
+import com.liferay.portal.service.persistence.UserPersistence;
 import com.liferay.portal.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.service.persistence.impl.TableMapper;
 import com.liferay.portal.service.persistence.impl.TableMapperFactory;
@@ -3908,7 +3912,7 @@ public class UserGroupPersistenceImpl extends BasePersistenceImpl<UserGroup>
 				qPos.add(companyId);
 
 				if (bindName) {
-					qPos.add(name);
+					qPos.add(name.toLowerCase());
 				}
 
 				List<UserGroup> list = q.list();
@@ -4020,7 +4024,7 @@ public class UserGroupPersistenceImpl extends BasePersistenceImpl<UserGroup>
 				qPos.add(companyId);
 
 				if (bindName) {
-					qPos.add(name);
+					qPos.add(name.toLowerCase());
 				}
 
 				count = (Long)q.uniqueResult();
@@ -4042,7 +4046,7 @@ public class UserGroupPersistenceImpl extends BasePersistenceImpl<UserGroup>
 
 	private static final String _FINDER_COLUMN_C_N_COMPANYID_2 = "userGroup.companyId = ? AND ";
 	private static final String _FINDER_COLUMN_C_N_NAME_1 = "userGroup.name IS NULL";
-	private static final String _FINDER_COLUMN_C_N_NAME_2 = "userGroup.name = ?";
+	private static final String _FINDER_COLUMN_C_N_NAME_2 = "lower(userGroup.name) = ?";
 	private static final String _FINDER_COLUMN_C_N_NAME_3 = "(userGroup.name IS NULL OR userGroup.name = '')";
 
 	public UserGroupPersistenceImpl() {
