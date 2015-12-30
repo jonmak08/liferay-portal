@@ -21,7 +21,6 @@ import com.liferay.portal.kernel.messaging.sender.MessageSender;
 import com.liferay.portal.kernel.messaging.sender.SingleDestinationMessageSender;
 import com.liferay.portal.kernel.staging.StagingUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
-import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.model.CompanyConstants;
@@ -88,17 +87,18 @@ public class LayoutsRemotePublisherMessageListener
 
 		String range = MapUtil.getString(parameterMap, "range");
 
+		initThreadLocals(userId, parameterMap);
+
 		if (range.equals("fromLastPublishDate")) {
 			LayoutSet layoutSet = LayoutSetLocalServiceUtil.getLayoutSet(
 				sourceGroupId, privateLayout);
 
-			long lastPublishDate = GetterUtil.getLong(
-				layoutSet.getSettingsProperty("last-publish-date"));
+			Date lastPublishDate = StagingUtil.getLastPublishDate(layoutSet);
 
-			if (lastPublishDate > 0) {
+			if (lastPublishDate != null) {
 				endDate = new Date();
 
-				startDate = new Date(lastPublishDate);
+				startDate = lastPublishDate;
 			}
 		}
 		else if (range.equals("last")) {
@@ -118,8 +118,6 @@ public class LayoutsRemotePublisherMessageListener
 				endDate = scheduledFireTime;
 			}
 		}
-
-		initThreadLocals(userId, parameterMap);
 
 		try {
 			StagingUtil.copyRemoteLayouts(
