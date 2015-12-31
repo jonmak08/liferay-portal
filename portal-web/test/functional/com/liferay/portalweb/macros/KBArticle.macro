@@ -176,7 +176,7 @@
 	</command>
 
 	<command name="configureEmailCP">
-		<execute function="AssertClick" locator1="CPKnowledgebaseadmin#CONFIGURATION_ICON" />
+		<execute function="Click" locator1="CPKnowledgebaseadmin#CONFIGURATION_ICON" />
 		<execute function="AssertClick" locator1="CPKnowledgebaseadmin#CONFIGURATION_MENULIST_CONFIGURATION" value1="Configuration" />
 
 		<execute function="SelectFrame" locator1="CPKnowledgebaseadminConfiguration#CONFIGURATION_IFRAME" />
@@ -911,7 +911,7 @@
 	<command name="subscribeCP">
 		<execute function="AssertClick" locator1="CPKnowledgebaseadmin#SUBSCRIBE_BUTTON" value1="Subscribe" />
 		<execute function="AssertTextEquals" locator1="CPKnowledgebaseadmin#SUCCESS_MESSAGE" value1="Your request completed successfully." />
-		<execute function="AssertTextNotEquals" locator1="CPKnowledgebaseadmin#UNSUBSCRIBE_BUTTON" />
+		<execute function="AssertTextEquals" locator1="CPKnowledgebaseadmin#UNSUBSCRIBE_BUTTON" value1="Unsubscribe" />
 	</command>
 
 	<command name="subscribePGViaKBDisplay">
