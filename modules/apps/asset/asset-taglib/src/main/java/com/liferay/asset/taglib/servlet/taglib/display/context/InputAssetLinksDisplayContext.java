@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.taglib.ui.display.context;
+package com.liferay.asset.taglib.servlet.taglib.display.context;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
