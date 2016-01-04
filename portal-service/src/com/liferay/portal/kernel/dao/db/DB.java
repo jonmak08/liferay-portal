@@ -90,6 +90,8 @@ public interface DB {
 
 	public List<Index> getIndexes(Connection con) throws SQLException;
 
+	public String getTemplateBlob();
+
 	public String getTemplateFalse();
 
 	public String getTemplateTrue();
