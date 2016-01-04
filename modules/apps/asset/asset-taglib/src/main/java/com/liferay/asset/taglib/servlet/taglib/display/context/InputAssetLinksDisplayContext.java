@@ -70,7 +70,7 @@ public class InputAssetLinksDisplayContext {
 
 		_assetEntryId = GetterUtil.getLong(
 			(String)_request.getAttribute(
-				"liferay-ui:input-asset-links:assetEntryId"));
+				"liferay-asset:asset-links-selector:assetEntryId"));
 		_portletRequest = (PortletRequest)_request.getAttribute(
 			JavaConstants.JAVAX_PORTLET_REQUEST);
 		_themeDisplay = (ThemeDisplay)_request.getAttribute(
@@ -464,7 +464,7 @@ public class InputAssetLinksDisplayContext {
 
 		if (_isStagedLocally()) {
 			String className = (String)_request.getAttribute(
-				"liferay-ui:input-asset-links:className");
+				"liferay-asset:asset-links-selector:className");
 
 			AssetRendererFactory<?> assetRendererFactory =
 				AssetRendererFactoryRegistryUtil.
