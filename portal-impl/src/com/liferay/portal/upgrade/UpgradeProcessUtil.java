@@ -14,6 +14,7 @@
 
 package com.liferay.portal.upgrade;
 
+import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -121,6 +122,14 @@ public class UpgradeProcessUtil {
 		}
 		finally {
 			SearchEngineUtil.setIndexReadOnly(tempIndexReadOnly);
+
+			if (_log.isDebugEnabled()) {
+				_log.debug("Clear cache if upgrade process was run");
+			}
+
+			if (ranUpgradeProcess) {
+				MultiVMPoolUtil.clear();
+			}
 		}
 
 		return ranUpgradeProcess;
