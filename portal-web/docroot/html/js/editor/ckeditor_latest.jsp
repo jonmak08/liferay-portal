@@ -19,13 +19,13 @@
 <%@ taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
 <%
-CustomCKEditorOutputData newOutputData = new CustomCKEditorOutputData(request);
+CustomCKEditorOutputData customCKEditorOutputData = new CustomCKEditorOutputData(request);
 
-newOutputData.wrap();
+customCKEditorOutputData.wrap();
 
-CustomCKEditorScriptData newScriptData = new CustomCKEditorScriptData(request);
+CustomCKEditorScriptData customCKEditorScriptData = new CustomCKEditorScriptData(request);
 
-newScriptData.wrap();
+customCKEditorScriptData.wrap();
 %>
 
 <liferay-util:buffer var="html">
@@ -33,9 +33,9 @@ newScriptData.wrap();
 </liferay-util:buffer>
 
 <%
-newOutputData.unwrap();
+customCKEditorOutputData.unwrap();
 
-newScriptData.unwrap();
+customCKEditorScriptData.unwrap();
 %>
 
 <%= _replaceVariations(html) %>
