@@ -32,36 +32,36 @@ try {
 	String type = "completed";
 %>
 
-<liferay-util:include page="/html/portlet/workflow_tasks/toolbar.jsp" servletContext="<%= application %>" />
+	<liferay-util:include page="/html/portlet/workflow_tasks/toolbar.jsp" servletContext="<%= application %>" />
 
-		<c:choose>
-			<c:when test='<%= portletName.equals(PortletKeys.MY_WORKFLOW_TASKS) && tabs1.equals("pending") %>'>
-				<liferay-ui:panel-container extended="<%= false %>" id="workflowTasksPanelContainer" persistState="<%= true %>">
-					<liferay-ui:panel collapsible="<%= true %>" extended="<%= false %>" id="workflowMyTasksPanel" persistState="<%= true %>" title="assigned-to-me">
+	<c:choose>
+		<c:when test='<%= portletName.equals(PortletKeys.MY_WORKFLOW_TASKS) && tabs1.equals("pending") %>'>
+			<liferay-ui:panel-container extended="<%= false %>" id="workflowTasksPanelContainer" persistState="<%= true %>">
+				<liferay-ui:panel collapsible="<%= true %>" extended="<%= false %>" id="workflowMyTasksPanel" persistState="<%= true %>" title="assigned-to-me">
 
-						<%
-						type = "assigned-to-me";
-						%>
+					<%
+					type = "assigned-to-me";
+					%>
 
-						<%@ include file="/html/portlet/workflow_tasks/workflow_tasks.jspf" %>
-					</liferay-ui:panel>
+					<%@ include file="/html/portlet/workflow_tasks/workflow_tasks.jspf" %>
+				</liferay-ui:panel>
 
-					<liferay-ui:panel collapsible="<%= true %>" extended="<%= false %>" id="workflowMyRolesTasksPanel" persistState="<%= true %>" title="assigned-to-my-roles">
+				<liferay-ui:panel collapsible="<%= true %>" extended="<%= false %>" id="workflowMyRolesTasksPanel" persistState="<%= true %>" title="assigned-to-my-roles">
 
-						<%
-						type = "assigned-to-my-roles";
-						%>
+					<%
+					type = "assigned-to-my-roles";
+					%>
 
-						<%@ include file="/html/portlet/workflow_tasks/workflow_tasks.jspf" %>
-					</liferay-ui:panel>
-				</liferay-ui:panel-container>
-			</c:when>
-			<c:otherwise>
-				<div class="separator"></div>
+					<%@ include file="/html/portlet/workflow_tasks/workflow_tasks.jspf" %>
+				</liferay-ui:panel>
+			</liferay-ui:panel-container>
+		</c:when>
+		<c:otherwise>
+			<div class="separator"></div>
 
-				<%@ include file="/html/portlet/workflow_tasks/workflow_tasks.jspf" %>
-			</c:otherwise>
-		</c:choose>
+			<%@ include file="/html/portlet/workflow_tasks/workflow_tasks.jspf" %>
+		</c:otherwise>
+	</c:choose>
 
 <%
 }
