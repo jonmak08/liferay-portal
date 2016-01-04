@@ -636,9 +636,16 @@ public class DDMXSDImpl implements DDMXSD {
 
 		Document document = dynamicElementElement.getDocument();
 
-		String defaultLanguageId =
-			GetterUtil.getString(
-				pageContext.getAttribute("contentDefaultLanguageId"));
+		HttpServletRequest request =
+			(HttpServletRequest)pageContext.getRequest();
+
+		String defaultLanguageId = request.getParameter("defaultLanguageId");
+
+		if (Validator.isNull(defaultLanguageId)) {
+			defaultLanguageId =
+				GetterUtil.getString(
+					pageContext.getAttribute("contentDefaultLanguageId"));
+		}
 
 		String editingLanguageId = LocaleUtil.toLanguageId(locale);
 
