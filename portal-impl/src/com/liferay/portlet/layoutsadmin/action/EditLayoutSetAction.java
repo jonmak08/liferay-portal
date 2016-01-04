@@ -176,7 +176,7 @@ public class EditLayoutSetAction extends EditLayoutsAction {
 					StringPool.DOUBLE_DASH;
 
 			String value = ParamUtil.getString(
-					actionRequest, HtmlUtil.escapeAttribute(property));
+				actionRequest, HtmlUtil.escapeAttribute(property));
 
 			if (!value.equals(themeSetting.getValue())) {
 				typeSettingsProperties.setProperty(
