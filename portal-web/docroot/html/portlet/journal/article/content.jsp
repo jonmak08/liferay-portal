@@ -393,6 +393,8 @@ if (Validator.isNotNull(content)) {
 											}
 
 											String editTranslationURL = HttpUtil.addParameter(editArticleRenderPopUpURL.toString(), renderResponse.getNamespace() + "toLanguageId", translations[i]);
+
+											editTranslationURL = HttpUtil.addParameter(editTranslationURL, renderResponse.getNamespace() + "defaultLanguageId", defaultLanguageId);
 										%>
 
 										<a class="journal-article-translation-<%= translations[i] %> lfr-token" href="javascript:;" onClick="Liferay.Util.openWindow({cache: false, id: '<portlet:namespace /><%= translations[i] %>', title: '<%= UnicodeLanguageUtil.get(pageContext, "web-content-translation") %>', uri: '<%= editTranslationURL %>'});">
