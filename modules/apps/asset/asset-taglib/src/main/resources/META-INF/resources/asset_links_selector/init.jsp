@@ -14,11 +14,7 @@
  */
 --%>
 
-<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
-taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
-taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
-taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %><%@
-taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
+<%@ include file="/init.jsp" %>
 
 <%@ page import="com.liferay.portal.kernel.util.HtmlUtil" %><%@
 page import="com.liferay.portal.kernel.util.UnicodeFormatter" %>
@@ -28,8 +24,6 @@ page import="com.liferay.portal.kernel.util.UnicodeFormatter" %>
 <%@ page import="java.util.Map" %>
 
 <%@ page import="com.liferay.asset.taglib.servlet.taglib.display.context.AssetLinksSelectorDisplayContext" %>
-
-<liferay-theme:defineObjects />
 
 <%
 AssetLinksSelectorDisplayContext assetLinksSelectorDisplayContext = new AssetLinksSelectorDisplayContext(pageContext);
