@@ -23,7 +23,7 @@
 		<execute macro="Page#tearDownPG" />
 	</tear-down>
 
-	<command known-issues="LPS-53993" name="AddEmbeddedPortlet" priority="5">
+	<command name="AddEmbeddedPortlet" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Embedded Portlet Page" />
 		</execute>

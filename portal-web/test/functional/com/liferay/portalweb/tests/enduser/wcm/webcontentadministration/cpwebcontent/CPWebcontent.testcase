@@ -390,7 +390,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-52391" name="AddWebContentWithTemplateXSL" priority="5">
+	<command name="AddWebContentWithTemplateXSL" priority="5">
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
 		</execute>

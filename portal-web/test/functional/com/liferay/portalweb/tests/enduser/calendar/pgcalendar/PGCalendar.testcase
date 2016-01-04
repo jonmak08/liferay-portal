@@ -3987,7 +3987,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LRQA-16080" name="ViewDefaultDurationsViaScheduler" priority="4">
+	<command name="ViewDefaultDurationsViaScheduler" priority="4">
 		<for list="15,30,60,120" param="minutes">
 			<execute macro="Page#gotoPG">
 				<var name="pageName" value="Calendar Page" />
@@ -4500,7 +4500,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-55080" name="ViewWeekStartMonday" priority="5">
+	<command name="ViewWeekStartMonday" priority="5">
 		<description message="This is a use case for 51127." />
 
 		<execute macro="Page#gotoPG">
@@ -4548,7 +4548,7 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-55080" name="ViewWeekStartSaturday" priority="5">
+	<command name="ViewWeekStartSaturday" priority="5">
 		<description message="This is a use case for 51127." />
 
 		<execute macro="Page#gotoPG">
