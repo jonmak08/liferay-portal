@@ -27,7 +27,7 @@ page import="com.liferay.portal.kernel.util.UnicodeFormatter" %>
 
 <%@ page import="java.util.Map" %>
 
-<%@ page import="com.liferay.taglib.ui.display.context.InputAssetLinksDisplayContext" %>
+<%@ page import="com.liferay.asset.taglib.servlet.taglib.display.context.InputAssetLinksDisplayContext" %>
 
 <liferay-theme:defineObjects />
 
