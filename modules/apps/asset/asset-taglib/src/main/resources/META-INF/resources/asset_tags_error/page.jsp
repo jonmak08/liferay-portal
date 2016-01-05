@@ -24,10 +24,10 @@
 
 	<c:choose>
 		<c:when test="<%= ate.getType() == AssetTagException.AT_LEAST_ONE_TAG %>">
-			<liferay-ui:message key="please-enter-at-least-one-tag" />
+			<%= LanguageUtil.get(resourceBundle, "please-enter-at-least-one-tag") %>
 		</c:when>
 		<c:when test="<%= ate.getType() == AssetTagException.INVALID_CHARACTER %>">
-			<liferay-ui:message key="one-or-more-tags-contains-invalid-characters" />
+			<%= LanguageUtil.get(resourceBundle, "one-or-more-tags-contains-invalid-characters") %>
 		</c:when>
 	</c:choose>
 </liferay-ui:error>
