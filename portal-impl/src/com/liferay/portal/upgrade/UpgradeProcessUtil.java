@@ -15,7 +15,6 @@
 package com.liferay.portal.upgrade;
 
 import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
-import com.liferay.portal.kernel.cache.SingleVMPoolUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -126,7 +125,6 @@ public class UpgradeProcessUtil {
 
 			if (ranUpgradeProcess) {
 				MultiVMPoolUtil.clear();
-				SingleVMPoolUtil.clear();
 			}
 		}
 
