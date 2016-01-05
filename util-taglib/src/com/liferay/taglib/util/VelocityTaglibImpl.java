@@ -42,7 +42,6 @@ import com.liferay.taglib.theme.LayoutIconTag;
 import com.liferay.taglib.theme.MetaTagsTag;
 import com.liferay.taglib.theme.WrapPortletTag;
 import com.liferay.taglib.ui.AssetCategoriesSummaryTag;
-import com.liferay.taglib.ui.AssetLinksTag;
 import com.liferay.taglib.ui.AssetTagsSummaryTag;
 import com.liferay.taglib.ui.BreadcrumbTag;
 import com.liferay.taglib.ui.DiscussionTag;
@@ -218,26 +217,6 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 		assetCategorySummaryTag.runTag();
 	}
 
-	/**
-	 * @deprecated As of 7.0.0, replaced by {@link
-	 *             com.liferay.asset.taglib.servlet.taglib.AssetLinksTag}
-	 */
-	@Deprecated
-	@Override
-	public void assetLinks(long assetEntryId, String className, long classPK)
-		throws Exception {
-
-		AssetLinksTag assetLinksTag = new AssetLinksTag();
-
-		setUp(assetLinksTag);
-
-		assetLinksTag.setAssetEntryId(assetEntryId);
-		assetLinksTag.setClassName(className);
-		assetLinksTag.setClassPK(classPK);
-
-		assetLinksTag.runTag();
-	}
-
 	@Override
 	public void assetTagsSummary(
 			String className, long classPK, String message,
@@ -363,20 +342,6 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 		setUp(assetCategoriesSummaryTag);
 
 		return assetCategoriesSummaryTag;
-	}
-
-	/**
-	 * @deprecated As of 7.0.0, replaced by {@link
-	 *             com.liferay.asset.taglib.servlet.taglib.AssetLinksTag}
-	 */
-	@Deprecated
-	@Override
-	public AssetLinksTag getAssetLinksTag() throws Exception {
-		AssetLinksTag assetLinksTag = new AssetLinksTag();
-
-		setUp(assetLinksTag);
-
-		return assetLinksTag;
 	}
 
 	@Override
