@@ -61,9 +61,9 @@ import javax.servlet.jsp.PageContext;
 /**
  * @author José Manuel Navarro
  */
-public class InputAssetLinksDisplayContext {
+public class AssetLinksSelectorDisplayContext {
 
-	public InputAssetLinksDisplayContext(PageContext pageContext) {
+	public AssetLinksSelectorDisplayContext(PageContext pageContext) {
 		_pageContext = pageContext;
 
 		_request = (HttpServletRequest)pageContext.getRequest();

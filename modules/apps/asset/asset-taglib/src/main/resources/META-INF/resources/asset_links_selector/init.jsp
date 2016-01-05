@@ -27,10 +27,10 @@ page import="com.liferay.portal.kernel.util.UnicodeFormatter" %>
 
 <%@ page import="java.util.Map" %>
 
-<%@ page import="com.liferay.asset.taglib.servlet.taglib.display.context.InputAssetLinksDisplayContext" %>
+<%@ page import="com.liferay.asset.taglib.servlet.taglib.display.context.AssetLinksSelectorDisplayContext" %>
 
 <liferay-theme:defineObjects />
 
 <%
-InputAssetLinksDisplayContext inputAssetLinksDisplayContext = new InputAssetLinksDisplayContext(pageContext);
+AssetLinksSelectorDisplayContext assetLinksSelectorDisplayContext = new AssetLinksSelectorDisplayContext(pageContext);
 %>

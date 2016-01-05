@@ -18,14 +18,14 @@
 
 <liferay-ui:icon-menu
 	cssClass="select-existing-selector"
-	id='<%= inputAssetLinksDisplayContext.getRandomNamespace() + "inputAssetLinks" %>'
+	id='<%= assetLinksSelectorDisplayContext.getRandomNamespace() + "inputAssetLinks" %>'
 	message="select"
 	showArrow="<%= false %>"
 	showWhenSingleIcon="<%= true %>"
 >
 
 	<%
-	for (Map<String, Object> selectorEntry : inputAssetLinksDisplayContext.getSelectorEntries()) {
+	for (Map<String, Object> selectorEntry : assetLinksSelectorDisplayContext.getSelectorEntries()) {
 	%>
 
 		<liferay-ui:icon
@@ -55,8 +55,8 @@
 	headerNames="type,title,scope,null"
 >
 	<liferay-ui:search-container-results
-		results="<%= inputAssetLinksDisplayContext.getAssetLinks() %>"
-		total="<%= inputAssetLinksDisplayContext.getAssetLinksCount() %>"
+		results="<%= assetLinksSelectorDisplayContext.getAssetLinks() %>"
+		total="<%= assetLinksSelectorDisplayContext.getAssetLinksCount() %>"
 	/>
 
 	<liferay-ui:search-container-row
@@ -66,12 +66,12 @@
 	>
 
 		<%
-		AssetEntry assetLinkEntry = inputAssetLinksDisplayContext.getAssetLinkEntry(assetLink);
+		AssetEntry assetLinkEntry = assetLinksSelectorDisplayContext.getAssetLinkEntry(assetLink);
 		%>
 
 		<liferay-ui:search-container-column-text
 			name="type"
-			value="<%= inputAssetLinksDisplayContext.getAssetType(assetLinkEntry) %>"
+			value="<%= assetLinksSelectorDisplayContext.getAssetType(assetLinkEntry) %>"
 		/>
 
 		<liferay-ui:search-container-column-text
@@ -81,7 +81,7 @@
 
 		<liferay-ui:search-container-column-text
 			name="scope"
-			value="<%= HtmlUtil.escape(inputAssetLinksDisplayContext.getGroupDescriptiveName(assetLinkEntry)) %>"
+			value="<%= HtmlUtil.escape(assetLinksSelectorDisplayContext.getGroupDescriptiveName(assetLinkEntry)) %>"
 		/>
 
 		<liferay-ui:search-container-column-text
@@ -121,8 +121,8 @@
 						constrain: true,
 						modal: true
 					},
-					eventName: '<%= inputAssetLinksDisplayContext.getEventName() %>',
-					id: '<%= inputAssetLinksDisplayContext.getEventName() %>' + event.currentTarget.attr('id'),
+					eventName: '<%= assetLinksSelectorDisplayContext.getEventName() %>',
+					id: '<%= assetLinksSelectorDisplayContext.getEventName() %>' + event.currentTarget.attr('id'),
 					selectedData: searchContainerData,
 					title: event.currentTarget.attr('data-title'),
 					uri: event.currentTarget.attr('data-href')
