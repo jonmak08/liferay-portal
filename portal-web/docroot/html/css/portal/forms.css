@@ -98,12 +98,6 @@
 			}
 		}
 
-		input, select, textarea, .uneditable-input {
-			&.input-large, &.input-xlarge, &.input-xxlarge {
-				max-width: 100%;
-			}
-		}
-
 		.lfr-ddm-repeatable-add-button, .lfr-ddm-repeatable-delete-button {
 			display: block;
 			height: 16px;
@@ -186,7 +180,12 @@
 		}
 
 		input, input.input-large, textarea, .uneditable-input {
+			max-width: 100%;
 			width: auto;
+		}
+
+		select {
+			max-width: 100%;
 		}
 
 		@include respond-to(phone) {
