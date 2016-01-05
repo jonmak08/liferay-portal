@@ -3224,13 +3224,13 @@ Portal by means of an OSGi container.
 
 ---------------------------------------
 
-### Removed the liferay-ui:asset-tags-error Tag and Replaced with liferay-asset:asset-tags-error Tag
+### Deprecated the liferay-ui:asset-tags-error Tag and Replaced with liferay-asset:asset-tags-error Tag
 - **Date:** 2015-Dec-22
 - **JIRA Ticket:** LPS-61563
 
 #### What changed?
 
-The `liferay-ui:asset-tags-error` tag has been removed and replaced with the
+The `liferay-ui:asset-tags-error` tag has been deprecated and replaced with the
 `liferay-asset:asset-tags-error` tag.
 
 #### Who is affected?
