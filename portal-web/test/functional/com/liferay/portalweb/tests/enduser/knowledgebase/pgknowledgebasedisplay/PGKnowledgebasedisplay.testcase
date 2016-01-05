@@ -2,18 +2,17 @@
 	<property name="portlet.plugins.includes" value="knowledge-base-portlet" />
 	<property name="testray.main.component.name" value="Knowledge Base" />
 
-	<!-- Change the layout to 70/30 to widen the portlet so to avoid "Element cannot be scrolled into view" error -->
-
 	<var name="pageName" value="Knowledge Base Display Page" />
-	<var name="pageType" value="2 Columns (70/30)" />
 	<var name="portletName" value="Knowledge Base Display" />
 
 	<set-up>
 		<execute macro="User#firstLoginPG" />
 
+		<!-- Change the layout to 70/30 to widen the portlet so to avoid "Element cannot be scrolled into view" error -->
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="${pageName}" />
-			<var name="pageType" value="${pageType}" />
+			<var name="pageType" value="2 Columns (70/30)" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
