@@ -184,6 +184,7 @@ public class VirtualHostFilter extends BasePortalFilter {
 			friendlyURL, StringPool.DOUBLE_SLASH, StringPool.SLASH);
 
 		String i18nLanguageId = null;
+		String i18nLanguageIdLowerCase = null;
 
 		Set<String> languageIds = I18nServlet.getLanguageIds();
 
@@ -196,6 +197,11 @@ public class VirtualHostFilter extends BasePortalFilter {
 					 !StringUtil.equalsIgnoreCase(friendlyURL, languageId))) {
 
 					continue;
+				}
+
+				if (!friendlyURL.startsWith(languageId)) {
+					i18nLanguageIdLowerCase = StringUtil.toLowerCase(
+						languageId);
 				}
 
 				if (pos == -1) {
@@ -223,10 +229,25 @@ public class VirtualHostFilter extends BasePortalFilter {
 
 			_log.debug("Friendly URL is not valid");
 
-			processFilter(
-				VirtualHostFilter.class, request, response, filterChain);
+			if (Validator.isNotNull(i18nLanguageIdLowerCase)) {
+				String forwardURL = StringUtil.replace(
+					originalFriendlyURL, i18nLanguageIdLowerCase,
+					i18nLanguageId);
 
-			return;
+				RequestDispatcher requestDispatcher =
+					_servletContext.getRequestDispatcher(forwardURL);
+
+				requestDispatcher.forward(request, response);
+
+				return;
+			}
+			else {
+				processFilter(
+						VirtualHostFilter.class, request, response,
+						filterChain);
+
+				return;
+			}
 		}
 
 		LayoutSet layoutSet = (LayoutSet)request.getAttribute(
