@@ -73,6 +73,10 @@ public class DDLRecordAssetRenderer extends BaseAssetRenderer {
 		return _record.getRecordId();
 	}
 
+	public DDLRecordSet getDDLRecordSet() {
+		return _recordSet;
+	}
+
 	@Override
 	public long getGroupId() {
 		return _record.getGroupId();
@@ -125,10 +129,7 @@ public class DDLRecordAssetRenderer extends BaseAssetRenderer {
 			String noSuchEntryRedirect)
 		throws Exception {
 
-		return getURLViewInContext(
-			liferayPortletRequest, noSuchEntryRedirect,
-			"/dynamic_data_lists/find_record", "recordId",
-			_record.getRecordId());
+		return noSuchEntryRedirect;
 	}
 
 	@Override
