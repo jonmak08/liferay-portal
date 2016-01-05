@@ -218,6 +218,11 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 		assetCategorySummaryTag.runTag();
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             com.liferay.asset.taglib.servlet.taglib.AssetLinksTag}
+	 */
+	@Deprecated
 	@Override
 	public void assetLinks(long assetEntryId, String className, long classPK)
 		throws Exception {
@@ -360,6 +365,11 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 		return assetCategoriesSummaryTag;
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             com.liferay.asset.taglib.servlet.taglib.AssetLinksTag}
+	 */
+	@Deprecated
 	@Override
 	public AssetLinksTag getAssetLinksTag() throws Exception {
 		AssetLinksTag assetLinksTag = new AssetLinksTag();

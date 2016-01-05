@@ -88,6 +88,11 @@ public interface VelocityTaglib {
 			PortletURL portletURL)
 		throws Exception;
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             com.liferay.asset.taglib.servlet.taglib.AssetLinksTag}
+	 */
+	@Deprecated
 	public void assetLinks(long assetEntryId, String className, long classPK)
 		throws Exception;
 
@@ -131,6 +136,11 @@ public interface VelocityTaglib {
 	public AssetCategoriesSummaryTag<?> getAssetCategoriesSummaryTag()
 		throws Exception;
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             com.liferay.asset.taglib.servlet.taglib.AssetLinksTag}
+	 */
+	@Deprecated
 	public AssetLinksTag getAssetLinksTag() throws Exception;
 
 	public AssetTagsSummaryTag<?> getAssetTagsSummaryTag() throws Exception;
