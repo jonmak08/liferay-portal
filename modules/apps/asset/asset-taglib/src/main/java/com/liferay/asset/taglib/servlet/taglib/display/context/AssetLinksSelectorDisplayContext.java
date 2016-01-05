@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.taglib.ui.display.context;
+package com.liferay.asset.taglib.servlet.taglib.display.context;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
@@ -60,20 +60,17 @@ import javax.servlet.jsp.PageContext;
 
 /**
  * @author José Manuel Navarro
- * @deprecated As of 7.0.0, replaced by {@link
- *             com.liferay.asset.taglib.servlet.taglib.display.context.AssetLinksSelectorDisplayContext}
  */
-@Deprecated
-public class InputAssetLinksDisplayContext {
+public class AssetLinksSelectorDisplayContext {
 
-	public InputAssetLinksDisplayContext(PageContext pageContext) {
+	public AssetLinksSelectorDisplayContext(PageContext pageContext) {
 		_pageContext = pageContext;
 
 		_request = (HttpServletRequest)pageContext.getRequest();
 
 		_assetEntryId = GetterUtil.getLong(
 			(String)_request.getAttribute(
-				"liferay-ui:input-asset-links:assetEntryId"));
+				"liferay-asset:asset-links-selector:assetEntryId"));
 		_portletRequest = (PortletRequest)_request.getAttribute(
 			JavaConstants.JAVAX_PORTLET_REQUEST);
 		_themeDisplay = (ThemeDisplay)_request.getAttribute(
@@ -467,7 +464,7 @@ public class InputAssetLinksDisplayContext {
 
 		if (_isStagedLocally()) {
 			String className = (String)_request.getAttribute(
-				"liferay-ui:input-asset-links:className");
+				"liferay-asset:asset-links-selector:className");
 
 			AssetRendererFactory<?> assetRendererFactory =
 				AssetRendererFactoryRegistryUtil.

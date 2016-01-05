@@ -352,7 +352,7 @@ for (long otherCalendarId : otherCalendarIds) {
 			</liferay-ui:panel>
 
 			<liferay-ui:panel collapsible="<%= true %>" defaultState="closed" extended="<%= false %>" id="calendarBookingAssetLinksPanel" persistState="<%= true %>" title="related-assets">
-				<liferay-ui:input-asset-links
+				<liferay-asset:asset-links-selector
 					className="<%= CalendarBooking.class.getName() %>"
 					classPK="<%= calendarBookingId %>"
 				/>

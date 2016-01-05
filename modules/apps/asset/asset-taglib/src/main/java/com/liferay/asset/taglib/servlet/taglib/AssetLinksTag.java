@@ -12,8 +12,9 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.asset.taglib.servlet.taglib;
 
+import com.liferay.asset.taglib.servlet.ServletContextUtil;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portlet.asset.model.AssetEntry;
@@ -21,14 +22,12 @@ import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Juan Fernández
  * @author Shuyang Zhou
- * @deprecated As of 7.0.0, replaced by {@link
- *             com.liferay.asset.taglib.servlet.taglib.AssetLinksTag}
  */
-@Deprecated
 public class AssetLinksTag extends IncludeTag {
 
 	public long getAssetEntryId() {
@@ -53,6 +52,13 @@ public class AssetLinksTag extends IncludeTag {
 
 	public void setClassPK(long classPK) {
 		_classPK = classPK;
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	@Override
@@ -83,11 +89,11 @@ public class AssetLinksTag extends IncludeTag {
 		}
 
 		request.setAttribute(
-			"liferay-ui:asset-links:assetEntryId",
+			"liferay-asset:asset-links:assetEntryId",
 			String.valueOf(_assetEntryId));
 	}
 
-	private static final String _PAGE = "/html/taglib/ui/asset_links/page.jsp";
+	private static final String _PAGE = "/asset_links/page.jsp";
 
 	private long _assetEntryId;
 	private String _className = StringPool.BLANK;

@@ -386,7 +386,7 @@ if (Validator.isNull(redirect)) {
 
 				<liferay-ui:panel defaultState="closed" extended="<%= false %>" id="wikiPageAssetLinksPanel" persistState="<%= true %>" title="related-assets">
 					<aui:fieldset>
-						<liferay-ui:input-asset-links
+						<liferay-asset:asset-links-selector
 							assetEntryId="<%= assetEntryId %>"
 							className="<%= WikiPage.class.getName() %>"
 							classPK="<%= classPK %>"

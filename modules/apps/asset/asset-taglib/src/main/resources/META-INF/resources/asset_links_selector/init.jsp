@@ -16,11 +16,15 @@
 
 <%@ include file="/init.jsp" %>
 
-<%@ page import="com.liferay.portal.kernel.dao.orm.QueryUtil" %><%@
-page import="com.liferay.portal.theme.ThemeDisplay" %><%@
-page import="com.liferay.portlet.asset.NoSuchVocabularyException" %><%@
-page import="com.liferay.portlet.asset.model.AssetCategory" %><%@
-page import="com.liferay.portlet.asset.model.AssetVocabulary" %><%@
-page import="com.liferay.portlet.asset.service.AssetCategoryServiceUtil" %><%@
-page import="com.liferay.portlet.asset.service.AssetVocabularyServiceUtil" %><%@
-page import="com.liferay.portlet.asset.util.AssetUtil" %>
+<%@ page import="com.liferay.portal.kernel.util.HtmlUtil" %><%@
+page import="com.liferay.portal.kernel.util.UnicodeFormatter" %>
+
+<%@ page import="com.liferay.portlet.asset.model.AssetEntry" %>
+
+<%@ page import="java.util.Map" %>
+
+<%@ page import="com.liferay.asset.taglib.servlet.taglib.display.context.AssetLinksSelectorDisplayContext" %>
+
+<%
+AssetLinksSelectorDisplayContext assetLinksSelectorDisplayContext = new AssetLinksSelectorDisplayContext(pageContext);
+%>

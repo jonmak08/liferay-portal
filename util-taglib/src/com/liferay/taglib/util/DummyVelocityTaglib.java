@@ -22,7 +22,6 @@ import com.liferay.portal.model.Portlet;
 import com.liferay.taglib.aui.ColumnTag;
 import com.liferay.taglib.aui.LayoutTag;
 import com.liferay.taglib.ui.AssetCategoriesSummaryTag;
-import com.liferay.taglib.ui.AssetLinksTag;
 import com.liferay.taglib.ui.AssetTagsSummaryTag;
 import com.liferay.taglib.ui.BreadcrumbTag;
 import com.liferay.taglib.ui.DiscussionTag;
@@ -106,10 +105,6 @@ public class DummyVelocityTaglib implements VelocityTaglib {
 	}
 
 	@Override
-	public void assetLinks(long assetEntryId, String className, long classPK) {
-	}
-
-	@Override
 	public void assetTagsSummary(
 		String className, long classPK, String message, String assetTagNames,
 		PortletURL portletURL) {
@@ -157,11 +152,6 @@ public class DummyVelocityTaglib implements VelocityTaglib {
 
 	@Override
 	public AssetCategoriesSummaryTag<?> getAssetCategoriesSummaryTag() {
-		return null;
-	}
-
-	@Override
-	public AssetLinksTag getAssetLinksTag() {
 		return null;
 	}
 

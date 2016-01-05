@@ -123,7 +123,7 @@ if (portletTitleBasedNavigation) {
 
 			<c:if test="<%= bookmarksGroupServiceOverriddenConfiguration.enableRelatedAssets() %>">
 				<div class="entry-links">
-					<liferay-ui:asset-links
+					<liferay-asset:asset-links
 						assetEntryId="<%= layoutAssetEntry.getEntryId() %>"
 					/>
 				</div>

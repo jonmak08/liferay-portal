@@ -258,7 +258,7 @@ renderResponse.setTitle((entry != null) ? entry.getTitle() : LanguageUtil.get(re
 				<div class="related-assets-wrapper">
 					<h3><liferay-ui:message key="related-assets" /></h3>
 
-					<liferay-ui:input-asset-links
+					<liferay-asset:asset-links-selector
 						className="<%= BlogsEntry.class.getName() %>"
 						classPK="<%= entryId %>"
 					/>

@@ -12,26 +12,32 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.asset.taglib.servlet.taglib;
 
+import com.liferay.asset.taglib.servlet.ServletContextUtil;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Juan Fernández
  * @author Shuyang Zhou
- * @deprecated As of 7.0.0, replaced by {@link
- *             com.liferay.asset.taglib.servlet.taglib.AssetLinksSelectorTag}
  */
-@Deprecated
-public class InputAssetLinksTag extends AssetLinksTag {
+public class AssetLinksSelectorTag extends AssetLinksTag {
 
 	@Override
 	protected String getPage() {
 		return _PAGE;
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	@Override
@@ -54,13 +60,13 @@ public class InputAssetLinksTag extends AssetLinksTag {
 		}
 
 		request.setAttribute(
-			"liferay-ui:input-asset-links:assetEntryId",
+			"liferay-asset:asset-links-selector:assetEntryId",
 			String.valueOf(assetEntryId));
 		request.setAttribute(
-			"liferay-ui:input-asset-links:className", className);
+			"liferay-asset:asset-links-selector:className", className);
 	}
 
 	private static final String _PAGE =
-		"/html/taglib/ui/input_asset_links/page.jsp";
+		"/asset_links_selector/page.jsp";
 
 }

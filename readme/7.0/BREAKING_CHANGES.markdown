@@ -3221,3 +3221,57 @@ the tag namespace from `liferay-ui:asset-categories-navigation` to
 
 This change was made as a part of the ongoing strategy to modularize Liferay
 Portal by means of an OSGi container.
+
+---------------------------------------
+
+### Deprecated the liferay-ui:asset-links Tag and Replaced with liferay-asset:asset-links Tag
+- **Date:** 2015-Dec-23
+- **JIRA Ticket:** LPS-61569
+
+#### What changed?
+
+The `liferay-ui:asset-links` tag has been deprecated and replaced with the
+`liferay-asset:asset-links` tag.
+
+#### Who is affected?
+
+Plugins or templates that are using the `liferay-ui:asset-links` tag need to
+update their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-asset` tag library (if necessary) and
+update the tag namespace from `liferay-ui:asset-links` to
+`liferay-asset:asset-links`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.
+
+---------------------------------------
+
+### Deprecated the liferay-ui:input-asset-links Tag and Replaced with liferay-asset:asset-links-selector Tag
+- **Date:** 2015-Dec-23
+- **JIRA Ticket:** LPS-61594
+
+#### What changed?
+
+The `liferay-ui:input-asset-links` tag has been deprecated and replaced with the
+`liferay-asset:asset-links-selector` tag.
+
+#### Who is affected?
+
+Plugins or templates that are using the `liferay-ui:input-asset-links` tag need to
+update their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-asset` tag library (if necessary) and
+update the tag namespace from `liferay-ui:input-asset-links` to
+`liferay-asset:asset-links-selector`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.
