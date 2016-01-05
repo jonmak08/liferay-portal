@@ -77,11 +77,6 @@
 	}
 }
 
-.input-xxlarge {
-	box-sizing: border-box;
-	max-width: 100%;
-}
-
 .lfr-ddm-container {
 	.control-group label {
 		margin-left: 0;
@@ -100,6 +95,12 @@
 			.datepicker-button-wrapper, .datepicker-select-wrapper {
 				display: inline;
 				float: none;
+			}
+		}
+
+		input, select, textarea, .uneditable-input {
+			&.input-large, &.input-xlarge, &.input-xxlarge {
+				max-width: 100%;
 			}
 		}
 
@@ -185,12 +186,7 @@
 		}
 
 		input, input.input-large, textarea, .uneditable-input {
-			max-width: 100%;
 			width: auto;
-		}
-
-		select {
-			max-width: 100%;
 		}
 
 		@include respond-to(phone) {
