@@ -321,7 +321,7 @@
 		</execute>
 
 		<execute macro="Notifications#viewCountAlert">
-			<var name="notificationCount" value="1" />
+			<var name="notificationCount" value="2" />
 		</execute>
 
 		<execute macro="Notifications#gotoDockbar" />
