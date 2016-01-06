@@ -25,18 +25,17 @@ import javax.servlet.jsp.PageContext;
 public class AssetTagsErrorTag extends IncludeTag {
 
 	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
-
-	@Override
 	public void setPageContext(PageContext pageContext) {
 		super.setPageContext(pageContext);
 
 		servletContext = ServletContextUtil.getServletContext();
 	}
 
-	private static final String _PAGE =
-		"/asset_tags_error/page.jsp";
+	@Override
+	protected String getPage() {
+		return _PAGE;
+	}
+
+	private static final String _PAGE = "/asset_tags_error/page.jsp";
 
 }
