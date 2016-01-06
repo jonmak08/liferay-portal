@@ -83,7 +83,7 @@ public class AssetMetadataTag extends IncludeTag {
 			_className, _classPK);
 
 		request.setAttribute(
-			"liferay-ui:asset-metadata:assetEntry", assetEntry);
+			"liferay-asset:asset-metadata:assetEntry", assetEntry);
 
 		AssetRendererFactory<?> assetRendererFactory =
 			AssetRendererFactoryRegistryUtil.getAssetRendererFactoryByClassName(
@@ -94,18 +94,18 @@ public class AssetMetadataTag extends IncludeTag {
 				assetRendererFactory.getAssetRenderer(_classPK);
 
 			request.setAttribute(
-				"liferay-ui:asset-metadata:assetRenderer", assetRenderer);
+				"liferay-asset:asset-metadata:assetRenderer", assetRenderer);
 		}
 		catch (PortalException pe) {
 			_log.error(pe, pe);
 		}
 
-		request.setAttribute("liferay-ui:asset-metadata:className", _className);
-		request.setAttribute("liferay-ui:asset-metadata:classPK", _classPK);
+		request.setAttribute("liferay-asset:asset-metadata:className", _className);
+		request.setAttribute("liferay-asset:asset-metadata:classPK", _classPK);
 		request.setAttribute(
-			"liferay-ui:asset-metadata:filterByMetadata", _filterByMetadata);
+			"liferay-asset:asset-metadata:filterByMetadata", _filterByMetadata);
 		request.setAttribute(
-			"liferay-ui:asset-metadata:metadataFields", _metadataFields);
+			"liferay-asset:asset-metadata:metadataFields", _metadataFields);
 	}
 
 	private static final String _PAGE =
