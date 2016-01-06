@@ -3,6 +3,7 @@
 <#assign DATE = staticUtil["java.util.Calendar"].DATE>
 <#assign MONTH = staticUtil["java.util.Calendar"].MONTH>
 <#assign YEAR = staticUtil["java.util.Calendar"].YEAR>
+
 <#assign utcTimeZone = timeZoneUtil.getTimeZone("UTC")>
 
 <#assign nullable = false>
