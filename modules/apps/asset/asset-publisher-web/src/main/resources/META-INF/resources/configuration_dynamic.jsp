@@ -248,7 +248,7 @@ String selectStyle = (String)request.getAttribute("configuration.jsp-selectStyle
 			<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="filter[action]">
 				<div id="<portlet:namespace />queryRules">
 					<aui:fieldset label="displayed-assets-must-match-these-rules">
-						<liferay-ui:asset-tags-error />
+						<liferay-asset:asset-tags-error />
 
 						<%
 						DuplicateQueryRuleException dqre = null;

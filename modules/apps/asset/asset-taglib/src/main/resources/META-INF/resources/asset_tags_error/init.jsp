@@ -14,20 +14,19 @@
  */
 --%>
 
-<%@ include file="/init.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
+taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
+
+<%@ page import="com.liferay.portal.kernel.language.LanguageUtil" %><%@
+page import="com.liferay.portal.kernel.util.ResourceBundleUtil" %><%@
+page import="com.liferay.portlet.asset.AssetTagException" %>
+
+<%@ page import="java.util.ResourceBundle" %>
+
+<liferay-theme:defineObjects />
 
 <%
-Layout selLayout = layoutsAdminDisplayContext.getSelLayout();
+ResourceBundle resourceBundle = ResourceBundleUtil.getBundle("content.Language", locale, getClass());
 %>
-
-<liferay-ui:error-marker key="errorSection" value="categorization" />
-
-<aui:model-context bean="<%= selLayout %>" model="<%= Layout.class %>" />
-
-<liferay-ui:asset-categories-error />
-
-<liferay-asset:asset-tags-error />
-
-<aui:input name="categories" type="assetCategories" />
-
-<aui:input name="tags" type="assetTags" />

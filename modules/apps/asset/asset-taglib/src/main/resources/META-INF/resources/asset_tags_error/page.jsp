@@ -14,20 +14,20 @@
  */
 --%>
 
-<%@ include file="/init.jsp" %>
+<%@ include file="/asset_tags_error/init.jsp" %>
 
-<%
-Layout selLayout = layoutsAdminDisplayContext.getSelLayout();
-%>
+<liferay-ui:error exception="<%= AssetTagException.class %>">
 
-<liferay-ui:error-marker key="errorSection" value="categorization" />
+	<%
+	AssetTagException ate = (AssetTagException)errorException;
+	%>
 
-<aui:model-context bean="<%= selLayout %>" model="<%= Layout.class %>" />
-
-<liferay-ui:asset-categories-error />
-
-<liferay-asset:asset-tags-error />
-
-<aui:input name="categories" type="assetCategories" />
-
-<aui:input name="tags" type="assetTags" />
+	<c:choose>
+		<c:when test="<%= ate.getType() == AssetTagException.AT_LEAST_ONE_TAG %>">
+			<%= LanguageUtil.get(resourceBundle, "please-enter-at-least-one-tag") %>
+		</c:when>
+		<c:when test="<%= ate.getType() == AssetTagException.INVALID_CHARACTER %>">
+			<%= LanguageUtil.get(resourceBundle, "one-or-more-tags-contains-invalid-characters") %>
+		</c:when>
+	</c:choose>
+</liferay-ui:error>

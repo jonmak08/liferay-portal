@@ -1,4 +1,3 @@
-<%--
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
@@ -12,22 +11,31 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
---%>
 
-<%@ include file="/init.jsp" %>
+package com.liferay.asset.taglib.servlet.taglib;
 
-<%
-Layout selLayout = layoutsAdminDisplayContext.getSelLayout();
-%>
+import com.liferay.asset.taglib.servlet.ServletContextUtil;
+import com.liferay.taglib.util.IncludeTag;
 
-<liferay-ui:error-marker key="errorSection" value="categorization" />
+import javax.servlet.jsp.PageContext;
 
-<aui:model-context bean="<%= selLayout %>" model="<%= Layout.class %>" />
+/**
+ * @author Brian Wing Shun Chan
+ */
+public class AssetTagsErrorTag extends IncludeTag {
 
-<liferay-ui:asset-categories-error />
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
 
-<liferay-asset:asset-tags-error />
+		servletContext = ServletContextUtil.getServletContext();
+	}
 
-<aui:input name="categories" type="assetCategories" />
+	@Override
+	protected String getPage() {
+		return _PAGE;
+	}
 
-<aui:input name="tags" type="assetTags" />
+	private static final String _PAGE = "/asset_tags_error/page.jsp";
+
+}
