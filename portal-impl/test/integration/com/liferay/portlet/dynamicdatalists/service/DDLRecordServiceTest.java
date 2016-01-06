@@ -61,15 +61,15 @@ public class DDLRecordServiceTest extends BaseDDLServiceTestCase {
 	public void setUp() throws Exception {
 		super.setUp();
 
+		setUpPermissionThreadLocal();
+		setUpPrincipalThreadLocal();
+
 		DDMStructure ddmStructure = addStructure(
 			PortalUtil.getClassNameId(DDLRecordSet.class), null,
 			"Test Structure", readText("test-structure.xsd"),
 			StorageType.XML.getValue(), DDMStructureConstants.TYPE_DEFAULT);
 
 		recordSet = addRecordSet(ddmStructure.getStructureId());
-
-		setUpPermissionThreadLocal();
-		setUpPrincipalThreadLocal();
 
 		addRecord("Joe Bloggs", "Simple description");
 		addRecord("Bloggs","Another description example");
@@ -145,10 +145,6 @@ public class DDLRecordServiceTest extends BaseDDLServiceTestCase {
 
 		PermissionThreadLocal.setPermissionChecker(
 			new SimplePermissionChecker() {
-
-				{
-					init(TestPropsValues.getUser());
-				}
 
 				@Override
 				public boolean hasOwnerPermission(
