@@ -3,18 +3,18 @@
 <#assign DATE = staticUtil["java.util.Calendar"].DATE>
 <#assign MONTH = staticUtil["java.util.Calendar"].MONTH>
 <#assign YEAR = staticUtil["java.util.Calendar"].YEAR>
-<#assign GMT = staticUtil["com.liferay.portal.kernel.util.TimeZoneUtil"].GMT>
+<#assign utcTimeZone = timeZoneUtil.getTimeZone("UTC")>
 
 <#assign nullable = false>
 
 <#if (fieldRawValue?is_date)>
-	<#assign fieldValue = calendarFactory.getCalendar(fieldRawValue?long, GMT)>
+	<#assign fieldValue = calendarFactory.getCalendar(fieldRawValue?long, utcTimeZone)>
 <#elseif (validator.isNotNull(predefinedValue))>
 	<#assign predefinedDate = dateUtil.parseDate(predefinedValue, requestedLocale)>
 
 	<#assign fieldValue = calendarFactory.getCalendar(predefinedDate?long)>
 <#else>
-	<#assign calendar = calendarFactory.getCalendar(GMT)>
+	<#assign calendar = calendarFactory.getCalendar(utcTimeZone)>
 
 	<#assign fieldValue = calendarFactory.getCalendar(calendar.get(YEAR), calendar.get(MONTH), calendar.get(DATE))>
 
