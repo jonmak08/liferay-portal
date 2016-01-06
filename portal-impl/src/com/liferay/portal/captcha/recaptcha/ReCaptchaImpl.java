@@ -36,6 +36,7 @@ import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -73,6 +74,22 @@ public class ReCaptchaImpl extends SimpleCaptchaImpl {
 			request, "recaptcha_challenge_field");
 		String reCaptchaResponse = ParamUtil.getString(
 			request, "recaptcha_response_field");
+
+		while (((reCaptchaChallenge == null) || reCaptchaChallenge.isEmpty()) &&
+			   (request instanceof HttpServletRequestWrapper)) {
+
+			HttpServletRequestWrapper httpServletRequestWrapper =
+				(HttpServletRequestWrapper)request;
+
+			request =
+				(HttpServletRequest)httpServletRequestWrapper.getRequest();
+
+			reCaptchaChallenge = ParamUtil.getString(
+				request, "recaptcha_challenge_field");
+
+			reCaptchaResponse = ParamUtil.getString(
+				request, "recaptcha_response_field");
+		}
 
 		Http.Options options = new Http.Options();
 
@@ -131,8 +148,6 @@ public class ReCaptchaImpl extends SimpleCaptchaImpl {
 
 		HttpServletRequest request = PortalUtil.getHttpServletRequest(
 			portletRequest);
-
-		request = PortalUtil.getOriginalServletRequest(request);
 
 		return validateChallenge(request);
 	}
