@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.asset.taglib.servlet.taglib;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
@@ -109,7 +109,7 @@ public class AssetMetadataTag extends IncludeTag {
 	}
 
 	private static final String _PAGE =
-		"/html/taglib/ui/asset_metadata/page.jsp";
+		"/asset_metadata/page.jsp";
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		AssetMetadataTag.class);
