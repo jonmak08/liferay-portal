@@ -4523,6 +4523,15 @@ include-and-override=${liferay.home}/portal-setup-wizard.properties</echo>
 		</if>
 
 		<if>
+			<isset property="test.pause.on.failure" />
+			<then>
+				<echo append="true" file="${test.ext.properties.file}">
+					test.pause.on.failure=${test.pause.on.failure}
+				</echo>
+			</then>
+		</if>
+
+		<if>
 			<isset property="test.portal.instance" />
 			<then>
 				<echo append="true" file="${test.ext.properties.file}">
