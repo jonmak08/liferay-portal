@@ -46,7 +46,7 @@ else {
 %>
 
 	<div class="alert alert-info">
-		<liferay-ui:message key="there-are-no-tags" />
+		<%= LanguageUtil.get(resourceBundle, "there-are-no-tags") %>
 	</div>
 
 <%
