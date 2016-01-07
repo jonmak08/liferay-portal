@@ -182,7 +182,7 @@ AUI.add(
 						var message;
 
 						if (!instance._copyPublishURL()) {
-							message = Liferay.Language.get('unable-to-copy-to-clipboard') + ' ' + Liferay.Language.get('copy-directly');
+							message = Liferay.Language.get('unable-to-copy-to-clipboard');
 						}
 						else {
 							message = Liferay.Language.get('copied-to-clipboard');
