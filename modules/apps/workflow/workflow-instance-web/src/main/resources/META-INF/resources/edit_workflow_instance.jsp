@@ -92,7 +92,7 @@ renderResponse.setTitle(workflowInstanceEditDisplayContext.getHeaderTitle());
 						/>
 
 						<c:if test="<%= assetEntry != null %>">
-							<liferay-ui:asset-metadata
+							<liferay-asset:asset-metadata
 								className="<%= assetEntry.getClassName() %>"
 								classPK="<%= assetEntry.getClassPK() %>"
 								metadataFields='<%= new String[] {"author", "categories", "tags"} %>'
