@@ -109,7 +109,8 @@ public class AssetMetadataTag extends IncludeTag {
 			_log.error(pe, pe);
 		}
 
-		request.setAttribute("liferay-asset:asset-metadata:className", _className);
+		request.setAttribute(
+			"liferay-asset:asset-metadata:className", _className);
 		request.setAttribute("liferay-asset:asset-metadata:classPK", _classPK);
 		request.setAttribute(
 			"liferay-asset:asset-metadata:filterByMetadata", _filterByMetadata);
@@ -117,8 +118,7 @@ public class AssetMetadataTag extends IncludeTag {
 			"liferay-asset:asset-metadata:metadataFields", _metadataFields);
 	}
 
-	private static final String _PAGE =
-		"/asset_metadata/page.jsp";
+	private static final String _PAGE = "/asset_metadata/page.jsp";
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		AssetMetadataTag.class);
