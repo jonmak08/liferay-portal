@@ -214,7 +214,7 @@
 
 		<execute macro="SocialActivity#viewPGViaUserStatistics">
 			<var name="contributionScore" value="Contribution Score: 2 (Total: 2)" />
-			<var name="participationScore" value="Participation Score: 11 (Total: 11)" />
+			<var name="participationScore" value="Participation Score: 9 (Total: 9)" />
 			<var name="userName" value="Test Test" />
 			<var name="userRank" value="Rank: 1" />
 		</execute>
