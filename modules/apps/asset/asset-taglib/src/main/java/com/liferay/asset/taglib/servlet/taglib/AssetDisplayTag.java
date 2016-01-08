@@ -211,7 +211,7 @@ public class AssetDisplayTag extends IncludeTag {
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
 		request.setAttribute(
-			"liferay-ui:asset-display:abstractLength", _abstractLength);
+			"liferay-asset:asset-display:abstractLength", _abstractLength);
 
 		AssetEntry assetEntry = _assetEntry;
 
@@ -226,7 +226,7 @@ public class AssetDisplayTag extends IncludeTag {
 			}
 		}
 
-		request.setAttribute("liferay-ui:asset-display:assetEntry", assetEntry);
+		request.setAttribute("liferay-asset:asset-display:assetEntry", assetEntry);
 
 		if ((_renderer == null) && (assetEntry != null)) {
 			_renderer = assetEntry.getAssetRenderer();
@@ -239,7 +239,7 @@ public class AssetDisplayTag extends IncludeTag {
 		}
 		else {
 			request.setAttribute(
-				"liferay-ui:asset-display:renderer", _renderer);
+				"liferay-asset:asset-display:renderer", _renderer);
 		}
 
 		AssetRendererFactory<?> assetRendererFactory = _assetRendererFactory;
