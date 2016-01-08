@@ -12,11 +12,13 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.asset.taglib.servlet.taglib;
 
+import com.liferay.asset.taglib.servlet.ServletContextUtil;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Alvaro del Castillo
@@ -39,6 +41,13 @@ public class AssetTagsNavigationTag extends IncludeTag {
 
 	public void setMaxAssetTags(int maxAssetTags) {
 		_maxAssetTags = maxAssetTags;
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	public void setShowAssetCount(boolean showAssetCount) {
@@ -67,26 +76,25 @@ public class AssetTagsNavigationTag extends IncludeTag {
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
 		request.setAttribute(
-			"liferay-ui:asset-tags-navigation:classNameId",
+			"liferay-asset:asset-tags-navigation:classNameId",
 			String.valueOf(_classNameId));
 		request.setAttribute(
-			"liferay-ui:asset-tags-navigation:displayStyle", _displayStyle);
+			"liferay-asset:asset-tags-navigation:displayStyle", _displayStyle);
 		request.setAttribute(
-			"liferay-ui:asset-tags-navigation:hidePortletWhenEmpty",
+			"liferay-asset:asset-tags-navigation:hidePortletWhenEmpty",
 			String.valueOf(_hidePortletWhenEmpty));
 		request.setAttribute(
-			"liferay-ui:asset-tags-navigation:maxAssetTags",
+			"liferay-asset:asset-tags-navigation:maxAssetTags",
 			String.valueOf(_maxAssetTags));
 		request.setAttribute(
-			"liferay-ui:asset-tags-navigation:showAssetCount",
+			"liferay-asset:asset-tags-navigation:showAssetCount",
 			String.valueOf(_showAssetCount));
 		request.setAttribute(
-			"liferay-ui:asset-tags-navigation:showZeroAssetCount",
+			"liferay-asset:asset-tags-navigation:showZeroAssetCount",
 			String.valueOf(_showZeroAssetCount));
 	}
 
-	private static final String _PAGE =
-		"/html/taglib/ui/asset_tags_navigation/page.jsp";
+	private static final String _PAGE = "/asset_tags_navigation/page.jsp";
 
 	private long _classNameId;
 	private String _displayStyle = "cloud";
