@@ -92,7 +92,7 @@ public class AssetAddonEntrySelectorTag extends IncludeTag {
 	}
 
 	private static final String _PAGE =
-		"/html/taglib/ui/asset_addon_entry_selector/page.jsp";
+		"/asset_addon_entry_selector/page.jsp";
 
 	private List<AssetAddonEntry> _assetAddonEntries;
 	private String _hiddenInput;
