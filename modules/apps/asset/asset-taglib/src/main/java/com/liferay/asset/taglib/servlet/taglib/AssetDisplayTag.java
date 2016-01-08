@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.asset.taglib.servlet.taglib;
 
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -196,7 +196,7 @@ public class AssetDisplayTag extends IncludeTag {
 		}
 
 		super.includePage(
-			"/html/taglib/ui/asset_display/" + _template + ".jsp", response);
+			"/asset_display/" + _template + ".jsp", response);
 	}
 
 	@Override
