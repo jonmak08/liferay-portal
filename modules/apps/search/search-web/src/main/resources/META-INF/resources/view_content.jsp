@@ -63,7 +63,7 @@ AssetRenderer<?> assetRenderer = assetEntry.getAssetRenderer();
 		title="<%= assetRenderer.getTitle(locale) %>"
 	/>
 
-	<liferay-ui:asset-display
+	<liferay-asset:asset-display
 		assetEntry="<%= assetEntry %>"
 		assetRenderer="<%= assetRenderer %>"
 		assetRendererFactory="<%= assetRendererFactory %>"

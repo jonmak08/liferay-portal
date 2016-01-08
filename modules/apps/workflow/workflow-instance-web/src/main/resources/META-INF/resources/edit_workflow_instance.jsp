@@ -86,7 +86,7 @@ renderResponse.setTitle(workflowInstanceEditDisplayContext.getHeaderTitle());
 							/>
 						</h3>
 
-						<liferay-ui:asset-display
+						<liferay-asset:asset-display
 							assetRenderer="<%= assetRenderer %>"
 							template="<%= AssetRenderer.TEMPLATE_ABSTRACT %>"
 						/>

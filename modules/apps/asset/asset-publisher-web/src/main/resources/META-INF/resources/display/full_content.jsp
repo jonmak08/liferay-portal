@@ -127,7 +127,7 @@ request.setAttribute("view.jsp-showIconLabel", true);
 			/>
 		</c:if>
 
-		<liferay-ui:asset-display
+		<liferay-asset:asset-display
 			assetEntry="<%= assetEntry %>"
 			assetRenderer="<%= assetRenderer %>"
 			assetRendererFactory="<%= assetRendererFactory %>"
