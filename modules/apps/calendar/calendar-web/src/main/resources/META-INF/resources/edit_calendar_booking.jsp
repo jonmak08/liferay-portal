@@ -209,7 +209,7 @@ for (long otherCalendarId : otherCalendarIds) {
 
 	<liferay-ui:asset-categories-error />
 
-	<liferay-ui:asset-tags-error />
+	<liferay-asset:asset-tags-error />
 
 	<aui:model-context bean="<%= calendarBooking %>" model="<%= CalendarBooking.class %>" />
 

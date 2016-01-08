@@ -112,7 +112,7 @@ renderResponse.setTitle((entry != null) ? entry.getTitle() : LanguageUtil.get(re
 
 		<liferay-ui:asset-categories-error />
 
-		<liferay-ui:asset-tags-error />
+		<liferay-asset:asset-tags-error />
 
 		<aui:model-context bean="<%= entry %>" model="<%= BlogsEntry.class %>" />
 
