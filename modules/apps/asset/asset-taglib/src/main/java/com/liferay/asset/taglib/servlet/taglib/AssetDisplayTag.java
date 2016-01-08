@@ -204,8 +204,7 @@ public class AssetDisplayTag extends IncludeTag {
 			_log.error(e);
 		}
 
-		super.includePage(
-			"/asset_display/" + _template + ".jsp", response);
+		super.includePage("/asset_display/" + _template + ".jsp", response);
 	}
 
 	@Override
@@ -226,7 +225,8 @@ public class AssetDisplayTag extends IncludeTag {
 			}
 		}
 
-		request.setAttribute("liferay-asset:asset-display:assetEntry", assetEntry);
+		request.setAttribute(
+			"liferay-asset:asset-display:assetEntry", assetEntry);
 
 		if ((_renderer == null) && (assetEntry != null)) {
 			_renderer = assetEntry.getAssetRenderer();
