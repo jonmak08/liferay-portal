@@ -33,6 +33,7 @@ FileTree fileTree = fileTree(rootDir) {
 		exclude "util/source-formatter/"
 		exclude "util/sync-engine/"
 		exclude "util/tld-formatter/"
+		exclude "util/ui-taglibs-sample/"
 		exclude "util/xml-formatter/"
 	}
 
