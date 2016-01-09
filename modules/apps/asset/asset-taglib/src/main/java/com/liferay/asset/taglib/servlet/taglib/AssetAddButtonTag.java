@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.asset.taglib.servlet.taglib;
 
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.theme.ThemeDisplay;
@@ -137,7 +137,7 @@ public class AssetAddButtonTag extends IncludeTag {
 	}
 
 	private static final String _PAGE =
-		"/html/taglib/ui/asset_add_button/page.jsp";
+		"/asset_add_button/page.jsp";
 
 	private boolean _addDisplayPageParameter;
 	private long[] _allAssetCategoryIds;
