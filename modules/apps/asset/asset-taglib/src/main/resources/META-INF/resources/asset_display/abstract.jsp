@@ -14,6 +14,13 @@
  */
 --%>
 
-<%@ include file="/html/taglib/init.jsp" %>
+<%@ include file="/asset_display/init.jsp" %>
 
-<portlet:defineObjects />
+<%
+AssetRenderer<?> assetRenderer = (AssetRenderer<?>)request.getAttribute(WebKeys.ASSET_RENDERER);
+int abstractLength = GetterUtil.getInteger(request.getAttribute("liferay-asset:asset-display:abstractLength"));
+
+String summary = StringUtil.shorten(assetRenderer.getSummary(renderRequest, renderResponse), abstractLength);
+%>
+
+<%= HtmlUtil.escape(summary) %>

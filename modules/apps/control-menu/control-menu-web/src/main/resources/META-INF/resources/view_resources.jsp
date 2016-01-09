@@ -176,7 +176,7 @@ boolean viewAssetPreview = ParamUtil.getBoolean(request, "viewAssetPreview");
 
 		<c:if test="<%= (classPK > 0) && Validator.isNotNull(className) %>">
 			<div id="<portlet:namespace />preview">
-				<liferay-ui:asset-display
+				<liferay-asset:asset-display
 					className="<%= className %>"
 					classPK="<%= classPK %>"
 					template="<%= AssetRenderer.TEMPLATE_PREVIEW %>"

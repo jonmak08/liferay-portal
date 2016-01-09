@@ -12,8 +12,9 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.asset.taglib.servlet.taglib;
 
+import com.liferay.asset.taglib.servlet.ServletContextUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ServerDetector;
@@ -32,6 +33,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Julio Camarero
@@ -136,6 +138,13 @@ public class AssetDisplayTag extends IncludeTag {
 		_classPK = classPK;
 	}
 
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
+	}
+
 	public void setRenderer(Renderer renderer) {
 		_renderer = renderer;
 	}
@@ -195,14 +204,13 @@ public class AssetDisplayTag extends IncludeTag {
 			_log.error(e);
 		}
 
-		super.includePage(
-			"/html/taglib/ui/asset_display/" + _template + ".jsp", response);
+		super.includePage("/asset_display/" + _template + ".jsp", response);
 	}
 
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
 		request.setAttribute(
-			"liferay-ui:asset-display:abstractLength", _abstractLength);
+			"liferay-asset:asset-display:abstractLength", _abstractLength);
 
 		AssetEntry assetEntry = _assetEntry;
 
@@ -217,7 +225,8 @@ public class AssetDisplayTag extends IncludeTag {
 			}
 		}
 
-		request.setAttribute("liferay-ui:asset-display:assetEntry", assetEntry);
+		request.setAttribute(
+			"liferay-asset:asset-display:assetEntry", assetEntry);
 
 		if ((_renderer == null) && (assetEntry != null)) {
 			_renderer = assetEntry.getAssetRenderer();
@@ -230,7 +239,7 @@ public class AssetDisplayTag extends IncludeTag {
 		}
 		else {
 			request.setAttribute(
-				"liferay-ui:asset-display:renderer", _renderer);
+				"liferay-asset:asset-display:renderer", _renderer);
 		}
 
 		AssetRendererFactory<?> assetRendererFactory = _assetRendererFactory;

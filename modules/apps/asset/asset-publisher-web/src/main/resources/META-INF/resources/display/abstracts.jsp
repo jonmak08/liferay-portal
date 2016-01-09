@@ -51,7 +51,7 @@ String viewURL = AssetPublisherHelper.getAssetViewURL(liferayPortletRequest, lif
 
 	<div class="asset-content">
 		<div class="asset-summary">
-			<liferay-ui:asset-display
+			<liferay-asset:asset-display
 				abstractLength="<%= assetPublisherDisplayContext.getAbstractLength() %>"
 				assetEntry="<%= assetEntry %>"
 				assetRenderer="<%= assetRenderer %>"

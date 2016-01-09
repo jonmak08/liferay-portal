@@ -352,7 +352,7 @@ renderResponse.setTitle(trashRenderer.getTitle(locale));
 			</liferay-ui:panel-container>
 		</c:when>
 		<c:otherwise>
-			<liferay-ui:asset-display
+			<liferay-asset:asset-display
 				renderer="<%= trashRenderer %>"
 			/>
 		</c:otherwise>
