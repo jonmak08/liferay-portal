@@ -7,7 +7,7 @@
 	<uri>http://liferay.com/tld/asset</uri>
 	<tag>
 		<name>asset-add-button</name>
-		<tag-class>com.liferay.taglib.ui.AssetAddButtonTag</tag-class>
+		<tag-class>com.liferay.asset.taglib.servlet.taglib.AssetAddButtonTag</tag-class>
 		<body-content>JSP</body-content>
 		<attribute>
 			<name>addDisplayPageParameter</name>
