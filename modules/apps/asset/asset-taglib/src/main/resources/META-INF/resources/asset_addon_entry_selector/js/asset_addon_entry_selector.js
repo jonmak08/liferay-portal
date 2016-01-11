@@ -41,11 +41,13 @@ AUI.add(
 			'</li>';
 
 		var TPL_SUMMARY_ASSET_ADDON_ENTRY = '<li class="list-entry" data-key="{key}" data-label="{label}">' +
-				'<span class="label label-circle label-entry">' +
-					'{label}' +
-					'<button class="remove-button" type="button">' +
-						'<i class="icon-remove"></i>' +
-					'</button>' +
+				'<span class="label label-default">' +
+					' {label} ' +
+					'<a class="remove-button" href="javascript:;">' +
+						'<svg class="lexicon-icon">' +
+							'<use xlink:href="' + themeDisplay.getPathThemeImages() + '/lexicon/icons.svg#times" />' +
+						'</svg>' +
+					'</a>' +
 				'</span>' +
 			'</li>';
 
