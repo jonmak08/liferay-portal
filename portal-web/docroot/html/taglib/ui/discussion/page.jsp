@@ -629,7 +629,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 						var randomNamespaceNodes = A.all('#<portlet:namespace />randomNamespace');
 
 						randomNamespaceNodes.each(
-							function(item) {
+							function(index, item) {
 								var randomId = item.val();
 
 								var currentMessageSelector = '#' + randomId + 'message_' + response.messageId;
