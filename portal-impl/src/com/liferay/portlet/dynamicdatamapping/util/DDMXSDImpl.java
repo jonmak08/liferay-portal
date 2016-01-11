@@ -642,9 +642,8 @@ public class DDMXSDImpl implements DDMXSD {
 		String defaultLanguageId = request.getParameter("defaultLanguageId");
 
 		if (Validator.isNull(defaultLanguageId)) {
-			defaultLanguageId =
-				GetterUtil.getString(
-					pageContext.getAttribute("contentDefaultLanguageId"));
+			defaultLanguageId = GetterUtil.getString(
+				pageContext.getAttribute("contentDefaultLanguageId"));
 		}
 
 		String editingLanguageId = LocaleUtil.toLanguageId(locale);
