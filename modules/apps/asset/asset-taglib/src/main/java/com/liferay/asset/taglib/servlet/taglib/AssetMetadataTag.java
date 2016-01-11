@@ -12,8 +12,9 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.asset.taglib.servlet.taglib;
 
+import com.liferay.asset.taglib.servlet.ServletContextUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -26,6 +27,7 @@ import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Eudaldo Alonso
@@ -65,6 +67,13 @@ public class AssetMetadataTag extends IncludeTag {
 	}
 
 	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
+	}
+
+	@Override
 	protected void cleanUp() {
 		_className = StringPool.BLANK;
 		_classPK = 0;
@@ -83,7 +92,7 @@ public class AssetMetadataTag extends IncludeTag {
 			_className, _classPK);
 
 		request.setAttribute(
-			"liferay-ui:asset-metadata:assetEntry", assetEntry);
+			"liferay-asset:asset-metadata:assetEntry", assetEntry);
 
 		AssetRendererFactory<?> assetRendererFactory =
 			AssetRendererFactoryRegistryUtil.getAssetRendererFactoryByClassName(
@@ -94,22 +103,22 @@ public class AssetMetadataTag extends IncludeTag {
 				assetRendererFactory.getAssetRenderer(_classPK);
 
 			request.setAttribute(
-				"liferay-ui:asset-metadata:assetRenderer", assetRenderer);
+				"liferay-asset:asset-metadata:assetRenderer", assetRenderer);
 		}
 		catch (PortalException pe) {
 			_log.error(pe, pe);
 		}
 
-		request.setAttribute("liferay-ui:asset-metadata:className", _className);
-		request.setAttribute("liferay-ui:asset-metadata:classPK", _classPK);
 		request.setAttribute(
-			"liferay-ui:asset-metadata:filterByMetadata", _filterByMetadata);
+			"liferay-asset:asset-metadata:className", _className);
+		request.setAttribute("liferay-asset:asset-metadata:classPK", _classPK);
 		request.setAttribute(
-			"liferay-ui:asset-metadata:metadataFields", _metadataFields);
+			"liferay-asset:asset-metadata:filterByMetadata", _filterByMetadata);
+		request.setAttribute(
+			"liferay-asset:asset-metadata:metadataFields", _metadataFields);
 	}
 
-	private static final String _PAGE =
-		"/html/taglib/ui/asset_metadata/page.jsp";
+	private static final String _PAGE = "/asset_metadata/page.jsp";
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		AssetMetadataTag.class);

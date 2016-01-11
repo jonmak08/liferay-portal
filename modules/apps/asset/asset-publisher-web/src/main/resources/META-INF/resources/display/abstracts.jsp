@@ -62,7 +62,7 @@ String viewURL = AssetPublisherHelper.getAssetViewURL(liferayPortletRequest, lif
 		</div>
 	</div>
 
-	<liferay-ui:asset-metadata
+	<liferay-asset:asset-metadata
 		className="<%= assetEntry.getClassName() %>"
 		classPK="<%= assetEntry.getClassPK() %>"
 		filterByMetadata="<%= true %>"

@@ -146,7 +146,7 @@ renderResponse.setTitle(headerTitle);
 							template="<%= AssetRenderer.TEMPLATE_ABSTRACT %>"
 						/>
 
-						<liferay-ui:asset-metadata
+						<liferay-asset:asset-metadata
 							className="<%= assetEntry.getClassName() %>"
 							classPK="<%= assetEntry.getClassPK() %>"
 							metadataFields="<%= workflowTaskDisplayContext.getMetadataFields() %>"
