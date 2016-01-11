@@ -58,7 +58,7 @@ else {
 Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZone);
 %>
 
-<div class="hide lfr-message-response" id="<%= randomNamespace %>discussion-status-messages"></div>
+<div class="hide lfr-message-response" id="<portlet:namespace />discussion-status-messages"></div>
 
 <c:if test="<%= (messagesCount > 1) || MBDiscussionPermission.contains(permissionChecker, company.getCompanyId(), scopeGroupId, permissionClassName, permissionClassPK, userId, ActionKeys.VIEW) %>">
 	<div class="taglib-discussion" id="<portlet:namespace />discussion-container">
@@ -306,7 +306,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 
 						<div class="lfr-discussion <%= cssClass %>">
 							<div id="<%= randomNamespace %>messageScroll<%= message.getMessageId() %>">
-								<a id="<%= randomNamespace %>message_<%= message.getMessageId() %>" name="<%= randomNamespace %>message_<%= message.getMessageId() %>"></a>
+								<a name="<%= randomNamespace %>message_<%= message.getMessageId() %>"></a>
 
 								<aui:input name='<%= "messageId" + i %>' type="hidden" value="<%= message.getMessageId() %>" />
 								<aui:input name='<%= "parentMessageId" + i %>' type="hidden" value="<%= message.getMessageId() %>" />
@@ -594,7 +594,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 
 				form.one('#<%= namespace %>emailAddress').val(emailAddress);
 
-				<%=randomNamespace %>sendMessage(form, !anonymousAccount);
+				<portlet:namespace />sendMessage(form, !anonymousAccount);
 			},
 			['aui-base']
 		);
@@ -612,39 +612,23 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 				form.one('#<%= namespace %><%= randomNamespace %><%= Constants.CMD %>').val('<%= Constants.DELETE %>');
 				form.one('#<%= namespace %>messageId').val(messageId);
 
-				<%=randomNamespace %>sendMessage(form);
+				<portlet:namespace />sendMessage(form);
 			},
 			['aui-base']
 		);
 
 		Liferay.provide(
 			window,
-			'<%=randomNamespace %>onMessagePosted',
+			'<portlet:namespace />onMessagePosted',
 			function(response, refreshPage) {
 				Liferay.after(
 					'<%= portletDisplay.getId() %>:portletRefreshed',
 					function(event) {
 						var A = AUI();
 
-						var randomNamespaceNodes = A.all('#<portlet:namespace />randomNamespace');
+						<portlet:namespace />showStatusMessage('success', '<%= UnicodeLanguageUtil.get(pageContext, "your-request-processed-successfully") %>');
 
-						randomNamespaceNodes.each(
-							function(index, item) {
-								var randomId = item.val();
-
-								var currentMessageSelector = '#' + randomId + 'message_' + response.messageId;
-
-								var targetNode = A.one(currentMessageSelector);
-
-								if (targetNode) {
-									<%=randomNamespace %>showStatusMessage('success', '<%= UnicodeLanguageUtil.get(pageContext, "your-request-processed-successfully") %>', randomId);
-
-									location.hash = currentMessageSelector;
-
-									return false;
-								}
-							}
-						);
+						location.hash = '#' + A.one('#<portlet:namespace />randomNamespace').val() + 'message_' + response.messageId;
 					}
 				);
 
@@ -690,7 +674,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 					);
 				}
 				else {
-					<%=randomNamespace %>sendMessage(form);
+					<portlet:namespace />sendMessage(form);
 				}
 			},
 			['aui-base']
@@ -698,7 +682,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 
 		Liferay.provide(
 			window,
-			'<%=randomNamespace %>sendMessage',
+			'<portlet:namespace />sendMessage',
 			function(form, refreshPage) {
 				var A = AUI();
 
@@ -720,7 +704,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 								Util.toggleDisabled(commentButtonList, false);
 							},
 							failure: function(event, id, obj) {
-								<%=randomNamespace %>showStatusMessage('error', '<%= UnicodeLanguageUtil.get(pageContext, "your-request-failed-to-complete") %>', <%= randomNamespace %>);
+								<portlet:namespace />showStatusMessage('error', '<%= UnicodeLanguageUtil.get(pageContext, "your-request-failed-to-complete") %>');
 							},
 							start: function() {
 								Util.toggleDisabled(commentButtonList, true);
@@ -734,7 +718,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 									Liferay.after(
 										'<%= portletDisplay.getId() %>:messagePosted',
 										function(event) {
-											<%=randomNamespace %>onMessagePosted(response, refreshPage);
+											<portlet:namespace />onMessagePosted(response, refreshPage);
 										}
 									);
 
@@ -756,7 +740,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 										errorKey = '<%= UnicodeLanguageUtil.get(pageContext, "you-cannot-delete-a-root-message-that-has-more-than-one-immediate-reply") %>';
 									}
 
-									<%=randomNamespace %>showStatusMessage('error', errorKey, <%= randomNamespace %>);
+									<portlet:namespace />showStatusMessage('error', errorKey);
 								}
 							}
 						}
@@ -768,21 +752,19 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 
 		Liferay.provide(
 			window,
-			'<%=randomNamespace %>showStatusMessage',
-			function(type, message, id) {
+			'<portlet:namespace />showStatusMessage',
+			function(type, message) {
 				var A = AUI();
 
-				var messageContainer = A.one('#' + id + 'discussion-status-messages');
+				var messageContainer = A.one('#<portlet:namespace />discussion-status-messages');
 
-				if (messageContainer) {
-					messageContainer.removeClass('alert-error').removeClass('alert-success');
+				messageContainer.removeClass('alert-error').removeClass('alert-success');
 
-					messageContainer.addClass('alert alert-' + type);
+				messageContainer.addClass('alert alert-' + type);
 
-					messageContainer.html(message);
+				messageContainer.html(message);
 
-					messageContainer.show();
-				}
+				messageContainer.show();
 			},
 			['aui-base']
 		);
@@ -805,7 +787,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 
 				cmd.val(cmdVal);
 
-				<%=randomNamespace %>sendMessage(form);
+				<portlet:namespace />sendMessage(form);
 			},
 			['aui-base']
 		);
@@ -829,7 +811,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 				form.one('#<%= namespace %>messageId').val(messageId);
 				form.one('#<%= namespace %>body').val(body);
 
-				<%=randomNamespace %>sendMessage(form);
+				<portlet:namespace />sendMessage(form);
 			},
 			['aui-base']
 		);
