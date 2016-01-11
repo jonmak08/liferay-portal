@@ -58,7 +58,7 @@ Group scopeGroup = themeDisplay.getScopeGroup();
 		%>
 
 		<aui:nav-bar cssClass='<%= "add-asset-selector lfr-meta-actions" + ((groupIds.length == 1) ? " single-item-button" : StringPool.BLANK) %>'>
-			<liferay-ui:asset-add-button
+			<liferay-asset:asset-add-button
 				addDisplayPageParameter="<%= AssetUtil.isDefaultAssetPublisher(layout, portletDisplay.getId(), assetPublisherDisplayContext.getPortletResource()) %>"
 				allAssetCategoryIds="<%= assetPublisherDisplayContext.getAllAssetCategoryIds() %>"
 				allAssetTagNames="<%= assetPublisherDisplayContext.getAllAssetTagNames() %>"

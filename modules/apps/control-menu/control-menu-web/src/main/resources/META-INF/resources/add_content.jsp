@@ -70,7 +70,7 @@ String displayStyle = ParamUtil.getString(request, "displayStyle", displayStyleD
 			redirectURL.setWindowState(LiferayWindowState.POP_UP);
 			%>
 
-			<liferay-ui:asset-add-button
+			<liferay-asset:asset-add-button
 				redirect="<%= redirectURL.toString() %>"
 			/>
 		</span>
