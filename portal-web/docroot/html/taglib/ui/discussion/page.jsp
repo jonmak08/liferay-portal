@@ -594,7 +594,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 
 				form.one('#<%= namespace %>emailAddress').val(emailAddress);
 
-				<%= randomNamespace %>sendMessage(form, !anonymousAccount);
+				<%=randomNamespace %>sendMessage(form, !anonymousAccount);
 			},
 			['aui-base']
 		);
@@ -612,14 +612,14 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 				form.one('#<%= namespace %><%= randomNamespace %><%= Constants.CMD %>').val('<%= Constants.DELETE %>');
 				form.one('#<%= namespace %>messageId').val(messageId);
 
-				<%= randomNamespace %>sendMessage(form);
+				<%=randomNamespace %>sendMessage(form);
 			},
 			['aui-base']
 		);
 
 		Liferay.provide(
 			window,
-			'<%= randomNamespace %>onMessagePosted',
+			'<%=randomNamespace %>onMessagePosted',
 			function(response, refreshPage) {
 				Liferay.after(
 					'<%= portletDisplay.getId() %>:portletRefreshed',
@@ -690,7 +690,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 					);
 				}
 				else {
-					<%= randomNamespace %>sendMessage(form);
+					<%=randomNamespace %>sendMessage(form);
 				}
 			},
 			['aui-base']
@@ -698,7 +698,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 
 		Liferay.provide(
 			window,
-			'<%= randomNamespace %>sendMessage',
+			'<%=randomNamespace %>sendMessage',
 			function(form, refreshPage) {
 				var A = AUI();
 
@@ -734,7 +734,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 									Liferay.after(
 										'<%= portletDisplay.getId() %>:messagePosted',
 										function(event) {
-											<%= randomNamespace %>onMessagePosted(response, refreshPage);
+											<%=randomNamespace %>onMessagePosted(response, refreshPage);
 										}
 									);
 
@@ -768,7 +768,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 
 		Liferay.provide(
 			window,
-			'<%= randomNamespace %>showStatusMessage',
+			'<%=randomNamespace %>showStatusMessage',
 			function(type, message, id) {
 				var A = AUI();
 
@@ -805,7 +805,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 
 				cmd.val(cmdVal);
 
-				<%= randomNamespace %>sendMessage(form);
+				<%=randomNamespace %>sendMessage(form);
 			},
 			['aui-base']
 		);
@@ -829,7 +829,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 				form.one('#<%= namespace %>messageId').val(messageId);
 				form.one('#<%= namespace %>body').val(body);
 
-				<%= randomNamespace %>sendMessage(form);
+				<%=randomNamespace %>sendMessage(form);
 			},
 			['aui-base']
 		);
