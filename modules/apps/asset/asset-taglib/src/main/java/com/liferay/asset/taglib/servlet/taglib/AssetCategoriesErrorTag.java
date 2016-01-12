@@ -12,9 +12,12 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.asset.taglib.servlet.taglib;
 
+import com.liferay.asset.taglib.servlet.ServletContextUtil;
 import com.liferay.taglib.util.IncludeTag;
+
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Juan Fernández
@@ -22,11 +25,17 @@ import com.liferay.taglib.util.IncludeTag;
 public class AssetCategoriesErrorTag extends IncludeTag {
 
 	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
+	}
+
+	@Override
 	protected String getPage() {
 		return _PAGE;
 	}
 
-	private static final String _PAGE =
-		"/html/taglib/ui/asset_categories_error/page.jsp";
+	private static final String _PAGE = "/asset_categories_error/page.jsp";
 
 }

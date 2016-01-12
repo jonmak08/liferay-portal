@@ -24,7 +24,7 @@ Group liveGroup = (Group)request.getAttribute("site.liveGroup");
 
 <aui:model-context bean="<%= liveGroup %>" model="<%= Group.class %>" />
 
-<liferay-ui:asset-categories-error />
+<liferay-asset:asset-categories-error />
 
 <liferay-ui:asset-tags-error />
 

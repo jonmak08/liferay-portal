@@ -110,7 +110,7 @@ renderResponse.setTitle((entry != null) ? entry.getTitle() : LanguageUtil.get(re
 			<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(uploadServletRequestImplMaxSize, locale) %>" key="request-is-larger-than-x-and-could-not-be-processed" translateArguments="<%= false %>" />
 		</liferay-ui:error>
 
-		<liferay-ui:asset-categories-error />
+		<liferay-asset:asset-categories-error />
 
 		<liferay-ui:asset-tags-error />
 

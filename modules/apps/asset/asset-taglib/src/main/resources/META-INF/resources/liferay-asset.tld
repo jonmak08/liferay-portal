@@ -6,6 +6,11 @@
 	<short-name>liferay-asset</short-name>
 	<uri>http://liferay.com/tld/asset</uri>
 	<tag>
+		<name>asset-categories-error</name>
+		<tag-class>com.liferay.asset.taglib.servlet.taglib.AssetCategoriesErrorTag</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
 		<name>asset-categories-navigation</name>
 		<tag-class>com.liferay.asset.taglib.servlet.taglib.AssetCategoriesNavigationTag</tag-class>
 		<body-content>JSP</body-content>

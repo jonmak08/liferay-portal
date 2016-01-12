@@ -24,7 +24,7 @@ Organization organization = OrganizationServiceUtil.fetchOrganization(organizati
 
 <aui:model-context bean="<%= organization %>" model="<%= Organization.class %>" />
 
-<liferay-ui:asset-categories-error />
+<liferay-asset:asset-categories-error />
 
 <liferay-ui:asset-tags-error />
 
