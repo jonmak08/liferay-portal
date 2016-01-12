@@ -194,10 +194,20 @@ public class JournalContentPortletDataHandler
 			Validator.isNotNull(preferenceTemplateId) &&
 			!defaultTemplateId.equals(preferenceTemplateId)) {
 
-			DDMTemplate ddmTemplate = DDMTemplateLocalServiceUtil.getTemplate(
+			DDMTemplate ddmTemplate = DDMTemplateLocalServiceUtil.fetchTemplate(
 				article.getGroupId(),
 				PortalUtil.getClassNameId(DDMStructure.class),
 				preferenceTemplateId, true);
+
+			if (ddmTemplate == null) {
+				ddmTemplate = DDMTemplateLocalServiceUtil.getTemplate(
+					article.getGroupId(),
+					PortalUtil.getClassNameId(DDMStructure.class),
+					defaultTemplateId, true);
+
+				portletPreferences.setValue(
+					"ddmTemplateKey", defaultTemplateId);
+			}
 
 			StagedModelDataHandlerUtil.exportReferenceStagedModel(
 				portletDataContext, article, ddmTemplate,
