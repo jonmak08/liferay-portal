@@ -76,8 +76,6 @@ public class VerifyJournal extends VerifyProcess {
 
 	public static final int NUM_OF_ARTICLES = 5;
 
-	public static final int ARTICLE_INTERVAL = 500;
-
 	@Override
 	protected void doVerify() throws Exception {
 		verifyArticleContent();
@@ -296,9 +294,9 @@ public class VerifyJournal extends VerifyProcess {
 					}
 				}
 
-		};
+			};
 
-		actionableDynamicQuery.setInterval(ARTICLE_INTERVAL);
+		actionableDynamicQuery.setInterval(500);
 		actionableDynamicQuery.performActions();
 
 		if (_log.isDebugEnabled()) {
