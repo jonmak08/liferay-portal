@@ -179,6 +179,9 @@ public class UserGroupFinderImpl
 			obc);
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, with no direct replacement
+	 */
 	@Deprecated
 	@Override
 	public UserGroup findByC_N(long companyId, String name)
