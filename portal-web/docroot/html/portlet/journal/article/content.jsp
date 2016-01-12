@@ -337,7 +337,7 @@ if (Validator.isNotNull(content)) {
 										Locale[] locales = LanguageUtil.getAvailableLocales(themeDisplay.getSiteGroupId());
 
 										for (int i = 0; i < locales.length; i++) {
-											if(defaultLanguageId.equals(LocaleUtil.toLanguageId(locales[i]))) {
+											if (defaultLanguageId.equals(LocaleUtil.toLanguageId(locales[i]))) {
 												continue;
 											}
 
