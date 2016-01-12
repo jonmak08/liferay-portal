@@ -2560,7 +2560,8 @@ them in ${app.server.parent.dir}. Then rerun this task.
 	</target>
 
 	<target name="update-plugins-includes">
-		<echo file="${lp.plugins.dir}/build.${user.name}.properties">
+		<echo file="${lp.plugins.dir}/build.${user.name}.properties">liferay.home=${liferay.home}
+
 plugins.includes=</echo>
 
 		<xmltask source="${lp.plugins.dir}/summary.xml">
