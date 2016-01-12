@@ -119,7 +119,8 @@ public class AssetAddButtonTag extends IncludeTag {
 			"liferay-asset:asset-add-button:allAssetCategoryIds",
 			_allAssetCategoryIds);
 		request.setAttribute(
-			"liferay-asset:asset-add-button:allAssetTagNames", _allAssetTagNames);
+			"liferay-asset:asset-add-button:allAssetTagNames",
+			_allAssetTagNames);
 
 		long[] classNameIds = _classNameIds;
 
@@ -140,13 +141,14 @@ public class AssetAddButtonTag extends IncludeTag {
 			groupIds = new long[] {themeDisplay.getScopeGroupId()};
 		}
 
-		request.setAttribute("liferay-asset:asset-add-button:groupIds", groupIds);
+		request.setAttribute(
+			"liferay-asset:asset-add-button:groupIds", groupIds);
 
-		request.setAttribute("liferay-asset:asset-add-button:redirect", _redirect);
+		request.setAttribute(
+			"liferay-asset:asset-add-button:redirect", _redirect);
 	}
 
-	private static final String _PAGE =
-		"/asset_add_button/page.jsp";
+	private static final String _PAGE = "/asset_add_button/page.jsp";
 
 	private boolean _addDisplayPageParameter;
 	private long[] _allAssetCategoryIds;
