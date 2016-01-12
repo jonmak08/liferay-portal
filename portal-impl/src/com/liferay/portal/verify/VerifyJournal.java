@@ -278,7 +278,6 @@ public class VerifyJournal extends VerifyProcess {
 	}
 
 	protected void verifyArticleContent() throws Exception {
-
 		ActionableDynamicQuery actionableDynamicQuery =
 			new JournalArticleActionableDynamicQuery() {
 
@@ -287,7 +286,7 @@ public class VerifyJournal extends VerifyProcess {
 					JournalArticle article = (JournalArticle)object;
 
 					try {
-						verifyInstanceId(article);
+						verifyArticleContentInstanceId(article);
 					}
 					catch (Exception e) {
 						_log.error(
@@ -307,7 +306,8 @@ public class VerifyJournal extends VerifyProcess {
 		}
 	}
 
-	protected void verifyInstanceId(JournalArticle article) throws Exception {
+	protected void verifyArticleContentInstanceId(JournalArticle article)
+		throws Exception {
 
 		String content = JournalConverterUtil.updateDynamicElements(
 			article.getContent());
