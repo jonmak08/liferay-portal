@@ -201,6 +201,10 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		return _value;
 	}
 
+	public boolean getWrappedField() {
+		return _wrappedField;
+	}
+
 	public java.lang.String getWrapperCssClass() {
 		return _wrapperCssClass;
 	}
@@ -457,6 +461,12 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		setScopedAttribute("value", value);
 	}
 
+	public void setWrappedField(boolean wrappedField) {
+		_wrappedField = wrappedField;
+
+		setScopedAttribute("wrappedField", wrappedField);
+	}
+
 	public void setWrapperCssClass(java.lang.String wrapperCssClass) {
 		_wrapperCssClass = wrapperCssClass;
 
@@ -507,6 +517,7 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		_type = null;
 		_useNamespace = true;
 		_value = null;
+		_wrappedField = false;
 		_wrapperCssClass = null;
 	}
 
@@ -559,6 +570,7 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 		setNamespacedAttribute(request, "type", _type);
 		setNamespacedAttribute(request, "useNamespace", _useNamespace);
 		setNamespacedAttribute(request, "value", _value);
+		setNamespacedAttribute(request, "wrappedField", _wrappedField);
 		setNamespacedAttribute(request, "wrapperCssClass", _wrapperCssClass);
 	}
 
@@ -609,6 +621,7 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 	private java.lang.String _type = null;
 	private boolean _useNamespace = true;
 	private java.lang.Object _value = null;
+	private boolean _wrappedField = false;
 	private java.lang.String _wrapperCssClass = null;
 
 }
