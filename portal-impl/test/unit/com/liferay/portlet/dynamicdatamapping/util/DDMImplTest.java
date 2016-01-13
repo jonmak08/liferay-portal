@@ -52,7 +52,7 @@ public class DDMImplTest extends BaseDDMTestCase {
 		Document document = createEmptyDocument();
 
 		DDMStructure ddmStructure = createStructure(
-				"Test Structure", document.asXML());
+			"Test Structure", document.asXML());
 
 		Field existingField = createField(
 			ddmStructure.getStructureId(), "Text1807", null);
@@ -61,7 +61,7 @@ public class DDMImplTest extends BaseDDMTestCase {
 			ddmStructure.getStructureId(), "Text1807_INSTANCE_ovho");
 
 		Fields existingFields = createFields(
-				existingField, existingFieldsDisplayField);
+			existingField, existingFieldsDisplayField);
 
 		Field newField = createField(
 			ddmStructure.getStructureId(), "Text1853", null);
@@ -80,6 +80,7 @@ public class DDMImplTest extends BaseDDMTestCase {
 		Assert.assertNotNull(fieldsDisplayField);
 
 		String fieldsDisplayValue = (String)fieldsDisplayField.getValue();
+
 		String[] fieldsDisplayValues = StringUtil.split(fieldsDisplayValue);
 
 		testValues(

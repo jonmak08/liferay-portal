@@ -387,7 +387,7 @@ public class DDMImpl implements DDM {
 
 			if (newField.isPrivate()) {
 				String[] existingFieldValues = splitFieldsDisplayValue(
-						existingField);
+					existingField);
 
 				String[] newFieldValues = splitFieldsDisplayValue(newField);
 
