@@ -130,8 +130,8 @@ portletURL.setParameter("rootNodeName", rootNodeName);
 							<div class="hide" id="<portlet:namespace />pages">
 								<aui:fieldset cssClass="portlet-data-section" label="pages-to-export">
 									<liferay-util:include page="/html/portlet/layouts_admin/tree_js.jsp">
-										<liferay-util:param name="tabs1" value='<%= privateLayout ? "private-pages" : "public-pages" %>' />
 										<liferay-util:param name="groupId" value="<%= String.valueOf(liveGroupId) %>" />
+										<liferay-util:param name="tabs1" value='<%= privateLayout ? "private-pages" : "public-pages" %>' />
 										<liferay-util:param name="treeId" value="<%= treeId %>" />
 										<liferay-util:param name="defaultStateChecked" value="1" />
 										<liferay-util:param name="selectableTree" value="1" />
