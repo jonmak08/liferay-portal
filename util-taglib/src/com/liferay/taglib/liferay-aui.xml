@@ -793,6 +793,12 @@
 				<outputType>java.lang.Object</outputType>
 			</attribute>
 			<attribute>
+				<name>wrappedField</name>
+				<inputType>boolean</inputType>
+				<outputType>boolean</outputType>
+				<defaultValue>false</defaultValue>
+			</attribute>
+			<attribute>
 				<description>Sets a CSS class for styling the <![CDATA[<code>div</code>]]> that wraps the input component.</description>
 				<name>wrapperCssClass</name>
 				<required>false</required>
