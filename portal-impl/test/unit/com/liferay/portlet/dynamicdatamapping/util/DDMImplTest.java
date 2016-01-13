@@ -46,6 +46,48 @@ public class DDMImplTest extends BaseDDMTestCase {
 	}
 
 	@Test
+	public void testMergeAfterNewFieldIsAddedAndPublishingContentAtBranch()
+		throws Exception {
+
+		Document document = createEmptyDocument();
+
+		DDMStructure ddmStructure = createStructure(
+				"Test Structure", document.asXML());
+
+		Field existingField = createField(
+			ddmStructure.getStructureId(), "Text1807", null);
+
+		Field existingFieldsDisplayField = createFieldsDisplayField(
+			ddmStructure.getStructureId(), "Text1807_INSTANCE_ovho");
+
+		Fields existingFields = createFields(
+				existingField, existingFieldsDisplayField);
+
+		Field newField = createField(
+			ddmStructure.getStructureId(), "Text1853", null);
+
+		Field newFieldsDisplayField = createFieldsDisplayField(
+			ddmStructure.getStructureId(),
+			"Text1807_INSTANCE_ovho,Text1853_INSTANCE_cgac");
+
+		Fields newFields = createFields(newField, newFieldsDisplayField);
+
+		Fields mergedFields = _ddmImpl.mergeFields(newFields, existingFields);
+
+		Field fieldsDisplayField = mergedFields.get(
+			DDMImpl.FIELDS_DISPLAY_NAME);
+
+		Assert.assertNotNull(fieldsDisplayField);
+
+		String fieldsDisplayValue = (String)fieldsDisplayField.getValue();
+		String[] fieldsDisplayValues = StringUtil.split(fieldsDisplayValue);
+
+		testValues(
+			fieldsDisplayValues, "Text1807_INSTANCE_ovho",
+			"Text1853_INSTANCE_cgac");
+	}
+
+	@Test
 	public void testMergeFieldsWhenAddingTranslationAtBranch()
 		throws Exception {
 
@@ -87,7 +129,7 @@ public class DDMImplTest extends BaseDDMTestCase {
 		Fields mergedFields = _ddmImpl.mergeFields(newFields, existingFields);
 
 		Field fieldsDisplayField = mergedFields.get(
-			_ddmImpl.FIELDS_DISPLAY_NAME);
+			DDMImpl.FIELDS_DISPLAY_NAME);
 
 		Assert.assertNotNull(fieldsDisplayField);
 
