@@ -160,7 +160,13 @@ public class I18nServlet extends HttpServlet {
 
 			locale = LanguageUtil.getLocale(i18nLanguageCode);
 
-			i18nLanguageId = LocaleUtil.toLanguageId(locale);
+			if (locale == null) {
+				i18nLanguageId = null;
+				i18nLanguageCode = null;
+			}
+			else {
+				i18nLanguageId = LocaleUtil.toLanguageId(locale);
+			}
 		}
 
 		if (!PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE &&
