@@ -292,7 +292,7 @@ public class PortletURLUtil {
 
 		String ppid = ParamUtil.getString(request, "p_p_id");
 
-		Map<String, String[]> refreshUrlParameters =
+		Map<String, String[]> refreshURLParameters =
 			new HashMap<String, String[]>();
 
 		if (ppid.equals(portletId)) {
@@ -313,12 +313,12 @@ public class PortletURLUtil {
 						continue;
 					}
 
-					refreshUrlParameters.put(name, values);
+					refreshURLParameters.put(name, values);
 				}
 			}
 		}
 
-		return refreshUrlParameters;
+		return refreshURLParameters;
 	}
 
 	protected static boolean isRefreshURLReservedParameter(
