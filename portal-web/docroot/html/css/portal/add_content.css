@@ -158,7 +158,7 @@
 				}
 
 				.radio {
-					margin-left: 25px;
+					padding-left: 25px;
 				}
 
 				&.toggler-header-collapsed .lfr-page-template-description {
@@ -330,9 +330,12 @@
 
 			.toggler-header {
 				&.active {
-					&.lfr-page-template-title label {
+					&.lfr-page-template-title .radio {
 						background-color: #0DB5E7;
-						color: #FFF;
+
+						label {
+							color: #FFF;
+						}
 					}
 				}
 			}
