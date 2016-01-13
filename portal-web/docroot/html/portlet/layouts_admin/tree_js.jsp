@@ -30,11 +30,6 @@ boolean draggableTree = ParamUtil.getBoolean(request, "draggableTree", true);
 boolean expandFirstNode = ParamUtil.getBoolean(request, "expandFirstNode", true);
 boolean saveState = ParamUtil.getBoolean(request, "saveState", true);
 boolean selectableTree = ParamUtil.getBoolean(request, "selectableTree");
-long treeGroupId = ParamUtil.getLong(request, "groupId", 0);
-
-if (treeGroupId > 0) {
-	groupId = treeGroupId;
-}
 
 String modules = "aui-io-request,aui-tree-view,dataschema-xml,datatype-xml,liferay-store";
 
