@@ -90,6 +90,10 @@
 
 	li {
 		line-height: 27px;
+
+		.radio input, .checkbox input {
+			top: 3px;
+		}
 	}
 
 	select:focus {
