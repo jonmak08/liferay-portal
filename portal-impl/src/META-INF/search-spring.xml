@@ -213,6 +213,7 @@
 						</constructor-arg>
 					</bean>
 				</entry>-->
+				<entry key="name" value-ref="com.liferay.portal.search.lucene.LikeKeywordAnalyzer" />
 				<entry key="path" value-ref="com.liferay.portal.search.lucene.LikeKeywordAnalyzer" />
 				<entry key="roleId" value-ref="org.apache.lucene.analysis.KeywordAnalyzer" />
 				<entry key="rootEntryClassPK" value-ref="org.apache.lucene.analysis.KeywordAnalyzer" />
