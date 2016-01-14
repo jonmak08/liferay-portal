@@ -121,10 +121,10 @@
 							</then>
 						</if>
 						<if>
-							<available file="docroot/html/js/aui/${dir.name}/assets/skins/sam" />
+							<available file="${alloy.build.dir}/${dir.name}/assets/skins/sam" />
 							<then>
 								<copy todir="docroot/html/themes/_unstyled/images/aui" preservelastmodified="true">
-									<fileset dir="docroot/html/js/aui/${dir.name}/assets/skins/sam" includes="**/*.png,**/*.jpg,**/*.gif" />
+									<fileset dir="${alloy.build.dir}/${dir.name}/assets/skins/sam" includes="**/*.png,**/*.jpg,**/*.gif" />
 								</copy>
 							</then>
 						</if>
