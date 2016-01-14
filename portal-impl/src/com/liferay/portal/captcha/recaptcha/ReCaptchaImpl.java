@@ -25,6 +25,7 @@ import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PrefsPropsUtil;
 import com.liferay.portal.util.PropsValues;
@@ -75,7 +76,7 @@ public class ReCaptchaImpl extends SimpleCaptchaImpl {
 		String reCaptchaResponse = ParamUtil.getString(
 			request, "recaptcha_response_field");
 
-		while (((reCaptchaChallenge == null) || reCaptchaChallenge.isEmpty()) &&
+		while (Validator.isBlank(reCaptchaChallenge) &&
 			   (request instanceof HttpServletRequestWrapper)) {
 
 			HttpServletRequestWrapper httpServletRequestWrapper =
