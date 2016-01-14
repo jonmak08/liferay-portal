@@ -12,13 +12,15 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.trash.taglib.servlet.taglib;
 
 import com.liferay.taglib.util.IncludeTag;
+import com.liferay.trash.taglib.servlet.ServletContextUtil;
 
 import javax.portlet.PortletURL;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Roberto Diaz
@@ -27,6 +29,13 @@ public class RestoreEntryTag extends IncludeTag {
 
 	public void setOverrideMessage(String overrideMessage) {
 		_overrideMessage = overrideMessage;
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	public void setRenameMessage(String renameMessage) {
@@ -57,11 +66,11 @@ public class RestoreEntryTag extends IncludeTag {
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
 		request.setAttribute(
-			"liferay-ui:restore-entry:overrideMessage", _overrideMessage);
+			"liferay-trash:restore-entry:overrideMessage", _overrideMessage);
 		request.setAttribute(
-			"liferay-ui:restore-entry:renameMessage", _renameMessage);
+			"liferay-trash:restore-entry:renameMessage", _renameMessage);
 		request.setAttribute(
-			"liferay-ui:restore-entry:restoreURL", _restoreURL);
+			"liferay-trash:restore-entry:restoreURL", _restoreURL);
 	}
 
 	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
@@ -69,8 +78,7 @@ public class RestoreEntryTag extends IncludeTag {
 	private static final String _OVERRIDE_MESSAGE =
 		"overwrite-the-existing-entry-with-the-one-from-the-recycle-bin";
 
-	private static final String _PAGE =
-		"/html/taglib/ui/restore_entry/page.jsp";
+	private static final String _PAGE = "/restore_entry/page.jsp";
 
 	private static final String _RENAME_MESSAGE =
 		"keep-both-entries-and-rename-the-entry-from-the-recycle-bin-as";

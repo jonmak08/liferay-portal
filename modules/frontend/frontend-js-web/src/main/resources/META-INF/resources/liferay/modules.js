@@ -594,15 +594,6 @@
 						},
 						path: 'resize_rtl.js'
 					},
-					'liferay-restore-entry': {
-						path: 'restore_entry.js',
-						requires: [
-							'aui-io-plugin-deprecated',
-							'aui-io-request',
-							'aui-modal',
-							'liferay-portlet-base'
-						]
-					},
 					'liferay-search-container': {
 						path: 'search_container.js',
 						requires: [

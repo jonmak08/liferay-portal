@@ -1,4 +1,3 @@
-<%--
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
@@ -12,14 +11,20 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
---%>
 
-<%@ include file="/wiki/init.jsp" %>
+package com.liferay.registry.collections;
 
-<liferay-portlet:actionURL name="/wiki/edit_page_attachment" varImpl="restoreURL" />
+/**
+ * @author Carlos Sierra Andrés
+ */
+public interface ServiceTrackerMapListener<K, TS, R> {
 
-<liferay-trash:restore-entry
-	overrideMessage="overwrite-the-existing-attachment-with-the-removed-one"
-	renameMessage="keep-both-attachments-and-rename-the-removed-attachment-as"
-	restoreURL="<%= restoreURL %>"
-/>
+	public void keyEmitted(
+		ServiceTrackerMap<K, R> serviceTrackerMap, K key, TS service,
+		R content);
+
+	public void keyRemoved(
+		ServiceTrackerMap<K, R> serviceTrackerMap, K key, TS service,
+		R content);
+
+}

@@ -3414,3 +3414,29 @@ To keep the previous behavior in FreeMarker:
 
 The API was forcing developers to have a dependency on a taglib, which didn't
 allow for much flexibility.
+
+---------------------------------------
+
+### Removed the liferay-ui:restore-entry Tag and Replaced with liferay-trash:restore-entry
+- **Date:** 2015-Jan-14
+- **JIRA Ticket:** LPS-61146
+
+#### What changed?
+
+The `liferay-ui:restore-entry` tag has been removed and replaced with the
+`liferay-trash:restore-entry` tag.
+
+#### Who is affected?
+
+Plugins and templates that are using the `liferay-ui:restore-entry` tag need to
+update their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-trash` tag library (if necessary) and update the
+tag namespace from `liferay-ui:restore-entry` to `liferay-trash:restore-entry`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.

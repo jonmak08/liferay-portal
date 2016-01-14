@@ -189,7 +189,6 @@ page import="com.liferay.portlet.portletconfiguration.util.PortletConfigurationU
 page import="com.liferay.portlet.ratings.RatingsType" %><%@
 page import="com.liferay.portlet.sites.util.Sites" %><%@
 page import="com.liferay.portlet.sites.util.SitesUtil" %><%@
-page import="com.liferay.portlet.trash.model.TrashEntry" %><%@
 page import="com.liferay.portlet.trash.util.TrashUtil" %><%@
 page import="com.liferay.portlet.usergroupsadmin.search.UserGroupDisplayTerms" %><%@
 page import="com.liferay.portlet.usersadmin.search.GroupSearch" %><%@
