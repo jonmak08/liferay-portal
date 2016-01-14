@@ -12,8 +12,9 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.asset.taglib.servlet.taglib;
 
+import com.liferay.asset.taglib.servlet.ServletContextUtil;
 import com.liferay.portal.kernel.servlet.taglib.ui.AssetAddonEntry;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
@@ -24,6 +25,7 @@ import com.liferay.taglib.util.IncludeTag;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Julio Camarero
@@ -40,6 +42,13 @@ public class AssetAddonEntrySelectorTag extends IncludeTag {
 
 	public void setId(String id) {
 		_id = id;
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	public void setSelectedAssetAddonEntries(
@@ -81,18 +90,18 @@ public class AssetAddonEntrySelectorTag extends IncludeTag {
 	protected void setAttributes(HttpServletRequest request) {
 		request.setAttribute(WebKeys.ASSET_ADDON_ENTRIES, _assetAddonEntries);
 		request.setAttribute(
-			"liferay-ui:asset-addon-entry-selector:hiddenInput", _hiddenInput);
+			"liferay-asset:asset-addon-entry-selector:hiddenInput",
+			_hiddenInput);
 		request.setAttribute(
-			"liferay-ui:asset-addon-entry-selector:id", getId());
+			"liferay-asset:asset-addon-entry-selector:id", getId());
 		request.setAttribute(
-			"liferay-ui:asset-addon-entry-selector:selectedAssetAddonEntries",
+			"liferay-asset:asset-addon-entry-selector:selectedAssetAddonEntries",
 			_selectedAssetAddonEntries);
 		request.setAttribute(
-			"liferay-ui:asset-addon-entry-selector:title", _title);
+			"liferay-asset:asset-addon-entry-selector:title", _title);
 	}
 
-	private static final String _PAGE =
-		"/html/taglib/ui/asset_addon_entry_selector/page.jsp";
+	private static final String _PAGE = "/asset_addon_entry_selector/page.jsp";
 
 	private List<AssetAddonEntry> _assetAddonEntries;
 	private String _hiddenInput;

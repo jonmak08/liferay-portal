@@ -14,7 +14,7 @@
  */
 --%>
 
-<%@ include file="/html/taglib/ui/asset_addon_entry_selector/init.jsp" %>
+<%@ include file="/asset_addon_entry_selector/init.jsp" %>
 
 <div class="lfr-asset-addon-entry-selector" id="<%= namespace + id %>assetAddonEntrySelector">
 	<aui:input name="<%= hiddenInput %>" type="hidden" value='<%= ListUtil.toString(selectedAssetAddonEntries, "key") %>' />
@@ -25,13 +25,15 @@
 		for (AssetAddonEntry assetAddonEntry : selectedAssetAddonEntries) {
 		%>
 
-			<li class="list-entry" data-key="<%= assetAddonEntry.getKey() %>">
-				<span class="label label-circle label-entry">
+			<li class="list-entry" data-key="<%= assetAddonEntry.getKey() %>" data-label="<%= assetAddonEntry.getLabel(locale) %>">
+				<span class="label label-default">
 					<%= assetAddonEntry.getLabel(locale) %>
 
-					<button class="remove-button" type="button">
-						<i class="icon-remove"></i>
-					</button>
+					<a class="remove-button" href="javascript:;">
+						<svg class="lexicon-icon">
+							<use xlink:href="<%= themeDisplay.getPathThemeImages() %>/lexicon/icons.svg#times" />
+						</svg>
+					</a>
 				</span>
 			</li>
 

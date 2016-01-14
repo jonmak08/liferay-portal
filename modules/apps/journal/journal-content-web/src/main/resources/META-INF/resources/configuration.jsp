@@ -95,7 +95,7 @@ String ddmTemplateKey = journalContentDisplayContext.getDDMTemplateKey();
 
 		<aui:fieldset>
 			<aui:field-wrapper label="user-tools">
-				<liferay-ui:asset-addon-entry-selector
+				<liferay-asset:asset-addon-entry-selector
 					assetAddonEntries="<%= (List<AssetAddonEntry>)(List<?>)journalContentDisplayContext.getEnabledUserToolAssetAddonEntries() %>"
 					hiddenInput="preferences--userToolAssetAddonEntryKeys--"
 					id="userToolsAssetAddonEntriesSelector"
@@ -105,7 +105,7 @@ String ddmTemplateKey = journalContentDisplayContext.getDDMTemplateKey();
 			</aui:field-wrapper>
 
 			<aui:field-wrapper label="content-metadata">
-				<liferay-ui:asset-addon-entry-selector
+				<liferay-asset:asset-addon-entry-selector
 					assetAddonEntries="<%= (List<AssetAddonEntry>)(List<?>)journalContentDisplayContext.getEnabledContentMetadataAssetAddonEntries() %>"
 					hiddenInput="preferences--contentMetadataAssetAddonEntryKeys--"
 					id="contentMetadataAssetAddonEntriesSelector"
