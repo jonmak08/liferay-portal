@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.item.selector.taglib.servlet.taglib;
 
 import com.liferay.taglib.util.IncludeTag;
 
@@ -43,7 +43,7 @@ public class DropHereInfoTag extends IncludeTag {
 	}
 
 	private static final String _PAGE =
-		"/html/taglib/ui/drop_here_info/page.jsp";
+		"/drop_here_info/page.jsp";
 
 	private String _message;
 
