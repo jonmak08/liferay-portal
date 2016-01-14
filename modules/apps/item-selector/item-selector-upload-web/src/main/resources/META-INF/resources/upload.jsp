@@ -35,7 +35,7 @@ ItemSelectorUploadViewDisplayContext itemSelectorUploadViewDisplayContext = (Ite
 		</div>
 	</div>
 
-	<liferay-ui:drop-here-info message="drop-files-here" />
+	<liferay-item-selector:drop-here-info message="drop-files-here" />
 </div>
 
 <aui:script use="liferay-item-selector-repository-entry-browser">
