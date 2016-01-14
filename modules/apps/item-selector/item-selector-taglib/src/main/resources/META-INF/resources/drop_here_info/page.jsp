@@ -17,7 +17,7 @@
 <%@ include file="/drop_here_info/init.jsp" %>
 
 <%
-String message = GetterUtil.getString((String)request.getAttribute("liferay-ui:drop-here-info:message"));
+String message = GetterUtil.getString((String)request.getAttribute("liferay-item-selector:drop-here-info:message"));
 %>
 
 <div class="drop-here-info">
