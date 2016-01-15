@@ -27,11 +27,17 @@ String message = GetterUtil.getString((String)request.getAttribute("liferay-item
 <div class="drop-here-info">
 	<div class="drop-here-indicator">
 		<div class="drop-icons">
-			<span aria-hidden="true" class="glyphicon glyphicon-picture"></span>
+			<svg class="drop-icon lexicon-icon">
+				<use xlink:href="<%= themeDisplay.getPathThemeImages() %>/lexicon/icons.svg#picture" />
+			</svg>
 
-			<span aria-hidden="true" class="glyphicon glyphicon-picture"></span>
+			<svg class="drop-icon lexicon-icon">
+				<use xlink:href="<%= themeDisplay.getPathThemeImages() %>/lexicon/icons.svg#picture" />
+			</svg>
 
-			<span aria-hidden="true" class="glyphicon glyphicon-picture"></span>
+			<svg class="drop-icon lexicon-icon">
+				<use xlink:href="<%= themeDisplay.getPathThemeImages() %>/lexicon/icons.svg#picture" />
+			</svg>
 		</div>
 
 		<div class="drop-text">
