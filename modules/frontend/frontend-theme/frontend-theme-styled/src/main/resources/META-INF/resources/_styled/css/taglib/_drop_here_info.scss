@@ -4,12 +4,12 @@
 
 .drop-here-info {
 	.drop-icons {
-		span:nth-of-type(1), span:nth-of-type(3) {
+		.drop-icon:nth-of-type(1), .drop-icon:nth-of-type(3) {
 			background: #F5F8FA;
 			color: #869CAD;
 		}
 
-		span:nth-of-type(2) {
+		.drop-icon:nth-of-type(2) {
 			background: #65B6F0;
 			color: #FFF;
 		}
