@@ -87,7 +87,6 @@ public class ReCaptchaImpl extends SimpleCaptchaImpl {
 
 			reCaptchaChallenge = ParamUtil.getString(
 				request, "recaptcha_challenge_field");
-
 			reCaptchaResponse = ParamUtil.getString(
 				request, "recaptcha_response_field");
 		}
