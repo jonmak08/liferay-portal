@@ -123,6 +123,8 @@
 	</command>
 
 	<command name="SearchWebContentCategory" priority="5">
+		<property name="custom.properties" value="index.search.leading.wildcard.enabled=true" />
+
 		<var name="categoryName" value="Category Name" />
 		<var name="pageName" value="Web Content Display Page" />
 		<var name="portletName" value="Web Content Display" />
@@ -207,6 +209,8 @@
 	</command>
 
 	<command name="SearchWebContentCategoryQuotes" priority="5">
+		<property name="custom.properties" value="index.search.leading.wildcard.enabled=true" />
+
 		<var name="categoryName" value="Category Name" />
 		<var name="pageName" value="Web Content Display Page" />
 		<var name="portletName" value="Web Content Display" />
@@ -422,6 +426,8 @@
 	</command>
 
 	<command name="SearchWebContentTag" priority="5">
+		<property name="custom.properties" value="index.search.leading.wildcard.enabled=true" />
+
 		<var name="pageName" value="Web Content Display Page" />
 		<var name="portletName" value="Web Content Display" />
 		<var name="tagName" value="tag name" />
@@ -491,6 +497,8 @@
 	</command>
 
 	<command name="SearchWebContentTagQuotes" priority="5">
+		<property name="custom.properties" value="index.search.leading.wildcard.enabled=true" />
+
 		<var name="pageName" value="Web Content Display Page" />
 		<var name="portletName" value="Web Content Display" />
 		<var name="tagName" value="tag name" />

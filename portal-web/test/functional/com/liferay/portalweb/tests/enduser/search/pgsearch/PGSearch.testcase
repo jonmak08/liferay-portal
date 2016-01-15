@@ -145,6 +145,8 @@
 	</command>
 
 	<command name="SearchBlogsEntryCategory" priority="5">
+		<property name="custom.properties" value="index.search.leading.wildcard.enabled=true" />
+
 		<var name="categoryName" value="Category Name" />
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
@@ -225,6 +227,8 @@
 	</command>
 
 	<command name="SearchBlogsEntryCategoryQuotes" priority="5">
+		<property name="custom.properties" value="index.search.leading.wildcard.enabled=true" />
+
 		<var name="categoryName" value="Category Name" />
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
@@ -464,6 +468,8 @@
 	</command>
 
 	<command name="SearchBlogsEntryTag" priority="5">
+		<property name="custom.properties" value="index.search.leading.wildcard.enabled=true" />
+
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
 		<var name="tagName" value="tag name" />
@@ -529,6 +535,8 @@
 	</command>
 
 	<command name="SearchBlogsEntryTagQuotes" priority="5">
+		<property name="custom.properties" value="index.search.leading.wildcard.enabled=true" />
+
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
 		<var name="tagName" value="tag name" />
