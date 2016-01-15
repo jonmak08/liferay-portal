@@ -20,6 +20,10 @@
 String message = GetterUtil.getString((String)request.getAttribute("liferay-item-selector:drop-here-info:message"));
 %>
 
+<liferay-util:html-top>
+	<link href="<%= ServletContextUtil.getContextPath() + "/drop_here_info/css/main.css" %>" rel="stylesheet" type="text/css" />
+</liferay-util:html-top>
+
 <div class="drop-here-info">
 	<div class="drop-here-indicator">
 		<div class="drop-icons">
