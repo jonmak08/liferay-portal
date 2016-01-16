@@ -93,6 +93,8 @@ import com.liferay.portlet.asset.service.AssetTagLocalServiceUtil;
 import com.liferay.portlet.asset.service.AssetTagPropertyLocalServiceUtil;
 import com.liferay.portlet.asset.service.persistence.AssetCategoryUtil;
 import com.liferay.portlet.asset.service.persistence.AssetVocabularyUtil;
+import com.liferay.portlet.documentlibrary.model.DLFileEntry;
+import com.liferay.portlet.documentlibrary.service.DLAppLocalServiceUtil;
 import com.liferay.portlet.expando.model.ExpandoColumn;
 import com.liferay.portlet.messageboards.model.MBDiscussion;
 import com.liferay.portlet.messageboards.model.MBMessage;
@@ -569,6 +571,13 @@ public class PortletExporter {
 							Long.valueOf(classPK));
 
 					StagedModel stagedModel = (StagedModel)persistedModel;
+
+					if (stagedModel instanceof DLFileEntry) {
+						DLFileEntry dlFileEntry = (DLFileEntry)stagedModel;
+
+						stagedModel = DLAppLocalServiceUtil.getFileEntry(
+							dlFileEntry.getFileEntryId());
+					}
 
 					portletDataContext.addReferenceElement(
 						stagedModel,
