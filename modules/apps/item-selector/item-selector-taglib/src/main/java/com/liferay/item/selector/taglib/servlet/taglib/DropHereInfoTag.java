@@ -48,11 +48,11 @@ public class DropHereInfoTag extends IncludeTag {
 
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-item-selector:drop-here-info:message", _message);
+		request.setAttribute(
+			"liferay-item-selector:drop-here-info:message", _message);
 	}
 
-	private static final String _PAGE =
-		"/drop_here_info/page.jsp";
+	private static final String _PAGE = "/drop_here_info/page.jsp";
 
 	private String _message;
 
