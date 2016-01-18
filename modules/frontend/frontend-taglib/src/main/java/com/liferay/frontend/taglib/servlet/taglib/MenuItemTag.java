@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.frontend.taglib.servlet.taglib;
 
 import com.liferay.portal.kernel.servlet.taglib.ui.MenuItem;
 import com.liferay.taglib.util.IncludeTag;
@@ -50,12 +50,12 @@ public class MenuItemTag extends IncludeTag {
 
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:menu_item:menuItem", _menuItem);
+		request.setAttribute("liferay-frontend:menu_item:menuItem", _menuItem);
 	}
 
 	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
 
-	private static final String _PAGE = "/html/taglib/ui/menu_item/page.jsp";
+	private static final String _PAGE = "/menu_item/page.jsp";
 
 	private MenuItem _menuItem;
 
