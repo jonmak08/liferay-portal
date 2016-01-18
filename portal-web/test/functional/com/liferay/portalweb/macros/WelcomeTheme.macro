@@ -19,8 +19,8 @@
 
 		<execute function="Open" locator1="http://www.liferay.com/welcome-start?v1.0" />
 
-		<execute function="AssertTextEquals" locator1="PGWelcome#WELCOME_QUICK_START_GUIDE_HEADER" value1="Quick Start" />
-		<execute function="AssertTextEquals" locator1="PGWelcome#WELCOME_QUICK_START_GUIDE_SUBHEADER" value1="Get up and running quickly with this step-by-step guide for Liferay Portal." />
+		<execute function="AssertElementPresent" locator1="PGWelcome#WELCOME_QUICK_START_GUIDE_HEADING_IMAGE" />
+		<execute function="AssertTextEquals" locator1="PGWelcome#WELCOME_QUICK_START_GUIDE_SUBHEADING" value1="Learn a little more about our platform." />
 
 		<execute function="Open" locator1="http://www.liferay.com/welcome-learn?v1.0" />
 
@@ -39,7 +39,7 @@
 
 		<execute function="Open" locator1="http://www.liferay.com/welcome-evaluate?v1.0" />
 
-		<execute function="AssertTextEquals" locator1="PGWelcome#WELCOME_ENTERPRISE_LEVEL_OPTIONS_HEADER" value1="Services" />
-		<execute function="AssertTextEquals" locator1="PGWelcome#WELCOME_ENTERPRISE_LEVEL_OPTIONS_SUBHEADER" value1="Access our team and network of experts anywhere around the world." />
+		<execute function="AssertTextEquals" locator1="PGWelcome#WELCOME_ENTERPRISE_LEVEL_OPTIONS_HEADER" value1="Global Services" />
+		<execute function="AssertTextEquals" locator1="PGWelcome#WELCOME_ENTERPRISE_LEVEL_OPTIONS_SUBHEADER" value1="Liferay is here to help" />
 	</command>
 </definition>
