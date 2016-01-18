@@ -4735,6 +4735,7 @@
 		</attribute>
 	</tag>
 	<tag>
+		<description>Deprecated as of 7.0.0, replaced by <![CDATA[<code>liferay-site-navigation:directory</code>]]>.</description>
 		<name>sites-directory</name>
 		<tag-class>com.liferay.taglib.ui.SitesDirectoryTag</tag-class>
 		<body-content>JSP</body-content>

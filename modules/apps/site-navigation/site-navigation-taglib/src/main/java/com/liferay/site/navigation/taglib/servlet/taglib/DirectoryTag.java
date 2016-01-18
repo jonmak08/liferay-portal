@@ -12,18 +12,18 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.site.navigation.taglib.servlet.taglib;
 
+import com.liferay.site.navigation.taglib.servlet.ServletContextUtil;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Sergio González
- * @deprecated As of 7.0.0, replaced by {@link
- *             com.liferay.site.navigation.taglib.servlet.taglib.DirectoryTag}
  */
-public class SitesDirectoryTag extends IncludeTag {
+public class DirectoryTag extends IncludeTag {
 
 	public static final String SITES_CHILDREN = "children";
 
@@ -35,6 +35,13 @@ public class SitesDirectoryTag extends IncludeTag {
 
 	public void setDisplayStyle(String displayStyle) {
 		_displayStyle = displayStyle;
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	public void setSites(String sites) {
@@ -55,13 +62,12 @@ public class SitesDirectoryTag extends IncludeTag {
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
 		request.setAttribute(
-			"liferay-ui:sites-directory:displayStyle", _displayStyle);
+			"liferay-site-navigation:directory:displayStyle", _displayStyle);
 		request.setAttribute(
-			"liferay-ui:sites-directory:sites", String.valueOf(_sites));
+			"liferay-site-navigation:directory:sites", String.valueOf(_sites));
 	}
 
-	private static final String _PAGE =
-		"/html/taglib/ui/sites_directory/page.jsp";
+	private static final String _PAGE = "/directory/page.jsp";
 
 	private String _displayStyle = "descriptive";
 	private String _sites = SITES_TOP_LEVEL;

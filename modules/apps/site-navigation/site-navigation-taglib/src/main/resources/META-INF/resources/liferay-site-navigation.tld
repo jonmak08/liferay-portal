@@ -10,6 +10,21 @@
 	<short-name>liferay-site-navigation</short-name>
 	<uri>http://liferay.com/tld/site-navigation</uri>
 	<tag>
+		<name>directory</name>
+		<tag-class>com.liferay.site.navigation.taglib.servlet.taglib.DirectoryTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>displayStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>sites</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
 		<name>navigation</name>
 		<tag-class>com.liferay.site.navigation.taglib.servlet.taglib.NavigationTag</tag-class>
 		<body-content>JSP</body-content>

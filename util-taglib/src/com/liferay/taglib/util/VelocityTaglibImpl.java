@@ -975,6 +975,11 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 		searchTag.runTag();
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             com.liferay.site.navigation.taglib.servlet.taglib.DirectoryTag}
+	 */
+	@Deprecated
 	@Override
 	public void sitesDirectory() throws Exception {
 		SitesDirectoryTag sitesDirectoryTag = new SitesDirectoryTag();
@@ -984,6 +989,11 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 		sitesDirectoryTag.runTag();
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             com.liferay.site.navigation.taglib.servlet.taglib.DirectoryTag}
+	 */
+	@Deprecated
 	@Override
 	public void sitesDirectory(String displayStyle, String sites)
 		throws Exception {

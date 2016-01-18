@@ -16,7 +16,12 @@
 
 <%@ include file="/init.jsp" %>
 
-<liferay-site-navigation:directory
-	displayStyle="<%= sitesDirectoryDisplayContext.getDisplayStyle() %>"
-	sites="<%= sitesDirectoryDisplayContext.getSites() %>"
-/>
+<%@ page import="com.liferay.portal.util.comparator.GroupNameComparator" %><%@
+page import="com.liferay.site.navigation.taglib.servlet.taglib.DirectoryTag" %>
+
+<%
+String displayStyle = (String)request.getAttribute("liferay-site-navigation:directory:displayStyle");
+String sites = (String)request.getAttribute("liferay-site-navigation:directory:sites");
+
+Group group = GroupLocalServiceUtil.getGroup(scopeGroupId);
+%>
