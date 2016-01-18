@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -332,7 +333,9 @@ public class EditRolePermissionsAction extends PortletAction {
 				boolean selected = ArrayUtil.contains(selectedTargets, target);
 
 				String[] groupIds = StringUtil.split(
-					ParamUtil.getString(actionRequest, "groupIds" + target));
+					ParamUtil.getString(
+						actionRequest,
+						"groupIds" + HtmlUtil.escapeAttribute(target)));
 
 				groupIds = ArrayUtil.distinct(groupIds);
 
