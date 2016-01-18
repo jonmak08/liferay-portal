@@ -5,7 +5,7 @@
 		<execute macro="User#logoutPG" />
 	</tear-down>
 
-	<command known-issues="LPS-42868" name="WelcomeThemeView" priority="5">
+	<command name="WelcomeThemeView" priority="5">
 		<property name="theme.plugins.includes" value="welcome-theme" />
 		<property name="web.plugins.includes" value="resources-importer-web" />
 
