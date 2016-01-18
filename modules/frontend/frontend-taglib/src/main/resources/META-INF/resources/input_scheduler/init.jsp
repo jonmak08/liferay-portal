@@ -1,3 +1,4 @@
+<%--
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
@@ -11,22 +12,11 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
+--%>
+<%@ include file="/init.jsp" %>
 
-package com.liferay.taglib.ui;
+<%@ page import="com.liferay.portal.kernel.util.CalendarFactoryUtil" %><%@
+page import="com.liferay.portal.kernel.util.DateUtil" %><%@
+page import="com.liferay.portal.kernel.util.ParamUtil" %>
 
-import com.liferay.taglib.util.IncludeTag;
-
-/**
- * @author Bruno Farache
- */
-public class InputSchedulerTag extends IncludeTag {
-
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
-
-	private static final String _PAGE =
-		"/html/taglib/ui/input_scheduler/page.jsp";
-
-}
+<%@ page import="java.util.Calendar" %>

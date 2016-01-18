@@ -458,6 +458,11 @@
 		</attribute>
 	</tag>
 	<tag>
+		<name>input-scheduler</name>
+		<tag-class>com.liferay.frontend.taglib.servlet.taglib.InputSchedulerTag</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
 		<name>management-bar</name>
 		<tag-class>com.liferay.frontend.taglib.servlet.taglib.ManagementBarTag</tag-class>
 		<body-content>JSP</body-content>

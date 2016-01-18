@@ -3416,3 +3416,30 @@ To keep the previous behavior in FreeMarker:
 
 The API was forcing developers to have a dependency on a taglib, which didn't
 allow for much flexibility.
+
+---------------------------------------
+
+### Removed the liferay-ui:input-scheduler Tag and Replaced with liferay-frontend:input-scheduler
+- **Date:** 2015-Jan-14
+- **JIRA Ticket:** LPS-62101
+
+#### What changed?
+
+The `liferay-ui:input-scheduler` tag has been removed and replaced with the
+`liferay-frontend:input-scheduler` tag.
+
+#### Who is affected?
+
+Plugins and templates that are using the `liferay-ui:input-scheduler` tag need
+to update their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-frontend` tag library (if necessary) and update
+the tag namespace from `liferay-ui:input-scheduler` to
+`liferay-frontend:input-scheduler`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.

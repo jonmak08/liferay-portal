@@ -14,7 +14,7 @@
  */
 --%>
 
-<%@ include file="/html/taglib/init.jsp" %>
+<%@ include file="/input_scheduler/init.jsp" %>
 
 <%
 Calendar cal = CalendarFactoryUtil.getCalendar(timeZone, locale);

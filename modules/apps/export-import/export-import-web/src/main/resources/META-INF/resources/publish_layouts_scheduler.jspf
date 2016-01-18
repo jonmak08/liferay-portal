@@ -26,7 +26,7 @@
 
 				<aui:input label="title" name="description" type="text" />
 
-				<liferay-ui:input-scheduler />
+				<liferay-frontend:input-scheduler />
 			</li>
 		</ul>
 	</li>
