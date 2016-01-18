@@ -6563,6 +6563,13 @@ public class PortalImpl implements Portal {
 			String portletName)
 		throws Exception {
 
+		boolean skipPortletContentRendering = isSkipPortletContentRendering(
+					group, layoutTypePortlet, portletDisplay, portletName);
+
+		if (!skipPortletContentRendering) {
+			return false;
+		}
+
 		long companyId = getCompanyId(httpServletRequest);
 		Portlet portlet = PortletLocalServiceUtil.getPortletById(
 			companyId, portletDisplay.getId());
@@ -6581,11 +6588,7 @@ public class PortalImpl implements Portal {
 			strutsPortlet = true;
 		}
 
-		return (group.isLayoutPrototype() &&
-				layoutTypePortlet.hasPortletId(portletDisplay.getId()) &&
-				!portletName.equals(PortletKeys.NESTED_PORTLETS) &&
-				portletDisplay.isModeView() && !portlet.isSystem() &&
-				!strutsPortlet);
+		return (!portlet.isSystem() && !strutsPortlet);
 	}
 
 	@Override
