@@ -28,6 +28,8 @@ import com.liferay.portal.kernel.lar.BasePortletDataHandler;
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.lar.PortletDataHandlerBoolean;
 import com.liferay.portal.kernel.lar.PortletDataHandlerControl;
+import com.liferay.portal.kernel.lar.StagedModelDataHandler;
+import com.liferay.portal.kernel.lar.StagedModelDataHandlerRegistryUtil;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.portal.kernel.lar.StagedModelType;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
@@ -383,7 +385,17 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 						RestrictionsFactoryUtil.eqProperty(
 							"this.resourcePrimKey",
 							"articleVersion.resourcePrimKey"));
+					
+					Property workflowStatusProperty = PropertyFactoryUtil.forName("status");
+					
+					StagedModelDataHandler<?> stagedModelDataHandler = 
+							StagedModelDataHandlerRegistryUtil.
+							getStagedModelDataHandler(
+									JournalArticle.class.getName());
 
+					articleVersionDynamicQuery.add(workflowStatusProperty.in(
+							stagedModelDataHandler.getExportableStatuses()));					
+					
 					Property versionProperty = PropertyFactoryUtil.forName(
 						"version");
 
