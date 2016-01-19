@@ -386,14 +386,16 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 							"this.resourcePrimKey",
 							"articleVersion.resourcePrimKey"));
 
-					Property workflowStatusProperty = PropertyFactoryUtil.forName("status");
+					Property workflowStatusProperty =
+						PropertyFactoryUtil.forName("status");
 
 					StagedModelDataHandler<?> stagedModelDataHandler =
-							StagedModelDataHandlerRegistryUtil.
-							getStagedModelDataHandler(
-									JournalArticle.class.getName());
+						StagedModelDataHandlerRegistryUtil.
+						getStagedModelDataHandler(
+							JournalArticle.class.getName());
 
-					articleVersionDynamicQuery.add(workflowStatusProperty.in(
+					articleVersionDynamicQuery.add(
+						workflowStatusProperty.in(
 							stagedModelDataHandler.getExportableStatuses()));
 
 					Property versionProperty = PropertyFactoryUtil.forName(
