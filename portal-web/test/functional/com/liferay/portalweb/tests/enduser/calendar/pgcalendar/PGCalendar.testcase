@@ -3550,7 +3550,9 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-55278" name="View24hourTimeFormat" priority="5">
+	<!--Comment out this testcase temporary until it is fixed because LPS-55278 has not been fixed on ee-6.2.x more than 2 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
+
+	<!--<command known-issues="LPS-55278" name="View24hourTimeFormat" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Calendar Page" />
 		</execute>
@@ -3685,7 +3687,7 @@
 			<var name="endDateTime" value="11:00 PM" />
 			<var name="startDateTime" value="09:00 PM" />
 		</execute>
-	</command>
+	</command>-->
 
 	<command name="ViewAvailableCalendars" priority="5">
 		<execute macro="Page#gotoCP">
@@ -3963,7 +3965,9 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-54990" name="ViewCorrectNumberOfWeeksMonthView" priority="3">
+	<!--Comment out this testcase temporary until it is fixed because LPS-54990 has not been fixed more than 3 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
+
+	<!--<command known-issues="LPS-54990" name="ViewCorrectNumberOfWeeksMonthView" priority="3">
 		<description message="This is a use case for LPS-52517." />
 
 		<execute macro="Page#gotoPG">
@@ -3985,7 +3989,7 @@
 		<execute macro="Calendar#viewWeekCountViaMonthView">
 			<var name="weekNumber" value="5" />
 		</execute>
-	</command>
+	</command>-->
 
 	<command name="ViewDefaultDurationsViaScheduler" priority="4">
 		<for list="15,30,60,120" param="minutes">

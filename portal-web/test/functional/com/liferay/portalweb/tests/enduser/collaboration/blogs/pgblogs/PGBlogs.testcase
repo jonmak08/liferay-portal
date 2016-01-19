@@ -910,7 +910,9 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-56805" name="SearchBlogsEntryComment" priority="5">
+	<!--Comment out this testcase temporary until it is fixed because LPS-56085 has not been fixed more than 3 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
+
+	<!--<command known-issues="LPS-56805" name="SearchBlogsEntryComment" priority="5">
 		<var name="entryComment" value="Blogs Entry Comment" />
 		<var name="entryContent" value="Blogs Entry Content" />
 		<var name="entryTitle" value="Blogs Entry Title" />
@@ -939,7 +941,7 @@
 			<var name="entrySearchTerm" value="Comment" />
 			<var name="entryTitle" value="${entryTitle}" />
 		</execute>
-	</command>
+	</command>-->
 
 	<command name="SearchBlogsEntryContent" priority="5">
 		<var name="entryContent" value="Blogs Entry Content" />

@@ -20,7 +20,9 @@
 		<execute macro="PortalSettings#tearDownCP" />
 	</tear-down>
 
-	<command known-issues="LPS-41293" name="AddSiteRegRole" priority="5">
+	<!--Comment out this testcase temporary until it is fixed because LPS-41293 has not been fixed on ee-6.2.x more than 3 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
+
+	<!--<command known-issues="LPS-41293" name="AddSiteRegRole" priority="5">
 		<var name="permissionDefinition1Key" value="CONTROL_PANEL_GENERAL_PERMISSIONS_ADD_SITE" />
 		<var name="permissionDefinition1Value" value="Add Site" />
 		<var name="permissionDefinition2Key" value="CONTROL_PANEL_SITES_SITES_ACCESS_IN_CONTROL_PANEL" />
@@ -92,7 +94,7 @@
 		<execute macro="Page#gotoCP" />
 
 		<execute function="AssertElementNotPresent" locator1="CPSites#ADD" />
-	</command>
+	</command>-->
 
 	<command name="SearchPermissions" priority="5">
 		<var name="childSiteName" value="Child SiteName" />

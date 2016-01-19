@@ -104,7 +104,9 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-55332" name="AddWebContentPortalScopeCurrentPage" priority="5">
+	<!--Comment out this testcase temporary until it is fixed because LPS-55332 has not been fixed more than 3 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
+
+	<!--<command known-issues="LPS-55332" name="AddWebContentPortalScopeCurrentPage" priority="5">
 		<var name="pageName1" value="Web Content Display Page1" />
 		<var name="pageName2" value="Web Content Display Page2" />
 		<var name="pageName3" value="Web Content Display Page3" />
@@ -225,7 +227,7 @@
 		<execute macro="WebContent#tearDownCP">
 			<var name="contentScopeName" value="${pageName1}" />
 		</execute>
-	</command>
+	</command>-->
 
 	<command name="AddWebContentViaAddContentPanel" priority="5">
 		<var name="pageName" value="Web Content Page" />

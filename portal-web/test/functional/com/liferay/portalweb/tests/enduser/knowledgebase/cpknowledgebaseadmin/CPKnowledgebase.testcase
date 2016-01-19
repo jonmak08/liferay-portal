@@ -289,7 +289,9 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-54125" name="AddKBArticleWithInvalidAttachmentSize" priority="5">
+	<!--Comment out this testcase temporary until it is fixed because LPS-54125 has not been fixed more than 3 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
+
+	<!--<command known-issues="LPS-54125" name="AddKBArticleWithInvalidAttachmentSize" priority="5">
 		<property name="custom.properties" value="com.liferay.portal.upload.UploadServletRequestImpl.max.size=1024" />
 
 		<execute macro="Page#gotoContentCP">
@@ -302,7 +304,7 @@
 			<var name="kbArticleInvalidAttachmentSize" value="true" />
 			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 		</execute>
-	</command>
+	</command>-->
 
 	<command name="AddKBArticleWithoutRequiredCategory" priority="5">
 		<execute macro="Page#gotoContentCP">

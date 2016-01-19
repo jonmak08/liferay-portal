@@ -217,7 +217,9 @@
 		</execute>
 	</command>
 
-	<command known-issues="LPS-49957" name="FormTemplate" priority="5">
+	<!--Comment out this testcase temporary until it is fixed because LPS-49957 has not been fixed on ee-6.2.x more than 3 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
+
+	<!--<command known-issues="LPS-49957" name="FormTemplate" priority="5">
 		<var name="ddlDataDefinitionDescription" value="Data Definition Description" />
 		<var name="ddlDataDefinitionName" value="Employee Profile Data Definition" />
 		<var name="ddlFormTemplateName" value="Data Definition Form Template Name" />
@@ -650,5 +652,5 @@
 			<var name="ddlDataDefinitionName" value="Data Definition Clone With Form Template" />
 			<var name="ddlTemplateName" value="Template Rev" />
 		</execute>
-	</command>
+	</command>-->
 </definition>

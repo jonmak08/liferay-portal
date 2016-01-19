@@ -17,7 +17,9 @@
 		</execute>
 	</tear-down>
 
-	<command known-issues="sales-demo" name="IFrameDemo" priority="5">
+	<!--Comment out this testcase is caused by sales demo, please see LRQA-20937 for details.-->
+
+	<!--<command known-issues="sales-demo" name="IFrameDemo" priority="5">
 		<execute macro="Page#addPG">
 			<var name="pageName" value="IFrame Page" />
 			<var name="pageType" value="1 Column" />
@@ -44,7 +46,7 @@
 		<take-screenshot />
 
 		<execute function="SikuliAssertElementPresent" locator1="PGIFrame#SCREENSHOTS_LIFERAY_PRODUCTS_LOGO_PNG" />
-	</command>
+	</command>-->
 
 	<command name="SalesDemo" priority="5">
 		<execute macro="Page#gotoContentCP">
