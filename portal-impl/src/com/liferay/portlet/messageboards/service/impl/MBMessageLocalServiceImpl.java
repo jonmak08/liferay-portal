@@ -1941,7 +1941,7 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		ServletContext servletContext = null;
 
 		try {
-			servletContext = request.getServletContext();
+			servletContext = request.getSession().getServletContext();
 		}
 		catch (Exception e) {
 		}

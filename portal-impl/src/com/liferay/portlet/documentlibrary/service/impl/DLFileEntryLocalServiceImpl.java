@@ -2136,7 +2136,7 @@ public class DLFileEntryLocalServiceImpl
 		ServletContext servletContext = null;
 
 		try {
-			servletContext = request.getServletContext();
+			servletContext = request.getSession().getServletContext();
 		}
 		catch (Exception e) {
 		}
