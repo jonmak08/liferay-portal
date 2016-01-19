@@ -73,12 +73,12 @@ portletURL.setParameter("nodeId", String.valueOf(nodeId));
 	</aui:button-row>
 </aui:form>
 
-<liferay-ui:progress
+<liferay-frontend:progress
 	id="<%= uploadProgressId %>"
 	message="uploading"
 />
 
-<liferay-ui:progress
+<liferay-frontend:progress
 	id="<%= importProgressId %>"
 	message="importing"
 />
