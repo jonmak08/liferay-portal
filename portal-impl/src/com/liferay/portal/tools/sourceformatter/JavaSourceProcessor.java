@@ -371,6 +371,38 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 		}
 	}
 
+	protected void checkDeserializationSecurity(
+		String fileName, String content, boolean isRunOutsidePortalExclusion) {
+
+		for (Pattern vulnerabilityPattern :
+			_javaSerializationVulnerabilityPatterns) {
+
+			Matcher matcher = vulnerabilityPattern.matcher(content);
+
+			if (!matcher.matches()) {
+				continue;
+			}
+
+			StringBundler sb = new StringBundler(5);
+
+			if (isRunOutsidePortalExclusion) {
+				sb.append("Possible Java Serialization Remote Code Execution");
+				sb.append(" vulnerablity using ");
+			}
+			else {
+				sb.append("Use SecureObjectInputStream");
+				sb.append(" instead of ");
+			}
+
+			sb.append(matcher.group(1));
+			sb.append(": ");
+			sb.append(fileName);
+
+			processErrorMessage(fileName, sb.toString());
+		}
+
+	}
+
 	protected String fixIfClause(String ifClause, String line, int delta) {
 		String newLine = line;
 
@@ -481,6 +513,8 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 		_javaTermSortExclusions = getPropertyList("javaterm.sort.excludes");
 		_lineLengthExclusions = getPropertyList("line.length.excludes");
 		_proxyExclusions = getPropertyList("proxy.excludes");
+		_secureDeserializationExclusionFiles = getPropertyList(
+			"secure.deserialization.excluded.files");
 		_secureRandomExclusions = getPropertyList("secure.random.excludes");
 		_staticLogVariableExclusions = getPropertyList("static.log.excludes");
 		_testAnnotationsExclusions = getPropertyList(
@@ -792,6 +826,17 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 				fileName,
 				"Never import javax.servlet.jsp.* from portal-service " +
 					fileName);
+		}
+
+		// LPS-60358
+
+		if (!fileName.contains("/test/") &&
+			!fileName.contains("/testIntegration/") &&
+			!isExcludedFile(
+				_secureDeserializationExclusionFiles, absolutePath)) {
+
+			checkDeserializationSecurity(
+				fileName, content, isRunOutsidePortalExclusion);
 		}
 
 		newContent = fixIncorrectEmptyLineBeforeCloseCurlyBrace(
@@ -1966,12 +2011,19 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 		"\n(.+)\n\n(\t+)}\n");
 	private Pattern _incorrectLineBreakPattern = Pattern.compile(
 		"\t(catch |else |finally |for |if |try |while ).*\\{\n\n\t+\\w");
+	private Pattern[] _javaSerializationVulnerabilityPatterns = new Pattern[]{
+		Pattern.compile(
+			".*(new [a-z\\.\\s]*ObjectInputStream).*",Pattern.DOTALL),
+		Pattern.compile(
+			".*(extends [a-z\\.\\s]*ObjectInputStream).*", Pattern.DOTALL)
+	};
 	private List<String> _javaTermSortExclusions;
 	private List<String> _lineLengthExclusions;
 	private Pattern _logPattern = Pattern.compile(
 		"\n\tprivate static Log _log = LogFactoryUtil.getLog\\(\n*" +
 			"\t*(.+)\\.class\\)");
 	private List<String> _proxyExclusions;
+	private List<String> _secureDeserializationExclusionFiles;
 	private List<String> _secureRandomExclusions;
 	private List<String> _staticLogVariableExclusions;
 	private List<String> _testAnnotationsExclusions;
