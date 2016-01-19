@@ -243,8 +243,7 @@ public class VirtualHostFilter extends BasePortalFilter {
 			}
 			else {
 				processFilter(
-						VirtualHostFilter.class, request, response,
-						filterChain);
+					VirtualHostFilter.class, request, response, filterChain);
 
 				return;
 			}
