@@ -23,6 +23,12 @@
 								'liferay-portlet-base'
 							]
 						},
+						'liferay-progress': {
+							path: 'progress/js/progress.js',
+							requires: [
+								'aui-progressbar'
+							]
+						},
 						'liferay-sidebar-panel': {
 							path: 'sidebar_panel/js/sidebar_panel.js',
 							requires: [

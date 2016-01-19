@@ -572,12 +572,6 @@
 							'liferay-widget-zindex'
 						]
 					},
-					'liferay-progress': {
-						path: 'progress.js',
-						requires: [
-							'aui-progressbar'
-						]
-					},
 					'liferay-ratings': {
 						path: 'ratings.js',
 						requires: [
