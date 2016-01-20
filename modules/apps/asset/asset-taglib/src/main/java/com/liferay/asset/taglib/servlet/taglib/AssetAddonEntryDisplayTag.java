@@ -14,6 +14,7 @@
 
 package com.liferay.asset.taglib.servlet.taglib;
 
+import com.liferay.asset.taglib.servlet.ServletContextUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.servlet.taglib.ui.AssetAddonEntry;
@@ -28,6 +29,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Julio Camarero
@@ -52,6 +54,13 @@ public class AssetAddonEntryDisplayTag extends IncludeTag {
 		List<? extends AssetAddonEntry> assetAddonEntries) {
 
 		_assetAddonEntries = assetAddonEntries;
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	@Override
