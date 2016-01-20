@@ -16,7 +16,7 @@
 
 <%@ include file="/init.jsp" %>
 
-<liferay-ui:error-header />
+<liferay-frontend:error-header />
 
 <liferay-ui:error exception="<%= NoSuchLayoutSetPrototypeException.class %>" message="the-page-template-could-not-be-found" />
 
