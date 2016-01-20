@@ -165,7 +165,7 @@
 </tr>
 <tr>
 	<td>COMMENTS_SUCCESS_MESSAGE</td>
-	<td>//div[@id='_153_discussion-status-messages']</td>
+	<td>//div[contains(@id,'discussion-status-messages')]</td>
 	<td></td>
 </tr>
 <tr>
