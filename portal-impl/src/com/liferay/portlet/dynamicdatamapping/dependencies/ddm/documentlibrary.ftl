@@ -27,11 +27,16 @@
 </#if>
 
 <@aui["field-wrapper"] data=data>
-	<@aui.input helpMessage=escape(fieldStructure.tip) inlineField=true label=escape(label) name="${namespacedFieldName}Title" readonly="readonly" type="text" value=fileEntryTitle>
-		<#if required>
-			<@aui.validator name="required" />
-		</#if>
-	</@aui.input>
+	<@aui.input
+		helpMessage=escape(fieldStructure.tip)
+		inlineField=true
+		label=escape(label)
+		name="${namespacedFieldName}Title"
+		readonly="readonly"
+		required=required
+		type="text"
+		value=fileEntryTitle
+	/>
 
 	<@aui["button-row"]>
 		<@aui.button id=namespacedFieldName value="select" />

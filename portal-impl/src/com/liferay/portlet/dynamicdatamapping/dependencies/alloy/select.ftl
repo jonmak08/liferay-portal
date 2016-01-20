@@ -11,7 +11,7 @@
 </#if>
 
 <@aui["field-wrapper"] data=data>
-	<@aui.select cssClass=cssClass helpMessage=escape(fieldStructure.tip) label=escape(label) multiple=multiple name=namespacedFieldName>
+	<@aui.select cssClass=cssClass helpMessage=escape(fieldStructure.tip) label=escape(label) multiple=multiple name=namespacedFieldName required=required>
 		${fieldStructure.children}
 	</@aui.select>
 </@>
