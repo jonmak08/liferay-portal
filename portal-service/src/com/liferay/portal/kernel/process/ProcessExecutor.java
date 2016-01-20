@@ -15,7 +15,6 @@
 package com.liferay.portal.kernel.process;
 
 import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
-import com.liferay.portal.kernel.io.SecureObjectInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedOutputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
@@ -174,7 +173,7 @@ public class ProcessExecutor {
 		System.setErr(errPrintStream);
 
 		try {
-			ObjectInputStream objectInputStream = new SecureObjectInputStream(
+			ObjectInputStream objectInputStream = new ObjectInputStream(
 				System.in);
 
 			ProcessCallable<?> processCallable =
