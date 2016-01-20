@@ -40,7 +40,7 @@
 		</execute>
 
 		<execute macro="User#addCP">
-			<var name="userEmailAddress" property-value="email.address.5" />
+			<var name="userEmailAddress" property-value="email.address.2" />
 			<var name="userFirstName" value="Test" />
 			<var name="userLastName" value="2" />
 			<var name="userScreenName" value="usersn" />
@@ -51,7 +51,7 @@
 		</execute>
 
 		<execute macro="User#editPasswordCP">
-			<var name="userEmailAddress" property-value="email.address.5" />
+			<var name="userEmailAddress" property-value="email.address.2" />
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
@@ -115,21 +115,21 @@
 		</execute>
 
 		<execute macro="Gmail#login" >
-			<var name="userEmailAddress" property-value="email.address.5" />
-			<var name="userPassword" property-value="email.password.5" />
+			<var name="userEmailAddress" property-value="email.address.2" />
+			<var name="userPassword" property-value="email.password.2" />
 		</execute>
 
 		<execute macro="Gmail#gotoHtmlMode" />
 
 		<execute macro="Gmail#viewMail" >
-			<var name="emailFromUserName" value="Test Test" />
+			<var name="emailFromUserName" value="Joe Bloggs" />
 			<var name="gmailAssetType" value="" />
 			<var name="gmailMessageBody" value="Thread Body" />
 			<var name="gmailMessageTitle" value="Test Test Mentioned You in a Message Boards Message" />
 		</execute>
 
 		<execute macro="Gmail#tearDown">
-			<var name="userEmailAddress" property-value="email.address.5" />
+			<var name="userEmailAddress" property-value="email.address.2" />
 			<var name="userPassword" value="test" />
 		</execute>
 	</command>
@@ -163,21 +163,21 @@
 		</execute>
 
 		<execute macro="Gmail#login" >
-			<var name="userEmailAddress" property-value="email.address.5" />
-			<var name="userPassword" property-value="email.password.5" />
+			<var name="userEmailAddress" property-value="email.address.2" />
+			<var name="userPassword" property-value="email.password.2" />
 		</execute>
 
 		<execute macro="Gmail#gotoHtmlMode" />
 
 		<execute macro="Gmail#viewMail" >
-			<var name="emailFromUserName" value="Test Test" />
+			<var name="emailFromUserName" value="Joe Bloggs" />
 			<var name="gmailAssetType" value="" />
 			<var name="gmailMessageBody" value="Thread Reply Body" />
 			<var name="gmailMessageTitle" value="Test Test Mentioned You in a Message Boards Message" />
 		</execute>
 
 		<execute macro="Gmail#tearDown">
-			<var name="userEmailAddress" property-value="email.address.5" />
+			<var name="userEmailAddress" property-value="email.address.2" />
 			<var name="userPassword" value="test" />
 		</execute>
 	</command>
