@@ -703,7 +703,7 @@
 		<attribute>
 			<description>A session key for the component</description>
 			<name>sessionKey</name>
-			<required>true</required>
+			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<attribute>
