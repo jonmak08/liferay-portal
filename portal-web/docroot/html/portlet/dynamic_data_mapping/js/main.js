@@ -15,7 +15,7 @@ AUI.add(
 		var LOCALIZABLE_FIELD_ATTRS = ['label', 'predefinedValue', 'tip'];
 
 		var MAP_HIDDEN_FIELD_ATTRS = {
-			checkbox: ['readOnly', 'required'],
+			checkbox: ['readOnly'],
 
 			separator: ['readOnly', 'required', 'predefinedValue', 'indexType'],
 
