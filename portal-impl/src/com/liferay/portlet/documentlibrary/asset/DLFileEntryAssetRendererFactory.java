@@ -78,7 +78,7 @@ public class DLFileEntryAssetRendererFactory extends BaseAssetRendererFactory {
 		}
 		else {
 			throw new IllegalArgumentException(
-				"Unknown asset renderer type " + type);
+				"Unknown AssetRenderer type " + type);
 		}
 
 		DLFileEntryAssetRenderer dlFileEntryAssetRenderer =
