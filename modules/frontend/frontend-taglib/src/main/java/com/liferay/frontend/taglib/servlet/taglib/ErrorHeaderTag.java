@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.frontend.taglib.servlet.taglib;
 
 import com.liferay.taglib.util.IncludeTag;
 
@@ -26,6 +26,6 @@ public class ErrorHeaderTag extends IncludeTag {
 		return _PAGE;
 	}
 
-	private static final String _PAGE = "/html/taglib/ui/error_header/page.jsp";
+	private static final String _PAGE = "/error_header/page.jsp";
 
 }

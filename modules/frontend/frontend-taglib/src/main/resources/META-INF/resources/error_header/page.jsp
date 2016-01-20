@@ -14,7 +14,7 @@
  */
 --%>
 
-<%@ include file="/html/taglib/ui/error_header/init.jsp" %>
+<%@ include file="/error_header/init.jsp" %>
 
 <%
 String referer = request.getHeader(HttpHeaders.REFERER);

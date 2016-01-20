@@ -1366,12 +1366,6 @@
 		</attribute>
 	</tag>
 	<tag>
-		<description>Creates a <![CDATA[<code>liferay-ui:header</code>]]> with a back button; it's for displaying above an error message.</description>
-		<name>error-header</name>
-		<tag-class>com.liferay.taglib.ui.ErrorHeaderTag</tag-class>
-		<body-content>JSP</body-content>
-	</tag>
-	<tag>
 		<name>error-marker</name>
 		<tag-class>com.liferay.taglib.ui.ErrorMarkerTag</tag-class>
 		<body-content>JSP</body-content>

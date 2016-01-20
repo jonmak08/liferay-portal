@@ -203,6 +203,12 @@
 		</attribute>
 	</tag>
 	<tag>
+		<description>Creates a <![CDATA[<code>liferay-ui:header</code>]]> with a back button; it's for displaying above an error message.</description>
+		<name>error-header</name>
+		<tag-class>com.liferay.frontend.taglib.servlet.taglib.ErrorHeaderTag</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
 		<description>Creates a lexicon-based card component.</description>
 		<name>horizontal-card</name>
 		<tag-class>com.liferay.frontend.taglib.servlet.taglib.HorizontalCardTag</tag-class>
