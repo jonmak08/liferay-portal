@@ -140,6 +140,9 @@ public class InvokerFilterHelper {
 					}
 				}
 			}
+			else {
+				after = false;
+			}
 		}
 
 		if (index == -1) {
