@@ -12,18 +12,19 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.frontend.taglib.servlet.taglib;
 
+import com.liferay.frontend.taglib.servlet.ServletContextUtil;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
- * @author Brian Wing Shun Chan
- * @author Keith R. Davis
- * @author Iliyan Peychev
+ * @author     Iliyan Peychev
+ * @author     Sergio González
  */
-public class UploadProgressTag extends IncludeTag {
+public class ProgressTag extends IncludeTag {
 
 	public void setHeight(int height) {
 		_height = height;
@@ -37,11 +38,15 @@ public class UploadProgressTag extends IncludeTag {
 		_message = message;
 	}
 
-	/**
-	 * @deprecated As of 7.0.0, with no direct replacement
-	 */
-	@Deprecated
-	public void setRedirect(String redirect) {
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
+	}
+
+	public void setSessionKey(String sessionKey) {
+		_sessionKey = sessionKey;
 	}
 
 	public void setUpdatePeriod(Integer updatePeriod) {
@@ -53,6 +58,7 @@ public class UploadProgressTag extends IncludeTag {
 		_height = 25;
 		_id = null;
 		_message = null;
+		_sessionKey = null;
 		_updatePeriod = 1000;
 	}
 
@@ -63,17 +69,21 @@ public class UploadProgressTag extends IncludeTag {
 
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:progress:id", _id);
-		request.setAttribute("liferay-ui:progress:height", _height);
-		request.setAttribute("liferay-ui:progress:message", _message);
-		request.setAttribute("liferay-ui:progress:updatePeriod", _updatePeriod);
+		request.setAttribute("liferay-frontend:progress:height", _height);
+		request.setAttribute("liferay-frontend:progress:id", _id);
+		request.setAttribute("liferay-frontend:progress:message", _message);
+		request.setAttribute(
+			"liferay-frontend:progress:sessionKey", _sessionKey);
+		request.setAttribute(
+			"liferay-frontend:progress:updatePeriod", _updatePeriod);
 	}
 
-	private static final String _PAGE = "/html/taglib/ui/progress/page.jsp";
+	private static final String _PAGE = "/progress/page.jsp";
 
 	private Integer _height;
 	private String _id;
 	private String _message;
+	private String _sessionKey;
 	private Integer _updatePeriod;
 
 }

@@ -509,7 +509,7 @@ if (portletTitleBasedNavigation) {
 		</aui:button-row>
 	</aui:form>
 
-	<liferay-ui:upload-progress
+	<liferay-frontend:progress
 		id="<%= uploadProgressId %>"
 		message="uploading"
 	/>

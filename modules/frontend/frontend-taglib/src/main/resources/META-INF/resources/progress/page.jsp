@@ -14,13 +14,13 @@
  */
 --%>
 
-<%@ include file="/html/taglib/ui/progress/init.jsp" %>
+<%@ include file="/progress/init.jsp" %>
 
 <%
-Integer height = (Integer)request.getAttribute("liferay-ui:progress:height");
-String id = (String)request.getAttribute("liferay-ui:progress:id");
-String message = (String)request.getAttribute("liferay-ui:progress:message");
-String sessionKey = GetterUtil.getString(request.getAttribute("liferay-ui:progress:sessionKey"), ProgressTracker.PERCENT);
+Integer height = (Integer)request.getAttribute("liferay-frontend:progress:height");
+String id = (String)request.getAttribute("liferay-frontend:progress:id");
+String message = (String)request.getAttribute("liferay-frontend:progress:message");
+String sessionKey = GetterUtil.getString(request.getAttribute("liferay-frontend:progress:sessionKey"), ProgressTracker.PERCENT);
 %>
 
 <div id="<%= id %>Bar"></div>
