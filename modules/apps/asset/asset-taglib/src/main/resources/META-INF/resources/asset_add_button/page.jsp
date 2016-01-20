@@ -14,16 +14,16 @@
  */
 --%>
 
-<%@ include file="/html/taglib/init.jsp" %>
+<%@ include file="/asset_add_button/init.jsp" %>
 
 <%
-boolean addDisplayPageParameter = GetterUtil.getBoolean(request.getAttribute("liferay-ui:asset-add-button:addDisplayPageParameter"));
-long[] allAssetCategoryIds = GetterUtil.getLongValues(request.getAttribute("liferay-ui:asset-add-button:allAssetCategoryIds"), null);
-String[] allAssetTagNames = GetterUtil.getStringValues(request.getAttribute("liferay-ui:asset-add-button:allAssetTagNames"), null);
-long[] classNameIds = GetterUtil.getLongValues(request.getAttribute("liferay-ui:asset-add-button:classNameIds"));
-long[] classTypeIds = GetterUtil.getLongValues(request.getAttribute("liferay-ui:asset-add-button:classTypeIds"));
-long[] groupIds = GetterUtil.getLongValues(request.getAttribute("liferay-ui:asset-add-button:groupIds"));
-String redirect = (String)request.getAttribute("liferay-ui:asset-add-button:redirect");
+boolean addDisplayPageParameter = GetterUtil.getBoolean(request.getAttribute("liferay-asset:asset-add-button:addDisplayPageParameter"));
+long[] allAssetCategoryIds = GetterUtil.getLongValues(request.getAttribute("liferay-asset:asset-add-button:allAssetCategoryIds"), null);
+String[] allAssetTagNames = GetterUtil.getStringValues(request.getAttribute("liferay-asset:asset-add-button:allAssetTagNames"), null);
+long[] classNameIds = GetterUtil.getLongValues(request.getAttribute("liferay-asset:asset-add-button:classNameIds"));
+long[] classTypeIds = GetterUtil.getLongValues(request.getAttribute("liferay-asset:asset-add-button:classTypeIds"));
+long[] groupIds = GetterUtil.getLongValues(request.getAttribute("liferay-asset:asset-add-button:groupIds"));
+String redirect = (String)request.getAttribute("liferay-asset:asset-add-button:redirect");
 
 boolean hasAddPortletURLs = false;
 
@@ -36,7 +36,7 @@ for (long groupId : groupIds) {
 %>
 
 	<c:if test="<%= (addPortletURLs != null) && !addPortletURLs.isEmpty() %>">
-		<aui:nav>
+		<aui:nav cssClass="navbar-nav">
 			<c:choose>
 				<c:when test="<%= addPortletURLs.size() == 1 %>">
 
@@ -104,7 +104,7 @@ for (long groupId : groupIds) {
 <%
 }
 
-request.setAttribute("liferay-ui:asset-add-button:hasAddPortletURLs", hasAddPortletURLs);
+request.setAttribute("liferay-asset:asset-add-button:hasAddPortletURLs", hasAddPortletURLs);
 %>
 
 <%!

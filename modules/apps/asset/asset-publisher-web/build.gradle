@@ -1,5 +1,6 @@
 dependencies {
 	compile group: "rome", name: "rome", version: "1.0"
+	compile project(":apps:asset:asset-taglib")
 	compile project(":apps:dynamic-data-mapping:dynamic-data-mapping-api")
 	compile project(":apps:dynamic-data-mapping:dynamic-data-mapping-taglib")
 	compile project(":apps:export-import:export-import-api")
