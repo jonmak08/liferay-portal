@@ -69,11 +69,13 @@ public class ProgressTag extends IncludeTag {
 
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-frontend:progress:id", _id);
 		request.setAttribute("liferay-frontend:progress:height", _height);
+		request.setAttribute("liferay-frontend:progress:id", _id);
 		request.setAttribute("liferay-frontend:progress:message", _message);
-		request.setAttribute("liferay-frontend:progress:sessionKey", _sessionKey);
-		request.setAttribute("liferay-frontend:progress:updatePeriod", _updatePeriod);
+		request.setAttribute(
+			"liferay-frontend:progress:sessionKey", _sessionKey);
+		request.setAttribute(
+			"liferay-frontend:progress:updatePeriod", _updatePeriod);
 	}
 
 	private static final String _PAGE = "/progress/page.jsp";
