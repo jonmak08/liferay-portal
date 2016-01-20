@@ -1109,18 +1109,6 @@
 		</attribute>
 	</tag>
 	<tag>
-		<description>Creates an image CAPTCHA with a corresponding verification input.</description>
-		<name>captcha</name>
-		<tag-class>com.liferay.taglib.ui.CaptchaTag</tag-class>
-		<body-content>JSP</body-content>
-		<attribute>
-			<description>The source URL for the image CAPTCHA</description>
-			<name>url</name>
-			<required>true</required>
-			<rtexprvalue>true</rtexprvalue>
-		</attribute>
-	</tag>
-	<tag>
 		<name>categorization-filter</name>
 		<tag-class>com.liferay.taglib.ui.CategorizationFilterTag</tag-class>
 		<body-content>JSP</body-content>

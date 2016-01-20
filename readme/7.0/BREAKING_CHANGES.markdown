@@ -3416,3 +3416,29 @@ To keep the previous behavior in FreeMarker:
 
 The API was forcing developers to have a dependency on a taglib, which didn't
 allow for much flexibility.
+
+---------------------------------------
+
+### Removed the liferay-ui:captcha tag and replaced with liferay-frontend:captcha
+- **Date:** 2016-Jan-18
+- **JIRA Ticket:** LPS-62109
+
+#### What changed?
+
+The `liferay-ui:captcha` taglib has been removed and replaced with the
+`liferay-frontend:captcha` tag.
+
+#### Who is affected?
+
+Plugins and templates that are using the `liferay-ui:captcha` tag need to update
+their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-frontend` tag library (if necessary) and update
+the tag namespace from `liferay-ui:captcha` to `liferay-frontend:captcha`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.

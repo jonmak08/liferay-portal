@@ -12,16 +12,25 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.frontend.taglib.servlet.taglib;
 
+import com.liferay.frontend.taglib.servlet.ServletContextUtil;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Brian Wing Shun Chan
  */
 public class CaptchaTag extends IncludeTag {
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
+	}
 
 	public void setUrl(String url) {
 		_url = url;
@@ -39,10 +48,10 @@ public class CaptchaTag extends IncludeTag {
 
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:captcha:url", _url);
+		request.setAttribute("liferay-frontend:captcha:url", _url);
 	}
 
-	private static final String _PAGE = "/html/taglib/ui/captcha/page.jsp";
+	private static final String _PAGE = "/captcha/page.jsp";
 
 	private String _url;
 
