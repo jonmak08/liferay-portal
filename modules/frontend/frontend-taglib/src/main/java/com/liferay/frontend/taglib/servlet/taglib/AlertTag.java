@@ -12,11 +12,11 @@
  * details.
  */
 
-package com.liferay.taglib.aui;
+package com.liferay.frontend.taglib.servlet.taglib;
 
+import com.liferay.frontend.taglib.servlet.taglib.base.BaseAlertTag;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
-import com.liferay.taglib.aui.base.BaseAlertTag;
 
 import javax.servlet.http.HttpServletRequest;
 

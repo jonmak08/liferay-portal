@@ -16,7 +16,7 @@
 @generated
 --%>
 
-<%@ include file="/html/taglib/taglib-init.jsp" %>
+<%@ include file="/init.jsp" %>
 
 <%
 boolean animated = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:alert:animated")), false);
@@ -30,4 +30,4 @@ Map<String, Object> dynamicAttributes = (Map<String, Object>)request.getAttribut
 Map<String, Object> scopedAttributes = (Map<String, Object>)request.getAttribute("aui:alert:scopedAttributes");
 %>
 
-<%@ include file="/html/taglib/aui/alert/init-ext.jspf" %>
+<%@ include file="/alert/init-ext.jspf" %>
