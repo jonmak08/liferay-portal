@@ -111,6 +111,7 @@ import javax.portlet.PortletURL;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import net.htmlparser.jericho.Source;
 import net.htmlparser.jericho.StartTag;
@@ -1941,7 +1942,9 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		ServletContext servletContext = null;
 
 		try {
-			servletContext = request.getSession().getServletContext();
+			HttpSession session = request.getSession();
+
+			servletContext = session.getServletContext();
 		}
 		catch (Exception e) {
 		}

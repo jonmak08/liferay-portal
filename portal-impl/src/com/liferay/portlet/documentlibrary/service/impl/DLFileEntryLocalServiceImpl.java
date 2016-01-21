@@ -136,6 +136,7 @@ import javax.portlet.PortletURL;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * Provides the local service for accessing, adding, checking in/out, deleting,
@@ -2136,7 +2137,9 @@ public class DLFileEntryLocalServiceImpl
 		ServletContext servletContext = null;
 
 		try {
-			servletContext = request.getSession().getServletContext();
+			HttpSession session = request.getSession();
+
+			servletContext = session.getServletContext();
 		}
 		catch (Exception e) {
 		}
