@@ -47,6 +47,7 @@ import com.liferay.portal.kernel.search.SearchException;
 import com.liferay.portal.kernel.search.Sort;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
 import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.DateRange;
 import com.liferay.portal.kernel.util.DigesterUtil;
 import com.liferay.portal.kernel.util.FileUtil;
@@ -2454,6 +2455,19 @@ public class DLFileEntryLocalServiceImpl
 		Map<String, Serializable> workflowContext =
 			new HashMap<String, Serializable>();
 
+		String entryURL = null;
+		String command = serviceContext.getCommand();
+
+		if (command.equals(Constants.ADD_WEBDAV)) {
+			entryURL =
+				serviceContext.getPortalURL() + serviceContext.getCurrentURL();
+		}
+		else {
+			entryURL = getFileEntryURL(
+				dlFileVersion.getFileEntry(), serviceContext);
+		}
+
+		workflowContext.put(WorkflowConstants.CONTEXT_URL, entryURL);
 		workflowContext.put("event", syncEventType);
 
 		WorkflowHandlerRegistryUtil.startWorkflowInstance(
