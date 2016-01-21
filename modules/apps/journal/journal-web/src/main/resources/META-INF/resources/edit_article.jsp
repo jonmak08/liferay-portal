@@ -238,7 +238,7 @@ request.setAttribute("edit_article.jsp-changeStructure", changeStructure);
 		</c:if>
 	</c:if>
 
-	<liferay-ui:form-navigator
+	<liferay-frontend:form-navigator
 		formModelBean="<%= article %>"
 		formName="fm1"
 		id="<%= FormNavigatorConstants.FORM_NAVIGATOR_ID_JOURNAL %>"

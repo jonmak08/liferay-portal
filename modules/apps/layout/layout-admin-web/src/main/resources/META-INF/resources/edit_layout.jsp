@@ -192,7 +192,7 @@ renderResponse.setTitle(selLayout.getName(locale));
 				</c:if>
 			</c:if>
 
-			<liferay-ui:form-navigator
+			<liferay-frontend:form-navigator
 				formModelBean="<%= selLayout %>"
 				id="<%= FormNavigatorConstants.FORM_NAVIGATOR_ID_LAYOUT %>"
 				markupView="lexicon"
