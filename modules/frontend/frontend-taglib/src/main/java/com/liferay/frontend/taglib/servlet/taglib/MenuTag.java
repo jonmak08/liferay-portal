@@ -12,30 +12,39 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.frontend.taglib.servlet.taglib;
 
-import com.liferay.portal.kernel.servlet.taglib.ui.MenuItem;
+import com.liferay.frontend.taglib.servlet.ServletContextUtil;
+import com.liferay.portal.kernel.servlet.taglib.ui.Menu;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
- * @author Iván Zaera
+ * @author Sergio González
  */
-public class MenuItemTag extends IncludeTag {
+public class MenuTag extends IncludeTag {
 
 	@Override
 	public int doStartTag() {
 		return EVAL_BODY_INCLUDE;
 	}
 
-	public void setMenuItem(MenuItem menuItem) {
-		_menuItem = menuItem;
+	public void setMenu(Menu menu) {
+		_menu = menu;
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	@Override
 	protected void cleanUp() {
-		_menuItem = null;
+		_menu = null;
 	}
 
 	@Override
@@ -50,13 +59,13 @@ public class MenuItemTag extends IncludeTag {
 
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:menu_item:menuItem", _menuItem);
+		request.setAttribute("liferay-frontend:menu:menu", _menu);
 	}
 
 	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;
 
-	private static final String _PAGE = "/html/taglib/ui/menu_item/page.jsp";
+	private static final String _PAGE = "/menu/page.jsp";
 
-	private MenuItem _menuItem;
+	private Menu _menu;
 
 }

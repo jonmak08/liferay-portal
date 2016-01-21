@@ -18,7 +18,7 @@
 for (MenuItem menuItem : igViewFileVersionDisplayContext.getMenuItems()) {
 %>
 
-	<liferay-ui:menu-item menuItem="<%= menuItem %>" />
+	<liferay-frontend:menu-item menuItem="<%= menuItem %>" />
 
 <%
 }

@@ -14,6 +14,8 @@
  */
 --%>
 
-<%@ include file="/html/taglib/init.jsp" %>
+<%@ include file="/init.jsp" %>
 
-<%@ page import="com.liferay.portal.kernel.servlet.taglib.ui.Menu" %>
+<%@ page import="com.liferay.portal.kernel.servlet.taglib.ui.DeleteMenuItem" %><%@
+page import="com.liferay.portal.kernel.servlet.taglib.ui.JavaScriptMenuItem" %><%@
+page import="com.liferay.portal.kernel.servlet.taglib.ui.URLMenuItem" %>

@@ -678,6 +678,26 @@
 		</attribute>
 	</tag>
 	<tag>
+		<name>menu</name>
+		<tag-class>com.liferay.frontend.taglib.servlet.taglib.MenuTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>menu</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>menu-item</name>
+		<tag-class>com.liferay.frontend.taglib.servlet.taglib.MenuItemTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>menuItem</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
 		<description>Creates a lexicon-based sidebar panel component.</description>
 		<name>sidebar-panel</name>
 		<tag-class>com.liferay.frontend.taglib.servlet.taglib.SidebarPanelTag</tag-class>

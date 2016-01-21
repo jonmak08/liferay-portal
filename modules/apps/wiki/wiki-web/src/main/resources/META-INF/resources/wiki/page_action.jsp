@@ -31,4 +31,4 @@ else {
 WikiListPagesDisplayContext wikiListPagesDisplayContext = wikiDisplayContextProvider.getWikiListPagesDisplayContext(request, response, wikiPage.getNode());
 %>
 
-<liferay-ui:menu menu="<%= wikiListPagesDisplayContext.getMenu(wikiPage) %>" />
+<liferay-frontend:menu menu="<%= wikiListPagesDisplayContext.getMenu(wikiPage) %>" />

@@ -83,4 +83,4 @@ else {
 DLVisualizationHelper dlVisualizationHelper = new DLVisualizationHelper(dlRequestHelper);
 %>
 
-<liferay-ui:menu menu="<%= dlViewFileVersionDisplayContext.getMenu() %>" />
+<liferay-frontend:menu menu="<%= dlViewFileVersionDisplayContext.getMenu() %>" />

@@ -14,10 +14,10 @@
  */
 --%>
 
-<%@ include file="/html/taglib/ui/menu_item/init.jsp" %>
+<%@ include file="/menu_item/init.jsp" %>
 
 <%
-MenuItem menuItem = (MenuItem)request.getAttribute("liferay-ui:menu_item:menuItem");
+MenuItem menuItem = (MenuItem)request.getAttribute("liferay-frontend:menu_item:menuItem");
 %>
 
 <c:choose>
