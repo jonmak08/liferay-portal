@@ -16,7 +16,7 @@
 
 <%@ include file="/display/init.jsp" %>
 
-<liferay-ui:error-header />
+<liferay-frontend:error-header />
 
 <liferay-ui:error exception="<%= DDMFormRenderingException.class %>" message="unable-to-render-the-selected-form" />
 <liferay-ui:error exception="<%= NoSuchRecordSetException.class %>" message="the-selected-form-no-longer-exists" />

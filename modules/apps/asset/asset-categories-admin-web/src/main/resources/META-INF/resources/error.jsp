@@ -16,7 +16,7 @@
 
 <%@ include file="/init.jsp" %>
 
-<liferay-ui:error-header />
+<liferay-frontend:error-header />
 
 <liferay-ui:error exception="<%= NoSuchCategoryException.class %>" message="the-category-could-not-be-found" />
 <liferay-ui:error exception="<%= NoSuchVocabularyException.class %>" message="the-vocabulary-could-not-be-found" />

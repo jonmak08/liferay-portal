@@ -1,3 +1,4 @@
+<%--
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
@@ -11,21 +12,15 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
+--%>
 
-package com.liferay.taglib.ui;
+<%@ include file="/error_header/init.jsp" %>
 
-import com.liferay.taglib.util.IncludeTag;
+<%
+String referer = request.getHeader(HttpHeaders.REFERER);
+%>
 
-/**
- * @author Roberto Díaz
- */
-public class ErrorHeaderTag extends IncludeTag {
-
-	@Override
-	protected String getPage() {
-		return _PAGE;
-	}
-
-	private static final String _PAGE = "/html/taglib/ui/error_header/page.jsp";
-
-}
+<liferay-ui:header
+	backURL='<%= Validator.isNotNull(referer) ? referer : "javascript:history.go(-1)" %>'
+	title="error"
+/>
