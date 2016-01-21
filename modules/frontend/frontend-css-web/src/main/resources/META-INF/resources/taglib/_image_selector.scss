@@ -7,16 +7,10 @@
 	position: relative;
 	text-align: center;
 
-	&.drop-enabled .drop-here-info {
-		.drop-here-indicator {
-			height: 90px;
-		}
-
-		.drop-text {
-			display: inline-block;
-			margin-left: 20px;
-			margin-top: 0;
-		}
+	&.drop-enabled .drop-here-info .drop-text {
+		display: inline-block;
+		margin-left: 20px;
+		margin-top: 0;
 	}
 
 	.glyphicon-ok {

@@ -442,7 +442,7 @@ if (Validator.isNotNull(keywords)) {
 		</liferay-ui:search-container>
 
 		<c:if test="<%= (draggableFileReturnType != null) && !showSearchInfo %>">
-			<liferay-ui:drop-here-info message="drop-files-here" />
+			<liferay-item-selector:drop-here-info message="drop-files-here" />
 		</c:if>
 	</c:if>
 </div>

@@ -12,11 +12,13 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.item.selector.taglib.servlet.taglib;
 
+import com.liferay.item.selector.taglib.servlet.ServletContextUtil;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Brian Wing Shun Chan
@@ -25,6 +27,13 @@ public class DropHereInfoTag extends IncludeTag {
 
 	public void setMessage(String message) {
 		_message = message;
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	@Override
@@ -39,11 +48,11 @@ public class DropHereInfoTag extends IncludeTag {
 
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:drop-here-info:message", _message);
+		request.setAttribute(
+			"liferay-item-selector:drop-here-info:message", _message);
 	}
 
-	private static final String _PAGE =
-		"/html/taglib/ui/drop_here_info/page.jsp";
+	private static final String _PAGE = "/drop_here_info/page.jsp";
 
 	private String _message;
 

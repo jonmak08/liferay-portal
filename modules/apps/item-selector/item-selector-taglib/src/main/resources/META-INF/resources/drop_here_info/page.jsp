@@ -14,20 +14,30 @@
  */
 --%>
 
-<%@ include file="/html/taglib/ui/drop_here_info/init.jsp" %>
+<%@ include file="/drop_here_info/init.jsp" %>
 
 <%
-String message = GetterUtil.getString((String)request.getAttribute("liferay-ui:drop-here-info:message"));
+String message = GetterUtil.getString((String)request.getAttribute("liferay-item-selector:drop-here-info:message"));
 %>
+
+<liferay-util:html-top>
+	<link href="<%= ServletContextUtil.getContextPath() + "/drop_here_info/css/main.css" %>" rel="stylesheet" type="text/css" />
+</liferay-util:html-top>
 
 <div class="drop-here-info">
 	<div class="drop-here-indicator">
 		<div class="drop-icons">
-			<span aria-hidden="true" class="glyphicon glyphicon-picture"></span>
+			<svg class="drop-icon lexicon-icon">
+				<use xlink:href="<%= themeDisplay.getPathThemeImages() %>/lexicon/icons.svg#picture" />
+			</svg>
 
-			<span aria-hidden="true" class="glyphicon glyphicon-picture"></span>
+			<svg class="drop-icon lexicon-icon">
+				<use xlink:href="<%= themeDisplay.getPathThemeImages() %>/lexicon/icons.svg#picture" />
+			</svg>
 
-			<span aria-hidden="true" class="glyphicon glyphicon-picture"></span>
+			<svg class="drop-icon lexicon-icon">
+				<use xlink:href="<%= themeDisplay.getPathThemeImages() %>/lexicon/icons.svg#picture" />
+			</svg>
 		</div>
 
 		<div class="drop-text">

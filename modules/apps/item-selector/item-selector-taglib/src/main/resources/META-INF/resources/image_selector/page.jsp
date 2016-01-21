@@ -76,7 +76,7 @@ if (fileEntryId != 0) {
 
 	<i class="glyphicon glyphicon-ok"></i>
 
-	<liferay-ui:drop-here-info message="drop-files-here" />
+	<liferay-item-selector:drop-here-info message="drop-files-here" />
 
 	<div class="error-wrapper hide">
 		<aui:alert closeable="<%= true %>" id='<%= randomNamespace + "errorAlert" %>' type="danger">
