@@ -46,8 +46,9 @@ page import="com.liferay.portlet.PortletURLUtil" %><%@
 page import="com.liferay.taglib.aui.AUIUtil" %><%@
 page import="com.liferay.taglib.util.PortalIncludeUtil" %>
 
-<%@ page import="java.io.IOException" %><%@
-page import="java.util.ArrayList" %><%@
+<%@ page import="java.io.IOException" %>
+
+<%@ page import="java.util.ArrayList" %><%@
 page import="java.util.List" %><%@
 page import="java.util.Map" %>
 
