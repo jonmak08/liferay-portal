@@ -712,8 +712,6 @@ public class DLWebDAVStorageImpl extends BaseWebDAVStorageImpl {
 				FileEntry fileEntry = DLAppServiceUtil.getFileEntry(
 					groupId, parentFolderId, title);
 
-				serviceContext.setCommand(Constants.UPDATE_WEBDAV);
-
 				if (!hasLock(fileEntry, webDAVRequest.getLockUuid()) &&
 					(fileEntry.getLock() != null)) {
 
@@ -725,6 +723,8 @@ public class DLWebDAVStorageImpl extends BaseWebDAVStorageImpl {
 				description = fileEntry.getDescription();
 
 				populateServiceContext(serviceContext, fileEntry);
+
+				serviceContext.setCommand(Constants.UPDATE_WEBDAV);
 
 				DLAppServiceUtil.updateFileEntry(
 					fileEntryId, title, contentType, title, description,

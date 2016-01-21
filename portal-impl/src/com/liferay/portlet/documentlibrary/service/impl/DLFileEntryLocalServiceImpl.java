@@ -2471,6 +2471,7 @@ public class DLFileEntryLocalServiceImpl
 		}
 
 		workflowContext.put(WorkflowConstants.CONTEXT_URL, entryURL);
+
 		workflowContext.put("event", syncEventType);
 
 		WorkflowHandlerRegistryUtil.startWorkflowInstance(
