@@ -2119,6 +2119,15 @@ public class DLFileEntryLocalServiceImpl
 			DLFileEntry dlFileEntry, ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
+		if (Validator.equals(
+				serviceContext.getCommand(), Constants.ADD_WEBDAV) ||
+			Validator.equals(
+				serviceContext.getCommand(), Constants.UPDATE_WEBDAV)) {
+
+			return
+				serviceContext.getPortalURL() + serviceContext.getCurrentURL();
+		}
+
 		HttpServletRequest request = serviceContext.getRequest();
 
 		ServletContext servletContext = null;
@@ -2455,23 +2464,9 @@ public class DLFileEntryLocalServiceImpl
 		Map<String, Serializable> workflowContext =
 			new HashMap<String, Serializable>();
 
-		String entryURL = null;
-
-		if (Validator.equals(
-				serviceContext.getCommand(), Constants.ADD_WEBDAV) ||
-			Validator.equals(
-				serviceContext.getCommand(), Constants.UPDATE_WEBDAV)) {
-
-			entryURL =
-				serviceContext.getPortalURL() + serviceContext.getCurrentURL();
-		}
-		else {
-			entryURL = getFileEntryURL(
-				dlFileVersion.getFileEntry(), serviceContext);
-		}
-
-		workflowContext.put(WorkflowConstants.CONTEXT_URL, entryURL);
-
+		workflowContext.put(
+			WorkflowConstants.CONTEXT_URL,
+			getFileEntryURL(dlFileVersion.getFileEntry(), serviceContext));
 		workflowContext.put("event", syncEventType);
 
 		WorkflowHandlerRegistryUtil.startWorkflowInstance(
