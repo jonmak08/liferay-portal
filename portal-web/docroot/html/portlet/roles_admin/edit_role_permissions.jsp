@@ -103,7 +103,7 @@ portletURL.setParameter("roleId", String.valueOf(role.getRoleId()));
 
 <aui:script>
 	function <portlet:namespace />removeGroup(pos, target) {
-		escapedtarget = target.replace(/\./g, '&#x2e;');
+		var escapedtarget = target.replace(/\./g, '&#x2e;');
 
 		var selectedGroupIds = document.<portlet:namespace />fm['<portlet:namespace />groupIds' + escapedtarget].value.split(",");
 		var selectedGroupNames = document.<portlet:namespace />fm['<portlet:namespace />groupNames' + escapedtarget].value.split("@@");
