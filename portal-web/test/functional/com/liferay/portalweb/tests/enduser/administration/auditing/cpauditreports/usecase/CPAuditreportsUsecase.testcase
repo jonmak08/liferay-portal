@@ -32,7 +32,9 @@
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Audit Reports" />
 		</execute>
+		<!--Comment out this testcase temporary until it is fixed because LPS-44455 has not been fixed more than 3 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
 
+		<!--
 		<execute macro="Audit#searchCP">
 			<var name="searchTerm" value="10201" />
 			<var name="userId" value="10201" />
@@ -195,5 +197,7 @@
 
 		<execute function="AssertTextEquals" locator1="xpath=(//tr[contains(.,'${resourceAction5}') and contains(.,'${resourceName2}')]/td[4])[2]" value1="${resourceName2}" />
 		<execute function="AssertTextEquals" locator1="xpath=(//tr[contains(.,'${resourceAction5}') and contains(.,'${resourceName2}')]/td[5])[2]" value1="${resourceAction5}" />
+		-->
+
 	</command>
 </definition>
