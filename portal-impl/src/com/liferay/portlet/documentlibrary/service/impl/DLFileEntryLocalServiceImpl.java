@@ -2458,7 +2458,8 @@ public class DLFileEntryLocalServiceImpl
 		String entryURL = null;
 		String command = serviceContext.getCommand();
 
-		if (command.equals(Constants.ADD_WEBDAV)) {
+		if (command.equals(Constants.ADD_WEBDAV) ||
+			command.equals(Constants.UPDATE_WEBDAV)) {
 			entryURL =
 				serviceContext.getPortalURL() + serviceContext.getCurrentURL();
 		}
