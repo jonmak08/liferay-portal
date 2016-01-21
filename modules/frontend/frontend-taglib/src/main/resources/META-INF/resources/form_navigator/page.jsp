@@ -14,7 +14,7 @@
  */
 --%>
 
-<%@ include file="/html/taglib/ui/form_navigator/init.jsp" %>
+<%@ include file="/form_navigator/init.jsp" %>
 
 <div class="taglib-form-navigator" id="<portlet:namespace />tabsBoundingBox">
 	<aui:input name="modifiedSections" type="hidden" />
@@ -22,7 +22,7 @@
 	<c:choose>
 		<c:when test='<%= displayStyle.equals("panel") %>'>
 			<liferay-ui:panel-container accordion="<%= true %>" extended="<%= true %>" id="tabs" persistState="<%= true %>">
-				<%@ include file="/html/taglib/ui/form_navigator/sections.jspf" %>
+				<%@ include file="/form_navigator/sections.jspf" %>
 			</liferay-ui:panel-container>
 
 			<aui:button-row>
@@ -63,7 +63,7 @@
 					%>
 
 					<div class="<%= contentCssClass %>">
-						<%@ include file="/html/taglib/ui/form_navigator/sections.jspf" %>
+						<%@ include file="/form_navigator/sections.jspf" %>
 					</div>
 				</liferay-util:buffer>
 
