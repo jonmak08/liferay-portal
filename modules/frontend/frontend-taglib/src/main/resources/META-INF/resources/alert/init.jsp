@@ -19,15 +19,15 @@
 <%@ include file="/init.jsp" %>
 
 <%
-boolean animated = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:alert:animated")), false);
-boolean closeable = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:alert:closeable")), true);
-java.lang.String cssClass = GetterUtil.getString((java.lang.String)request.getAttribute("aui:alert:cssClass"));
-boolean destroyOnHide = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:alert:destroyOnHide")), false);
-java.lang.Number duration = GetterUtil.getNumber(String.valueOf(request.getAttribute("aui:alert:duration")), 0.15);
-java.lang.String id = GetterUtil.getString((java.lang.String)request.getAttribute("aui:alert:id"));
-java.lang.String type = GetterUtil.getString((java.lang.String)request.getAttribute("aui:alert:type"), "info");
-Map<String, Object> dynamicAttributes = (Map<String, Object>)request.getAttribute("aui:alert:dynamicAttributes");
-Map<String, Object> scopedAttributes = (Map<String, Object>)request.getAttribute("aui:alert:scopedAttributes");
+boolean animated = GetterUtil.getBoolean(String.valueOf(request.getAttribute("frontend:alert:animated")), false);
+boolean closeable = GetterUtil.getBoolean(String.valueOf(request.getAttribute("frontend:alert:closeable")), true);
+java.lang.String cssClass = GetterUtil.getString((java.lang.String)request.getAttribute("frontend:alert:cssClass"));
+boolean destroyOnHide = GetterUtil.getBoolean(String.valueOf(request.getAttribute("frontend:alert:destroyOnHide")), false);
+java.lang.Number duration = GetterUtil.getNumber(String.valueOf(request.getAttribute("frontend:alert:duration")), 0.15);
+java.lang.String id = GetterUtil.getString((java.lang.String)request.getAttribute("frontend:alert:id"));
+java.lang.String type = GetterUtil.getString((java.lang.String)request.getAttribute("frontend:alert:type"), "info");
+Map<String, Object> dynamicAttributes = (Map<String, Object>)request.getAttribute("frontend:alert:dynamicAttributes");
+Map<String, Object> scopedAttributes = (Map<String, Object>)request.getAttribute("frontend:alert:scopedAttributes");
 %>
 
 <%@ include file="/alert/init-ext.jspf" %>

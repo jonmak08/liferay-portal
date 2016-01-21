@@ -137,7 +137,7 @@ public abstract class BaseAlertTag extends com.liferay.taglib.util.IncludeTag {
 		setNamespacedAttribute(request, "type", _type);
 	}
 
-	protected static final String _ATTRIBUTE_NAMESPACE = "aui:alert:";
+	protected static final String _ATTRIBUTE_NAMESPACE = "frontend:alert:";
 
 	private static final String _END_PAGE =
 		"/alert/end.jsp";
