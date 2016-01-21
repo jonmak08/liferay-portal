@@ -14,11 +14,13 @@
 
 package com.liferay.frontend.taglib.servlet.taglib;
 
+import com.liferay.frontend.taglib.servlet.ServletContextUtil;
 import com.liferay.frontend.taglib.servlet.taglib.base.BaseAlertTag;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Eduardo Lundgren
@@ -27,6 +29,13 @@ import javax.servlet.http.HttpServletRequest;
  * @author Julio Camarero
  */
 public class AlertTag extends BaseAlertTag {
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
+	}
 
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
