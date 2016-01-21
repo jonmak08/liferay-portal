@@ -375,7 +375,7 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 		String fileName, String content, boolean isRunOutsidePortalExclusion) {
 
 		for (Pattern vulnerabilityPattern :
-			_javaSerializationVulnerabilityPatterns) {
+				_javaSerializationVulnerabilityPatterns) {
 
 			Matcher matcher = vulnerabilityPattern.matcher(content);
 
@@ -386,12 +386,11 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 			StringBundler sb = new StringBundler(5);
 
 			if (isRunOutsidePortalExclusion) {
-				sb.append("Possible Java Serialization Remote Code Execution");
-				sb.append(" vulnerablity using ");
+				sb.append("Possible Java Serialization Remote Code Execution ");
+				sb.append("vulnerablity using ");
 			}
 			else {
-				sb.append("Use ProtectedObjectInputStream");
-				sb.append(" instead of ");
+				sb.append("Use ProtectedObjectInputStream instead of ");
 			}
 
 			sb.append(matcher.group(1));
@@ -2011,9 +2010,9 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 		"\n(.+)\n\n(\t+)}\n");
 	private Pattern _incorrectLineBreakPattern = Pattern.compile(
 		"\t(catch |else |finally |for |if |try |while ).*\\{\n\n\t+\\w");
-	private Pattern[] _javaSerializationVulnerabilityPatterns = new Pattern[]{
+	private Pattern[] _javaSerializationVulnerabilityPatterns = new Pattern[] {
 		Pattern.compile(
-			".*(new [a-z\\.\\s]*ObjectInputStream).*",Pattern.DOTALL),
+			".*(new [a-z\\.\\s]*ObjectInputStream).*", Pattern.DOTALL),
 		Pattern.compile(
 			".*(extends [a-z\\.\\s]*ObjectInputStream).*", Pattern.DOTALL)
 	};
