@@ -64,7 +64,7 @@ public class ProtectedObjectInputStream extends ObjectInputStream {
 				ProtectedObjectInputStream.class.getName() +
 					".restricted.class.names"));
 
-		_restrictedClassNames = new HashSet<>(
+		_restrictedClassNames = new HashSet<String>(
 			Arrays.asList(restrictedClassNames));
 	}
 
