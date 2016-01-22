@@ -39,6 +39,10 @@ List rightList = (List)request.getAttribute("liferay-frontend:input-move-boxes:r
 Map<String, Object> data = new HashMap<String, Object>();
 %>
 
+<liferay-util:html-top>
+	<link href="<%= ServletContextUtil.getContextPath() + "/input_move_boxes/css/main.css" %>" rel="stylesheet" type="text/css" />
+</liferay-util:html-top>
+
 <div class="taglib-move-boxes <%= cssClass %> <%= leftReorder ? "left-reorder" : StringPool.BLANK %> <%= rightReorder ? "right-reorder" : StringPool.BLANK %>" id="<%= randomNamespace + "input-move-boxes" %>">
 	<aui:row cssClass="selector-container">
 		<aui:col cssClass="left-selector-column" width="<%= 30 %>">
