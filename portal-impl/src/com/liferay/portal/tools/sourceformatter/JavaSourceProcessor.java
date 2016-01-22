@@ -831,11 +831,11 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 
 		if (!fileName.contains("/test/") &&
 			!fileName.contains("/testIntegration/") &&
-			!isExcludedFile(
-				_secureDeserializationExclusionFiles, absolutePath)) {
+			!isExcluded(
+				_secureDeserializationExclusionFiles, fileName)) {
 
 			checkDeserializationSecurity(
-				fileName, content, isRunOutsidePortalExclusion);
+				fileName, content, isRunsOutsidePortal(absolutePath));
 		}
 
 		newContent = fixIncorrectEmptyLineBeforeCloseCurlyBrace(
