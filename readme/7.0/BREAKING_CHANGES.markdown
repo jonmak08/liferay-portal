@@ -3475,3 +3475,29 @@ else.
 
 This change was necessary to solve the current split package problems and
 prevent future ones.
+
+---------------------------------------
+
+### Removed the liferay-ui:toggle-area Tag and Replaced with liferay-frontend:toggle-area
+- **Date:** 2016-Jan-22
+- **JIRA Ticket:** LPS-62455
+
+#### What changed?
+
+The `liferay-ui:toggle-area` tag has been removed and replaced with the
+`liferay-frontend:toggle-area` tag.
+
+#### Who is affected?
+
+Plugins and templates that are using the `liferay-ui:toggle-area` tag need to update
+their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-frontend` tag library (if necessary) and update
+the tag namespace from `liferay-ui:toggle-area` to `liferay-frontend:toggle-area`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.
