@@ -33,7 +33,7 @@ String articleId = doc.get("articleId");
 List hitLayoutIds = JournalContentSearchLocalServiceUtil.getLayoutIds(layout.getGroupId(), layout.isPrivateLayout(), articleId);
 %>
 
-<%= content %><br />
+<%= HtmlUtil.escape(content) %><br />
 
 <c:choose>
 	<c:when test="<%= !hitLayoutIds.isEmpty() %>">

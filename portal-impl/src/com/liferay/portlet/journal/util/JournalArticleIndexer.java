@@ -750,7 +750,7 @@ public class JournalArticleIndexer extends BaseIndexer {
 					article, null, Constants.VIEW,
 					LocaleUtil.toLanguageId(snippetLocale), 1, null, null);
 
-			content = HtmlUtil.escape(articleDisplay.getDescription());
+			content = articleDisplay.getDescription();
 			content = HtmlUtil.replaceNewLine(content);
 
 			if (Validator.isNull(content)) {

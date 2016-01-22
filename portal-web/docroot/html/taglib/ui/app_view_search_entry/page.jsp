@@ -132,7 +132,7 @@ List<String> versions = (List<String>)request.getAttribute("liferay-ui:app-view-
 						</span>
 
 						<span class="body">
-							<%= StringUtil.highlight((Validator.isNotNull(summary.getContent())) ? summary.getContent() : fileEntry.getTitle(), queryTerms) %>
+							<%= StringUtil.highlight((Validator.isNotNull(summary.getContent())) ? HtmlUtil.escape(summary.getContent()) : fileEntry.getTitle(), queryTerms) %>
 						</span>
 				</aui:a>
 			</div>
