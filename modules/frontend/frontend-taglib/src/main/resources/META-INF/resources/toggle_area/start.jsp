@@ -14,7 +14,7 @@
  */
 --%>
 
-<%@ include file="/html/taglib/ui/toggle_area/init.jsp" %>
+<%@ include file="/toggle_area/init.jsp" %>
 
 <div style="float: <%= align %>">
 	<liferay-ui:toggle
