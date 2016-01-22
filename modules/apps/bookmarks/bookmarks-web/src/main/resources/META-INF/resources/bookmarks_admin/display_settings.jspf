@@ -68,7 +68,7 @@
 					rightList = ListUtil.sort(rightList, new KeyValuePairComparator(false, true));
 					%>
 
-					<liferay-ui:input-move-boxes
+					<liferay-frontend:input-move-boxes
 						leftBoxName="currentFolderColumns"
 						leftList="<%= leftList %>"
 						leftReorder="true"
@@ -119,7 +119,7 @@
 					rightList = ListUtil.sort(rightList, new KeyValuePairComparator(false, true));
 					%>
 
-					<liferay-ui:input-move-boxes
+					<liferay-frontend:input-move-boxes
 						leftBoxName="currentEntryColumns"
 						leftList="<%= leftList %>"
 						leftReorder="true"

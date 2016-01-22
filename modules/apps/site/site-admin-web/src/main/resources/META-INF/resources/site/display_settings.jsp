@@ -148,7 +148,7 @@ if (publicLayoutSet.isLayoutSetPrototypeLinkEnabled() || privateLayoutSet.isLayo
 		rightList = ListUtil.sort(rightList, new KeyValuePairComparator(false, true));
 		%>
 
-		<liferay-ui:input-move-boxes
+		<liferay-frontend:input-move-boxes
 			leftBoxName="currentLanguageIds"
 			leftList="<%= leftList %>"
 			leftReorder="true"

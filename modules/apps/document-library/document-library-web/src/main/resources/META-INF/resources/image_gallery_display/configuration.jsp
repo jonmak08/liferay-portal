@@ -44,7 +44,7 @@ DLPortletInstanceSettingsHelper dlPortletInstanceSettingsHelper = new DLPortletI
 				<aui:input label="show-search" name="preferences--showFoldersSearch--" type="checkbox" value="<%= dlPortletInstanceSettings.isShowFoldersSearch() %>" />
 
 				<aui:field-wrapper label="show-media-type">
-					<liferay-ui:input-move-boxes
+					<liferay-frontend:input-move-boxes
 						leftBoxName="currentMimeTypes"
 						leftList="<%= dlPortletInstanceSettingsHelper.getCurrentMimeTypes() %>"
 						leftReorder="true"

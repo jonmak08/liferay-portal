@@ -54,7 +54,7 @@ for (AssetRendererFactory<?> assetRendererFactory : assetEntriesSearchFacet.getA
 
 <aui:input name='<%= assetEntriesSearchFacet.getClassName() + "assetTypes" %>' type="hidden" />
 
-<liferay-ui:input-move-boxes
+<liferay-frontend:input-move-boxes
 	leftBoxName="currentAssetTypes"
 	leftList="<%= currentAssetTypes %>"
 	leftTitle="current"
