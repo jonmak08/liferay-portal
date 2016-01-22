@@ -14,17 +14,34 @@
 
 package com.liferay.portlet.messageboards.service;
 
+import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
+import com.liferay.portal.kernel.util.ObjectValuePair;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.UnicodeProperties;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.model.Group;
+import com.liferay.portal.model.User;
+import com.liferay.portal.portletfilerepository.PortletFileRepositoryUtil;
 import com.liferay.portal.service.GroupLocalServiceUtil;
+import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
 import com.liferay.portal.test.MainServletExecutionTestListener;
 import com.liferay.portal.util.GroupTestUtil;
+import com.liferay.portal.util.RandomTestUtil;
+import com.liferay.portal.util.ServiceContextTestUtil;
+import com.liferay.portal.util.TestPropsValues;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
+import com.liferay.portlet.documentlibrary.model.DLFileEntry;
+import com.liferay.portlet.messageboards.model.MBCategoryConstants;
 import com.liferay.portlet.messageboards.model.MBMessage;
+import com.liferay.portlet.messageboards.model.MBMessageConstants;
 import com.liferay.portlet.messageboards.util.MBTestUtil;
 
+import java.io.InputStream;
+
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.After;
@@ -35,6 +52,7 @@ import org.junit.runner.RunWith;
 
 /**
  * @author Jonathan McCann
+ * @author Sergio Gonz�lez
  */
 @ExecutionTestListeners(listeners = {MainServletExecutionTestListener.class})
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
@@ -48,6 +66,90 @@ public class MBMessageLocalServiceTest {
 	@After
 	public void tearDown() throws Exception {
 		GroupLocalServiceUtil.deleteGroup(_group);
+	}
+
+	@Test
+	public void testDeleteAttachmentsWhenUpdatingMessageAndTrashDisabled()
+		throws Exception {
+
+		disableTrashForGroup(_group);
+
+		User user = TestPropsValues.getUser();
+
+		ServiceContext serviceContext =
+			ServiceContextTestUtil.getServiceContext(_group.getGroupId());
+
+		List<ObjectValuePair<String, InputStream>> objectValuePairs =
+			MBTestUtil.getInputStreamOVPs(
+				"attachment.txt", getClass(), StringPool.BLANK);
+
+		MBMessage message = MBMessageLocalServiceUtil.addMessage(
+			user.getUserId(), user.getFullName(), _group.getGroupId(),
+			MBCategoryConstants.DEFAULT_PARENT_CATEGORY_ID,
+			RandomTestUtil.randomString(), RandomTestUtil.randomString(),
+			MBMessageConstants.DEFAULT_FORMAT, objectValuePairs, false, 0,
+			false, serviceContext);
+
+		List<ObjectValuePair<String, InputStream>> emptyObjectValuePairs =
+			Collections.emptyList();
+		List<String> emptyExistingFiles = Collections.emptyList();
+
+		MBMessageLocalServiceUtil.updateMessage(
+			user.getUserId(), message.getMessageId(),
+			RandomTestUtil.randomString(), RandomTestUtil.randomString(),
+			emptyObjectValuePairs, emptyExistingFiles, 0, false,
+			serviceContext);
+
+		Assert.assertEquals(
+			0,
+			PortletFileRepositoryUtil.getPortletFileEntriesCount(
+				message.getGroupId(), message.getAttachmentsFolderId()));
+
+		MBTestUtil.addMessage(_group.getGroupId());
+	}
+
+	@Test
+	public void testDeleteAttachmentsWhenUpdatingMessageAndTrashEnabled()
+		throws Exception {
+
+		User user = TestPropsValues.getUser();
+
+		ServiceContext serviceContext =
+			ServiceContextTestUtil.getServiceContext(_group.getGroupId());
+
+		List<ObjectValuePair<String, InputStream>> objectValuePairs =
+			MBTestUtil.getInputStreamOVPs(
+				"attachment.txt", getClass(), StringPool.BLANK);
+
+		MBMessage message = MBMessageLocalServiceUtil.addMessage(
+			user.getUserId(), user.getFullName(), _group.getGroupId(),
+			MBCategoryConstants.DEFAULT_PARENT_CATEGORY_ID,
+			RandomTestUtil.randomString(), RandomTestUtil.randomString(),
+			MBMessageConstants.DEFAULT_FORMAT, objectValuePairs, false, 0,
+			false, serviceContext);
+
+		List<ObjectValuePair<String, InputStream>> emptyObjectValuePairs =
+			Collections.emptyList();
+		List<String> emptyExistingFiles = Collections.emptyList();
+
+		MBMessageLocalServiceUtil.updateMessage(
+			user.getUserId(), message.getMessageId(),
+			RandomTestUtil.randomString(), RandomTestUtil.randomString(),
+			emptyObjectValuePairs, emptyExistingFiles, 0, false,
+			serviceContext);
+
+		List<FileEntry> fileEntries =
+			PortletFileRepositoryUtil.getPortletFileEntries(
+				message.getGroupId(), message.getAttachmentsFolderId());
+
+		Assert.assertEquals(1, fileEntries.size());
+
+		FileEntry fileEntry = fileEntries.get(0);
+
+		DLFileEntry dlFileEntry = ((DLFileEntry)fileEntry.getModel());
+
+		Assert.assertEquals(
+			WorkflowConstants.STATUS_IN_TRASH, dlFileEntry.getStatus());
 	}
 
 	@Test
@@ -68,6 +170,17 @@ public class MBMessageLocalServiceTest {
 
 		Assert.assertEquals(1, messages.size());
 		Assert.assertEquals(message, messages.get(0));
+	}
+
+	protected Group disableTrashForGroup(Group group) throws Exception {
+		UnicodeProperties typeSettingsProperties =
+			group.getParentLiveGroupTypeSettingsProperties();
+
+		typeSettingsProperties.setProperty("trashEnabled", StringPool.FALSE);
+
+		group.setTypeSettingsProperties(typeSettingsProperties);
+
+		return GroupLocalServiceUtil.updateGroup(group);
 	}
 
 	private Group _group;
