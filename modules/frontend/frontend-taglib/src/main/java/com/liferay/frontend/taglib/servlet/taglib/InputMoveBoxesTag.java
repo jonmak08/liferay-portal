@@ -14,12 +14,14 @@
 
 package com.liferay.frontend.taglib.servlet.taglib;
 
+import com.liferay.frontend.taglib.servlet.ServletContextUtil;
 import com.liferay.portal.kernel.util.KeyValuePair;
 import com.liferay.taglib.util.IncludeTag;
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Brian Wing Shun Chan
@@ -48,6 +50,13 @@ public class InputMoveBoxesTag extends IncludeTag {
 
 	public void setLeftTitle(String leftTitle) {
 		_leftTitle = leftTitle;
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	public void setRightBoxName(String rightBoxName) {
