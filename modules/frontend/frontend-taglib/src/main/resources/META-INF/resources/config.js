@@ -23,6 +23,31 @@
 								'liferay-portlet-base'
 							]
 						},
+						'liferay-input-move-boxes': {
+							path: 'input_move_boxes/js/input_move_boxes.js',
+							plugins: {
+								'liferay-input-move-boxes-touch': {
+									condition: {
+										name: 'liferay-input-move-boxes-touch',
+										trigger: 'liferay-input-move-boxes',
+										ua: 'touchMobile'
+									}
+								}
+							},
+							requires: [
+								'aui-base',
+								'aui-toolbar'
+							]
+						},
+						'liferay-input-move-boxes-touch': {
+							path: 'input_move_boxes/js/input_move_boxes_touch.js',
+							requires: [
+								'aui-base',
+								'aui-template-deprecated',
+								'liferay-input-move-boxes',
+								'sortable'
+							]
+						},
 						'liferay-sidebar-panel': {
 							path: 'sidebar_panel/js/sidebar_panel.js',
 							requires: [
