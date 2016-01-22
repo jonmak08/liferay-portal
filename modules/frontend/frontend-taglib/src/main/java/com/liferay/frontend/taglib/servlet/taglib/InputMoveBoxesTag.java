@@ -101,10 +101,12 @@ public class InputMoveBoxesTag extends IncludeTag {
 
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-frontend:input-move-boxes:cssClass", _cssClass);
+		request.setAttribute(
+			"liferay-frontend:input-move-boxes:cssClass", _cssClass);
 		request.setAttribute(
 			"liferay-frontend:input-move-boxes:leftBoxName", _leftBoxName);
-		request.setAttribute("liferay-frontend:input-move-boxes:leftList", _leftList);
+		request.setAttribute(
+			"liferay-frontend:input-move-boxes:leftList", _leftList);
 		request.setAttribute(
 			"liferay-frontend:input-move-boxes:leftOnChange", _leftOnChange);
 		request.setAttribute(
@@ -123,8 +125,7 @@ public class InputMoveBoxesTag extends IncludeTag {
 			"liferay-frontend:input-move-boxes:rightTitle", _rightTitle);
 	}
 
-	private static final String _PAGE =
-		"/input_move_boxes/page.jsp";
+	private static final String _PAGE = "/input_move_boxes/page.jsp";
 
 	private String _cssClass;
 	private String _leftBoxName;
