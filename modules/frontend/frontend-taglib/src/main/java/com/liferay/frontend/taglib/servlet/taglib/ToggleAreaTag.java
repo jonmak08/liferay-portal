@@ -12,8 +12,9 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.frontend.taglib.servlet.taglib;
 
+import com.liferay.frontend.taglib.servlet.ServletContextUtil;
 import com.liferay.portal.kernel.util.ServerDetector;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.taglib.FileAvailabilityUtil;
@@ -22,6 +23,7 @@ import com.liferay.taglib.util.IncludeTag;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Raymond Augé
@@ -67,20 +69,20 @@ public class ToggleAreaTag extends IncludeTag {
 			HttpServletRequest request =
 				(HttpServletRequest)pageContext.getRequest();
 
-			request.setAttribute("liferay-ui:toggle-area:id", _id);
+			request.setAttribute("liferay-frontend:toggle-area:id", _id);
 			request.setAttribute(
-				"liferay-ui:toggle-area:showImage", _showImage);
+				"liferay-frontend:toggle-area:showImage", _showImage);
 			request.setAttribute(
-				"liferay-ui:toggle-area:hideImage", _hideImage);
+				"liferay-frontend:toggle-area:hideImage", _hideImage);
 			request.setAttribute(
-				"liferay-ui:toggle-area:showMessage", _showMessage);
+				"liferay-frontend:toggle-area:showMessage", _showMessage);
 			request.setAttribute(
-				"liferay-ui:toggle-area:hideMessage", _hideMessage);
+				"liferay-frontend:toggle-area:hideMessage", _hideMessage);
 			request.setAttribute(
-				"liferay-ui:toggle-area:defaultShowContent",
+				"liferay-frontend:toggle-area:defaultShowContent",
 				String.valueOf(_defaultShowContent));
-			request.setAttribute("liferay-ui:toggle-area:stateVar", _stateVar);
-			request.setAttribute("liferay-ui:toggle-area:align", _align);
+			request.setAttribute("liferay-frontend:toggle-area:stateVar", _stateVar);
+			request.setAttribute("liferay-frontend:toggle-area:align", _align);
 
 			include(getStartPage(), true);
 
@@ -115,6 +117,13 @@ public class ToggleAreaTag extends IncludeTag {
 		_id = id;
 	}
 
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
+	}
+	
 	public void setShowImage(String showImage) {
 		_showImage = showImage;
 	}
@@ -152,10 +161,10 @@ public class ToggleAreaTag extends IncludeTag {
 	}
 
 	private static final String _END_PAGE =
-		"/html/taglib/ui/toggle_area/end.jsp";
+		"/toggle_area/end.jsp";
 
 	private static final String _START_PAGE =
-		"/html/taglib/ui/toggle_area/start.jsp";
+		"/toggle_area/start.jsp";
 
 	private String _align = "left";
 	private boolean _defaultShowContent = true;
