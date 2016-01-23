@@ -14,30 +14,34 @@
  */
 --%>
 
-<%@ include file="/html/taglib/init.jsp" %>
+<%@ include file="/init.jsp" %>
 
 <%
-String randomNamespace = PortalUtil.generateRandomKey(request, "taglib_ui_input_move_boxes_page") + StringPool.UNDERLINE;
+String randomNamespace = PortalUtil.generateRandomKey(request, "taglib_frontend_input_move_boxes_page") + StringPool.UNDERLINE;
 
-String cssClass = GetterUtil.getString((String)request.getAttribute("liferay-ui:input-move-boxes:cssClass"));
+String cssClass = GetterUtil.getString((String)request.getAttribute("liferay-frontend:input-move-boxes:cssClass"));
 
-String leftTitle = LanguageUtil.get(request, (String)request.getAttribute("liferay-ui:input-move-boxes:leftTitle"));
-String rightTitle = LanguageUtil.get(request, (String)request.getAttribute("liferay-ui:input-move-boxes:rightTitle"));
+String leftTitle = LanguageUtil.get(request, (String)request.getAttribute("liferay-frontend:input-move-boxes:leftTitle"));
+String rightTitle = LanguageUtil.get(request, (String)request.getAttribute("liferay-frontend:input-move-boxes:rightTitle"));
 
-String leftBoxName = (String)request.getAttribute("liferay-ui:input-move-boxes:leftBoxName");
-String rightBoxName = (String)request.getAttribute("liferay-ui:input-move-boxes:rightBoxName");
+String leftBoxName = (String)request.getAttribute("liferay-frontend:input-move-boxes:leftBoxName");
+String rightBoxName = (String)request.getAttribute("liferay-frontend:input-move-boxes:rightBoxName");
 
-String leftOnChange = (String)request.getAttribute("liferay-ui:input-move-boxes:leftOnChange");
-String rightOnChange = (String)request.getAttribute("liferay-ui:input-move-boxes:rightOnChange");
+String leftOnChange = (String)request.getAttribute("liferay-frontend:input-move-boxes:leftOnChange");
+String rightOnChange = (String)request.getAttribute("liferay-frontend:input-move-boxes:rightOnChange");
 
-boolean leftReorder = GetterUtil.getBoolean((String)request.getAttribute("liferay-ui:input-move-boxes:leftReorder"));
-boolean rightReorder = GetterUtil.getBoolean((String)request.getAttribute("liferay-ui:input-move-boxes:rightReorder"));
+boolean leftReorder = GetterUtil.getBoolean((String)request.getAttribute("liferay-frontend:input-move-boxes:leftReorder"));
+boolean rightReorder = GetterUtil.getBoolean((String)request.getAttribute("liferay-frontend:input-move-boxes:rightReorder"));
 
-List leftList = (List)request.getAttribute("liferay-ui:input-move-boxes:leftList");
-List rightList = (List)request.getAttribute("liferay-ui:input-move-boxes:rightList");
+List leftList = (List)request.getAttribute("liferay-frontend:input-move-boxes:leftList");
+List rightList = (List)request.getAttribute("liferay-frontend:input-move-boxes:rightList");
 
 Map<String, Object> data = new HashMap<String, Object>();
 %>
+
+<liferay-util:html-top>
+	<link href="<%= ServletContextUtil.getContextPath() + "/input_move_boxes/css/main.css" %>" rel="stylesheet" type="text/css" />
+</liferay-util:html-top>
 
 <div class="taglib-move-boxes <%= cssClass %> <%= leftReorder ? "left-reorder" : StringPool.BLANK %> <%= rightReorder ? "right-reorder" : StringPool.BLANK %>" id="<%= randomNamespace + "input-move-boxes" %>">
 	<aui:row cssClass="selector-container">

@@ -108,7 +108,7 @@ if (!roles.isEmpty()) {
 								<aui:input name="preferences--selectedScopeGroupIds--" type="hidden" />
 
 								<div id="<portlet:namespace />scopeGroupIdsBoxes">
-									<liferay-ui:input-move-boxes
+									<liferay-frontend:input-move-boxes
 										leftBoxName="currentScopeGroupIds"
 										leftList="<%= leftList %>"
 										leftReorder="true"
@@ -149,7 +149,7 @@ if (!roles.isEmpty()) {
 								<aui:input name="preferences--selectedScopeOrganizationIds--" type="hidden" />
 
 								<div id="<portlet:namespace />scopeOrganizationIdsBoxes">
-									<liferay-ui:input-move-boxes
+									<liferay-frontend:input-move-boxes
 										leftBoxName="currentScopeOrganizationIds"
 										leftList="<%= leftList %>"
 										leftReorder="true"
@@ -190,7 +190,7 @@ if (!roles.isEmpty()) {
 								<aui:input name="preferences--selectedScopeUserGroupIds--" type="hidden" />
 
 								<div id="<portlet:namespace />scopeUserGroupIdsBoxes">
-									<liferay-ui:input-move-boxes
+									<liferay-frontend:input-move-boxes
 										leftBoxName="currentScopeUserGroupIds"
 										leftList="<%= leftList %>"
 										leftReorder="true"
@@ -231,7 +231,7 @@ if (!roles.isEmpty()) {
 								<aui:input name="preferences--selectedScopeRoleIds--" type="hidden" />
 
 								<div id="<portlet:namespace />scopeRoleIdsBoxes">
-									<liferay-ui:input-move-boxes
+									<liferay-frontend:input-move-boxes
 										leftBoxName="currentScopeRoleIds"
 										leftList="<%= leftList %>"
 										leftReorder="true"

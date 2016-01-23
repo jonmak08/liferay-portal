@@ -45,7 +45,7 @@
 	rightList = ListUtil.sort(rightList, new KeyValuePairComparator(false, true));
 	%>
 
-	<liferay-ui:input-move-boxes
+	<liferay-frontend:input-move-boxes
 		leftBoxName="current_actions"
 		leftList="<%= leftList %>"
 		leftReorder="true"

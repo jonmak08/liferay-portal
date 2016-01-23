@@ -67,7 +67,7 @@ DLPortletInstanceSettingsHelper dlPortletInstanceSettingsHelper = new DLPortletI
 					</aui:select>
 
 					<aui:field-wrapper label="display-style-views">
-						<liferay-ui:input-move-boxes
+						<liferay-frontend:input-move-boxes
 							leftBoxName="currentDisplayViews"
 							leftList="<%= dlPortletInstanceSettingsHelper.getCurrentDisplayViews() %>"
 							leftReorder="true"
@@ -98,7 +98,7 @@ DLPortletInstanceSettingsHelper dlPortletInstanceSettingsHelper = new DLPortletI
 				<liferay-ui:panel collapsible="<%= true %>" extended="<%= true %>" id="documentLibraryEntriesListingPanel" persistState="<%= true %>" title="entries-listing-for-list-display-style">
 					<aui:fieldset>
 						<aui:field-wrapper label="show-columns">
-							<liferay-ui:input-move-boxes
+							<liferay-frontend:input-move-boxes
 								leftBoxName="currentEntryColumns"
 								leftList="<%= dlPortletInstanceSettingsHelper.getCurrentEntryColumns() %>"
 								leftReorder="true"

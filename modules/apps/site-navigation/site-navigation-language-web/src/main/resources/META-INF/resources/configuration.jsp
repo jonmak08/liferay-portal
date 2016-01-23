@@ -41,7 +41,7 @@
 		<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="languages">
 			<aui:input name="preferences--languageIds--" type="hidden" />
 
-			<liferay-ui:input-move-boxes
+			<liferay-frontend:input-move-boxes
 				leftBoxName="currentLanguageIds"
 				leftList="<%= siteNavigationLanguageDisplayContext.getCurrentLanguageIdKVPs() %>"
 				leftReorder="true"

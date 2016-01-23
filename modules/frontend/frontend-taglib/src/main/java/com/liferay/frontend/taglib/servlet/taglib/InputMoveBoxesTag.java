@@ -12,14 +12,16 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.frontend.taglib.servlet.taglib;
 
+import com.liferay.frontend.taglib.servlet.ServletContextUtil;
 import com.liferay.portal.kernel.util.KeyValuePair;
 import com.liferay.taglib.util.IncludeTag;
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Brian Wing Shun Chan
@@ -48,6 +50,13 @@ public class InputMoveBoxesTag extends IncludeTag {
 
 	public void setLeftTitle(String leftTitle) {
 		_leftTitle = leftTitle;
+	}
+
+	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
 	}
 
 	public void setRightBoxName(String rightBoxName) {
@@ -92,30 +101,31 @@ public class InputMoveBoxesTag extends IncludeTag {
 
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
-		request.setAttribute("liferay-ui:input-move-boxes:cssClass", _cssClass);
 		request.setAttribute(
-			"liferay-ui:input-move-boxes:leftBoxName", _leftBoxName);
-		request.setAttribute("liferay-ui:input-move-boxes:leftList", _leftList);
+			"liferay-frontend:input-move-boxes:cssClass", _cssClass);
 		request.setAttribute(
-			"liferay-ui:input-move-boxes:leftOnChange", _leftOnChange);
+			"liferay-frontend:input-move-boxes:leftBoxName", _leftBoxName);
 		request.setAttribute(
-			"liferay-ui:input-move-boxes:leftReorder", _leftReorder);
+			"liferay-frontend:input-move-boxes:leftList", _leftList);
 		request.setAttribute(
-			"liferay-ui:input-move-boxes:leftTitle", _leftTitle);
+			"liferay-frontend:input-move-boxes:leftOnChange", _leftOnChange);
 		request.setAttribute(
-			"liferay-ui:input-move-boxes:rightBoxName", _rightBoxName);
+			"liferay-frontend:input-move-boxes:leftReorder", _leftReorder);
 		request.setAttribute(
-			"liferay-ui:input-move-boxes:rightList", _rightList);
+			"liferay-frontend:input-move-boxes:leftTitle", _leftTitle);
 		request.setAttribute(
-			"liferay-ui:input-move-boxes:rightOnChange", _rightOnChange);
+			"liferay-frontend:input-move-boxes:rightBoxName", _rightBoxName);
 		request.setAttribute(
-			"liferay-ui:input-move-boxes:rightReorder", _rightReorder);
+			"liferay-frontend:input-move-boxes:rightList", _rightList);
 		request.setAttribute(
-			"liferay-ui:input-move-boxes:rightTitle", _rightTitle);
+			"liferay-frontend:input-move-boxes:rightOnChange", _rightOnChange);
+		request.setAttribute(
+			"liferay-frontend:input-move-boxes:rightReorder", _rightReorder);
+		request.setAttribute(
+			"liferay-frontend:input-move-boxes:rightTitle", _rightTitle);
 	}
 
-	private static final String _PAGE =
-		"/html/taglib/ui/input_move_boxes/page.jsp";
+	private static final String _PAGE = "/input_move_boxes/page.jsp";
 
 	private String _cssClass;
 	private String _leftBoxName;

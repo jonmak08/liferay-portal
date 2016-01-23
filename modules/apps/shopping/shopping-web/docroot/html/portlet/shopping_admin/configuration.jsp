@@ -82,7 +82,7 @@ shoppingGroupServiceOverriddenConfiguration = ConfigurationFactoryUtil.getConfig
 					}
 					%>
 
-					<liferay-ui:input-move-boxes
+					<liferay-frontend:input-move-boxes
 						leftBoxName="current_cc_types"
 						leftList="<%= leftList %>"
 						leftReorder="true"

@@ -97,7 +97,7 @@ String selectStyle = (String)request.getAttribute("configuration.jsp-selectStyle
 					%>
 
 					<div class="<%= assetPublisherDisplayContext.isAnyAssetType() ? "hide" : "" %>" id="<portlet:namespace />classNamesBoxes">
-						<liferay-ui:input-move-boxes
+						<liferay-frontend:input-move-boxes
 							leftBoxName="currentClassNameIds"
 							leftList="<%= typesLeftList %>"
 							leftReorder="true"
@@ -217,7 +217,7 @@ String selectStyle = (String)request.getAttribute("configuration.jsp-selectStyle
 							</c:if>
 
 							<div class="<%= assetSelectedClassTypeIds.length > 1 ? StringPool.BLANK : "hide" %>" id="<portlet:namespace /><%= className %>Boxes">
-								<liferay-ui:input-move-boxes
+								<liferay-frontend:input-move-boxes
 									leftBoxName='<%= className + "currentClassTypeIds" %>'
 									leftList="<%= subtypesLeftList %>"
 									leftReorder="true"
