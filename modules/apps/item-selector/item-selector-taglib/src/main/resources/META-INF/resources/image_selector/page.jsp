@@ -79,13 +79,13 @@ if (fileEntryId != 0) {
 	<liferay-ui:drop-here-info message="drop-files-here" />
 
 	<div class="error-wrapper hide">
-		<aui:alert closeable="<%= true %>" id='<%= randomNamespace + "errorAlert" %>' type="danger">
+		<liferay-frontend:alert closeable="<%= true %>" id='<%= randomNamespace + "errorAlert" %>' type="danger">
 			<span class="error-message"></span>
 
 			<c:if test="<%= Validator.isNotNull(itemSelectorEventName) && Validator.isNotNull(itemSelectorURL) %>">
 				<%= selectFileLink %>
 			</c:if>
-		</aui:alert>
+		</liferay-frontend:alert>
 	</div>
 
 	<div class="progress-wrapper">

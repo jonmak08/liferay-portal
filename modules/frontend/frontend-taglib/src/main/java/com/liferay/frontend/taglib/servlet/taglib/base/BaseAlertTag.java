@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.taglib.aui.base;
+package com.liferay.frontend.taglib.servlet.taglib.base;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
@@ -137,13 +137,13 @@ public abstract class BaseAlertTag extends com.liferay.taglib.util.IncludeTag {
 		setNamespacedAttribute(request, "type", _type);
 	}
 
-	protected static final String _ATTRIBUTE_NAMESPACE = "aui:alert:";
+	protected static final String _ATTRIBUTE_NAMESPACE = "frontend:alert:";
 
 	private static final String _END_PAGE =
-		"/html/taglib/aui/alert/end.jsp";
+		"/alert/end.jsp";
 
 	private static final String _START_PAGE =
-		"/html/taglib/aui/alert/start.jsp";
+		"/alert/start.jsp";
 
 	private boolean _animated = false;
 	private boolean _closeable = true;

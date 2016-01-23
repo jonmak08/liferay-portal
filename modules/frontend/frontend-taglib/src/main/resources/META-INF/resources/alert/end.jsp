@@ -14,7 +14,7 @@
  */
 --%>
 
-<%@ include file="/html/taglib/aui/alert/init.jsp" %>
+<%@ include file="/alert/init.jsp" %>
 
 </div>
 
