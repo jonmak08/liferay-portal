@@ -79,6 +79,8 @@ public interface Trash {
 	public List<TrashEntry> getEntries(Hits hits)
 		throws PortalException, SystemException;
 
+	public Group disableTrash(Group group);
+
 	public OrderByComparator getEntryOrderByComparator(
 		String orderByCol, String orderByType);
 

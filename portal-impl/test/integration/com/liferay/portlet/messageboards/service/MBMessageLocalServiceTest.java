@@ -18,7 +18,6 @@ import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.util.ObjectValuePair;
 import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.User;
@@ -38,6 +37,7 @@ import com.liferay.portlet.messageboards.model.MBCategoryConstants;
 import com.liferay.portlet.messageboards.model.MBMessage;
 import com.liferay.portlet.messageboards.model.MBMessageConstants;
 import com.liferay.portlet.messageboards.util.MBTestUtil;
+import com.liferay.portlet.trash.util.TrashUtil;
 
 import java.io.InputStream;
 
@@ -72,7 +72,7 @@ public class MBMessageLocalServiceTest {
 	public void testDeleteAttachmentsWhenUpdatingMessageAndTrashDisabled()
 		throws Exception {
 
-		disableTrashForGroup(_group);
+		TrashUtil.disableTrash(_group);
 
 		User user = TestPropsValues.getUser();
 
@@ -170,17 +170,6 @@ public class MBMessageLocalServiceTest {
 
 		Assert.assertEquals(1, messages.size());
 		Assert.assertEquals(message, messages.get(0));
-	}
-
-	protected Group disableTrashForGroup(Group group) throws Exception {
-		UnicodeProperties typeSettingsProperties =
-			group.getParentLiveGroupTypeSettingsProperties();
-
-		typeSettingsProperties.setProperty("trashEnabled", StringPool.FALSE);
-
-		group.setTypeSettingsProperties(typeSettingsProperties);
-
-		return GroupLocalServiceUtil.updateGroup(group);
 	}
 
 	private Group _group;
