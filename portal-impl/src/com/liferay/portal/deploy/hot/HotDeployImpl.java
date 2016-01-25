@@ -256,7 +256,9 @@ public class HotDeployImpl implements HotDeploy {
 
 					doFireDeployEvent(dependentEvent);
 
-					dependentEvent.flushInits();
+					if (!_dependentHotDeployEvents.contains(dependentEvent)) {
+						dependentEvent.flushInits();
+					}
 				}
 			}
 			finally {
