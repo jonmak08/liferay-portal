@@ -173,7 +173,7 @@ public class TrashImpl implements Trash {
 		}
 	}
 
-	public Group disableTrash(Group group) {
+	public Group disableTrash(Group group) throws SystemException {
 		UnicodeProperties typeSettingsProperties =
 			group.getParentLiveGroupTypeSettingsProperties();
 

@@ -97,7 +97,7 @@ public class TrashUtil {
 			companyId, repositoryId, date, attachmentFileNames);
 	}
 
-	public static Group disableTrash(Group group) {
+	public static Group disableTrash(Group group) throws SystemException {
 		return getTrash().disableTrash(group);
 	}
 
