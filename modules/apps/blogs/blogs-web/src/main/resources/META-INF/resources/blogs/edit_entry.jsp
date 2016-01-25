@@ -254,7 +254,7 @@ renderResponse.setTitle((entry != null) ? entry.getTitle() : LanguageUtil.get(re
 					</aui:field-wrapper>
 				</c:if>
 
-				<liferay-ui:custom-attributes-available className="<%= BlogsEntry.class.getName() %>">
+				<liferay-frontend:custom-attributes-available className="<%= BlogsEntry.class.getName() %>">
 					<div class="custom-attributes-wrapper">
 						<h3><liferay-ui:message key="custom-fields" /></h3>
 
@@ -265,7 +265,7 @@ renderResponse.setTitle((entry != null) ? entry.getTitle() : LanguageUtil.get(re
 							label="<%= true %>"
 						/>
 					</div>
-				</liferay-ui:custom-attributes-available>
+				</liferay-frontend:custom-attributes-available>
 
 				<div class="related-assets-wrapper">
 					<h3><liferay-ui:message key="related-assets" /></h3>

@@ -64,14 +64,14 @@ renderResponse.setTitle((userGroup == null) ? LanguageUtil.get(request, "new-use
 
 			<aui:input disabled="<%= !hasUserGroupUpdatePermission %>" name="description" />
 
-			<liferay-ui:custom-attributes-available className="<%= UserGroup.class.getName() %>">
+			<liferay-frontend:custom-attributes-available className="<%= UserGroup.class.getName() %>">
 				<liferay-ui:custom-attribute-list
 					className="<%= UserGroup.class.getName() %>"
 					classPK="<%= userGroupId %>"
 					editable="<%= true %>"
 					label="<%= true %>"
 				/>
-			</liferay-ui:custom-attributes-available>
+			</liferay-frontend:custom-attributes-available>
 		</aui:fieldset>
 
 		<%
