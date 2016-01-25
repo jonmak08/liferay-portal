@@ -15,6 +15,7 @@
 package com.liferay.portal.upgrade.v6_0_12;
 
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
+import com.liferay.portal.kernel.io.ProtectedObjectInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
@@ -120,7 +121,7 @@ public class UpgradeScheduler extends UpgradeProcess {
 				}
 
 				ObjectInputStream objectInputStream =
-					new ObjectInputStream(
+					new ProtectedObjectInputStream(
 						new UnsyncByteArrayInputStream(jobData));
 
 				Map<Object, Object> jobDataMap =
