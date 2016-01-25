@@ -142,7 +142,7 @@ if (!portletName.equals(SiteAdminPortletKeys.SITE_SETTINGS)) {
 	request.setAttribute("site.showPrototypes", String.valueOf(showPrototypes));
 	%>
 
-	<liferay-ui:form-navigator
+	<liferay-frontend:form-navigator
 		backURL="<%= backURL %>"
 		formModelBean="<%= group %>"
 		id="<%= FormNavigatorConstants.FORM_NAVIGATOR_ID_SITES %>"

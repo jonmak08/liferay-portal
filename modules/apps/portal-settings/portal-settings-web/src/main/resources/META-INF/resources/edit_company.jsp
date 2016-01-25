@@ -48,7 +48,7 @@ request.setAttribute("websites.classPK", company.getAccountId());
 		</div>
 	</liferay-util:buffer>
 
-	<liferay-ui:form-navigator
+	<liferay-frontend:form-navigator
 		formModelBean="<%= company %>"
 		htmlTop="<%= htmlTop %>"
 		id="<%= FormNavigatorConstants.FORM_NAVIGATOR_ID_COMPANY_SETTINGS %>"

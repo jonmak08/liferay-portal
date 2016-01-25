@@ -3491,3 +3491,29 @@ else.
 
 This change was necessary to solve the current split package problems and
 prevent future ones.
+
+---------------------------------------
+
+### Removed the liferay-ui:form-navigator Tag and Replaced with liferay-frontend:form-navigator
+- **Date:** 2016-Jan-21
+- **JIRA Ticket:** LPS-62417
+
+#### What changed?
+
+The `liferay-ui:form-navigator` tag has been removed and replaced with the
+`liferay-frontend:form-navigator` tag.
+
+#### Who is affected?
+
+Plugins and templates that are using the `liferay-ui:form-navigator` tag need to update
+their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-frontend` tag library (if necessary) and update
+the tag namespace from `liferay-ui:form-navigator` to `liferay-frontend:form-navigator`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.

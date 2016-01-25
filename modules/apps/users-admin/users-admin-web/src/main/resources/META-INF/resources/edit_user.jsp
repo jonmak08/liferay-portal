@@ -252,7 +252,7 @@ if (selUser != null) {
 		</c:if>
 	</liferay-util:buffer>
 
-	<liferay-ui:form-navigator
+	<liferay-frontend:form-navigator
 		backURL="<%= backURL %>"
 		formModelBean="<%= selUser %>"
 		htmlBottom="<%= htmlBottom %>"
