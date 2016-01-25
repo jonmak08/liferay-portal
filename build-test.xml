@@ -4718,12 +4718,20 @@ include-and-override=${liferay.home}/portal-setup-wizard.properties</echo>
 		</if>
 
 		<if>
-			<isset property="test.skip.tear.down" />
+			<and>
+				<equals arg1="${test.batch.run.type}" arg2="sequential" />
+				<isset property="test.skip.tear.down" />
+			</and>
 			<then>
+				<echo append="true" file="${test.ext.properties.file}">
+					test.skip.tear.down=false
+				</echo>
+			</then>
+			<else>
 				<echo append="true" file="${test.ext.properties.file}">
 					test.skip.tear.down=${test.skip.tear.down}
 				</echo>
-			</then>
+			</else>
 		</if>
 	</target>
 
