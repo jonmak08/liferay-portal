@@ -14,6 +14,11 @@
  */
 --%>
 
-<%@ include file="/html/taglib/init.jsp" %>
+<%@ include file="/init.jsp" %>
 
-<%@ page import="com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil" %>
+<%@ page import="com.liferay.portal.kernel.security.permission.ResourceActionsUtil" %><%@
+page import="com.liferay.portal.kernel.util.ListUtil" %><%@
+page import="com.liferay.portlet.expando.model.ExpandoBridge" %><%@
+page import="com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil" %>
+
+<%@ page import="java.util.Collections" %>

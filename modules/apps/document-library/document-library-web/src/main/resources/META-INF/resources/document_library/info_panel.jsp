@@ -224,7 +224,7 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(fileEntries) && ListUtil.isEmp
 					/>
 
 					<liferay-ui:custom-attributes-available className="<%= DLFileEntryConstants.getClassName() %>">
-						<liferay-ui:custom-attribute-list
+						<liferay-frontend:custom-attribute-list
 							className="<%= DLFileEntryConstants.getClassName() %>"
 							classPK="<%= fileVersion.getFileVersionId() %>"
 							editable="<%= false %>"

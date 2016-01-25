@@ -3520,3 +3520,29 @@ The `title` field was marked as mandatory, but it was possible to
 create a document without filling it, as the backend would infer a
 value from the source file name automatically. This was considered
 confusing from an UX prespective.
+
+---------------------------------------
+
+### Removed the liferay-ui:custom-attribute-list Tag and Replaced with liferay-frontend:custom-attribute-list
+- **Date:** 2016-Jan-25
+- **JIRA Ticket:** LPS-62491
+
+#### What changed?
+
+The `liferay-ui:custom-attribute-list` tag has been removed and replaced with the
+`liferay-frontend:custom-attribute-list` tag.
+
+#### Who is affected?
+
+Plugins and templates that are using the `liferay-ui:custom-attribute-list` tag need to update
+their usage of the tag.
+
+#### How should I update my code?
+
+You should import the `liferay-frontend` tag library (if necessary) and update
+the tag namespace from `liferay-ui:custom-attribute-list` to `liferay-frontend:custom-attribute-list`.
+
+#### Why was this change made?
+
+This change was made as a part of the ongoing strategy to modularize Liferay
+Portal by means of an OSGi container.

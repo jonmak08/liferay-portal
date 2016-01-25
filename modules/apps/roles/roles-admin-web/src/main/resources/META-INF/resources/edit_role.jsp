@@ -137,7 +137,7 @@ renderResponse.setTitle((role == null) ? LanguageUtil.get(request, "new-role") :
 
 			<aui:fieldset-group markupView="lexicon">
 				<aui:fieldset>
-					<liferay-ui:custom-attribute-list
+					<liferay-frontend:custom-attribute-list
 						className="<%= Role.class.getName() %>"
 						classPK="<%= (role != null) ? role.getRoleId() : 0 %>"
 						editable="<%= true %>"

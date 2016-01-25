@@ -12,11 +12,13 @@
  * details.
  */
 
-package com.liferay.taglib.ui;
+package com.liferay.frontend.taglib.servlet.taglib;
 
+import com.liferay.frontend.taglib.servlet.ServletContextUtil;
 import com.liferay.taglib.util.IncludeTag;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Brian Wing Shun Chan
@@ -44,6 +46,13 @@ public class CustomAttributeListTag extends IncludeTag {
 	}
 
 	@Override
+	public void setPageContext(PageContext pageContext) {
+		super.setPageContext(pageContext);
+
+		servletContext = ServletContextUtil.getServletContext();
+	}
+
+	@Override
 	protected void cleanUp() {
 		_className = null;
 		_classPK = 0;
@@ -60,22 +69,22 @@ public class CustomAttributeListTag extends IncludeTag {
 	@Override
 	protected void setAttributes(HttpServletRequest request) {
 		request.setAttribute(
-			"liferay-ui:custom-attribute-list:className", _className);
+			"liferay-frontend:custom-attribute-list:className", _className);
 		request.setAttribute(
-			"liferay-ui:custom-attribute-list:classPK",
+			"liferay-frontend:custom-attribute-list:classPK",
 			String.valueOf(_classPK));
 		request.setAttribute(
-			"liferay-ui:custom-attribute-list:editable",
+			"liferay-frontend:custom-attribute-list:editable",
 			String.valueOf(_editable));
 		request.setAttribute(
-			"liferay-ui:custom-attribute-list:ignoreAttributeNames",
+			"liferay-frontend:custom-attribute-list:ignoreAttributeNames",
 			_ignoreAttributeNames);
 		request.setAttribute(
-			"liferay-ui:custom-attribute-list:label", String.valueOf(_label));
+			"liferay-frontend:custom-attribute-list:label",
+			String.valueOf(_label));
 	}
 
-	private static final String _PAGE =
-		"/html/taglib/ui/custom_attribute_list/page.jsp";
+	private static final String _PAGE = "/custom_attribute_list/page.jsp";
 
 	private String _className;
 	private long _classPK;

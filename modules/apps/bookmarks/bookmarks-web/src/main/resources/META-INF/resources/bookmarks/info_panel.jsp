@@ -176,7 +176,7 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(entries)) {
 			/>
 
 			<liferay-ui:custom-attributes-available className="<%= BookmarksEntry.class.getName() %>">
-				<liferay-ui:custom-attribute-list
+				<liferay-frontend:custom-attribute-list
 					className="<%= BookmarksEntry.class.getName() %>"
 					classPK="<%= entry.getEntryId() %>"
 					editable="<%= false %>"

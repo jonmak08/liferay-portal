@@ -258,7 +258,7 @@ renderResponse.setTitle((entry != null) ? entry.getTitle() : LanguageUtil.get(re
 					<div class="custom-attributes-wrapper">
 						<h3><liferay-ui:message key="custom-fields" /></h3>
 
-						<liferay-ui:custom-attribute-list
+						<liferay-frontend:custom-attribute-list
 							className="<%= BlogsEntry.class.getName() %>"
 							classPK="<%= entryId %>"
 							editable="<%= true %>"

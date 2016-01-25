@@ -308,7 +308,7 @@ if (portletTitleBasedNavigation) {
 
 				<c:if test="<%= showCustomFieldsTab %>">
 					<liferay-ui:section>
-						<liferay-ui:custom-attribute-list
+						<liferay-frontend:custom-attribute-list
 							className="<%= DLFileEntryConstants.getClassName() %>"
 							classPK="<%= fileVersionId %>"
 							editable="<%= false %>"
