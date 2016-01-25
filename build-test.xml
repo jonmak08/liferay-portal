@@ -4549,7 +4549,9 @@ include-and-override=${liferay.home}/portal-setup-wizard.properties</echo>
 		<if>
 			<equals arg1="${test.poshi.runner.enabled}" arg2="true" />
 			<then>
-				<antcall target="prepare-poshi-runner-properties" />
+				<antcall target="prepare-poshi-runner-properties">
+					<param name="test.class" value="${test.class}" />
+				</antcall>
 			</then>
 		</if>
 
