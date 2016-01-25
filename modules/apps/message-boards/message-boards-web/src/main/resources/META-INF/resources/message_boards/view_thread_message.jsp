@@ -359,7 +359,7 @@ MBThread thread = (MBThread)request.getAttribute("edit_message.jsp-thread");
 
 		<liferay-ui:custom-attributes-available className="<%= MBMessage.class.getName() %>">
 			<div class="custom-attributes">
-				<liferay-ui:custom-attribute-list
+				<liferay-frontend:custom-attribute-list
 					className="<%= MBMessage.class.getName() %>"
 					classPK="<%= (message != null) ? message.getMessageId() : 0 %>"
 					editable="<%= false %>"

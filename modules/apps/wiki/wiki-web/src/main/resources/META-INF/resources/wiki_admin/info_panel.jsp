@@ -222,7 +222,7 @@ if (wikiInfoPanelDisplayContext.isSinglePageSelection()) {
 					</c:if>
 
 					<liferay-ui:custom-attributes-available className="<%= WikiPage.class.getName() %>">
-						<liferay-ui:custom-attribute-list
+						<liferay-frontend:custom-attribute-list
 							className="<%= WikiPage.class.getName() %>"
 							classPK="<%= wikiPage.getResourcePrimKey() %>"
 							editable="<%= false %>"

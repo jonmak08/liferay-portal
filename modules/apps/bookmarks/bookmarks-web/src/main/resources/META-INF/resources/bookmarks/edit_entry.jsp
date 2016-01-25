@@ -157,7 +157,7 @@ if (portletTitleBasedNavigation) {
 
 			<liferay-ui:custom-attributes-available className="<%= BookmarksEntry.class.getName() %>">
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="custom-fields">
-					<liferay-ui:custom-attribute-list
+					<liferay-frontend:custom-attribute-list
 						className="<%= BookmarksEntry.class.getName() %>"
 						classPK="<%= entryId %>"
 						editable="<%= true %>"

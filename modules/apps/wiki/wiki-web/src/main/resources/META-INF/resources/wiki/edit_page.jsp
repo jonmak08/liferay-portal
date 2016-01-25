@@ -332,7 +332,7 @@ if (portletTitleBasedNavigation) {
 								}
 								%>
 
-								<liferay-ui:custom-attribute-list
+								<liferay-frontend:custom-attribute-list
 									className="<%= WikiPage.class.getName() %>"
 									classPK="<%= classPK %>"
 									editable="<%= true %>"

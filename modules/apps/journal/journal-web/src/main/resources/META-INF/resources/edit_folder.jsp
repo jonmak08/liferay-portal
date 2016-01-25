@@ -100,7 +100,7 @@ renderResponse.setTitle(title);
 
 			<liferay-ui:custom-attributes-available className="<%= JournalFolder.class.getName() %>">
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="custom-fields">
-					<liferay-ui:custom-attribute-list
+					<liferay-frontend:custom-attribute-list
 						className="<%= JournalFolder.class.getName() %>"
 						classPK="<%= (folder != null) ? folder.getFolderId() : 0 %>"
 						editable="<%= true %>"

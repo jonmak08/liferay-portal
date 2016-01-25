@@ -25,7 +25,7 @@ Organization organization = OrganizationServiceUtil.fetchOrganization(organizati
 <h3><liferay-ui:message key="custom-fields" /></h3>
 
 <aui:fieldset>
-	<liferay-ui:custom-attribute-list
+	<liferay-frontend:custom-attribute-list
 		className="<%= Organization.class.getName() %>"
 		classPK="<%= (organization != null) ? organization.getOrganizationId() : 0 %>"
 		editable="<%= true %>"

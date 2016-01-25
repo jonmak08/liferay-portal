@@ -210,7 +210,7 @@ if (portletTitleBasedNavigation) {
 
 			<liferay-ui:custom-attributes-available className="<%= MBCategory.class.getName() %>">
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="custom-fields">
-					<liferay-ui:custom-attribute-list
+					<liferay-frontend:custom-attribute-list
 						className="<%= MBCategory.class.getName() %>"
 						classPK="<%= (category != null) ? category.getCategoryId() : 0 %>"
 						editable="<%= true %>"

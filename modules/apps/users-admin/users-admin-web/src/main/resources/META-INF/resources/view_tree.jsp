@@ -164,7 +164,7 @@ if (organization != null) {
 				<br />
 
 				<liferay-ui:custom-attributes-available className="<%= Organization.class.getName() %>">
-					<liferay-ui:custom-attribute-list
+					<liferay-frontend:custom-attribute-list
 						className="<%= Organization.class.getName() %>"
 						classPK="<%= organization.getOrganizationId() %>"
 						editable="<%= false %>"

@@ -56,7 +56,7 @@ Portlet portlet = PortletLocalServiceUtil.getPortletById(company.getCompanyId(),
 		<%= entry.getContent() %>
 
 		<liferay-ui:custom-attributes-available className="<%= BlogsEntry.class.getName() %>">
-			<liferay-ui:custom-attribute-list
+			<liferay-frontend:custom-attribute-list
 				className="<%= BlogsEntry.class.getName() %>"
 				classPK="<%= (entry != null) ? entry.getEntryId() : 0 %>"
 				editable="<%= false %>"

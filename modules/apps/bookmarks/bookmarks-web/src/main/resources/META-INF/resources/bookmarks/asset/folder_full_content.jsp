@@ -68,7 +68,7 @@ BookmarksFolder folder = (BookmarksFolder)request.getAttribute(BookmarksWebKeys.
 			</div>
 
 			<liferay-ui:custom-attributes-available className="<%= BookmarksFolder.class.getName() %>">
-				<liferay-ui:custom-attribute-list
+				<liferay-frontend:custom-attribute-list
 					className="<%= BookmarksFolder.class.getName() %>"
 					classPK="<%= (folder != null) ? folder.getFolderId() : 0 %>"
 					editable="<%= false %>"

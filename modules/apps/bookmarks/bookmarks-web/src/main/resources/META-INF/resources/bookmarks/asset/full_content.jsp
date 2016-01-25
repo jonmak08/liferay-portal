@@ -27,7 +27,7 @@ int status = ParamUtil.getInteger(request, "status", WorkflowConstants.STATUS_AN
 <p class="asset-description"><%= HtmlUtil.escape(entry.getDescription()) %></p>
 
 <liferay-ui:custom-attributes-available className="<%= BookmarksEntry.class.getName() %>">
-	<liferay-ui:custom-attribute-list
+	<liferay-frontend:custom-attribute-list
 		className="<%= BookmarksEntry.class.getName() %>"
 		classPK="<%= (entry != null) ? entry.getEntryId() : 0 %>"
 		editable="<%= false %>"

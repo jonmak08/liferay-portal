@@ -50,7 +50,7 @@ JournalFolder folder = journalDisplayContext.getFolder();
 			</div>
 
 			<liferay-ui:custom-attributes-available className="<%= JournalFolder.class.getName() %>">
-				<liferay-ui:custom-attribute-list
+				<liferay-frontend:custom-attribute-list
 					className="<%= JournalFolder.class.getName() %>"
 					classPK="<%= folder.getFolderId() %>"
 					editable="<%= false %>"
