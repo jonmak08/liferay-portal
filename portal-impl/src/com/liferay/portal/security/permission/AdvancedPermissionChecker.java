@@ -520,6 +520,8 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 
 		Group group = null;
 
+		boolean checkOwnerPermission = false;
+
 		try {
 			if (groupId > 0) {
 				group = GroupLocalServiceUtil.getGroup(groupId);
@@ -528,6 +530,8 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 				// Site" group.
 
 				if (group.isUser() && (group.getClassPK() == getUserId())) {
+					checkOwnerPermission = true;
+
 					group = GroupLocalServiceUtil.getGroup(
 						getCompanyId(), GroupConstants.USER_PERSONAL_SITE);
 
@@ -572,8 +576,15 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 		}
 
 		try {
-			value = Boolean.valueOf(
-				hasPermissionImpl(groupId, name, primKey, actionId));
+			if (checkOwnerPermission) {
+				value = hasOwnerPermission(
+					getCompanyId(), name, primKey, getUserId(), actionId);
+			}
+
+			if ((value == null) || !value) {
+				value = Boolean.valueOf(
+					hasPermissionImpl(groupId, name, primKey, actionId));
+			}
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(
@@ -1327,6 +1338,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 	/**
 	 * @deprecated As of 6.1.0
 	 */
+	@Deprecated
 	protected static final String RESULTS_SEPARATOR = "_RESULTS_SEPARATOR_";
 
 	protected Map<Long, Boolean> companyAdmins = new HashMap<Long, Boolean>();
