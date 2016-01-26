@@ -140,7 +140,7 @@ public class VerifyPostgreSQL extends VerifyProcess {
 				con = DataAccess.getUpgradeOptimizedConnection();
 
 				ps = con.prepareStatement(
-					PostgreSQLDB.getCreateRulesSql(tableName, columnName));
+					PostgreSQLDB.getCreateRulesSQL(tableName, columnName));
 
 				ps.executeUpdate();
 			}

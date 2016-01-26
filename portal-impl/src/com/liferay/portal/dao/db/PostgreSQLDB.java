@@ -44,54 +44,56 @@ public class PostgreSQLDB extends BaseDB {
 		return _instance;
 	}
 
-	public static String getCreateRulesSql(String table, String column) {
+	public static String getCreateRulesSQL(
+		String tableName, String columnName) {
+
 		StringBundler sb = new StringBundler(45);
 
 		sb.append("create or replace rule delete_");
-		sb.append(table);
+		sb.append(tableName);
 		sb.append(StringPool.UNDERLINE);
-		sb.append(column);
+		sb.append(columnName);
 		sb.append(" as on delete to ");
-		sb.append(table);
-		sb.append(" do also select case when exists( select 1 from ");
+		sb.append(tableName);
+		sb.append(" do also select case when exists(select 1 from ");
 		sb.append("pg_catalog.pg_largeobject where (loid = old.");
-		sb.append(column);
+		sb.append(columnName);
 		sb.append(")) then lo_unlink(old.");
-		sb.append(column);
+		sb.append(columnName);
 		sb.append(") end from ");
-		sb.append(table);
+		sb.append(tableName);
 		sb.append(" where ");
-		sb.append(table);
+		sb.append(tableName);
 		sb.append(StringPool.PERIOD);
-		sb.append(column);
+		sb.append(columnName);
 		sb.append(" = old.");
-		sb.append(column);
+		sb.append(columnName);
 
 		sb.append(";\ncreate or replace rule update_");
-		sb.append(table);
+		sb.append(tableName);
 		sb.append(StringPool.UNDERLINE);
-		sb.append(column);
+		sb.append(columnName);
 		sb.append(" as on update to ");
-		sb.append(table);
+		sb.append(tableName);
 		sb.append(" where old.");
-		sb.append(column);
+		sb.append(columnName);
 		sb.append(" is distinct from new.");
-		sb.append(column);
+		sb.append(columnName);
 		sb.append(" and old.");
-		sb.append(column);
-		sb.append(" is not null do also select case when exists( select 1 ");
+		sb.append(columnName);
+		sb.append(" is not null do also select case when exists(select 1 ");
 		sb.append("from pg_catalog.pg_largeobject where (loid = old.");
-		sb.append(column);
+		sb.append(columnName);
 		sb.append(")) then lo_unlink(old.");
-		sb.append(column);
+		sb.append(columnName);
 		sb.append(") end from ");
-		sb.append(table);
+		sb.append(tableName);
 		sb.append(" where ");
-		sb.append(table);
+		sb.append(tableName);
 		sb.append(StringPool.PERIOD);
-		sb.append(column);
+		sb.append(columnName);
 		sb.append(" = old.");
-		sb.append(column);
+		sb.append(columnName);
 		sb.append(StringPool.SEMICOLON);
 
 		return sb.toString();
@@ -205,11 +207,11 @@ public class PostgreSQLDB extends BaseDB {
 
 		StringBundler sb = new StringBundler();
 
+		StringBundler createRulesSQLSB = new StringBundler();
+
 		String line = null;
 
-		String table = null;
-
-		StringBundler createRulesSqlSB = new StringBundler();
+		String tableName = null;
 
 		while ((line = unsyncBufferedReader.readLine()) != null) {
 			if (line.startsWith(ALTER_COLUMN_NAME)) {
@@ -237,7 +239,7 @@ public class PostgreSQLDB extends BaseDB {
 			else if (line.startsWith(CREATE_TABLE)) {
 				String[] tokens = StringUtil.split(line, ' ');
 
-				table = tokens[2];
+				tableName = tokens[2];
 			}
 			else if (line.contains(DROP_INDEX)) {
 				String[] tokens = StringUtil.split(line, ' ');
@@ -255,9 +257,9 @@ public class PostgreSQLDB extends BaseDB {
 			else if (line.contains(getTemplateBlob())) {
 				String[] tokens = StringUtil.split(line, ' ');
 
-				createRulesSqlSB.append(StringPool.NEW_LINE);
-				createRulesSqlSB.append(
-					getCreateRulesSql(table, tokens[0]));
+				createRulesSQLSB.append(StringPool.NEW_LINE);
+				createRulesSQLSB.append(
+					getCreateRulesSQL(tableName, tokens[0]));
 			}
 
 			else if (line.contains("\\\'")) {
@@ -270,7 +272,7 @@ public class PostgreSQLDB extends BaseDB {
 
 		unsyncBufferedReader.close();
 
-		sb.append(createRulesSqlSB.toString());
+		sb.append(createRulesSQLSB.toString());
 
 		return sb.toString();
 	}
