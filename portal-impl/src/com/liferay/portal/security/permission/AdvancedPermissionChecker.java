@@ -518,9 +518,8 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 
 		stopWatch.start();
 
-		Group group = null;
-
 		boolean checkOwnerPermission = false;
+		Group group = null;
 
 		try {
 			if (groupId > 0) {
