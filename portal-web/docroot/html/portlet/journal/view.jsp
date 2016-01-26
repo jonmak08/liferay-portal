@@ -104,7 +104,7 @@ request.setAttribute("view.jsp-folderId", String.valueOf(folderId));
 					%>
 
 					<c:choose>
-						<c:when test="<%= Validator.isNotNull(keywords) || advancedSearch %>" >
+						<c:when test="<%= Validator.isNotNull(keywords) || advancedSearch %>">
 							<liferay-util:include page="/html/portlet/journal/search_resources.jsp" />
 						</c:when>
 						<c:otherwise>
