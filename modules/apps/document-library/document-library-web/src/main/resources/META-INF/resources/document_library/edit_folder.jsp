@@ -287,7 +287,7 @@ if (portletTitleBasedNavigation) {
 			</c:if>
 
 			<c:if test="<%= (parentFolder == null) || parentFolder.isSupportsMetadata() %>">
-				<liferay-ui:custom-attributes-available className="<%= DLFolderConstants.getClassName() %>">
+				<liferay-frontend:custom-attributes-available className="<%= DLFolderConstants.getClassName() %>">
 					<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="custom-fields">
 						<liferay-ui:custom-attribute-list
 							className="<%= DLFolderConstants.getClassName() %>"
@@ -296,7 +296,7 @@ if (portletTitleBasedNavigation) {
 							label="<%= true %>"
 						/>
 					</aui:fieldset>
-				</liferay-ui:custom-attributes-available>
+				</liferay-frontend:custom-attributes-available>
 			</c:if>
 
 			<c:if test="<%= !rootFolder && (folder == null) %>">

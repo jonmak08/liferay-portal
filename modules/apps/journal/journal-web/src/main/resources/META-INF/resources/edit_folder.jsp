@@ -98,7 +98,7 @@ renderResponse.setTitle(title);
 				<aui:input name="description" />
 			</aui:fieldset>
 
-			<liferay-ui:custom-attributes-available className="<%= JournalFolder.class.getName() %>">
+			<liferay-frontend:custom-attributes-available className="<%= JournalFolder.class.getName() %>">
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="custom-fields">
 					<liferay-ui:custom-attribute-list
 						className="<%= JournalFolder.class.getName() %>"
@@ -107,7 +107,7 @@ renderResponse.setTitle(title);
 						label="<%= true %>"
 					/>
 				</aui:fieldset>
-			</liferay-ui:custom-attributes-available>
+			</liferay-frontend:custom-attributes-available>
 		</c:if>
 
 		<c:if test="<%= !rootFolder && (folder != null) %>">

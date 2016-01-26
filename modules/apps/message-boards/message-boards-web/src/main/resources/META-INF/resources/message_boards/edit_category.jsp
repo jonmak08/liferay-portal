@@ -208,7 +208,7 @@ if (portletTitleBasedNavigation) {
 				</c:if>
 			</aui:fieldset>
 
-			<liferay-ui:custom-attributes-available className="<%= MBCategory.class.getName() %>">
+			<liferay-frontend:custom-attributes-available className="<%= MBCategory.class.getName() %>">
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="custom-fields">
 					<liferay-ui:custom-attribute-list
 						className="<%= MBCategory.class.getName() %>"
@@ -217,7 +217,7 @@ if (portletTitleBasedNavigation) {
 						label="<%= true %>"
 					/>
 				</aui:fieldset>
-			</liferay-ui:custom-attributes-available>
+			</liferay-frontend:custom-attributes-available>
 
 			<c:if test="<%= category == null %>">
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="permissions">

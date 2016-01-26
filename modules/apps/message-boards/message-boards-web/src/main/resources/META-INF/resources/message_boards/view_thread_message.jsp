@@ -357,7 +357,7 @@ MBThread thread = (MBThread)request.getAttribute("edit_message.jsp-thread");
 			/>
 		</div>
 
-		<liferay-ui:custom-attributes-available className="<%= MBMessage.class.getName() %>">
+		<liferay-frontend:custom-attributes-available className="<%= MBMessage.class.getName() %>">
 			<div class="custom-attributes">
 				<liferay-ui:custom-attribute-list
 					className="<%= MBMessage.class.getName() %>"
@@ -366,7 +366,7 @@ MBThread thread = (MBThread)request.getAttribute("edit_message.jsp-thread");
 					label="<%= true %>"
 				/>
 			</div>
-		</liferay-ui:custom-attributes-available>
+		</liferay-frontend:custom-attributes-available>
 
 		<div class="entry-links">
 			<liferay-ui:asset-links

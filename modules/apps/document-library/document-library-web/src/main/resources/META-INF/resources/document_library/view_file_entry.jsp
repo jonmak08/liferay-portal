@@ -126,13 +126,13 @@ if (portletTitleBasedNavigation) {
 		boolean showCustomFieldsTab = false;
 		%>
 
-		<liferay-ui:custom-attributes-available className="<%= DLFileEntryConstants.getClassName() %>" classPK="<%= fileVersionId %>" editable="<%= false %>">
+		<liferay-frontend:custom-attributes-available className="<%= DLFileEntryConstants.getClassName() %>" classPK="<%= fileVersionId %>" editable="<%= false %>">
 
 			<%
 			showCustomFieldsTab = true;
 			%>
 
-		</liferay-ui:custom-attributes-available>
+		</liferay-frontend:custom-attributes-available>
 
 		<div class="sidebar sidebar-default sidenav-menu">
 

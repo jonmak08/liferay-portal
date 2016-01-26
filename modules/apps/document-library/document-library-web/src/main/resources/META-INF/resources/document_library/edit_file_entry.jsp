@@ -437,7 +437,7 @@ if (portletTitleBasedNavigation) {
 			</aui:fieldset>
 
 			<c:if test="<%= (folder == null) || folder.isSupportsMetadata() %>">
-				<liferay-ui:custom-attributes-available className="<%= DLFileEntryConstants.getClassName() %>">
+				<liferay-frontend:custom-attributes-available className="<%= DLFileEntryConstants.getClassName() %>">
 					<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="custom-fields">
 						<liferay-ui:custom-attribute-list
 							className="<%= DLFileEntryConstants.getClassName() %>"
@@ -446,7 +446,7 @@ if (portletTitleBasedNavigation) {
 							label="<%= true %>"
 						/>
 					</aui:fieldset>
-				</liferay-ui:custom-attributes-available>
+				</liferay-frontend:custom-attributes-available>
 			</c:if>
 
 			<c:if test="<%= (folder == null) || folder.isSupportsSocial() %>">

@@ -318,7 +318,7 @@ if (portletTitleBasedNavigation) {
 					</aui:fieldset>
 
 					<c:if test="<%= wikiPage != null %>">
-						<liferay-ui:custom-attributes-available className="<%= WikiPage.class.getName() %>">
+						<liferay-frontend:custom-attributes-available className="<%= WikiPage.class.getName() %>">
 							<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="custom-fields">
 
 								<%
@@ -339,7 +339,7 @@ if (portletTitleBasedNavigation) {
 									label="<%= true %>"
 								/>
 							</aui:fieldset>
-						</liferay-ui:custom-attributes-available>
+						</liferay-frontend:custom-attributes-available>
 					</c:if>
 
 					<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="permissions">

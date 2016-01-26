@@ -159,7 +159,7 @@ if (portletTitleBasedNavigation) {
 				</aui:fieldset>
 			</c:if>
 
-			<liferay-ui:custom-attributes-available className="<%= BookmarksFolder.class.getName() %>">
+			<liferay-frontend:custom-attributes-available className="<%= BookmarksFolder.class.getName() %>">
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="custom-fields">
 					<liferay-ui:custom-attribute-list
 						className="<%= BookmarksFolder.class.getName() %>"
@@ -168,7 +168,7 @@ if (portletTitleBasedNavigation) {
 						label="<%= true %>"
 					/>
 				</aui:fieldset>
-			</liferay-ui:custom-attributes-available>
+			</liferay-frontend:custom-attributes-available>
 
 			<c:if test="<%= folder == null %>">
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="permissions">

@@ -101,14 +101,14 @@ AssetEntry layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(CalendarBookin
 		</c:if>
 	</dl>
 
-	<liferay-ui:custom-attributes-available className="<%= CalendarBooking.class.getName() %>">
+	<liferay-frontend:custom-attributes-available className="<%= CalendarBooking.class.getName() %>">
 		<liferay-ui:custom-attribute-list
 			className="<%= CalendarBooking.class.getName() %>"
 			classPK="<%= calendarBooking.getCalendarBookingId() %>"
 			editable="<%= false %>"
 			label="<%= true %>"
 		/>
-	</liferay-ui:custom-attributes-available>
+	</liferay-frontend:custom-attributes-available>
 
 	<p>
 		<%= calendarBooking.getDescription(locale) %>
