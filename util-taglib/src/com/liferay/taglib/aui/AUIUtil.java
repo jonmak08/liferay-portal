@@ -156,12 +156,14 @@ public class AUIUtil {
 		}
 
 		if (baseType.equals("checkbox") || baseType.equals("radio")) {
+			sb.append("class=\"");
+			sb.append(baseType);
+
 			if (inlineField) {
-				sb.append("class=\"");
-				sb.append(baseType);
-				sb.append("-inline");
-				sb.append("\" ");
+				sb.append(" inline");
 			}
+
+			sb.append("\" ");
 		}
 		else {
 			sb.append("class=\"control-label\" ");

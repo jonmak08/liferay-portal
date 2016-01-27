@@ -66,9 +66,13 @@ String controlGroupCssClass = AUIUtil.buildControlGroupCss(inlineField, inlineLa
 String baseTypeCssClass = TextFormatter.format(StringUtil.toLowerCase(baseType), TextFormatter.K);
 String fieldCssClass = AUIUtil.buildCss(AUIUtil.FIELD_PREFIX, disabled, first, last, cssClass);
 
+String labelCssClass = baseTypeCssClass;
+
 String inputWrapperClass = controlGroupCssClass;
 
 if (radioField) {
+	labelCssClass = "";
+
 	inputWrapperClass = baseTypeCssClass;
 }
 
@@ -76,5 +80,5 @@ if (inputWrapperClass.equals("boolean")) {
 	inputWrapperClass = "checkbox";
 }
 
-String labelTag = AUIUtil.buildLabel(baseTypeCssClass, inlineField, showForLabel, forLabel);
+String labelTag = AUIUtil.buildLabel(labelCssClass, inlineField, showForLabel, forLabel);
 %>
