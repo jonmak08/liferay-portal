@@ -1795,12 +1795,6 @@
 			<type>java.lang.Object</type>
 		</attribute>
 		<attribute>
-			<name>wrappedField</name>
-			<required>false</required>
-			<rtexprvalue>true</rtexprvalue>
-			<type>boolean</type>
-		</attribute>
-		<attribute>
 			<description><![CDATA[Sets a CSS class for styling the <code>div</code> that wraps the input component.]]></description>
 			<name>wrapperCssClass</name>
 			<required>false</required>
