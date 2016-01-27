@@ -28,7 +28,9 @@ import com.liferay.portal.layoutconfiguration.util.PortletRenderer;
 import com.liferay.portal.model.LayoutTypePortlet;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.service.PortletLocalServiceUtil;
+import com.liferay.portal.service.PortletPreferencesLocalServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
+import com.liferay.portal.util.PortletKeys;
 import com.liferay.portal.util.WebKeys;
 
 import java.util.ArrayList;
@@ -197,8 +199,13 @@ public class TemplateProcessor implements ColumnProcessor {
 
 		JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
 
-		PortletJSONUtil.populatePortletJSONObject(
-			_request, StringPool.BLANK, portlet, jsonObject);
+		if (PortletPreferencesLocalServiceUtil.getPortletPreferencesCount(
+				PortletKeys.PREFS_OWNER_TYPE_LAYOUT, themeDisplay.getPlid(),
+				portletId) < 1) {
+
+			PortletJSONUtil.populatePortletJSONObject(
+				_request, StringPool.BLANK, portlet, jsonObject);
+		}
 
 		try {
 			PortletJSONUtil.writeHeaderPaths(_response, jsonObject);
