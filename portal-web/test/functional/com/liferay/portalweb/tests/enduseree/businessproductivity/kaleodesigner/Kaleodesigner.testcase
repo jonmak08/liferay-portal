@@ -1464,7 +1464,7 @@
 
 		<execute macro="KaleoDesigner#viewSourceXMLLine">
 			<var name="kdSourceXML" ><![CDATA[<![CDATA[The file sent by]]></var>
-			<var name="line" value="16" />
+			<var name="line" value="13" />
 		</execute>
 	</command>
 
@@ -1519,7 +1519,7 @@
 
 		<execute macro="KaleoDesigner#viewSourceXMLLine">
 			<var name="kdSourceXML" ><![CDATA[<![CDATA[A file has been submitted.]]></var>
-			<var name="line" value="15" />
+			<var name="line" value="13" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -1548,7 +1548,7 @@
 
 		<execute macro="KaleoDesigner#viewSourceXMLLine">
 			<var name="kdSourceXML" ><![CDATA[<![CDATA[The file sent by]]></var>
-			<var name="line" value="16" />
+			<var name="line" value="13" />
 		</execute>
 	</command>
 
