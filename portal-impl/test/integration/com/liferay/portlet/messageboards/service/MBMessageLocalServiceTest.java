@@ -14,6 +14,8 @@
 
 package com.liferay.portlet.messageboards.service;
 
+import com.liferay.portal.kernel.cache.Lifecycle;
+import com.liferay.portal.kernel.cache.ThreadLocalCacheManager;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.util.ObjectValuePair;
@@ -73,6 +75,8 @@ public class MBMessageLocalServiceTest {
 		throws Exception {
 
 		TrashUtil.disableTrash(_group);
+
+		ThreadLocalCacheManager.clearAll(Lifecycle.REQUEST);
 
 		User user = TestPropsValues.getUser();
 		List<ObjectValuePair<String, InputStream>> objectValuePairs =
