@@ -270,28 +270,27 @@ public class PortletJSONUtil {
 			JSONArray javaScriptPathsJSONArray)
 		throws IOException {
 
-		if ((cssPathsJSONArray.length() == 0) &&
-			(javaScriptPathsJSONArray.length() == 0)) {
-
-			return;
-		}
-
 		PrintWriter printWriter = response.getWriter();
 
-		for (int i = 0; i < cssPathsJSONArray.length(); i++) {
-			String value = cssPathsJSONArray.getString(i);
+		if (cssPathsJSONArray != null) {
+			for (int i = 0; i < cssPathsJSONArray.length(); i++) {
+				String value = cssPathsJSONArray.getString(i);
 
-			printWriter.print("<link href=\"");
-			printWriter.print(HtmlUtil.escape(value));
-			printWriter.println("\" rel=\"stylesheet\" type=\"text/css\" />");
+				printWriter.print("<link href=\"");
+				printWriter.print(HtmlUtil.escape(value));
+				printWriter.println(
+					"\" rel=\"stylesheet\" type=\"text/css\" />");
+			}
 		}
 
-		for (int i = 0; i < javaScriptPathsJSONArray.length(); i++) {
-			String value = javaScriptPathsJSONArray.getString(i);
+		if (javaScriptPathsJSONArray != null) {
+			for (int i = 0; i < javaScriptPathsJSONArray.length(); i++) {
+				String value = javaScriptPathsJSONArray.getString(i);
 
-			printWriter.print("<script src=\"");
-			printWriter.print(HtmlUtil.escape(value));
-			printWriter.println("\" type=\"text/javascript\"></script>");
+				printWriter.print("<script src=\"");
+				printWriter.print(HtmlUtil.escape(value));
+				printWriter.println("\" type=\"text/javascript\"></script>");
+			}
 		}
 	}
 
