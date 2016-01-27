@@ -151,14 +151,11 @@
 					margin-left: 0;
 					margin-bottom: 5px;
 					padding: 2px;
-
-					input[type="checkbox"], input[type="radio"] {
-						top: 5px;
-					}
 				}
 
-				.radio {
-					margin-left: 25px;
+				.radio input {
+					margin-left: 6px;
+					margin-right: 6px;
 				}
 
 				&.toggler-header-collapsed .lfr-page-template-description {
