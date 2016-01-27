@@ -373,7 +373,6 @@ String selectStyle = (String)request.getAttribute("configuration.jsp-selectStyle
 									<aui:option label="title" />
 								</c:if>
 
-								<aui:option label="title" selected='<%= orderByColumn1.equals("title") %>' />
 								<aui:option label="create-date" selected='<%= orderByColumn1.equals("createDate") %>' value="createDate" />
 								<aui:option label="modified-date" selected='<%= orderByColumn1.equals("modifiedDate") %>' value="modifiedDate" />
 								<aui:option label="publish-date" selected='<%= orderByColumn1.equals("publishDate") %>' value="publishDate" />
