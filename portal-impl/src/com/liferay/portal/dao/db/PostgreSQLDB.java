@@ -208,9 +208,7 @@ public class PostgreSQLDB extends BaseDB {
 		StringBundler sb = new StringBundler();
 
 		StringBundler createRulesSQLSB = new StringBundler();
-
 		String line = null;
-
 		String tableName = null;
 
 		while ((line = unsyncBufferedReader.readLine()) != null) {

@@ -88,6 +88,7 @@ public class VerifyPostgreSQL extends VerifyProcess {
 		HashMap<String, String> oidColumnNames = getOidColumnNames();
 
 		verifyRules(oidColumnNames);
+
 		deleteOrphanedLargeObjects(oidColumnNames);
 	}
 
@@ -112,8 +113,8 @@ public class VerifyPostgreSQL extends VerifyProcess {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				String tableName = (String) rs.getObject("table_name");
-				String columnName = (String) rs.getObject("column_name");
+				String tableName = (String)rs.getObject("table_name");
+				String columnName = (String)rs.getObject("column_name");
 
 				oidColumnNames.put(tableName, columnName);
 			}
