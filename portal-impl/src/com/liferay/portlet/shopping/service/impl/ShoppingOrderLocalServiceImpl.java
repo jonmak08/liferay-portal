@@ -279,8 +279,8 @@ public class ShoppingOrderLocalServiceImpl
 	public ShoppingOrder getLatestOrder(long userId, long groupId)
 		throws PortalException, SystemException {
 
-	return shoppingOrderPersistence.findByG_U_PPPS_First(
-		groupId, userId, ShoppingOrderConstants.STATUS_LATEST, null);
+		return shoppingOrderPersistence.findByG_U_PPPS_First(
+			groupId, userId, ShoppingOrderConstants.STATUS_LATEST, null);
 	}
 
 	@Override
