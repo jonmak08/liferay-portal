@@ -103,24 +103,22 @@ portletURL.setParameter("roleId", String.valueOf(role.getRoleId()));
 
 <aui:script>
 	function <portlet:namespace />removeGroup(pos, target) {
-		escapedtarget = target.replace(/\./g, '&#x2e;');
-
-		var selectedGroupIds = document.<portlet:namespace />fm['<portlet:namespace />groupIds' + escapedtarget].value.split(",");
-		var selectedGroupNames = document.<portlet:namespace />fm['<portlet:namespace />groupNames' + escapedtarget].value.split("@@");
+		var selectedGroupIds = document.<portlet:namespace />fm['<portlet:namespace />groupIds' + target].value.split(",");
+		var selectedGroupNames = document.<portlet:namespace />fm['<portlet:namespace />groupNames' + target].value.split("@@");
 
 		selectedGroupIds.splice(pos, 1);
 		selectedGroupNames.splice(pos, 1);
 
-		<portlet:namespace />updateGroups(selectedGroupIds, selectedGroupNames, target, escapedtarget);
+		<portlet:namespace />updateGroups(selectedGroupIds, selectedGroupNames, target);
 	}
 
 	function <portlet:namespace />selectOrganization(organizationId, groupId, name, type, target) {
 		<portlet:namespace />selectGroup(groupId, name, target);
 	}
 
-	function <portlet:namespace />updateGroups(selectedGroupIds, selectedGroupNames, target, escapedtarget) {
-		document.<portlet:namespace />fm['<portlet:namespace />groupIds' + escapedtarget].value = selectedGroupIds.join(',');
-		document.<portlet:namespace />fm['<portlet:namespace />groupNames' + escapedtarget].value = selectedGroupNames.join('@@');
+	function <portlet:namespace />updateGroups(selectedGroupIds, selectedGroupNames, target) {
+		document.<portlet:namespace />fm['<portlet:namespace />groupIds' + target].value = selectedGroupIds.join(',');
+		document.<portlet:namespace />fm['<portlet:namespace />groupNames' + target].value = selectedGroupNames.join('@@');
 
 		var nameEl = document.getElementById("<portlet:namespace />groupHTML" + target);
 
@@ -346,18 +344,14 @@ portletURL.setParameter("roleId", String.valueOf(role.getRoleId()));
 		function(event) {
 			var selectedGroupIds = [];
 
-			var escapedtarget = event.grouptarget;
-
-			escapedtarget = escapedtarget.replace(/\./g, '&#x2e;');
-
-			var selectedGroupIdsField = document.<portlet:namespace />fm['<portlet:namespace />groupIds' + escapedtarget].value;
+			var selectedGroupIdsField = document.<portlet:namespace />fm['<portlet:namespace />groupIds' + event.grouptarget].value;
 
 			if (selectedGroupIdsField) {
 				selectedGroupIds = selectedGroupIdsField.split(',');
 			}
 
 			var selectedGroupNames = [];
-			var selectedGroupNamesField = document.<portlet:namespace />fm['<portlet:namespace />groupNames' + escapedtarget].value;
+			var selectedGroupNamesField = document.<portlet:namespace />fm['<portlet:namespace />groupNames' + event.grouptarget].value;
 
 			if (selectedGroupNamesField) {
 				selectedGroupNames = selectedGroupNamesField.split('@@');
@@ -368,7 +362,7 @@ portletURL.setParameter("roleId", String.valueOf(role.getRoleId()));
 				selectedGroupNames.push(event.groupdescriptivename);
 			}
 
-			<portlet:namespace />updateGroups(selectedGroupIds, selectedGroupNames, event.grouptarget, escapedtarget);
+			<portlet:namespace />updateGroups(selectedGroupIds, selectedGroupNames, event.grouptarget);
 		}
 	);
 
