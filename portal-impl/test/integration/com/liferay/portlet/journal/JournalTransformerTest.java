@@ -174,6 +174,41 @@ public class JournalTransformerTest {
 	}
 
 	@Test
+	public void testLocaleTransformerListenerNestedFieldWithNoTranslation()
+		throws Exception {
+
+		Map<String, String> tokens = getTokens();
+
+		Document document = JournalTestUtil.createDocument(
+			"en_US,pt_BR", "en_US");
+
+		Element dynamicElementElement =
+			JournalTestUtil.addDynamicElementElement(
+				document.getRootElement(), "text", "name");
+
+		JournalTestUtil.addDynamicContentElement(
+			dynamicElementElement, "en_US", "Joe Bloggs");
+
+		dynamicElementElement.addElement("nestedElement");
+
+		String xml = document.asXML();
+
+		String script = "$name.getData()";
+
+		String content = JournalUtil.transform(
+			null, tokens, Constants.VIEW, "en_US", xml, script,
+			TemplateConstants.LANG_TYPE_VM);
+
+		Assert.assertEquals("Joe Bloggs", content);
+
+		content = JournalUtil.transform(
+			null, tokens, Constants.VIEW, "pt_BR", xml, script,
+			TemplateConstants.LANG_TYPE_VM);
+
+		Assert.assertEquals("Joe Bloggs", content);
+	}
+
+	@Test
 	public void testRegexTransformerListener() throws Exception {
 		Map<String, String> tokens = getTokens();
 
