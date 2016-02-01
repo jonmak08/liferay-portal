@@ -21,6 +21,9 @@
 			<var name="portletName" value="Categories" />
 		</execute>
 
+		<!--Commenting out the rest of this testcase temporary, because LPS-60870 has not been fixed. Please see LRQA-21665 for details. Will remove the comment when it is fixed.-->
+
+		<!--
 		<execute macro="Vocabulary#addCP">
 			<var name="vocabularyName" value="Vocabulary Name" />
 		</execute>
@@ -163,5 +166,7 @@
 		<execute macro="DMDocument#viewCategories">
 			<var name="categoryNameList" value="legal,Other" />
 		</execute>
+		-->
+
 	</command>
 </definition>
