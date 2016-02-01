@@ -290,7 +290,7 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 	}
 
 	protected void checkDeserializationSecurity(
-			String fileName, String content, boolean isRunOutsidePortalExclusion) {
+		String fileName, String content, boolean isRunOutsidePortalExclusion) {
 
 		for (Pattern vulnerabilityPattern :
 				_javaSerializationVulnerabilityPatterns) {
@@ -317,7 +317,6 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 
 			processErrorMessage(fileName, sb.toString());
 		}
-
 	}
 
 	protected void checkLogLevel(

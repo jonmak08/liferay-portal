@@ -133,7 +133,7 @@ public class TunnelUtil {
 		try {
 			ObjectInputStream objectInputStream =
 				new ProtectedObjectInputStream(
-				httpURLConnection.getInputStream());
+					httpURLConnection.getInputStream());
 
 			returnObject = objectInputStream.readObject();
 
