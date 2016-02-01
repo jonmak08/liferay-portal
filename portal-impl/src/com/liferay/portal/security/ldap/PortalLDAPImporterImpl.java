@@ -1209,17 +1209,7 @@ public class PortalLDAPImporterImpl implements PortalLDAPImporter {
 				modifiedDate = LDAPUtil.parseDate(modifyTimestamp);
 
 				if (modifiedDate.equals(user.getModifiedDate())) {
-					if (ldapUser.isAutoPassword()) {
-						if (_log.isDebugEnabled()) {
-							_log.debug(
-								"Skipping user " + user.getEmailAddress() +
-									" because he is already synchronized");
-						}
-
-						return user;
-					}
-
-					password = updateUserPassword(
+					updateUserPassword(
 						user.getUserId(), ldapUser.getScreenName(), password,
 						passwordReset);
 
