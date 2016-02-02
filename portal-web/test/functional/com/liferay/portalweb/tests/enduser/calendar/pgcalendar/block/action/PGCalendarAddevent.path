@@ -83,7 +83,7 @@
 <!--MINI_CALENDAR-->
 <tr>
 	<td>MINI_CALENDAR_WEEK_START_DAY</td>
-	<td>//div[@class='yui3-widget-bd popover-content']//tr[@class='yui3-calendar-weekdayrow']/th[1]</td>
+	<td>//div[contains(@class,'datepicker-popover') and contains(@style,'display: block')]//tr[@class='yui3-calendar-weekdayrow']/th[1]</td>
 	<td></td>
 </tr>
 <tr>
