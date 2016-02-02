@@ -576,7 +576,7 @@ public class PortletExporter {
 						assetCategory, AssetCategory.class,
 						PortletDataContext.REFERENCE_TYPE_DEPENDENCY, true);
 
-					return;
+					continue;
 				}
 
 				exportAssetCategory(
