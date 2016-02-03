@@ -277,6 +277,7 @@ for (int i = 0; i < results.size(); i++) {
 						<liferay-ui:icon
 							image="../file_system/small/html"
 							label="<%= true %>"
+							localizeMessage="<%= false %>"
 							message="<%= HtmlUtil.escape(curArticle.getTitle(locale)) %>"
 							method="get"
 							url="<%= rowURL.toString() %>"
@@ -416,6 +417,7 @@ for (int i = 0; i < results.size(); i++) {
 							data="<%= data %>"
 							image="<%= folderImage %>"
 							label="<%= true %>"
+							localizeMessage="<%= false %>"
 							message="<%= curFolder.getName() %>"
 							method="get"
 							url="<%= rowURL.toString() %>"
