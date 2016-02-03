@@ -168,7 +168,8 @@ AUI.add(
 					initializer: function(config) {
 						var instance = this;
 
-						instance._eventDataRequest = instance.ns('dataRequest');
+						instance._eventEntryDataRequest = instance.ns('entryDataRequest');
+						instance._eventFolderDataRequest = instance.ns('folderDataRequest');
 
 						var entryPage = 0;
 
@@ -239,7 +240,8 @@ AUI.add(
 
 						instance._eventHandles = [
 							Liferay.on('liferay-app-view-folders:dataRequest', instance._onDataRequest, instance),
-							Liferay.on('liferay-app-view-folders:afterDataRequest', instance._afterDataRequest, instance),
+							Liferay.on('liferay-app-view-folders:afterEntryDataRequest', instance._afterEntryDataRequest, instance),
+							Liferay.on('liferay-app-view-folders:afterFolderDataRequest', instance._afterFolderDataRequest, instance),
 							instance.after('paginationDataChange', instance._afterPaginationDataChange, instance),
 							entryPagination.after('itemsPerPageChange', instance._onItemsPerPageChange, instance)
 						];
@@ -260,10 +262,10 @@ AUI.add(
 						instance._folderPagination.destroy();
 					},
 
-					_afterDataRequest: function(event) {
+					_afterEntryDataRequest: function(event) {
 						var instance = this;
 
-						instance._lastDataRequest = event.data;
+						instance._lastEntryDataRequest = event.data;
 					},
 
 					_afterEntryPaginationChangeRequest: function(event) {
@@ -273,7 +275,7 @@ AUI.add(
 
 						var startEndParams = instance._getResultsStartEnd(instance._entryPagination, entryRowsPerPage);
 
-						var requestParams = instance._lastDataRequest || instance._getDefaultParams();
+						var requestParams = instance._lastEntryDataRequest || instance._getDefaultParams();
 
 						var customParams = {};
 
@@ -290,12 +292,18 @@ AUI.add(
 						A.mix(requestParams, customParams, true);
 
 						Liferay.fire(
-							instance._eventDataRequest,
+							instance._eventEntryDataRequest,
 							{
 								requestParams: requestParams,
 								src: SRC_ENTRIES_PAGINATOR
 							}
 						);
+					},
+
+					_afterFolderDataRequest: function(event) {
+						var instance = this;
+
+						instance._lastFolderDataRequest = event.data;
 					},
 
 					_afterFolderPaginationChangeRequest: function(event) {
@@ -305,7 +313,7 @@ AUI.add(
 
 						var startEndParams = instance._getResultsStartEnd(instance._folderPagination, folderRowsPerPage);
 
-						var requestParams = instance._lastDataRequest || instance._getDefaultParams();
+						var requestParams = instance._lastFolderDataRequest || instance._getDefaultParams();
 
 						var customParams = {};
 
@@ -319,7 +327,7 @@ AUI.add(
 						instance._reflowPaginator = true;
 
 						Liferay.fire(
-							instance._eventDataRequest,
+							instance._eventFolderDataRequest,
 							{
 								requestParams: requestParams
 							}
