@@ -226,6 +226,12 @@ public class DefaultTemplateResourceLoader implements TemplateResourceLoader {
 				_templateResourceParsers) {
 
 			try {
+				if (!templateResourceParser.isTemplateResourceValid(
+						templateId, getName())) {
+
+					continue;
+				}
+
 				TemplateResource templateResource =
 					templateResourceParser.getTemplateResource(templateId);
 
