@@ -362,7 +362,7 @@ for (int i = 0; i < results.size(); i++) {
 					<%
 					String folderImage = "folder_empty_article";
 
-					if (PropsValues.JOURNAL_FOLDER_VISIBLE_CONTENT_ICON_ENABLED && (JournalFolderServiceUtil.getFoldersAndArticlesCount(scopeGroupId, curFolder.getFolderId()) > 0)) {
+					if (PropsValues.JOURNAL_FOLDER_ICON_CHECK_COUNT && (JournalFolderServiceUtil.getFoldersAndArticlesCount(scopeGroupId, curFolder.getFolderId()) > 0)) {
 						folderImage = "folder_full_article";
 					}
 
