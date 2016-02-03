@@ -751,7 +751,6 @@ public class JournalArticleIndexer extends BaseIndexer {
 					LocaleUtil.toLanguageId(snippetLocale), 1, null, null);
 
 			content = articleDisplay.getDescription();
-			content = HtmlUtil.replaceNewLine(content);
 
 			if (Validator.isNull(content)) {
 				content = HtmlUtil.extractText(articleDisplay.getContent());
