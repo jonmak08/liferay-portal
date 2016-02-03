@@ -26,6 +26,7 @@ import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortletKeys;
+import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.WebKeys;
 import com.liferay.portlet.asset.model.AssetRendererFactory;
 import com.liferay.portlet.asset.model.BaseAssetRenderer;
@@ -77,6 +78,11 @@ public class DLFolderAssetRenderer
 
 	@Override
 	public String getIconPath(ThemeDisplay themeDisplay) {
+		if (!PropsValues.DL_FOLDER_ICON_CHECK_COUNT) {
+			return themeDisplay.getPathThemeImages() +
+				"/common/folder_empty.png";
+		}
+
 		try {
 			if (DLAppServiceUtil.getFoldersAndFileEntriesAndFileShortcutsCount(
 					_folder.getRepositoryId(), _folder.getFolderId(),

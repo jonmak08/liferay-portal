@@ -214,6 +214,9 @@ List results = searchContainer.getResults();
 							<a class="image-link" href="<%= viewFolderURL.toString() %>" title="<%= HtmlUtil.escapeAttribute(curFolderTitle) %>">
 
 								<%
+								String folderImageSrc = themeDisplay.getPathThemeImages() + "/file_system/large/folder_empty.png";
+
+								if (PropsValues.DL_FOLDER_ICON_CHECK_COUNT) {
 									int curFoldersCount = DLAppServiceUtil.getFoldersCount(curFolder.getRepositoryId(), curFolder.getFolderId());
 
 									int curImagesCount = 0;
@@ -225,11 +228,10 @@ List results = searchContainer.getResults();
 										curImagesCount = DLAppServiceUtil.getFileEntriesAndFileShortcutsCount(curFolder.getRepositoryId(), curFolder.getFolderId(), WorkflowConstants.STATUS_APPROVED);
 									}
 
-									String folderImageSrc = themeDisplay.getPathThemeImages() + "/file_system/large/folder_empty.png";
-
 									if ((curFoldersCount + curImagesCount) > 0) {
 										folderImageSrc = themeDisplay.getPathThemeImages() + "/file_system/large/folder_full_image.png";
 									}
+								}
 								%>
 
 								<span class="image-thumbnail">
