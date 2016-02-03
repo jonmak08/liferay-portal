@@ -58,14 +58,7 @@ plugins.includes=marketplace-portlet</echo>
 
 		<antcall target="revert-test-properties" />
 
-		<if>
-			<not>
-				<equals arg1="${test.poshi.runner.enabled}" arg2="true" />
-			</not>
-			<then>
-				<ant dir="portal-impl" target="build-selenium-test-case" />
-			</then>
-		</if>
+		<antcall target="record-test-generated-properties" />
 
 		<antcall target="start-selenium" />
 
