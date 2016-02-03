@@ -2977,10 +2977,6 @@ go]]></replacevalue>
 		</if>
 	</target>
 
-	<target name="clean-up-sikuli-temp-files">
-		<delete dir="lib/development/libs" />
-	</target>
-
 	<target name="clean-up-web-xml">
 		<copy file="portal-web/docroot/WEB-INF/web.xml" tofile="${app.server.dir}/webapps/ROOT/WEB-INF/web.xml" overwrite="true" />
 	</target>
@@ -3110,27 +3106,6 @@ go]]></replacevalue>
 				</then>
 			</elseif>
 		</if>
-	</target>
-
-	<target name="copy-sikuli-temp-files">
-		<var name="opencv.os.type" value="linux" />
-
-		<if>
-			<os family="windows" />
-			<then>
-				<var name="opencv.os.type" value="windows" />
-			</then>
-		</if>
-
-		<mirrors-get
-			dest="lib/development/opencv-${opencv.os.type}-x86.jar"
-			src="http://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/opencv/2.4.9-0.9/opencv-2.4.9-0.9-${opencv.os.type}-x86.jar"
-		/>
-
-		<mirrors-get
-			dest="lib/development/opencv-${opencv.os.type}-x86_64.jar"
-			src="http://repo1.maven.org/maven2/org/bytedeco/javacpp-presets/opencv/2.4.9-0.9/opencv-2.4.9-0.9-${opencv.os.type}-x86_64.jar"
-		/>
 	</target>
 
 	<target name="curl-execute">
@@ -7022,8 +6997,6 @@ jdbc.default.password=${database.mysql.password}</echo>
 
 		<mkdir dir="${selenium.output.dir}" />
 
-		<antcall target="copy-sikuli-temp-files" />
-
 		<start-app-server />
 
 		<get-testcase-property property.name="app.server.bundles.size" />
@@ -7129,8 +7102,6 @@ jdbc.default.password=${database.mysql.password}</echo>
 				<var name="app.server.bundle.index" unset="true" />
 			</then>
 		</if>
-
-		<antcall target="clean-up-sikuli-temp-files" />
 
 		<antcall target="clean-up-web-xml" />
 	</target>
