@@ -76,7 +76,7 @@ AUI.add(
 						instance._documentLibraryContainer = documentLibraryContainer;
 
 						instance._eventDataProcessed = instance.ns('dataProcessed');
-						instance._eventDataRequest = instance.ns('dataRequest');
+						instance._eventEntryDataRequest = instance.ns('entryDataRequest');
 						instance._eventDataRetrieveSuccess = instance.ns('dataRetrieveSuccess');
 						instance._eventOpenDocument = instance.ns('openDocument');
 						instance._eventChangeSearchFolder = instance.ns('changeSearchFolder');
@@ -234,7 +234,7 @@ AUI.add(
 						}
 
 						Liferay.fire(
-							instance._eventDataRequest,
+							instance._eventEntryDataRequest,
 							{
 								requestParams: requestParams,
 								src: SRC_HISTORY
@@ -450,7 +450,7 @@ AUI.add(
 						requestParams[instance.ns(STR_SHOW_SEARCH_INFO)] = searchData.showSearchInfo;
 
 						Liferay.fire(
-							instance._eventDataRequest,
+							instance._eventEntryDataRequest,
 							{
 								requestParams: requestParams,
 								resetPagination: true,
