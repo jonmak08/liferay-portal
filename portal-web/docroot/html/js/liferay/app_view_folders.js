@@ -126,8 +126,10 @@ AUI.add(
 						instance._config = config;
 
 						instance._dataRetrieveFailure = instance.ns('dataRetrieveFailure');
-						instance._eventDataRequest = instance.ns('dataRequest');
 						instance._eventDataRetrieveSuccess = instance.ns('dataRetrieveSuccess');
+						instance._eventEntryDataRequest = instance.ns('entryDataRequest');
+						instance._eventFolderDataRequest = instance.ns('folderDataRequest');
+
 
 						var listViewConfig = instance.get('listViewConfig');
 
@@ -149,9 +151,9 @@ AUI.add(
 						instance._repositoriesData = {};
 
 						var eventHandles = [
-							Liferay.after(instance._eventDataRequest, A.bind('_afterDataRequest', instance)),
+							Liferay.after([instance._eventEntryDataRequest, instance._eventFolderDataRequest], A.bind('_afterDataRequest', instance)),
 							Liferay.on(instance._dataRetrieveFailure, A.bind('_onDataRetrieveFailure', instance)),
-							Liferay.on(instance._eventDataRequest, A.bind('_onDataRequest', instance))
+							Liferay.on([instance._eventEntryDataRequest, instance._eventFolderDataRequest], A.bind('_onDataRequest', instance))
 						];
 
 						instance._eventHandles = eventHandles;
@@ -295,10 +297,14 @@ AUI.add(
 
 						delete data[STR_AJAX_REQUEST];
 
-						instance._lastDataRequest = data;
+						var type = 'liferay-app-view-folders:afterEntryDataRequest';
+
+						if (event.type === instance._eventFolderDataRequest) {
+							type = 'liferay-app-view-folders:afterFolderDataRequest';
+						}
 
 						Liferay.fire(
-							'liferay-app-view-folders:afterDataRequest',
+							type,
 							{
 								data: data
 							}
@@ -364,7 +370,7 @@ AUI.add(
 						}
 
 						Liferay.fire(
-							instance._eventDataRequest,
+							instance._eventFolderDataRequest,
 							{
 								requestParams: requestParams,
 								resetPagination: true
@@ -427,7 +433,7 @@ AUI.add(
 						instance._listView.set('direction', direction);
 
 						Liferay.fire(
-							instance._eventDataRequest,
+							instance._eventFolderDataRequest,
 							{
 								requestParams: requestParams,
 								resetPagination: true
@@ -481,7 +487,7 @@ AUI.add(
 								);
 
 								Liferay.fire(
-									instance._eventDataRequest,
+									instance._eventFolderDataRequest,
 									{
 										requestParams: requestParams,
 										src: SRC_RESTORE_STATE
