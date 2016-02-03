@@ -112,7 +112,19 @@ public class DDMTemplateResourceParser implements TemplateResourceParser {
 		}
 	}
 
-	private static Log _log = LogFactoryUtil.getLog(
+	@Override
+	@SuppressWarnings("deprecation")
+	public boolean isTemplateResourceValid(String templateId, String langType) {
+		if (templateId.contains(TemplateConstants.JOURNAL_SEPARATOR) ||
+			templateId.contains(TemplateConstants.TEMPLATE_SEPARATOR)) {
+
+			return true;
+		}
+
+		return false;
+	}
+
+	private static  Log _log = LogFactoryUtil.getLog(
 		DDMTemplateResourceParser.class);
 
 }
