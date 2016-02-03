@@ -576,8 +576,9 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 
 		try {
 			if (checkOwnerPermission) {
-				value = Boolean.valueOf(hasOwnerPermission(
-					getCompanyId(), name, primKey, getUserId(), actionId));
+				value = Boolean.valueOf(
+					hasOwnerPermission(
+						getCompanyId(), name, primKey, getUserId(), actionId));
 			}
 
 			if ((value == null) || !value) {
