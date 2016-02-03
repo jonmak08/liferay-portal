@@ -131,7 +131,6 @@ public class VerifyPostgreSQL extends VerifyProcess {
 
 		Connection con = null;
 		PreparedStatement ps = null;
-		ResultSet rs = null;
 
 		for (Map.Entry<String, String> column : oidColumnNames.entrySet()) {
 			String tableName = column.getKey();
