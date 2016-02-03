@@ -134,7 +134,7 @@ if (Validator.isNotNull(content)) {
 
 		if (ddmStructure == null) {
 			if (contentDoc.getRootElement().element("static-content") == null) {
-				content = "";
+				content = StringPool.BLANK;
 			}
 			else {
 				content = contentDoc.getRootElement().element("static-content").getText();
