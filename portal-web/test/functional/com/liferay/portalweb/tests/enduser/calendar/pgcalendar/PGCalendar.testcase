@@ -511,54 +511,6 @@
 		</execute>
 	</command>
 
-	<command name="AddCalendarEventRegularCommentToCurrentSiteCalendarsAndExport" priority="5">
-		<execute macro="Page#gotoPG">
-			<var name="pageName" value="Calendar Page" />
-		</execute>
-
-		<execute macro="Calendar#enableComments">
-			<var name="calendarName" value="Liferay" />
-			<var name="calendarType" value="Current Site Calendars" />
-			<var name="site" value="Liferay" />
-			<var name="user" value="Test Test" />
-		</execute>
-
-		<execute macro="Page#gotoPG">
-			<var name="pageName" value="Calendar Page" />
-		</execute>
-
-		<execute macro="CalendarNavigator#gotoAddEvent" />
-
-		<execute macro="CalendarEvent#add">
-			<var name="calendarName" value="Liferay" />
-			<var name="eventComment" value="Calendar Event Regular Comment" />
-			<var name="eventCommentEnabled" value="true" />
-			<var name="eventTitle" value="Calendar Event Regular Title" />
-			<var name="eventType" value="Regular" />
-			<var name="pageName" value="Calendar Page" />
-			<var name="site" value="Liferay" />
-			<var name="user" value="Test Test" />
-		</execute>
-
-		<execute macro="Page#gotoPG">
-			<var name="pageName" value="Calendar Page" />
-		</execute>
-
-		<execute macro="CalendarEvent#viewComment">
-			<var name="calendarName" value="Liferay" />
-			<var name="eventComment" value="Calendar Event Regular Comment" />
-			<var name="eventTitle" value="Calendar Event Regular Title" />
-			<var name="eventType" value="Regular" />
-			<var name="site" value="Liferay" />
-			<var name="user" value="Test Test" />
-		</execute>
-
-		<execute macro="LAR#exportPortlet">
-			<var name="larFileName" value="calendar_calendar_with_comments.portlet.lar" />
-			<var name="portletName" value="Calendar" />
-		</execute>
-	</command>
-
 	<command name="AddCalendarEventRegularRSVPYes" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Calendar Page" />
@@ -3023,7 +2975,53 @@
 		</execute>
 	</command>
 
-	<command known-issues="LRQA-15650" name="ImportCalendarAndViewCalendarEventRegularComment" priority="5">
+	<command name="ImportCalendarAndViewCalendarEventRegularComment" priority="5">
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Calendar Page" />
+		</execute>
+
+		<execute macro="Calendar#enableComments">
+			<var name="calendarName" value="Liferay" />
+			<var name="calendarType" value="Current Site Calendars" />
+			<var name="site" value="Liferay" />
+			<var name="user" value="Test Test" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Calendar Page" />
+		</execute>
+
+		<execute macro="CalendarNavigator#gotoAddEvent" />
+
+		<execute macro="CalendarEvent#add">
+			<var name="calendarName" value="Liferay" />
+			<var name="eventComment" value="Calendar Event Regular Comment" />
+			<var name="eventCommentEnabled" value="true" />
+			<var name="eventTitle" value="Calendar Event Regular Title" />
+			<var name="eventType" value="Regular" />
+			<var name="pageName" value="Calendar Page" />
+			<var name="site" value="Liferay" />
+			<var name="user" value="Test Test" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Calendar Page" />
+		</execute>
+
+		<execute macro="CalendarEvent#viewComment">
+			<var name="calendarName" value="Liferay" />
+			<var name="eventComment" value="Calendar Event Regular Comment" />
+			<var name="eventTitle" value="Calendar Event Regular Title" />
+			<var name="eventType" value="Regular" />
+			<var name="site" value="Liferay" />
+			<var name="user" value="Test Test" />
+		</execute>
+
+		<execute macro="LAR#exportPortlet">
+			<var name="larFileName" value="calendar_calendar_with_comments.portlet.lar" />
+			<var name="portletName" value="Calendar" />
+		</execute>
+
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Calendar Page" />
 		</execute>
@@ -3038,7 +3036,7 @@
 		</execute>
 
 		<execute macro="CalendarEvent#viewComment">
-			<var name="calendarName" value="Liferay - Guest" />
+			<var name="calendarName" value="Liferay" />
 			<var name="eventComment" value="Calendar Event Regular Comment" />
 			<var name="eventTitle" value="Calendar Event Regular Title" />
 			<var name="eventType" value="Regular" />
