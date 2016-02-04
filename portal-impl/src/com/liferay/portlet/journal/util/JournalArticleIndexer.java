@@ -511,7 +511,12 @@ public class JournalArticleIndexer extends BaseIndexer {
 		portletURL.setParameter("articleId", articleId);
 		portletURL.setParameter("version", version);
 
-		return new Summary(snippetLocale, title, content, portletURL);
+		Summary summary = new Summary(
+			snippetLocale, title, content, portletURL);
+
+		summary.setMaxContentLength(200);
+
+		return summary;
 	}
 
 	public void doReindex(JournalArticle article, boolean allVersions)
