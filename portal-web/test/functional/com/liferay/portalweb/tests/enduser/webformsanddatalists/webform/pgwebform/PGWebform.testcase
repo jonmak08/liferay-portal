@@ -238,7 +238,7 @@
 		<execute function="AssertTextEquals" locator1="xpath=(//div/label[contains(@for,'webformportlet')])[2]" value1="Test 2" />
 		<execute function="AssertElementPresent" locator1="xpath=(//fieldset/div/div[contains(@class,'control')]/input[@type='text'])[2]" />
 		<execute function="AssertTextEquals" locator1="xpath=(//div/label[contains(@for,'webformportlet')])[3]" value1="Rate Us!" />
-		<execute function="AssertElementPresent" locator1="//label[@class='checkbox']/input[@type='checkbox']" />
+		<execute function="AssertElementPresent" locator1="//div[contains(@class,'checkbox')]//input[@type='checkbox']" />
 		<execute function="AssertTextEquals" locator1="xpath=(//div/label[contains(@for,'webformportlet')])[4]" value1="Additional Comments" />
 		<execute function="AssertElementPresent" locator1="//fieldset/div/div[contains(@class,'control')]/textarea" />
 	</command>
