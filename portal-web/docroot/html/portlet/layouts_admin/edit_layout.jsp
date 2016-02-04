@@ -119,6 +119,7 @@ boolean showAddAction = ParamUtil.getBoolean(request, "showAddAction", true);
 	</div>
 </c:if>
 
+<c:if test="<%= !group.isLayoutPrototype() && (selLayout != null) %>">
 <aui:nav-bar>
 	<aui:nav id="layoutsNav">
 		<c:if test="<%= LayoutPermissionUtil.contains(permissionChecker, selPlid, ActionKeys.ADD_LAYOUT) && showAddAction && PortalUtil.isLayoutParentable(selLayout) %>">
@@ -135,6 +136,7 @@ boolean showAddAction = ParamUtil.getBoolean(request, "showAddAction", true);
 		</c:if>
 	</aui:nav>
 </aui:nav-bar>
+</c:if>
 
 <portlet:actionURL var="editLayoutURL">
 	<portlet:param name="struts_action" value="/layouts_admin/edit_layouts" />
