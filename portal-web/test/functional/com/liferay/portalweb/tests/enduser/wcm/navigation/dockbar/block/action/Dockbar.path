@@ -131,7 +131,7 @@
 <!--ADD_PAGE_TYPE-->
 <tr>
 	<td>ADD_PAGE_TYPE_RADIO</td>
-	<td>//label[@class='radio' and contains(.,'${key_pageType}')]</td>
+	<td>//div[contains(@class,'radio')]/label[contains(.,'${key_pageType}')]</td>
 	<td></td>
 </tr>
 <tr>
