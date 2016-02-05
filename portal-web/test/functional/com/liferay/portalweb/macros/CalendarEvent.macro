@@ -1275,6 +1275,23 @@
 		<execute function="Check" locator1="PGCalendarAddevent#REPEAT_CHECKBOX" />
 	</command>
 
+	<command name="setRepeatingYearly">
+		<execute macro="CalendarEvent#gotoRepeatConfiguration" />
+
+		<execute macro="CalendarEvent#selectRepeatFrequency">
+			<var name="frequency" value="Yearly" />
+		</execute>
+
+		<execute function="AssertSelectedLabel" locator1="PGCalendarAddevent#REPEAT_REPEAT_EVERY_DROPDOWN" value1="1" />
+		<execute function="Click" locator1="PGCalendarAddevent#REPEAT_REPEAT_ON_DAY_OF_THE_WEEK_RADIO" />
+		<execute function="Pause" value1="1000" />
+		<execute function="Click" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" />
+		<execute function="Pause" value1="1000" />
+		<execute function="AssertTextEquals" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${yearlyRecurrenceSummary}" />
+		<execute function="AssertClick" locator1="PGCalendarAddevent#REPEAT_DONE_BUTTON" value1="Done" />
+		<execute function="Check" locator1="PGCalendarAddevent#REPEAT_CHECKBOX" />
+	</command>	
+
 	<command name="setTimes">
 		<execute function="Type" locator1="PGCalendarAddevent#START_DATE_TIME" value1="${startDateTime}" />
 		<execute function="Type" locator1="PGCalendarAddevent#END_DATE_TIME" value1="${endDateTime}" />
