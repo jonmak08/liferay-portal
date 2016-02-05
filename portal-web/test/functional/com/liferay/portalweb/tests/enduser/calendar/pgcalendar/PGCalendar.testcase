@@ -1050,9 +1050,6 @@
 
 		<execute macro="CalendarEvent#setRepeating">
 			<var name="frequency" value="Yearly" />
-			<var name="month" value="February" />
-			<var name="position" value="First" />
-			<var name="weekday" value="Tuesday" />
 		</execute>
 
 		<execute macro="CalendarEvent#save" />

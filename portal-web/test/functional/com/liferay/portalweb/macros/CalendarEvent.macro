@@ -245,10 +245,7 @@
 
 					<execute macro="CalendarEvent#setRepeating">
 						<var name="frequency" value="${frequency}" />
-						<var name="month" value="${month}" />
 						<var name="numberOfOccurrences" value="${numberOfOccurrences}" />
-						<var name="position" value="${position}" />
-						<var name="weekday" value="${weekday}" />
 					</execute>
 
 					<execute macro="CalendarEvent#selectCalendar">
