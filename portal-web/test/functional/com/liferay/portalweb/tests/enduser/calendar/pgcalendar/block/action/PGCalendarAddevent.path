@@ -179,6 +179,16 @@
 	<td></td>
 </tr>
 <tr>
+	<td>REPEAT_MONTHLY_CURRENT_DAY</td>
+	<td>//td[contains(@class,'calendar-recurrence-month-radio')]//input[contains(@id,'calendarportlet_weekday') and @type='hidden']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REPEAT_WEEKLY_CURRENT_DAY</td>
+	<td>//td[contains(@class,'calendar-recurrence-weekday-checkbox')]//input[@disabled='']</td>
+	<td></td>
+</tr>
+<tr>
 	<td></td>
 	<td></td>
 	<td></td>
