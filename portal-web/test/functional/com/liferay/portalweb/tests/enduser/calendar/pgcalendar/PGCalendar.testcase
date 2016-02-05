@@ -797,32 +797,6 @@
 		</execute>
 	</command>
 
-	<command name="AddCalendarEventRepeatingMonthlyThirdWednesday2Times" priority="5">
-		<execute macro="Page#gotoPG">
-			<var name="pageName" value="Calendar Page" />
-		</execute>
-
-		<execute macro="CalendarNavigator#gotoAddEvent" />
-
-		<execute macro="CalendarEvent#add">
-			<var name="eventTitle" value="Calendar Event Repeating Title" />
-			<var name="eventType" value="Repeating" />
-			<var name="frequency" value="Monthly" />
-			<var name="numberOfOccurrences" value="2" />
-			<var name="pageName" value="Calendar Page" />
-			<var name="position" value="Third" />
-			<var name="weekday" value="Wednesday" />
-		</execute>
-
-		<execute macro="Page#gotoPG">
-			<var name="pageName" value="Calendar Page" />
-		</execute>
-
-		<execute macro="CalendarEvent#view">
-			<var name="eventTitle" value="Calendar Event Repeating Title" />
-		</execute>
-	</command>
-
 	<command name="AddCalendarEventRepeatingRSVPYes" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Calendar Page" />
