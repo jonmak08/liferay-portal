@@ -1200,42 +1200,6 @@
 		<execute function="Pause" value1="1000" />
 
 		<if>
-			<equals arg1="${frequency}" arg2="Monthly" />
-			<then>
-				<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${frequency}" />
-
-				<var locator="PGCalendarAddevent#REPEAT_MONTHLY_CURRENT_DAY" name="currentDay" />
-				<var method="StringUtil#lowerCase('${currentDay}')" name="currentDay" />
-				<var method="StringUtil#upperCaseFirstLetter('${currentDay}')" name="currentDay" />
-
-				<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${currentDay}" />
-				<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${numberOfOccurrences} Times" />
-
-				<execute macro="CalendarEvent#viewRepeatingMonthPosition" />
-			</then>
-			<elseif>
-				<equals arg1="${frequency}" arg2="Weekly" />
-				<then>
-					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${frequency}" />
-
-					<var locator="PGCalendarAddevent#REPEAT_WEEKLY_CURRENT_DAY" name="currentDay" />
-					<var method="StringUtil#lowerCase('${currentDay}')" name="currentDay" />
-					<var method="StringUtil#upperCaseFirstLetter('${currentDay}')" name="currentDay" />
-
-					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${currentDay}" />"
-					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${numberOfOccurrences} Times" />"
-				</then>
-			</elseif>
-			<elseif>
-			<isset var="numberOfOccurrences" />
-				<then>
-					<execute function="AssertTextEquals" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${frequency}, ${numberOfOccurrences} Times" />
-					<execute function="AssertTextEquals" locator1="PGCalendarAddevent#REPEAT_SUMMARY_1" value1="${frequency}, ${numberOfOccurrences} Times" />
-				</then>
-			</elseif>
-		</if>
-
-		<if>
 			<and>
 				<isset var="position" />
 				<isset var="month" />
@@ -1259,6 +1223,34 @@
 				<then>
 					<execute function="AssertTextEquals" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${frequency} On ${position} ${weekday}" />
 					<execute function="AssertTextEquals" locator1="PGCalendarAddevent#REPEAT_SUMMARY_1" value1="${frequency} On ${position} ${weekday}" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${frequency}" arg2="Monthly" />
+				<then>
+					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${frequency}" />
+
+					<var locator="PGCalendarAddevent#REPEAT_MONTHLY_CURRENT_DAY" name="currentDay" />
+					<var method="StringUtil#lowerCase('${currentDay}')" name="currentDay" />
+					<var method="StringUtil#upperCaseFirstLetter('${currentDay}')" name="currentDay" />
+
+					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${currentDay}" />
+					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${numberOfOccurrences} Times" />
+
+					<execute macro="CalendarEvent#viewRepeatingMonthPosition" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${frequency}" arg2="Weekly" />
+				<then>
+					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${frequency}" />
+
+					<var locator="PGCalendarAddevent#REPEAT_WEEKLY_CURRENT_DAY" name="currentDay" />
+					<var method="StringUtil#lowerCase('${currentDay}')" name="currentDay" />
+					<var method="StringUtil#upperCaseFirstLetter('${currentDay}')" name="currentDay" />
+
+					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${currentDay}" />"
+					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${numberOfOccurrences} Times" />"
 				</then>
 			</elseif>
 			<elseif>
@@ -1290,7 +1282,7 @@
 		<execute function="AssertTextEquals" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${yearlyRecurrenceSummary}" />
 		<execute function="AssertClick" locator1="PGCalendarAddevent#REPEAT_DONE_BUTTON" value1="Done" />
 		<execute function="Check" locator1="PGCalendarAddevent#REPEAT_CHECKBOX" />
-	</command>	
+	</command>
 
 	<command name="setTimes">
 		<execute function="Type" locator1="PGCalendarAddevent#START_DATE_TIME" value1="${startDateTime}" />
