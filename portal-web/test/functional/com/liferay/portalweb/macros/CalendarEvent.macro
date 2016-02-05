@@ -1210,6 +1210,8 @@
 
 				<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${currentDay}" />
 				<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${numberOfOccurrences} Times" />
+
+				<execute macro="CalendarEvent#viewRepeatingMonthPosition" />
 			</then>
 			<elseif>
 				<equals arg1="${frequency}" arg2="Weekly" />
@@ -1505,6 +1507,41 @@
 
 			<execute function="AssertElementNotPresent" locator1="PGCalendarAddevent#INVITATIONS_INVITE_RESOURCE_FIELD_LIST" />
 		</for>
+	</command>
+
+	<command name="viewRepeatingMonthPosition">
+		<var locator="PGCalendarAddevent#REPEAT_MONTHLY_CURRENT_MONTH_POSITION" name="repeatingMonthPosition" />
+
+		<if>
+			<equals arg1="${repeatingMonthPosition}" arg2="1" />
+			<then>
+				<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="First" />
+			</then>
+			<elseif>
+				<equals arg1="${repeatingMonthPosition}" arg2="2" />
+				<then>
+					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="Second" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${repeatingMonthPosition}" arg2="3" />
+				<then>
+					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="Third" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${repeatingMonthPosition}" arg2="4" />
+				<then>
+					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="Fourth" />
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${repeatingMonthPosition}" arg2="-1" />
+				<then>
+					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="Last" />
+				</then>
+			</elseif>
+		</if>
 	</command>
 
 	<command name="viewRepeatWeekStartDay">
