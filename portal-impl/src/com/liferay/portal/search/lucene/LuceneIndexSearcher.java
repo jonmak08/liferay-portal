@@ -69,7 +69,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -535,11 +534,13 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 	}
 
 	protected String getSnippet(
-			org.apache.lucene.document.Document doc, Query query, String field,
-			Locale locale, Document hitDoc, Set<String> matchingTerms)
+			org.apache.lucene.document.Document doc, Query query,
+			QueryConfig queryConfig, String field, Document hitDoc,
+			Set<String> matchingTerms)
 		throws IOException {
 
-		String snippetField = DocumentImpl.getLocalizedName(locale, field);
+		String snippetField = DocumentImpl.getLocalizedName(
+			queryConfig.getLocale(), field);
 		String snippet = null;
 
 		try {
@@ -555,6 +556,8 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 			if (ArrayUtil.isNotEmpty(values)) {
 				snippet = LuceneHelperUtil.getSnippet(
 					luceneQuery, snippetField, StringUtil.merge(values),
+					queryConfig.getHighlightSnippetSize(),
+					queryConfig.getHighlightFragmentSize(), "...",
 					termCollectingFormatter);
 			}
 
@@ -569,6 +572,8 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 
 				snippet = LuceneHelperUtil.getSnippet(
 					luceneQuery, field, StringUtil.merge(values),
+					queryConfig.getHighlightSnippetSize(),
+					queryConfig.getHighlightFragmentSize(), "...",
 					termCollectingFormatter);
 			}
 
@@ -650,19 +655,19 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 			Document subsetDocument = getDocument(document);
 
 			getSnippet(
-				document, query, Field.ASSET_CATEGORY_TITLES,
-				queryConfig.getLocale(), subsetDocument, queryTerms);
+				document, query, queryConfig, Field.ASSET_CATEGORY_TITLES,
+				subsetDocument, queryTerms);
 
 			if (queryConfig.isHighlightEnabled()) {
 				getSnippet(
-					document, query, Field.CONTENT, queryConfig.getLocale(),
+					document, query, queryConfig, Field.CONTENT, subsetDocument,
+					queryTerms);
+				getSnippet(
+					document, query, queryConfig, Field.DESCRIPTION,
 					subsetDocument, queryTerms);
 				getSnippet(
-					document, query, Field.DESCRIPTION, queryConfig.getLocale(),
-					subsetDocument, queryTerms);
-				getSnippet(
-					document, query, Field.TITLE, queryConfig.getLocale(),
-					subsetDocument, queryTerms);
+					document, query, queryConfig, Field.TITLE, subsetDocument,
+					queryTerms);
 			}
 
 			subsetDocs.add(subsetDocument);
