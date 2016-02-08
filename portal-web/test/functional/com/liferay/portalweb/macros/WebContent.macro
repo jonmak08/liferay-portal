@@ -618,6 +618,12 @@
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGWebcontentsearchResults#RESULTS_TABLE_CONTENT" value1="${webContentSearchResultsContent}" />
 	</command>
 
+	<command name="subscribeCP">
+		<execute function="Click" locator1="CPWebcontent#FILTER_HOME_ARROW" />
+		<execute function="AssertClick" locator1="CPWebcontent#HOME_MENULIST_SUBSCRIBE" value1="Subscribe" />
+		<execute function="AssertTextEquals#assertText" locator1="CPWebcontent#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+	</command>
+
 	<command name="tearDownCP">
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
