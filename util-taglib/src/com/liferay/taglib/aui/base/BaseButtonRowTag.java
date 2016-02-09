@@ -55,13 +55,10 @@ public class BaseButtonRowTag extends com.liferay.taglib.util.IncludeTag {
 
 	@Override
 	protected void cleanUp() {
+		super.cleanUp();
+
 		_cssClass = null;
 		_id = null;
-	}
-
-	@Override
-	protected String getEndPage() {
-		return _END_PAGE;
 	}
 
 	@Override
@@ -76,9 +73,6 @@ public class BaseButtonRowTag extends com.liferay.taglib.util.IncludeTag {
 	}
 
 	protected static final String _ATTRIBUTE_NAMESPACE = "aui:button-row:";
-
-	private static final String _END_PAGE =
-		"/html/taglib/aui/button_row/end.jsp";
 
 	private static final String _START_PAGE =
 		"/html/taglib/aui/button_row/start.jsp";

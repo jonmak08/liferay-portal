@@ -75,6 +75,8 @@ public class BasePanelTag extends com.liferay.taglib.util.IncludeTag {
 
 	@Override
 	protected void cleanUp() {
+		super.cleanUp();
+
 		_collapsed = false;
 		_collapsible = false;
 		_id = null;

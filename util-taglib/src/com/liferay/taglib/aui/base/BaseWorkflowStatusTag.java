@@ -125,6 +125,8 @@ public class BaseWorkflowStatusTag extends com.liferay.taglib.util.IncludeTag {
 
 	@Override
 	protected void cleanUp() {
+		super.cleanUp();
+
 		_bean = null;
 		_helpMessage = null;
 		_id = null;

@@ -40,6 +40,8 @@ public class BaseScriptTag extends com.liferay.taglib.util.PositionTagSupport {
 
 	@Override
 	protected void cleanUp() {
+		super.cleanUp();
+
 		_use = null;
 	}
 

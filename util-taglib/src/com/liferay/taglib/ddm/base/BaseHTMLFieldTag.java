@@ -102,6 +102,8 @@ public class BaseHTMLFieldTag extends com.liferay.taglib.util.IncludeTag {
 
 	@Override
 	protected void cleanUp() {
+		super.cleanUp();
+
 		_classNameId = 0;
 		_classPK = 0;
 		_field = null;

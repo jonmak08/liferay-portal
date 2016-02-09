@@ -1136,6 +1136,8 @@ public class BaseButtonItemTag extends com.liferay.taglib.util.IncludeTag {
 
 	@Override
 	protected void cleanUp() {
+		super.cleanUp();
+
 		_activeState = false;
 		_boundingBox = null;
 		_classNames = null;

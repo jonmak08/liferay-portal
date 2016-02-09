@@ -125,6 +125,8 @@ public class BaseFormTag extends com.liferay.taglib.util.IncludeTag {
 
 	@Override
 	protected void cleanUp() {
+		super.cleanUp();
+
 		_action = null;
 		_cssClass = null;
 		_escapeXml = true;
