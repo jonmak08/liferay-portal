@@ -421,6 +421,7 @@ public class JournalConverterImpl implements JournalConverter {
 		throws Exception {
 
 		String name = dynamicElementElement.attributeValue("name");
+		String index = dynamicElementElement.attributeValue("index");
 		String instanceId = dynamicElementElement.attributeValue("instance-id");
 
 		if (!ddmStructure.hasField(name)) {
@@ -446,7 +447,7 @@ public class JournalConverterImpl implements JournalConverter {
 			}
 		}
 
-		updateFieldsDisplay(ddmFields, name, instanceId);
+		updateFieldsDisplay(ddmFields, name, index, instanceId);
 
 		List<Element> childrenDynamicElementElements =
 			dynamicElementElement.elements("dynamic-element");
@@ -1061,10 +1062,10 @@ public class JournalConverterImpl implements JournalConverter {
 	}
 
 	protected void updateFieldsDisplay(
-		Fields ddmFields, String fieldName, String instanceId) {
+		Fields ddmFields, String fieldName, String index, String instanceId) {
 
 		if (Validator.isNull(instanceId)) {
-			instanceId = StringUtil.randomString();
+			instanceId = fieldName.concat(GetterUtil.getString(index));
 		}
 
 		String fieldsDisplayValue = fieldName.concat(
