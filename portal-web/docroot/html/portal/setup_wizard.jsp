@@ -92,6 +92,7 @@
 
 									<aui:button cssClass="change-language" name="changeLanguageButton" value="change" />
 								</aui:field-wrapper>
+
 								<aui:input name="addSampleData" type="checkbox" value="<%= true %>" />
 							</aui:fieldset>
 
