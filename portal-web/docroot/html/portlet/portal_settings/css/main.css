@@ -16,3 +16,9 @@
 		}
 	}
 }
+
+.firefox {
+	.portlet-users-admin .input-container, .select-logo-container {
+		display: table-cell;
+	}
+}
