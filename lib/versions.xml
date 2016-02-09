@@ -848,6 +848,18 @@
 				</licenses>
 			</library>
 			<library>
+				<file-name>lib/development/testng.jar</file-name>
+				<version>6.3.1</version>
+				<project-name>TestNG</project-name>
+				<project-url>http://testng.org</project-url>
+				<licenses>
+					<license>
+						<license-name>Apache License 2.0</license-name>
+						<license-url>http://www.apache.org/licenses/LICENSE-2.0</license-url>
+					</license>
+				</licenses>
+			</library>
+			<library>
 				<file-name>lib/development/tlddoc.jar</file-name>
 				<version>1.3</version>
 				<project-name>Tag Library Documentation Generator</project-name>
