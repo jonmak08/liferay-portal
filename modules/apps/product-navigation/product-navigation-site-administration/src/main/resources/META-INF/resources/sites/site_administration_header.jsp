@@ -54,10 +54,9 @@ PanelCategory panelCategory = siteAdministrationPanelCategoryDisplayContext.getP
 			{
 				align: {
 					node: '#<portlet:namespace /><%= AUIUtil.normalizeId(panelCategory.getKey()) %>Toggler',
-					points: [A.WidgetPositionAlign.LT, A.WidgetPositionAlign.RT]
+					points: [A.WidgetPositionAlign.TL, A.WidgetPositionAlign.TR]
 				},
 				bodyContent: A.one('#<portlet:namespace/>siteSelectorContent'),
-				constrain: true,
 				cssClass: 'product-menu',
 				hideOn: [
 					{

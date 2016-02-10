@@ -373,3 +373,11 @@ body.open .toast-animation {
 		width: 19px;
 	}
 }
+
+/* Popover */
+
+.product-menu {
+	&.popover.right > .arrow {
+		top: 26px;
+	}
+}
