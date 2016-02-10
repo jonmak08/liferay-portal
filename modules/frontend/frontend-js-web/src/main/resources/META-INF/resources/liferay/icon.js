@@ -5,27 +5,26 @@ AUI.add(
 			register: function(config) {
 				var instance = this;
 
-				var icon = A.one('#' + config.id);
+				var doc = A.getDoc();
+				var id = '#' + config.id;
 
 				var forcePost = config.forcePost;
 				var src = config.src;
 				var srcHover = config.srcHover;
 				var useDialog = config.useDialog;
 
-				if (icon) {
-					if (srcHover) {
-						instance._onMouseOver = A.rbind('_onMouseHover', instance, srcHover);
-						instance._onMouseOut = A.rbind('_onMouseHover', instance, src);
+				if (srcHover) {
+					instance._onMouseOver = A.rbind('_onMouseHover', instance, srcHover);
+					instance._onMouseOut = A.rbind('_onMouseHover', instance, src);
 
-						icon.hover(instance._onMouseOver, instance._onMouseOut);
-					}
+					doc.delegate('hover', instance._onMouseOver, instance._onMouseOut, id);
+				}
 
-					if (useDialog) {
-						icon.on('click', instance._useDialog, instance);
-					}
-					else if (forcePost) {
-						icon.on('click', instance._forcePost, instance);
-					}
+				if (useDialog) {
+					doc.delegate('click', instance._useDialog, id);
+				}
+				else if (forcePost) {
+					doc.delegate('click', instance._forcePost, id);
 				}
 			},
 
