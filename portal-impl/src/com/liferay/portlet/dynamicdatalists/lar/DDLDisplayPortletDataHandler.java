@@ -27,6 +27,7 @@ import com.liferay.portlet.dynamicdatalists.model.DDLRecordSet;
 import com.liferay.portlet.dynamicdatalists.service.DDLRecordSetLocalServiceUtil;
 import com.liferay.portlet.dynamicdatalists.service.permission.DDLPermission;
 import com.liferay.portlet.dynamicdatamapping.model.DDMTemplate;
+import com.liferay.portlet.dynamicdatamapping.service.DDMTemplateLocalServiceUtil;
 
 import java.util.Map;
 
@@ -85,12 +86,22 @@ public class DDLDisplayPortletDataHandler extends DDLPortletDataHandler {
 		DDLRecordSet recordSet = DDLRecordSetLocalServiceUtil.fetchRecordSet(
 			recordSetId);
 
-		if (recordSet == null) {
-			return portletPreferences;
+		if (recordSet != null) {
+			StagedModelDataHandlerUtil.exportReferenceStagedModel(
+				portletDataContext, portletId, recordSet);
 		}
 
-		StagedModelDataHandlerUtil.exportReferenceStagedModel(
-			portletDataContext, portletId, recordSet);
+		long displayDDMTemplateId = GetterUtil.getLong(
+			portletPreferences.getValue("displayDDMTemplateId", null));
+
+		exportReferenceDDMTemplate(
+			displayDDMTemplateId, portletDataContext, portletId);
+
+		long formDDMTemplateId = GetterUtil.getLong(
+			portletPreferences.getValue("formDDMTemplateId", null));
+
+		exportReferenceDDMTemplate(
+			formDDMTemplateId, portletDataContext, portletId);
 
 		return portletPreferences;
 	}
@@ -139,6 +150,22 @@ public class DDLDisplayPortletDataHandler extends DDLPortletDataHandler {
 			"formDDMTemplateId", String.valueOf(formDDMTemplateId));
 
 		return portletPreferences;
+	}
+
+	private void exportReferenceDDMTemplate(
+			long ddmTemplateId, PortletDataContext portletDataContext,
+			String portletId)
+		throws Exception {
+
+		if (ddmTemplateId!= 0) {
+			DDMTemplate ddmTemplate =
+				DDMTemplateLocalServiceUtil.fetchDDMTemplate(ddmTemplateId);
+
+			if (ddmTemplate != null) {
+				StagedModelDataHandlerUtil.exportReferenceStagedModel(
+					portletDataContext, portletId, ddmTemplate);
+			}
+		}
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(
