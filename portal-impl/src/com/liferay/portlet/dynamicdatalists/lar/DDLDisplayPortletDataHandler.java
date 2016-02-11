@@ -73,7 +73,7 @@ public class DDLDisplayPortletDataHandler extends DDLPortletDataHandler {
 		portletDataContext.addPortletPermissions(DDLPermission.RESOURCE_NAME);
 
 		long recordSetId = GetterUtil.getLong(
-			portletPreferences.getValue("recordSetId", null), 0);
+			portletPreferences.getValue("recordSetId", null));
 
 		if (recordSetId == 0) {
 			if (_log.isDebugEnabled()) {
@@ -157,7 +157,7 @@ public class DDLDisplayPortletDataHandler extends DDLPortletDataHandler {
 			String portletId)
 		throws Exception {
 
-		if (ddmTemplateId!= 0) {
+		if (ddmTemplateId != 0) {
 			DDMTemplate ddmTemplate =
 				DDMTemplateLocalServiceUtil.fetchDDMTemplate(ddmTemplateId);
 
