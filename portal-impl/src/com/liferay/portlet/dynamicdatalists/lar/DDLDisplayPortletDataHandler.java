@@ -118,6 +118,9 @@ public class DDLDisplayPortletDataHandler extends DDLPortletDataHandler {
 		StagedModelDataHandlerUtil.importReferenceStagedModels(
 			portletDataContext, DDLRecordSet.class);
 
+		StagedModelDataHandlerUtil.importReferenceStagedModels(
+			portletDataContext, DDMTemplate.class);
+
 		long importedRecordSetId = GetterUtil.getLong(
 			portletPreferences.getValue("recordSetId", null));
 
