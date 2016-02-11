@@ -1064,14 +1064,15 @@ mysql.executable=${mysql.executable}]]></echo>
 		</sequential>
 	</macrodef>
 
-	<target name="functional-glassfish-postgresql">
+	<target name="functional-glassfish3-postgresql94-jdk7">
 		<run-functional-test app.server.type="glassfish" database.type="postgresql" />
 	</target>
 
-	<target name="functional-bundle-glassfish-mysql">
+	<target name="functional-bundle-glassfish-mysql55-jdk7">
 		<run-functional-test
 			app.server.type="glassfish"
 			database.type="mysql"
+			database.version="5.5"
 			test.license.xml.url="${test.license.xml.url}"
 			test.plugin.zip.url="${test.plugin.zip.url}"
 			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
@@ -1079,10 +1080,11 @@ mysql.executable=${mysql.executable}]]></echo>
 		/>
 	</target>
 
-	<target name="functional-bundle-jboss-mysql">
+	<target name="functional-bundle-jboss-mysql55-jdk7">
 		<run-functional-test
 			app.server.type="jboss"
 			database.type="mysql"
+			database.version="5.5"
 			test.license.xml.url="${test.license.xml.url}"
 			test.plugin.zip.url="${test.plugin.zip.url}"
 			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
@@ -1090,12 +1092,13 @@ mysql.executable=${mysql.executable}]]></echo>
 		/>
 	</target>
 
-	<target name="functional-bundle-tomcat-mysql">
+	<target name="functional-bundle-tomcat-mysql55-jdk7">
 		<set-tomcat-version-number liferay.portal.bundle="${test.portal.bundle.version}" />
 
 		<run-functional-test
 			app.server.type="tomcat"
 			database.type="mysql"
+			database.version="5.5"
 			test.license.xml.url="${test.license.xml.url}"
 			test.plugin.zip.url="${test.plugin.zip.url}"
 			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
@@ -1103,31 +1106,31 @@ mysql.executable=${mysql.executable}]]></echo>
 		/>
 	</target>
 
-	<target name="functional-tomcat-hypersonic">
+	<target name="functional-tomcat-hypersonic20-jdk7">
 		<run-functional-test app.server.type="tomcat" database.type="hypersonic" />
 	</target>
 
-	<target name="functional-tomcat-mysql">
-		<run-functional-test app.server.type="tomcat" database.type="mysql" />
-	</target>
-
-	<target name="functional-tomcat-mysql55">
+	<target name="functional-tomcat7-mysql55-jdk7">
 		<run-functional-test app.server.type="tomcat" database.type="mysql" database.version="5.5" />
 	</target>
 
-	<target name="integration-mysql">
-		<run-integration-test database.type="mysql" />
+	<target name="functional-tomcat7-mysql56-jdk7">
+		<run-functional-test app.server.type="tomcat" database.type="mysql" />
 	</target>
 
-	<target name="integration-oracle">
+	<target name="integration-mysql55-jdk7">
+		<run-integration-test database.type="mysql" database.version="5.5" />
+	</target>
+
+	<target name="integration-oracle12-jdk7">
 		<run-integration-test database.type="oracle" />
 	</target>
 
-	<target name="integration-postgresql">
+	<target name="integration-postgresql94-jdk7">
 		<run-integration-test database.type="postgresql" />
 	</target>
 
-	<target name="plugins-compile">
+	<target name="plugins-compile-jdk7">
 		<property name="testray.main.component.name" value="Plugins" />
 		<property name="testray.testcase.priority" value="4" />
 
@@ -1144,29 +1147,30 @@ mysql.executable=${mysql.executable}]]></echo>
 		</run-batch-test>
 	</target>
 
-	<target name="plugins-functional-bundle-tomcat-mysql">
+	<target name="plugins-functional-bundle-tomcat-mysql55-jdk7">
 		<set-tomcat-version-number liferay.portal.bundle="${test.portal.bundle.version}" />
 
 		<run-functional-test
 			app.server.type="tomcat"
 			database.type="mysql"
+			database.version="5.5"
 			test.license.xml.url="${test.license.xml.url}"
 			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
 			test.sql.zip.url="${test.sql.zip.url}"
 		/>
 	</target>
 
-	<target name="plugins-functional-tomcat-mysql">
-		<run-functional-test app.server.type="tomcat" database.type="mysql" />
+	<target name="plugins-functional-tomcat7-mysql55-jdk7">
+		<run-functional-test app.server.type="tomcat" database.type="mysql" database.version="5.5" />
 	</target>
 
-	<target name="portal-web">
+	<target name="portal-web-jdk7">
 		<property name="testray.main.component.name" value="Portal Web" />
 		<property name="testray.testcase.priority" value="4" />
 
 		<run-batch-test>
 			<test-action>
-				<database-test-run-test database.type="mysql">
+				<database-test-run-test database.type="mysql" database.version="5.5">
 					<test-action>
 						<run-poshi-validation />
 
@@ -1186,13 +1190,13 @@ mysql.executable=${mysql.executable}]]></echo>
 		</run-batch-test>
 	</target>
 
-	<target name="tck">
+	<target name="tck-jdk7">
 		<property name="testray.main.component.name" value="TCK" />
 		<property name="testray.testcase.priority" value="4" />
 
 		<run-batch-test tomcat.gc.log="true" tsant.gc.log="true">
 			<test-action>
-				<database-test-run-test database.type="mysql" stop.app.server="true">
+				<database-test-run-test database.type="mysql" database.version="5.5" stop.app.server="true">
 					<test-action>
 						<ant antfile="build-test-tck.xml" target="record-test-tck-package-names">
 							<property name="test.class.groups.size" value="${test.batch.size}" />
@@ -1214,7 +1218,7 @@ mysql.executable=${mysql.executable}]]></echo>
 		</run-batch-test>
 	</target>
 
-	<target name="unit">
+	<target name="unit-jdk7">
 		<property name="testray.main.component.name" value="Unit" />
 		<property name="testray.testcase.priority" value="4" />
 
