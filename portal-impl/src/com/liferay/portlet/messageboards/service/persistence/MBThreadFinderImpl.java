@@ -522,6 +522,7 @@ public class MBThreadFinderImpl
 			long threadId, long groupId, long categoryId, int status,
 			OrderByComparator orderByComparator)
 		throws NoSuchThreadException, SystemException {
+
 		if (!InlineSQLHelperUtil.isEnabled(groupId)) {
 			return MBThreadUtil.findByG_C_S_PrevAndNext(
 				threadId, groupId, categoryId, status, orderByComparator);
@@ -546,6 +547,7 @@ public class MBThreadFinderImpl
 			long threadId, long groupId, long categoryId, int status,
 			OrderByComparator orderByComparator)
 		throws NoSuchThreadException, SystemException {
+
 		if (!InlineSQLHelperUtil.isEnabled(groupId)) {
 			return MBThreadUtil.findByG_C_NotS_PrevAndNext(
 				threadId, groupId, categoryId, status, orderByComparator);
@@ -1217,56 +1219,9 @@ public class MBThreadFinderImpl
 			OrderByComparator orderByComparator, boolean previous)
 		throws SystemException {
 
-		Session session = null;
-
-		try {
-			session = openSession();
-
-			String sql = CustomSQLUtil.get(FIND_BY_G_C_S_PREVANDNEXT);
-
-			sql = InlineSQLHelperUtil.replacePermissionCheck(
-				sql, MBMessage.class.getName(), "MBThread.rootMessageId",
-			groupId);
-
-			sql = appendOrderByComparator(sql, orderByComparator, previous);
-
-			SQLQuery q = session.createSQLQuery(sql);
-
-			q.setFirstResult(0);
-			q.setMaxResults(2);
-
-			q.addEntity("MBThread", MBThreadImpl.class);
-
-			QueryPos qPos = QueryPos.getInstance(q);
-
-			qPos.add(groupId);
-			qPos.add(categoryId);
-			qPos.add(status);
-
-			if (orderByComparator != null) {
-				Object[] values = orderByComparator.getOrderByConditionValues(
-					mbThread);
-
-				for (Object value : values) {
-					qPos.add(value);
-				}
-			}
-
-			List<MBThread> list = q.list();
-
-			if (list.size() == 2) {
-				return list.get(1);
-			}
-			else {
-				return null;
-			}
-		}
-		catch (Exception e) {
-			throw new SystemException(e);
-		}
-		finally {
-			closeSession(session);
-		}
+		return doFindByPrevAndNext(
+			CustomSQLUtil.get(FIND_BY_G_C_S_PREVANDNEXT), mbThread, groupId,
+			categoryId, status, orderByComparator, previous);
 	}
 
 	protected MBThread doFindByG_C_NotS_PrevAndNext(
@@ -1274,12 +1229,20 @@ public class MBThreadFinderImpl
 			OrderByComparator orderByComparator, boolean previous)
 		throws SystemException {
 
+		return doFindByPrevAndNext(
+			CustomSQLUtil.get(FIND_BY_G_C_NOTS_PREVANDNEXT), mbThread, groupId,
+			categoryId, status, orderByComparator, previous);
+	}
+
+	protected MBThread doFindByPrevAndNext(
+			String sql, MBThread mbThread, long groupId, long categoryId,
+			int status, OrderByComparator orderByComparator, boolean previous)
+		throws SystemException {
+
 		Session session = null;
 
 		try {
 			session = openSession();
-
-			String sql = CustomSQLUtil.get(FIND_BY_G_C_NOTS_PREVANDNEXT);
 
 			sql = InlineSQLHelperUtil.replacePermissionCheck(
 				sql, MBMessage.class.getName(), "MBThread.rootMessageId",
