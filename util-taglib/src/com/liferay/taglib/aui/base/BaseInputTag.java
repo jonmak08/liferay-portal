@@ -24,7 +24,7 @@ import javax.servlet.jsp.JspException;
  * @author Julio Camarero
  * @generated
  */
-public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
+public class BaseInputTag extends com.liferay.taglib.BaseValidationTagSupport {
 
 	@Override
 	public int doStartTag() throws JspException {
@@ -115,6 +115,11 @@ public class BaseInputTag extends com.liferay.taglib.util.IncludeTag {
 
 	public java.lang.String getInlineLabel() {
 		return _inlineLabel;
+	}
+
+	@Override
+	public String getInputName() {
+		return _name;
 	}
 
 	public java.lang.String getLabel() {
