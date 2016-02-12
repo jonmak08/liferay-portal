@@ -20,6 +20,7 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelHintsUtil;
 import com.liferay.portal.util.PortalUtil;
+import com.liferay.taglib.BaseValidationTagSupport;
 import com.liferay.taglib.aui.base.BaseValidatorTagImpl;
 
 import javax.servlet.http.HttpServletRequest;
@@ -76,8 +77,9 @@ public class ValidatorTagImpl
 
 	@Override
 	public int doEndTag() {
-		InputTag inputTag = (InputTag)findAncestorWithClass(
-			this, InputTag.class);
+		BaseValidationTagSupport tag =
+			(BaseValidationTagSupport)findAncestorWithClass(
+				this, BaseValidationTagSupport.class);
 
 		String name = getName();
 
@@ -86,7 +88,7 @@ public class ValidatorTagImpl
 		if (_custom) {
 			StringBundler sb = new StringBundler(3);
 
-			String namespace = inputTag.getName();
+			String namespace = tag.getInputName();
 
 			sb.append(namespace);
 
@@ -103,7 +105,7 @@ public class ValidatorTagImpl
 		ValidatorTag validatorTag = new ValidatorTagImpl(
 			name, getErrorMessage(), _body, _custom, _customValidatorRequired);
 
-		inputTag.addValidatorTag(name, validatorTag);
+		tag.addValidatorTag(name, validatorTag);
 
 		return EVAL_BODY_BUFFERED;
 	}
