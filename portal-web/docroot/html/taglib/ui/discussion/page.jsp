@@ -289,7 +289,7 @@ CommentSectionDisplayContext commentSectionDisplayContext = CommentDisplayContex
 
 				form.fm('<%= randomNamespace %><%= Constants.CMD %>').val('<%= Constants.ADD %>');
 				form.fm('parentCommentId').val(parentCommentId);
-				form.fm('body').val(editorInstance.getHTML());
+				form.fm('body').val(editorInstance.getText());
 
 				if (!themeDisplay.isSignedIn()) {
 					window.namespace = '<%= namespace %>';
@@ -394,7 +394,7 @@ CommentSectionDisplayContext commentSectionDisplayContext = CommentDisplayContex
 			function <%= randomNamespace %>showEditor(editorName, formId) {
 				window[editorName].create();
 
-				var html = window[editorName].getHTML();
+				var html = window[editorName].getText();
 
 				Liferay.Util.toggleDisabled('#' + editorName.replace('Body', 'Button'), (html === ''));
 
@@ -442,7 +442,7 @@ CommentSectionDisplayContext commentSectionDisplayContext = CommentDisplayContex
 
 				form.fm('<%= randomNamespace %><%= Constants.CMD %>').val('<%= Constants.UPDATE %>');
 				form.fm('commentId').val(commentId);
-				form.fm('body').val(editorInstance.getHTML());
+				form.fm('body').val(editorInstance.getText());
 
 				<%= namespace %>sendMessage(form);
 
