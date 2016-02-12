@@ -1177,7 +1177,7 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		MBThread previousThread = null;
 		MBThread nextThread = null;
 
-		if (message.isApproved() && includePrevAndNext) {
+		if (includePrevAndNext) {
 			ThreadLastPostDateComparator comparator =
 				new ThreadLastPostDateComparator(false);
 
