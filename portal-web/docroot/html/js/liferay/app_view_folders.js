@@ -151,9 +151,21 @@ AUI.add(
 						instance._repositoriesData = {};
 
 						var eventHandles = [
-							Liferay.after([instance._eventEntryDataRequest, instance._eventFolderDataRequest], A.bind('_afterDataRequest', instance)),
+							Liferay.after(
+								[
+									instance._eventEntryDataRequest,
+									instance._eventFolderDataRequest
+								],
+								A.bind('_afterDataRequest', instance)
+							),
 							Liferay.on(instance._dataRetrieveFailure, A.bind('_onDataRetrieveFailure', instance)),
-							Liferay.on([instance._eventEntryDataRequest, instance._eventFolderDataRequest], A.bind('_onDataRequest', instance))
+							Liferay.on(
+								[
+									instance._eventEntryDataRequest,
+									instance._eventFolderDataRequest
+								],
+								A.bind('_onDataRequest', instance)
+							)
 						];
 
 						instance._eventHandles = eventHandles;
@@ -297,18 +309,23 @@ AUI.add(
 
 						delete data[STR_AJAX_REQUEST];
 
-						var type = 'liferay-app-view-folders:afterEntryDataRequest';
+						var type;
 
 						if (event.type === instance._eventFolderDataRequest) {
 							type = 'liferay-app-view-folders:afterFolderDataRequest';
 						}
+						else if (event.type === instance._eventEntryDataRequest) {
+							type = 'liferay-app-view-folders:afterEntryDataRequest';
+						}
 
-						Liferay.fire(
-							type,
-							{
-								data: data
-							}
-						);
+						if (type) {
+							Liferay.fire(
+								type,
+								{
+									data: data
+								}
+							);
+						}
 					},
 
 					_afterListViewItemChange: function(event) {
