@@ -108,7 +108,8 @@ public class BaseDDMTestCase extends PowerMockito {
 		long ddmStructureId, String fieldName, List<Serializable> ptValues) {
 
 		return new MockField(
-			ddmStructureId, fieldName, ptValues, LocaleUtil.BRAZIL);
+			ddmStructureId, fieldName, ptValues, LocaleUtil.BRAZIL,
+			LocaleUtil.US);
 	}
 
 	protected Document createDocument(String... fieldNames) {
@@ -137,7 +138,7 @@ public class BaseDDMTestCase extends PowerMockito {
 		long ddmStructureId, String fieldName, List<Serializable> values) {
 
 		Field field = new MockField(
-			ddmStructureId, fieldName, values, LocaleUtil.US);
+			ddmStructureId, fieldName, values, LocaleUtil.US, LocaleUtil.US);
 
 		return field;
 	}
@@ -155,13 +156,26 @@ public class BaseDDMTestCase extends PowerMockito {
 	protected Field createFieldsDisplayField(
 		long ddmStructureId, String value) {
 
-		Field fieldsDisplayField = new MockField(
-			ddmStructureId, DDMImpl.FIELDS_DISPLAY_NAME,
-			createValuesList(value), LocaleUtil.US);
+		return createFieldsDisplayField(ddmStructureId, value, LocaleUtil.US);
+	}
 
-		fieldsDisplayField.setDefaultLocale(LocaleUtil.US);
+	protected Field createFieldsDisplayField(
+			long ddmStructureId, String value, Locale locale) {
 
-		return fieldsDisplayField;
+		return createFieldsDisplayField(ddmStructureId, value, locale, locale);
+	}
+
+	protected Field createFieldsDisplayField(
+			long ddmStructureId, String value, Locale locale,
+			Locale defaultLocale) {
+
+			Field fieldsDisplayField = new MockField(
+				ddmStructureId, DDMImpl.FIELDS_DISPLAY_NAME,
+				createValuesList(value), locale);
+
+			fieldsDisplayField.setDefaultLocale(defaultLocale);
+
+			return fieldsDisplayField;
 	}
 
 	protected Document createSampleDocument() {
@@ -405,7 +419,15 @@ public class BaseDDMTestCase extends PowerMockito {
 			long ddmStructureId, String name, List<Serializable> values,
 			Locale locale) {
 
-			super(ddmStructureId, name, values, locale);
+			this(ddmStructureId, name, values, locale, locale);
+		}
+
+		public MockField(
+				long ddmStructureId, String name, List<Serializable> values,
+				Locale locale, Locale defaultLocale) {
+
+				super(ddmStructureId, name, values, locale);
+				setDefaultLocale(defaultLocale);
 		}
 
 		@Override

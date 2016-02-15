@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.dynamicdatamapping.util;
 
+import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portlet.dynamicdatamapping.BaseDDMTestCase;
@@ -89,6 +90,52 @@ public class DDMImplTest extends BaseDDMTestCase {
 	}
 
 	@Test
+	public void testMergeRepeatableFieldValueRemovedPublishedContentAtBranch()
+		throws Exception {
+
+		Document document = createEmptyDocument();
+
+		DDMStructure ddmStructure = createStructure(
+			"Test Structure", document.asXML());
+
+		Field existingField = createField(
+			ddmStructure.getStructureId(), "Text1807", null);
+
+		Field existingFieldsDisplayField = createFieldsDisplayField(
+			ddmStructure.getStructureId(),
+			"Text1807_INSTANCE_swmh," +
+			"Text1807_INSTANCE_hcca," +
+			"Text1807_INSTANCE_jdso");
+
+		Fields existingFields = createFields(
+			existingField, existingFieldsDisplayField);
+
+		Field newField = createField(
+			ddmStructure.getStructureId(), "Text1807", null);
+
+		Field newFieldsDisplayField = createFieldsDisplayField(
+			ddmStructure.getStructureId(),
+			"Text1807_INSTANCE_swmh,Text1807_INSTANCE_hcca");
+
+		Fields newFields = createFields(newField, newFieldsDisplayField);
+
+		Fields mergedFields = _ddmImpl.mergeFields(newFields, existingFields);
+
+		Field fieldsDisplayField = mergedFields.get(
+			DDMImpl.FIELDS_DISPLAY_NAME);
+
+		Assert.assertNotNull(fieldsDisplayField);
+
+		String fieldsDisplayValue = (String)fieldsDisplayField.getValue();
+
+		String[] fieldsDisplayValues = StringUtil.split(fieldsDisplayValue);
+
+		testValues(
+			fieldsDisplayValues, "Text1807_INSTANCE_swmh",
+			"Text1807_INSTANCE_hcca");
+	}
+
+	@Test
 	public void testMergeFieldsWhenAddingTranslationAtBranch()
 		throws Exception {
 
@@ -111,7 +158,8 @@ public class DDMImplTest extends BaseDDMTestCase {
 
 		Field existingFieldsDisplayField = createFieldsDisplayField(
 			ddmStructure.getStructureId(),
-			"Localizable_INSTANCE_ovho,NonLocalizable_INSTANCE_zuvh");
+			"Localizable_INSTANCE_ovho,NonLocalizable_INSTANCE_zuvh",
+			LocaleUtil.US);
 
 		Fields existingFields = createFields(
 			existingLocalizableField, existingNonLocalizableField,
@@ -122,7 +170,8 @@ public class DDMImplTest extends BaseDDMTestCase {
 			createValuesList("Joao"));
 
 		Field newFieldsDisplayField = createFieldsDisplayField(
-			ddmStructure.getStructureId(), "Localizable_INSTANCE_ovho");
+			ddmStructure.getStructureId(), "Localizable_INSTANCE_ovho",
+			LocaleUtil.BRAZIL, LocaleUtil.US);
 
 		Fields newFields = createFields(
 			newLocalizedField, newFieldsDisplayField);
