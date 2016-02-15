@@ -115,6 +115,15 @@ public class I18nServletTest {
 		testGetI18nData(expectedLocale, getI18nData(expectedLocale));
 	}
 
+	@Test
+	public void testI18nUseDefaultNonexistentLocale() throws Exception {
+		PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE = true;
+
+		Locale expectedLocale = LocaleUtil.CHINA;
+
+		testGetI18nData(expectedLocale, getI18nData(expectedLocale));
+	}
+
 	protected String[] getI18nData(Locale locale) {
 		String languageId = LocaleUtil.toLanguageId(locale);
 		String i18nPath = StringPool.SLASH + languageId;
