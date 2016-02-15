@@ -18,6 +18,7 @@ import com.liferay.portal.NoSuchGroupException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.transaction.Transactional;
+import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
@@ -40,14 +41,15 @@ import com.liferay.portal.util.WebKeys;
 import java.util.Collections;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import org.springframework.mock.web.MockHttpServletRequest;
-
-import org.testng.Assert;
 
 /**
  * @author László Csontos
@@ -64,6 +66,7 @@ public class FriendlyURLServletTest {
 	@Before
 	public void setUp() throws Exception {
 		PropsValues.LOCALES_ENABLED = new String[] {"en_US", "hu_HU", "en_GB"};
+		PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE = true;
 
 		LanguageUtil.init();
 
@@ -89,14 +92,21 @@ public class FriendlyURLServletTest {
 
 		PropsValues.LOCALES_ENABLED = PropsUtil.getArray(
 			PropsKeys.LOCALES_ENABLED);
+		PropsValues.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE = GetterUtil.getBoolean(
+			PropsUtil.get(PropsKeys.LOCALE_USE_DEFAULT_IF_NOT_AVAILABLE));
 
 		LanguageUtil.init();
 	}
 
 	@Test
 	public void testGetRedirectWithExistentSite() throws Exception {
+		MockHttpServletRequest mockHttpServletRequest =
+			new MockHttpServletRequest();
+
+		mockHttpServletRequest.setPathInfo(StringPool.SLASH);
+
 		testGetRedirect(
-			getPath(_group, _layout), Portal.PATH_MAIN,
+			mockHttpServletRequest, getPath(_group, _layout), Portal.PATH_MAIN,
 			new Object[] {getURL(_layout), false});
 	}
 
@@ -111,15 +121,29 @@ public class FriendlyURLServletTest {
 
 	@Test
 	public void testGetRedirectWithInvalidPath() throws Exception {
+		MockHttpServletRequest mockHttpServletRequest =
+			new MockHttpServletRequest();
+
+		mockHttpServletRequest.setPathInfo(StringPool.SLASH);
+
 		testGetRedirect(
-			null, Portal.PATH_MAIN, new Object[] {Portal.PATH_MAIN, false});
+			mockHttpServletRequest, null, Portal.PATH_MAIN,
+			new Object[] {Portal.PATH_MAIN, false});
 		testGetRedirect(
-			"test", Portal.PATH_MAIN, new Object[] {Portal.PATH_MAIN, false});
+			mockHttpServletRequest, "test", Portal.PATH_MAIN,
+			new Object[] {Portal.PATH_MAIN, false});
 	}
 
 	@Test(expected = NoSuchGroupException.class)
 	public void testGetRedirectWithNonExistentSite() throws Exception {
-		testGetRedirect("/non-existent-site/home", Portal.PATH_MAIN, null);
+		MockHttpServletRequest mockHttpServletRequest =
+			new MockHttpServletRequest();
+
+		mockHttpServletRequest.setPathInfo(StringPool.SLASH);
+
+		testGetRedirect(
+			mockHttpServletRequest, "/non-existent-site/home", Portal.PATH_MAIN,
+			null);
 	}
 
 	protected String getPath(Group group, Layout layout) {
@@ -134,14 +158,22 @@ public class FriendlyURLServletTest {
 	protected void testGetI18nRedirect(String i18nPath, String expectedI18nPath)
 		throws Exception {
 
-		_mockHttpServletRequest.setAttribute(WebKeys.I18N_PATH, i18nPath);
-		_mockHttpServletRequest.setPathInfo(StringPool.SLASH);
+		MockHttpServletRequest mockHttpServletRequest =
+			new MockHttpServletRequest();
+
+		mockHttpServletRequest.setPathInfo(StringPool.SLASH);
+		mockHttpServletRequest.setServletPath(i18nPath);
+
+		String[] i18nData = _i18nServlet.getI18nData(mockHttpServletRequest);
+
+		mockHttpServletRequest.setAttribute(
+			WebKeys.I18N_LANGUAGE_ID, (i18nData == null) ? null : i18nData[0]);
 
 		String requestURI =
 			PropsValues.LAYOUT_FRIENDLY_URL_PUBLIC_SERVLET_MAPPING +
 				getPath(_group, _layout);
 
-		_mockHttpServletRequest.setRequestURI(requestURI);
+		mockHttpServletRequest.setRequestURI(requestURI);
 
 		Object[] expectedRedirectArray = null;
 
@@ -155,29 +187,30 @@ public class FriendlyURLServletTest {
 		}
 
 		testGetRedirect(
-			_group.getFriendlyURL(), Portal.PATH_MAIN, expectedRedirectArray);
+			mockHttpServletRequest, _group.getFriendlyURL(), Portal.PATH_MAIN,
+			expectedRedirectArray);
+
 		testGetRedirect(
-			getPath(_group, _layout), Portal.PATH_MAIN, expectedRedirectArray);
+			mockHttpServletRequest, getPath(_group, _layout), Portal.PATH_MAIN,
+			expectedRedirectArray);
 	}
 
 	protected void testGetRedirect(
-			String path, String mainPath, Object[] expectedRedirectArray)
+			HttpServletRequest request, String path, String mainPath,
+			Object[] expectedRedirectArray)
 		throws Exception {
 
 		Object[] actualRedirectArray = _friendlyURLServlet.getRedirect(
-			_mockHttpServletRequest, path, mainPath,
-			Collections.<String, String[]>emptyMap());
+			request, path, mainPath, Collections.<String, String[]>emptyMap());
 
-		Assert.assertEquals(actualRedirectArray, expectedRedirectArray);
+		Assert.assertArrayEquals(expectedRedirectArray, actualRedirectArray);
 	}
 
 	private FriendlyURLServlet _friendlyURLServlet = new FriendlyURLServlet();
 
 	private Group _group;
 
+	private final I18nServlet _i18nServlet = new I18nServlet();
 	private Layout _layout;
-
-	private MockHttpServletRequest _mockHttpServletRequest =
-		new MockHttpServletRequest();
 
 }
