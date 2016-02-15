@@ -38,11 +38,7 @@
 		required=required
 		yearParam="${namespacedFieldName}Year"
 		yearValue=yearValue
-	>
-		<#if required>
-			<@aui.validator name="required" />
-		</#if>
-	</@>
+	/>
 
 	${fieldStructure.children}
 </@>
