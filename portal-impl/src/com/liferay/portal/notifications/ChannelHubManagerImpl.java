@@ -396,7 +396,7 @@ public class ChannelHubManagerImpl implements ChannelHubManager {
 		channelHub.unregisterChannelListener(userId, channelListener);
 	}
 
-	private static final Log _log = LogFactoryUtil.getLog(
+	private static Log _log = LogFactoryUtil.getLog(
 		ChannelHubManagerImpl.class);
 
 	private static final MethodKey _destroyChannelMethodKey =
