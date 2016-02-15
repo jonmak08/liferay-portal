@@ -394,6 +394,13 @@ public class DDMImpl implements DDM {
 				if (newFieldValues.length > existingFieldValues.length) {
 					existingFields.put(newField);
 				}
+				else if (newFieldValues.length < existingFieldValues.length) {
+					Locale currentLocale = getFirstLocaleFromField(newField);
+
+					if (currentLocale.equals(newField.getDefaultLocale())) {
+						existingFields.put(newField);
+					}
+				}
 
 				continue;
 			}
@@ -447,12 +454,6 @@ public class DDMImpl implements DDM {
 			serviceContext.getAttribute("defaultLanguageId"));
 
 		Locale defaultLocale = LocaleUtil.fromLanguageId(defaultLanguageId);
-
-		if (ddmStructure.isFieldPrivate(fieldName)) {
-			locale = LocaleUtil.getSiteDefault();
-
-			defaultLocale = LocaleUtil.getSiteDefault();
-		}
 
 		field.setDefaultLocale(defaultLocale);
 
@@ -789,7 +790,24 @@ public class DDMImpl implements DDM {
 	protected String[] splitFieldsDisplayValue(Field fieldsDisplayField) {
 		String value = (String)fieldsDisplayField.getValue();
 
+		if (Validator.isNull(value)) {
+			Locale locale = getFirstLocaleFromField(fieldsDisplayField);
+
+			value = (String)fieldsDisplayField.getValue(locale);
+		}
+
 		return StringUtil.split(value);
+	}
+
+	private Locale getFirstLocaleFromField(Field fieldsDisplayField) {
+		Locale firstLocale = null;
+		Iterator<Locale> localeIterator =
+			fieldsDisplayField.getAvailableLocales().iterator();
+		while ((firstLocale == null) && localeIterator.hasNext()) {
+			firstLocale = localeIterator.next();
+		}
+
+		return firstLocale;
 	}
 
 }
