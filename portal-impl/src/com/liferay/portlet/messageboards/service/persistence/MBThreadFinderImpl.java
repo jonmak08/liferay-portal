@@ -895,14 +895,16 @@ public class MBThreadFinderImpl
 	}
 
 	protected String appendOrderByComparator(
-			String sql, OrderByComparator orderByComparator, boolean previous) {
+		String sql, OrderByComparator orderByComparator, boolean previous) {
+
 		if (orderByComparator == null) {
 			return sql;
 		}
 
 		StringBundler query = new StringBundler();
 
-		String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+		String[] orderByConditionFields =
+			orderByComparator.getOrderByConditionFields();
 
 		if (orderByConditionFields.length > 0) {
 			query.append(WHERE_AND);
