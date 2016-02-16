@@ -391,21 +391,13 @@ public class DDMImpl implements DDM {
 
 				String[] newFieldValues = splitFieldsDisplayValue(newField);
 
-				int newFieldLength = newFieldValues.length;
-				int existingFieldLength = existingFieldValues.length;
+				Locale currentLocale = getFirstLocaleFromField(newField);
 
-				if (newFieldLength > existingFieldLength) {
-					existingFields.put(newField);
-				}
-				else {
-					Locale currentLocale = getFirstLocaleFromField(newField);
-
-					if (currentLocale.equals(newField.getDefaultLocale()) &&
-						!Validator.equalsSorted(
-							newFieldValues, existingFieldsDisplayValues)) {
+				if (currentLocale.equals(newField.getDefaultLocale()) &&
+					!Validator.equalsSorted(
+						newFieldValues, existingFieldValues)) {
 
 						existingFields.put(newField);
-					}
 				}
 
 				continue;
