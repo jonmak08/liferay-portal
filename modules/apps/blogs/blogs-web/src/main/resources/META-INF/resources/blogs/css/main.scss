@@ -281,6 +281,12 @@
 	#blogsCommentsPanelContainer {
 		border-width: 0;
 	}
+
+	.cke_focus[data-placeholder='Content'] {
+		@include respond-to(phone, tablet) {
+			margin-left: 50px;
+		}
+	}
 }
 
 .firefox .portlet-blogs fieldset.input-container {
