@@ -133,11 +133,12 @@ if (Validator.isNotNull(content)) {
 		}
 
 		if (ddmStructure == null) {
-			if (contentDoc.getRootElement().element("static-content") == null) {
-				content = StringPool.BLANK;
-			}
-			else {
-				content = contentDoc.getRootElement().element("static-content").getText();
+			Element staticContent = contentDoc.getRootElement().element("static-content");
+
+			content = StringPool.BLANK;
+
+			if (staticContent != null) {
+				content = staticContent.getText();
 			}
 		}
 	}
