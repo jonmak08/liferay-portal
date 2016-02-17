@@ -137,6 +137,10 @@ StringBuilder friendlyURLBase = new StringBuilder();
 
 	<aui:input label='<%= LanguageUtil.format(request, "automatically-apply-changes-done-to-the-page-template-x", HtmlUtil.escape(layoutPrototype.getName(user.getLocale())), false) %>' name="layoutPrototypeLinkEnabled" type="checkbox" value="<%= selLayout.isLayoutPrototypeLinkEnabled() %>" />
 
+	<div class="alert alert-warning" id="<portlet:namespace/>layoutPrototypeInfoMessage">
+		<liferay-ui:message key="some-options-are-disabled-because-this-page-is-linked-to-a-page-template" />
+	</div>
+
 	<div class='<%= selLayout.isLayoutPrototypeLinkEnabled() ? "" : "hide" %>' id="<portlet:namespace/>layoutPrototypeMergeAlert">
 
 		<%
@@ -149,7 +153,7 @@ StringBuilder friendlyURLBase = new StringBuilder();
 	</div>
 </c:if>
 
-<div class="<%= selLayout.isLayoutPrototypeLinkEnabled() ? "hide" : StringPool.BLANK %>" id="<portlet:namespace />typeOptions">
+<div class="<%= selLayout.isLayoutPrototypeLinkActive() ? "hide" : StringPool.BLANK %>" id="<portlet:namespace />typeOptions">
 	<aui:select name="type">
 
 		<%
@@ -259,4 +263,27 @@ StringBuilder friendlyURLBase = new StringBuilder();
 			}
 		);
 	}
+
+	function togglePropagatableFields(isLayoutPrototypeLinkActive) {
+		$('#<portlet:namespace />layoutPrototypeInfoMessage').toggleClass('hide', !isLayoutPrototypeLinkActive);
+
+		$('#<portlet:namespace />fm').find('.propagatable-field').each(
+			function(index, item) {
+				item = $(item);
+
+				item.prop('disabled', isLayoutPrototypeLinkActive);
+			}
+		);
+	}
+
+	togglePropagatableFields(<%= selLayout.isLayoutPrototypeLinkActive() %>);
+
+	$('#<portlet:namespace />layoutPrototypeLinkEnabled').on(
+		'change',
+		function(event) {
+			var isLayoutPrototypeLinkActive = event.currentTarget.checked;
+
+			togglePropagatableFields(isLayoutPrototypeLinkActive);
+		}
+	);
 </aui:script>
