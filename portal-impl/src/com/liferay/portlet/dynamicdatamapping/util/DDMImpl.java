@@ -799,8 +799,11 @@ public class DDMImpl implements DDM {
 
 	private Locale getFirstLocaleFromField(Field fieldsDisplayField) {
 		Locale firstLocale = null;
-		Iterator<Locale> localeIterator =
-			fieldsDisplayField.getAvailableLocales().iterator();
+
+		Set<Locale> availableLocales = fieldsDisplayField.getAvailableLocales();
+
+		Iterator<Locale> localeIterator = availableLocales.iterator();
+
 		while ((firstLocale == null) && localeIterator.hasNext()) {
 			firstLocale = localeIterator.next();
 		}
