@@ -130,7 +130,6 @@ AUI.add(
 						instance._eventEntryDataRequest = instance.ns('entryDataRequest');
 						instance._eventFolderDataRequest = instance.ns('folderDataRequest');
 
-
 						var listViewConfig = instance.get('listViewConfig');
 
 						instance._listView = new Liferay.ListView(listViewConfig).render();
