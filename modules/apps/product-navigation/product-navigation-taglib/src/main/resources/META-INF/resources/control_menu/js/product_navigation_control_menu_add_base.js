@@ -155,6 +155,10 @@ AUI.add(
 						var instance = this;
 
 						instance._eventHandles.push(Liferay.after('showTab', instance._showTab, instance));
+
+						var panelBody = $('#' + instance.get('panelBody').get('id'));
+
+						instance._eventHandles.push(panelBody.on('shown.bs.collapse', instance, instance._focusOnItem));
 					},
 
 					_disablePortletEntry: function(portletId) {
@@ -185,6 +189,16 @@ AUI.add(
 								item.removeClass(CSS_LFR_PORTLET_USED);
 							}
 						);
+					},
+
+					_focusOnItem: function(event) {
+						var instance = event.data;
+
+						var focusItem = instance.get('focusItem');
+
+						if (focusItem) {
+							focusItem.focus();
+						}
 					},
 
 					_getPortletMetaData: function(portlet) {
