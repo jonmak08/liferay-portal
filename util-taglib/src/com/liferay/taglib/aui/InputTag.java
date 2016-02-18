@@ -265,7 +265,6 @@ public class InputTag extends BaseInputTag {
 			forLabel = forLabel.concat("Checkbox");
 		}
 
-		
 		String languageId = getLanguageId();
 
 		if (Validator.isNotNull(languageId)) {
