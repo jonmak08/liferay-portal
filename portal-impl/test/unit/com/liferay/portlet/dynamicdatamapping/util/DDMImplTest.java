@@ -102,10 +102,8 @@ public class DDMImplTest extends BaseDDMTestCase {
 			ddmStructure.getStructureId(), "Text1807", null);
 
 		Field existingFieldsDisplayField = createFieldsDisplayField(
-			ddmStructure.getStructureId(),
-			"Text1807_INSTANCE_swmh," +
-			"Text1807_INSTANCE_hcca," +
-			"Text1807_INSTANCE_jdso");
+			ddmStructure.getStructureId(), "Text1807_INSTANCE_swmh," +
+				"Text1807_INSTANCE_hcca," + "Text1807_INSTANCE_jdso");
 
 		Fields existingFields = createFields(
 			existingField, existingFieldsDisplayField);

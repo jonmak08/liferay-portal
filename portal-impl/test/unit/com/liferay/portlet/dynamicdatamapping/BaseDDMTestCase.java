@@ -160,22 +160,22 @@ public class BaseDDMTestCase extends PowerMockito {
 	}
 
 	protected Field createFieldsDisplayField(
-			long ddmStructureId, String value, Locale locale) {
+		long ddmStructureId, String value, Locale locale) {
 
 		return createFieldsDisplayField(ddmStructureId, value, locale, locale);
 	}
 
 	protected Field createFieldsDisplayField(
-			long ddmStructureId, String value, Locale locale,
-			Locale defaultLocale) {
+		long ddmStructureId, String value, Locale locale,
+		Locale defaultLocale) {
 
-			Field fieldsDisplayField = new MockField(
-				ddmStructureId, DDMImpl.FIELDS_DISPLAY_NAME,
-				createValuesList(value), locale);
+		Field fieldsDisplayField = new MockField(
+			ddmStructureId, DDMImpl.FIELDS_DISPLAY_NAME,
+			createValuesList(value), locale);
 
-			fieldsDisplayField.setDefaultLocale(defaultLocale);
+		fieldsDisplayField.setDefaultLocale(defaultLocale);
 
-			return fieldsDisplayField;
+		return fieldsDisplayField;
 	}
 
 	protected Document createSampleDocument() {
@@ -423,11 +423,12 @@ public class BaseDDMTestCase extends PowerMockito {
 		}
 
 		public MockField(
-				long ddmStructureId, String name, List<Serializable> values,
-				Locale locale, Locale defaultLocale) {
+			long ddmStructureId, String name, List<Serializable> values,
+			Locale locale, Locale defaultLocale) {
 
-				super(ddmStructureId, name, values, locale);
-				setDefaultLocale(defaultLocale);
+			super(ddmStructureId, name, values, locale);
+
+			setDefaultLocale(defaultLocale);
 		}
 
 		@Override
