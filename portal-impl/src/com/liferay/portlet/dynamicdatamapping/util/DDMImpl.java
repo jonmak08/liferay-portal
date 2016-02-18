@@ -395,7 +395,7 @@ public class DDMImpl implements DDM {
 
 				if (currentLocale.equals(newField.getDefaultLocale()) &&
 					!Validator.equalsSorted(
-						newFieldValues, existingFieldValues)) {
+						existingFieldValues, newFieldValues)) {
 
 						existingFields.put(newField);
 				}
