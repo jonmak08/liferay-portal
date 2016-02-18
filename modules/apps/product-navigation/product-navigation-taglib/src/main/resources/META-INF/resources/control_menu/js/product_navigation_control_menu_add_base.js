@@ -61,6 +61,12 @@ AUI.add(
 					initializer: function(config) {
 						var instance = this;
 
+						instance._addedMessage = instance.byId('addedMessage');
+
+						instance._eventHandles = [];
+
+						instance._hideAddedMessageTask = A.debounce(A.bind('_hideAddedMessage', instance), 2000);
+
 						if (instance._isSelected()) {
 							var focusItem = instance.get('focusItem');
 
@@ -68,12 +74,6 @@ AUI.add(
 								focusItem.focus();
 							}
 						}
-
-						instance._addedMessage = instance.byId('addedMessage');
-
-						instance._hideAddedMessageTask = A.debounce(A.bind('_hideAddedMessage', instance), 2000);
-
-						instance._eventHandles = [];
 
 						instance._bindUIDABase();
 					},
