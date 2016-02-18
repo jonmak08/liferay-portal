@@ -83,8 +83,6 @@
 	}
 
 	.field-wrapper {
-		clear: both;
-		overflow: auto;
 		position: relative;
 
 		.aui-field-wrapper {
@@ -114,10 +112,6 @@
 			&.lfr-ddm-repeatable-delete-button {
 				right: 24px;
 			}
-		}
-
-		.lfr-input-date {
-			margin-left: 0;
 		}
 	}
 
