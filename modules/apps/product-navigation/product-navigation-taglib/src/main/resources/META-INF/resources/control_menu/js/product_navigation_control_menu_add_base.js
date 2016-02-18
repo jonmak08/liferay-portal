@@ -65,14 +65,12 @@ AUI.add(
 
 						instance._eventHandles = [];
 
+						instance._focusItem = instance.get('focusItem');
+
 						instance._hideAddedMessageTask = A.debounce(A.bind('_hideAddedMessage', instance), 2000);
 
-						if (instance._isSelected()) {
-							var focusItem = instance.get('focusItem');
-
-							if (focusItem) {
-								focusItem.focus();
-							}
+						if (instance._focusItem && instance._isSelected()) {
+							instance._focusItem.focus();
 						}
 
 						instance._bindUIDABase();
@@ -194,10 +192,8 @@ AUI.add(
 					_focusOnItem: function(event) {
 						var instance = event.data;
 
-						var focusItem = instance.get('focusItem');
-
-						if (focusItem) {
-							focusItem.focus();
+						if (instance._focusItem) {
+							instance._focusItem.focus();
 						}
 					},
 
@@ -278,10 +274,8 @@ AUI.add(
 					_showTab: function(event) {
 						var instance = this;
 
-						var focusItem = instance.get('focusItem');
-
-						if (focusItem && event.tabSection && event.tabSection.contains(focusItem)) {
-							focusItem.focus();
+						if (instance._focusItem && event.tabSection && event.tabSection.contains(instance._focusItem)) {
+							instance._focusItem.focus();
 						}
 					},
 
