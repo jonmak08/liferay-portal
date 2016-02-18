@@ -31,7 +31,7 @@ long formDDMTemplateId = ParamUtil.getLong(request, "formDDMTemplateId");
 
 DDMStructure ddmStructure = recordSet.getDDMStructure(formDDMTemplateId);
 
-String version = ParamUtil.getString(request, "version", DDLRecordConstants.VERSION_DEFAULT);
+String version = ParamUtil.getString(request, "version", record.getVersion());
 
 DDLRecordVersion recordVersion = record.getRecordVersion(version);
 
