@@ -48,8 +48,8 @@ AUI.add(
 						validator: Lang.isString
 					},
 
-					selected: {
-						validator: Lang.isBoolean
+					panelBody: {
+						setter: A.one
 					}
 				},
 
@@ -61,19 +61,19 @@ AUI.add(
 					initializer: function(config) {
 						var instance = this;
 
-						if (instance.get('selected')) {
-							var focusItem = instance.get('focusItem');
-
-							if (focusItem) {
-								focusItem.focus();
-							}
-						}
-
 						instance._addedMessage = instance.byId('addedMessage');
+
+						instance._eventHandles = [];
+
+						instance._focusItem = instance.get('focusItem');
 
 						instance._hideAddedMessageTask = A.debounce(A.bind('_hideAddedMessage', instance), 2000);
 
-						instance._eventHandles = [];
+						instance._panelBody = instance.get('panelBody');
+
+						if (instance._focusItem && instance._isSelected()) {
+							instance._focusItem.focus();
+						}
 
 						instance._bindUIDABase();
 					},
@@ -154,7 +154,18 @@ AUI.add(
 					_bindUIDABase: function() {
 						var instance = this;
 
-						instance._eventHandles.push(Liferay.after('showTab', instance._showTab, instance));
+						var panelBody = $('#' + instance._panelBody.get('id'));
+						var panelChildren = $('#' + instance._panelBody.get('id') + ' .list-group-panel');
+
+						instance._eventHandles.push(
+							panelBody.on('shown.bs.collapse', instance, instance._focusOnItem),
+							panelChildren.on(
+								'shown.bs.collapse',
+								function(event) {
+									event.stopPropagation();
+								}
+							)
+						);
 					},
 
 					_disablePortletEntry: function(portletId) {
@@ -185,6 +196,14 @@ AUI.add(
 								item.removeClass(CSS_LFR_PORTLET_USED);
 							}
 						);
+					},
+
+					_focusOnItem: function(event) {
+						var instance = event.data;
+
+						if (instance._focusItem) {
+							instance._focusItem.focus();
+						}
 					},
 
 					_getPortletMetaData: function(portlet) {
@@ -232,6 +251,12 @@ AUI.add(
 						instance._skipToContentHandle.detach();
 					},
 
+					_isSelected: function() {
+						var instance = this;
+
+						return instance._panelBody.hasClass('in');
+					},
+
 					_portletFeedback: function(portletId, portlet) {
 						var instance = this;
 
@@ -252,16 +277,6 @@ AUI.add(
 									instance._hideAddedMessageTask();
 								}
 							);
-						}
-					},
-
-					_showTab: function(event) {
-						var instance = this;
-
-						var focusItem = instance.get('focusItem');
-
-						if (focusItem && event.tabSection && event.tabSection.contains(focusItem)) {
-							focusItem.focus();
 						}
 					},
 

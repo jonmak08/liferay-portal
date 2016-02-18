@@ -177,6 +177,7 @@ refererURL.setParameter("updateLayout", "true");
 	var ControlMenu = Liferay.ControlMenu;
 
 	var searchApplication = A.one('#<portlet:namespace />searchApplication');
+	var applicationPanelBody = A.one('#<portlet:namespace />addApplicationCollapse');
 
 	var addApplication = new ControlMenu.AddApplication(
 		{
@@ -185,7 +186,7 @@ refererURL.setParameter("updateLayout", "true");
 			namespace: '<portlet:namespace />',
 			nodeList: A.one('#<portlet:namespace />applicationList'),
 			nodeSelector: '.drag-content-item',
-			selected: !A.one('#<portlet:namespace />addApplicationForm').ancestor().hasClass('hide')
+			panelBody: applicationPanelBody
 		}
 	);
 
