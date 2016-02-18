@@ -14,10 +14,9 @@
 
 package com.liferay.portal.security.xml;
 
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.util.ClassLoaderUtil;
+import com.liferay.portal.util.ClassLoaderUtil;
 import com.liferay.portal.util.PropsValues;
 
 import javax.xml.XMLConstants;
@@ -25,7 +24,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.stream.XMLInputFactory;
 
 import org.apache.xerces.parsers.SAXParser;
-
 import org.xml.sax.XMLReader;
 
 /**
@@ -112,9 +110,6 @@ public class SecureXMLFactoryProviderImpl implements SecureXMLFactoryProvider {
 			}
 
 			xmlReader = new SAXParser();
-		}
-		catch (RuntimeException re) {
-			throw new SystemException(re);
 		}
 		finally {
 			if (contextClassLoader != classLoader) {
