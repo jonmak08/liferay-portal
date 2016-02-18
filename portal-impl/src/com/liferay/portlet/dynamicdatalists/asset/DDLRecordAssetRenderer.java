@@ -125,7 +125,10 @@ public class DDLRecordAssetRenderer extends BaseAssetRenderer {
 			String noSuchEntryRedirect)
 		throws Exception {
 
-		return noSuchEntryRedirect;
+		return getURLViewInContext(
+			liferayPortletRequest, noSuchEntryRedirect,
+			"/dynamic_data_lists/find_record", "recordId",
+			_record.getRecordId());
 	}
 
 	@Override
