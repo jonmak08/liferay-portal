@@ -69,6 +69,8 @@ AUI.add(
 
 						instance._hideAddedMessageTask = A.debounce(A.bind('_hideAddedMessage', instance), 2000);
 
+						instance._panelBody = instance.get('panelBody');
+
 						if (instance._focusItem && instance._isSelected()) {
 							instance._focusItem.focus();
 						}
@@ -154,7 +156,7 @@ AUI.add(
 
 						instance._eventHandles.push(Liferay.after('showTab', instance._showTab, instance));
 
-						var panelBody = $('#' + instance.get('panelBody').get('id'));
+						var panelBody = $('#' + instance._panelBody.get('id'));
 
 						instance._eventHandles.push(panelBody.on('shown.bs.collapse', instance, instance._focusOnItem));
 					},
@@ -245,7 +247,7 @@ AUI.add(
 					_isSelected: function() {
 						var instance = this;
 
-						return instance.get('panelBody').hasClass('in');
+						return instance._panelBody.hasClass('in');
 					},
 
 					_portletFeedback: function(portletId, portlet) {
