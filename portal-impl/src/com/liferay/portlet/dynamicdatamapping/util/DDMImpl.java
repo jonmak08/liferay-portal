@@ -638,7 +638,7 @@ public class DDMImpl implements DDM {
 			}
 
 			if (fieldValue == null) {
-				return null;
+				fieldValue = StringPool.BLANK;
 			}
 
 			if (DDMImpl.TYPE_RADIO.equals(fieldType) ||
