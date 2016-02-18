@@ -154,8 +154,6 @@ AUI.add(
 					_bindUIDABase: function() {
 						var instance = this;
 
-						instance._eventHandles.push(Liferay.after('showTab', instance._showTab, instance));
-
 						var panelBody = $('#' + instance._panelBody.get('id'));
 
 						instance._eventHandles.push(panelBody.on('shown.bs.collapse', instance, instance._focusOnItem));
@@ -270,14 +268,6 @@ AUI.add(
 									instance._hideAddedMessageTask();
 								}
 							);
-						}
-					},
-
-					_showTab: function(event) {
-						var instance = this;
-
-						if (instance._focusItem && event.tabSection && event.tabSection.contains(instance._focusItem)) {
-							instance._focusItem.focus();
 						}
 					},
 
