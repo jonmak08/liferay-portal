@@ -75,8 +75,8 @@ AUI.add(
 
 						instance._journalContainer = journalContainer;
 
-						instance._eventEntryDataRequest = instance.ns('entryDataRequest');
 						instance._eventDataRetrieveSuccess = instance.ns('dataRetrieveSuccess');
+						instance._eventEntryDataRequest = instance.ns('entryDataRequest');
 						instance._eventOpenAdvancedSearch = instance.ns('openAdvancedSearch');
 						instance._eventChangeSearchFolder = instance.ns('changeSearchFolder');
 
