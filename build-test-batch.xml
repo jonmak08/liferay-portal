@@ -493,6 +493,18 @@ echo "Sent notification."]]>
 		</sequential>
 	</macrodef>
 
+	<target name="compile-jsp-jdk7">
+		<run-batch-test>
+			<test-action>
+				<ant dir="portal-web" target="compile-tomcat" />
+			</test-action>
+
+			<test-set-up>
+				<prepare-test-build />
+			</test-set-up>
+		</run-batch-test>
+	</target>
+
 	<target name="functional-glassfish3-postgresql94-jdk7">
 		<run-functional-test app.server.type="glassfish" database.type="postgresql" />
 	</target>
