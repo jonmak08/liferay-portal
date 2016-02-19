@@ -1226,7 +1226,10 @@
 				</then>
 			</elseif>
 			<elseif>
-				<equals arg1="${frequency}" arg2="Monthly" />
+				<and>
+					<condition function="IsElementNotPresent" locator1="PGCalendarAddevent#REPEAT_REPEAT_ON_DAY_OF_THE_WEEK_POSITION_DROPDOWN" />
+					<equals arg1="${frequency}" arg2="Monthly" />
+				</and>
 				<then>
 					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${frequency}" />
 
@@ -1259,8 +1262,19 @@
 			<elseif>
 				<isset var="numberOfOccurrences" />
 				<then>
-					<execute function="AssertTextEquals" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${frequency}, ${numberOfOccurrences} Times" />
-					<execute function="AssertTextEquals" locator1="PGCalendarAddevent#REPEAT_SUMMARY_1" value1="${frequency}, ${numberOfOccurrences} Times" />
+					<if>
+						<condition function="IsElementPresent" locator1="PGCalendarAddevent#REPEAT_REPEAT_ON_DAY_OF_THE_WEEK_POSITION_DROPDOWN_SHOW" />
+						<then>
+							<execute function="AssertTextPresent" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${frequency}" />
+							<execute function="AssertTextPresent" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${numberOfOccurrences} Times" />
+							<execute function="AssertTextPresent" locator1="PGCalendarAddevent#REPEAT_SUMMARY_1" value1="${frequency}" />
+							<execute function="AssertTextPresent" locator1="PGCalendarAddevent#REPEAT_SUMMARY_1" value1="${numberOfOccurrences} Times" />
+						</then>
+						<else>
+							<execute function="AssertTextEquals" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${frequency}, ${numberOfOccurrences} Times" />
+							<execute function="AssertTextEquals" locator1="PGCalendarAddevent#REPEAT_SUMMARY_1" value1="${frequency}, ${numberOfOccurrences} Times" />
+						</else>
+					</if>
 				</then>
 			</elseif>
 		</if>

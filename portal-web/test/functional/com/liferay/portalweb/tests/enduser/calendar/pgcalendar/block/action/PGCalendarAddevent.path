@@ -139,6 +139,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>REPEAT_REPEAT_ON_DAY_OF_THE_WEEK_POSITION_DROPDOWN_SHOW</td>
+	<td>//div[contains(@id,'calendarportlet_viewPositionalWeekday') and @class='']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>REPEAT_REPEAT_ON_DAY_OF_THE_WEEK_WEEKDAY_DROPDOWN</td>
 	<td>//div[contains(@id,'calendarportlet_viewPositionalWeekday')]//select[contains(@name,'calendarportlet_weekday')] | //div[contains(@id,'calendarportlet_viewPositionalWeekday')]//select[@title='Weekday']</td>
 	<td></td>
