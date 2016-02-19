@@ -554,10 +554,8 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 				new TermCollectingFormatter();
 
 			if (ArrayUtil.isNotEmpty(values)) {
-				snippet = LuceneHelperUtil.getSnippet(
-					luceneQuery, snippetField, StringUtil.merge(values),
-					queryConfig.getHighlightSnippetSize(),
-					queryConfig.getHighlightFragmentSize(), "...",
+				snippet = getSnippet(
+					luceneQuery, snippetField, values, queryConfig,
 					termCollectingFormatter);
 			}
 
@@ -570,10 +568,8 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 					return StringPool.BLANK;
 				}
 
-				snippet = LuceneHelperUtil.getSnippet(
-					luceneQuery, field, StringUtil.merge(values),
-					queryConfig.getHighlightSnippetSize(),
-					queryConfig.getHighlightFragmentSize(), "...",
+				snippet = getSnippet(
+					luceneQuery, field, values, queryConfig,
 					termCollectingFormatter);
 			}
 
@@ -592,6 +588,19 @@ public class LuceneIndexSearcher extends BaseIndexSearcher {
 			snippet);
 
 		return snippet;
+	}
+
+	protected String getSnippet(
+			org.apache.lucene.search.Query luceneQuery, String field,
+			String[] values, QueryConfig queryConfig,
+			TermCollectingFormatter termCollectingFormatter)
+		throws IOException {
+
+		return LuceneHelperUtil.getSnippet(
+			luceneQuery, field, StringUtil.merge(values),
+			queryConfig.getHighlightSnippetSize(),
+			queryConfig.getHighlightFragmentSize(), StringPool.TRIPLE_PERIOD,
+			termCollectingFormatter);
 	}
 
 	protected Hits toHits(
