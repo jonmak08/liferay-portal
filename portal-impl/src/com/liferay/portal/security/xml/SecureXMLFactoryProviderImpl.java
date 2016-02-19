@@ -104,7 +104,7 @@ public class SecureXMLFactoryProviderImpl implements SecureXMLFactoryProvider {
 			return xmlReader;
 		}
 
-		xmlReader = new StripDoctypeXMLReader(new SAXParser());
+		xmlReader = new StripDoctypeXMLReader(xmlReader);
 
 		try {
 			xmlReader.setFeature(_FEATURES_DISALLOW_DOCTYPE_DECL, true);
