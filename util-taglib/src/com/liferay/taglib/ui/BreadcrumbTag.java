@@ -297,7 +297,7 @@ public class BreadcrumbTag extends IncludeTag {
 				if (Validator.isNotNull(breadcrumbURL)) {
 					sb.append("<a href=\"");
 					sb.append(HtmlUtil.escape(breadcrumbURL));
-					sb.append("\"");
+					sb.append("\" ");
 					sb.append(AUIUtil.buildData(data));
 					sb.append(">");
 				}
