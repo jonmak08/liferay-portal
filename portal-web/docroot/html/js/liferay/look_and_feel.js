@@ -184,7 +184,7 @@ AUI.add(
 												p_p_id: 113,
 												p_p_state: EXCLUSIVE,
 												doAsUserId: themeDisplay.getDoAsUserIdEncoded(),
-												portletResource: instance._portletId
+												_113_portletResource: instance._portletId
 											},
 											uri: themeDisplay.getPathMain() + '/portal/render_portlet'
 										}
