@@ -302,7 +302,7 @@
 		<execute function="SelectFrame" locator1="PGCalendarCalendarSettings#CALENDAR_SETTING_IFRAME" />
 
 		<if>
-			<isset var="site" />
+			<condition function="IsTextEqual" locator1="PGCalendarCalendarSettings#HEADER_TITLE"  value1="${site} - ${calendarName}" />
 			<then>
 				<execute function="AssertTextEquals" locator1="PGCalendarCalendarSettings#HEADER_TITLE" value1="${site} - ${calendarName}" />
 			</then>
@@ -314,7 +314,7 @@
 		<execute function="AssertClick" locator1="PGCalendarCalendarSettings#NAVIGATION_NOTIFICATION_TEMPLATES_TAB" value1="Notification Templates" />
 
 		<if>
-			<isset var="site" />
+			<condition function="IsTextEqual" locator1="PGCalendarCalendarSettings#HEADER_TITLE"  value1="${site} - ${calendarName}" />
 			<then>
 				<execute function="AssertTextEquals" locator1="PGCalendarCalendarSettings#NOTIFICATION_TEMPLATES_HEADER_TITLE" value1="${site} - ${calendarName}" />
 			</then>
