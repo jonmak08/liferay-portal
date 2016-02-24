@@ -1,0 +1,147 @@
+<definition>
+	<!--For 6.1.20 and 6.1.30-->
+	<command name="viewDataArchiveVersion1">
+		<execute macro="User#loginPG" />
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Bookmarks Page" />
+		</execute>
+
+		<execute macro="Bookmark#viewPG">
+			<var name="bookmarkName" value="Test Bookmark Name" />
+			<var name="bookmarkURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Users and Organizations" />
+		</execute>
+
+		<execute macro="User#viewCP">
+			<var name="userEmailAddress" value="userea@liferay.com" />
+			<var name="userFirstName" value="userfn" />
+			<var name="userLastName" value="userln" />
+			<var name="userScreenName" value="usersn" />
+		</execute>
+
+		<execute macro="Navigator#gotoSitePage">
+			<var name="pageName" value="Web Content Display Page" />
+			<var name="siteName" value="WebContent Site" />
+		</execute>
+
+		<execute macro="WebContent#viewPGViaWCD">
+			<var name="webContentContent" value="Subject WC Content caption" />
+		</execute>
+
+		<execute macro="Navigator#gotoSitePage">
+			<var name="pageName" value="Asset Publisher Page" />
+			<var name="siteName" value="AP Site" />
+		</execute>
+
+		<execute macro="MessageboardsThread#viewPG">
+			<var name="postCount" value="1" />
+			<var name="threadBody" value="MB Thread Message Body" />
+			<var name="threadSubject" value="MB Thread Message Subject" />
+			<var name="userName" value="userAPfn userAPln" />
+		</execute>
+
+		<execute macro="Navigator#gotoSitePage">
+			<var name="pageName" value="Wiki Test Page" />
+			<var name="siteName" value="Wiki Site" />
+		</execute>
+
+		<execute macro="WikiPage#viewFrontPagePG">
+			<var name="wikiPageContent" value="Wiki FrontPage Content" />
+			<var name="wikiPageTitle" value="FrontPage" />
+		</execute>
+	</command>
+
+	<!--For 6.0.6 and 6.1.2-->
+	<command name="viewDataArchiveVersion2">
+		<execute macro="User#loginPG" />
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Web Content" />
+		</execute>
+
+		<execute macro="WebContent#viewPGViaWCD">
+			<var name="webContentContent" value="Web Content Content" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Document" />
+		</execute>
+
+		<execute macro="DMDocument#viewPGDetails">
+			<var name="dmDocumentSize" value="22k" />
+			<var name="dmDocumentTitle" value="Document1" />
+			<var name="dmDocumentUploader" value="Test Test" />
+			<var name="dmDocumentVersionNumber" value="1.0" />
+			<var name="workflow" value="Approved" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Message Boards" />
+		</execute>
+
+		<execute macro="MessageboardsThread#viewPG">
+			<var name="postCount" value="1" />
+			<var name="threadBody" value="Message Boards Body" />
+			<var name="threadSubject" value="Message Boards Subject" />
+			<var name="userName" value="Test Test" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Wiki" />
+		</execute>
+
+		<execute macro="WikiPage#viewFrontPagePG">
+			<var name="wikiPageContent" value="Wiki Front Page Content" />
+			<var name="wikiPageTitle" value="FrontPage" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Blogs" />
+		</execute>
+
+		<execute macro="BlogsEntry#viewPG">
+			<var name="entryContent" value="Blogs Entry Content" />
+			<var name="entryTitle" value="Blogs Entry Title" />
+		</execute>
+
+		<execute macro="Navigator#gotoSitePage">
+			<var name="pageName" value="Site Page" />
+			<var name="siteName" value="Site Name" />
+		</execute>
+
+		<execute macro="User#logoutPG" />
+
+		<execute macro="User#loginPG">
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="user@liferay.com" />
+		</execute>
+
+		<execute macro="User#viewLoggedInPG" >
+			<var name="userFirstName" value="Userfn" />
+			<var name="userLastName" value="Userln" />
+		</execute>
+	</command>
+
+	<!--For 6.0.11 and 6.0.12 and 6.1.10-->
+	<command name="viewDataArchiveVersion3">
+		<execute macro="User#loginPG" />
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Bookmarks Page" />
+		</execute>
+
+		<execute macro="Bookmark#viewPG">
+			<var name="bookmarkName" value="Test Bookmark Name" />
+			<var name="bookmarkURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="Navigator#gotoSitePage">
+			<var name="pageName" value="Web Content Display Page" />
+			<var name="siteName" value="WebContent Site" />
+		</execute>
+	</command>
+</definition>
