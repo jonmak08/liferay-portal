@@ -77,6 +77,16 @@ public class StringUtilTest {
 	}
 
 	@Test
+	public void testEqualsIgnoreCase() throws Exception {
+		Assert.assertTrue(
+			StringUtil.equalsIgnoreCase("HELLO WORLD", "Hello World"));
+		Assert.assertTrue(
+			StringUtil.equalsIgnoreCase("Hello \n World", "hello \n worlD"));
+		Assert.assertFalse(StringUtil.equalsIgnoreCase("Hello \n World", ""));
+		Assert.assertFalse(StringUtil.equalsIgnoreCase("Hello \n World", null));
+	}
+
+	@Test
 	public void testIndexOfAny() throws Exception {
 		char[] chars = {CharPool.COLON, CharPool.COMMA};
 
