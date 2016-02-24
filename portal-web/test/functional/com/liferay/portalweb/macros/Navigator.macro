@@ -20,7 +20,6 @@
 	<command name="gotoSitePage">
 		<execute macro="Navigator#openSiteURL">
 			<var name="siteName" value="${siteName}" />
-			<var name="siteNameURL" value="${siteNameURL}" />
 		</execute>
 
 		<execute macro="Navigator#_gotoPage">
@@ -48,9 +47,9 @@
 
 	<command name="openSiteURL">
 		<var method="StringUtil#replace('${siteName}', ' ', '-')" name="siteNameURL" />
-		<var method="StringUtil#lowerCase('/${siteNameURL}')" name="siteNameURL" />
+		<var method="StringUtil#lowerCase('${siteNameURL}')" name="siteNameURL" />
 
-		<execute function="Open" locator1="/web/${siteNameURL}/home" />
+		<execute function="Open" locator1="/web/${siteNameURL}" />
 	</command>
 
 	<command name="openSpecificURL">
