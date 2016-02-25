@@ -23,7 +23,7 @@ boolean incomplete = ParamUtil.getBoolean(request, "incomplete", true);
 
 String treeLoading = PortalUtil.generateRandomKey(request, "treeLoading");
 
-long treeGroupId = ParamUtil.getLong(request, "groupId");
+long treeGroupId = ParamUtil.getLong(request, "treeGroupId");
 
 if (treeGroupId > 0) {
 	groupId = treeGroupId;
