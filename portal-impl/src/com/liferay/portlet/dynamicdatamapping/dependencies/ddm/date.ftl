@@ -22,6 +22,10 @@
 	<#assign nullable = true>
 </#if>
 
+<#if cssClass??>
+	<#assign cssClass = cssClass?replace("\\bspan[0-9]+", "", "ir")>
+</#if>
+
 <#assign dayValue = paramUtil.getInteger(request, "${namespacedFieldName}Day", fieldValue.get(DATE))>
 <#assign monthValue = paramUtil.getInteger(request, "${namespacedFieldName}Month", fieldValue.get(MONTH))>
 <#assign yearValue = paramUtil.getInteger(request, "${namespacedFieldName}Year", fieldValue.get(YEAR))>
