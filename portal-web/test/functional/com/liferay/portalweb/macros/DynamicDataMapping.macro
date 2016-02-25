@@ -39,7 +39,6 @@
 		<execute function="AssertClick" locator1="Dynamicdatamapping#SETTINGS_CELL_EDITOR_SAVE_BUTTON" value1="Save" />
 		<execute function="AssertTextEquals" locator1="Dynamicdatamapping#SETTINGS_NAME" value1="${fieldName}" />
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="Dynamicdatamapping#FIELDS_LINK" value1="Fields" />
-		<execute function="Click" locator1="Dynamicdatamapping#NAME_FIELD" />
 
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
@@ -84,7 +83,6 @@
 		</if>
 
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="Dynamicdatamapping#FIELDS_LINK" value1="Fields" />
-		<execute function="Click" locator1="Dynamicdatamapping#NAME_FIELD" />
 
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
@@ -130,7 +128,6 @@
 		</if>
 
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="Dynamicdatamapping#FIELDS_LINK" value1="Fields" />
-		<execute function="Click" locator1="Dynamicdatamapping#NAME_FIELD" />
 
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
@@ -146,7 +143,6 @@
 		<execute function="AssertClick" locator1="Dynamicdatamapping#SETTINGS_CELL_EDITOR_SAVE_BUTTON" value1="Save" />
 
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="Dynamicdatamapping#FIELDS_LINK" value1="Fields" />
-		<execute function="Click" locator1="Dynamicdatamapping#NAME_FIELD" />
 
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
@@ -257,7 +253,6 @@
 		</execute>
 
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="Dynamicdatamapping#FIELDS_LINK" value1="Fields" />
-		<execute function="Click" locator1="Dynamicdatamapping#NAME_FIELD" />
 
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
@@ -291,7 +286,6 @@
 		<execute function="AssertTextEquals" locator1="Dynamicdatamapping#SETTINGS_SHOW_LABEL" value1="${fieldShowLabel}" />
 
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="Dynamicdatamapping#FIELDS_LINK" value1="Fields" />
-		<execute function="Click" locator1="Dynamicdatamapping#NAME_FIELD" />
 
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
@@ -339,7 +333,6 @@
 		<execute function="AssertTextEquals" locator1="Dynamicdatamapping#SETTINGS_TIP" value1="${fieldTip}" />
 
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="Dynamicdatamapping#FIELDS_LINK" value1="Fields" />
-		<execute function="Click" locator1="Dynamicdatamapping#NAME_FIELD" />
 
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
