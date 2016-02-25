@@ -472,6 +472,9 @@ public class JournalArticleIndexer extends BaseIndexer {
 		Document document, Locale locale, String snippet,
 		PortletURL portletURL) {
 
+		Locale defaultLocale = LocaleUtil.fromLanguageId(
+				document.get("defaultLanguageId"));
+
 		Locale snippetLocale = getSnippetLocale(document, locale);
 
 		String localizedTitleName = DocumentImpl.getLocalizedName(
@@ -480,8 +483,7 @@ public class JournalArticleIndexer extends BaseIndexer {
 		if ((snippetLocale == null) &&
 			(document.getField(localizedTitleName) == null)) {
 
-			snippetLocale = LocaleUtil.fromLanguageId(
-				document.get("defaultLanguageId"));
+			snippetLocale = defaultLocale;
 		}
 		else {
 			snippetLocale = locale;
@@ -491,8 +493,18 @@ public class JournalArticleIndexer extends BaseIndexer {
 			snippetLocale, Field.SNIPPET + StringPool.UNDERLINE + Field.TITLE,
 			Field.TITLE);
 
-		String content = getDDMContentSummary(
-				document, snippetLocale);
+		if (Validator.isNull(title) && !snippetLocale.equals(defaultLocale)) {
+			title = document.get(
+				defaultLocale,
+				Field.SNIPPET + StringPool.UNDERLINE + Field.TITLE,
+				Field.TITLE);
+		}
+
+		String content = getDDMContentSummary(document, snippetLocale);
+
+		if (Validator.isNull(content) && !snippetLocale.equals(defaultLocale)) {
+			content = getDDMContentSummary(document, defaultLocale);
+		}
 
 		String groupId = document.get(Field.GROUP_ID);
 		String articleId = document.get("articleId");
