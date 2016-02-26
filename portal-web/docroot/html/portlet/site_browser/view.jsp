@@ -58,7 +58,7 @@ portletURL.setParameter("target", target);
 
 <aui:form action="<%= portletURL.toString() %>" method="post" name="selectSiteFm">
 	<liferay-ui:search-container
-		searchContainer="<%= new GroupSearch(renderRequest, portletURL) %>"
+		searchContainer="<%= new GroupSearch(renderRequest, PortletURLUtil.clone(portletURL, liferayPortletResponse)) %>"
 	>
 		<c:if test='<%= !type.equals("parent-sites") || (types.length > 1) %>'>
 			<aui:nav-bar>
