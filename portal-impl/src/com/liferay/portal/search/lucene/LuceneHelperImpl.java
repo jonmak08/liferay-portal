@@ -509,7 +509,12 @@ public class LuceneHelperImpl implements LuceneHelper {
 			QueryParser queryParser = new QueryParser(
 				getVersion(), StringPool.BLANK, getAnalyzer());
 
-			tempQuery = queryParser.parse(queryString);
+			try {
+				tempQuery = queryParser.parse(queryString);
+			}
+			catch (ParseException e) {
+				tempQuery = queryParser.parse(KeywordsUtil.escape(queryString));
+			}
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
