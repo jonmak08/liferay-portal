@@ -82,6 +82,7 @@ import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.queryParser.ParseException;
 import org.apache.lucene.queryParser.QueryParser;
 import org.apache.lucene.search.BooleanClause;
 import org.apache.lucene.search.BooleanQuery;
@@ -255,7 +256,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 			try {
 				query = queryParser.parse(value);
 			}
-			catch (Exception e) {
+			catch (ParseException e) {
 				query = queryParser.parse(KeywordsUtil.escape(value));
 			}
 
