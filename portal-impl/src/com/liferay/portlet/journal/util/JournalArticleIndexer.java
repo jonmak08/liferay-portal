@@ -473,7 +473,7 @@ public class JournalArticleIndexer extends BaseIndexer {
 		PortletURL portletURL) {
 
 		Locale defaultLocale = LocaleUtil.fromLanguageId(
-				document.get("defaultLanguageId"));
+			document.get("defaultLanguageId"));
 
 		Locale snippetLocale = getSnippetLocale(document, locale);
 
