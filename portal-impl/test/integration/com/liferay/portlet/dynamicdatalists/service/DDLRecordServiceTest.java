@@ -19,10 +19,6 @@ import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
-import com.liferay.portal.security.auth.PrincipalThreadLocal;
-import com.liferay.portal.security.permission.PermissionChecker;
-import com.liferay.portal.security.permission.PermissionThreadLocal;
-import com.liferay.portal.security.permission.SimplePermissionChecker;
 import com.liferay.portal.service.ServiceTestUtil;
 import com.liferay.portal.test.EnvironmentExecutionTestListener;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
@@ -30,7 +26,6 @@ import com.liferay.portal.test.Sync;
 import com.liferay.portal.test.SynchronousDestinationExecutionTestListener;
 import com.liferay.portal.test.TransactionalExecutionTestListener;
 import com.liferay.portal.util.PortalUtil;
-import com.liferay.portal.util.TestPropsValues;
 import com.liferay.portlet.dynamicdatalists.model.DDLRecordSet;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructureConstants;
@@ -38,7 +33,6 @@ import com.liferay.portlet.dynamicdatamapping.storage.Field;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
 import com.liferay.portlet.dynamicdatamapping.storage.StorageType;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -68,18 +62,8 @@ public class DDLRecordServiceTest extends BaseDDLServiceTestCase {
 
 		recordSet = addRecordSet(ddmStructure.getStructureId());
 
-		setUpPermissionThreadLocal();
-		setUpPrincipalThreadLocal();
-
 		addRecord("Joe Bloggs", "Simple description");
 		addRecord("Bloggs","Another description example");
-	}
-
-	@After
-	public void tearDown() {
-		PermissionThreadLocal.setPermissionChecker(_originalPermissionChecker);
-
-		PrincipalThreadLocal.setName(_originalName);
 	}
 
 	@Test
@@ -139,36 +123,6 @@ public class DDLRecordServiceTest extends BaseDDLServiceTestCase {
 		return searchContext;
 	}
 
-	protected void setUpPermissionThreadLocal() throws Exception {
-		_originalPermissionChecker =
-			PermissionThreadLocal.getPermissionChecker();
-
-		PermissionThreadLocal.setPermissionChecker(
-			new SimplePermissionChecker() {
-
-				{
-					init(TestPropsValues.getUser());
-				}
-
-				@Override
-				public boolean hasOwnerPermission(
-					long companyId, String name, String primKey, long ownerId,
-					String actionId) {
-
-					return true;
-				}
-
-			});
-	}
-
-	protected void setUpPrincipalThreadLocal() throws Exception {
-		_originalName = PrincipalThreadLocal.getName();
-
-		PrincipalThreadLocal.setName(TestPropsValues.getUserId());
-	}
-
 	protected DDLRecordSet recordSet;
 
-	private String _originalName;
-	private PermissionChecker _originalPermissionChecker;
 }
