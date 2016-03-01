@@ -20,7 +20,7 @@
 </tr>
 <tr>
 	<td>ARTICLE_OR_FOLDER_FIELD</td>
-	<td>//input[contains(@id,'configurationKBObject')]</td>
+	<td>//input[contains(@id,'configurationKBObject')] | //input[contains(@id,'configurationKBArticle')]</td>
 	<td></td>
 </tr>
 <tr>
