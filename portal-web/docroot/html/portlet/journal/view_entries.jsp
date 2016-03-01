@@ -243,7 +243,7 @@ for (int i = 0; i < results.size(); i++) {
 					tempRowURL.setParameter("folderId", String.valueOf(curArticle.getFolderId()));
 					tempRowURL.setParameter("articleId", curArticle.getArticleId());
 
-					tempRowURL.setParameter("status", String.valueOf(curArticle.getStatus()));
+					tempRowURL.setParameter("version", String.valueOf(curArticle.getVersion()));
 
 					request.setAttribute("view_entries.jsp-article", curArticle);
 
@@ -271,7 +271,7 @@ for (int i = 0; i < results.size(); i++) {
 						rowURL.setParameter("folderId", String.valueOf(curArticle.getFolderId()));
 						rowURL.setParameter("articleId", curArticle.getArticleId());
 
-						rowURL.setParameter("status", String.valueOf(curArticle.getStatus()));
+						rowURL.setParameter("version", String.valueOf(curArticle.getVersion()));
 						%>
 
 						<liferay-ui:icon
