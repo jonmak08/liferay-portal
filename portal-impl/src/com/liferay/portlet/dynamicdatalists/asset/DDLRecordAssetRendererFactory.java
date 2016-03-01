@@ -24,6 +24,7 @@ import com.liferay.portlet.dynamicdatalists.model.DDLRecord;
 import com.liferay.portlet.dynamicdatalists.model.DDLRecordVersion;
 import com.liferay.portlet.dynamicdatalists.service.DDLRecordLocalServiceUtil;
 import com.liferay.portlet.dynamicdatalists.service.permission.DDLRecordPermission;
+import com.liferay.portlet.dynamicdatalists.service.permission.DDLRecordSetPermission;
 
 /**
  * @author Marcellus Tavares

@@ -167,5 +167,4 @@ public class DDLRecordServiceTest extends BaseDDLServiceTestCase {
 
 	private String _originalName;
 	private PermissionChecker _originalPermissionChecker;
-
 }
