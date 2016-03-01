@@ -492,7 +492,17 @@ app.server.type=@{app.server.type}]]></echo>
 							</antcall>
 						</then>
 						<else>
-							<prepare-test-environment app.server.type="${app.server.type}" />
+							<if>
+								<isset property="env.DIST_PATH" />
+								<then>
+									<prepare-test-environment app.server.type="${app.server.type}" />
+								</then>
+								<else>
+									<antcall target="start" />
+
+									<ant antfile="build-dist.xml" target="build-dist-${app.server.type}" />
+								</else>
+							</if>
 						</else>
 					</if>
 
@@ -534,10 +544,6 @@ app.server.type=@{app.server.type}]]></echo>
 				<test-action>
 					<database-test-run-test database.type="@{database.type}" database.version="@{database.version}">
 						<test-action>
-							<antcall target="record-test-class-file-names" inheritAll="false">
-								<param name="test.class.groups.size" value="${test.batch.size}" />
-							</antcall>
-
 							<print-test-class-group test.class.group.index="${axis.variable}" />
 
 							<ant dir="portal-impl" target="test-class-group" inheritAll="false">
@@ -550,7 +556,19 @@ app.server.type=@{app.server.type}]]></echo>
 				</test-action>
 
 				<test-set-up>
-					<prepare-test-environment />
+					<if>
+						<isset property="env.DIST_PATH" />
+						<then>
+							<prepare-test-environment />
+
+							<antcall target="record-test-class-file-names" inheritAll="false">
+								<param name="test.class.groups.size" value="${test.batch.size}" />
+							</antcall>
+						</then>
+						<else>
+							<prepare-test-build />
+						</else>
+					</if>
 				</test-set-up>
 			</run-batch-test>
 		</sequential>
@@ -577,7 +595,15 @@ app.server.type=@{app.server.type}]]></echo>
 			</test-action>
 
 			<test-set-up>
-				<prepare-test-environment />
+				<if>
+					<isset property="env.DIST_PATH" />
+					<then>
+						<prepare-test-environment />
+					</then>
+					<else>
+						<prepare-test-build />
+					</else>
+				</if>
 			</test-set-up>
 		</run-batch-test>
 	</target>
@@ -655,17 +681,25 @@ app.server.type=@{app.server.type}]]></echo>
 	<target name="plugins-compile-jdk7">
 		<run-batch-test>
 			<test-action>
-				<antcall target="record-test-plugin-names" inheritAll="false">
-					<param name="test.plugin.groups.size" value="${test.batch.size}" />
-				</antcall>
-
 				<ant antfile="build-test-plugins.xml" target="test-plugin-group">
 					<property name="test.plugin.group.index" value="${axis.variable}" />
 				</ant>
 			</test-action>
 
 			<test-set-up>
-				<prepare-test-environment />
+				<if>
+					<isset property="env.DIST_PATH" />
+					<then>
+						<prepare-test-environment />
+
+						<antcall target="record-test-plugin-names" inheritAll="false">
+							<param name="test.plugin.groups.size" value="${test.batch.size}" />
+						</antcall>
+					</then>
+					<else>
+						<prepare-test-build />
+					</else>
+				</if>
 			</test-set-up>
 		</run-batch-test>
 	</target>
@@ -705,7 +739,15 @@ app.server.type=@{app.server.type}]]></echo>
 			</test-action>
 
 			<test-set-up>
-				<prepare-test-environment />
+				<if>
+					<isset property="env.DIST_PATH" />
+					<then>
+						<prepare-test-environment />
+					</then>
+					<else>
+						<prepare-test-build />
+					</else>
+				</if>
 			</test-set-up>
 		</run-batch-test>
 	</target>
@@ -728,7 +770,15 @@ app.server.type=@{app.server.type}]]></echo>
 			</test-action>
 
 			<test-set-up>
-				<prepare-test-environment />
+				<if>
+					<isset property="env.DIST_PATH" />
+					<then>
+						<prepare-test-environment />
+					</then>
+					<else>
+						<prepare-test-build />
+					</else>
+				</if>
 
 				<antcall target="prepare-system-ext-properties" />
 			</test-set-up>
@@ -738,10 +788,6 @@ app.server.type=@{app.server.type}]]></echo>
 	<target name="unit-jdk7">
 		<run-batch-test>
 			<test-action>
-				<antcall target="record-test-class-file-names" inheritAll="false">
-					<param name="test.class.groups.size" value="${test.batch.size}" />
-				</antcall>
-
 				<ant dir="portal-service" target="test-class-group" inheritAll="false">
 					<property name="test.class.group.index" value="${axis.variable}" />
 				</ant>
@@ -757,7 +803,19 @@ app.server.type=@{app.server.type}]]></echo>
 			</test-action>
 
 			<test-set-up>
-				<prepare-test-environment />
+				<if>
+					<isset property="env.DIST_PATH" />
+					<then>
+						<prepare-test-environment />
+
+						<antcall target="record-test-class-file-names" inheritAll="false">
+							<param name="test.class.groups.size" value="${test.batch.size}" />
+						</antcall>
+					</then>
+					<else>
+						<prepare-test-build-unit />
+					</else>
+				</if>
 			</test-set-up>
 		</run-batch-test>
 	</target>
