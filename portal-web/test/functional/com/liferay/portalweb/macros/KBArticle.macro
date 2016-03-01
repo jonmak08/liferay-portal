@@ -1447,6 +1447,8 @@
 	</command>
 
 	<command name="viewPGViaKBSection">
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+
 		<execute function="AssertTextEquals" locator1="PGKnowledgebasesectionArticle#ARTICLE_TITLE" value1="${kbArticleTitle}" />
 		<execute function="AssertTextEquals" locator1="PGKnowledgebasesectionArticle#ARTICLE_CONTENT" value1="${kbArticleContent}" />
 	</command>
