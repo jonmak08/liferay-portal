@@ -4561,8 +4561,6 @@ mail.session.mail.smtp.port=25000</echo>
 	<target name="prepare-selenium">
 		<delete file="${test.ext.properties.file}" />
 
-		<get-testcase-property property.name="browser.type" />
-
 		<if>
 			<equals arg1="${test.poshi.runner.enabled}" arg2="true" />
 			<then>
@@ -4764,6 +4762,8 @@ mail.session.mail.smtp.port=25000</echo>
 	</target>
 
 	<target name="prepare-selenium-browser">
+		<get-testcase-property property.name="browser.type" />
+
 		<echo append="true" file="${test.ext.properties.file}">
 			browser.type=${browser.type}
 			browser.version=${browser.version}
