@@ -269,7 +269,6 @@ for (int i = 0; i < results.size(); i++) {
 						rowURL.setParameter("groupId", String.valueOf(curArticle.getGroupId()));
 						rowURL.setParameter("folderId", String.valueOf(curArticle.getFolderId()));
 						rowURL.setParameter("articleId", curArticle.getArticleId());
-
 						rowURL.setParameter("version", String.valueOf(curArticle.getVersion()));
 						%>
 
