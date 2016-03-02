@@ -251,14 +251,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 			value = StringUtil.replace(
 				value, _KEYWORDS_LOWERCASE, _KEYWORDS_UPPERCASE);
 
-			Query query = null;
-
-			try {
-				query = queryParser.parse(value);
-			}
-			catch (ParseException e) {
-				query = queryParser.parse(KeywordsUtil.escape(value));
-			}
+			Query query = parseQuery(queryParser, value);
 
 			BooleanClause.Occur occur = null;
 
@@ -509,12 +502,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 			QueryParser queryParser = new QueryParser(
 				getVersion(), StringPool.BLANK, getAnalyzer());
 
-			try {
-				tempQuery = queryParser.parse(queryString);
-			}
-			catch (ParseException e) {
-				tempQuery = queryParser.parse(KeywordsUtil.escape(queryString));
-			}
+			tempQuery = parseQuery(queryParser, queryString);
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
@@ -805,6 +793,17 @@ public class LuceneHelperImpl implements LuceneHelper {
 		IndexAccessor indexAccessor = getIndexAccessor(companyId);
 
 		indexAccessor.updateDocument(term, document);
+	}
+
+	protected Query parseQuery(QueryParser queryParser, String queryString)
+		throws ParseException {
+
+		try {
+			return queryParser.parse(queryString);
+		}
+		catch (ParseException e) {
+			return queryParser.parse(KeywordsUtil.escape(queryString));
+		}
 	}
 
 	private LuceneHelperImpl() {
