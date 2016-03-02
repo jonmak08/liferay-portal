@@ -242,7 +242,6 @@ for (int i = 0; i < results.size(); i++) {
 					tempRowURL.setParameter("groupId", String.valueOf(curArticle.getGroupId()));
 					tempRowURL.setParameter("folderId", String.valueOf(curArticle.getFolderId()));
 					tempRowURL.setParameter("articleId", curArticle.getArticleId());
-
 					tempRowURL.setParameter("version", String.valueOf(curArticle.getVersion()));
 
 					request.setAttribute("view_entries.jsp-article", curArticle);
