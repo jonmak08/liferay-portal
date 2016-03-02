@@ -794,6 +794,16 @@
 		},
 
 		savePortletTitle: function(params) {
+			var saveTitle = function() {
+				var obj = A.one('#' + 'p_p_id_' + params.portletId + '_');
+
+				var curPortletTopper = obj.one('.portlet-topper .portlet-name-text');
+
+				if (curPortletTopper) {
+					curPortletTopper.text(params.title);
+				}
+			};
+
 			_.defaults(
 				params,
 				{
@@ -814,7 +824,8 @@
 						p_l_id: params.plid,
 						portletId: params.portletId,
 						title: params.title
-					}
+					},
+					complete: saveTitle
 				}
 			);
 		},

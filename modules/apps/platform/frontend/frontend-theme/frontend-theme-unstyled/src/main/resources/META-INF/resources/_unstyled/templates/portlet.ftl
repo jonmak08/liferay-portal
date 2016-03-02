@@ -10,7 +10,7 @@
 <section class="portlet" id="portlet_${portlet_id}">
 	<header class="portlet-topper">
 		<div class="portlet-title-default">
-			<span class="portlet-name-text">${portlet_display_name}</span>
+			<span class="portlet-name-text">${portlet_title}</span>
 		</div>
 
 		<#list portlet_toolbar.getPortletTitleMenus(portlet_display_root_portlet_id, renderRequest, renderResponse) as portletTitleMenu>
