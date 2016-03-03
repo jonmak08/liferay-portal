@@ -382,7 +382,7 @@ if ((checkedOut || pending) && !PropsValues.DL_FILE_ENTRY_DRAFTS_ENABLED) {
 								classPK="<%= ddmStructure.getPrimaryKey() %>"
 								fields="<%= fields %>"
 								fieldsNamespace="<%= String.valueOf(ddmStructure.getPrimaryKey()) %>"
-								requestedLocale="<%= locale %>"
+								requestedLocale="<%= (fields != null) ? fields.getDefaultLocale() : locale %>"
 							/>
 
 				<%

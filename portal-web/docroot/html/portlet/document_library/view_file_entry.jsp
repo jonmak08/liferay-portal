@@ -573,7 +573,7 @@ request.setAttribute("view_file_entry.jsp-fileEntry", fileEntry);
 											fields="<%= fields %>"
 											fieldsNamespace="<%= String.valueOf(ddmStructure.getPrimaryKey()) %>"
 											readOnly="<%= true %>"
-											requestedLocale="<%= locale %>"
+											requestedLocale="<%= (fields != null) ? fields.getDefaultLocale() : locale %>"
 										/>
 
 									</liferay-ui:panel>
