@@ -178,7 +178,6 @@ mariadb.executable=${mariadb.executable}]]></echo>
 				</then>
 			</if>
 
-
 			<database-test-action app.server.type="@{app.server.type}" database.type="@{database.type}">
 				<action>
 					<exec executable="${database.service.executable}" failonerror="true">
