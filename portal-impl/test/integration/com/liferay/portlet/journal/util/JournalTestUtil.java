@@ -391,6 +391,17 @@ public class JournalTestUtil {
 	}
 
 	public static JournalArticle addArticleWithXMLContent(
+			String articleId, long groupId, long folderId, long classNameId,
+			String xml, String ddmStructureKey, String ddmTemplateKey,
+			Map<String, byte[]> images)
+		throws Exception {
+
+		return addArticleWithXMLContent(
+			articleId, groupId, folderId, classNameId, xml, ddmStructureKey,
+			ddmTemplateKey, LocaleUtil.getSiteDefault(), images);
+	}
+
+	public static JournalArticle addArticleWithXMLContent(
 			long groupId, long folderId, long classNameId, String xml,
 			String ddmStructureKey, String ddmTemplateKey, Locale defaultLocale)
 		throws Exception {
@@ -398,6 +409,17 @@ public class JournalTestUtil {
 		return addArticleWithXMLContent(
 			groupId, folderId, classNameId, 0, xml, ddmStructureKey,
 			ddmTemplateKey, defaultLocale);
+	}
+
+	public static JournalArticle addArticleWithXMLContent(
+			String articleId, long groupId, long folderId, long classNameId,
+			String xml, String ddmStructureKey, String ddmTemplateKey,
+			Locale defaultLocale, Map<String, byte[]> images)
+		throws Exception {
+
+		return addArticleWithXMLContent(
+			articleId, groupId, folderId, classNameId, 0, xml, ddmStructureKey,
+			ddmTemplateKey, defaultLocale, images);
 	}
 
 	public static JournalArticle addArticleWithXMLContent(
@@ -412,6 +434,21 @@ public class JournalTestUtil {
 		return addArticleWithXMLContent(
 			folderId, classNameId, classPK, xml, ddmStructureKey,
 			ddmTemplateKey, defaultLocale, serviceContext);
+	}
+
+	public static JournalArticle addArticleWithXMLContent(
+			String articleId, long groupId, long folderId, long classNameId,
+			long classPK, String xml, String ddmStructureKey,
+			String ddmTemplateKey, Locale defaultLocale,
+			Map<String, byte[]> images)
+		throws Exception {
+
+		ServiceContext serviceContext = ServiceTestUtil.getServiceContext(
+			groupId);
+
+		return addArticleWithXMLContent(
+			articleId, folderId, classNameId, classPK, xml, ddmStructureKey,
+			ddmTemplateKey, defaultLocale, serviceContext, images);
 	}
 
 	public static JournalArticle addArticleWithXMLContent(
@@ -437,10 +474,29 @@ public class JournalTestUtil {
 
 		return JournalArticleLocalServiceUtil.addArticle(
 			serviceContext.getUserId(), serviceContext.getScopeGroupId(),
-			folderId, classNameId, classPK, StringPool.BLANK, true, 0, titleMap,
+			folderId, classNameId, classPK, StringPool.BLANK, true, 1, titleMap,
 			null, xml, "general", ddmStructureKey, ddmTemplateKey, null, 1, 1,
 			1965, 0, 0, 0, 0, 0, 0, 0, true, 0, 0, 0, 0, 0, true, true, false,
 			null, null, null, null, serviceContext);
+	}
+
+	public static JournalArticle addArticleWithXMLContent(
+			String articleId, long folderId, long classNameId, long classPK,
+			String xml, String ddmStructureKey, String ddmTemplateKey,
+			Locale defaultLocale, ServiceContext serviceContext,
+			Map<String, byte[]> images)
+		throws Exception {
+
+		Map<Locale, String> titleMap = new HashMap<Locale, String>();
+
+		titleMap.put(defaultLocale, "Test Article");
+
+		return JournalArticleLocalServiceUtil.addArticle(
+			serviceContext.getUserId(), serviceContext.getScopeGroupId(),
+			folderId, classNameId, classPK, articleId, false, 1, titleMap, null,
+			xml, "general", ddmStructureKey, ddmTemplateKey, null, 1, 1, 1965,
+			0, 0, 0, 0, 0, 0, 0, true, 0, 0, 0, 0, 0, true, true, false, null,
+			null, images, null, serviceContext);
 	}
 
 	public static JournalArticle addArticleWithXMLContent(
@@ -452,6 +508,17 @@ public class JournalTestUtil {
 			groupId, JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID,
 			JournalArticleConstants.CLASSNAME_ID_DEFAULT, xml, ddmStructureKey,
 			ddmTemplateKey, LocaleUtil.getSiteDefault());
+	}
+
+	public static JournalArticle addArticleWithXMLContent(
+			String articleId, long groupId, String xml, String ddmStructureKey,
+			String ddmTemplateKey, Map<String, byte[]> images)
+		throws Exception {
+
+		return addArticleWithXMLContent(
+			articleId, groupId, JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID,
+			JournalArticleConstants.CLASSNAME_ID_DEFAULT, xml, ddmStructureKey,
+			ddmTemplateKey, LocaleUtil.getSiteDefault(), images);
 	}
 
 	public static JournalArticle addArticleWithXMLContent(
@@ -522,6 +589,19 @@ public class JournalTestUtil {
 		dynamicElementElement.addAttribute("dataType", dataType);
 		dynamicElementElement.addAttribute("name", name);
 		dynamicElementElement.addAttribute("type", type);
+
+		return dynamicElementElement;
+	}
+
+	public static Element addDynamicElementElement(
+		Element element, String dataType, String type, String name,
+		String instanceId, String index) {
+
+		Element dynamicElementElement = addDynamicElementElement(
+			element, dataType, type, name);
+
+		dynamicElementElement.addAttribute("instance-id", instanceId);
+		dynamicElementElement.addAttribute("index", index);
 
 		return dynamicElementElement;
 	}
@@ -754,6 +834,14 @@ public class JournalTestUtil {
 			ServiceContext serviceContext)
 		throws Exception {
 
+		return updateArticle(article, title, content, serviceContext, null);
+	}
+
+	public static JournalArticle updateArticle(
+			JournalArticle article, String title, String content,
+			ServiceContext serviceContext, Map<String, byte[]> images)
+		throws Exception {
+
 		Date displayDate = article.getDisplayDate();
 
 		int displayDateMonth = 0;
@@ -794,7 +882,7 @@ public class JournalTestUtil {
 			article.getTemplateId(), article.getLayoutUuid(), displayDateMonth,
 			displayDateDay, displayDateYear, displayDateHour, displayDateMinute,
 			0, 0, 0, 0, 0, true, 0, 0, 0, 0, 0, true, article.getIndexable(),
-			article.isSmallImage(), article.getSmallImageURL(), null, null,
+			article.isSmallImage(), article.getSmallImageURL(), null, images,
 			null, serviceContext);
 	}
 

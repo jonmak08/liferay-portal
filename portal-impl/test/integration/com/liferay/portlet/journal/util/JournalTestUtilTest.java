@@ -14,15 +14,23 @@
 
 package com.liferay.portlet.journal.util;
 
+import com.liferay.counter.service.CounterLocalServiceUtil;
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.UnicodeFormatter;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.model.Group;
+import com.liferay.portal.model.Image;
+import com.liferay.portal.service.ImageLocalServiceUtil;
 import com.liferay.portal.test.EnvironmentExecutionTestListener;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
 import com.liferay.portal.test.Sync;
@@ -31,6 +39,7 @@ import com.liferay.portal.test.TransactionalExecutionTestListener;
 import com.liferay.portal.util.CompanyTestUtil;
 import com.liferay.portal.util.GroupTestUtil;
 import com.liferay.portal.util.PortalUtil;
+import com.liferay.portal.util.ServiceContextTestUtil;
 import com.liferay.portal.util.TestPropsValues;
 import com.liferay.portlet.dynamicdatamapping.StructureNameException;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
@@ -42,8 +51,15 @@ import com.liferay.portlet.journal.NoSuchArticleException;
 import com.liferay.portlet.journal.model.JournalArticle;
 import com.liferay.portlet.journal.model.JournalFolder;
 import com.liferay.portlet.journal.model.JournalFolderConstants;
+import com.liferay.portlet.journal.service.JournalArticleImageLocalServiceUtil;
 import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 
+import java.io.File;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+
+import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import org.junit.Assert;
@@ -96,6 +112,161 @@ public class JournalTestUtilTest {
 			JournalTestUtil.addArticleWithXMLContent(
 				xml, ddmStructure.getStructureKey(),
 				ddmTemplate.getTemplateKey()));
+	}
+
+	@Test
+	public void testAddArticleWithStructureAndTemplateWithTranslationsImages()
+		throws Exception {
+
+		Document document = JournalTestUtil.createDocument(
+			"en_US,fr_FR", "en_US");
+
+		Element dynamicElementTextElement =
+			JournalTestUtil.addDynamicElementElement(
+				document.getRootElement(), "text", "name");
+
+		JournalTestUtil.addDynamicContentElement(
+				dynamicElementTextElement, "en_US", "Joe Bloggs");
+
+		JournalTestUtil.addDynamicContentElement(
+				dynamicElementTextElement, "fr_FR", "Joe Bloggs French");
+
+		String index = "0";
+		String instanceId = "qabd";
+
+		Element dynamicElementImageElement =
+				JournalTestUtil.addDynamicElementElement(
+					document.getRootElement(), "image", "image", "imageName",
+					instanceId, index);
+
+		long groupId = _group.getGroupId();
+		String articleId = String.valueOf(CounterLocalServiceUtil.increment());
+
+		String elName = "imageName_" + index;
+
+		Map<String, byte[]> images = new HashMap<String, byte[]>();
+
+		byte[] englishBinary = readBinary("liferay.png");
+
+		images.put(
+			instanceId + StringPool.UNDERLINE + elName + "_en_US",
+			englishBinary);
+
+		byte[] frenchBinary = readBinary("company_logo.png");
+
+		Assert.assertNotEquals(englishBinary, frenchBinary);
+
+		String frenchImageKey =
+			instanceId + StringPool.UNDERLINE + elName + "_fr_FR";
+
+		images.put(frenchImageKey, frenchBinary);
+
+		JSONObject jsonObjectEnglish = JSONFactoryUtil.createJSONObject();
+
+		jsonObjectEnglish.put(
+			"data", UnicodeFormatter.bytesToHex(englishBinary));
+
+		JSONObject jsonObjectFrench = JSONFactoryUtil.createJSONObject();
+
+		jsonObjectFrench.put("data", UnicodeFormatter.bytesToHex(frenchBinary));
+
+		JournalTestUtil.addDynamicContentElement(
+				dynamicElementImageElement, "en_US",
+				jsonObjectEnglish.toString());
+
+		JournalTestUtil.addDynamicContentElement(
+				dynamicElementImageElement, "fr_FR",
+				jsonObjectFrench.toString());
+
+		String xml = document.asXML();
+
+		String xsd = readText ("test-ddm-structure-image.xml");
+
+		DDMStructure ddmStructure = DDMStructureTestUtil.addStructure(
+			groupId, JournalArticle.class.getName(), xsd);
+
+		DDMTemplate ddmTemplate =
+			DDMTemplateTestUtil.addTemplate(
+				groupId, ddmStructure.getStructureId(),
+				TemplateConstants.LANG_TYPE_VM,
+				JournalTestUtil.getSampleTemplateXSL(), Locale.US);
+
+		JournalArticle article =
+			JournalTestUtil.addArticleWithXMLContent(
+				articleId, groupId, xml, ddmStructure.getStructureKey(),
+				ddmTemplate.getTemplateKey(), images);
+
+		Assert.assertNotNull(article);
+
+		long imageIdEn =
+			JournalArticleImageLocalServiceUtil.getArticleImageId(
+				groupId, articleId, 1.0, instanceId, elName, "_en_US");
+
+		long imageIdFr =
+			JournalArticleImageLocalServiceUtil.getArticleImageId(
+				groupId, articleId, 1.0, instanceId, elName, "_fr_FR");
+
+		String englishContent = article.getContentByLocale("en_US");
+
+		Document englishDocument = SAXReaderUtil.read(englishContent);
+
+		String imageXPath = "//dynamic-element[contains(@name, 'imageName')]" +
+			"//dynamic-content";
+
+		Element englishImageElement = (Element)englishDocument.selectSingleNode(
+			imageXPath);
+
+		String englishImageURL = englishImageElement.getText();
+
+		Assert.assertTrue(englishImageURL.indexOf("img_id=" + imageIdEn)!=-1);
+
+		Image englishImage = ImageLocalServiceUtil.getImage(imageIdEn);
+
+		Assert.assertArrayEquals(englishBinary, englishImage.getTextObj());
+
+		String frenchContent = article.getContentByLocale("fr_FR");
+
+		Document frenchDocument = SAXReaderUtil.read(frenchContent);
+
+		Element frenchImageElement = (Element)frenchDocument.selectSingleNode(
+			imageXPath);
+
+		String frenchImageURL = frenchImageElement.getText();
+
+		Assert.assertTrue(frenchImageURL.indexOf("img_id=" + imageIdFr)!=-1);
+
+		Image frenchImage = ImageLocalServiceUtil.getImage(imageIdFr);
+
+		Assert.assertArrayEquals(frenchBinary, frenchImage.getTextObj());
+
+		images.remove(frenchImageKey);
+
+		xml = article.getContent();
+
+		article =
+				JournalTestUtil.updateArticle(
+					article, article.getTitle(), xml,
+					ServiceContextTestUtil.getServiceContext(
+						_group.getGroupId()), images);
+
+		frenchContent = article.getContentByLocale("fr_FR");
+
+		frenchDocument = SAXReaderUtil.read(frenchContent);
+
+		frenchImageElement = (Element)frenchDocument.selectSingleNode(
+				imageXPath);
+
+		frenchImageURL = frenchImageElement.getText();
+
+		imageIdFr =
+				JournalArticleImageLocalServiceUtil.getArticleImageId(
+					groupId, articleId, 1.1, instanceId, elName, "_fr_FR");
+
+		Assert.assertTrue(frenchImageURL.indexOf("img_id=" + imageIdFr)!=-1);
+
+		frenchImage = ImageLocalServiceUtil.getImage(imageIdFr);
+
+		Assert.assertArrayEquals(frenchBinary, frenchImage.getTextObj());
 	}
 
 	@Test
@@ -306,6 +477,44 @@ public class JournalTestUtilTest {
 			"company_id", String.valueOf(TestPropsValues.getCompanyId()));
 
 		return tokens;
+	}
+
+	protected byte[] readBinary(String fileName) throws Exception {
+		fileName =
+			"portal-impl/test/integration/com/liferay/portlet/journal/" +
+				"dependencies/" + fileName;
+
+		File file = new File(fileName);
+
+		byte[] bytes = null;
+
+		RandomAccessFile randomAccessFile = null;
+
+		try {
+			randomAccessFile = new RandomAccessFile(file, "r");
+
+			bytes = new byte[(int)randomAccessFile.length()];
+
+			randomAccessFile.readFully(bytes);
+		}
+		finally {
+			if (randomAccessFile != null) {
+				randomAccessFile.close();
+			}
+		}
+
+		return bytes;
+	}
+
+	protected String readText(String fileName) throws Exception {
+		Class<?> clazz = getClass();
+
+		ClassLoader classLoader = clazz.getClassLoader();
+
+		InputStream inputStream = classLoader.getResourceAsStream(
+			"com/liferay/portlet/journal/dependencies/" + fileName);
+
+		return StringUtil.read(inputStream);
 	}
 
 	private Group _group;
