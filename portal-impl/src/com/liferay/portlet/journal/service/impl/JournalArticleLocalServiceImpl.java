@@ -5822,11 +5822,17 @@ public class JournalArticleLocalServiceImpl
 						new ArticleVersionComparator(true));
 
 				for (JournalArticle currentArticle : currentArticles) {
-					currentArticle.setExpirationDate(
-						article.getExpirationDate());
-					currentArticle.setStatus(WorkflowConstants.STATUS_EXPIRED);
+					if (Validator.isNotNull(
+							currentArticle.getExpirationDate()) &&
+						(currentArticle.getVersion() <= article.getVersion())) {
 
-					journalArticlePersistence.update(currentArticle);
+						currentArticle.setExpirationDate(
+							article.getExpirationDate());
+						currentArticle.setStatus(
+							WorkflowConstants.STATUS_EXPIRED);
+
+						journalArticlePersistence.update(currentArticle);
+					}
 				}
 			}
 			else {
