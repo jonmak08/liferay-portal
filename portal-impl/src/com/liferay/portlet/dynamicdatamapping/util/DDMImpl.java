@@ -416,6 +416,19 @@ public class DDMImpl implements DDM {
 		return existingFields;
 	}
 
+	@Override
+	public String[] splitFieldsDisplayValue(Field fieldsDisplayField) {
+		String value = (String)fieldsDisplayField.getValue();
+
+		if (Validator.isNull(value)) {
+			Locale locale = getFirstLocaleFromField(fieldsDisplayField);
+
+			value = (String)fieldsDisplayField.getValue(locale);
+		}
+
+		return StringUtil.split(value);
+	}
+
 	protected int countFieldRepetition(
 		String[] fieldsDisplayValues, String fieldName) {
 
@@ -783,18 +796,6 @@ public class DDMImpl implements DDM {
 		}
 
 		return existingField.getValuesMap();
-	}
-
-	protected String[] splitFieldsDisplayValue(Field fieldsDisplayField) {
-		String value = (String)fieldsDisplayField.getValue();
-
-		if (Validator.isNull(value)) {
-			Locale locale = getFirstLocaleFromField(fieldsDisplayField);
-
-			value = (String)fieldsDisplayField.getValue(locale);
-		}
-
-		return StringUtil.split(value);
 	}
 
 	private Locale getFirstLocaleFromField(Field fieldsDisplayField) {
