@@ -629,8 +629,8 @@ public class JournalConverterImpl implements JournalConverter {
 
 		String prefix = fieldName.concat(DDMImpl.INSTANCE_SEPARATOR);
 
-		String[] fieldsDisplayValues = StringUtil.split(
-			(String)fieldsDisplayField.getValue());
+		String[] fieldsDisplayValues = DDMUtil.splitFieldsDisplayValue(
+			fieldsDisplayField);
 
 		for (String fieldsDisplayValue : fieldsDisplayValues) {
 			if (fieldsDisplayValue.startsWith(prefix)) {
@@ -1098,8 +1098,8 @@ public class JournalConverterImpl implements JournalConverter {
 
 		Field fieldsDisplayField = ddmFields.get(DDMImpl.FIELDS_DISPLAY_NAME);
 
-		String[] fieldsDisplayValues = StringUtil.split(
-			(String)fieldsDisplayField.getValue());
+		String[] fieldsDisplayValues = DDMUtil.splitFieldsDisplayValue(
+			fieldsDisplayField);
 
 		fieldsDisplayValues = ArrayUtil.append(
 			fieldsDisplayValues, fieldsDisplayValue);
