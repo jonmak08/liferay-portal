@@ -125,7 +125,7 @@ AUI.add(
 					'</a>',
 
 					TPL_IMAGE_CONTAINER: '<div class="closed ' + CSS_IMAGE_CONTAINER + ' ' + CSS_SIDENAV_CONTAINER + ' sidenav-right">' +
-						'<div class="' + CSS_SIDENAV_MENU_SLIDER + '">' +
+						'<div class="sidebar ' + CSS_SIDENAV_MENU_SLIDER + '">' +
 							'<div class="' + CSS_IMAGE_INFO + ' sidebar sidebar-inverse sidebar-menu">' +
 								'<div class="sidebar-header"><ul class="nav nav-tabs product-menu-tabs"></ul></div>' +
 								'<div class="sidebar-body"><div class="tab-content"></div></div>' +
