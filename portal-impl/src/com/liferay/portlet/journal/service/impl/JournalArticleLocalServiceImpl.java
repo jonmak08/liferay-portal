@@ -6222,9 +6222,21 @@ public class JournalArticleLocalServiceImpl
 			if ((image == null) && ArrayUtil.isEmpty(bytes) &&
 				!defaultElLanguage.equals(elLanguage)) {
 
-				bytes = images.get(
-					elInstanceId + StringPool.UNDERLINE + elName +
-						defaultElLanguage);
+				Image oldImage = null;
+
+				if ((version > JournalArticleConstants.VERSION_DEFAULT) &&
+					incrementVersion) {
+
+					oldImage = getPreviousVersionImage(
+						version, groupId, articleId, elInstanceId, elName,
+						elLanguage);
+				}
+
+				if (oldImage == null) {
+					bytes = images.get(
+							elInstanceId + StringPool.UNDERLINE + elName +
+							defaultElLanguage);
+				}
 			}
 
 			if (ArrayUtil.isNotEmpty(bytes)) {
