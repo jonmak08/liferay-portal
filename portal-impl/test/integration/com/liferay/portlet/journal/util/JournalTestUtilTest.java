@@ -126,20 +126,21 @@ public class JournalTestUtilTest {
 				document.getRootElement(), "text", "name");
 
 		JournalTestUtil.addDynamicContentElement(
-				dynamicElementTextElement, "en_US", "Joe Bloggs");
+			dynamicElementTextElement, "en_US", "Joe Bloggs");
 
 		JournalTestUtil.addDynamicContentElement(
-				dynamicElementTextElement, "fr_FR", "Joe Bloggs French");
+			dynamicElementTextElement, "fr_FR", "Joe Bloggs French");
 
 		String index = "0";
 		String instanceId = "qabd";
 
 		Element dynamicElementImageElement =
-				JournalTestUtil.addDynamicElementElement(
-					document.getRootElement(), "image", "image", "imageName",
-					instanceId, index);
+			JournalTestUtil.addDynamicElementElement(
+				document.getRootElement(), "image", "image", "imageName",
+				instanceId, index);
 
 		long groupId = _group.getGroupId();
+
 		String articleId = String.valueOf(CounterLocalServiceUtil.increment());
 
 		String elName = "imageName_" + index;
@@ -156,8 +157,8 @@ public class JournalTestUtilTest {
 
 		Assert.assertNotEquals(englishBinary, frenchBinary);
 
-		String frenchImageKey =
-			instanceId + StringPool.UNDERLINE + elName + "_fr_FR";
+		String frenchImageKey = instanceId + StringPool.UNDERLINE + elName +
+			"_fr_FR";
 
 		images.put(frenchImageKey, frenchBinary);
 
@@ -171,12 +172,10 @@ public class JournalTestUtilTest {
 		jsonObjectFrench.put("data", UnicodeFormatter.bytesToHex(frenchBinary));
 
 		JournalTestUtil.addDynamicContentElement(
-				dynamicElementImageElement, "en_US",
-				jsonObjectEnglish.toString());
+			dynamicElementImageElement, "en_US", jsonObjectEnglish.toString());
 
 		JournalTestUtil.addDynamicContentElement(
-				dynamicElementImageElement, "fr_FR",
-				jsonObjectFrench.toString());
+			dynamicElementImageElement, "fr_FR", jsonObjectFrench.toString());
 
 		String xml = document.asXML();
 
@@ -185,26 +184,22 @@ public class JournalTestUtilTest {
 		DDMStructure ddmStructure = DDMStructureTestUtil.addStructure(
 			groupId, JournalArticle.class.getName(), xsd);
 
-		DDMTemplate ddmTemplate =
-			DDMTemplateTestUtil.addTemplate(
-				groupId, ddmStructure.getStructureId(),
-				TemplateConstants.LANG_TYPE_VM,
-				JournalTestUtil.getSampleTemplateXSL(), Locale.US);
+		DDMTemplate ddmTemplate = DDMTemplateTestUtil.addTemplate(
+			groupId, ddmStructure.getStructureId(),
+			TemplateConstants.LANG_TYPE_VM,
+			JournalTestUtil.getSampleTemplateXSL(), Locale.US);
 
-		JournalArticle article =
-			JournalTestUtil.addArticleWithXMLContent(
-				articleId, groupId, xml, ddmStructure.getStructureKey(),
-				ddmTemplate.getTemplateKey(), images);
+		JournalArticle article = JournalTestUtil.addArticleWithXMLContent(
+			articleId, groupId, xml, ddmStructure.getStructureKey(),
+			ddmTemplate.getTemplateKey(), images);
 
 		Assert.assertNotNull(article);
 
-		long imageIdEn =
-			JournalArticleImageLocalServiceUtil.getArticleImageId(
-				groupId, articleId, 1.0, instanceId, elName, "_en_US");
+		long imageIdEn = JournalArticleImageLocalServiceUtil.getArticleImageId(
+			groupId, articleId, 1.0, instanceId, elName, "_en_US");
 
-		long imageIdFr =
-			JournalArticleImageLocalServiceUtil.getArticleImageId(
-				groupId, articleId, 1.0, instanceId, elName, "_fr_FR");
+		long imageIdFr = JournalArticleImageLocalServiceUtil.getArticleImageId(
+			groupId, articleId, 1.0, instanceId, elName, "_fr_FR");
 
 		String englishContent = article.getContentByLocale("en_US");
 
@@ -218,7 +213,7 @@ public class JournalTestUtilTest {
 
 		String englishImageURL = englishImageElement.getText();
 
-		Assert.assertTrue(englishImageURL.indexOf("img_id=" + imageIdEn)!=-1);
+		Assert.assertTrue(englishImageURL.indexOf("img_id=" + imageIdEn) != -1);
 
 		Image englishImage = ImageLocalServiceUtil.getImage(imageIdEn);
 
@@ -233,7 +228,7 @@ public class JournalTestUtilTest {
 
 		String frenchImageURL = frenchImageElement.getText();
 
-		Assert.assertTrue(frenchImageURL.indexOf("img_id=" + imageIdFr)!=-1);
+		Assert.assertTrue(frenchImageURL.indexOf("img_id=" + imageIdFr) != -1);
 
 		Image frenchImage = ImageLocalServiceUtil.getImage(imageIdFr);
 
@@ -243,26 +238,24 @@ public class JournalTestUtilTest {
 
 		xml = article.getContent();
 
-		article =
-				JournalTestUtil.updateArticle(
-					article, article.getTitle(), xml,
-					ServiceContextTestUtil.getServiceContext(
-						_group.getGroupId()), images);
+		article = JournalTestUtil.updateArticle(
+			article, article.getTitle(), xml,
+			ServiceContextTestUtil.getServiceContext(_group.getGroupId()),
+			images);
 
 		frenchContent = article.getContentByLocale("fr_FR");
 
 		frenchDocument = SAXReaderUtil.read(frenchContent);
 
 		frenchImageElement = (Element)frenchDocument.selectSingleNode(
-				imageXPath);
+			imageXPath);
 
 		frenchImageURL = frenchImageElement.getText();
 
-		imageIdFr =
-				JournalArticleImageLocalServiceUtil.getArticleImageId(
-					groupId, articleId, 1.1, instanceId, elName, "_fr_FR");
+		imageIdFr = JournalArticleImageLocalServiceUtil.getArticleImageId(
+			groupId, articleId, 1.1, instanceId, elName, "_fr_FR");
 
-		Assert.assertTrue(frenchImageURL.indexOf("img_id=" + imageIdFr)!=-1);
+		Assert.assertTrue(frenchImageURL.indexOf("img_id=" + imageIdFr) != -1);
 
 		frenchImage = ImageLocalServiceUtil.getImage(imageIdFr);
 

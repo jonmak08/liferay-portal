@@ -6234,8 +6234,8 @@ public class JournalArticleLocalServiceImpl
 
 				if (oldImage == null) {
 					bytes = images.get(
-							elInstanceId + StringPool.UNDERLINE + elName +
-							defaultElLanguage);
+						elInstanceId + StringPool.UNDERLINE + elName +
+						defaultElLanguage);
 				}
 			}
 
@@ -6251,10 +6251,9 @@ public class JournalArticleLocalServiceImpl
 			if ((version > JournalArticleConstants.VERSION_DEFAULT) &&
 				incrementVersion) {
 
-				Image oldImage =
-					getPreviousVersionImage(
-						version, groupId, articleId, elInstanceId, elName,
-						elLanguage);
+				Image oldImage = getPreviousVersionImage(
+					version, groupId, articleId, elInstanceId, elName,
+					elLanguage);
 
 				if (oldImage != null) {
 					dynamicContent.setText(elContent);
@@ -6430,10 +6429,9 @@ public class JournalArticleLocalServiceImpl
 		long oldImageId = 0;
 
 		if (oldVersion >= 1) {
-			oldImageId =
-				journalArticleImageLocalService.getArticleImageId(
-					groupId, articleId, oldVersion, elInstanceId, elName,
-					elLanguage);
+			oldImageId = journalArticleImageLocalService.getArticleImageId(
+				groupId, articleId, oldVersion, elInstanceId, elName,
+				elLanguage);
 		}
 
 		Image oldImage = null;
