@@ -6427,7 +6427,7 @@ public class JournalArticleLocalServiceImpl
 		Image oldImage = null;
 
 		if (oldImageId > 0) {
-			oldImage = imageLocalService.getImage(oldImageId);
+			oldImage = imageLocalService.fetchImage(oldImageId);
 		}
 
 		return oldImage;
