@@ -511,34 +511,6 @@ public class JournalConverterUtilTest extends BaseDDMServiceTestCase {
 	}
 
 	@Test
-	public void testGetFieldValueFromJournalTranslation() throws Exception {
-		Field textField = new Field();
-
-		textField.setDDMStructureId(_ddmStructure.getStructureId());
-		textField.setName("text");
-
-		textField.addValue(_enLocale, "one");
-		textField.addValue(_ptLocale, StringPool.BLANK);
-
-		Fields fields = new Fields();
-
-		fields.put(textField);
-
-		Field fieldsDisplayField = getFieldsDisplayField(
-			_ddmStructure.getStructureId(), "text_INSTANCE_au8zpf9D");
-
-		fields.put(fieldsDisplayField);
-
-		String expectedContent = readText(
-			"test-journal-content-translation-field-values.xml");
-
-		String actualContent = JournalConverterUtil.getContent(
-			_ddmStructure, fields);
-
-		assertEquals(expectedContent, actualContent);
-	}
-
-	@Test
 	public void testGetJournalXSD() throws Exception {
 		String expectedXSD = readText("test-journal-structure-all-fields.xml");
 
