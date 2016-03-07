@@ -128,7 +128,7 @@ public class NetvibesServlet extends HttpServlet {
 		sb.append("<script src=\"");
 		sb.append(_NETVIBES_JS);
 		sb.append("\" ");
-		sb.append("type=\"text/javascript\"></script>");
+		sb.append("></script>");
 		sb.append("<title>");
 		sb.append(title);
 		sb.append("</title>");
@@ -141,8 +141,8 @@ public class NetvibesServlet extends HttpServlet {
 		sb.append("<script src=\"");
 		sb.append(widgetJsURL);
 		sb.append("\" ");
-		sb.append("type=\"text/javascript\"></script>");
-		sb.append("<script type=\"text/javascript\">");
+		sb.append("></script>");
+		sb.append("<script>");
 		sb.append("Liferay.Widget({url:\"");
 		sb.append(widgetURL);
 		sb.append("\"});");

@@ -34,7 +34,7 @@ response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
 	<meta content="no-cache" http-equiv="Pragma" />
 	<meta content="0" http-equiv="Expires" />
 	<meta content="1; url=<%= redirect %>" http-equiv="refresh" />
-	<script src="<%= themeDisplay.getCDNHost() + themeDisplay.getPathJavaScript() %>/misc/xp_progress.js" type="text/javascript"></script>
+	<script src="<%= themeDisplay.getCDNHost() + themeDisplay.getPathJavaScript() %>/misc/xp_progress.js"></script>
 </head>
 
 <body onLoad="javascript:location.replace('<%= redirect %>')">
@@ -48,7 +48,7 @@ response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
 
 		<br /><br />
 
-		<script type="text/javascript">
+		<script>
 			var progressBar = createBar(300, 15, '#FFFFFF', 1, '#000000', '', 85, 7, 3, '');
 		</script>
 	</td>

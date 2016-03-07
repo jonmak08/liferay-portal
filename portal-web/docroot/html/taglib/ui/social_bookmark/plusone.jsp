@@ -25,7 +25,7 @@ if (displayStyle.equals("vertical")) {
 %>
 
 <liferay-util:html-bottom outputKey="taglib_ui_social_bookmark_plusone">
-	<script type="text/javascript">
+	<script>
 		window.___gcfg = {
 			lang: '<%= locale.getLanguage() %>-<%= locale.getCountry() %>'
 		};
@@ -34,7 +34,6 @@ if (displayStyle.equals("vertical")) {
 			var script = document.createElement('script');
 
 			script.async = true;
-			script.type = 'text/javascript';
 
 			script.src = 'https://apis.google.com/js/plusone.js';
 

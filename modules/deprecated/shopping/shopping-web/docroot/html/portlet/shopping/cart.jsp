@@ -216,7 +216,7 @@ boolean minQuantityMultiple = PrefsPropsUtil.getBoolean(company.getCompanyId(), 
 						<c:otherwise>
 							<div class="alert alert-danger"><liferay-ui:message key="out-of-stock" /></div>
 
-							<script type="text/javascript">
+							<script>
 								<portlet:namespace />itemsInStock = false;
 							</script>
 						</c:otherwise>

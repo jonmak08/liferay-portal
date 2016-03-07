@@ -74,9 +74,9 @@ ${dateUtil.getCurrentDate(format, locale)}</#macro>
 	file_name
 >
 	<#if file_name == js_main_file>
-		<script id="mainLiferayThemeJavaScript" src="${file_name}" type="text/javascript"></script>
+		<script id="mainLiferayThemeJavaScript" src="${file_name}"></script>
 	<#else>
-		<script src="${file_name}" type="text/javascript"></script>
+		<script src="${file_name}"></script>
 	</#if>
 </#macro>
 
