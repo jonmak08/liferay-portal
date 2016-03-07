@@ -1912,7 +1912,7 @@
 
 		<execute macro="Organization#searchCP">
 			<var name="orgName" value="${orgName}" />
-			<var name="orgType" value="${orgType}" />
+			<var name="searchTerm" value="${orgName}" />
 		</execute>
 	</command>
 
