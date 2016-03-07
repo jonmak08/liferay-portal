@@ -53,7 +53,7 @@ portletURL.setParameter("appURL", StringPool.BLANK);
 	<a href="#">Permanent Link</a>
 </div>
 
-<script type="text/javascript">
+<script>
 	AUI().use(
 		'aui-base',
 		function(A) {

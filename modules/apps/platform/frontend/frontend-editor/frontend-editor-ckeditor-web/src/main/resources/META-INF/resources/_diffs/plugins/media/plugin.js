@@ -259,8 +259,6 @@
 
 			var scriptTmp = editor.document.createElement('script');
 
-			scriptTmp.setAttribute('type', 'text/javascript');
-
 			divNode.append(boundingBoxTmp);
 			divNode.append(scriptTmp);
 
@@ -367,7 +365,7 @@
 				AUI().use(
 					'aui-node',
 					function(A) {
-						var scriptNode = A.Node.create('<script type="text/javascript">' + scriptContent + '</script>');
+						var scriptNode = A.Node.create('<script>' + scriptContent + '</script>');
 
 						scriptTmp = new CKEDITOR.dom.element(scriptNode.getDOM());
 

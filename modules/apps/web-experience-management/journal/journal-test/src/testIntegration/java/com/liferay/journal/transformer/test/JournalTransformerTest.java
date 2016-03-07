@@ -289,7 +289,7 @@ public class JournalTransformerTest {
 
 		StringBundler sb = new StringBundler(5);
 
-		sb.append("<script type=\"text/javascript\">");
+		sb.append("<script>");
 		sb.append("Liferay.Service.Asset.AssetEntry.incrementViewCounter");
 		sb.append("({userId:0, className:'");
 		sb.append("com.liferay.journal.model.JournalArticle', classPK:1});");
@@ -316,8 +316,8 @@ public class JournalTransformerTest {
 		String content = JournalUtil.transform(
 			null, tokens, Constants.VIEW, "en_US",
 			UnsecureSAXReaderUtil.read(xml), null,
-			"#parse(\"$templatesPath/" +
-				_ddmTemplate.getTemplateKey() + "\")",
+			"#parse(\"$templatesPath/" + _ddmTemplate.getTemplateKey() +
+				"\")",
 			TemplateConstants.LANG_TYPE_VM);
 
 		Assert.assertEquals("Joe Bloggs", content);
@@ -325,8 +325,8 @@ public class JournalTransformerTest {
 		content = JournalUtil.transform(
 			null, tokens, Constants.VIEW, "en_US",
 			UnsecureSAXReaderUtil.read(xml), null,
-			"#parse(\"$journalTemplatesPath/" +
-				_ddmTemplate.getTemplateKey() + "\")",
+			"#parse(\"$journalTemplatesPath/" + _ddmTemplate.getTemplateKey() +
+				"\")",
 			TemplateConstants.LANG_TYPE_VM);
 
 		Assert.assertEquals("Joe Bloggs", content);

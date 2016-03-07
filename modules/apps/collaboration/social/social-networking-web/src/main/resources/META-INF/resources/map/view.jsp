@@ -73,7 +73,7 @@ if (Validator.isNull(apiKey)) {
 }
 %>
 
-<script src="http://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&language=<%= themeDisplay.getLanguageId() %>&sensor=false" type="text/javascript"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&language=<%= themeDisplay.getLanguageId() %>&sensor=false"></script>
 
 <aui:script>
 	function <portlet:namespace />initMap() {

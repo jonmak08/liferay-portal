@@ -39,7 +39,7 @@ if (progressTracker != null) {
 
 <body>
 
-<script type="text/javascript">
+<script>
 	;(function() {
 		var progressId = parent['<%= HtmlUtil.escapeJS(progressId) %>'];
 

@@ -122,8 +122,8 @@ public class GoogleGadgetServlet extends HttpServlet {
 		sb.append("<script src=\"");
 		sb.append(widgetJsURL);
 		sb.append("\" ");
-		sb.append("type=\"text/javascript\"></script>");
-		sb.append("<script type=\"text/javascript\">");
+		sb.append("></script>");
+		sb.append("<script>");
 		sb.append("window.Liferay.Widget({url:'");
 		sb.append(widgetURL);
 		sb.append("'});");

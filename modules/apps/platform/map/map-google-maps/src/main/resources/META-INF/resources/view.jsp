@@ -47,7 +47,7 @@ name = namespace + name;
 	}
 	%>
 
-	<script src="<%= apiURL %>" type="text/javascript"></script>
+	<script src="<%= apiURL %>"></script>
 </liferay-util:html-top>
 
 <div class="lfr-map" id="<%= name %>Map"></div>
