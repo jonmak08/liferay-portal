@@ -23,7 +23,6 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -62,10 +61,55 @@ public class SitemapImpl implements Sitemap {
 
 	@Override
 	public String encodeXML(String input) {
-		return StringUtil.replace(
-			input,
-			new String[] {"&", "<", ">", "'", "\""},
-			new String[] {"&amp;", "&lt;", "&gt;", "&apos;", "&quot;"});
+		StringBundler sb = null;
+
+		int lastReplacementIndex = 0;
+
+		for (int i = 0; i < input.length(); i++) {
+			char c = input.charAt(i);
+
+			String html = null;
+
+			if (c == '&') {
+				html = "&amp;";
+			}
+			else if (c == '<') {
+				html = "&lt;";
+			}
+			else if (c == '>') {
+				html = "&gt;";
+			}
+			else if (c == '\'') {
+				html = "&apos;";
+			}
+			else if (c == '"') {
+				html = "&quot;";
+			}
+
+			if (html != null) {
+				if (sb == null) {
+					sb = new StringBundler();
+				}
+
+				if (i > lastReplacementIndex) {
+					sb.append(input.substring(lastReplacementIndex, i));
+				}
+
+				sb.append(html);
+
+				lastReplacementIndex = i + 1;
+			}
+		}
+
+		if (sb == null) {
+			return input;
+		}
+
+		if (lastReplacementIndex < input.length()) {
+			sb.append(input.substring(lastReplacementIndex));
+		}
+
+		return sb.toString();
 	}
 
 	@Override
