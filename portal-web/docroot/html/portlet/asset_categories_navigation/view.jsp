@@ -34,7 +34,7 @@ long portletDisplayDDMTemplateId = PortletDisplayTemplateUtil.getPortletDisplayT
 				try {
 					ddmTemplateAssetVocabularies.add(AssetVocabularyServiceUtil.getVocabulary(assetVocabularyId));
 				}
-				catch (NoSuchVocabularyException nsve) {
+				catch (PortalException pe) {
 				}
 			}
 		}

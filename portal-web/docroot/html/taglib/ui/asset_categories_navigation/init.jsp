@@ -16,6 +16,4 @@
 
 <%@ include file="/html/taglib/init.jsp" %>
 
-<%@ page import="com.liferay.portlet.asset.NoSuchVocabularyException" %>
-
 <portlet:defineObjects />
