@@ -218,6 +218,8 @@ public class SitemapImpl implements Sitemap {
 
 		Set<String> processedArticleIds = new HashSet<String>();
 
+		String portalURL = PortalUtil.getPortalURL(layout, themeDisplay);
+
 		for (JournalArticle journalArticle : journalArticles) {
 			if (processedArticleIds.contains(
 					journalArticle.getArticleId()) ||
@@ -226,8 +228,6 @@ public class SitemapImpl implements Sitemap {
 
 				continue;
 			}
-
-			String portalURL = PortalUtil.getPortalURL(layout, themeDisplay);
 
 			String groupFriendlyURL = PortalUtil.getGroupFriendlyURL(
 				GroupLocalServiceUtil.getGroup(journalArticle.getGroupId()),
