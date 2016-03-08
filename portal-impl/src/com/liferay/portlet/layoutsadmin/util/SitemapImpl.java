@@ -31,10 +31,12 @@ import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.model.Layout;
-import com.liferay.portal.model.LayoutConstants;
+import com.liferay.portal.model.LayoutSet;
 import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
+import com.liferay.portal.service.LayoutSetLocalServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
+import com.liferay.portal.util.LayoutSettings;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.journal.model.JournalArticle;
@@ -80,10 +82,12 @@ public class SitemapImpl implements Sitemap {
 
 		rootElement.addAttribute("xmlns:xhtml", "http://www.w3.org/1999/xhtml");
 
-		List<Layout> layouts = LayoutLocalServiceUtil.getLayouts(
-			groupId, privateLayout, LayoutConstants.DEFAULT_PARENT_LAYOUT_ID);
+		LayoutSet layoutSet = LayoutSetLocalServiceUtil.getLayoutSet(
+			groupId, privateLayout);
 
-		visitLayouts(rootElement, layouts, themeDisplay);
+		visitLayoutSet(rootElement, layoutSet, themeDisplay);
+
+		visitArticles(rootElement, layoutSet, themeDisplay);
 
 		return document.asXML();
 	}
@@ -205,12 +209,11 @@ public class SitemapImpl implements Sitemap {
 	}
 
 	protected void visitArticles(
-			Element element, Layout layout, ThemeDisplay themeDisplay)
+			Element element, LayoutSet layoutSet, ThemeDisplay themeDisplay)
 		throws PortalException, SystemException {
 
 		List<JournalArticle> journalArticles =
-			JournalArticleServiceUtil.getArticlesByLayoutUuid(
-				layout.getGroupId(), layout.getUuid());
+			JournalArticleServiceUtil.getLayoutArticles(layoutSet.getGroupId());
 
 		if (journalArticles.isEmpty()) {
 			return;
@@ -218,7 +221,7 @@ public class SitemapImpl implements Sitemap {
 
 		Set<String> processedArticleIds = new HashSet<String>();
 
-		String portalURL = PortalUtil.getPortalURL(layout, themeDisplay);
+		String portalURL = PortalUtil.getPortalURL(layoutSet, themeDisplay);
 
 		for (JournalArticle journalArticle : journalArticles) {
 			if (processedArticleIds.contains(
@@ -242,6 +245,10 @@ public class SitemapImpl implements Sitemap {
 			sb.append(groupFriendlyURL);
 			sb.append(JournalArticleConstants.CANONICAL_URL_SEPARATOR);
 			sb.append(journalArticle.getUrlTitle());
+
+			Layout layout = LayoutLocalServiceUtil.getLayoutByUuidAndGroupId(
+				journalArticle.getLayoutUuid(), layoutSet.getGroupId(),
+				layoutSet.getPrivateLayout());
 
 			String articleURL = PortalUtil.getCanonicalURL(
 				sb.toString(), themeDisplay, layout);
@@ -275,6 +282,36 @@ public class SitemapImpl implements Sitemap {
 		}
 	}
 
+	protected void visitLayoutSet(
+			Element element, LayoutSet layoutSet, ThemeDisplay themeDisplay)
+		throws PortalException, SystemException {
+
+		if (layoutSet.isPrivateLayout()) {
+			return;
+		}
+
+		Map<String, LayoutSettings> layoutSettingsMap =
+			LayoutSettings.getLayoutSettingsMap();
+
+		for (Map.Entry<String, LayoutSettings> entry :
+				layoutSettingsMap.entrySet()) {
+
+			LayoutSettings layoutSetting = entry.getValue();
+
+			if (!layoutSetting.isSitemapable()) {
+				continue;
+			}
+
+			List<Layout> layouts = LayoutLocalServiceUtil.getLayouts(
+				layoutSet.getGroupId(), layoutSet.getPrivateLayout(),
+				entry.getKey());
+
+			for (Layout layout : layouts) {
+				visitLayout(element, layout, themeDisplay);
+			}
+		}
+	}
+
 	protected void visitLayout(
 			Element element, Layout layout, ThemeDisplay themeDisplay)
 		throws PortalException, SystemException {
@@ -282,8 +319,7 @@ public class SitemapImpl implements Sitemap {
 		UnicodeProperties typeSettingsProperties =
 			layout.getTypeSettingsProperties();
 
-		if (!PortalUtil.isLayoutSitemapable(layout) ||
-			!GetterUtil.getBoolean(
+		if (!GetterUtil.getBoolean(
 				typeSettingsProperties.getProperty("sitemap-include"), true)) {
 
 			return;
@@ -315,19 +351,6 @@ public class SitemapImpl implements Sitemap {
 						layout.getModifiedDate(), layoutFullURL, alternateURLs);
 				}
 			}
-		}
-	}
-
-	protected void visitLayouts(
-			Element element, List<Layout> layouts, ThemeDisplay themeDisplay)
-		throws PortalException, SystemException {
-
-		for (Layout layout : layouts) {
-			visitLayout(element, layout, themeDisplay);
-
-			visitArticles(element, layout, themeDisplay);
-
-			visitLayouts(element, layout.getChildren(), themeDisplay);
 		}
 	}
 
