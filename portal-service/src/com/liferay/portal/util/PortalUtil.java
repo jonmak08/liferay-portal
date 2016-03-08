@@ -1110,6 +1110,12 @@ public class PortalUtil {
 		return getPortal().getPortalURL(layout, themeDisplay);
 	}
 
+	public static String getPortalURL(
+		LayoutSet layoutSet, ThemeDisplay themeDisplay) {
+
+		return getPortal().getPortalURL(layoutSet, themeDisplay);
+	}
+
 	public static String getPortalURL(PortletRequest portletRequest) {
 		return getPortal().getPortalURL(portletRequest);
 	}

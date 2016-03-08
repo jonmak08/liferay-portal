@@ -940,6 +940,8 @@ public interface Portal {
 	public String getPortalURL(Layout layout, ThemeDisplay themeDisplay)
 		throws PortalException, SystemException;
 
+	public String getPortalURL(LayoutSet layoutSet, ThemeDisplay themeDisplay);
+
 	public String getPortalURL(PortletRequest portletRequest);
 
 	public String getPortalURL(PortletRequest portletRequest, boolean secure);
