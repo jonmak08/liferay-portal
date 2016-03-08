@@ -7,14 +7,14 @@
 
 	<property name="ckeditor.deploy.dir" value="ckeditor" />
 	<property name="ckeditor.file" value="ckeditor_4.0.3_liferay.zip" />
-	<property name="ckeditor.file.latest" value="ckeditor_4.5.5_liferay.zip" />
+	<property name="ckeditor.file.latest" value="ckeditor_4.5.7_liferay.zip" />
 	<property name="fckeditor.file" value="FCKeditor_2.6.3.zip" />
 	<property name="scayt.file" value="scayt_4.0.3.zip" />
-	<property name="scayt.file.latest" value="scayt_4.5.5.zip" />
+	<property name="scayt.file.latest" value="scayt_4.5.7.zip" />
 	<property name="tinymce.file" value="tinymce_3.5.6.zip" />
 	<property name="vaadin.file" value="vaadin-6.8.12-liferay.zip" />
 	<property name="wsc.file" value="wsc_4.0.3.zip" />
-	<property name="wsc.file.latest" value="wsc_4.5.5.zip" />
+	<property name="wsc.file.latest" value="wsc_4.5.7.zip" />
 
 	<path id="jspc.common.classpath">
 		<pathelement path="docroot/WEB-INF/classes" />
