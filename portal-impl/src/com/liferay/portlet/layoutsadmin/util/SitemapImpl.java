@@ -246,25 +246,27 @@ public class SitemapImpl implements Sitemap {
 			String articleURL = PortalUtil.getCanonicalURL(
 				sb.toString(), themeDisplay, layout);
 
+			Map<Locale, String> alternateURLs = getAlternateURLs(
+				articleURL, themeDisplay, layout);
+
 			addURLElement(
 				element, articleURL, null, journalArticle.getModifiedDate(),
-				articleURL, getAlternateURLs(articleURL, themeDisplay, layout));
+				articleURL, alternateURLs);
 
-			Locale[] availableLocales = LanguageUtil.getAvailableLocales(
-				layout.getGroupId());
-
-			if (availableLocales.length > 1) {
+			if (alternateURLs.size() > 1) {
 				Locale defaultLocale = LocaleUtil.getSiteDefault();
 
-				for (Locale availableLocale : availableLocales) {
-					if (!availableLocale.equals(defaultLocale)) {
-						String alternateURL = PortalUtil.getAlternateURL(
-							articleURL, themeDisplay, availableLocale, layout);
+				for (Map.Entry<Locale, String> entry :
+						alternateURLs.entrySet()) {
 
+					Locale availableLocale = entry.getKey();
+					String alternateURL = entry.getValue();
+
+					if (!availableLocale.equals(defaultLocale)) {
 						addURLElement(
 							element, alternateURL, null,
 							journalArticle.getModifiedDate(), articleURL,
-							getAlternateURLs(articleURL, themeDisplay, layout));
+							alternateURLs);
 					}
 				}
 			}
@@ -293,29 +295,25 @@ public class SitemapImpl implements Sitemap {
 		layoutFullURL = PortalUtil.getCanonicalURL(
 			layoutFullURL, themeDisplay, layout);
 
+		Map<Locale, String> alternateURLs = getAlternateURLs(
+			layoutFullURL, themeDisplay, layout);
+
 		addURLElement(
 			element, layoutFullURL, typeSettingsProperties,
-			layout.getModifiedDate(), layoutFullURL,
-			getAlternateURLs(layoutFullURL, themeDisplay, layout));
+			layout.getModifiedDate(), layoutFullURL, alternateURLs);
 
-		Locale[] availableLocales = LanguageUtil.getAvailableLocales(
-			layout.getGroupId());
-
-		if (availableLocales.length > 1) {
+		if (alternateURLs.size() > 1) {
 			Locale defaultLocale = LocaleUtil.getSiteDefault();
 
-			for (Locale availableLocale : availableLocales) {
+			for (Map.Entry<Locale, String> entry : alternateURLs.entrySet()) {
+				Locale availableLocale = entry.getKey();
+				String alternateURL = entry.getValue();
+
 				if (availableLocale.equals(defaultLocale)) {
-					continue;
+					addURLElement(
+						element, alternateURL, typeSettingsProperties,
+						layout.getModifiedDate(), layoutFullURL, alternateURLs);
 				}
-
-				String alternateURL = PortalUtil.getAlternateURL(
-					layoutFullURL, themeDisplay, availableLocale, layout);
-
-				addURLElement(
-					element, alternateURL, typeSettingsProperties,
-					layout.getModifiedDate(), layoutFullURL,
-					getAlternateURLs(layoutFullURL, themeDisplay, layout));
 			}
 		}
 	}
