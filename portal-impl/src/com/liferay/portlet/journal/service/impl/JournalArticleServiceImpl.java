@@ -1258,6 +1258,13 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 		return article;
 	}
 
+	@Override
+	public List<JournalArticle> getLayoutArticles(long groupId)
+		throws SystemException {
+
+		return journalArticlePersistence.filterFindByG_NotL(groupId, null);
+	}
+
 	/**
 	 * Moves all versions of the the web content article matching the group and
 	 * article ID to the folder.
