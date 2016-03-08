@@ -2041,6 +2041,7 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		subscriptionSender.setMailId(
 			"mb_discussion", message.getCategoryId(), message.getMessageId(),
 			modifiedDate.getTime());
+
 		subscriptionSender.setScopeGroupId(message.getGroupId());
 		subscriptionSender.setServiceContext(serviceContext);
 		subscriptionSender.setSubject(subject);
