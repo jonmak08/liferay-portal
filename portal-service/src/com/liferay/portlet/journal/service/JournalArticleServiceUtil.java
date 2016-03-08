@@ -1095,6 +1095,12 @@ public class JournalArticleServiceUtil {
 		return getService().getLatestArticle(groupId, className, classPK);
 	}
 
+	public static java.util.List<com.liferay.portlet.journal.model.JournalArticle> getLayoutArticles(
+		long groupId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().getLayoutArticles(groupId);
+	}
+
 	/**
 	* Moves all versions of the the web content article matching the group and
 	* article ID to the folder.

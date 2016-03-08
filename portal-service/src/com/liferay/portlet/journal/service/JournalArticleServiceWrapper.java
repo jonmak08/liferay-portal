@@ -1119,6 +1119,13 @@ public class JournalArticleServiceWrapper implements JournalArticleService,
 			classPK);
 	}
 
+	@Override
+	public java.util.List<com.liferay.portlet.journal.model.JournalArticle> getLayoutArticles(
+		long groupId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _journalArticleService.getLayoutArticles(groupId);
+	}
+
 	/**
 	* Moves all versions of the the web content article matching the group and
 	* article ID to the folder.
