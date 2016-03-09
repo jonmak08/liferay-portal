@@ -18,24 +18,6 @@
 		</execute>
 
 		<execute macro="Page#gotoCP">
-			<var name="portletName" value="Server Administration" />
-		</execute>
-
-		<execute macro="ServerAdministration#configureMailServerSettings">
-			<var name="userName" property-value="email.address.1" />
-			<var name="userPassword" property-value="email.password.1" />
-		</execute>
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="Portal Instances" />
-		</execute>
-
-		<execute macro="PortalInstances#editCP">
-			<var name="mailDomain" value="gmail.com" />
-			<var name="virtualHost" value="localhost" />
-		</execute>
-
-		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
 		</execute>
 
@@ -79,8 +61,6 @@
 	</set-up>
 
 	<tear-down>
-		<execute macro="MessageboardsPortlet#tearDownConfigurationEmailPG" />
-
 		<execute macro="MessageboardsCategory#tearDownCP" />
 
 		<execute macro="MessageboardsThread#tearDownCP" />
@@ -113,25 +93,6 @@
 			<var name="mentionsUserFullName" value="Test 2" />
 			<var name="mentionsUserScreenName" value="usersn" />
 		</execute>
-
-		<execute macro="Gmail#login" >
-			<var name="userEmailAddress" property-value="email.address.2" />
-			<var name="userPassword" property-value="email.password.2" />
-		</execute>
-
-		<execute macro="Gmail#gotoHtmlMode" />
-
-		<execute macro="Gmail#viewMail" >
-			<var name="emailFromUserName" value="Joe Bloggs" />
-			<var name="gmailAssetType" value="" />
-			<var name="gmailMessageBody" value="Thread Body" />
-			<var name="gmailMessageTitle" value="Test Test Mentioned You in a Message Boards Message" />
-		</execute>
-
-		<execute macro="Gmail#tearDown">
-			<var name="userEmailAddress" property-value="email.address.2" />
-			<var name="userPassword" value="test" />
-		</execute>
 	</command>
 
 	<command name="ViewMentionOnMessageBoardsThreadReplyEmail" priority="5">
@@ -160,25 +121,6 @@
 		<execute macro="Mentions#viewMentionTagLink">
 			<var name="mentionsUserFullName" value="Test 2" />
 			<var name="mentionsUserScreenName" value="usersn" />
-		</execute>
-
-		<execute macro="Gmail#login" >
-			<var name="userEmailAddress" property-value="email.address.2" />
-			<var name="userPassword" property-value="email.password.2" />
-		</execute>
-
-		<execute macro="Gmail#gotoHtmlMode" />
-
-		<execute macro="Gmail#viewMail" >
-			<var name="emailFromUserName" value="Joe Bloggs" />
-			<var name="gmailAssetType" value="" />
-			<var name="gmailMessageBody" value="Thread Reply Body" />
-			<var name="gmailMessageTitle" value="Test Test Mentioned You in a Message Boards Message" />
-		</execute>
-
-		<execute macro="Gmail#tearDown">
-			<var name="userEmailAddress" property-value="email.address.2" />
-			<var name="userPassword" value="test" />
 		</execute>
 	</command>
 </definition>

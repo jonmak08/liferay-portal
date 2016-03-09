@@ -189,24 +189,6 @@
 	</command>-->
 
 	<command name="ViewNoWebsiteNotificationForInlineMentionsViaBlogsEntry" priority="4">
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="Server Administration" />
-		</execute>
-
-		<execute macro="ServerAdministration#configureMailServerSettings">
-			<var name="userName" property-value="email.address.1" />
-			<var name="userPassword" property-value="email.password.1" />
-		</execute>
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="Portal Instances" />
-		</execute>
-
-		<execute macro="PortalInstances#editCP">
-			<var name="mailDomain" value="gmail.com" />
-			<var name="virtualHost" value="localhost" />
-		</execute>
-
 		<execute macro="Page#gotoMyAccount">
 			<var name="portletName" value="Account Settings" />
 		</execute>
@@ -273,46 +255,9 @@
 			<var name="entryContent" value="Blogs Entry Content @test" />
 			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
-
-		<execute macro="Gmail#login" >
-			<var name="userEmailAddress" property-value="email.address.4" />
-			<var name="userPassword" property-value="email.password.4" />
-		</execute>
-
-		<execute macro="Gmail#gotoHtmlMode" />
-
-		<execute macro="Gmail#viewMail" >
-			<var name="emailFromUserName" value="Joe Bloggs" />
-			<var name="gmailAssetType" value="" />
-			<var name="gmailMessageBody" value="Blogs Entry Content @test" />
-			<var name="gmailMessageTitle" value="userfn userln Mentioned You in a Blogs Entry" />
-		</execute>
-
-		<execute macro="Gmail#tearDown">
-			<var name="userEmailAddress" property-value="email.address.4" />
-			<var name="userPassword" value="test" />
-		</execute>
 	</command>
 
 	<command name="ViewNoWebsiteNotificationForMentionViaBlogsEntryComment" priority="4">
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="Server Administration" />
-		</execute>
-
-		<execute macro="ServerAdministration#configureMailServerSettings">
-			<var name="userName" property-value="email.address.1" />
-			<var name="userPassword" property-value="email.password.1" />
-		</execute>
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="Portal Instances" />
-		</execute>
-
-		<execute macro="PortalInstances#editCP">
-			<var name="mailDomain" value="gmail.com" />
-			<var name="virtualHost" value="localhost" />
-		</execute>
-
 		<execute macro="Page#gotoMyAccount">
 			<var name="portletName" value="Account Settings" />
 		</execute>
@@ -388,25 +333,6 @@
 			<var name="entryComment" value="Blogs Entry Comment @test" />
 			<var name="entryTitle" value="Blogs Entry Title" />
 			<var name="userFullName" value="userfn userln" />
-		</execute>
-
-		<execute macro="Gmail#login" >
-			<var name="userEmailAddress" property-value="email.address.4" />
-			<var name="userPassword" property-value="email.password.4" />
-		</execute>
-
-		<execute macro="Gmail#gotoHtmlMode" />
-
-		<execute macro="Gmail#viewMail" >
-			<var name="emailFromUserName" value="Joe Bloggs" />
-			<var name="gmailAssetType" value="" />
-			<var name="gmailMessageBody" value="Blogs Entry Comment @test" />
-			<var name="gmailMessageTitle" value="userfn userln Mentioned You in a Comment" />
-		</execute>
-
-		<execute macro="Gmail#tearDown">
-			<var name="userEmailAddress" property-value="email.address.4" />
-			<var name="userPassword" value="test" />
 		</execute>
 	</command>
 </definition>
