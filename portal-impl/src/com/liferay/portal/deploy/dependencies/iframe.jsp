@@ -74,6 +74,8 @@ portletURL.setParameter("appURL", StringPool.BLANK);
 			var getHeight = function() {
 				var body = iframe.get('contentWindow.document.body');
 
+				var returnedHeight = <%= defaultHeight %>;
+
 				if (body) {
 					var max = 0;
 
@@ -94,15 +96,14 @@ portletURL.setParameter("appURL", StringPool.BLANK);
 					var scrollHeight = body.get('scrollHeight');
 
 					if (scrollHeight > max) {
-						return scrollHeight;
+						returnedHeight = scrollHeight;
 					}
 					else {
-						return max;
+						returnedHeight = max;
 					}
 				}
-				else {
-					return <%= defaultHeight %>;
-				}
+
+				return returnedHeight;
 			}
 
 			var resizeIframe = function() {
