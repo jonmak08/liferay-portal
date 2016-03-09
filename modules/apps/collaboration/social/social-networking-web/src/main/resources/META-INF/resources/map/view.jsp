@@ -147,8 +147,8 @@ if (Validator.isNull(apiKey)) {
 
 			var marker<%= i %> = new google.maps.Marker(
 				{
-					position: new google.maps.LatLng(<%= latitude %>, <%= longitude %>),
 					map: map,
+					position: new google.maps.LatLng(<%= latitude %>, <%= longitude %>),
 					title: '<%= HtmlUtil.escapeJS(mapUser.getFullName()) %>'
 				}
 			);
