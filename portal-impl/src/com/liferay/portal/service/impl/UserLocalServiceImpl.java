@@ -126,18 +126,27 @@ import com.liferay.portal.security.auth.ScreenNameGeneratorFactory;
 import com.liferay.portal.security.auth.ScreenNameValidator;
 import com.liferay.portal.security.auth.ScreenNameValidatorFactory;
 import com.liferay.portal.security.ldap.LDAPSettingsUtil;
+import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.security.permission.PermissionCacheUtil;
+import com.liferay.portal.security.permission.PermissionChecker;
+import com.liferay.portal.security.permission.PermissionCheckerFactoryUtil;
 import com.liferay.portal.security.pwd.PasswordEncryptorUtil;
 import com.liferay.portal.security.pwd.PwdAuthenticator;
 import com.liferay.portal.security.pwd.PwdToolkitUtil;
 import com.liferay.portal.security.pwd.RegExpToolkit;
 import com.liferay.portal.service.BaseServiceImpl;
+import com.liferay.portal.service.PortalPreferencesLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.base.UserLocalServiceBaseImpl;
+import com.liferay.portal.service.permission.GroupPermissionUtil;
 import com.liferay.portal.util.PortalUtil;
+import com.liferay.portal.util.PortletKeys;
 import com.liferay.portal.util.PrefsPropsUtil;
 import com.liferay.portal.util.PropsValues;
+import com.liferay.portal.util.SessionClicks;
 import com.liferay.portal.util.SubscriptionSender;
+import com.liferay.portlet.PortalPreferences;
+import com.liferay.portlet.PortletPreferencesFactoryImpl;
 import com.liferay.portlet.documentlibrary.ImageSizeException;
 import com.liferay.portlet.messageboards.model.MBMessage;
 import com.liferay.portlet.usersadmin.util.UsersAdminUtil;
@@ -2894,6 +2903,34 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	}
 
 	/**
+	 * Returns <code>true</code> if the user has edit controls due to a regular
+	 * role.
+	 *
+	 * @param  user the User object
+	 * @return <code>true</code> if the user can edit controls for at least one
+	 *         site;
+	 *         <code>false</code> otherwise
+	 * @throws PortalException if the current user did not have permission to
+	 *         view the user or role members
+	 * @throws SystemException if a system exception occurred
+	 */
+	protected boolean hasManageLayoutsRolePermission(User user)
+		throws PortalException, SystemException {
+
+		try {
+			PermissionChecker permissionChecker =
+				PermissionCheckerFactoryUtil.create(user);
+
+			return GroupPermissionUtil.contains(
+				permissionChecker, ActionKeys.MANAGE_LAYOUTS);
+		}
+		catch (Exception e) {
+		}
+
+		return false;
+	}
+
+	/**
 	 * Returns <code>true</code> if the password policy has been assigned to the
 	 * user.
 	 *
@@ -3983,6 +4020,39 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		indexer.reindex(userIds);
 
 		PermissionCacheUtil.clearCache(userIds);
+	}
+
+	/**
+	 * Unsets the toggle controls portal preference of the user.
+	 *
+	 * @param  userId the primary key of the user
+	 * @throws PortalException if a portal exception occurred
+	 * @throws SystemException if a system exception occurred
+	 */
+	protected void unsetToggleControls(long userId)
+		throws PortalException, SystemException {
+
+		PortletPreferencesFactoryImpl portletPreferencesFactory =
+			new PortletPreferencesFactoryImpl();
+
+		PortalPreferences portalPreferences =
+			portletPreferencesFactory.getPortalPreferences(userId, false);
+
+		String toggleControls = portalPreferences.getValue(
+			SessionClicks.class.getName(),"liferay_toggle_controls", null);
+
+		if (Validator.isNotNull(toggleControls) &&
+			!toggleControls.equals("visible")) {
+
+			portalPreferences.setValue(
+				SessionClicks.class.getName(),"liferay_toggle_controls",
+				"visible");
+
+			String xml = portletPreferencesFactory.toXML(portalPreferences);
+
+			PortalPreferencesLocalServiceUtil.updatePreferences(
+				userId, PortletKeys.PREFS_OWNER_TYPE_USER, xml);
+		}
 	}
 
 	/**
@@ -5345,6 +5415,10 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		// Permission cache
 
 		PermissionCacheUtil.clearCache(userId);
+
+		if (!hasManageLayoutsRolePermission(user)) {
+			unsetToggleControls(userId);
+		}
 
 		return user;
 	}
