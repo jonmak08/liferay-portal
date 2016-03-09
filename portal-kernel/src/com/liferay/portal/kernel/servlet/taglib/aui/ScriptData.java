@@ -96,7 +96,7 @@ public class ScriptData implements Mergeable<ScriptData>, Serializable {
 	public void writeTo(HttpServletRequest request, Writer writer)
 		throws IOException {
 
-		writer.write("<script type=\"text/javascript\">\n// <![CDATA[\n");
+		writer.write("<script>\n// <![CDATA[\n");
 
 		StringBundler auiModulesSB = new StringBundler(_portletDataMap.size());
 		Set<String> auiModulesSet = new HashSet<>();

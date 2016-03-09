@@ -291,7 +291,7 @@ public class PortletJSONUtil {
 
 			printWriter.print("<script src=\"");
 			printWriter.print(HtmlUtil.escape(value));
-			printWriter.println("\" type=\"text/javascript\"></script>");
+			printWriter.println("\"></script>");
 		}
 	}
 

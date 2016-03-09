@@ -355,7 +355,7 @@
 				<script src="<%= HtmlUtil.escape(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNDynamicResourcesHost() + themeDisplay.getPathJavaScript() + "/barebone.jsp", "minifierBundleId=javascript.barebone.files", jsLastModified)) %>"></script>
 			</c:when>
 			<c:otherwise>
-				<script src="<%= HtmlUtil.escape(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNDynamicResourcesHost() + themeDisplay.getPathJavaScript() + "/everything.jsp", "minifierBundleId=javascript.everything.files", jsLastModified)) %>" type="text/javscript"></script>
+				<script src="<%= HtmlUtil.escape(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNDynamicResourcesHost() + themeDisplay.getPathJavaScript() + "/everything.jsp", "minifierBundleId=javascript.everything.files", jsLastModified)) %>"></script>
 			</c:otherwise>
 		</c:choose>
 	</c:when>
