@@ -56,19 +56,27 @@
 	<sql id="com.liferay.portlet.dynamicdatamapping.service.persistence.DDMStructureFinder.findByC_G_C_N_D_S_T">
 		<![CDATA[
 			SELECT
-				DISTINCT {DDMStructure.*}
+				{DDMStructure.*}
 			FROM
-				DDMStructure
-			WHERE
-				(DDMStructure.companyId = ?) AND
-				[$GROUP_ID$]
-				(DDMStructure.classNameId = ? OR ? IS NULL) AND
 				(
-					(lower(DDMStructure.name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
-					(DDMStructure.description LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
-					(DDMStructure.storageType LIKE ? [$AND_OR_NULL_CHECK$])
-				) AND
-				(DDMStructure.type_ = ?)
+				SELECT DISTINCT
+					DDMStructure.structureId
+				FROM
+					DDMStructure
+				WHERE
+					(DDMStructure.companyId = ?) AND
+					[$GROUP_ID$]
+					(DDMStructure.classNameId = ? OR ? IS NULL) AND
+					(
+						(lower(DDMStructure.name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+						(DDMStructure.description LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+						(DDMStructure.storageType LIKE ? [$AND_OR_NULL_CHECK$])
+					) AND
+					(DDMStructure.type_ = ?)
+				)
+				TEMP_TABLE
+					INNER JOIN DDMStructure ON
+						TEMP_TABLE.structureId = DDMStructure.structureId
 			ORDER BY
 				DDMStructure.structureId DESC
 		]]>
@@ -142,21 +150,29 @@
 	<sql id="com.liferay.portlet.dynamicdatamapping.service.persistence.DDMTemplateFinder.findByC_G_C_C_N_D_T_M_L">
 		<![CDATA[
 			SELECT
-				DISTINCT {DDMTemplate.*}
+				{DDMTemplate.*}
 			FROM
-				DDMTemplate
-			WHERE
-				(DDMTemplate.companyId = ?) AND
-				[$GROUP_ID$]
-				[$CLASSNAME_ID$]
-				[$CLASS_PK$]
 				(
-					(lower(DDMTemplate.name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
-					(DDMTemplate.description LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
-					(DDMTemplate.type_ LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
-					(DDMTemplate.mode_ LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
-					(DDMTemplate.language LIKE ? [$AND_OR_NULL_CHECK$])
+				SELECT DISTINCT
+					DDMTemplate.templateId
+				FROM
+					DDMTemplate
+				WHERE
+					(DDMTemplate.companyId = ?) AND
+					[$GROUP_ID$]
+					[$CLASSNAME_ID$]
+					[$CLASS_PK$]
+					(
+						(lower(DDMTemplate.name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+						(DDMTemplate.description LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+						(DDMTemplate.type_ LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+						(DDMTemplate.mode_ LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+						(DDMTemplate.language LIKE ? [$AND_OR_NULL_CHECK$])
+					)
 				)
+				TEMP_TABLE
+					INNER JOIN DDMTemplate ON
+						TEMP_TABLE.templateId = DDMTemplate.templateId
 			ORDER BY
 				DDMTemplate.templateId DESC
 		]]>
