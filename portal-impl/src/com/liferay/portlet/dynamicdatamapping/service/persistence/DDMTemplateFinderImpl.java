@@ -733,13 +733,14 @@ public class DDMTemplateFinderImpl
 			sql = CustomSQLUtil.replaceKeywords(
 				sql, "lower(DDMTemplate.name)", StringPool.LIKE, false, names);
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "description", StringPool.LIKE, false, descriptions);
+				sql, "DDMTemplate.description", StringPool.LIKE, false,
+				descriptions);
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "type", StringPool.LIKE, false, types);
+				sql, "DDMTemplate.type", StringPool.LIKE, false, types);
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "mode", StringPool.LIKE, false, modes);
+				sql, "DDMTemplate.mode", StringPool.LIKE, false, modes);
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "language", StringPool.LIKE, true, languages);
+				sql, "DDMTemplate.language", StringPool.LIKE, true, languages);
 			sql = CustomSQLUtil.replaceAndOperator(sql, andOperator);
 
 			SQLQuery q = session.createSQLQuery(sql);
@@ -874,13 +875,14 @@ public class DDMTemplateFinderImpl
 			sql = CustomSQLUtil.replaceKeywords(
 				sql, "lower(DDMTemplate.name)", StringPool.LIKE, false, names);
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "description", StringPool.LIKE, false, descriptions);
+				sql, "DDMTemplate.description", StringPool.LIKE, false,
+				descriptions);
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "type", StringPool.LIKE, false, types);
+				sql, "DDMTemplate.type", StringPool.LIKE, false, types);
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "mode", StringPool.LIKE, false, modes);
+				sql, "DDMTemplate.mode", StringPool.LIKE, false, modes);
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "language", StringPool.LIKE, true, languages);
+				sql, "DDMTemplate.language", StringPool.LIKE, true, languages);
 			sql = CustomSQLUtil.replaceAndOperator(sql, andOperator);
 
 			if (orderByComparator != null) {

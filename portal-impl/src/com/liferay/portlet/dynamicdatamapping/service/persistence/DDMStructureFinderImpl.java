@@ -299,14 +299,16 @@ public class DDMStructureFinderImpl
 			sql = StringUtil.replace(
 				sql, "[$GROUP_ID$]", getGroupIds(groupIds));
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "classNameId", StringPool.EQUAL, false,
+				sql, "DDMStructure.classNameId", StringPool.EQUAL, false,
 				classNameIdsString);
 			sql = CustomSQLUtil.replaceKeywords(
 				sql, "lower(DDMStructure.name)", StringPool.LIKE, false, names);
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "description", StringPool.LIKE, false, descriptions);
+				sql, "DDMStructure.description", StringPool.LIKE, false,
+				descriptions);
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "storageType", StringPool.LIKE, true, storageTypes);
+				sql, "DDMStructure.storageType", StringPool.LIKE, true,
+				storageTypes);
 			sql = CustomSQLUtil.replaceAndOperator(sql, andOperator);
 
 			SQLQuery q = session.createSQLQuery(sql);
@@ -383,14 +385,16 @@ public class DDMStructureFinderImpl
 			sql = StringUtil.replace(
 				sql, "[$GROUP_ID$]", getGroupIds(groupIds));
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "classNameId", StringPool.EQUAL, false,
+				sql, "DDMStructure.classNameId", StringPool.EQUAL, false,
 				classNameIdsString);
 			sql = CustomSQLUtil.replaceKeywords(
 				sql, "lower(DDMStructure.name)", StringPool.LIKE, false, names);
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "description", StringPool.LIKE, false, descriptions);
+				sql, "DDMStructure.description", StringPool.LIKE, false,
+				descriptions);
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "storageType", StringPool.LIKE, true, storageTypes);
+				sql, "DDMStructure.storageType", StringPool.LIKE, true,
+				storageTypes);
 			sql = CustomSQLUtil.replaceAndOperator(sql, andOperator);
 
 			if (orderByComparator != null) {
