@@ -69,6 +69,8 @@
 	</tear-down>
 
 	<command name="ViewMentionOnMessageBoardsThreadEmail" priority="5">
+		<property name="test.smtp.server.enabled" value="true" />
+
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Message Boards" />
 		</execute>
@@ -93,9 +95,20 @@
 			<var name="mentionsUserFullName" value="Test 2" />
 			<var name="mentionsUserScreenName" value="usersn" />
 		</execute>
+
+		<execute macro="MockMock#viewMail">
+			<var name="asset" value="Test Test Mentioned You in a Message Boards Message" />
+			<var name="recipient" value="Test 2" />
+			<var name="sender" value="Joe Bloggs" />
+			<var name="subject" value="Thread Body @usersn" />
+		</execute>
+
+		<execute macro="Page#openURL" />
 	</command>
 
 	<command name="ViewMentionOnMessageBoardsThreadReplyEmail" priority="5">
+		<property name="test.smtp.server.enabled" value="true" />
+
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Message Boards" />
 		</execute>
@@ -122,5 +135,14 @@
 			<var name="mentionsUserFullName" value="Test 2" />
 			<var name="mentionsUserScreenName" value="usersn" />
 		</execute>
+
+		<execute macro="MockMock#viewMail">
+			<var name="asset" value="Test Test Mentioned You in a Message Boards Message" />
+			<var name="recipient" value="Test 2" />
+			<var name="sender" value="Joe Bloggs" />
+			<var name="subject" value="Thread Reply Body @usersn" />
+		</execute>
+
+		<execute macro="Page#openURL" />
 	</command>
 </definition>

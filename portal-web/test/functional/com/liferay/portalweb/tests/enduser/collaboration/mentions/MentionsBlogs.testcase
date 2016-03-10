@@ -55,6 +55,8 @@
 	</tear-down>
 
 	<command name="ViewInlineMentionViaBlogsEntryEmail" priority="4">
+		<property name="test.smtp.server.enabled" value="true" />
+
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Blogs" />
 		</execute>
@@ -86,9 +88,20 @@
 			<var name="mentionsUserFullName" value="userfn userln" />
 			<var name="mentionsUserScreenName" value="usersn" />
 		</execute>
+
+		<execute macro="MockMock#viewMail">
+			<var name="asset" value="Test Test Mentioned You in a Blogs Entry" />
+			<var name="recipient" value="userfn userln" />
+			<var name="sender" value="Joe Bloggs" />
+			<var name="subject" value="Blogs Entry Content @usersn" />
+		</execute>
+
+		<execute macro="Page#openURL" />
 	</command>
 
 	<command name="ViewMentionViaBlogsCommentEmail" priority="4">
+		<property name="test.smtp.server.enabled" value="true" />
+
 		<execute macro="User#logoutPG" />
 
 		<execute macro="User#loginUserPG">
@@ -143,5 +156,14 @@
 			<var name="entryTitle" value="Blogs Entry Title" />
 			<var name="userFullName" value="Test Test" />
 		</execute>
+
+		<execute macro="MockMock#viewMail">
+			<var name="asset" value="Test Test Mentioned You in a Comment" />
+			<var name="recipient" value="userfn userln" />
+			<var name="sender" value="Joe Bloggs" />
+			<var name="subject" value="Blogs Entry Comment @usersn" />
+		</execute>
+
+		<execute macro="Page#openURL" />
 	</command>
 </definition>

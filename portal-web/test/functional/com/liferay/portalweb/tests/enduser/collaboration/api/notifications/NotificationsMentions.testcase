@@ -189,6 +189,8 @@
 	</command>-->
 
 	<command name="ViewNoWebsiteNotificationForInlineMentionsViaBlogsEntry" priority="4">
+		<property name="test.smtp.server.enabled" value="true" />
+
 		<execute macro="Page#gotoMyAccount">
 			<var name="portletName" value="Account Settings" />
 		</execute>
@@ -255,9 +257,20 @@
 			<var name="entryContent" value="Blogs Entry Content @test" />
 			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
+
+		<execute macro="MockMock#viewMail">
+			<var name="asset" value="userfn userln Mentioned You in a Blogs Entry" />
+			<var name="recipient" value="Test Test" />
+			<var name="sender" value="Joe Bloggs" />
+			<var name="subject" value="Blogs Entry Content @test" />
+		</execute>
+
+		<execute macro="Page#openURL" />
 	</command>
 
 	<command name="ViewNoWebsiteNotificationForMentionViaBlogsEntryComment" priority="4">
+		<property name="test.smtp.server.enabled" value="true" />
+
 		<execute macro="Page#gotoMyAccount">
 			<var name="portletName" value="Account Settings" />
 		</execute>
@@ -334,5 +347,14 @@
 			<var name="entryTitle" value="Blogs Entry Title" />
 			<var name="userFullName" value="userfn userln" />
 		</execute>
+
+		<execute macro="MockMock#viewMail">
+			<var name="asset" value="userfn userln Mentioned You in a Comment" />
+			<var name="recipient" value="Test Test" />
+			<var name="sender" value="Joe Bloggs" />
+			<var name="subject" value="Blogs Entry Comment @test" />
+		</execute>
+
+		<execute macro="Page#openURL" />
 	</command>
 </definition>
