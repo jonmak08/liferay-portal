@@ -115,6 +115,7 @@ portletURL.setParameter("folderId", String.valueOf(folderId));
 						<portlet:param name="redirect" value="<%= currentURL %>" />
 						<portlet:param name="repositoryId" value="<%= String.valueOf(repositoryId) %>" />
 						<portlet:param name="parentFolderId" value="<%= String.valueOf(folderId) %>" />
+						<portlet:param name="ignoreRootFolder" value="<%= Boolean.TRUE.toString() %>" />
 					</liferay-portlet:renderURL>
 
 					<liferay-ui:icon image="folder" message='<%= (folder != null) ? "subfolder" : "folder" %>' url="<%= addFolderURL %>" />
