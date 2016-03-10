@@ -135,6 +135,7 @@ import com.liferay.portal.security.pwd.PwdAuthenticator;
 import com.liferay.portal.security.pwd.PwdToolkitUtil;
 import com.liferay.portal.security.pwd.RegExpToolkit;
 import com.liferay.portal.service.BaseServiceImpl;
+import com.liferay.portal.service.ClassNameLocalServiceUtil;
 import com.liferay.portal.service.PortalPreferencesLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.base.UserLocalServiceBaseImpl;
@@ -2903,6 +2904,71 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	}
 
 	/**
+	 * Returns <code>true</code> if the user can edit controls for the group.
+	 *
+	 * @param  groupId the primary key of the Group object
+	 * @param  permissionChecker the PermissionChecker object
+	 * @return <code>true</code> if the user can edit controls for the site;
+	 *         <code>false</code> otherwise
+	 * @throws PortalException if the current user did not have permission to
+	 *         view the user or role members
+	 * @throws SystemException if a system exception occurred
+	 */
+	protected boolean hasManageLayoutsPermission(
+		long groupId, PermissionChecker permissionChecker)
+			throws PortalException, SystemException {
+
+		return GroupPermissionUtil.contains(
+			permissionChecker, groupId, ActionKeys.MANAGE_LAYOUTS);
+	}
+
+	/**
+	 * Returns <code>true</code> if the user can edit controls for any
+	 * organizations within the array of groups.
+	 *
+	 * @param  organizationIds array of organizations the user belongs to
+	 * @param  user the user object
+	 * @return <code>true</code> if the user can edit controls for any group
+	 *         within the array of groups.
+	 *         <code>false</code> otherwise
+	 * @throws PortalException if the current user did not have permission to
+	 *         view the user or role members
+	 * @throws SystemException if a system exception occurred
+	 */
+	protected boolean hasManageLayoutsOrgPermission(
+		long[] organizationIds, User user)
+			throws PortalException, SystemException {
+
+		if (ArrayUtil.isEmpty(organizationIds)) {
+			return false;
+		}
+
+		try {
+			PermissionChecker permissionChecker =
+				PermissionCheckerFactoryUtil.create(user);
+
+			long organizationClassId =
+				ClassNameLocalServiceUtil.fetchClassNameId(
+					Organization.class.getName());
+
+			for (long organizationId : organizationIds) {
+				Group group = groupPersistence.fetchByC_C_C(
+					user.getCompanyId(), organizationClassId, organizationId);
+
+				if (hasManageLayoutsPermission(
+						group.getGroupId(), permissionChecker)) {
+
+					return true;
+				}
+			}
+		}
+		catch (Exception e) {
+		}
+
+		return false;
+	}
+
+	/**
 	 * Returns <code>true</code> if the user has edit controls due to a regular
 	 * role.
 	 *
@@ -5416,7 +5482,9 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		PermissionCacheUtil.clearCache(userId);
 
-		if (!hasManageLayoutsRolePermission(user)) {
+		if (!hasManageLayoutsRolePermission(user) &&
+			!hasManageLayoutsOrgPermission(organizationIds, user)) {
+
 			unsetToggleControls(userId);
 		}
 
