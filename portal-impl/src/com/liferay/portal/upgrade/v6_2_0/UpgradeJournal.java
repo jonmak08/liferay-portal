@@ -348,6 +348,9 @@ public class UpgradeJournal extends BaseUpgradePortletPreferences {
 	}
 
 	protected void updateAssetEntryClassTypeId() throws Exception {
+		long classNameId = PortalUtil.getClassNameId(
+			"com.liferay.portlet.journal.model.JournalArticle");
+
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -372,7 +375,8 @@ public class UpgradeJournal extends BaseUpgradePortletPreferences {
 
 				runSQL(
 					"update AssetEntry set classTypeId = " +
-						ddmStructureId + " where classPK = " + resourcePrimKey);
+						ddmStructureId + " where classNameId = " +
+							classNameId + " and classPK = " + resourcePrimKey);
 			}
 		}
 		finally {
