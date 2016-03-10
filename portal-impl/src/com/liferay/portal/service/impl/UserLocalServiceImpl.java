@@ -2997,6 +2997,42 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	}
 
 	/**
+	 * Returns <code>true</code> if the user can edit controls for any
+	 * groups within the array.
+	 *
+	 * @param  groupIds array of groups the user belongs to
+	 * @param  user the user object
+	 * @return <code>true</code> if the user can edit controls for any group
+	 *         within the array of groups.
+	 *         <code>false</code> otherwise
+	 * @throws PortalException if the current user did not have permission to
+	 *         view the user or role members
+	 * @throws SystemException if a system exception occurred
+	 */
+	protected boolean hasManageLayoutsSitePermission(long[] groupIds, User user)
+		throws PortalException, SystemException {
+
+		if (ArrayUtil.isEmpty(groupIds)) {
+			return false;
+		}
+
+		try {
+			PermissionChecker permissionChecker =
+				PermissionCheckerFactoryUtil.create(user);
+
+			for (long groupId : groupIds) {
+				if (hasManageLayoutsPermission(groupId, permissionChecker)) {
+					return true;
+				}
+			}
+		}
+		catch (Exception e) {
+		}
+
+		return false;
+	}
+
+	/**
 	 * Returns <code>true</code> if the password policy has been assigned to the
 	 * user.
 	 *
@@ -5483,7 +5519,8 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		PermissionCacheUtil.clearCache(userId);
 
 		if (!hasManageLayoutsRolePermission(user) &&
-			!hasManageLayoutsOrgPermission(organizationIds, user)) {
+			!hasManageLayoutsOrgPermission(organizationIds, user) &&
+			!hasManageLayoutsSitePermission(groupIds, user)) {
 
 			unsetToggleControls(userId);
 		}
