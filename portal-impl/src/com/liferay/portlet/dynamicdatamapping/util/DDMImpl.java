@@ -25,6 +25,7 @@ import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.upload.UploadRequest;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.DateFormatFactoryUtil;
+import com.liferay.portal.kernel.util.DateUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -120,13 +121,9 @@ public class DDMImpl implements DDM {
 			ThemeDisplay themeDisplay, Serializable fieldValue, String type)
 		throws Exception {
 
-		if (fieldValue instanceof Date) {
-			Date valueDate = (Date)fieldValue;
-
-			DateFormat dateFormat = DateFormatFactoryUtil.getDate(
-				themeDisplay.getLocale());
-
-			fieldValue = dateFormat.format(valueDate);
+		if (type.equals(DDMImpl.TYPE_DDM_DATE)) {
+			fieldValue = DateUtil.formatDate(
+				"yyyy-MM-dd", fieldValue.toString(), themeDisplay.getLocale());
 		}
 		else if (type.equals(DDMImpl.TYPE_CHECKBOX)) {
 			Boolean valueBoolean = (Boolean)fieldValue;
