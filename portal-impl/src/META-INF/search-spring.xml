@@ -77,7 +77,17 @@
 		<property name="excludedEntryClassNames">
 			<list>
 				<value>com.liferay.portal.kernel.plugin.PluginPackage</value>
+				<value>com.liferay.portal.model.Contact</value>
+				<value>com.liferay.portal.model.Organization</value>
+				<value>com.liferay.portal.model.UserGroup</value>
+				<value>com.liferay.portlet.asset.model.AssetCategory</value>
 				<value>com.liferay.portlet.asset.model.AssetEntry</value>
+				<value>com.liferay.portlet.asset.model.AssetVocabulary</value>
+				<value>com.liferay.portlet.dynamicdatalists.model.DDLRecord</value>
+				<value>com.liferay.portlet.messageboards.model.MBThread</value>
+				<value>com.liferay.portlet.trash.model.TrashEntry</value>
+				<value>com.liferay.portlet.softwarecatalog.model.SCProductEntry</value>
+				<value>com.liferay.portlet.wiki.model.WikiNode</value>
 			</list>
 		</property>
 		<property name="searchPermissionChecker" ref="com.liferay.portal.kernel.search.SearchPermissionChecker" />
