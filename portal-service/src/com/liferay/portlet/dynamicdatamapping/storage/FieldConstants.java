@@ -19,7 +19,6 @@ import com.liferay.portal.kernel.util.Validator;
 
 import java.io.Serializable;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -81,7 +80,7 @@ public class FieldConstants {
 			return values.toArray(new Boolean[values.size()]);
 		}
 		else if (type.equals(FieldConstants.DATE)) {
-			return values.toArray(new Date[values.size()]);
+			return values.toArray(new String[values.size()]);
 		}
 		else if (type.equals(FieldConstants.DOUBLE)) {
 			return values.toArray(new Double[values.size()]);
@@ -117,7 +116,7 @@ public class FieldConstants {
 			return GetterUtil.getBoolean(value);
 		}
 		else if (type.equals(DATE) && Validator.isNotNull(value)) {
-			return new Date(GetterUtil.getLong(value));
+			return value;
 		}
 		else if (type.equals(DOUBLE)) {
 			return GetterUtil.getDouble(value);
