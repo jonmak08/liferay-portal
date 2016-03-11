@@ -653,11 +653,12 @@ AUI.add(
 								};
 							}
 							else if (type === 'ddm-date') {
+
 								config.inputFormatter = function(val) {
 									return AArray.map(
 										val,
 										function(item, index, collection) {
-											return item.getTime();
+											return A.DataType.Date.format(item);
 										}
 									);
 								};
@@ -666,7 +667,14 @@ AUI.add(
 									return AArray.map(
 										val,
 										function(item, index, collection) {
-											var date = new Date(Lang.toInt(item));
+											var date;
+
+											if (item !== STR_EMPTY) {
+												date = A.DataType.Date.parse(item);
+											}
+											else {
+												date = new Date();
+											}
 
 											date = DateMath.add(date, DateMath.MINUTES, date.getTimezoneOffset());
 
@@ -680,12 +688,8 @@ AUI.add(
 
 									var value = data[name];
 
-									if (value !== STR_EMPTY) {
-										var date = new Date(Lang.toInt(value));
-
-										date = DateMath.add(date, DateMath.MINUTES, date.getTimezoneOffset());
-
-										value = A.DataType.Date.format(date);
+									if (isArray(value)) {
+										value = value[0];
 									}
 
 									return value;
