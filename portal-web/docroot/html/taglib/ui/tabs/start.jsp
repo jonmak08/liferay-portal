@@ -75,6 +75,10 @@ if (Validator.isNotNull(backURL) && !backURL.equals("javascript:history.go(-1);"
 	backURL = HtmlUtil.escapeHREF(PortalUtil.escapeRedirect(backURL));
 }
 
+// CSS class
+
+String cssClass = GetterUtil.getString((String)request.getAttribute("liferay-ui:tabs:cssClass"));
+
 // Refresh
 
 boolean refresh = GetterUtil.getBoolean((String)request.getAttribute("liferay-ui:tabs:refresh"));
@@ -105,7 +109,7 @@ String type = GetterUtil.getString((String)request.getAttribute("liferay-ui:tabs
 		<c:otherwise>
 			<input name="<%= namespace %><%= param %>TabsScroll" type="hidden" />
 
-			<ul class="nav nav-<%= type %>">
+			<ul class="nav nav-<%= type %> <%= cssClass %>">
 		</c:otherwise>
 	</c:choose>
 
