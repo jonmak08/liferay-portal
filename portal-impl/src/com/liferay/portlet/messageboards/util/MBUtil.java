@@ -806,8 +806,7 @@ public class MBUtil {
 		String editorName = PropsUtil.get(BB_CODE_EDITOR_WYSIWYG_IMPL_KEY);
 
 		if (messageFormat.equals("bbcode") &&
-			!(editorName.equals("bbcode") ||
-			  editorName.equals("ckeditor_bbcode"))) {
+			!editorName.equals("ckeditor_bbcode")) {
 
 			return false;
 		}
