@@ -20,9 +20,7 @@
 		<execute macro="Page#tearDownPG" />
 	</tear-down>
 
-	<!--Comment out this testcase temporary until it is fixed because LPS-58038 has not been fixed on ee-6.2.x more than 3 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
-
-	<!--<command known-issues="LPS-58038" name="AddCategorywithLocalization" priority="4">
+	<command name="AddCategorywithLocalization" priority="4">
 		<var name="categoryName" value="Category Name" />
 		<var name="pageName" value="Category Page Name" />
 		<var name="siteName" value="Liferay" />
@@ -163,7 +161,7 @@
 			<var name="userLoginEmailAddress" value="test@liferay.com" />
 			<var name="userLoginFullName" value="Test Test" />
 		</execute>
-	</command>-->
+	</command>
 
 	<command name="AddCategorywithSiteRole" priority="4">
 		<var name="pageName" value="Test Page Name" />
