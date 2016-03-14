@@ -468,7 +468,7 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 		}
 
 		boolean ownerIsDefaultUser = false;
-		
+
 		if (ownerId == defaultUserId) {
 			ownerIsDefaultUser = true;
 		}
