@@ -689,6 +689,10 @@ app.server.type=@{app.server.type}]]></echo>
 		<run-functional-test app.server.type="tomcat" database.type="mysql" />
 	</target>
 
+	<target name="functional-tomcat8-mysql56-jdk7-quarantine">
+		<antcall target="functional-tomcat8-mysql56-jdk7" />
+	</target>
+
 	<target name="integration-mysql55-jdk7">
 		<run-integration-test database.type="mysql" database.version="5.5" />
 	</target>
