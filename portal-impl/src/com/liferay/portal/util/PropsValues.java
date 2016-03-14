@@ -1180,6 +1180,8 @@ public class PropsValues {
 
 	public static final int LUCENE_BUFFER_SIZE = GetterUtil.getInteger(PropsUtil.get(PropsKeys.LUCENE_BUFFER_SIZE));
 
+	public static final boolean LUCENE_CLUSTER_INDEX_LOAD_ON_STARTUP = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.LUCENE_CLUSTER_INDEX_LOAD_ON_STARTUP));
+
 	public static final long LUCENE_CLUSTER_INDEX_LOADING_SYNC_TIMEOUT = GetterUtil.getLong(PropsUtil.get(PropsKeys.LUCENE_CLUSTER_INDEX_LOADING_SYNC_TIMEOUT));
 
 	public static final boolean LUCENE_CLUSTER_INDEX_USE_CANONICAL_HOST_NAME = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.LUCENE_CLUSTER_INDEX_LOADING_USE_CANONICAL_HOST_NAME));
