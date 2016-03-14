@@ -85,7 +85,7 @@ public class VerifyJournal extends VerifyProcess {
 	protected void doVerify() throws Exception {
 		verifyArticleContent();
 		verifyContent();
-		updateJournalArticlesDateFieldValueFormat();
+		updateArticleDateFieldValueFormat();
 		verifyDynamicElements();
 		updateFolderAssets();
 		verifyOracleNewLine();
@@ -290,8 +290,7 @@ public class VerifyJournal extends VerifyProcess {
 			articleImage);
 	}
 
-	protected void updateJournalArticlesDateFieldValueFormat()
-		throws Exception {
+	protected void updateArticleDateFieldValueFormat() throws Exception {
 
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -311,7 +310,7 @@ public class VerifyJournal extends VerifyProcess {
 
 				String content = rs.getString("content");
 
-				updateJournalArticlesDateFieldValueFormat(id, content);
+				updateArticleDateFieldValueFormat(id, content);
 			}
 		}
 		finally {
@@ -319,8 +318,7 @@ public class VerifyJournal extends VerifyProcess {
 		}
 	}
 
-	protected void updateJournalArticlesDateFieldValueFormat(
-			long id, String content)
+	protected void updateArticleDateFieldValueFormat(long id, String content)
 		throws Exception {
 
 		Connection con = null;

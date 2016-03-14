@@ -595,7 +595,7 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		DDMTemplateLocalServiceUtil.updateDDMTemplate(template);
 	}
 
-	protected void updateTemplatesWithDateFields(DDMStructure structure)
+	protected void updateTemplateDateFields(DDMStructure structure)
 		throws Exception {
 
 		List<String> dateFieldNames = getDDMDateFieldNames(structure);
@@ -742,7 +742,7 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 	protected void verifyStructure(DDMStructure structure) throws Exception {
 		updateFileUploadReferences(structure);
 
-		updateTemplatesWithDateFields(structure);
+		updateTemplateDateFields(structure);
 
 		updateStructure(structure, updateXSD(structure.getXsd()));
 
