@@ -653,7 +653,6 @@ AUI.add(
 								};
 							}
 							else if (type === 'ddm-date') {
-
 								config.inputFormatter = function(val) {
 									return AArray.map(
 										val,
