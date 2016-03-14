@@ -373,10 +373,16 @@ public class UpgradeJournal extends BaseUpgradePortletPreferences {
 				long ddmStructureId = getDDMStructureId(
 					groupId, getCompanyGroupId(companyId), structureId);
 
-				runSQL(
-					"update AssetEntry set classTypeId = " +
-						ddmStructureId + " where classNameId = " +
-							classNameId + " and classPK = " + resourcePrimKey);
+				StringBundler sb = new StringBundler(6);
+
+				sb.append("update AssetEntry set classTypeId = ");
+				sb.append(ddmStructureId);
+				sb.append(" where classNameId = ");
+				sb.append(classNameId);
+				sb.append(" and classPK = ");
+				sb.append(resourcePrimKey);
+
+				runSQL(sb.toString());
 			}
 		}
 		finally {
