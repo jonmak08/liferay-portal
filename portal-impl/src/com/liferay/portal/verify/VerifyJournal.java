@@ -96,17 +96,17 @@ public class VerifyJournal extends VerifyProcess {
 	}
 
 	protected void transformDateFieldValue(Element dynamicContentElement) {
-		String valueString = dynamicContentElement.getText();
+		String value = dynamicContentElement.getText();
 
-		if (Validator.isNull(valueString) || !Validator.isNumber(valueString)) {
+		if (Validator.isNull(value) || !Validator.isNumber(value)) {
 			return;
 		}
 
-		Date dateValue = new Date(GetterUtil.getLong(valueString));
+		Date date = new Date(GetterUtil.getLong(value));
 
 		dynamicContentElement.clearContent();
 
-		dynamicContentElement.addCDATA(_dateFieldFormat.format(dateValue));
+		dynamicContentElement.addCDATA(_dateFormat.format(date));
 	}
 
 	protected void transformDateFieldValues(
@@ -131,10 +131,10 @@ public class VerifyJournal extends VerifyProcess {
 				}
 			}
 
-			List<Element> nestedDynamicElementElements =
+			List<Element> childDynamicElementElements =
 				dynamicElementElement.elements("dynamic-element");
 
-			transformDateFieldValues(nestedDynamicElementElements);
+			transformDateFieldValues(childDynamicElementElements);
 		}
 	}
 
@@ -788,7 +788,7 @@ public class VerifyJournal extends VerifyProcess {
 		}
 	}
 
-	private static final DateFormat _dateFieldFormat =
+	private static final DateFormat _dateFormat =
 		DateFormatFactoryUtil.getSimpleDateFormat("yyyy-MM-dd");
 
 	private static Log _log = LogFactoryUtil.getLog(VerifyJournal.class);
