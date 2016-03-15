@@ -760,6 +760,10 @@ public class LuceneHelperImpl implements LuceneHelper {
 	@Override
 	public void startup(long companyId) {
 		if (!PropsValues.INDEX_ON_STARTUP) {
+			if (PropsValues.LUCENE_CLUSTER_INDEX_LOADING_ON_STARTUP) {
+				getIndexAccessor(companyId);
+			}
+
 			return;
 		}
 
