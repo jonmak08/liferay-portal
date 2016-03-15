@@ -1,6 +1,8 @@
 AUI.add(
 	'liferay-product-navigation-control-menu-add-base',
 	function(A) {
+		var $ = AUI.$;
+
 		var DDM = A.DD.DDM;
 		var Lang = A.Lang;
 
@@ -16,6 +18,8 @@ AUI.add(
 		var DATA_CLASS_PK = 'data-class-pk';
 
 		var DATA_PORTLET_ID = 'data-portlet-id';
+
+		var EVENT_SHOWN_BS_COLLAPSE = 'shown.bs.collapse';
 
 		var PROXY_NODE_ITEM = Layout.PROXY_NODE_ITEM;
 
@@ -48,8 +52,8 @@ AUI.add(
 						validator: Lang.isString
 					},
 
-					selected: {
-						validator: Lang.isBoolean
+					panelBody: {
+						setter: A.one
 					}
 				},
 
@@ -61,15 +65,19 @@ AUI.add(
 					initializer: function(config) {
 						var instance = this;
 
-						if (instance.get('selected')) {
-							var focusItem = instance.get('focusItem');
+						instance._focusItem = instance.get('focusItem');
+						instance._panelBody = instance.get('panelBody');
 
-							if (focusItem) {
-								focusItem.focus();
-							}
+						var focusItem = instance._focusItem;
+
+						if (focusItem && instance._isSelected()) {
+							focusItem.focus();
 						}
 
+						instance._guid = A.stamp(instance);
+
 						instance._eventHandles = [];
+						instance._jqueryEventHandles = [];
 
 						instance._bindUIDABase();
 					},
@@ -78,6 +86,8 @@ AUI.add(
 						var instance = this;
 
 						(new A.EventHandle(instance._eventHandles)).detach();
+
+						A.Array.invoke(instance._jqueryEventHandles, 'off', '.' + instance._guid);
 					},
 
 					addPortlet: function(portlet, options) {
@@ -141,7 +151,24 @@ AUI.add(
 					_bindUIDABase: function() {
 						var instance = this;
 
-						instance._eventHandles.push(Liferay.after('showTab', instance._showTab, instance));
+						var panelBody = $(Util.getDOM(instance._panelBody));
+
+						var listGroupPanel = panelBody.find('.list-group-panel');
+
+						var eventType = EVENT_SHOWN_BS_COLLAPSE + '.' + instance._guid;
+
+						instance._jqueryEventHandles.push(
+							panelBody.on(
+								eventType,
+								$.proxy(instance._focusOnItem, instance)
+							),
+							listGroupPanel.on(
+								eventType,
+								function(event) {
+									event.stopPropagation();
+								}
+							)
+						);
 					},
 
 					_disablePortletEntry: function(portletId) {
@@ -172,6 +199,16 @@ AUI.add(
 								item.removeClass(CSS_LFR_PORTLET_USED);
 							}
 						);
+					},
+
+					_focusOnItem: function(event) {
+						var instance = this;
+
+						var focusItem = instance._focusItem;
+
+						if (focusItem) {
+							focusItem.focus();
+						}
 					},
 
 					_getPortletMetaData: function(portlet) {
@@ -211,6 +248,12 @@ AUI.add(
 						return portletMetaData;
 					},
 
+					_isSelected: function() {
+						var instance = this;
+
+						return instance._panelBody.hasClass('in');
+					},
+
 					_portletFeedback: function(portletId, portlet) {
 						var instance = this;
 
@@ -226,16 +269,6 @@ AUI.add(
 								type: 'success'
 							}
 						).render('body');
-					},
-
-					_showTab: function(event) {
-						var instance = this;
-
-						var focusItem = instance.get('focusItem');
-
-						if (focusItem && event.tabSection && event.tabSection.contains(focusItem)) {
-							focusItem.focus();
-						}
 					}
 				}
 			}
@@ -380,6 +413,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['anim', 'aui-base', 'liferay-notification', 'liferay-product-navigation-control-menu', 'liferay-layout', 'liferay-layout-column', 'transition']
+		requires: ['anim', 'aui-base', 'liferay-layout', 'liferay-layout-column', 'liferay-notification', 'liferay-product-navigation-control-menu', 'transition']
 	}
 );
