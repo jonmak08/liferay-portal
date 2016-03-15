@@ -51,8 +51,9 @@ pageContext.setAttribute("portletURL", portletURL);
 	<aui:select inlineField="<%= true %>" label="" name='<%= namespace + "groupId" %>' title="scope" useNamespace="<%= false %>">
 		<c:if test="<%= !group.isStagingGroup() %>">
 			<aui:option label="everything" selected="<%= (groupId == 0) %>" value="0" />
-			<aui:option label='<%= "this-" + (group.isOrganization() ? "organization" : "site") %>' selected="<%= (groupId != 0) %>" value="<%= group.getGroupId() %>" />
 		</c:if>
+
+	<aui:option label='<%= "this-" + (group.isOrganization() ? "organization" : "site") %>' selected="<%= (groupId != 0) %>" value="<%= group.getGroupId() %>" />
 
 	</aui:select>
 
