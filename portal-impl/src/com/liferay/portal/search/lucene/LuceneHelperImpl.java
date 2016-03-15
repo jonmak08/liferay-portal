@@ -807,7 +807,9 @@ public class LuceneHelperImpl implements LuceneHelper {
 	}
 
 	private LuceneHelperImpl() {
-		if (PropsValues.INDEX_ON_STARTUP && PropsValues.INDEX_WITH_THREAD) {
+		if ((PropsValues.INDEX_ON_STARTUP && PropsValues.INDEX_WITH_THREAD) ||
+			isLoadIndexFromClusterEnabled()) {
+
 			_luceneIndexThreadPoolExecutor =
 				PortalExecutorManagerUtil.getPortalExecutor(
 					LuceneHelperImpl.class.getName());
@@ -1179,6 +1181,33 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 	}
 
+	private class ClusterIndexLoader implements Runnable {
+
+		public ClusterIndexLoader(long companyId) {
+			_companyId = companyId;
+		}
+
+		@Override
+		public void run() {
+			long lastGeneration = getLastGeneration(_companyId);
+
+			if (lastGeneration == IndexAccessor.DEFAULT_LAST_GENERATION) {
+				return;
+			}
+
+			try {
+				LuceneClusterUtil.loadIndexesFromCluster(_companyId);
+			}
+			catch (Exception e) {
+				_log.error(
+					"Unable to load indexes for company " + _companyId, e);
+			}
+		}
+
+		private final long _companyId;
+
+	}
+
 	private class LoadIndexClusterEventListener
 		implements ClusterEventListener {
 
@@ -1208,26 +1237,12 @@ public class LuceneHelperImpl implements LuceneHelper {
 			long[] companyIds = PortalInstances.getCompanyIds();
 
 			for (long companyId : companyIds) {
-				loadIndexes(companyId);
+				_luceneIndexThreadPoolExecutor.execute(
+					new ClusterIndexLoader(companyId));
 			}
 
-			loadIndexes(CompanyConstants.SYSTEM);
-		}
-
-		private void loadIndexes(long companyId) {
-			long lastGeneration = getLastGeneration(companyId);
-
-			if (lastGeneration == IndexAccessor.DEFAULT_LAST_GENERATION) {
-				return;
-			}
-
-			try {
-				LuceneClusterUtil.loadIndexesFromCluster(companyId);
-			}
-			catch (Exception e) {
-				_log.error(
-					"Unable to load indexes for company " + companyId, e);
-			}
+			_luceneIndexThreadPoolExecutor.execute(
+				new ClusterIndexLoader(CompanyConstants.SYSTEM));
 		}
 
 	}
