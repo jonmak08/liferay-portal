@@ -1591,7 +1591,7 @@ public interface PropsKeys {
 
 	public static final String LUCENE_BUFFER_SIZE = "lucene.buffer.size";
 
-	public static final String LUCENE_CLUSTER_INDEX_LOAD_ON_STARTUP = "lucene.cluster.index.load.on.startup";
+	public static final String LUCENE_CLUSTER_INDEX_LOADING_ON_STARTUP = "lucene.cluster.index.loading.on.startup";
 
 	public static final String LUCENE_CLUSTER_INDEX_LOADING_SYNC_TIMEOUT = "lucene.cluster.index.loading.sync.timeout";
 
