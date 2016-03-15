@@ -39,10 +39,12 @@ import com.liferay.portal.kernel.search.BooleanClauseOccur;
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.SearchEngineUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.BasePortalLifecycle;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.kernel.util.ObjectValuePair;
+import com.liferay.portal.kernel.util.PortalLifecycle;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -821,6 +823,12 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 			ClusterExecutorUtil.addClusterEventListener(
 				_loadIndexClusterEventListener);
+
+			CompanyInitalizedListener companyInitalizedListener =
+				new CompanyInitalizedListener();
+
+			companyInitalizedListener.registerPortalLifecycle(
+				PortalLifecycle.METHOD_INIT);
 		}
 
 		BooleanQuery.setMaxClauseCount(_LUCENE_BOOLEAN_QUERY_CLAUSE_MAX_SIZE);
@@ -1151,6 +1159,8 @@ public class LuceneHelperImpl implements LuceneHelper {
 	private static MethodKey _getLastGenerationMethodKey = new MethodKey(
 		LuceneHelperUtil.class, "getLastGeneration", long.class);
 
+	private final CountDownLatch _countDownLatch = new CountDownLatch(1);
+
 	private Analyzer _analyzer;
 	private Map<Long, IndexAccessor> _indexAccessors =
 		new ConcurrentHashMap<Long, IndexAccessor>();
@@ -1208,6 +1218,19 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 	}
 
+	private class CompanyInitalizedListener extends BasePortalLifecycle {
+
+		@Override
+		protected void doPortalDestroy() throws Exception {
+		}
+
+		@Override
+		protected void doPortalInit() throws Exception {
+			_countDownLatch.countDown();
+		}
+
+	}
+
 	private class LoadIndexClusterEventListener
 		implements ClusterEventListener {
 
@@ -1232,6 +1255,15 @@ public class LuceneHelperImpl implements LuceneHelper {
 				}
 
 				return;
+			}
+
+			try {
+				_countDownLatch.await();
+			}
+			catch (InterruptedException ie) {
+				_log.error(
+					"Latch opened prematurely by interruption. Dependence may" +
+						" not be ready.");
 			}
 
 			long[] companyIds = PortalInstances.getCompanyIds();
