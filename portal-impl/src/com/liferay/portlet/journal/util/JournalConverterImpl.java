@@ -190,7 +190,7 @@ public class JournalConverterImpl implements JournalConverter {
 		Element rootElement = document.getRootElement();
 		
 		String[] availableLanguageIds = StringUtil.split(
-				rootElement.attributeValue("available-locales"));
+			rootElement.attributeValue("available-locales"));
 		String defaultLanguageId = rootElement.attributeValue("default-locale");
 
 		List<Element> dynamicElementElements = rootElement.elements(
@@ -585,7 +585,7 @@ public class JournalConverterImpl implements JournalConverter {
 		String type = ddmStructure.getFieldType(name);
 
 		Set<String> missingLanguageIds = SetUtil.fromArray(
-				availableLanguageIds);
+			availableLanguageIds);
 				
 		missingLanguageIds.remove(defaultLanguageId);
 				
