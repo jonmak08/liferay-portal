@@ -13,7 +13,7 @@
 		<execute macro="Page#tearDownPG" />
 	</tear-down>
 
-	<command known-issues="LRQA-9480" name="Demo1" priority="5">
+	<command name="Demo1" priority="5">
 		<property name="portlet.plugins.includes" value="opensocial-portlet,vimeo-portlet,web-form-portlet" />
 		<property name="theme.plugins.includes" value="zoe-healthcare-theme" />
 		<property name="web.plugins.includes" value="resources-importer-web" />
@@ -28,6 +28,9 @@
 			</execute>
 		</for>
 
+		<!--Comment out this testcase is caused by LRQA-9480 with low priority, please see LRQA-23190 for details.-->
+
+		<!--
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
@@ -188,5 +191,7 @@
 		<execute macro="Portlet#viewSpecificPG">
 			<var name="portletName" value="To-Do List" />
 		</execute>
+		-->
+
 	</command>
 </definition>
