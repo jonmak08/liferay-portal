@@ -613,6 +613,7 @@ portletURL.setParameter("rootNodeName", rootNodeName);
 			form: document.<portlet:namespace />fm1,
 			incompleteProcessMessageNode: '#<portlet:namespace />incompleteProcessMessage',
 			layoutSetSettingsNode: '#<%= PortletDataHandlerKeys.LAYOUT_SET_SETTINGS %>Checkbox',
+			locale: '<%= locale.toLanguageTag() %>',
 			logoNode: '#<%= PortletDataHandlerKeys.LOGO %>Checkbox',
 			namespace: '<portlet:namespace />',
 			pageTreeId: '<%= treeId %>',
@@ -624,6 +625,7 @@ portletURL.setParameter("rootNodeName", rootNodeName);
 			ratingsNode: '#<%= PortletDataHandlerKeys.RATINGS %>Checkbox',
 			setupNode: '#<%= PortletDataHandlerKeys.PORTLET_SETUP_ALL %>Checkbox',
 			themeReferenceNode: '#<%= PortletDataHandlerKeys.THEME_REFERENCE %>Checkbox',
+			timeZone: '<%= timeZone.getID() %>',
 			userPreferencesNode: '#<%= PortletDataHandlerKeys.PORTLET_USER_PREFERENCES_ALL %>Checkbox'
 		}
 	);

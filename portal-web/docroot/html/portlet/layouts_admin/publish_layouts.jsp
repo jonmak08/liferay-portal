@@ -469,6 +469,7 @@ else {
 			form: document.<portlet:namespace />exportPagesFm,
 			incompleteProcessMessageNode: '#<portlet:namespace />incompleteProcessMessage',
 			layoutSetSettingsNode: '#<%= PortletDataHandlerKeys.LAYOUT_SET_SETTINGS %>Checkbox',
+			locale: '<%= locale.toLanguageTag() %>',
 			logoNode: '#<%= PortletDataHandlerKeys.LOGO %>Checkbox',
 			namespace: '<portlet:namespace />',
 			pageTreeId: '<%= treeId %>',
@@ -487,6 +488,7 @@ else {
 			secureConnectionNode: '#secureConnectionCheckbox',
 			setupNode: '#<%= PortletDataHandlerKeys.PORTLET_SETUP_ALL %>Checkbox',
 			themeReferenceNode: '#<%= PortletDataHandlerKeys.THEME_REFERENCE %>Checkbox',
+			timeZone: '<%= timeZone.getID() %>',
 			userPreferencesNode: '#<%= PortletDataHandlerKeys.PORTLET_USER_PREFERENCES_ALL %>Checkbox'
 		}
 	);
