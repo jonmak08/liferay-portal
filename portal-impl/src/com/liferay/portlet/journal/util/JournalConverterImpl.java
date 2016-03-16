@@ -188,7 +188,7 @@ public class JournalConverterImpl implements JournalConverter {
 		ddmFields.put(fieldsDisplayField);
 
 		Element rootElement = document.getRootElement();
-		
+
 		String[] availableLanguageIds = StringUtil.split(
 			rootElement.attributeValue("available-locales"));
 		String defaultLanguageId = rootElement.attributeValue("default-locale");
@@ -434,7 +434,7 @@ public class JournalConverterImpl implements JournalConverter {
 
 		if (!ddmStructure.isFieldTransient(name)) {
 			Field ddmField = getField(
-				dynamicElementElement, ddmStructure, availableLanguageIds, 
+				dynamicElementElement, ddmStructure, availableLanguageIds,
 				defaultLanguageId);
 
 			String fieldName = ddmField.getName();
@@ -484,7 +484,7 @@ public class JournalConverterImpl implements JournalConverter {
 			ddmField.setValue(missingLocale, fieldValue);
 		}
 	}
-	
+
 	protected int countFieldRepetition(
 			Fields ddmFields, String fieldName, String parentFieldName,
 			int parentOffset)
@@ -586,9 +586,9 @@ public class JournalConverterImpl implements JournalConverter {
 
 		Set<String> missingLanguageIds = SetUtil.fromArray(
 			availableLanguageIds);
-				
+
 		missingLanguageIds.remove(defaultLanguageId);
-				
+
 		boolean localizable = GetterUtil.getBoolean(
 			ddmStructure.getFieldProperty(name, "localizable"), true);
 
@@ -607,7 +607,7 @@ public class JournalConverterImpl implements JournalConverter {
 
 			if (Validator.isNotNull(languageId)) {
 				locale = LocaleUtil.fromLanguageId(languageId);
-				
+
 				missingLanguageIds.remove(languageId);
 			}
 
@@ -618,7 +618,7 @@ public class JournalConverterImpl implements JournalConverter {
 		}
 
 		addMissingFieldValues(ddmField, defaultLanguageId, missingLanguageIds);
-		
+
 		return ddmField;
 	}
 

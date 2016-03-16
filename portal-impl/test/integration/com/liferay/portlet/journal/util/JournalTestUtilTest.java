@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.Constants;
+import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -56,7 +57,6 @@ import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 
 import java.io.File;
 import java.io.InputStream;
-import java.io.RandomAccessFile;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -132,7 +132,7 @@ public class JournalTestUtilTest {
 			dynamicElementTextElement, "fr_FR", "Joe Bloggs French");
 
 		String index = "0";
-		String instanceId = "qabd";
+		String instanceId = StringUtil.randomId();
 
 		Element dynamicElementImageElement =
 			JournalTestUtil.addDynamicElementElement(
@@ -147,35 +147,35 @@ public class JournalTestUtilTest {
 
 		Map<String, byte[]> images = new HashMap<String, byte[]>();
 
-		byte[] englishBinary = readBinary("liferay.png");
+		byte[] enBytes = readBytes("liferay.png");
 
-		images.put(
-			instanceId + StringPool.UNDERLINE + elName + "_en_US",
-			englishBinary);
+		String enImageKey =
+			instanceId + StringPool.UNDERLINE + elName + "_en_US";
 
-		byte[] frenchBinary = readBinary("company_logo.png");
+		images.put(enImageKey, enBytes);
 
-		Assert.assertNotEquals(englishBinary, frenchBinary);
+		byte[] frBytes = readBytes("company_logo.png");
 
-		String frenchImageKey = instanceId + StringPool.UNDERLINE + elName +
-			"_fr_FR";
+		Assert.assertNotEquals(enBytes, frBytes);
 
-		images.put(frenchImageKey, frenchBinary);
+		String frImageKey =
+			instanceId + StringPool.UNDERLINE + elName + "_fr_FR";
 
-		JSONObject jsonObjectEnglish = JSONFactoryUtil.createJSONObject();
+		images.put(frImageKey, frBytes);
 
-		jsonObjectEnglish.put(
-			"data", UnicodeFormatter.bytesToHex(englishBinary));
+		JSONObject enJSONObject = JSONFactoryUtil.createJSONObject();
 
-		JSONObject jsonObjectFrench = JSONFactoryUtil.createJSONObject();
+		enJSONObject.put("data", UnicodeFormatter.bytesToHex(enBytes));
 
-		jsonObjectFrench.put("data", UnicodeFormatter.bytesToHex(frenchBinary));
+		JSONObject frJSONObject = JSONFactoryUtil.createJSONObject();
 
-		JournalTestUtil.addDynamicContentElement(
-			dynamicElementImageElement, "en_US", jsonObjectEnglish.toString());
+		frJSONObject.put("data", UnicodeFormatter.bytesToHex(frBytes));
 
 		JournalTestUtil.addDynamicContentElement(
-			dynamicElementImageElement, "fr_FR", jsonObjectFrench.toString());
+			dynamicElementImageElement, "en_US", enJSONObject.toString());
+
+		JournalTestUtil.addDynamicContentElement(
+			dynamicElementImageElement, "fr_FR", frJSONObject.toString());
 
 		String xml = document.asXML();
 
@@ -195,46 +195,33 @@ public class JournalTestUtilTest {
 
 		Assert.assertNotNull(article);
 
-		long imageIdEn = JournalArticleImageLocalServiceUtil.getArticleImageId(
+		String enContent = article.getContentByLocale("en_US");
+
+		String enImageURL = getContentImageURL(enContent);
+
+		long enImageId = JournalArticleImageLocalServiceUtil.getArticleImageId(
 			groupId, articleId, 1.0, instanceId, elName, "_en_US");
 
-		long imageIdFr = JournalArticleImageLocalServiceUtil.getArticleImageId(
+		Assert.assertTrue(enImageURL.indexOf("img_id=" + enImageId) != -1);
+
+		Image enImage = ImageLocalServiceUtil.getImage(enImageId);
+
+		Assert.assertArrayEquals(enBytes, enImage.getTextObj());
+
+		String frContent = article.getContentByLocale("fr_FR");
+
+		String frImageURL = getContentImageURL(frContent);
+
+		long frImageId = JournalArticleImageLocalServiceUtil.getArticleImageId(
 			groupId, articleId, 1.0, instanceId, elName, "_fr_FR");
 
-		String englishContent = article.getContentByLocale("en_US");
+		Assert.assertTrue(frImageURL.indexOf("img_id=" + frImageId) != -1);
 
-		Document englishDocument = SAXReaderUtil.read(englishContent);
+		Image frImage = ImageLocalServiceUtil.getImage(frImageId);
 
-		String imageXPath = "//dynamic-element[contains(@name, 'imageName')]" +
-			"//dynamic-content";
+		Assert.assertArrayEquals(frBytes, frImage.getTextObj());
 
-		Element englishImageElement = (Element)englishDocument.selectSingleNode(
-			imageXPath);
-
-		String englishImageURL = englishImageElement.getText();
-
-		Assert.assertTrue(englishImageURL.indexOf("img_id=" + imageIdEn) != -1);
-
-		Image englishImage = ImageLocalServiceUtil.getImage(imageIdEn);
-
-		Assert.assertArrayEquals(englishBinary, englishImage.getTextObj());
-
-		String frenchContent = article.getContentByLocale("fr_FR");
-
-		Document frenchDocument = SAXReaderUtil.read(frenchContent);
-
-		Element frenchImageElement = (Element)frenchDocument.selectSingleNode(
-			imageXPath);
-
-		String frenchImageURL = frenchImageElement.getText();
-
-		Assert.assertTrue(frenchImageURL.indexOf("img_id=" + imageIdFr) != -1);
-
-		Image frenchImage = ImageLocalServiceUtil.getImage(imageIdFr);
-
-		Assert.assertArrayEquals(frenchBinary, frenchImage.getTextObj());
-
-		images.remove(frenchImageKey);
+		images.remove(frImageKey);
 
 		xml = article.getContent();
 
@@ -243,23 +230,29 @@ public class JournalTestUtilTest {
 			ServiceContextTestUtil.getServiceContext(_group.getGroupId()),
 			images);
 
-		frenchContent = article.getContentByLocale("fr_FR");
+		frContent = article.getContentByLocale("fr_FR");
 
-		frenchDocument = SAXReaderUtil.read(frenchContent);
+		frImageURL = getContentImageURL(frContent);
 
-		frenchImageElement = (Element)frenchDocument.selectSingleNode(
-			imageXPath);
-
-		frenchImageURL = frenchImageElement.getText();
-
-		imageIdFr = JournalArticleImageLocalServiceUtil.getArticleImageId(
+		frImageId = JournalArticleImageLocalServiceUtil.getArticleImageId(
 			groupId, articleId, 1.1, instanceId, elName, "_fr_FR");
 
-		Assert.assertTrue(frenchImageURL.indexOf("img_id=" + imageIdFr) != -1);
+		Assert.assertTrue(frImageURL.indexOf("img_id=" + frImageId) != -1);
 
-		frenchImage = ImageLocalServiceUtil.getImage(imageIdFr);
+		frImage = ImageLocalServiceUtil.getImage(frImageId);
 
-		Assert.assertArrayEquals(frenchBinary, frenchImage.getTextObj());
+		Assert.assertArrayEquals(frBytes, frImage.getTextObj());
+	}
+
+	protected String getContentImageURL(String content) throws Exception {
+		Document document = SAXReaderUtil.read(content);
+
+		String imageXPath = "//dynamic-element[contains(@name, 'imageName')]" +
+			"//dynamic-content";
+
+		Element imageElement = (Element)document.selectSingleNode(imageXPath);
+
+		return imageElement.getText();
 	}
 
 	@Test
@@ -472,31 +465,12 @@ public class JournalTestUtilTest {
 		return tokens;
 	}
 
-	protected byte[] readBinary(String fileName) throws Exception {
-		fileName =
+	protected byte[] readBytes(String fileName) throws Exception {
+		File file = new File(
 			"portal-impl/test/integration/com/liferay/portlet/journal/" +
-				"dependencies/" + fileName;
+				"dependencies/" + fileName);
 
-		File file = new File(fileName);
-
-		byte[] bytes = null;
-
-		RandomAccessFile randomAccessFile = null;
-
-		try {
-			randomAccessFile = new RandomAccessFile(file, "r");
-
-			bytes = new byte[(int)randomAccessFile.length()];
-
-			randomAccessFile.readFully(bytes);
-		}
-		finally {
-			if (randomAccessFile != null) {
-				randomAccessFile.close();
-			}
-		}
-
-		return bytes;
+		return FileUtil.getBytes(file);
 	}
 
 	protected String readText(String fileName) throws Exception {
