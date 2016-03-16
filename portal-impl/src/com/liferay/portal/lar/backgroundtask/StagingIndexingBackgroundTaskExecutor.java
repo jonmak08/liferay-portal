@@ -40,7 +40,6 @@ import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
-import com.liferay.portlet.dynamicdatamapping.service.persistence.DDMStructureUtil;
 import com.liferay.portlet.journal.model.JournalArticle;
 import com.liferay.portlet.journal.service.persistence.JournalArticleActionableDynamicQuery;
 import com.liferay.portlet.journal.util.JournalArticleIndexer;
@@ -285,8 +284,15 @@ public class StagingIndexingBackgroundTaskExecutor
 			List<Long> ddmStructureIds, long groupId, long parentDDMStructureId)
 		throws PortalException, SystemException {
 
-		List<DDMStructure> ddmStructures = DDMStructureUtil.findByG_P(
-			groupId, parentDDMStructureId);
+		DynamicQuery query = DDMStructureLocalServiceUtil.dynamicQuery();
+
+		query.add(PropertyFactoryUtil.forName("groupId").eq(groupId));
+		query.add(
+			PropertyFactoryUtil.forName(
+				"parentStructureId").eq(parentDDMStructureId));
+
+		List<DDMStructure> ddmStructures =
+				DDMStructureLocalServiceUtil.dynamicQuery(query);
 
 		for (DDMStructure ddmStructure : ddmStructures) {
 			ddmStructureIds.add(ddmStructure.getStructureId());
