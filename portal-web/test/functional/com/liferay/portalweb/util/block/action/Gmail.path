@@ -229,11 +229,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>GMAIL_HTML_MODE_MESSAGE_BODY_ARTICLE_DATE</td>
-	<td>//tr//td/div[contains(.,'${gmailKBArticleDate}')]</td>
-	<td></td>
-</tr>
-<tr>
 	<td>GMAIL_HTML_MODE_MESSAGE_BODY_SOCIAL_OFFICE_MESSAGE_SUMMARY</td>
 	<td>//tr[contains(.,'message')]//td/div[@class='msg']</td>
 	<td></td>
@@ -281,11 +276,6 @@
 <tr>
 	<td>GMAIL_HTML_MODE_MESSAGE_BODY_CLOSING</td>
 	<td>//tr[contains(.,'${key_gmailAssetType}')]//td/div[@class='msg']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>GMAIL_HTML_MODE_MESSAGE_BODY_KB_URL</td>
-	<td>//a[contains(.,'Article Link')]</td>
 	<td></td>
 </tr>
 <tr>
