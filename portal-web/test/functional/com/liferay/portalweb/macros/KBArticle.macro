@@ -1276,6 +1276,52 @@
 		</if>
 	</command>
 
+	<command name="viewKBSuggestionNotificationsInMockMock">
+		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
+		<var name="pageName" value="${pageName}" />
+
+		<execute function="MouseOver" locator1="CPKnowledgebaseadmin#ARTICLE_TABLE_CREATE_DATE" />
+
+		<var locator="CPKnowledgebaseadmin#ARTICLE_TABLE_CREATE_DATE_POPUP" name="publishDate" />
+
+		<var name="key_publishDate" value="${publishDate}" />
+
+		<var method="StringUtil#extractFirst('${key_publishDate}', ' ')" name="mockmockKBArticleDate" />
+
+		<execute macro="MockMock#viewMultipleMail">
+			<var name="asset" value="We have received your suggestion for article ${kbArticleTitle}" />
+			<var name="kbArticleContent" value="${kbArticleContent}" />
+			<var name="kbArticleTitle" value="${kbArticleTitle}" />
+			<var name="mockmockMessageKBArticleURL" value="${mockmockMessageKBArticleURL}" />
+			<var name="pageName" value="${pageName}" />
+			<var name="recipient" value="Test 2" />
+			<var name="sender" value="${userName}" />
+			<var name="subject" value="${mockmockKBArticleDate}" />
+		</execute>
+
+		<execute macro="MockMock#viewMultipleMail">
+			<var name="asset" value="We are reviewing your suggestion for article ${kbArticleTitle}" />
+			<var name="kbArticleContent" value="${kbArticleContent}" />
+			<var name="kbArticleTitle" value="${kbArticleTitle}" />
+			<var name="mockmockMessageKBArticleURL" value="${mockmockMessageKBArticleURL}" />
+			<var name="pageName" value="${pageName}" />
+			<var name="recipient" value="Test 2" />
+			<var name="sender" value="${userName}" />
+			<var name="subject" value="${mockmockKBArticleDate}" />
+		</execute>
+
+		<execute macro="MockMock#viewMultipleMail">
+			<var name="asset" value="We have resolved your suggestion for article ${kbArticleTitle}" />
+			<var name="kbArticleContent" value="${kbArticleContent}" />
+			<var name="kbArticleTitle" value="${kbArticleTitle}" />
+			<var name="mockmockMessageKBArticleURL" value="${mockmockMessageKBArticleURL}" />
+			<var name="pageName" value="${pageName}" />
+			<var name="recipient" value="Test 2" />
+			<var name="sender" value="${userName}" />
+			<var name="subject" value="${mockmockKBArticleDate}" />
+		</execute>
+	</command>
+
 	<command name="viewNavigationLinksPG">
 		<if>
 			<equals arg1="${previous}" arg2="true" />

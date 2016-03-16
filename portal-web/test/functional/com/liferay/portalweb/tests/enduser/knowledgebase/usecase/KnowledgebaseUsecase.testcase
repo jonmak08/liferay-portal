@@ -1804,7 +1804,9 @@
 		<execute macro="KBArticleSuggestion#viewDefaultResolved" />
 	</command>
 
-	<command name="ViewKBArticleSuggestionsWorkflowNotificationInGmail" priority="4">
+	<command name="ViewKBArticleSuggestionsWorkflowNotificationInMockMock" priority="4">
+		<property name="test.smtp.server.enabled" value="true" />
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
@@ -1939,6 +1941,24 @@
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Knowledge Base" />
 		</execute>
+
+		<execute macro="KBArticle#viewKBSuggestionNotificationsInMockMock">
+			<var name="kbArticleContent" value="KB Article Content" />
+			<var name="kbArticleTitle" value="KB Article Title" />
+			<var name="mockmockKBArticleDate" value="true" />
+			<var name="mockmockMessageKBArticleURL" value="true" />
+			<var name="pageName" value="Knowledge Base Display Page" />
+			<var name="userEmailAddress" property-value="email.address.4" />
+			<var name="userName" value="Test Test" />
+			<var name="userPassword" property-value="email.password.4" />
+		</execute>
+
+		<execute macro="User#logoutPG" />
+
+	 	<execute macro="User#loginUserPG">
+	 		<var name="password" value="test" />
+	 		<var name="userEmailAddress" value="test@liferay.com" />
+	 	</execute>
 	</command>
 
 	<command name="ViewKBArticlesWithTheSamePriorityViaNavigationLinks" priority="3">

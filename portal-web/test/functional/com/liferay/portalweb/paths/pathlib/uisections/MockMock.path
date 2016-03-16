@@ -63,6 +63,16 @@
 	<td>//div[@class='well' and contains(.,'${key_asset}')]</td>
 	<td></td>
 </tr>
+<tr>
+	<td>MOCKMOCK_MESSAGE_BODY_HTML_FORMATTED</td>
+	<td>//div[@name="bodyHTML_Formatted"]//div[@class='well' and contains(.,'${key_asset}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>MOCKMOCK_MESSAGE_BODY_KB_URL</td>
+	<td>//a[contains(.,'Article Link')]</td>
+	<td></td>
+</tr>
 </tbody>
 </table>
 </body>
