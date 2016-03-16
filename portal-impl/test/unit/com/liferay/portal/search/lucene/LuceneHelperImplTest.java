@@ -15,6 +15,7 @@
 package com.liferay.portal.search.lucene;
 
 import com.liferay.portal.cluster.AddressImpl;
+import com.liferay.portal.executor.PortalExecutorManagerImpl;
 import com.liferay.portal.kernel.cluster.Address;
 import com.liferay.portal.kernel.cluster.ClusterEvent;
 import com.liferay.portal.kernel.cluster.ClusterEventListener;
@@ -26,7 +27,9 @@ import com.liferay.portal.kernel.cluster.ClusterNodeResponse;
 import com.liferay.portal.kernel.cluster.ClusterRequest;
 import com.liferay.portal.kernel.cluster.ClusterResponseCallback;
 import com.liferay.portal.kernel.cluster.FutureClusterResponses;
+import com.liferay.portal.kernel.concurrent.ThreadPoolExecutor;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.executor.PortalExecutorManagerUtil;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
 import com.liferay.portal.kernel.test.CaptureHandler;
@@ -35,6 +38,7 @@ import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.kernel.util.ObjectValuePair;
+import com.liferay.portal.kernel.util.PortalLifecycleUtil;
 import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.StreamUtil;
 import com.liferay.portal.kernel.util.StringPool;
@@ -105,6 +109,12 @@ public class LuceneHelperImplTest {
 
 		portalUUIDUtil.setPortalUUID(new PortalUUIDImpl());
 
+		PortalExecutorManagerUtil portalExecutorManagerUtil =
+			new PortalExecutorManagerUtil();
+
+		portalExecutorManagerUtil.setPortalExecutorManager(
+			new MockPortalExecutorManager());
+
 		PortalInstances.addCompanyId(_COMPANY_ID);
 
 		_localhostInetAddress = InetAddress.getLocalHost();
@@ -145,6 +155,8 @@ public class LuceneHelperImplTest {
 
 		_captureHandler = JDKLoggerTestUtil.configureJDKLogger(
 			LuceneHelperImpl.class.getName(), Level.ALL);
+
+		PortalLifecycleUtil.flushInits();
 	}
 
 	@After
@@ -1053,6 +1065,22 @@ public class LuceneHelperImplTest {
 		}
 
 		private byte[] _bytes;
+
+	}
+
+	private class MockPortalExecutorManager extends PortalExecutorManagerImpl {
+
+		@Override
+		public ThreadPoolExecutor getPortalExecutor(String name) {
+			return new ThreadPoolExecutor(1, 1) {
+
+				@Override
+				public void execute(Runnable runnable) {
+					runnable.run();
+				}
+
+			};
+		}
 
 	}
 
