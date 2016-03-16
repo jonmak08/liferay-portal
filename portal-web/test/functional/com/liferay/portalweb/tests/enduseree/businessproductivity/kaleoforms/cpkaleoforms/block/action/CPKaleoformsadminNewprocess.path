@@ -234,12 +234,12 @@
 <!--WORKFLOW_NAVIGATION-->
 <tr>
 	<td>WORKFLOW_NAVIGATION_PUBLISHED_TAB</td>
-	<td>//ul[@class='nav nav-tabs']/li/a[contains(.,'Published')]</td>
+	<td>//ul[@class='nav nav-tabs']/li/a[contains(.,'Published')] | //ul[@class='nav nav-tabs ']/li/a[contains(.,'Published')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>WORKFLOW_NAVIGATION_UNPUBLISHED_TAB</td>
-	<td>//ul[@class='nav nav-tabs']/li/a[contains(.,'Unpublished')]</td>
+	<td>//ul[@class='nav nav-tabs']/li/a[contains(.,'Unpublished')] | //ul[@class='nav nav-tabs ']/li/a[contains(.,'Unpublished')]</td>
 	<td></td>
 </tr>
 <tr>

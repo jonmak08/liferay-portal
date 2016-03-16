@@ -36,12 +36,12 @@
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_CALENDAR</td>
-	<td>//ul[@class='nav nav-tabs']/li/a[contains(.,'Calendar')]</td>
+	<td>//ul[@class='nav nav-tabs']/li/a[contains(.,'Calendar')] | //ul[@class='nav nav-tabs ']/li/a[contains(.,'Calendar')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>NAVIGATION_RESOURCES</td>
-	<td>//ul[@class='nav nav-tabs']/li/a[contains(.,'Resources')]</td>
+	<td>//ul[@class='nav nav-tabs']/li/a[contains(.,'Resources')] | //ul[@class='nav nav-tabs ']/li/a[contains(.,'Resources')]</td>
 	<td></td>
 </tr>
 <tr>
