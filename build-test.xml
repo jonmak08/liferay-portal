@@ -3230,6 +3230,22 @@ go]]></replacevalue>
 					</copy>
 				</then>
 			</elseif>
+			<elseif>
+				<equals arg1="${database.type}" arg2="sqlserver" />
+				<then>
+					<delete includeemptydirs="true" failonerror="false">
+						<fileset
+							dir="${app.server.lib.global.dir}"
+							includes="${jdbc.sqlserver.driver}"
+						/>
+					</delete>
+
+					<mirrors-get
+						dest="${todir}"
+						src="${test.jdbc.drivers.url}/sqlserver/${database.version}/${jdbc.sqlserver.driver}"
+					/>
+				</then>
+			</elseif>
 		</if>
 	</target>
 
