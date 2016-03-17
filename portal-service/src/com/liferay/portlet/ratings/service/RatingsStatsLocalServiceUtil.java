@@ -282,6 +282,12 @@ public class RatingsStatsLocalServiceUtil {
 		getService().deleteStats(className, classPK);
 	}
 
+	public static com.liferay.portlet.ratings.model.RatingsStats fetchStats(
+		java.lang.String className, long classPK)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().fetchStats(className, classPK);
+	}
+
 	public static com.liferay.portlet.ratings.model.RatingsStats getStats(
 		long statsId)
 		throws com.liferay.portal.kernel.exception.PortalException,
