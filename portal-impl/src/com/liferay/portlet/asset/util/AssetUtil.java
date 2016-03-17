@@ -468,9 +468,7 @@ public class AssetUtil {
 				},
 				themeDisplay.getLocale());
 
-			if (((classTypeIds.length == 0) || classTypes.isEmpty()) &&
-				!className.equals(DLFileEntry.class.getName())) {
-
+			if ((classTypeIds.length == 0) || classTypes.isEmpty()) {
 				PortletURL addPortletURL = getAddPortletURL(
 					liferayPortletRequest, liferayPortletResponse, groupId,
 					className, 0, allAssetCategoryIds, allAssetTagNames,
