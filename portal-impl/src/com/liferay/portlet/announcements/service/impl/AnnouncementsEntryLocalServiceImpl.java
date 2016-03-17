@@ -92,7 +92,7 @@ public class AnnouncementsEntryLocalServiceImpl
 			expirationDateHour, expirationDateMinute, user.getTimeZone(),
 			EntryExpirationDateException.class);
 
-		validate(title, content, url, expirationDate);
+		validate(title, content, url, displayDate, expirationDate);
 
 		long entryId = counterLocalService.increment();
 
@@ -371,7 +371,7 @@ public class AnnouncementsEntryLocalServiceImpl
 			expirationDateHour, expirationDateMinute, user.getTimeZone(),
 			EntryExpirationDateException.class);
 
-		validate(title, content, url, expirationDate);
+		validate(title, content, url, displayDate, expirationDate);
 
 		AnnouncementsEntry entry =
 			announcementsEntryPersistence.findByPrimaryKey(entryId);
@@ -581,7 +581,8 @@ public class AnnouncementsEntryLocalServiceImpl
 	}
 
 	protected void validate(
-			String title, String content, String url, Date expirationDate)
+			String title, String content, String url, Date displayDate,
+			Date expirationDate)
 		throws PortalException {
 
 		if (Validator.isNull(title)) {
@@ -596,7 +597,10 @@ public class AnnouncementsEntryLocalServiceImpl
 			throw new EntryURLException();
 		}
 
-		if ((expirationDate != null) && expirationDate.before(new Date())) {
+		if ((expirationDate != null) &&
+			(expirationDate.before(new Date()) ||
+			 ((displayDate != null) && expirationDate.before(displayDate)))) {
+
 			throw new EntryExpirationDateException(
 				"Expiration date " + expirationDate + " is in the past");
 		}
