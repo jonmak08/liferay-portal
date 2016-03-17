@@ -75,8 +75,9 @@
 					(DDMStructure.type_ = ?)
 				)
 				TEMP_TABLE
-					INNER JOIN DDMStructure ON
-						TEMP_TABLE.structureId = DDMStructure.structureId
+					INNER JOIN
+						DDMStructure ON
+							TEMP_TABLE.structureId = DDMStructure.structureId
 			ORDER BY
 				DDMStructure.structureId DESC
 		]]>
@@ -171,8 +172,9 @@
 					)
 				)
 				TEMP_TABLE
-					INNER JOIN DDMTemplate ON
-						TEMP_TABLE.templateId = DDMTemplate.templateId
+					INNER JOIN
+						DDMTemplate ON
+							TEMP_TABLE.templateId = DDMTemplate.templateId
 			ORDER BY
 				DDMTemplate.templateId DESC
 		]]>
