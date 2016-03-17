@@ -467,8 +467,8 @@ public class JournalTestUtilTest {
 
 	protected byte[] readBytes(String fileName) throws Exception {
 		File file = new File(
-			"portal-impl/test/integration/com/liferay/portlet/journal/" +
-				"dependencies/" + fileName);
+			"portal-impl/test/integration/com/liferay/portlet/journal" +
+				"/dependencies/" + fileName);
 
 		return FileUtil.getBytes(file);
 	}
