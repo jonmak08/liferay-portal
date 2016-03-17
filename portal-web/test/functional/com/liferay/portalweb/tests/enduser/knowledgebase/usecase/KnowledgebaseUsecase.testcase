@@ -1945,7 +1945,6 @@
 		<execute macro="KBArticle#viewKBSuggestionNotificationsInMockMock">
 			<var name="kbArticleContent" value="KB Article Content" />
 			<var name="kbArticleTitle" value="KB Article Title" />
-			<var name="mockmockKBArticleDate" value="true" />
 			<var name="mockmockMessageKBArticleURL" value="true" />
 			<var name="pageName" value="Knowledge Base Display Page" />
 			<var name="userEmailAddress" property-value="email.address.4" />
