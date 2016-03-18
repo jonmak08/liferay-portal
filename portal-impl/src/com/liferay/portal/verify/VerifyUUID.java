@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.concurrent.ThrowableAwareRunnable;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
+import com.liferay.portal.kernel.dao.shard.ShardUtil;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 
 import java.sql.Connection;
@@ -47,7 +48,7 @@ public class VerifyUUID extends VerifyProcess {
 
 		for (String[] model : _MODELS) {
 			VerifyUUIDRunnable verifyUUIDRunnable = new VerifyUUIDRunnable(
-				model[0], model[1]);
+				model[0], model[1], ShardUtil.getCurrentShardName());
 
 			verifyUUIDRunnables.add(verifyUUIDRunnable);
 		}
@@ -162,7 +163,10 @@ public class VerifyUUID extends VerifyProcess {
 
 	private class VerifyUUIDRunnable extends ThrowableAwareRunnable {
 
-		public VerifyUUIDRunnable(String modelName, String pkColumn) {
+		public VerifyUUIDRunnable(String modelName, String pkColumn,
+			String shardName) {
+
+			super(shardName);
 			_modelName = modelName;
 			_pkColumn = pkColumn;
 		}

@@ -16,6 +16,7 @@ package com.liferay.portal.verify;
 
 import com.liferay.portal.kernel.concurrent.ThrowableAwareRunnable;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
+import com.liferay.portal.kernel.dao.shard.ShardUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -62,7 +63,8 @@ public class VerifyAuditedModel extends VerifyProcess {
 				VerifyAuditedModelRunnable verifyAuditedModelRunnable =
 					new VerifyAuditedModelRunnable(
 						model[0], model[1], model[2], model[3], model[4],
-						GetterUtil.getBoolean(model[5]));
+						GetterUtil.getBoolean(model[5]),
+						ShardUtil.getCurrentShardName());
 
 				verifyAuditedModelRunnables.add(verifyAuditedModelRunnable);
 
@@ -383,8 +385,9 @@ public class VerifyAuditedModel extends VerifyProcess {
 		private VerifyAuditedModelRunnable(
 			String modelName, String pkColumnName, String joinByColumnName,
 			String relatedModelName, String relatedPKColumnName,
-			boolean updateDates) {
+			boolean updateDates, String shardName) {
 
+			super(shardName);
 			_modelName = modelName;
 			_pkColumnName = pkColumnName;
 			_joinByColumnName = joinByColumnName;

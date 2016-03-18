@@ -16,6 +16,7 @@ package com.liferay.portal.verify;
 
 import com.liferay.portal.kernel.concurrent.ThrowableAwareRunnable;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
+import com.liferay.portal.kernel.dao.shard.ShardUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.model.Contact;
@@ -84,7 +85,8 @@ public class VerifyResourcePermissions extends VerifyProcess {
 			for (String[] model : _MODELS) {
 				VerifyResourcedModelRunnable verifyResourcedModelRunnable =
 					new VerifyResourcedModelRunnable(
-						role, model[0], model[1], model[2]);
+						role, model[0], model[1], model[2],
+						ShardUtil.getCurrentShardName());
 
 				verifyResourcedModelRunnables.add(verifyResourcedModelRunnable);
 			}
@@ -289,8 +291,10 @@ public class VerifyResourcePermissions extends VerifyProcess {
 	private class VerifyResourcedModelRunnable extends ThrowableAwareRunnable {
 
 		private VerifyResourcedModelRunnable(
-			Role role, String name, String modelName, String pkColumnName) {
+			Role role, String name, String modelName, String pkColumnName,
+			String shardName) {
 
+			super(shardName);
 			_modelName = modelName;
 			_name = name;
 			_pkColumnName = pkColumnName;

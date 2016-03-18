@@ -16,6 +16,7 @@ package com.liferay.portal.verify;
 
 import com.liferay.portal.kernel.concurrent.ThrowableAwareRunnable;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
+import com.liferay.portal.kernel.dao.shard.ShardUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringPool;
@@ -55,7 +56,8 @@ public class VerifyGroupId extends VerifyProcess {
 
 				VerifiableGroupedModelRunnable verifyAuditedModelRunnable =
 					new VerifiableGroupedModelRunnable(
-						model[0], model[1], model[2], model[3]);
+						model[0], model[1], model[2], model[3],
+						ShardUtil.getCurrentShardName());
 
 				verifiableGroupedModelRunnables.add(verifyAuditedModelRunnable);
 
@@ -168,8 +170,9 @@ public class VerifyGroupId extends VerifyProcess {
 
 		private VerifiableGroupedModelRunnable(
 			String modelName, String pkColumnName, String relatedModelName,
-			String relatedPKColumnName) {
+			String relatedPKColumnName, String shardName) {
 
+			super(shardName);
 			_modelName = modelName;
 			_pkColumnName = pkColumnName;
 			_relatedModelName = relatedModelName;

@@ -14,14 +14,23 @@
 
 package com.liferay.portal.kernel.concurrent;
 
+import com.liferay.portal.kernel.dao.shard.ShardUtil;
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ClassUtil;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author Michael C. Han
  */
 public abstract class ThrowableAwareRunnable implements Runnable {
+
+	public ThrowableAwareRunnable(String shardName) {
+		_shardName = shardName;
+	}
 
 	public Throwable getThrowable() {
 		return _throwable;
@@ -35,7 +44,21 @@ public abstract class ThrowableAwareRunnable implements Runnable {
 	public void run() {
 		long start = System.currentTimeMillis();
 
+		String currentShard = ShardUtil.getCurrentShardName();
+
+		List<String> shardNames =
+			Arrays.asList(ShardUtil.getAvailableShardNames());
+
 		try {
+			if (shardNames.contains(_shardName)) {
+				ShardUtil.pushCompanyService(_shardName);
+				ShardUtil.setTargetSource(_shardName);
+			}
+			else {
+				throw new PortalException(
+					"Invalid shard name for this ThrowableAwareRunnable");
+			}
+
 			if (_log.isInfoEnabled()) {
 				_log.info(
 					"Processing runnable " + ClassUtil.getClassName(this));
@@ -49,6 +72,11 @@ public abstract class ThrowableAwareRunnable implements Runnable {
 			_throwable = e;
 		}
 		finally {
+			if (shardNames.contains(_shardName)) {
+				ShardUtil.setTargetSource(currentShard);
+				ShardUtil.popCompanyService();
+			}
+
 			if (_log.isInfoEnabled()) {
 				_log.info(
 					"Completed processing runnable " +
@@ -62,6 +90,8 @@ public abstract class ThrowableAwareRunnable implements Runnable {
 
 	private static Log _log = LogFactoryUtil.getLog(
 		ThrowableAwareRunnable.class);
+
+	private String _shardName = null;
 
 	private Throwable _throwable;
 
