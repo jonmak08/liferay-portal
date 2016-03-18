@@ -286,10 +286,14 @@ public class StagingIndexingBackgroundTaskExecutor
 
 		DynamicQuery query = DDMStructureLocalServiceUtil.dynamicQuery();
 
-		query.add(PropertyFactoryUtil.forName("groupId").eq(groupId));
-		query.add(
-			PropertyFactoryUtil.forName(
-				"parentStructureId").eq(parentDDMStructureId));
+		Property groupProperty = PropertyFactoryUtil.forName("groupId");
+
+		query.add(groupProperty.eq(groupId));
+
+		Property parentStructureIdProperty = PropertyFactoryUtil.forName(
+			"parentStructureId");
+
+		query.add(parentStructureIdProperty.eq(parentDDMStructureId));
 
 		List<DDMStructure> ddmStructures =
 				DDMStructureLocalServiceUtil.dynamicQuery(query);
