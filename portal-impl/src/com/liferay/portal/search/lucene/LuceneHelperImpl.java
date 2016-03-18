@@ -1197,10 +1197,6 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 	private class ClusterIndexLoader implements Runnable {
 
-		public ClusterIndexLoader(long companyId) {
-			_companyId = companyId;
-		}
-
 		@Override
 		public void run() {
 			long lastGeneration = getLastGeneration(_companyId);
@@ -1216,6 +1212,10 @@ public class LuceneHelperImpl implements LuceneHelper {
 				_log.error(
 					"Unable to load indexes for company " + _companyId, e);
 			}
+		}
+
+		private ClusterIndexLoader(long companyId) {
+			_companyId = companyId;
 		}
 
 		private final long _companyId;
