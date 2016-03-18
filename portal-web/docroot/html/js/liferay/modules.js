@@ -156,6 +156,29 @@
 						path: 'browser_selectors.js',
 						requires: ['yui-base']
 					},
+					'liferay-ddm-link-to-page-field': {
+						path: 'ddm_link_to_page_field.js',
+						requires: [
+						           'aui-base', 
+						           'aui-datatable', 
+						           'aui-datatype', 
+						           'aui-image-viewer', 
+						           'aui-io-request', 
+						           'aui-parse-content', 
+						           'aui-set', 
+						           'aui-sortable-list', 
+						           'json', 
+						           'liferay-form', 
+						           'liferay-item-selector-dialog', 
+						           'liferay-layouts-tree', 
+						           'liferay-layouts-tree-radio', 
+						           'liferay-layouts-tree-selectable', 
+						           'liferay-map-base', 
+						           'liferay-notice', 
+						           'liferay-portlet-url', 
+						           'liferay-translation-manager'
+						]
+					},
 					'liferay-ddm-repeatable-fields': {
 						path: 'ddm_repeatable_fields.js',
 						requires: [
@@ -437,6 +460,52 @@
 						requires: [
 							'liferay-layout-column',
 							'resize'
+						]
+					},
+					'liferay-layouts-tree': {
+						path: 'layouts_tree.js',
+						requires: [
+							'aui-tree-view'
+						]
+					},
+					'liferay-layouts-tree-check-content-display-page': {
+						path: 'layouts_tree_check_content_display_page.js',
+						requires: [
+							'aui-component',
+							'plugin'
+						]
+					},
+					'liferay-layouts-tree-node-radio': {
+						path: 'layouts_tree_node_radio.js',
+						requires: [
+							'aui-tree-node'
+						]
+					},
+					'liferay-layouts-tree-node-task': {
+						path: 'layouts_tree_node_task.js',
+						requires: [
+						    'aui-tree-node'
+						]
+					},
+					'liferay-layouts-tree-radio': {
+						path: 'layouts_tree_radio.js',
+						requires: [
+							'aui-tree-node',
+							'liferay-layouts-tree-node-radio'
+						]
+					},
+					'liferay-layouts-tree-selectable': {
+						path: 'layouts_tree_selectable.js',
+						requires: [
+							'liferay-layouts-tree-node-task'
+						]
+					},
+					'liferay-layouts-tree-state': {
+						path: 'layouts_tree_state.js',
+						requires: [
+							'aui-base',
+							'aui-io-request',
+							'liferay-store'
 						]
 					},
 					'liferay-list-view': {
