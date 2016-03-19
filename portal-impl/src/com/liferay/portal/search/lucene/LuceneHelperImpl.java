@@ -1265,9 +1265,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 				_countDownLatch.await();
 			}
 			catch (InterruptedException ie) {
-				_log.error(
-					"Latch opened prematurely by interruption. Dependence may" +
-						" not be ready.");
+				_log.error("Latch opened prematurely by interruption");
 			}
 
 			long[] companyIds = PortalInstances.getCompanyIds();
