@@ -59,11 +59,11 @@ else {
 	PortletURL articlePageURL = renderResponse.createRenderURL();
 
 	articlePageURL.setParameter("struts_action", "/asset_publisher/view_content");
+	articlePageURL.setParameter("cur", String.valueOf(cur));
+	articlePageURL.setParameter("redirect", pageRedirect);
 	articlePageURL.setParameter("type", assetRendererFactory.getType());
 	articlePageURL.setParameter("groupId", String.valueOf(articleDisplay.getGroupId()));
-	articlePageURL.setParameter("redirect", pageRedirect);
 	articlePageURL.setParameter("urlTitle", articleDisplay.getUrlTitle());
-	articlePageURL.setParameter("cur", String.valueOf(cur));
 	%>
 
 	<br />
