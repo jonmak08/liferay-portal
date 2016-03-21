@@ -5349,6 +5349,13 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			userPersistence.setUserGroups(userId, userGroupIds);
 		}
 
+		if (!hasManageLayoutsRolePermission(user) &&
+			!hasManageLayoutsOrgPermission(organizationIds, user) &&
+			!hasManageLayoutsSitePermission(groupIds, user)) {
+
+			unsetToggleControls(userId);
+		}
+
 		// Announcements
 
 		announcementsDeliveryLocalService.getUserDeliveries(user.getUserId());
@@ -5388,13 +5395,6 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		// Permission cache
 
 		PermissionCacheUtil.clearCache(userId);
-
-		if (!hasManageLayoutsRolePermission(user) &&
-			!hasManageLayoutsOrgPermission(organizationIds, user) &&
-			!hasManageLayoutsSitePermission(groupIds, user)) {
-
-			unsetToggleControls(userId);
-		}
 
 		return user;
 	}
