@@ -3996,39 +3996,6 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	}
 
 	/**
-	 * Unsets the toggle controls portal preference of the user.
-	 *
-	 * @param  userId the primary key of the user
-	 * @throws PortalException if a portal exception occurred
-	 * @throws SystemException if a system exception occurred
-	 */
-	public void unsetToggleControls(long userId)
-		throws PortalException, SystemException {
-
-		PortletPreferencesFactoryImpl portletPreferencesFactory =
-			new PortletPreferencesFactoryImpl();
-
-		PortalPreferences portalPreferences =
-			portletPreferencesFactory.getPortalPreferences(userId, false);
-
-		String toggleControls = portalPreferences.getValue(
-			SessionClicks.class.getName(),"liferay_toggle_controls", null);
-
-		if (Validator.isNotNull(toggleControls) &&
-			!toggleControls.equals("visible")) {
-
-			portalPreferences.setValue(
-				SessionClicks.class.getName(),"liferay_toggle_controls",
-				"visible");
-
-			String xml = portletPreferencesFactory.toXML(portalPreferences);
-
-			PortalPreferencesLocalServiceUtil.updatePreferences(
-				userId, PortletKeys.PREFS_OWNER_TYPE_USER, xml);
-		}
-	}
-
-	/**
 	 * Removes the users from the user group.
 	 *
 	 * @param  userGroupId the primary key of the user group
@@ -5353,7 +5320,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			!hasManageLayoutsOrgPermission(organizationIds, user) &&
 			!hasManageLayoutsSitePermission(groupIds, user)) {
 
-			unsetToggleControls(userId);
+			unsetToggleControlsPreference(userId);
 		}
 
 		// Announcements
@@ -6275,6 +6242,39 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		user.setEmailAddress(emailAddress);
 		user.setDigest(StringPool.BLANK);
+	}
+
+	/**
+	 * Unsets the toggle controls portal preference of the user.
+	 *
+	 * @param  userId the primary key of the user
+	 * @throws PortalException if a portal exception occurred
+	 * @throws SystemException if a system exception occurred
+	 */
+	protected void unsetToggleControlsPreference(long userId)
+		throws PortalException, SystemException {
+
+		PortletPreferencesFactoryImpl portletPreferencesFactory =
+			new PortletPreferencesFactoryImpl();
+
+		PortalPreferences portalPreferences =
+			portletPreferencesFactory.getPortalPreferences(userId, false);
+
+		String toggleControls = portalPreferences.getValue(
+			SessionClicks.class.getName(),"liferay_toggle_controls", null);
+
+		if (Validator.isNotNull(toggleControls) &&
+			!toggleControls.equals("visible")) {
+
+			portalPreferences.setValue(
+				SessionClicks.class.getName(),"liferay_toggle_controls",
+				"visible");
+
+			String xml = portletPreferencesFactory.toXML(portalPreferences);
+
+			PortalPreferencesLocalServiceUtil.updatePreferences(
+				userId, PortletKeys.PREFS_OWNER_TYPE_USER, xml);
+		}
 	}
 
 	protected void updateGroups(
