@@ -16,10 +16,12 @@ package com.liferay.portal.editor.fckeditor.receiver.impl;
 
 import com.liferay.portal.editor.fckeditor.command.CommandArgument;
 import com.liferay.portal.editor.fckeditor.exception.FCKException;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
+import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Group;
@@ -32,6 +34,9 @@ import com.liferay.portlet.documentlibrary.model.DLFolderConstants;
 import com.liferay.portlet.documentlibrary.model.impl.DLFolderImpl;
 import com.liferay.portlet.documentlibrary.service.DLAppServiceUtil;
 import com.liferay.portlet.documentlibrary.util.DLUtil;
+import com.liferay.portlet.documentlibrary.util.comparator.RepositoryModelModifiedDateComparator;
+import com.liferay.portlet.documentlibrary.util.comparator.RepositoryModelNameComparator;
+import com.liferay.portlet.documentlibrary.util.comparator.RepositoryModelSizeComparator;
 
 import java.io.InputStream;
 
@@ -150,8 +155,25 @@ public class DocumentCommandReceiver extends BaseCommandReceiver {
 			CommandArgument commandArgument, Document document, Folder folder)
 		throws Exception {
 
+		String sortType = commandArgument.getSortType();
+
+		boolean ascending = commandArgument.getAscending();
+
+		OrderByComparator obc = null;
+
+		if (sortType.equals("Title")) {
+			obc = new RepositoryModelNameComparator(ascending);
+		}
+		else if (sortType.equals("Modified Date")) {
+			obc = new RepositoryModelModifiedDateComparator(ascending);
+		}
+		else if (sortType.equals("Size")) {
+			obc = new RepositoryModelSizeComparator(ascending);
+		}
+
 		List<FileEntry> fileEntries = DLAppServiceUtil.getFileEntries(
-			folder.getRepositoryId(), folder.getFolderId());
+			folder.getRepositoryId(), folder.getFolderId(), QueryUtil.ALL_POS,
+			QueryUtil.ALL_POS, obc);
 
 		List<Element> fileElements = new ArrayList<Element>(fileEntries.size());
 

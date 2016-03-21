@@ -19,6 +19,7 @@ import com.liferay.portal.editor.fckeditor.command.CommandArgument;
 import com.liferay.portal.editor.fckeditor.command.CommandFactory;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.WebKeys;
@@ -45,12 +46,20 @@ public class ConnectorAction extends Action {
 		try {
 			String command = request.getParameter("Command");
 			String type = request.getParameter("Type");
+			String sortType = request.getParameter("SortType");
+
+			String ascendingString = request.getParameter("Ascending");
+
+			boolean ascending = GetterUtil.getBoolean(ascendingString);
+
 			String currentFolder = request.getParameter("CurrentFolder");
 			String newFolder = ParamUtil.getString(request, "NewFolderName");
 
 			if (_log.isDebugEnabled()) {
 				_log.debug("Command " + command);
 				_log.debug("Type " + type);
+				_log.debug("SortType " + sortType);
+				_log.debug("Ascending " + ascending);
 				_log.debug("Current folder " + currentFolder);
 				_log.debug("New folder " + newFolder);
 			}
@@ -59,7 +68,8 @@ public class ConnectorAction extends Action {
 				WebKeys.THEME_DISPLAY);
 
 			CommandArgument commandArgument = new CommandArgument(
-				command, type, currentFolder, newFolder, themeDisplay, request);
+				command, type, sortType, ascending, currentFolder, newFolder,
+				themeDisplay, request);
 
 			Command commandModel = CommandFactory.getCommand(command);
 

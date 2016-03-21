@@ -35,15 +35,22 @@ import javax.servlet.http.HttpServletRequest;
 public class CommandArgument {
 
 	public CommandArgument(
-		String command, String type, String currentFolder, String newFolder,
-		ThemeDisplay themeDisplay, HttpServletRequest request) {
+		String command, String type, String sortType, boolean ascending,
+		String currentFolder, String newFolder, ThemeDisplay themeDisplay,
+		HttpServletRequest request) {
 
 		_command = command;
 		_type = type;
+		_sortType = sortType;
+		_ascending = ascending;
 		_currentFolder = currentFolder;
 		_newFolder = newFolder;
 		_themeDisplay = themeDisplay;
 		_request = request;
+	}
+
+	public boolean getAscending() {
+		return _ascending;
 	}
 
 	public String getCommand() {
@@ -114,6 +121,10 @@ public class CommandArgument {
 		return plid;
 	}
 
+	public String getSortType() {
+		return _sortType;
+	}
+
 	public ThemeDisplay getThemeDisplay() {
 		return _themeDisplay;
 	}
@@ -126,10 +137,12 @@ public class CommandArgument {
 		return _themeDisplay.getUserId();
 	}
 
+	private boolean _ascending;
 	private String _command;
 	private String _currentFolder;
 	private String _newFolder;
 	private HttpServletRequest _request;
+	private String _sortType;
 	private ThemeDisplay _themeDisplay;
 	private String _type;
 
