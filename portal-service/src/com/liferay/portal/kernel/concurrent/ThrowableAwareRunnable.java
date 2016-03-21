@@ -44,7 +44,7 @@ public abstract class ThrowableAwareRunnable implements Runnable {
 	public void run() {
 		long start = System.currentTimeMillis();
 
-		String currentShard = ShardUtil.getCurrentShardName();
+		String currentShardName = ShardUtil.getCurrentShardName();
 
 		List<String> shardNames = Arrays.asList(
 			ShardUtil.getAvailableShardNames());
@@ -75,7 +75,7 @@ public abstract class ThrowableAwareRunnable implements Runnable {
 		}
 		finally {
 			if (!shardNames.isEmpty() && shardNames.contains(_shardName)) {
-				ShardUtil.setTargetSource(currentShard);
+				ShardUtil.setTargetSource(currentShardName);
 
 				ShardUtil.popCompanyService();
 			}
