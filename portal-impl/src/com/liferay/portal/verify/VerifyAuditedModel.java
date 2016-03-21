@@ -62,9 +62,9 @@ public class VerifyAuditedModel extends VerifyProcess {
 
 				VerifyAuditedModelRunnable verifyAuditedModelRunnable =
 					new VerifyAuditedModelRunnable(
-						model[0], model[1], model[2], model[3], model[4],
-						GetterUtil.getBoolean(model[5]),
-						ShardUtil.getCurrentShardName());
+						ShardUtil.getCurrentShardName(), model[0], model[1],
+						model[2], model[3], model[4],
+						GetterUtil.getBoolean(model[5]));
 
 				verifyAuditedModelRunnables.add(verifyAuditedModelRunnable);
 
@@ -383,11 +383,12 @@ public class VerifyAuditedModel extends VerifyProcess {
 	private class VerifyAuditedModelRunnable extends ThrowableAwareRunnable {
 
 		private VerifyAuditedModelRunnable(
-			String modelName, String pkColumnName, String joinByColumnName,
-			String relatedModelName, String relatedPKColumnName,
-			boolean updateDates, String shardName) {
+			String shardName, String modelName, String pkColumnName,
+			String joinByColumnName, String relatedModelName,
+			String relatedPKColumnName, boolean updateDates) {
 
 			super(shardName);
+
 			_modelName = modelName;
 			_pkColumnName = pkColumnName;
 			_joinByColumnName = joinByColumnName;

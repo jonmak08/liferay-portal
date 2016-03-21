@@ -48,7 +48,7 @@ public class VerifyUUID extends VerifyProcess {
 
 		for (String[] model : _MODELS) {
 			VerifyUUIDRunnable verifyUUIDRunnable = new VerifyUUIDRunnable(
-				model[0], model[1], ShardUtil.getCurrentShardName());
+				ShardUtil.getCurrentShardName(), model[0], model[1]);
 
 			verifyUUIDRunnables.add(verifyUUIDRunnable);
 		}
@@ -164,7 +164,7 @@ public class VerifyUUID extends VerifyProcess {
 	private class VerifyUUIDRunnable extends ThrowableAwareRunnable {
 
 		public VerifyUUIDRunnable(
-			String modelName, String pkColumn, String shardName) {
+			String shardName, String modelName, String pkColumn) {
 
 			super(shardName);
 

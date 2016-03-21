@@ -56,8 +56,8 @@ public class VerifyGroupId extends VerifyProcess {
 
 				VerifiableGroupedModelRunnable verifyAuditedModelRunnable =
 					new VerifiableGroupedModelRunnable(
-						model[0], model[1], model[2], model[3],
-						ShardUtil.getCurrentShardName());
+						ShardUtil.getCurrentShardName(), model[0], model[1],
+						model[2], model[3]);
 
 				verifiableGroupedModelRunnables.add(verifyAuditedModelRunnable);
 
@@ -169,10 +169,11 @@ public class VerifyGroupId extends VerifyProcess {
 		extends ThrowableAwareRunnable {
 
 		private VerifiableGroupedModelRunnable(
-			String modelName, String pkColumnName, String relatedModelName,
-			String relatedPKColumnName, String shardName) {
+			String shardName, String modelName, String pkColumnName,
+			String relatedModelName, String relatedPKColumnName) {
 
 			super(shardName);
+
 			_modelName = modelName;
 			_pkColumnName = pkColumnName;
 			_relatedModelName = relatedModelName;

@@ -85,8 +85,8 @@ public class VerifyResourcePermissions extends VerifyProcess {
 			for (String[] model : _MODELS) {
 				VerifyResourcedModelRunnable verifyResourcedModelRunnable =
 					new VerifyResourcedModelRunnable(
-						role, model[0], model[1], model[2],
-						ShardUtil.getCurrentShardName());
+						ShardUtil.getCurrentShardName(), role, model[0],
+						model[1], model[2]);
 
 				verifyResourcedModelRunnables.add(verifyResourcedModelRunnable);
 			}
@@ -291,8 +291,8 @@ public class VerifyResourcePermissions extends VerifyProcess {
 	private class VerifyResourcedModelRunnable extends ThrowableAwareRunnable {
 
 		private VerifyResourcedModelRunnable(
-			Role role, String name, String modelName, String pkColumnName,
-			String shardName) {
+			String shardName, Role role, String name, String modelName,
+			String pkColumnName) {
 
 			super(shardName);
 
