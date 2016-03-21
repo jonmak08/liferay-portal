@@ -295,6 +295,7 @@ public class VerifyResourcePermissions extends VerifyProcess {
 			String shardName) {
 
 			super(shardName);
+
 			_modelName = modelName;
 			_name = name;
 			_pkColumnName = pkColumnName;

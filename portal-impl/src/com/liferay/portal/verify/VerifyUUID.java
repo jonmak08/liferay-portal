@@ -163,10 +163,11 @@ public class VerifyUUID extends VerifyProcess {
 
 	private class VerifyUUIDRunnable extends ThrowableAwareRunnable {
 
-		public VerifyUUIDRunnable(String modelName, String pkColumn,
-			String shardName) {
+		public VerifyUUIDRunnable(
+			String modelName, String pkColumn, String shardName) {
 
 			super(shardName);
+
 			_modelName = modelName;
 			_pkColumn = pkColumn;
 		}
