@@ -50,13 +50,15 @@ public abstract class ThrowableAwareRunnable implements Runnable {
 			Arrays.asList(ShardUtil.getAvailableShardNames());
 
 		try {
-			if (shardNames.contains(_shardName)) {
-				ShardUtil.pushCompanyService(_shardName);
-				ShardUtil.setTargetSource(_shardName);
-			}
-			else {
-				throw new PortalException(
-					"Invalid shard name for this ThrowableAwareRunnable");
+			if (shardNames.size() > 0) {
+				if (shardNames.contains(_shardName)) {
+					ShardUtil.pushCompanyService(_shardName);
+					ShardUtil.setTargetSource(_shardName);
+				}
+				else {
+					throw new PortalException(
+						"Invalid shard name for this ThrowableAwareRunnable");
+				}
 			}
 
 			if (_log.isInfoEnabled()) {
@@ -72,7 +74,7 @@ public abstract class ThrowableAwareRunnable implements Runnable {
 			_throwable = e;
 		}
 		finally {
-			if (shardNames.contains(_shardName)) {
+			if (shardNames.size() > 0 && shardNames.contains(_shardName)) {
 				ShardUtil.setTargetSource(currentShard);
 				ShardUtil.popCompanyService();
 			}
