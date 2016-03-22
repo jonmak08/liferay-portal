@@ -22,12 +22,10 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileVersion;
 import com.liferay.portal.kernel.repository.model.Folder;
-import com.liferay.portal.kernel.util.DateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MimeTypesUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Attribute;
 import com.liferay.portal.kernel.xml.Document;
@@ -72,10 +70,6 @@ import com.liferay.portlet.dynamicdatamapping.util.DDMXMLUtil;
 import java.io.File;
 import java.io.Serializable;
 
-import java.text.DateFormat;
-
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -251,24 +245,6 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		for (DDMStructure structure : structures) {
 			verifyStructure(structure);
 		}
-	}
-
-	protected List<String> getDDMDateFieldNames(DDMStructure structure)
-		throws Exception {
-
-		Map<String, Map<String, String>> fieldsMap = structure.getFieldsMap();
-
-		List<String> dateFieldNames = new ArrayList<String>();
-
-		for (Map<String, String> field : fieldsMap.values()) {
-			String dataType = field.get(FieldConstants.DATA_TYPE);
-
-			if (dataType.equals("date")) {
-				dateFieldNames.add(field.get("name"));
-			}
-		}
-
-		return dateFieldNames;
 	}
 
 	protected Set<String> getDuplicateElementNames(
@@ -595,82 +571,6 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		DDMTemplateLocalServiceUtil.updateDDMTemplate(template);
 	}
 
-	protected void updateTemplatesWithDateFields(DDMStructure structure)
-		throws Exception {
-
-		List<String> dateFieldNames = getDDMDateFieldNames(structure);
-
-		if ((dateFieldNames == null) || dateFieldNames.isEmpty()) {
-			return;
-		}
-
-		List<DDMTemplate> templates = DDMTemplateLocalServiceUtil.getTemplates(
-			structure.getStructureId());
-
-		for (DDMTemplate template : templates) {
-			String script = template.getScript();
-
-			for (String dateFieldName : dateFieldNames) {
-				script = updateTemplateScriptDateCode(script, dateFieldName);
-			}
-
-			template.setScript(script);
-
-			DDMTemplateLocalServiceUtil.updateDDMTemplate(template);
-		}
-	}
-
-	protected String updateTemplateScriptDateCode(
-		String script, String dateFieldName) {
-
-		script = updateTemplateScriptDateIfStatement(script, dateFieldName);
-		script = updateTemplateScriptDateParseStatement(script, dateFieldName);
-
-		return script;
-	}
-
-	protected String updateTemplateScriptDateIfStatement(
-		String script, String dateFieldName) {
-
-		StringBundler fromSB = new StringBundler(3);
-		StringBundler toSB = new StringBundler(7);
-
-		fromSB.append("<#if (");
-		fromSB.append(dateFieldName);
-		fromSB.append("_Data > 0)>");
-
-		toSB.append("<#assign ");
-		toSB.append(dateFieldName);
-		toSB.append("_Data = getterUtil.getString(");
-		toSB.append(dateFieldName);
-		toSB.append(".getData())>\n\n<#if (validator.isNotNull(");
-		toSB.append(dateFieldName);
-		toSB.append("_Data))>");
-
-		return StringUtil.replace(script, fromSB.toString(), toSB.toString());
-	}
-
-	protected String updateTemplateScriptDateParseStatement(
-		String script, String dateFieldName) {
-
-		StringBundler fromSB = new StringBundler(5);
-		StringBundler toSB = new StringBundler(5);
-
-		fromSB.append("<#assign ");
-		fromSB.append(dateFieldName);
-		fromSB.append("_DateObj = dateUtil.newDate(");
-		fromSB.append(dateFieldName);
-		fromSB.append("_Data)>");
-
-		toSB.append("<#assign ");
-		toSB.append(dateFieldName);
-		toSB.append("_DateObj = dateUtil.parseDate(\"yyyy-MM-dd\", ");
-		toSB.append(dateFieldName);
-		toSB.append("_Data, locale)>");
-
-		return StringUtil.replace(script, fromSB.toString(), toSB.toString());
-	}
-
 	protected String updateXSD(String xsd) throws Exception {
 		Document document = SAXReaderUtil.read(xsd);
 
@@ -694,37 +594,6 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 			element.addAttribute("type", "ddm-documentlibrary");
 		}
 
-		if (Validator.equals(dataType, "date")) {
-			Element metadataElement = element.element("meta-data");
-
-			List<Element> metadataEntryElements = metadataElement.elements();
-
-			Element predefinedValueElement = null;
-
-			for (Element metadataEntryElement : metadataEntryElements) {
-				String name = metadataEntryElement.attributeValue("name");
-
-				if (name.equals("predefinedValue")) {
-					predefinedValueElement = metadataEntryElement;
-
-					break;
-				}
-			}
-
-			String valueString = predefinedValueElement.getText();
-
-			if (Validator.isNotNull(valueString) &&
-				Validator.isNumber(valueString)) {
-
-				Date dateValue = new Date(GetterUtil.getLong(valueString));
-
-				predefinedValueElement.clearContent();
-
-				predefinedValueElement.addCDATA(
-					_dateFieldFormat.format(dateValue));
-			}
-		}
-
 		List<Element> dynamicElementElements = element.elements(
 			"dynamic-element");
 
@@ -741,8 +610,6 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 
 	protected void verifyStructure(DDMStructure structure) throws Exception {
 		updateFileUploadReferences(structure);
-
-		updateTemplatesWithDateFields(structure);
 
 		updateStructure(structure, updateXSD(structure.getXsd()));
 
@@ -770,9 +637,6 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 			updateStructure(structure, document.asXML());
 		}
 	}
-
-	private static final DateFormat _dateFieldFormat =
-		DateFormatFactoryUtil.getSimpleDateFormat("yyyy-MM-dd");
 
 	private static Log _log = LogFactoryUtil.getLog(
 		VerifyDynamicDataMapping.class);
