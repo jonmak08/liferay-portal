@@ -8,12 +8,8 @@
 
 <#assign nullable = false>
 
-<#if (validator.isNotNull(fieldRawValue))>
-	<#assign dateValue = fieldRawValue?date["yyyy-MM-dd"]>
-
-	<#assign fieldValue = calendarFactory.getCalendar(requestedLocale)>
-
-	<#assign void = fieldValue.setTimeInMillis(dateValue?long)>
+<#if (fieldRawValue?is_date)>
+	<#assign fieldValue = calendarFactory.getCalendar(fieldRawValue?long, utcTimeZone)>
 <#elseif (validator.isNotNull(predefinedValue))>
 	<#assign predefinedDate = dateUtil.parseDate(predefinedValue, requestedLocale)>
 
