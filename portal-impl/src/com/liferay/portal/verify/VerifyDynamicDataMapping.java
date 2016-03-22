@@ -604,20 +604,19 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 			return;
 		}
 
-		List<DDMTemplate> ddmTemplates =
-			DDMTemplateLocalServiceUtil.getTemplates(
-				structure.getStructureId());
+		List<DDMTemplate> templates = DDMTemplateLocalServiceUtil.getTemplates(
+			structure.getStructureId());
 
-		for (DDMTemplate ddmTemplate : ddmTemplates) {
-			String script = ddmTemplate.getScript();
+		for (DDMTemplate template : templates) {
+			String script = template.getScript();
 
 			for (String dateFieldName : dateFieldNames) {
 				script = updateTemplateScriptDateCode(script, dateFieldName);
 			}
 
-			ddmTemplate.setScript(script);
+			template.setScript(script);
 
-			DDMTemplateLocalServiceUtil.updateDDMTemplate(ddmTemplate);
+			DDMTemplateLocalServiceUtil.updateDDMTemplate(template);
 		}
 	}
 
@@ -633,43 +632,40 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 	protected String updateTemplateScriptDateIfStatement(
 		String script, String dateFieldName) {
 
-		String oldTemplateScript = "<#if (" + dateFieldName + "_Data > 0)>";
+		String fromSB = "<#if (" + dateFieldName + "_Data > 0)>";
 
-		StringBundler newTemplateScript = new StringBundler(7);
+		StringBundler toSB = new StringBundler(7);
 
-		newTemplateScript.append("<#assign ");
-		newTemplateScript.append(dateFieldName);
-		newTemplateScript.append("_Data = getterUtil.getString(");
-		newTemplateScript.append(dateFieldName);
-		newTemplateScript.append(".getData())>\n\n<#if (validator.isNotNull(");
-		newTemplateScript.append(dateFieldName);
-		newTemplateScript.append("_Data))>");
+		toSB.append("<#assign ");
+		toSB.append(dateFieldName);
+		toSB.append("_Data = getterUtil.getString(");
+		toSB.append(dateFieldName);
+		toSB.append(".getData())>\n\n<#if (validator.isNotNull(");
+		toSB.append(dateFieldName);
+		toSB.append("_Data))>");
 
-		return StringUtil.replace(
-			script, oldTemplateScript, newTemplateScript.toString());
+		return StringUtil.replace(script, fromSB, toSB.toString());
 	}
 
 	protected String updateTemplateScriptDateParseStatement(
 		String script, String dateFieldName) {
 
-		StringBundler oldTemplateScript = new StringBundler(5);
-		StringBundler newTemplateScript = new StringBundler(5);
+		StringBundler fromSB = new StringBundler(5);
+		StringBundler toSB = new StringBundler(5);
 
-		oldTemplateScript.append("<#assign ");
-		oldTemplateScript.append(dateFieldName);
-		oldTemplateScript.append("_DateObj = dateUtil.newDate(");
-		oldTemplateScript.append(dateFieldName);
-		oldTemplateScript.append("_Data)>");
+		fromSB.append("<#assign ");
+		fromSB.append(dateFieldName);
+		fromSB.append("_DateObj = dateUtil.newDate(");
+		fromSB.append(dateFieldName);
+		fromSB.append("_Data)>");
 
-		newTemplateScript.append("<#assign ");
-		newTemplateScript.append(dateFieldName);
-		newTemplateScript.append(
-			"_DateObj = dateUtil.parseDate(\"yyyy-MM-dd\", ");
-		newTemplateScript.append(dateFieldName);
-		newTemplateScript.append("_Data, locale)>");
+		toSB.append("<#assign ");
+		toSB.append(dateFieldName);
+		toSB.append("_DateObj = dateUtil.parseDate(\"yyyy-MM-dd\", ");
+		toSB.append(dateFieldName);
+		toSB.append("_Data, locale)>");
 
-		return StringUtil.replace(
-			script, oldTemplateScript.toString(), newTemplateScript.toString());
+		return StringUtil.replace(script, fromSB.toString(), toSB.toString());
 	}
 
 	protected String updateXSD(String xsd) throws Exception {
@@ -712,16 +708,17 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 				}
 			}
 
-			String value = predefinedValueElement.getText();
+			String valueString = predefinedValueElement.getText();
 
-			if (Validator.isNotNull(value) &&
-				Validator.isNumber(value)) {
+			if (Validator.isNotNull(valueString) &&
+				Validator.isNumber(valueString)) {
 
-				Date date = new Date(GetterUtil.getLong(value));
+				Date dateValue = new Date(GetterUtil.getLong(valueString));
 
 				predefinedValueElement.clearContent();
 
-				predefinedValueElement.addCDATA(_dateFormat.format(date));
+				predefinedValueElement.addCDATA(
+					_dateFieldFormat.format(dateValue));
 			}
 		}
 
@@ -771,7 +768,7 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		}
 	}
 
-	private static final DateFormat _dateFormat =
+	private static final DateFormat _dateFieldFormat =
 		DateFormatFactoryUtil.getSimpleDateFormat("yyyy-MM-dd");
 
 	private static Log _log = LogFactoryUtil.getLog(
