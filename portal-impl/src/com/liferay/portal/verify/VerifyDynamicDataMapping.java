@@ -612,17 +612,22 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 			String script = ddmTemplate.getScript();
 
 			for (String dateFieldName : dateFieldNames) {
-				script = updateTemplateScriptDateIfStatement(
-					script, dateFieldName);
-
-				script = updateTemplateScriptDateParseStatement(
-					script, dateFieldName);
+				script = updateTemplateScriptDateCode(script, dateFieldName);
 			}
 
 			ddmTemplate.setScript(script);
 
 			DDMTemplateLocalServiceUtil.updateDDMTemplate(ddmTemplate);
 		}
+	}
+
+	protected String updateTemplateScriptDateCode(
+		String script, String dateFieldName) {
+
+		script = updateTemplateScriptDateIfStatement(script, dateFieldName);
+		script = updateTemplateScriptDateParseStatement(script, dateFieldName);
+
+		return script;
 	}
 
 	protected String updateTemplateScriptDateIfStatement(
