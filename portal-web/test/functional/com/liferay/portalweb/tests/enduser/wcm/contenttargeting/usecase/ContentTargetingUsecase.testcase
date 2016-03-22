@@ -1095,7 +1095,7 @@
 			<var name="siteName" value="Import Site" />
 		</execute>
 
-		<execute macro="LAR#importSiteCP">
+		<execute macro="LAR#importSiteContentTargetingFile">
 			<var name="larFileName" value="${larFileName}" />
 			<var name="siteName" value="Import Site" />
 		</execute>
@@ -1151,7 +1151,7 @@
 			<var name="siteScopeName" value="Import Site" />
 		</execute>
 
-		<execute macro="LAR#importSiteCP">
+		<execute macro="LAR#importSiteContentTargetingFile">
 			<var name="checkContentNameList" value="Audience Targeting" />
 			<var name="contentDeletion" value="true" />
 			<var name="larFileName" value="${larFileName}" />
@@ -1213,7 +1213,7 @@
 			<var name="siteName" value="Import Site" />
 		</execute>
 
-		<execute macro="LAR#importSiteCP">
+		<execute macro="LAR#importSiteContentTargetingFile">
 			<var name="larFileName" value="${larFileName}" />
 			<var name="siteName" value="Import Site" />
 		</execute>
@@ -1352,7 +1352,7 @@
 			<var name="siteName" value="Import Site" />
 		</execute>
 
-		<execute macro="LAR#importSiteCP">
+		<execute macro="LAR#importSiteContentTargetingFile">
 			<var name="importCampaignValidationError" value="true" />
 			<var name="larFileName" value="${larFileName}" />
 			<var name="siteName" value="Import Site" />
@@ -1442,7 +1442,7 @@
 			<var name="siteName" value="Import Site" />
 		</execute>
 
-		<execute macro="LAR#importSiteCP">
+		<execute macro="LAR#importSiteContentTargetingFile">
 			<var name="importFail" value="true" />
 			<var name="larFileName" value="${larFileName}" />
 			<var name="siteName" value="Import Site" />
@@ -1501,7 +1501,7 @@
 			<var name="siteName" value="Import Site" />
 		</execute>
 
-		<execute macro="LAR#importSiteCP">
+		<execute macro="LAR#importSiteContentTargetingFile">
 			<var name="importFail" value="true" />
 			<var name="larFileName" value="${larFileName}" />
 			<var name="siteName" value="Import Site" />
@@ -1560,7 +1560,7 @@
 			<var name="siteName" value="Import Site" />
 		</execute>
 
-		<execute macro="LAR#importSiteCP">
+		<execute macro="LAR#importSiteContentTargetingFile">
 			<var name="importFail" value="true" />
 			<var name="larFileName" value="${larFileName}" />
 			<var name="siteName" value="Import Site" />
@@ -1671,7 +1671,7 @@
 			<var name="siteName" value="Import Site" />
 		</execute>
 
-		<execute macro="LAR#importSiteCP">
+		<execute macro="LAR#importSiteContentTargetingFile">
 			<var name="larFileName" value="${larFileName}" />
 			<var name="siteName" value="Import Site" />
 		</execute>
@@ -1777,12 +1777,12 @@
 			<var name="siteName" value="Import Site" />
 		</execute>
 
-		<execute macro="LAR#importSiteCP">
+		<execute macro="LAR#importSiteContentTargetingFile">
 			<var name="larFileName" value="${larFileName}" />
 			<var name="siteName" value="Import Site" />
 		</execute>
 
-		<execute macro="LAR#importSiteCP">
+		<execute macro="LAR#importSiteContentTargetingFile">
 			<var name="importFail" value="true" />
 			<var name="larFileName" value="${larFileName}" />
 			<var name="siteName" value="Import Site" />

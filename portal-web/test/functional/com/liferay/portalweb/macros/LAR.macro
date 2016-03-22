@@ -359,12 +359,75 @@
 			</then>
 		</if>
 
-		<execute function="AssertClickNoError" locator1="CPSitepagesImport#CONTINUE_BUTTON" value1="Continue" />
+		<execute function="ClickNoError" locator1="CPSitepagesImport#CONTINUE_BUTTON" />
 		<execute function="Pause" locator1="10000" />
-		<execute function="AssertClickNoError" locator1="CPSitepagesImport#IMPORT_BUTTON" value1="Import" />
+		<execute function="ClickNoError" locator1="CPSitepagesImport#IMPORT_BUTTON" />
 		<execute function="Pause" locator1="10000" />
 		<execute function="AssertTextEquals" locator1="CPSitepagesImport#CURRENT_AND_PREVIOUS_STATUS_1" value1="Successful" />
 		<execute function="SelectFrame" value1="relative=top" />
+	</command>
+
+	<command name="importSiteContentTargetingFile">
+		<execute macro="Page#gotoPagesCP">
+			<var name="portletName" value="Site Pages" />
+			<var name="siteScopeName" value="${siteName}" />
+		</execute>
+
+		<execute function="AssertClick" locator1="CPSitepages#TOOLBAR_IMPORT" value1="Import" />
+
+		<execute function="SelectFrame" locator1="BasePortletImport#IMPORT_IFRAME" />
+
+		<execute function="AssertClick" locator1="CPSitepagesImport#SELECT_FILE_BUTTON" value1="Select File" />
+
+		<execute function="SikuliClick" locator1="OS#FILE_DIALOG_BOX_TYPE_FILE_NAME_ICON_PNG" />
+
+		<execute function="SikuliUploadTempFile" locator1="OS#FILE_DIALOG_BOX_FILE_NAME_FIELD_PNG" value1="${larFileName}" />
+
+		<execute function="Pause" locator1="10000" />
+
+		<if>
+			<isset var="importValidationMissingItem" />
+			<then>
+				<execute function="AssertTextEquals" locator1="CPSitepagesImport#VALIDATION_ERROR_MESSAGE_HEADER" value1="The file ${larFileName} cannot be imported." />
+				<execute function="AssertTextEquals" locator1="CPSitepagesImport#VALIDATION_ERROR_MESSAGE" value1="There are missing references that could not be found in the current site. Please import the following elements first:" />
+				<execute function="AssertTextEquals" locator1="CPSitepagesImport#VALIDATION_ERROR_LIST_ITEM" value1="${importValidationMissingItem}" />
+			</then>
+		</if>
+
+		<if>
+			<equals arg1="importCampaignValidationError" arg2="true" />
+			<then>
+				<execute function="AssertTextEquals" locator1="CPSitepagesImport#VALIDATION_ERROR_MESSAGE" value1="The following data will not be imported:" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="CPSitepagesImport#VALIDATION_ERROR_LIST_ITEM" value1="Campaign Tracking Action" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="CPSitepagesImport#VALIDATION_ERROR_LIST_ITEM" value1="The original Referenced Asset does not exist in the current environment." />
+			</then>
+		</if>
+
+		<if>
+			<equals arg1="importFail" arg2="true" />
+			<then>
+				<execute function="AssertTextEquals" locator1="BasePortletImport#CURRENT_AND_PREVIOUS_STATUS_1" value1="Failed" />
+				<execute function="SelectFrame" value1="relative=top" />
+			</then>
+		</if>
+
+		<if>
+			<not>
+				<or>
+					<isset var="importValidationMissingItem" />
+					<isset var="importFail" />
+				</or>
+			</not>
+			<then>
+				<execute macro="LAR#importSiteCmd">
+					<var name="checkContentNameList" value="${checkContentNameList}" />
+					<var name="contentDeletion" value="${contentDeletion}" />
+					<var name="contentName" value="${contentName}" />
+					<var name="importPermissions" value="${importPermissions}" />
+					<var name="larFileName" value="${larFileName}" />
+				</execute>
+			</then>
+		</if>
 	</command>
 
 	<command name="importSiteCP">
