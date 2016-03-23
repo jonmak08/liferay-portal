@@ -610,13 +610,11 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 
 		for (DDMTemplate ddmTemplate : ddmTemplates) {
 			String script = ddmTemplate.getScript();
+			long templateId = ddmTemplate.getTemplateId();
 
 			for (String dateFieldName : dateFieldNames) {
-				script = updateTemplateScriptDateIfStatement(
-					script, dateFieldName);
-
-				script = updateTemplateScriptDateParseStatement(
-					script, dateFieldName);
+				script = updateTemplateScriptGetDataStatement(
+					script, dateFieldName, templateId);
 			}
 
 			ddmTemplate.setScript(script);
@@ -625,46 +623,27 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		}
 	}
 
-	protected String updateTemplateScriptDateIfStatement(
-		String script, String dateFieldName) {
+	protected String updateTemplateScriptGetDataStatement(
+		String script, String dateFieldName, long templateId) {
 
-		String oldTemplateScript = "<#if (" + dateFieldName + "_Data > 0)>";
+		String oldTemplateScript =
+			"getterUtil.getLong(" + dateFieldName + ".getData())";
+		String newTemplateScript =
+			"getterUtil.getLong(dateUtil.getTimeFromFormattedDate(" +
+				"\"yyyy-MM-dd\", " + dateFieldName + ".getData(), locale))";
 
-		StringBundler newTemplateScript = new StringBundler(7);
+		if (script.indexOf(oldTemplateScript) == -1) {
+			return script;
+		}
 
-		newTemplateScript.append("<#assign ");
-		newTemplateScript.append(dateFieldName);
-		newTemplateScript.append("_Data = getterUtil.getString(");
-		newTemplateScript.append(dateFieldName);
-		newTemplateScript.append(".getData())>\n\n<#if (validator.isNotNull(");
-		newTemplateScript.append(dateFieldName);
-		newTemplateScript.append("_Data))>");
+		if (_log.isInfoEnabled()) {
+			_log.info(
+				"Replacing \"" + oldTemplateScript + "\" with \"" +
+					newTemplateScript + "\" in script of template " +
+						templateId);
+		}
 
-		return StringUtil.replace(
-			script, oldTemplateScript, newTemplateScript.toString());
-	}
-
-	protected String updateTemplateScriptDateParseStatement(
-		String script, String dateFieldName) {
-
-		StringBundler oldTemplateScript = new StringBundler(5);
-		StringBundler newTemplateScript = new StringBundler(5);
-
-		oldTemplateScript.append("<#assign ");
-		oldTemplateScript.append(dateFieldName);
-		oldTemplateScript.append("_DateObj = dateUtil.newDate(");
-		oldTemplateScript.append(dateFieldName);
-		oldTemplateScript.append("_Data)>");
-
-		newTemplateScript.append("<#assign ");
-		newTemplateScript.append(dateFieldName);
-		newTemplateScript.append(
-			"_DateObj = dateUtil.parseDate(\"yyyy-MM-dd\", ");
-		newTemplateScript.append(dateFieldName);
-		newTemplateScript.append("_Data, locale)>");
-
-		return StringUtil.replace(
-			script, oldTemplateScript.toString(), newTemplateScript.toString());
+		return StringUtil.replace(script, oldTemplateScript, newTemplateScript);
 	}
 
 	protected String updateXSD(String xsd) throws Exception {
