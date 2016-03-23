@@ -1574,7 +1574,7 @@
 			<var name="pageName" value="Calendar Page" />
 		</execute>
 
-		<execute macro="CalendarScheduler#selectEvent">
+		<execute macro="CalendarScheduler#selectSpecificEvent">
 			<var name="eventTitle" value="Calendar Event Title" />
 			<var name="eventType" value="Regular" />
 		</execute>
@@ -1618,7 +1618,7 @@
 			<var name="pageName" value="Calendar Page" />
 		</execute>
 
-		<execute macro="CalendarScheduler#selectEvent">
+		<execute macro="CalendarScheduler#selectSpecificEvent">
 			<var name="eventTitle" value="Calendar Event Title" />
 			<var name="eventType" value="Regular" />
 		</execute>
