@@ -48,16 +48,15 @@
 </@>
 
 <@aui.script use="liferay-ddm-link-to-page-field">
-	
 	if("${namespacedFieldName}"){
 
 		var ${namespacedFieldName}config = {
 			container : '[data-fieldnamespace="${fieldNamespace}"]',
 			portletNamespace : "${portletNamespace}",
 			fieldNamespace : "${fieldNamespace}",
-			fieldName : "${fieldName}" 
+			fieldName : "${fieldName}"
 		};
-		
+
 		new A.LinkToPageField(${namespacedFieldName}config);
 	}
 </@>
