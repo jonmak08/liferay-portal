@@ -278,8 +278,8 @@ public class StorageEngineImpl implements StorageEngine {
 						continue;
 					}
 
-					List<Serializable> sanitizedValues =
-						new ArrayList<Serializable>(values.size());
+					List<Serializable> sanitizedValues = new ArrayList<>(
+						values.size());
 
 					for (Serializable value : values) {
 						String sanitizedValue = SanitizerUtil.sanitize(
