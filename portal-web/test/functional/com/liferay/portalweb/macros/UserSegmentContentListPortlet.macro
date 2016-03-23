@@ -60,7 +60,7 @@
 		<for list="${viewEntryContentList}" param="entryContent">
 			<var name="key_entryContent" value="${entryContent}" />
 
-			<execute function="AssertTextEquals" locator1="PGUsersegmentcontentlist#VIEW_ENTRY_CONTENT" value1="${entryContent}" />
+			<execute function="AssertTextEquals#assertPartialText" locator1="PGUsersegmentcontentlist#VIEW_ENTRY_CONTENT" value1="${entryContent}" />
 		</for>
 	</command>
 

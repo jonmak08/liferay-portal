@@ -73,7 +73,7 @@
 		<if>
 			<isset var="entryContentText" />
 			<then>
-				<execute function="AssertTextEquals" locator1="PGCampaigncontentdisplay#ENTRY_CONTENT" value1="${entryContentText}" />
+				<execute function="AssertTextEquals#assertPartialText" locator1="PGCampaigncontentdisplay#ENTRY_CONTENT" value1="${entryContentText}" />
 			</then>
 		</if>
 
