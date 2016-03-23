@@ -1,34 +1,28 @@
 AUI.add(
 	'liferay-ddm-link-to-page-field',
-	function(A) {	
+	function(A) {
+		var Lang = A.Lang;
 
-	var AArray = A.Array;
+		var GET_LAYOUTS_URL = themeDisplay.getPathMain() + '/layouts_admin/get_layouts';
 
-	var Lang = A.Lang;
-	
-	var INSTANCE_ID_PREFIX = '_INSTANCE_';
-	
-	var GET_LAYOUTS_URL = themeDisplay.getPathMain() + '/layouts_admin/get_layouts';
-	
-	var TPL_LAYOUTS_NAVBAR = '<nav class="navbar navbar-default">' +
-			'<div class="collapse navbar-collapse" style="height: 48px;">' +
-				'<ul class="nav navbar-nav">' +
-					'<li class="public {publicLayoutClass}"><a href="javascript:;">' + Liferay.Language.get('public-pages') + '</a></li>' +
-					'<li class="private {privateLayoutClass}"><a href="javascript:;">' + Liferay.Language.get('private-pages') + '</a></li>' +
-				'</ul>' +
-			'</div>' +
-		'</nav>';
-	
-	var TPL_LOADER = '<div class="loading-animation"></div>';
-	
-	var LinkToPageField = A.Component.create(
+		var TPL_LAYOUTS_NAVBAR = '<nav class="navbar navbar-default">' +
+				'<div class="collapse navbar-collapse" style="height: 48px;">' +
+					'<ul class="nav navbar-nav">' +
+						'<li class="public {publicLayoutClass}"><a href="javascript:;">' + Liferay.Language.get('public-pages') + '</a></li>' +
+						'<li class="private {privateLayoutClass}"><a href="javascript:;">' + Liferay.Language.get('private-pages') + '</a></li>' +
+					'</ul>' +
+				'</div>' +
+			'</nav>';
+
+		var TPL_LOADER = '<div class="loading-animation"></div>';
+
+		var LinkToPageField = A.Component.create(
 			{
 				ATTRS: {
-				
 					container: {
 						setter: A.one
 					},
-					
+
 					delta: {
 						value: 20
 					},
@@ -37,20 +31,20 @@ AUI.add(
 						value: null
 					}
 				},
-				
+
 				EXTENDS: A.Base,
 
 				NAME: 'ddm-link-to-page',
-				
+
 				prototype: {
 					initializer: function(config) {
 						var instance = this;
 
-						instance.set('container',config.container);
-						instance.set('fieldName',config.fieldName);
-						instance.set('fieldNamespace',config.fieldNamespace);
-						instance.set('portletNamespace',config.portletNamespace);
-												
+						instance.set('container', config.container);
+						instance.set('fieldName', config.fieldName);
+						instance.set('fieldNamespace', config.fieldNamespace);
+						instance.set('portletNamespace', config.portletNamespace);
+
 						var container = instance.get('container');
 
 						container.delegate('click', instance._handleControlButtonsClick, '.btn', instance);
@@ -87,15 +81,14 @@ AUI.add(
 
 					getInputName: function() {
 						var instance = this;
-						
+
 						var fieldName = instance.get('fieldName');
 
-						var fieldNamespace =  instance.get('fieldNamespace');
+						var fieldNamespace = instance.get('fieldNamespace');
 
 						var portletNamespace = instance.get('portletNamespace');
-						
+
 						return portletNamespace + fieldName + fieldNamespace;
-						
 					},
 
 					getInputNode: function() {
@@ -132,7 +125,7 @@ AUI.add(
 
 						return Lang.String.unescapeHTML(inputNode.val());
 					},
-					
+
 					setValue: function(value) {
 						var instance = this;
 
@@ -245,7 +238,6 @@ AUI.add(
 										{
 											cssClass: 'close',
 											discardDefaultButtonCssClasses: true,
-											
 											on: {
 												click: A.bind(instance._handleCancelButtonClick, instance)
 											}
@@ -414,7 +406,7 @@ AUI.add(
 				}
 			}
 		);
-	
+
 		A.LinkToPageField = LinkToPageField;
 	},
 	'',
@@ -422,4 +414,3 @@ AUI.add(
 		requires: ['aui-base', 'aui-datatable', 'aui-datatype', 'aui-image-viewer', 'aui-io-request', 'aui-parse-content', 'aui-set', 'aui-sortable-list', 'json', 'liferay-form', 'liferay-item-selector-dialog', 'liferay-layouts-tree', 'liferay-layouts-tree-radio', 'liferay-layouts-tree-selectable', 'liferay-map-base', 'liferay-notice', 'liferay-portlet-url', 'liferay-translation-manager']
 	}
 );
-	
