@@ -61,7 +61,7 @@ boolean showAssetCount = dataJSONObject.getBoolean("showAssetCount", true);
 			%>
 
 			<li class="facet-value <%= userName.equals(curUserName) ? "active" : StringPool.BLANK %>">
-				<a data-value="<%= curUserName %>" href="javascript:;">
+				<a data-value="<%= HtmlUtil.escapeAttribute(curUserName) %>" href="javascript:;">
 					<%= HtmlUtil.escape(curUserName) %>
 
 					<c:if test="<%= showAssetCount %>">
