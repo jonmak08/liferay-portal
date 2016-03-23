@@ -265,32 +265,31 @@ public class StorageEngineImpl implements StorageEngine {
 
 		try {
 			for (Field field : fields) {
-				if (!field.getDataType().equals(FieldConstants.HTML)) {
-					continue;
-				}
+				if (field.getDataType().equals(FieldConstants.HTML)) {
+					for (Locale locale : field.getAvailableLocales()) {
+						List<Serializable> values = field.getValues(locale);
 
-				for (Locale locale : field.getAvailableLocales()) {
-					List<Serializable> values = field.getValues(locale);
+						if (values == null) {
+							continue;
+						}
 
-					if (values == null) {
-						continue;
+						List<Serializable> sanitizedValues = new ArrayList<>(
+							values.size());
+
+						for (Serializable value : values) {
+							String sanitizedValue = SanitizerUtil.sanitize(
+								serviceContext.getCompanyId(),
+								serviceContext.getScopeGroupId(),
+								serviceContext.getUserId(),
+								Field.class.getName(), 0,
+								ContentTypes.TEXT_HTML, Sanitizer.MODE_ALL,
+								value.toString(), null);
+
+							sanitizedValues.add(sanitizedValue);
+						}
+
+						field.setValues(locale, sanitizedValues);
 					}
-
-					List<Serializable> sanitizedValues = new ArrayList<>(
-						values.size());
-
-					for (Serializable value : values) {
-						String sanitizedValue = SanitizerUtil.sanitize(
-							serviceContext.getCompanyId(),
-							serviceContext.getScopeGroupId(),
-							serviceContext.getUserId(), Field.class.getName(),
-							0, ContentTypes.TEXT_HTML, Sanitizer.MODE_ALL,
-							value.toString(), null);
-
-						sanitizedValues.add(sanitizedValue);
-					}
-
-					field.setValues(locale, sanitizedValues);
 				}
 			}
 		}
