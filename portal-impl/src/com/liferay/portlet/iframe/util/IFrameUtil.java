@@ -80,6 +80,10 @@ public class IFrameUtil {
 	public static boolean isPasswordTokenEnabled(PortletRequest portletRequest)
 		throws PortalException, SystemException {
 
+		if (!PropsValues.SESSION_STORE_PASSWORD) {
+			return false;
+		}
+
 		ThemeDisplay themeDisplay = (ThemeDisplay)portletRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
@@ -121,6 +125,10 @@ public class IFrameUtil {
 	public static boolean isPasswordTokenResolutionEnabled(
 			PortletRequest portletRequest)
 		throws PortalException, SystemException {
+
+		if (!PropsValues.SESSION_STORE_PASSWORD) {
+			return false;
+		}
 
 		ThemeDisplay themeDisplay = (ThemeDisplay)portletRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
