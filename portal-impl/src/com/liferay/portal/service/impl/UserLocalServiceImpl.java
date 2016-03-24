@@ -5867,17 +5867,6 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		return Authenticator.FAILURE;
 	}
 
-	/**
-	 * Returns <code>true</code> if the user can edit controls for the group.
-	 *
-	 * @param  groupId the primary key of the Group object
-	 * @param  permissionChecker the PermissionChecker object
-	 * @return <code>true</code> if the user can edit controls for the site;
-	 *         <code>false</code> otherwise
-	 * @throws PortalException if the current user did not have permission to
-	 *         view the user or role members
-	 * @throws SystemException if a system exception occurred
-	 */
 	protected boolean hasManageLayoutsPermission(
 		long groupId, PermissionChecker permissionChecker)
 			throws PortalException, SystemException {
@@ -5886,19 +5875,6 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			permissionChecker, groupId, ActionKeys.MANAGE_LAYOUTS);
 	}
 
-	/**
-	 * Returns <code>true</code> if the user can edit controls for any
-	 * organizations within the array of groups.
-	 *
-	 * @param  organizationIds array of organizations the user belongs to
-	 * @param  user the user object
-	 * @return <code>true</code> if the user can edit controls for any group
-	 *         within the array of groups.
-	 *         <code>false</code> otherwise
-	 * @throws PortalException if the current user did not have permission to
-	 *         view the user or role members
-	 * @throws SystemException if a system exception occurred
-	 */
 	protected boolean hasManageLayoutsOrgPermission(
 		long[] organizationIds, User user)
 			throws PortalException, SystemException {
@@ -5932,18 +5908,6 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		return false;
 	}
 
-	/**
-	 * Returns <code>true</code> if the user has edit controls due to a regular
-	 * role.
-	 *
-	 * @param  user the User object
-	 * @return <code>true</code> if the user can edit controls for at least one
-	 *         site;
-	 *         <code>false</code> otherwise
-	 * @throws PortalException if the current user did not have permission to
-	 *         view the user or role members
-	 * @throws SystemException if a system exception occurred
-	 */
 	protected boolean hasManageLayoutsRolePermission(User user)
 		throws PortalException, SystemException {
 
@@ -5960,19 +5924,6 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		return false;
 	}
 
-	/**
-	 * Returns <code>true</code> if the user can edit controls for any
-	 * groups within the array.
-	 *
-	 * @param  groupIds array of groups the user belongs to
-	 * @param  user the user object
-	 * @return <code>true</code> if the user can edit controls for any group
-	 *         within the array of groups.
-	 *         <code>false</code> otherwise
-	 * @throws PortalException if the current user did not have permission to
-	 *         view the user or role members
-	 * @throws SystemException if a system exception occurred
-	 */
 	protected boolean hasManageLayoutsSitePermission(long[] groupIds, User user)
 		throws PortalException, SystemException {
 
@@ -6244,13 +6195,6 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		user.setDigest(StringPool.BLANK);
 	}
 
-	/**
-	 * Unsets the toggle controls portal preference of the user.
-	 *
-	 * @param  userId the primary key of the user
-	 * @throws PortalException if a portal exception occurred
-	 * @throws SystemException if a system exception occurred
-	 */
 	protected void unsetToggleControlsPreference(long userId)
 		throws PortalException, SystemException {
 
