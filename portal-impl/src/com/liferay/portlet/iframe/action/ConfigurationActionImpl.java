@@ -14,14 +14,22 @@
 
 package com.liferay.portlet.iframe.action;
 
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.HttpUtil;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portlet.iframe.util.IFrameUtil;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletConfig;
+import javax.portlet.PortletPreferences;
+import javax.portlet.PortletRequest;
+import javax.portlet.ReadOnlyException;
 
 /**
  * @author Brian Wing Shun Chan
@@ -63,6 +71,30 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
 		}
 
 		super.processAction(portletConfig, actionRequest, actionResponse);
+	}
+
+	protected void postProcess(
+			long companyId, PortletRequest portletRequest,
+			PortletPreferences portletPreferences)
+		throws PortalException, SystemException {
+
+		String formPassword = portletPreferences.getValue(
+			"formPassword", StringPool.BLANK);
+
+		if (Validator.isNotNull(formPassword) &&
+			formPassword.contains("@password@")) {
+
+			if (!IFrameUtil.isPasswordTokenEnabled(portletRequest)) {
+				formPassword = formPassword.replaceAll("@password@", "");
+
+				try {
+					portletPreferences.setValue("formPassword", formPassword);
+				}
+				catch (ReadOnlyException roe) {
+					throw new PortalException(roe);
+				}
+			}
+		}
 	}
 
 }
