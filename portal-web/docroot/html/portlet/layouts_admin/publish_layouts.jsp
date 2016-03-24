@@ -322,7 +322,7 @@ else {
 						if (!selectedLayouts.isEmpty()) {
 							exportLayouts = selectedLayouts;
 						}
-						else if (selLayout != null && !selectedLayouts.isEmpty()) {
+						else if ((selLayout != null) && !selectedLayouts.isEmpty()) {
 							exportLayouts.add(selLayout);
 						}
 						else {
