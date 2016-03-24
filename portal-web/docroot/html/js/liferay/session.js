@@ -144,8 +144,6 @@ AUI.add(
 					_defActivatedFn: function(event) {
 						var instance = this;
 
-						instance._elapsed = 0;
-
 						instance.set('timestamp');
 
 						if (event.src == SRC) {
@@ -288,14 +286,24 @@ AUI.add(
 						var warningTime = instance.get('warningTime');
 						var sessionLength = instance.get('sessionLength');
 
-						instance._elapsed = 0;
-
 						var registered = instance._registered;
 						var interval = 1000;
 
 						instance._intervalId = A.setInterval(
 							function() {
-								var elapsed = (instance._elapsed += 1000);
+								var timeOffset;
+
+								var timestamp = instance.get('timestamp');
+
+								var elapsed = sessionLength;
+
+								var value = parseInt(timestamp, 10);
+
+								if (!isNaN(value)) {
+									timeOffset = Math.floor((Date.now() - timestamp) / 1000) * 1000;
+
+									elapsed = timeOffset;
+								}
 
 								var extend = false;
 
@@ -309,32 +317,20 @@ AUI.add(
 
 								if (hasWarned) {
 									if (isWarningMoment || isExpirationMoment) {
-										var timestamp = instance.get('timestamp');
-
 										if (timestamp == 'expired') {
 											isExpirationMoment = true;
 											hasExpired = true;
 										}
-										else {
-											if (instance.get('autoExtend')) {
-												hasExpired = false;
-												hasWarned = false;
-
-												isExpirationMoment = false;
-												isWarningMoment = false;
-
-												extend = true;
-											}
-											else {
-												var timeOffset = Math.floor((Lang.now() - timestamp) / 1000) * 1000;
-
-												if (timeOffset < warningTime) {
-													instance._elapsed = timeOffset;
-
-													updateSessionState = false;
-													hasWarned = false;
-												}
-											}
+										else if (instance.get('autoExtend')) {
+											extend = true;
+											hasExpired = false;
+											hasWarned = false;
+											isExpirationMoment = false;
+											isWarningMoment = false;
+										}
+										else if (timeOffset < warningTime) {
+											hasWarned = false;
+											updateSessionState = false;
 										}
 									}
 
