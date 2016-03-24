@@ -1084,7 +1084,14 @@ public class MainServlet extends ActionServlet {
 
 		Locale locale = PortalUtil.getLocale(request);
 
-		String message = LanguageUtil.get(locale, messageKey);
+		String message = null;
+
+		if (LanguageUtil.isValidLanguageKey(locale, messageKey)) {
+			message = LanguageUtil.get(locale, messageKey);
+		}
+		else {
+			message = HtmlUtil.escape(messageKey);
+		}
 
 		String html = ContentUtil.get(
 			"com/liferay/portal/dependencies/inactive.html");
