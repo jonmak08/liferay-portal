@@ -41,12 +41,10 @@ public class IFrameUtil {
 			PortletRequest portletRequest, String password)
 		throws PortalException, SystemException {
 
-		if (!isPasswordTokenEnabled(portletRequest)) {
-			return StringPool.BLANK;
-		}
-
 		if (Validator.isNull(password) || password.equals("@password@")) {
-			password = PortalUtil.getUserPassword(portletRequest);
+			if (isPasswordTokenResolutionEnabled(portletRequest)) {
+				password = PortalUtil.getUserPassword(portletRequest);
+			}
 
 			if (password == null) {
 				password = StringPool.BLANK;
@@ -118,6 +116,24 @@ public class IFrameUtil {
 		}
 
 		return false;
+	}
+
+	public static boolean isPasswordTokenResolutionEnabled(
+			PortletRequest portletRequest)
+		throws PortalException, SystemException {
+
+		ThemeDisplay themeDisplay = (ThemeDisplay)portletRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		Layout layout = themeDisplay.getLayout();
+
+		if (layout.isPrivateLayout() && layout.getGroup().isUser() &&
+			(themeDisplay.getRealUserId() != layout.getGroup().getClassPK())) {
+
+			return false;
+		}
+
+		return true;
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(IFrameUtil.class);
