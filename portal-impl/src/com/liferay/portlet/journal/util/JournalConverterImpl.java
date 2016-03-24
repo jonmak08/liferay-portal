@@ -267,6 +267,15 @@ public class JournalConverterImpl implements JournalConverter {
 		entryElement.addCDATA(value);
 	}
 
+	protected static String decodeURL(String url) {
+		try {
+			return HttpUtil.decodeURL(url);
+		}
+		catch (IllegalArgumentException iae) {
+			return url;
+		}
+	}
+
 	protected static Element fetchMetadataEntry(
 		Element parentElement, String attributeName, String attributeValue) {
 
@@ -306,8 +315,7 @@ public class JournalConverterImpl implements JournalConverter {
 			if ((parentType != null) && parentType.equals("select")) {
 				metadataElement.addAttribute("locale", defaultLanguageId);
 
-				addMetadataEntry(
-					metadataElement, "label", HttpUtil.decodeURL(name));
+				addMetadataEntry(metadataElement, "label", decodeURL(name));
 
 				Attribute indexTypeAttribute = element.attribute("index-type");
 
@@ -317,7 +325,7 @@ public class JournalConverterImpl implements JournalConverter {
 
 				element.addAttribute("name", "option" + StringUtil.randomId());
 				element.addAttribute("type", "option");
-				element.addAttribute("value", HttpUtil.decodeURL(type));
+				element.addAttribute("value", decodeURL(type));
 
 				return;
 			}
