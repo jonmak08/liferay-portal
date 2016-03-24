@@ -124,8 +124,6 @@
 				<c:when test='<%= assetBrowserDisplayContext.getDisplayStyle().equals("icon") %>'>
 
 					<%
-					row.setCssClass("col-md-2 col-sm-4 col-xs-6");
-
 					AssetRenderer assetRenderer = assetEntry.getAssetRenderer();
 					%>
 
