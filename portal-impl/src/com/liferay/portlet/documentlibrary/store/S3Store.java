@@ -657,13 +657,15 @@ public class S3Store extends BaseStore {
 
 		File tempFile = new File(tempFileName);
 
+		InputStream inputStream = s3Object.getDataInputStream();
+
 		if (tempFile.exists() &&
 			(tempFile.lastModified() >= lastModifiedDate.getTime())) {
 
+			StreamUtil.cleanUp(inputStream);
+
 			return tempFile;
 		}
-
-		InputStream inputStream = s3Object.getDataInputStream();
 
 		if (inputStream == null) {
 			throw new IOException("S3 object input stream is null");
