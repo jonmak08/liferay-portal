@@ -206,8 +206,6 @@ private String[] _getCategoryIdsTitles(String categoryIds, String categoryNames,
 					continue;
 				}
 
-				category = category.toEscapedModel();
-
 				categoryIdsSb.append(categoryId);
 				categoryIdsSb.append(StringPool.COMMA);
 
