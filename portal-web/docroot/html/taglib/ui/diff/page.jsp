@@ -30,10 +30,10 @@ List<DiffResult> targetResults = diffResults[1];
 		<table class="table table-bordered table-hover table-striped" id="taglib-diff-results">
 		<tr>
 			<td class="table-cell">
-				<%= sourceName %>
+				<%= HtmlUtil.escape(sourceName) %>
 			</td>
 			<td class="table-cell">
-				<%= targetName %>
+				<%= HtmlUtil.escape(targetName) %>
 			</td>
 		</tr>
 
@@ -96,7 +96,7 @@ List<DiffResult> targetResults = diffResults[1];
 		</table>
 	</c:when>
 	<c:otherwise>
-		<%= LanguageUtil.format(pageContext, "there-are-no-differences-between-x-and-x", new Object[] {sourceName, targetName}) %>
+		<%= LanguageUtil.format(pageContext, "there-are-no-differences-between-x-and-x", new Object[] {HtmlUtil.escape(sourceName), HtmlUtil.escape(targetName)}) %>
 	</c:otherwise>
 </c:choose>
 
