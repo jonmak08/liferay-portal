@@ -17,6 +17,8 @@
 <%@ include file="/html/portlet/layouts_admin/init.jsp" %>
 
 <%
+String cmd = ParamUtil.getString(request, Constants.CMD, Constants.EXPORT);
+
 long groupId = ParamUtil.getLong(request, "groupId");
 
 Group group = null;
@@ -538,19 +540,6 @@ portletURL.setParameter("rootNodeName", rootNodeName);
 															<aui:input label="comments" name="<%= PortletDataHandlerKeys.COMMENTS %>" type="checkbox" value="<%= true %>" />
 
 															<aui:input label="ratings" name="<%= PortletDataHandlerKeys.RATINGS %>" type="checkbox" value="<%= true %>" />
-
-															<%
-															long modelDeletionCount = manifestSummary.getModelDeletionCount();
-															%>
-
-															<c:if test="<%= modelDeletionCount != 0 %>">
-
-																<%
-																String deletionsLabel = LanguageUtil.get(pageContext, "deletions") + (modelDeletionCount > 0 ? " (" + modelDeletionCount + ")" : StringPool.BLANK);
-																%>
-
-																<aui:input data-name="<%= deletionsLabel %>" helpMessage="deletions-help" label="<%= deletionsLabel %>" name="<%= PortletDataHandlerKeys.DELETIONS %>" type="checkbox" />
-															</c:if>
 														</li>
 													</ul>
 												</div>
@@ -561,6 +550,10 @@ portletURL.setParameter("rootNodeName", rootNodeName);
 							</ul>
 						</aui:fieldset>
 					</c:if>
+
+					<aui:fieldset cssClass="options-group" label="deletions">
+						<%@ include file="/html/portlet/layouts_admin/deletions.jspf" %>
+					</aui:fieldset>
 
 					<aui:fieldset cssClass="options-group" label="permissions">
 						<ul class="lfr-tree unstyled">
