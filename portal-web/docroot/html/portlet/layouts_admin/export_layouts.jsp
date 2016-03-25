@@ -618,7 +618,7 @@ portletURL.setParameter("rootNodeName", rootNodeName);
 			namespace: '<portlet:namespace />',
 			pageTreeId: '<%= treeId %>',
 			processesNode: '#exportProcesses',
-			processesResourceURL: '<%= exportProcessesURL.toString() %>',
+			processesResourceURL: '<%= HtmlUtil.escapeJS(exportProcessesURL.toString()) %>',
 			rangeAllNode: '#rangeAll',
 			rangeDateRangeNode: '#rangeDateRange',
 			rangeLastNode: '#rangeLast',
