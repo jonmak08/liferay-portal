@@ -629,7 +629,7 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		String oldTemplateScript =
 			"getterUtil.getLong(" + dateFieldName + ".getData())";
 
-		if (script.indexOf(oldTemplateScript) == -1) {
+		if (!script.contains(oldTemplateScript)) {
 			return script;
 		}
 
