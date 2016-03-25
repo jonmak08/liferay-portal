@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.portlet;
 
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
@@ -75,6 +76,12 @@ public class DefaultConfigurationAction
 		return ParamUtil.getString(portletRequest, name);
 	}
 
+	protected void postProcess(
+			long companyId, PortletRequest portletRequest,
+			PortletPreferences portletPreferences)
+		throws PortalException, SystemException {
+	}
+
 	@Override
 	public void processAction(
 			PortletConfig portletConfig, ActionRequest actionRequest,
@@ -125,6 +132,9 @@ public class DefaultConfigurationAction
 				portletPreferences.setValues(name, values);
 			}
 		}
+
+		postProcess(
+			themeDisplay.getCompanyId(), actionRequest, portletPreferences);
 
 		if (SessionErrors.isEmpty(actionRequest)) {
 			try {
