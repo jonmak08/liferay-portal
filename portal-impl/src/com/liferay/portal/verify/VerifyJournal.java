@@ -599,13 +599,14 @@ public class VerifyJournal extends VerifyProcess {
 			if (Validator.isNull(dynamicElement.attribute("type"))) {
 				if (structure == null) {
 					long groupId = article.getGroupId();
+
 					long classNameId = PortalUtil.getClassNameId(
 						JournalArticle.class);
+
 					String structureKey = article.getStructureId();
 
-					structure =
-						DDMStructureLocalServiceUtil.getStructure(
-							groupId, classNameId, structureKey);
+					structure = DDMStructureLocalServiceUtil.getStructure(
+						groupId, classNameId, structureKey);
 				}
 
 				updateElementTypeParameter(structure, dynamicElement);
