@@ -637,18 +637,21 @@ public class DDMImpl implements DDM {
 					(UploadRequest)request, fieldNameValue);
 			}
 
-			if (fieldValue == null) {
-				fieldValue = StringPool.BLANK;
-			}
-
 			if (DDMImpl.TYPE_RADIO.equals(fieldType) ||
 				DDMImpl.TYPE_SELECT.equals(fieldType)) {
 
-				if (fieldValue instanceof String) {
+				if (fieldValue == null) {
+					fieldValue = new String[] {StringPool.BLANK};
+				}
+				else if (fieldValue instanceof String) {
 					fieldValue = new String[] {String.valueOf(fieldValue)};
 				}
 
 				fieldValue = JSONFactoryUtil.serialize(fieldValue);
+			}
+
+			if (fieldValue == null) {
+				return null;
 			}
 
 			Serializable fieldValueSerializable =
