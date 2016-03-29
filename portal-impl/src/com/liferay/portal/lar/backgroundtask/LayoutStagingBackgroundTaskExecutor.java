@@ -14,6 +14,8 @@
 
 package com.liferay.portal.lar.backgroundtask;
 
+import com.liferay.portal.kernel.backgroundtask.BackgroundTaskConstants;
+import com.liferay.portal.kernel.backgroundtask.BackgroundTaskManagerUtil;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskResult;
 import com.liferay.portal.kernel.exception.NoSuchGroupException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -40,6 +42,7 @@ import java.io.File;
 import java.io.Serializable;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
 
@@ -106,6 +109,19 @@ public class LayoutStagingBackgroundTaskExecutor
 
 				StagingLocalServiceUtil.disableStaging(
 					sourceGroup, serviceContext);
+
+				List<BackgroundTask> pendingTasks =
+					BackgroundTaskManagerUtil.getBackgroundTasks(
+						sourceGroupId,
+						LayoutStagingBackgroundTaskExecutor.class.getName(),
+						BackgroundTaskConstants.STATUS_QUEUED);
+
+				for (BackgroundTask pendingTask : pendingTasks) {
+					BackgroundTaskManagerUtil.amendBackgroundTask(
+						pendingTask.getBackgroundTaskId(), null,
+						BackgroundTaskConstants.STATUS_CANCELLED,
+						new ServiceContext());
+				}
 			}
 
 			if (t instanceof Exception) {
