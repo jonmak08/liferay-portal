@@ -86,10 +86,12 @@ import java.io.Serializable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.portlet.PortletException;
@@ -980,7 +982,7 @@ public class AssetPublisherImpl implements AssetPublisher {
 		String[] scopeIds = portletPreferences.getValues(
 			"scopeIds", new String[] {SCOPE_ID_GROUP_PREFIX + scopeGroupId});
 
-		List<Long> groupIds = new ArrayList<Long>();
+		Set<Long> groupIds = new HashSet<Long>();
 
 		for (String scopeId : scopeIds) {
 			try {
