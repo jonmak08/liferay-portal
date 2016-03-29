@@ -1011,7 +1011,9 @@ public class HookHotDeployListener
 		}
 	}
 
-	protected Locale getLocale(String languagePropertiesLocation) {
+	protected Locale getLocale(String languagePropertiesLocation)
+		throws SystemException {
+
 		int x = languagePropertiesLocation.indexOf(CharPool.UNDERLINE);
 		int y = languagePropertiesLocation.indexOf(".properties");
 
