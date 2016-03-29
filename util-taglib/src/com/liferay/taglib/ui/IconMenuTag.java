@@ -129,13 +129,8 @@ public class IconMenuTag extends BaseBodyTagSupport implements BodyTag {
 		}
 
 		if (Validator.isNull(_id)) {
-			_id = (String)request.getAttribute(
-				"liferay-ui:search-container-row:rowId");
-
-			if (Validator.isNull(_id)) {
-				_id = PortalUtil.generateRandomKey(
-					request, IconMenuTag.class.getName());
-			}
+			_id = PortalUtil.generateRandomKey(
+				request, IconMenuTag.class.getName());
 
 			_id = _id.concat("_menu");
 		}
