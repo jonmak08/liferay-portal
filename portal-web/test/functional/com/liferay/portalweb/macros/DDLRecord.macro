@@ -159,7 +159,27 @@
 			<then>
 				<var name="key_ddlRecordFieldData" value="${ddlRecordFieldData}" />
 
-				<execute function="Select" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_SELECT" value1="regexp:–\s+${ddlRecordFieldData}" />
+				<if>
+					<condition function="IsElementPresent" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_SELECT" />
+					<then>
+						<execute function="Select" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_SELECT" value1="regexp:–\s+${ddlRecordFieldData}" />
+					</then>
+					<else>
+						<execute function="AssertClick" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_SELECT_PAGE_BUTTON" value1="select-page" />
+
+						<var name="key_navItem" value="${pagePrivacy} Pages" />
+
+						<execute function="AssertClick" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_NAV_ITEM" value1="${pagePrivacy} Pages" />
+
+						<var name="key_pageName" value="${ddlRecordFieldData}" />
+
+						<execute function="Click" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_PAGE_RADIO" />
+
+						<execute function="AssertClick" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_SELECT_BUTTON" value1="Select" />
+
+						<execute function="AssertTextEquals" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_PAGE_SELECT" value1="${ddlRecordFieldData}" />
+					</else>
+				</if>
 			</then>
 		</if>
 
@@ -349,7 +369,7 @@
 		<if>
 			<equals arg1="${field}" arg2="Link to Page" />
 			<then>
-				<execute function="AssertSelectedLabel" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_SELECT" value1="${fieldPredefinedValue}" />
+				<execute function="AssertTextEquals" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_PAGE_SELECT" value1="${fieldPredefinedValue}" />
 			</then>
 		</if>
 
@@ -477,6 +497,14 @@
 				</if>
 			</else>
 		</if>
+	</command>
+
+	<command name="viewLinkToPageLink">
+		<var name="key_pageName" value="${ddlRecordFieldData}" />
+
+		<execute function="AssertClick" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_LINK" value1="${ddlRecordFieldData}" />
+
+		<execute function="AssertVisible" locator1="Home#PAGE_ACTIVE" value1="${ddlRecordFieldData}" />
 	</command>
 
 	<command name="viewViaDDLDisplayPG">

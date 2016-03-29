@@ -152,6 +152,11 @@
 	<td>Page</td>
 </tr>
 <tr>
+	<td>PAGE_ACTIVE</td>
+	<td>//div[contains(@class,'navbar-inner')]//a[contains(.,'Test Page')]</td>
+	<td>Page</td>
+</tr>
+<tr>
 	<td>PAGE_1</td>
 	<td>xpath=(//li[contains(@class,'lfr-nav-deletable')])[1]/a</td>
 	<td>1st Page</td>

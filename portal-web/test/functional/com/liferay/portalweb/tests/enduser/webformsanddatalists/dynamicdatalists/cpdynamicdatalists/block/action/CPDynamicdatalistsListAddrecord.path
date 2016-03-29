@@ -74,13 +74,43 @@
 	<td></td>
 </tr>
 <tr>
+	<td>LINK_TO_PAGE_NAV_ITEM</td>
+	<td>//nav[contains(@class,'navbar-default')]//a[contains(.,'${key_navItem}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LINK_TO_PAGE_PAGE_RADIO</td>
+	<td>//label[@name='tree-node-check' and contains(.,'${key_pageName}')]/input[@type='radio']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>LINK_TO_PAGE_SELECT</td>
 	<td>//div[@data-fieldname='${key_fieldName}']//select</td>
 	<td></td>
 </tr>
 <tr>
+	<td>LINK_TO_PAGE_PAGE_SELECT</td>
+	<td>//div[contains(.,'Link to Page')]//input[@readonly='readonly']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LINK_TO_PAGE_LINK</td>
+	<td>//div[contains(@class,'ddm-container')]//a[contains(.,'${key_pageName}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LINK_TO_PAGE_SELECT_BUTTON</td>
+	<td>//button[contains(.,'Select')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>LINK_TO_PAGE_SELECT_OPTION</td>
 	<td>//option[contains(.,'${key_ddlRecordFieldData}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LINK_TO_PAGE_SELECT_PAGE_BUTTON</td>
+	<td>//button[contains(.,'select-page')]</td>
 	<td></td>
 </tr>
 <tr>
