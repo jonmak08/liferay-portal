@@ -15,6 +15,7 @@
 package com.liferay.portal.lar.backgroundtask;
 
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskResult;
+import com.liferay.portal.kernel.exception.NoSuchGroupException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.lar.MissingReferences;
@@ -73,6 +74,14 @@ public class LayoutStagingBackgroundTaskExecutor
 
 		try {
 			ExportImportThreadLocal.setLayoutStagingInProcess(true);
+
+			Group targetGroup = GroupLocalServiceUtil.fetchGroup(targetGroupId);
+
+			if (targetGroup == null) {
+				throw new NoSuchGroupException(
+					"Target group does not exists with the primary key " +
+						targetGroupId);
+			}
 
 			missingReferences = TransactionalCallableUtil.call(
 				transactionAttribute,
