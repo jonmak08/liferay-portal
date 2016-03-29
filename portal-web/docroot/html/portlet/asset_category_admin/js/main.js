@@ -1683,6 +1683,8 @@ AUI.add(
 						if (buttonChangeCategoryPermissions) {
 							buttonChangeCategoryPermissions.on(EVENT_CLICK, instance._onChangePermissions, instance);
 						}
+
+						instance._loadVocabularySelect(instance._vocabularies, instance._selectedVocabularyId);
 					},
 
 					_initializeVocabularyPanelAdd: function(callback) {
