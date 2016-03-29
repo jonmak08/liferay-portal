@@ -40,7 +40,11 @@ public class DLFolderPermission {
 		throws PortalException, SystemException {
 
 		if (!contains(permissionChecker, dlFolder, actionId)) {
-			throw new PrincipalException();
+			throw new PrincipalException(
+				String.format(
+					"User %s must have %s permission for %s %s",
+					permissionChecker.getUserId(), actionId,
+					DLFolder.class.getName(), dlFolder.getFolderId()));
 		}
 	}
 
@@ -49,7 +53,11 @@ public class DLFolderPermission {
 		throws PortalException, SystemException {
 
 		if (!folder.containsPermission(permissionChecker, actionId)) {
-			throw new PrincipalException();
+			throw new PrincipalException(
+				String.format(
+					"User %s must have %s permission for %s %s",
+					permissionChecker.getUserId(), actionId,
+					Folder.class.getName(), folder.getFolderId()));
 		}
 	}
 
@@ -59,7 +67,11 @@ public class DLFolderPermission {
 		throws PortalException, SystemException {
 
 		if (!contains(permissionChecker, groupId, folderId, actionId)) {
-			throw new PrincipalException();
+			throw new PrincipalException(
+				String.format(
+					"User %s must have %s permission for %s %s",
+					permissionChecker.getUserId(), actionId,
+					Folder.class.getName(), folderId));
 		}
 	}
 
