@@ -14,10 +14,9 @@
 
 package com.liferay.portal.lar.backgroundtask;
 
+import com.liferay.portal.NoSuchGroupException;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskConstants;
-import com.liferay.portal.kernel.backgroundtask.BackgroundTaskManagerUtil;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskResult;
-import com.liferay.portal.kernel.exception.NoSuchGroupException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.lar.MissingReferences;
@@ -30,6 +29,7 @@ import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.model.BackgroundTask;
 import com.liferay.portal.model.Group;
+import com.liferay.portal.service.BackgroundTaskLocalServiceUtil;
 import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portal.service.LayoutSetBranchLocalServiceUtil;
@@ -111,7 +111,7 @@ public class LayoutStagingBackgroundTaskExecutor
 					sourceGroup, serviceContext);
 
 				List<BackgroundTask> queuedBackgroundTasks =
-					BackgroundTaskManagerUtil.getBackgroundTasks(
+					BackgroundTaskLocalServiceUtil.getBackgroundTasks(
 						sourceGroupId,
 						LayoutStagingBackgroundTaskExecutor.class.getName(),
 						BackgroundTaskConstants.STATUS_QUEUED);
@@ -119,7 +119,7 @@ public class LayoutStagingBackgroundTaskExecutor
 				for (BackgroundTask queuedBackgroundTask :
 						queuedBackgroundTasks) {
 
-					BackgroundTaskManagerUtil.amendBackgroundTask(
+					BackgroundTaskLocalServiceUtil.amendBackgroundTask(
 						queuedBackgroundTask.getBackgroundTaskId(), null,
 						BackgroundTaskConstants.STATUS_CANCELLED,
 						new ServiceContext());
