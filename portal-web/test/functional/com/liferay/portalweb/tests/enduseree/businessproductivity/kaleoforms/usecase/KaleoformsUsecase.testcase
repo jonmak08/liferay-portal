@@ -2626,6 +2626,7 @@
 		<execute macro="KaleoFormsPortlet#populateFieldLinkToPage">
 			<var name="fieldName" value="3_Link to Page" />
 			<var name="kfProcessFieldData" value="Kaleo Forms" />
+			<var name="pagePrivacy" value="Public" />
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#populateFieldText">
@@ -2676,6 +2677,7 @@
 		<execute macro="KaleoFormsPortlet#populateFieldLinkToPage">
 			<var name="fieldName" value="1_Link to Page" />
 			<var name="kfProcessFieldData" value="Welcome" />
+			<var name="pagePrivacy" value="Public" />
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#populateFieldText">
