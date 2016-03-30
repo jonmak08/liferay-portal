@@ -143,12 +143,7 @@ public class PropertiesUtil {
 	public static Properties load(InputStream is, String charsetName)
 		throws IOException {
 
-		if (JavaDetector.isJDK6() || JavaDetector.isJDK7()) {
-			return loadJDK6(new InputStreamReader(is, charsetName));
-		}
-		else {
-			return loadJDK5(is, charsetName);
-		}
+		return load(new InputStreamReader(is, charsetName));
 	}
 
 	public static void load(Properties properties, String s)
@@ -189,8 +184,16 @@ public class PropertiesUtil {
 		}
 	}
 
+	public static Properties load(Reader reader) throws IOException {
+		Properties properties = new Properties();
+
+		properties.load(reader);
+
+		return properties;
+	}
+
 	public static Properties load(String s) throws IOException {
-		return load(s, StringPool.UTF8);
+		return load(new UnsyncStringReader(s));
 	}
 
 	public static Properties load(String s, String charsetName)
