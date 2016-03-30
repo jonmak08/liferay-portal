@@ -20,6 +20,8 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.mobile.device.Device;
 import com.liferay.portal.kernel.mobile.device.UnknownDevice;
+import com.liferay.portal.kernel.servlet.GenericServletWrapper;
+import com.liferay.portal.kernel.servlet.PipingServletResponse;
 import com.liferay.portal.kernel.template.StringTemplateResource;
 import com.liferay.portal.kernel.template.Template;
 import com.liferay.portal.kernel.template.TemplateConstants;
@@ -55,6 +57,14 @@ import com.liferay.portal.xsl.XSLURIResolver;
 import com.liferay.portlet.journal.util.JournalXSLURIResolver;
 import com.liferay.portlet.portletdisplaytemplate.util.PortletDisplayTemplateConstants;
 import com.liferay.taglib.util.VelocityTaglib;
+import com.liferay.taglib.util.VelocityTaglibImpl;
+import com.liferay.util.freemarker.FreeMarkerTaglibFactoryUtil;
+
+import freemarker.ext.servlet.HttpRequestHashModel;
+import freemarker.ext.servlet.ServletContextHashModel;
+
+import freemarker.template.ObjectWrapper;
+import freemarker.template.TemplateHashModel;
 
 import java.io.IOException;
 
@@ -68,6 +78,14 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.GenericServlet;
+import javax.servlet.Servlet;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.PageContext;
+
 /**
  * @author Brian Wing Shun Chan
  * @author Raymond Augé
@@ -76,6 +94,7 @@ import java.util.Set;
  * @author Hugo Huijser
  * @author Marcellus Tavares
  * @author Juan Fernández
+ * @author Tibor Lipusz
  */
 public class Transformer {
 
@@ -110,8 +129,25 @@ public class Transformer {
 			String script, String langType)
 		throws Exception {
 
+		return transform(null, themeDisplay, contextObjects, script, langType);
+	}
+
+	public String transform(
+			PageContext pageContext, ThemeDisplay themeDisplay,
+			Map<String, Object> contextObjects, String script, String langType)
+		throws Exception {
+
 		if (Validator.isNull(langType)) {
 			return null;
+		}
+
+		// Taglibs
+
+		if (langType.equals(TemplateConstants.LANG_TYPE_FTL)) {
+			_addTaglibSupportFTL(contextObjects, pageContext);
+		}
+		else if (langType.equals(TemplateConstants.LANG_TYPE_VM)) {
+			_addTaglibSupportVM(contextObjects, pageContext);
 		}
 
 		long companyId = 0;
@@ -670,6 +706,85 @@ public class Transformer {
 		}
 
 		return s;
+	}
+
+	private void _addTaglibSupportFTL(
+			Map<String, Object> contextObjects, PageContext pageContext)
+		throws Exception {
+
+		// FreeMarker servlet application
+
+		final Servlet servlet = (Servlet)pageContext.getPage();
+
+		GenericServlet genericServlet = null;
+
+		if (servlet instanceof GenericServlet) {
+			genericServlet = (GenericServlet)servlet;
+		}
+		else {
+			genericServlet = new GenericServletWrapper(servlet);
+
+			genericServlet.init(pageContext.getServletConfig());
+		}
+
+		ServletContextHashModel servletContextHashModel =
+			new ServletContextHashModel(
+				genericServlet, ObjectWrapper.DEFAULT_WRAPPER);
+
+		contextObjects.put(
+			PortletDisplayTemplateConstants.FREEMARKER_SERVLET_APPLICATION,
+			servletContextHashModel);
+
+		// FreeMarker servlet request
+
+		HttpServletRequest request =
+			(HttpServletRequest)pageContext.getRequest();
+		HttpServletResponse response =
+			(HttpServletResponse)pageContext.getResponse();
+
+		HttpRequestHashModel requestHashModel = new HttpRequestHashModel(
+			request, response, ObjectWrapper.DEFAULT_WRAPPER);
+
+		contextObjects.put(
+			PortletDisplayTemplateConstants.FREEMARKER_SERVLET_REQUEST,
+			requestHashModel);
+
+		// Taglib Liferay hash
+
+		TemplateHashModel taglibLiferayHash =
+			FreeMarkerTaglibFactoryUtil.createTaglibFactory(
+				pageContext.getServletContext());
+
+		contextObjects.put(
+			PortletDisplayTemplateConstants.TAGLIB_LIFERAY_HASH,
+			taglibLiferayHash);
+	}
+
+	private void _addTaglibSupportVM(
+		Map<String, Object> contextObjects, PageContext pageContext) {
+
+		contextObjects.put(
+			PortletDisplayTemplateConstants.TAGLIB_LIFERAY,
+			_getVelocityTaglib(pageContext));
+	}
+
+	private VelocityTaglib _getVelocityTaglib(PageContext pageContext) {
+		HttpServletRequest request =
+			(HttpServletRequest)pageContext.getRequest();
+
+		HttpSession session = request.getSession();
+
+		ServletContext servletContext = session.getServletContext();
+
+		HttpServletResponse response =
+			(HttpServletResponse)pageContext.getResponse();
+
+		VelocityTaglib velocityTaglib = new VelocityTaglibImpl(
+			servletContext, request,
+			new PipingServletResponse(response, pageContext.getOut()),
+			pageContext, null);
+
+		return velocityTaglib;
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(Transformer.class);
