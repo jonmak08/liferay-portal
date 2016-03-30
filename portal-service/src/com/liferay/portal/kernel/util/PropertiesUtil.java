@@ -196,6 +196,10 @@ public class PropertiesUtil {
 		return load(new UnsyncStringReader(s));
 	}
 
+	/**
+	 * @deprecated As of 6.2.0, removed in 7.0, with no direct replacement
+	 */
+	@Deprecated
 	public static Properties load(String s, String charsetName)
 		throws IOException {
 
@@ -211,6 +215,11 @@ public class PropertiesUtil {
 		return loadJDK5(is, charsetName);
 	}
 
+	/**
+	 * @deprecated As of 6.2.0, removed in 7.0, replaced by {@link
+	 *             #load(Reader)}
+	 */
+	@Deprecated
 	public static Properties loadJDK5(InputStream is, String charsetName)
 		throws IOException {
 
@@ -242,6 +251,11 @@ public class PropertiesUtil {
 		return properties;
 	}
 
+	/**
+	 * @deprecated As of 6.2.0, removed in 7.0, replaced by {@link
+	 *             #load(Reader)}
+	 */
+	@Deprecated
 	public static Properties loadJDK6(Reader reader) throws IOException {
 		try {
 			Properties properties = new Properties();
