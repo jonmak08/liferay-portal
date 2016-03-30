@@ -32,6 +32,7 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Eduardo Lundgren
@@ -90,6 +91,17 @@ public class DDLUtil {
 
 		return getDDL().getTemplateContent(
 			ddmTemplateId, recordSet, themeDisplay, renderRequest,
+			renderResponse);
+	}
+
+	public static String getTemplateContent(
+			PageContext pageContext, long ddmTemplateId, DDLRecordSet recordSet,
+			ThemeDisplay themeDisplay, RenderRequest renderRequest,
+			RenderResponse renderResponse)
+		throws Exception {
+
+		return getDDL().getTemplateContent(
+			pageContext, ddmTemplateId, recordSet, themeDisplay, renderRequest,
 			renderResponse);
 	}
 

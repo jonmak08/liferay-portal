@@ -42,5 +42,5 @@ DDMStructure ddmStructure = recordSet.getDDMStructure();
 		</aui:nav-bar>
 	</c:if>
 
-	<%= DDLUtil.getTemplateContent(displayDDMTemplateId, recordSet, themeDisplay, renderRequest, renderResponse) %>
+	<%= DDLUtil.getTemplateContent(pageContext, displayDDMTemplateId, recordSet, themeDisplay, renderRequest, renderResponse) %>
 </aui:form>

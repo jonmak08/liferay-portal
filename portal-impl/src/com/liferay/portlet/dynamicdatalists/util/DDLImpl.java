@@ -69,6 +69,7 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Marcellus Tavares
@@ -310,6 +311,18 @@ public class DDLImpl implements DDL {
 			RenderResponse renderResponse)
 		throws Exception {
 
+		return getTemplateContent(
+			null, ddmTemplateId, recordSet, themeDisplay, renderRequest,
+			renderResponse);
+	}
+
+	@Override
+	public String getTemplateContent(
+			PageContext pageContext, long ddmTemplateId, DDLRecordSet recordSet,
+			ThemeDisplay themeDisplay, RenderRequest renderRequest,
+			RenderResponse renderResponse)
+		throws Exception {
+
 		Map<String, Object> contextObjects = new HashMap<String, Object>();
 
 		contextObjects.put(
@@ -342,7 +355,7 @@ public class DDLImpl implements DDL {
 			TemplateConstants.CLASS_NAME_ID, ddmTemplate.getClassNameId());
 
 		return _transformer.transform(
-			themeDisplay, contextObjects, ddmTemplate.getScript(),
+			pageContext, themeDisplay, contextObjects, ddmTemplate.getScript(),
 			ddmTemplate.getLanguage());
 	}
 

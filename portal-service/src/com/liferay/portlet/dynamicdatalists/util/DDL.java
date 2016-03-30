@@ -31,6 +31,7 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 /**
  * @author Eduardo Lundgren
@@ -62,6 +63,12 @@ public interface DDL {
 
 	public String getTemplateContent(
 			long ddmTemplateId, DDLRecordSet recordSet,
+			ThemeDisplay themeDisplay, RenderRequest renderRequest,
+			RenderResponse renderResponse)
+		throws Exception;
+
+	public String getTemplateContent(
+			PageContext pageContext, long ddmTemplateId, DDLRecordSet recordSet,
 			ThemeDisplay themeDisplay, RenderRequest renderRequest,
 			RenderResponse renderResponse)
 		throws Exception;
