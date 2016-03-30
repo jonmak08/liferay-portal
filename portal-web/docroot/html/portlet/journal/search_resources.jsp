@@ -295,7 +295,7 @@ ArticleSearch searchContainer = new ArticleSearch(liferayPortletRequest, entryEn
 										actionJsp="/html/portlet/journal/article_action.jsp"
 										containerName="<%= JournalUtil.getAbsolutePath(liferayPortletRequest, article.getFolderId()) %>"
 										cssClass='<%= MathUtil.isEven(i) ? "alt" : StringPool.BLANK %>'
-										description="<%= LocalizationUtil.getLocalization(article.getContent(), themeDisplay.getLanguageId()) %>"
+										description="<%= ((summary != null) && Validator.isNotNull(summary.getContent())) ? summary.getContent() : article.getDescription(locale) %>"
 										mbMessages="<%= searchResult.getMBMessages() %>"
 										queryTerms="<%= hits.getQueryTerms() %>"
 										rowCheckerId="<%= HtmlUtil.escape(article.getArticleId()) %>"
