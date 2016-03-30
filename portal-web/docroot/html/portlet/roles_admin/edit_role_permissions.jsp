@@ -349,31 +349,31 @@ portletURL.setParameter("roleId", String.valueOf(role.getRoleId()));
 		var permissionContainerNode = A.one('#<portlet:namespace />permissionContainer');
 
 		permissionContainerNode.delegate(
-				'change',
-				function(event) {
-					var unselectedTargetsNode = permissionContainerNode.one('#<portlet:namespace />unselectedTargets');
+			'change',
+			function(event) {
+				var unselectedTargetsNode = permissionContainerNode.one('#<portlet:namespace />unselectedTargets');
 
-					var unselectedTargets = unselectedTargetsNode.val().split(',');
+				var unselectedTargets = unselectedTargetsNode.val().split(',');
 
-					var checkbox = event.currentTarget;
+				var checkbox = event.currentTarget;
 
-					var value = checkbox.val();
+				var value = checkbox.val();
 
-					if (checkbox.get('checked')) {
-						var index = unselectedTargets.indexOf(value);
+				if (checkbox.get('checked')) {
+					var index = unselectedTargets.indexOf(value);
 
-						if (index != -1) {
-							unselectedTargets.splice(index, 1);
-						}
+					if (index != -1) {
+						unselectedTargets.splice(index, 1);
 					}
-					else if (originalSelectedValues.indexOf(value) != -1) {
-						unselectedTargets.push(value);
-					}
+				}
+				else if (originalSelectedValues.indexOf(value) != -1) {
+					unselectedTargets.push(value);
+				}
 
-					unselectedTargetsNode.val(unselectedTargets.join(','));
-				},
-				':checkbox'
-			);
+				unselectedTargetsNode.val(unselectedTargets.join(','));
+			},
+			':checkbox'
+		);
 	}
 
 	Liferay.on(
