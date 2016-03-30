@@ -378,7 +378,9 @@ AUI.add(
 						return match ? match[1] : null;
 					},
 
-					_initSearch: function() {
+					_initSearch: EMPTY_FN,
+
+					initSearchFocus: function() {
 						var instance = this;
 
 						var popup = instance._popup;
@@ -399,19 +401,16 @@ AUI.add(
 								searchResults
 							);
 
-							var searchCategoriesTask = A.debounce(
-								instance._searchCategories,
-								350,
-								instance,
-								searchResults,
-								vocabularyIds,
-								vocabularyGroupIds,
-								processSearchResults
+							var searchCategoriesTask = A.debounce(instance._searchCategories, 350, instance);
+
+							popup.searchField.on(
+								'keyup',
+								function(event) {
+									if (!event.isNavKey()) {
+										searchCategoriesTask(event, searchResults, vocabularyIds, vocabularyGroupIds, processSearchResults);
+									}
+								}
 							);
-
-							var input = popup.searchField;
-
-							input.on('keyup', searchCategoriesTask);
 
 							if (instance.get('singleSelect')) {
 								var onSelectChange = A.bind('_onSelectChange', instance);
@@ -586,7 +585,9 @@ AUI.add(
 
 						var searchValue = event.currentTarget.val().trim();
 
-						if (searchValue && !event.isNavKey()) {
+						instance._searchValue = searchValue;
+
+						if (searchValue) {
 							searchResults.empty();
 
 							searchResults.addClass('loading-animation');
@@ -636,13 +637,24 @@ AUI.add(
 						instance._getEntries(
 							className,
 							function(entries) {
-								popup.entriesNode.empty();
+								var searchResults = instance._searchResultsNode;
+								var searchValue = instance._searchValue;
+
+								if (searchResults) {
+									searchResults.removeClass('loading-animation');
+
+									searchResults.toggle(!!searchValue);
+								}
+
+								popup.entriesNode.all('.tree-view, .loading-animation').remove(true);
 
 								entries.forEach(instance._vocabulariesIterator, instance);
 
 								A.each(
 									instance.TREEVIEWS,
 									function(item, index) {
+										item.toggle(!searchValue);
+
 										item.expandAll();
 									}
 								);
@@ -653,7 +665,7 @@ AUI.add(
 							instance._bindSearchHandle.detach();
 						}
 
-						instance._bindSearchHandle = popup.searchField.once('focus', instance._initSearch, instance);
+						instance._bindSearchHandle = popup.searchField.once('focus', instance.initSearchFocus, instance);
 					},
 
 					_vocabulariesIterator: function(item, index) {
