@@ -317,10 +317,10 @@ public class PortletDisplayTemplateImpl implements PortletDisplayTemplate {
 		contextObjects.put(
 			PortletDisplayTemplateConstants.THEME_DISPLAY, themeDisplay);
 
+		contextObjects.putAll(_getPortletPreferences(renderRequest));
+
 		DDMTemplate ddmTemplate = DDMTemplateLocalServiceUtil.getTemplate(
 			ddmTemplateId);
-
-		contextObjects.putAll(_getPortletPreferences(renderRequest));
 
 		contextObjects.put(
 			TemplateConstants.CLASS_NAME_ID, ddmTemplate.getClassNameId());
