@@ -177,7 +177,7 @@
 
 						<execute function="AssertClick" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_SELECT_BUTTON" value1="Select" />
 
-						<execute function="AssertTextEquals" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_PAGE_SELECT" value1="${ddlRecordFieldData}" />
+						<execute function="AssertTextEquals" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_PAGE_SELECTED" value1="${ddlRecordFieldData}" />
 					</else>
 				</if>
 			</then>
@@ -369,7 +369,7 @@
 		<if>
 			<equals arg1="${field}" arg2="Link to Page" />
 			<then>
-				<execute function="AssertTextEquals" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_PAGE_SELECT" value1="${fieldPredefinedValue}" />
+				<execute function="AssertTextEquals" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_PAGE_SELECTED" value1="${fieldPredefinedValue}" />
 			</then>
 		</if>
 
