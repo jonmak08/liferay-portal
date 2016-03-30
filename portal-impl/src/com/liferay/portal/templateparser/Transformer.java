@@ -143,11 +143,13 @@ public class Transformer {
 
 		// Taglibs
 
-		if (langType.equals(TemplateConstants.LANG_TYPE_FTL)) {
-			_addTaglibSupportFTL(contextObjects, pageContext);
-		}
-		else if (langType.equals(TemplateConstants.LANG_TYPE_VM)) {
-			_addTaglibSupportVM(contextObjects, pageContext);
+		if (pageContext != null) {
+			if (langType.equals(TemplateConstants.LANG_TYPE_FTL)) {
+				_addTaglibSupportFTL(contextObjects, pageContext);
+			}
+			else if (langType.equals(TemplateConstants.LANG_TYPE_VM)) {
+				_addTaglibSupportVM(contextObjects, pageContext);
+			}
 		}
 
 		long companyId = 0;
