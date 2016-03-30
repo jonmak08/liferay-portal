@@ -33,7 +33,7 @@
 			<@aui.button
 				cssClass="select-button"
 				name="${namespacedFieldName}SelectButton"
-				value="select-page"
+				value="select-layout"
 			/>
 
 			<@aui.button
