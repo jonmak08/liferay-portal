@@ -67,6 +67,11 @@ public interface DDL {
 			RenderResponse renderResponse)
 		throws Exception;
 
+	/**
+	 * Taglib (JSTL) support in templates requires a PageContext instance. If
+	 * <code>pageContext</code> is <code>null</code>, objects for taglib support
+	 * are not available in the template context.
+	 */
 	public String getTemplateContent(
 			PageContext pageContext, long ddmTemplateId, DDLRecordSet recordSet,
 			ThemeDisplay themeDisplay, RenderRequest renderRequest,
