@@ -1878,7 +1878,7 @@
 		<execute macro="KaleoFormsPortlet#viewMyCompletedRequestsTasks" />
 	</command>
 
-	<!--Comment out this testcase is caused by gmail, please see LRQA-20937 for details.-->
+	<!-- LRQA-20937 -->
 
 	<!--<command known-issues="LRQA-13709" name="CompleteProcessAndViewEmailNotifications" priority="5">
 		<property name="test.assert.javascript.errors" value="false" />
@@ -2500,7 +2500,7 @@
 		<execute macro="KaleoFormsPortlet#viewMyCompletedRequestsTasks" />
 	</command>
 
-	<!--Comment out this testcase temporary until it is fixed because LPS-59541 has not been fixed more than 3 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
+	<!-- LRQA-20937 -->
 
 	<!--<command known-issues="LPS-59541" name="CompleteProcessLargeFieldSet" priority="5">
 		<var name="kfFieldSetName" value="Field Set Data Definition" />
@@ -7748,7 +7748,7 @@
 		</execute>
 	</command>
 
-	<!--Comment out this testcase is caused by gmail, please see LRQA-20937 for details.-->
+	<!-- LRQA-20937 -->
 
 	<!--<command known-issues="LRQA-13709" name="ViewEmailNotificationSentToTaskAssignees" priority="5">
 		<description message="This is a use case for LPS-50688 and LPS-35263." />

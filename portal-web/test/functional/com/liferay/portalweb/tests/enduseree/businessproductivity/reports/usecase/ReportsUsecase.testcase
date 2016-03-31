@@ -109,7 +109,7 @@
 		<execute function="AssertElementNotPresent" locator1="CPReportsadmin#DEFINITIONS_DEFINITION_TABLE_DEFINITION_NAME" />
 	</command>
 
-	<!--Comment out this testcase is caused by gmail, Please see LRQA-20937 for details.-->
+	<!-- LRQA-20937 -->
 
 	<!--<command known-issues="LRQA-13709" name="ViewReportEmailNewConfiguration" priority="5">
 		<description message="This is a use case for LPS-51009." />

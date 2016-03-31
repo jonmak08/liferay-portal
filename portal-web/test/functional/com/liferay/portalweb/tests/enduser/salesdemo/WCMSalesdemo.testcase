@@ -17,7 +17,7 @@
 		</execute>
 	</tear-down>
 
-	<!--Comment out this testcase is caused by sales demo, please see LRQA-20937 for details.-->
+	<!-- LRQA-20937 -->
 
 	<!--<command known-issues="sales-demo" name="IFrameDemo" priority="5">
 		<execute macro="Page#addPG">

@@ -118,7 +118,7 @@
 		</execute>
 	</command>
 
-	<!--Comment out this testcase temporary until it is fixed because LPS-56972 has not been fixed more than 3 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
+	<!-- LRQA-20937 -->
 
 	<!--<command known-issues="LPS-56972" name="ViewNotificationForMentionViaBlogsEntryComment" priority="4">
 		<execute macro="Page#gotoPG">

@@ -21,7 +21,7 @@
 			<var name="portletName" value="Categories" />
 		</execute>
 
-		<!--Commenting out the rest of this testcase temporary, because LPS-60870 has not been fixed. Please see LRQA-21665 for details. Will remove the comment when it is fixed.-->
+		<!-- LRQA-21665 -->
 
 		<!--
 		<execute macro="Vocabulary#addCP">

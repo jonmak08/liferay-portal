@@ -28,7 +28,7 @@
 			</execute>
 		</for>
 
-		<!--Comment out this testcase is caused by LRQA-9480 with low priority, please see LRQA-23190 for details.-->
+		<!-- LRQA-23190 -->
 
 		<!--
 		<execute macro="Page#gotoCP">

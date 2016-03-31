@@ -9,13 +9,13 @@
 		<execute macro="Page#tearDownPG" />
 	</tear-down>
 
-	<command known-issues="sales-demo" name="WebProxyDemo" priority="5">
+	<command name="WebProxyDemo" priority="5">
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Web Proxy Page" />
 			<var name="pageType" value="1 Column" />
 		</execute>
 
-		<!--Comment out this testcase is caused by sales demo, please see LRQA-20937 for details.-->
+		<!-- LRQA-20937 -->
 
 		<!--
 		<execute macro="Portlet#addPG">

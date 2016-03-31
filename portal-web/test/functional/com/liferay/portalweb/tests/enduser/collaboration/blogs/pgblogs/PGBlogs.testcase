@@ -910,7 +910,7 @@
 		</execute>
 	</command>
 
-	<!--Comment out this testcase temporary until it is fixed because LPS-56085 has not been fixed more than 3 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
+	<!-- LRQA-20937 -->
 
 	<!--<command known-issues="LPS-56805" name="SearchBlogsEntryComment" priority="5">
 		<var name="entryComment" value="Blogs Entry Comment" />

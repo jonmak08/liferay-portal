@@ -193,7 +193,7 @@
 		</execute>
 	</command>
 
-	<!--Comment out this testcase is caused by gmail, please see LRQA-20937 for details.-->
+	<!-- LRQA-20937 -->
 
 	<!--<command known-issues="LRQA-13709" name="DeliverReportToEmail" priority="5">
 		<property name="test.assert.javascript.errors" value="false" />
@@ -597,7 +597,7 @@
 		</execute>
 	</command>
 
-	<!--Comment out this testcase is caused by gmail, please see LRQA-20937 for details.-->
+	<!-- LRQA-20937 -->
 
 	<!--<command known-issues="LRQA-13709" name="ViewEmailNotificationDelivery" priority="5">
 		<property name="test.assert.javascript.errors" value="false" />
@@ -678,7 +678,7 @@
 		<execute function="Open" locator1="http://localhost:8080" />
 	</command>-->
 
-	<!--Comment out this testcase is caused by gmail, please see LRQA-20937 for details.-->
+	<!-- LRQA-20937 -->
 
 	<!--<command known-issues="LRQA-13709" name="ViewEmailRecipientDelivery" priority="5">
 		<property name="test.assert.javascript.errors" value="false" />

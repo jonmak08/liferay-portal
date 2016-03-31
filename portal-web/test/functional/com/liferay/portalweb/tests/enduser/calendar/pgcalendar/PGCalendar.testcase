@@ -3520,7 +3520,7 @@
 		</execute>
 	</command>
 
-	<!--Comment out this testcase temporary until it is fixed because LPS-55278 has not been fixed on ee-6.2.x more than 2 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
+	<!-- LRQA-20937 -->
 
 	<!--<command known-issues="LPS-55278" name="View24hourTimeFormat" priority="5">
 		<execute macro="Page#gotoPG">
@@ -3935,7 +3935,7 @@
 		</execute>
 	</command>
 
-	<!--Comment out this testcase temporary until it is fixed because LPS-54990 has not been fixed more than 3 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
+	<!-- LRQA-20937 -->
 
 	<!--<command known-issues="LPS-54990" name="ViewCorrectNumberOfWeeksMonthView" priority="3">
 		<description message="This is a use case for LPS-52517." />

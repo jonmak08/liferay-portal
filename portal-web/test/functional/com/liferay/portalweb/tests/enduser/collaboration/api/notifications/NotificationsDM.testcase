@@ -194,7 +194,7 @@
 		</execute>
 	</command>
 
-	<!--Comment out this testcase temporary until it is fixed because LPS-50589 has not been fixed more than 3 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
+	<!-- LRQA-20937 -->
 
 	<!--<command known-issues="LPS-50589" name="ViewWebsiteNotificationForNewDocumentInFolder" priority="5">
 		<execute macro="Page#gotoPG">
@@ -269,7 +269,7 @@
 		</execute>
 	</command>-->
 
-	<!--Comment out this testcase temporary until it is fixed because LPS-50589 has not been fixed more than 3 months, please see LRQA-20937 for details. Will cancel the comment when it is fixed.-->
+	<!-- LRQA-20937 -->
 
 	<!--<command known-issues="LPS-50589" name="ViewWebsiteNotificationForUpdatedDocumentInFolder" priority="5">
 		<execute macro="Page#gotoPG">
