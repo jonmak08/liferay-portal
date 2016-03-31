@@ -197,7 +197,8 @@ public class PropertiesUtil {
 	}
 
 	/**
-	 * @deprecated As of 6.2.0, removed in 7.0, with no direct replacement
+	 * @deprecated As of 6.2.0, removed in 7.0, replaced by {@link
+	 *             #load(String)}
 	 */
 	@Deprecated
 	public static Properties load(String s, String charsetName)
