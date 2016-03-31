@@ -12,7 +12,7 @@
 	</pathconvert>
 
 	<pathconvert dirsep="/" property="project.dir.unix">
-		<path location="${project.dir.native}" />
+		<path location="${project.dir}" />
 	</pathconvert>
 
 	<property name="test.properties" value="com/liferay/portal/tools/dependencies/portal-tools.properties" />
