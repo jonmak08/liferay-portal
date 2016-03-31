@@ -4361,6 +4361,11 @@
 			<var name="eventTitle" value="Previous Day Event" />
 		</execute>
 
+		<execute macro="CalendarEvent#addRSVP">
+			<var name="eventTitle" value="Previous Day Event" />
+			<var name="rsvp" value="Yes" />
+		</execute>
+
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Calendar Page" />
 		</execute>
@@ -4371,22 +4376,17 @@
 			<var name="eventTitle" value="Future Day Event" />
 		</execute>
 
+		<execute macro="CalendarEvent#addRSVP">
+			<var name="eventTitle" value="Future Day Event" />
+			<var name="rsvp" value="Yes" />
+		</execute>
+
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Calendar Page" />
 		</execute>
 
 		<execute macro="CalendarEvent#addRSVP">
 			<var name="eventTitle" value="Current Day Event" />
-			<var name="rsvp" value="Yes" />
-		</execute>
-
-		<execute macro="CalendarEvent#addRSVP">
-			<var name="eventTitle" value="Previous Day Event" />
-			<var name="rsvp" value="Yes" />
-		</execute>
-
-		<execute macro="CalendarEvent#addRSVP">
-			<var name="eventTitle" value="Future Day Event" />
 			<var name="rsvp" value="Yes" />
 		</execute>
 
