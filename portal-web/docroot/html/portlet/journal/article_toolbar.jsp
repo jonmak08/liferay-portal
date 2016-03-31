@@ -120,7 +120,7 @@ long classNameId = BeanParamUtil.getLong(article, request, "classNameId");
 		);
 	</c:if>
 
-	<c:if test="<%= JournalArticlePermission.contains(permissionChecker, article, ActionKeys.PERMISSIONS) && (classNameId == JournalArticleConstants.CLASSNAME_ID_DEFAULT) %>">
+	<c:if test='<%= JournalArticlePermission.contains(permissionChecker, article, ActionKeys.PERMISSIONS) && ((classNameId == JournalArticleConstants.CLASSNAME_ID_DEFAULT) || ArrayUtil.contains(PropsValues.JOURNAL_ARTICLE_FORM_DEFAULT_VALUES, "permissions")) %>'>
 		<liferay-security:permissionsURL windowState="<%= LiferayWindowState.POP_UP.toString() %>"
 			modelResource="<%= JournalArticle.class.getName() %>"
 			modelResourceDescription="<%= HtmlUtil.escape(article.getTitle(locale)) %>"
