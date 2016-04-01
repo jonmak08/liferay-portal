@@ -203,7 +203,11 @@ public class JournalArticleIndexer extends BaseIndexer {
 			searchQuery, searchContext, Field.DESCRIPTION, false);
 		addSearchTerm(searchQuery, searchContext, Field.ENTRY_CLASS_PK, false);
 		addSearchLocalizedTerm(searchQuery, searchContext, Field.TITLE, false);
-		addSearchTerm(searchQuery, searchContext, Field.TYPE, false);
+
+		if (Validator.isNull(searchContext.getAttribute("articleType"))) {
+			addSearchTerm(searchQuery, searchContext, Field.TYPE, false);
+		}
+
 		addSearchTerm(searchQuery, searchContext, Field.USER_NAME, false);
 
 		addSearchTerm(searchQuery, searchContext, "articleId", false);
