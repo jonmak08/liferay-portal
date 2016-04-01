@@ -197,8 +197,7 @@ public class PropertiesUtil {
 	}
 
 	/**
-	 * @deprecated As of 6.2.0, removed in 7.0, replaced by {@link
-	 *             #load(String)}
+	 * @deprecated As of 6.2.0, replaced by {@link #load(String)}
 	 */
 	@Deprecated
 	public static Properties load(String s, String charsetName)
@@ -217,8 +216,7 @@ public class PropertiesUtil {
 	}
 
 	/**
-	 * @deprecated As of 6.2.0, removed in 7.0, replaced by {@link
-	 *             #load(Reader)}
+	 * @deprecated As of 6.2.0, replaced by {@link #load(Reader)}
 	 */
 	@Deprecated
 	public static Properties loadJDK5(InputStream is, String charsetName)
@@ -253,8 +251,7 @@ public class PropertiesUtil {
 	}
 
 	/**
-	 * @deprecated As of 6.2.0, removed in 7.0, replaced by {@link
-	 *             #load(Reader)}
+	 * @deprecated As of 6.2.0, replaced by {@link #load(Reader)}
 	 */
 	@Deprecated
 	public static Properties loadJDK6(Reader reader) throws IOException {

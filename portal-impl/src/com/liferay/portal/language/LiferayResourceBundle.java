@@ -66,7 +66,7 @@ public class LiferayResourceBundle extends ResourceBundle {
 	}
 
 	/**
-	 * @deprecated As of 6.2.0, removed in 7.0, with no direct replacement
+	 * @deprecated As of 6.2.0, with no direct replacement
 	 */
 	@Deprecated
 	public LiferayResourceBundle(String string, String charsetName)
