@@ -148,8 +148,8 @@
 				position: relative;
 
 				label {
-					margin-bottom: 5px;
 					margin-left: 0;
+					margin-bottom: 5px;
 					padding: 2px;
 
 					input[type="checkbox"], input[type="radio"] {
