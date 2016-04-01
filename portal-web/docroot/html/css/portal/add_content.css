@@ -148,8 +148,8 @@
 				position: relative;
 
 				label {
-					margin-left: 0;
 					margin-bottom: 5px;
+					margin-left: 0;
 					padding: 2px;
 
 					input[type="checkbox"], input[type="radio"] {
@@ -371,5 +371,11 @@
 	.asset-title {
 		color: #369;
 		font-size: 14px;
+	}
+}
+
+.firefox {
+	fieldset.input-container {
+		display: table-cell;
 	}
 }
