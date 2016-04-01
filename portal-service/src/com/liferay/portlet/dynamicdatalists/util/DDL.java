@@ -68,9 +68,9 @@ public interface DDL {
 		throws Exception;
 
 	/**
-	 * Taglib (JSTL) support in templates requires a PageContext instance. If
-	 * <code>pageContext</code> is <code>null</code>, objects for taglib support
-	 * are not available in the template context.
+	 * Taglib (JSTL) support in templates requires a {@link PageContext}
+	 * instance; if it's <code>null</code>, objects for taglib support are not
+	 * available in the template context.
 	 */
 	public String getTemplateContent(
 			PageContext pageContext, long ddmTemplateId, DDLRecordSet recordSet,
