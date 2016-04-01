@@ -70,7 +70,7 @@ public class PollsQuestionLocalServiceImpl
 
 		Date now = new Date();
 
-		validate(titleMap, descriptionMap, choices);
+		validate(titleMap, descriptionMap, choices, expirationDate);
 
 		long questionId = counterLocalService.increment();
 
@@ -263,7 +263,7 @@ public class PollsQuestionLocalServiceImpl
 				QuestionExpirationDateException.class);
 		}
 
-		validate(titleMap, descriptionMap, choices);
+		validate(titleMap, descriptionMap, choices, expirationDate);
 
 		PollsQuestion question = pollsQuestionPersistence.findByPrimaryKey(
 			questionId);
@@ -311,7 +311,7 @@ public class PollsQuestionLocalServiceImpl
 
 	protected void validate(
 			Map<Locale, String> titleMap, Map<Locale, String> descriptionMap,
-			List<PollsChoice> choices)
+			List<PollsChoice> choices, Date expirationDate)
 		throws PortalException {
 
 		Locale locale = LocaleUtil.getSiteDefault();
@@ -340,6 +340,11 @@ public class PollsQuestionLocalServiceImpl
 					throw new QuestionChoiceException();
 				}
 			}
+		}
+
+		if ((expirationDate != null) && expirationDate.before(new Date())) {
+			throw new QuestionExpirationDateException(
+				"Expiration date " + expirationDate + " is in the past");
 		}
 	}
 
