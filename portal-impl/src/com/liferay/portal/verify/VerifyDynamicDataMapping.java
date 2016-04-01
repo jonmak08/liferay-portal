@@ -14,7 +14,15 @@
 
 package com.liferay.portal.verify;
 
+import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.Projection;
+import com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.Property;
+import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
@@ -29,6 +37,7 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Attribute;
 import com.liferay.portal.kernel.xml.Document;
+import com.liferay.portal.kernel.xml.DocumentException;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.Node;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
@@ -54,6 +63,7 @@ import com.liferay.portlet.dynamicdatalists.model.DDLRecordModel;
 import com.liferay.portlet.dynamicdatalists.model.DDLRecordSet;
 import com.liferay.portlet.dynamicdatalists.model.DDLRecordVersion;
 import com.liferay.portlet.dynamicdatalists.service.DDLRecordLocalServiceUtil;
+import com.liferay.portlet.dynamicdatamapping.model.DDMContent;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructureLink;
 import com.liferay.portlet.dynamicdatamapping.model.DDMTemplate;
@@ -61,10 +71,13 @@ import com.liferay.portlet.dynamicdatamapping.model.DDMTemplateConstants;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLinkLocalServiceUtil;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.portlet.dynamicdatamapping.service.DDMTemplateLocalServiceUtil;
+import com.liferay.portlet.dynamicdatamapping.service.persistence.DDMContentActionableDynamicQuery;
+import com.liferay.portlet.dynamicdatamapping.service.persistence.DDMContentUtil;
 import com.liferay.portlet.dynamicdatamapping.storage.Field;
 import com.liferay.portlet.dynamicdatamapping.storage.FieldConstants;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
 import com.liferay.portlet.dynamicdatamapping.storage.StorageEngineUtil;
+import com.liferay.portlet.dynamicdatamapping.util.DDMImpl;
 import com.liferay.portlet.dynamicdatamapping.util.DDMXMLUtil;
 
 import java.io.File;
@@ -80,6 +93,35 @@ import java.util.Set;
  * @author Marcellus Tavares
  */
 public class VerifyDynamicDataMapping extends VerifyProcess {
+
+	protected void addFieldsDisplay(Element rootElement) {
+		List<Element> dynamicElementElements = rootElement.elements(
+			"dynamic-element");
+
+		StringBundler sb = new StringBundler();
+
+		for (Element dynamicElementElement : dynamicElementElements) {
+			String fieldName = dynamicElementElement.attributeValue("name");
+
+			sb.append(fieldName);
+			sb.append(DDMImpl.INSTANCE_SEPARATOR);
+			sb.append(StringUtil.randomId());
+
+			if (dynamicElementElements.indexOf(dynamicElementElement) !=
+					(dynamicElementElements.size() - 1)) {
+
+				sb.append(StringPool.COMMA);
+			}
+		}
+
+		Element element = rootElement.addElement("dynamic-element");
+
+		element.addAttribute("name", DDMImpl.FIELDS_DISPLAY_NAME);
+
+		Element dynamicContentElement = element.addElement("dynamic-content");
+
+		dynamicContentElement.addCDATA(sb.toString());
+	}
 
 	protected FileEntry addFileEntry(
 			long companyId, long userId, long groupId, long folderId,
@@ -245,6 +287,8 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		for (DDMStructure structure : structures) {
 			verifyStructure(structure);
 		}
+
+		verifyDDMContent();
 	}
 
 	protected Set<String> getDuplicateElementNames(
@@ -370,6 +414,21 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 			String languageId = metadataElement.attributeValue("locale");
 
 			if (languageId.equals(defaultLanguageId)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	protected boolean hasFieldsDisplayElement(Element rootElement) {
+		List<Element> dynamicElementElements = rootElement.elements(
+			"dynamic-element");
+
+		for (Element dynamicElementElement : dynamicElementElements) {
+			String fieldName = dynamicElementElement.attributeValue("name");
+
+			if (fieldName.equals(DDMImpl.FIELDS_DISPLAY_NAME)) {
 				return true;
 			}
 		}
@@ -606,6 +665,64 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		if (attribute != null) {
 			element.remove(attribute);
 		}
+	}
+
+	protected void verifyDDMContent() throws Exception {
+		ActionableDynamicQuery actionableDynamicQuery =
+			new DDMContentActionableDynamicQuery() {
+
+				@Override
+				protected void addCriteria(DynamicQuery dynamicQuery) {
+					DynamicQuery subquery =
+						DLFileEntryMetadataLocalServiceUtil.dynamicQuery();
+
+					Property fileEntryTypeIdProperty =
+						PropertyFactoryUtil.forName("fileEntryTypeId");
+
+					subquery.add(fileEntryTypeIdProperty.ne(0L));
+
+					Projection projection = ProjectionFactoryUtil.property(
+						"DDMStorageId");
+
+					subquery.setProjection(projection);
+
+					Property contentIdProperty = PropertyFactoryUtil.forName(
+						"contentId");
+
+					dynamicQuery.add(contentIdProperty.in(subquery));
+				}
+
+				@Override
+				protected void performAction(Object object)
+					throws PortalException, SystemException {
+
+					DDMContent ddmContent = (DDMContent)object;
+
+					try {
+						Document document = SAXReaderUtil.read(
+							ddmContent.getXml());
+
+						Element rootElement = document.getRootElement();
+
+						if (!hasFieldsDisplayElement(
+								document.getRootElement())) {
+
+							addFieldsDisplay(rootElement);
+
+							String xml = document.asXML();
+
+							ddmContent.setXml(DDMXMLUtil.formatXML(xml));
+
+							DDMContentUtil.update(ddmContent);
+						}
+					}
+					catch (DocumentException de) {
+						throw new PortalException(de);
+					}
+				}
+		};
+
+		actionableDynamicQuery.performActions();
 	}
 
 	protected void verifyStructure(DDMStructure structure) throws Exception {
