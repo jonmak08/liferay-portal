@@ -333,8 +333,8 @@ public class JournalArticleLocalServiceImpl
 		validate(
 			user.getCompanyId(), groupId, classNameId, articleId, autoArticleId,
 			version, titleMap, content, type, ddmStructureKey, ddmTemplateKey,
-			expirationDate, smallImage, smallImageURL, smallImageFile,
-			smallImageBytes, serviceContext);
+			displayDate, expirationDate, smallImage, smallImageURL,
+			smallImageFile, smallImageBytes, serviceContext);
 
 		serviceContext.setAttribute("articleId", articleId);
 
@@ -4984,8 +4984,8 @@ public class JournalArticleLocalServiceImpl
 		validate(
 			user.getCompanyId(), groupId, latestArticle.getClassNameId(),
 			titleMap, content, type, ddmStructureKey, ddmTemplateKey,
-			expirationDate, smallImage, smallImageURL, smallImageFile,
-			smallImageBytes, serviceContext);
+			displayDate, expirationDate, smallImage, smallImageURL,
+			smallImageFile, smallImageBytes, serviceContext);
 
 		if (addNewVersion) {
 			long id = counterLocalService.increment();
@@ -6865,9 +6865,10 @@ public class JournalArticleLocalServiceImpl
 	protected void validate(
 			long companyId, long groupId, long classNameId,
 			Map<Locale, String> titleMap, String content, String type,
-			String ddmStructureKey, String ddmTemplateKey, Date expirationDate,
-			boolean smallImage, String smallImageURL, File smallImageFile,
-			byte[] smallImageBytes, ServiceContext serviceContext)
+			String ddmStructureKey, String ddmTemplateKey, Date displayDate,
+			Date expirationDate, boolean smallImage, String smallImageURL,
+			File smallImageFile, byte[] smallImageBytes,
+			ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
 		Locale articleDefaultLocale = LocaleUtil.fromLanguageId(
@@ -6930,7 +6931,8 @@ public class JournalArticleLocalServiceImpl
 			}
 		}
 
-		if ((expirationDate != null) && expirationDate.before(new Date()) &&
+		if ((expirationDate != null) && (expirationDate.before(new Date()) ||
+			 ((displayDate != null) && expirationDate.before(displayDate))) &&
 			!ExportImportThreadLocal.isImportInProcess()) {
 
 			throw new ArticleExpirationDateException();
@@ -6980,9 +6982,9 @@ public class JournalArticleLocalServiceImpl
 			long companyId, long groupId, long classNameId, String articleId,
 			boolean autoArticleId, double version, Map<Locale, String> titleMap,
 			String content, String type, String ddmStructureKey,
-			String ddmTemplateKey, Date expirationDate, boolean smallImage,
-			String smallImageURL, File smallImageFile, byte[] smallImageBytes,
-			ServiceContext serviceContext)
+			String ddmTemplateKey, Date displayDate, Date expirationDate,
+			boolean smallImage, String smallImageURL, File smallImageFile,
+			byte[] smallImageBytes, ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
 		if (!autoArticleId) {
@@ -7008,8 +7010,9 @@ public class JournalArticleLocalServiceImpl
 
 		validate(
 			companyId, groupId, classNameId, titleMap, content, type,
-			ddmStructureKey, ddmTemplateKey, expirationDate, smallImage,
-			smallImageURL, smallImageFile, smallImageBytes, serviceContext);
+			ddmStructureKey, ddmTemplateKey, displayDate, expirationDate,
+			smallImage, smallImageURL, smallImageFile, smallImageBytes,
+			serviceContext);
 	}
 
 	protected void validate(String articleId) throws PortalException {
