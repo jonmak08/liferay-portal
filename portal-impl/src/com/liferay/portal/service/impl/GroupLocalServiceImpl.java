@@ -1092,6 +1092,13 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 		return groupLocalService.loadFetchGroup(companyId, name);
 	}
 
+	@Override
+	public List<Group> getActiveGroups(long companyId, boolean active)
+		throws SystemException {
+
+		return groupPersistence.findByC_A(companyId, active);
+	}
+
 	/**
 	 * Returns the company group.
 	 *
