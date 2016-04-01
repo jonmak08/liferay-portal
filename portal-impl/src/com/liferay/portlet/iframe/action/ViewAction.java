@@ -138,9 +138,9 @@ public class ViewAction extends PortletAction {
 				themeDisplay.getCompanyId(), portletId);
 
 			src =
-				themeDisplay.getPathMain() + "/" + portlet.getStrutsPath() +
-					"/proxy?p_l_id=" + themeDisplay.getPlid() + "&p_p_id=" +
-						portletId;
+				themeDisplay.getPortalURL() + themeDisplay.getPathMain() + "/" +
+					portlet.getStrutsPath() + "/proxy?p_l_id=" +
+						themeDisplay.getPlid() + "&p_p_id=" + portletId;
 		}
 
 		return src;
