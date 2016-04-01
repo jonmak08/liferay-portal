@@ -1085,6 +1085,12 @@ public class GroupLocalServiceUtil {
 		return getService().fetchGroup(companyId, name);
 	}
 
+	public static java.util.List<com.liferay.portal.model.Group> getActiveGroups(
+		long companyId, boolean active)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().getActiveGroups(companyId, active);
+	}
+
 	/**
 	* Returns the company group.
 	*
