@@ -126,8 +126,8 @@ AUI.add(
 						instance._config = config;
 
 						instance._dataRetrieveFailure = instance.ns('dataRetrieveFailure');
+						instance._eventDataRequest = instance.ns('dataRequest');
 						instance._eventDataRetrieveSuccess = instance.ns('dataRetrieveSuccess');
-						instance._eventEntryDataRequest = instance.ns('entryDataRequest');
 						instance._eventFolderDataRequest = instance.ns('folderDataRequest');
 
 						var listViewConfig = instance.get('listViewConfig');
@@ -152,7 +152,7 @@ AUI.add(
 						var eventHandles = [
 							Liferay.after(
 								[
-									instance._eventEntryDataRequest,
+									instance._eventDataRequest,
 									instance._eventFolderDataRequest
 								],
 								A.bind('_afterDataRequest', instance)
@@ -160,7 +160,7 @@ AUI.add(
 							Liferay.on(instance._dataRetrieveFailure, A.bind('_onDataRetrieveFailure', instance)),
 							Liferay.on(
 								[
-									instance._eventEntryDataRequest,
+									instance._eventDataRequest,
 									instance._eventFolderDataRequest
 								],
 								A.bind('_onDataRequest', instance)
@@ -313,8 +313,8 @@ AUI.add(
 						if (event.type === instance._eventFolderDataRequest) {
 							type = 'liferay-app-view-folders:afterFolderDataRequest';
 						}
-						else if (event.type === instance._eventEntryDataRequest) {
-							type = 'liferay-app-view-folders:afterEntryDataRequest';
+						else if (event.type === instance._eventDataRequest) {
+							type = 'liferay-app-view-folders:afterDataRequest';
 						}
 
 						if (type) {

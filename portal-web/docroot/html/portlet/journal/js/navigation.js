@@ -75,8 +75,8 @@ AUI.add(
 
 						instance._journalContainer = journalContainer;
 
+						instance._eventDataRequest = instance.ns('dataRequest');
 						instance._eventDataRetrieveSuccess = instance.ns('dataRetrieveSuccess');
-						instance._eventEntryDataRequest = instance.ns('entryDataRequest');
 						instance._eventOpenAdvancedSearch = instance.ns('openAdvancedSearch');
 						instance._eventChangeSearchFolder = instance.ns('changeSearchFolder');
 
@@ -220,7 +220,7 @@ AUI.add(
 						}
 
 						Liferay.fire(
-							instance._eventEntryDataRequest,
+							instance._eventDataRequest,
 							{
 								requestParams: requestParams,
 								src: SRC_HISTORY
@@ -399,7 +399,7 @@ AUI.add(
 						requestParams[instance.ns(STR_SHOW_SEARCH_INFO)] = searchData.showSearchInfo;
 
 						Liferay.fire(
-							instance._eventEntryDataRequest,
+							instance._eventDataRequest,
 							{
 								requestParams: requestParams,
 								resetPagination: true,
