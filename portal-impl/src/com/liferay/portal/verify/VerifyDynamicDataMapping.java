@@ -673,23 +673,25 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 
 				@Override
 				protected void addCriteria(DynamicQuery dynamicQuery) {
-					DynamicQuery subquery =
+					DynamicQuery dlFileEntryMetadataDynamicQuery =
 						DLFileEntryMetadataLocalServiceUtil.dynamicQuery();
 
 					Property fileEntryTypeIdProperty =
 						PropertyFactoryUtil.forName("fileEntryTypeId");
 
-					subquery.add(fileEntryTypeIdProperty.ne(0L));
+					dlFileEntryMetadataDynamicQuery.add(
+						fileEntryTypeIdProperty.ne(0L));
 
 					Projection projection = ProjectionFactoryUtil.property(
 						"DDMStorageId");
 
-					subquery.setProjection(projection);
+					dlFileEntryMetadataDynamicQuery.setProjection(projection);
 
 					Property contentIdProperty = PropertyFactoryUtil.forName(
 						"contentId");
 
-					dynamicQuery.add(contentIdProperty.in(subquery));
+					dynamicQuery.add(
+						contentIdProperty.in(dlFileEntryMetadataDynamicQuery));
 				}
 
 				@Override
