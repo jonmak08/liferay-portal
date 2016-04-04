@@ -33,6 +33,7 @@ import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.struts.ActionConstants;
 import com.liferay.portal.struts.PortletAction;
 import com.liferay.portal.theme.ThemeDisplay;
+import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portal.util.WebKeys;
 import com.liferay.portlet.PortletURLFactoryUtil;
@@ -96,6 +97,8 @@ public class FacebookConnectAction extends PortletAction {
 		HttpSession session = request.getSession();
 
 		String redirect = ParamUtil.getString(request, "redirect");
+
+		redirect = PortalUtil.escapeRedirect(redirect);
 
 		String code = ParamUtil.getString(request, "code");
 
