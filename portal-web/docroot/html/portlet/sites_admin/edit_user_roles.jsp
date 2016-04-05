@@ -19,9 +19,6 @@
 <%
 String tabs1 = ParamUtil.getString(request, "tabs1", "current");
 
-String controlPanelCategory = themeDisplay.getControlPanelCategory();
-boolean siteType = controlPanelCategory != null && controlPanelCategory.startsWith(PortletCategoryKeys.CURRENT_SITE);
-
 int cur = ParamUtil.getInteger(request, SearchContainer.DEFAULT_CUR_PARAM);
 
 String redirect = ParamUtil.getString(request, "redirect");
@@ -44,7 +41,9 @@ int roleType = ParamUtil.getInteger(request, "roleType", RoleConstants.TYPE_SITE
 Organization organization = null;
 
 if (group.isOrganization()) {
-	if (!siteType) {
+	String controlPanelCategory = themeDisplay.getControlPanelCategory();
+
+	if ((controlPanelCategory == null) || !controlPanelCategory.startsWith(PortletCategoryKeys.CURRENT_SITE)) {
 		roleType = RoleConstants.TYPE_ORGANIZATION;
 	}
 
@@ -95,7 +94,7 @@ request.setAttribute("edit_user_roles.jsp-portletURL", portletURL);
 	backURL="<%= redirect %>"
 	escapeXml="<%= false %>"
 	localizeTitle="<%= false %>"
-	title='<%= LanguageUtil.get(pageContext, roleType == RoleConstants.TYPE_ORGANIZATION ? "add-organization-roles-to" : "add-site-roles-to") + ": " + LanguageUtil.get(pageContext, "users") %>'
+	title='<%= LanguageUtil.get(pageContext, (roleType == RoleConstants.TYPE_ORGANIZATION) ? "add-organization-roles-to" : "add-site-roles-to") + ": " + LanguageUtil.get(pageContext, "users") %>'
 />
 
 <aui:form action="<%= portletURL.toString() %>" method="post" name="fm">
