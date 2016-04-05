@@ -88,12 +88,6 @@ public class DateUtil_IW {
 		return DateUtil.getISOFormat(text);
 	}
 
-	public long getTimeFromFormattedDate(java.lang.String pattern,
-		java.lang.String dateString, java.util.Locale locale)
-		throws java.text.ParseException {
-		return DateUtil.getTimeFromFormattedDate(pattern, dateString, locale);
-	}
-
 	public java.text.DateFormat getUTCFormat() {
 		return DateUtil.getUTCFormat();
 	}

@@ -210,15 +210,6 @@ public class DateUtil {
 		return DateFormatFactoryUtil.getSimpleDateFormat(pattern);
 	}
 
-	public static long getTimeFromFormattedDate(
-			String pattern, String dateString, Locale locale)
-		throws ParseException {
-
-		Date date = parseDate(pattern, dateString, locale);
-
-		return date.getTime();
-	}
-
 	public static DateFormat getUTCFormat() {
 		return getUTCFormat(StringPool.BLANK);
 	}
