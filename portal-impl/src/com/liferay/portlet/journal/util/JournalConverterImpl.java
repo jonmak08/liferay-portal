@@ -983,12 +983,12 @@ public class JournalConverterImpl implements JournalConverter {
 			dynamicContentElement.addCDATA(fieldValue);
 		}
 		else if (DDMImpl.TYPE_DDM_DATE.equals(fieldType)) {
-			long value = GetterUtil.getLong(fieldValue);
+			long valueTime = GetterUtil.getLong(fieldValue);
 
-			Date date = new Date(value);
+			Date valueDate = new Date(valueTime);
 
 			fieldValue = DateUtil.getDate(
-				date, "yyyy-MM-dd", LocaleUtil.getDefault());
+				valueDate, "yyyy-MM-dd", LocaleUtil.getDefault());
 
 			dynamicContentElement.addCDATA(fieldValue);
 		}
