@@ -85,7 +85,7 @@ public class VerifyJournal extends VerifyProcess {
 	protected void doVerify() throws Exception {
 		verifyArticleContent();
 		verifyContent();
-		updateArticleDateFieldValueFormat();
+		updateJournalArticlesDateFieldValueFormat();
 		verifyDynamicElements();
 		updateFolderAssets();
 		verifyOracleNewLine();
@@ -149,56 +149,6 @@ public class VerifyJournal extends VerifyProcess {
 		transformDateFieldValues(dynamicElementElements);
 
 		return DDMXMLUtil.formatXML(document);
-	}
-
-	protected void updateArticleDateFieldValueFormat() throws Exception {
-
-		Connection con = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-
-		try {
-			con = DataAccess.getUpgradeOptimizedConnection();
-
-			ps = con.prepareStatement(
-				"select id_, content from JournalArticle where content like " +
-					"'%type=_ddm-date_%'");
-
-			rs = ps.executeQuery();
-
-			while (rs.next()) {
-				long id = rs.getLong("id_");
-
-				String content = rs.getString("content");
-
-				updateArticleDateFieldValueFormat(id, content);
-			}
-		}
-		finally {
-			DataAccess.cleanUp(con, ps, rs);
-		}
-	}
-
-	protected void updateArticleDateFieldValueFormat(long id, String content)
-		throws Exception {
-
-		Connection con = null;
-		PreparedStatement ps = null;
-
-		try {
-			con = DataAccess.getUpgradeOptimizedConnection();
-
-			ps = con.prepareStatement(
-				"update JournalArticle set content = ? where id_ = ?");
-
-			ps.setString(1, transformDateFieldValues(content));
-			ps.setLong(2, id);
-
-			ps.executeUpdate();
-		}
-		finally {
-			DataAccess.cleanUp(con, ps);
-		}
 	}
 
 	protected void updateDynamicElements(List<Element> dynamicElements)
@@ -338,6 +288,58 @@ public class VerifyJournal extends VerifyProcess {
 
 		JournalArticleImageLocalServiceUtil.updateJournalArticleImage(
 			articleImage);
+	}
+
+	protected void updateJournalArticlesDateFieldValueFormat()
+		throws Exception {
+
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			con = DataAccess.getUpgradeOptimizedConnection();
+
+			ps = con.prepareStatement(
+				"select id_, content from JournalArticle where content like " +
+					"'%type=_ddm-date_%'");
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				long id = rs.getLong("id_");
+
+				String content = rs.getString("content");
+
+				updateJournalArticlesDateFieldValueFormat(id, content);
+			}
+		}
+		finally {
+			DataAccess.cleanUp(con, ps, rs);
+		}
+	}
+
+	protected void updateJournalArticlesDateFieldValueFormat(
+			long id, String content)
+		throws Exception {
+
+		Connection con = null;
+		PreparedStatement ps = null;
+
+		try {
+			con = DataAccess.getUpgradeOptimizedConnection();
+
+			ps = con.prepareStatement(
+				"update JournalArticle set content = ? where id_ = ?");
+
+			ps.setString(1, transformDateFieldValues(content));
+			ps.setLong(2, id);
+
+			ps.executeUpdate();
+		}
+		finally {
+			DataAccess.cleanUp(con, ps);
+		}
 	}
 
 	protected void updateLinkToLayoutElements(long groupId, Element element) {
