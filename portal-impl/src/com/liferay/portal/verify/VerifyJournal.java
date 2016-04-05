@@ -39,15 +39,12 @@ import com.liferay.portal.kernel.xml.Node;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.service.ResourceLocalServiceUtil;
 import com.liferay.portal.util.PortalInstances;
-import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
 import com.liferay.portlet.dynamicdatamapping.NoSuchStructureException;
-import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
-import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMFieldsCounter;
 import com.liferay.portlet.dynamicdatamapping.util.DDMXMLUtil;
 import com.liferay.portlet.journal.model.JournalArticle;
@@ -88,7 +85,6 @@ public class VerifyJournal extends VerifyProcess {
 	protected void doVerify() throws Exception {
 		verifyArticleContent();
 		verifyContent();
-		verifyTypeParameters();
 		updateArticleDateFieldValueFormat();
 		verifyDynamicElements();
 		updateFolderAssets();
@@ -292,17 +288,6 @@ public class VerifyJournal extends VerifyProcess {
 		else if (type.equals("link_to_layout")) {
 			updateLinkToLayoutElements(groupId, element);
 		}
-	}
-
-	protected void updateElementTypeParameter(
-			DDMStructure structure, Element element)
-		throws Exception {
-
-		String name = element.attributeValue("name");
-
-		String type = structure.getFieldType(name);
-
-		element.addAttribute("type", type);
 	}
 
 	protected void updateFolderAssets() throws Exception {
@@ -589,33 +574,6 @@ public class VerifyJournal extends VerifyProcess {
 		JournalArticleLocalServiceUtil.updateJournalArticle(article);
 	}
 
-	protected void verifyDynamicElementTypeParameters(
-			Element element, JournalArticle article, DDMStructure structure)
-		throws Exception {
-
-		List<Element> dynamicElements = element.elements("dynamic-element");
-
-		for (Element dynamicElement : dynamicElements) {
-			if (Validator.isNull(dynamicElement.attribute("type"))) {
-				if (structure == null) {
-					long groupId = article.getGroupId();
-					long classNameId = PortalUtil.getClassNameId(
-						JournalArticle.class);
-					String structureKey = article.getStructureId();
-
-					structure =
-						DDMStructureLocalServiceUtil.getStructure(
-							groupId, classNameId, structureKey);
-				}
-
-				updateElementTypeParameter(structure, dynamicElement);
-			}
-
-			verifyDynamicElementTypeParameters(
-				dynamicElement, article, structure);
-		}
-	}
-
 	protected void verifyOracleNewLine() throws Exception {
 		DB db = DBFactoryUtil.getDB();
 
@@ -797,41 +755,6 @@ public class VerifyJournal extends VerifyProcess {
 
 		for (long companyId : companyIds) {
 			JournalFolderLocalServiceUtil.rebuildTree(companyId);
-		}
-	}
-
-	protected void verifyTypeParameters() throws Exception {
-		Connection con = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-
-		try {
-			con = DataAccess.getUpgradeOptimizedConnection();
-
-			ps = con.prepareStatement(
-				"select id_ from JournalArticle where structureId != ''");
-
-			rs = ps.executeQuery();
-
-			while (rs.next()) {
-				long id = rs.getLong("id_");
-
-				JournalArticle article =
-					JournalArticleLocalServiceUtil.getArticle(id);
-
-				Document document = SAXReaderUtil.read(article.getContent());
-
-				Element rootElement = document.getRootElement();
-
-				verifyDynamicElementTypeParameters(rootElement, article, null);
-
-				article.setContent(document.asXML());
-
-				JournalArticleLocalServiceUtil.updateJournalArticle(article);
-			}
-		}
-		finally {
-			DataAccess.cleanUp(con, ps, rs);
 		}
 	}
 
