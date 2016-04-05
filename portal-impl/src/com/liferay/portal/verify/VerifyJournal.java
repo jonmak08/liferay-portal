@@ -113,7 +113,7 @@ public class VerifyJournal extends VerifyProcess {
 		List<Element> dynamicElementElements) {
 
 		if ((dynamicElementElements == null) ||
-			dynamicElementElements.isEmpty()) {
+			dynamicElementElements.isEmpty() ) {
 
 			return;
 		}
@@ -295,6 +295,7 @@ public class VerifyJournal extends VerifyProcess {
 
 		Connection con = null;
 		PreparedStatement ps = null;
+
 		ResultSet rs = null;
 
 		try {
@@ -308,7 +309,6 @@ public class VerifyJournal extends VerifyProcess {
 
 			while (rs.next()) {
 				long id = rs.getLong("id_");
-
 				String content = rs.getString("content");
 
 				updateJournalArticlesDateFieldValueFormat(id, content);
