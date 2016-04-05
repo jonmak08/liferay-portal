@@ -48,6 +48,7 @@ portletURL.setParameter("classTypeId", String.valueOf(classTypeId));
 			<%
 			String label = (String)field.getObject(0);
 			String name = (String)field.getObject(1);
+			String fieldType = (String)field.getObject(2);
 			long ddmStructureId = GetterUtil.getLong(field.getObject(3));
 			%>
 
@@ -81,6 +82,10 @@ portletURL.setParameter("classTypeId", String.valueOf(classTypeId));
 					ddmField.setName(name);
 
 					if (name.equals(ddmStructureFieldName)) {
+						if (fieldType.equals(DDMImpl.TYPE_DDM_DATE)) {
+							ddmStructureFieldValue = GetterUtil.getDate(ddmStructureFieldValue, DateFormatFactoryUtil.getSimpleDateFormat("yyyyMMddHHmmss"));
+						}
+
 						ddmField.setValue(themeDisplay.getLocale(), ddmStructureFieldValue);
 					}
 					%>
