@@ -159,10 +159,10 @@ public class BaseDDMServiceTestCase {
 	protected Serializable getDateFieldValue(
 		int month, int day, int year, Locale locale) {
 
+		Date dateValue = PortalUtil.getDate(month, day, year);
+
 		DateFormat dateFormat = DateFormatFactoryUtil.getSimpleDateFormat(
 			"yyyy-MM-dd", locale);
-
-		Date dateValue = PortalUtil.getDate(month, day, year);
 
 		return dateFormat.format(dateValue);
 	}
