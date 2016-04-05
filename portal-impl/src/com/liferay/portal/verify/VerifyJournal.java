@@ -23,7 +23,6 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.CharPool;
-import com.liferay.portal.kernel.util.DateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.FriendlyURLNormalizerUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
@@ -46,7 +45,6 @@ import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
 import com.liferay.portlet.dynamicdatamapping.NoSuchStructureException;
 import com.liferay.portlet.dynamicdatamapping.util.DDMFieldsCounter;
-import com.liferay.portlet.dynamicdatamapping.util.DDMXMLUtil;
 import com.liferay.portlet.journal.model.JournalArticle;
 import com.liferay.portlet.journal.model.JournalArticleConstants;
 import com.liferay.portlet.journal.model.JournalArticleImage;
@@ -63,9 +61,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import java.text.DateFormat;
-
-import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -85,7 +80,6 @@ public class VerifyJournal extends VerifyProcess {
 	protected void doVerify() throws Exception {
 		verifyArticleContent();
 		verifyContent();
-		updateJournalArticlesDateFieldValueFormat();
 		verifyDynamicElements();
 		updateFolderAssets();
 		verifyOracleNewLine();
@@ -93,62 +87,6 @@ public class VerifyJournal extends VerifyProcess {
 		verifySearch();
 		verifyTree();
 		verifyURLTitle();
-	}
-
-	protected void transformDateFieldValue(Element dynamicContentElement) {
-		String valueString = dynamicContentElement.getText();
-
-		if (Validator.isNull(valueString) || !Validator.isNumber(valueString)) {
-			return;
-		}
-
-		Date dateValue = new Date(GetterUtil.getLong(valueString));
-
-		dynamicContentElement.clearContent();
-
-		dynamicContentElement.addCDATA(_dateFieldFormat.format(dateValue));
-	}
-
-	protected void transformDateFieldValues(
-		List<Element> dynamicElementElements) {
-
-		if ((dynamicElementElements == null) ||
-			dynamicElementElements.isEmpty() ) {
-
-			return;
-		}
-
-		for (Element dynamicElementElement : dynamicElementElements) {
-			String type = GetterUtil.getString(
-				dynamicElementElement.attributeValue("type"));
-
-			if (type.equals("ddm-date")) {
-				List<Element> dynamicContentElements =
-					dynamicElementElement.elements("dynamic-content");
-
-				for (Element dynamicContentElement : dynamicContentElements) {
-					transformDateFieldValue(dynamicContentElement);
-				}
-			}
-
-			List<Element> nestedDynamicElementElements =
-				dynamicElementElement.elements("dynamic-element");
-
-			transformDateFieldValues(nestedDynamicElementElements);
-		}
-	}
-
-	protected String transformDateFieldValues(String content) throws Exception {
-		Document document = SAXReaderUtil.read(content);
-
-		Element rootElement = document.getRootElement();
-
-		List<Element> dynamicElementElements = rootElement.elements(
-			"dynamic-element");
-
-		transformDateFieldValues(dynamicElementElements);
-
-		return DDMXMLUtil.formatXML(document);
 	}
 
 	protected void updateDynamicElements(List<Element> dynamicElements)
@@ -288,58 +226,6 @@ public class VerifyJournal extends VerifyProcess {
 
 		JournalArticleImageLocalServiceUtil.updateJournalArticleImage(
 			articleImage);
-	}
-
-	protected void updateJournalArticlesDateFieldValueFormat()
-		throws Exception {
-
-		Connection con = null;
-		PreparedStatement ps = null;
-
-		ResultSet rs = null;
-
-		try {
-			con = DataAccess.getUpgradeOptimizedConnection();
-
-			ps = con.prepareStatement(
-				"select id_, content from JournalArticle where content like " +
-					"'%type=_ddm-date_%'");
-
-			rs = ps.executeQuery();
-
-			while (rs.next()) {
-				long id = rs.getLong("id_");
-				String content = rs.getString("content");
-
-				updateJournalArticlesDateFieldValueFormat(id, content);
-			}
-		}
-		finally {
-			DataAccess.cleanUp(con, ps, rs);
-		}
-	}
-
-	protected void updateJournalArticlesDateFieldValueFormat(
-			long id, String content)
-		throws Exception {
-
-		Connection con = null;
-		PreparedStatement ps = null;
-
-		try {
-			con = DataAccess.getUpgradeOptimizedConnection();
-
-			ps = con.prepareStatement(
-				"update JournalArticle set content = ? where id_ = ?");
-
-			ps.setString(1, transformDateFieldValues(content));
-			ps.setLong(2, id);
-
-			ps.executeUpdate();
-		}
-		finally {
-			DataAccess.cleanUp(con, ps);
-		}
 	}
 
 	protected void updateLinkToLayoutElements(long groupId, Element element) {
@@ -787,9 +673,6 @@ public class VerifyJournal extends VerifyProcess {
 			DataAccess.cleanUp(con, ps, rs);
 		}
 	}
-
-	private static final DateFormat _dateFieldFormat =
-		DateFormatFactoryUtil.getSimpleDateFormat("yyyy-MM-dd");
 
 	private static Log _log = LogFactoryUtil.getLog(VerifyJournal.class);
 
