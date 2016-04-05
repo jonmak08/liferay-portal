@@ -268,6 +268,21 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 				StagedModelDataHandlerUtil.importStagedModel(
 					portletDataContext, ddmStructureElement);
 			}
+		}
+
+		if (portletDataContext.getBooleanParameter(NAMESPACE, "templates")) {
+			Element ddmTemplatesElement =
+				portletDataContext.getImportDataGroupElement(DDMTemplate.class);
+
+			List<Element> ddmTemplateElements = ddmTemplatesElement.elements();
+
+			for (Element ddmTemplateElement : ddmTemplateElements) {
+				StagedModelDataHandlerUtil.importStagedModel(
+					portletDataContext, ddmTemplateElement);
+			}
+		}
+
+		if (portletDataContext.getBooleanParameter(NAMESPACE, "structures")) {
 
 			// Importing DDM structure default values
 
@@ -280,18 +295,6 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 					StagedModelDataHandlerUtil.importStagedModel(
 						portletDataContext, articleElement);
 				}
-			}
-		}
-
-		if (portletDataContext.getBooleanParameter(NAMESPACE, "templates")) {
-			Element ddmTemplatesElement =
-				portletDataContext.getImportDataGroupElement(DDMTemplate.class);
-
-			List<Element> ddmTemplateElements = ddmTemplatesElement.elements();
-
-			for (Element ddmTemplateElement : ddmTemplateElements) {
-				StagedModelDataHandlerUtil.importStagedModel(
-					portletDataContext, ddmTemplateElement);
 			}
 		}
 
