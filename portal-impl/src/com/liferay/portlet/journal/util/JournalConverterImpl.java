@@ -24,7 +24,6 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.CharPool;
-import com.liferay.portal.kernel.util.DateUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -54,7 +53,6 @@ import com.liferay.portlet.dynamicdatamapping.util.DDMXMLUtil;
 
 import java.io.Serializable;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -979,16 +977,6 @@ public class JournalConverterImpl implements JournalConverter {
 			if (fieldValue.equals(Boolean.FALSE.toString())) {
 				fieldValue = StringPool.BLANK;
 			}
-
-			dynamicContentElement.addCDATA(fieldValue);
-		}
-		else if (DDMImpl.TYPE_DDM_DATE.equals(fieldType)) {
-			long valueTime = GetterUtil.getLong(fieldValue);
-
-			Date valueDate = new Date(valueTime);
-
-			fieldValue = DateUtil.getDate(
-				valueDate, "yyyy-MM-dd", LocaleUtil.getDefault());
 
 			dynamicContentElement.addCDATA(fieldValue);
 		}
