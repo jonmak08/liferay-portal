@@ -15,7 +15,6 @@
 package com.liferay.portlet.dynamicdatamapping.service;
 
 import com.liferay.portal.kernel.template.TemplateConstants;
-import com.liferay.portal.kernel.util.DateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -32,11 +31,7 @@ import com.liferay.portlet.dynamicdatamapping.storage.StorageType;
 
 import java.io.File;
 import java.io.InputStream;
-import java.io.Serializable;
 
-import java.text.DateFormat;
-
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -154,17 +149,6 @@ public class BaseDDMServiceTestCase {
 
 	protected String getBasePath() {
 		return "com/liferay/portlet/dynamicdatamapping/dependencies/";
-	}
-
-	protected Serializable getDateFieldValue(
-		int month, int day, int year, Locale locale) {
-
-		Date dateValue = PortalUtil.getDate(month, day, year);
-
-		DateFormat dateFormat = DateFormatFactoryUtil.getSimpleDateFormat(
-			"yyyy-MM-dd", locale);
-
-		return dateFormat.format(dateValue);
 	}
 
 	protected Map<Locale, String> getDefaultLocaleMap(String defaultValue) {
