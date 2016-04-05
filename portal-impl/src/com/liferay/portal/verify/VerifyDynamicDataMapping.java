@@ -628,20 +628,13 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 
 		String oldTemplateScript =
 			"getterUtil.getLong(" + dateFieldName + ".getData())";
+		String newTemplateScript =
+			"getterUtil.getLong(dateUtil.getTimeFromFormattedDate(" +
+				"\"yyyy-MM-dd\", " + dateFieldName + ".getData(), locale))";
 
 		if (script.indexOf(oldTemplateScript) == -1) {
 			return script;
 		}
-
-		StringBundler newTemplateScriptSB = new StringBundler(4);
-
-		newTemplateScriptSB.append(
-			"getterUtil.getLong(dateUtil.getTimeFromFormattedDate(");
-		newTemplateScriptSB.append("\"yyyy-MM-dd\", ");
-		newTemplateScriptSB.append(dateFieldName);
-		newTemplateScriptSB.append(".getData(), locale))");
-
-		String newTemplateScript = newTemplateScriptSB.toString();
 
 		if (_log.isInfoEnabled()) {
 			_log.info(
