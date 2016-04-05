@@ -709,7 +709,9 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 
 			String value = predefinedValueElement.getText();
 
-			if (Validator.isNotNull(value) && Validator.isNumber(value)) {
+			if (Validator.isNotNull(value) &&
+				Validator.isNumber(value)) {
+
 				Date date = new Date(GetterUtil.getLong(value));
 
 				predefinedValueElement.clearContent();
