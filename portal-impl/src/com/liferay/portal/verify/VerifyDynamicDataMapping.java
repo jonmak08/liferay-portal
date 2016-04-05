@@ -632,9 +632,12 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 	protected String updateTemplateScriptDateIfStatement(
 		String script, String dateFieldName) {
 
-		String fromSB = "<#if (" + dateFieldName + "_Data > 0)>";
-
+		StringBundler fromSB = new StringBundler(3);
 		StringBundler toSB = new StringBundler(7);
+
+		fromSB.append("<#if (");
+		fromSB.append(dateFieldName);
+		fromSB.append("_Data > 0)>");
 
 		toSB.append("<#assign ");
 		toSB.append(dateFieldName);
@@ -644,7 +647,7 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		toSB.append(dateFieldName);
 		toSB.append("_Data))>");
 
-		return StringUtil.replace(script, fromSB, toSB.toString());
+		return StringUtil.replace(script, fromSB.toString(), toSB.toString());
 	}
 
 	protected String updateTemplateScriptDateParseStatement(
