@@ -294,6 +294,17 @@ public class VerifyJournal extends VerifyProcess {
 		}
 	}
 
+	protected void updateElementTypeParameter(
+			DDMStructure structure, Element element)
+		throws Exception {
+
+		String name = element.attributeValue("name");
+
+		String type = structure.getFieldType(name);
+
+		element.addAttribute("type", type);
+	}
+
 	protected void updateFolderAssets() throws Exception {
 		List<JournalFolder> folders =
 			JournalFolderLocalServiceUtil.getNoAssetFolders();
@@ -598,11 +609,7 @@ public class VerifyJournal extends VerifyProcess {
 						groupId, classNameId, structureKey);
 				}
 
-				String name = dynamicElement.attributeValue("name");
-
-				String type = structure.getFieldType(name);
-
-				dynamicElement.addAttribute("type", type);
+				updateElementTypeParameter(structure, dynamicElement);
 			}
 
 			verifyDynamicElementTypeParameters(
