@@ -5934,12 +5934,12 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 	/**
 	 * Returns <code>true</code> if the user is assigned to a Regular role and
-	 * has edit controls for at least one site. If the user is only assigned to
+	 * can edit controls for at least one site. If the user is only assigned to
 	 * a Site or Organization role, this method returns <code>false</code>.
 	 *
 	 * @param  user the user
 	 * @return <code>true</code> if the user is assigned to a Regular role and
-	 *         has edit controls for at least one site; <code>false</code>
+	 *         can edit controls for at least one site; <code>false</code>
 	 *         otherwise
 	 * @throws PortalException if the current user did not have permission to
 	 *         view the user or role members
@@ -5967,8 +5967,8 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	 *
 	 * @param  groupIds the primary keys of the groups the user belongs to
 	 * @param  user the user
-	 * @return <code>true</code> if the user can edit controls for any group
-	 *         within the array of groups; <code>false</code> otherwise
+	 * @return <code>true</code> if the user can edit controls for all the
+	 *         groups; <code>false</code> otherwise
 	 * @throws PortalException if the current user did not have permission to
 	 *         view the user or role members
 	 * @throws SystemException if a system exception occurred
