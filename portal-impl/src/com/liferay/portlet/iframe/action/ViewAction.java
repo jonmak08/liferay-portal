@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Portlet;
@@ -126,24 +127,29 @@ public class ViewAction extends PortletAction {
 			String protocol = src.substring(0, pos + 3);
 			String url = src.substring(pos + 3);
 
-			src = protocol + userName + ":" + password + "@" + url;
-		}
-		else {
-			ThemeDisplay themeDisplay =
-				(ThemeDisplay)renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
-
-			String portletId = PortalUtil.getPortletId(renderRequest);
-
-			Portlet portlet = PortletLocalServiceUtil.getPortletById(
-				themeDisplay.getCompanyId(), portletId);
-
-			src =
-				themeDisplay.getPortalURL() + themeDisplay.getPathMain() + "/" +
-					portlet.getStrutsPath() + "/proxy?p_l_id=" +
-						themeDisplay.getPlid() + "&p_p_id=" + portletId;
+			return protocol + userName + ":" + password + "@" + url;
 		}
 
-		return src;
+		ThemeDisplay themeDisplay = (ThemeDisplay)renderRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		String portletId = PortalUtil.getPortletId(renderRequest);
+
+		Portlet portlet = PortletLocalServiceUtil.getPortletById(
+			themeDisplay.getCompanyId(), portletId);
+
+		StringBundler sb = new StringBundler(8);
+
+		sb.append(themeDisplay.getPortalURL());
+		sb.append(themeDisplay.getPathMain());
+		sb.append(StringPool.SLASH);
+		sb.append(portlet.getStrutsPath());
+		sb.append("/proxy?p_l_id=");
+		sb.append(themeDisplay.getPlid());
+		sb.append("&p_p_id=");
+		sb.append(portletId);
+
+		return sb.toString();
 	}
 
 }
