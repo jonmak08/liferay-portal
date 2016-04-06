@@ -200,7 +200,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	 * @param  middleName the user's middle name
 	 * @param  lastName the user's last name
 	 * @return the new default admin user
-	 * @throws PortalException n if a portal exception occurred
+	 * @throws PortalException if a portal exception occurred
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
@@ -2792,6 +2792,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	 * @deprecated As of 6.2.0, replaced by {@link
 	 *             #getUserByUuidAndCompanyId(String, long)}
 	 */
+	@Deprecated
 	@Override
 	public User getUserByUuid(String uuid)
 		throws PortalException, SystemException {
@@ -5870,8 +5871,8 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	/**
 	 * Returns <code>true</code> if the user can edit controls for the group.
 	 *
-	 * @param  groupId the primary key of the Group object
-	 * @param  permissionChecker the PermissionChecker object
+	 * @param  groupId the primary key of the group
+	 * @param  permissionChecker the permission checker
 	 * @return <code>true</code> if the user can edit controls for the site;
 	 *         <code>false</code> otherwise
 	 * @throws PortalException if the current user did not have permission to
@@ -5888,13 +5889,12 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 	/**
 	 * Returns <code>true</code> if the user can edit controls for any
-	 * organizations within the array of groups.
+	 * organization within the groups.
 	 *
-	 * @param  organizationIds array of organizations the user belongs to
-	 * @param  user the user object
-	 * @return <code>true</code> if the user can edit controls for any group
-	 *         within the array of groups.
-	 *         <code>false</code> otherwise
+	 * @param  organizationIds the organizations the user belongs to
+	 * @param  user the user
+	 * @return <code>true</code> if the user can edit controls for any
+	 *         organization within the groups; <code>false</code> otherwise
 	 * @throws PortalException if the current user did not have permission to
 	 *         view the user or role members
 	 * @throws SystemException if a system exception occurred
@@ -5933,13 +5933,14 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	}
 
 	/**
-	 * Returns <code>true</code> if the user has edit controls due to a regular
-	 * role.
+	 * Returns <code>true</code> if the user is assigned to a Regular role and
+	 * has edit controls for at least one site. If the user is only assigned to
+	 * a Site or Organization role, this method returns <code>false</code>.
 	 *
-	 * @param  user the User object
-	 * @return <code>true</code> if the user can edit controls for at least one
-	 *         site;
-	 *         <code>false</code> otherwise
+	 * @param  user the user
+	 * @return <code>true</code> if the user is assigned to a Regular role and
+	 *         has edit controls for at least one site; <code>false</code>
+	 *         otherwise
 	 * @throws PortalException if the current user did not have permission to
 	 *         view the user or role members
 	 * @throws SystemException if a system exception occurred
@@ -5961,14 +5962,13 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	}
 
 	/**
-	 * Returns <code>true</code> if the user can edit controls for any
-	 * groups within the array.
+	 * Returns <code>true</code> if the user can edit controls for all the
+	 * groups.
 	 *
-	 * @param  groupIds array of groups the user belongs to
-	 * @param  user the user object
+	 * @param  groupIds the primary keys of the groups the user belongs to
+	 * @param  user the user
 	 * @return <code>true</code> if the user can edit controls for any group
-	 *         within the array of groups.
-	 *         <code>false</code> otherwise
+	 *         within the array of groups; <code>false</code> otherwise
 	 * @throws PortalException if the current user did not have permission to
 	 *         view the user or role members
 	 * @throws SystemException if a system exception occurred
