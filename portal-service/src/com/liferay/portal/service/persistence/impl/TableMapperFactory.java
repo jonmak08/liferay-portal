@@ -42,18 +42,18 @@ public class TableMapperFactory {
 			TableMapperImpl<L, R> tableMapperImpl = null;
 
 			if (cacheMappingTableNames.contains(tableName)) {
-				tableMapperImpl = new TableMapperImpl<>(
+				tableMapperImpl = new TableMapperImpl<L, R>(
 					tableName, leftColumnName, rightColumnName, leftPersistence,
 					rightPersistence);
 			}
 			else {
-				tableMapperImpl = new CachelessTableMapperImpl<>(
+				tableMapperImpl = new CachelessTableMapperImpl<L, R>(
 					tableName, leftColumnName, rightColumnName, leftPersistence,
 					rightPersistence);
 			}
 
 			tableMapperImpl.setReverseTableMapper(
-				new ReverseTableMapper<>(tableMapperImpl));
+				new ReverseTableMapper<R, L>(tableMapperImpl));
 
 			tableMapper = tableMapperImpl;
 
@@ -79,6 +79,6 @@ public class TableMapperFactory {
 			PropsUtil.getArray(
 				PropsKeys.TABLE_MAPPER_CACHE_MAPPING_TABLE_NAMES));
 	protected static final Map<String, TableMapper<?, ?>> tableMappers =
-		new ConcurrentHashMap<>();
+		new ConcurrentHashMap<String, TableMapper<?, ?>>();
 
 }

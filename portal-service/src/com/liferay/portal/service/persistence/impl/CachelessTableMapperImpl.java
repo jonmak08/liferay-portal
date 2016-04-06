@@ -17,7 +17,6 @@ package com.liferay.portal.service.persistence.impl;
 import com.liferay.portal.kernel.cache.CacheListener;
 import com.liferay.portal.kernel.cache.CacheListenerScope;
 import com.liferay.portal.kernel.cache.PortalCache;
-import com.liferay.portal.kernel.cache.PortalCacheManager;
 import com.liferay.portal.kernel.dao.jdbc.MappingSqlQuery;
 import com.liferay.portal.kernel.dao.jdbc.MappingSqlQueryFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.RowMapper;
@@ -27,6 +26,7 @@ import com.liferay.portal.service.persistence.BasePersistence;
 
 import java.sql.Types;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -54,18 +54,17 @@ public class CachelessTableMapperImpl
 				new int[] {Types.BIGINT, Types.BIGINT}, RowMapper.COUNT);
 
 		leftToRightPortalCache = new DummyPortalCache(
-			leftToRightPortalCache.getName(),
-			leftToRightPortalCache.getPortalCacheManager());
+			leftToRightPortalCache.getName());
 		rightToLeftPortalCache = new DummyPortalCache(
-			rightToLeftPortalCache.getName(),
-			rightToLeftPortalCache.getPortalCacheManager());
+			rightToLeftPortalCache.getName());
 
 		destroy();
 	}
 
 	@Override
 	protected boolean containsTableMapping(
-		long leftPrimaryKey, long rightPrimaryKey, boolean updateCache) {
+		long leftPrimaryKey, long rightPrimaryKey, boolean updateCache)
+	throws SystemException {
 
 		List<Integer> counts = null;
 
@@ -96,6 +95,15 @@ public class CachelessTableMapperImpl
 		implements PortalCache<Long, long[]> {
 
 		@Override
+		public void destroy() {
+		}
+
+		@Override
+		public Collection<long[]> get(Collection<Long> keys) {
+			return Collections.emptyList();
+		}
+
+		@Override
 		public long[] get(Long key) {
 			return null;
 		}
@@ -108,11 +116,6 @@ public class CachelessTableMapperImpl
 		@Override
 		public String getName() {
 			return name;
-		}
-
-		@Override
-		public PortalCacheManager<Long, long[]> getPortalCacheManager() {
-			return portalCacheManager;
 		}
 
 		@Override
@@ -151,15 +154,11 @@ public class CachelessTableMapperImpl
 		public void unregisterCacheListeners() {
 		}
 
-		protected DummyPortalCache(
-			String name, PortalCacheManager<Long, long[]> portalCacheManager) {
-
+		protected DummyPortalCache(String name) {
 			this.name = name;
-			this.portalCacheManager = portalCacheManager;
 		}
 
 		protected final String name;
-		protected final PortalCacheManager<Long, long[]> portalCacheManager;
 
 	}
 
