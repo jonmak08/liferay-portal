@@ -116,6 +116,12 @@
 	.textboxlistentry-remove {
 		padding: 0 3px 1px;
 	}
+
+	.toolbar-content {
+		.btn-group {
+			white-space: normal;
+		}
+	}
 }
 
 .tagselector {
