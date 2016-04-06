@@ -23,8 +23,7 @@
 
 		<!-- LRQA-21665 -->
 
-		<!--
-		<execute macro="Vocabulary#addCP">
+		<!--<execute macro="Vocabulary#addCP">
 			<var name="vocabularyName" value="Vocabulary Name" />
 		</execute>
 
@@ -165,8 +164,6 @@
 
 		<execute macro="DMDocument#viewCategories">
 			<var name="categoryNameList" value="legal,Other" />
-		</execute>
-		-->
-
+		</execute>-->
 	</command>
 </definition>

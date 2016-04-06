@@ -30,8 +30,7 @@
 
 		<!-- LRQA-23190 -->
 
-		<!--
-		<execute macro="Page#gotoCP">
+		<!--<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
@@ -190,8 +189,6 @@
 
 		<execute macro="Portlet#viewSpecificPG">
 			<var name="portletName" value="To-Do List" />
-		</execute>
-		-->
-
+		</execute>-->
 	</command>
 </definition>

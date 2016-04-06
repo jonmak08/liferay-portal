@@ -35,8 +35,7 @@
 
 		<!-- LRQA-20937 -->
 
-		<!--
-		<execute macro="Audit#searchCP">
+		<!--<execute macro="Audit#searchCP">
 			<var name="searchTerm" value="10201" />
 			<var name="userId" value="10201" />
 			<var name="userName" value="${userName}" />

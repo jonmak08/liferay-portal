@@ -17,8 +17,7 @@
 
 		<!-- LRQA-20937 -->
 
-		<!--
-		<execute macro="Portlet#addPG">
+		<!--<execute macro="Portlet#addPG">
 			<var name="portletName" value="Web Proxy" />
 		</execute>
 
