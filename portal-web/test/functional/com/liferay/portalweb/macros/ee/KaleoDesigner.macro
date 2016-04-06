@@ -41,15 +41,11 @@
 	</command>
 
 	<command name="addConnectorViaViewTab">
+		<var name="coords" value="${coords}" />
 		<var method="StringUtil#replace('${nodeType}', '-', '_')" name="key_nodeType" />
 
-		<execute function="SikuliMouseMove" locator1="Kaleodesigner#NODE_CORNER" />
-		<execute function="SikuliLeftMouseDown" />
+		<execute function="SikuliDragAndDrop" locator1="Kaleodesigner#NODE_CORNER" value1="${coords}" />
 
-		<var method="StringUtil#replace('${nodeTypeDestination}', '-', '_')" name="key_nodeType" />
-
-		<execute function="SikuliMouseMove" locator1="Kaleodesigner#NODE_CORNER" />
-		<execute function="SikuliLeftMouseUp" />
 		<execute function="Click" locator1="Kaleodesigner#VIEW_FORM_CONNECTOR_DEFAULT" />
 
 		<execute macro="KaleoDesigner#editConnectorName">
