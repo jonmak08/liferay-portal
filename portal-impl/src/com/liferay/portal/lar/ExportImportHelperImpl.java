@@ -725,6 +725,9 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 							PortletDataContext.REFERENCE_TYPE_DEPENDENCY);
 					}
 					else {
+						validateReferencedFileEntryGroup(
+							portletDataContext, fileEntry);
+
 						portletDataContext.addReferenceElement(
 							entityStagedModel, entityElement, fileEntry,
 							PortletDataContext.REFERENCE_TYPE_DEPENDENCY, true);
@@ -1594,6 +1597,23 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 		}
 		finally {
 			zipReader.close();
+		}
+	}
+
+	@Override
+	public void validateReferencedFileEntryGroup(
+			PortletDataContext portletDataContext, FileEntry fileEntry)
+		throws PortletDataException {
+
+		if ((fileEntry.getGroupId() != portletDataContext.getGroupId()) &&
+			(fileEntry.getGroupId() != portletDataContext.getScopeGroupId())) {
+
+			PortletDataException pde = new PortletDataException(
+				PortletDataException.INVALID_GROUP);
+
+			pde.setStagedModel(fileEntry);
+
+			throw pde;
 		}
 	}
 

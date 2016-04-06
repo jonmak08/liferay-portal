@@ -259,6 +259,14 @@ public class ExportImportHelperUtil {
 			userId, groupId, parameterMap, file);
 	}
 
+	public static void validateReferencedFileEntryGroup(
+			PortletDataContext portletDataContext, FileEntry fileEntry)
+		throws PortletDataException {
+
+		getExportImportHelper().validateReferencedFileEntryGroup(
+			portletDataContext, fileEntry);
+	}
+
 	public static void writeManifestSummary(
 		Document document, ManifestSummary manifestSummary) {
 

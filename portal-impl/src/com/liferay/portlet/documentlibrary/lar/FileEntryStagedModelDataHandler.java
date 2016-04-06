@@ -17,6 +17,7 @@ package com.liferay.portlet.documentlibrary.lar;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.BaseStagedModelDataHandler;
+import com.liferay.portal.kernel.lar.ExportImportHelperUtil;
 import com.liferay.portal.kernel.lar.ExportImportPathUtil;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.lar.PortletDataContext;
@@ -671,16 +672,8 @@ public class FileEntryStagedModelDataHandler
 			PortletDataContext portletDataContext, FileEntry fileEntry)
 		throws PortletDataException {
 
-		if ((fileEntry.getGroupId() != portletDataContext.getGroupId()) &&
-			(fileEntry.getGroupId() != portletDataContext.getScopeGroupId())) {
-
-			PortletDataException pde = new PortletDataException(
-				PortletDataException.INVALID_GROUP);
-
-			pde.setStagedModel(fileEntry);
-
-			throw pde;
-		}
+		ExportImportHelperUtil.validateReferencedFileEntryGroup(
+			portletDataContext, fileEntry);
 
 		try {
 			FileVersion fileVersion = fileEntry.getFileVersion();

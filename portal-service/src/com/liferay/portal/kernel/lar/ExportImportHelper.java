@@ -186,6 +186,10 @@ public interface ExportImportHelper {
 			File file)
 		throws Exception;
 
+	public void validateReferencedFileEntryGroup(
+			PortletDataContext portletDataContext, FileEntry fileEntry)
+		throws PortletDataException;
+
 	public void writeManifestSummary(
 		Document document, ManifestSummary manifestSummary);
 
