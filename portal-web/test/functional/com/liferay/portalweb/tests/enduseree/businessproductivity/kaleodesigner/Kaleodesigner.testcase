@@ -232,6 +232,7 @@
 
 		<execute macro="KaleoDesigner#addConnectorViaViewTab">
 			<var name="connectorName" value="Join2" />
+			<var name="coords" value="180,-10" />
 			<var name="nodeType" value="state" />
 			<var name="nodeTypeDestination" value="join-xor" />
 		</execute>
@@ -746,6 +747,7 @@
 
 		<execute macro="KaleoDesigner#addConnectorViaViewTab">
 			<var name="connectorName" value="Reverse" />
+			<var name="coords" value="-100,-60" />
 			<var name="nodeType" value="task" />
 			<var name="nodeTypeDestination" value="start" />
 		</execute>
