@@ -214,7 +214,7 @@
 				<execute function="Select" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_SELECT" value1="regexp:–\s+${ddlRecordFieldData}" />
 			</then>
 			<else>
-				<execute function="AssertClick" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_SELECT_PAGE_BUTTON" value1="select-page" />
+				<execute function="AssertClick" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_SELECT_PAGE_BUTTON" value1="Select Page" />
 
 				<var name="key_navItem" value="${pagePrivacy} Pages" />
 
