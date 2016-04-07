@@ -409,7 +409,15 @@
 
 		<var name="key_rsvp" value="${rsvp}" />
 
-		<execute function="AssertClick" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_ATTEND_ACTIVE" value1="${rsvp}" />
+		<if>
+			<condition function="IsElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_ATTEND_INACTIVE" value1="${rsvp}" />
+			<then>
+				<execute function="AssertElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_ATTEND_INACTIVE" value1="${rsvp}" />
+			</then>
+			<else>
+				<execute function="AssertClick" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_ATTEND_ACTIVE" value1="${rsvp}" />
+			</else>
+		</if>
 
 		<execute function="Pause" value1="3000" />
 
