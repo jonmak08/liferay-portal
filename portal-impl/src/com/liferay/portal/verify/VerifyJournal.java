@@ -54,10 +54,10 @@ import com.liferay.portlet.journal.model.JournalContentSearch;
 import com.liferay.portlet.journal.model.JournalFolder;
 import com.liferay.portlet.journal.service.JournalArticleImageLocalServiceUtil;
 import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
-import com.liferay.portlet.journal.service.JournalArticleResourceLocalServiceUtil;
 import com.liferay.portlet.journal.service.JournalContentSearchLocalServiceUtil;
 import com.liferay.portlet.journal.service.JournalFolderLocalServiceUtil;
 import com.liferay.portlet.journal.service.persistence.JournalArticleActionableDynamicQuery;
+import com.liferay.portlet.journal.service.persistence.JournalArticleResourceActionableDynamicQuery;
 import com.liferay.portlet.journal.util.JournalConverterUtil;
 import com.liferay.portlet.journal.util.comparator.ArticleVersionComparator;
 
@@ -426,20 +426,24 @@ public class VerifyJournal extends VerifyProcess {
 
 	protected void verifyCreateDate() throws Exception {
 		ActionableDynamicQuery actionableDynamicQuery =
-			JournalArticleResourceLocalServiceUtil.getActionableDynamicQuery();
-
-		actionableDynamicQuery.setPerformActionMethod(
-			new ActionableDynamicQuery.PerformActionMethod() {
+			new JournalArticleResourceActionableDynamicQuery() {
 
 				@Override
 				public void performAction(Object object) {
 					JournalArticleResource articleResource =
 						(JournalArticleResource)object;
-
-					verifyCreateDate(articleResource);
+					try {
+						verifyCreateDate(articleResource);
+					}
+					catch (Exception e) {
+						_log.error(
+							"Unable to update create date for article " +
+								articleResource.getArticleId(),
+							e);
+					}
 				}
 
-			});
+			};
 
 		actionableDynamicQuery.performActions();
 
@@ -448,7 +452,9 @@ public class VerifyJournal extends VerifyProcess {
 		}
 	}
 
-	protected void verifyCreateDate(JournalArticleResource articleResource) {
+	protected void verifyCreateDate(JournalArticleResource articleResource)
+		throws SystemException {
+
 		List<JournalArticle> articles =
 			JournalArticleLocalServiceUtil.getArticles(
 				articleResource.getGroupId(), articleResource.getArticleId(),

@@ -16,12 +16,13 @@ package com.liferay.portal.verify;
 
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portlet.wiki.model.WikiPage;
 import com.liferay.portlet.wiki.model.WikiPageResource;
 import com.liferay.portlet.wiki.service.WikiPageLocalServiceUtil;
-import com.liferay.portlet.wiki.service.WikiPageResourceLocalServiceUtil;
+import com.liferay.portlet.wiki.service.persistence.WikiPageResourceActionableDynamicQuery;
 import com.liferay.portlet.wiki.util.comparator.PageVersionComparator;
 
 import java.util.Date;
@@ -40,19 +41,24 @@ public class VerifyWiki extends VerifyProcess {
 
 	protected void verifyCreateDate() throws Exception {
 		ActionableDynamicQuery actionableDynamicQuery =
-			WikiPageResourceLocalServiceUtil.getActionableDynamicQuery();
-
-		actionableDynamicQuery.setPerformActionMethod(
-			new ActionableDynamicQuery.PerformActionMethod() {
+			new WikiPageResourceActionableDynamicQuery() {
 
 				@Override
 				public void performAction(Object object) {
 					WikiPageResource pageResource = (WikiPageResource)object;
 
-					verifyCreateDate(pageResource);
+					try {
+						verifyCreateDate(pageResource);
+					}
+					catch (Exception e) {
+						_log.error(
+							"Unable to update create date for pages " +
+								pageResource.getNodeId(),
+							e);
+					}
 				}
 
-			});
+			};
 
 		actionableDynamicQuery.performActions();
 
@@ -61,7 +67,9 @@ public class VerifyWiki extends VerifyProcess {
 		}
 	}
 
-	protected void verifyCreateDate(WikiPageResource pageResource) {
+	protected void verifyCreateDate(WikiPageResource pageResource)
+		throws SystemException {
+
 		List<WikiPage> pages = WikiPageLocalServiceUtil.getPages(
 			pageResource.getNodeId(), pageResource.getTitle(),
 			QueryUtil.ALL_POS, QueryUtil.ALL_POS,
