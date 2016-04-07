@@ -2548,6 +2548,15 @@ public class JournalArticleLocalServiceImpl
 	}
 
 	@Override
+	public List<JournalArticle> getArticles(
+		long groupId, String articleId, int start, int end,
+		OrderByComparator orderByComparator) throws SystemException {
+
+		return journalArticlePersistence.findByG_A(
+			groupId, articleId, start, end, orderByComparator);
+	}
+
+	@Override
 	public List<JournalArticle> getArticlesByResourcePrimKey(
 			long resourcePrimKey)
 		throws SystemException {
