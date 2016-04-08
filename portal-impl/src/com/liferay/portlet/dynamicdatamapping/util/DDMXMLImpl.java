@@ -24,6 +24,7 @@ import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Attribute;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.DocumentException;
@@ -152,6 +153,11 @@ public class DDMXMLImpl implements DDMXML {
 					String defaultLanguageId =
 						dynamicElementElement.attributeValue(
 							"default-language-id");
+
+					if (Validator.isNull(defaultLanguageId)) {
+						defaultLanguageId = rootElement.attributeValue(
+							"default-locale");
+					}
 
 					Locale defaultLocale = LocaleUtil.fromLanguageId(
 						defaultLanguageId);
