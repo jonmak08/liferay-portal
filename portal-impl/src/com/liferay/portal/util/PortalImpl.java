@@ -6526,6 +6526,11 @@ public class PortalImpl implements Portal {
 	}
 
 	@Override
+	public boolean isOmniadmin(User user) {
+		return OmniadminUtil.isOmniadmin(user);
+	}
+
+	@Override
 	public boolean isReservedParameter(String name) {
 		return _reservedParams.contains(name);
 	}
