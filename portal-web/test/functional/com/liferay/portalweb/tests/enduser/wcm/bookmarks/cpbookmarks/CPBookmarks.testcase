@@ -261,7 +261,7 @@
 			<var name="bookmarkURL" value="http://www.liferay.com" />
 			<var name="editBookmarkDescription" value="This is a test bookmark edit!" />
 			<var name="editBookmarkName" value="Test Bookmark Edit" />
-			<var name="editBookmarkURL" value="http://www.narutofan.com" />
+			<var name="editBookmarkURL" value="https://www.google.com" />
 		</execute>
 	</command>
 
