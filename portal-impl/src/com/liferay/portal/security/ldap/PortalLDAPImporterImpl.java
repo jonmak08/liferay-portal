@@ -1077,7 +1077,9 @@ public class PortalLDAPImporterImpl implements PortalLDAPImporter {
 			userGroupId);
 
 		for (User user : userGroupUsers) {
-			if (!newUserIds.contains(user.getUserId())) {
+			if ((ldapServerId == user.getLdapServerId()) &&
+				!newUserIds.contains(user.getUserId())) {
+
 				UserLocalServiceUtil.deleteUserGroupUser(
 					userGroupId, user.getUserId());
 			}
