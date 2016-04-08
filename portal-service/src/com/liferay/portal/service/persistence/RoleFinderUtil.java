@@ -67,6 +67,11 @@ public class RoleFinderUtil {
 		return getFinder().countByKeywords(companyId, keywords, types, params);
 	}
 
+	public static int countByUserGroupGroupRole(long userId, long groupId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getFinder().countByUserGroupGroupRole(userId, groupId);
+	}
+
 	public static java.util.List<com.liferay.portal.model.Role> findBySystem(
 		long companyId)
 		throws com.liferay.portal.kernel.exception.SystemException {
@@ -77,6 +82,12 @@ public class RoleFinderUtil {
 		long userId, long groupId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getFinder().findByUserGroupGroupRole(userId, groupId);
+	}
+
+	public static java.util.List<com.liferay.portal.model.Role> findByUserGroupGroupRole(
+		long userId, long groupId, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getFinder().findByUserGroupGroupRole(userId, groupId, start, end);
 	}
 
 	public static java.util.List<com.liferay.portal.model.Role> findByUserGroupRole(

@@ -939,6 +939,15 @@ public interface RoleLocalService extends BaseLocalService,
 		long userId, long groupId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public java.util.List<com.liferay.portal.model.Role> getUserGroupGroupRoles(
+		long userId, long groupId, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public int getUserGroupGroupRolesCount(long userId, long groupId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
 	/**
 	* Returns all the user's roles within the user group.
 	*

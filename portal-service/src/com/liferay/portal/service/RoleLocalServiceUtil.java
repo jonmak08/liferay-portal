@@ -1058,6 +1058,17 @@ public class RoleLocalServiceUtil {
 		return getService().getUserGroupGroupRoles(userId, groupId);
 	}
 
+	public static java.util.List<com.liferay.portal.model.Role> getUserGroupGroupRoles(
+		long userId, long groupId, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().getUserGroupGroupRoles(userId, groupId, start, end);
+	}
+
+	public static int getUserGroupGroupRolesCount(long userId, long groupId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().getUserGroupGroupRolesCount(userId, groupId);
+	}
+
 	/**
 	* Returns all the user's roles within the user group.
 	*

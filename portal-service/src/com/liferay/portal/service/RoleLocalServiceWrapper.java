@@ -1118,6 +1118,20 @@ public class RoleLocalServiceWrapper implements RoleLocalService,
 		return _roleLocalService.getUserGroupGroupRoles(userId, groupId);
 	}
 
+	@Override
+	public java.util.List<com.liferay.portal.model.Role> getUserGroupGroupRoles(
+		long userId, long groupId, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _roleLocalService.getUserGroupGroupRoles(userId, groupId, start,
+			end);
+	}
+
+	@Override
+	public int getUserGroupGroupRolesCount(long userId, long groupId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _roleLocalService.getUserGroupGroupRolesCount(userId, groupId);
+	}
+
 	/**
 	* Returns all the user's roles within the user group.
 	*
