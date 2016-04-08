@@ -525,20 +525,25 @@ public class VerifyJournal extends VerifyProcess {
 
 	protected void verifyModifiedDate() throws Exception {
 		ActionableDynamicQuery actionableDynamicQuery =
-			JournalArticleResourceLocalServiceUtil.getActionableDynamicQuery();
-
-		actionableDynamicQuery.setPerformActionMethod(
-			new ActionableDynamicQuery.PerformActionMethod() {
+			new JournalArticleResourceActionableDynamicQuery() {
 
 				@Override
 				public void performAction(Object object) {
 					JournalArticleResource articleResource =
 						(JournalArticleResource)object;
 
-					verifyModifiedDate(articleResource);
+					try {
+						verifyModifiedDate(articleResource);
+					}
+					catch (Exception e) {
+						_log.error(
+							"Unable to update modified date for article " +
+								articleResource.getArticleId(),
+							e);
+					}
 				}
 
-			});
+		};
 
 		actionableDynamicQuery.performActions();
 
@@ -547,7 +552,9 @@ public class VerifyJournal extends VerifyProcess {
 		}
 	}
 
-	protected void verifyModifiedDate(JournalArticleResource articleResource) {
+	protected void verifyModifiedDate(JournalArticleResource articleResource)
+		throws SystemException {
+
 		JournalArticle article =
 			JournalArticleLocalServiceUtil.fetchLatestArticle(
 				articleResource.getResourcePrimKey(),
