@@ -262,7 +262,15 @@
 	</command>
 
 	<command name="gotoCP">
-		<description message="Navigate to Control Panel > ${portletName}." />
+		<if>
+			<isset var="portletName" />
+			<then>
+				<description message="Navigate to Control Panel > ${portletName}." />
+			</then>
+			<else>
+				<description message="Navigate to Control Panel." />
+			</else>
+		</if>
 
 		<execute macro="Page#openURL">
 			<var name="friendlyURL" value="${friendlyURL}" />
