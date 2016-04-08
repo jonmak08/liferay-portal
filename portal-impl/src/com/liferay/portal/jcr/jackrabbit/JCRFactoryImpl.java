@@ -100,6 +100,15 @@ public class JCRFactoryImpl implements JCRFactory {
 	@Override
 	public void prepare() throws RepositoryException {
 		try {
+			File jackrabbitConfigFile = new File(
+				JCRFactoryImpl.CONFIG_FILE_PATH);
+
+			if (jackrabbitConfigFile.exists() &&
+				jackrabbitConfigFile.isFile()) {
+
+				return;
+			}
+
 			FileUtil.mkdirs(JCRFactoryImpl.REPOSITORY_ROOT);
 
 			File tempFile = new File(
@@ -121,8 +130,7 @@ public class JCRFactoryImpl implements JCRFactory {
 			FileUtil.write(
 				tempFile, classLoader.getResourceAsStream(repositoryXmlPath));
 
-			FileUtil.copyFile(
-				tempFile, new File(JCRFactoryImpl.CONFIG_FILE_PATH));
+			FileUtil.copyFile(tempFile, jackrabbitConfigFile);
 
 			tempFile.delete();
 		}
