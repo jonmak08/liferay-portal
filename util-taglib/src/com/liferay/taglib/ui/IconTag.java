@@ -20,6 +20,7 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.taglib.util.IncludeTag;
+import com.liferay.portal.kernel.util.HtmlUtil;
 
 import java.util.Map;
 
@@ -202,6 +203,7 @@ public class IconTag extends IncludeTag {
 				id = PortalUtil.generateRandomKey(
 					request, IconTag.class.getName());
 			}
+			id = HtmlUtil.getAUICompatibleId(id);
 		}
 
 		request.setAttribute("liferay-ui:icon:alt", _alt);
