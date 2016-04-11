@@ -39,7 +39,6 @@ import com.liferay.portal.kernel.events.InvokerSessionAction;
 import com.liferay.portal.kernel.events.InvokerSimpleAction;
 import com.liferay.portal.kernel.events.SessionAction;
 import com.liferay.portal.kernel.events.SimpleAction;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.format.PhoneNumberFormat;
 import com.liferay.portal.kernel.format.PhoneNumberFormatUtil;
 import com.liferay.portal.kernel.format.PhoneNumberFormatWrapper;
@@ -1011,11 +1010,13 @@ public class HookHotDeployListener
 		}
 	}
 
-	protected Locale getLocale(String languagePropertiesLocation)
-		throws SystemException {
-
+	protected Locale getLocale(String languagePropertiesLocation) {
 		int x = languagePropertiesLocation.indexOf(CharPool.UNDERLINE);
 		int y = languagePropertiesLocation.indexOf(".properties");
+
+		if ((x == -1) && (y != -1)) {
+			return new Locale(StringPool.BLANK);
+		}
 
 		Locale locale = null;
 
@@ -1023,10 +1024,6 @@ public class HookHotDeployListener
 			String localeKey = languagePropertiesLocation.substring(x + 1, y);
 
 			locale = LocaleUtil.fromLanguageId(localeKey, true, false);
-
-			if (locale == null) {
-				throw new SystemException("Invalid locale " + localeKey);
-			}
 		}
 
 		return locale;
@@ -1575,28 +1572,25 @@ public class HookHotDeployListener
 			String languagePropertiesLocation =
 				languagePropertiesElement.getText();
 
-			Locale locale = null;
+			Locale locale = getLocale(languagePropertiesLocation);
 
-			try {
-				locale = getLocale(languagePropertiesLocation);
-			}
-			catch (Exception e) {
+			if (locale == null) {
 				if (_log.isInfoEnabled()) {
-					_log.info("Ignoring " + languagePropertiesLocation, e);
+					_log.info("Ignoring " + languagePropertiesLocation);
 				}
 
 				continue;
 			}
 
-			if (locale != null) {
-				if (!checkPermission(
-						PACLConstants.
-							PORTAL_HOOK_PERMISSION_LANGUAGE_PROPERTIES_LOCALE,
-						portletClassLoader, locale,
-						"Rejecting locale " + locale)) {
+			String languageId = LocaleUtil.toLanguageId(locale);
 
-					continue;
-				}
+			if (!StringPool.BLANK.equals(languageId) &&
+				!checkPermission(
+					PACLConstants.
+						PORTAL_HOOK_PERMISSION_LANGUAGE_PROPERTIES_LOCALE,
+					portletClassLoader, locale, "Rejecting locale " + locale)) {
+
+				continue;
 			}
 
 			try {
