@@ -41,12 +41,6 @@ int roleType = ParamUtil.getInteger(request, "roleType", RoleConstants.TYPE_SITE
 Organization organization = null;
 
 if (group.isOrganization()) {
-	String controlPanelCategory = themeDisplay.getControlPanelCategory();
-
-	if ((controlPanelCategory == null) || !controlPanelCategory.startsWith(PortletCategoryKeys.CURRENT_SITE)) {
-		roleType = RoleConstants.TYPE_ORGANIZATION;
-	}
-
 	organization = OrganizationLocalServiceUtil.getOrganization(group.getClassPK());
 }
 
@@ -103,6 +97,7 @@ request.setAttribute("edit_user_roles.jsp-portletURL", portletURL);
 	<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
 	<aui:input name="groupId" type="hidden" value="<%= String.valueOf(group.getGroupId()) %>" />
 	<aui:input name="roleId" type="hidden" value="<%= roleId %>" />
+	<aui:input name="roleType" type="hidden" value="<%= roleType %>" />
 
 	<c:choose>
 		<c:when test="<%= role == null %>">
