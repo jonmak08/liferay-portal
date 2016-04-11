@@ -754,7 +754,12 @@ public class DDMImpl implements DDM {
 				i);
 
 			if (existingFieldValueIndex == -1) {
-				mergedLocaleValues.add(i, defaultFieldValues.get(i));
+				if (defaultFieldValues != null) {
+					mergedLocaleValues.add(i, defaultFieldValues.get(i));
+				}
+				else {
+					mergedLocaleValues.add(i, null);
+				}
 			}
 			else {
 				if (newFieldValues != null) {
