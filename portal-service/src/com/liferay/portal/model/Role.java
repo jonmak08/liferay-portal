@@ -48,6 +48,13 @@ public interface Role extends RoleModel, PersistedModel {
 			}
 		};
 
+	public static final Accessor<Role, String> TITLE_ACCESSOR = new Accessor<Role, String>() {
+			@Override
+			public String get(Role role) {
+				return role.getTitle();
+			}
+		};
+
 	public java.lang.String getDescriptiveName()
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
