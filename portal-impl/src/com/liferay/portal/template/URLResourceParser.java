@@ -172,7 +172,6 @@ public abstract class URLResourceParser implements TemplateResourceParser {
 		return normalizedPath;
 	}
 
-	private static final Log _log = LogFactoryUtil.getLog(
-		URLResourceParser.class);
+	private static Log _log = LogFactoryUtil.getLog(URLResourceParser.class);
 
 }

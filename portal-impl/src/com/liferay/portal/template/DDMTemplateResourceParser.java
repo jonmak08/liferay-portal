@@ -124,7 +124,7 @@ public class DDMTemplateResourceParser implements TemplateResourceParser {
 		return false;
 	}
 
-	private static  Log _log = LogFactoryUtil.getLog(
+	private static Log _log = LogFactoryUtil.getLog(
 		DDMTemplateResourceParser.class);
 
 }
