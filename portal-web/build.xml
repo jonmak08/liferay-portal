@@ -662,7 +662,7 @@
 
 				<replace file="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay/browser.html">
 					<replacetoken><![CDATA[<frameset rows="50,*" framespacing="0">]]></replacetoken>
-					<replacevalue><![CDATA[<frameset rows="100,*" framespacing="0">]]></replacevalue>
+					<replacevalue><![CDATA[<frameset rows="150,*" framespacing="0">]]></replacevalue>
 				</replace>
 
 				<!-- frmactualfolder.html -->
@@ -809,11 +809,8 @@
 						<td nowrap>
 							Order by<BR>
 							<select id="orderBy" style="WIDTH: 100%" onchange="SetSortType(this.value);">
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td nowrap>
+							</select><BR>
+							<BR>
 							<select id="ascending" style="WIDTH: 100%" onchange="SetAscending(this.value);">
 						]]>
 					</replacevalue>
