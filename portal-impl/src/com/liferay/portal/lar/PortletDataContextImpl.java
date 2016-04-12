@@ -1799,6 +1799,13 @@ public class PortletDataContextImpl implements PortletDataContext {
 				continue;
 			}
 
+			if (isPrivateLayout() &&
+				resourceName.equals(Layout.class.getName()) &&
+				roleName.equals(RoleConstants.GUEST)) {
+
+				continue;
+			}
+
 			String[] actionIds = StringUtil.split(permission.getValue());
 
 			roleIdsToActionIds.put(role.getRoleId(), actionIds);
