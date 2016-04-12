@@ -57,7 +57,9 @@ public class VelocityTemplateTest {
 
 	@Before
 	public void setUp() throws Exception {
-		new FileUtil().setFile(new FileImpl());
+		FileUtil fileUtil = new FileUtil();
+
+		fileUtil.setFile(new FileImpl());
 
 		_templateContextHelper = new MockTemplateContextHelper();
 
