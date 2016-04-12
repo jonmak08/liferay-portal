@@ -792,10 +792,32 @@
 				/>
 
 				<replaceregexp file="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay/frmresourcetype.html"
-					match="(\t*&lt;tr\>[\r?\n]*\t*&lt;td nowrap\>[\r?\n]*\t*)Resource Type&lt;BR\>([\r?\n]*\t*)(&lt;select id=&quot;cmbType.*\>)\r?(\n)[^\n]*\n(\t*&lt;\/select\>)([\r?\n]*\t*)(&lt;\/td\>[\r?\n]*\t*&lt;\/tr\>)"
-					replace="\1Resource Type &lt;BR\>\2\3\4\5\6\7${line.separator}\1Order by&lt;BR\>\2&lt;select id=&quot;orderBy&quot; style=&quot;WIDTH: 100%&quot; onchange=&quot;SetSortType(this\.value);&quot;\>${line.separator}\5\6\7${line.separator}\1\2&lt;select id=&quot;ascending&quot; style=&quot;WIDTH: 100%&quot; onchange=&quot;SetAscending(this\.value);&quot;\>${line.separator}\5\6\7"
+					match="(&lt;select id=&quot;cmbType.*\>)\r?(\n)[^\n]*\n(\t*&lt;\/select\>)"
+					replace="\1\2\3"
 					flags="s"
 				/>
+
+				<replace file="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay/frmresourcetype.html">
+					<replacetoken><![CDATA[<select id="cmbType" style="WIDTH: 100%" onchange="SetResourceType(this.value);">]]></replacetoken>
+					<replacevalue>
+						<![CDATA[
+							<select id="cmbType" style="WIDTH: 100%" onchange="SetResourceType(this.value);">
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td nowrap>
+							Order by<BR>
+							<select id="orderBy" style="WIDTH: 100%" onchange="SetSortType(this.value);">
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td nowrap>
+							<select id="ascending" style="WIDTH: 100%" onchange="SetAscending(this.value);">
+						]]>
+					</replacevalue>
+				</replace>
 
 				<replace file="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay/frmresourcetype.html">
 					<replacetoken><![CDATA[aTypes]]></replacetoken>
@@ -838,11 +860,21 @@
 					</replacevalue>
 				</replace>
 
-				<replaceregexp file="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay/frmresourcetype.html"
-					match="(\t*)(oCombo.innerHTML = '' ;)"
-					replace="\1\2${line.separator}\1orderBy.innerHTML = '' ;${line.separator}${line.separator}\1AddSelectOption( orderBy, 'Title', 'Title' ) ;${line.separator}\1AddSelectOption( orderBy, 'Modified Date', 'Modified Date' ) ;${line.separator}\1AddSelectOption( orderBy, 'Size', 'Size' ) ;\1AddSelectOption( ascending, 'Ascending', 'true' ) ;\1AddSelectOption( ascending, 'Descending', 'false' ) ;"
-					flags="s"
-				/>
+				<replace file="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay/frmresourcetype.html">
+					<replacetoken><![CDATA[oCombo.innerHTML = '' ;]]></replacetoken>
+					<replacevalue>
+						<![CDATA[
+							oCombo.innerHTML = '' ;
+							orderBy.innerHTML = '' ;
+
+							AddSelectOption( orderBy, 'Title', 'Title' ) ;
+							AddSelectOption( orderBy, 'Modified Date', 'Modified Date' ) ;
+							AddSelectOption( orderBy, 'Size', 'Size' ) ;
+							AddSelectOption( ascending, 'Ascending', 'true' ) ;
+							AddSelectOption( ascending, 'Descending', 'false' ) ;
+						]]>
+					</replacevalue>
+				</replace>
 
 				<replace file="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay/frmresourcetype.html">
 					<replacetoken><![CDATA[window.parent.frames["frmFolders"].SetResourceType( type ) ;]]></replacetoken>
