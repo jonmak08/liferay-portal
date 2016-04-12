@@ -3198,9 +3198,21 @@
 			<var name="eventTitle" value="Calendar Event Title" />
 		</execute>
 
-		<execute macro="CalendarEvent#viewRSVPPending">
-			<var name="resourceName" value="Liferay" />
-		</execute>
+		<var name="key_resource" value="Liferay" />
+
+		<if>
+			<condition function="IsElementPresent" locator1="PGCalendarAddevent#INVITATIONS_PENDING" />
+			<then>
+				<execute macro="CalendarEvent#viewRSVPPending">
+					<var name="resourceName" value="Liferay" />
+				</execute>
+			</then>
+			<else>
+				<execute macro="CalendarEvent#viewRSVPAccepted">
+					<var name="resourceName" value="Liferay" />
+				</execute>
+			</else>
+		</if>
 
 		<execute macro="CalendarEvent#viewRSVPAccepted">
 			<var name="resourceName" value="userfn3 userln3" />
