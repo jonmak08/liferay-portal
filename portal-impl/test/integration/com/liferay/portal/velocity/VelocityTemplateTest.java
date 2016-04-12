@@ -19,9 +19,11 @@ import com.liferay.portal.kernel.template.StringTemplateResource;
 import com.liferay.portal.kernel.template.Template;
 import com.liferay.portal.kernel.template.TemplateException;
 import com.liferay.portal.kernel.template.TemplateResource;
+import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.template.TemplateContextHelper;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
+import com.liferay.portal.util.FileImpl;
 import com.liferay.portal.util.PropsUtil;
 
 import freemarker.core.ParseException;
@@ -55,6 +57,8 @@ public class VelocityTemplateTest {
 
 	@Before
 	public void setUp() throws Exception {
+		new FileUtil().setFile(new FileImpl());
+
 		_templateContextHelper = new MockTemplateContextHelper();
 
 		_velocityEngine = new VelocityEngine();
