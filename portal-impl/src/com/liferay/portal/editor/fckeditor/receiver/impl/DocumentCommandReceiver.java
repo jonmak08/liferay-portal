@@ -161,14 +161,14 @@ public class DocumentCommandReceiver extends BaseCommandReceiver {
 
 		OrderByComparator obc = null;
 
-		if (sortType.equals("Title")) {
-			obc = new RepositoryModelNameComparator(ascending);
-		}
-		else if (sortType.equals("Modified Date")) {
+		if (sortType.equals("Modified Date")) {
 			obc = new RepositoryModelModifiedDateComparator(ascending);
 		}
 		else if (sortType.equals("Size")) {
 			obc = new RepositoryModelSizeComparator(ascending);
+		}
+		else if (sortType.equals("Title")) {
+			obc = new RepositoryModelNameComparator(ascending);
 		}
 
 		List<FileEntry> fileEntries = DLAppServiceUtil.getFileEntries(
