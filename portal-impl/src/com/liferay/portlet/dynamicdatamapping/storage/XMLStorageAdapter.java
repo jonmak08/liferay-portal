@@ -20,6 +20,7 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.kernel.xml.XPath;
@@ -40,11 +41,14 @@ import com.liferay.portlet.dynamicdatamapping.storage.query.LogicalOperator;
 import com.liferay.portlet.dynamicdatamapping.util.DDMUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMXMLUtil;
 
+import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -237,6 +241,37 @@ public class XMLStorageAdapter extends BaseStorageAdapter {
 
 			Fields fields = DDMXMLUtil.getFields(
 				ddmStructure, conditionXPath, ddmContent.getXml(), fieldNames);
+
+			Iterator<Field> itr = fields.iterator();
+
+			while (itr.hasNext()) {
+				Field field = itr.next();
+
+				Map<Locale, List<Serializable>> stringMap =
+					field.getValuesMap();
+
+				Map<Locale, List<Serializable>> valuesMap =
+					new HashMap<Locale, List<Serializable>>();
+
+				for (Locale locale : stringMap.keySet()) {
+					List<Serializable> values = stringMap.get(locale);
+
+					List<Serializable> serializables =
+						new ArrayList<Serializable>();
+
+					for (Serializable value : values) {
+						if (Validator.isNull(value)) {
+							continue;
+						}
+
+						serializables.add(value);
+
+						valuesMap.put(locale, serializables);
+					}
+				}
+
+				field.setValuesMap(valuesMap);
+			}
 
 			fieldsList.add(fields);
 		}
