@@ -47,7 +47,7 @@
 			}
 
 			.facet-value.active .frequency {
-				display: none;
+				display: inline;
 			}
 
 			.date .calendar {
