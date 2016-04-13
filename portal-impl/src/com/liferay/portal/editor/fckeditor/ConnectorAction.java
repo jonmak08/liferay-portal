@@ -47,6 +47,7 @@ public class ConnectorAction extends Action {
 			String command = request.getParameter("Command");
 			String type = request.getParameter("Type");
 			String sortType = request.getParameter("SortType");
+
 			String ascendingString = request.getParameter("Ascending");
 
 			boolean ascending = GetterUtil.getBoolean(ascendingString);
