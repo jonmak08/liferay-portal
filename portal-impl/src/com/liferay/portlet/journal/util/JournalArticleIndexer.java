@@ -504,7 +504,7 @@ public class JournalArticleIndexer extends BaseIndexer {
 				Field.TITLE);
 		}
 
-		String content = getDDMContentSummary(document, snippetLocale);
+		String content = getBasicContentSummary(document, snippetLocale);
 
 		if (Validator.isNull(content) && !snippetLocale.equals(defaultLocale)) {
 			content = getDDMContentSummary(document, defaultLocale);
