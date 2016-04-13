@@ -32,7 +32,9 @@
 		<execute function="AssertTextEquals" locator1="CPReportsadminAddreportdefinition#ERROR_MESSAGE_2" value1="Please enter a valid file." />
 	</command>
 
-	<command name="DownloadReportPG" priority="5">
+	<!-- LRQA-24395 -->
+
+	<!--<command name="DownloadReportPG" priority="5">
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Reports Admin" />
 		</execute>
@@ -69,7 +71,7 @@
 			<var name="reportFormat" value="pdf" />
 			<var name="reportsFileName" value="reports_admin_template_source_sample_class_name.pdf" />
 		</execute>
-	</command>
+	</command>-->
 
 	<command name="ViewDefinitionsPagination" priority="5">
 		<description message="This is a use case for LPS-50501." />
