@@ -2043,6 +2043,7 @@
 				</licenses>
 				<comments>
 					Removed org.json.* because it json-java.jar.
+					Include patch for LPS-54420.
 				</comments>
 			</library>
 			<library>
