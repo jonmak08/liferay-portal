@@ -49,16 +49,13 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
 			getParameter(actionRequest, "advancedConfiguration"));
 
 		if (!advancedConfiguration) {
-			updateBasicConfiguration(
-				portletConfig, actionRequest, actionResponse);
+			updateBasicConfiguration(actionRequest);
 		}
 
 		super.processAction(portletConfig, actionRequest, actionResponse);
 	}
 
-	protected void updateBasicConfiguration(
-			PortletConfig portletConfig, ActionRequest actionRequest,
-			ActionResponse actionResponse)
+	protected void updateBasicConfiguration(ActionRequest actionRequest)
 		throws Exception {
 
 		PortletPreferences portletPreferences = actionRequest.getPreferences();
