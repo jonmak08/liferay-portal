@@ -1,0 +1,26 @@
+From 548f4099929f48feeebbcfcb90027f02b32b6db4 Mon Sep 17 00:00:00 2001
+From: NorbertKocsis <norbert.kocsis@liferay.com>
+Date: Fri, 1 Apr 2016 15:13:19 +0200
+Subject: [PATCH] Use the ContextClassloader to retrieve class
+
+---
+ org/jabsorb/JSONSerializer.java | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/org/jabsorb/JSONSerializer.java b/org/jabsorb/JSONSerializer.java
+index 8e26462..38d8209 100644
+--- a/org/jabsorb/JSONSerializer.java
++++ b/org/jabsorb/JSONSerializer.java
+@@ -729,7 +729,8 @@ public class JSONSerializer implements Serializable
+       try
+       {
+         className = ((JSONObject) o).getString("javaClass");
+-        return Class.forName(className);
++        Thread currentThread = Thread.currentThread();
++        return Class.forName(className, false, currentThread.getContextClassLoader());
+       }
+       catch (Exception e)
+       {
+-- 
+1.9.5.msysgit.0
+

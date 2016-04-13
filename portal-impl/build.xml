@@ -379,6 +379,51 @@ public class Creole10Parser]]></replacevalue>
 		</java>
 	</target>
 
+	<target name="build-jabsorb-jar">
+		<mirrors-get
+			dest="jabsorb-1.3.2-sources.zip"
+			src="https://repo1.maven.org/maven2/org/jabsorb/jabsorb/1.3.2/jabsorb-1.3.2-sources.jar"
+		/>
+
+		<tstamp>
+			<format property="tstamp.value" pattern="yyyyMMddkkmmssSSS" />
+		</tstamp>
+
+		<unzip
+			dest="${tstamp.value}"
+			src="jabsorb-1.3.2-sources.zip"
+		>
+			<patternset>
+				<include name="**/JSONSerializer.java" />
+			</patternset>
+		</unzip>
+
+		<delete file="jabsorb-1.3.2-sources.zip" />
+
+		<patch
+			dir="${tstamp.value}"
+			patchfile="${project.dir}/lib/portal/jabsorb/JABSORB-LPS-54220.patch"
+			strip="1"
+		/>
+
+		<antcall target="compile-java">
+			<param name="javac.classpathref" value="project.classpath" />
+			<param name="javac.destdir" value="${tstamp.value}" />
+			<param name="javac.srcdir" value="${tstamp.value}" />
+		</antcall>
+
+		<mirrors-get
+			dest="${project.dir}/lib/portal/jabsorb.jar.new"
+			src="https://repo1.maven.org/maven2/org/jabsorb/jabsorb/1.3.2/jabsorb-1.3.2.jar"
+		/>
+
+		<jar destfile="${project.dir}/lib/portal/jabsorb.jar.new" update="true">
+			<zipfileset dir="${tstamp.value}" includes="**/*.class" />
+		</jar>
+
+		<delete dir="${tstamp.value}" />
+	</target>
+
 	<target name="build-json-java-jar">
 		<mirrors-get
 			dest="json-java.zip"
