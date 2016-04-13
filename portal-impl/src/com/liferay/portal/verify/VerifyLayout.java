@@ -15,6 +15,9 @@
 package com.liferay.portal.verify;
 
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.Layout;
@@ -61,7 +64,27 @@ public class VerifyLayout extends VerifyProcess {
 							layout.getCompanyId());
 
 				if (layoutPrototype == null) {
-					LayoutLocalServiceUtil.deleteLayout(layout);
+					String name = layout.getName(LocaleUtil.getDefault());
+
+					if (layout.isLayoutPrototypeLinkEnabled()) {
+						if (_log.isInfoEnabled()) {
+							_log.info(
+								"Deleting page \"" + name + "\" because it " +
+									"is propagated from a deleted page " +
+										"template");
+						}
+
+						LayoutLocalServiceUtil.deleteLayout(layout);
+					}
+					else {
+						if (_log.isInfoEnabled()) {
+							_log.info(
+								"Removing reference to deleted page template " +
+									"from page \"" + name + "\"");
+						}
+
+						removeLayoutPrototypeUuid(plid);
+					}
 				}
 			}
 		}
@@ -75,6 +98,25 @@ public class VerifyLayout extends VerifyProcess {
 		deleteOrphanedLayouts();
 		verifyFriendlyURL();
 		verifyUuid();
+	}
+
+	protected void removeLayoutPrototypeUuid(long plid) throws Exception {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			con = DataAccess.getUpgradeOptimizedConnection();
+
+			ps = con.prepareStatement(
+				"update layout set layoutPrototypeUuid = '' where plid = " +
+					plid);
+
+			ps.executeUpdate();
+		}
+		finally {
+			DataAccess.cleanUp(con, ps, rs);
+		}
 	}
 
 	protected void verifyFriendlyURL() throws Exception {
@@ -127,5 +169,7 @@ public class VerifyLayout extends VerifyProcess {
 
 		runSQL(sb.toString());
 	}
+
+	private static Log _log = LogFactoryUtil.getLog(VerifyLayout.class);
 
 }
