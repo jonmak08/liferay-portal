@@ -34,6 +34,7 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MimeTypesUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Attribute;
 import com.liferay.portal.kernel.xml.Document;
@@ -98,7 +99,7 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		List<Element> dynamicElementElements = rootElement.elements(
 			"dynamic-element");
 
-		StringBundler sb = new StringBundler();
+		StringBundler sb = new StringBundler(4 * dynamicElementElements.size());
 
 		for (Element dynamicElementElement : dynamicElementElements) {
 			String fieldName = dynamicElementElement.attributeValue("name");
