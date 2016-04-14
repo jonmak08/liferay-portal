@@ -16,12 +16,16 @@ package com.liferay.portlet.journalcontent.util;
 
 import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
 import com.liferay.portal.kernel.cache.PortalCache;
+import com.liferay.portal.kernel.cache.index.IndexEncoder;
+import com.liferay.portal.kernel.cache.index.PortalCacheIndexer;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Layout;
@@ -31,6 +35,8 @@ import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portlet.journal.model.JournalArticleDisplay;
 import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.portlet.journal.service.permission.JournalArticlePermission;
+
+import java.io.Serializable;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -51,14 +57,16 @@ public class JournalContentImpl implements JournalContent {
 			return;
 		}
 
-		portalCache.removeAll();
+		_portalCache.removeAll();
 	}
 
 	@Override
 	public void clearCache(
 		long groupId, String articleId, String ddmTemplateKey) {
 
-		clearCache();
+		_portalCacheIndexer.removeKeys(
+				JournalContentKeyIndexEncoder.encode(
+						groupId, articleId, ddmTemplateKey));
 	}
 
 	@Override
@@ -154,11 +162,11 @@ public class JournalContentImpl implements JournalContent {
 			secure = themeDisplay.isSecure();
 		}
 
-		String key = encodeKey(
+		JournalContentKey key = new JournalContentKey(
 			groupId, articleId, version, ddmTemplateKey, layoutSetId, viewMode,
 			languageId, page, secure);
 
-		JournalArticleDisplay articleDisplay = portalCache.get(key);
+		JournalArticleDisplay articleDisplay = _portalCache.get(key);
 
 		boolean lifecycleRender = isLifecycleRender(themeDisplay, xmlRequest);
 
@@ -170,7 +178,7 @@ public class JournalContentImpl implements JournalContent {
 			if ((articleDisplay != null) && articleDisplay.isCacheable() &&
 				lifecycleRender) {
 
-				portalCache.put(key, articleDisplay);
+				_portalCache.put(key, articleDisplay);
 			}
 		}
 
@@ -244,47 +252,6 @@ public class JournalContentImpl implements JournalContent {
 			null);
 	}
 
-	protected String encodeKey(
-		long groupId, String articleId, double version, String ddmTemplateKey,
-		long layoutSetId, String viewMode, String languageId, int page,
-		boolean secure) {
-
-		StringBundler sb = new StringBundler();
-
-		sb.append(StringUtil.toHexString(groupId));
-		sb.append(ARTICLE_SEPARATOR);
-		sb.append(articleId);
-		sb.append(VERSION_SEPARATOR);
-		sb.append(version);
-		sb.append(TEMPLATE_SEPARATOR);
-		sb.append(ddmTemplateKey);
-
-		if (layoutSetId > 0) {
-			sb.append(LAYOUT_SET_SEPARATOR);
-			sb.append(StringUtil.toHexString(layoutSetId));
-		}
-
-		if (Validator.isNotNull(viewMode)) {
-			sb.append(VIEW_MODE_SEPARATOR);
-			sb.append(viewMode);
-		}
-
-		if (Validator.isNotNull(languageId)) {
-			sb.append(LANGUAGE_SEPARATOR);
-			sb.append(languageId);
-		}
-
-		if (page > 0) {
-			sb.append(PAGE_SEPARATOR);
-			sb.append(StringUtil.toHexString(page));
-		}
-
-		sb.append(SECURE_SEPARATOR);
-		sb.append(secure);
-
-		return sb.toString();
-	}
-
 	protected JournalArticleDisplay getArticleDisplay(
 		long groupId, String articleId, String ddmTemplateKey, String viewMode,
 		String languageId, int page, String xmlRequest,
@@ -330,11 +297,112 @@ public class JournalContentImpl implements JournalContent {
 
 	protected static final String CACHE_NAME = JournalContent.class.getName();
 
+	private static final IndexEncoder<String, JournalContentKey> _indexEncoder =
+			new JournalContentKeyIndexEncoder();
+
 	protected static Pattern lifecycleRenderPhasePattern = Pattern.compile(
 		"<lifecycle>\\s*RENDER_PHASE\\s*</lifecycle>");
-	protected static PortalCache<String, JournalArticleDisplay> portalCache =
-		MultiVMPoolUtil.getCache(CACHE_NAME);
+	private static final PortalCache<JournalContentKey, JournalArticleDisplay>
+	_portalCache = MultiVMPoolUtil.getCache(CACHE_NAME);
+	private static final PortalCacheIndexer
+	<String, JournalContentKey, JournalArticleDisplay> _portalCacheIndexer =
+			new PortalCacheIndexer
+			<String, JournalContentKey, JournalArticleDisplay> (
+					_indexEncoder, _portalCache);
 
 	private static Log _log = LogFactoryUtil.getLog(JournalContentImpl.class);
+
+	private static class JournalContentKey implements Serializable {
+
+		@Override
+		public boolean equals(Object obj) {
+			JournalContentKey journalContentKey = (JournalContentKey)obj;
+
+			if ((journalContentKey._groupId == _groupId) &&
+				Validator.equals(journalContentKey._articleId, _articleId) &&
+				(journalContentKey._version == _version) &&
+				Validator.equals(
+					journalContentKey._ddmTemplateKey, _ddmTemplateKey) &&
+				(journalContentKey._layoutSetId == _layoutSetId) &&
+				Validator.equals(journalContentKey._viewMode, _viewMode) &&
+				Validator.equals(journalContentKey._languageId, _languageId) &&
+				(journalContentKey._page == _page) &&
+				(journalContentKey._secure == _secure)) {
+
+				return true;
+			}
+
+			return false;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = HashUtil.hash(0, _groupId);
+
+			hashCode = HashUtil.hash(hashCode, _articleId);
+			hashCode = HashUtil.hash(hashCode, _version);
+			hashCode = HashUtil.hash(hashCode, _ddmTemplateKey);
+			hashCode = HashUtil.hash(hashCode, _layoutSetId);
+			hashCode = HashUtil.hash(hashCode, _viewMode);
+			hashCode = HashUtil.hash(hashCode, _languageId);
+			hashCode = HashUtil.hash(hashCode, _page);
+			hashCode = HashUtil.hash(hashCode, _secure);
+
+			return hashCode;
+		}
+
+		private JournalContentKey(
+				long groupId, String articleId, double version,
+				String ddmTemplateKey, long layoutSetId, String viewMode,
+				String languageId, int page, boolean secure) {
+
+				_groupId = groupId;
+				_articleId = articleId;
+				_version = version;
+				_ddmTemplateKey = ddmTemplateKey;
+				_layoutSetId = layoutSetId;
+				_viewMode = viewMode;
+				_languageId = languageId;
+				_page = page;
+				_secure = secure;
+			}
+
+			private static final long serialVersionUID = 1L;
+
+			private final String _articleId;
+			private final String _ddmTemplateKey;
+			private final long _groupId;
+			private final String _languageId;
+			private final long _layoutSetId;
+			private final int _page;
+			private final boolean _secure;
+			private final double _version;
+			private final String _viewMode;
+
+	}
+
+	private static class JournalContentKeyIndexEncoder
+		implements IndexEncoder<String, JournalContentKey> {
+
+		public static String encode(
+			long groupId, String articleId, String ddmTemplateKey) {
+
+			StringBundler sb = new StringBundler(5);
+
+			sb.append(groupId);
+			sb.append(StringPool.UNDERLINE);
+			sb.append(articleId);
+			sb.append(StringPool.UNDERLINE);
+			sb.append(ddmTemplateKey);
+
+			return sb.toString();
+		}
+
+		@Override
+		public String encode(JournalContentKey key) {
+			return encode(key._groupId, key._articleId, key._ddmTemplateKey);
+		}
+
+	}
 
 }
