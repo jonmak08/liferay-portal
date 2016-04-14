@@ -205,4 +205,6 @@ refererURL.setParameter("updateLayout", "true");
 			srcNode: '#<portlet:namespace />applicationList'
 		}
 	);
+
+	Liferay.on('dockbarHidePanel', A.bind('destroy', addApplication));
 </aui:script>

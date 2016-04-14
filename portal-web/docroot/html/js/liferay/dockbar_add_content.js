@@ -54,16 +54,16 @@ AUI.add(
 
 						instance._entriesPanel.delegate(STR_CLICK, instance._addContent, SELECTOR_ADD_CONTENT_ITEM, instance);
 
-						Liferay.on(
-							'AddContent:addPortlet',
-							function(event) {
-								instance.addPortlet(event.node, event.options);
-							}
-						);
-
-						Liferay.on('AddContent:refreshContentList', instance._refreshContentList, instance);
-
-						Liferay.on('showTab', instance._onShowTab, instance);
+						instance._eventHandles = instance._eventHandles.concat([
+							Liferay.on(
+								'AddContent:addPortlet',
+								function(event) {
+									instance.addPortlet(event.node, event.options);
+								}
+							),
+							Liferay.on('AddContent:refreshContentList', instance._refreshContentList, instance),
+							Liferay.on('showTab', instance._onShowTab, instance)
+						]);
 					},
 
 					_onChangeDisplayStyle: function(event) {

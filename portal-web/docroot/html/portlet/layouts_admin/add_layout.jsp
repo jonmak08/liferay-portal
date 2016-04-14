@@ -246,7 +246,7 @@ else {
 </c:if>
 
 <aui:script use="liferay-dockbar-add-page">
-	new Liferay.Dockbar.AddPage(
+	var addPage = new Liferay.Dockbar.AddPage(
 		{
 			createPageMessage: '<liferay-ui:message key="loading" />',
 			focusItem: A.one('#<portlet:namespace />addLayoutName'),
@@ -260,4 +260,8 @@ else {
 			toggleOnCancel: <%= portletName.equals(PortletKeys.DOCKBAR) %>
 		}
 	);
+
+	<c:if test="<%= portletName.equals(PortletKeys.DOCKBAR) %>">
+		Liferay.on('dockbarHidePanel', A.bind('destroy', addPage));
+	</c:if>
 </aui:script>

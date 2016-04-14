@@ -37,7 +37,7 @@ AUI.add(
 			initializer: function(config) {
 				var instance = this;
 
-				instance._eventHandles = [];
+				instance._eventHandles = instance._eventHandles || [];
 
 				instance._loadPreviewTask = A.debounce('_loadPreviewFn', 200, instance);
 
