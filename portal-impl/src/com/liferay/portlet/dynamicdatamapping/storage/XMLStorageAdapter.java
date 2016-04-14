@@ -247,14 +247,14 @@ public class XMLStorageAdapter extends BaseStorageAdapter {
 			while (itr.hasNext()) {
 				Field field = itr.next();
 
-				Map<Locale, List<Serializable>> stringMap =
-					field.getValuesMap();
-
-				Map<Locale, List<Serializable>> valuesMap =
+				Map<Locale, List<Serializable>> newValuesMap =
 					new HashMap<Locale, List<Serializable>>();
 
-				for (Locale locale : stringMap.keySet()) {
-					List<Serializable> values = stringMap.get(locale);
+				Map<Locale, List<Serializable>> oldValuesMap =
+					field.getValuesMap();
+
+				for (Locale locale : oldValuesMap.keySet()) {
+					List<Serializable> values = oldValuesMap.get(locale);
 
 					List<Serializable> serializables =
 						new ArrayList<Serializable>();
@@ -266,11 +266,11 @@ public class XMLStorageAdapter extends BaseStorageAdapter {
 
 						serializables.add(value);
 
-						valuesMap.put(locale, serializables);
+						newValuesMap.put(locale, serializables);
 					}
 				}
 
-				field.setValuesMap(valuesMap);
+				field.setValuesMap(newValuesMap);
 			}
 
 			fieldsList.add(fields);
