@@ -35,6 +35,15 @@ import javax.servlet.http.HttpServletRequest;
 public class CommandArgument {
 
 	public CommandArgument(
+		String command, String type, String currentFolder, String newFolder,
+		ThemeDisplay themeDisplay, HttpServletRequest request) {
+
+		this(
+			command, type, StringPool.BLANK, false, currentFolder, newFolder,
+			themeDisplay, request);
+	}
+
+	public CommandArgument(
 		String command, String type, String sortType, boolean ascending,
 		String currentFolder, String newFolder, ThemeDisplay themeDisplay,
 		HttpServletRequest request) {
