@@ -41,6 +41,7 @@ import com.liferay.portlet.documentlibrary.util.comparator.RepositoryModelSizeCo
 import java.io.InputStream;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -155,25 +156,33 @@ public class DocumentCommandReceiver extends BaseCommandReceiver {
 			CommandArgument commandArgument, Document document, Folder folder)
 		throws Exception {
 
+		List<FileEntry> fileEntries = Collections.<FileEntry>emptyList();
+
 		String sortType = commandArgument.getSortType();
 
-		boolean ascending = commandArgument.getAscending();
+		if (Validator.isNotNull(sortType)) {
+			boolean ascending = commandArgument.getAscending();
 
-		OrderByComparator obc = null;
+			OrderByComparator obc = null;
 
-		if (sortType.equals("Modified Date")) {
-			obc = new RepositoryModelModifiedDateComparator(ascending);
-		}
-		else if (sortType.equals("Size")) {
-			obc = new RepositoryModelSizeComparator(ascending);
-		}
-		else if (sortType.equals("Title")) {
-			obc = new RepositoryModelNameComparator(ascending);
-		}
+			if (sortType.equals("Modified Date")) {
+				obc = new RepositoryModelModifiedDateComparator(ascending);
+			}
+			else if (sortType.equals("Size")) {
+				obc = new RepositoryModelSizeComparator(ascending);
+			}
+			else if (sortType.equals("Title")) {
+				obc = new RepositoryModelNameComparator(ascending);
+			}
 
-		List<FileEntry> fileEntries = DLAppServiceUtil.getFileEntries(
-			folder.getRepositoryId(), folder.getFolderId(), QueryUtil.ALL_POS,
-			QueryUtil.ALL_POS, obc);
+			fileEntries = DLAppServiceUtil.getFileEntries(
+				folder.getRepositoryId(), folder.getFolderId(),
+				QueryUtil.ALL_POS, QueryUtil.ALL_POS, obc);
+		}
+		else {
+			fileEntries = DLAppServiceUtil.getFileEntries(
+				folder.getRepositoryId(), folder.getFolderId());
+		}
 
 		List<Element> fileElements = new ArrayList<Element>(fileEntries.size());
 
