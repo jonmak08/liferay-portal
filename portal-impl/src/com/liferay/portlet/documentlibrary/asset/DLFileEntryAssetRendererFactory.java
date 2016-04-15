@@ -73,8 +73,12 @@ public class DLFileEntryAssetRendererFactory extends BaseAssetRendererFactory {
 		if (type == TYPE_LATEST) {
 			fileVersion = fileEntry.getLatestFileVersion();
 		}
-		else {
+		else if (type == TYPE_LATEST_APPROVED) {
 			fileVersion = fileEntry.getFileVersion();
+		}
+		else {
+			throw new IllegalArgumentException(
+				"Unknown AssetRenderer type " + type);
 		}
 
 		DLFileEntryAssetRenderer dlFileEntryAssetRenderer =
