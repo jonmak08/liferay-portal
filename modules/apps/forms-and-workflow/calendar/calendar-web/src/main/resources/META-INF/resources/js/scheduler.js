@@ -864,6 +864,10 @@ AUI.add(
 									uri: Lang.sub(editCalendarBookingURL, data)
 								}
 							);
+
+							if (A.UA.ie) {
+								Liferay.Util.focusFormField('input:text');
+							}
 						}
 					},
 
