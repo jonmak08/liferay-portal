@@ -63,6 +63,10 @@ public interface PortletPreferencesFactory {
 			Layout layout, String portletId)
 		throws SystemException;
 
+	public PortletPreferences getLayoutPortletSetup(
+			Layout layout, String portletId, String defaultPreferences)
+		throws SystemException;
+
 	public PortalPreferences getPortalPreferences(HttpServletRequest request)
 		throws SystemException;
 

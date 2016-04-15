@@ -130,7 +130,7 @@ public class RuntimeTag extends TagSupport {
 				layout.isTypePanel()) {
 
 				PortletPreferencesFactoryUtil.getLayoutPortletSetup(
-					layout, portletId);
+					layout, portletId, defaultPreferences);
 				PortletPreferencesFactoryUtil.getPortletSetup(
 					request, portletId, defaultPreferences);
 
