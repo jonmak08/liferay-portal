@@ -16,6 +16,7 @@ package com.liferay.portlet.dynamicdatalists.asset;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portlet.asset.model.AssetRenderer;
@@ -36,18 +37,25 @@ public class DDLRecordAssetRendererFactory extends BaseAssetRendererFactory {
 	public AssetRenderer getAssetRenderer(long classPK, int type)
 		throws PortalException, SystemException {
 
-		DDLRecord record = null;
+		DDLRecord record = DDLRecordLocalServiceUtil.fetchDDLRecord(classPK);
 		DDLRecordVersion recordVersion = null;
 
-		if (type == TYPE_LATEST) {
+		if (Validator.isNull(record)) {
 			recordVersion = DDLRecordLocalServiceUtil.getRecordVersion(classPK);
 
 			record = recordVersion.getRecord();
 		}
 		else {
-			record = DDLRecordLocalServiceUtil.getRecord(classPK);
-
-			recordVersion = record.getRecordVersion();
+			if (type == TYPE_LATEST) {
+				recordVersion = record.getLatestRecordVersion();
+			}
+			else if (type == TYPE_LATEST_APPROVED) {
+				recordVersion = record.getRecordVersion();
+			}
+			else {
+				throw new IllegalArgumentException(
+					"Unknown asset renderer type " + type);
+			}
 		}
 
 		DDLRecordAssetRenderer ddlRecordAssetRenderer =
