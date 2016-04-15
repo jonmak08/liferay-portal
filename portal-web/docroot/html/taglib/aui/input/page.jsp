@@ -138,16 +138,12 @@
 </liferay-util:buffer>
 
 <c:if test='<%= !type.equals("hidden") && !wrappedField && useInputWrapper %>'>
-	<div class="<%= inputWrapperClass %>">
+	<div class="<%= radioField && !inlineLabel.equals("right") ? "" : inputWrapperClass %>">
 </c:if>
-
-<%
-boolean choiceField = checkboxField || radioField;
-%>
 
 <c:if test='<%= !type.equals("assetCategories") && !type.equals("hidden") && Validator.isNotNull(labelContent) %>'>
 	<label <%= labelTag %>>
-		<c:if test='<%= !choiceField && !inlineLabel.equals("right") %>'>
+		<c:if test='<%= !inlineLabel.equals("right") %>'>
 				<%= labelContent %>
 			</label>
 		</c:if>
@@ -246,6 +242,7 @@ boolean choiceField = checkboxField || radioField;
 				checked = valueString.equals(requestValue);
 			}
 		}
+
 		%>
 
 		<input <%= checked ? "checked" : StringPool.BLANK %> class="<%= fieldCssClass %>" <%= disabled ? "disabled" : StringPool.BLANK %> id="<%= namespace + id %>" name="<%= namespace + name %>" <%= Validator.isNotNull(onChange) ? "onChange=\"" + onChange + "\"" : StringPool.BLANK %> <%= Validator.isNotNull(onClick) ? "onClick=\"" + onClick + "\"" : StringPool.BLANK %> <%= Validator.isNotNull(title) ? "title=\"" + LanguageUtil.get(resourceBundle, title) + "\"" : StringPool.BLANK %> type="radio" value="<%= HtmlUtil.escapeAttribute(valueString) %>" <%= AUIUtil.buildData(data) %> <%= InlineUtil.buildDynamicAttributes(dynamicAttributes) %> />
@@ -386,7 +383,7 @@ boolean choiceField = checkboxField || radioField;
 </c:if>
 
 <c:if test='<%= !type.equals("assetCategories") && !type.equals("hidden") && Validator.isNotNull(labelContent) %>'>
-	<c:if test='<%= choiceField || inlineLabel.equals("right") %>'>
+	<c:if test='<%= inlineLabel.equals("right") %>'>
 			<%= labelContent %>
 		</label>
 	</c:if>
