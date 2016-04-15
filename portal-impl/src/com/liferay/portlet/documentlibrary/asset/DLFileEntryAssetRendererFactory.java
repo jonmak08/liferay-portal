@@ -31,7 +31,6 @@ import com.liferay.portal.util.PortletKeys;
 import com.liferay.portlet.asset.model.AssetRenderer;
 import com.liferay.portlet.asset.model.BaseAssetRendererFactory;
 import com.liferay.portlet.assetpublisher.util.AssetPublisherUtil;
-import com.liferay.portlet.documentlibrary.NoSuchFileEntryException;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryType;
 import com.liferay.portlet.documentlibrary.service.DLAppLocalServiceUtil;
@@ -84,7 +83,7 @@ public class DLFileEntryAssetRendererFactory extends BaseAssetRendererFactory {
 					"Unknown asset renderer type " + type);
 			}
 		}
-		catch (NoSuchFileEntryException nsfee) {
+		catch (PortalException pe) {
 			fileVersion = DLAppLocalServiceUtil.getFileVersion(classPK);
 
 			fileEntry = fileVersion.getFileEntry();
