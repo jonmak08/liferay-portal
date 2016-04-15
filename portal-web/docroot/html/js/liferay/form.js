@@ -176,11 +176,13 @@ AUI.add(
 						fieldRules[validatorName] = value;
 
 						if (rule.custom) {
-							fieldRules.custom = rule.custom;
+							var customRule = rule.customValidatorRequired;
 
-							if (typeof rule.customValidatorRequired !== 'undefined') {
-								fieldRules.custom = rule.customValidatorRequired
+							if (A.Lang.isUndefined(customRule)) {
+								customRule = rule.custom;
 							}
+
+							fieldRules.custom = customRule;
 
 							DEFAULTS_FORM_VALIDATOR.RULES[validatorName] = rule.body;
 						}
