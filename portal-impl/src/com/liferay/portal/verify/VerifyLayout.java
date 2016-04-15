@@ -103,7 +103,6 @@ public class VerifyLayout extends VerifyProcess {
 	protected void removeLayoutPrototypeUuid(long plid) throws Exception {
 		Connection con = null;
 		PreparedStatement ps = null;
-		ResultSet rs = null;
 
 		try {
 			con = DataAccess.getUpgradeOptimizedConnection();
@@ -115,7 +114,7 @@ public class VerifyLayout extends VerifyProcess {
 			ps.executeUpdate();
 		}
 		finally {
-			DataAccess.cleanUp(con, ps, rs);
+			DataAccess.cleanUp(con, ps);
 		}
 	}
 
