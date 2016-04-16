@@ -120,6 +120,8 @@ AUI.add(
 
 						(new A.EventHandle(instance._eventHandles)).detach();
 
+						instance._eventHandles = null;
+
 						instance._devicePreviewNode.remove();
 					},
 

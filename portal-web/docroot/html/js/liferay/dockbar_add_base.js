@@ -111,6 +111,8 @@ AUI.add(
 							}
 						}
 
+						instance._eventHandles = [];
+
 						instance._bindUIDABase();
 					},
 
@@ -118,6 +120,8 @@ AUI.add(
 						var instance = this;
 
 						(new A.EventHandle(instance._eventHandles)).detach();
+
+						instance._eventHandles = null;
 					},
 
 					addPortlet: function(portlet, options) {
@@ -177,9 +181,9 @@ AUI.add(
 					_bindUIDABase: function() {
 						var instance = this;
 
-						instance._eventHandles = [
+						instance._eventHandles.push(
 							Liferay.after('showTab', instance._showTab, instance)
-						];
+						);
 					},
 
 					_disablePortletEntry: function(portletId) {

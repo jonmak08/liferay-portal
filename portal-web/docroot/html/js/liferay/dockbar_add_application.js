@@ -53,7 +53,17 @@ AUI.add(
 							);
 						}
 
+						instance._eventHandles = [];
+
 						instance._bindUI();
+					},
+
+					destructor: function() {
+						var instance = this;
+
+						(new A.EventHandle(instance._eventHandles)).detach();
+
+						instance._eventHandles = null;
 					},
 
 					_addApplication: function(event) {
@@ -71,13 +81,13 @@ AUI.add(
 					_bindUI: function() {
 						var instance = this;
 
-						instance._entriesPanel.delegate(STR_CLICK, instance._addApplication, SELECTOR_ADD_CONTENT_ITEM, instance);
-
-						instance._entriesPanel.delegate(STR_KEY, instance._addApplication, STR_ENTER_DOWN, SELECTOR_CONTENT_ITEM, instance);
-
 						Liferay.on('closePortlet', instance._onPortletClose, instance);
 
-						Liferay.on('showTab', instance._onShowTab, instance);
+						instance._eventHandles.push(
+							instance._entriesPanel.delegate(STR_CLICK, instance._addApplication, SELECTOR_ADD_CONTENT_ITEM, instance),
+							instance._entriesPanel.delegate(STR_KEY, instance._addApplication, STR_ENTER_DOWN, SELECTOR_CONTENT_ITEM, instance),
+							Liferay.on('showTab', instance._onShowTab, instance)
+						);
 					},
 
 					_onShowTab: function(event) {

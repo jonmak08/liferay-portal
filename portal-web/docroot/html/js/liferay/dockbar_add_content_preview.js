@@ -47,7 +47,11 @@ AUI.add(
 			destructor: function() {
 				var instance = this;
 
+				instance._tooltip && instance._tooltip.hide();
+
 				(new A.EventHandle(instance._eventHandles)).detach();
+
+				instance._eventHandles = null;
 			},
 
 			_addContent: function(event) {
@@ -87,11 +91,13 @@ AUI.add(
 			_bindUIACPreview: function() {
 				var instance = this;
 
-				Liferay.Dockbar.getPanelNode(Liferay.Dockbar.ADD_PANEL).delegate(
-					STR_MOUSEENTER,
-					instance._showTooltip,
-					'.has-preview',
-					instance
+				instance._eventHandles.push(
+					Liferay.Dockbar.getPanelNode(Liferay.Dockbar.ADD_PANEL).delegate(
+						STR_MOUSEENTER,
+						instance._showTooltip,
+						'.has-preview',
+						instance
+					)
 				);
 			},
 

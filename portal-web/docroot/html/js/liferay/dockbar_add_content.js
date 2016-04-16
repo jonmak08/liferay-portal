@@ -36,7 +36,17 @@ AUI.add(
 						instance._styleButtonsList = instance.byId('styleButtons');
 						instance._styleButtons = instance._styleButtonsList.all(SELECTOR_BUTTON);
 
+						instance._eventHandles = [];
+
 						instance._bindUI();
+					},
+
+					destructor: function() {
+						var instance = this;
+
+						(new A.EventHandle(instance._eventHandles)).detach();
+
+						instance._eventHandles = null;
 					},
 
 					_afterSuccess: function(event) {
@@ -48,13 +58,10 @@ AUI.add(
 					_bindUI: function() {
 						var instance = this;
 
-						instance._numItems.on('change', instance._onChangeNumItems, instance);
-
-						instance._styleButtonsList.delegate(STR_CLICK, instance._onChangeDisplayStyle, SELECTOR_BUTTON, instance);
-
-						instance._entriesPanel.delegate(STR_CLICK, instance._addContent, SELECTOR_ADD_CONTENT_ITEM, instance);
-
-						instance._eventHandles = instance._eventHandles.concat([
+						instance._eventHandles.push(
+							instance._numItems.on('change', instance._onChangeNumItems, instance),
+							instance._styleButtonsList.delegate(STR_CLICK, instance._onChangeDisplayStyle, SELECTOR_BUTTON, instance),
+							instance._entriesPanel.delegate(STR_CLICK, instance._addContent, SELECTOR_ADD_CONTENT_ITEM, instance),
 							Liferay.on(
 								'AddContent:addPortlet',
 								function(event) {
@@ -63,7 +70,7 @@ AUI.add(
 							),
 							Liferay.on('AddContent:refreshContentList', instance._refreshContentList, instance),
 							Liferay.on('showTab', instance._onShowTab, instance)
-						]);
+						);
 					},
 
 					_onChangeDisplayStyle: function(event) {
