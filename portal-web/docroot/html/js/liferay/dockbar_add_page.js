@@ -103,7 +103,7 @@ AUI.add(
 							}
 						);
 
-						instance._eventHandles = [];
+						instance._eventHandlesDAPage = [];
 
 						instance._bindUI();
 					},
@@ -111,9 +111,9 @@ AUI.add(
 					destructor: function() {
 						var instance = this;
 
-						(new A.EventHandle(instance._eventHandles)).detach();
+						(new A.EventHandle(instance._eventHandlesDAPage)).detach();
 
-						instance._eventHandles = null;
+						instance._eventHandlesDAPage = null;
 					},
 
 					_addPage: function(event) {
@@ -178,7 +178,7 @@ AUI.add(
 					_bindUI: function() {
 						var instance = this;
 
-						instance._eventHandles.push(
+						instance._eventHandlesDAPage.push(
 							instance._addForm.on('submit', instance._addPage, instance),
 							instance._cancelButton.on('click', instance._cancelAction, instance),
 							instance._hiddenCheckbox.on('change', instance._updateNavigationProxy, instance),

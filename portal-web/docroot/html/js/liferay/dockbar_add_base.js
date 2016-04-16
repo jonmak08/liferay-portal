@@ -111,7 +111,7 @@ AUI.add(
 							}
 						}
 
-						instance._eventHandles = [];
+						instance._eventHandlesDABase = [];
 
 						instance._bindUIDABase();
 					},
@@ -119,9 +119,9 @@ AUI.add(
 					destructor: function() {
 						var instance = this;
 
-						(new A.EventHandle(instance._eventHandles)).detach();
+						(new A.EventHandle(instance._eventHandlesDABase)).detach();
 
-						instance._eventHandles = null;
+						instance._eventHandlesDABase = null;
 					},
 
 					addPortlet: function(portlet, options) {
@@ -181,7 +181,7 @@ AUI.add(
 					_bindUIDABase: function() {
 						var instance = this;
 
-						instance._eventHandles.push(
+						instance._eventHandlesDABase.push(
 							Liferay.after('showTab', instance._showTab, instance)
 						);
 					},
