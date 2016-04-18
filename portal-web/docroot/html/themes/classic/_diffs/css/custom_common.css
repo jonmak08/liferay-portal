@@ -855,6 +855,18 @@
 
 	/* ---------- CKEditor ---------- */
 
+	.html-editor.portlet-blogs {
+		a {
+			font-weight: inherit;
+		}
+	}
+
+	.html-editor.portlet-journal {
+		a {
+			font-weight: inherit;
+		}
+	}
+
 	.html-editor.portlet-message-boards {
 		a {
 			font-weight: inherit;
