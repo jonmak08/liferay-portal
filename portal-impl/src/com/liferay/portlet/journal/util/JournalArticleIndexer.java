@@ -729,7 +729,8 @@ public class JournalArticleIndexer extends BaseIndexer {
 			snippetLocale, prefix + Field.DESCRIPTION, prefix + Field.CONTENT);
 
 		if (Validator.isBlank(content)) {
-			content = document.get(prefix + Field.DESCRIPTION, prefix + Field.CONTENT);
+			content = document.get(
+				prefix + Field.DESCRIPTION, prefix + Field.CONTENT);
 		}
 
 		if (Validator.isBlank(content)) {
