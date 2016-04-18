@@ -15,12 +15,14 @@
 package com.liferay.portal.verify;
 
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
+import com.liferay.portal.kernel.dao.orm.Disjunction;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Projection;
 import com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
@@ -674,6 +676,9 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 
 				@Override
 				protected void addCriteria(DynamicQuery dynamicQuery) {
+					DynamicQuery ddlRecordDynamicQuery =
+						DDLRecordLocalServiceUtil.dynamicQuery();
+
 					DynamicQuery dlFileEntryMetadataDynamicQuery =
 						DLFileEntryMetadataLocalServiceUtil.dynamicQuery();
 
@@ -688,11 +693,21 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 
 					dlFileEntryMetadataDynamicQuery.setProjection(projection);
 
+					ddlRecordDynamicQuery.setProjection(projection);
+
 					Property contentIdProperty = PropertyFactoryUtil.forName(
 						"contentId");
 
-					dynamicQuery.add(
+					Disjunction disjunction =
+						RestrictionsFactoryUtil.disjunction();
+
+					disjunction.add(
+						contentIdProperty.in(ddlRecordDynamicQuery));
+
+					disjunction.add(
 						contentIdProperty.in(dlFileEntryMetadataDynamicQuery));
+
+					dynamicQuery.add(disjunction);
 				}
 
 				@Override
