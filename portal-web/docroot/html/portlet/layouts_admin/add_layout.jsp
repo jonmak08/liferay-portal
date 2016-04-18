@@ -262,6 +262,9 @@ else {
 	);
 
 	<c:if test="<%= portletName.equals(PortletKeys.DOCKBAR) %>">
-		Liferay.on('dockbarHidePanel', A.bind('destroy', addPage));
+		Liferay.on(
+			'dockbarHidePanel',
+			A.bind('destroy', addPage)
+		);
 	</c:if>
 </aui:script>

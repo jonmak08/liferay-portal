@@ -122,5 +122,8 @@ int delta = ParamUtil.getInteger(request, "delta", deltaDefault);
 		}
 	);
 
-	Liferay.on('dockbarHidePanel', A.bind('destroy', addContent));
+	Liferay.on(
+		'dockbarHidePanel',
+		A.bind('destroy', addContent)
+	);
 </aui:script>

@@ -206,5 +206,8 @@ refererURL.setParameter("updateLayout", "true");
 		}
 	);
 
-	Liferay.on('dockbarHidePanel', A.bind('destroy', addApplication));
+	Liferay.on(
+		'dockbarHidePanel',
+		A.bind('destroy', addApplication)
+	);
 </aui:script>
