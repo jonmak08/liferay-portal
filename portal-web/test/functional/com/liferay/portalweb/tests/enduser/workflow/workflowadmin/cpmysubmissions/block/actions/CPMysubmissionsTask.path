@@ -41,7 +41,7 @@
 </tr>
 <tr>
 	<td>MENU_WITHDRAW_SUBMISSION</td>
-	<td>//a[contains(@id,'_menu_withdraw-submission_1')]</td>
+	<td>//a[contains(@id,'_menu_withdraw-submission_1')] | //a[@role='menuitem' and contains(.,'Withdraw Submission')]</td>
 	<td></td>
 </tr>
 <tr>

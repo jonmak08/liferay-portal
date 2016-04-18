@@ -46,7 +46,7 @@
 </tr>
 <tr>
 	<td>ADD_MENULIST_BASIC_DOCUMENT</td>
-	<td>//a[contains(@id,'_menu_basic-document')]</td>
+	<td>//a[contains(@id,'_menu_basic-document')] | //a[@role='menuitem' and contains(.,'Basic Document')]</td>
 	<td></td>
 </tr>
 <tr>

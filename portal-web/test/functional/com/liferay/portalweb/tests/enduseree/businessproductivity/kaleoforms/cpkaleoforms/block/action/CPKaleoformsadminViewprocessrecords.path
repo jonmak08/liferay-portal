@@ -82,12 +82,12 @@
 <!--RECORD_TABLE_MENULIST-->
 <tr>
 	<td>RECORD_TABLE_MENULIST_VIEW</td>
-	<td>//a[contains(@id,'_menu_view')]/span</td>
+	<td>//a[contains(@id,'_menu_view')]/span | //a[@role='menuitem' and contains(.,'View')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>RECORD_TABLE_MENULIST_DELETE</td>
-	<td>//a[contains(@id,'_menu_delete')]/span</td>
+	<td>//a[contains(@id,'_menu_delete')]/span | //a[@role='menuitem' and contains(.,'Delete')]</td>
 	<td></td>
 </tr>
 <tr>
