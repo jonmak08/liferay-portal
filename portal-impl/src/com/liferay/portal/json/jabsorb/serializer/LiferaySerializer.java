@@ -192,7 +192,10 @@ public class LiferaySerializer extends AbstractSerializer {
 		}
 
 		try {
-			Class<?> javaClass = Class.forName(javaClassName);
+			Thread currentThread = Thread.currentThread();
+
+			Class<?> javaClass = Class.forName(
+				javaClassName, false, currentThread.getContextClassLoader());
 
 			Serializable.class.isAssignableFrom(javaClass);
 		}
@@ -270,7 +273,10 @@ public class LiferaySerializer extends AbstractSerializer {
 		Object javaClassInstance = null;
 
 		try {
-			javaClass = Class.forName(javaClassName);
+			Thread currentThread = Thread.currentThread();
+
+			javaClass = Class.forName(
+				javaClassName, false, currentThread.getContextClassLoader());
 
 			javaClassInstance = javaClass.newInstance();
 		}
