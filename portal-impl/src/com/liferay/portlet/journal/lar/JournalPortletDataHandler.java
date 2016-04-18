@@ -284,7 +284,8 @@ public class JournalPortletDataHandler extends BasePortletDataHandler {
 
 		if (portletDataContext.getBooleanParameter(NAMESPACE, "structures")) {
 
-			// Importing DDM structure default values
+			// Importing DDM structure default values. This must happen after
+			// the templates have been imported.
 
 			for (Element articleElement : articleElements) {
 				String className = articleElement.attributeValue("class-name");
