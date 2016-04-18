@@ -41,7 +41,7 @@ AUI.add(
 
 				instance._search = applicationSearch;
 
-				instance._eventHandlesDAASearch = [];
+				instance._eventHandlesDockbarAddApplicationSearch = [];
 
 				instance._bindUISearch();
 			},
@@ -49,15 +49,15 @@ AUI.add(
 			destructor: function() {
 				var instance = this;
 
-				(new A.EventHandle(instance._eventHandlesDAASearch)).detach();
+				(new A.EventHandle(instance._eventHandlesDockbarAddApplicationSearch)).detach();
 
-				instance._eventHandlesDAASearch = null;
+				instance._eventHandlesDockbarAddApplicationSearch = null;
 			},
 
 			_bindUISearch: function() {
 				var instance = this;
 
-				instance._eventHandlesDAASearch.push(
+				instance._eventHandlesDockbarAddApplicationSearch.push(
 					instance._search.on('results', instance._updateList, instance),
 					instance.get('inputNode').on('keydown', instance._onSearchInputKeyDown, instance)
 				);

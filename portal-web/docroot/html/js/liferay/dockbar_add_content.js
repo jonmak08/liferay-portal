@@ -36,7 +36,7 @@ AUI.add(
 						instance._styleButtonsList = instance.byId('styleButtons');
 						instance._styleButtons = instance._styleButtonsList.all(SELECTOR_BUTTON);
 
-						instance._eventHandlesDAContent = [];
+						instance._eventHandlesDockbarAddContent = [];
 
 						instance._bindUI();
 					},
@@ -44,9 +44,9 @@ AUI.add(
 					destructor: function() {
 						var instance = this;
 
-						(new A.EventHandle(instance._eventHandlesDAContent)).detach();
+						(new A.EventHandle(instance._eventHandlesDockbarAddContent)).detach();
 
-						instance._eventHandlesDAContent = null;
+						instance._eventHandlesDockbarAddContent = null;
 					},
 
 					_afterSuccess: function(event) {
@@ -58,7 +58,7 @@ AUI.add(
 					_bindUI: function() {
 						var instance = this;
 
-						instance._eventHandlesDAContent.push(
+						instance._eventHandlesDockbarAddContent.push(
 							instance._numItems.on('change', instance._onChangeNumItems, instance),
 							instance._styleButtonsList.delegate(STR_CLICK, instance._onChangeDisplayStyle, SELECTOR_BUTTON, instance),
 							instance._entriesPanel.delegate(STR_CLICK, instance._addContent, SELECTOR_ADD_CONTENT_ITEM, instance),

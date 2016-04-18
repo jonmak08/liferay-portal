@@ -111,7 +111,7 @@ AUI.add(
 							}
 						}
 
-						instance._eventHandlesDABase = [];
+						instance._eventHandlesDockbarAddBase = [];
 
 						instance._bindUIDABase();
 					},
@@ -119,9 +119,9 @@ AUI.add(
 					destructor: function() {
 						var instance = this;
 
-						(new A.EventHandle(instance._eventHandlesDABase)).detach();
+						(new A.EventHandle(instance._eventHandlesDockbarAddBase)).detach();
 
-						instance._eventHandlesDABase = null;
+						instance._eventHandlesDockbarAddBase = null;
 					},
 
 					addPortlet: function(portlet, options) {
@@ -181,7 +181,7 @@ AUI.add(
 					_bindUIDABase: function() {
 						var instance = this;
 
-						instance._eventHandlesDABase.push(
+						instance._eventHandlesDockbarAddBase.push(
 							Liferay.after('showTab', instance._showTab, instance)
 						);
 					},

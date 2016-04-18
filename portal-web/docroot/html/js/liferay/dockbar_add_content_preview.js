@@ -37,7 +37,7 @@ AUI.add(
 			initializer: function(config) {
 				var instance = this;
 
-				instance._eventHandlesACPreview = [];
+				instance._eventHandlesAddContentPreview = [];
 
 				instance._loadPreviewTask = A.debounce('_loadPreviewFn', 200, instance);
 
@@ -47,11 +47,15 @@ AUI.add(
 			destructor: function() {
 				var instance = this;
 
-				instance._tooltip && instance._tooltip.hide()
+				var tooltip = instance._tooltip;
 
-				(new A.EventHandle(instance._eventHandlesACPreview)).detach();
+				if (tooltip) {
+					tooltip.hide();
+				}
 
-				instance._eventHandlesACPreview = null;
+				(new A.EventHandle(instance._eventHandlesAddContentPreview)).detach();
+
+				instance._eventHandlesAddContentPreview = null;
 			},
 
 			_addContent: function(event) {
@@ -83,7 +87,7 @@ AUI.add(
 				tooltip.setStdModContent(A.WidgetStdMod.BODY, event.currentTarget.get(STR_RESPONSE_DATA));
 				tooltip.align();
 
-				instance._eventHandlesACPreview.push(
+				instance._eventHandlesAddContentPreview.push(
 					tooltip.get(STR_BOUNDING_BOX).one('.add-button-preview').on(STR_CLICK, instance._addContent, instance)
 				);
 			},
@@ -91,7 +95,7 @@ AUI.add(
 			_bindUIACPreview: function() {
 				var instance = this;
 
-				instance._eventHandlesACPreview.push(
+				instance._eventHandlesAddContentPreview.push(
 					Liferay.Dockbar.getPanelNode(Liferay.Dockbar.ADD_PANEL).delegate(
 						STR_MOUSEENTER,
 						instance._showTooltip,
@@ -152,7 +156,7 @@ AUI.add(
 
 					tooltip.render();
 
-					instance._eventHandlesACPreview.push(
+					instance._eventHandlesAddContentPreview.push(
 						tooltip.get(STR_BOUNDING_BOX).on(STR_CLICKOUTSIDE, tooltip.hide, tooltip)
 					);
 

@@ -103,7 +103,7 @@ AUI.add(
 							}
 						);
 
-						instance._eventHandlesDAPage = [];
+						instance._eventHandlesDockbarAddPage = [];
 
 						instance._bindUI();
 					},
@@ -111,9 +111,9 @@ AUI.add(
 					destructor: function() {
 						var instance = this;
 
-						(new A.EventHandle(instance._eventHandlesDAPage)).detach();
+						(new A.EventHandle(instance._eventHandlesDockbarAddPage)).detach();
 
-						instance._eventHandlesDAPage = null;
+						instance._eventHandlesDockbarAddPage = null;
 					},
 
 					_addPage: function(event) {
@@ -178,13 +178,13 @@ AUI.add(
 					_bindUI: function() {
 						var instance = this;
 
-						instance._eventHandlesDAPage.push(
+						instance._eventHandlesDockbarAddPage.push(
 							instance._addForm.on('submit', instance._addPage, instance),
 							instance._cancelButton.on('click', instance._cancelAction, instance),
 							instance._hiddenCheckbox.on('change', instance._updateNavigationProxy, instance),
 							instance._nameInput.on('valuechange', instance._updateNavigationProxy, instance),
 							instance._togglerDelegate.on('toggler:expandedChange', instance._updateActivePage, instance)
-							)
+						);
 					},
 
 					_cancelAction: function(event) {

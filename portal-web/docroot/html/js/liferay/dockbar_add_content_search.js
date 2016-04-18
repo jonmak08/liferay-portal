@@ -20,7 +20,7 @@ AUI.add(
 
 				instance._search = contentSearch;
 
-				instance._eventHandlesDACSearch = [];
+				instance._eventHandlesDockbarAddContenSearch = [];
 
 				instance._bindUISearch();
 			},
@@ -28,15 +28,15 @@ AUI.add(
 			destructor: function() {
 				var instance = this;
 
-				(new A.EventHandle(instance._eventHandlesDACSearch)).detach();
+				(new A.EventHandle(instance._eventHandlesDockbarAddContenSearch)).detach();
 
-				instance._eventHandlesDACSearch = null;
+				instance._eventHandlesDockbarAddContenSearch = null;
 			},
 
 			_bindUISearch: function() {
 				var instance = this;
 
-				instance._eventHandlesDACSearch.push(
+				instance._eventHandlesDockbarAddContenSearch.push(
 					instance._search.after('query', instance._refreshContentList, instance),
 					instance.get('inputNode').on('keydown', instance._onSearchInputKeyDown, instance)
 				);
