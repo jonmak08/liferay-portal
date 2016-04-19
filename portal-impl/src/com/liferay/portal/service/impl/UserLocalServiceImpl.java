@@ -2028,6 +2028,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	 * @param  contactId the user's contact ID
 	 * @return the user with the contact ID, or <code>null</code> if a user with
 	 *         the contact ID could not be found
+	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	public User fetchUserByContactId(long contactId) throws SystemException {
