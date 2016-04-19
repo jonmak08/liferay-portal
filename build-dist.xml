@@ -84,38 +84,6 @@
 		</antcall>
 	</target>
 
-	<target name="build-dist-jboss">
-		<antcall target="unzip-jboss" />
-
-		<app-server-properties-update>
-			app.server.type=jboss
-		</app-server-properties-update>
-
-		<delete dir="${project.dir}/portal-web/classes" />
-
-		<ant target="deploy" inheritAll="false" />
-
-		<app-server-properties-reset />
-
-		<if>
-			<equals arg1="${app.server.jboss.major.version}" arg2="5" />
-			<then>
-				<antcall target="deploy-plugins">
-					<param name="deployer.dest.dir" value="${app.server.parent.dir}/jboss-${app.server.jboss.version}/server/default/deploy" />
-					<param name="deployer.app.server.type" value="jboss" />
-					<param name="deployer.app.server.lib.portal.dir" value="${app.server.parent.dir}/jboss-${app.server.jboss.version}/server/default/deploy/ROOT.war/WEB-INF/lib" />
-				</antcall>
-			</then>
-			<else>
-				<antcall target="deploy-plugins">
-					<param name="deployer.dest.dir" value="${app.server.parent.dir}/jboss-${app.server.jboss.version}/standalone/deployments" />
-					<param name="deployer.app.server.type" value="jboss" />
-					<param name="deployer.app.server.lib.portal.dir" value="${app.server.parent.dir}/jboss-${app.server.jboss.version}/standalone/deployments/ROOT.war/WEB-INF/lib" />
-				</antcall>
-			</else>
-		</if>
-	</target>
-
 	<target name="build-dist-jboss-eap-6.0">
 		<app-server-properties-update>
 			app.server.type=jboss
@@ -570,6 +538,38 @@
 			<param name="deployer.app.server.type" value="tomcat" />
 			<param name="deployer.app.server.lib.portal.dir" value="${app.server.parent.dir}/tomcat-${app.server.tomcat.version}/webapps/ROOT/WEB-INF/lib" />
 		</antcall>
+	</target>
+
+	<target name="build-dist-wildfly">
+		<app-server-properties-update>
+			app.server.type=wildfly
+		</app-server-properties-update>
+
+		<antcall target="unzip-wildfly" />
+
+		<delete dir="${project.dir}/portal-web/classes" />
+
+		<ant target="deploy" inheritAll="false" />
+
+		<app-server-properties-reset />
+
+		<if>
+			<equals arg1="${app.server.wildfly.major.version}" arg2="5" />
+			<then>
+				<antcall target="deploy-plugins">
+					<param name="deployer.dest.dir" value="${app.server.parent.dir}/jboss-${app.server.wildfly.version}/server/default/deploy" />
+					<param name="deployer.app.server.type" value="wildfly" />
+					<param name="deployer.app.server.lib.portal.dir" value="${app.server.parent.dir}/jboss-${app.server.wildfly.version}/server/default/deploy/ROOT.war/WEB-INF/lib" />
+				</antcall>
+			</then>
+			<else>
+				<antcall target="deploy-plugins">
+					<param name="deployer.dest.dir" value="${app.server.parent.dir}/jboss-${app.server.wildfly.version}/standalone/deployments" />
+					<param name="deployer.app.server.type" value="wildfly" />
+					<param name="deployer.app.server.lib.portal.dir" value="${app.server.parent.dir}/jboss-${app.server.wildfly.version}/standalone/deployments/ROOT.war/WEB-INF/lib" />
+				</antcall>
+			</else>
+		</if>
 	</target>
 
 	<target name="deploy-plugins">
