@@ -805,6 +805,7 @@
 		<antcall target="build-dist-resin" />
 		<antcall target="build-dist-tcat" />
 		<antcall target="build-dist-tomcat" />
+		<antcall target="build-dist-wildfly" />
 
 		<antcall target="zip-api" />
 		<antcall target="zip-geronimo" />
@@ -820,6 +821,7 @@
 		<antcall target="zip-src" />
 		<antcall target="zip-tcat" />
 		<antcall target="zip-tomcat" />
+		<antcall target="zip-wildfly" />
 
 		<ant antfile="build-maven.xml" target="zip-maven" inheritAll="false" />
 
