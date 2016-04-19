@@ -15,6 +15,7 @@
 package com.liferay.taglib.aui;
 
 import com.liferay.portal.kernel.servlet.taglib.aui.ValidatorTag;
+import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -42,6 +43,8 @@ public class InputTag extends BaseInputTag {
 
 	@Override
 	public int doEndTag() throws JspException {
+		updateFormValidators();
+
 		return super.doEndTag();
 	}
 
@@ -301,6 +304,38 @@ public class InputTag extends BaseInputTag {
 
 			setNamespacedAttribute(
 				request, "required", Boolean.TRUE.toString());
+		}
+	}
+
+	protected void updateFormValidators() {
+		List<ValidatorTag> validatorTags = ListUtil.fromMapValues(
+			getValidatorTags());
+
+		if (validatorTags == null) {
+			return;
+		}
+
+		HttpServletRequest request =
+			(HttpServletRequest)pageContext.getRequest();
+
+		Map<String, List<ValidatorTag>> validatorTagsMap =
+			(Map<String, List<ValidatorTag>>)request.getAttribute(
+				"aui:form:validatorTagsMap");
+
+		if (validatorTagsMap != null) {
+			String inputName = getInputName();
+
+			if (Validator.equals(getType(), "checkbox")) {
+				inputName = inputName.concat("Checkbox");
+			}
+
+			String languageId = getLanguageId();
+
+			if (Validator.isNotNull(languageId)) {
+				inputName = inputName + StringPool.UNDERLINE + languageId;
+			}
+
+			validatorTagsMap.put(inputName, validatorTags);
 		}
 	}
 
