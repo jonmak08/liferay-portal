@@ -1107,7 +1107,7 @@ public class UserLocalServiceWrapper implements UserLocalService,
 	* @param middleName the user's middle name
 	* @param lastName the user's last name
 	* @return the new default admin user
-	* @throws PortalException n if a portal exception occurred
+	* @throws PortalException if a portal exception occurred
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
@@ -1699,6 +1699,7 @@ public class UserLocalServiceWrapper implements UserLocalService,
 	* @param contactId the user's contact ID
 	* @return the user with the contact ID, or <code>null</code> if a user with
 	the contact ID could not be found
+	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	public com.liferay.portal.model.User fetchUserByContactId(long contactId)

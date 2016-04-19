@@ -1085,6 +1085,15 @@ public class GroupLocalServiceUtil {
 		return getService().fetchGroup(companyId, name);
 	}
 
+	/**
+	* Returns all the active or inactive groups associated with the company.
+	*
+	* @param companyId the primary key of the company
+	* @param active whether to return only active groups, or only inactive
+	groups
+	* @return the active or inactive groups associated with the company
+	* @throws SystemException if a system exception occurred
+	*/
 	public static java.util.List<com.liferay.portal.model.Group> getActiveGroups(
 		long companyId, boolean active)
 		throws com.liferay.portal.kernel.exception.SystemException {

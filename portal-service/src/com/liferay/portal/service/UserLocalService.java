@@ -859,7 +859,7 @@ public interface UserLocalService extends BaseLocalService,
 	* @param middleName the user's middle name
 	* @param lastName the user's last name
 	* @return the new default admin user
-	* @throws PortalException n if a portal exception occurred
+	* @throws PortalException if a portal exception occurred
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.liferay.portal.model.User addDefaultAdminUser(long companyId,
@@ -1178,7 +1178,7 @@ public interface UserLocalService extends BaseLocalService,
 	* @throws PortalException if a portal exception occurred
 	* @throws SystemException if a system exception occurred
 	*/
-	@com.liferay.portal.kernel.transaction.Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	@com.liferay.portal.kernel.transaction.Transactional(propagation = Propagation.SUPPORTS)
 	public long authenticateForBasic(long companyId, java.lang.String authType,
 		java.lang.String login, java.lang.String password)
 		throws com.liferay.portal.kernel.exception.PortalException,
@@ -1202,7 +1202,7 @@ public interface UserLocalService extends BaseLocalService,
 	* @throws PortalException if a portal exception occurred
 	* @throws SystemException if a system exception occurred
 	*/
-	@com.liferay.portal.kernel.transaction.Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	@com.liferay.portal.kernel.transaction.Transactional(propagation = Propagation.SUPPORTS)
 	public long authenticateForDigest(long companyId,
 		java.lang.String username, java.lang.String realm,
 		java.lang.String nonce, java.lang.String method, java.lang.String uri,
@@ -1369,6 +1369,7 @@ public interface UserLocalService extends BaseLocalService,
 	* @param contactId the user's contact ID
 	* @return the user with the contact ID, or <code>null</code> if a user with
 	the contact ID could not be found
+	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.liferay.portal.model.User fetchUserByContactId(long contactId)
@@ -1948,6 +1949,7 @@ public interface UserLocalService extends BaseLocalService,
 	* @deprecated As of 6.2.0, replaced by {@link
 	#getUserByUuidAndCompanyId(String, long)}
 	*/
+	@java.lang.Deprecated
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.liferay.portal.model.User getUserByUuid(java.lang.String uuid)
 		throws com.liferay.portal.kernel.exception.PortalException,

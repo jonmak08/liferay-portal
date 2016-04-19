@@ -16,8 +16,6 @@ package com.liferay.portal.service;
 
 import aQute.bnd.annotation.ProviderType;
 
-import com.liferay.portal.service.ServiceWrapper;
-
 /**
  * Provides a wrapper for {@link GroupLocalService}.
  *
@@ -1163,6 +1161,15 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 		return _groupLocalService.fetchGroup(companyId, name);
 	}
 
+	/**
+	* Returns all the active or inactive groups associated with the company.
+	*
+	* @param companyId the primary key of the company
+	* @param active whether to return only active groups, or only inactive
+	groups
+	* @return the active or inactive groups associated with the company
+	* @throws SystemException if a system exception occurred
+	*/
 	@Override
 	public java.util.List<com.liferay.portal.model.Group> getActiveGroups(
 		long companyId, boolean active)
