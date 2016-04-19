@@ -6622,8 +6622,8 @@ public class PortalImpl implements Portal {
 		if (group.isLayoutPrototype() &&
 			layoutTypePortlet.hasPortletId(portletDisplay.getId()) &&
 			portletDisplay.isModeView() &&
-			!portletName.equals(PortletKeys.DOCKBAR) &&
-			!portletName.equals(PortletKeys.NESTED_PORTLETS)) {
+			!portletName.equals(PortletKeys.NESTED_PORTLETS) &&
+			!portletName.equals(PortletKeys.DOCKBAR)) {
 
 			return true;
 		}
