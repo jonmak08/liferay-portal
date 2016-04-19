@@ -112,10 +112,11 @@
 						<equals arg1="${app.server.type}" arg2="tomcat" />
 						<equals arg1="${app.server.type}" arg2="weblogic" />
 						<equals arg1="${app.server.type}" arg2="websphere" />
+						<equals arg1="${app.server.type}" arg2="wildfly" />
 					</or>
 				</not>
 				<then>
-					<fail>Please set "app.server.type" to one of the following:${line.separator}geronimo, glassfish, jboss, jetty, jonas, resin, tcserver, tomcat, weblogic, or websphere.</fail>
+					<fail>Please set "app.server.type" to one of the following:${line.separator}geronimo, glassfish, jboss, jetty, jonas, resin, tcserver, tomcat, weblogic, websphere, or wildfly.</fail>
 				</then>
 			</if>
 
@@ -5770,23 +5771,6 @@ mail.session.mail.smtp.port=25000</echo>
 				</if>
 
 				<if>
-					<matches pattern="http" string="${test.build.bundle.jboss.zip.url}" />
-					<then>
-						<antcall target="prepare-test-bundle" inheritAll="false">
-							<param name="app.server.type" value="jboss" />
-							<param name="test.app.server.bin.dir" value="${app.server.jboss.bin.dir}" />
-							<param name="test.build.bundle.zip.url" value="${test.build.bundle.jboss.zip.url}" />
-						</antcall>
-					</then>
-					<elseif>
-						<equals arg1="${test.build.bundle.jboss}" arg2="true" />
-						<then>
-							<ant antfile="build-dist.xml" target="build-dist-jboss" inheritAll="false" />
-						</then>
-					</elseif>
-				</if>
-
-				<if>
 					<equals arg1="${test.build.bundle.jbosseap6.0}" arg2="true" />
 					<then>
 						<ant antfile="build-dist.xml" target="build-dist-jboss-eap-6.0" inheritAll="false" />
@@ -5956,6 +5940,23 @@ mail.session.mail.smtp.port=25000</echo>
 					</elseif>
 				</if>
 
+				<if>
+					<matches pattern="http" string="${test.build.bundle.wildfly.zip.url}" />
+					<then>
+						<antcall target="prepare-test-bundle" inheritAll="false">
+							<param name="app.server.type" value="wildfly" />
+							<param name="test.app.server.bin.dir" value="${app.server.wildfly.bin.dir}" />
+							<param name="test.build.bundle.zip.url" value="${test.build.bundle.wildfly.zip.url}" />
+						</antcall>
+					</then>
+					<elseif>
+						<equals arg1="${test.build.bundle.wildfly}" arg2="true" />
+						<then>
+							<ant antfile="build-dist.xml" target="build-dist-wildfly" inheritAll="false" />
+						</then>
+					</elseif>
+				</if>
+
 				<antcall target="deploy-license-xml" />
 
 				<if>
@@ -6117,12 +6118,15 @@ ANT_OPTS=${env.ANT_OPTS}</echo>
 				</chmod>
 
 				<if>
-					<equals arg1="${app.server.type}" arg2="jboss" />
+					<or>
+						<equals arg1="${app.server.type}" arg2="jboss" />
+						<equals arg1="${app.server.type}" arg2="wildfly" />
+					</or>
 					<then>
 						<if>
 							<equals arg1="${database.type}" arg2="oracle" />
 							<then>
-								<replace file="${app.server.jboss.lib.global.dir}/module.xml">
+								<replace file="${app.server.lib.global.dir}/module.xml">
 									<replacetoken><![CDATA[<resource-root path="jtds.jar" />]]></replacetoken>
 									<replacevalue>
 										<![CDATA[
@@ -6133,7 +6137,7 @@ ANT_OPTS=${env.ANT_OPTS}</echo>
 								</replace>
 							</then>
 							<else>
-								<replace file="${app.server.jboss.lib.global.dir}/module.xml">
+								<replace file="${app.server.lib.global.dir}/module.xml">
 									<replacetoken><![CDATA[<resource-root path="jtds.jar" />]]></replacetoken>
 									<replacevalue>
 										<![CDATA[
@@ -7332,7 +7336,10 @@ jdbc.default.password=${database.mysql.password}</echo>
 		<if>
 			<and>
 				<contains string="${hook.plugins.includes}" substring="so-hook" />
-				<equals arg1="${app.server.type}" arg2="jboss" />
+				<or>
+					<equals arg1="${app.server.type}" arg2="jboss" />
+					<equals arg1="${app.server.type}" arg2="wildfly" />
+				</or>
 			</and>
 			<then>
 				<start-app-server />
