@@ -539,19 +539,21 @@ String selectStyle = (String)request.getAttribute("configuration.jsp-selectStyle
 				<%= className %>Options.hide();
 			}
 
-			if (removeOrderBySubtype) {
-				var orderByColumn1Subtype = orderByColumn1.one('.order-by-subtype');
+			<c:if test="<%= !rootPortletId.equals(PortletKeys.HIGHEST_RATED_ASSETS) && !rootPortletId.equals(PortletKeys.MOST_VIEWED_ASSETS) %>">
+				if (removeOrderBySubtype) {
+					var orderByColumn1Subtype = orderByColumn1.one('.order-by-subtype');
 
-				if (orderByColumn1Subtype) {
-					orderByColumn1Subtype.remove();
+					if (orderByColumn1Subtype) {
+						orderByColumn1Subtype.remove();
+					}
+
+					var orderByColumn2Subtype = orderByColumn2.one('.order-by-subtype');
+
+					if (orderByColumn2Subtype) {
+						orderByColumn2Subtype.remove();
+					}
 				}
-
-				var orderByColumn2Subtype = orderByColumn2.one('.order-by-subtype');
-
-				if (orderByColumn2Subtype) {
-					orderByColumn2Subtype.remove();
-				}
-			}
+			</c:if>
 
 			<c:if test="<%= PropsValues.ASSET_PUBLISHER_SEARCH_WITH_INDEX && !rootPortletId.equals(PortletKeys.RELATED_ASSETS) %>">
 				<%= className %>toggleSubclassesFields(true);
@@ -628,35 +630,37 @@ String selectStyle = (String)request.getAttribute("configuration.jsp-selectStyle
 					structureOptions.show();
 				}
 
-				if ((selectedSubtype != 'false') && (selectedSubtype != 'true')) {
-					var orderByColumn1Subtype = orderByColumn1.one('.order-by-subtype');
+				<c:if test="<%= !rootPortletId.equals(PortletKeys.HIGHEST_RATED_ASSETS) && !rootPortletId.equals(PortletKeys.MOST_VIEWED_ASSETS) %>">
+					if ((selectedSubtype != 'false') && (selectedSubtype != 'true')) {
+						var orderByColumn1Subtype = orderByColumn1.one('.order-by-subtype');
 
-					if (orderByColumn1Subtype) {
-						orderByColumn1Subtype.remove();
-					}
+						if (orderByColumn1Subtype) {
+							orderByColumn1Subtype.remove();
+						}
 
-					var orderByColumn2Subtype = orderByColumn2.one('.order-by-subtype');
+						var orderByColumn2Subtype = orderByColumn2.one('.order-by-subtype');
 
-					if (orderByColumn2Subtype) {
-						orderByColumn2Subtype.remove();
-					}
+						if (orderByColumn2Subtype) {
+							orderByColumn2Subtype.remove();
+						}
 
-					orderByColumn1.appendChild(MAP_DDM_STRUCTURES['<%= className %>_' + selectedSubtype + '_optTextOrderByColumn1']);
-					orderByColumn2.appendChild(MAP_DDM_STRUCTURES['<%= className %>_' + selectedSubtype + '_optTextOrderByColumn2']);
+						orderByColumn1.appendChild(MAP_DDM_STRUCTURES['<%= className %>_' + selectedSubtype + '_optTextOrderByColumn1']);
+						orderByColumn2.appendChild(MAP_DDM_STRUCTURES['<%= className %>_' + selectedSubtype + '_optTextOrderByColumn2']);
 
-					if (structureOptions) {
-						subtypeFieldsWrapper.show();
-						subtypeFieldsFilterEnableWrapper.show();
+						if (structureOptions) {
+							subtypeFieldsWrapper.show();
+							subtypeFieldsFilterEnableWrapper.show();
+						}
+						else if (hideSubtypeFilterEnableWrapper) {
+							subtypeFieldsWrapper.hide();
+							subtypeFieldsFilterEnableWrapper.hide();
+						}
 					}
 					else if (hideSubtypeFilterEnableWrapper) {
 						subtypeFieldsWrapper.hide();
 						subtypeFieldsFilterEnableWrapper.hide();
 					}
-				}
-				else if (hideSubtypeFilterEnableWrapper) {
-					subtypeFieldsWrapper.hide();
-					subtypeFieldsFilterEnableWrapper.hide();
-				}
+				</c:if>
 			}
 
 			<%= className %>toggleSubclassesFields(false);
