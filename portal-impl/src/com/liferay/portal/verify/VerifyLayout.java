@@ -69,7 +69,7 @@ public class VerifyLayout extends VerifyProcess {
 					if (layout.isLayoutPrototypeLinkEnabled()) {
 						if (_log.isInfoEnabled()) {
 							_log.info(
-								"Deleting page \"" + name + "\" because it " +
+								"Deleting layout \"" + name + "\" because it " +
 									"is propagated from a deleted layout " +
 										"template");
 						}
@@ -79,8 +79,8 @@ public class VerifyLayout extends VerifyProcess {
 					else {
 						if (_log.isInfoEnabled()) {
 							_log.info(
-								"Removing reference to deleted page template " +
-									"layout page \"" + name + "\"");
+								"Removing reference to deleted layout " +
+									"template from layout \"" + name + "\"");
 						}
 
 						removeLayoutPrototypeUuid(plid);
