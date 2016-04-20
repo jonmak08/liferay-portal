@@ -123,9 +123,10 @@ public class ExpandoValueConversionTest extends TestCase {
 		try {
 			_converter.convertType(
 				ExpandoColumnConstants.BOOLEAN_ARRAY, "[\"false\",true]");
+
+			Assert.fail();
 		}
 		catch (Exception e) {
-			Assert.fail();
 		}
 	}
 
@@ -411,9 +412,10 @@ public class ExpandoValueConversionTest extends TestCase {
 		try {
 			_converter.convertType(
 				ExpandoColumnConstants.DOUBLE_ARRAY, "[\"34.67\",12.45]");
+
+			Assert.fail();
 		}
 		catch (Exception e) {
-			Assert.fail();
 		}
 	}
 
@@ -554,9 +556,10 @@ public class ExpandoValueConversionTest extends TestCase {
 		try {
 			_converter.convertType(
 				ExpandoColumnConstants.FLOAT_ARRAY, "[\"34.67\",12.45]");
+
+			Assert.fail();
 		}
 		catch (Exception e) {
-			Assert.fail();
 		}
 	}
 
@@ -694,9 +697,10 @@ public class ExpandoValueConversionTest extends TestCase {
 		try {
 			_converter.convertType(
 				ExpandoColumnConstants.INTEGER_ARRAY, "[\"34\",12]");
+
+			Assert.fail();
 		}
 		catch (Exception e) {
-			Assert.fail();
 		}
 	}
 
@@ -833,9 +837,10 @@ public class ExpandoValueConversionTest extends TestCase {
 		try {
 			_converter.convertType(
 				ExpandoColumnConstants.LONG_ARRAY, "[\"34\",12]");
+
+			Assert.fail();
 		}
 		catch (Exception e) {
-			Assert.fail();
 		}
 	}
 
@@ -1116,9 +1121,10 @@ public class ExpandoValueConversionTest extends TestCase {
 		try {
 			_converter.convertType(
 				ExpandoColumnConstants.SHORT_ARRAY, "[\"34\",12]");
+
+			Assert.fail();
 		}
 		catch (Exception e) {
-			Assert.fail();
 		}
 	}
 
