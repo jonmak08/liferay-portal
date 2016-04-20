@@ -16,7 +16,6 @@ package com.liferay.portlet.dynamicdatalists.asset;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portlet.asset.model.AssetRenderer;
@@ -38,9 +37,10 @@ public class DDLRecordAssetRendererFactory extends BaseAssetRendererFactory {
 		throws PortalException, SystemException {
 
 		DDLRecord record = DDLRecordLocalServiceUtil.fetchDDLRecord(classPK);
+
 		DDLRecordVersion recordVersion = null;
 
-		if (Validator.isNull(record)) {
+		if (record == null) {
 			recordVersion = DDLRecordLocalServiceUtil.getRecordVersion(classPK);
 
 			record = recordVersion.getRecord();
