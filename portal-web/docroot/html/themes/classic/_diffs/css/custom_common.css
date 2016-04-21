@@ -437,6 +437,13 @@
 		}
 	}
 
+	.portlet-dockbar {
+		.portlet-borderless-container {
+			padding: 0;
+			margin-bottom: 0;
+		}
+	}
+
 	/* ---------- Nav#Navigation ---------- */
 
 	.modify-pages .delete-tab {
