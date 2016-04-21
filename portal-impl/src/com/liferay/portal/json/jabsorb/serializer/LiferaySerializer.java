@@ -16,6 +16,7 @@ package com.liferay.portal.json.jabsorb.serializer;
 
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.ClassResolverUtil;
 
 import java.io.Serializable;
 
@@ -192,10 +193,8 @@ public class LiferaySerializer extends AbstractSerializer {
 		}
 
 		try {
-			Thread currentThread = Thread.currentThread();
-
-			Class<?> javaClass = Class.forName(
-				javaClassName, false, currentThread.getContextClassLoader());
+			Class<?> javaClass = ClassResolverUtil.resolveByContextClassLoader(
+				javaClassName);
 
 			Serializable.class.isAssignableFrom(javaClass);
 		}
@@ -273,10 +272,8 @@ public class LiferaySerializer extends AbstractSerializer {
 		Object javaClassInstance = null;
 
 		try {
-			Thread currentThread = Thread.currentThread();
-
-			javaClass = Class.forName(
-				javaClassName, false, currentThread.getContextClassLoader());
+			javaClass = ClassResolverUtil.resolveByContextClassLoader(
+				javaClassName);
 
 			javaClassInstance = javaClass.newInstance();
 		}
