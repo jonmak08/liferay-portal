@@ -143,7 +143,7 @@ boolean wsrp = ParamUtil.getBoolean(PortalUtil.getOriginalServletRequest(request
 
 				<%
 				boolean showPortletActions =
-					(group.isLayoutPrototype() || tilesPortletDecorate) &&
+					tilesPortletDecorate &&
 					(portletDisplay.isShowCloseIcon() ||
 					 portletDisplay.isShowConfigurationIcon() ||
 					 portletDisplay.isShowEditDefaultsIcon() ||
