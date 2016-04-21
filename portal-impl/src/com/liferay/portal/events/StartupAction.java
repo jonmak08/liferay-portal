@@ -16,6 +16,7 @@ package com.liferay.portal.events;
 
 import com.liferay.portal.cache.ehcache.EhcacheStreamBootstrapCacheLoader;
 import com.liferay.portal.jericho.CachedLoggerProvider;
+import com.liferay.portal.kernel.backgroundtask.BackgroundTaskLifecycle;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.cluster.ClusterExecutorUtil;
 import com.liferay.portal.kernel.cluster.ClusterLinkUtil;
@@ -45,13 +46,14 @@ import com.liferay.portal.kernel.scheduler.SchedulerException;
 import com.liferay.portal.kernel.search.IndexerRegistryUtil;
 import com.liferay.portal.kernel.servlet.JspFactorySwapper;
 import com.liferay.portal.kernel.template.TemplateManagerUtil;
+import com.liferay.portal.kernel.util.BasePortalLifecycle;
+import com.liferay.portal.kernel.util.PortalLifecycle;
 import com.liferay.portal.kernel.util.ReleaseInfo;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.plugin.PluginPackageIndexer;
 import com.liferay.portal.security.lang.DoPrivilegedUtil;
-import com.liferay.portal.service.BackgroundTaskLocalServiceUtil;
 import com.liferay.portal.service.LockLocalServiceUtil;
 import com.liferay.portal.tools.DBUpgrader;
 import com.liferay.portal.util.WebKeys;
@@ -238,9 +240,11 @@ public class StartupAction extends SimpleAction {
 
 		// Background tasks
 
-		if (!ClusterMasterExecutorUtil.isEnabled()) {
-			BackgroundTaskLocalServiceUtil.cleanUpBackgroundTasks();
-		}
+		BasePortalLifecycle backgroundTaskLifecycle =
+			new BackgroundTaskLifecycle();
+
+		backgroundTaskLifecycle.registerPortalLifecycle(
+			PortalLifecycle.METHOD_INIT);
 
 		// Liferay JspFactory
 
