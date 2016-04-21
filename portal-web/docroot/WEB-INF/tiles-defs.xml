@@ -1304,7 +1304,6 @@
 
 	<definition name="portlet.quick_note.view" extends="portlet.quick_note">
 		<put name="portlet_content" value="/portlet/quick_note/view.jsp" />
-		<put name="portlet_decorate" value="false" />
 	</definition>
 
 	<!-- Recent Documents -->
