@@ -941,7 +941,6 @@
 		<portlet-layout-listener-class>com.liferay.portlet.assetpublisher.AssetPublisherPortletLayoutListener</portlet-layout-listener-class>
 		<preferences-owned-by-group>true</preferences-owned-by-group>
 		<use-default-template>false</use-default-template>
-		<layout-cacheable>true</layout-cacheable>
 		<instanceable>true</instanceable>
 		<scopeable>false</scopeable>
 		<private-request-attributes>false</private-request-attributes>
@@ -1126,7 +1125,6 @@
 		<template-handler>com.liferay.portlet.assetcategoriesnavigation.template.AssetCategoriesNavigationPortletDisplayTemplateHandler</template-handler>
 		<preferences-owned-by-group>true</preferences-owned-by-group>
 		<use-default-template>false</use-default-template>
-		<layout-cacheable>true</layout-cacheable>
 		<instanceable>true</instanceable>
 		<private-request-attributes>false</private-request-attributes>
 		<private-session-attributes>false</private-session-attributes>
@@ -1383,7 +1381,6 @@
 		<template-handler>com.liferay.portlet.assettagsnavigation.template.AssetTagsNavigationPortletDisplayTemplateHandler</template-handler>
 		<preferences-owned-by-group>true</preferences-owned-by-group>
 		<use-default-template>false</use-default-template>
-		<layout-cacheable>true</layout-cacheable>
 		<instanceable>true</instanceable>
 		<scopeable>true</scopeable>
 		<private-request-attributes>false</private-request-attributes>
@@ -1474,7 +1471,6 @@
 		<struts-path>asset_tags_cloud</struts-path>
 		<configuration-action-class>com.liferay.portal.kernel.portlet.DefaultConfigurationAction</configuration-action-class>
 		<use-default-template>false</use-default-template>
-		<layout-cacheable>true</layout-cacheable>
 		<instanceable>true</instanceable>
 		<scopeable>true</scopeable>
 		<private-request-attributes>false</private-request-attributes>
@@ -2124,7 +2120,6 @@
 		<portlet-layout-listener-class>com.liferay.portlet.assetpublisher.AssetPublisherPortletLayoutListener</portlet-layout-listener-class>
 		<preferences-owned-by-group>true</preferences-owned-by-group>
 		<use-default-template>false</use-default-template>
-		<layout-cacheable>true</layout-cacheable>
 		<instanceable>true</instanceable>
 		<scopeable>false</scopeable>
 		<private-request-attributes>false</private-request-attributes>
@@ -2148,7 +2143,6 @@
 		<portlet-layout-listener-class>com.liferay.portlet.assetpublisher.AssetPublisherPortletLayoutListener</portlet-layout-listener-class>
 		<preferences-owned-by-group>true</preferences-owned-by-group>
 		<use-default-template>false</use-default-template>
-		<layout-cacheable>true</layout-cacheable>
 		<instanceable>true</instanceable>
 		<scopeable>false</scopeable>
 		<private-request-attributes>false</private-request-attributes>
