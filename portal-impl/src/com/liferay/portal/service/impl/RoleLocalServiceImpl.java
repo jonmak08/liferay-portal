@@ -256,6 +256,76 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 	}
 
 	/**
+	 * Adds the role to the user. The user is reindexed after the role is added.
+	 *
+	 * @param  userId the primary key of the user
+	 * @param  roleId the role
+	 * @throws PortalException if a user with the primary key could not be found
+	 * @throws SystemException if a system exception occurred
+	 * @see    com.liferay.portal.service.persistence.UserPersistence#addRole(
+	 *         long, long)
+	 */
+	@Override
+	public void addUserRole(long userId, long roleId)
+		throws PortalException, SystemException {
+
+		userPersistence.addRole(userId, roleId);
+
+		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
+
+		indexer.reindex(userId);
+
+		PermissionCacheUtil.clearCache(userId);
+	}
+
+	/**
+	 * Adds the role to the user. The user is reindexed after the role is added.
+	 *
+	 * @param  userId the primary key of the user
+	 * @param  role the primary key of the role
+	 * @throws PortalException if a user with the primary key could not be found
+	 * @throws SystemException if a system exception occurred
+	 * @see    com.liferay.portal.service.persistence.UserPersistence#addRole(
+	 *         long, Role)
+	 */
+	@Override
+	public void addUserRole(long userId, Role role)
+		throws PortalException, SystemException {
+
+		userPersistence.addRole(userId, role);
+
+		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
+
+		indexer.reindex(userId);
+
+		PermissionCacheUtil.clearCache(userId);
+	}
+
+	/**
+	 * Adds the roles to the user. The user is reindexed after the roles are
+	 * added.
+	 *
+	 * @param  userId the primary key of the user
+	 * @param  Roles the roles
+	 * @throws PortalException if a user with the primary key could not be found
+	 * @throws SystemException if a system exception occurred
+	 * @see    com.liferay.portal.service.persistence.UserPersistence#addRoles(
+	 *         long, List)
+	 */
+	@Override
+	public void addUserRoles(long userId, List<Role> Roles)
+		throws PortalException, SystemException {
+
+		userPersistence.addRoles(userId, Roles);
+
+		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
+
+		indexer.reindex(userId);
+
+		PermissionCacheUtil.clearCache(userId);
+	}
+
+	/**
 	 * Adds the roles to the user. The user is reindexed after the roles are
 	 * added.
 	 *
@@ -443,6 +513,29 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 	}
 
 	/**
+	 * Removes every role from the user. The user is reindexed after the roles
+	 * are removed.
+	 *
+	 * @param  userId the primary key of the user
+	 * @throws PortalException if a user with the primary key could not be found
+	 * @throws SystemException if a system exception occurred
+	 * @see    com.liferay.portal.service.persistence.UserPersistence#clearRoles(
+	 *         long)
+	 */
+	@Override
+	public void clearUserRoles(long userId)
+		throws PortalException, SystemException {
+
+		userPersistence.clearRoles(userId);
+
+		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
+
+		indexer.reindex(userId);
+
+		PermissionCacheUtil.clearCache(userId);
+	}
+
+	/**
 	 * Deletes the role with the primary key and its associated permissions.
 	 *
 	 * @param  roleId the primary key of the role
@@ -543,6 +636,102 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 		PermissionCacheUtil.clearCache();
 
 		return role;
+	}
+
+	/**
+	 * Removes the role from the user. The user is reindexed after the role is
+	 * removed.
+	 *
+	 * @param  userId the primary key of the user
+	 * @param  roleId the primary key of the role
+	 * @throws PortalException if a user with the primary key could not be found
+	 * @throws SystemException if a system exception occurred
+	 * @see    com.liferay.portal.service.persistence.UserPersistence#removeRole(
+	 *         long, long)
+	 */
+	@Override
+	public void deleteUserRole(long userId, long roleId)
+		throws PortalException, SystemException {
+
+		userPersistence.removeRole(userId, roleId);
+
+		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
+
+		indexer.reindex(userId);
+
+		PermissionCacheUtil.clearCache(userId);
+	}
+
+	/**
+	 * Removes the role from the user. The user is reindexed after the role is
+	 * removed.
+	 *
+	 * @param  userId the primary key of the user
+	 * @param  role the role
+	 * @throws PortalException if a user with the primary key could not be found
+	 * @throws SystemException if a system exception occurred
+	 * @see    com.liferay.portal.service.persistence.UserPersistence#removeRole(
+	 *         long, Role)
+	 */
+	@Override
+	public void deleteUserRole(long userId, Role role)
+		throws PortalException, SystemException {
+
+		userPersistence.removeRole(userId, role);
+
+		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
+
+		indexer.reindex(userId);
+
+		PermissionCacheUtil.clearCache(userId);
+	}
+
+	/**
+	 * Removes the roles from the user. The user is reindexed after the roles
+	 * are removed.
+	 *
+	 * @param  userId the primary key of the user
+	 * @param  Roles the roles
+	 * @throws PortalException if a user with the primary key could not be found
+	 * @throws SystemException if a system exception occurred
+	 * @see    com.liferay.portal.service.persistence.UserPersistence#removeRoles(
+	 *         long, List)
+	 */
+	@Override
+	public void deleteUserRoles(long userId, List<Role> Roles)
+		throws PortalException, SystemException {
+
+		userPersistence.removeRoles(userId, Roles);
+
+		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
+
+		indexer.reindex(userId);
+
+		PermissionCacheUtil.clearCache(userId);
+	}
+
+	/**
+	 * Removes the roles from the user. The user is reindexed after the roles
+	 * are removed.
+	 *
+	 * @param  userId the primary key of the user
+	 * @param  roleIds the primary keys of the roles
+	 * @throws PortalException if a user with the primary key could not be found
+	 * @throws SystemException if a system exception occurred
+	 * @see    com.liferay.portal.service.persistence.UserPersistence#removeRoles(
+	 *         long, long[])
+	 */
+	@Override
+	public void deleteUserRoles(long userId, long[] roleIds)
+		throws PortalException, SystemException {
+
+		userPersistence.removeRoles(userId, roleIds);
+
+		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
+
+		indexer.reindex(userId);
+
+		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
