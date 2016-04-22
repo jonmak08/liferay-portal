@@ -2042,8 +2042,8 @@
 					</license>
 				</licenses>
 				<comments>
-					Removed org.json.* because it json-java.jar.
-					Include patch for LPS-54420.
+					Removed org.json.* because it json-java.jar. This includes public patche from
+					LPS-54420.
 				</comments>
 			</library>
 			<library>
