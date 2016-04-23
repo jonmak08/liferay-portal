@@ -121,6 +121,11 @@ public class HtmlImpl implements Html {
 					replacement = "&#x2014;";
 
 					break;
+
+				case '\u2028':
+					replacement = "&#x8232;";
+
+					break;
 			}
 
 			if (replacement != null) {
