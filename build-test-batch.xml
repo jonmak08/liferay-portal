@@ -800,6 +800,14 @@ app.server.type=@{app.server.type}]]></echo>
 		</run-batch-test>
 	</target>
 
+	<target name="release-functional-bundle-tomcat-mysql55-jdk7">
+		<antcall target="functional-bundle-tomcat-mysql55-jdk7" />
+	</target>
+
+	<target name="release-functional-smoke-bundle-tomcat-mysql55-jdk7">
+		<antcall target="functional-bundle-tomcat-mysql55-jdk7" />
+	</target>
+
 	<target name="tck-jdk7">
 		<run-batch-test tomcat.gc.log="true" tsant.gc.log="true">
 			<test-action>
