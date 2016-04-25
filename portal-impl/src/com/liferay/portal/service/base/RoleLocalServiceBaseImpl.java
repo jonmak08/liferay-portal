@@ -518,18 +518,22 @@ public abstract class RoleLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
+	 * @throws PortalException
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void addUserRole(long userId, long roleId) throws SystemException {
+	public void addUserRole(long userId, long roleId)
+		throws PortalException, SystemException {
 		userPersistence.addRole(userId, roleId);
 	}
 
 	/**
+	 * @throws PortalException
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void addUserRole(long userId, Role role) throws SystemException {
+	public void addUserRole(long userId, Role role)
+		throws PortalException, SystemException {
 		userPersistence.addRole(userId, role);
 	}
 
@@ -554,46 +558,52 @@ public abstract class RoleLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
+	 * @throws PortalException
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void clearUserRoles(long userId) throws SystemException {
+	public void clearUserRoles(long userId)
+		throws PortalException, SystemException {
 		userPersistence.clearRoles(userId);
 	}
 
 	/**
+	 * @throws PortalException
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	public void deleteUserRole(long userId, long roleId)
-		throws SystemException {
+		throws PortalException, SystemException {
 		userPersistence.removeRole(userId, roleId);
 	}
 
 	/**
+	 * @throws PortalException
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	public void deleteUserRole(long userId, Role role)
-		throws SystemException {
+		throws PortalException, SystemException {
 		userPersistence.removeRole(userId, role);
 	}
 
 	/**
+	 * @throws PortalException
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	public void deleteUserRoles(long userId, long[] roleIds)
-		throws SystemException {
+		throws PortalException, SystemException {
 		userPersistence.removeRoles(userId, roleIds);
 	}
 
 	/**
+	 * @throws PortalException
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
 	public void deleteUserRoles(long userId, List<Role> Roles)
-		throws SystemException {
+		throws PortalException, SystemException {
 		userPersistence.removeRoles(userId, Roles);
 	}
 

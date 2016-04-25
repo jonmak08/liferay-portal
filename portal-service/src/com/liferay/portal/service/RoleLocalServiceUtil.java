@@ -418,19 +418,23 @@ public class RoleLocalServiceUtil {
 	}
 
 	/**
+	* @throws PortalException
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void addUserRole(long userId, long roleId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
 		getService().addUserRole(userId, roleId);
 	}
 
 	/**
+	* @throws PortalException
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void addUserRole(long userId,
 		com.liferay.portal.model.Role role)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
 		getService().addUserRole(userId, role);
 	}
 
@@ -456,44 +460,54 @@ public class RoleLocalServiceUtil {
 	}
 
 	/**
+	* @throws PortalException
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void clearUserRoles(long userId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
 		getService().clearUserRoles(userId);
 	}
 
 	/**
+	* @throws PortalException
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteUserRole(long userId, long roleId)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
 		getService().deleteUserRole(userId, roleId);
 	}
 
 	/**
+	* @throws PortalException
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteUserRole(long userId,
 		com.liferay.portal.model.Role role)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
 		getService().deleteUserRole(userId, role);
 	}
 
 	/**
+	* @throws PortalException
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteUserRoles(long userId, long[] roleIds)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
 		getService().deleteUserRoles(userId, roleIds);
 	}
 
 	/**
+	* @throws PortalException
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteUserRoles(long userId,
 		java.util.List<com.liferay.portal.model.Role> Roles)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
 		getService().deleteUserRoles(userId, Roles);
 	}
 
