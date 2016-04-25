@@ -149,12 +149,12 @@
 <!--WELCOME_LIFERAY_USER_GUIDE-->
 <tr>
 	<td>WELCOME_LIFERAY_USER_GUIDE_HEADER</td>
-	<td>//div[@class='page-heading']/h1</td>
+	<td>//div[@class='float-container kb-entity-header']/h1</td>
 	<td></td>
 </tr>
 <tr>
-	<td>WELCOME_LIFERAY_USER_GUIDE_SUBHEADER</td>
-	<td>//div[@class='page-heading']/p</td>
+	<td>WELCOME_LIFERAY_USER_GUIDE_HEADER_IMAGE</td>
+	<td>//img[@alt='Liferay Developer Network']</td>
 	<td></td>
 </tr>
 <tr>
@@ -181,12 +181,12 @@
 <!--WELCOME_DEVELOPER_RESOURCES-->
 <tr>
 	<td>WELCOME_DEVELOPER_RESOURCES_HEADER</td>
-	<td>//div[@class='page-heading']/h1</td>
+	<td>//div[@class='journal-content-article']/h1</td>
 	<td></td>
 </tr>
 <tr>
 	<td>WELCOME_DEVELOPER_RESOURCES_SUBHEADER</td>
-	<td>//div[@class='page-heading']/p</td>
+	<td>//div[@class='journal-content-article']/p</td>
 	<td></td>
 </tr>
 <tr>
@@ -197,7 +197,7 @@
 <!--WELCOME_ENTERPRISE_LEVEL_OPTIONS-->
 <tr>
 	<td>WELCOME_ENTERPRISE_LEVEL_OPTIONS_HEADER</td>
-	<td>//div[@class='page-heading']/h1</td>
+	<td>//div[contains(@class,'page-heading')]/h1</td>
 	<td></td>
 </tr>
 <tr>

@@ -24,8 +24,8 @@
 
 		<execute function="Open" locator1="http://www.liferay.com/welcome-learn?v1.0" />
 
-		<execute function="AssertTextEquals" locator1="PGWelcome#WELCOME_LIFERAY_USER_GUIDE_HEADER" value1="Documentation" />
-		<execute function="AssertTextEquals" locator1="PGWelcome#WELCOME_LIFERAY_USER_GUIDE_SUBHEADER" value1="Liferay provides a rich store of resources and knowledge to help our community better use and work with our technology." />
+		<execute function="AssertElementPresent" locator1="PGWelcome#WELCOME_LIFERAY_USER_GUIDE_HEADER_IMAGE" />
+		<execute function="AssertTextEquals" locator1="PGWelcome#WELCOME_LIFERAY_USER_GUIDE_HEADER" value1="WHAT IS LIFERAY?" />
 
 		<execute function="Open" locator1="http://www.liferay.com/welcome-engage?v1.0" />
 
@@ -34,8 +34,8 @@
 
 		<execute function="Open" locator1="http://www.liferay.com/welcome-develop?v1.0" />
 
-		<execute function="AssertTextEquals" locator1="PGWelcome#WELCOME_DEVELOPER_RESOURCES_HEADER" value1="Documentation" />
-		<execute function="AssertTextEquals" locator1="PGWelcome#WELCOME_DEVELOPER_RESOURCES_SUBHEADER" value1="Liferay provides a rich store of resources and knowledge to help our community better use and work with our technology." />
+		<execute function="AssertTextEquals" locator1="PGWelcome#WELCOME_DEVELOPER_RESOURCES_HEADER" value1="LIFERAY DEVELOPER DOCUMENTATION" />
+		<execute function="AssertTextEquals" locator1="PGWelcome#WELCOME_DEVELOPER_RESOURCES_SUBHEADER" value1="You've arrived at exactly the right place to learn about developing on Liferay Portal! We have several different ways for you to learn, based on your style and experience." />
 
 		<execute function="Open" locator1="http://www.liferay.com/welcome-evaluate?v1.0" />
 
