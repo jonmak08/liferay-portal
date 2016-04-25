@@ -252,8 +252,8 @@
 		<sequential>
 			<echo file="@{plugins.dir}/@{file.path}/@{file.name}"><![CDATA[{
 	"bundle": "@{app.server.dir}",
-	"deployDir": "@{app.server.dir}/webapps/ROOT",
-	"source": "@{portal.dir}"
+	"deployDir": "@{app.server.dir}/webapps/ROOT"
+	"source": "@{portal.dir}",
 }]]></echo>
 		</sequential>
 	</macrodef>
