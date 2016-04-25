@@ -20,6 +20,8 @@
 JournalArticle article = (JournalArticle)request.getAttribute(WebKeys.JOURNAL_ARTICLE);
 %>
 
-<%= JournalArticleLocalServiceUtil.getArticleContent(article, article.getTemplateId(), null, themeDisplay.getLanguageId(), themeDisplay) %>
+<div class="journal-content-article">
+	<%= JournalArticleLocalServiceUtil.getArticleContent(article, article.getTemplateId(), null, themeDisplay.getLanguageId(), themeDisplay) %>
+</div>
 
 <liferay-util:include page="/html/common/themes/bottom.jsp" />

@@ -20,7 +20,9 @@
 BlogsEntry entry = (BlogsEntry)request.getAttribute(WebKeys.BLOGS_ENTRY);
 %>
 
-<%= entry.getContent() %>
+<div class="entry-body">
+	<%= entry.getContent() %>
+</div>
 
 <liferay-ui:custom-attributes-available className="<%= BlogsEntry.class.getName() %>">
 	<liferay-ui:custom-attribute-list

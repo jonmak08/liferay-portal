@@ -48,7 +48,9 @@ else {
 }
 %>
 
-<%= pageDisplay.getFormattedContent() %>
+<div class="wiki-body">
+	<%= pageDisplay.getFormattedContent() %>
+</div>
 
 <liferay-ui:custom-attributes-available className="<%= WikiPage.class.getName() %>">
 	<liferay-ui:custom-attribute-list

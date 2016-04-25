@@ -110,7 +110,9 @@ boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 			<liferay-ui:message key="preview" />:
 
 			<div class="preview">
-				<%= entry.getContent() %>
+				<div class="entry-body">
+					<%= entry.getContent() %>
+				</div>
 			</div>
 
 			<br />
