@@ -1822,14 +1822,14 @@
 			<var name="eventTitle" value="Calendar Event Repeating Title" />
 		</execute>
 
-		<execute macro="CalendarEvent#setDates">
-			<var name="endDate" value="02/2/2015" />
-			<var name="startDate" value="02/2/2015" />
-		</execute>
-
 		<execute macro="CalendarEvent#setTimes">
 			<var name="endDateTime" value="02:00 AM" />
 			<var name="startDateTime" value="01:00 AM" />
+		</execute>
+
+		<execute macro="CalendarEvent#setDates">
+			<var name="endDate" value="02/2/2015" />
+			<var name="startDate" value="02/2/2015" />
 		</execute>
 
 		<execute macro="CalendarEvent#setRepeating">
