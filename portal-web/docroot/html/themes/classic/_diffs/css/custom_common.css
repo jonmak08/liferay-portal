@@ -853,9 +853,9 @@
 		}
 	}
 
-	/* ---------- CKEditor ---------- */
+	/* ---------- Content & CKEditor ---------- */
 
-	.html-editor {
+	.entry-body, .html-editor, .journal-content-article, .thread-body, .wiki-body {
 		a {
 			font-weight: inherit;
 		}
