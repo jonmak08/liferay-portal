@@ -124,6 +124,8 @@ public class EhcachePortalCache<K extends Serializable, V>
 
 		registeredEventListeners.registerListener(
 			cacheEventListener, notificationScope);
+
+		_cacheNotificationScopes.put(cacheEventListener, notificationScope);
 	}
 
 	@Override
@@ -137,7 +139,28 @@ public class EhcachePortalCache<K extends Serializable, V>
 	}
 
 	public void setEhcache(Ehcache ehcache) {
+		RegisteredEventListeners registeredEventListeners =
+			ehcache.getCacheEventNotificationService();
+
+		for (Map.Entry<CacheEventListener, NotificationScope> entry :
+				_cacheNotificationScopes.entrySet()) {
+
+			registeredEventListeners.registerListener(
+				entry.getKey(), entry.getValue());
+		}
+
+		Ehcache oldEhcache = _ehcache;
+
 		_ehcache = ehcache;
+
+		registeredEventListeners =
+			oldEhcache.getCacheEventNotificationService();
+
+		for (Map.Entry<CacheEventListener, NotificationScope> entry :
+				_cacheNotificationScopes.entrySet()) {
+
+			registeredEventListeners.unregisterListener(entry.getKey());
+		}
 	}
 
 	@Override
@@ -185,6 +208,9 @@ public class EhcachePortalCache<K extends Serializable, V>
 
 	private Map<CacheListener<K, V>, CacheEventListener> _cacheEventListeners =
 		new ConcurrentHashMap<CacheListener<K, V>, CacheEventListener>();
-	private Ehcache _ehcache;
+	private Map<CacheEventListener, NotificationScope>
+		_cacheNotificationScopes =
+			new ConcurrentHashMap<CacheEventListener, NotificationScope>();
+	private volatile Ehcache _ehcache;
 
 }
