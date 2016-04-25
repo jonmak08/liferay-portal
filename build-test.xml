@@ -5995,6 +5995,7 @@ ANT_OPTS=${env.ANT_OPTS}</echo>
 								<![CDATA[
 									<resource-root path="jtds.jar" />
 									<resource-root path="mysql.jar" />
+									<resource-root path="ojdbc6.jar" />
 								]]>
 							</replacevalue>
 						</replace>
