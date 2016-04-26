@@ -4952,6 +4952,15 @@ public class JournalArticleLocalServiceImpl
 
 				addNewVersion = true;
 
+				JournalArticle liveArticle = fetchLatestArticleFromLive(
+					article);
+
+				if ((liveArticle != null) &&
+					(liveArticle.getVersion() > latestVersion)) {
+
+					latestVersion = liveArticle.getVersion();
+				}
+
 				version = MathUtil.format(latestVersion + 0.1, 1, 1);
 			}
 		}
@@ -5254,6 +5263,14 @@ public class JournalArticleLocalServiceImpl
 		Locale defaultLocale = getArticleDefaultLocale(content, serviceContext);
 
 		if (incrementVersion) {
+			JournalArticle liveArticle = fetchLatestArticleFromLive(oldArticle);
+
+			if ((liveArticle != null) &&
+				(liveArticle.getVersion() > oldVersion)) {
+
+				oldVersion = liveArticle.getVersion();
+			}
+
 			double newVersion = MathUtil.format(oldVersion + 0.1, 1, 1);
 
 			long id = counterLocalService.increment();
@@ -6068,6 +6085,31 @@ public class JournalArticleLocalServiceImpl
 		}
 
 		newArticle.setContent(contentDoc.formattedString());
+	}
+
+	protected JournalArticle fetchLatestArticleFromLive(JournalArticle article)
+		throws PortalException {
+
+		Group group = groupLocalService.getGroup(article.getGroupId());
+
+		long liveGroupId = group.getLiveGroupId();
+
+		if (liveGroupId == 0) {
+			return null;
+		}
+
+		JournalArticleResource articleResource =
+			journalArticleResourceLocalService.
+				fetchJournalArticleResourceByUuidAndGroupId(
+					article.getArticleResourceUuid(), liveGroupId);
+
+		if (articleResource == null) {
+			return null;
+		}
+
+		return journalArticleLocalService.fetchLatestArticle(
+			articleResource.getResourcePrimKey(), WorkflowConstants.STATUS_ANY,
+			false);
 	}
 
 	protected void format(
