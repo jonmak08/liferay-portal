@@ -146,6 +146,20 @@ if (portletTitleBasedNavigation) {
 				</aui:select>
 			</aui:fieldset>
 
+			<%
+			Boolean mailingListDisabled;
+			Boolean customOutDisabled;
+
+			if (mailingList ==  null) {
+				mailingListDisabled = true;
+				customOutDisabled = true;
+			}
+			else {
+				mailingListDisabled = !mailingList.isActive();
+				customOutDisabled = !mailingList.isOutCustom();
+			}
+			%>
+
 			<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="mailing-list">
 				<aui:model-context bean="<%= mailingList %>" model="<%= MBMailingList.class %>" />
 
@@ -154,7 +168,7 @@ if (portletTitleBasedNavigation) {
 				<aui:input label="allow-anonymous-emails" name="allowAnonymous" />
 
 				<div id="<portlet:namespace />mailingListSettings">
-					<aui:input name="emailAddress" />
+					<aui:input disabled="<%= mailingListDisabled %>" name="emailAddress" />
 
 					<br />
 
@@ -165,38 +179,38 @@ if (portletTitleBasedNavigation) {
 						%>
 
 						<aui:field-wrapper label="protocol">
-							<aui:input checked='<%= protocol.startsWith("pop3") %>' label="pop" name="inProtocol" type="radio" value="pop3" />
-							<aui:input checked='<%= protocol.startsWith("imap") %>' label="imap" name="inProtocol" type="radio" value="imap" />
+							<aui:input checked='<%= protocol.startsWith("pop3") %>' disabled="<%= mailingListDisabled %>" label="pop" name="inProtocol" type="radio" value="pop3" />
+							<aui:input checked='<%= protocol.startsWith("imap") %>' disabled="<%= mailingListDisabled %>" label="imap" name="inProtocol" type="radio" value="imap" />
 						</aui:field-wrapper>
 
-						<aui:input label="server-name" name="inServerName" />
+						<aui:input disabled="<%= mailingListDisabled %>" label="server-name" name="inServerName" />
 
-						<aui:input label="server-port" name="inServerPort" value="110" />
+						<aui:input disabled="<%= mailingListDisabled %>" label="server-port" name="inServerPort" value="110" />
 
-						<aui:input label="use-a-secure-network-connection" name="inUseSSL" />
+						<aui:input disabled="<%= mailingListDisabled %>" label="use-a-secure-network-connection" name="inUseSSL" />
 
-						<aui:input label="user-name" name="inUserName" />
+						<aui:input disabled="<%= mailingListDisabled %>" label="user-name" name="inUserName" />
 
-						<aui:input label="password" name="inPassword" />
+						<aui:input disabled="<%= mailingListDisabled %>" label="password" name="inPassword" />
 
-						<aui:input label="read-interval-minutes" name="inReadInterval" value="5" />
+						<aui:input disabled="<%= mailingListDisabled %>" label="read-interval-minutes" name="inReadInterval" value="5" />
 					</aui:fieldset>
 
 					<aui:fieldset label="outgoing">
-						<aui:input label="email-address" name="outEmailAddress" />
+						<aui:input disabled="<%=  mailingListDisabled %>" label="email-address" name="outEmailAddress" />
 
 						<aui:input label="use-custom-outgoing-server" name="outCustom" />
 
 						<div id="<portlet:namespace />outCustomSettings">
-							<aui:input label="server-name" name="outServerName" />
+							<aui:input disabled="<%= customOutDisabled %>" label="server-name" name="outServerName" />
 
-							<aui:input label="server-port" name="outServerPort" value="25" />
+							<aui:input disabled="<%= customOutDisabled %>" label="server-port" name="outServerPort" value="25" />
 
-							<aui:input label="use-a-secure-network-connection" name="outUseSSL" />
+							<aui:input disabled="<%= customOutDisabled %>" label="use-a-secure-network-connection" name="outUseSSL" />
 
-							<aui:input label="user-name" name="outUserName" />
+							<aui:input disabled="<%= customOutDisabled %>" label="user-name" name="outUserName" />
 
-							<aui:input label="password" name="outPassword" />
+							<aui:input disabled="<%= customOutDisabled %>" label="password" name="outPassword" />
 						</div>
 					</aui:fieldset>
 				</div>
@@ -245,4 +259,79 @@ if (portletTitleBasedNavigation) {
 
 	Liferay.Util.toggleBoxes('<portlet:namespace />mailingListActive', '<portlet:namespace />mailingListSettings');
 	Liferay.Util.toggleBoxes('<portlet:namespace />outCustom', '<portlet:namespace />outCustomSettings');
+</aui:script>
+
+<aui:script sandbox="<%= true %>">
+	$(document).ready(
+		function() {
+			var activeCheckboxId = '<portlet:namespace />mailingListActive';
+			var outgoingCheckboxId = '<portlet:namespace />outCustom';
+
+			var activeCheckboxNode = $('#' + activeCheckboxId);
+			var outgoingCheckboxNode = $('#' + outgoingCheckboxId);
+
+			var activeCheckboxNodeChecked = activeCheckboxNode.prop('checked');
+			var outgoingCheckboxNodeChecked = outgoingCheckboxNode.prop('checked');
+
+			var incomingFields = [
+				'emailAddress',
+				'inProtocol_1',
+				'inProtocol_3',
+				'inServerName',
+				'inServerPort',
+				'inUseSSL',
+				'inUserName',
+				'inPassword',
+				'inReadInterval',
+				'outEmailAddress'
+			];
+
+			var outgoingFields = [
+				'outServerName',
+				'outServerPort',
+				'outUseSSL',
+				'outUserName',
+				'outPassword'
+			];
+
+			var field;
+			var inputField;
+			var inputFieldNode;
+
+			for (field in incomingFields) {
+				inputField = '<portlet:namespace />' + incomingFields[field];
+
+				if (activeCheckboxNodeChecked) {
+					inputFieldNode = $('#' + inputField);
+
+					Liferay.Util.toggleDisabled(inputFieldNode, !activeCheckboxNodeChecked);
+				}
+
+				Liferay.Util.disableToggleBoxes(activeCheckboxId, inputField);
+			}
+
+			for (field in outgoingFields) {
+				inputField = '<portlet:namespace />' + outgoingFields[field];
+
+				if (activeCheckboxNodeChecked && outgoingCheckboxNodeChecked) {
+					inputFieldNode = $('#' + inputField);
+
+					Liferay.Util.toggleDisabled(inputFieldNode, !outgoingCheckboxNodeChecked);
+				}
+
+				Liferay.Util.disableToggleBoxes(outgoingCheckboxId, inputField);
+			}
+
+			activeCheckboxNode.click(
+				function() {
+					var activeCheckboxNodeChecked = activeCheckboxNode.prop('checked');
+					var outgoingCheckboxNodeChecked = outgoingCheckboxNode.prop('checked');
+
+					if (!activeCheckboxNodeChecked && outgoingCheckboxNodeChecked) {
+						outgoingCheckboxNode.trigger('click');
+					}
+				}
+			);
+		}
+	);
 </aui:script>
