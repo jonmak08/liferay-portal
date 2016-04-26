@@ -292,6 +292,10 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 			return query;
 		}
 
+		if (permissionChecker.isCompanyAdmin(companyId)) {
+			return query;
+		}
+
 		List<Group> groups = new UniqueList<Group>();
 		List<Role> roles = new UniqueList<Role>();
 		Map<Long, List<Role>> groupIdsToRoles = new HashMap<Long, List<Role>>();
@@ -350,10 +354,6 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 
 		for (Role role : roles) {
 			String roleName = role.getName();
-
-			if (roleName.equals(RoleConstants.ADMINISTRATOR)) {
-				return query;
-			}
 
 			if (ResourcePermissionLocalServiceUtil.hasResourcePermission(
 					companyId, className, ResourceConstants.SCOPE_COMPANY,
