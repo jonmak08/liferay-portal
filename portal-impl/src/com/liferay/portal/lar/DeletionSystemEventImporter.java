@@ -14,6 +14,7 @@
 
 package com.liferay.portal.lar;
 
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.ExportImportPathUtil;
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.lar.PortletDataHandler;
@@ -90,7 +91,8 @@ public class DeletionSystemEventImporter {
 	}
 
 	protected void initDeletionSystemEventStagedModelTypes(
-		PortletDataContext portletDataContext) {
+			PortletDataContext portletDataContext)
+		throws SystemException {
 
 		Element importDataRootElement =
 			portletDataContext.getImportDataRootElement();
@@ -137,9 +139,10 @@ public class DeletionSystemEventImporter {
 
 			String portletId = portletElement.attributeValue("portlet-id");
 
-			Portlet portlet = PortletLocalServiceUtil.getPortletById(portletId);
+			Portlet portlet = PortletLocalServiceUtil.getPortletById(
+				portletDataContext.getCompanyId(), portletId);
 
-			if (!portlet.isActive()) {
+			if (!portlet.isActive() || portlet.isUndeployedPortlet()) {
 				continue;
 			}
 
