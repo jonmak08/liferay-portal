@@ -43,8 +43,8 @@ public class JournalArticleListener extends BaseModelListener<JournalArticle> {
 		// Journal content
 
 		JournalContentUtil.clearCache(
-				article.getGroupId(), article.getArticleId(),
-				article.getTemplateId());
+			article.getGroupId(), article.getArticleId(),
+			article.getTemplateId());
 
 		// Layout cache
 

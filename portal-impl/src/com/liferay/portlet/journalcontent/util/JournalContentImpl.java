@@ -65,8 +65,8 @@ public class JournalContentImpl implements JournalContent {
 		long groupId, String articleId, String ddmTemplateKey) {
 
 		_portalCacheIndexer.removeKeys(
-				JournalContentKeyIndexEncoder.encode(
-						groupId, articleId, ddmTemplateKey));
+			JournalContentKeyIndexEncoder.encode(
+				groupId, articleId, ddmTemplateKey));
 	}
 
 	@Override
@@ -162,11 +162,12 @@ public class JournalContentImpl implements JournalContent {
 			secure = themeDisplay.isSecure();
 		}
 
-		JournalContentKey key = new JournalContentKey(
+		JournalContentKey journalContentKey = new JournalContentKey(
 			groupId, articleId, version, ddmTemplateKey, layoutSetId, viewMode,
 			languageId, page, secure);
 
-		JournalArticleDisplay articleDisplay = _portalCache.get(key);
+		JournalArticleDisplay articleDisplay = _portalCache.get(
+			journalContentKey);
 
 		boolean lifecycleRender = isLifecycleRender(themeDisplay, xmlRequest);
 
@@ -178,7 +179,7 @@ public class JournalContentImpl implements JournalContent {
 			if ((articleDisplay != null) && articleDisplay.isCacheable() &&
 				lifecycleRender) {
 
-				_portalCache.put(key, articleDisplay);
+				_portalCache.put(journalContentKey, articleDisplay);
 			}
 		}
 
@@ -297,17 +298,17 @@ public class JournalContentImpl implements JournalContent {
 
 	protected static final String CACHE_NAME = JournalContent.class.getName();
 
-	private static final IndexEncoder<String, JournalContentKey> _indexEncoder =
-			new JournalContentKeyIndexEncoder();
-
 	protected static Pattern lifecycleRenderPhasePattern = Pattern.compile(
 		"<lifecycle>\\s*RENDER_PHASE\\s*</lifecycle>");
+
+	private static final IndexEncoder<String, JournalContentKey> _indexEncoder =
+		new JournalContentKeyIndexEncoder();
 	private static final PortalCache<JournalContentKey, JournalArticleDisplay>
-	_portalCache = MultiVMPoolUtil.getCache(CACHE_NAME);
+		_portalCache = MultiVMPoolUtil.getCache(CACHE_NAME);
 	private static final PortalCacheIndexer
-	<String, JournalContentKey, JournalArticleDisplay> _portalCacheIndexer =
+		<String, JournalContentKey, JournalArticleDisplay> _portalCacheIndexer =
 			new PortalCacheIndexer
-			<String, JournalContentKey, JournalArticleDisplay> (
+				<String, JournalContentKey, JournalArticleDisplay> (
 					_indexEncoder, _portalCache);
 
 	private static Log _log = LogFactoryUtil.getLog(JournalContentImpl.class);
@@ -346,38 +347,37 @@ public class JournalContentImpl implements JournalContent {
 			hashCode = HashUtil.hash(hashCode, _viewMode);
 			hashCode = HashUtil.hash(hashCode, _languageId);
 			hashCode = HashUtil.hash(hashCode, _page);
-			hashCode = HashUtil.hash(hashCode, _secure);
 
-			return hashCode;
+			return HashUtil.hash(hashCode, _secure);
 		}
 
 		private JournalContentKey(
-				long groupId, String articleId, double version,
-				String ddmTemplateKey, long layoutSetId, String viewMode,
-				String languageId, int page, boolean secure) {
+			long groupId, String articleId, double version,
+			String ddmTemplateKey, long layoutSetId, String viewMode,
+			String languageId, int page, boolean secure) {
 
-				_groupId = groupId;
-				_articleId = articleId;
-				_version = version;
-				_ddmTemplateKey = ddmTemplateKey;
-				_layoutSetId = layoutSetId;
-				_viewMode = viewMode;
-				_languageId = languageId;
-				_page = page;
-				_secure = secure;
-			}
+			_groupId = groupId;
+			_articleId = articleId;
+			_version = version;
+			_ddmTemplateKey = ddmTemplateKey;
+			_layoutSetId = layoutSetId;
+			_viewMode = viewMode;
+			_languageId = languageId;
+			_page = page;
+			_secure = secure;
+		}
 
-			private static final long serialVersionUID = 1L;
+		private static final long serialVersionUID = 1L;
 
-			private final String _articleId;
-			private final String _ddmTemplateKey;
-			private final long _groupId;
-			private final String _languageId;
-			private final long _layoutSetId;
-			private final int _page;
-			private final boolean _secure;
-			private final double _version;
-			private final String _viewMode;
+		private final String _articleId;
+		private final String _ddmTemplateKey;
+		private final long _groupId;
+		private final String _languageId;
+		private final long _layoutSetId;
+		private final int _page;
+		private final boolean _secure;
+		private final double _version;
+		private final String _viewMode;
 
 	}
 
