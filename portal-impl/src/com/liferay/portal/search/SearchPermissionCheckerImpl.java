@@ -145,31 +145,6 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 		}
 	}
 
-	protected void addRequiredMemberRole(
-			Group group, BooleanQuery permissionQuery)
-		throws Exception {
-
-		if (group.isOrganization()) {
-			Role organizationUserRole = RoleLocalServiceUtil.getRole(
-				group.getCompanyId(), RoleConstants.ORGANIZATION_USER);
-
-			permissionQuery.addTerm(
-				Field.GROUP_ROLE_ID,
-				group.getGroupId() + StringPool.DASH +
-					organizationUserRole.getRoleId());
-		}
-
-		if (group.isSite()) {
-			Role siteMemberRole = RoleLocalServiceUtil.getRole(
-				group.getCompanyId(), RoleConstants.SITE_MEMBER);
-
-			permissionQuery.addTerm(
-				Field.GROUP_ROLE_ID,
-				group.getGroupId() + StringPool.DASH +
-					siteMemberRole.getRoleId());
-		}
-	}
-
 	protected void doAddPermissionFields_6(
 			long companyId, long groupId, String className, String classPK,
 			Document doc)
@@ -433,7 +408,25 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 		}
 
 		for (Group group : groups) {
-			addRequiredMemberRole(group, rolesQuery);
+			if (group.isOrganization()) {
+				Role organizationUserRole = RoleLocalServiceUtil.getRole(
+					group.getCompanyId(), RoleConstants.ORGANIZATION_USER);
+
+				permissionQuery.addTerm(
+					Field.GROUP_ROLE_ID,
+					group.getGroupId() + StringPool.DASH +
+						organizationUserRole.getRoleId());
+			}
+
+			if (group.isSite()) {
+				Role siteMemberRole = RoleLocalServiceUtil.getRole(
+					group.getCompanyId(), RoleConstants.SITE_MEMBER);
+
+				permissionQuery.addTerm(
+					Field.GROUP_ROLE_ID,
+					group.getGroupId() + StringPool.DASH +
+						siteMemberRole.getRoleId());
+			}
 		}
 
 		if (groupsQuery.hasClauses()) {
