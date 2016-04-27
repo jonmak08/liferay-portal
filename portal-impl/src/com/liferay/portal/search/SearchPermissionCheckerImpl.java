@@ -31,7 +31,6 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.kernel.util.UniqueList;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.GroupConstants;
@@ -55,9 +54,11 @@ import com.liferay.portal.util.PortalUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Allen Chiang
@@ -272,7 +273,7 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 			return query;
 		}
 
-		List<Role> roles = new UniqueList<Role>();
+		Set<Role> roles = new HashSet<Role>();
 		Map<Long, List<Role>> groupIdsToRoles = new HashMap<Long, List<Role>>();
 
 		roles.addAll(permissionCheckerBag.getRoles());
@@ -337,7 +338,7 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 			long companyId, long[] groupIds, long userId, String className,
 			Query query, SearchContext searchContext,
 			AdvancedPermissionChecker advancedPermissionChecker,
-			List<Role> roles,
+			Set<Role> roles,
 			Map<Long, List<Role>> groupIdsToRoles)
 		throws Exception {
 
