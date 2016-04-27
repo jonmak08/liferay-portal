@@ -148,16 +148,18 @@ portletURL.setParameter("folderId", String.valueOf(folderId));
 					for (DLFileEntryType fileEntryType : fileEntryTypes) {
 					%>
 
-						<liferay-portlet:renderURL portletName="<%= PortletKeys.DOCUMENT_LIBRARY %>" var="addFileEntryTypeURL">
-							<portlet:param name="struts_action" value="/document_library/edit_file_entry" />
-							<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.ADD %>" />
-							<portlet:param name="redirect" value="<%= currentURL %>" />
-							<portlet:param name="repositoryId" value="<%= String.valueOf(repositoryId) %>" />
-							<portlet:param name="folderId" value="<%= String.valueOf(folderId) %>" />
-							<portlet:param name="fileEntryTypeId" value="<%= String.valueOf(fileEntryType.getFileEntryTypeId()) %>" />
-						</liferay-portlet:renderURL>
+						<c:if test="<%= (fileEntryType.getFileEntryTypeId() == DLFileEntryTypeConstants.FILE_ENTRY_TYPE_ID_BASIC_DOCUMENT) || (DLFileEntryTypePermission.contains(permissionChecker, fileEntryType, ActionKeys.VIEW)) %>">
+							<liferay-portlet:renderURL portletName="<%= PortletKeys.DOCUMENT_LIBRARY %>" var="addFileEntryTypeURL">
+								<portlet:param name="struts_action" value="/document_library/edit_file_entry" />
+								<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.ADD %>" />
+								<portlet:param name="redirect" value="<%= currentURL %>" />
+								<portlet:param name="repositoryId" value="<%= String.valueOf(repositoryId) %>" />
+								<portlet:param name="folderId" value="<%= String.valueOf(folderId) %>" />
+								<portlet:param name="fileEntryTypeId" value="<%= String.valueOf(fileEntryType.getFileEntryTypeId()) %>" />
+							</liferay-portlet:renderURL>
 
-						<liferay-ui:icon image="copy" message="<%= HtmlUtil.escape(fileEntryType.getName(locale)) %>" url="<%= addFileEntryTypeURL %>" />
+							<liferay-ui:icon image="copy" message="<%= HtmlUtil.escape(fileEntryType.getName(locale)) %>" url="<%= addFileEntryTypeURL %>" />
+						</c:if>
 
 					<%
 					}
