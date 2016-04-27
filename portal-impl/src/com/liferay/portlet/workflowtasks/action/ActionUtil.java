@@ -39,14 +39,14 @@ public class ActionUtil {
 	public static void getWorkflowTask(HttpServletRequest request)
 		throws Exception {
 
-		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-			WebKeys.THEME_DISPLAY);
-
 		long workflowTaskId = ParamUtil.getLong(request, "workflowTaskId");
 
 		WorkflowTask workflowTask = null;
 
 		if (workflowTaskId > 0) {
+			ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
+				WebKeys.THEME_DISPLAY);
+
 			PermissionChecker permissionChecker =
 				themeDisplay.getPermissionChecker();
 
