@@ -236,8 +236,8 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 	}
 
 	protected Query doGetPermissionQuery(
-			long companyId, long[] groupIds, long userId, String className,
-			Query query, SearchContext searchContext)
+			long companyId, long[] searchGroupIds, long userId,
+			String className, Query query, SearchContext searchContext)
 		throws Exception {
 
 		Indexer indexer = IndexerRegistryUtil.getIndexer(className);
@@ -274,7 +274,8 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 		}
 
 		Set<Role> roles = new HashSet<Role>();
-		Map<Long, List<Role>> groupIdsToRoles = new HashMap<Long, List<Role>>();
+		Map<Long, List<Role>> usersGroupIdsToRoles =
+			new HashMap<Long, List<Role>>();
 
 		roles.addAll(permissionCheckerBag.getRoles());
 
@@ -326,20 +327,19 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 				groupRoles.add(siteMemberRole);
 			}
 
-			groupIdsToRoles.put(group.getGroupId(), groupRoles);
+			usersGroupIdsToRoles.put(group.getGroupId(), groupRoles);
 		}
 
 		return doGetPermissionQuery_6(
-			companyId, groupIds, userId, className, query, searchContext,
-			advancedPermissionChecker, roles, groupIdsToRoles);
+			companyId, searchGroupIds, userId, className, query, searchContext,
+			advancedPermissionChecker, roles, usersGroupIdsToRoles);
 	}
 
 	protected Query doGetPermissionQuery_6(
-			long companyId, long[] groupIds, long userId, String className,
-			Query query, SearchContext searchContext,
+			long companyId, long[] searchGroupIds, long userId,
+			String className, Query query, SearchContext searchContext,
 			AdvancedPermissionChecker advancedPermissionChecker,
-			Set<Role> roles,
-			Map<Long, List<Role>> groupIdsToRoles)
+			Set<Role> roles, Map<Long, List<Role>> usersGroupIdsToRoles)
 		throws Exception {
 
 		BooleanQuery permissionQuery = BooleanQueryFactoryUtil.create(
@@ -383,7 +383,9 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 			return query;
 		}
 
-		for (Map.Entry<Long, List<Role>> entry : groupIdsToRoles.entrySet()) {
+		for (Map.Entry<Long, List<Role>> entry :
+				usersGroupIdsToRoles.entrySet()) {
+
 			long groupId = entry.getKey();
 			List<Role> groupRoles = entry.getValue();
 
@@ -408,18 +410,18 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 			}
 		}
 
-		if (ArrayUtil.isNotEmpty(groupIds)) {
-			Set<Long> userGroupIds = groupIdsToRoles.keySet();
+		if (ArrayUtil.isNotEmpty(searchGroupIds)) {
+			Set<Long> userGroupIds = usersGroupIdsToRoles.keySet();
 
-			for (long groupId : groupIds) {
-				if (!userGroupIds.contains(groupId) &&
+			for (long searchGroupId : searchGroupIds) {
+				if (!userGroupIds.contains(searchGroupId) &&
 					ResourcePermissionLocalServiceUtil.hasResourcePermission(
 						companyId, className, ResourceConstants.SCOPE_GROUP,
-						String.valueOf(groupId), roleIdsArray,
+						String.valueOf(searchGroupId), roleIdsArray,
 						ActionKeys.VIEW)) {
 
 					groupsQuery.addTerm(
-						Field.GROUP_ID, String.valueOf(groupId));
+						Field.GROUP_ID, String.valueOf(searchGroupId));
 				}
 			}
 		}
