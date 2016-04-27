@@ -55,6 +55,7 @@ import com.liferay.portal.util.PortalUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -292,15 +293,42 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 					userId, Collections.singletonList(guestGroup)));
 		}
 
+		Role organizationUserRole = RoleLocalServiceUtil.getRole(
+			companyId, RoleConstants.ORGANIZATION_USER);
+		Role siteMemberRole = RoleLocalServiceUtil.getRole(
+			companyId, RoleConstants.SITE_MEMBER);
+
 		for (Group group : groups) {
 			PermissionCheckerBag userBag = advancedPermissionChecker.getUserBag(
 				userId, group.getGroupId());
 
 			List<Role> groupRoles = userBag.getRoles();
 
-			groupIdsToRoles.put(group.getGroupId(), groupRoles);
-
 			roles.addAll(groupRoles);
+
+			Iterator<Role> iterator = groupRoles.iterator();
+
+			while (iterator.hasNext()) {
+				Role groupRole = iterator.next();
+
+				if ((groupRole.getType() != RoleConstants.TYPE_ORGANIZATION) &&
+					(groupRole.getType() != RoleConstants.TYPE_SITE)) {
+
+					iterator.remove();
+				}
+			}
+
+			if (group.isOrganization() &&
+				!groupRoles.contains(organizationUserRole)) {
+
+				groupRoles.add(organizationUserRole);
+			}
+
+			if (group.isSite() && !groupRoles.contains(siteMemberRole)) {
+				groupRoles.add(siteMemberRole);
+			}
+
+			groupIdsToRoles.put(group.getGroupId(), groupRoles);
 		}
 
 		return doGetPermissionQuery_6(
@@ -328,7 +356,6 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 		BooleanQuery rolesQuery = BooleanQueryFactoryUtil.create(searchContext);
 
 		for (Role role : roles) {
-			String roleName = role.getName();
 
 			if (ResourcePermissionLocalServiceUtil.hasResourcePermission(
 					companyId, className, ResourceConstants.SCOPE_COMPANY,
@@ -374,19 +401,13 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 					}
 				}
 
-				if (group.isSite() &&
-					!roleName.equals(RoleConstants.SITE_MEMBER) &&
-					(role.getType() == RoleConstants.TYPE_SITE)) {
+				List<Role> groupRoles = groupIdsToRoles.get(group.getGroupId());
 
-					List<Role> groupRoles = groupIdsToRoles.get(
-						group.getGroupId());
-
-					if (groupRoles.contains(role)) {
-						rolesQuery.addTerm(
-							Field.GROUP_ROLE_ID,
-							group.getGroupId() + StringPool.DASH +
-								role.getRoleId());
-					}
+				for (Role groupRole : groupRoles) {
+					rolesQuery.addTerm(
+						Field.GROUP_ROLE_ID,
+						group.getGroupId() + StringPool.DASH +
+							groupRole.getRoleId());
 				}
 			}
 
@@ -405,28 +426,6 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 			}
 
 			rolesQuery.addTerm(Field.ROLE_ID, role.getRoleId());
-		}
-
-		for (Group group : groups) {
-			if (group.isOrganization()) {
-				Role organizationUserRole = RoleLocalServiceUtil.getRole(
-					group.getCompanyId(), RoleConstants.ORGANIZATION_USER);
-
-				permissionQuery.addTerm(
-					Field.GROUP_ROLE_ID,
-					group.getGroupId() + StringPool.DASH +
-						organizationUserRole.getRoleId());
-			}
-
-			if (group.isSite()) {
-				Role siteMemberRole = RoleLocalServiceUtil.getRole(
-					group.getCompanyId(), RoleConstants.SITE_MEMBER);
-
-				permissionQuery.addTerm(
-					Field.GROUP_ROLE_ID,
-					group.getGroupId() + StringPool.DASH +
-						siteMemberRole.getRoleId());
-			}
 		}
 
 		if (groupsQuery.hasClauses()) {
