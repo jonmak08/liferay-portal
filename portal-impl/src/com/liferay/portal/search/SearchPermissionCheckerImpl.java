@@ -409,8 +409,11 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 		}
 
 		if (ArrayUtil.isNotEmpty(groupIds)) {
+			Set<Long> userGroupIds = groupIdsToRoles.keySet();
+
 			for (long groupId : groupIds) {
-				if (ResourcePermissionLocalServiceUtil.hasResourcePermission(
+				if (!userGroupIds.contains(groupId) &&
+					ResourcePermissionLocalServiceUtil.hasResourcePermission(
 						companyId, className, ResourceConstants.SCOPE_GROUP,
 						String.valueOf(groupId), roleIdsArray,
 						ActionKeys.VIEW)) {
