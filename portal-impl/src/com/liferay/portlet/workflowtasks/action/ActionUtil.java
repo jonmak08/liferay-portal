@@ -58,8 +58,8 @@ public class ActionUtil {
 					permissionChecker)) {
 
 				throw new PrincipalException(
-						"User " + permissionChecker.getUserId() +
-							" must have permission to perform action VIEW");
+					"User " + permissionChecker.getUserId() +
+						" must have permission to perform action VIEW");
 			}
 		}
 
