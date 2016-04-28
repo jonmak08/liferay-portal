@@ -306,17 +306,17 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 	 * added.
 	 *
 	 * @param  userId the primary key of the user
-	 * @param  Roles the roles
+	 * @param  roles the roles
 	 * @throws PortalException if a user with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 * @see    com.liferay.portal.service.persistence.UserPersistence#addRoles(
 	 *         long, List)
 	 */
 	@Override
-	public void addUserRoles(long userId, List<Role> Roles)
+	public void addUserRoles(long userId, List<Role> roles)
 		throws PortalException, SystemException {
 
-		userPersistence.addRoles(userId, Roles);
+		userPersistence.addRoles(userId, roles);
 
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 
@@ -691,17 +691,17 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 	 * are removed.
 	 *
 	 * @param  userId the primary key of the user
-	 * @param  Roles the roles
+	 * @param  roles the roles
 	 * @throws PortalException if a user with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 * @see    com.liferay.portal.service.persistence.UserPersistence#removeRoles(
 	 *         long, List)
 	 */
 	@Override
-	public void deleteUserRoles(long userId, List<Role> Roles)
+	public void deleteUserRoles(long userId, List<Role> roles)
 		throws PortalException, SystemException {
 
-		userPersistence.removeRoles(userId, Roles);
+		userPersistence.removeRoles(userId, roles);
 
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 

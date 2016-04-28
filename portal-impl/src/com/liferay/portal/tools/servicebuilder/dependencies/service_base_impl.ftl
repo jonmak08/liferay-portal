@@ -573,8 +573,8 @@ import ${packagePath}.service.${entity.name}${sessionTypeName}Service;
 				</#list>
 				 */
 				@Override
-				public void add${tempEntity.name}${entity.names}(${tempEntity.PKClassName} ${tempEntity.PKVarName}, List<${entity.name}> ${entity.names}) throws ${stringUtil.merge(serviceBaseExceptions)} {
-					${tempEntity.varName}Persistence.add${entity.names}(${tempEntity.PKVarName}, ${entity.names});
+				public void add${tempEntity.name}${entity.names}(${tempEntity.PKClassName} ${tempEntity.PKVarName}, List<${entity.name}> ${entity.varNames}) throws ${stringUtil.merge(serviceBaseExceptions)} {
+					${tempEntity.varName}Persistence.add${entity.names}(${tempEntity.PKVarName}, ${entity.varNames});
 				}
 
 				<#assign serviceBaseExceptions = serviceBuilder.getServiceBaseExceptions(methods, "clear" + tempEntity.name + entity.names, [tempEntity.PKClassName], ["SystemException"])>
@@ -653,8 +653,8 @@ import ${packagePath}.service.${entity.name}${sessionTypeName}Service;
 				</#list>
 				 */
 				@Override
-				public void delete${tempEntity.name}${entity.names}(${tempEntity.PKClassName} ${tempEntity.PKVarName}, List<${entity.name}> ${entity.names}) throws ${stringUtil.merge(serviceBaseExceptions)} {
-					${tempEntity.varName}Persistence.remove${entity.names}(${tempEntity.PKVarName}, ${entity.names});
+				public void delete${tempEntity.name}${entity.names}(${tempEntity.PKClassName} ${tempEntity.PKVarName}, List<${entity.name}> ${entity.varNames}) throws ${stringUtil.merge(serviceBaseExceptions)} {
+					${tempEntity.varName}Persistence.remove${entity.names}(${tempEntity.PKVarName}, ${entity.varNames});
 				}
 
 				<#assign serviceBaseExceptions = serviceBuilder.getServiceBaseExceptions(methods, "get" + tempEntity.name + entity.names, [tempEntity.PKClassName], ["SystemException"])>
