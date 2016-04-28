@@ -759,6 +759,13 @@ counter.jdbc.prefix=jdbc.counter.]]></echo>
 
 	<macrodef name="get-test-url">
 		<sequential>
+			<if>
+				<matches pattern="[0-9]+_[0-9]+" string="${test.class}" />
+				<then>
+					<get-test-class />
+				</then>
+			</if>
+
 			<get-testcase-property property.name="testcase.url" />
 
 			<if>
@@ -785,7 +792,7 @@ counter.jdbc.prefix=jdbc.counter.]]></echo>
 					</then>
 				</elseif>
 				<elseif>
-					<equals arg1="${test.portal.instance}" arg2="true" />
+					<contains string="${test.class}" substring="," />
 					<then>
 						<if>
 							<os family="unix" />
@@ -829,6 +836,13 @@ counter.jdbc.prefix=jdbc.counter.]]></echo>
 					<property file="${project.dir}/test.generated.properties" />
 
 					<var name="property.name" value="@{property.name}" />
+
+					<if>
+						<matches pattern="[0-9]+_[0-9]+" string="${test.class}" />
+						<then>
+							<get-test-class />
+						</then>
+					</if>
 
 					<get-test-method-name />
 					<get-test-simple-class-name />
@@ -4759,6 +4773,13 @@ mail.session.mail.smtp.port=25000</echo>
 	</target>
 
 	<target name="prepare-selenium">
+		<if>
+			<matches pattern="[0-9]+_[0-9]+" string="${test.class}" />
+			<then>
+				<get-test-class />
+			</then>
+		</if>
+
 		<delete file="${test.ext.properties.file}" />
 
 		<if>
