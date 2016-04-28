@@ -627,6 +627,32 @@ counter.jdbc.prefix=jdbc.counter.]]></echo>
 		</sequential>
 	</macrodef>
 
+	<macrodef name="get-test-class">
+		<sequential>
+			<fail message="Please set the property ${test.class}." unless="test.class" />
+
+			<if>
+				<and>
+					<matches pattern="[0-9]+_[0-9]+" string="${test.class}" />
+					<not>
+						<isset property="RUN_TEST_CASE_METHOD_GROUP_${test.class}" />
+					</not>
+				</and>
+				<then>
+					<loadproperties srcFile="${project.dir}/test.case.method.names.properties">
+						<filterchain>
+							<linecontains>
+								<contains value="RUN_TEST_CASE_METHOD_GROUP_${test.class}" />
+							</linecontains>
+						</filterchain>
+					</loadproperties>
+				</then>
+			</if>
+
+			<propertycopy from="RUN_TEST_CASE_METHOD_GROUP_${test.class}" name="test.class" override="true" />
+		</sequential>
+	</macrodef>
+
 	<macrodef name="get-test-class-name">
 		<sequential>
 			<fail message="Please set the property ${test.class}." unless="test.class" />
