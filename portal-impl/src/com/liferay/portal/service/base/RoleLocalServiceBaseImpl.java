@@ -408,9 +408,9 @@ public abstract class RoleLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void addGroupRoles(long groupId, List<Role> Roles)
+	public void addGroupRoles(long groupId, List<Role> roles)
 		throws SystemException {
-		groupPersistence.addRoles(groupId, Roles);
+		groupPersistence.addRoles(groupId, roles);
 	}
 
 	/**
@@ -452,9 +452,9 @@ public abstract class RoleLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void deleteGroupRoles(long groupId, List<Role> Roles)
+	public void deleteGroupRoles(long groupId, List<Role> roles)
 		throws SystemException {
-		groupPersistence.removeRoles(groupId, Roles);
+		groupPersistence.removeRoles(groupId, roles);
 	}
 
 	/**
@@ -552,9 +552,9 @@ public abstract class RoleLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void addUserRoles(long userId, List<Role> Roles)
+	public void addUserRoles(long userId, List<Role> roles)
 		throws PortalException, SystemException {
-		userPersistence.addRoles(userId, Roles);
+		userPersistence.addRoles(userId, roles);
 	}
 
 	/**
@@ -602,9 +602,9 @@ public abstract class RoleLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void deleteUserRoles(long userId, List<Role> Roles)
+	public void deleteUserRoles(long userId, List<Role> roles)
 		throws PortalException, SystemException {
-		userPersistence.removeRoles(userId, Roles);
+		userPersistence.removeRoles(userId, roles);
 	}
 
 	/**

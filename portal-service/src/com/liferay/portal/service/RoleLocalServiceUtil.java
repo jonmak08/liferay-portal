@@ -310,9 +310,9 @@ public class RoleLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void addGroupRoles(long groupId,
-		java.util.List<com.liferay.portal.model.Role> Roles)
+		java.util.List<com.liferay.portal.model.Role> roles)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().addGroupRoles(groupId, Roles);
+		getService().addGroupRoles(groupId, roles);
 	}
 
 	/**
@@ -352,9 +352,9 @@ public class RoleLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteGroupRoles(long groupId,
-		java.util.List<com.liferay.portal.model.Role> Roles)
+		java.util.List<com.liferay.portal.model.Role> roles)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().deleteGroupRoles(groupId, Roles);
+		getService().deleteGroupRoles(groupId, roles);
 	}
 
 	/**
@@ -453,10 +453,10 @@ public class RoleLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void addUserRoles(long userId,
-		java.util.List<com.liferay.portal.model.Role> Roles)
+		java.util.List<com.liferay.portal.model.Role> roles)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		getService().addUserRoles(userId, Roles);
+		getService().addUserRoles(userId, roles);
 	}
 
 	/**
@@ -505,10 +505,10 @@ public class RoleLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteUserRoles(long userId,
-		java.util.List<com.liferay.portal.model.Role> Roles)
+		java.util.List<com.liferay.portal.model.Role> roles)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		getService().deleteUserRoles(userId, Roles);
+		getService().deleteUserRoles(userId, roles);
 	}
 
 	/**

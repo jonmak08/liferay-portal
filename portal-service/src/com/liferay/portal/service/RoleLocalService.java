@@ -282,7 +282,7 @@ public interface RoleLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void addGroupRoles(long groupId,
-		java.util.List<com.liferay.portal.model.Role> Roles)
+		java.util.List<com.liferay.portal.model.Role> roles)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -313,7 +313,7 @@ public interface RoleLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void deleteGroupRoles(long groupId,
-		java.util.List<com.liferay.portal.model.Role> Roles)
+		java.util.List<com.liferay.portal.model.Role> roles)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -397,7 +397,7 @@ public interface RoleLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void addUserRoles(long userId,
-		java.util.List<com.liferay.portal.model.Role> Roles)
+		java.util.List<com.liferay.portal.model.Role> roles)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -438,7 +438,7 @@ public interface RoleLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void deleteUserRoles(long userId,
-		java.util.List<com.liferay.portal.model.Role> Roles)
+		java.util.List<com.liferay.portal.model.Role> roles)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
