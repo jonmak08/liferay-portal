@@ -1,8 +1,6 @@
 @import "compass";
 
 .portlet-quick-note {
-	margin: 2px;
-	padding: 5px;
 
 	textarea {
 		min-height: 100px;
