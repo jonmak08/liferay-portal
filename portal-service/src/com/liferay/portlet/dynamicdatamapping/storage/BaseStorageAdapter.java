@@ -16,6 +16,7 @@ package com.liferay.portlet.dynamicdatamapping.storage;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.service.ServiceContext;
@@ -45,7 +46,7 @@ public abstract class BaseStorageAdapter implements StorageAdapter {
 		throws StorageException {
 
 		try {
-			validateDDMStructureFields(ddmStructureId, fields);
+			validateDDMStructureFields(ddmStructureId, fields, serviceContext);
 
 			return doCreate(companyId, ddmStructureId, fields, serviceContext);
 		}
@@ -229,7 +230,7 @@ public abstract class BaseStorageAdapter implements StorageAdapter {
 		throws StorageException {
 
 		try {
-			validateClassFields(classPK, fields);
+			validateClassFields(classPK, fields, serviceContext);
 
 			doUpdate(classPK, fields, mergeFields, serviceContext);
 		}
@@ -287,18 +288,27 @@ public abstract class BaseStorageAdapter implements StorageAdapter {
 			ServiceContext serviceContext)
 		throws Exception;
 
-	protected void validateClassFields(long classPK, Fields fields)
+	protected void validateClassFields(
+			long classPK, Fields fields, ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
 		DDMStorageLink ddmStorageLink =
 			DDMStorageLinkLocalServiceUtil.getClassStorageLink(classPK);
 
-		validateDDMStructureFields(ddmStorageLink.getStructureId(), fields);
+		validateDDMStructureFields(
+			ddmStorageLink.getStructureId(), fields, serviceContext);
 	}
 
 	protected void validateDDMStructureFields(
-			long ddmStructureId, Fields fields)
+			long ddmStructureId, Fields fields, ServiceContext serviceContext)
 		throws PortalException, SystemException {
+
+		boolean validateDDMFormValues = GetterUtil.getBoolean(
+			serviceContext.getAttribute("validateDDMFormValues"), true);
+
+		if (!validateDDMFormValues) {
+			return;
+		}
 
 		DDMStructure ddmStructure =
 			DDMStructureLocalServiceUtil.getDDMStructure(ddmStructureId);
