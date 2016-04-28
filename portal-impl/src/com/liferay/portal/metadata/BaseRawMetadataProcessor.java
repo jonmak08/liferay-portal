@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.metadata.RawMetadataProcessor;
+import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
 
@@ -96,6 +97,8 @@ public abstract class BaseRawMetadataProcessor implements RawMetadataProcessor {
 			com.liferay.portlet.dynamicdatamapping.storage.Field ddmField =
 				new com.liferay.portlet.dynamicdatamapping.storage.Field(
 					name, value);
+
+			ddmField.setDefaultLocale(LocaleUtil.getSiteDefault());
 
 			ddmFields.put(ddmField);
 		}
