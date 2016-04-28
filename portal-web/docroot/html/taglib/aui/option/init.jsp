@@ -36,6 +36,7 @@ java.lang.String cssClass = GetterUtil.getString((java.lang.String)request.getAt
 java.util.Map<java.lang.String, java.lang.Object> data = (java.util.Map<java.lang.String, java.lang.Object>)request.getAttribute("aui:option:data");
 boolean disabled = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:option:disabled")));
 java.lang.Object label = (java.lang.Object)request.getAttribute("aui:option:label");
+boolean localizeLabel = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:option:localizeLabel")), true);
 boolean selected = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:option:selected")));
 java.lang.String style = GetterUtil.getString((java.lang.String)request.getAttribute("aui:option:style"));
 boolean useModelValue = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:option:useModelValue")), true);
@@ -45,6 +46,7 @@ _updateOptions(_options, "cssClass", cssClass);
 _updateOptions(_options, "data", data);
 _updateOptions(_options, "disabled", disabled);
 _updateOptions(_options, "label", label);
+_updateOptions(_options, "localizeLabel", localizeLabel);
 _updateOptions(_options, "selected", selected);
 _updateOptions(_options, "style", style);
 _updateOptions(_options, "useModelValue", useModelValue);

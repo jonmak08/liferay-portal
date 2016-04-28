@@ -47,6 +47,7 @@ java.lang.String label = GetterUtil.getString((java.lang.String)request.getAttri
 boolean last = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:select:last")));
 java.lang.String listType = GetterUtil.getString((java.lang.String)request.getAttribute("aui:select:listType"));
 java.lang.String listTypeFieldName = GetterUtil.getString((java.lang.String)request.getAttribute("aui:select:listTypeFieldName"));
+boolean localizeLabel = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:select:localizeLabel")), true);
 boolean multiple = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:select:multiple")));
 java.lang.String name = GetterUtil.getString((java.lang.String)request.getAttribute("aui:select:name"));
 java.lang.String onChange = GetterUtil.getString((java.lang.String)request.getAttribute("aui:select:onChange"));
@@ -75,6 +76,7 @@ _updateOptions(_options, "label", label);
 _updateOptions(_options, "last", last);
 _updateOptions(_options, "listType", listType);
 _updateOptions(_options, "listTypeFieldName", listTypeFieldName);
+_updateOptions(_options, "localizeLabel", localizeLabel);
 _updateOptions(_options, "multiple", multiple);
 _updateOptions(_options, "name", name);
 _updateOptions(_options, "onChange", onChange);

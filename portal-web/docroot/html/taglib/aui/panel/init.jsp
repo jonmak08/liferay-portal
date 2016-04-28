@@ -36,11 +36,13 @@ boolean collapsed = GetterUtil.getBoolean(String.valueOf(request.getAttribute("a
 boolean collapsible = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:panel:collapsible")));
 java.lang.String id = GetterUtil.getString((java.lang.String)request.getAttribute("aui:panel:id"));
 java.lang.String label = GetterUtil.getString((java.lang.String)request.getAttribute("aui:panel:label"));
+boolean localizeLabel = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:panel:localizeLabel")), true);
 
 _updateOptions(_options, "collapsed", collapsed);
 _updateOptions(_options, "collapsible", collapsible);
 _updateOptions(_options, "id", id);
 _updateOptions(_options, "label", label);
+_updateOptions(_options, "localizeLabel", localizeLabel);
 %>
 
 <%@ include file="/html/taglib/aui/panel/init-ext.jspf" %>

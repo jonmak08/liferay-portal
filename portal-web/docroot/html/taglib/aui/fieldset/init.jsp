@@ -37,12 +37,14 @@ java.lang.String cssClass = GetterUtil.getString((java.lang.String)request.getAt
 java.lang.String helpMessage = GetterUtil.getString((java.lang.String)request.getAttribute("aui:fieldset:helpMessage"));
 java.lang.String id = GetterUtil.getString((java.lang.String)request.getAttribute("aui:fieldset:id"));
 java.lang.String label = GetterUtil.getString((java.lang.String)request.getAttribute("aui:fieldset:label"));
+boolean localizeLabel = GetterUtil.getBoolean(String.valueOf(request.getAttribute("aui:fieldset:localizeLabel")), true);
 
 _updateOptions(_options, "column", column);
 _updateOptions(_options, "cssClass", cssClass);
 _updateOptions(_options, "helpMessage", helpMessage);
 _updateOptions(_options, "id", id);
 _updateOptions(_options, "label", label);
+_updateOptions(_options, "localizeLabel", localizeLabel);
 %>
 
 <%@ include file="/html/taglib/aui/fieldset/init-ext.jspf" %>

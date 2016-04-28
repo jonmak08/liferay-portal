@@ -940,6 +940,12 @@
 			<type>java.lang.String</type>
 		</attribute>
 		<attribute>
+			<name>localizeLabel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
 			<description><![CDATA[Sets a JavaScript function to be called on a user clicking the anchor.]]></description>
 			<name>onClick</name>
 			<required>false</required>
@@ -1317,6 +1323,12 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
+			<name>localizeLabel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
 			<description><![CDATA[Sets the field wrapper's name.]]></description>
 			<name>name</name>
 			<required>false</required>
@@ -1370,6 +1382,12 @@
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>localizeLabel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
 		</attribute>
 		<dynamic-attributes>true</dynamic-attributes>
 	</tag>
@@ -1655,6 +1673,12 @@
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>localizeLabel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
 		</attribute>
 		<attribute>
 			<name>languageId</name>
@@ -2130,6 +2154,12 @@
 			<type>java.lang.Object</type>
 		</attribute>
 		<attribute>
+			<name>localizeLabel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
 			<description><![CDATA[Sets whether the option is selected when the component loads. The default value is <code>false</code>.]]></description>
 			<name>selected</name>
 			<required>false</required>
@@ -2185,6 +2215,12 @@
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>localizeLabel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
 		</attribute>
 	</tag>
 	<tag>
@@ -2342,6 +2378,12 @@
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<name>localizeLabel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
 		</attribute>
 		<attribute>
 			<description><![CDATA[Sets whether multiple options can be selected. If set to <code>true</code>, the select field expands to allow for multiple selections. The default value is <code>false</code>.]]></description>
