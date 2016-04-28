@@ -439,8 +439,8 @@
 
 	.portlet-dockbar {
 		.portlet-borderless-container {
-			padding: 0;
 			margin-bottom: 0;
+			padding: 0;
 		}
 	}
 
