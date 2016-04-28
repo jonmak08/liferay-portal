@@ -1976,6 +1976,7 @@
 		<execute macro="Calendar#viewRSSFeedEventPresent">
 			<var name="calendarName" value="Liferay" />
 			<var name="eventTitle" value="Current Day Event" />
+			<var name="pageName" value="Calendar Page" />
 		</execute>
 
 		<execute macro="Navigator#closeWindow" />
@@ -1994,6 +1995,7 @@
 		<execute macro="Calendar#viewRSSFeedEventNotPresent">
 			<var name="calendarName" value="Liferay" />
 			<var name="eventTitle" value="Current Day Event" />
+			<var name="pageName" value="Calendar Page" />
 		</execute>
 
 		<execute macro="Navigator#closeWindow" />
@@ -2040,6 +2042,7 @@
 		<execute macro="Calendar#viewRSSFeedEventPresent">
 			<var name="calendarName" value="Liferay" />
 			<var name="eventTitle" value="Current Day Event" />
+			<var name="pageName" value="Calendar Page" />
 		</execute>
 
 		<var method="selenium#getLocation()" name="rssURL" />
@@ -4414,16 +4417,19 @@
 		<execute macro="Calendar#viewRSSFeedEventNotPresent">
 			<var name="calendarName" value="Liferay" />
 			<var name="eventTitle" value="Past Day Event" />
+			<var name="pageName" value="Calendar Page" />
 		</execute>
 
 		<execute macro="Calendar#viewRSSFeedEventPresent">
 			<var name="calendarName" value="Liferay" />
 			<var name="eventTitle" value="Current Day Event" />
+			<var name="pageName" value="Calendar Page" />
 		</execute>
 
 		<execute macro="Calendar#viewRSSFeedEventPresent">
 			<var name="calendarName" value="Liferay" />
 			<var name="eventTitle" value="Future Day Event" />
+			<var name="pageName" value="Calendar Page" />
 		</execute>
 
 		<execute macro="Navigator#closeWindow" />

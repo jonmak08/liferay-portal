@@ -1,4 +1,22 @@
 <definition>
+	<command name="_checkForRSSTitle">
+		<if>
+			<condition function="IsElementNotPresent" locator1="CalendarRSS#FEED_TITLE"  />
+			<then>
+				<execute macro="Navigator#closeWindow" />
+
+				<execute macro="Navigator#gotoPage">
+					<var name="pageName" value="${pageName}" />
+				</execute>
+
+				<execute macro="Calendar#chooseSiteCalendarMenulistOption">
+					<var name="calendarName" value="${calendarName}" />
+					<var name="menuListOption" value="RSS" />
+				</execute>
+			</then>
+		</if>
+	</command>
+
 	<command name="_deleteCalendar">
 		<var name="key_menuListOption" value="Delete" />
 
@@ -957,6 +975,11 @@
 	</command>
 
 	<command name="viewRSSFeedEventNotPresent">
+		<execute macro="Calendar#_checkForRSSTitle">
+			<var name="calendarName" value="${calendarName}" />
+			<var name="pageName" value="${pageName}" />
+		</execute>
+
 		<execute function="AssertTextEquals" locator1="CalendarRSS#FEED_TITLE"  value1="${calendarName}" />
 
 		<var name="key_eventTitle" value="${eventTitle}" />
@@ -966,6 +989,11 @@
 	</command>
 
 	<command name="viewRSSFeedEventPresent">
+		<execute macro="Calendar#_checkForRSSTitle">
+			<var name="calendarName" value="${calendarName}" />
+			<var name="pageName" value="${pageName}" />
+		</execute>
+
 		<execute function="AssertTextEquals" locator1="CalendarRSS#FEED_TITLE"  value1="${calendarName}" />
 
 		<var name="key_eventTitle" value="${eventTitle}" />
