@@ -417,8 +417,8 @@ public class DLFileEntryLocalServiceImpl
 
 		// Workflow
 
-		if ((serviceContext.getWorkflowAction() ==
-				WorkflowConstants.ACTION_PUBLISH) && !keepFileVersionLabel) {
+		if (serviceContext.getWorkflowAction() ==
+				WorkflowConstants.ACTION_PUBLISH) {
 
 			startWorkflowInstance(
 				userId, serviceContext, latestDLFileVersion,
