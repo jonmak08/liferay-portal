@@ -676,8 +676,22 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 
 				@Override
 				protected void addCriteria(DynamicQuery dynamicQuery) {
+					Disjunction disjunction =
+						RestrictionsFactoryUtil.disjunction();
+
 					DynamicQuery ddlRecordDynamicQuery =
 						DDLRecordLocalServiceUtil.dynamicQuery();
+
+					Projection projection = ProjectionFactoryUtil.property(
+						"DDMStorageId");
+
+					ddlRecordDynamicQuery.setProjection(projection);
+
+					Property contentIdProperty = PropertyFactoryUtil.forName(
+						"contentId");
+
+					disjunction.add(
+						contentIdProperty.in(ddlRecordDynamicQuery));
 
 					DynamicQuery dlFileEntryMetadataDynamicQuery =
 						DLFileEntryMetadataLocalServiceUtil.dynamicQuery();
@@ -688,21 +702,7 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 					dlFileEntryMetadataDynamicQuery.add(
 						fileEntryTypeIdProperty.ne(0L));
 
-					Projection projection = ProjectionFactoryUtil.property(
-						"DDMStorageId");
-
 					dlFileEntryMetadataDynamicQuery.setProjection(projection);
-
-					ddlRecordDynamicQuery.setProjection(projection);
-
-					Property contentIdProperty = PropertyFactoryUtil.forName(
-						"contentId");
-
-					Disjunction disjunction =
-						RestrictionsFactoryUtil.disjunction();
-
-					disjunction.add(
-						contentIdProperty.in(ddlRecordDynamicQuery));
 
 					disjunction.add(
 						contentIdProperty.in(dlFileEntryMetadataDynamicQuery));
