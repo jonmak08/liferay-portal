@@ -179,6 +179,12 @@ public class InputEditorTag extends IncludeTag {
 							PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_IE),
 						majorVersion);
 				}
+				else if (BrowserSnifferUtil.isSafari(request)) {
+					useLatestCkeditorVersion = setCkeditorVersion(
+						PropsUtil.get
+							(PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_SAFARI),
+						majorVersion);
+				}
 				else {
 					useLatestCkeditorVersion = false;
 				}
