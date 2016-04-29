@@ -119,8 +119,9 @@ public class UploadServletRequestImpl
 				if (uploadServletRequestImplMaxSize > 0) {
 					long itemSize = liferayFileItem.getItemSize();
 
-					if ((uploadServletRequestImplSize + itemSize) >
-							uploadServletRequestImplMaxSize) {
+					if (!liferayFileItem.isFormField() &&
+						((uploadServletRequestImplSize + itemSize) >
+							uploadServletRequestImplMaxSize)) {
 
 						StringBundler sb = new StringBundler(3);
 
