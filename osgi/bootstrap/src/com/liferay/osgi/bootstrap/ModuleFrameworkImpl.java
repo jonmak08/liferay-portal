@@ -719,7 +719,7 @@ public class ModuleFrameworkImpl implements ModuleFramework {
 		}
 		else if (Validator.equals(url.getProtocol(), "vfs")) {
 
-			// JBoss EAP uses the vfs protocol
+			// JBoss uses the vfs protocol
 
 			int index = fileName.indexOf(".jar");
 
