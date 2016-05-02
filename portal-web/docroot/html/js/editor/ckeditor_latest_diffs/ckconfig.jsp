@@ -113,6 +113,8 @@ String contentsLanguageDir = LanguageUtil.get(contentsLocale, "lang.dir");
 
 	config.height = 265;
 
+	config.image_prefillDimensions = false;
+
 	config.language = '<%= languageId.replace("iw_", "he_") %>';
 
 	config.pasteFromWordRemoveFontStyles = false;
