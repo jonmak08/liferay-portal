@@ -721,7 +721,7 @@ public class PropsValues {
 	public static final String EDITOR_CKEDITOR_VERSION = PropsUtil.get(PropsKeys.EDITOR_CKEDITOR_VERSION);
 
 	public static final float EDITOR_CKEDITOR_VERSION_LATEST_CHROME = GetterUtil.getFloat(PropsUtil.get(PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_CHROME));
-	
+
 	public static final float EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX = GetterUtil.getFloat(PropsUtil.get(PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_FIREFOX));
 
 	public static final float EDITOR_CKEDITOR_VERSION_LATEST_IE = GetterUtil.getFloat(PropsUtil.get(PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_IE));
