@@ -82,10 +82,6 @@ public class CreateAnonymousAccountAction extends PortletAction {
 
 		Company company = themeDisplay.getCompany();
 
-		if (!company.isStrangers()) {
-			throw new PrincipalException();
-		}
-
 		String portletName = portletConfig.getPortletName();
 
 		if (!portletName.equals(PortletKeys.FAST_LOGIN)) {
@@ -177,10 +173,6 @@ public class CreateAnonymousAccountAction extends PortletAction {
 			WebKeys.THEME_DISPLAY);
 
 		Company company = themeDisplay.getCompany();
-
-		if (!company.isStrangers()) {
-			return actionMapping.findForward("portlet.login.login");
-		}
 
 		String portletName = portletConfig.getPortletName();
 
