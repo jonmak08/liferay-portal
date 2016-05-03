@@ -309,6 +309,11 @@ public abstract class PortletRequestImpl implements LiferayPortletRequest {
 		return _portlet;
 	}
 
+	@Override
+	public long getPlid() {
+		return _plid;
+	}
+
 	public PortletContext getPortletContext() {
 		return _portletContext;
 	}
@@ -318,6 +323,7 @@ public abstract class PortletRequestImpl implements LiferayPortletRequest {
 		return _portletMode;
 	}
 
+	@Override
 	public String getPortletName() {
 		return _portletName;
 	}

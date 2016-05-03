@@ -29,4 +29,8 @@ public interface LiferayPortletRequest extends PortletRequest {
 
 	public Map<String, String[]> getRenderParameters();
 
+	public long getPlid();
+
+	public String getPortletName();
+
 }
