@@ -136,7 +136,8 @@ public class LoginAction extends PortletAction {
 				return;
 			}
 
-			postProcessAuthFailure(actionRequest, actionResponse);
+			postProcessAuthFailure(
+					actionRequest, actionResponse, portletConfig);
 		}
 	}
 
@@ -251,13 +252,16 @@ public class LoginAction extends PortletAction {
 	}
 
 	protected void postProcessAuthFailure(
-			ActionRequest actionRequest, ActionResponse actionResponse)
+			ActionRequest actionRequest, ActionResponse actionResponse,
+			PortletConfig portletConfig)
 		throws Exception {
+
+		String portletName = portletConfig.getPortletName();
 
 		Layout layout = (Layout)actionRequest.getAttribute(WebKeys.LAYOUT);
 
 		PortletURL portletURL = new PortletURLImpl(
-			actionRequest, PortletKeys.LOGIN, layout.getPlid(),
+			actionRequest, portletName, layout.getPlid(),
 			PortletRequest.RENDER_PHASE);
 
 		portletURL.setParameter("saveLastPath", Boolean.FALSE.toString());
@@ -274,7 +278,12 @@ public class LoginAction extends PortletAction {
 			portletURL.setParameter("login", login);
 		}
 
-		portletURL.setWindowState(WindowState.MAXIMIZED);
+		if (portletName.equals(PortletKeys.LOGIN)) {
+			portletURL.setWindowState(WindowState.MAXIMIZED);
+		}
+		else {
+			portletURL.setWindowState(actionRequest.getWindowState());
+		}
 
 		actionResponse.sendRedirect(portletURL.toString());
 	}
