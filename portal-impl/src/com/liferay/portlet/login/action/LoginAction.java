@@ -25,6 +25,7 @@ import com.liferay.portal.UserPasswordException;
 import com.liferay.portal.UserScreenNameException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -136,8 +137,7 @@ public class LoginAction extends PortletAction {
 				return;
 			}
 
-			postProcessAuthFailure(
-					actionRequest, actionResponse, portletConfig);
+			postProcessAuthFailure(actionRequest, actionResponse);
 		}
 	}
 
@@ -252,11 +252,13 @@ public class LoginAction extends PortletAction {
 	}
 
 	protected void postProcessAuthFailure(
-			ActionRequest actionRequest, ActionResponse actionResponse,
-			PortletConfig portletConfig)
+			ActionRequest actionRequest, ActionResponse actionResponse)
 		throws Exception {
 
-		String portletName = portletConfig.getPortletName();
+		LiferayPortletRequest liferayPortletRequest =
+			PortalUtil.getLiferayPortletRequest(actionRequest);
+
+		String portletName = liferayPortletRequest.getPortletName();
 
 		Layout layout = (Layout)actionRequest.getAttribute(WebKeys.LAYOUT);
 
