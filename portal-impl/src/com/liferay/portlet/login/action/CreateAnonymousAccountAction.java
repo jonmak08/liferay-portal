@@ -298,17 +298,24 @@ public class CreateAnonymousAccountAction extends PortletAction {
 		boolean updateUserInformation = false;
 		boolean sendEmail = true;
 
-		User user = UserServiceUtil.updateIncompleteUser(
-			themeDisplay.getCompanyId(), autoPassword, password1, password2,
-			autoScreenName, screenName, emailAddress, facebookId, openId,
-			themeDisplay.getLocale(), firstName, middleName, lastName, prefixId,
-			suffixId, male, birthdayMonth, birthdayDay, birthdayYear, jobTitle,
-			updateUserInformation, sendEmail, serviceContext);
+		User user = null;
+		Company company = themeDisplay.getCompany();
+
+		if (company.isStrangers()) {
+			user = UserServiceUtil.updateIncompleteUser(
+				themeDisplay.getCompanyId(), autoPassword, password1, password2,
+				autoScreenName, screenName, emailAddress, facebookId, openId,
+				themeDisplay.getLocale(), firstName, middleName, lastName,
+				prefixId, suffixId, male, birthdayMonth, birthdayDay,
+				birthdayYear, jobTitle, updateUserInformation, sendEmail,
+				serviceContext);
+		}
 
 		JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
 
-		if (user.getStatus() == WorkflowConstants.STATUS_APPROVED) {
-			jsonObject.put("userStatus", "user_added");
+		if ((user != null) &&
+			(user.getStatus() == WorkflowConstants.STATUS_APPROVED)) {
+				jsonObject.put("userStatus", "user_added");
 		}
 		else {
 			jsonObject.put("userStatus", "user_pending");
