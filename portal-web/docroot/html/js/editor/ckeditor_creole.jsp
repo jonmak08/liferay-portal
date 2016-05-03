@@ -35,6 +35,9 @@ if (Validator.equals(ckEditorVersion, "latest")) {
 	else if (BrowserSnifferUtil.isIe(request)) {
 		ckEditorVersion = _setCkeditorVersion(PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_IE, majorVersion, ckEditorVersion);
 	}
+	else if (BrowserSnifferUtil.isSafari(request)) {
+		ckEditorVersion = _setCkeditorVersion(PropsValues.EDITOR_CKEDITOR_VERSION_LATEST_SAFARI, majorVersion, ckEditorVersion);
+	}
 	else {
 		ckEditorVersion = StringPool.BLANK;
 	}
