@@ -51,19 +51,25 @@ if (threadFlag != null) {
 				</c:choose>
 			</c:if>
 
+			<liferay-portlet:renderURL varImpl="messageURL">
+				<portlet:param name="struts_action" value="/message_boards/view_message" />
+				<portlet:param name="messageId" value="<%= String.valueOf(selMessage.getMessageId()) %>" />
+			</liferay-portlet:renderURL>
 			<%
-			String layoutFullURL = PortalUtil.getLayoutFullURL(themeDisplay);
-
-			String messageURL = layoutFullURL + Portal.FRIENDLY_URL_SEPARATOR + "message_boards/view_message/" + selMessage.getMessageId();
-
+			
 			if (windowState.equals(WindowState.MAXIMIZED)) {
-				messageURL += "/maximized";
+				messageURL.setWindowState(WindowState.MAXIMIZED);
 			}
 
-			String rowHREF = "#" + renderResponse.getNamespace() + "message_" + message.getMessageId();
+			StringBundler sb = new StringBundler(4);
+			sb.append("#");
+			sb.append(renderResponse.getNamespace());
+			sb.append("message_");
+			sb.append(message.getMessageId());
+			String rowHREF = sb.toString();
 
 			if (!themeDisplay.isFacebook()) {
-				rowHREF = messageURL + rowHREF;
+				rowHREF = messageURL.toString() + rowHREF;
 			}
 
 			boolean readThread = true;
