@@ -116,6 +116,8 @@ portletURL.setParameter("target", target);
 				additionalSites++;
 			}
 
+			groupParams.put("active", Boolean.TRUE);
+
 			if (type.equals("child-sites")) {
 				Group parentGroup = GroupLocalServiceUtil.getGroup(groupId);
 
