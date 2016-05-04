@@ -55,8 +55,8 @@ if (threadFlag != null) {
 				<portlet:param name="struts_action" value="/message_boards/view_message" />
 				<portlet:param name="messageId" value="<%= String.valueOf(selMessage.getMessageId()) %>" />
 			</liferay-portlet:renderURL>
+
 			<%
-			
 			if (windowState.equals(WindowState.MAXIMIZED)) {
 				messageURL.setWindowState(WindowState.MAXIMIZED);
 			}
