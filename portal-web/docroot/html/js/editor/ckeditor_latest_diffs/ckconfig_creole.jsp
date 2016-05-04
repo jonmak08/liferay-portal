@@ -80,6 +80,8 @@ response.setContentType(ContentTypes.TEXT_JAVASCRIPT);
 
 	config.height = 265;
 
+	config.image_prefillDimensions = false;
+
 	config.language = '<%= languageId.replace("iw_", "he_") %>';
 
 	config.removePlugins = [

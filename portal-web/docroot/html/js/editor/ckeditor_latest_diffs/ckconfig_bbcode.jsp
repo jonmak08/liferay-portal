@@ -133,6 +133,8 @@ response.setContentType(ContentTypes.TEXT_JAVASCRIPT);
 
 	config.imagesPath = '<%= HtmlUtil.escapeJS(imagesPath) %>/message_boards/';
 
+	config.image_prefillDimensions = false;
+
 	config.language = '<%= languageId.replace("iw_", "he_") %>';
 
 	config.newThreadURL = '<%= MBThreadConstants.NEW_THREAD_URL %>';
