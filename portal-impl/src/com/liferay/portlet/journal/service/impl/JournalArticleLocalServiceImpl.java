@@ -6476,15 +6476,10 @@ public class JournalArticleLocalServiceImpl
 			String elName, String elLanguage)
 		throws PortalException, SystemException {
 
-		double oldVersion = MathUtil.format(version - 0.1, 1, 1);
+		double oldVersion = getLatestVersion(groupId, articleId);
 
-		long oldImageId = 0;
-
-		if (oldVersion >= 1) {
-			oldImageId = journalArticleImageLocalService.getArticleImageId(
-				groupId, articleId, oldVersion, elInstanceId, elName,
-				elLanguage);
-		}
+		long oldImageId = journalArticleImageLocalService.getArticleImageId(
+			groupId, articleId, oldVersion, elInstanceId, elName, elLanguage);
 
 		Image oldImage = null;
 
