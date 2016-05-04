@@ -6071,7 +6071,7 @@ public class JournalArticleLocalServiceImpl
 	}
 
 	protected JournalArticle fetchLatestLiveArticle(JournalArticle article)
-		throws PortalException {
+		throws PortalException, SystemException {
 
 		Group group = groupLocalService.getGroup(article.getGroupId());
 
@@ -6474,7 +6474,7 @@ public class JournalArticleLocalServiceImpl
 	}
 
 	protected double getNextVersion(JournalArticle article)
-		throws PortalException {
+		throws PortalException, SystemException {
 
 		double nextVersion = article.getVersion();
 
