@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.patcher.Patcher;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.FileUtil;
+import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StreamUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -112,6 +113,22 @@ public class PatcherImpl implements Patcher {
 		}
 
 		return _patchDirectory;
+	}
+
+	@Override
+	public int getPatchingToolVersion() {
+		if (_patchingToolVersion != 0) {
+			return _patchingToolVersion;
+		}
+
+		Properties properties = getProperties();
+
+		if (properties.containsKey(PROPERTY_PATCHING_TOOL_VERSION)) {
+			_patchingToolVersion = GetterUtil.getInteger(
+				properties.getProperty(PROPERTY_PATCHING_TOOL_VERSION));
+		}
+
+		return _patchingToolVersion;
 	}
 
 	@Override
@@ -254,6 +271,7 @@ public class PatcherImpl implements Patcher {
 	private static boolean _inconsistentPatchLevels;
 	private static String[] _installedPatchNames;
 	private static File _patchDirectory;
+	private static int _patchingToolVersion;
 	private static String[] _patchLevels;
 	private static Properties _properties;
 

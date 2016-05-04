@@ -38,6 +38,9 @@ public interface Patcher {
 
 	public static final String PROPERTY_PATCH_LEVELS = "patch.levels";
 
+	public static final String PROPERTY_PATCHING_TOOL_VERSION =
+		"patching.tool.version";
+
 	public boolean applyPatch(File patchFile);
 
 	public String[] getFixedIssues();
@@ -45,6 +48,8 @@ public interface Patcher {
 	public String[] getInstalledPatches();
 
 	public File getPatchDirectory();
+
+	public int getPatchingToolVersion();
 
 	public String[] getPatchLevels();
 
