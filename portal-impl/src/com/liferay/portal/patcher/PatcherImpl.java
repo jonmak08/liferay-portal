@@ -266,13 +266,13 @@ public class PatcherImpl implements Patcher {
 
 	private static Log _log = LogFactoryUtil.getLog(PatcherImpl.class);
 
-	private static boolean _configured;
-	private static String[] _fixedIssueKeys;
-	private static boolean _inconsistentPatchLevels;
-	private static String[] _installedPatchNames;
-	private static File _patchDirectory;
-	private static int _patchingToolVersion;
-	private static String[] _patchLevels;
-	private static Properties _properties;
+	private boolean _configured;
+	private String[] _fixedIssueKeys;
+	private boolean _inconsistentPatchLevels;
+	private String[] _installedPatchNames;
+	private File _patchDirectory;
+	private int _patchingToolVersion;
+	private String[] _patchLevels;
+	private Properties _properties;
 
 }
