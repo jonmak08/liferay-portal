@@ -6473,6 +6473,25 @@ public class JournalArticleLocalServiceImpl
 		return oldImage;
 	}
 
+	protected double getNextVersion(JournalArticle article)
+		throws PortalException {
+
+		double nextVersion = article.getVersion();
+
+		// The next version must be greater than the version of the latest live
+		// article
+
+		JournalArticle latestLiveArticle = fetchLatestLiveArticle(article);
+
+		if ((latestLiveArticle != null) &&
+			(latestLiveArticle.getVersion() > nextVersion)) {
+
+			nextVersion = latestLiveArticle.getVersion();
+		}
+
+		return MathUtil.format(nextVersion + 0.1, 1, 1);
+	}
+
 	protected String getUniqueUrlTitle(
 			long id, long groupId, String articleId, String title)
 		throws PortalException, SystemException {
@@ -6633,25 +6652,6 @@ public class JournalArticleLocalServiceImpl
 			JournalArticle.class.getName(), article.getGroupId());
 
 		subscriptionSender.flushNotificationsAsync();
-	}
-
-	protected double getNextVersion(JournalArticle article)
-		throws PortalException {
-
-		double nextVersion = article.getVersion();
-
-		// The next version must be greater than the version of the latest live
-		// article
-
-		JournalArticle latestLiveArticle = fetchLatestLiveArticle(article);
-
-		if ((latestLiveArticle != null) &&
-			(latestLiveArticle.getVersion() > nextVersion)) {
-
-			nextVersion = latestLiveArticle.getVersion();
-		}
-
-		return MathUtil.format(nextVersion + 0.1, 1, 1);
 	}
 
 	protected void saveImages(
