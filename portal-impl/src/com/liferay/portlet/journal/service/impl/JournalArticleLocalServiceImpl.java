@@ -4952,7 +4952,7 @@ public class JournalArticleLocalServiceImpl
 
 				addNewVersion = true;
 
-				version = obtainNextVersionNumber(article);
+				version = getNextVersion(article);
 			}
 		}
 
@@ -5254,7 +5254,7 @@ public class JournalArticleLocalServiceImpl
 		Locale defaultLocale = getArticleDefaultLocale(content, serviceContext);
 
 		if (incrementVersion) {
-			double newVersion = obtainNextVersionNumber(oldArticle);
+			double newVersion = getNextVersion(oldArticle);
 
 			long id = counterLocalService.increment();
 
@@ -6070,7 +6070,7 @@ public class JournalArticleLocalServiceImpl
 		newArticle.setContent(contentDoc.formattedString());
 	}
 
-	protected JournalArticle fetchLatestArticleFromLive(JournalArticle article)
+	protected JournalArticle fetchLatestLiveArticle(JournalArticle article)
 		throws PortalException {
 
 		Group group = groupLocalService.getGroup(article.getGroupId());
@@ -6635,21 +6635,23 @@ public class JournalArticleLocalServiceImpl
 		subscriptionSender.flushNotificationsAsync();
 	}
 
-	protected double obtainNextVersionNumber(JournalArticle article)
+	protected double getNextVersion(JournalArticle article)
 		throws PortalException {
 
-		double oldVersion = article.getVersion();
+		double nextVersion = article.getVersion();
 
-		// The version must also higher than the live version of the article
-		// to avoid some versions not being published
+		// The next version must be greater than the version of the latest live
+		// article
 
-		JournalArticle liveArticle = fetchLatestArticleFromLive(article);
+		JournalArticle latestLiveArticle = fetchLatestLiveArticle(article);
 
-		if ((liveArticle != null) && (liveArticle.getVersion() > oldVersion)) {
-			oldVersion = liveArticle.getVersion();
+		if ((latestLiveArticle != null) &&
+			(latestLiveArticle.getVersion() > nextVersion)) {
+
+			nextVersion = latestLiveArticle.getVersion();
 		}
 
-		return MathUtil.format(oldVersion + 0.1, 1, 1);
+		return MathUtil.format(nextVersion + 0.1, 1, 1);
 	}
 
 	protected void saveImages(
