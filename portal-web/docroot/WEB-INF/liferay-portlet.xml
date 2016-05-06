@@ -212,8 +212,8 @@
 		<icon>/html/icons/document_library.png</icon>
 		<struts-path>document_library</struts-path>
 		<configuration-action-class>com.liferay.portlet.documentlibrary.action.ConfigurationActionImpl</configuration-action-class>
-		<indexer-class>com.liferay.portlet.documentlibrary.util.DLFileEntryIndexer</indexer-class>
 		<indexer-class>com.liferay.portlet.documentlibrary.util.DLFolderIndexer</indexer-class>
+		<indexer-class>com.liferay.portlet.documentlibrary.util.DLFileEntryIndexer</indexer-class>
 		<open-search-class>com.liferay.portlet.documentlibrary.util.DLOpenSearchImpl</open-search-class>
 		<portlet-url-class>com.liferay.portal.struts.StrutsActionPortletURL</portlet-url-class>
 		<portlet-data-handler-class>com.liferay.portlet.documentlibrary.lar.DLPortletDataHandler</portlet-data-handler-class>
