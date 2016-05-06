@@ -4,12 +4,23 @@
 	<import file="build-test.xml" />
 
 	<target name="deploy-extra-apps">
-		<fail message="Please set the property ${extra.apps.zip.file.name}" unless="extra.apps.zip.file.name" />
+		<for list="${plugins.includes}" param="plugin">
+			<sequential>
+				<pathconvert pathsep="," property="extraapps.zip" setonempty="false">
+					<path>
+						<fileset
+							dir="extraapps"
+							includes="@{plugin}*"
+						/>
+					</path>
+				</pathconvert>
 
-		<unzip
-			dest="${liferay.home}/deploy"
-			src="${extra.apps.zip.file.name}"
-		/>
+				<unzip
+					dest="${liferay.home}/deploy"
+					src="${extraapps.zip}"
+				/>
+			</sequential>
+		</for>
 	</target>
 
 	<target name="deploy-simple-server-plugins">
