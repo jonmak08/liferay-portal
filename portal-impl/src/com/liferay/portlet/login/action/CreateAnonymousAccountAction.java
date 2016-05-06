@@ -80,8 +80,6 @@ public class CreateAnonymousAccountAction extends PortletAction {
 		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
-		Company company = themeDisplay.getCompany();
-
 		String portletName = portletConfig.getPortletName();
 
 		if (!portletName.equals(PortletKeys.FAST_LOGIN)) {
@@ -118,6 +116,12 @@ public class CreateAnonymousAccountAction extends PortletAction {
 					actionRequest, actionResponse, portletURL.toString());
 			}
 			else if (cmd.equals(Constants.UPDATE)) {
+				Company company = themeDisplay.getCompany();
+
+				if (!company.isStrangers()) {
+					throw new PrincipalException();
+				}
+
 				jsonObject = updateIncompleteUser(
 					actionRequest, actionResponse);
 
@@ -171,8 +175,6 @@ public class CreateAnonymousAccountAction extends PortletAction {
 
 		ThemeDisplay themeDisplay = (ThemeDisplay)renderRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
-
-		Company company = themeDisplay.getCompany();
 
 		String portletName = portletConfig.getPortletName();
 
@@ -298,24 +300,17 @@ public class CreateAnonymousAccountAction extends PortletAction {
 		boolean updateUserInformation = false;
 		boolean sendEmail = true;
 
-		User user = null;
-		Company company = themeDisplay.getCompany();
-
-		if (company.isStrangers()) {
-			user = UserServiceUtil.updateIncompleteUser(
-				themeDisplay.getCompanyId(), autoPassword, password1, password2,
-				autoScreenName, screenName, emailAddress, facebookId, openId,
-				themeDisplay.getLocale(), firstName, middleName, lastName,
-				prefixId, suffixId, male, birthdayMonth, birthdayDay,
-				birthdayYear, jobTitle, updateUserInformation, sendEmail,
-				serviceContext);
-		}
+		User user = UserServiceUtil.updateIncompleteUser(
+			themeDisplay.getCompanyId(), autoPassword, password1, password2,
+			autoScreenName, screenName, emailAddress, facebookId, openId,
+			themeDisplay.getLocale(), firstName, middleName, lastName, prefixId,
+			suffixId, male, birthdayMonth, birthdayDay, birthdayYear, jobTitle,
+			updateUserInformation, sendEmail, serviceContext);
 
 		JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
 
-		if ((user != null) &&
-			(user.getStatus() == WorkflowConstants.STATUS_APPROVED)) {
-				jsonObject.put("userStatus", "user_added");
+		if (user.getStatus() == WorkflowConstants.STATUS_APPROVED) {
+			jsonObject.put("userStatus", "user_added");
 		}
 		else {
 			jsonObject.put("userStatus", "user_pending");
