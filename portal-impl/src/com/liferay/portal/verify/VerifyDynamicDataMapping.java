@@ -506,24 +506,6 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 			fileVersion.getStatus());
 	}
 
-	protected void updateFieldValues(
-			long storageId, Map<String, String> fieldValues)
-		throws Exception {
-
-		Fields fields = new Fields();
-
-		for (Map.Entry<String, String> entry : fieldValues.entrySet()) {
-			Field field = new Field(
-				storageId, entry.getKey(), entry.getValue());
-
-			fields.put(field);
-		}
-
-		ServiceContext serviceContext = new ServiceContext();
-
-		StorageEngineUtil.update(storageId, fields, true, serviceContext);
-	}
-
 	protected void updateFileEntryStatus(
 			FileEntry fileEntry, int status, ServiceContext serviceContext)
 		throws Exception {
@@ -584,8 +566,6 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 			BaseModel<?> baseModel, int status)
 		throws Exception {
 
-		Map<String, String> fieldValues = new HashMap<String, String>();
-
 		Fields fields = StorageEngineUtil.getFields(storageId);
 
 		for (Field field : fields) {
@@ -616,11 +596,13 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 				jsonObject.getString("name"), filePath, status);
 
 			if (fileEntry != null) {
-				fieldValues.put(field.getName(), getJSON(fileEntry));
+				field.setValue(getJSON(fileEntry));
 			}
 		}
 
-		updateFieldValues(storageId, fieldValues);
+		ServiceContext serviceContext = new ServiceContext();
+
+		StorageEngineUtil.update(storageId, fields, false, serviceContext);
 	}
 
 	protected void updateStructure(DDMStructure structure, String xsd)
