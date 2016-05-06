@@ -52,6 +52,7 @@ import com.liferay.portal.model.User;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.util.PortalUtil;
+import com.liferay.portlet.documentlibrary.NoSuchFileEntryException;
 import com.liferay.portlet.documentlibrary.NoSuchFolderException;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryMetadata;
 import com.liferay.portlet.documentlibrary.model.DLFileVersion;
@@ -134,6 +135,16 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		String contentType = MimeTypesUtil.getContentType(fileName);
 
 		String title = fileName;
+
+		try {
+			return DLAppLocalServiceUtil.getFileEntry(
+				groupId, folderId, title);
+		}
+		catch (NoSuchFileEntryException nsfe) {
+			if (_log.isDebugEnabled()) {
+				_log.debug(nsfe, nsfe);
+			}
+		}
 
 		try {
 			File file = DLStoreUtil.getFile(
