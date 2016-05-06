@@ -62,10 +62,12 @@ if (threadFlag != null) {
 			}
 
 			StringBundler sb = new StringBundler(4);
+
 			sb.append("#");
 			sb.append(renderResponse.getNamespace());
 			sb.append("message_");
 			sb.append(message.getMessageId());
+
 			String rowHREF = sb.toString();
 
 			if (!themeDisplay.isFacebook()) {
