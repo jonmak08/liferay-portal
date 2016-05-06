@@ -627,6 +627,7 @@
 	<command name="tearDownCP">
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
+			<var name="siteScopeName" value="${siteScopeName}" />
 		</execute>
 
 		<execute function="Click" locator1="CPWebcontent#TOOLBAR_DISPLAY_STYLE_BUTTON" />
@@ -644,6 +645,7 @@
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Recycle Bin" />
+			<var name="siteScopeName" value="${siteScopeName}" />
 		</execute>
 
 		<execute macro="RecycleBin#emptyCP" />
