@@ -247,14 +247,14 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 
 		long messageId = counterLocalService.increment();
 
-		body = SanitizerUtil.sanitize(
-			user.getCompanyId(), groupId, userId, MBMessage.class.getName(),
-			messageId, "text/" + format, body);
-
 		validate(subject, body);
 
 		subject = getSubject(subject, body);
 		body = getBody(subject, body);
+
+		body = SanitizerUtil.sanitize(
+			user.getCompanyId(), groupId, userId, MBMessage.class.getName(),
+			messageId, "text/" + format, body);
 
 		MBMessage message = mbMessagePersistence.create(messageId);
 
@@ -1556,15 +1556,16 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		Date modifiedDate = serviceContext.getModifiedDate(new Date());
 		subject = ModelHintsUtil.trimString(
 			MBMessage.class.getName(), "subject", subject);
-		body = SanitizerUtil.sanitize(
-			message.getCompanyId(), message.getGroupId(), userId,
-			MBMessage.class.getName(), messageId, "text/" + message.getFormat(),
-			body);
 
 		validate(subject, body);
 
 		subject = getSubject(subject, body);
 		body = getBody(subject, body);
+
+		body = SanitizerUtil.sanitize(
+			message.getCompanyId(), message.getGroupId(), userId,
+			MBMessage.class.getName(), messageId, "text/" + message.getFormat(),
+			body);
 
 		message.setModifiedDate(modifiedDate);
 		message.setSubject(subject);
