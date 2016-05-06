@@ -1221,6 +1221,8 @@ public interface PropsKeys {
 
 	public static final String JOURNAL_DEFAULT_DISPLAY_VIEW = "journal.default.display.view";
 
+	public static final String JOURNAL_BROWSE_BY_STRUCTURE_SHOW_SORTED = "journal.browse-by-structure.show.sorted";
+
 	public static final String JOURNAL_DISPLAY_VIEWS = "journal.display.views";
 
 	public static final String JOURNAL_EMAIL_ARTICLE_ADDED_BODY = "journal.email.article.added.body";

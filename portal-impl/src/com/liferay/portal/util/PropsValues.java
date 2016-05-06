@@ -940,6 +940,8 @@ public class PropsValues {
 
 	public static final String JOURNAL_DEFAULT_DISPLAY_VIEW = PropsUtil.get(PropsKeys.JOURNAL_DEFAULT_DISPLAY_VIEW);
 
+	public static final boolean JOURNAL_BROWSE_BY_STRUCTURE_SHOW_SORTED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.JOURNAL_BROWSE_BY_STRUCTURE_SHOW_SORTED));
+
 	public static final String[] JOURNAL_DISPLAY_VIEWS = PropsUtil.getArray(PropsKeys.JOURNAL_DISPLAY_VIEWS);
 
 	public static final String JOURNAL_EMAIL_ARTICLE_ADDED_BODY = PropsUtil.get(PropsKeys.JOURNAL_EMAIL_ARTICLE_ADDED_BODY);
