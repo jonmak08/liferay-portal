@@ -1964,12 +1964,14 @@ public class DLFileEntryLocalServiceImpl
 
 		ExpandoBridge oldExpandoBridge = dlFileVersion.getExpandoBridge();
 
-		DLFileVersion latestFileVersion =
-			dlFileVersionLocalService.fetchLatestFileVersion(
-				dlFileEntry.getFileEntryId(), false);
+		try {
+			DLFileVersion latestFileVersion =
+				dlFileVersionLocalService.getLatestFileVersion(
+					dlFileEntry.getFileEntryId(), false);
 
-		if (latestFileVersion != null) {
 			oldExpandoBridge = latestFileVersion.getExpandoBridge();
+		}
+		catch (NoSuchFileVersionException nsfve) {
 		}
 
 		ExpandoBridgeUtil.setExpandoBridgeAttributes(
