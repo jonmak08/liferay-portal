@@ -41,8 +41,11 @@ catch (Exception e) {
 }
 
 double tempValue = Math.pow((1 + (interestRate / 100 / paymentsPerYear)), (years * paymentsPerYear));
+
 double amountPerPayment = (loanAmount * tempValue * (interestRate / 100 / paymentsPerYear)) / (tempValue - 1);
+
 double totalPaid = amountPerPayment * years * paymentsPerYear;
+
 double interestPaid = totalPaid - loanAmount;
 %>
 
