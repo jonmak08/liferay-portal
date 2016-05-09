@@ -35,6 +35,8 @@ import com.liferay.portal.search.lucene.BooleanClauseImpl;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.security.permission.PermissionCheckerFactoryUtil;
 import com.liferay.portal.security.permission.PermissionThreadLocal;
+import com.liferay.portal.service.GroupLocalServiceUtil;
+import com.liferay.portal.service.OrganizationLocalServiceUtil;
 import com.liferay.portal.service.ResourcePermissionLocalServiceUtil;
 import com.liferay.portal.service.RoleLocalServiceUtil;
 import com.liferay.portal.service.ServiceTestUtil;
@@ -52,6 +54,7 @@ import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -74,14 +77,25 @@ public class SearchPermissionCheckerTest {
 		_organization = OrganizationTestUtil.addOrganization();
 	}
 
+	@After
+	public void tearDown() throws Exception {
+		if (_user != null) {
+			UserLocalServiceUtil.deleteUser(_user);
+		}
+
+		if (_role != null) {
+			RoleLocalServiceUtil.deleteRole(_role);
+		}
+
+		OrganizationLocalServiceUtil.deleteOrganization(_organization);
+
+		GroupLocalServiceUtil.deleteGroup(_group);
+	}
+
 	@Test
 	public void testAdministratorRolePermissionFilter() throws Exception {
-		_user = UserTestUtil.addOmniAdmin();
-
-		PermissionThreadLocal.setPermissionChecker(
-			PermissionCheckerFactoryUtil.create(_user));
-
-		BooleanQuery booleanQuery = (BooleanQuery)getBooleanQuery(null);
+		BooleanQuery booleanQuery = (BooleanQuery)getBooleanQuery(
+			null, TestPropsValues.getUserId());
 
 		Assert.assertFalse(booleanQuery.hasClauses());
 	}
@@ -247,21 +261,24 @@ public class SearchPermissionCheckerTest {
 
 		BooleanQuery booleanQuery = (BooleanQuery)getBooleanQuery(groupIds);
 
-		TestTermExtractor testTermExtractor = new TestTermExtractor(
-			expected, field, value);
+		TestTermHelper testTermHelper = new TestTermHelper(field, value);
 
-		testTermExtractor.extract(booleanQuery);
-
-		testTermExtractor.assertField();
+		Assert.assertEquals(
+			expected, testTermHelper.isTermPresent(booleanQuery));
 	}
 
 	protected Query getBooleanQuery(long[] groupIds) throws Exception {
+		return getBooleanQuery(groupIds, _user.getUserId());
+	}
+
+	protected Query getBooleanQuery(long[] groupIds, long userId)
+		throws Exception {
+
 		SearchContext searchContext = new SearchContext();
 
 		return _searchPermissionChecker.getPermissionQuery(
-			TestPropsValues.getCompanyId(), groupIds, _user.getUserId(),
-			getClassName(), BooleanQueryFactoryUtil.create(searchContext),
-			searchContext);
+			TestPropsValues.getCompanyId(), groupIds, userId, getClassName(),
+			BooleanQueryFactoryUtil.create(searchContext), searchContext);
 	}
 
 	protected String getClassName() {
@@ -278,26 +295,21 @@ public class SearchPermissionCheckerTest {
 
 	private User _user;
 
-	private static class TestTermExtractor {
+	private static class TestTermHelper {
 
-		public TestTermExtractor(boolean expected, String field, String value) {
-			_expected = expected;
+		public TestTermHelper(String field, String value) {
 			_field = field;
 			_value = value;
 		}
 
-		public void assertField() {
-			Assert.assertEquals(_expected, _found);
-		}
-
-		public Void extract(BooleanQuery booleanQuery) {
+		public boolean isTermPresent(BooleanQuery booleanQuery) {
 			for (BooleanClause booleanClause : booleanQuery.clauses()) {
 				org.apache.lucene.search.BooleanClause clause =
 					((BooleanClauseImpl)booleanClause).getBooleanClause();
 
 				org.apache.lucene.search.Query query = clause.getQuery();
 
-				Set <org.apache.lucene.index.Term> extractedTerms =
+				Set<org.apache.lucene.index.Term> extractedTerms =
 					new HashSet <org.apache.lucene.index.Term>();
 
 				query.extractTerms(extractedTerms);
@@ -306,17 +318,15 @@ public class SearchPermissionCheckerTest {
 					if (_field.equals(term.field()) &&
 						_value.equals(term.text())) {
 
-						_found = true;
+						return true;
 					}
 				}
 			}
 
-			return null;
+			return false;
 		}
 
-		private final boolean _expected;
 		private final String _field;
-		private boolean _found;
 		private final String _value;
 
 	}
