@@ -389,6 +389,14 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 			long groupId = entry.getKey();
 			List<Role> groupRoles = entry.getValue();
 
+			long[] groupRoleIdsArray = new long[groupRoles.size()];
+
+			for (int i = 0; i < groupRoleIdsArray.length; i++) {
+				Role groupRole = groupRoles.get(i);
+
+				groupRoleIdsArray[i] = groupRole.getRoleId();
+			}
+
 			if (advancedPermissionChecker.isGroupAdmin(groupId) ||
 				ResourcePermissionLocalServiceUtil.hasResourcePermission(
 					companyId, className, ResourceConstants.SCOPE_GROUP,
@@ -397,8 +405,7 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 					companyId, className,
 					ResourceConstants.SCOPE_GROUP_TEMPLATE,
 					String.valueOf(GroupConstants.DEFAULT_PARENT_GROUP_ID),
-					ListUtil.toLongArray(groupRoles, Role.ROLE_ID_ACCESSOR),
-					ActionKeys.VIEW)) {
+					groupRoleIdsArray, ActionKeys.VIEW)) {
 
 				groupsQuery.addTerm(Field.GROUP_ID, String.valueOf(groupId));
 			}

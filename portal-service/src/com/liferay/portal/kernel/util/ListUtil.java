@@ -21,8 +21,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-import java.lang.reflect.Array;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -357,26 +355,6 @@ public class ListUtil {
 		}
 
 		return list;
-	}
-
-	public static <T> long[] toLongArray(
-		List<? extends T> list, Accessor<T, Long> accessor) {
-
-		if (list.isEmpty()) {
-			return (long[])Array.newInstance(long.class, 0);
-		}
-
-		long[] array = (long[])Array.newInstance(long.class, list.size());
-
-		for (int i = 0; i < list.size(); i++) {
-			T bean = list.get(i);
-
-			Long attribute = accessor.get(bean);
-
-			array[i] = attribute;
-		}
-
-		return array;
 	}
 
 	/**
