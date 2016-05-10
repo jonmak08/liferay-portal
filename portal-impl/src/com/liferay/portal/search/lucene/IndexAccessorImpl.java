@@ -60,9 +60,6 @@ import org.apache.lucene.index.NoMergePolicy;
 import org.apache.lucene.index.NoMergeScheduler;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.search.MatchAllDocsQuery;
-import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.store.MMapDirectory;
@@ -243,59 +240,22 @@ public class IndexAccessorImpl implements IndexAccessor {
 
 		Directory tempDirectory = FSDirectory.open(tempFile);
 
-		if (OSDetector.isWindows() &&
-			PropsValues.INDEX_DUMP_PROCESS_DOCUMENTS_ENABLED) {
+		IndexCommitSerializationUtil.deserializeIndex(
+			inputStream, tempDirectory);
 
-			IndexCommitSerializationUtil.deserializeIndex(
-				inputStream, tempDirectory);
+		_indexSearcherManager.close();
 
-			_deleteDirectory();
+		_indexWriter.close();
 
-			IndexReader indexReader = IndexReader.open(tempDirectory, false);
+		_deleteDirectory();
 
-			IndexSearcher indexSearcher = new IndexSearcher(indexReader);
-
-			try {
-				TopDocs topDocs = indexSearcher.search(
-					new MatchAllDocsQuery(), indexReader.numDocs());
-
-				ScoreDoc[] scoreDocs = topDocs.scoreDocs;
-
-				for (ScoreDoc scoreDoc : scoreDocs) {
-					Document document = indexSearcher.doc(scoreDoc.doc);
-
-					addDocument(document);
-				}
-			}
-			catch (IllegalArgumentException iae) {
-				if (_log.isDebugEnabled()) {
-					_log.debug(iae.getMessage());
-				}
-			}
-
-			indexSearcher.close();
-
-			indexReader.flush();
-			indexReader.close();
+		for (String file : tempDirectory.listAll()) {
+			tempDirectory.copy(getLuceneDir(), file, file);
 		}
-		else {
-			IndexCommitSerializationUtil.deserializeIndex(
-				inputStream, tempDirectory);
 
-			_indexSearcherManager.close();
+		_initIndexWriter();
 
-			_indexWriter.close();
-
-			_deleteDirectory();
-
-			for (String file : tempDirectory.listAll()) {
-				tempDirectory.copy(getLuceneDir(), file, file);
-			}
-
-			_initIndexWriter();
-
-			_indexSearcherManager = new IndexSearcherManager(_indexWriter);
-		}
+		_indexSearcherManager = new IndexSearcherManager(_indexWriter);
 
 		tempDirectory.close();
 
@@ -426,7 +386,9 @@ public class IndexAccessorImpl implements IndexAccessor {
 		Directory directory = null;
 
 		try {
-			if (PropsValues.LUCENE_STORE_TYPE_FILE_FORCE_MMAP) {
+			if (!OSDetector.isWindows() &&
+				PropsValues.LUCENE_STORE_TYPE_FILE_FORCE_MMAP) {
+
 				directory = new MMapDirectory(new File(_path));
 			}
 			else {
