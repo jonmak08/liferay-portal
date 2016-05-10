@@ -270,13 +270,11 @@ public class LuceneHelperImpl implements LuceneHelper {
 			_includeIfUnique(booleanQuery, like, queryParser, query, occur);
 		}
 		catch (BooleanQuery.TooManyClauses tmc) {
-			if (_log.isErrorEnabled()) {
-				_log.error(
-					"Portal property " +
-						PropsKeys.LUCENE_BOOLEAN_QUERY_CLAUSE_MAX_SIZE +
-						" must be increased.",
-					tmc);
-			}
+			_log.error(
+				"The value in the portal property \"" +
+					PropsKeys.LUCENE_BOOLEAN_QUERY_CLAUSE_MAX_SIZE +
+						"\" is too small",
+				tmc);
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
