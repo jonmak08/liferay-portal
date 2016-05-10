@@ -1615,7 +1615,7 @@ public class HookHotDeployListener
 
 			Map<String, String> languageMap = new HashMap<String, String>();
 
-			if ((!StringPool.BLANK.equals(languageId)) && (rootLocale != null) &&
+			if (!StringPool.BLANK.equals(languageId) && (rootLocale != null) &&
 				Validator.equals(
 					locale.getLanguage(), rootLocale.getLanguage())) {
 
