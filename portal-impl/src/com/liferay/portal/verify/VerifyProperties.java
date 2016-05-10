@@ -364,6 +364,7 @@ public class VerifyProperties extends VerifyProcess {
 		"lucene.store.jdbc.dialect.microsoft",
 		"lucene.store.jdbc.dialect.mysql", "lucene.store.jdbc.dialect.oracle",
 		"lucene.store.jdbc.dialect.postgresql",
+		"index.dump.process.documents.enabled",
 		"memory.cluster.scheduler.lock.cache.enabled",
 		"message.boards.thread.locking.enabled", "portal.ctx",
 		"portal.security.manager.enable", "permissions.user.check.algorithm",
