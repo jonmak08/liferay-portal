@@ -773,7 +773,8 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 							String url = sb.substring(beginPos, endPos);
 
 							url = StringUtil.replace(
-								url, String.valueOf(fileEntryGroup.getGroupId()),
+								url,
+								String.valueOf(fileEntryGroup.getGroupId()),
 								String.valueOf(fileEntryLiveGroupId));
 
 							sb.replace(beginPos, endPos, url);
