@@ -293,6 +293,8 @@ AUI.add(
 
 				var borderData = instance._objData.borderData;
 
+				var ufa;
+
 				// Border width
 
 				var wBottomInt = instance._borderBottomInt;
@@ -304,6 +306,10 @@ AUI.add(
 				var wTopInt = instance._borderTopInt;
 				var wTopUnit = instance._borderTopUnit;
 
+				ufa = ufaWidth.get(CHECKED);
+
+				instance._checkUfa('border', 'width', ufa, true);
+
 				var changeWidth = function() {
 					var borderWidth = {};
 					var styling = {};
@@ -311,7 +317,9 @@ AUI.add(
 					borderWidth = instance._getCombo(wTopInt, wTopUnit);
 					styling = {borderWidth: borderWidth.both};
 
-					var ufa = ufaWidth.get(CHECKED);
+					ufa = ufaWidth.get(CHECKED);
+
+					instance._checkUfa('border', 'width', ufa, true);
 
 					borderData.borderWidth.top.value = borderWidth.input;
 					borderData.borderWidth.top.unit = borderWidth.selectBox;
@@ -394,6 +402,10 @@ AUI.add(
 				var sRightStyle = instance._borderRightStyle;
 				var sTopStyle = instance._borderTopStyle;
 
+				ufa = ufaStyle.get(CHECKED);
+
+				instance._checkUfa('border', 'style', ufa, false);
+
 				var changeStyle = function() {
 					var borderStyle = {};
 					var styling = {};
@@ -404,7 +416,9 @@ AUI.add(
 						borderStyle: borderStyle
 					};
 
-					var ufa = ufaStyle.get(CHECKED);
+					ufa = ufaStyle.get(CHECKED);
+
+					instance._checkUfa('border', 'style', ufa, false);
 
 					borderData.borderStyle.top = borderStyle;
 					borderData.borderStyle.sameForAll = ufa;
@@ -456,6 +470,10 @@ AUI.add(
 				var cRightColor = instance._borderRightColor;
 				var cTopColor = instance._borderTopColor;
 
+				ufa = ufaColor.get(CHECKED);
+
+				instance._checkUfa('border', 'color', ufa, false);
+
 				var changeColor = function() {
 					var borderColor = {};
 					var styling = {};
@@ -463,7 +481,9 @@ AUI.add(
 					borderColor = cTopColor.val();
 					styling = {borderColor: borderColor};
 
-					var ufa = ufaColor.get(CHECKED);
+					ufa = ufaColor.get(CHECKED);
+
+					instance._checkUfa('border', 'color', ufa, false);
 
 					borderData.borderColor.top = borderColor;
 					borderData.borderColor.sameForAll = ufa;
@@ -561,6 +581,41 @@ AUI.add(
 
 				ufaColor.detach(CHANGE);
 				ufaColor.on(CHANGE, changeColor);
+			},
+
+			_checkUfa: function(type, subType, ufa, unitExists) {
+				var instance = this;
+
+				if (ufa != null) {
+					var sides = ['Bottom', 'Left', 'Right'];
+
+					for (var side in sides) {
+						var intValue;
+						var subTypeCap;
+						var unitValue;
+
+						if (!unitExists && type == 'border') {
+							subTypeCap = subType.charAt(0).toUpperCase() + subType.slice(1);
+							intValue =	'_' + type + sides[side] + subTypeCap;
+						}
+
+						else if (unitExists && type == 'border') {
+							intValue =	'_' + type + sides[side] + 'Int';
+							unitValue = '_' + type + sides[side] + 'Unit';
+
+							instance[unitValue].set(DISABLED, ufa);
+						}
+
+						else if (unitExists && type == 'spacing') {
+							intValue =	'_' + subType + sides[side] + 'Int';
+							unitValue = '_' + subType + sides[side] + 'Unit';
+
+							instance[unitValue].set(DISABLED, ufa);
+						}
+
+						instance[intValue].set(DISABLED, ufa);
+					}
+				}
 			},
 
 			_cssStyles: function() {
@@ -1667,6 +1722,8 @@ AUI.add(
 
 				var spacingData = instance._objData.spacingData;
 
+				var ufa;
+
 				// Padding
 
 				var pBottom = instance._paddingBottomInt;
@@ -1678,6 +1735,10 @@ AUI.add(
 				var pTop = instance._paddingTopInt;
 				var pTopUnit = instance._paddingTopUnit;
 
+				ufa = ufaPadding.get(CHECKED);
+
+				instance._checkUfa('spacing', 'padding', ufa, true);
+
 				var changePadding = function() {
 					var styling = {};
 
@@ -1685,7 +1746,9 @@ AUI.add(
 
 					styling = {padding: padding.both};
 
-					var ufa = ufaPadding.get(CHECKED);
+					ufa = ufaPadding.get(CHECKED);
+
+					instance._checkUfa('spacing', 'padding', ufa, true);
 
 					spacingData.padding.top.value = padding.input;
 					spacingData.padding.top.unit = padding.selectBox;
@@ -1770,6 +1833,10 @@ AUI.add(
 				var mTop = instance._marginTopInt;
 				var mTopUnit = instance._marginTopUnit;
 
+				ufa = ufaMargin.get(CHECKED);
+
+				instance._checkUfa('spacing', 'margin', ufa, true);
+
 				var changeMargin = function() {
 					var styling = {};
 
@@ -1777,7 +1844,9 @@ AUI.add(
 
 					styling = {margin: margin.both};
 
-					var ufa = ufaMargin.get(CHECKED);
+					ufa = ufaMargin.get(CHECKED);
+
+					instance._checkUfa('spacing', 'margin', ufa, true);
 
 					spacingData.margin.top.value = margin.input;
 					spacingData.margin.top.unit = margin.selectBox;
