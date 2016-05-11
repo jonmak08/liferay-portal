@@ -4,32 +4,38 @@
 	<#assign finderFieldName = entity.alias + "." + finderColName>
 </#if>
 
+<#if serviceBuilder.getSqlType(packagePath + ".model." + entity.getName(), finderCol.getName(), finderCol.getType()) == "CLOB">
+	<#assign textFinderFieldName = "CAST_CLOB_TEXT(" + finderFieldName + ")">
+<#else>
+	<#assign textFinderFieldName = finderFieldName>
+</#if>
+
 <#if !finderCol.isPrimitiveType()>
 	private static final String _FINDER_COLUMN_${finder.name?upper_case}_${finderCol.name?upper_case}_1${finderFieldSuffix} =
 
 	<#if finderCol.comparator == "=">
-		"${finderFieldName} IS NULL${finderColConjunction}"
+		"${textFinderFieldName} IS NULL${finderColConjunction}"
 	<#elseif finderCol.comparator == "<>" || finderCol.comparator = "!=">
-		"${finderFieldName} IS NOT NULL${finderColConjunction}"
+		"${textFinderFieldName} IS NOT NULL${finderColConjunction}"
 	<#else>
-		"${finderFieldName} ${finderCol.comparator} NULL${finderColConjunction}"
+		"${textFinderFieldName} ${finderCol.comparator} NULL${finderColConjunction}"
 	</#if>
 
 	;
 </#if>
 
 <#if finderCol.type == "String" && !finderCol.isCaseSensitive()>
-	<#assign finderColExpression = "lower(" + finderFieldName + ") " + finderCol.comparator + " ?">
+	<#assign finderColExpression = "lower(" + textFinderFieldName + ") " + finderCol.comparator + " ?">
 <#else>
-	<#assign finderColExpression = finderFieldName + " " + finderCol.comparator + " ?">
+	<#assign finderColExpression = textFinderFieldName + " " + finderCol.comparator + " ?">
 </#if>
 
 private static final String _FINDER_COLUMN_${finder.name?upper_case}_${finderCol.name?upper_case}_2${finderFieldSuffix} = "${finderColExpression}${finderColConjunction}";
 
 <#if finderCol.type == "String">
-	<#assign finderColExpression = finderFieldName + " " + finderCol.comparator + " ''">
+	<#assign finderColExpression = textFinderFieldName + " " + finderCol.comparator + " ''">
 
-	private static final String _FINDER_COLUMN_${finder.name?upper_case}_${finderCol.name?upper_case}_3${finderFieldSuffix} = "(${finderFieldName} IS NULL OR ${finderColExpression})${finderColConjunction}";
+	private static final String _FINDER_COLUMN_${finder.name?upper_case}_${finderCol.name?upper_case}_3${finderFieldSuffix} = "(${textFinderFieldName} IS NULL OR ${finderColExpression})${finderColConjunction}";
 </#if>
 
 <#if finder.hasArrayableOperator()>
