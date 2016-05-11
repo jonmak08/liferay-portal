@@ -273,11 +273,11 @@ public class RoleFinderImpl
 			long companyId, String keywords, Integer[] types,
 			LinkedHashMap<String, Object> params, int start, int end,
 			OrderByComparator obc) {
-		
+
 		String[] names = null;
 		String[] descriptions = null;
 		boolean andOperator = false;
-		
+
 		if (Validator.isNotNull(keywords)) {
 			names = CustomSQLUtil.keywords(keywords);
 			descriptions = CustomSQLUtil.keywords(keywords);
@@ -285,7 +285,7 @@ public class RoleFinderImpl
 		else {
 			andOperator = true;
 		}
-		
+
 		return filterFindByC_N_D_T(
 				companyId, names, descriptions, types, params, andOperator, start,
 				end, obc);
@@ -298,7 +298,7 @@ public class RoleFinderImpl
 
 		String[] names = CustomSQLUtil.keywords(name);
 		String[] descriptions = CustomSQLUtil.keywords(description);
-		
+
 		return filterCountByC_N_D_T(
 				companyId, names, descriptions, types, params, andOperator);
 	}
@@ -317,10 +317,10 @@ public class RoleFinderImpl
 			long companyId, String name, String description, Integer[] types,
 			LinkedHashMap<String, Object> params, boolean andOperator, int start,
 			int end, OrderByComparator obc) {
-		
+
 		String[] names = CustomSQLUtil.keywords(name);
 		String[] descriptions = CustomSQLUtil.keywords(description);
-		
+
 		return filterFindByC_N_D_T(
 				companyId, names, descriptions, types, params, andOperator, start,
 				end, obc);
