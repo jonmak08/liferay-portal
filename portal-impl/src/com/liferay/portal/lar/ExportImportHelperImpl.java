@@ -757,23 +757,24 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 					PortletDataException pde = (PortletDataException)e;
 
 					if (pde.getType() == PortletDataException.INVALID_GROUP) {
-						Group originalGroup = GroupLocalServiceUtil.getGroup(
+						Group fileEntryGroup = GroupLocalServiceUtil.getGroup(
 							fileEntry.getGroupId());
 
-						if (originalGroup.isStaged()) {
-							long liveGroupId = originalGroup.getLiveGroupId();
+						if (fileEntryGroup.isStaged()) {
+							long fileEntryLiveGroupId =
+								fileEntryGroup.getLiveGroupId();
 
-							if (Validator.isNull(liveGroupId)) {
-								liveGroupId = GetterUtil.getLong(
-									originalGroup.getTypeSettingsProperty(
+							if (Validator.isNull(fileEntryLiveGroupId)) {
+								fileEntryLiveGroupId = GetterUtil.getLong(
+									fileEntryGroup.getTypeSettingsProperty(
 										"remoteGroupId"));
 							}
 
 							String url = sb.substring(beginPos, endPos);
 
 							url = StringUtil.replace(
-								url, String.valueOf(originalGroup.getGroupId()),
-								String.valueOf(liveGroupId));
+								url, String.valueOf(fileEntryGroup.getGroupId()),
+								String.valueOf(fileEntryLiveGroupId));
 
 							sb.replace(beginPos, endPos, url);
 
