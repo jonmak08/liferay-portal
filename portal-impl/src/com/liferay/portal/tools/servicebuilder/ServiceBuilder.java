@@ -1380,6 +1380,9 @@ public class ServiceBuilder {
 		else if (type.equals("Date")) {
 			return "TIMESTAMP";
 		}
+		else if (type.equals("Map")) {
+			return "CLOB";
+		}
 		else if (type.equals("String")) {
 			Map<String, String> hints = ModelHintsUtil.getHints(model, field);
 
