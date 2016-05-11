@@ -117,11 +117,16 @@ AUI.add(
 					instance._baseRenderPortletURL = baseRenderPortletURL;
 					instance._baseResourcePortletURL = baseResourcePortletURL;
 					instance._portletId = portletId;
-					instance._curPortlet = obj.one('.portlet-content');
-					instance._curPortletWrapperId = instance._curPortlet.attr(ID);
 					instance._portletBoundary = obj;
 					instance._portletBoundaryId = curPortletBoundaryId;
+
+					instance._curPortlet = obj.one('.portlet-content');
+					instance._curTopper = obj.one('.portlet-topper');
+
+					instance._curPortletWrapperId = instance._curPortlet.attr(ID);
+
 					instance._newPanel = A.one('#portlet-set-properties');
+
 					instance._currentLanguage = themeDisplay.getLanguageId();
 
 					if (instance._curPortlet) {
@@ -132,7 +137,7 @@ AUI.add(
 						}
 
 						if (!instance._currentPopup) {
-							instance._currentPopup = Liferay.Util.Window.getWindow(
+							var popup = Liferay.Util.Window.getWindow(
 								{
 									dialog: {
 										after: {
@@ -159,7 +164,12 @@ AUI.add(
 												{
 													cssClass: 'btn-lg',
 													id: Liferay.Util.ns(LOOK_AND_FEEL_NS, 'lfr-lookfeel-reset'),
-													label: Liferay.Language.get('reset')
+													label: Liferay.Language.get('restore-default-settings')
+												},
+												{
+													cssClass: 'btn-lg',
+													id: Liferay.Util.ns(LOOK_AND_FEEL_NS, 'lfr-lookfeel-undo'),
+													label: Liferay.Language.get('undo-changes')
 												}
 											],
 											header: [
@@ -169,9 +179,15 @@ AUI.add(
 													labelHTML: '<span> \u00D7 </span>',
 													on: {
 														click: function(event) {
-															instance._currentPopup.hide();
+															if (!instance._undoButton.attr(DISABLED)) {
+																instance._warningModal();
+															}
 
-															event.domEvent.stopPropagation();
+															else {
+																instance._currentPopup.hide();
+
+																event.domEvent.stopPropagation();
+															}
 														}
 													}
 												}
@@ -189,7 +205,7 @@ AUI.add(
 							viewURL.setParameter('mvcPath', '/view.jsp');
 							viewURL.setParameter('portletResource', instance._portletId);
 
-							instance._currentPopup.plug(
+							popup.plug(
 								[
 									{
 										cfg: {
@@ -218,6 +234,8 @@ AUI.add(
 									}
 								]
 							);
+
+							instance._currentPopup = popup;
 						}
 
 						instance._currentPopup.show();
@@ -225,7 +243,6 @@ AUI.add(
 						instance._currentPopup.io.start();
 					}
 				}
-
 			},
 
 			_backgroundStyles: function() {
@@ -251,16 +268,25 @@ AUI.add(
 					portlet.setStyle(BACKGROUND_COLOR, cssColor);
 
 					bgData.backgroundColor = color;
+
+					if (instance._orgData.bgData.backgroundColor != null) {
+						var objBackgroundColor = backgroundColor;
+						var orgBackgroundColor = instance._orgData.bgData.backgroundColor;
+
+						instance._undoButtonMatchSet(orgBackgroundColor, objBackgroundColor, 'backgroundColor', true);
+					}
 				};
 
-				if (!instance._backgroundColorPicker) {
+				var currentPopup = instance._currentPopup;
+
+				if (currentPopup && !instance._backgroundColorPicker) {
 					instance._backgroundColorPicker = new A.ColorPickerPopover(
 						{
 							constrain: true,
 							plugins: [Liferay.WidgetZIndex],
 							trigger: backgroundColor
 						}
-					).render(instance._currentPopup.get(BOUNDING_BOX));
+					).render(currentPopup.get(BOUNDING_BOX));
 				}
 
 				var backgroundColorPicker = instance._backgroundColorPicker;
@@ -326,9 +352,9 @@ AUI.add(
 						var left = instance._getCombo(wLeftInt, wLeftUnit);
 						var right = instance._getCombo(wRightInt, wRightUnit);
 
-						extStyling.borderRightWidth = right.both;
 						extStyling.borderBottomWidth = bottom.both;
 						extStyling.borderLeftWidth = left.both;
+						extStyling.borderRightWidth = right.both;
 
 						styling = extStyling;
 
@@ -343,6 +369,25 @@ AUI.add(
 					}
 
 					portlet.setStyles(styling);
+
+					if (instance._orgData.borderData.borderWidth != null) {
+						var orgBorderData = instance._orgData.borderData;
+
+						var objBorderWidth = borderData.borderWidth;
+						var orgBorderWidth = orgBorderData.borderWidth;
+
+						instance._undoButtonMatchSet(orgBorderWidth.sameForAll, objBorderWidth.sameForAll, 'borderWidthSameForAll');
+
+						instance._undoButtonMatchSet(orgBorderWidth.bottom.value, objBorderWidth.bottom.value, 'borderWidthBottomValue');
+						instance._undoButtonMatchSet(orgBorderWidth.left.value, objBorderWidth.left.value, 'borderWidthLeftValue');
+						instance._undoButtonMatchSet(orgBorderWidth.right.value, objBorderWidth.right.value, 'borderWidthRightValue');
+						instance._undoButtonMatchSet(orgBorderWidth.top.value, objBorderWidth.top.value, 'borderWidthTopValue');
+
+						instance._undoButtonMatchSet(orgBorderWidth.bottom.unit, objBorderWidth.bottom.unit, 'borderWidthBottomUnit');
+						instance._undoButtonMatchSet(orgBorderWidth.left.unit, objBorderWidth.left.unit, 'borderWidthLeftUnit');
+						instance._undoButtonMatchSet(orgBorderWidth.right.unit, objBorderWidth.right.unit, 'borderWidthRightUnit');
+						instance._undoButtonMatchSet(orgBorderWidth.top.unit, objBorderWidth.top.unit, 'borderWidthTopUnit', true);
+					}
 
 					changeStyle();
 					changeColor();
@@ -418,20 +463,32 @@ AUI.add(
 						var left = sLeftStyle.val();
 						var right = sRightStyle.val();
 
-						extStyling.borderRightStyle = right;
 						extStyling.borderBottomStyle = bottom;
 						extStyling.borderLeftStyle = left;
+						extStyling.borderRightStyle = right;
 
 						styling = extStyling;
 
-						borderData.borderStyle.right = right;
-
 						borderData.borderStyle.bottom = bottom;
-
 						borderData.borderStyle.left = left;
+						borderData.borderStyle.right = right;
 					}
 
 					portlet.setStyles(styling);
+
+					if (instance._orgData.borderData.borderStyle != null) {
+						var orgBorderData = instance._orgData.borderData;
+
+						var objBorderStyle = borderData.borderStyle;
+						var orgBorderStyle = orgBorderData.borderStyle;
+
+						instance._undoButtonMatchSet(orgBorderStyle.sameForAll, objBorderStyle.sameForAll, 'borderStyleSameForAll');
+
+						instance._undoButtonMatchSet(orgBorderStyle.bottom, objBorderStyle.bottom, 'borderStyleBottom');
+						instance._undoButtonMatchSet(orgBorderStyle.left, objBorderStyle.left, 'borderStyleLeft');
+						instance._undoButtonMatchSet(orgBorderStyle.right, objBorderStyle.right, 'borderStyleRight');
+						instance._undoButtonMatchSet(orgBorderStyle.top, objBorderStyle.top, 'borderStyleTop', true);
+					}
 				};
 
 				sTopStyle.detach(CHANGE);
@@ -461,7 +518,10 @@ AUI.add(
 					var styling = {};
 
 					borderColor = cTopColor.val();
-					styling = {borderColor: borderColor};
+
+					styling = {
+						borderColor: borderColor
+					};
 
 					var ufa = ufaColor.get(CHECKED);
 
@@ -477,63 +537,79 @@ AUI.add(
 						var left = cLeftColor.val();
 						var right = cRightColor.val();
 
-						extStyling.borderRightColor = right;
 						extStyling.borderBottomColor = bottom;
 						extStyling.borderLeftColor = left;
+						extStyling.borderRightColor = right;
 
 						styling = extStyling;
 
-						borderData.borderColor.right = right;
-
 						borderData.borderColor.bottom = bottom;
-
 						borderData.borderColor.left = left;
+						borderData.borderColor.right = right;
 					}
 
 					portlet.setStyles(styling);
+
+					if (instance._orgData.borderData.borderColor != null) {
+						var orgBorderData = instance._orgData.borderData;
+
+						var objBorderColor = borderData.borderColor;
+						var orgBorderColor = orgBorderData.borderColor;
+
+						instance._undoButtonMatchSet(orgBorderColor.sameForAll, objBorderColor.sameForAll, 'borderColorSameForAll');
+
+						instance._undoButtonMatchSet(orgBorderColor.bottom, objBorderColor.bottom, 'borderColorBottom');
+						instance._undoButtonMatchSet(orgBorderColor.left, objBorderColor.left, 'borderColorLeft');
+						instance._undoButtonMatchSet(orgBorderColor.right, objBorderColor.right, 'borderColorRight');
+						instance._undoButtonMatchSet(orgBorderColor.top, objBorderColor.top, 'borderColorTop', true);
+					}
 				};
 
-				var popupBoundingBox = instance._currentPopup.get(BOUNDING_BOX);
+				var currentPopup = instance._currentPopup;
 
-				[cTopColor, cRightColor, cBottomColor, cLeftColor].forEach(
-					function(item, index) {
-						var hexValue = item.val().replace('#', EMPTY);
+				if (currentPopup) {
+					var popupBoundingBox = currentPopup.get(BOUNDING_BOX);
 
-						var borderLocation = '_borderColorPicker' + index;
+					[cTopColor, cRightColor, cBottomColor, cLeftColor].forEach(
+						function(item, index) {
+							var hexValue = item.val().replace('#', EMPTY);
 
-						if (!instance[borderLocation]) {
-							instance[borderLocation] = new A.ColorPickerPopover(
-								{
-									constrain: true,
-									plugins: [Liferay.WidgetZIndex],
-									trigger: item
-								}
-							).render(popupBoundingBox);
+							var borderLocation = '_borderColorPicker' + index;
+
+							if (popupBoundingBox && !instance[borderLocation]) {
+								instance[borderLocation] = new A.ColorPickerPopover(
+									{
+										constrain: true,
+										plugins: [Liferay.WidgetZIndex],
+										trigger: item
+									}
+								).render(popupBoundingBox);
+							}
+
+							var borderColorPicker = instance[borderLocation];
+
+							var afterColorChange = function(event) {
+								var color = event.color;
+
+								item.val(color);
+
+								item.setStyle(BACKGROUND_COLOR, color);
+
+								changeColor(color);
+							};
+
+							var borderColorChangeHandler = '_afterBorderColorChangeHandler' + index;
+
+							if (instance[borderColorChangeHandler]) {
+								instance[borderColorChangeHandler].detach();
+							}
+
+							instance[borderColorChangeHandler] = borderColorPicker.after(SELECT, afterColorChange);
+
+							borderColorPicker.set(HEX, hexValue);
 						}
-
-						var borderColorPicker = instance[borderLocation];
-
-						var afterColorChange = function(event) {
-							var color = event.color;
-
-							item.val(color);
-
-							item.setStyle(BACKGROUND_COLOR, color);
-
-							changeColor(color);
-						};
-
-						var borderColorChangeHandler = '_afterBorderColorChangeHandler' + index;
-
-						if (instance[borderColorChangeHandler]) {
-							instance[borderColorChangeHandler].detach();
-						}
-
-						instance[borderColorChangeHandler] = borderColorPicker.after(SELECT, afterColorChange);
-
-						borderColorPicker.set(HEX, hexValue);
-					}
-				);
+					);
+				}
 
 				cTopColor.detach(BLUR);
 				cTopColor.on(BLUR, changeColor);
@@ -652,6 +728,17 @@ AUI.add(
 					}
 					else {
 						A.one(styleEl).html(customStyles);
+					}
+
+					var advancedData = instance._objData.advancedData;
+
+					advancedData.customCSS = customStyles;
+
+					if (instance._orgData.advancedData) {
+						var objCustomCSS = advancedData.customCSS;
+						var orgCustomCSS = instance._orgData.advancedData.customCSS;
+
+						instance._undoButtonMatchSet(orgCustomCSS, objCustomCSS, 'customCSS', true);
 					}
 				};
 
@@ -1061,6 +1148,7 @@ AUI.add(
 
 					instance._saveButton = instance._getNodeById('lfr-lookfeel-save');
 					instance._resetButton = instance._getNodeById('lfr-lookfeel-reset');
+					instance._undoButton = instance._getNodeById('lfr-lookfeel-undo');
 				}
 
 				instance._tabs = new A.TabView(
@@ -1072,7 +1160,11 @@ AUI.add(
 
 				newPanel.show();
 
-				instance._currentPopup.loadingmask.refreshMask();
+				var currentPopup = instance._currentPopup;
+
+				if (currentPopup) {
+					currentPopup.loadingmask.refreshMask();
+				}
 
 				newPanel.all('.lfr-colorpicker-img').remove(true);
 
@@ -1187,6 +1279,14 @@ AUI.add(
 						ajaxResponse.addClass(messageClass);
 						ajaxResponse.html(message);
 						ajaxResponse.show();
+
+						instance._orgData = A.clone(instance._objData);
+
+						objData.match = {};
+
+						var undoButton = instance._undoButton;
+
+						undoButton.attr(DISABLED, true);
 					};
 
 					instance._saveButton.detach(CLICK);
@@ -1247,7 +1347,30 @@ AUI.add(
 						}
 					);
 
-					instance._currentPopup.loadingmask.hide();
+					instance._undoButton.detach(CLICK);
+
+					instance._undoButton.on(
+						CLICK,
+						function() {
+							instance._undoButtonEvent();
+						}
+					);
+
+					var currentPopup = instance._currentPopup;
+
+					if (currentPopup) {
+						currentPopup.loadingmask.hide();
+					}
+
+					instance._orgData = A.clone(instance._objData);
+
+					var objData = instance._objData;
+
+					objData.match = {};
+
+					var undoButton = instance._undoButton;
+
+					undoButton.attr(DISABLED, true);
 				};
 
 				instance._objData = portletConfig;
@@ -1289,7 +1412,8 @@ AUI.add(
 				var customTitleCheckbox = instance._customTitleCheckbox;
 				var customTitleInput = instance._customTitleInput;
 				var language = instance._portletLanguage;
-				var portletData = instance._objData.portletData;
+				var objData = instance._objData;
+				var portletData = objData.portletData;
 				var portletDecorator = instance._portletDecorator;
 				var portletLinksTarget = instance._portletLinksTarget;
 
@@ -1301,6 +1425,13 @@ AUI.add(
 					CLICK,
 					function(event) {
 						instance._setCustomTitleInput(event);
+
+						if (instance._orgData.portletData) {
+							var objUseCustomTitle = instance._objData.portletData.useCustomTitle;
+							var orgUseCustomTitle = instance._orgData.portletData.useCustomTitle;
+
+							instance._undoButtonMatchSet(orgUseCustomTitle, objUseCustomTitle, 'useCustomTitle', true);
+						}
 					}
 				);
 
@@ -1313,44 +1444,37 @@ AUI.add(
 							return;
 						}
 
-						var curPorlet = instance._curPortlet;
+						var portlet = instance._curPortlet;
 
-						var portletTitle = curPorlet.one('.portlet-title, .portlet-title-text');
+						var value = event.currentTarget.val();
 
-						if (portletTitle) {
-							var cruft = portletTitle.html().match(/<\/?[^>]+>|\n|\r|\t/gim);
+						var portletLanguage = instance._portletLanguage.val();
 
-							if (cruft) {
-								cruft = cruft.join(EMPTY);
-							}
-							else {
-								cruft = EMPTY;
-							}
+						if (portletLanguage == instance._currentLanguage) {
+							var defaultPortletTitles = objData.defaultPortletTitles;
 
-							var value = event.currentTarget.val();
-
-							var portletLanguage = instance._portletLanguage.val();
-
-							if (portletLanguage == instance._currentLanguage) {
-								portletTitle.html(cruft);
-
-								var portletNameText = portletTitle.one('.portlet-name-text');
-
-								if (portletNameText) {
-									portletNameText.text(value);
-								}
-
-								var portletTitleText = curPorlet.one('.portlet-title-text');
-
-								if (portletTitleText) {
-									portletTitleText.text(value);
-								}
-							}
+							var portletTitle = defaultPortletTitles[portletLanguage];
 
 							portletData.title = value;
 
-							instance._portletTitles(portletLanguage, value);
+							if (portletData.useCustomTitle) {
+								portletTitle = portletData.title;
+							}
+
+							var portletTitleText = portlet.one('.portlet-title-text');
+
+							if (portletTitleText) {
+								portletTitleText.text(portletTitle);
+							}
 						}
+						if (instance._orgData.portletData.titles) {
+							var objCustomTitles = instance._objData.portletData.titles;
+							var orgCustomTitles = instance._orgData.portletData.titles;
+
+							instance._undoButtonMatchSet(orgCustomTitles, objCustomTitles, 'customTitles', true);
+						}
+
+						instance._portletTitles(portletLanguage, value);
 					}
 				);
 
@@ -1362,6 +1486,13 @@ AUI.add(
 						borderNote.show();
 
 						portletData.portletDecoratorId = event.currentTarget.val();
+
+						if (instance._orgData.portletData.portletDecoratorId != null) {
+							var objPortletDecoratorId = instance._objData.portletData.portletDecoratorId;
+							var orgPortletDecoratorId = instance._orgData.portletData.portletDecoratorId;
+
+							instance._undoButtonMatchSet(orgPortletDecoratorId, objPortletDecoratorId, 'portletDecoratorId', true);
+						}
 					}
 				);
 
@@ -1384,6 +1515,13 @@ AUI.add(
 					CHANGE,
 					function(event) {
 						portletData.portletLinksTarget = event.currentTarget.val();
+
+						if (instance._orgData.portletData.portletLinksTarget != null) {
+							var objPortletLinksTarget = instance._objData.portletData.portletLinksTarget;
+							var orgPortletLinksTarget = instance._orgData.portletData.portletLinksTarget;
+
+							instance._undoButtonMatchSet(orgPortletLinksTarget, objPortletLinksTarget, 'portletLinksTarget', true);
+						}
 					}
 				);
 			},
@@ -1393,6 +1531,8 @@ AUI.add(
 
 				if (!instance._objData.portletData.titles) {
 					instance._objData.portletData.titles = {};
+
+					instance._orgData.portletData.titles[key] = A.clone(instance._objData.portletData.titles[key]);
 				}
 
 				var portletTitles = instance._objData.portletData.titles;
@@ -1621,7 +1761,6 @@ AUI.add(
 				}
 
 				instance._setTextarea(instance._customCSS, customStyles);
-
 				instance._setTextarea(instance._customCSSClassName, objData.advancedData.customCSSClassName);
 			},
 
@@ -1666,6 +1805,117 @@ AUI.add(
 				var ufaPadding = instance._ufaPadding;
 
 				var spacingData = instance._objData.spacingData;
+
+				// Margin
+
+				var mBottom = instance._marginBottomInt;
+				var mBottomUnit = instance._marginBottomUnit;
+				var mLeft = instance._marginLeftInt;
+				var mLeftUnit = instance._marginLeftUnit;
+				var mRight = instance._marginRightInt;
+				var mRightUnit = instance._marginRightUnit;
+				var mTop = instance._marginTopInt;
+				var mTopUnit = instance._marginTopUnit;
+
+				var changeMargin = function() {
+					var styling = {};
+
+					var margin = instance._getCombo(mTop, mTopUnit);
+
+					styling = {margin: margin.both};
+
+					var ufa = ufaMargin.get(CHECKED);
+
+					spacingData.margin.top.value = margin.input;
+					spacingData.margin.top.unit = margin.selectBox;
+
+					spacingData.margin.sameForAll = ufa;
+
+					if (!ufa) {
+						var extStyling = {};
+
+						extStyling.margin.Top = styling.margin;
+
+						var bottom = instance._getCombo(mBottom, mBottomUnit);
+						var left = instance._getCombo(mLeft, mLeftUnit);
+						var right = instance._getCombo(mRight, mRightUnit);
+
+						extStyling.marginRight = right.both;
+						extStyling.marginBottom = bottom.both;
+						extStyling.marginLeft = left.both;
+
+						styling = extStyling;
+
+						spacingData.margin.right.value = right.input;
+						spacingData.margin.right.unit = right.selectBox;
+
+						spacingData.margin.bottom.value = bottom.input;
+						spacingData.margin.bottom.unit = bottom.selectBox;
+
+						spacingData.margin.left.value = left.input;
+						spacingData.margin.left.unit = left.selectBox;
+					}
+
+					portlet.setStyles(styling);
+
+					if (instance._orgData.spacingData.margin != null) {
+						var orgSpacingData = instance._orgData.spacingData;
+
+						var objMargin = spacingData.margin;
+						var orgMargin = orgSpacingData.margin;
+
+						instance._undoButtonMatchSet(orgMargin.sameForAll, objMargin.sameForAll, 'marginSameForAll');
+
+						instance._undoButtonMatchSet(orgMargin.bottom.value, objMargin.bottom.value, 'marginBottomValue');
+						instance._undoButtonMatchSet(orgMargin.left.value, objMargin.left.value, 'marginLeftValue');
+						instance._undoButtonMatchSet(orgMargin.right.value, objMargin.right.value, 'marginRightValue');
+						instance._undoButtonMatchSet(orgMargin.top.value, objMargin.top.value, 'marginTopValue');
+
+						instance._undoButtonMatchSet(orgMargin.bottom.unit, objMargin.bottom.unit, 'marginBottomUnit');
+						instance._undoButtonMatchSet(orgMargin.left.unit, objMargin.left.unit, 'marginLeftUnit');
+						instance._undoButtonMatchSet(orgMargin.right.unit, objMargin.right.unit, 'marginRightUnit');
+						instance._undoButtonMatchSet(orgMargin.top.unit, objMargin.top.unit, 'marginTopUnit', true);
+					}
+				};
+
+				mTop.detach(BLUR);
+				mTop.on(BLUR, changeMargin);
+
+				mRight.detach(BLUR);
+				mRight.on(BLUR, changeMargin);
+
+				mBottom.detach(BLUR);
+				mBottom.on(BLUR, changeMargin);
+
+				mLeft.detach(BLUR);
+				mLeft.on(BLUR, changeMargin);
+
+				mTop.detach(KEYUP);
+				mTop.on(KEYUP, changeMargin);
+
+				mRight.detach(KEYUP);
+				mRight.on(KEYUP, changeMargin);
+
+				mBottom.detach(KEYUP);
+				mBottom.on(KEYUP, changeMargin);
+
+				mLeft.detach(KEYUP);
+				mLeft.on(KEYUP, changeMargin);
+
+				mTopUnit.detach(CHANGE);
+				mTopUnit.on(CHANGE, changeMargin);
+
+				mRightUnit.detach(CHANGE);
+				mRightUnit.on(CHANGE, changeMargin);
+
+				mBottomUnit.detach(CHANGE);
+				mBottomUnit.on(CHANGE, changeMargin);
+
+				mLeftUnit.detach(CHANGE);
+				mLeftUnit.on(CHANGE, changeMargin);
+
+				ufaMargin.detach(CHANGE);
+				ufaMargin.on(CHANGE, changeMargin);
 
 				// Padding
 
@@ -1718,6 +1968,25 @@ AUI.add(
 					}
 
 					portlet.setStyles(styling);
+
+					if (instance._orgData.spacingData.padding != null) {
+						var orgSpacingData = instance._orgData.spacingData;
+
+						var objPadding = spacingData.padding;
+						var orgPadding = orgSpacingData.padding;
+
+						instance._undoButtonMatchSet(orgPadding.sameForAll, objPadding.sameForAll, 'paddingSameForAll');
+
+						instance._undoButtonMatchSet(orgPadding.bottom.value, objPadding.bottom.value, 'paddingBottomValue');
+						instance._undoButtonMatchSet(orgPadding.left.value, objPadding.left.value, 'paddingLeftValue');
+						instance._undoButtonMatchSet(orgPadding.right.value, objPadding.right.value, 'paddingRightValue');
+						instance._undoButtonMatchSet(orgPadding.top.value, objPadding.top.value, 'paddingTopValue');
+
+						instance._undoButtonMatchSet(orgPadding.bottom.unit, objPadding.bottom.unit, 'paddingBottomUnit');
+						instance._undoButtonMatchSet(orgPadding.left.unit, objPadding.left.unit, 'paddingLeftUnit');
+						instance._undoButtonMatchSet(orgPadding.right.unit, objPadding.right.unit, 'paddingRightUnit');
+						instance._undoButtonMatchSet(orgPadding.top.unit, objPadding.top.unit, 'marginTopUnit', true);
+					}
 				};
 
 				pTop.detach(BLUR);
@@ -1758,98 +2027,6 @@ AUI.add(
 
 				ufaPadding.detach(CHANGE);
 				ufaPadding.on(CHANGE, changePadding);
-
-				// Margin
-
-				var mBottom = instance._marginBottomInt;
-				var mBottomUnit = instance._marginBottomUnit;
-				var mLeft = instance._marginLeftInt;
-				var mLeftUnit = instance._marginLeftUnit;
-				var mRight = instance._marginRightInt;
-				var mRightUnit = instance._marginRightUnit;
-				var mTop = instance._marginTopInt;
-				var mTopUnit = instance._marginTopUnit;
-
-				var changeMargin = function() {
-					var styling = {};
-
-					var margin = instance._getCombo(mTop, mTopUnit);
-
-					styling = {margin: margin.both};
-
-					var ufa = ufaMargin.get(CHECKED);
-
-					spacingData.margin.top.value = margin.input;
-					spacingData.margin.top.unit = margin.selectBox;
-
-					spacingData.margin.sameForAll = ufa;
-
-					if (!ufa) {
-						var extStyling = {};
-
-						extStyling.marginTop = styling.margin;
-
-						var bottom = instance._getCombo(mBottom, mBottomUnit);
-						var left = instance._getCombo(mLeft, mLeftUnit);
-						var right = instance._getCombo(mRight, mRightUnit);
-
-						extStyling.marginRight = right.both;
-						extStyling.marginBottom = bottom.both;
-						extStyling.marginLeft = left.both;
-
-						styling = extStyling;
-
-						spacingData.margin.right.value = right.input;
-						spacingData.margin.right.unit = right.selectBox;
-
-						spacingData.margin.bottom.value = bottom.input;
-						spacingData.margin.bottom.unit = bottom.selectBox;
-
-						spacingData.margin.left.value = left.input;
-						spacingData.margin.left.unit = left.selectBox;
-					}
-
-					portlet.setStyles(styling);
-				};
-
-				mTop.detach(BLUR);
-				mTop.on(BLUR, changeMargin);
-
-				mRight.detach(BLUR);
-				mRight.on(BLUR, changeMargin);
-
-				mBottom.detach(BLUR);
-				mBottom.on(BLUR, changeMargin);
-
-				mLeft.detach(BLUR);
-				mLeft.on(BLUR, changeMargin);
-
-				mTop.detach(KEYUP);
-				mTop.on(KEYUP, changeMargin);
-
-				mRight.detach(KEYUP);
-				mRight.on(KEYUP, changeMargin);
-
-				mBottom.detach(KEYUP);
-				mBottom.on(KEYUP, changeMargin);
-
-				mLeft.detach(KEYUP);
-				mLeft.on(KEYUP, changeMargin);
-
-				mTopUnit.detach(CHANGE);
-				mTopUnit.on(CHANGE, changeMargin);
-
-				mRightUnit.detach(CHANGE);
-				mRightUnit.on(CHANGE, changeMargin);
-
-				mBottomUnit.detach(CHANGE);
-				mBottomUnit.on(CHANGE, changeMargin);
-
-				mLeftUnit.detach(CHANGE);
-				mLeftUnit.on(CHANGE, changeMargin);
-
-				ufaMargin.detach(CHANGE);
-				ufaMargin.on(CHANGE, changeMargin);
 			},
 
 			_textStyles: function() {
@@ -1881,6 +2058,33 @@ AUI.add(
 						portlet.setStyle(FONT_FAMILY, fontFamily);
 
 						textData.fontFamily = fontFamily;
+
+						if (instance._orgData.textData.fontFamily != null) {
+							var orgFontFamily = instance._orgData.textData.fontFamily;
+
+							instance._undoButtonMatchSet(orgFontFamily, fontFamily, 'fontFamily', true);
+						}
+					}
+				);
+
+				// Font size
+
+				fontSize.detach(CHANGE);
+
+				fontSize.on(
+					CHANGE,
+					function(event) {
+						var fontSize = event.currentTarget.val();
+
+						portlet.setStyle(FONT_SIZE, fontSize);
+
+						textData.fontSize = fontSize;
+
+						if (instance._orgData.textData.fontSize != null) {
+							var orgFontSize = instance._orgData.textData.fontSize;
+
+							instance._undoButtonMatchSet(orgFontSize, fontSize, 'fontSize', true);
+						}
 					}
 				);
 
@@ -1900,6 +2104,13 @@ AUI.add(
 						portlet.setStyle(FONT_WEIGHT, style);
 
 						textData.fontWeight = style;
+
+						if (instance._orgData.textData.fontWeight != null) {
+							var objFontWeight = textData.fontWeight;
+							var orgFontWeight = instance._orgData.textData.fontWeight;
+
+							instance._undoButtonMatchSet(orgFontWeight, objFontWeight, 'fontWeight', true);
+						}
 					}
 				);
 
@@ -1917,21 +2128,13 @@ AUI.add(
 						portlet.setStyle(FONT_STYLE, style);
 
 						textData.fontStyle = style;
-					}
-				);
 
-				// Font size
+						if (instance._orgData.textData.fontStyle != null) {
+							var objFontStyle = textData.fontStyle;
+							var orgFontStyle = instance._orgData.textData.fontStyle;
 
-				fontSize.detach(CHANGE);
-
-				fontSize.on(
-					CHANGE,
-					function(event) {
-						var fontSize = event.currentTarget.val();
-
-						portlet.setStyle(FONT_SIZE, fontSize);
-
-						textData.fontSize = fontSize;
+							instance._undoButtonMatchSet(orgFontStyle, objFontStyle, 'fontStyle', true);
+						}
 					}
 				);
 
@@ -1942,17 +2145,26 @@ AUI.add(
 						portlet.setStyle(COLOR, color);
 
 						textData.color = color;
+
+						if (instance._orgData.textData.color != null) {
+							var objColor = textData.color;
+							var orgColor = instance._orgData.textData.color;
+
+							instance._undoButtonMatchSet(orgColor, objColor, 'color', true);
+						}
 					}
 				};
 
-				if (!instance._fontColorPicker) {
+				var currentPopup = instance._currentPopup;
+
+				if (currentPopup && !instance._fontColorPicker) {
 					instance._fontColorPicker = new A.ColorPickerPopover(
 						{
 							constrain: true,
 							plugins: [Liferay.WidgetZIndex],
 							trigger: fontColor
 						}
-					).render(instance._currentPopup.get(BOUNDING_BOX));
+					).render(currentPopup.get(BOUNDING_BOX));
 				}
 
 				var fontColorPicker = instance._fontColorPicker;
@@ -1985,6 +2197,13 @@ AUI.add(
 						portlet.setStyle(TEXT_ALIGN, textAlign);
 
 						textData.textAlign = textAlign;
+
+						if (instance._orgData.textData.textAlign != null) {
+							var objTextAlign = textData.textAlign;
+							var orgTextAlign = instance._orgData.textData.textAlign;
+
+							instance._undoButtonMatchSet(orgTextAlign, objTextAlign, 'textAlign', true);
+						}
 					}
 				);
 
@@ -2000,6 +2219,13 @@ AUI.add(
 						portlet.setStyle(TEXT_DECORATION, decoration);
 
 						textData.textDecoration = decoration;
+
+						if (instance._orgData.textData) {
+							var objTextDecoration = textData.textAlign;
+							var orgTextDecoration = instance._orgData.textData.textDecoraction;
+
+							instance._undoButtonMatchSet(orgTextDecoration, objTextDecoration, 'textDecoration', true);
+						}
 					}
 				);
 
@@ -2015,6 +2241,13 @@ AUI.add(
 						portlet.setStyle(WORD_SPACING, spacing);
 
 						textData.wordSpacing = spacing;
+
+						if (instance._orgData.textData.wordSpacing != null) {
+							var objWordSpacing = textData.wordSpacing;
+							var orgWordSpacing = instance._orgData.textData.wordSpacing;
+
+							instance._undoButtonMatchSet(orgWordSpacing, objWordSpacing, 'wordSpacing', true);
+						}
 					}
 				);
 
@@ -2030,6 +2263,13 @@ AUI.add(
 						portlet.setStyle(LINE_HEIGHT, leading);
 
 						textData.lineHeight = leading;
+
+						if (instance._orgData.textData.lineHeight != null) {
+							var objLineHeight = textData.lineHeight;
+							var orgLineHeight = instance._orgData.textData.lineHeight;
+
+							instance._undoButtonMatchSet(orgLineHeight, objLineHeight, 'lineHeight', true);
+						}
 					}
 				);
 
@@ -2045,7 +2285,396 @@ AUI.add(
 						portlet.setStyle(LETTER_SPACING, tracking);
 
 						textData.letterSpacing = tracking;
+
+						if (instance._orgData.textData.letterSpacing != null) {
+							var objLetterSpacing = textData.letterSpacing;
+							var orgLetterSpacing = instance._orgData.textData.letterSpacing;
+
+							instance._undoButtonMatchSet(orgLetterSpacing, objLetterSpacing, 'letterSpacing', true);
+						}
 					}
+				);
+			},
+
+			_undoButtonEnabler: function() {
+				var instance = this;
+
+				var objData = instance._objData;
+
+				var itemMatch = objData.match;
+
+				for (var item in itemMatch) {
+					var itemsEqual = objData.match[item];
+
+					if (!itemsEqual) {
+						Liferay.Util.toggleDisabled(instance._undoButton, false);
+						return;
+					}
+					Liferay.Util.toggleDisabled(instance._undoButton, true);
+				}
+			},
+
+			_undoButtonEvent: function() {
+				var instance = this;
+
+				try {
+					instance._curPortlet.set(STYLE, EMPTY);
+				}
+				catch (e) {
+					instance._curPortlet.set('style.cssText', EMPTY);
+				}
+
+				var customStyle = A.one('#lfr-custom-css-block-' + instance._curPortletWrapperId);
+
+				if (customStyle) {
+					customStyle.remove(true);
+				}
+
+				instance._loadContent();
+
+				A.mix(instance._objData, instance._orgData, true);
+
+				var objData = instance._objData;
+				var orgData = instance._orgData;
+				var portlet = instance._curPortlet;
+
+				// Undoing Portlet Title
+
+				var portletLanguage = instance._portletLanguage.val();
+
+				var orgPortletData = orgData.portletData;
+
+				var useCustomTitle = orgPortletData.useCustomTitle;
+
+				instance._customTitleInput.set(DISABLED, useCustomTitle.value);
+				instance._portletLanguage.set(DISABLED, useCustomTitle.value);
+
+				if (portletLanguage == instance._currentLanguage) {
+
+					var portletTitle = orgData.defaultPortletTitles[portletLanguage];
+
+					if (useCustomTitle) {
+						portletTitle = orgPortletData.titles[portletLanguage];
+
+					}
+
+					var portletTitleText = portlet.one('.portlet-title-text');
+
+					if (portletTitleText) {
+						portletTitleText.text(portletTitle);
+					}
+				}
+
+				// Undoing Portlet Background Color
+
+				var bgData = instance._objData.bgData;
+
+				var bgColor = bgData.backgroundColor;
+
+				if (bgColor) {
+					portlet.setStyle(BACKGROUND_COLOR, bgColor);
+				}
+
+				// Undoing Font Color
+
+				var textData = objData.textData;
+
+				var color = textData.color;
+
+				if (color) {
+					portlet.setStyle(COLOR, color);
+				}
+
+				// Undoing Font Family
+
+				var fontFamily = textData.fontFamily;
+
+				if (fontFamily) {
+					portlet.setStyle(FONT_FAMILY, fontFamily);
+				}
+
+				// Undoing Font Size
+
+				var fontSize = textData.fontSize;
+
+				if (fontSize) {
+					portlet.setStyle(FONT_SIZE, fontSize);
+				}
+
+				// Undoing Font Style
+
+				var fontStyle = textData.fontStyle;
+
+				if (fontStyle) {
+					portlet.setStyle(FONT_STYLE, fontStyle);
+				}
+
+				// Undoing Font Weight
+
+				var fontWeight = textData.fontWeight;
+
+				if (fontWeight) {
+					portlet.setStyle(FONT_WEIGHT, fontWeight);
+				}
+
+				// Undoing Letter Spacing
+
+				var letterSpacing = textData.letterSpacing;
+
+				if (letterSpacing) {
+					portlet.setStyle(LETTER_SPACING, letterSpacing);
+				}
+
+				// Undoing Line Height
+
+				var lineHeight = textData.lineHeight;
+
+				if (lineHeight) {
+					portlet.setStyle(LINE_HEIGHT, lineHeight);
+				}
+
+				// Undoing Text Align
+
+				var textAlign = textData.textAlign;
+
+				if (textAlign) {
+					portlet.setStyle(TEXT_ALIGN, textAlign);
+				}
+
+				// Undoing Text Decoration
+
+				var textDecoration = textData.textDecoration;
+
+				if (textDecoration) {
+					portlet.setStyle(TEXT_DECORATION, textDecoration);
+				}
+
+				// Undoing Word Spacing
+
+				var wordSpacing = textData.wordSpacing;
+
+				if (wordSpacing) {
+					portlet.setStyle(WORD_SPACING, wordSpacing);
+				}
+
+				// Undoing Border Width
+
+				var styling = {};
+
+				var borderData = objData.borderData;
+
+				var borderDataBorderWidth = borderData.borderWidth;
+
+				if (borderDataBorderWidth) {
+					var borderWidthTop = borderDataBorderWidth.top;
+
+					var borderWidth = borderWidthTop.value + borderWidthTop.unit;
+
+					styling = {
+						borderWidth: borderWidth
+					};
+
+					if (!instance._ufaBorderWidth.get(CHECKED)) {
+						var borderWidthBottom = borderDataBorderWidth.bottom;
+						var borderWidthLeft = borderDataBorderWidth.left;
+						var borderWidthRight = borderDataBorderWidth.right;
+
+						var widthBottom = borderWidthBottom.value + borderWidthBottom.unit;
+						var widthLeft = borderWidthLeft.value + borderWidthLeft.unit;
+						var widthRight = borderWidthRight.value + borderWidthRight.unit;
+						var widthTop = borderWidth;
+
+						styling = {
+							borderBottomWidth: widthBottom,
+							borderLeftWidth: widthLeft,
+							borderRightWidth: widthRight,
+							borderTopWidth: widthTop
+						};
+					}
+					portlet.setStyles(styling);
+				}
+
+				// Undoing Border Style
+
+				var borderDataBorderStyle = borderData.borderStyle;
+
+				if (borderDataBorderStyle) {
+					var borderStyle = borderDataBorderStyle.top;
+
+					styling = {
+						borderStyle: borderStyle
+					};
+
+					if (!instance._ufaBorderStyle.get(CHECKED)) {
+						styling = {
+							borderBottomStyle: borderDataBorderStyle.bottom,
+							borderLeftStyle: borderDataBorderStyle.left,
+							borderRightStyle: borderDataBorderStyle.right,
+							borderTopStyle: borderStyle
+						};
+					}
+
+					portlet.setStyles(styling);
+				}
+
+				// Undoing Border Color
+
+				var borderDataBorderColor = borderData.borderColor;
+
+				if (borderDataBorderColor) {
+					var borderColor = borderDataBorderColor.top;
+
+					styling = {
+						borderColor: borderColor
+					};
+
+					if (!instance._ufaBorderColor.get(CHECKED)) {
+						styling = {
+							borderBottomColor: borderDataBorderColor.bottom,
+							borderLeftColor: borderDataBorderColor.left,
+							borderRightColor: borderDataBorderColor.right,
+							borderTopColor: borderColor
+						};
+					}
+
+					portlet.setStyles(styling);
+				}
+
+				// Undoing Padding
+
+				var spacingData = objData.spacingData;
+
+				var spacingDataPadding = spacingData.padding;
+
+				if (spacingDataPadding) {
+					var paddingTop = spacingDataPadding.top;
+
+					var paddingVal = paddingTop.value + paddingTop.unit;
+
+					styling = {
+						padding: paddingVal
+					};
+
+					if (!instance._ufaPadding.get(CHECKED)) {
+						var paddingBottom = spacingDataPadding.bottom;
+						var paddingLeft = spacingDataPadding.left;
+						var paddingRight = spacingDataPadding.right;
+
+						var paddingBottomVal = paddingBottom.value + paddingBottom.unit;
+						var paddingLeftVal = paddingLeft.value + paddingLeft.unit;
+						var paddingRightVal = paddingRight.value + paddingRight.unit;
+						var paddingTopVal = paddingVal;
+
+						styling = {
+							paddingBottom: paddingBottomVal,
+							paddingLeft: paddingLeftVal,
+							paddingRight: paddingRightVal,
+							paddingTop: paddingTopVal
+						};
+					}
+
+					portlet.setStyles(styling);
+				}
+
+				// Undoing Margin
+
+				var spacingDataMargin = spacingData.margin;
+
+				if (spacingDataMargin) {
+					var marginTop = spacingDataMargin.top;
+
+					var marginVal = marginTop.value + marginTop.unit;
+
+					styling = {
+						margin: marginVal
+					};
+
+					if (!instance._ufaMargin.get(CHECKED)) {
+						var marginBottom = spacingDataMargin.bottom;
+						var marginLeft = spacingDataMargin.left;
+						var marginRight = spacingDataMargin.right;
+
+						var marginBottomVal = marginBottom.value + marginBottom.unit;
+						var marginLeftVal = marginLeft.value + marginLeft.unit;
+						var marginRightVal = marginRight.value + marginRight.unit;
+
+						styling = {
+							marginBottom: marginBottomVal,
+							marginLeft: marginLeftVal,
+							marginRight: marginRightVal,
+							marginTop: marginVal
+						};
+					}
+
+					portlet.setStyles(styling);
+				}
+
+				objData.match = {};
+
+				var undoButton = instance._undoButton;
+
+				undoButton.attr(DISABLED, true);
+			},
+
+			_undoButtonMatchSet: function(item1, item2, label, runMatch) {
+				var instance = this;
+
+				var objData = instance._objData;
+
+				if (!objData.match) {
+					objData.match = {};
+				}
+
+				objData.match[label] = false;
+
+				if (item1 == item2) {
+					objData.match[label] = true;
+				}
+
+				if (runMatch) {
+					instance._undoButtonEnabler();
+				}
+			},
+
+			_warningModal: function() {
+				var instance = this;
+
+				var modal = new A.Modal(
+					{
+						bodyContent: Liferay.Language.get('unsaved-changes'),
+						centered: true,
+						destroyOnHide: true,
+						modal: true,
+						plugins: [Liferay.WidgetZIndex],
+						render: 'body',
+						visible: true
+					}
+				).render();
+
+				modal.addToolbar(
+					[
+						{
+							label: Liferay.Language.get('cancel'),
+							on: {
+								click: function() {
+									modal.hide();
+								}
+							}
+						},
+						{
+							label: Liferay.Language.get('continue-without-saving'),
+							on: {
+								click: function() {
+									instance._undoButtonEvent();
+
+									modal.hide();
+
+									instance._currentPopup.hide();
+								}
+							}
+						}
+
+					]
 				);
 			}
 		};
