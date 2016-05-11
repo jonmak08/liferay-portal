@@ -16,6 +16,7 @@ package com.liferay.portal.security.permission;
 
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -182,8 +183,13 @@ public class InlineSQLHelperImpl implements InlineSQLHelper {
 		String sql, String className, String classPKField, String userIdField,
 		long[] groupIds, String bridgeJoin) {
 
+		String groupIdField = classPKField.substring(
+				0, classPKField.lastIndexOf(CharPool.PERIOD));
+
+		groupIdField += ".groupId";
+
 		return replacePermissionCheck(
-			sql, className, classPKField, userIdField, null, groupIds,
+			sql, className, classPKField, userIdField, groupIdField, groupIds,
 			bridgeJoin);
 	}
 
