@@ -321,7 +321,6 @@ public class RoleFinderImpl
 		}
 	}
 
-	@Override
 	protected List<Role> doFindByC_N_D_T(
 			long companyId, String[] names, String[] descriptions,
 			Integer[] types, LinkedHashMap<String, Object> params,
