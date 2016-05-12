@@ -37,10 +37,6 @@ public class RoleFinderUtil {
 		return getFinder().countByKeywords(companyId, keywords, types, params);
 	}
 
-	public static int countByUserGroupGroupRole(long userId, long groupId) {
-		return getFinder().countByUserGroupGroupRole(userId, groupId);
-	}
-
 	public static int countByR_U(long roleId, long userId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getFinder().countByR_U(roleId, userId);

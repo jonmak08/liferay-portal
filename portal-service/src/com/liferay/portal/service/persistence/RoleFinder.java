@@ -30,8 +30,6 @@ public interface RoleFinder {
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
-	public int countByUserGroupGroupRole(long userId, long groupId);
-
 	public int countByR_U(long roleId, long userId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
