@@ -319,14 +319,16 @@ public class RoleServiceUtil {
 		long companyId, java.lang.String keywords, java.lang.Integer[] types,
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params,
 		int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator obc) {
+		com.liferay.portal.kernel.util.OrderByComparator obc)
+		throws com.liferay.portal.kernel.exception.SystemException {
 		return getService()
 				   .search(companyId, keywords, types, params, start, end, obc);
 	}
 
 	public static int searchCount(long companyId, java.lang.String keywords,
 		java.lang.Integer[] types,
-		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params) {
+		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params)
+		throws com.liferay.portal.kernel.exception.SystemException {
 		return getService().searchCount(companyId, keywords, types, params);
 	}
 

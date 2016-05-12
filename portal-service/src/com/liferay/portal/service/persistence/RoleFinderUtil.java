@@ -25,13 +25,15 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
 @ProviderType
 public class RoleFinderUtil {
 	public static int countByKeywords(long companyId,
-		java.lang.String keywords, java.lang.Integer[] types) {
+		java.lang.String keywords, java.lang.Integer[] types)
+		throws com.liferay.portal.kernel.exception.SystemException {
 		return getFinder().countByKeywords(companyId, keywords, types);
 	}
 
 	public static int countByKeywords(long companyId,
 		java.lang.String keywords, java.lang.Integer[] types,
-		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params) {
+		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params)
+		throws com.liferay.portal.kernel.exception.SystemException {
 		return getFinder().countByKeywords(companyId, keywords, types, params);
 	}
 
@@ -73,7 +75,8 @@ public class RoleFinderUtil {
 		java.lang.String[] names, java.lang.String[] descriptions,
 		java.lang.Integer[] types,
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params,
-		boolean andOperator) {
+		boolean andOperator)
+		throws com.liferay.portal.kernel.exception.SystemException {
 		return getFinder()
 				   .filterCountByC_N_D_T(companyId, names, descriptions, types,
 			params, andOperator);
@@ -84,7 +87,8 @@ public class RoleFinderUtil {
 		java.lang.String[] descriptions, java.lang.Integer[] types,
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params,
 		boolean andOperator, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator obc) {
+		com.liferay.portal.kernel.util.OrderByComparator obc)
+		throws com.liferay.portal.kernel.exception.SystemException {
 		return getFinder()
 				   .filterFindByC_N_D_T(companyId, names, descriptions, types,
 			params, andOperator, start, end, obc);
@@ -105,7 +109,8 @@ public class RoleFinderUtil {
 		java.lang.Integer[] types,
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params,
 		boolean andOperator, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator obc) {
+		com.liferay.portal.kernel.util.OrderByComparator obc)
+		throws com.liferay.portal.kernel.exception.SystemException {
 		return getFinder()
 				   .filterFindByC_N_D_T(companyId, name, description, types,
 			params, andOperator, start, end, obc);
@@ -241,7 +246,8 @@ public class RoleFinderUtil {
 		java.lang.String name, java.lang.String description,
 		java.lang.Integer[] types,
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params,
-		boolean andOperator) {
+		boolean andOperator)
+		throws com.liferay.portal.kernel.exception.SystemException {
 		return getFinder()
 				   .filterCountByC_N_D_T(companyId, name, description, types,
 			params, andOperator);

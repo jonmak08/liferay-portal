@@ -22,11 +22,13 @@ import aQute.bnd.annotation.ProviderType;
 @ProviderType
 public interface RoleFinder {
 	public int countByKeywords(long companyId, java.lang.String keywords,
-		java.lang.Integer[] types);
+		java.lang.Integer[] types)
+		throws com.liferay.portal.kernel.exception.SystemException;
 
 	public int countByKeywords(long companyId, java.lang.String keywords,
 		java.lang.Integer[] types,
-		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params);
+		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params)
+		throws com.liferay.portal.kernel.exception.SystemException;
 
 	public int countByUserGroupGroupRole(long userId, long groupId);
 
@@ -51,14 +53,16 @@ public interface RoleFinder {
 	public int filterCountByC_N_D_T(long companyId, java.lang.String[] names,
 		java.lang.String[] descriptions, java.lang.Integer[] types,
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params,
-		boolean andOperator);
+		boolean andOperator)
+		throws com.liferay.portal.kernel.exception.SystemException;
 
 	public java.util.List<com.liferay.portal.model.Role> filterFindByC_N_D_T(
 		long companyId, java.lang.String[] names,
 		java.lang.String[] descriptions, java.lang.Integer[] types,
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params,
 		boolean andOperator, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator obc);
+		com.liferay.portal.kernel.util.OrderByComparator obc)
+		throws com.liferay.portal.kernel.exception.SystemException;
 
 	public java.util.List<com.liferay.portal.model.Role> filterFindByKeywords(
 		long companyId, java.lang.String keywords, java.lang.Integer[] types,
@@ -71,7 +75,8 @@ public interface RoleFinder {
 		java.lang.Integer[] types,
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params,
 		boolean andOperator, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator obc);
+		com.liferay.portal.kernel.util.OrderByComparator obc)
+		throws com.liferay.portal.kernel.exception.SystemException;
 
 	public int countByUserGroupGroupRole(long userId, long groupId)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -159,5 +164,6 @@ public interface RoleFinder {
 	public int filterCountByC_N_D_T(long companyId, java.lang.String name,
 		java.lang.String description, java.lang.Integer[] types,
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params,
-		boolean andOperator);
+		boolean andOperator)
+		throws com.liferay.portal.kernel.exception.SystemException;
 }

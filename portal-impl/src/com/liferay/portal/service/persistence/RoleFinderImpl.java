@@ -109,7 +109,8 @@ public class RoleFinderImpl
 
 	@Override
 	public int countByKeywords(
-		long companyId, String keywords, Integer[] types) {
+			long companyId, String keywords, Integer[] types)
+		throws SystemException {
 
 		return countByKeywords(
 			companyId, keywords, types, new LinkedHashMap<String, Object>());
@@ -118,7 +119,8 @@ public class RoleFinderImpl
 	@Override
 	public int countByKeywords(
 			long companyId, String keywords, Integer[] types,
-			LinkedHashMap<String, Object> params) {
+			LinkedHashMap<String, Object> params)
+		throws SystemException {
 
 		String[] names = null;
 		String[] descriptions = null;
