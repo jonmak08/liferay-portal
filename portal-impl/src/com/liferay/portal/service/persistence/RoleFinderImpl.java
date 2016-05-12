@@ -108,8 +108,7 @@ public class RoleFinderImpl
 		RoleFinder.class.getName() + ".joinByUsersRoles";
 
 	@Override
-	public int countByKeywords(
-			long companyId, String keywords, Integer[] types)
+	public int countByKeywords(long companyId, String keywords, Integer[] types)
 		throws SystemException {
 
 		return countByKeywords(
