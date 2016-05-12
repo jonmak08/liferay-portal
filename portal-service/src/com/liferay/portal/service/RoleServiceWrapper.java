@@ -323,7 +323,7 @@ public class RoleServiceWrapper implements RoleService,
 		long companyId, java.lang.String keywords, java.lang.Integer[] types,
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params,
 		int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.portal.model.Role> obc) {
+		com.liferay.portal.kernel.util.OrderByComparator obc) {
 		return _roleService.search(companyId, keywords, types, params, start,
 			end, obc);
 	}

@@ -379,7 +379,7 @@ public class RoleServiceImpl extends RoleServiceBaseImpl {
 	public List<Role> search(
 		long companyId, String keywords, Integer[] types,
 		LinkedHashMap<String, Object> params, int start, int end,
-		OrderByComparator<Role> obc) {
+		OrderByComparator obc) {
 
 		return roleFinder.filterFindByKeywords(
 			companyId, keywords, types, params, start, end, obc);
