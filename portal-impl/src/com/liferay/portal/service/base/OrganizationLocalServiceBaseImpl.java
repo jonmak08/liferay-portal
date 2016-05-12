@@ -428,9 +428,9 @@ public abstract class OrganizationLocalServiceBaseImpl
 	 */
 	@Override
 	public void addGroupOrganizations(long groupId,
-		List<Organization> Organizations)
+		List<Organization> organizations)
 		throws PortalException, SystemException {
-		groupPersistence.addOrganizations(groupId, Organizations);
+		groupPersistence.addOrganizations(groupId, organizations);
 	}
 
 	/**
@@ -473,8 +473,8 @@ public abstract class OrganizationLocalServiceBaseImpl
 	 */
 	@Override
 	public void deleteGroupOrganizations(long groupId,
-		List<Organization> Organizations) throws SystemException {
-		groupPersistence.removeOrganizations(groupId, Organizations);
+		List<Organization> organizations) throws SystemException {
+		groupPersistence.removeOrganizations(groupId, organizations);
 	}
 
 	/**
@@ -574,8 +574,8 @@ public abstract class OrganizationLocalServiceBaseImpl
 	 */
 	@Override
 	public void addUserOrganizations(long userId,
-		List<Organization> Organizations) throws SystemException {
-		userPersistence.addOrganizations(userId, Organizations);
+		List<Organization> organizations) throws SystemException {
+		userPersistence.addOrganizations(userId, organizations);
 	}
 
 	/**
@@ -618,8 +618,8 @@ public abstract class OrganizationLocalServiceBaseImpl
 	 */
 	@Override
 	public void deleteUserOrganizations(long userId,
-		List<Organization> Organizations) throws SystemException {
-		userPersistence.removeOrganizations(userId, Organizations);
+		List<Organization> organizations) throws SystemException {
+		userPersistence.removeOrganizations(userId, organizations);
 	}
 
 	/**

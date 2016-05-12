@@ -280,9 +280,9 @@ public class TeamLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void addUserTeams(long userId,
-		java.util.List<com.liferay.portal.model.Team> Teams)
+		java.util.List<com.liferay.portal.model.Team> teams)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().addUserTeams(userId, Teams);
+		getService().addUserTeams(userId, teams);
 	}
 
 	/**
@@ -322,9 +322,9 @@ public class TeamLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteUserTeams(long userId,
-		java.util.List<com.liferay.portal.model.Team> Teams)
+		java.util.List<com.liferay.portal.model.Team> teams)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().deleteUserTeams(userId, Teams);
+		getService().deleteUserTeams(userId, teams);
 	}
 
 	/**
@@ -415,9 +415,9 @@ public class TeamLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void addUserGroupTeams(long userGroupId,
-		java.util.List<com.liferay.portal.model.Team> Teams)
+		java.util.List<com.liferay.portal.model.Team> teams)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().addUserGroupTeams(userGroupId, Teams);
+		getService().addUserGroupTeams(userGroupId, teams);
 	}
 
 	/**
@@ -457,9 +457,9 @@ public class TeamLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteUserGroupTeams(long userGroupId,
-		java.util.List<com.liferay.portal.model.Team> Teams)
+		java.util.List<com.liferay.portal.model.Team> teams)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().deleteUserGroupTeams(userGroupId, Teams);
+		getService().deleteUserGroupTeams(userGroupId, teams);
 	}
 
 	/**

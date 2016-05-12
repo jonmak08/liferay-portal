@@ -320,9 +320,9 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 	*/
 	@Override
 	public void addOrganizationGroups(long organizationId,
-		java.util.List<com.liferay.portal.model.Group> Groups)
+		java.util.List<com.liferay.portal.model.Group> groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		_groupLocalService.addOrganizationGroups(organizationId, Groups);
+		_groupLocalService.addOrganizationGroups(organizationId, groups);
 	}
 
 	/**
@@ -367,9 +367,9 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 	*/
 	@Override
 	public void deleteOrganizationGroups(long organizationId,
-		java.util.List<com.liferay.portal.model.Group> Groups)
+		java.util.List<com.liferay.portal.model.Group> groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		_groupLocalService.deleteOrganizationGroups(organizationId, Groups);
+		_groupLocalService.deleteOrganizationGroups(organizationId, groups);
 	}
 
 	/**
@@ -473,9 +473,9 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 	*/
 	@Override
 	public void addRoleGroups(long roleId,
-		java.util.List<com.liferay.portal.model.Group> Groups)
+		java.util.List<com.liferay.portal.model.Group> groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		_groupLocalService.addRoleGroups(roleId, Groups);
+		_groupLocalService.addRoleGroups(roleId, groups);
 	}
 
 	/**
@@ -520,9 +520,9 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 	*/
 	@Override
 	public void deleteRoleGroups(long roleId,
-		java.util.List<com.liferay.portal.model.Group> Groups)
+		java.util.List<com.liferay.portal.model.Group> groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		_groupLocalService.deleteRoleGroups(roleId, Groups);
+		_groupLocalService.deleteRoleGroups(roleId, groups);
 	}
 
 	/**
@@ -625,9 +625,9 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 	*/
 	@Override
 	public void addUserGroupGroups(long userGroupId,
-		java.util.List<com.liferay.portal.model.Group> Groups)
+		java.util.List<com.liferay.portal.model.Group> groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		_groupLocalService.addUserGroupGroups(userGroupId, Groups);
+		_groupLocalService.addUserGroupGroups(userGroupId, groups);
 	}
 
 	/**
@@ -672,9 +672,9 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 	*/
 	@Override
 	public void deleteUserGroupGroups(long userGroupId,
-		java.util.List<com.liferay.portal.model.Group> Groups)
+		java.util.List<com.liferay.portal.model.Group> groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		_groupLocalService.deleteUserGroupGroups(userGroupId, Groups);
+		_groupLocalService.deleteUserGroupGroups(userGroupId, groups);
 	}
 
 	/**
@@ -777,9 +777,9 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 	*/
 	@Override
 	public void addUserGroups(long userId,
-		java.util.List<com.liferay.portal.model.Group> Groups)
+		java.util.List<com.liferay.portal.model.Group> groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		_groupLocalService.addUserGroups(userId, Groups);
+		_groupLocalService.addUserGroups(userId, groups);
 	}
 
 	/**
@@ -824,9 +824,9 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 	*/
 	@Override
 	public void deleteUserGroups(long userId,
-		java.util.List<com.liferay.portal.model.Group> Groups)
+		java.util.List<com.liferay.portal.model.Group> groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		_groupLocalService.deleteUserGroups(userId, Groups);
+		_groupLocalService.deleteUserGroups(userId, groups);
 	}
 
 	/**

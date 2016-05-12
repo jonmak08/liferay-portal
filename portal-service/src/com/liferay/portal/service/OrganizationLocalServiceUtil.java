@@ -318,10 +318,10 @@ public class OrganizationLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void addGroupOrganizations(long groupId,
-		java.util.List<com.liferay.portal.model.Organization> Organizations)
+		java.util.List<com.liferay.portal.model.Organization> organizations)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		getService().addGroupOrganizations(groupId, Organizations);
+		getService().addGroupOrganizations(groupId, organizations);
 	}
 
 	/**
@@ -362,9 +362,9 @@ public class OrganizationLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteGroupOrganizations(long groupId,
-		java.util.List<com.liferay.portal.model.Organization> Organizations)
+		java.util.List<com.liferay.portal.model.Organization> organizations)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().deleteGroupOrganizations(groupId, Organizations);
+		getService().deleteGroupOrganizations(groupId, organizations);
 	}
 
 	/**
@@ -460,9 +460,9 @@ public class OrganizationLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void addUserOrganizations(long userId,
-		java.util.List<com.liferay.portal.model.Organization> Organizations)
+		java.util.List<com.liferay.portal.model.Organization> organizations)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().addUserOrganizations(userId, Organizations);
+		getService().addUserOrganizations(userId, organizations);
 	}
 
 	/**
@@ -503,9 +503,9 @@ public class OrganizationLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteUserOrganizations(long userId,
-		java.util.List<com.liferay.portal.model.Organization> Organizations)
+		java.util.List<com.liferay.portal.model.Organization> organizations)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().deleteUserOrganizations(userId, Organizations);
+		getService().deleteUserOrganizations(userId, organizations);
 	}
 
 	/**
