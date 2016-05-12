@@ -143,10 +143,15 @@ public class AssetUtil {
 
 		Collections.reverse(ancestorCategories);
 
+		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
 		for (AssetCategory ancestorCategory : ancestorCategories) {
 			portletURL.setParameter(
 				"categoryId", String.valueOf(ancestorCategory.getCategoryId()));
 
+			ancestorCategory.setTitleCurrentLanguageId(
+				themeDisplay.getLanguageId());
 			PortalUtil.addPortletBreadcrumbEntry(
 				request, ancestorCategory.getTitleCurrentValue(),
 				portletURL.toString());
@@ -154,6 +159,7 @@ public class AssetUtil {
 
 		portletURL.setParameter("categoryId", String.valueOf(assetCategoryId));
 
+		assetCategory.setTitleCurrentLanguageId(themeDisplay.getLanguageId());
 		PortalUtil.addPortletBreadcrumbEntry(
 			request, assetCategory.getTitleCurrentValue(),
 			portletURL.toString());
