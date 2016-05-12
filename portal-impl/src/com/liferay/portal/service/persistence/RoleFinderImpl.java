@@ -147,7 +147,7 @@ public class RoleFinderImpl
 
 			String sql = CustomSQLUtil.get(COUNT_BY_USER_GROUP_GROUP_ROLE);
 
-			SQLQuery q = session.createSynchronizedSQLQuery(sql);
+			SQLQuery q = session.createSQLQuery(sql);
 
 			q.addScalar(COUNT_COLUMN_NAME, Type.LONG);
 
@@ -326,7 +326,7 @@ public class RoleFinderImpl
 						new long[] {0}, null);
 			}
 
-			SQLQuery q = session.createSynchronizedSQLQuery(sql);
+			SQLQuery q = session.createSQLQuery(sql);
 
 			q.addScalar(COUNT_COLUMN_NAME, Type.LONG);
 
@@ -398,7 +398,7 @@ public class RoleFinderImpl
 						new long[] {0}, null);
 			}
 
-			SQLQuery q = session.createSynchronizedSQLQuery(sql);
+			SQLQuery q = session.createSQLQuery(sql);
 
 			q.addEntity("Role_", RoleImpl.class);
 
