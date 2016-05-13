@@ -131,9 +131,9 @@ public class AssetUtil {
 			long assetCategoryId, HttpServletRequest request,
 			PortletURL portletURL)
 		throws Exception {
-		
+
 		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
-				WebKeys.THEME_DISPLAY);
+			WebKeys.THEME_DISPLAY);
 
 		AssetCategory assetCategory =
 			AssetCategoryLocalServiceUtil.fetchCategory(assetCategoryId);
