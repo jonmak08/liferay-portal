@@ -118,7 +118,7 @@
 				<action-key>VIEW</action-key>
 			</supports>
 			<site-member-defaults />
-            <guest-defaults />
+			<guest-defaults />
 			<guest-unsupported>
 				<action-key>VIEW</action-key>
 			</guest-unsupported>
