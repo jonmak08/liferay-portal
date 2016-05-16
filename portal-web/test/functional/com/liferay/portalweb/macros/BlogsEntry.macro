@@ -755,7 +755,7 @@
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPBlogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
 
-		<execute function="Click#clickWaitForInlineCKEditor" locator1="CPBlogsEntry#YOUR_RATING_STAR_EMPTY_4" />
+		<execute function="Click#clickWaitForInlineCKEditorNoMouseOver" locator1="CPBlogsEntry#YOUR_RATING_STAR_EMPTY_4" />
 	</command>
 
 	<command name="rate4StarsPG">
