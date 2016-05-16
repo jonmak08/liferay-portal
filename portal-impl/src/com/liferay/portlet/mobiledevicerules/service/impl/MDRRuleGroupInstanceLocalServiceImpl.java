@@ -44,6 +44,8 @@ public class MDRRuleGroupInstanceLocalServiceImpl
 			int priority, ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
+		// Rule group instance
+
 		User user = userPersistence.findByPrimaryKey(
 			serviceContext.getUserId());
 		long classNameId = PortalUtil.getClassNameId(className);
@@ -68,6 +70,11 @@ public class MDRRuleGroupInstanceLocalServiceImpl
 		ruleGroupInstance.setClassPK(classPK);
 		ruleGroupInstance.setRuleGroupId(ruleGroupId);
 		ruleGroupInstance.setPriority(priority);
+
+		// Resources
+
+		resourceLocalService.addModelResources(
+			ruleGroupInstance, serviceContext);
 
 		return updateMDRRuleGroupInstance(ruleGroupInstance);
 	}

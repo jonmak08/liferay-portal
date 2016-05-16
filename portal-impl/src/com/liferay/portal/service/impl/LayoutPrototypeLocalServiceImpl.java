@@ -91,11 +91,9 @@ public class LayoutPrototypeLocalServiceImpl
 
 		// Resources
 
-		if (userId > 0) {
-			resourceLocalService.addResources(
-				companyId, 0, userId, LayoutPrototype.class.getName(),
-				layoutPrototype.getLayoutPrototypeId(), false, false, false);
-		}
+		resourceLocalService.addResources(
+			companyId, 0, userId, LayoutPrototype.class.getName(),
+			layoutPrototype.getLayoutPrototypeId(), false, true, false);
 
 		// Group
 

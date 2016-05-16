@@ -44,6 +44,8 @@ public class LayoutBranchLocalServiceImpl
 			boolean master, ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
+		// Layout branch
+
 		User user = userPersistence.findByPrimaryKey(
 			serviceContext.getUserId());
 		LayoutSetBranch layoutSetBranch =
@@ -67,6 +69,13 @@ public class LayoutBranchLocalServiceImpl
 		layoutBranch.setMaster(master);
 
 		layoutBranchPersistence.update(layoutBranch);
+
+		// Resources
+
+		resourceLocalService.addResources(
+			layoutBranch.getCompanyId(), layoutBranch.getGroupId(),
+			layoutBranch.getUserId(), LayoutBranch.class.getName(),
+			layoutBranch.getLayoutBranchId(), false, true, false);
 
 		StagingUtil.setRecentLayoutBranchId(
 			user, layoutBranch.getLayoutSetBranchId(), layoutBranch.getPlid(),

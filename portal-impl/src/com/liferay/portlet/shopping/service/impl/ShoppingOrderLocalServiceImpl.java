@@ -146,6 +146,13 @@ public class ShoppingOrderLocalServiceImpl
 				WorkflowConstants.ACTION_PUBLISH);
 		}
 
+		// Resources
+
+		resourceLocalService.addResources(
+			order.getCompanyId(), order.getGroupId(), order.getUserId(),
+			ShoppingOrder.class.getName(), order.getOrderId(), false, true,
+			false);
+
 		return order;
 	}
 
