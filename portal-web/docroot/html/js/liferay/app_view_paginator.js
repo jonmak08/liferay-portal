@@ -416,13 +416,7 @@ AUI.add(
 
 						var namespace = instance.NS;
 
-						var locationSearch = location.search;
-
-						if (locationSearch && locationSearch.charAt(0) == '?') {
-							locationSearch = locationSearch.substring(1);
-						}
-
-						var tmpParams = QueryString.parse(locationSearch, PAIR_SEPARATOR, VALUE_SEPARATOR);
+						var tmpParams = QueryString.parse(location.search.replace(/^\??/, ''), PAIR_SEPARATOR, VALUE_SEPARATOR);
 
 						A.mix(tmpParams, QueryString.parse(location.hash, PAIR_SEPARATOR, VALUE_SEPARATOR));
 
