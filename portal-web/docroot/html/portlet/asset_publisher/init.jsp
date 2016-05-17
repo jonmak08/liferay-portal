@@ -358,6 +358,6 @@ private boolean _isEnablePermissions(String portletName, PortletPreferences port
 		return true;
 	}
 
-	return GetterUtil.getBoolean(portletPreferences.getValue("enablePermissions", null));
+	return GetterUtil.getBoolean(portletPreferences.getValue("enablePermissions", null), true);
 }
 %>
