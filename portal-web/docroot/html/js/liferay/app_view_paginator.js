@@ -304,6 +304,7 @@ AUI.add(
 						var instance = this;
 
 						instance._lastFolderDataRequest = event.data;
+						instance._lastDataRequest = null;
 					},
 
 					_afterFolderPaginationChangeRequest: function(event) {
