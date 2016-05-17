@@ -431,15 +431,6 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 		throws SystemException {
 
 		try {
-			Indexer searcher = AssetSearcher.getInstance();
-
-			AssetSearcher assetSearcher = (AssetSearcher)searcher;
-
-			AssetEntryQuery assetEntryQuery = new AssetEntryQuery();
-
-			assetEntryQuery.setClassNameIds(
-				getClassNameIds(companyId, className));
-
 			SearchContext searchContext = new SearchContext();
 
 			searchContext.setAttribute("paginationType", "regular");
@@ -449,19 +440,10 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 			searchContext.setGroupIds(groupIds);
 			searchContext.setKeywords(keywords);
 
-			QueryConfig queryConfig = new QueryConfig();
-
-			queryConfig.setHighlightEnabled(false);
-			queryConfig.setScoreEnabled(false);
-
-			searchContext.setQueryConfig(queryConfig);
-
 			searchContext.setStart(start);
 			searchContext.setUserId(userId);
 
-			assetSearcher.setAssetEntryQuery(assetEntryQuery);
-
-			return assetSearcher.search(searchContext);
+			return doSearch(companyId, className, searchContext);
 		}
 		catch (Exception e) {
 			throw new SystemException(e);
@@ -496,15 +478,6 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 		throws SystemException {
 
 		try {
-			Indexer searcher = AssetSearcher.getInstance();
-
-			AssetSearcher assetSearcher = (AssetSearcher)searcher;
-
-			AssetEntryQuery assetEntryQuery = new AssetEntryQuery();
-
-			assetEntryQuery.setClassNameIds(
-				getClassNameIds(companyId, className));
-
 			SearchContext searchContext = new SearchContext();
 
 			searchContext.setAndSearch(andSearch);
@@ -520,19 +493,10 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 			searchContext.setEnd(end);
 			searchContext.setGroupIds(groupIds);
 
-			QueryConfig queryConfig = new QueryConfig();
-
-			queryConfig.setHighlightEnabled(false);
-			queryConfig.setScoreEnabled(false);
-
-			searchContext.setQueryConfig(queryConfig);
-
 			searchContext.setStart(start);
 			searchContext.setUserId(userId);
 
-			assetSearcher.setAssetEntryQuery(assetEntryQuery);
-
-			return assetSearcher.search(searchContext);
+			return doSearch(companyId, className, searchContext);
 		}
 		catch (Exception e) {
 			throw new SystemException(e);
@@ -964,6 +928,28 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 		}
 
 		return tagNames;
+	}
+
+	protected Hits doSearch(
+			long companyId, String className, SearchContext searchContext)
+		throws Exception {
+
+		QueryConfig queryConfig = searchContext.getQueryConfig();
+
+		queryConfig.setHighlightEnabled(false);
+		queryConfig.setScoreEnabled(false);
+
+		AssetEntryQuery assetEntryQuery = new AssetEntryQuery();
+
+		assetEntryQuery.setClassNameIds(getClassNameIds(companyId, className));
+
+		Indexer indexer = AssetSearcher.getInstance();
+
+		AssetSearcher assetSearcher = (AssetSearcher)indexer;
+
+		assetSearcher.setAssetEntryQuery(assetEntryQuery);
+
+		return assetSearcher.search(searchContext);
 	}
 
 	protected long[] getClassNameIds(long companyId, String className) {
