@@ -21,12 +21,18 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
 import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.util.ContentUtil;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletConfig;
+import javax.portlet.PortletPreferences;
 
 /**
  * @author Alexander Chow
@@ -55,23 +61,15 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
 			ActionResponse actionResponse)
 		throws Exception {
 
-		boolean displayScopeFacet = GetterUtil.getBoolean(
-			getParameter(actionRequest, "displayScopeFacet"));
-		boolean displayAssetCategoriesFacet = GetterUtil.getBoolean(
-			getParameter(actionRequest, "displayAssetCategoriesFacet"));
-		boolean displayAssetTagsFacet = GetterUtil.getBoolean(
-			getParameter(actionRequest, "displayAssetTagsFacet"));
-		boolean displayAssetTypeFacet = GetterUtil.getBoolean(
-			getParameter(actionRequest, "displayAssetTypeFacet"));
-		boolean displayFolderFacet = GetterUtil.getBoolean(
-			getParameter(actionRequest, "displayFolderFacet"));
-		boolean displayUserFacet = GetterUtil.getBoolean(
-			getParameter(actionRequest, "displayUserFacet"));
-		boolean displayModifiedRangeFacet = GetterUtil.getBoolean(
-			getParameter(actionRequest, "displayModifiedRangeFacet"));
+		PortletPreferences portletPreferences = actionRequest.getPreferences();
 
-		String searchConfiguration = ContentUtil.get(
-			PropsValues.SEARCH_FACET_CONFIGURATION);
+		String searchConfiguration = portletPreferences.getValue(
+			"searchConfiguration", StringPool.BLANK);
+
+		if (Validator.isBlank(searchConfiguration)) {
+			searchConfiguration = ContentUtil.get(
+				PropsValues.SEARCH_FACET_CONFIGURATION);
+		}
 
 		JSONObject configurationJSONObject = JSONFactoryUtil.createJSONObject(
 			searchConfiguration);
@@ -92,17 +90,17 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
 		for (int i = 0; i < oldFacetsJSONArray.length(); i++) {
 			JSONObject oldFacetJSONObject = oldFacetsJSONArray.getJSONObject(i);
 
-			String fieldName = oldFacetJSONObject.getString("fieldName");
+			boolean displayFacet = true;
 
-			if ((displayScopeFacet && fieldName.equals("groupId")) ||
-				(displayAssetCategoriesFacet &&
-				 fieldName.equals("assetCategoryIds")) ||
-				(displayAssetTagsFacet && fieldName.equals("assetTagNames")) ||
-				(displayAssetTypeFacet && fieldName.equals("entryClassName")) ||
-				(displayFolderFacet && fieldName.equals("folderId")) ||
-				(displayUserFacet && fieldName.equals("userName")) ||
-				(displayModifiedRangeFacet && fieldName.equals("modified"))) {
+			String parameterName = _DISPLAY_FACET_PARAMETER_NAMES.get(
+				oldFacetJSONObject.getString("fieldName"));
 
+			if (parameterName != null) {
+				displayFacet = GetterUtil.getBoolean(
+					getParameter(actionRequest, parameterName));
+			}
+
+			if (displayFacet) {
 				newFacetsJSONArray.put(oldFacetJSONObject);
 			}
 		}
@@ -114,6 +112,19 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
 		setPreference(
 			actionRequest, "searchConfiguration", searchConfiguration);
 	}
+
+	private static final Map<String, String> _DISPLAY_FACET_PARAMETER_NAMES =
+		new HashMap<String, String>() {
+			{
+				put("assetCategoryIds", "displayAssetCategoriesFacet");
+				put("assetTagNames", "displayAssetTagsFacet");
+				put("entryClassName", "displayAssetTypeFacet");
+				put("folderId", "displayFolderFacet");
+				put("groupId", "displayScopeFacet");
+				put("modified", "displayModifiedRangeFacet");
+				put("userName", "displayUserFacet");
+			}
+		};
 
 	private static Log _log = LogFactoryUtil.getLog(
 		ConfigurationActionImpl.class);
