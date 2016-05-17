@@ -37,7 +37,7 @@
 </tr>
 <tr>
 	<td>APP_ACTIONS_MENULIST_UNINSTALL</td>
-	<td>//a[contains(@id,'_menu_uninstall')]/span</td>
+	<td>//a[@role='menuitem' and contains(.,'Uninstall')]</td>
 	<td></td>
 </tr>
 </tbody>
