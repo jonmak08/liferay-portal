@@ -1879,9 +1879,7 @@
 		<execute macro="KaleoFormsPortlet#viewMyCompletedRequestsTasks" />
 	</command>
 
-	<!-- LRQA-20937 -->
-
-	<!--<command known-issues="LRQA-13709" name="CompleteProcessAndViewEmailNotifications" priority="5">
+	<command name="CompleteProcessAndViewEmailNotifications" priority="5">
 		<property name="test.assert.javascript.errors" value="false" />
 
 		<var name="field" value="Text" />
@@ -2352,7 +2350,7 @@
 			<var name="fieldName" value="Assigned To" />
 			<var name="kfProcessFieldData" value="Test Test" />
 		</execute>
-	</command>-->
+	</command>
 
 	<command name="CompleteProcessAndViewNotifications" priority="5">
 		<property name="portlet.plugins.includes" value="kaleo-designer-portlet,kaleo-forms-portlet,notifications-portlet" />
@@ -7749,9 +7747,7 @@
 		</execute>
 	</command>
 
-	<!-- LRQA-20937 -->
-
-	<!--<command known-issues="LRQA-13709" name="ViewEmailNotificationSentToTaskAssignees" priority="5">
+	<command name="ViewEmailNotificationSentToTaskAssignees" priority="5">
 		<description message="This is a use case for LPS-50688 and LPS-35263." />
 
 		<property name="test.assert.javascript.errors" value="false" />
@@ -8131,7 +8127,7 @@
 		<execute macro="Gmail#viewMailNotPresent">
 			<var name="gmailAssetType" value="Update Notification Description" />
 		</execute>
-	</command>-->
+	</command>
 
 	<command name="ViewKaleoProcessNameOpenedViaNotifications" priority="4">
 		<description message="This is a use case for LPS-51098." />

@@ -195,9 +195,7 @@
 		</execute>
 	</command>
 
-	<!-- LRQA-20937 -->
-
-	<!--<command known-issues="LRQA-13709" name="DeliverReportToEmail" priority="5">
+	<command name="DeliverReportToEmail" priority="5">
 		<property name="test.assert.javascript.errors" value="false" />
 
 		<var name="emailAddress1" property-value="email.address.1" />
@@ -277,7 +275,7 @@
 		</execute>
 
 		<execute function="Open" locator1="http://localhost:8080" />
-	</command>-->
+	</command>
 
 	<command name="DownloadReportCSV" priority="5">
 		<execute macro="Page#gotoConfigurationCP">
@@ -609,9 +607,7 @@
 		</execute>
 	</command>
 
-	<!-- LRQA-20937 -->
-
-	<!--<command known-issues="LRQA-13709" name="ViewEmailNotificationDelivery" priority="5">
+	<command name="ViewEmailNotificationDelivery" priority="5">
 		<property name="test.assert.javascript.errors" value="false" />
 
 		<var name="emailAddress1" property-value="email.address.1" />
@@ -688,11 +684,9 @@
 		</execute>
 
 		<execute function="Open" locator1="http://localhost:8080" />
-	</command>-->
+	</command>
 
-	<!-- LRQA-20937 -->
-
-	<!--<command known-issues="LRQA-13709" name="ViewEmailRecipientDelivery" priority="5">
+	<command name="ViewEmailRecipientDelivery" priority="5">
 		<property name="test.assert.javascript.errors" value="false" />
 
 		<var name="emailAddress1" property-value="email.address.1" />
@@ -760,7 +754,7 @@
 		</execute>
 
 		<execute function="Open" locator1="http://localhost:8080" />
-	</command>-->
+	</command>
 
 	<command name="ViewReportDefinitionParametersFields" priority="3">
 		<description message="This is a use case for LPS-43389." />

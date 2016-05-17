@@ -111,9 +111,7 @@
 		<execute function="AssertElementNotPresent" locator1="CPReportsadmin#DEFINITIONS_DEFINITION_TABLE_DEFINITION_NAME" />
 	</command>
 
-	<!-- LRQA-20937 -->
-
-	<!--<command known-issues="LRQA-13709" name="ViewReportEmailNewConfiguration" priority="5">
+	<command name="ViewReportEmailNewConfiguration" priority="5">
 		<description message="This is a use case for LPS-51009." />
 
 		<var name="emailAddress1" property-value="email.address.1" />
@@ -241,7 +239,7 @@ Thanks,<br/>
 		</execute>
 
 		<execute macro="ReportsAdmin#tearDownConfiguration" />
-	</command>-->
+	</command>
 
 	<command name="ViewReportPG" priority="5">
 		<execute macro="Page#gotoConfigurationCP">
