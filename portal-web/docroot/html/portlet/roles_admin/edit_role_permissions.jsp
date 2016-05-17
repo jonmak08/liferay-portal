@@ -355,20 +355,26 @@ portletURL.setParameter("roleId", String.valueOf(role.getRoleId()));
 
 				var unselectedTargets = unselectedTargetsNode.val().split(',');
 
-				var checkbox = event.currentTarget;
+				var form = AUI.$(document.<portlet:namespace />fm);
 
-				var value = checkbox.val();
+				form.find('input[type=checkbox]').each(
+					function(index, item) {
+						var checkbox = A.one(item);
 
-				if (checkbox.get('checked')) {
-					var index = unselectedTargets.indexOf(value);
+						var value = checkbox.val();
 
-					if (index != -1) {
-						unselectedTargets.splice(index, 1);
+						if (checkbox.get('checked')) {
+							var index = unselectedTargets.indexOf(value);
+
+							if (index != -1) {
+								unselectedTargets.splice(index, 1);
+							}
+						}
+						else if (originalSelectedValues.indexOf(value) != -1) {
+							unselectedTargets.push(value);
+						}
 					}
-				}
-				else if (originalSelectedValues.indexOf(value) != -1) {
-					unselectedTargets.push(value);
-				}
+				);
 
 				unselectedTargetsNode.val(unselectedTargets.join(','));
 			},
