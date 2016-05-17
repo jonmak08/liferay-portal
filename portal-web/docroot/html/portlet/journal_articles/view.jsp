@@ -261,9 +261,9 @@ double version = ParamUtil.getDouble(request, "version");
 							delta="<%= 1 %>"
 							id="articleDisplayPages"
 							maxPages="<%= 25 %>"
+							portletURL="<%= portletURL %>"
 							total="<%= articleDisplay.getNumberOfPages() %>"
 							type="article"
-							url="<%= portletURL.toString() %>"
 						/>
 
 						<br />

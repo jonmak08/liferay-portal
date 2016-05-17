@@ -74,9 +74,9 @@ else {
 		delta="<%= 1 %>"
 		id="articleDisplayPages"
 		maxPages="<%= 25 %>"
+		portletURL="<%= articlePageURL %>"
 		total="<%= articleDisplay.getNumberOfPages() %>"
 		type="article"
-		url="<%= articlePageURL.toString() %>"
 	/>
 
 	<br />

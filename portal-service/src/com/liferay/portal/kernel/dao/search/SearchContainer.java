@@ -61,6 +61,8 @@ public class SearchContainer<R> {
 
 	public static final String DEFAULT_DEPRECATED_TOTAL_VAR = "deprecatedTotal";
 
+	public static final boolean DEFAULT_FORCE_POST = false;
+
 	/**
 	 * @deprecated As of 6.2.0, see LPS-6312
 	 */
@@ -86,6 +88,17 @@ public class SearchContainer<R> {
 		DisplayTerms searchTerms, String curParam, int cur, int delta,
 		PortletURL iteratorURL, List<String> headerNames,
 		String emptyResultsMessage) {
+
+		this(
+			portletRequest, displayTerms, searchTerms, curParam, cur, delta,
+			iteratorURL, headerNames, emptyResultsMessage, DEFAULT_FORCE_POST);
+	}
+
+	public SearchContainer(
+		PortletRequest portletRequest, DisplayTerms displayTerms,
+		DisplayTerms searchTerms, String curParam, int cur, int delta,
+		PortletURL iteratorURL, List<String> headerNames,
+		String emptyResultsMessage, boolean forcePost) {
 
 		_portletRequest = portletRequest;
 		_displayTerms = displayTerms;
@@ -156,6 +169,8 @@ public class SearchContainer<R> {
 		if (searchContainerReference != null) {
 			searchContainerReference.register(this);
 		}
+
+		_forcePost = forcePost;
 	}
 
 	public SearchContainer(
@@ -348,6 +363,10 @@ public class SearchContainer<R> {
 		return _deltaConfigurable;
 	}
 
+	public boolean isForcePost() {
+		return _forcePost;
+	}
+
 	public boolean isHover() {
 		return _hover;
 	}
@@ -392,6 +411,10 @@ public class SearchContainer<R> {
 
 	public void setEmptyResultsMessage(String emptyResultsMessage) {
 		_emptyResultsMessage = emptyResultsMessage;
+	}
+
+	public void setForcePost(boolean forcePost) {
+		_forcePost = forcePost;
 	}
 
 	public void setHeaderNames(List<String> headerNames) {
@@ -523,6 +546,7 @@ public class SearchContainer<R> {
 	private DisplayTerms _displayTerms;
 	private String _emptyResultsMessage;
 	private int _end;
+	private boolean _forcePost = DEFAULT_FORCE_POST;
 	private List<String> _headerNames;
 	private boolean _hover = true;
 	private String _id;
