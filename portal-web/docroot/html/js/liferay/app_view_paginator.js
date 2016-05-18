@@ -303,8 +303,8 @@ AUI.add(
 					_afterFolderDataRequest: function(event) {
 						var instance = this;
 
-						instance._lastFolderDataRequest = event.data;
 						instance._lastDataRequest = null;
+						instance._lastFolderDataRequest = event.data;
 					},
 
 					_afterFolderPaginationChangeRequest: function(event) {
