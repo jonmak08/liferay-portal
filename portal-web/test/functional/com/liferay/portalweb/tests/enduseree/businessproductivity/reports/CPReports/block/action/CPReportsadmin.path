@@ -46,7 +46,7 @@
 <!--OPTIONS_MENULIST-->
 <tr>
 	<td>OPTIONS_MENULIST_CONFIGURATION</td>
-	<td>//a[contains(@id,'_menu_configuration')]</td>
+	<td>//a[contains(@id,'_menu_configuration')] | //a[@role='menuitem' and contains(.,'Configuration')]</td>
 	<td></td>
 </tr>
 <tr>
