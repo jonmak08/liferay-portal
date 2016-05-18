@@ -137,8 +137,7 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		String title = fileName;
 
 		try {
-			return DLAppLocalServiceUtil.getFileEntry(
-				groupId, folderId, title);
+			return DLAppLocalServiceUtil.getFileEntry(groupId, folderId, title);
 		}
 		catch (NoSuchFileEntryException nsfe) {
 			if (_log.isDebugEnabled()) {
