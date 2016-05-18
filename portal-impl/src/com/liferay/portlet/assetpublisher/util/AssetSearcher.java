@@ -14,7 +14,7 @@
 
 package com.liferay.portlet.assetpublisher.util;
 
-import com.liferay.portal.kernel.search.BaseIndexer;
+import com.liferay.portal.kernel.search.BaseSearcher;
 import com.liferay.portal.kernel.search.BooleanClauseOccur;
 import com.liferay.portal.kernel.search.BooleanQuery;
 import com.liferay.portal.kernel.search.BooleanQueryFactoryUtil;
@@ -44,7 +44,7 @@ import javax.portlet.PortletURL;
 /**
  * @author Eudaldo Alonso
  */
-public class AssetSearcher extends BaseIndexer {
+public class AssetSearcher extends BaseSearcher {
 
 	public static Indexer getInstance() {
 		return new AssetSearcher();
