@@ -766,7 +766,7 @@ create table ExpandoValue (
 	rowId_ LONG,
 	classNameId LONG,
 	classPK LONG,
-	data_ STRING null
+	data_ TEXT null
 );
 
 create table Group_ (
