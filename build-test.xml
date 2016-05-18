@@ -102,6 +102,7 @@
 			</if>
 		</sequential>
 	</macrodef>
+
 	<macrodef name="check-config">
 		<sequential>
 			<if>
