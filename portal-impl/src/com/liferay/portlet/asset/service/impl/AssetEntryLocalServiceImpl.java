@@ -430,9 +430,42 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 			String keywords, int status, int start, int end)
 		throws SystemException {
 
-		return search(
-			companyId, groupIds, userId, className, keywords, keywords,
-			keywords, null, null, status, false, start, end);
+		try {
+			Indexer searcher = AssetSearcher.getInstance();
+
+			AssetSearcher assetSearcher = (AssetSearcher)searcher;
+
+			AssetEntryQuery assetEntryQuery = new AssetEntryQuery();
+
+			assetEntryQuery.setClassNameIds(
+				getClassNameIds(companyId, className));
+
+			SearchContext searchContext = new SearchContext();
+
+			searchContext.setAttribute("paginationType", "regular");
+			searchContext.setAttribute("status", status);
+			searchContext.setCompanyId(companyId);
+			searchContext.setEnd(end);
+			searchContext.setGroupIds(groupIds);
+			searchContext.setKeywords(keywords);
+
+			QueryConfig queryConfig = new QueryConfig();
+
+			queryConfig.setHighlightEnabled(false);
+			queryConfig.setScoreEnabled(false);
+
+			searchContext.setQueryConfig(queryConfig);
+
+			searchContext.setStart(start);
+			searchContext.setUserId(userId);
+
+			assetSearcher.setAssetEntryQuery(assetEntryQuery);
+
+			return assetSearcher.search(searchContext);
+		}
+		catch (Exception e) {
+			throw new SystemException(e);
+		}
 	}
 
 	/**
