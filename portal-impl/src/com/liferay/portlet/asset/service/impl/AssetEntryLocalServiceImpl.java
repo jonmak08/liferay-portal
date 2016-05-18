@@ -439,7 +439,6 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 			searchContext.setEnd(end);
 			searchContext.setGroupIds(groupIds);
 			searchContext.setKeywords(keywords);
-
 			searchContext.setStart(start);
 			searchContext.setUserId(userId);
 
@@ -492,7 +491,6 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 			searchContext.setCompanyId(companyId);
 			searchContext.setEnd(end);
 			searchContext.setGroupIds(groupIds);
-
 			searchContext.setStart(start);
 			searchContext.setUserId(userId);
 
