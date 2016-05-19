@@ -195,7 +195,9 @@
 		</execute>
 	</command>
 
-	<command name="DeliverReportToEmail" priority="5">
+	<!-- LRQA-24395 -->
+
+	<!--<command name="DeliverReportToEmail" priority="5">
 		<property name="test.assert.javascript.errors" value="false" />
 
 		<var name="emailAddress1" property-value="email.address.1" />
@@ -275,7 +277,7 @@
 		</execute>
 
 		<execute function="Open" locator1="http://localhost:8080" />
-	</command>
+	</command>-->
 
 	<command name="DownloadReportCSV" priority="5">
 		<execute macro="Page#gotoConfigurationCP">
