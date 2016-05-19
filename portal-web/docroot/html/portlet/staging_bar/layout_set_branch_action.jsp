@@ -22,6 +22,11 @@ ResultRow row = (ResultRow)request.getAttribute(WebKeys.SEARCH_CONTAINER_RESULT_
 LayoutSetBranch layoutSetBranch = (LayoutSetBranch)row.getObject();
 
 long currentLayoutSetBranchId = GetterUtil.getLong((String)request.getAttribute("view_layout_set_branches.jsp-currentLayoutSetBranchId"));
+
+String currentCompleteUrl = (String)request.getAttribute(WebKeys.CURRENT_COMPLETE_URL);
+
+String refererPlid = HttpUtil.getParameter(currentCompleteUrl, "refererPlid", false);
+
 %>
 
 <liferay-ui:icon-menu>
@@ -69,6 +74,7 @@ long currentLayoutSetBranchId = GetterUtil.getLong((String)request.getAttribute(
 			<portlet:param name="groupId" value="<%= String.valueOf(layoutSetBranch.getGroupId()) %>" />
 			<portlet:param name="layoutSetBranchId" value="<%= String.valueOf(layoutSetBranch.getLayoutSetBranchId()) %>" />
 			<portlet:param name="currentLayoutSetBranchId" value="<%= String.valueOf(currentLayoutSetBranchId) %>" />
+			<portlet:param name="selPlid" value="<%= refererPlid %>" />
 		</portlet:actionURL>
 
 		<liferay-ui:icon-delete
