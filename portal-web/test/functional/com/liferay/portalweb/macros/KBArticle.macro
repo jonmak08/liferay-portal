@@ -35,8 +35,14 @@
 		<if>
 			<equals arg1="${kbTemplateIsAvailable}" arg2="true" />
 			<then>
-				<execute function="AssertClick" locator1="CPKnowledgebaseadmin#ADD_MENULIST_BASIC_ARTICLE" value1="Basic Article" />
+				<execute function="AssertClick" locator1="CPKnowledgebaseadmin#ADD_MENULIST_TEMPLATE" value1="${kbTemplateTitle}" />
 			</then>
+			<elseif>
+				<condition function="IsElementPresent" locator1="CPKnowledgebaseadmin#ADD_MENULIST_BASIC_ARTICLE" />
+				<then>
+					<execute function="AssertClick" locator1="CPKnowledgebaseadmin#ADD_MENULIST_BASIC_ARTICLE" value1="Basic Article" />
+				</then>
+			</elseif>
 			<else>
 				<execute function="AssertClick" locator1="CPKnowledgebaseadmin#ADD_MENULIST_ADD_ARTICLE" value1="Add Article" />
 			</else>
