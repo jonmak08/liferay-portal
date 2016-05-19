@@ -228,6 +228,10 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		subject = ModelHintsUtil.trimString(
 			MBMessage.class.getName(), "subject", subject);
 
+		if (!MBUtil.isValidMessageFormat(format)) {
+			format = "html";
+		}
+
 		PortletPreferences preferences =
 			ServiceContextUtil.getPortletPreferences(serviceContext);
 
