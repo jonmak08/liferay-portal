@@ -45,7 +45,6 @@ import com.liferay.portlet.expando.NoSuchColumnException;
 import com.liferay.portlet.expando.model.ExpandoColumn;
 import com.liferay.portlet.expando.model.impl.ExpandoColumnImpl;
 import com.liferay.portlet.expando.model.impl.ExpandoColumnModelImpl;
-import com.liferay.portlet.expando.service.persistence.ExpandoColumnPersistence;
 
 import java.io.Serializable;
 

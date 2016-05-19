@@ -41,7 +41,6 @@ import com.liferay.portlet.expando.NoSuchTableException;
 import com.liferay.portlet.expando.model.ExpandoTable;
 import com.liferay.portlet.expando.model.impl.ExpandoTableImpl;
 import com.liferay.portlet.expando.model.impl.ExpandoTableModelImpl;
-import com.liferay.portlet.expando.service.persistence.ExpandoTablePersistence;
 
 import java.io.Serializable;
 
