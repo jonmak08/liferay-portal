@@ -889,6 +889,10 @@ public class MBUtil {
 			return false;
 		}
 
+		if (!ArrayUtil.contains(MBMessageConstants.FORMATS, messageFormat)) {
+			return false;
+		}
+
 		return true;
 	}
 
