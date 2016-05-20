@@ -352,6 +352,45 @@
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
+	<command name="configureCurrentLanguagesViaSiteSettings">
+		<execute function="AssertClick" locator1="CPSitesettings#MENU_MISCELLANEOUS_DISPLAY_SETTINGS" value1="Display Settings" />
+
+		<execute function="Click" locator1="CPSitesettingsDisplaysettings#DEFINE_DEFAULT_AND_AVAILABLE_SITE_LANGUAGES_RADIO" />
+
+		<if>
+			<isset var="defaultPortalLanguage" />
+			<then>
+				<var name="defaultPortalLanguage" value="${defaultPortalLanguage}" />
+
+				<execute function="Select" locator1="CPSitesettingsDisplaysettings#DEFAULT_LANGUAGE_SELECT" value1="${defaultPortalLanguage}" />
+			</then>
+		</if>
+
+		<if>
+			<isset var="currentPortalLanguages" />
+			<then>
+				<while>
+					<condition function="IsElementPresent" locator1="CPSitesettingsDisplaysettings#AVAILABLE_LANGUAGES_CURRENT_PRESENT" />
+					<then>
+						<execute function="Click" locator1="CPSitesettingsDisplaysettings#AVAILABLE_LANGUAGES_CURRENT_PRESENT" />
+						<execute function="Click" locator1="CPSitesettingsDisplaysettings#MOVE_CURRENT_TO_AVAILABLE_BUTTON" />
+					</then>
+				</while>
+
+				<for list="${currentPortalLanguages}" param="currentPortalLanguage">
+					<var name="currentPortalLanguage" value="${currentPortalLanguage}" />
+
+					<execute function="Select" locator1="CPSitesettingsDisplaysettings#AVAILABLE_LANGUAGES_AVAILABLE_SELECT" value1="${currentPortalLanguage}" />
+					<execute function="Click" locator1="CPSitesettingsDisplaysettings#MOVE_AVAILABLE_TO_CURRENT_BUTTON" />
+					<execute function="AssertTextEquals#assertPartialText" locator1="CPSitesettingsDisplaysettings#AVAILABLE_LANGUAGES_CURRENT_SELECT" value1="${currentPortalLanguage}" />
+				</for>
+			</then>
+		</if>
+
+		<execute function="AssertClick" locator1="CPPortalsettingsDisplaysettings#SAVE_BUTTON" value1="Save" />
+		<execute function="AssertTextEquals" locator1="CPPortalsettingsDisplaysettings#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+	</command>
+
 	<command name="deactivateCP">
 		<var name="key_siteName" value="${siteName}" />
 
