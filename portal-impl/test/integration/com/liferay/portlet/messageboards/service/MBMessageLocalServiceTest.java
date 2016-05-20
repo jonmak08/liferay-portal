@@ -89,7 +89,6 @@ public class MBMessageLocalServiceTest {
 			serviceContext);
 
 		Assert.assertEquals(subject, message.getSubject());
-		Assert.assertEquals(StringPool.BLANK, message.getBody());
 		Assert.assertEquals("html", message.getFormat());
 	}
 
