@@ -35,12 +35,12 @@
 </tr>
 <tr>
 	<td>MOVE_CURRENT_TO_AVAILABLE_BUTTON</td>
-	<td>//div[@class='btn-group-vertical']/button[1]</td>
+	<td>//button[@title='Move selected items from Current to Available.']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>MOVE_AVAILABLE_TO_CURRENT_BUTTON</td>
-	<td>//div[@class='btn-group-vertical']/button[2]</td>
+	<td>//button[@title='Move selected items from Available to Current.']</td>
 	<td></td>
 </tr>
 <tr>
