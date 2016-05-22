@@ -934,13 +934,13 @@ public class PropsValues {
 
 	public static final boolean JOURNAL_ARTICLES_SEARCH_WITH_INDEX = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.JOURNAL_ARTICLES_SEARCH_WITH_INDEX));
 
+	public static final boolean JOURNAL_BROWSE_BY_STRUCTURES_SORTED_BY_NAME = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.JOURNAL_BROWSE_BY_STRUCTURES_SORTED_BY_NAME));
+
 	public static final boolean JOURNAL_CONTENT_PUBLISH_TO_LIVE_BY_DEFAULT = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.JOURNAL_CONTENT_PUBLISH_TO_LIVE_BY_DEFAULT));
 
 	public static final boolean JOURNAL_CONTENT_SEARCH_SHOW_LISTED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.JOURNAL_CONTENT_SEARCH_SHOW_LISTED));
 
 	public static final String JOURNAL_DEFAULT_DISPLAY_VIEW = PropsUtil.get(PropsKeys.JOURNAL_DEFAULT_DISPLAY_VIEW);
-
-	public static final boolean JOURNAL_BROWSE_BY_STRUCTURE_SHOW_SORTED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.JOURNAL_BROWSE_BY_STRUCTURE_SHOW_SORTED));
 
 	public static final String[] JOURNAL_DISPLAY_VIEWS = PropsUtil.getArray(PropsKeys.JOURNAL_DISPLAY_VIEWS);
 

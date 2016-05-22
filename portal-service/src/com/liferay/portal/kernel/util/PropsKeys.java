@@ -1215,13 +1215,13 @@ public interface PropsKeys {
 
 	public static final String JOURNAL_ARTICLES_SEARCH_WITH_INDEX = "journal.articles.search.with.index";
 
+	public static final String JOURNAL_BROWSE_BY_STRUCTURES_SORTED_BY_NAME = "journal.browse.by.structures.sorted.by.name";
+
 	public static final String JOURNAL_CONTENT_PUBLISH_TO_LIVE_BY_DEFAULT = "journal.content.publish.to.live.by.default";
 
 	public static final String JOURNAL_CONTENT_SEARCH_SHOW_LISTED = "journal.content.search.show.listed";
 
 	public static final String JOURNAL_DEFAULT_DISPLAY_VIEW = "journal.default.display.view";
-
-	public static final String JOURNAL_BROWSE_BY_STRUCTURE_SHOW_SORTED = "journal.browse-by-structure.show.sorted";
 
 	public static final String JOURNAL_DISPLAY_VIEWS = "journal.display.views";
 
