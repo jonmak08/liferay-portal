@@ -30,6 +30,7 @@ page import="com.liferay.portlet.dynamicdatamapping.service.DDMStructureServiceU
 page import="com.liferay.portlet.dynamicdatamapping.service.DDMTemplateServiceUtil" %><%@
 page import="com.liferay.portlet.dynamicdatamapping.service.permission.DDMStructurePermission" %><%@
 page import="com.liferay.portlet.dynamicdatamapping.storage.Fields" %><%@
+page import="com.liferay.portlet.dynamicdatamapping.util.comparator.DDMStructureNameComparator" %><%@
 page import="com.liferay.portlet.journal.ArticleContentException" %><%@
 page import="com.liferay.portlet.journal.ArticleContentSizeException" %><%@
 page import="com.liferay.portlet.journal.ArticleDisplayDateException" %><%@

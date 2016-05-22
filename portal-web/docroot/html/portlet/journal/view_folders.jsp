@@ -261,7 +261,24 @@ else {
 						</c:if>
 
 						<%
-						List<DDMStructure> ddmStructures = DDMStructureServiceUtil.getStructures(PortalUtil.getSiteAndCompanyGroupIds(themeDisplay), PortalUtil.getClassNameId(JournalArticle.class), searchContainer.getStart(), searchContainer.getEnd());
+						List<DDMStructure> ddmStructures = null;
+
+						long[] groupIds = PortalUtil.getSiteAndCompanyGroupIds(themeDisplay);
+
+						long classNameId = PortalUtil.getClassNameId(JournalArticle.class);
+
+						if (PropsValues.JOURNAL_BROWSE_BY_STRUCTURES_SORTED_BY_NAME) {
+							ddmStructures = DDMStructureServiceUtil.getStructures(groupIds, classNameId);
+
+							if (ddmStructures.size() > 0) {
+								ddmStructures = ListUtil.sort(ddmStructures, new DDMStructureNameComparator(locale));
+
+								ddmStructures = ListUtil.subList(ddmStructures, searchContainer.getStart(), searchContainer.getEnd());
+							}
+						}
+						else {
+							ddmStructures = DDMStructureServiceUtil.getStructures(groupIds, classNameId, searchContainer.getStart(), searchContainer.getEnd());
+						}
 
 						for (DDMStructure ddmStructure : ddmStructures) {
 						%>
