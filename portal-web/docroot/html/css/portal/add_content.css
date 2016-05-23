@@ -10,6 +10,7 @@
 		margin-top: 0;
 		padding: 10px 15px;
 		position: fixed;
+		position: -ms-device-fixed;
 		text-align: right;
 		width: 295px;
 	}
