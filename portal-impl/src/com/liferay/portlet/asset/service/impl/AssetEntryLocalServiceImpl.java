@@ -1098,6 +1098,8 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 				entry.getClassNameId(), entry.getClassPK());
 		}
 
+		reindex(entry);
+
 		return entry;
 	}
 
