@@ -172,7 +172,15 @@
 
 	<command name="addCPWithInvalidTitle">
 		<execute function="AssertClick" locator1="CPKnowledgebaseadmin#ADD_BUTTON" value1="Add" />
-		<execute function="AssertClick" locator1="CPKnowledgebaseadmin#ADD_MENULIST_ADD_ARTICLE" value1="Add Article" />
+		<if>
+			<condition function="IsElementPresent" locator1="CPKnowledgebaseadmin#ADD_MENULIST_BASIC_ARTICLE" />
+			<then>
+				<execute function="AssertClick" locator1="CPKnowledgebaseadmin#ADD_MENULIST_BASIC_ARTICLE" value1="Basic Article" />
+			</then>
+			<else>
+				<execute function="AssertClick" locator1="CPKnowledgebaseadmin#ADD_MENULIST_ADD_ARTICLE" value1="Add Article" />
+			</else>
+		</if>
 
 		<execute function="Type" locator1="CPKnowledgebaseadminAddarticle#TITLE_FIELD" value1="${kbArticleTitle}" />
 		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CPKnowledgebaseadminAddarticle#CONTENT_FIELD" value1="${kbArticleContent}" />
