@@ -399,6 +399,13 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 
 		assetEntryPersistence.update(entry);
 
+		try {
+			reindex(entry);
+		}
+		catch (PortalException pe) {
+			throw new SystemException(pe);
+		}
+
 		return entry;
 	}
 
