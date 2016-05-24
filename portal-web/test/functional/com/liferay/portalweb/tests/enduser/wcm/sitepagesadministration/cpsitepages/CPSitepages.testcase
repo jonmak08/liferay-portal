@@ -423,7 +423,6 @@
 		</execute>
 
 		<execute macro="Page#openURL">
-			<var name="portletName" value="Site Settings" />
 			<var name="virtualHostsURL" value="http://www.able.com:8080/fr/" />
 		</execute>
 
