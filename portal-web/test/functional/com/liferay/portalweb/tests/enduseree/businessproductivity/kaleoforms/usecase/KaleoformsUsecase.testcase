@@ -1881,6 +1881,7 @@
 
 	<command name="CompleteProcessAndViewEmailNotifications" priority="5">
 		<property name="test.assert.javascript.errors" value="false" />
+		<property name="test.smtp.server.enabled" value="true" />
 
 		<var name="field" value="Text" />
 		<var name="fieldFieldLabel" value="Text" />
@@ -2159,6 +2160,13 @@
 
 		<execute function="Pause" locator1="30000" />
 
+		<execute macro="MockMock#viewMail">
+			<var name="asset" value="Review Notification Description" />
+			<var name="recipient" value="${user2FirstName} ${user2LastName}" />
+			<var name="sender" value="Liferay Portal Workflow Notifications" />
+			<var name="subject" value="${user1FirstName} ${user1LastName} sent you a Kaleo Forms Process for review in the workflow." />
+		</execute>
+
 		<execute function="Open" locator1="http://localhost:8080" />
 
 		<execute macro="User#logoutAndLoginPG">
@@ -2177,6 +2185,13 @@
 
 		<execute function="Pause" locator1="30000" />
 
+		<execute macro="MockMock#viewMail">
+			<var name="asset" value="Review Notification Description" />
+			<var name="recipient" value="${user2FirstName} ${user2LastName}" />
+			<var name="sender" value="Liferay Portal Workflow Notifications" />
+			<var name="subject" value="${user2FirstName} ${user2LastName} sent you a Kaleo Forms Process for review in the workflow." />
+		</execute>
+
 		<execute function="Open" locator1="http://localhost:8080" />
 
 		<execute macro="Page#gotoPG">
@@ -2191,6 +2206,13 @@
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
 		<execute function="Pause" locator1="30000" />
+
+		<execute macro="MockMock#viewMail">
+			<var name="asset" value="Updater Modification Notification Description" />
+			<var name="recipient" value="${user3FirstName} ${user3LastName}" />
+			<var name="sender" value="Liferay Portal Workflow Notifications" />
+			<var name="subject" value="Your submission was rejected by ${user2FirstName} ${user2LastName}, please modify and resubmit." />
+		</execute>
 
 		<execute function="Open" locator1="http://localhost:8080" />
 
@@ -2214,6 +2236,13 @@
 		</execute>
 
 		<execute function="Pause" locator1="30000" />
+
+		<execute macro="MockMock#viewMail">
+			<var name="asset" value="Review Notification Description" />
+			<var name="recipient" value="${user2FirstName} ${user2LastName}" />
+			<var name="sender" value="Liferay Portal Workflow Notifications" />
+			<var name="subject" value="${user3FirstName} ${user3LastName} sent you a Kaleo Forms Process for review in the workflow." />
+		</execute>
 
 		<execute function="Open" locator1="http://localhost:8080" />
 
