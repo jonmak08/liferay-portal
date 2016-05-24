@@ -388,11 +388,29 @@
 			<var name="defaultPortalLanguage" value="English (United States)" />
 		</execute>
 
+		<execute macro="User#logoutPG" />
+
 		<execute macro="Page#openURL">
-			<var name="specificURL" value="http://localhost:8080/fr/web/site-name/public-page" />
+			<var name="specificURL" value="http://localhost:8080/fr/web/site-name/language-page" />
 		</execute>
 
-		<execute function="AssertLocation" value1="http://localhost:8080/en/web/site-name/public-page" />
+		<execute function="Pause" locator1="2000" />
+
+		<execute function="AssertLocation" value1="http://localhost:8080/en/web/site-name/language-page" />
+
+		<execute macro="Page#openURL">
+			<var name="specificURL" value="http://localhost:8080/fr" />
+		</execute>
+
+		<execute function="Pause" locator1="2000" />
+
+		<execute function="AssertLocation" value1="http://localhost:8080/en/web/guest" />
+
+		<execute macro="User#loginPG">
+			<var name="specificURL" value="http://localhost:8080/fr" />
+		</execute>
+
+		<execute function="AssertLocation" value1="http://localhost:8080/web/guest" />
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
@@ -414,8 +432,6 @@
 			<var name="sitePageName" value="Language Page" />
 			<var name="sitePageURL" value="http://www.able.com:8080/en/" />
 		</execute>
-
-		<execute macro="User#firstLoginPG" />
 	</command>
 
 	<command name="SaveEmbeddedPageType" priority="4">
