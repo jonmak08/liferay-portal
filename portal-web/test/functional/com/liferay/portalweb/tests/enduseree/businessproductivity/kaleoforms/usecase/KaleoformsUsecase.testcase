@@ -2158,7 +2158,7 @@
 
 		<execute macro="KaleoFormsPortlet#saveProcessRecord" />
 
-		<execute function="Pause" locator1="30000" />
+		<execute function="Pause" locator1="10000" />
 
 		<execute macro="MockMock#viewMail">
 			<var name="asset" value="Review Notification Description" />
@@ -2183,7 +2183,7 @@
 			<var name="workflowTask" value="review" />
 		</execute>
 
-		<execute function="Pause" locator1="30000" />
+		<execute function="Pause" locator1="10000" />
 
 		<execute macro="MockMock#viewMail">
 			<var name="asset" value="Review Notification Description" />
@@ -2205,7 +2205,7 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
-		<execute function="Pause" locator1="30000" />
+		<execute function="Pause" locator1="10000" />
 
 		<execute macro="MockMock#viewMail">
 			<var name="asset" value="Updater Modification Notification Description" />
@@ -2235,7 +2235,7 @@
 			<var name="workflowTask" value="update" />
 		</execute>
 
-		<execute function="Pause" locator1="30000" />
+		<execute function="Pause" locator1="10000" />
 
 		<execute macro="MockMock#viewMail">
 			<var name="asset" value="Review Notification Description" />
