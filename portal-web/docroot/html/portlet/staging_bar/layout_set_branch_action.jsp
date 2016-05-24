@@ -26,7 +26,6 @@ long currentLayoutSetBranchId = GetterUtil.getLong((String)request.getAttribute(
 String currentCompleteUrl = (String)request.getAttribute(WebKeys.CURRENT_COMPLETE_URL);
 
 String refererPlid = HttpUtil.getParameter(currentCompleteUrl, "refererPlid", false);
-
 %>
 
 <liferay-ui:icon-menu>
