@@ -1909,15 +1909,6 @@
 		<var name="user3ScreenName" value="updater" />
 
 		<execute macro="Page#gotoCP">
-			<var name="portletName" value="Server Administration" />
-		</execute>
-
-		<execute macro="ServerAdministration#configureMailServerSettings">
-			<var name="userName" property-value="email.address.1" />
-			<var name="userPassword" property-value="email.password.1" />
-		</execute>
-
-		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Roles" />
 		</execute>
 
@@ -2168,28 +2159,6 @@
 
 		<execute function="Pause" locator1="30000" />
 
-		<execute macro="Gmail#login">
-			<var name="userEmailAddress" value="${user2EmailAddress}" />
-			<var name="userPassword" value="${user2EmailPassword}" />
-		</execute>
-
-		<execute macro="Gmail#gotoHtmlMode" />
-
-		<execute macro="Gmail#viewMail">
-			<var name="emailFromUserName" value="Liferay Portal Workflow ." />
-			<var name="gmailAssetType" value="Review Notification Description" />
-			<var name="gmailMailTableMessageTitle" value="Review Notification Description - ${user1FirstName} ${user1LastName} sent you a Kaleo Forms Process for review in the workflow." />
-			<var name="gmailMessageBody" value="${user1FirstName} ${user1LastName} sent you a Kaleo Forms Process for review in the workflow." />
-			<var name="gmailMessageBodyClosing" value="${user1FirstName} ${user1LastName} sent you a Kaleo Forms Process for review in the workflow." />
-			<var name="gmailMessageBodyGreeting" value="${user1FirstName} ${user1LastName} sent you a Kaleo Forms Process for review in the workflow." />
-			<var name="gmailMessageTitle" value="Review Notification Description" />
-		</execute>
-
-		<execute macro="Gmail#tearDown">
-			<var name="userEmailAddress" value="${user2EmailAddress}" />
-			<var name="userPassword" value="${user2EmailPassword}" />
-		</execute>
-
 		<execute function="Open" locator1="http://localhost:8080" />
 
 		<execute macro="User#logoutAndLoginPG">
@@ -2208,28 +2177,6 @@
 
 		<execute function="Pause" locator1="30000" />
 
-		<execute macro="Gmail#login">
-			<var name="userEmailAddress" value="${user2EmailAddress}" />
-			<var name="userPassword" value="${user2EmailPassword}" />
-		</execute>
-
-		<execute macro="Gmail#gotoHtmlMode" />
-
-		<execute macro="Gmail#viewMail">
-			<var name="emailFromUserName" value="Liferay Portal Workflow ." />
-			<var name="gmailAssetType" value="Review Notification Description" />
-			<var name="gmailMailTableMessageTitle" value="Review Notification Description - ${user1FirstName} ${user1LastName} sent you a Kaleo Forms Process for review in the workflow." />
-			<var name="gmailMessageBody" value="${user1FirstName} ${user1LastName} sent you a Kaleo Forms Process for review in the workflow." />
-			<var name="gmailMessageBodyClosing" value="${user1FirstName} ${user1LastName} sent you a Kaleo Forms Process for review in the workflow." />
-			<var name="gmailMessageBodyGreeting" value="${user1FirstName} ${user1LastName} sent you a Kaleo Forms Process for review in the workflow." />
-			<var name="gmailMessageTitle" value="Review Notification Description" />
-		</execute>
-
-		<execute macro="Gmail#tearDown">
-			<var name="userEmailAddress" value="${user2EmailAddress}" />
-			<var name="userPassword" value="${user2EmailPassword}" />
-		</execute>
-
 		<execute function="Open" locator1="http://localhost:8080" />
 
 		<execute macro="Page#gotoPG">
@@ -2244,27 +2191,6 @@
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
 		<execute function="Pause" locator1="30000" />
-
-		<execute macro="Gmail#logoutAndLogin">
-			<var name="userEmailAddress" value="${user3EmailAddress}" />
-			<var name="userPassword" value="${user3EmailPassword}" />
-		</execute>
-
-		<execute macro="Gmail#gotoHtmlMode" />
-		<execute macro="Gmail#viewMail">
-			<var name="emailFromUserName" value="Liferay Portal Workflow ." />
-			<var name="gmailAssetType" value="Updater Modification Notification Description" />
-			<var name="gmailMailTableMessageTitle" value="Updater Modification Notification Description - Your submission was rejected by ${user2FirstName} ${user2LastName}, please modify and resubmit." />
-			<var name="gmailMessageBody" value="Your submission was rejected by ${user2FirstName} ${user2LastName}, please modify and resubmit." />
-			<var name="gmailMessageBodyClosing" value="Your submission was rejected by ${user2FirstName} ${user2LastName}, please modify and resubmit." />
-			<var name="gmailMessageBodyGreeting" value="Your submission was rejected by ${user2FirstName} ${user2LastName}, please modify and resubmit." />
-			<var name="gmailMessageTitle" value="Updater Modification Notification Description" />
-		</execute>
-
-		<execute macro="Gmail#tearDown">
-			<var name="userEmailAddress" value="${user3EmailAddress}" />
-			<var name="userPassword" value="${user3EmailPassword}" />
-		</execute>
 
 		<execute function="Open" locator1="http://localhost:8080" />
 
@@ -2288,28 +2214,6 @@
 		</execute>
 
 		<execute function="Pause" locator1="30000" />
-
-		<execute macro="Gmail#logoutAndLogin">
-			<var name="userEmailAddress" value="${user2EmailAddress}" />
-			<var name="userPassword" value="${user2EmailPassword}" />
-		</execute>
-
-		<execute macro="Gmail#gotoHtmlMode" />
-
-		<execute macro="Gmail#viewMail">
-			<var name="emailFromUserName" value="Liferay Portal Workflow ." />
-			<var name="gmailAssetType" value="Review Notification Description" />
-			<var name="gmailMailTableMessageTitle" value="Review Notification Description - ${user3FirstName} ${user3LastName} sent you a Kaleo Forms Process for review in the workflow." />
-			<var name="gmailMessageBody" value="${user3FirstName} ${user3LastName} sent you a Kaleo Forms Process for review in the workflow." />
-			<var name="gmailMessageBodyClosing" value="${user3FirstName} ${user3LastName} sent you a Kaleo Forms Process for review in the workflow." />
-			<var name="gmailMessageBodyGreeting" value="${user3FirstName} ${user3LastName} sent you a Kaleo Forms Process for review in the workflow." />
-			<var name="gmailMessageTitle" value="Review Notification Description" />
-		</execute>
-
-		<execute macro="Gmail#tearDown">
-			<var name="userEmailAddress" value="${user2EmailAddress}" />
-			<var name="userPassword" value="${user2EmailPassword}" />
-		</execute>
 
 		<execute function="Open" locator1="http://localhost:8080" />
 
