@@ -27,12 +27,12 @@
 <!--APP_ACTIONS_MENULIST-->
 <tr>
 	<td>APP_ACTIONS_MENULIST_ACTIVATE</td>
-	<td>//a[contains(@id,'_menu_activate')]/span</td>
+	<td>//a[@role='menuitem' and contains(.,'Activate')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>APP_ACTIONS_MENULIST_DEACTIVATE</td>
-	<td>//a[contains(@id,'_menu_deactivate')]/span</td>
+	<td>//a[@role='menuitem' and contains(.,'Deactivate')]</td>
 	<td></td>
 </tr>
 <tr>
