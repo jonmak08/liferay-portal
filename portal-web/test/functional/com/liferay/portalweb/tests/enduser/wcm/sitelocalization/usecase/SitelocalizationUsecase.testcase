@@ -35,8 +35,8 @@
 		</execute>
 
 		<execute macro="Site#configureCurrentLanguagesViaSiteSettings">
-			<var name="currentPortalLanguages" value="English (United States),Hungarian (Hungary)" />
-			<var name="defaultPortalLanguage" value="English (United States)" />
+			<var name="currentSiteLanguages" value="English (United States),Hungarian (Hungary)" />
+			<var name="defaultSiteLanguage" value="English (United States)" />
 		</execute>
 
 		<execute macro="User#logoutPG" />

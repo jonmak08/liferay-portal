@@ -358,16 +358,16 @@
 		<execute function="Click" locator1="CPSitesettingsDisplaysettings#DEFINE_DEFAULT_AND_AVAILABLE_SITE_LANGUAGES_RADIO" />
 
 		<if>
-			<isset var="defaultPortalLanguage" />
+			<isset var="defaultSiteLanguage" />
 			<then>
-				<var name="defaultPortalLanguage" value="${defaultPortalLanguage}" />
+				<var name="defaultSiteLanguage" value="${defaultSiteLanguage}" />
 
-				<execute function="Select" locator1="CPSitesettingsDisplaysettings#DEFAULT_LANGUAGE_SELECT" value1="${defaultPortalLanguage}" />
+				<execute function="Select" locator1="CPSitesettingsDisplaysettings#DEFAULT_LANGUAGE_SELECT" value1="${defaultSiteLanguage}" />
 			</then>
 		</if>
 
 		<if>
-			<isset var="currentPortalLanguages" />
+			<isset var="currentSiteLanguages" />
 			<then>
 				<while>
 					<condition function="IsElementPresent" locator1="CPSitesettingsDisplaysettings#AVAILABLE_LANGUAGES_CURRENT_PRESENT" />
@@ -377,12 +377,12 @@
 					</then>
 				</while>
 
-				<for list="${currentPortalLanguages}" param="currentPortalLanguage">
-					<var name="currentPortalLanguage" value="${currentPortalLanguage}" />
+				<for list="${currentSiteLanguages}" param="currentSiteLanguage">
+					<var name="currentSiteLanguage" value="${currentSiteLanguage}" />
 
-					<execute function="Select" locator1="CPSitesettingsDisplaysettings#AVAILABLE_LANGUAGES_AVAILABLE_SELECT" value1="${currentPortalLanguage}" />
+					<execute function="Select" locator1="CPSitesettingsDisplaysettings#AVAILABLE_LANGUAGES_AVAILABLE_SELECT" value1="${currentSiteLanguage}" />
 					<execute function="Click" locator1="CPSitesettingsDisplaysettings#MOVE_AVAILABLE_TO_CURRENT_BUTTON" />
-					<execute function="AssertTextEquals#assertPartialText" locator1="CPSitesettingsDisplaysettings#AVAILABLE_LANGUAGES_CURRENT_SELECT" value1="${currentPortalLanguage}" />
+					<execute function="AssertTextEquals#assertPartialText" locator1="CPSitesettingsDisplaysettings#AVAILABLE_LANGUAGES_CURRENT_SELECT" value1="${currentSiteLanguage}" />
 				</for>
 			</then>
 		</if>
