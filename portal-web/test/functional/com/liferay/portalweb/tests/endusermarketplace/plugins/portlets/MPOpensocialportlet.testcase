@@ -31,7 +31,7 @@
 		</execute>
 
 		<execute macro="Page#gotoCP">
-			<var name="portletName" value="OpenSocial Gadget Publisher" />
+			<var name="portletName" value="OpenSocial Admin" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
