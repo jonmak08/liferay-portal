@@ -358,7 +358,7 @@
 		</execute>
 	</command>
 
-	<command name="EditSitepagesAvailableLanguage" priority="4">
+	<command name="ViewEditURLLocale" priority="4">
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
@@ -373,7 +373,7 @@
 		</execute>
 
 		<execute macro="SitePage#addCP">
-			<var name="sitePageName" value="Public Page" />
+			<var name="sitePageName" value="Language Page" />
 			<var name="sitePagePrivacy" value="Public" />
 			<var name="siteScopeSelected" value="true" />
 		</execute>
@@ -411,7 +411,7 @@
 
 		<execute macro="Site#viewVirtualHostsURLPG">
 			<var name="siteName" value="Site Name" />
-			<var name="sitePageName" value="Public Page" />
+			<var name="sitePageName" value="Language Page" />
 			<var name="sitePageURL" value="http://www.able.com:8080/en/" />
 		</execute>
 
