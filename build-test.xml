@@ -2715,7 +2715,7 @@ org.apache.catalina.startup.ClassLoaderFactory.level=INFO]]>
 
 			<record action="start" name="${app.server.log.file.path}" />
 
-			<local name="app.server.timeout" />
+			<local name="app.server.timed.out.message" />
 
 			<beanshell>
 				<![CDATA[
@@ -2744,7 +2744,7 @@ org.apache.catalina.startup.ClassLoaderFactory.level=INFO]]>
 						}
 
 						if (second >= 900) {
-							project.setProperty("app.server.timeout", "Failed to find startup message after 15 minutes");
+							project.setProperty("app.server.timed.out.message", "Unable to find startup message after 15 minutes.");
 
 							break;
 						}
@@ -2761,9 +2761,9 @@ org.apache.catalina.startup.ClassLoaderFactory.level=INFO]]>
 			<delete file="${app.server.log.file.path}" />
 
 			<if>
-				<isset property="app.server.timeout" />
+				<isset property="app.server.timed.out.message" />
 				<then>
-					<fail message="${app.server.timeout}" />
+					<fail message="${app.server.timed.out.message}" />
 				</then>
 			</if>
 		</sequential>
