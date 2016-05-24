@@ -23,9 +23,7 @@ LayoutSetBranch layoutSetBranch = (LayoutSetBranch)row.getObject();
 
 long currentLayoutSetBranchId = GetterUtil.getLong((String)request.getAttribute("view_layout_set_branches.jsp-currentLayoutSetBranchId"));
 
-String currentCompleteUrl = (String)request.getAttribute(WebKeys.CURRENT_COMPLETE_URL);
-
-String refererPlid = HttpUtil.getParameter(currentCompleteUrl, "refererPlid", false);
+String refererPlid = HttpUtil.getParameter((String)request.getAttribute(WebKeys.CURRENT_COMPLETE_URL), "refererPlid", false);
 %>
 
 <liferay-ui:icon-menu>
