@@ -10,6 +10,15 @@
 	</tear-down>
 
 	<command name="ViewEditURLLocale" priority="4">
+		<execute macro="Page#gotoConfigurationCP">
+			<var name="portletName" value="Site Settings" />
+		</execute>
+
+		<execute macro="Site#configureCurrentLanguagesViaSiteSettings">
+			<var name="currentSiteLanguages" value="English (United States),Hungarian (Hungary)" />
+			<var name="defaultSiteLanguage" value="English (United States)" />
+		</execute>
+
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
