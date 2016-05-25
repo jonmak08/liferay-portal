@@ -1776,7 +1776,7 @@
 		</field>
 		<field name="type" type="int" />
 		<field name="defaultData" type="String">
-			<hint-collection name="TEXTAREA" />
+			<hint-collection name="CLOB" />
 		</field>
 		<field name="typeSettings" type="String">
 			<hint-collection name="CLOB" />
@@ -2277,7 +2277,7 @@
 		<field name="createDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
 		<field name="itemIds" type="String">
-			<hint-collection name="TEXTAREA" />
+			<hint-collection name="CLOB" />
 		</field>
 		<field name="couponCodes" type="String" />
 		<field name="altShipping" type="int" />
@@ -2461,7 +2461,7 @@
 			<hint name="display-width">30</hint>
 		</field>
 		<field name="comments" type="String">
-			<hint-collection name="TEXTAREA" />
+			<hint-collection name="CLOB" />
 		</field>
 		<field name="ppTxnId" type="String" />
 		<field name="ppPaymentStatus" type="String" />
