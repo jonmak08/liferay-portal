@@ -739,7 +739,7 @@ create table ExpandoColumn (
 	tableId LONG,
 	name VARCHAR(75) null,
 	type_ INTEGER,
-	defaultData STRING null,
+	defaultData TEXT null,
 	typeSettings TEXT null
 );
 
@@ -1776,7 +1776,7 @@ create table ShoppingCart (
 	userName VARCHAR(75) null,
 	createDate DATE null,
 	modifiedDate DATE null,
-	itemIds STRING null,
+	itemIds TEXT null,
 	couponCodes VARCHAR(75) null,
 	altShipping INTEGER,
 	insure BOOLEAN
@@ -1918,7 +1918,7 @@ create table ShoppingOrder (
 	ccExpMonth INTEGER,
 	ccExpYear INTEGER,
 	ccVerNumber VARCHAR(75) null,
-	comments STRING null,
+	comments TEXT null,
 	ppTxnId VARCHAR(75) null,
 	ppPaymentStatus VARCHAR(75) null,
 	ppPaymentGross DOUBLE,
