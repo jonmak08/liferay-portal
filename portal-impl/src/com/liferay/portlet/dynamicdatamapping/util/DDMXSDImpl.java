@@ -132,7 +132,8 @@ public class DDMXSDImpl implements DDMXSD {
 
 		String name = element.attributeValue("name");
 
-		String fieldDisplayValue = getFieldsDisplayValue(pageContext, fields);
+		String fieldDisplayValue = getFieldsDisplayValue(
+			pageContext, fields, namespace);
 
 		String[] fieldsDisplayValues = getFieldsDisplayValues(
 			fieldDisplayValue);
@@ -769,7 +770,7 @@ public class DDMXSDImpl implements DDMXSD {
 	}
 
 	protected String getFieldsDisplayValue(
-		PageContext pageContext, Fields fields) {
+		PageContext pageContext, Fields fields, String namespace) {
 
 		String defaultFieldsDisplayValue = null;
 
@@ -784,7 +785,7 @@ public class DDMXSDImpl implements DDMXSD {
 
 		return ParamUtil.getString(
 			(HttpServletRequest)pageContext.getRequest(),
-			DDMImpl.FIELDS_DISPLAY_NAME, defaultFieldsDisplayValue);
+			namespace + DDMImpl.FIELDS_DISPLAY_NAME, defaultFieldsDisplayValue);
 	}
 
 	protected String[] getFieldsDisplayValues(String fieldDisplayValue) {
