@@ -76,7 +76,6 @@ public interface CountryService extends BaseService {
 		java.lang.String a2)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
-	@AccessControlled(guestAccessEnabled = true)
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.liferay.portal.model.Country fetchCountryByA3(
 		java.lang.String a3)
@@ -106,6 +105,7 @@ public interface CountryService extends BaseService {
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
+	@AccessControlled(guestAccessEnabled = true)
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.liferay.portal.model.Country getCountryByName(
 		java.lang.String name)
