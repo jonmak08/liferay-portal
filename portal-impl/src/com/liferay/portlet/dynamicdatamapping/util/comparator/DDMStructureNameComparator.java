@@ -43,21 +43,17 @@ public class DDMStructureNameComparator implements Comparator<DDMStructure> {
 
 	@Override
 	public int compare(DDMStructure DDMStructure1, DDMStructure DDMStructure2) {
+		Collator collator = Collator.getInstance(_locale);
+
+		int value = collator.compare(
+			DDMStructure1.getName(_locale), DDMStructure2.getName(_locale));
+
 		if (_ascending) {
-			return _COLLATOR.compare(
-					DDMStructure1.getName(_locale),
-					DDMStructure2.getName(_locale));
+			return value;
 		}
 		else {
-			return - (_COLLATOR.compare(
-					DDMStructure1.getName(_locale),
-					DDMStructure2.getName(_locale)));
+			return - value;
 		}
-	}
-
-	private static final Collator _COLLATOR = Collator.getInstance();
-	static {
-		_COLLATOR.setStrength(Collator.PRIMARY);
 	}
 
 	private final boolean _ascending;
