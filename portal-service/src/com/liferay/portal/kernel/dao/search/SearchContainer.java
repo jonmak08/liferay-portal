@@ -89,17 +89,6 @@ public class SearchContainer<R> {
 		PortletURL iteratorURL, List<String> headerNames,
 		String emptyResultsMessage) {
 
-		this(
-			portletRequest, displayTerms, searchTerms, curParam, cur, delta,
-			iteratorURL, headerNames, emptyResultsMessage, DEFAULT_FORCE_POST);
-	}
-
-	public SearchContainer(
-		PortletRequest portletRequest, DisplayTerms displayTerms,
-		DisplayTerms searchTerms, String curParam, int cur, int delta,
-		PortletURL iteratorURL, List<String> headerNames,
-		String emptyResultsMessage, boolean forcePost) {
-
 		_portletRequest = portletRequest;
 		_displayTerms = displayTerms;
 		_searchTerms = searchTerms;
@@ -169,8 +158,6 @@ public class SearchContainer<R> {
 		if (searchContainerReference != null) {
 			searchContainerReference.register(this);
 		}
-
-		_forcePost = forcePost;
 	}
 
 	public SearchContainer(
