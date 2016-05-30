@@ -1806,7 +1806,11 @@ public class HookHotDeployListener
 			Properties portalProperties, Properties unfilteredPortalProperties)
 		throws Exception {
 
-		PropsUtil.addProperties(portalProperties);
+		List<Company> companies = CompanyLocalServiceUtil.getCompanies();
+
+		for (Company company :companies) {
+			PropsUtil.addProperties(company, portalProperties);
+		}
 
 		if (_log.isDebugEnabled() && portalProperties.containsKey(LOCALES)) {
 			_log.debug(
