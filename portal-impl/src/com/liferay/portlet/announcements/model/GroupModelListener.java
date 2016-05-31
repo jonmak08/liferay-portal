@@ -17,6 +17,7 @@ package com.liferay.portlet.announcements.model;
 import com.liferay.portal.ModelListenerException;
 import com.liferay.portal.model.BaseModelListener;
 import com.liferay.portal.model.Group;
+import com.liferay.portal.service.ClassNameLocalServiceUtil;
 import com.liferay.portlet.announcements.service.AnnouncementsEntryLocalServiceUtil;
 
 /**
@@ -34,6 +35,14 @@ public class GroupModelListener extends BaseModelListener<Group> {
 			else {
 				AnnouncementsEntryLocalServiceUtil.deleteEntries(
 					group.getClassNameId(), group.getClassPK());
+
+				if (group.isOrganization()) {
+					long classNameId = ClassNameLocalServiceUtil.getClassNameId(
+						Group.class);
+
+					AnnouncementsEntryLocalServiceUtil.deleteEntries(
+						classNameId, group.getGroupId());
+				}
 			}
 		}
 		catch (Exception e) {
