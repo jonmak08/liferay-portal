@@ -308,7 +308,7 @@ echo "Sent notification."]]>
 				<catch>
 					<echo message="${exception.message}" />
 
-					<fail message="Unable to prepare test build" />
+					<fail message="Unable to prepare test build." />
 				</catch>
 			</trycatch>
 		</sequential>
@@ -383,7 +383,7 @@ app.server.type=@{app.server.type}]]></echo>
 				<catch>
 					<echo message="${exception.message}" />
 
-					<fail message="Unable to prepare test build" />
+					<fail message="Unable to prepare test build." />
 				</catch>
 			</trycatch>
 		</sequential>
