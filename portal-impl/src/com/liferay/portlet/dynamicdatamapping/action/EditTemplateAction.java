@@ -332,7 +332,7 @@ public class EditTemplateAction extends PortletAction {
 					"displayDDMTemplateId",
 					String.valueOf(template.getTemplateId()));
 			}
-			else {
+			else if (mode.equals(DDMTemplateConstants.TEMPLATE_MODE_CREATE)) {
 				portletPreferences.setValue(
 					"formDDMTemplateId",
 					String.valueOf(template.getTemplateId()));
