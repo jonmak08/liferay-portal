@@ -17,5 +17,6 @@
 <%@ include file="/sidebar_panel/init.jsp" %>
 
 <div class="sidenav-menu-slider">
-	<div class="sidebar sidebar-default sidenav-menu" id="<%= namespace %>sidebarPanel">
+	<div class="sidebar sidebar-default sidenav-menu">
 		<aui:icon cssClass="icon-monospaced pull-right sidenav-close text-default visible-xs-block" image="times" markupView="lexicon" url="javascript:;" />
+		<div id="<%= namespace %>sidebarPanel">

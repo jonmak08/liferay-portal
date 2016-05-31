@@ -124,9 +124,6 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(fileEntries) && ListUtil.isEmp
 				<li>
 					<liferay-util:include page="/document_library/file_entry_action.jsp" servletContext="<%= application %>" />
 				</li>
-				<li>
-					<aui:icon cssClass="icon-monospaced sidenav-close visible-xs-block" data="<%= infoPanelToggleData %>" image="times" markupView="lexicon" url="javascript:;" />
-				</li>
 			</ul>
 
 			<h4><%= HtmlUtil.escape(fileEntry.getTitle()) %></h4>
@@ -306,9 +303,6 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(fileEntries) && ListUtil.isEmp
 				<li>
 					<liferay-util:include page="/document_library/file_entry_action.jsp" servletContext="<%= application %>" />
 				</li>
-				<li>
-					<aui:icon cssClass="icon-monospaced sidenav-close visible-xs-block" data="<%= infoPanelToggleData %>" image="times" markupView="lexicon" url="javascript:;" />
-				</li>
 			</ul>
 
 			<h4><%= HtmlUtil.escape(fileShortcut.getToTitle()) %></h4>
@@ -424,9 +418,6 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(fileEntries) && ListUtil.isEmp
 			<ul class="list-inline list-unstyled">
 				<li>
 					<h4><liferay-ui:message arguments="<%= folders.size() + fileEntries.size() %>" key="x-items-selected" /></h4>
-				</li>
-				<li>
-					<aui:icon cssClass="icon-monospaced sidenav-close visible-xs-block" data="<%= infoPanelToggleData %>" image="times" markupView="lexicon" url="javascript:;" />
 				</li>
 			</ul>
 		</div>
