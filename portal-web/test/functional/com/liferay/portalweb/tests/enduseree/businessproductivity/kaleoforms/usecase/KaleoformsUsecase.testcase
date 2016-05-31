@@ -7684,6 +7684,7 @@
 		<description message="This is a use case for LPS-50688 and LPS-35263." />
 
 		<property name="test.assert.javascript.errors" value="false" />
+		<property name="test.smtp.server.enabled" value="true" />
 
 		<var name="field" value="Text" />
 		<var name="fieldFieldLabel" value="Text" />
@@ -8008,6 +8009,23 @@
 		<execute macro="KaleoFormsPortlet#rejectProcess">
 			<var name="kfProcessName" value="${kfProcessName}" />
 			<var name="workflowTask" value="review" />
+		</execute>
+
+		<execute macro="MockMock#viewMail">
+			<var name="asset" value="Update Notification Description" />
+			<var name="recipient" value="${user2FirstName} ${user2LastName}" />
+			<var name="sender" value="Liferay Portal Workflow Notifications" />
+			<var name="subject" value="Your submission was rejected by ${user3FirstName} ${user3LastName}, please modify and resubmit." />
+		</execute>
+
+		<execute macro="MockMock#viewNoMailFromInbox">
+			<var name="asset" value="Update Notification Description" />
+			<var name="recipient" value="${user1FirstName} ${user1LastName}" />
+		</execute>
+
+		<execute macro="MockMock#viewNoMailFromInbox">
+			<var name="asset" value="Update Notification Description" />
+			<var name="recipient" value="${user3FirstName} ${user3LastName}" />
 		</execute>
 	</command>
 
