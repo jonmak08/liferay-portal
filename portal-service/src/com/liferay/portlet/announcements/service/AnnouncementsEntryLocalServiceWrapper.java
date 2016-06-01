@@ -384,6 +384,13 @@ public class AnnouncementsEntryLocalServiceWrapper
 	}
 
 	@Override
+	public void deleteEntries(long classNameId, long classPK)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		_announcementsEntryLocalService.deleteEntries(classNameId, classPK);
+	}
+
+	@Override
 	public java.util.List<com.liferay.portlet.announcements.model.AnnouncementsEntry> getEntries(
 		long userId, java.util.LinkedHashMap<java.lang.Long, long[]> scopes,
 		boolean alert, int flagValue, int start, int end)
