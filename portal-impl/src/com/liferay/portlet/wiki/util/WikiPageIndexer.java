@@ -42,6 +42,7 @@ import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.messageboards.model.MBMessage;
+import com.liferay.portlet.trash.util.TrashUtil;
 import com.liferay.portlet.wiki.model.WikiNode;
 import com.liferay.portlet.wiki.model.WikiPage;
 import com.liferay.portlet.wiki.service.WikiNodeServiceUtil;
@@ -205,7 +206,14 @@ public class WikiPageIndexer extends BaseIndexer {
 		document.addText(Field.CONTENT, content);
 
 		document.addKeyword(Field.NODE_ID, page.getNodeId());
-		document.addText(Field.TITLE, page.getTitle());
+
+		String title = page.getTitle();
+
+		if (page.isInTrash()) {
+			title = TrashUtil.getOriginalTitle(title);
+		}
+
+		document.addText(Field.TITLE, title);
 
 		return document;
 	}
