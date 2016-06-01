@@ -18,17 +18,13 @@
 
 		<var name="appName" value="Social Networking" />
 
-		<execute macro="Page#gotoPG">
-			<var name="pageName" value="Test Page" />
-		</execute>
+		<execute macro="Page#gotoMyDashboard" />
 
 		<execute macro="Portlet#addPG">
 			<var name="portletName" value="Friends" />
 		</execute>
 
-		<execute macro="Page#gotoPG">
-			<var name="pageName" value="Test Page" />
-		</execute>
+		<execute macro="Page#gotoMyDashboard" />
 
 		<execute macro="Portlet#addPG">
 			<var name="portletName" value="Friends' Activities" />
@@ -82,9 +78,7 @@
 			<var name="portletName" value="Summary" />
 		</execute>
 
-		<execute macro="Page#gotoPG">
-			<var name="pageName" value="Test Page" />
-		</execute>
+		<execute macro="Page#gotoMyDashboard" />
 
 		<execute macro="Portlet#addPG">
 			<var name="portletName" value="Wall" />
