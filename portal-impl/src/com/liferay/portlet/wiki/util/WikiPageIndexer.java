@@ -198,8 +198,6 @@ public class WikiPageIndexer extends BaseIndexer {
 
 		Document document = getBaseModelDocument(PORTLET_ID, page);
 
-		document.addUID(PORTLET_ID, page.getResourcePrimKey());
-
 		String content = HtmlUtil.extractText(
 			WikiUtil.convert(page, null, null, null));
 
