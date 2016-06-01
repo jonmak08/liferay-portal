@@ -122,6 +122,16 @@
 			</then>
 		</if>
 
+		<if>
+			<or>
+				<equals arg1="${portletName}" arg2="Friends' Activities" />
+				<equals arg1="${portletName}" arg2="Members' Activities" />
+			</or>
+			<then>
+				<var name="portletLocator" value="xpath=//span[@data-title=&quot;${portletName}&quot; and contains(@class,'add-content-item')]" />
+			</then>
+		</if>
+
 		<execute function="AssertClick#pauseMakeVisibleAssertTextEqualsClickAt" locator1="${portletLocator}" value1="Add" />
 
 		<execute function="Pause" locator1="5000" />
