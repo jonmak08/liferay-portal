@@ -21,8 +21,6 @@ import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.sanitizer.SanitizerUtil;
-import com.liferay.portal.kernel.search.Indexable;
-import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistryUtil;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
@@ -1563,8 +1561,7 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 			nodeId, title, true, 0, 1);
 
 		if (!wikiPages.isEmpty()) {
-			return wikiPageLocalService.movePageToTrash(
-					userId, wikiPages.get(0));
+			return movePageToTrash(userId, wikiPages.get(0));
 		}
 
 		return null;
@@ -1577,10 +1574,9 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 
 		WikiPage page = wikiPagePersistence.findByN_T_V(nodeId, title, version);
 
-		return wikiPageLocalService.movePageToTrash(userId, page);
+		return movePageToTrash(userId, page);
 	}
 
-	@Indexable(type = IndexableType.REINDEX)
 	@Override
 	public WikiPage movePageToTrash(long userId, WikiPage page)
 		throws PortalException, SystemException {
@@ -1712,6 +1708,11 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 				page.getCompanyId(), page.getGroupId(),
 				WikiPage.class.getName(), page.getPageId());
 		}
+
+		Indexer<WikiPage> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
+			WikiPage.class);
+
+		indexer.reindex(page);
 
 		return page;
 	}
@@ -1863,14 +1864,10 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 			SocialActivityConstants.TYPE_RESTORE_FROM_TRASH,
 			extraDataJSONObject.toString(), 0);
 
-		if (!pageVersions.isEmpty()) {
-			Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
-				WikiPage.class);
+		Indexer<WikiPage> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
+			WikiPage.class);
 
-			for (WikiPage pageVersion : pageVersions) {
-				indexer.reindex(pageVersion);
-			}
-		}
+		indexer.reindex(page);
 	}
 
 	@Override
