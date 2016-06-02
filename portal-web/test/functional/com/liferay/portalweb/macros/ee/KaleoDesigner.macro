@@ -3,6 +3,13 @@
 		<var method="StringUtil#replace('${nodeType}', '-', '_')" name="key_nodeType" />
 
 		<if>
+			<condition function="IsSikuliImagePresent" locator1="Browser#FIREFOX_CONFIGURATION_SAVE_ERROR" />
+			<then>
+				<execute function="SikuliClick" locator1="Browser#FIREFOX_MESSAGE_OK_BUTTON" />
+			</then>
+		</if>
+
+		<if>
 			<equals arg1="${down}" arg2="true" />
 			<then>
 				<execute function="SikuliDragAndDrop" locator1="Kaleodesigner#NODE_CORNER" value1="50,100" />
