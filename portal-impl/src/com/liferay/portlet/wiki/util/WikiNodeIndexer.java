@@ -34,6 +34,7 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.util.PortletKeys;
+import com.liferay.portlet.trash.util.TrashUtil;
 import com.liferay.portlet.wiki.model.WikiNode;
 import com.liferay.portlet.wiki.service.WikiNodeLocalServiceUtil;
 import com.liferay.portlet.wiki.service.permission.WikiNodePermission;
@@ -100,7 +101,14 @@ public class WikiNodeIndexer extends BaseIndexer {
 		document.addUID(PORTLET_ID, node.getNodeId(), node.getName());
 
 		document.addText(Field.DESCRIPTION, node.getDescription());
-		document.addText(Field.TITLE, node.getName());
+
+		String title = node.getName();
+
+		if (node.isInTrash()) {
+			title = TrashUtil.getOriginalTitle(title);
+		}
+
+		document.addText(Field.TITLE, title);
 
 		return document;
 	}

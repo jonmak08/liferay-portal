@@ -39,6 +39,7 @@ import com.liferay.portlet.journal.model.JournalFolder;
 import com.liferay.portlet.journal.service.JournalFolderLocalServiceUtil;
 import com.liferay.portlet.journal.service.permission.JournalFolderPermission;
 import com.liferay.portlet.journal.service.persistence.JournalFolderActionableDynamicQuery;
+import com.liferay.portlet.trash.util.TrashUtil;
 
 import java.util.Locale;
 
@@ -116,7 +117,14 @@ public class JournalFolderIndexer extends BaseIndexer {
 
 		document.addText(Field.DESCRIPTION, folder.getDescription());
 		document.addKeyword(Field.FOLDER_ID, folder.getParentFolderId());
-		document.addText(Field.TITLE, folder.getName());
+
+		String title = folder.getName();
+
+		if (folder.isInTrash()) {
+			title = TrashUtil.getOriginalTitle(title);
+		}
+
+		document.addText(Field.TITLE, title);
 		document.addKeyword(
 			Field.TREE_PATH,
 			StringUtil.split(folder.getTreePath(), CharPool.SLASH));
