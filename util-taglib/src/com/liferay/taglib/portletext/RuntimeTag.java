@@ -176,8 +176,7 @@ public class RuntimeTag extends TagSupport {
 
 			PortletJSONUtil.writeHeaderPaths(response, jsonObject);
 
-			embeddedPortletIds.push(
-				portletInstance.getPortletInstanceKey());
+			embeddedPortletIds.push(portletInstance.getPortletInstanceKey());
 
 			PortletContainerUtil.render(request, response, portlet);
 
@@ -258,8 +257,7 @@ public class RuntimeTag extends TagSupport {
 	private static Log _log = LogFactoryUtil.getLog(RuntimeTag.class);
 
 	private static final ThreadLocal<Stack<String>> _embeddedPortletIds =
-		new AutoResetThreadLocal<>(
-			RuntimeTag.class + "._embeddedPortletIds");
+		new AutoResetThreadLocal<>(RuntimeTag.class + "._embeddedPortletIds");
 
 	private String _defaultPreferences;
 	private String _portletName;
