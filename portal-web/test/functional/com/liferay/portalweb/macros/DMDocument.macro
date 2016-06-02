@@ -405,6 +405,9 @@
 		</if>
 
 		<execute function="AssertClick" locator1="PGDocumentsandmediaAddmultipledocuments#SAVE_BUTTON" value1="Save" />
+
+		<execute function="Pause" locator1="3000" />
+
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGDocumentsandmediaAddmultipledocuments#ALL_FILES_READY_TO_BE_SAVED_SUCCESS_MESSAGE" value1="Successfully saved." />
 	</command>
 
