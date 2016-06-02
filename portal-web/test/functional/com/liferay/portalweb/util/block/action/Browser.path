@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Browser</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Browser</td></tr>
+</thead>
+<tbody>
+<!--FIREFOX-->
+<tr>
+	<td>FIREFOX_CONFIGURATION_SAVE_ERROR</td>
+	<td>browser/firefox/configuration_save_error.png</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIREFOX_MESSAGE_OK_BUTTON</td>
+	<td>browser/firefox/message_ok_button.png</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
