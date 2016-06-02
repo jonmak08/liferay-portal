@@ -20,11 +20,6 @@
 JournalFolder folder = (JournalFolder)request.getAttribute("view.jsp-folder");
 
 long folderId = GetterUtil.getLong((String)request.getAttribute("view.jsp-folderId"));
-
-List<DDMStructure> ddmStructures = DDMStructureServiceUtil.getStructures(PortalUtil.getSiteAndCompanyGroupIds(themeDisplay), PortalUtil.getClassNameId(JournalArticle.class));
-if (PropsValues.JOURNAL_BROWSE_BY_STRUCTURES_SORTED_BY_NAME) {
-	ddmStructures = ListUtil.sort(ddmStructures, new DDMStructureNameComparator(locale));
-}
 %>
 
 <aui:nav-item dropdown="<%= true %>" id="addButtonContainer" label="add">
@@ -50,6 +45,12 @@ if (PropsValues.JOURNAL_BROWSE_BY_STRUCTURES_SORTED_BY_NAME) {
 		<aui:nav-item href="<%= addArticleURL %>" iconCssClass="icon-tasks" label="basic-web-content" />
 
 		<%
+		List<DDMStructure> ddmStructures = DDMStructureServiceUtil.getStructures(PortalUtil.getSiteAndCompanyGroupIds(themeDisplay), PortalUtil.getClassNameId(JournalArticle.class));
+
+		if (PropsValues.JOURNAL_BROWSE_BY_STRUCTURES_SORTED_BY_NAME) {
+			ddmStructures = ListUtil.sort(ddmStructures, new DDMStructureNameComparator(locale));
+		}
+
 		for (DDMStructure ddmStructure : ddmStructures) {
 		%>
 
