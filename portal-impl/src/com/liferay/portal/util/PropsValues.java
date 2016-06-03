@@ -729,7 +729,7 @@ public class PropsValues {
 	public static final float EDITOR_CKEDITOR_VERSION_LATEST_IE = GetterUtil.getFloat(PropsUtil.get(PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_IE));
 
 	public static final float EDITOR_CKEDITOR_VERSION_LATEST_SAFARI = GetterUtil.getFloat(PropsUtil.get(PropsKeys.EDITOR_CKEDITOR_VERSION_LATEST_SAFARI));
-	
+
 	public static final boolean EDITOR_INLINE_EDITING_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.EDITOR_INLINE_EDITING_ENABLED));
 
 	public static final String EDITOR_WYSIWYG_DEFAULT = PropsUtil.get(PropsKeys.EDITOR_WYSIWYG_DEFAULT);
@@ -1119,6 +1119,8 @@ public class PropsValues {
 	public static final String LDAP_IMPORT_USER_PASSWORD_DEFAULT = GetterUtil.getString(PropsUtil.get(PropsKeys.LDAP_IMPORT_USER_PASSWORD_DEFAULT));
 
 	public static final boolean LDAP_IMPORT_USER_PASSWORD_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.LDAP_IMPORT_USER_PASSWORD_ENABLED));
+
+	public static final String LDAP_IMPORT_USER_SYNC_STRATEGY = GetterUtil.getString(PropsUtil.get(PropsKeys.LDAP_IMPORT_USER_SYNC_STRATEGY));
 
 	public static final int LDAP_PAGE_SIZE = GetterUtil.getInteger(PropsUtil.get(PropsKeys.LDAP_PAGE_SIZE));
 
