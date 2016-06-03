@@ -6,8 +6,6 @@ AUI.add(
 
 		var BODY_CONTENT = 'bodyContent';
 
-		var CSS_OVER = 'over';
-
 		var STR_ACTION = 'action';
 
 		var STR_ALIGN_NODE = 'align.node';
