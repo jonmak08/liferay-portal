@@ -30,7 +30,9 @@ import java.io.ObjectOutputStream;
 public class SerializableUtil {
 
 	public static Object clone(Object object) {
-		return deserialize(serialize(object));
+		Class<?> clazz = object.getClass();
+
+		return deserialize(serialize(object), clazz.getClassLoader());
 	}
 
 	public static Object deserialize(byte[] bytes) {
