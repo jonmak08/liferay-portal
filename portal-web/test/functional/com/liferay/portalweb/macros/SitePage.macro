@@ -170,7 +170,6 @@
 	</command>
 
 	<command name="embeddedPageTypePG">
-
 		<execute function="Click" locator1="DockbarEdit#DOCKBAR_EDIT" value1="Edit" />
 		<execute function="AssertClick" locator1="DockbarEdit#DETAILS_TYPE_PAGE_OPTIONS" value1="Embedded" />
 		<execute function="Type" locator1="DockbarEdit#DETAILS_TYPE_PAGE_URL" value1="http://www.liferay.com" />
