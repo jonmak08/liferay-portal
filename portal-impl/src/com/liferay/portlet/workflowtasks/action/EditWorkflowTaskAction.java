@@ -22,6 +22,7 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowException;
+import com.liferay.portal.kernel.workflow.WorkflowTask;
 import com.liferay.portal.kernel.workflow.WorkflowTaskDueDateException;
 import com.liferay.portal.kernel.workflow.WorkflowTaskManagerUtil;
 import com.liferay.portal.security.auth.PrincipalException;
@@ -142,6 +143,19 @@ public class EditWorkflowTaskAction extends PortletAction {
 		long assigneeUserId = ParamUtil.getLong(
 			actionRequest, "assigneeUserId");
 		String comment = ParamUtil.getString(actionRequest, "comment");
+
+		WorkflowTask workflowTask = WorkflowTaskManagerUtil.getWorkflowTask(
+			themeDisplay.getCompanyId(), workflowTaskId);
+
+		if (!WorkflowTaskPermissionChecker.hasAssignmentPermission(
+				themeDisplay.getScopeGroupId(), workflowTask,
+				themeDisplay.getPermissionChecker())) {
+
+			throw new PrincipalException(
+				"User " + themeDisplay.getUserId() + " does not have " +
+				"permissions to assign the task " + workflowTaskId +
+				"to someone.");
+		}
 
 		WorkflowTaskManagerUtil.assignWorkflowTaskToUser(
 			themeDisplay.getCompanyId(), themeDisplay.getUserId(),
