@@ -535,7 +535,8 @@ public class AssetPublisherImpl implements AssetPublisher {
 						assetEntry.getClassName());
 
 			AssetRenderer assetRenderer = assetRendererFactory.getAssetRenderer(
-				assetEntry.getClassPK(), AssetRendererFactory.TYPE_LATEST);
+				assetEntry.getClassPK(),
+				AssetRendererFactory.TYPE_LATEST_APPROVED);
 
 			if (!assetRendererFactory.isActive(
 					permissionChecker.getCompanyId())) {
