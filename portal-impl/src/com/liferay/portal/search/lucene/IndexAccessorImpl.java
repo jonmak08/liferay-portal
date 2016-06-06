@@ -247,14 +247,14 @@ public class IndexAccessorImpl implements IndexAccessor {
 
 		_indexWriter.close();
 
-		Directory luceneDir = getLuceneDir();
+		Directory luceneDirectory = getLuceneDir();
 
-		for (String file : luceneDir.listAll()) {
-			luceneDir.deleteFile(file);
+		for (String fileName : luceneDirectory.listAll()) {
+			luceneDirectory.deleteFile(fileName);
 		}
 
-		for (String file : tempDirectory.listAll()) {
-			tempDirectory.copy(getLuceneDir(), file, file);
+		for (String fileName : tempDirectory.listAll()) {
+			tempDirectory.copy(getLuceneDir(), fileName, fileName);
 		}
 
 		_initIndexWriter();
