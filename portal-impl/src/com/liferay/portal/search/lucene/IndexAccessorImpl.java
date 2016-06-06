@@ -249,9 +249,9 @@ public class IndexAccessorImpl implements IndexAccessor {
 
 		Directory luceneDir = getLuceneDir();
 
- 		for (String file : luceneDir.listAll()) {
- 			luceneDir.deleteFile(file);
- 		}
+		for (String file : luceneDir.listAll()) {
+			luceneDir.deleteFile(file);
+		}
 
 		for (String file : tempDirectory.listAll()) {
 			tempDirectory.copy(getLuceneDir(), file, file);
