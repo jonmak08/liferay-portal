@@ -250,9 +250,6 @@
 	</command>
 
 	<command name="AddNewWorkflowDefinitionViaViewTab" priority="5">
-		<var name="nodeNodeLabel" value="Task" />
-		<var name="nodeType" value="task" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Workflow" />
 		</execute>
