@@ -24,6 +24,7 @@ import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.Base64;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.Constants;
@@ -483,9 +484,7 @@ public class LicenseUtil {
 			}
 		}
 		catch (Exception e) {
-			_log.error("Unable to read local server's IP addresses");
-
-			_log.error(e, e);
+			_log.error("Unable to read local server's IP addresses", e);
 		}
 
 		return Collections.unmodifiableSet(ipAddresses);
@@ -501,7 +500,7 @@ public class LicenseUtil {
 			for (NetworkInterface networkInterface : networkInterfaces) {
 				byte[] hardwareAddress = networkInterface.getHardwareAddress();
 
-				if (hardwareAddress == null) {
+				if (ArrayUtil.isEmpty(hardwareAddress)) {
 					continue;
 				}
 
@@ -523,9 +522,7 @@ public class LicenseUtil {
 			}
 		}
 		catch (Exception e) {
-			_log.error("Unable to read local server's MAC addresses");
-
-			_log.error(e, e);
+			_log.error("Unable to read local server's MAC addresses", e);
 		}
 
 		return Collections.unmodifiableSet(macAddresses);
