@@ -6192,37 +6192,16 @@ ANT_OPTS=${env.ANT_OPTS}</echo>
 					<format property="tstamp.value" pattern="yyyyMMddkkmmssSSS" />
 				</tstamp>
 
-				<mirrors-get
-					dest="${tstamp.value}.zip"
-					src="${test.build.bundle.zip.url}"
-				/>
+				<mirrors-get dest="${tstamp.value}.zip" src="${test.build.bundle.zip.url}" />
 
-				<unzip
-					dest="${app.server.parent.dir}"
-					src="${tstamp.value}.zip"
-				>
-					<patternset
-						includes="liferay-portal-*/${app.server.name}-*/**"
-					/>
-					<mapper
-						from="[^/]+/(.*)"
-						to="\1"
-						type="regexp"
-					/>
+				<unzip dest="${app.server.parent.dir}" src="${tstamp.value}.zip">
+					<patternset includes="liferay-portal-*/${app.server.name}-*/**" />
+					<mapper from="[^/]+/(.*)" to="\1" type="regexp" />
 				</unzip>
 
-				<unzip
-					dest="${app.server.parent.dir}"
-					src="${tstamp.value}.zip"
-				>
-					<patternset
-						includes="liferay-portal-*/patching-tool/patches/**"
-					/>
-					<mapper
-						from="[^/]+/(.*)"
-						to="${app.server.dir}//\1"
-						type="regexp"
-					/>
+				<unzip dest="${app.server.parent.dir}" src="${tstamp.value}.zip">
+					<patternset includes="liferay-portal-*/patching-tool/patches/**" />
+					<mapper from="[^/]+/(.*)" to="${app.server.dir}//\1" type="regexp" />
 				</unzip>
 
 				<delete file="${tstamp.value}.zip" />
