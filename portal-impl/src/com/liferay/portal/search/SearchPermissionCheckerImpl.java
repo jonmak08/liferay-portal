@@ -103,16 +103,16 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 				return;
 			}
 
-			String viewActionId = document.get(Field.VIEW_ACTION_ID);
-
-			if (Validator.isNull(viewActionId)) {
-				viewActionId = ActionKeys.VIEW;
-			}
-
 			Indexer indexer = IndexerRegistryUtil.getIndexer(className);
 
 			if (!indexer.isPermissionAware()) {
 				return;
+			}
+
+			String viewActionId = document.get(Field.VIEW_ACTION_ID);
+
+			if (Validator.isNull(viewActionId)) {
+				viewActionId = ActionKeys.VIEW;
 			}
 
 			doAddPermissionFields_6(
