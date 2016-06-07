@@ -15,6 +15,7 @@
 package com.liferay.portal.security.pwd;
 
 import com.liferay.portal.PwdEncryptorException;
+import com.liferay.portal.kernel.security.SecureRandom;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.Digester;
 import com.liferay.portal.kernel.util.Validator;
@@ -65,7 +66,7 @@ public class CryptPasswordEncryptor
 
 		try {
 			if (Validator.isNull(encryptedPassword)) {
-				Random random = new Random();
+				Random random = new SecureRandom();
 
 				int x = random.nextInt(Integer.MAX_VALUE) % _SALT.length;
 				int y = random.nextInt(Integer.MAX_VALUE) % _SALT.length;
