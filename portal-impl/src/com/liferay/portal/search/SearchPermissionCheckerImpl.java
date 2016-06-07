@@ -103,6 +103,12 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 				return;
 			}
 
+			String viewActionId = document.get(Field.VIEW_ACTION_ID);
+
+			if (Validator.isNull(viewActionId)) {
+				viewActionId = ActionKeys.VIEW;
+			}
+
 			Indexer indexer = IndexerRegistryUtil.getIndexer(className);
 
 			if (!indexer.isPermissionAware()) {
@@ -110,7 +116,7 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 			}
 
 			doAddPermissionFields_6(
-				companyId, groupId, className, classPK, document);
+				companyId, groupId, className, classPK, viewActionId, document);
 		}
 		catch (NoSuchResourceException nsre) {
 		}
@@ -149,7 +155,7 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 
 	protected void doAddPermissionFields_6(
 			long companyId, long groupId, String className, String classPK,
-			Document doc)
+			String viewActionId, Document doc)
 		throws Exception {
 
 		Group group = null;
@@ -183,7 +189,7 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 					companyId, groupId, className, roleIdsArray);
 
 			long actionId = ResourceBlockLocalServiceUtil.getActionId(
-				className, ActionKeys.VIEW);
+				className, viewActionId);
 
 			List<Long> resourceBlockIds =
 				resourceBlockIdsBag.getResourceBlockIds(actionId);
@@ -205,7 +211,7 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 			hasResourcePermissions =
 				ResourcePermissionLocalServiceUtil.hasResourcePermissions(
 					companyId, className, ResourceConstants.SCOPE_INDIVIDUAL,
-					classPK, roleIdsArray, ActionKeys.VIEW);
+					classPK, roleIdsArray, viewActionId);
 		}
 
 		List<Long> roleIds = new ArrayList<Long>();
