@@ -6179,15 +6179,9 @@ ANT_OPTS=${env.ANT_OPTS}</echo>
 	</target>
 
 	<target name="prepare-test-bundle">
-		<if>
+		<condition property="app.server.name" else="${app.server.type}" value="jboss">
 			<equals arg1="${app.server.type}" arg2="wildfly" />
-			<then>
-				<property name="app.server.name" value="jboss" />
-			</then>
-			<else>
-				<property name="app.server.name" value="${app.server.type}" />
-			</else>
-		</if>
+		</condition>
 
 		<if>
 			<matches pattern="http" string="${test.build.bundle.zip.url}" />
