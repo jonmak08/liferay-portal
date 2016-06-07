@@ -99,7 +99,7 @@
 		it reaches ${dateMonth}.
 		-->
 
-		<while>
+		<while max-iterations="50">
 			<condition function="IsTextNotEqual" locator1="PGCalendar#SMALL_CALENDAR_DATE" value1="February 2015" />
 			<then>
 				<execute function="Click" locator1="PGCalendar#SMALL_CALENDAR_PREVIOUS" />
