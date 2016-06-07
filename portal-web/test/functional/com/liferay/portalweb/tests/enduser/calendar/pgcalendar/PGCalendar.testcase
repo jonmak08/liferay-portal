@@ -1828,8 +1828,8 @@
 		</execute>
 
 		<execute macro="CalendarEvent#setDates">
-			<var name="endDate" value="02/2/2015" />
-			<var name="startDate" value="02/2/2015" />
+			<var name="endDate" value="02/2/2016" />
+			<var name="startDate" value="02/2/2016" />
 		</execute>
 
 		<execute macro="CalendarEvent#setRepeating">
@@ -1844,7 +1844,7 @@
 		</execute>
 
 		<execute macro="CalendarNavigator#gotoMonthViaSmallCalendar">
-			<var name="dateMonth" value="February 2015" />
+			<var name="dateMonth" value="February 2016" />
 		</execute>
 
 		<execute macro="CalendarNavigator#gotoSpecificBusyDayViaSmallCalendar">
@@ -1866,7 +1866,7 @@
 		</execute>
 
 		<execute macro="CalendarNavigator#gotoMonthViaSmallCalendar">
-			<var name="dateMonth" value="February 2015" />
+			<var name="dateMonth" value="February 2016" />
 		</execute>
 
 		<execute macro="CalendarNavigator#gotoSpecificBusyDayViaSmallCalendar">
