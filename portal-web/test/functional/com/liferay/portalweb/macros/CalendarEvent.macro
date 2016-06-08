@@ -1263,8 +1263,8 @@
 					<var method="StringUtil#lowerCase('${currentDay}')" name="currentDay" />
 					<var method="StringUtil#upperCaseFirstLetter('${currentDay}')" name="currentDay" />
 
-					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${currentDay}" />"
-					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${numberOfOccurrences} Times" />"
+					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${currentDay}" />
+					<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarAddevent#REPEAT_SUMMARY_2" value1="${numberOfOccurrences} Times" />
 				</then>
 			</elseif>
 			<elseif>
