@@ -86,6 +86,22 @@ public class ListUtil {
 		}
 	}
 
+	public static <E> boolean exists(
+		List<? extends E> list, PredicateFilter<E> predicateFilter) {
+
+		if (isEmpty(list)) {
+			return false;
+		}
+
+		for (E element : list) {
+			if (predicateFilter.filter(element)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	public static <E> List<E> fromArray(E[] array) {
 		if (ArrayUtil.isEmpty(array)) {
 			return new ArrayList<E>();
@@ -183,6 +199,14 @@ public class ListUtil {
 	public static List<String> fromString(String s, String delimiter) {
 		return fromArray(StringUtil.split(s, delimiter));
 	}
+
+	public static boolean isEmpty(List<?> list) {
+		if ((list == null) || list.isEmpty()) {
+			return true;
+		}
+
+		return false;
+}
 
 	/**
 	 * @deprecated As of 6.2.0
