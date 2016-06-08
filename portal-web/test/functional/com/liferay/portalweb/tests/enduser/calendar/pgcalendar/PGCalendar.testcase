@@ -2417,11 +2417,6 @@
 	</command>
 
 	<command name="EditCalendarMyCalendars" priority="5">
-		<var name="calendarName" value="My Calendar Name" />
-		<var name="calendarNameEdit" value="My Calendar Name Edit" />
-		<var name="calendarType" value="My Calendars" />
-		<var name="user" value="Test Test" />
-
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Calendar Page" />
 		</execute>
