@@ -62,7 +62,7 @@ long folderId = GetterUtil.getLong((String)request.getAttribute("view.jsp-folder
 				<portlet:param name="structureId" value="<%= ddmStructure.getStructureKey() %>" />
 			</liferay-portlet:renderURL>
 
-			<aui:nav-item href="<%= addArticleURL %>" iconCssClass="icon-tasks" label="<%= HtmlUtil.escape(ddmStructure.getName(themeDisplay.getLocale())) %>" localizeLabel="<%= false %>" />
+			<aui:nav-item href="<%= addArticleURL %>" iconCssClass="icon-tasks" label="<%= HtmlUtil.escape(ddmStructure.getUnambiguousName(ddmStructures, themeDisplay.getScopeGroupId(), locale)) %>" localizeLabel="<%= false %>" />
 
 		<%
 		}
