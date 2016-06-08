@@ -62,9 +62,13 @@ String eventName = ParamUtil.getString(request, "eventName", "selectStructure");
 				value="<%= String.valueOf(structure.getStructureId()) %>"
 			/>
 
+			<%
+			String name = HtmlUtil.escape(structure.getUnambiguousName(searchContainer.getResults(), themeDisplay.getScopeGroupId(), locale));
+			%>
+
 			<liferay-ui:search-container-column-text
 				name="name"
-				value="<%= HtmlUtil.escape(structure.getName(locale)) %>"
+				value="<%= name %>"
 			/>
 
 			<liferay-ui:search-container-column-text
@@ -85,7 +89,7 @@ String eventName = ParamUtil.getString(request, "eventName", "selectStructure");
 
 					data.put("ddmstructureid", structure.getStructureId());
 					data.put("ddmstructurekey", structure.getStructureKey());
-					data.put("name", structure.getName(locale));
+					data.put("name", name);
 					%>
 
 					<aui:button cssClass="selector-button" data="<%= data %>" value="choose" />
