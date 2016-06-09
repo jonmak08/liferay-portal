@@ -140,7 +140,7 @@ public class LayoutsTreeUtil {
 			request, groupId, privateLayout, parentLayoutId, incomplete,
 			expandedLayoutIds, treeId);
 
-		return _toJSONObject(request, groupId, layoutTreeNodes).toString();
+		return _toJSON(request, groupId, layoutTreeNodes);
 	}
 
 	public static String getLayoutsJSON(
@@ -158,7 +158,7 @@ public class LayoutsTreeUtil {
 				request, groupId, false,
 				LayoutConstants.DEFAULT_PARENT_LAYOUT_ID, false, null, treeId));
 
-		return _toJSONObject(request, groupId, layoutTreeNodes).toString();
+		return _toJSON(request, groupId, layoutTreeNodes);
 	}
 
 	private static JSONObject _convertListLayoutToJSONObject(
@@ -338,6 +338,14 @@ public class LayoutsTreeUtil {
 		end = Math.max(start, Math.min(end, layouts.size()));
 
 		return layouts.subList(start, end);
+	}
+
+	private static String _toJSON(
+			HttpServletRequest request, long groupId,
+			LayoutTreeNodes layoutTreeNodes)
+		throws Exception {
+
+		return _toJSONObject(request, groupId, layoutTreeNodes).toString();
 	}
 
 	private static JSONObject _toJSONObject(
