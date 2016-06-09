@@ -10,7 +10,7 @@
 <tbody>
 <tr>
 	<td>SOCIAL_BOOKMARKS_CONFIGURATION_CHECKBOX</td>
-	<td>//input[contains(@id,'socialBookmarksTypesCheckbox') and contains(@value,'${key_socialBookmarkSite}')] | //input[contains(@id,'socialBookmarksTypes${key_socialBookmarkSite}Checkbox')]</td>    
+	<td>//input[contains(@id,'socialBookmarksTypesCheckbox') and contains(@value,'${key_socialBookmarkSite}')] | //input[contains(@id,'socialBookmarksTypes${key_socialBookmarkSite}Checkbox')]</td>
 	<td></td>
 </tr>
 <tr>
