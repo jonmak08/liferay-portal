@@ -28,6 +28,7 @@ import com.liferay.portal.model.Group;
 import com.liferay.portal.model.User;
 import com.liferay.portal.security.auth.PrincipalException;
 import com.liferay.portal.security.permission.ActionKeys;
+import com.liferay.portal.service.ClassNameLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
@@ -35,6 +36,7 @@ import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.messageboards.LockedThreadException;
 import com.liferay.portlet.messageboards.model.MBCategory;
 import com.liferay.portlet.messageboards.model.MBCategoryConstants;
+import com.liferay.portlet.messageboards.model.MBDiscussion;
 import com.liferay.portlet.messageboards.model.MBMessage;
 import com.liferay.portlet.messageboards.model.MBMessageConstants;
 import com.liferay.portlet.messageboards.model.MBMessageDisplay;
@@ -89,6 +91,8 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 			getPermissionChecker(), user.getCompanyId(),
 			serviceContext.getScopeGroupId(), permissionClassName,
 			permissionClassPK, permissionOwnerId, ActionKeys.ADD_DISCUSSION);
+
+		checkDiscussion(className, classPK, threadId, parentMessageId);
 
 		return mbMessageLocalService.addDiscussionMessage(
 			user.getUserId(), null, groupId, className, classPK, threadId,
@@ -267,6 +271,8 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 			getPermissionChecker(), user.getCompanyId(), groupId,
 			permissionClassName, permissionClassPK, messageId,
 			permissionOwnerId, ActionKeys.DELETE_DISCUSSION);
+
+		checkDiscussion(className, classPK, messageId);
 
 		mbMessageLocalService.deleteDiscussionMessage(messageId);
 	}
@@ -714,6 +720,8 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 			permissionClassPK, messageId, permissionOwnerId,
 			ActionKeys.UPDATE_DISCUSSION);
 
+		checkDiscussion(className, classPK, messageId);
+
 		return mbMessageLocalService.updateDiscussionMessage(
 			getUserId(), messageId, className, classPK, subject, body,
 			serviceContext);
@@ -770,6 +778,43 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 		return mbMessageLocalService.updateMessage(
 			getGuestOrUserId(), messageId, subject, body, inputStreamOVPs,
 			existingFiles, priority, allowPingbacks, serviceContext);
+	}
+
+	protected void checkDiscussion(
+			String className, long classPK, long messageId)
+		throws PortalException, SystemException {
+
+		long classNameId = ClassNameLocalServiceUtil.getClassNameId(className);
+
+		MBDiscussion mbDiscussion = mbDiscussionPersistence.findByC_C(
+			classNameId, classPK);
+
+		MBThread mbThread = mbThreadPersistence.findByPrimaryKey(
+			mbDiscussion.getThreadId());
+
+		if (mbThread.getRootMessageId() != messageId) {
+			throw new PrincipalException();
+		}
+	}
+
+	protected void checkDiscussion(
+			String className, long classPK, long threadId, long messageId)
+		throws PortalException, SystemException {
+
+		long classNameId = ClassNameLocalServiceUtil.getClassNameId(className);
+
+		MBDiscussion mbDiscussion = mbDiscussionPersistence.findByC_C(
+			classNameId, classPK);
+
+		if (mbDiscussion.getThreadId() != threadId) {
+			throw new PrincipalException();
+		}
+
+		MBThread mbThread = mbThreadPersistence.findByPrimaryKey(threadId);
+
+		if (mbThread.getRootMessageId() != messageId) {
+			throw new PrincipalException();
+		}
 	}
 
 	protected void checkReplyToPermission(
