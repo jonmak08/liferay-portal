@@ -565,6 +565,8 @@
 		<if>
 			<equals arg1="${field}" arg2="Text Box" />
 			<then>
+				<var name="key_fieldFieldLabel" value="${fieldFieldLabel}" />
+
 				<execute function="AssertTextEquals" locator1="Dynamicdatamapping#FORM_FIELD_TEXT_AREA" value1="${fieldPredefinedValue}" />
 			</then>
 		</if>

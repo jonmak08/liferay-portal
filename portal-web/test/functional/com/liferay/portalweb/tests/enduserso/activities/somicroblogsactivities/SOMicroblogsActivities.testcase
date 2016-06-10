@@ -1160,7 +1160,7 @@
 			<var name="userLoginFullName" value="${userName}" />
 		</execute>
 
-		<var name="profileScreenName" value="${adminScreenName}" />
+		<var name="key_profileScreenName" value="${adminScreenName}" />
 
 		<execute function="Open" locator1="SOProfile#PROFILE_URL" />
 

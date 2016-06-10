@@ -562,6 +562,8 @@
 		<if>
 			<isset var="profileScreenName" />
 			<then>
+				<var name="key_profileScreenName" value="${profileScreenName}" />
+
 				<execute function="Open" locator1="SOProfile#PROFILE_URL" />
 			</then>
 			<else>
@@ -1029,6 +1031,8 @@
 		<if>
 			<isset var="profileScreenName" />
 			<then>
+				<var name="key_profileScreenName" value="${profileScreenName}" />
+
 				<execute function="Open" locator1="SOProfile#PROFILE_URL" />
 			</then>
 			<else>
@@ -1458,6 +1462,8 @@
 		<if>
 			<isset var="profileScreenName" />
 			<then>
+				<var name="key_profileScreenName" value="${profileScreenName}" />
+
 				<execute function="Open" locator1="SOProfile#PROFILE_URL" />
 			</then>
 			<else>

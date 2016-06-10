@@ -273,6 +273,8 @@
 					<then>
 						<var method="MathUtil#sum('${i}', '1')" name="i" />
 
+						<var name="key_propertiesKeyField" value="${propertiesKeyField}" />
+
 						<execute function="AssertClick" locator1="CPCategories#VOCABULARY_ENTRY" value1="${vocabularyName}" />
 						<execute function="AssertClick" locator1="CPCategories#VOCABULARY_CATEGORY_LABEL" value1="${categoryName}" />
 						<execute function="AssertTextEquals" locator1="CPCategories#CATEGORY_DETAILS_PROPERTY_KEY_2" value1="${propertiesKeyField} ${i} Key" />
