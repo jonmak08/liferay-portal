@@ -30,6 +30,7 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.SystemProperties;
 import com.liferay.portal.kernel.util.UnicodeProperties;
+import com.liferay.portal.model.Company;
 import com.liferay.portal.model.CompanyConstants;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 
@@ -43,6 +44,14 @@ import javax.servlet.Servlet;
  * @author Brian Wing Shun Chan
  */
 public class PropsUtil {
+
+	public static void addProperties(Company company, Properties properties) {
+		_instance._addProperties(company, properties);
+	}
+
+	public static void addProperties(Company company, UnicodeProperties unicodeProperties) {
+		_instance._addProperties(company, unicodeProperties);
+	}
 
 	public static void addProperties(Properties properties) {
 		_instance._addProperties(properties);
@@ -210,6 +219,18 @@ public class PropsUtil {
 		}
 	}
 
+	private void _addProperties(Company company, Properties properties) {
+		_getConfiguration(company).addProperties(properties);
+	}
+
+	private void _addProperties(Company company, UnicodeProperties unicodeProperties) {
+		Properties properties = new Properties();
+
+		properties.putAll(unicodeProperties);
+
+		_addProperties(company, properties);
+	}
+
 	private void _addProperties(Properties properties) {
 		_getConfiguration().addProperties(properties);
 	}
@@ -267,6 +288,26 @@ public class PropsUtil {
 		else {
 			return _configuration;
 		}
+	}
+
+	private Configuration _getConfiguration(Company company) {
+		if (_configurations == null) {
+			return _configuration;
+		}
+
+		long companyId = company.getCompanyId();
+
+		Configuration configuration = _configurations.get(companyId);
+
+		if (configuration == null) {
+			configuration = new ConfigurationImpl(
+				PropsUtil.class.getClassLoader(), PropsFiles.PORTAL, companyId,
+				company.getWebId());
+
+			_configurations.put(companyId, configuration);
+		}
+
+		return configuration;
 	}
 
 	private String _getDefaultLiferayHome() {

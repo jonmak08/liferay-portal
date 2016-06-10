@@ -78,6 +78,15 @@ public class ConfigurationImpl
 		printSources(companyId, webId);
 	}
 
+	public ConfigurationImpl(
+			ClassLoader classLoader, String name, long companyId, String webId) {
+
+			_componentConfiguration = new ClassLoaderComponentConfiguration(
+				classLoader, webId, name);
+
+			printSources(companyId, webId);
+	}
+
 	@Override
 	public void addProperties(Properties properties) {
 		try {

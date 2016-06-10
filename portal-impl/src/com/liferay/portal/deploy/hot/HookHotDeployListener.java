@@ -88,6 +88,7 @@ import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.SystemProperties;
 import com.liferay.portal.kernel.util.UniqueList;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Document;
@@ -95,6 +96,7 @@ import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
 import com.liferay.portal.language.LanguageResources;
 import com.liferay.portal.model.BaseModel;
+import com.liferay.portal.model.Company;
 import com.liferay.portal.model.LayoutConstants;
 import com.liferay.portal.model.ModelListener;
 import com.liferay.portal.model.Release;
@@ -145,6 +147,7 @@ import com.liferay.portal.security.membershippolicy.UserGroupMembershipPolicyFac
 import com.liferay.portal.security.pwd.PwdToolkitUtil;
 import com.liferay.portal.security.pwd.Toolkit;
 import com.liferay.portal.security.pwd.ToolkitWrapper;
+import com.liferay.portal.service.CompanyLocalServiceUtil;
 import com.liferay.portal.service.ReleaseLocalServiceUtil;
 import com.liferay.portal.service.ServiceWrapper;
 import com.liferay.portal.service.persistence.BasePersistence;
@@ -2988,12 +2991,6 @@ public class HookHotDeployListener
 		throw new DuplicateCustomJspException();
 	}
 
-	private static final String _RTL_HOOK_MODULE_GROUP_ID = "liferay";
-
-	private static final String _RTL_HOOK_NAME = "RTL";
-
-	private static final String _RTL_HOOK_TAG = "rtl";
-
 	private static final String[] _PROPS_KEYS_EVENTS = {
 		LOGIN_EVENTS_POST, LOGIN_EVENTS_PRE, LOGOUT_EVENTS_POST,
 		LOGOUT_EVENTS_PRE, SERVLET_SERVICE_EVENTS_POST,
@@ -3092,6 +3089,12 @@ public class HookHotDeployListener
 		"phone.number.format.usa.regexp", "social.activity.sets.selector",
 		"theme.shortcut.icon"
 	};
+
+	private static final String _RTL_HOOK_MODULE_GROUP_ID = "liferay";
+
+	private static final String _RTL_HOOK_NAME = "RTL";
+
+	private static final String _RTL_HOOK_TAG = "rtl";
 
 	private static Log _log = LogFactoryUtil.getLog(
 		HookHotDeployListener.class);
