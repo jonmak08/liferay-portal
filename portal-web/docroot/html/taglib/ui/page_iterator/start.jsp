@@ -80,12 +80,14 @@ String deltaURL = HttpUtil.removeParameter(url, namespace + deltaParam);
 NumberFormat numberFormat = NumberFormat.getNumberInstance(locale);
 
 if (forcePost && (portletURL != null)) {
+	pageContext.setAttribute("portletURL", portletURL);
+
 	url = url.split(namespace)[0];
 %>
 
 	<form action="<%= url %>" id="<%= randomNamespace + namespace %>pageIteratorFm" method="post" name="<%= randomNamespace + namespace %>pageIteratorFm">
 		<aui:input name="<%= curParam %>" type="hidden" />
-		<liferay-portlet:renderURLParams portletURL="<%= portletURL %>" />
+		<liferay-portlet:renderURLParams varImpl="portletURL" />
 	</form>
 
 <%
@@ -216,7 +218,7 @@ if (forcePost && (portletURL != null)) {
 
 										<liferay-ui:icon
 											message="<%= String.valueOf(i) %>"
-											onClick='<%= forcePost ? "event.preventDefault(); " + namespace + "submitForm(\'" + namespace + curParam + "\'," + i + ");" : "" %>'
+											onClick='<%= forcePost ? "event.preventDefault(); " + namespace + "submitForm(\\"" + namespace + curParam + "\\"," + i + ");" : "" %>'
 											url='<%= url + namespace + curParam + "=" + i + urlAnchor %>'
 										/>
 
@@ -252,7 +254,7 @@ if (forcePost && (portletURL != null)) {
 
 										<liferay-ui:icon
 											message="<%= String.valueOf(curDelta) %>"
-											onClick='<%= forcePost ? "event.preventDefault(); " + namespace + "submitForm(\'" + namespace + deltaParam + "\'," + curDelta + ");" : "" %>'
+											onClick='<%= forcePost ? "event.preventDefault(); " + namespace + "submitForm(\\"" + namespace + deltaParam + "\\"," + curDelta + ");" : "" %>'
 											url='<%= deltaURL + "&" + namespace + deltaParam + "=" + curDelta + urlAnchor %>'
 										/>
 
@@ -317,9 +319,11 @@ if (forcePost && (portletURL != null)) {
 
 <aui:script>
 	function <portlet:namespace />submitForm(curParam, cur) {
-		var form = AUI.$(document.<%= randomNamespace + namespace %>pageIteratorFm);
+		var A = AUI();
 
-		form.fm(curParam).val(cur);
+		A.one('#<%= randomNamespace + namespace %>pageIteratorFm').one('[name='+ curParam + ']').val(cur);
+
+		var form = document.<%= randomNamespace + namespace %>pageIteratorFm;
 
 		submitForm(form);
 	}
