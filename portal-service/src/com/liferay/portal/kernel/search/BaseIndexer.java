@@ -58,6 +58,7 @@ import com.liferay.portal.model.ResourcedModel;
 import com.liferay.portal.model.TrashedModel;
 import com.liferay.portal.model.User;
 import com.liferay.portal.model.WorkflowedModel;
+import com.liferay.portal.security.auth.CompanyThreadLocal;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.security.permission.PermissionThreadLocal;
@@ -522,12 +523,18 @@ public abstract class BaseIndexer implements Indexer {
 
 	@Override
 	public void reindex(String[] ids) throws SearchException {
+		long currentCompanyId = CompanyThreadLocal.getCompanyId();
+
 		try {
 			if (SearchEngineUtil.isIndexReadOnly() || !isIndexerEnabled() ||
 				ExportImportThreadLocal.isImportInProcess()) {
 
 				return;
 			}
+
+			long companyId = GetterUtil.getLong(ids[0]);
+
+			CompanyThreadLocal.setCompanyId(companyId);
 
 			doReindex(ids);
 		}
@@ -536,6 +543,9 @@ public abstract class BaseIndexer implements Indexer {
 		}
 		catch (Exception e) {
 			throw new SearchException(e);
+		}
+		finally {
+			CompanyThreadLocal.setCompanyId(currentCompanyId);
 		}
 	}
 
