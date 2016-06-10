@@ -688,8 +688,10 @@ public class PortletImporter {
 			Element assetCategoryElement, AssetCategory assetCategory)
 		throws Exception {
 
-		long userId = portletDataContext.getUserId(assetCategory.getUserUuid());
+		long companyGroupId = portletDataContext.getCompanyGroupId();
 		long groupId = portletDataContext.getGroupId();
+		long sourceGroupId = portletDataContext.getSourceGroupId();
+		long userId = portletDataContext.getUserId(assetCategory.getUserUuid());
 		long assetVocabularyId = MapUtil.getLong(
 			assetVocabularyPKs, assetCategory.getVocabularyId(),
 			assetCategory.getVocabularyId());
@@ -764,7 +766,10 @@ public class PortletImporter {
 		AssetCategory existingAssetCategory = AssetCategoryUtil.fetchByUUID_G(
 			assetCategory.getUuid(), groupId);
 
-		if (existingAssetCategory == null) {
+		if ((existingAssetCategory == null) &&
+			(sourceGroupId != companyGroupId) &&
+			(sourceGroupId != groupId)) {
+
 			existingAssetCategory = AssetCategoryUtil.fetchByUUID_G(
 				assetCategory.getUuid(),
 				portletDataContext.getCompanyGroupId());
@@ -776,7 +781,9 @@ public class PortletImporter {
 				assetVocabularyId, null);
 		}
 
-		if (existingAssetCategory == null) {
+		if ((existingAssetCategory == null) ||
+			(sourceGroupId == companyGroupId)) {
+
 			serviceContext.setUuid(assetCategory.getUuid());
 
 			importedAssetCategory = AssetCategoryLocalServiceUtil.addCategory(
@@ -786,8 +793,9 @@ public class PortletImporter {
 				assetCategory.getDescriptionMap(), assetVocabularyId,
 				properties, serviceContext);
 		}
-		else if (portletDataContext.isCompanyStagedGroupedModel(
-					existingAssetCategory)) {
+		else if ((portletDataContext.isCompanyStagedGroupedModel(
+					existingAssetCategory)) &&
+				 (sourceGroupId != companyGroupId)) {
 
 			return;
 		}
@@ -930,9 +938,11 @@ public class PortletImporter {
 			AssetVocabulary assetVocabulary)
 		throws Exception {
 
+		long companyGroupId = portletDataContext.getCompanyGroupId();
+		long groupId = portletDataContext.getScopeGroupId();
+		long sourceGroupId = portletDataContext.getSourceGroupId();
 		long userId = portletDataContext.getUserId(
 			assetVocabulary.getUserUuid());
-		long groupId = portletDataContext.getScopeGroupId();
 
 		ServiceContext serviceContext = new ServiceContext();
 
@@ -948,7 +958,10 @@ public class PortletImporter {
 			AssetVocabularyUtil.fetchByUUID_G(
 				assetVocabulary.getUuid(), groupId);
 
-		if (existingAssetVocabulary == null) {
+		if ((existingAssetVocabulary == null) &&
+			(sourceGroupId != companyGroupId) &&
+			(sourceGroupId != groupId)) {
+
 			existingAssetVocabulary = AssetVocabularyUtil.fetchByUUID_G(
 				assetVocabulary.getUuid(),
 				portletDataContext.getCompanyGroupId());
@@ -959,7 +972,9 @@ public class PortletImporter {
 				groupId, assetVocabulary.getName());
 		}
 
-		if (existingAssetVocabulary == null) {
+		if ((existingAssetVocabulary == null) ||
+			(sourceGroupId == companyGroupId)) {
+
 			serviceContext.setUuid(assetVocabulary.getUuid());
 
 			importedAssetVocabulary =
@@ -971,7 +986,8 @@ public class PortletImporter {
 					assetVocabulary.getSettings(), serviceContext);
 		}
 		else if (portletDataContext.isCompanyStagedGroupedModel(
-					existingAssetVocabulary)) {
+					existingAssetVocabulary) &&
+				 (sourceGroupId != companyGroupId)) {
 
 			return;
 		}
