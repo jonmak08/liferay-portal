@@ -498,19 +498,11 @@ public class JournalFolderLocalServiceImpl
 				foldersAndArticles, trashEntry.getEntryId());
 		}
 
-		folder = journalFolderLocalService.moveFolder(
+		return journalFolderLocalService.moveFolder(
 			folderId, parentFolderId, serviceContext);
-
-		// Index
-
-		Indexer<JournalFolder> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
-			JournalFolder.class);
-
-		indexer.reindex(folder);
-
-		return folder;
 	}
 
+	@Indexable(type = IndexableType.REINDEX)
 	@Override
 	public JournalFolder moveFolderToTrash(long userId, long folderId)
 		throws PortalException, SystemException {
@@ -558,13 +550,6 @@ public class JournalFolderLocalServiceImpl
 			userId, folder.getGroupId(), JournalFolder.class.getName(),
 			folder.getFolderId(), SocialActivityConstants.TYPE_MOVE_TO_TRASH,
 			extraDataJSONObject.toString(), 0);
-
-		// Index
-
-		Indexer<JournalFolder> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
-			JournalFolder.class);
-
-		indexer.reindex(folder);
 
 		return folder;
 	}
