@@ -41,26 +41,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>SEARCH_RESULTS_WORD_HIGHLIGHT</td>
-	<td>//a[@class='entry-link']/div/span[@class='entry-title']/span</td>
-	<td></td>
-</tr>
-<tr>
-	<td>SEARCH_RESULTS_PARENT_FOLDER</td>
-	<td>//dd</td>
-	<td></td>
-</tr>
-<tr>
-	<td>SEARCH_RESULTS_CONTENT</td>
-	<td>//a[@class='entry-link']/div/span[@class='entry-description']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>SEARCH_RESULTS_ACTIONS</td>
-	<td>xpath=(//span[contains(@class,'entry-action') and contains(@class,'overlay')]/div/a/i)[2]</td>
-	<td></td>
-</tr>
-<tr>
 	<td></td>
 	<td></td>
 	<td></td>

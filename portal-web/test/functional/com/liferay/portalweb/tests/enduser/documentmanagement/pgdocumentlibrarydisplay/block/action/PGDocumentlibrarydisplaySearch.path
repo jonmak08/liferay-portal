@@ -46,24 +46,9 @@
 	<td>Search Result Title</td>
 </tr>
 <tr>
-	<td>SEARCH_RESULTS_WORD_HIGHLIGHT</td>
-	<td>//a[@class='entry-link']/span[@class='entry-title']/span</td>
-	<td>Search Result Word Highlight</td>
-</tr>
-<tr>
-	<td>SEARCH_RESULTS_PARENT_FOLDER</td>
-	<td>//a[@class='entry-link']/span[@class='entry-folder']/span</td>
-	<td>Search Result Parent Folder</td>
-</tr>
-<tr>
 	<td>SEARCH_RESULTS_DESCRIPTION</td>
 	<td>//a[@class='entry-link']/span[@class='entry-description']</td>
 	<td>Search Result Description</td>
-</tr>
-<tr>
-	<td>SEARCH_RESULTS_ACTIONS</td>
-	<td>//span[contains(@class,'entry-action') and contains(@class,'overlay')]/div/a/i</td>
-	<td>Search Result Actions</td>
 </tr>
 <tr>
 	<td></td>

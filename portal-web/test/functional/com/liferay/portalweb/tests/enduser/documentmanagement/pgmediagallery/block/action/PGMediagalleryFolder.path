@@ -33,22 +33,6 @@
 	<td></td>
 	<td></td>
 </tr>
-<!--SUBFOLDER-->
-<tr>
-	<td>SUBFOLDER_THUMBNAIL</td>
-	<td>//a[contains(.,'${key_mgDocumentTitle}')]/span[@class='image-thumbnail']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>SUBFOLDER_NAME</td>
-	<td>//span[@class='image-title' and contains(.,'${mgSubfolderName}')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
 <!--FOLDER-->
 <tr>
 	<td>FOLDER_NAME</td>
@@ -58,11 +42,6 @@
 <tr>
 	<td>FOLDER_HEADER_TITLE</td>
 	<td>//h3[@class='header-title']/span[contains(.,'${mgFolderName}')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>FOLDER_DESCRIPTION</td>
-	<td>//div[@class='lfr-asset-description' and contains(.,'${mgFolderDescription}')]</td>
 	<td></td>
 </tr>
 <tr>

@@ -321,22 +321,6 @@
 	<td></td>
 	<td></td>
 </tr>
-<!--SEARCH-->
-<tr>
-	<td>SEARCH_REPOSITORY_TAB</td>
-	<td>//ul[contains(@class,'nav-tabs')]/li/a[contains(.,'${key_dmRepositoryName}')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>SEARCH_TITLE</td>
-	<td>//a[@class='entry-link' and contains(.,'${dmDocumentTitle}')]/div/span[@class='entry-title']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>SEARCH_PARENT_FOLDER</td>
-	<td>//a[@class='entry-link' and contains(.,'${dmDocumentTitle}')]//dd</td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>

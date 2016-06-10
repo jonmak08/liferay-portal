@@ -15,11 +15,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>RESOURCE_TABLE_CUSTOM_FIELDS_LINK</td>
-	<td>//tr[contains(.,'${key_resourceName}')]/td[2]/a[contains(.,'${customFieldName}')]</td>
-	<td></td>
-</tr>
-<tr>
 	<td>RESOURCE_TABLE_CUSTOM_FIELDS_LINK_GENERIC</td>
 	<td>//tr/td[2]/a[.!='']</td>
 	<td></td>

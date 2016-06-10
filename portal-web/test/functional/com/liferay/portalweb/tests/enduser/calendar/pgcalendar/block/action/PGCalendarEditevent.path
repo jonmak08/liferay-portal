@@ -212,28 +212,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>INVITATIONS_INVITE_RESOURCE_FIELD_LIST</td>
-	<td>//ul[@role='listbox']/li[@data-text='${user}']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>INVITATIONS_PENDING</td>
-	<td>//div[contains(@id,'calendarListPending')]/div/div[contains(.,'${user}')]/span</td>
-	<td></td>
-</tr>
-<tr>
 	<td>INVITATIONS_ACCEPTED</td>
 	<td>//div[contains(@id,'calendarListAccepted')]/div/div[contains(.,'test test')]/span</td>
-	<td></td>
-</tr>
-<tr>
-	<td>INVITATIONS_DECLINED</td>
-	<td>//div[contains(@id,'calendarListDeclined')]/div/div[contains(.,'${user}')]/span</td>
-	<td></td>
-</tr>
-<tr>
-	<td>INVITATIONS_MAYBE</td>
-	<td>//div[contains(@id,'calendarListMaybe')]/div/div[contains(.,'${user}')]/span</td>
 	<td></td>
 </tr>
 </tbody>

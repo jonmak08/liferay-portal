@@ -57,23 +57,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>SEARCH_RESULTS_WORD_HIGHLIGHT</td>
-	<td>//a[@class='entry-link' and contains(.,'${dmDocumentTitle}')]/div/span[@class='entry-title']/span</td>
-	<td></td>
-</tr>
-<tr>
 	<td>SEARCH_RESULTS_PARENT_FOLDER</td>
 	<td>//a[@class='entry-link' and contains(.,'${dmDocumentTitle}')]//dd</td>
-	<td></td>
-</tr>
-<tr>
-	<td>SEARCH_RESULTS_CONTENT</td>
-	<td>//a[@class='entry-link' and contains(.,'${dmDocumentTitle}')]/div/span[@class='entry-description']</td>
-	<td></td>
-</tr>
-<tr>
-	<td>SEARCH_RESULTS_ACTIONS</td>
-	<td>//a[@class='entry-link' and contains(.,'${dmDocumentTitle}')]/../span[contains(@class,'entry-action') and contains(@class,'overlay')]/div/a/i</td>
 	<td></td>
 </tr>
 <tr>

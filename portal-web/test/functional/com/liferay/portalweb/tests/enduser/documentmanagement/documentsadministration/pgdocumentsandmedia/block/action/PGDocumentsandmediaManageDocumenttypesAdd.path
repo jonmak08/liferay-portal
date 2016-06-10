@@ -344,11 +344,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>FORM_FIELD_TEXT_AREA</td>
-	<td>//textarea[@name='${fieldFieldLabel}']</td>
-	<td></td>
-</tr>
-<tr>
 	<td>FORM_FIELD_RADIO_LABEL</td>
 	<td>//div[contains(@class,'component form-builder-field')]/div/label[contains(.,'${key_fieldFieldLabel}')]/../div/div/label[contains(.,'${key_fieldOptionsName}')]</td>
 	<td></td>
