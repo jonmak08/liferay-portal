@@ -204,6 +204,8 @@
 		<execute function="Type" locator1="CPRolesDefinepermissions#SEARCH_FIELD" value1="${permissionNavigationValue}" />
 		<execute function="AssertClick" locator1="CPRolesDefinepermissions#${permissionNavigationKey}" value1="${permissionNavigationValue}" />
 
+		<var name="key_permissionNavigationValue" value="${permissionNavigationValue}" />
+
 		<execute function="AssertTextEquals" locator1="CPRolesDefinepermissionsAllpermissions#PERMISSION_HEADER" value1="${permissionNavigationValue}" />
 		<execute function="Check" locator1="CPRolesDefinepermissionsAllpermissions#${permissionDefinitionKey}" />
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPRolesDefinepermissionsAllpermissions#SAVE_BUTTON" value1="Save" />

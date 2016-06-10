@@ -41,12 +41,12 @@
 </tr>
 <tr>
 	<td>ADT_MULTI_COLUMN_VOCABULARY_NAME</td>
-	<td>//div[@class='portlet-content']//div[contains(@class,'column')][2]//h3[contains(.,'${vocabularyName}')]</td>
+	<td>//div[@class='portlet-content']//div[contains(@class,'column')][2]//h3[contains(.,'${key_vocabularyName}')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ADT_MULTI_COLUMN_CATEGORY_NAME</td>
-	<td>//div[@class='portlet-content']//div[contains(@class,'column')][2]//ul[@class='categories']/li[contains(.,'${categoryName}')]</td>
+	<td>//div[@class='portlet-content']//div[contains(@class,'column')][2]//ul[@class='categories']/li[contains(.,'${key_categoryName}')]</td>
 	<td></td>
 </tr>
 </tbody>

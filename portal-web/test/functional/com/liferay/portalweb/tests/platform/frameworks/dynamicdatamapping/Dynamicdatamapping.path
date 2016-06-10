@@ -318,7 +318,7 @@
 </tr>
 <tr>
 	<td>FORM_FIELD_TEXT_AREA</td>
-	<td>//textarea[@name='${fieldFieldLabel}']</td>
+	<td>//textarea[@name='${key_fieldFieldLabel}']</td>
 	<td></td>
 </tr>
 <tr>

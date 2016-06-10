@@ -36,7 +36,7 @@
 <!--CUSTOM_FIELDS_TABLE-->
 <tr>
 	<td>CUSTOM_FIELDS_TABLE_NAME</td>
-	<td>//tr[contains(.,'${customFieldName}')]/td[1]/a/strong</td>
+	<td>//tr[contains(.,'${key_customFieldName}')]/td[1]/a/strong</td>
 	<td></td>
 </tr>
 <tr>

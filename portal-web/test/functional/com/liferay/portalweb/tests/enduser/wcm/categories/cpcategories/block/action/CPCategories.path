@@ -107,12 +107,12 @@
 </tr>
 <tr>
 	<td>CATEGORY_DETAILS_PROPERTY_KEY_2</td>
-	<td>//div[@class='category-field']/span[contains(.,'${propertiesKeyField} ${i} Key')]</td>
+	<td>//div[@class='category-field']/span[contains(.,'${key_propertiesKeyField} ${i} Key')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>CATEGORY_DETAILS_PROPERTY_VALUE_2</td>
-	<td>//div[@class='category-field']/span[contains(.,'${propertiesKeyField} ${i} Value')]</td>
+	<td>//div[@class='category-field']/span[contains(.,'${key_propertiesKeyField} ${i} Value')]</td>
 	<td></td>
 </tr>
 <tr>

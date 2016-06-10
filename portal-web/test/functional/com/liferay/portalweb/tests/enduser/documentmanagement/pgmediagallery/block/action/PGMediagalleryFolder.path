@@ -41,7 +41,7 @@
 </tr>
 <tr>
 	<td>FOLDER_HEADER_TITLE</td>
-	<td>//h3[@class='header-title']/span[contains(.,'${mgFolderName}')]</td>
+	<td>//h3[@class='header-title']/span[contains(.,'${key_mgFolderName}')]</td>
 	<td></td>
 </tr>
 <tr>

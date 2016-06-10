@@ -53,12 +53,12 @@
 <!--SEARCH_RESULTS-->
 <tr>
 	<td>SEARCH_RESULTS_TITLE</td>
-	<td>//a[@class='entry-link' and contains(.,'${dmDocumentTitle}')]/div/span[@class='entry-title']</td>
+	<td>//a[@class='entry-link' and contains(.,'${key_dmDocumentTitle}')]/div/span[@class='entry-title']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>SEARCH_RESULTS_PARENT_FOLDER</td>
-	<td>//a[@class='entry-link' and contains(.,'${dmDocumentTitle}')]//dd</td>
+	<td>//a[@class='entry-link' and contains(.,'${key_dmDocumentTitle}')]//dd</td>
 	<td></td>
 </tr>
 <tr>

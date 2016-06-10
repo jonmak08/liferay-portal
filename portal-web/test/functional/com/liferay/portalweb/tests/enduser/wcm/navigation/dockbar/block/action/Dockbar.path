@@ -332,7 +332,7 @@
 <!--EDIT_DETAILS_COLUMN-->
 <tr>
 	<td>EDIT_DETAILS_COLUMN_RADIO</td>
-	<td>//input[@value='${columnName}']</td>
+	<td>//input[@value='${key_columnName}']</td>
 	<td></td>
 </tr>
 <tr>

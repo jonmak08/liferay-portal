@@ -10,7 +10,7 @@
 <tbody>
 <tr>
 	<td>PROFILE_URL</td>
-	<td>/web/${profileScreenName}/so/profile</td>
+	<td>/web/${key_profileScreenName}/so/profile</td>
 	<td></td>
 </tr>
 <tr>
