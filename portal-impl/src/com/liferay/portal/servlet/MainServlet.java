@@ -1099,7 +1099,7 @@ public class MainServlet extends ActionServlet {
 
 		Group group = layout.getGroup();
 
-		if (group.isActive()) {
+		if (GroupLocalServiceUtil.isActive(group)) {
 			return false;
 		}
 
