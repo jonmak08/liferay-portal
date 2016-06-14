@@ -1703,7 +1703,7 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 
 		// Indexer
 
-		Indexer<WikiPage> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
+		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 			WikiPage.class);
 
 		indexer.reindex(page);
@@ -1866,7 +1866,7 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 			SocialActivityConstants.TYPE_RESTORE_FROM_TRASH,
 			extraDataJSONObject.toString(), 0);
 
-		Indexer<WikiPage> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
+		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 			WikiPage.class);
 
 		indexer.reindex(page);

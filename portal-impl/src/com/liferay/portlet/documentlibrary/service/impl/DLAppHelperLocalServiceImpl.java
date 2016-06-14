@@ -1600,8 +1600,8 @@ public class DLAppHelperLocalServiceImpl
 
 			// Indexer
 
-			Indexer<DLFileEntry> indexer =
-				IndexerRegistryUtil.nullSafeGetIndexer(DLFileEntry.class);
+			Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
+				DLFileEntry.class);
 
 			indexer.reindex((DLFileEntry)fileEntry.getModel());
 
@@ -1696,7 +1696,7 @@ public class DLAppHelperLocalServiceImpl
 
 		// Indexer
 
-		Indexer<DLFileEntry> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
+		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 			DLFileEntry.class);
 
 		indexer.reindex((DLFileEntry)fileEntry.getModel());
@@ -1784,7 +1784,7 @@ public class DLAppHelperLocalServiceImpl
 
 		// Indexer
 
-		Indexer<DLFileEntry> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
+		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 			DLFileEntry.class);
 
 		indexer.reindex(dlFileEntry);
@@ -1954,7 +1954,7 @@ public class DLAppHelperLocalServiceImpl
 
 		// Indexer
 
-		Indexer<DLFolder> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
+		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 			DLFolder.class);
 
 		indexer.reindex(dlFolder);
