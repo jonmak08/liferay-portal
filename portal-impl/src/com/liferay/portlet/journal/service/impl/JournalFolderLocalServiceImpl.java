@@ -758,7 +758,7 @@ public class JournalFolderLocalServiceImpl
 				JournalFolder.class.getName(), folder.getFolderId(), false);
 		}
 
-		// Index
+		// Indexer
 
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 			JournalFolder.class);
@@ -958,7 +958,7 @@ public class JournalFolderLocalServiceImpl
 				assetEntryLocalService.updateVisible(
 					JournalFolder.class.getName(), folder.getFolderId(), false);
 
-				// Index
+				// Indexer
 
 				Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 					JournalFolder.class);
@@ -1093,7 +1093,7 @@ public class JournalFolderLocalServiceImpl
 				assetEntryLocalService.updateVisible(
 					JournalFolder.class.getName(), folder.getFolderId(), true);
 
-				// Index
+				// Indexer
 
 				Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 					JournalFolder.class);
