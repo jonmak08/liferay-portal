@@ -460,6 +460,7 @@ public interface JournalFolderLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.liferay.portlet.journal.model.JournalFolder moveFolderToTrash(
 		long userId, long folderId)
 		throws com.liferay.portal.kernel.exception.PortalException,
