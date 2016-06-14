@@ -131,6 +131,7 @@ public class DLFolderIndexer extends BaseIndexer {
 		}
 
 		document.addText(Field.TITLE, title);
+
 		document.addKeyword(Field.TREE_PATH, dlFolder.getTreePath());
 		document.addKeyword(
 			Field.TREE_PATH,

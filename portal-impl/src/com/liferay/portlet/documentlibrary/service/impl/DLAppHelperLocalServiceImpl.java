@@ -510,7 +510,7 @@ public class DLAppHelperLocalServiceImpl
 						dlFileEntry.getFileEntryId(), false);
 				}
 
-				// Index
+				// Indexer
 
 				Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 					DLFileEntry.class);
@@ -585,7 +585,7 @@ public class DLAppHelperLocalServiceImpl
 					DLFolderConstants.getClassName(), dlFolder.getFolderId(),
 					false);
 
-				// Index
+				// Indexer
 
 				Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 					DLFolder.class);
@@ -926,7 +926,7 @@ public class DLAppHelperLocalServiceImpl
 					}
 				}
 
-				// Index
+				// Indexer
 
 				Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 					DLFileEntry.class);
@@ -1020,7 +1020,7 @@ public class DLAppHelperLocalServiceImpl
 					DLFolderConstants.getClassName(), dlFolder.getFolderId(),
 					true);
 
-				// Index
+				// Indexer
 
 				Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 					DLFolder.class);
@@ -1598,7 +1598,7 @@ public class DLAppHelperLocalServiceImpl
 					fileEntry.getFileEntryId());
 			}
 
-			// Index
+			// Indexer
 
 			Indexer<DLFileEntry> indexer =
 				IndexerRegistryUtil.nullSafeGetIndexer(DLFileEntry.class);
@@ -1694,7 +1694,7 @@ public class DLAppHelperLocalServiceImpl
 			SocialActivityConstants.TYPE_RESTORE_FROM_TRASH,
 			extraDataJSONObject.toString(), 0);
 
-		// Index
+		// Indexer
 
 		Indexer<DLFileEntry> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 			DLFileEntry.class);
@@ -1782,7 +1782,7 @@ public class DLAppHelperLocalServiceImpl
 
 		dlFileEntryPersistence.update(dlFileEntry);
 
-		// Index
+		// Indexer
 
 		Indexer<DLFileEntry> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 			DLFileEntry.class);
@@ -1952,7 +1952,7 @@ public class DLAppHelperLocalServiceImpl
 			folder.getFolderId(), SocialActivityConstants.TYPE_MOVE_TO_TRASH,
 			extraDataJSONObject.toString(), 0);
 
-		// Index
+		// Indexer
 
 		Indexer<DLFolder> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 			DLFolder.class);

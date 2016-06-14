@@ -395,6 +395,7 @@ public class DLFileEntryIndexer extends BaseIndexer {
 			}
 
 			document.addText(Field.TITLE, title);
+
 			document.addKeyword(
 				Field.TREE_PATH,
 				StringUtil.split(dlFileEntry.getTreePath(), CharPool.SLASH));

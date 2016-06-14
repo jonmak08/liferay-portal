@@ -125,6 +125,7 @@ public class JournalFolderIndexer extends BaseIndexer {
 		}
 
 		document.addText(Field.TITLE, title);
+
 		document.addKeyword(
 			Field.TREE_PATH,
 			StringUtil.split(folder.getTreePath(), CharPool.SLASH));
