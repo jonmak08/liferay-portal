@@ -100,6 +100,10 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 			final String toVersionLabel)
 		throws PortalException, SystemException {
 
+		if (fromVersionLabel.equals(toVersionLabel)) {
+			return;
+		}
+
 		recoverAndRetryOnFailure(
 			createDeleteFileStoreAction(
 				companyId, repositoryId, fileName, toVersionLabel),
@@ -123,6 +127,10 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 			final long newRepositoryId, final String fileName)
 		throws PortalException, SystemException {
 
+		if (repositoryId == newRepositoryId) {
+			return;
+		}
+
 		recoverAndRetryOnFailure(
 			createDeleteFileStoreAction(companyId, newRepositoryId, fileName),
 			new StoreAction() {
@@ -143,6 +151,10 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 			final long companyId, final long repositoryId,
 			final String fileName, final String newFileName)
 		throws PortalException, SystemException {
+
+		if (fileName.equals(newFileName)) {
+			return;
+		}
 
 		recoverAndRetryOnFailure(
 			createDeleteFileStoreAction(companyId, repositoryId, newFileName),
@@ -233,6 +245,10 @@ public class IgnoreDuplicatesStoreWrapper extends BaseStoreWrapper {
 			final String fileName, final String fromVersionLabel,
 			final String toVersionLabel)
 		throws PortalException, SystemException {
+
+		if (fromVersionLabel.equals(toVersionLabel)) {
+			return;
+		}
 
 		recoverAndRetryOnFailure(
 			createDeleteFileStoreAction(
