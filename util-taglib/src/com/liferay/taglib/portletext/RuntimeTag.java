@@ -103,6 +103,17 @@ public class RuntimeTag extends TagSupport {
 			ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
 				WebKeys.THEME_DISPLAY);
 
+			String containerPortletId =
+				themeDisplay.getPortletDisplay().getId();
+
+			String portletInstanceKey = portletInstance.getPortletInstanceKey();
+
+			if (portletInstanceKey.equals(containerPortletId)) {
+				PortalIncludeUtil.include(pageContext, _INFINITE_LOOP);
+
+				return;
+			}
+
 			if (themeDisplay.isStateMaximized()) {
 				LayoutTypePortlet layoutTypePortlet =
 					themeDisplay.getLayoutTypePortlet();
@@ -218,6 +229,9 @@ public class RuntimeTag extends TagSupport {
 
 		return portlet;
 	}
+
+	private static final String _INFINITE_LOOP =
+		"/html/taglib/portlet/runtime/infinite_loop.jsp";
 
 	private static Log _log = LogFactoryUtil.getLog(RuntimeTag.class);
 
