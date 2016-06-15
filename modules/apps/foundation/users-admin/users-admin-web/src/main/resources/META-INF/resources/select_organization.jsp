@@ -173,5 +173,5 @@ renderResponse.setTitle(LanguageUtil.get(request, "organizations"));
 		}
 	);
 
-	Util.selectEntityHandler('#<portlet:namespace />selectOrganizationFm', '<%= HtmlUtil.escapeJS(eventName) %>', <%= selUser != null %>);
+	Util.selectEntityHandler('#<portlet:namespace />selectOrganizationFm', '<%= HtmlUtil.escapeJS(eventName) %>', <%= selUser != null %>, false);
 </aui:script>
