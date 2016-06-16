@@ -46,6 +46,7 @@ import java.awt.image.DataBuffer;
 import java.awt.image.IndexColorModel;
 import java.awt.image.RenderedImage;
 import java.awt.image.SampleModel;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
@@ -66,6 +67,7 @@ import javax.imageio.ImageReader;
 import javax.imageio.spi.IIORegistry;
 import javax.imageio.spi.ImageReaderSpi;
 import javax.imageio.stream.ImageInputStream;
+
 import javax.media.jai.RenderedImageAdapter;
 
 import net.jmge.gif.Gif89Encoder;
@@ -422,7 +424,7 @@ public class ImageToolImpl implements ImageTool {
 		Queue<ImageReader> imageReaders = new LinkedList<ImageReader>();
 		RenderedImage renderedImage = null;
 		String type = TYPE_NOT_AVAILABLE;
-		
+
 		try {
 			imageInputStream = ImageIO.createImageInputStream(
 				new ByteArrayInputStream(bytes));
@@ -458,6 +460,7 @@ public class ImageToolImpl implements ImageTool {
 
 				imageReader.dispose();
 			}
+
 			if (imageInputStream != null) {
 				imageInputStream.close();
 			}
@@ -477,12 +480,12 @@ public class ImageToolImpl implements ImageTool {
 			type = TYPE_JPEG;
 		}
 		else if (formatName.contains(TYPE_PNG)) {
-			type= TYPE_PNG;
+			type = TYPE_PNG;
 		}
 		else if (formatName.contains(TYPE_TIFF)) {
 			type = TYPE_TIFF;
 		}
-		else{
+		else {
 			throw new IllegalArgumentException(type + " is not supported");
 		}
 
@@ -758,13 +761,12 @@ public class ImageToolImpl implements ImageTool {
 				bytes = _fileUtil.getBytes(_outputFile);
 
 				ImageBag imageBag = read(bytes);
-				
+
 				return imageBag.getRenderedImage();
 			}
 			catch (IOException ioe) {
 				throw new ExecutionException(ioe);
 			}
-
 		}
 
 		@Override
@@ -777,15 +779,14 @@ public class ImageToolImpl implements ImageTool {
 
 			try {
 				bytes = _fileUtil.getBytes(_outputFile);
-				
+
 				ImageBag imageBag = read(bytes);
-				
+
 				return imageBag.getRenderedImage();
 			}
 			catch (IOException ioe) {
 				throw new ExecutionException(ioe);
 			}
-
 		}
 
 		@Override
