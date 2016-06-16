@@ -185,15 +185,15 @@ public class WorkflowTaskPermissionCheckerTest {
 
 		WorkflowTask workflowTask = mock(WorkflowTask.class);
 
-		ArrayList<WorkflowTaskAssignee> assignees =
+		ArrayList<WorkflowTaskAssignee> workflowTaskAssignees =
 			new ArrayList<WorkflowTaskAssignee>();
 
-		assignees.add(workflowTaskAssignee);
+		workflowTaskAssignees.add(workflowTaskAssignee);
 
 		when(
 			workflowTask.getWorkflowTaskAssignees()
 		).thenReturn(
-			assignees
+			workflowTaskAssignees
 		);
 
 		return workflowTask;
