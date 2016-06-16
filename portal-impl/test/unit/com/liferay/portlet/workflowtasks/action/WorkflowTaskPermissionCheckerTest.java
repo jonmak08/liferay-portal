@@ -26,6 +26,7 @@ import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.util.RandomTestUtil;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -185,7 +186,7 @@ public class WorkflowTaskPermissionCheckerTest {
 
 		WorkflowTask workflowTask = mock(WorkflowTask.class);
 
-		ArrayList<WorkflowTaskAssignee> workflowTaskAssignees =
+		List<WorkflowTaskAssignee> workflowTaskAssignees =
 			new ArrayList<WorkflowTaskAssignee>();
 
 		workflowTaskAssignees.add(workflowTaskAssignee);
