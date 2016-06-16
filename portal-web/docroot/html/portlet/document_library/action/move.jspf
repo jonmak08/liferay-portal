@@ -17,7 +17,7 @@
 <c:if test="<%= (!checkedOut || hasLock) && DLFileEntryPermission.contains(permissionChecker, fileEntry, ActionKeys.UPDATE) && ((portletName.equals(PortletKeys.TRASH) && (restore || !fileEntry.isInTrash())) || showActions) %>">
 
 	<%
-	PortletURL moveURL = liferayPortletResponse.createRenderURL(PortletKeys.DOCUMENT_LIBRARY);
+	PortletURL moveURL = liferayPortletResponse.createRenderURL();
 
 	if (fileShortcut != null) {
 		moveURL.setParameter("struts_action", "/document_library/move_file_shortcut");
