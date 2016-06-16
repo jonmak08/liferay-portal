@@ -46,7 +46,7 @@ import java.awt.image.DataBuffer;
 import java.awt.image.IndexColorModel;
 import java.awt.image.RenderedImage;
 import java.awt.image.SampleModel;
-
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -54,13 +54,17 @@ import java.io.OutputStream;
 
 import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import javax.imageio.ImageIO;
-
+import javax.imageio.ImageReader;
+import javax.imageio.stream.ImageInputStream;
 import javax.media.jai.RenderedImageAdapter;
 
 import net.jmge.gif.Gif89Encoder;
@@ -409,26 +413,72 @@ public class ImageToolImpl implements ImageTool {
 	}
 
 	@Override
-	public ImageBag read(byte[] bytes) {
+	public ImageBag read(byte[] bytes) throws IOException {
+		String formatName = null;
+		ImageInputStream imageInputStream = null;
+		Queue<ImageReader> imageReaders = new LinkedList<ImageReader>();
 		RenderedImage renderedImage = null;
 		String type = TYPE_NOT_AVAILABLE;
+		
+		try {
+			imageInputStream = ImageIO.createImageInputStream(
+				new ByteArrayInputStream(bytes));
 
-		Enumeration<ImageCodec> enu = ImageCodec.getCodecs();
+			Iterator<ImageReader> iterator = ImageIO.getImageReaders(
+				imageInputStream);
 
-		while (enu.hasMoreElements()) {
-			ImageCodec codec = enu.nextElement();
+			while ((renderedImage == null) && iterator.hasNext()) {
+				ImageReader imageReader = iterator.next();
 
-			if (codec.isFormatRecognized(bytes)) {
-				type = codec.getFormatName();
+				imageReaders.offer(imageReader);
 
-				renderedImage = read(bytes, type);
+				try {
+					imageReader.setInput(imageInputStream);
 
-				break;
+					renderedImage = imageReader.read(0);
+				}
+				catch (IOException ioe) {
+					continue;
+				}
+
+				formatName = StringUtil.toLowerCase(
+					imageReader.getFormatName());
+			}
+
+			if (renderedImage == null) {
+				throw new IOException("Unsupported Image Type");
+			}
+		}
+		finally {
+			while (!imageReaders.isEmpty()) {
+				ImageReader imageReader = imageReaders.poll();
+
+				imageReader.dispose();
+			}
+			if (imageInputStream != null) {
+				imageInputStream.close();
 			}
 		}
 
-		if (type.equals("jpeg")) {
+		type = TYPE_JPEG;
+
+		if (formatName.contains(TYPE_BMP)) {
+			type = TYPE_BMP;
+		}
+		else if (formatName.contains(TYPE_GIF)) {
+			type = TYPE_GIF;
+		}
+		else if (formatName.contains("jpeg") || type.equals("jpeg")) {
 			type = TYPE_JPEG;
+		}
+		else if (formatName.contains(TYPE_PNG)) {
+			type= TYPE_PNG;
+		}
+		else if (formatName.contains(TYPE_TIFF)) {
+			type = TYPE_TIFF;
+		}
+		else{
+			throw new IllegalArgumentException(type + " is not supported");
 		}
 
 		return new ImageBag(renderedImage, type);
@@ -666,14 +716,15 @@ public class ImageToolImpl implements ImageTool {
 
 			try {
 				bytes = _fileUtil.getBytes(_outputFile);
+
+				ImageBag imageBag = read(bytes);
+				
+				return imageBag.getRenderedImage();
 			}
 			catch (IOException ioe) {
 				throw new ExecutionException(ioe);
 			}
 
-			ImageBag imageBag = read(bytes);
-
-			return imageBag.getRenderedImage();
 		}
 
 		@Override
@@ -686,14 +737,15 @@ public class ImageToolImpl implements ImageTool {
 
 			try {
 				bytes = _fileUtil.getBytes(_outputFile);
+				
+				ImageBag imageBag = read(bytes);
+				
+				return imageBag.getRenderedImage();
 			}
 			catch (IOException ioe) {
 				throw new ExecutionException(ioe);
 			}
 
-			ImageBag imageBag = read(bytes);
-
-			return imageBag.getRenderedImage();
 		}
 
 		@Override
