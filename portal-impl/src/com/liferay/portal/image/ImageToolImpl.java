@@ -648,7 +648,7 @@ public class ImageToolImpl implements ImageTool {
 		return renderedImage;
 	}
 
-	protected void orderImageReaderServiceProviders() {
+	protected void orderImageReaderSpis() {
 		IIORegistry defaultIIORegistry = IIORegistry.getDefaultInstance();
 
 		ImageReaderSpi firstImageReaderSpi = null;
@@ -709,7 +709,7 @@ public class ImageToolImpl implements ImageTool {
 	private ImageToolImpl() {
 		ImageIO.setUseCache(PropsValues.IMAGE_IO_USE_DISK_CACHE);
 
-		orderImageReaderServiceProviders();
+		orderImageReaderSpis();
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(ImageToolImpl.class);
