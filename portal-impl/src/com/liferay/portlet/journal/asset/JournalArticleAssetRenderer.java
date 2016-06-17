@@ -239,8 +239,16 @@ public class JournalArticleAssetRenderer
 		Layout layout = themeDisplay.getLayout();
 
 		if (Validator.isNotNull(_article.getLayoutUuid())) {
-			layout = LayoutLocalServiceUtil.getLayoutByUuidAndCompanyId(
-				_article.getLayoutUuid(), _article.getCompanyId());
+
+			// The target page and the article must belong to the same group
+
+			layout = LayoutLocalServiceUtil.fetchLayoutByUuidAndGroupId(
+				_article.getLayoutUuid(), _article.getGroupId(), false);
+
+			if (layout == null) {
+				layout = LayoutLocalServiceUtil.fetchLayoutByUuidAndGroupId(
+					_article.getLayoutUuid(), _article.getGroupId(), true);
+			}
 		}
 
 		String portletId = (String)liferayPortletRequest.getAttribute(
