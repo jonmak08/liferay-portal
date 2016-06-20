@@ -107,6 +107,13 @@ public class CMISStore extends BaseStore {
 			String fromVersionLabel, String toVersionLabel)
 		throws PortalException {
 
+		if (fromVersionLabel.equals(toVersionLabel)) {
+			throw new DuplicateFileException(
+				String.format(
+					"{companyId=%s, repositoryId=%s, fileName=%s, version=%s}",
+					companyId, repositoryId, fileName, toVersionLabel));
+		}
+
 		Folder versioningFolder = getVersioningFolder(
 			companyId, repositoryId, fileName, false);
 
@@ -318,8 +325,16 @@ public class CMISStore extends BaseStore {
 
 	@Override
 	public void updateFile(
-		long companyId, long repositoryId, long newRepositoryId,
-		String fileName) {
+			long companyId, long repositoryId, long newRepositoryId,
+			String fileName)
+		throws PortalException {
+
+		if (repositoryId == newRepositoryId) {
+			throw new DuplicateFileException(
+				String.format(
+					"{companyId=%s, repositoryId=%s, fileName=%s}", companyId,
+					repositoryId, fileName));
+		}
 
 		Folder oldVersioningFolderEntry = getVersioningFolder(
 			companyId, repositoryId, fileName, true);
@@ -344,8 +359,16 @@ public class CMISStore extends BaseStore {
 
 	@Override
 	public void updateFile(
-		long companyId, long repositoryId, String fileName,
-		String newFileName) {
+			long companyId, long repositoryId, String fileName,
+			String newFileName)
+		throws PortalException {
+
+		if (fileName.equals(newFileName)) {
+			throw new DuplicateFileException(
+				String.format(
+					"{companyId=%s, repositoryId=%s, fileName=%s}", companyId,
+					repositoryId, fileName));
+		}
 
 		Folder oldVersioningFolderEntry = getVersioningFolder(
 			companyId, repositoryId, fileName, true);

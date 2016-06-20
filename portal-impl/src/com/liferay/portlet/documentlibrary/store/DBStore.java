@@ -286,7 +286,14 @@ public class DBStore extends BaseStore {
 	public void updateFile(
 			long companyId, long repositoryId, long newRepositoryId,
 			String fileName)
-		throws SystemException {
+		throws PortalException, SystemException {
+
+		if (repositoryId == newRepositoryId) {
+			throw new DuplicateFileException(
+				String.format(
+					"{companyId=%s, repositoryId=%s, fileName=%s}", companyId,
+					repositoryId, fileName));
+		}
 
 		DLContentLocalServiceUtil.updateDLContent(
 			companyId, repositoryId, newRepositoryId, fileName, fileName);
@@ -296,7 +303,14 @@ public class DBStore extends BaseStore {
 	public void updateFile(
 			long companyId, long repositoryId, String fileName,
 			String newFileName)
-		throws SystemException {
+		throws PortalException, SystemException {
+
+		if (fileName.equals(newFileName)) {
+			throw new DuplicateFileException(
+				String.format(
+					"{companyId=%s, repositoryId=%s, fileName=%s}", companyId,
+					repositoryId, fileName));
+		}
 
 		DLContentLocalServiceUtil.updateDLContent(
 			companyId, repositoryId, repositoryId, fileName, newFileName);

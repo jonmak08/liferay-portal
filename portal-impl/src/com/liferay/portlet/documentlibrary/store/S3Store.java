@@ -33,6 +33,7 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.PropsValues;
+import com.liferay.portlet.documentlibrary.DuplicateFileException;
 import com.liferay.portlet.documentlibrary.NoSuchFileException;
 
 import java.io.File;
@@ -307,11 +308,18 @@ public class S3Store extends BaseStore {
 	public void updateFile(
 			long companyId, long repositoryId, long newRepositoryId,
 			String fileName)
-		throws SystemException {
+		throws PortalException, SystemException {
 
 		File tempFile = null;
 		InputStream is = null;
 		S3Object newS3Object = null;
+
+		if (repositoryId == newRepositoryId) {
+			throw new DuplicateFileException(
+				String.format(
+					"{companyId=%s, repositoryId=%s, fileName=%s}", companyId,
+					repositoryId, fileName));
+		}
 
 		try {
 			S3Object[] s3Objects = _s3Service.listObjects(
@@ -361,7 +369,14 @@ public class S3Store extends BaseStore {
 	public void updateFile(
 			long companyId, long repositoryId, String fileName,
 			String newFileName)
-		throws SystemException {
+		throws PortalException, SystemException {
+
+		if (fileName.equals(newFileName)) {
+			throw new DuplicateFileException(
+				String.format(
+					"{companyId=%s, repositoryId=%s, fileName=%s}", companyId,
+					repositoryId, fileName));
+		}
 
 		File tempFile = null;
 		InputStream is = null;

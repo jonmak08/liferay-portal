@@ -643,6 +643,13 @@ public class JCRStore extends BaseStore {
 			String fileName)
 		throws PortalException, SystemException {
 
+		if (repositoryId == newRepositoryId) {
+			throw new DuplicateFileException(
+				String.format(
+					"{companyId=%s, repositoryId=%s, fileName=%s}", companyId,
+					repositoryId, fileName));
+		}
+
 		Session session = null;
 
 		try {
@@ -701,6 +708,13 @@ public class JCRStore extends BaseStore {
 			long companyId, long repositoryId, String fileName,
 			String newFileName)
 		throws PortalException, SystemException {
+
+		if (fileName.equals(newFileName)) {
+			throw new DuplicateFileException(
+				String.format(
+					"{companyId=%s, repositoryId=%s, fileName=%s}", companyId,
+					repositoryId, fileName));
+		}
 
 		Session session = null;
 
