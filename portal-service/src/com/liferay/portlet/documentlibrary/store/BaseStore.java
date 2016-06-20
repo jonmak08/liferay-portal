@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portlet.documentlibrary.DuplicateFileException;
 import com.liferay.portlet.documentlibrary.NoSuchFileException;
 
 import java.io.File;
@@ -172,6 +173,13 @@ public abstract class BaseStore implements Store {
 			long companyId, long repositoryId, String fileName,
 			String fromVersionLabel, String toVersionLabel)
 		throws PortalException, SystemException {
+
+		if (fromVersionLabel.equals(toVersionLabel)) {
+			throw new DuplicateFileException(
+				String.format(
+					"{companyId=%s, repositoryId=%s, fileName=%s, version=%s}",
+					companyId, repositoryId, fileName, toVersionLabel));
+		}
 
 		InputStream is = getFileAsStream(
 			companyId, repositoryId, fileName, fromVersionLabel);
