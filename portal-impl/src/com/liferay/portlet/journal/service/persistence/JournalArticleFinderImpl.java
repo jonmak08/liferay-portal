@@ -1538,6 +1538,15 @@ public class JournalArticleFinderImpl
 			return StringPool.BLANK;
 		}
 
+		if ((ddmStructureKeys.length == 1) && ddmStructureKeys[0].equals("0")) {
+			ddmStructureKeys[0] = 
+				"(JournalArticle.structureId = ?) OR " +
+					"(JournalArticle.structureId = '') OR " +
+						"(JournalArticle.structureId IS NULL)";
+
+			return ddmStructureKeys[0];
+		}
+
 		StringBundler sb = new StringBundler(ddmStructureKeys.length * 3 + 1);
 
 		sb.append(StringPool.OPEN_PARENTHESIS);
