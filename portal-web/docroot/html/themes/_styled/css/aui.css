@@ -1,5 +1,6 @@
 $FontAwesomePath: "aui/alloy-font-awesome/font" !default;
 
+@import "aui/alloy-font-awesome/scss/font-awesome-ie7";
 @import "aui/alloy-font-awesome/scss/variables";
 @import "aui/alloy-font-awesome/scss/mixins-alloy";
 @import "aui/alloy-font-awesome/scss/path-alloy";
