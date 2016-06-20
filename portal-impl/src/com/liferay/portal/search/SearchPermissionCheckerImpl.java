@@ -303,10 +303,10 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 		groups.addAll(permissionCheckerBag.getUserOrgGroups());
 
 		for (Group group : groups) {
-			PermissionCheckerBag userBag = advancedPermissionChecker.getUserBag(
+			long[] roleIds = permissionChecker.getRoleIds(
 				userId, group.getGroupId());
 
-			List<Role> groupRoles = userBag.getRoles();
+			List<Role> groupRoles = RoleLocalServiceUtil.getRoles(roleIds);
 
 			roles.addAll(groupRoles);
 
