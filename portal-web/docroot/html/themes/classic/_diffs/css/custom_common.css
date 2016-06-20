@@ -188,6 +188,7 @@
 	.logo, .logo:hover {
 		color: #333;
 		line-height: 20px;
+		*line-height: normal;
 	}
 
 	.portlet, .portlet-borderless-container {
@@ -948,6 +949,11 @@
 		margin-bottom: 0;
 		min-height: 0;
 		padding: 0;
+	}
+
+	.portlet-dockbar {
+		*position: relative;
+		*z-index: 99999;
 	}
 
 	.dockbar {
