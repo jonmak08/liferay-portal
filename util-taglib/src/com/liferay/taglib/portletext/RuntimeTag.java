@@ -230,6 +230,9 @@ public class RuntimeTag extends TagSupport {
 		return portlet;
 	}
 
+	private static final String _ERROR_PAGE =
+		"/html/taglib/portlet/runtime/error.jsp";
+
 	private static final String _INFINITE_LOOP =
 		"/html/taglib/portlet/runtime/infinite_loop.jsp";
 
