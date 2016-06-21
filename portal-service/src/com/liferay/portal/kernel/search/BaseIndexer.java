@@ -523,7 +523,7 @@ public abstract class BaseIndexer implements Indexer {
 
 	@Override
 	public void reindex(String[] ids) throws SearchException {
-		long currentCompanyId = CompanyThreadLocal.getCompanyId();
+		long companyThreadLocalCompanyId = CompanyThreadLocal.getCompanyId();
 
 		try {
 			if (SearchEngineUtil.isIndexReadOnly() || !isIndexerEnabled() ||
@@ -545,7 +545,7 @@ public abstract class BaseIndexer implements Indexer {
 			throw new SearchException(e);
 		}
 		finally {
-			CompanyThreadLocal.setCompanyId(currentCompanyId);
+			CompanyThreadLocal.setCompanyId(companyThreadLocalCompanyId);
 		}
 	}
 
