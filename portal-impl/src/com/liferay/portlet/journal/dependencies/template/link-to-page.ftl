@@ -1,6 +1,6 @@
 <#include "init.ftl">
 
-<#assign variableName = name + ".getFriendlyUrl()">
+<#assign variableName = ".vars['"+ name + "'].getFriendlyUrl()">
 
 <a href="${getVariableReferenceCode(variableName)}">
 	${label}
