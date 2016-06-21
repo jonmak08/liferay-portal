@@ -42,6 +42,7 @@ import com.liferay.portlet.PortletPreferencesFactoryUtil;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -107,9 +108,16 @@ public class RuntimeTag extends TagSupport {
 
 			PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
 
-			if (Validator.equals(
-					portletDisplay.getId(),
-					portletInstance.getPortletInstanceKey())) {
+			Stack<String> alreadyEmbeddedPortletIdsStack =
+				_embeddedPortletIdsStack.get();
+
+			if (alreadyEmbeddedPortletIdsStack == null) {
+				alreadyEmbeddedPortletIdsStack = new Stack<>();
+				_embeddedPortletIdsStack.set(alreadyEmbeddedPortletIdsStack);
+			}
+
+			if (alreadyEmbeddedPortletIdsStack.search(portletDisplay.getId()) >
+					-1) {
 
 				String errorMessage = LanguageUtil.get(
 					request, "the-application-cannot-include-itself");
@@ -167,7 +175,12 @@ public class RuntimeTag extends TagSupport {
 
 			PortletJSONUtil.writeHeaderPaths(response, jsonObject);
 
+			alreadyEmbeddedPortletIdsStack.push(
+				portletInstance.getPortletInstanceKey());
+
 			PortletContainerUtil.render(request, response, portlet);
+
+			alreadyEmbeddedPortletIdsStack.pop();
 
 			PortletJSONUtil.writeFooterPaths(response, jsonObject);
 		}
@@ -242,6 +255,9 @@ public class RuntimeTag extends TagSupport {
 		"/html/taglib/portlet/runtime/error.jsp";
 
 	private static Log _log = LogFactoryUtil.getLog(RuntimeTag.class);
+
+	private static final ThreadLocal<Stack<String>> _embeddedPortletIdsStack =
+		new ThreadLocal<>();
 
 	private String _defaultPreferences;
 	private String _portletName;
