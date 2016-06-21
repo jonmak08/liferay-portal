@@ -250,7 +250,7 @@ else {
 		{
 			createPageMessage: '<liferay-ui:message key="loading" />',
 			focusItem: A.one('#<portlet:namespace />addLayoutName'),
-			formName: '<portlet:namespace /><%= addPageFormName %>',
+			formName: '<portlet:namespace /><%= HtmlUtil.escapeJS(addPageFormName) %>',
 			namespace: '<portlet:namespace />',
 			nodeList: A.one('#<portlet:namespace />templateList'),
 			nodeSelector: '.lfr-page-template',
