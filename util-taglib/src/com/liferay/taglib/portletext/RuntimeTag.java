@@ -16,6 +16,7 @@ package com.liferay.taglib.portletext;
 
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.PortletContainerUtil;
@@ -34,6 +35,7 @@ import com.liferay.portal.model.LayoutTypePortlet;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.service.PortletLocalServiceUtil;
 import com.liferay.portal.service.PortletPreferencesLocalServiceUtil;
+import com.liferay.portal.theme.PortletDisplay;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portlet.PortletPreferencesFactoryUtil;
@@ -103,13 +105,19 @@ public class RuntimeTag extends TagSupport {
 			ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
 				WebKeys.THEME_DISPLAY);
 
-			String containerPortletId =
-				themeDisplay.getPortletDisplay().getId();
+			PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
 
-			String portletInstanceKey = portletInstance.getPortletInstanceKey();
+			if (Validator.equals(
+					portletDisplay.getId(),
+					portletInstance.getPortletInstanceKey())) {
 
-			if (portletInstanceKey.equals(containerPortletId)) {
-				PortalIncludeUtil.include(pageContext, _INFINITE_LOOP);
+				String errorMessage = LanguageUtil.get(
+					request, "the-application-cannot-include-itself");
+
+				request.setAttribute(
+					"liferay-portlet:runtime:errorMessage", errorMessage);
+
+				PortalIncludeUtil.include(pageContext, _ERROR_PAGE);
 
 				return;
 			}
@@ -232,9 +240,6 @@ public class RuntimeTag extends TagSupport {
 
 	private static final String _ERROR_PAGE =
 		"/html/taglib/portlet/runtime/error.jsp";
-
-	private static final String _INFINITE_LOOP =
-		"/html/taglib/portlet/runtime/infinite_loop.jsp";
 
 	private static Log _log = LogFactoryUtil.getLog(RuntimeTag.class);
 
