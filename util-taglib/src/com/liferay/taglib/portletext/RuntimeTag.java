@@ -26,6 +26,7 @@ import com.liferay.portal.kernel.portlet.PortletParameterUtil;
 import com.liferay.portal.kernel.portlet.RestrictPortletServletRequest;
 import com.liferay.portal.kernel.servlet.DynamicServletRequest;
 import com.liferay.portal.kernel.servlet.PipingServletResponse;
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.PrefixPredicateFilter;
 import com.liferay.portal.kernel.util.StringPool;
@@ -257,7 +258,8 @@ public class RuntimeTag extends TagSupport {
 	private static Log _log = LogFactoryUtil.getLog(RuntimeTag.class);
 
 	private static final ThreadLocal<Stack<String>> _embeddedPortletIds =
-		new ThreadLocal<>();
+		new AutoResetThreadLocal<>(
+			RuntimeTag.class + "._embeddedPortletIds");
 
 	private String _defaultPreferences;
 	private String _portletName;
