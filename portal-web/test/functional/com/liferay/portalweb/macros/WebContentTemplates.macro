@@ -31,7 +31,9 @@
 
 				<execute function="SelectFrame" />
 				<execute function="SelectFrame" locator1="CPWebcontentTemplatesAddtemplate#TEMPLATES_IFRAME" />
+
 				<execute macro="CPWebcontentTemplatesAddtemplate#showDetails" />
+
 				<execute function="AssertTextEquals#assertValue" locator1="CPWebcontentTemplatesAddtemplate#STRUCTURE" value1="${structureName}" />
 
 				<if>
