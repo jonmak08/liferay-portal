@@ -148,5 +148,5 @@ portletURL.setParameter("eventName", eventName);
 		}
 	);
 
-	Util.selectEntityHandler('#<portlet:namespace />selectRegularRoleFm', '<%= HtmlUtil.escapeJS(eventName) %>');
+	Util.selectEntityHandler('#<portlet:namespace />selectRegularRoleFm', '<%= HtmlUtil.escapeJS(eventName) %>', true, false);
 </aui:script>

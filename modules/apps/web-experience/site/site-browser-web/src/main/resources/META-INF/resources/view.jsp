@@ -210,5 +210,5 @@ GroupSearch groupSearch = siteBrowserDisplayContext.getGroupSearch();
 		}
 	);
 
-	Util.selectEntityHandler('#<portlet:namespace />selectGroupFm', '<%= HtmlUtil.escapeJS(eventName) %>', <%= selUser != null %>);
+	Util.selectEntityHandler('#<portlet:namespace />selectGroupFm', '<%= HtmlUtil.escapeJS(eventName) %>', <%= selUser != null %>, false);
 </aui:script>

@@ -848,7 +848,7 @@
 			);
 		},
 
-		selectEntityHandler: function(container, selectEventName, disableButton) {
+		selectEntityHandler: function(container, selectEventName, disableButton, signleSelect) {
 			container = $(container);
 
 			var openingLiferay = Util.getOpener().Liferay;
@@ -869,7 +869,9 @@
 
 						if (!confirmSelection || confirm(confirmSelectionMessage)) {
 							if (disableButton !== false) {
-								selectorButtons.prop('disabled', false);
+								if (signleSelect !== false) {
+									selectorButtons.prop('disabled', false);
+								}
 
 								currentTarget.prop('disabled', true);
 							}

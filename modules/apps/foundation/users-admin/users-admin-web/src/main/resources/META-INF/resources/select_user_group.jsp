@@ -157,5 +157,5 @@ renderResponse.setTitle(LanguageUtil.get(request, "user-groups"));
 		}
 	);
 
-	Util.selectEntityHandler('#<portlet:namespace />selectUserGroupFm', '<%= HtmlUtil.escapeJS(eventName) %>');
+	Util.selectEntityHandler('#<portlet:namespace />selectUserGroupFm', '<%= HtmlUtil.escapeJS(eventName) %>', true, false);
 </aui:script>

@@ -287,7 +287,7 @@ if (step == 1) {
 					}
 				);
 
-				Util.selectEntityHandler('#<portlet:namespace />selectSiteRoleFm', '<%= HtmlUtil.escapeJS(eventName) %>');
+				Util.selectEntityHandler('#<portlet:namespace />selectSiteRoleFm', '<%= HtmlUtil.escapeJS(eventName) %>', true, false);
 			</aui:script>
 		</c:when>
 	</c:choose>
