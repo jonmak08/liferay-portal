@@ -6674,9 +6674,6 @@ public class JournalArticleLocalServiceImpl
 		subscriptionSender.setSubject(subject);
 		subscriptionSender.setUserId(article.getUserId());
 
-		subscriptionSender.addPersistedSubscribers(
-			JournalArticle.class.getName(), article.getResourcePrimKey());
-
 		JournalFolder folder = article.getFolder();
 
 		List<Long> folderIds = new ArrayList<Long>();
@@ -6694,6 +6691,9 @@ public class JournalArticleLocalServiceImpl
 
 		subscriptionSender.addPersistedSubscribers(
 			JournalArticle.class.getName(), article.getGroupId());
+
+		subscriptionSender.addPersistedSubscribers(
+			JournalArticle.class.getName(), article.getResourcePrimKey());
 
 		subscriptionSender.flushNotificationsAsync();
 	}
