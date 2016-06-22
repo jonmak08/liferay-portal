@@ -4816,6 +4816,17 @@ mail.session.mail.smtp.port=25000</echo>
 			test.poshi.warnings.file.name=${project.dir.unix}/poshi-warnings.xml
 		</echo>
 
+		<propertycopy from="browser.firefox.bin.path[${browser.firefox.version}]" name="browser.firefox.bin.path" silent="true" />
+
+		<if>
+			<isset property="browser.firefox.bin.path" />
+			<then>
+				<echo append="true" file="${test.ext.properties.file}">
+					browser.firefox.bin.path=${browser.firefox.bin.path}
+				</echo>
+			</then>
+		</if>
+
 		<if>
 			<isset property="print.java.process.on.fail" />
 			<then>
