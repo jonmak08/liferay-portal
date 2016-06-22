@@ -831,12 +831,6 @@ $dockbarOpenGradientStart: #0EA6F9;
 
 	/* ---------- Extras ---------- */
 
-	@media (max-width: 1280px) {
-		a.dropdown-toggle.btn > span.lfr-icon-menu-text {
-			padding-right: 12px;
-		}
-	}
-
 	button {
 		&.delete-logo, &.edit-logo {
 			@include box-shadow(0 2px 2px -1px #CBCBCB);
@@ -951,6 +945,12 @@ $dockbarOpenGradientStart: #0EA6F9;
 	}
 
 	/* ---------- Media queries ---------- */
+
+	@media (max-width: 1280px) {
+		a.dropdown-toggle.btn > span.lfr-icon-menu-text {
+			padding-right: 12px;
+		}
+	}
 
 	@include respond-to(phone, tablet) {
 		ul.form-navigator.well {
