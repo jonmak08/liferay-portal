@@ -273,7 +273,9 @@ public class PortalLDAPExporterImpl implements PortalLDAPExporter {
 				if (Validator.isNotNull(modifyTimestamp)) {
 					Date modifiedDate = LDAPUtil.parseDate(modifyTimestamp);
 
-					if (modifiedDate.equals(user.getModifiedDate())) {
+					if (modifiedDate.equals(user.getModifiedDate()) &&
+						!user.getPasswordModified()) {
+
 						if (_log.isDebugEnabled()) {
 							_log.debug(
 								"Skipping user " + user.getEmailAddress() +
