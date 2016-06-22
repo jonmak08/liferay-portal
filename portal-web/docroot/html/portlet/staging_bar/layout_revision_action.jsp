@@ -45,7 +45,7 @@ if (layoutRevision.getLayoutRevisionId() == layoutRevisionId) {
 			</portlet:actionURL>
 
 			<%
-			String taglibURL = "javascript:submitForm(document.hrefFm, '" + HttpUtil.encodeURL(publishURL) + "');";
+			String taglibURL = "javascript:submitForm(document.hrefFm, '" + HtmlUtil.escapeJS(publishURL) + "');";
 			%>
 
 			<liferay-ui:icon
@@ -66,7 +66,7 @@ if (layoutRevision.getLayoutRevisionId() == layoutRevisionId) {
 			</portlet:actionURL>
 
 			<%
-			String taglibURL = "javascript:submitForm(document.hrefFm, '" + HttpUtil.encodeURL(saveURL) + "');";
+			String taglibURL = "javascript:submitForm(document.hrefFm, '" + HtmlUtil.escapeJS(saveURL) + "');";
 			%>
 
 			<liferay-ui:icon

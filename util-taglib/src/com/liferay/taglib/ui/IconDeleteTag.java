@@ -16,8 +16,8 @@ package com.liferay.taglib.ui;
 
 import com.liferay.portal.kernel.language.UnicodeLanguageUtil;
 import com.liferay.portal.kernel.servlet.taglib.FileAvailabilityUtil;
+import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.Http;
-import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -70,7 +70,7 @@ public class IconDeleteTag extends IconTag {
 
 			url =
 				"submitForm(document.hrefFm, '".concat(
-					HttpUtil.encodeURL(url)).concat("');");
+					HtmlUtil.escapeJS(url)).concat("');");
 		}
 
 		if (url.startsWith("wsrp_rewrite?")) {

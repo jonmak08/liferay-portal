@@ -339,7 +339,7 @@ if (inlineEdit && Validator.isNotNull(inlineEditSaveURL)) {
 		sb.append(HttpUtil.encodeURL(String.valueOf(doAsGroupId)));
 		sb.append(fileBrowserParams);
 
-		String connectorURL = HttpUtil.encodeURL(sb.toString());
+		String connectorURL = HtmlUtil.escapeJS(sb.toString());
 		%>
 
 		<c:choose>
@@ -353,7 +353,7 @@ if (inlineEdit && Validator.isNotNull(inlineEditSaveURL)) {
 
 			'<%= name %>',
 			{
-				customConfig: '<%= PortalUtil.getPathContext() %>/html/js/editor/ckeditor/<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(ckEditorConfigFileName)) %>?p_p_id=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(portletId)) %>&p_main_path=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(mainPath)) %>&colorSchemeCssClass=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(themeDisplay.getColorScheme().getCssClass())) %>&contentsLanguageId=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(contentsLanguageId)) %>&cssClasses=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(cssClasses)) %>&cssPath=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(themeDisplay.getPathThemeCss())) %>&doAsGroupId=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(String.valueOf(doAsGroupId))) %>&doAsUserId=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(doAsUserId)) %>&imagesPath=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(themeDisplay.getPathThemeImages())) %>&inlineEdit=<%= inlineEdit %><%= configParams %>&languageId=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(LocaleUtil.toLanguageId(locale))) %>&name=<%= name %>&resizable=<%= resizable %>',
+				customConfig: '<%= PortalUtil.getPathContext() %>/html/js/editor/ckeditor/<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(ckEditorConfigFileName)) %>?p_p_id=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(portletId)) %>&p_main_path=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(mainPath)) %>&colorSchemeCssClass=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(themeDisplay.getColorScheme().getCssClass())) %>&contentsLanguageId=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(contentsLanguageId)) %>&cssClasses=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(cssClasses)) %>&cssPath=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(themeDisplay.getPathThemeCss())) %>&doAsGroupId=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(String.valueOf(doAsGroupId))) %>&doAsUserId=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(doAsUserId)) %>&imagesPath=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(themeDisplay.getPathThemeImages())) %>&inlineEdit=<%= inlineEdit %><%= HtmlUtil.escapeJS(configParams) %>&languageId=<%= HtmlUtil.escapeJS(HttpUtil.encodeURL(LocaleUtil.toLanguageId(locale))) %>&name=<%= name %>&resizable=<%= resizable %>',
 				filebrowserBrowseUrl: '<%= PortalUtil.getPathContext() %>/html/js/editor/ckeditor/editor/filemanager/browser/liferay/browser.html?Connector=<%= connectorURL %><%= fileBrowserParams %>',
 				filebrowserUploadUrl: null,
 				toolbar: getToolbarSet('<%= TextFormatter.format(HtmlUtil.escapeJS(toolbarSet), TextFormatter.M) %>')

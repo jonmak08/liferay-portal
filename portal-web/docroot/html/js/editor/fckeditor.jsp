@@ -42,7 +42,7 @@ if (configParams != null) {
 		configParamsSB.append(StringPool.AMPERSAND);
 		configParamsSB.append(configParam.getKey());
 		configParamsSB.append(StringPool.EQUAL);
-		configParamsSB.append(HttpUtil.encodeURL(configParam.getValue()));
+		configParamsSB.append(HtmlUtil.escapeJS(configParam.getValue()));
 	}
 }
 
@@ -128,7 +128,7 @@ String toolbarSet = (String)request.getAttribute("liferay-ui:input-editor:toolba
 
 			var fckEditor = new FCKeditor('<%= name %>');
 
-			fckEditor.Config['CustomConfigurationsPath'] = '<%= PortalUtil.getPathContext() %>/html/js/editor/fckeditor/fckconfig.jsp?p_l_id=<%= plid %>&p_p_id=<%= HttpUtil.encodeURL(portletId) %>&p_main_path=<%= HttpUtil.encodeURL(mainPath) %>&doAsUserId=<%= HttpUtil.encodeURL(doAsUserId) %>&doAsGroupId=<%= HttpUtil.encodeURL(String.valueOf(doAsGroupId)) %>&cssPath=<%= HttpUtil.encodeURL(themeDisplay.getPathThemeCss()) %>&cssClasses=<%= HttpUtil.encodeURL(cssClasses) %>&languageId=<%= HttpUtil.encodeURL(LocaleUtil.toLanguageId(locale)) %><%= configParamsSB.toString() %>';
+			fckEditor.Config['CustomConfigurationsPath'] = '<%= PortalUtil.getPathContext() %>/html/js/editor/fckeditor/fckconfig.jsp?p_l_id=<%= plid %>&p_p_id=<%= HtmlUtil.escapeJS(portletId) %>&p_main_path=<%= HtmlUtil.escapeJS(mainPath) %>&doAsUserId=<%= HtmlUtil.escapeJS(doAsUserId) %>&doAsGroupId=<%= HtmlUtil.escapeJS(String.valueOf(doAsGroupId)) %>&cssPath=<%= HtmlUtil.escapeJS(themeDisplay.getPathThemeCss()) %>&cssClasses=<%= HtmlUtil.escapeJS(cssClasses) %>&languageId=<%= HtmlUtil.escapeJS(LocaleUtil.toLanguageId(locale)) %><%= configParamsSB.toString() %>';
 
 			fckEditor.BasePath = '<%= PortalUtil.getPathContext() %>/html/js/editor/fckeditor/';
 			fckEditor.Width = '100%';
