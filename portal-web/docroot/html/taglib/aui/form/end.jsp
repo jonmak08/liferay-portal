@@ -24,7 +24,7 @@
 <aui:script use="liferay-form">
 	Liferay.Form.register(
 		{
-			id: '<%= namespace + name %>'
+			id: '<%= namespace + HtmlUtil.escapeJS(name) %>'
 
 			<c:if test="<%= validatorTagsMap != null %>">
 				, fieldRules: [
@@ -67,6 +67,6 @@
 	);
 
 	<c:if test="<%= Validator.isNotNull(onSubmit) %>">
-		A.all('#<%= namespace + name %> .input-container').removeAttribute('disabled');
+		A.all('#<%= namespace + HtmlUtil.escapeJS(name) %> .input-container').removeAttribute('disabled');
 	</c:if>
 </aui:script>
