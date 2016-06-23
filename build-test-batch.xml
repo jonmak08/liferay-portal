@@ -951,4 +951,8 @@ app.server.type=@{app.server.type}]]></echo>
 			</test-set-up>
 		</run-batch-test>
 	</target>
+
+	<target name="upstream-functional-tomcat7-mysql55-jdk7">
+		<run-functional-test app.server.type="tomcat" database.type="mysql" database.version="5.5" />
+	</target>
 </project>
