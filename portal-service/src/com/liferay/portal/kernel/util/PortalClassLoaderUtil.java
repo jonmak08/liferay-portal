@@ -34,11 +34,27 @@ public class PortalClassLoaderUtil {
 		PortalRuntimePermission.checkSetBeanProperty(
 			PortalClassLoaderUtil.class);
 
+		if (classLoader == null) {
+			_classLoader = null;
+
+			return;
+		}
+
 		if (ServerDetector.isJOnAS() && JavaDetector.isJDK6()) {
 			_classLoader = new URLClassLoader(new URL[0], classLoader);
 		}
+
 		else {
-			_classLoader = classLoader;
+			Class<?> clazz = classLoader.getClass();
+
+			try {
+				clazz.getMethod("destroy");
+
+				_classLoader = new URLClassLoader(new URL[0], classLoader);
+			}
+			catch (NoSuchMethodException nsme) {
+				_classLoader = classLoader;
+			}
 		}
 	}
 
