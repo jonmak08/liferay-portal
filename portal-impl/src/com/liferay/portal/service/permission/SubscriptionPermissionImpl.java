@@ -37,6 +37,7 @@ import com.liferay.portlet.documentlibrary.service.permission.DLFileEntryPermiss
 import com.liferay.portlet.documentlibrary.service.permission.DLFolderPermission;
 import com.liferay.portlet.documentlibrary.service.persistence.DLFolderUtil;
 import com.liferay.portlet.journal.model.JournalArticle;
+import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.portlet.journal.service.permission.JournalArticlePermission;
 import com.liferay.portlet.journal.service.permission.JournalPermission;
 import com.liferay.portlet.messageboards.model.MBCategory;
@@ -195,15 +196,21 @@ public class SubscriptionPermissionImpl implements SubscriptionPermission {
 				permissionChecker, classPK, actionId);
 		}
 		else if (className.equals(JournalArticle.class.getName())) {
-			Group group = GroupLocalServiceUtil.fetchGroup(classPK);
+			JournalArticle article =
+				JournalArticleLocalServiceUtil.fetchLatestArticle(classPK);
 
-			if (group == null) {
-				return JournalArticlePermission.contains(
-						permissionChecker, classPK, actionId);
+			if (article == null) {
+				return JournalPermission.contains(
+					permissionChecker, classPK, actionId);
 			}
 
-			return JournalPermission.contains(
-				permissionChecker, classPK, actionId);
+			if (actionId == ActionKeys.SUBSCRIBE) {
+				return JournalPermission.contains(
+					permissionChecker, article.getGroupId(), actionId);
+			}
+
+			return JournalArticlePermission.contains(
+				permissionChecker, article, actionId);
 		}
 		else if (className.equals(MBCategory.class.getName())) {
 			Group group = GroupLocalServiceUtil.fetchGroup(classPK);
