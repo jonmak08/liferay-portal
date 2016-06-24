@@ -193,27 +193,36 @@ public class GroupImpl extends GroupBaseImpl {
 			ThemeDisplay themeDisplay, boolean privateLayout)
 		throws PortalException {
 
-		String portalURL = themeDisplay.getPortalURL();
+		if (!privateLayout && (getPublicLayoutsPageCount() > 0)) {
+			try {
+				LayoutSet publicLayoutSet = getPublicLayoutSet();
 
-		int publicLayoutsPageCount = getPublicLayoutsPageCount();
+				if (publicLayoutSet != null) {
+					String groupFriendlyURL = PortalUtil.getGroupFriendlyURL(
+						publicLayoutSet, themeDisplay);
 
-		if (publicLayoutsPageCount > 0) {
-			StringBundler sb = new StringBundler(5);
-
-			sb.append(portalURL);
-			sb.append(themeDisplay.getPathMain());
-			sb.append("/my_sites/view?groupId=");
-			sb.append(getGroupId());
-
-			if (privateLayout) {
-				sb.append("&privateLayout=1");
+					return PortalUtil.addPreservedParameters(
+						themeDisplay, groupFriendlyURL);
+				}
 			}
-			else {
-				sb.append("&privateLayout=0");
+			catch (PortalException pe) {
 			}
+		}
 
-			return PortalUtil.addPreservedParameters(
-				themeDisplay, sb.toString());
+		if (privateLayout && (getPrivateLayoutsPageCount() > 0)) {
+			try {
+				LayoutSet privateLayoutSet = getPrivateLayoutSet();
+
+				if (privateLayoutSet != null) {
+					String groupFriendlyURL = PortalUtil.getGroupFriendlyURL(
+						privateLayoutSet, themeDisplay);
+
+					return PortalUtil.addPreservedParameters(
+						themeDisplay, groupFriendlyURL);
+				}
+			}
+			catch (PortalException pe) {
+			}
 		}
 
 		return StringPool.BLANK;
