@@ -15,7 +15,6 @@
 package com.liferay.portlet.wiki.lar;
 
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
-import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.lar.BasePortletDataHandler;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.lar.PortletDataContext;
@@ -24,6 +23,8 @@ import com.liferay.portal.kernel.lar.PortletDataHandlerBoolean;
 import com.liferay.portal.kernel.lar.PortletDataHandlerControl;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.portal.kernel.lar.StagedModelType;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.model.Group;
@@ -202,85 +203,21 @@ public class WikiPortletDataHandler extends BasePortletDataHandler {
 			PortletPreferences portletPreferences)
 		throws Exception {
 
-		Group scopeGroup = GroupLocalServiceUtil.fetchGroup(
-			portletDataContext.getScopeGroupId());
-
-		Group liveGroup = scopeGroup.getLiveGroup();
-
-		boolean isPartialStaging = false;
-
-		if (ExportImportThreadLocal.isStagingInProcess() &&
-			(liveGroup != null) && !liveGroup.isStagedPortlet(portletId)) {
-
-			isPartialStaging = true;
-		}
+		Group group = GroupLocalServiceUtil.fetchGroup(
+			portletDataContext.getGroupId());
 
 		String hiddenNodeNames = portletPreferences.getValue(
 			"hiddenNodes", null);
 
 		for (String hiddenNodeName : StringUtil.split(hiddenNodeNames)) {
-			WikiNode hiddenWikiNode = null;
-
-			try {
-				hiddenWikiNode = WikiNodeLocalServiceUtil.getNode(
-					portletDataContext.getScopeGroupId(), hiddenNodeName);
-			}
-			catch (PortalException pe1) {
-				if (isPartialStaging) {
-					try {
-						WikiNodeLocalServiceUtil.getNode(
-							liveGroup.getGroupId(), hiddenNodeName);
-					} catch (PortalException pe2) {
-						throw new PortletDataException(
-							"Unable to find wiki node " + hiddenNodeName +
-								" for preference of portlet " + portletId, pe2);
-					}
-
-					continue;
-				}
-				else {
-					throw new PortletDataException(
-						"Unable to find wiki node " + hiddenNodeName +
-							" for preference of portlet " + portletId, pe1);
-				}
-			}
-
-			StagedModelDataHandlerUtil.exportReferenceStagedModel(
-				portletDataContext, portletId, hiddenWikiNode);
+			exportNode(portletDataContext, portletId, group, hiddenNodeName);
 		}
 
 		String visibleNodeNames = portletPreferences.getValue(
 			"visibleNodes", null);
 
 		for (String visibleNodeName : StringUtil.split(visibleNodeNames)) {
-			WikiNode visibleWikiNode = null;
-
-			try {
-				visibleWikiNode = WikiNodeLocalServiceUtil.getNode(
-					portletDataContext.getScopeGroupId(), visibleNodeName);
-			}
-			catch (PortalException pe1) {
-				if (isPartialStaging) {
-					try {
-						WikiNodeLocalServiceUtil.getNode(
-							liveGroup.getGroupId(), visibleNodeName);
-					} catch (PortalException pe2) {
-						throw new PortletDataException(
-							"Unable to find wiki node " + visibleNodeName +
-								" for preference of portlet " + portletId, pe2);
-					}
-
-					continue;
-				}
-				else {
-					throw new PortletDataException(
-						"Unable to find wiki node " + visibleNodeName +
-							" for preference of portlet " + portletId, pe1);
-				}
-			}
-
-			StagedModelDataHandlerUtil.exportReferenceStagedModel(
-				portletDataContext, portletId, visibleWikiNode);
+			exportNode(portletDataContext, portletId, group, visibleNodeName);
 		}
 
 		return portletPreferences;
@@ -298,4 +235,32 @@ public class WikiPortletDataHandler extends BasePortletDataHandler {
 		return portletPreferences;
 	}
 
+	protected void exportNode(
+			PortletDataContext portletDataContext, String portletId,
+			Group group, String nodeName)
+		throws Exception {
+
+		if (ExportImportThreadLocal.isStagingInProcess() &&
+			!group.isStagedPortlet(portletId)) {
+
+			return;
+		}
+
+		WikiNode node = WikiNodeLocalServiceUtil.fetchNode(
+			portletDataContext.getScopeGroupId(), nodeName);
+
+		if (node == null) {
+			if (_log.isWarnEnabled()) {
+				_log.warn("Unable to export referenced wiki node " + nodeName);
+			}
+
+			return;
+		}
+
+		StagedModelDataHandlerUtil.exportReferenceStagedModel(
+			portletDataContext, portletId, node);
+	}
+
+	private static final Log _log = LogFactoryUtil.getLog(
+		WikiPortletDataHandler.class);
 }
