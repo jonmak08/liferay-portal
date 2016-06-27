@@ -6209,13 +6209,8 @@ ANT_OPTS=${env.ANT_OPTS}</echo>
 				<mirrors-get dest="${tstamp.value}.zip" src="${test.build.bundle.zip.url}" />
 
 				<unzip dest="${app.server.parent.dir}" src="${tstamp.value}.zip">
-					<patternset includes="liferay-portal-*/${app.server.name}-*/**" />
+					<patternset includes="liferay-portal-*/**" />
 					<mapper from="[^/]+/(.*)" to="\1" type="regexp" />
-				</unzip>
-
-				<unzip dest="${app.server.parent.dir}" src="${tstamp.value}.zip">
-					<patternset includes="liferay-portal-*/patching-tool/patches/**" />
-					<mapper from="[^/]+/(.*)" to="${app.server.dir}//\1" type="regexp" />
 				</unzip>
 
 				<delete file="${tstamp.value}.zip" />
