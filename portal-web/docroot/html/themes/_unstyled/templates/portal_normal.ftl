@@ -10,14 +10,6 @@
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 
 	${theme.include(top_head_include)}
-
-	<!--[if IE 7]>
-		<script src="/html/js/aui/aui-base-html5-shiv/aui-base-html5-shiv.js"></script>
-		<script type="text/javascript">
-			YUI.Env.core.push('aui-base-html5-shiv');
-			new YUI().html5shiv();
-		</script>
-	<![endif]-->
 </head>
 
 <body class="${css_class}">
