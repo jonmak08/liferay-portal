@@ -4816,13 +4816,13 @@ mail.session.mail.smtp.port=25000</echo>
 			test.poshi.warnings.file.name=${project.dir.unix}/poshi-warnings.xml
 		</echo>
 
-		<propertycopy from="browser.firefox.bin.path[${browser.firefox.version}]" name="browser.firefox.bin.path" silent="true" />
+		<propertycopy from="browser.firefox.bin.file[${browser.firefox.version}]" name="browser.firefox.bin.file" silent="true" />
 
 		<if>
-			<isset property="browser.firefox.bin.path" />
+			<isset property="browser.firefox.bin.file" />
 			<then>
 				<echo append="true" file="${test.ext.properties.file}">
-					browser.firefox.bin.path=${browser.firefox.bin.path}
+					browser.firefox.bin.file=${browser.firefox.bin.file}
 				</echo>
 			</then>
 		</if>
