@@ -181,7 +181,7 @@ public class SubscriptionPermissionImpl implements SubscriptionPermission {
 
 			if (group == null) {
 				return BlogsEntryPermission.contains(
-						permissionChecker, classPK, actionId);
+					permissionChecker, classPK, actionId);
 			}
 
 			return BlogsPermission.contains(
