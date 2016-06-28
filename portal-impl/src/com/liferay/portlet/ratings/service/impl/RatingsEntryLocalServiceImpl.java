@@ -282,7 +282,7 @@ public class RatingsEntryLocalServiceImpl
 	protected void reindex(RatingsStats stats) throws PortalException {
 		String className = PortalUtil.getClassName(stats.getClassNameId());
 
-		Indexer<?> indexer = IndexerRegistryUtil.nullSafeGetIndexer(className);
+		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(className);
 
 		indexer.reindex(className, stats.getClassPK());
 	}
