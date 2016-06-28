@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.PortletClassLoaderUtil;
 import com.liferay.portal.kernel.util.MethodCache;
+import com.liferay.portal.spring.bean.BeanReferenceRefreshUtil;
 
 import java.lang.reflect.Method;
 
@@ -88,6 +89,14 @@ public class PortletContextLoaderListener extends ContextLoaderListener {
 
 		ApplicationContext applicationContext =
 			WebApplicationContextUtils.getWebApplicationContext(servletContext);
+
+		try {
+			BeanReferenceRefreshUtil.refresh(
+				applicationContext.getAutowireCapableBeanFactory());
+		}
+		catch (Exception e) {
+			_log.error(e, e);
+		}
 
 		BeanLocatorImpl beanLocatorImpl = new BeanLocatorImpl(
 			classLoader, applicationContext);
