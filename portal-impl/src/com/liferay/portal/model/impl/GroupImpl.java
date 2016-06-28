@@ -193,29 +193,30 @@ public class GroupImpl extends GroupBaseImpl {
 			ThemeDisplay themeDisplay, boolean privateLayout)
 		throws PortalException {
 
+		Group group = themeDisplay.getScopeGroup();
 		if (!privateLayout && (getPublicLayoutsPageCount() > 0)) {
 			try {
 				String groupFriendlyURL = PortalUtil.getGroupFriendlyURL(
-					getPublicLayoutSet(), themeDisplay);
+					group, privateLayout, themeDisplay);
 
 				return PortalUtil.addPreservedParameters(
 					themeDisplay, groupFriendlyURL);
 			}
-			catch (PortalException pe) {
-				_log.error(pe);
+			catch (SystemException se) {
+				_log.error(se);
 			}
 		}
 
 		else if (privateLayout && (getPrivateLayoutsPageCount() > 0)) {
 			try {
 				String groupFriendlyURL = PortalUtil.getGroupFriendlyURL(
-					getPrivateLayoutSet(), themeDisplay);
+						group, privateLayout, themeDisplay);
 
 				return PortalUtil.addPreservedParameters(
 					themeDisplay, groupFriendlyURL);
 			}
-			catch (PortalException pe) {
-				_log.error(pe);
+			catch (SystemException se) {
+				_log.error(se);
 			}
 		}
 
