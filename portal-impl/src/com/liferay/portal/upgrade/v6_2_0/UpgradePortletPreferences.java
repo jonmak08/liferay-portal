@@ -20,6 +20,8 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.util.dao.orm.CustomSQLUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -59,9 +61,13 @@ public class UpgradePortletPreferences extends UpgradeProcess {
 			sb.append("from PortletPreferences inner join Layout on ");
 			sb.append("PortletPreferences.plid = Layout.plid where ");
 			sb.append("preferences like '%<portlet-preferences />%' or ");
-			sb.append("preferences like '' or preferences is null");
+			sb.append("preferences like '' or ? IS NULL");
 
 			String sql = sb.toString();
+
+			sql = CustomSQLUtil.replaceIsNull(sql);
+
+			sql = StringUtil.replace(sql, "?", "preferences");
 
 			ps = con.prepareStatement(sql);
 
