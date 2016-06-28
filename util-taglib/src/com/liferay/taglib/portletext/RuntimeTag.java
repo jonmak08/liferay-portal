@@ -122,7 +122,7 @@ public class RuntimeTag extends TagSupport {
 					-1) {
 
 				String errorMessage = LanguageUtil.get(
-					request, "the-application-cannot-include-itself");
+					pageContext, "the-application-cannot-include-itself");
 
 				request.setAttribute(
 					"liferay-portlet:runtime:errorMessage", errorMessage);
@@ -177,7 +177,7 @@ public class RuntimeTag extends TagSupport {
 
 			PortletJSONUtil.writeHeaderPaths(response, jsonObject);
 
-			embeddedPortletIds.push(portletInstance.getPortletInstanceKey());
+			embeddedPortletIds.push(portletId);
 
 			PortletContainerUtil.render(request, response, portlet);
 
