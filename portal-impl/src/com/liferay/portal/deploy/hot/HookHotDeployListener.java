@@ -2795,9 +2795,9 @@ public class HookHotDeployListener
 		value = stringArraysContainer.getStringArray();
 
 		if (stringArraysContainer instanceof MergeStringArraysContainer) {
-			String valueString = StringUtil.merge(value, StringPool.COMMA);
-
 			Properties properties = new Properties();
+
+			String valueString = StringUtil.merge(value, StringPool.COMMA);
 
 			properties.setProperty(key, valueString);
 
