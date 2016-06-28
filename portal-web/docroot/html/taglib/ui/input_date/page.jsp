@@ -102,20 +102,20 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 
 	<aui:input label="<%= dateTogglerCheckboxLabel %>" name="<%= randomNamespace + dateTogglerCheckboxName %>" type="checkbox" value="<%= disabled %>" />
 
-	<aui:script sandbox="<%= true %>">
-		var checkbox = $('#<portlet:namespace /><%= randomNamespace + dateTogglerCheckboxName %>');
+	<aui:script use="aui-base">
+		var checkbox = A.one('#<portlet:namespace /><%= randomNamespace + dateTogglerCheckboxName %>');
 
 		checkbox.on(
 			'click mouseover',
 			function(event) {
-				var checked = checkbox.prop('checked');
+				var checked = checkbox.attr('checked');
 
-				var form = $(document.<portlet:namespace /><%= formName %>);
+				var form = A.one('#<portlet:namespace /><%= formName %>');
 
-				form.fm('<%= HtmlUtil.getAUICompatibleId(name) %>').prop('disabled', checked);
-				form.fm('<%= HtmlUtil.escapeJS(dayParam) %>').prop('disabled', checked);
-				form.fm('<%= HtmlUtil.escapeJS(monthParam) %>').prop('disabled', checked);
-				form.fm('<%= HtmlUtil.escapeJS(yearParam) %>').prop('disabled', checked);
+				form.one('#<%= dayParamId %>').attr('disabled', checked);
+				form.one('#<%= monthParamId %>').attr('disabled', checked);
+				form.one('#<%= nameId %>').attr('disabled', checked);
+				form.one('#<%= yearParamId %>').attr('disabled', checked);
 			}
 		);
 	</aui:script>
