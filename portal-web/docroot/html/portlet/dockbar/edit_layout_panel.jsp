@@ -18,30 +18,32 @@
 
 <%@ include file="/html/portlet/layouts_admin/init_attributes.jspf" %>
 
-<div id="<portlet:namespace />editLayoutContainer">
-	<c:choose>
-		<c:when test='<%= SessionMessages.contains(renderRequest, "requestProcessed") || ((selPlid == 0) && Validator.isNotNull(closeRedirect)) %>'>
+<c:choose>
+	<c:when test='<%= SessionMessages.contains(renderRequest, "requestProcessed") || ((selPlid == 0) && Validator.isNotNull(closeRedirect)) %>'>
 
-			<%
-			String refreshURL = null;
+		<%
+		String refreshURL = null;
 
-			if ((selPlid == 0) && Validator.isNotNull(closeRedirect)) {
-				refreshURL = closeRedirect;
-			}
-			else {
-				refreshURL = (String)SessionMessages.get(renderRequest, portletDisplay.getId() + SessionMessages.KEY_SUFFIX_CLOSE_REDIRECT);
-			}
+		if ((selPlid == 0) && Validator.isNotNull(closeRedirect)) {
+			refreshURL = closeRedirect;
+		}
+		else {
+			refreshURL = (String)SessionMessages.get(renderRequest, portletDisplay.getId() + SessionMessages.KEY_SUFFIX_CLOSE_REDIRECT);
+		}
 
-			if (Validator.isNull(refreshURL)) {
-				refreshURL = PortalUtil.getLayoutURL(layout, themeDisplay);
-			}
-			%>
+		if (Validator.isNull(refreshURL)) {
+			refreshURL = PortalUtil.getLayoutURL(layout, themeDisplay);
+		}
 
-			<aui:script>
-				window.location.href = '<%= HtmlUtil.escapeJS(refreshURL) %>';
-			</aui:script>
-		</c:when>
-		<c:otherwise>
+		JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
+
+		jsonObject.put("refreshURL", refreshURL);
+		%>
+
+		<%= jsonObject.toString() %>
+	</c:when>
+	<c:otherwise>
+		<div id="<portlet:namespace />editLayoutContainer">
 			<aui:button cssClass="close pull-right" name="closePanelEdit" value="&times;" />
 
 			<h1><liferay-ui:message key="edit-page" /></h1>
@@ -106,21 +108,22 @@
 								{
 									dataType: 'json',
 									form: {
-										id: form.attr('id')
+										id: form.attr('id'),
+										upload: true
 									},
 									after: {
-										success: function(event, id, obj) {
-											var response = this.get('responseData');
+										complete: function(event, id, obj) {
+											var responseText = obj.responseText;
 
-											var panel = A.one('#<portlet:namespace />editLayoutContainer');
+											try {
+												responseText = JSON.parse(responseText);
+											}
+											catch (e) {
+											}
 
-											panel.empty();
-
-											panel.plug(A.Plugin.ParseContent);
-
-											panel.setContent(response);
-
-											loadingMask.hide();
+											if (A.Lang.isObject(responseText)) {
+												window.location.href = responseText.refreshURL;
+											}
 										},
 										failure: function(event) {
 											loadingMask.hide();
@@ -132,6 +135,6 @@
 					}
 				);
 			</aui:script>
-		</c:otherwise>
-	</c:choose>
-</div>
+		</div>
+	</c:otherwise>
+</c:choose>
