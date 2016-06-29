@@ -364,7 +364,10 @@ public class LayoutsTreeUtil {
 			LayoutTreeNodes layoutTreeNodes)
 		throws Exception {
 
-		return _toJSONObject(request, groupId, layoutTreeNodes).toString();
+		JSONObject jsonObject = _toJSONObject(
+			request, groupId, layoutTreeNodes);
+
+		return jsonObject.toString();
 	}
 
 	private static JSONObject _toJSONObject(
