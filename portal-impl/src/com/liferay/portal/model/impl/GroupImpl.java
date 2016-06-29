@@ -194,6 +194,7 @@ public class GroupImpl extends GroupBaseImpl {
 		throws PortalException {
 
 		Group group = themeDisplay.getScopeGroup();
+
 		if (!privateLayout && (getPublicLayoutsPageCount() > 0)) {
 			try {
 				String groupFriendlyURL = PortalUtil.getGroupFriendlyURL(
@@ -210,7 +211,7 @@ public class GroupImpl extends GroupBaseImpl {
 		else if (privateLayout && (getPrivateLayoutsPageCount() > 0)) {
 			try {
 				String groupFriendlyURL = PortalUtil.getGroupFriendlyURL(
-						group, privateLayout, themeDisplay);
+					group, privateLayout, themeDisplay);
 
 				return PortalUtil.addPreservedParameters(
 					themeDisplay, groupFriendlyURL);
