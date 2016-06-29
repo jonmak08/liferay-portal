@@ -102,6 +102,11 @@ public class LayoutsTreeUtil {
 			}
 		}
 
+		List<Layout> layouts = LayoutServiceUtil.getLayouts(
+			groupId, privateLayout, parentLayoutId, true, start, end);
+
+		JSONObject jsonObject = _toJSONObject(request, groupId, layouts, total);
+
 		List<Layout> ancestorLayouts = LayoutServiceUtil.getAncestorLayouts(
 				layout.getPlid());
 
@@ -117,13 +122,9 @@ public class LayoutsTreeUtil {
 			ancestorLayoutNames[i] = ancestorLayout.getName(locale);
 		}
 
-		List<Layout> layouts = LayoutServiceUtil.getLayouts(
-			groupId, privateLayout, parentLayoutId, true, start, end);
-
-		JSONObject jsonObject = _toJSONObject(request, groupId, layouts, total);
-
 		jsonObject.put("ancestorLayoutIds", ancestorLayoutIds);
 		jsonObject.put("ancestorLayoutNames", ancestorLayoutNames);
+
 		jsonObject.put("startIndex", start);
 
 		return jsonObject.toString();
