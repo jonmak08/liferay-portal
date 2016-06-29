@@ -214,6 +214,35 @@ public class HttpImplTest extends PowerMockito {
 		Assert.assertEquals("/", HttpUtil.removePathParameters("/;?"));
 	}
 
+	@Test
+	public void testRemoveProtocol() {
+		Assert.assertEquals(
+			"ftp.foo.com", _httpImpl.removeProtocol("ftp://ftp.foo.com"));
+		Assert.assertEquals(
+			"foo.com", _httpImpl.removeProtocol("http://///foo.com"));
+		Assert.assertEquals("foo.com", _httpImpl.removeProtocol("////foo.com"));
+		Assert.assertEquals(
+			"foo.com", _httpImpl.removeProtocol("http://http://foo.com"));
+		Assert.assertEquals(
+			"www.google.com", _httpImpl.removeProtocol("/\\www.google.com"));
+		Assert.assertEquals(
+			"www.google.com",
+			_httpImpl.removeProtocol("/\\//\\/www.google.com"));
+		Assert.assertEquals(
+			"/path/name", _httpImpl.removeProtocol("/path/name"));
+		Assert.assertEquals(
+			"./path/name", _httpImpl.removeProtocol("./path/name"));
+		Assert.assertEquals(
+			"../path/name", _httpImpl.removeProtocol("../path/name"));
+		Assert.assertEquals(
+			"foo.com?redirect=http%3A%2F%2Ffoo2.com",
+			_httpImpl.removeProtocol(
+				"http://foo.com?redirect=http%3A%2F%2Ffoo2.com"));
+		Assert.assertEquals(
+			"www.google.com/://localhost",
+			_httpImpl.removeProtocol("http://www.google.com/://localhost"));
+	}
+
 	private void _addParameter(
 		String url, String parameterName, String parameterValue) {
 
