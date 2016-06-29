@@ -298,7 +298,7 @@ AUI.add(
 								var elapsed = sessionLength;
 
 								if (Lang.toInt(timestamp)) {
-									timeOffset = Math.floor((Date.now() - timestamp) / 1000) * 1000;
+									timeOffset = Math.floor(((new Date()).getTime() - timestamp) / 1000) * 1000;
 
 									elapsed = timeOffset;
 								}
