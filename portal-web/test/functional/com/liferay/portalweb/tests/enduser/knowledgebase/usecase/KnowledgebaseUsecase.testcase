@@ -2255,15 +2255,6 @@
 		</execute>
 
 		<execute macro="User#assignRegularRoleCP">
-			<var name="roleName" value="Power User" />
-			<var name="userScreenName" value="poweruser" />
-		</execute>
-
-		<execute macro="Page#gotoCP">
-			<var name="portletName" value="Users and Organizations" />
-		</execute>
-
-		<execute macro="User#assignRegularRoleCP">
 			<var name="roleName" value="Administrator" />
 			<var name="userScreenName" value="poweruser" />
 		</execute>
