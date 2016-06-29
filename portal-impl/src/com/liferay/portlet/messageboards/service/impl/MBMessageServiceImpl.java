@@ -789,10 +789,12 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 		MBDiscussion mbDiscussion = mbDiscussionPersistence.findByC_C(
 			classNameId, classPK);
 
+		MBMessage mbMessage = mbMessagePersistence.findByPrimaryKey(messageId);
+
 		MBThread mbThread = mbThreadPersistence.findByPrimaryKey(
 			mbDiscussion.getThreadId());
 
-		if (mbThread.getRootMessageId() != messageId) {
+		if (mbThread.getRootMessageId() != mbMessage.getRootMessageId()) {
 			throw new PrincipalException();
 		}
 	}
@@ -810,9 +812,11 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 			throw new PrincipalException();
 		}
 
+		MBMessage mbMessage = mbMessagePersistence.findByPrimaryKey(messageId);
+
 		MBThread mbThread = mbThreadPersistence.findByPrimaryKey(threadId);
 
-		if (mbThread.getRootMessageId() != messageId) {
+		if (mbThread.getRootMessageId() != mbMessage.getRootMessageId()) {
 			throw new PrincipalException();
 		}
 	}
