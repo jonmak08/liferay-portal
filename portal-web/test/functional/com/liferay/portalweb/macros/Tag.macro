@@ -31,8 +31,6 @@
 		<if>
 			<equals arg1="${tagNameVariation}" arg2="Variation" />
 			<then>
-				<execute function="AssertClick" locator1="CPTags#TOOLBAR_ADD" value1="Add Tag" />
-
 				<var name="errorMessage1"><![CDATA[, = > / < [ { % | + # ` ? " ; / * ~.]]></var>
 
 				<execute function="Type" locator1="CPTagsAdd#NAME_FIELD" value1="${tagEntry}" />
