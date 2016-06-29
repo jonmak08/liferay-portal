@@ -125,6 +125,15 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 							container.one('#<%= nameId %>').attr('disabled', newVal);
 							container.one('#<%= yearParamId %>').attr('disabled', newVal);
 						},
+						enterKey: function(event) {
+							var instance = this;
+
+							var inputVal = instance.get('activeInput').val();
+
+							var date = instance.getParsedDatesFromInputValue(inputVal)[0];
+
+							datePicker.updateValue(date);
+						},
 						selectionChange: function(event) {
 							if (isNaN(event.newSelection[0])) {
 								event.newSelection[0] = new Date();
