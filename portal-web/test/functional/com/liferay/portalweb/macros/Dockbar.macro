@@ -3,6 +3,7 @@
 		<if>
 			<condition function="IsElementNotPresent" locator1="//div[@id='_145_${fieldLabel}Content']" value1="${fieldName}" />
 			<then>
+				<execute function="Click" locator1="Dockbar#EDIT_DETAILS" />
 				<execute function="AssertClick" locator1="Dockbar#EDIT_${fieldKey}" value1="${fieldName}" />
 			</then>
 		</if>
