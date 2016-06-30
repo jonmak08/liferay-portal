@@ -20,7 +20,7 @@ import com.liferay.portal.util.WebKeys;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.model.DDMTemplate;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureServiceUtil;
-import com.liferay.portlet.dynamicdatamapping.service.DDMTemplateLocalServiceUtil;
+import com.liferay.portlet.dynamicdatamapping.service.DDMTemplateServiceUtil;
 
 import javax.portlet.PortletRequest;
 
@@ -68,7 +68,7 @@ public class ActionUtil {
 		DDMTemplate template = null;
 
 		if (templateId > 0) {
-			template = DDMTemplateLocalServiceUtil.getDDMTemplate(templateId);
+			template = DDMTemplateServiceUtil.getTemplate(templateId);
 		}
 
 		request.setAttribute(WebKeys.DYNAMIC_DATA_MAPPING_TEMPLATE, template);
