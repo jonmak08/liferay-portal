@@ -130,9 +130,11 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 
 							var inputVal = instance.get('activeInput').val();
 
-							var date = instance.getParsedDatesFromInputValue(inputVal)[0];
+							var date = instance.getParsedDatesFromInputValue(inputVal);
 
-							datePicker.updateValue(date);
+							if (date) {
+								datePicker.updateValue(date[0]);
+							}
 						},
 						selectionChange: function(event) {
 							if (isNaN(event.newSelection[0])) {
