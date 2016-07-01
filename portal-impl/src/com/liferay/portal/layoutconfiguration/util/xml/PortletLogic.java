@@ -14,13 +14,16 @@
 
 package com.liferay.portal.layoutconfiguration.util.xml;
 
+import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.PortletContainerUtil;
 import com.liferay.portal.kernel.portlet.PortletLayoutListener;
 import com.liferay.portal.kernel.portlet.PortletParameterUtil;
 import com.liferay.portal.kernel.servlet.BufferCacheServletResponse;
 import com.liferay.portal.kernel.servlet.DynamicServletRequest;
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.PrefixPredicateFilter;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
@@ -29,6 +32,7 @@ import com.liferay.portal.model.Portlet;
 import com.liferay.portal.model.PortletConstants;
 import com.liferay.portal.service.PortletLocalServiceUtil;
 import com.liferay.portal.service.PortletPreferencesLocalServiceUtil;
+import com.liferay.portal.theme.PortletDisplay;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portal.util.WebKeys;
@@ -36,7 +40,10 @@ import com.liferay.portlet.PortletPreferencesFactoryUtil;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -105,8 +112,42 @@ public class PortletLogic extends RuntimeLogic {
 
 		Portlet portlet = getPortlet(themeDisplay, portletId);
 
+		PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
+
+		Stack<String> embeddedPortletIds = _embeddedPortletIds.get();
+
+		if (embeddedPortletIds == null) {
+			embeddedPortletIds = new Stack<String>();
+			_embeddedPortletIds.set(embeddedPortletIds);
+		}
+
+		if (embeddedPortletIds.search(portletDisplay.getId()) >
+				-1) {
+
+			String errorMessage = LanguageUtil.get(
+				themeDisplay.getLocale(),
+				"the-application-cannot-include-itself");
+
+			request.setAttribute(
+				"liferay-portlet:runtime:errorMessage", errorMessage);
+
+			ServletContext servletContext =
+				(ServletContext)request.getAttribute(WebKeys.CTX);
+
+			RequestDispatcher requestDispatcher =
+				servletContext.getRequestDispatcher(_ERROR_PAGE);
+
+			requestDispatcher.include(_request, _response);
+
+			return StringPool.BLANK;
+		}
+
+		embeddedPortletIds.push(portletId);
+
 		PortletContainerUtil.render(
 			request, bufferCacheServletResponse, portlet);
+
+		embeddedPortletIds.pop();
 
 		return bufferCacheServletResponse.getString();
 	}
@@ -147,6 +188,13 @@ public class PortletLogic extends RuntimeLogic {
 
 		return portlet;
 	}
+
+	private static final String _ERROR_PAGE =
+		"/html/taglib/portlet/runtime/error.jsp";
+
+	private static final ThreadLocal<Stack<String>> _embeddedPortletIds =
+		new AutoResetThreadLocal<Stack<String>>(
+			PortletLogic.class + "._embeddedPortletIds");
 
 	private HttpServletRequest _request;
 	private HttpServletResponse _response;
