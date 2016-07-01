@@ -871,9 +871,7 @@
 					<var locator="PGCalendarEditevent#START_DATE" name="startDate" />
 
 					<execute function="Type" locator1="PGCalendarEditevent#START_DATE_TIME" value1="${startDateTime}" />
-					<execute function="Click" locator1="PGCalendarEditevent#START_DATE_TIME" />
 					<execute function="Type" locator1="PGCalendarEditevent#END_DATE_TIME" value1="${endDateTime}" />
-					<execute function="Click" locator1="PGCalendarEditevent#END_DATE_TIME" />
 					<execute function="Pause" value1="1000" />
 
 					<if>
@@ -901,9 +899,7 @@
 					<var locator="PGCalendarEditevent#START_DATE" name="startDate" />
 
 					<execute function="Type" locator1="PGCalendarEditevent#START_DATE_TIME" value1="${startDateTime}" />
-					<execute function="Click" locator1="PGCalendarEditevent#START_DATE_TIME" />
 					<execute function="Type" locator1="PGCalendarEditevent#END_DATE_TIME" value1="${endDateTime}" />
-					<execute function="Click" locator1="PGCalendarEditevent#END_DATE_TIME" />
 					<execute function="Pause" value1="1000" />
 					<execute function="AssertChecked" locator1="PGCalendarEditevent#REPEAT_CHECKBOX" />
 					<execute function="AssertTextEquals" locator1="PGCalendarEditevent#REPEAT_SUMMARY_1" value1="Daily, 1 Times" />
@@ -1040,9 +1036,7 @@
 		<var locator="PGCalendarEditevent#START_DATE" name="startDate" />
 
 		<execute function="Type" locator1="PGCalendarEditevent#START_DATE_TIME" value1="${startDateTime}" />
-		<execute function="Click" locator1="PGCalendarEditevent#START_DATE_TIME" />
 		<execute function="Type" locator1="PGCalendarEditevent#END_DATE_TIME" value1="${endDateTime}" />
-		<execute function="Click" locator1="PGCalendarEditevent#END_DATE_TIME" />
 		<execute function="Pause" value1="1000" />
 		<execute function="Click" locator1="PGCalendarEditevent#SAVE_BUTTON" />
 		<execute function="AssertTextEquals" locator1="PGCalendarEditevent#SUCCESS_MESSAGE" value1="Your request completed successfully." />
