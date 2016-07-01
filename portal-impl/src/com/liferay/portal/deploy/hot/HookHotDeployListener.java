@@ -1818,9 +1818,8 @@ public class HookHotDeployListener
 				PropsUtil.addProperties(company, portalProperties);
 			}
 		}
-		else {
-			PropsUtil.addProperties(portalProperties);
-		}
+
+		PropsUtil.addProperties(portalProperties);
 
 		if (_log.isDebugEnabled() && portalProperties.containsKey(LOCALES)) {
 			_log.debug(
