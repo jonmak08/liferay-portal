@@ -104,7 +104,17 @@
 
 		<for list="${tagNameList}" param="tagName">
 			<execute function="Type#clickAtSendKeys" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_FIELD" value1="${tagName}" />
-			<execute function="Click" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_ADD_BUTTON" />
+
+			<if>
+				<condition argument1="//div[contains(@class,'autocomplete-results-content')]/div/ul/li" selenium="isVisible" />
+				<then>
+					<var name="key_tagName" value="${tagName}" />
+					<execute function="Click" locator1="PGBlogsAdd#CATEGORIZATION_TAG_AUTOCOMPLETE" />
+				</then>
+				<else>
+					<execute function="Click" locator1="PGBlogsAdd#CATEGORIZATION_TAGS_ADD_BUTTON" />
+				</else>
+			</if>
 		</for>
 
 		<execute function="AssertClick#assertTextClickAtAndWaitCKEditor" locator1="PGBlogsAdd#PUBLISH_BUTTON" value1="Publish" />
