@@ -47,8 +47,16 @@
 			<var name="adtType" value="Blogs" />
 		</execute>
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Blogs ADT Test Page" />
+		</execute>
+
 		<execute macro="ApplicationDisplayTemplates#viewADTviaPortletPG">
 			<var name="adtType" value="Blogs" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Blogs ADT Test Page" />
 		</execute>
 
 		<execute macro="ApplicationDisplayTemplates#tearDownADTviaPortletPG">
