@@ -601,8 +601,8 @@
 		<var name="key_contentDateRange" value="DateRange" />
 
 		<execute function="Click" locator1="PGStagingPublishtolivenow#DATE_RANGE_POPUP_RANGE_RADIO" />
-		<execute function="Type#clickAtSendKeys" locator1="PGStagingPublishtolivenow#DATE_RANGE_START_DATE" value1="${dateRangeStartDate}" />
-		<execute function="Type#clickAtSendKeys" locator1="PGStagingPublishtolivenow#DATE_RANGE_END_DATE" value1="${dateRangeEndDate}" />
+		<execute function="Type" locator1="PGStagingPublishtolivenow#DATE_RANGE_START_DATE" value1="${dateRangeStartDate}" />
+		<execute function="Type" locator1="PGStagingPublishtolivenow#DATE_RANGE_END_DATE" value1="${dateRangeEndDate}" />
 		<execute function="Click" locator1="PGStagingPublishtolivenow#DATE_RANGE_POPUP_OK_BUTTON" />
 	</command>
 
