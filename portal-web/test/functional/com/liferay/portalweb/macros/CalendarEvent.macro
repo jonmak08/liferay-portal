@@ -856,6 +856,8 @@
 						</execute>
 					</then>
 				</if>
+
+				<execute function="Click" locator1="PGCalendarEditevent#SAVE_BUTTON" />
 			</then>
 			<elseif>
 				<equals arg1="${eventType}" arg2="Regular" />
@@ -883,6 +885,8 @@
 							</execute>
 						</then>
 					</if>
+
+					<execute function="Click" locator1="PGCalendarEditevent#SAVE_BUTTON" />
 				</then>
 			</elseif>
 			<elseif>
@@ -903,14 +907,6 @@
 					<execute function="Pause" value1="1000" />
 					<execute function="AssertChecked" locator1="PGCalendarEditevent#REPEAT_CHECKBOX" />
 					<execute function="AssertTextEquals" locator1="PGCalendarEditevent#REPEAT_SUMMARY_1" value1="Daily, 1 Times" />
-					<execute function="Click" locator1="PGCalendarEditevent#SAVE_BUTTON" />
-
-					<if>
-						<condition function="IsElementPresent" locator1="PGCalendarRecurringEventDialogBox#ALL_EVENTS_IN_THE_SERIES_BUTTON" />
-						<then>
-							<execute function="AssertClick" locator1="PGCalendarRecurringEventDialogBox#ALL_EVENTS_IN_THE_SERIES_BUTTON" value1="All Events in the Series"  />
-						</then>
-					</if>
 
 					<if>
 						<equals arg1="${optionSet}" arg2="true" />
@@ -921,11 +917,18 @@
 							</execute>
 						</then>
 					</if>
+
+					<execute function="Click" locator1="PGCalendarEditevent#SAVE_BUTTON" />
+
+					<if>
+						<condition function="IsElementPresent" locator1="PGCalendarRecurringEventDialogBox#ALL_EVENTS_IN_THE_SERIES_BUTTON" />
+						<then>
+							<execute function="AssertClick" locator1="PGCalendarRecurringEventDialogBox#ALL_EVENTS_IN_THE_SERIES_BUTTON" value1="All Events in the Series"  />
+						</then>
+					</if>
 				</then>
 			</elseif>
 		</if>
-
-		<execute function="Click" locator1="PGCalendarEditevent#SAVE_BUTTON" />
 
 		<if>
 			<equals arg1="${optionSetValue}" arg2="inviteResource" />
