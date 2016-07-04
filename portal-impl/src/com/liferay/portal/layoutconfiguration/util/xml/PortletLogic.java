@@ -137,9 +137,9 @@ public class PortletLogic extends RuntimeLogic {
 			RequestDispatcher requestDispatcher =
 				servletContext.getRequestDispatcher(_ERROR_PAGE);
 
-			requestDispatcher.include(_request, _response);
+			requestDispatcher.include(request, bufferCacheServletResponse);
 
-			return StringPool.BLANK;
+			return bufferCacheServletResponse.getString();
 		}
 
 		embeddedPortletIds.push(portletId);
