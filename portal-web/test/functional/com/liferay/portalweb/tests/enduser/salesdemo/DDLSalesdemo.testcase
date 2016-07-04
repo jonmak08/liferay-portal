@@ -155,10 +155,6 @@
 		<execute function="AssertElementPresent" locator1="//tbody[@class='table-data']/tr[2]/td[5]" value1="Modified Date" />
 		<execute function="AssertTextEquals" locator1="//tbody[@class='table-data']/tr[2]/td[6]" value1="Test Test" />
 
-		<execute macro="Portlet#gotoPortletOptions">
-			<var name="portletOption" value="Configuration" />
-		</execute>
-
 		<execute macro="DDLDisplayPortlet#configureListViewPG">
 			<var name="configureCheckBoxName" value="TEMPLATES_SPREADSHEET_VIEW_CHECKBOX" />
 		</execute>
