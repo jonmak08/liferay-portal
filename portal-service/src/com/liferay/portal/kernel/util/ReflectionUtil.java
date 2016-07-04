@@ -81,6 +81,20 @@ public class ReflectionUtil {
 		return field;
 	}
 
+	public static Field[] getDeclaredFields(Class<?> clazz) throws Exception {
+		Field[] fields = clazz.getDeclaredFields();
+
+		for (Field field : fields) {
+			if (!field.isAccessible()) {
+				field.setAccessible(true);
+			}
+
+			unfinalField(field);
+		}
+
+		return fields;
+	}
+
 	public static Method getDeclaredMethod(
 			Class<?> clazz, String name, Class<?> ... parameterTypes)
 		throws Exception {
