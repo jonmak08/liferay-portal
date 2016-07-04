@@ -317,8 +317,8 @@ public class S3Store extends BaseStore {
 		if (repositoryId == newRepositoryId) {
 			throw new DuplicateFileException(
 				String.format(
-					"{companyId=%s, repositoryId=%s, fileName=%s}", companyId,
-					repositoryId, fileName));
+					"{companyId=%s, fileName=%s, repositoryId=%s}", companyId,
+					fileName, repositoryId));
 		}
 
 		try {
@@ -374,8 +374,8 @@ public class S3Store extends BaseStore {
 		if (fileName.equals(newFileName)) {
 			throw new DuplicateFileException(
 				String.format(
-					"{companyId=%s, repositoryId=%s, fileName=%s}", companyId,
-					repositoryId, fileName));
+					"{companyId=%s, fileName=%s, repositoryId=%s}", companyId,
+					fileName, repositoryId));
 		}
 
 		File tempFile = null;

@@ -177,8 +177,8 @@ public abstract class BaseStore implements Store {
 		if (fromVersionLabel.equals(toVersionLabel)) {
 			throw new DuplicateFileException(
 				String.format(
-					"{companyId=%s, repositoryId=%s, fileName=%s, version=%s}",
-					companyId, repositoryId, fileName, toVersionLabel));
+					"{companyId=%s, fileName=%s, repositoryId=%s, version=%s}",
+					companyId, fileName, repositoryId, toVersionLabel));
 		}
 
 		InputStream is = getFileAsStream(
