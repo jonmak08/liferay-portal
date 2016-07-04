@@ -465,7 +465,7 @@ AUI.add(
 										banner.show();
 									}
 
-									elapsed = Math.floor((Date.now() - timestamp) / 1000) * 1000;
+									elapsed = Math.floor(((new Date()).getTime() - timestamp) / 1000) * 1000;
 
 									remainingTime = sessionLength - elapsed;
 
