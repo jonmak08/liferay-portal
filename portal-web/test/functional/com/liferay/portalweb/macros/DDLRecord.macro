@@ -106,7 +106,7 @@
 		<if>
 			<equals arg1="${field}" arg2="Date" />
 			<then>
-				<execute function="Type#clickAtSendKeys" locator1="CPDynamicdatalistsListAddrecord#DATE_FIELD" value1="${ddlRecordFieldData}" />
+				<execute function="Type" locator1="CPDynamicdatalistsListAddrecord#DATE_FIELD" value1="${ddlRecordFieldData}" />
 			</then>
 		</if>
 
