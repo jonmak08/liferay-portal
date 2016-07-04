@@ -935,6 +935,8 @@
 			<var name="kfProcessFieldData" value="Test Submitted" />
 		</execute>
 
+		<execute macro="KaleoFormsPortlet#saveProcessRecord" />
+
 		<execute macro="KaleoFormsPortlet#approveProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 			<var name="workflowTask" value="review" />
