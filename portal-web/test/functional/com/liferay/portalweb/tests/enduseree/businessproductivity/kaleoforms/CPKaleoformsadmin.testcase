@@ -2473,6 +2473,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="${kfProcessName}" />
 		</execute>
