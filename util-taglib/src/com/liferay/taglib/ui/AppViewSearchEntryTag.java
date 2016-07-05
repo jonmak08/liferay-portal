@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Eudaldo Alonso
+ * @author Tibor Lipusz
  */
 public class AppViewSearchEntryTag extends IncludeTag {
 
@@ -62,6 +63,10 @@ public class AppViewSearchEntryTag extends IncludeTag {
 
 	public void setFileEntryTuples(List<Tuple> fileEntryTuples) {
 		_fileEntryTuples = fileEntryTuples;
+	}
+
+	public void setHighlightEnabled(boolean highlightEnabled) {
+		_highlightEnabled = highlightEnabled;
 	}
 
 	public void setLocked(boolean locked) {
@@ -118,6 +123,7 @@ public class AppViewSearchEntryTag extends IncludeTag {
 		_cssClass = null;
 		_description = null;
 		_fileEntryTuples = null;
+		_highlightEnabled = false;
 		_locked = false;
 		_mbMessages = null;
 		_queryTerms = null;
@@ -161,6 +167,9 @@ public class AppViewSearchEntryTag extends IncludeTag {
 			"liferay-ui:app-view-search-entry:fileEntryTuples",
 			_fileEntryTuples);
 		request.setAttribute(
+			"liferay-ui:app-view-search-entry:highlightEnabled",
+			_highlightEnabled);
+		request.setAttribute(
 			"liferay-ui:app-view-search-entry:locked", _locked);
 		request.setAttribute(
 			"liferay-ui:app-view-search-entry:mbMessages", _mbMessages);
@@ -195,6 +204,7 @@ public class AppViewSearchEntryTag extends IncludeTag {
 	private String _cssClass;
 	private String _description;
 	private List<Tuple> _fileEntryTuples;
+	private boolean _highlightEnabled;
 	private boolean _locked;
 	private List<MBMessage> _mbMessages;
 	private String[] _queryTerms;
