@@ -115,6 +115,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -227,6 +231,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -396,6 +404,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms 1 Process" />
@@ -712,6 +724,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -749,6 +765,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="test@liferay.com" />
@@ -889,6 +909,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -943,6 +967,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="test@liferay.com" />
@@ -1083,6 +1111,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -1120,6 +1152,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="test@liferay.com" />
@@ -1301,6 +1337,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -1409,6 +1449,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="test@liferay.com" />
 			<var name="userLoginFullName" value="Test Test" />
@@ -1493,6 +1537,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -1751,6 +1799,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -2095,6 +2147,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -2152,6 +2208,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
 
 		<execute function="Pause" locator1="10000" />
 
@@ -2313,6 +2373,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -2449,6 +2513,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -2856,6 +2924,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process Predefined" />
 		</execute>
@@ -3045,6 +3117,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process Predefined" />
 		</execute>
@@ -3205,6 +3281,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process Predefined" />
 		</execute>
@@ -3353,6 +3433,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process Predefined" />
@@ -3534,6 +3618,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process Predefined" />
 		</execute>
@@ -3693,6 +3781,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process Predefined" />
@@ -4038,6 +4130,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -4155,6 +4251,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process Predefined" />
@@ -4361,6 +4461,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -4533,6 +4637,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -4715,6 +4823,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -4918,6 +5030,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -5086,6 +5202,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -5228,6 +5348,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -5367,6 +5491,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -5602,6 +5730,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -5773,6 +5905,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -6030,6 +6166,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -6267,6 +6407,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -6429,6 +6573,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -6636,6 +6784,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -6760,6 +6912,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -6915,6 +7071,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -7072,6 +7232,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -7187,6 +7351,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -7350,6 +7518,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -7478,6 +7650,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -7789,6 +7965,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -7922,6 +8102,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -8088,6 +8272,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -8289,6 +8477,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -8463,6 +8655,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -8587,6 +8783,10 @@
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -8690,6 +8890,10 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewNoTasks" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
