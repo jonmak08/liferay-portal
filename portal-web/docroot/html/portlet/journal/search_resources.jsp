@@ -185,8 +185,6 @@ ArticleSearch searchContainer = new ArticleSearch(liferayPortletRequest, entryEn
 
 			try {
 				boolean emptySearchResults = false;
-
-				QueryConfig queryConfig = new QueryConfig();
 			%>
 
 				<c:choose>
@@ -235,9 +233,6 @@ ArticleSearch searchContainer = new ArticleSearch(liferayPortletRequest, entryEn
 						searchContext.setAttribute("params", params);
 						searchContext.setEnd(searchContainer.getEnd());
 						searchContext.setFolderIds(searchTerms.getFolderIds());
-
-						searchContext.setQueryConfig(queryConfig);
-
 						searchContext.setStart(searchContainer.getStart());
 
 						Hits hits = indexer.search(searchContext);
@@ -294,7 +289,6 @@ ArticleSearch searchContainer = new ArticleSearch(liferayPortletRequest, entryEn
 										containerName="<%= JournalUtil.getAbsolutePath(liferayPortletRequest, article.getFolderId()) %>"
 										cssClass='<%= MathUtil.isEven(i) ? "alt" : StringPool.BLANK %>'
 										description="<%= ((summary != null) && Validator.isNotNull(summary.getContent())) ? summary.getContent() : article.getDescription(locale) %>"
-										highlightEnabled="<%= queryConfig.isHighlightEnabled() %>"
 										mbMessages="<%= searchResult.getMBMessages() %>"
 										queryTerms="<%= hits.getQueryTerms() %>"
 										rowCheckerId="<%= HtmlUtil.escape(article.getArticleId()) %>"
@@ -332,7 +326,6 @@ ArticleSearch searchContainer = new ArticleSearch(liferayPortletRequest, entryEn
 										containerName="<%= JournalUtil.getAbsolutePath(liferayPortletRequest, curFolder.getParentFolderId()) %>"
 										cssClass='<%= MathUtil.isEven(i) ? "alt" : StringPool.BLANK %>'
 										description="<%= (summary != null) ? summary.getContent() : curFolder.getDescription() %>"
-										highlightEnabled="<%= queryConfig.isHighlightEnabled() %>"
 										queryTerms="<%= hits.getQueryTerms() %>"
 										rowCheckerId="<%= String.valueOf(curFolder.getFolderId()) %>"
 										rowCheckerName="<%= JournalFolder.class.getSimpleName() %>"
@@ -396,7 +389,6 @@ ArticleSearch searchContainer = new ArticleSearch(liferayPortletRequest, entryEn
 										containerName="<%= JournalUtil.getAbsolutePath(liferayPortletRequest, curArticle.getFolderId()) %>"
 										cssClass='<%= MathUtil.isEven(i) ? "alt" : StringPool.BLANK %>'
 										description="<%= LocalizationUtil.getLocalization(curArticle.getContent(), themeDisplay.getLanguageId()) %>"
-										highlightEnabled="<%= queryConfig.isHighlightEnabled() %>"
 										queryTerms="<%= queryTerms %>"
 										rowCheckerId="<%= HtmlUtil.escape(curArticle.getArticleId()) %>"
 										rowCheckerName="<%= JournalArticle.class.getSimpleName() %>"
