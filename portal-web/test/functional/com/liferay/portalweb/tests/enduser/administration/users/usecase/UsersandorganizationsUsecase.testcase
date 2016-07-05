@@ -102,6 +102,10 @@
 		</execute>
 
 		<for list="${orgNameList}" param="orgName">
+			<execute macro="Page#gotoCP">
+				<var name="portletName" value="Users and Organizations" />
+			</execute>
+
 			<execute macro="Organization#addCP">
 				<var name="orgName" value="${orgName}" />
 				<var name="orgType" value="Regular Organization" />
@@ -231,7 +235,7 @@
 
 		<execute macro="Page#openURL" />
 
-		<execute function="Click#textClickAtClickDockbar" locator1="Dockbar#MY_SITES" value1="My Sites" />
+		<execute function="AssertClick" locator1="Dockbar#MY_SITES" value1="My Sites" />
 		<execute function="AssertTextNotPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 1" />
 		<execute function="AssertTextNotPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 2" />
 
@@ -246,7 +250,7 @@
 			<var name="userScreenName" value="test" />
 		</execute>
 
-		<execute function="Click#textClickAtClickDockbar" locator1="Dockbar#MY_SITES" value1="My Sites" />
+		<execute function="AssertClick" locator1="Dockbar#MY_SITES" value1="My Sites" />
 		<execute function="AssertTextNotPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 1" />
 		<execute function="AssertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 2" />
 
