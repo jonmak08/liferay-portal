@@ -682,10 +682,14 @@ public class GroupServiceImpl extends GroupServiceBaseImpl {
 
 		if ((classNames == null) ||
 			ArrayUtil.contains(classNames, Company.class.getName())) {
-			Group companyGroup = groupLocalService.getCompanyGroup(user.getCompanyId());
+
+			Group companyGroup = groupLocalService.getCompanyGroup(
+				user.getCompanyId());
 
 			if (GroupPermissionUtil.contains(
-					getPermissionChecker(), companyGroup, ActionKeys.VIEW_SITE_ADMINISTRATION)) {
+					getPermissionChecker(), companyGroup,
+					ActionKeys.VIEW_SITE_ADMINISTRATION)) {
+
 				userSiteGroups.add(companyGroup);
 			}
 
