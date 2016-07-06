@@ -679,12 +679,25 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 				break;
 			}
 
-			Map<String, String[]> dlReferenceParameters =
-				getDLReferenceParameters(
+			FileEntry fileEntry = null;
+
+			Map<String, String[]> dlReferenceParameters = null;
+
+			try {
+				dlReferenceParameters = getDLReferenceParameters(
 					portletDataContext, content,
 					beginPos + contextPath.length(), endPos);
 
-			FileEntry fileEntry = getFileEntry(dlReferenceParameters);
+				fileEntry = getFileEntry(dlReferenceParameters);
+			}
+			catch (Exception e) {
+				if (_log.isDebugEnabled()) {
+					_log.debug(e, e);
+				}
+				else if (_log.isWarnEnabled()) {
+					_log.warn(e.getMessage());
+				}
+			}
 
 			if (fileEntry == null) {
 				endPos = beginPos - 1;
