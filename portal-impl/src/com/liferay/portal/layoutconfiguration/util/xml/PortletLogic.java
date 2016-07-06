@@ -117,6 +117,7 @@ public class PortletLogic extends RuntimeLogic {
 
 		if (embeddedPortletIds == null) {
 			embeddedPortletIds = new Stack<String>();
+
 			_embeddedPortletIds.set(embeddedPortletIds);
 		}
 
