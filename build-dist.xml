@@ -1813,6 +1813,12 @@ this task.
 			<replacevalue><![CDATA[common.loader=${catalina.base}/lib,${catalina.base}/lib/*.jar,${catalina.home}/lib,${catalina.home}/lib/*.jar,${catalina.home}/lib/ext,${catalina.home}/lib/ext/*.jar]]></replacevalue>
 		</replace>
 
+		<replace file="${app.server.tomcat.dir}/conf/context.xml">
+			<replacetoken><![CDATA[<WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>]]></replacetoken>
+			<replacevalue><![CDATA[<WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+			<Resources cachingAllowed="false" />]]>	</replacevalue>
+		</replace>
+
 		<replace file="${app.server.tomcat.dir}/conf/server.xml">
 			<replacetoken><![CDATA[redirectPort="8443" />]]></replacetoken>
 			<replacevalue><![CDATA[redirectPort="8443" URIEncoding="UTF-8" />]]></replacevalue>
