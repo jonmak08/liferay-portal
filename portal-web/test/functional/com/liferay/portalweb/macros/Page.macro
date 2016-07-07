@@ -548,6 +548,10 @@
 	</command>
 
 	<command name="selectPageTypeRadioPG">
+		<var name="key_pageType" value="Empty Page" />
+
+		<execute function="Click" locator1="Dockbar#ADD_PAGE_TYPE_RADIO" />
+
 		<var name="key_pageType" value="${pageType}" />
 
 		<execute function="Click" locator1="Dockbar#ADD_PAGE_TYPE_RADIO" value1="${pageType}" />
