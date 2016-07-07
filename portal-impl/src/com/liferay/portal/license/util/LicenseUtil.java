@@ -487,7 +487,7 @@ public class LicenseUtil {
 			_log.error("Unable to read local server's IP addresses", e);
 		}
 
-		return Collections.unmodifiableSet(ipAddresses);
+		return ipAddresses;
 	}
 
 	private static Set<String> _getMACAddresses() {
@@ -525,7 +525,7 @@ public class LicenseUtil {
 			_log.error("Unable to read local server's MAC addresses", e);
 		}
 
-		return Collections.unmodifiableSet(macAddresses);
+		return macAddresses;
 	}
 
 	private static Map<String, String> _getOrderProducts(
