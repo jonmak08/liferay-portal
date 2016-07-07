@@ -114,6 +114,7 @@
 
 		<execute function="Type" locator1="PGKaleoformsSubmitnew#NEW_PROCESS_FIELDS_DATE_FIELD" value1="${kfProcessFieldData}" />
 		<execute function="Click" locator1="PGKaleoformsSubmitnew#NEW_PROCESS_FIELDS_DATE_FIELD" />
+		<execute function="Click" locator1="BasePortlet#PORTLET_CONTENT" />
 	</command>
 
 	<command name="populateFieldDocumentsAndMedia">
