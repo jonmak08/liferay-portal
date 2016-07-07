@@ -298,7 +298,7 @@ AUI.add(
 								var elapsed = sessionLength;
 
 								if (Lang.toInt(timestamp)) {
-									timeOffset = Math.floor(((new Date()).getTime() - timestamp) / 1000) * 1000;
+									timeOffset = Math.floor((Lang.now() - timestamp) / 1000) * 1000;
 
 									elapsed = timeOffset;
 								}
@@ -434,7 +434,7 @@ AUI.add(
 						var elapsed = sessionLength;
 
 						if (Lang.toInt(timestamp)) {
-							elapsed = Math.floor((Date.now() - timestamp) / 1000) * 1000;
+							elapsed = Math.floor((Lang.now() - timestamp) / 1000) * 1000;
 						}
 
 						var remainingTime = sessionLength - elapsed;
@@ -465,7 +465,7 @@ AUI.add(
 										banner.show();
 									}
 
-									elapsed = Math.floor(((new Date()).getTime() - timestamp) / 1000) * 1000;
+									elapsed = Math.floor((Lang.now() - timestamp) / 1000) * 1000;
 
 									remainingTime = sessionLength - elapsed;
 
