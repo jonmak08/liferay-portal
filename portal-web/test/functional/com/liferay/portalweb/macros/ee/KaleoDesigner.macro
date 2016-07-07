@@ -352,7 +352,15 @@
 			<isset var="nodeNotificationsRecipientType" />
 			<then>
 				<execute function="ScrollWebElementIntoView" locator1="Kaleodesigner#SETTINGS_CELL_EDITOR_EDIT_RECIPIENTS" />
-				<execute function="SikuliClick" locator1="Kaleodesigner#SETTINGS_CELL_EDITOR_EDIT_RECIPIENTS_PNG" />
+				<execute function="AssertClick" locator1="Kaleodesigner#SETTINGS_CELL_EDITOR_EDIT_RECIPIENTS" value1="Edit Recipients" />
+
+				<if>
+					<condition function="IsElementNotPresent" locator1="Kaleodesigner#SETTINGS_CELL_EDITOR_NOTIFICATIONS_RECIPIENT_EDITOR_TYPE_SELECT" />
+					<then>
+						<execute function="AssertClick" locator1="Kaleodesigner#SETTINGS_CELL_EDITOR_EDIT_RECIPIENTS" value1="Edit Recipients" />
+					</then>
+				</if>
+
 				<execute function="Select" locator1="Kaleodesigner#SETTINGS_CELL_EDITOR_NOTIFICATIONS_RECIPIENT_EDITOR_TYPE_SELECT" value1="${nodeNotificationsRecipientType}" />
 
 				<if>
