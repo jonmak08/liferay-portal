@@ -631,7 +631,12 @@ public class LayoutImporter {
 		_portletImporter.readAssetCategories(portletDataContext);
 		_portletImporter.readAssetTags(portletDataContext);
 		_portletImporter.readComments(portletDataContext);
-		_portletImporter.readExpandoTables(portletDataContext);
+
+		if (!layoutsImportMode.equals(
+				PortletDataHandlerKeys.LAYOUTS_IMPORT_MODE_CREATED_FROM_PROTOTYPE)) {
+					_portletImporter.readExpandoTables(portletDataContext);
+		}
+
 		_portletImporter.readLocks(portletDataContext);
 		_portletImporter.readRatingsEntries(portletDataContext);
 
