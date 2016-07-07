@@ -3426,6 +3426,7 @@
 
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Kaleo Forms" />
+			<var name="pageType" value="1 Column" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -3774,6 +3775,7 @@
 
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Kaleo Forms" />
+			<var name="pageType" value="1 Column" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -4122,6 +4124,7 @@
 
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Kaleo Forms" />
+			<var name="pageType" value="1 Column" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -4244,6 +4247,7 @@
 
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Kaleo Forms" />
+			<var name="pageType" value="1 Column" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
