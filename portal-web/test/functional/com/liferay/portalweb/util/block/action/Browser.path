@@ -15,6 +15,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>FIREFOX_MAXIMIZE</td>
+	<td>browser/firefox/browser_maximize.png</td>
+	<td></td>
+</tr>
+<tr>
 	<td>FIREFOX_MESSAGE_OK_BUTTON</td>
 	<td>browser/firefox/message_ok_button.png</td>
 	<td></td>
