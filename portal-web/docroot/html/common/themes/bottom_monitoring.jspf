@@ -45,7 +45,7 @@ if (portalRequestDataSample != null) {
 	for (DataSample dataSample : dataSamples) {
 	%>
 
-		<%= dataSample %><br />
+		<%= HtmlUtil.escape(dataSample.toString()) %><br />
 
 	<%
 	}
