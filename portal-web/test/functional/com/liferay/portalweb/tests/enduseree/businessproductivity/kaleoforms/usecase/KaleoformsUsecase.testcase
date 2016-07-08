@@ -4162,6 +4162,10 @@
 		<execute function="Click" locator1="PGKaleoforms#ASSIGNED_TO_ME_TABLE_ACTIONS_1" />
 		<execute function="AssertElementNotPresent" locator1="PGKaleoforms#ASSIGNED_TO_ME_MENULIST_REJECT" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#approveProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 			<var name="workflowTask" value="review" />
