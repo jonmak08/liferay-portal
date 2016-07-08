@@ -551,11 +551,21 @@
 	</command>
 
 	<command name="selectPageTypeRadioPG">
-		<execute function="SikuliClick" locator1="Browser#FIREFOX_MAXIMIZE" />
+		<if>
+			<not>
+				<or>					
+					<equals arg1="${pageType}" arg2="1 Column" />
+					<equals arg1="${pageType}" arg2="2 Columns (70/30)" />
+				</or>
+			</not>
+			<then>
+				<execute function="SikuliClick" locator1="Browser#FIREFOX_MAXIMIZE" />
+				
+				<var name="key_pageType" value="Empty Page" />
 
-		<var name="key_pageType" value="Empty Page" />
-
-		<execute function="Click" locator1="Dockbar#ADD_PAGE_TYPE_RADIO" />
+				<execute function="Click" locator1="Dockbar#ADD_PAGE_TYPE_RADIO" />
+			</then>
+		</if>
 
 		<var name="key_pageType" value="${pageType}" />
 
