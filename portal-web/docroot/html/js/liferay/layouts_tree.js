@@ -382,7 +382,6 @@ AUI.add(
 								groupId: instance.extractGroupId(node),
 								incomplete: instance.get('incomplete'),
 								p_auth: Liferay.authToken,
-								p_l_id: themeDisplay.getPlid(),
 								p_p_id: '88',
 								parentLayoutId: instance.extractLayoutId(node),
 								privateLayout: instance.get('root').privateLayout,
