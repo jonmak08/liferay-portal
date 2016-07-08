@@ -286,7 +286,7 @@
 <!--CATEGORIZATION-->
 <tr>
 	<td>CATEGORIZATION_TAGS_FIELD</td>
-	<td>//input[contains(@id, 'TagNames')]</td>
+	<td>//input[contains(@id,'TagNames')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -307,42 +307,42 @@
 <!--ADDRESSES-->
 <tr>
 	<td>ADDRESSES_STREET_1_FIELD</td>
-	<td>//input[contains(@id, 'addressStreet1')]</td>
+	<td>//input[contains(@id,'addressStreet1')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ADDRESSES_COUNTRY_SELECT</td>
-	<td>//select[contains(@id, 'addressCountry')]</td>
+	<td>//select[contains(@id,'addressCountry')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ADDRESSES_REGION_SELECT</td>
-	<td>//select[contains(@id, 'addressRegion')]</td>
+	<td>//select[contains(@id,'addressRegion')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ADDRESSES_POSTAL_CODE_FIELD</td>
-	<td>//input[contains(@id, 'addressZip')]</td>
+	<td>//input[contains(@id,'addressZip')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ADDRESSES_TYPE_SELECT</td>
-	<td>//select[contains(@id, 'addressType')]</td>
+	<td>//select[contains(@id,'addressType')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ADDRESSES_CITY_FIELD</td>
-	<td>//input[contains(@id, 'addressCity')]</td>
+	<td>//input[contains(@id,'addressCity')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ADDRESSES_PRIMARY_RADIO_BUTTON</td>
-	<td>//input[contains(@id, 'addressPrimary')]</td>
+	<td>//input[contains(@id,'addressPrimary')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ADDRESSES_MAILING_CHECKBOX</td>
-	<td>//input[contains(@id, 'addressMailing0Checkbox')]</td>
+	<td>//input[contains(@id,'addressMailing0Checkbox')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -353,22 +353,22 @@
 <!--PHONE_NUMBERS-->
 <tr>
 	<td>PHONE_NUMBERS_NUMBER_FIELD</td>
-	<td>//input[contains(@id, 'phoneNumber')]</td>
+	<td>//input[contains(@id,'phoneNumber')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>PHONE_NUMBERS_EXTENSION_FIELD</td>
-	<td>//input[contains(@id, 'phoneExtension')]</td>
+	<td>//input[contains(@id,'phoneExtension')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>PHONE_NUMBERS_TYPE_SELECT</td>
-	<td>//select[contains(@id, 'phoneType')]</td>
+	<td>//select[contains(@id,'phoneType')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>PHONE_NUMBERS_PRIMARY_RADIO_BUTTON</td>
-	<td>//input[contains(@id, 'phonePrimary')]</td>
+	<td>//input[contains(@id,'phonePrimary')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -400,17 +400,17 @@
 <!--WEBSITES-->
 <tr>
 	<td>WEBSITES_URL_FIELD</td>
-	<td>//input[contains(@id, 'websiteUrl')]</td>
+	<td>//input[contains(@id,'websiteUrl')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>WEBSITES_TYPE_SELECT</td>
-	<td>//select[contains(@id, 'websiteType')]</td>
+	<td>//select[contains(@id,'websiteType')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>WEBSITES_PRIMARY_RADIO_BUTTON</td>
-	<td>//input[contains(@id, 'websitePrimary')]</td>
+	<td>//input[contains(@id,'websitePrimary')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -495,22 +495,22 @@
 </tr>
 <tr>
 	<td>PROJECTS_START_DATE_MONTH_SELECT</td>
-	<td>//select[contains(@id, '_2_projectsEntryStartDateMonth0')]</td>
+	<td>//select[contains(@id,'_2_projectsEntryStartDateMonth0')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>PROJECTS_START_DATE_YEAR_SELECT</td>
-	<td>//select[contains(@id, '_2_projectsEntryStartDateYear0')]</td>
+	<td>//select[contains(@id,'_2_projectsEntryStartDateYear0')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>PROJECTS_END_DATE_MONTH_SELECT</td>
-	<td>//select[contains(@id, '_2_projectsEntryEndDateMonth0')]</td>
+	<td>//select[contains(@id,'_2_projectsEntryEndDateMonth0')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>PROJECTS_END_DATE_YEAR_SELECT</td>
-	<td>//select[contains(@id, '_2_projectsEntryEndDateYear0')]</td>
+	<td>//select[contains(@id,'_2_projectsEntryEndDateYear0')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -548,7 +548,7 @@
 <!--COMMENTS-->
 <tr>
 	<td>COMMENTS_FIELD</td>
-	<td>//textarea[contains(@id, 'comments')]</td>
+	<td>//textarea[contains(@id,'comments')]</td>
 	<td></td>
 </tr>
 <tr>

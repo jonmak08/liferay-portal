@@ -20,7 +20,7 @@
 </tr>
 <tr>
 	<td>SEARCH_FIELD</td>
-	<td>//div[@class='form-search']//div/input[contains(@id, 'keywords')]</td>
+	<td>//div[@class='form-search']//div/input[contains(@id,'keywords')]</td>
 	<td></td>
 </tr>
 <tr>

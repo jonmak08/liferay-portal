@@ -233,7 +233,7 @@
 </tr>
 <tr>
 	<td>ENTRY_AVERAGE_RATING</td>
-	<td>//div[contains(@id, 'ratingScore')]</td>
+	<td>//div[contains(@id,'ratingScore')]</td>
 	<td></td>
 </tr>
 <tr>

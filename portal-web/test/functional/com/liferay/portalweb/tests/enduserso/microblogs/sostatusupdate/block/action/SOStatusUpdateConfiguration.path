@@ -10,7 +10,7 @@
 <tbody>
 <tr>
 	<td>CLOSE_BUTTON</td>
-	<td>//button[contains(@class, 'btn close')]</td>
+	<td>//button[contains(@class,'btn close')]</td>
 	<td></td>
 </tr>
 <tr>

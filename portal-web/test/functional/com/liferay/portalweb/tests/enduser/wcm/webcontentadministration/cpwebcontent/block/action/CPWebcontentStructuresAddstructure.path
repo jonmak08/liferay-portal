@@ -26,7 +26,7 @@
 </tr>
 <tr>
 	<td>CLOSE_WINDOW</td>
-	<td>//button[contains(@class, 'close-content')]</td>
+	<td>//button[contains(@class,'close-content')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -61,12 +61,12 @@
 </tr>
 <tr>
 	<td>SAVE_BUTTON</td>
-	<td>//button[contains(@onclick, '_166_saveStructure')]</td>
+	<td>//button[contains(@onclick,'_166_saveStructure')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>CANCEL_BUTTON</td>
-	<td>//button[contains(., 'Cancel')]</td>
+	<td>//button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
 <tr>

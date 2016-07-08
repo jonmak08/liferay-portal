@@ -51,7 +51,7 @@
 </tr>
 <tr>
 	<td>NAVIGATION_SEARCH_FIELD</td>
-	<td>//div[@class='form-search']//div/input[contains(@id, 'keywords1')]</td>
+	<td>//div[@class='form-search']//div/input[contains(@id,'keywords1')]</td>
 	<td></td>
 </tr>
 <tr>

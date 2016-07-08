@@ -90,12 +90,12 @@
 </tr>
 <tr>
 	<td>FAVORITE_SITE_ICON</td>
-	<td>//li[contains(@class, 'social-office-enabled')]/span[@class='action favorite']/a</td>
+	<td>//li[contains(@class,'social-office-enabled')]/span[@class='action favorite']/a</td>
 	<td></td>
 </tr>
 <tr>
 	<td>UNFAVORITE_SITE_ICON</td>
-	<td>//li[contains(@class, 'social-office-enabled')]/span[@class='action unfavorite']/a</td>
+	<td>//li[contains(@class,'social-office-enabled')]/span[@class='action unfavorite']/a</td>
 	<td></td>
 </tr>
 <tr>

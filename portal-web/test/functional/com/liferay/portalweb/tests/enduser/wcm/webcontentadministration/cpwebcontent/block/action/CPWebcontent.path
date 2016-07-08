@@ -389,12 +389,12 @@
 <!--PAGINATION-->
 <tr>
 	<td>PAGINATION_FIRST</td>
-	<td>//div[contains(@class, 'article-entries-paginator')]/a[contains(@class,'aui-paginator-link') and contains(@class,'aui-paginator-first-link')]</td>
+	<td>//div[contains(@class,'article-entries-paginator')]/a[contains(@class,'aui-paginator-link') and contains(@class,'aui-paginator-first-link')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>PAGINATION_PREVIOUS</td>
-	<td>//div[contains(@class, 'article-entries-paginator')]/a[contains(@class,'aui-paginator-link') and contains(@class,'aui-paginator-prev-link')]</td>
+	<td>//div[contains(@class,'article-entries-paginator')]/a[contains(@class,'aui-paginator-link') and contains(@class,'aui-paginator-prev-link')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -404,17 +404,17 @@
 </tr>
 <tr>
 	<td>PAGINATION_NEXT</td>
-	<td>//div[contains(@class, 'article-entries-paginator')]/a[contains(@class,'aui-paginator-link') and contains(@class,'aui-paginator-next-link')]</td>
+	<td>//div[contains(@class,'article-entries-paginator')]/a[contains(@class,'aui-paginator-link') and contains(@class,'aui-paginator-next-link')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>PAGINATION_LAST</td>
-	<td>//div[contains(@class, 'article-entries-paginator')]/a[contains(@class,'aui-paginator-link') and contains(@class,'aui-paginator-last-link')]</td>
+	<td>//div[contains(@class,'article-entries-paginator')]/a[contains(@class,'aui-paginator-link') and contains(@class,'aui-paginator-last-link')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>PAGINATION_ENTRIES_PER_PAGE_SELECT</td>
-	<td>//div[contains(@class, 'article-entries-paginator')]/select[@class='aui-paginator-rows-per-page']</td>
+	<td>//div[contains(@class,'article-entries-paginator')]/select[@class='aui-paginator-rows-per-page']</td>
 	<td></td>
 </tr>
 </tbody>

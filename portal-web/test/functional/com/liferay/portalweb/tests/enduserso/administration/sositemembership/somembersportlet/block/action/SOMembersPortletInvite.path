@@ -31,7 +31,7 @@
 </tr>
 <tr>
 	<td>FIND_MEMBERS_USER</td>
-	<td>//div[contains(@class, 'user') and contains(.,'${key_userName}')]/span</td>
+	<td>//div[contains(@class,'user') and contains(.,'${key_userName}')]/span</td>
 	<td></td>
 </tr>
 <tr>

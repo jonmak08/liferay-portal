@@ -96,12 +96,12 @@
 <!--CONFIGURATION_OPTIONS_MENULIST-->
 <tr>
 	<td>CONFIGURATION_OPTIONS_MENULIST_EXPORT_IMPORT</td>
-	<td>//a[contains(@id, 'menu_export-import')]</td>
+	<td>//a[contains(@id,'menu_export-import')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>CONFIGURATION_OPTIONS_MENULIST_CONFIGURATION</td>
-	<td>//a[contains(@id, 'menu_configuration')]</td>
+	<td>//a[contains(@id,'menu_configuration')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -557,7 +557,7 @@
 </tr>
 <tr>
 	<td>PAGINATION_ROWS_PER_PAGE_SELECT</td>
-	<td>//div[contains(@class, 'document-entries-paginator')]/select[@class='aui-paginator-rows-per-page']</td>
+	<td>//div[contains(@class,'document-entries-paginator')]/select[@class='aui-paginator-rows-per-page']</td>
 	<td></td>
 </tr>
 </tbody>

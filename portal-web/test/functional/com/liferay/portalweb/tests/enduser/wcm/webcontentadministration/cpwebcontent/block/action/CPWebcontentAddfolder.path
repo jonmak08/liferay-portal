@@ -25,7 +25,7 @@
 </tr>
 <tr>
 	<td>MORE_OPTIONS_SHOW</td>
-	<td>//a[contains(@href, '_15_inputPermissionsShowOptions')]</td>
+	<td>//a[contains(@href,'_15_inputPermissionsShowOptions')]</td>
 	<td>More Options »</td>
 </tr>
 <tr>

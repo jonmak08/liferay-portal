@@ -16,7 +16,7 @@
 </tr>
 <tr>
 	<td>CLOSE_WINDOW</td>
-	<td>//button[contains(@class, 'close-content')]</td>
+	<td>//button[contains(@class,'close-content')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -46,7 +46,7 @@
 </tr>
 <tr>
 	<td>SEARCH_BUTTON</td>
-	<td>//button[contains(., 'Search')]</td>
+	<td>//button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
 <tr>
