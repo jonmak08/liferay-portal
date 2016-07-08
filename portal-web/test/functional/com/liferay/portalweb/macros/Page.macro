@@ -3,8 +3,6 @@
 		<var name="key_componentName" value="${componentName}" />
 		<var name="key_pageType" value="Embedded" />
 
-		<execute function="SikuliClick" locator1="Browser#FIREFOX_MAXIMIZE" />
-
 		<execute function="ScrollWebElementIntoView" locator1="Dockbar#ADD_PAGE_TYPE_RADIO" />
 
 		<execute function="Click" locator1="Dockbar#ADD_PAGE_PANEL_COMPONENT_TREE_ARROW" />
@@ -553,11 +551,15 @@
 	</command>
 
 	<command name="selectPageTypeRadioPG">
+		<execute function="SikuliClick" locator1="Browser#FIREFOX_MAXIMIZE" />
+
 		<var name="key_pageType" value="Empty Page" />
 
 		<execute function="Click" locator1="Dockbar#ADD_PAGE_TYPE_RADIO" />
 
 		<var name="key_pageType" value="${pageType}" />
+
+		<execute function="ScrollWebElementIntoView" locator1="Dockbar#ADD_PAGE_TYPE_RADIO" />
 
 		<execute function="Click" locator1="Dockbar#ADD_PAGE_TYPE_RADIO" value1="${pageType}" />
 
