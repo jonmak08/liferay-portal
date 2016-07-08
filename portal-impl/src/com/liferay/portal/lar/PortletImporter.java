@@ -766,10 +766,7 @@ public class PortletImporter {
 		AssetCategory existingAssetCategory = AssetCategoryUtil.fetchByUUID_G(
 			assetCategory.getUuid(), groupId);
 
-		if ((existingAssetCategory == null) &&
-			(sourceGroupId != companyGroupId) &&
-			(sourceGroupId != groupId)) {
-
+		if (existingAssetCategory == null) {
 			existingAssetCategory = AssetCategoryUtil.fetchByUUID_G(
 				assetCategory.getUuid(),
 				portletDataContext.getCompanyGroupId());
@@ -958,10 +955,7 @@ public class PortletImporter {
 			AssetVocabularyUtil.fetchByUUID_G(
 				assetVocabulary.getUuid(), groupId);
 
-		if ((existingAssetVocabulary == null) &&
-			(sourceGroupId != companyGroupId) &&
-			(sourceGroupId != groupId)) {
-
+		if (existingAssetVocabulary == null) {
 			existingAssetVocabulary = AssetVocabularyUtil.fetchByUUID_G(
 				assetVocabulary.getUuid(),
 				portletDataContext.getCompanyGroupId());
