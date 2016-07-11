@@ -245,6 +245,10 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 		boolean isLucene = "Lucene".equals(vendor);
 
+		if (!isLucene) {
+			analyzer = getKeywordAnalyzer();
+		}
+
 		if (like) {
 			value = StringUtil.replace(
 				value, StringPool.PERCENT, StringPool.BLANK);
