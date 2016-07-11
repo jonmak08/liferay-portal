@@ -122,7 +122,7 @@
 		<if>
 			<isset var="categoryDescription" />
 			<then>
-				<execute function="Type" locator1="CPCategoriesAdd#DESCRIPTION_FIELD" value1="${localizationName}" />
+				<execute function="Type" locator1="CPCategoriesAdd#DESCRIPTION_FIELD" value1="${categoryDescription}" />
 			</then>
 		</if>
 
