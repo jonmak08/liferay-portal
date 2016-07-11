@@ -37,7 +37,7 @@
 <!--SEARCH_RESULTS-->
 <tr>
 	<td>SEARCH_RESULTS_TITLE</td>
-	<td>//a[@class='entry-link']/div/span[@class='entry-title']</td>
+	<td>//a[@class='entry-link']/div/span[@class='entry-title']/span</td>
 	<td></td>
 </tr>
 <tr>
