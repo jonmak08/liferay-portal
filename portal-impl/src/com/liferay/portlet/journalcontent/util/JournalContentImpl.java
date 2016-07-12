@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.cache.index.PortalCacheIndexer;
 import com.liferay.portal.kernel.cluster.ClusterExecutorUtil;
 import com.liferay.portal.kernel.cluster.ClusterInvokeThreadLocal;
 import com.liferay.portal.kernel.cluster.ClusterRequest;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -73,21 +74,23 @@ public class JournalContentImpl implements JournalContent {
 			JournalContentKeyIndexEncoder.encode(
 				groupId, articleId, ddmTemplateKey));
 
-		if (ClusterInvokeThreadLocal.isEnabled()) {
-			MethodHandler methodHandler = new MethodHandler(
-				_clearCacheMethodKey, groupId, articleId, ddmTemplateKey);
+		if (!ClusterInvokeThreadLocal.isEnabled()) {
+			return;
+		}
 
-			ClusterRequest clusterRequest =
-				ClusterRequest.createMulticastRequest(methodHandler, true);
+		MethodHandler methodHandler = new MethodHandler(
+			_clearCacheMethodKey, groupId, articleId, ddmTemplateKey);
 
-			clusterRequest.setFireAndForget(true);
+		ClusterRequest clusterRequest = ClusterRequest.createMulticastRequest(
+			methodHandler, true);
 
-			try {
-				ClusterExecutorUtil.execute(clusterRequest);
-			}
-			catch (Exception e) {
-				_log.error(e, e);
-			}
+		clusterRequest.setFireAndForget(true);
+
+		try {
+			ClusterExecutorUtil.execute(clusterRequest);
+		}
+		catch (SystemException se) {
+			_log.error(se, se);
 		}
 	}
 

@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.cache.index.PortalCacheIndexer;
 import com.liferay.portal.kernel.cluster.ClusterExecutorUtil;
 import com.liferay.portal.kernel.cluster.ClusterInvokeThreadLocal;
 import com.liferay.portal.kernel.cluster.ClusterRequest;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -311,8 +312,8 @@ public class PermissionCacheUtil {
 		try {
 			ClusterExecutorUtil.execute(clusterRequest);
 		}
-		catch (Exception e) {
-			_log.error(e, e);
+		catch (SystemException se) {
+			_log.error(se, se);
 		}
 	}
 
