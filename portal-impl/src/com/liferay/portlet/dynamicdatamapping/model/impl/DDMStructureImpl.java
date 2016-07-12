@@ -578,7 +578,7 @@ public class DDMStructureImpl extends DDMStructureBaseImpl {
 		else {
 			setDescription(description, defaultImportLocale, siteDefaultLocale);
 		}
-		
+
 		Locale ddmStructureDefaultLocale = LocaleUtil.fromLanguageId(
 			getDefaultLanguageId());
 
