@@ -1168,8 +1168,7 @@ public class JournalUtil {
 				defaultImportLocale);
 
 			if (!StringUtil.contains(
-					availableLocales.getValue(),
-					defaultImportLocaleId)) {
+					availableLocales.getValue(), defaultImportLocaleId)) {
 
 				if (Validator.isNull(availableLocales.getValue())) {
 					availableLocales.setValue(defaultImportLocaleId);
@@ -1179,7 +1178,7 @@ public class JournalUtil {
 					sb.append(availableLocales.getValue());
 					sb.append(StringPool.COMMA);
 					sb.append(defaultImportLocaleId);
-					
+
 					availableLocales.setValue(sb.toString());
 				}
 
