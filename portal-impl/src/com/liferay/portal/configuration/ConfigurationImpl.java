@@ -79,12 +79,12 @@ public class ConfigurationImpl
 	}
 
 	public ConfigurationImpl(
-			ClassLoader classLoader, String name, long companyId, String webId) {
+		ClassLoader classLoader, String name, long companyId, String webId) {
 
-			_componentConfiguration = new ClassLoaderComponentConfiguration(
-				classLoader, webId, name);
+		_componentConfiguration = new ClassLoaderComponentConfiguration(
+			classLoader, webId, name);
 
-			printSources(companyId, webId);
+		printSources(companyId, webId);
 	}
 
 	@Override

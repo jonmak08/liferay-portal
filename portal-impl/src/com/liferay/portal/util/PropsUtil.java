@@ -49,7 +49,9 @@ public class PropsUtil {
 		_instance._addProperties(company, properties);
 	}
 
-	public static void addProperties(Company company, UnicodeProperties unicodeProperties) {
+	public static void addProperties(
+		Company company, UnicodeProperties unicodeProperties) {
+
 		_instance._addProperties(company, unicodeProperties);
 	}
 
@@ -223,7 +225,9 @@ public class PropsUtil {
 		_getConfiguration(company).addProperties(properties);
 	}
 
-	private void _addProperties(Company company, UnicodeProperties unicodeProperties) {
+	private void _addProperties(
+		Company company, UnicodeProperties unicodeProperties) {
+
 		Properties properties = new Properties();
 
 		properties.putAll(unicodeProperties);
