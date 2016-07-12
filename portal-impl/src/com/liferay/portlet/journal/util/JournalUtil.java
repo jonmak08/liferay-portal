@@ -1162,7 +1162,6 @@ public class JournalUtil {
 				defaultImportLocale);
 
 			if (Validator.isNull(availableLocales)) {
-
 				updatedRootElement.addAttribute(
 					"available-locales", defaultImportLocaleId);
 
@@ -1173,10 +1172,10 @@ public class JournalUtil {
 				content = DDMXMLUtil.formatXML(updatedDocument);
 			}
 			else if (!StringUtil.contains(
-				availableLocales.getValue(),
-				defaultImportLocaleId)) {
-				StringBundler sb = new StringBundler(3);
+						availableLocales.getValue(),
+						defaultImportLocaleId)) {
 
+				StringBundler sb = new StringBundler(3);
 				sb.append(availableLocales.getValue());
 				sb.append(StringPool.COMMA);
 				sb.append(defaultImportLocaleId);
@@ -1194,7 +1193,6 @@ public class JournalUtil {
 				"default-locale");
 
 			if (Validator.isNull(defaultLocale)) {
-
 				updatedRootElement.addAttribute(
 					"default-locale", defaultImportLocaleId);
 
@@ -1203,10 +1201,12 @@ public class JournalUtil {
 			else {
 				Locale contentDefaultLocale = LocaleUtil.fromLanguageId(
 					defaultLocale.getValue());
-	
-				if (!LocaleUtil.equals(contentDefaultLocale, defaultImportLocale)) {
+
+				if (!LocaleUtil.equals(
+						contentDefaultLocale, defaultImportLocale)) {
+
 					defaultLocale.setValue(defaultImportLocaleId);
-	
+
 					content = DDMXMLUtil.formatXML(updatedDocument);
 				}
 			}
