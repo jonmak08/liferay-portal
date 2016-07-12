@@ -1159,11 +1159,6 @@ public class JournalUtil {
 				"available-locales");
 
 			if (availableLocales == null) {
-
-				// If this is nonexistent create an empty one and the upcoming
-				// section will append the correct value and call the other
-				// necessary calls
-
 				availableLocales =
 					(Attribute)updatedRootElement.addAttribute(
 						"available-locales", StringPool.BLANK);
