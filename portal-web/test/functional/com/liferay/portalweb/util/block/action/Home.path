@@ -157,6 +157,11 @@
 	<td>Page</td>
 </tr>
 <tr>
+	<td>PAGE_LINK</td>
+	<td>//nav[contains(@id,'breadcrumbs')]//a[contains(.,'${key_pageName}')]</td>
+	<td>Page</td>
+</tr>
+<tr>
 	<td>PAGE_1</td>
 	<td>xpath=(//li[contains(@class,'lfr-nav-deletable')])[1]/a</td>
 	<td>1st Page</td>

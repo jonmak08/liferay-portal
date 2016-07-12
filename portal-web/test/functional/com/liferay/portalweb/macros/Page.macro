@@ -423,9 +423,16 @@
 				</if>
 			</then>
 			<else>
-				<execute function="AssertClick" locator1="Home#PAGE" value1="${pageName}">
-					<var name="key_pageName" value="${pageName}" />
-				</execute>
+				<var name="key_pageName" value="${pageName}" />
+				<if>
+					<condition function="IsElementPresent" locator1="Home#PAGE_LINK" />
+					<then>
+						<execute function="AssertClick" locator1="Home#PAGE_LINK" value1="${pageName}" />
+					</then>
+					<else>
+						<execute function="AssertClick" locator1="Home#PAGE" value1="${pageName}" />
+					</else>
+				</if>
 			</else>
 		</if>
 	</command>
