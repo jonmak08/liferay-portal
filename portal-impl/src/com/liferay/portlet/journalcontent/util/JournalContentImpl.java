@@ -18,12 +18,17 @@ import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.cache.index.IndexEncoder;
 import com.liferay.portal.kernel.cache.index.PortalCacheIndexer;
+import com.liferay.portal.kernel.cluster.ClusterExecutorUtil;
+import com.liferay.portal.kernel.cluster.ClusterInvokeThreadLocal;
+import com.liferay.portal.kernel.cluster.ClusterRequest;
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HashUtil;
+import com.liferay.portal.kernel.util.MethodHandler;
+import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -67,6 +72,23 @@ public class JournalContentImpl implements JournalContent {
 		_portalCacheIndexer.removeKeys(
 			JournalContentKeyIndexEncoder.encode(
 				groupId, articleId, ddmTemplateKey));
+
+		if (ClusterInvokeThreadLocal.isEnabled()) {
+			MethodHandler methodHandler = new MethodHandler(
+				_clearCacheMethodKey, groupId, articleId, ddmTemplateKey);
+
+			ClusterRequest clusterRequest =
+				ClusterRequest.createMulticastRequest(methodHandler, true);
+
+			clusterRequest.setFireAndForget(true);
+
+			try {
+				ClusterExecutorUtil.execute(clusterRequest);
+			}
+			catch (Exception e) {
+				_log.error(e, e);
+			}
+		}
 	}
 
 	@Override
@@ -312,6 +334,10 @@ public class JournalContentImpl implements JournalContent {
 					_indexEncoder, _portalCache);
 
 	private static Log _log = LogFactoryUtil.getLog(JournalContentImpl.class);
+
+	private static final MethodKey _clearCacheMethodKey = new MethodKey(
+		JournalContentUtil.class,
+			"clearCache", long.class, String.class, String.class);
 
 	private static class JournalContentKey implements Serializable {
 
