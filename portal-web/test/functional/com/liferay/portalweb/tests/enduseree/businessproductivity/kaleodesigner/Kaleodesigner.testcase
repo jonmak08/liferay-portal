@@ -232,7 +232,7 @@
 
 		<execute macro="KaleoDesigner#addConnectorViaViewTab">
 			<var name="connectorName" value="Join2" />
-			<var name="coords" value="180,-10" />
+			<var name="coords" value="165,-10" />
 			<var name="nodeType" value="state" />
 			<var name="nodeTypeDestination" value="join-xor" />
 		</execute>
