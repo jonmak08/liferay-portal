@@ -16,7 +16,7 @@
 			<var name="portletName" value="Users and Organizations" />
 		</execute>
 
-		<execute function="Pause" locator1="10000" />
+		<execute function="Pause" locator1="30000" />
 
 		<execute macro="User#viewCP">
 			<var name="userEmailAddress" value="userea@liferay.com" />
@@ -73,7 +73,7 @@
 			<var name="pageName" value="Document" />
 		</execute>
 
-		<execute function="Pause" locator1="20000" />
+		<execute function="Pause" locator1="30000" />
 
 		<execute macro="DMDocument#viewPGDetails">
 			<var name="dmDocumentSize" value="22k" />
