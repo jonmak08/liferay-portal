@@ -1583,5 +1583,4 @@ public class UserFinderImpl
 	private LinkedHashMap<String, Object> _emptyLinkedHashMap =
 		new LinkedHashMap<String, Object>(0);
 
-
 }
