@@ -70,17 +70,17 @@
 </tr>
 <tr>
 	<td>ASSET_ENTRY_TABLE_TYPE_1</td>
-	<td>xpath=(//tr[contains(.,'${key_searchAssetTitle1}')]//span[@class='asset-entry-type'])[1]</td>
+	<td>//tr[contains(.,'${key_searchAssetTitle1}')]//span[@class='asset-entry-type' and contains(.,'${key_searchAssetType1}')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ASSET_ENTRY_TABLE_TYPE_2</td>
-	<td>xpath=(//tr[contains(.,'${key_searchAssetTitle2}')]//span[@class='asset-entry-type'])[2]</td>
+	<td>//tr[contains(.,'${key_searchAssetTitle2}')]//span[@class='asset-entry-type' and contains(.,'${key_searchAssetType2}')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ASSET_ENTRY_TABLE_TYPE_3</td>
-	<td>xpath=(//tr[contains(.,'${key_searchAssetTitle3}')]//span[@class='asset-entry-type'])[3]</td>
+	<td>//tr[contains(.,'${key_searchAssetTitle3}')]//span[@class='asset-entry-type' and contains(.,'${key_searchAssetType3}')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -90,17 +90,17 @@
 </tr>
 <tr>
 	<td>ASSET_ENTRY_TABLE_SUMMARY_1</td>
-	<td>xpath=(//tr[contains(.,'${key_searchAssetTitle1}')]//span[@class='asset-entry-summary'])[1]</td>
+	<td>//tr[contains(.,'${key_searchAssetTitle1}')]//span[@class='asset-entry-summary' and contains(.,'${key_searchAssetSummary1}')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ASSET_ENTRY_TABLE_SUMMARY_2</td>
-	<td>xpath=(//tr[contains(.,'${key_searchAssetTitle2}')]//span[@class='asset-entry-summary'])[2]</td>
+	<td>//tr[contains(.,'${key_searchAssetTitle2}')]//span[@class='asset-entry-summary' and contains(.,'${key_searchAssetSummary2}')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ASSET_ENTRY_TABLE_SUMMARY_3</td>
-	<td>xpath=(//tr[contains(.,'${key_searchAssetTitle3}')]//span[@class='asset-entry-summary'])[3]</td>
+	<td>//tr[contains(.,'${key_searchAssetTitle3}')]//span[@class='asset-entry-summary' and contains(.,'${key_searchAssetSummary3}')]</td>
 	<td></td>
 </tr>
 </tbody>

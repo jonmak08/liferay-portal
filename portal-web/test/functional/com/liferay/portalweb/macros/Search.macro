@@ -133,6 +133,7 @@
 			<isset var="searchAssetTitle1" />
 			<then>
 				<var name="key_searchAssetTitle1" value="${searchAssetTitle1}" />
+				<var name="key_searchAssetType1" value="${searchAssetType1}" />
 
 				<execute function="AssertTextEquals#assertPartialText" locator1="PGSearchResults#ASSET_ENTRY_TABLE_TITLE_1" value1="${searchAssetTitle1}" />
 				<execute function="AssertTextEquals#assertPartialText" locator1="PGSearchResults#ASSET_ENTRY_TABLE_TYPE_1" value1="${searchAssetType1}" />
@@ -140,6 +141,8 @@
 				<if>
 					<isset var="searchAssetSummary1" />
 					<then>
+						<var name="key_searchAssetSummary1" value="${searchAssetSummary1}" />
+
 						<execute function="AssertTextEquals#assertPartialText" locator1="PGSearchResults#ASSET_ENTRY_TABLE_SUMMARY_1" value1="${searchAssetSummary1}" />
 					</then>
 				</if>
@@ -150,6 +153,7 @@
 			<isset var="searchAssetTitle2" />
 			<then>
 				<var name="key_searchAssetTitle2" value="${searchAssetTitle2}" />
+				<var name="key_searchAssetType2" value="${searchAssetType2}" />
 
 				<execute function="AssertTextEquals#assertPartialText" locator1="PGSearchResults#ASSET_ENTRY_TABLE_TITLE_2" value1="${searchAssetTitle2}" />
 				<execute function="AssertTextEquals#assertPartialText" locator1="PGSearchResults#ASSET_ENTRY_TABLE_TYPE_2" value1="${searchAssetType2}" />
@@ -157,6 +161,8 @@
 				<if>
 					<isset var="searchAssetSummary2" />
 					<then>
+						<var name="key_searchAssetSummary2" value="${searchAssetSummary2}" />
+
 						<execute function="AssertTextEquals#assertPartialText" locator1="PGSearchResults#ASSET_ENTRY_TABLE_SUMMARY_2" value1="${searchAssetSummary2}" />
 					</then>
 				</if>
@@ -167,6 +173,7 @@
 			<isset var="searchAssetTitle3" />
 			<then>
 				<var name="key_searchAssetTitle3" value="${searchAssetTitle3}" />
+				<var name="key_searchAssetType3" value="${searchAssetType3}" />
 
 				<execute function="AssertTextEquals#assertPartialText" locator1="PGSearchResults#ASSET_ENTRY_TABLE_TITLE_3" value1="${searchAssetTitle3}" />
 				<execute function="AssertTextEquals#assertPartialText" locator1="PGSearchResults#ASSET_ENTRY_TABLE_TYPE_3" value1="${searchAssetType3}" />
@@ -174,6 +181,8 @@
 				<if>
 					<isset var="searchAssetSummary3" />
 					<then>
+						<var name="key_searchAssetSummary3" value="${searchAssetSummary3}" />
+
 						<execute function="AssertTextEquals#assertPartialText" locator1="PGSearchResults#ASSET_ENTRY_TABLE_SUMMARY_3" value1="${searchAssetSummary3}" />
 					</then>
 				</if>
