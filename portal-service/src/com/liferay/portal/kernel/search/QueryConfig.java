@@ -232,7 +232,7 @@ public class QueryConfig implements Serializable {
 		_INDEX_SEARCH_COLLATED_SPELL_CHECK_RESULT_ENABLED =
 			GetterUtil.getBoolean(
 				PropsUtil.get(
-					PropsKeys.INDEX_SEARCH_COLLATED_SPELL_CHECK_RESULT_ENABLED),
+				PropsKeys.INDEX_SEARCH_COLLATED_SPELL_CHECK_RESULT_ENABLED),
 				true);
 
 	private static final int
@@ -240,7 +240,7 @@ public class QueryConfig implements Serializable {
 			GetterUtil.getInteger(
 				PropsUtil.get(
 					PropsKeys.
-						INDEX_SEARCH_COLLATED_SPELL_CHECK_RESULT_SCORES_THRESHOLD),
+					INDEX_SEARCH_COLLATED_SPELL_CHECK_RESULT_SCORES_THRESHOLD),
 					50);
 
 	private static final boolean _INDEX_SEARCH_HIGHLIGHT_ENABLED =
