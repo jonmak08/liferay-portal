@@ -17,6 +17,7 @@ package com.liferay.portal.verify;
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Disjunction;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.Projection;
 import com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.Property;
@@ -77,6 +78,7 @@ import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUt
 import com.liferay.portlet.dynamicdatamapping.service.DDMTemplateLocalServiceUtil;
 import com.liferay.portlet.dynamicdatamapping.service.persistence.DDMContentActionableDynamicQuery;
 import com.liferay.portlet.dynamicdatamapping.service.persistence.DDMContentUtil;
+import com.liferay.portlet.dynamicdatamapping.service.persistence.DDMTemplateActionableDynamicQuery;
 import com.liferay.portlet.dynamicdatamapping.storage.Field;
 import com.liferay.portlet.dynamicdatamapping.storage.FieldConstants;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
@@ -302,6 +304,8 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		}
 
 		verifyDDMContent();
+
+		verifyDDMTemplateWithDate();
 	}
 
 	protected Set<String> getDuplicateElementNames(
@@ -628,6 +632,37 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 		DDMTemplateLocalServiceUtil.updateDDMTemplate(template);
 	}
 
+	protected String updateTemplateScriptDateGetDateStatement(
+			String language, String script) {
+
+		StringBundler oldTemplateScriptSB = new StringBundler(3);
+		StringBundler newTemplateScriptSB = new StringBundler(4);
+
+		if (language.equals("ftl")) {
+			oldTemplateScriptSB.append("dateUtil.getDate\\(");
+			oldTemplateScriptSB.append("(.*)");
+			oldTemplateScriptSB.append("locale\\s*\\)");
+
+			newTemplateScriptSB.append("dateUtil.getDate(");
+			newTemplateScriptSB.append("$1");
+			newTemplateScriptSB.append("locale, timeZoneUtil.");
+			newTemplateScriptSB.append("getTimeZone(\"UTC\"))");
+		}
+		else if (language.equals("vm")) {
+			oldTemplateScriptSB.append("dateUtil.getDate\\(");
+			oldTemplateScriptSB.append("(.*)");
+			oldTemplateScriptSB.append("\\$locale\\s*\\)");
+
+			newTemplateScriptSB.append("dateUtil.getDate(");
+			newTemplateScriptSB.append("$1");
+			newTemplateScriptSB.append("\\$locale, \\$timeZoneUtil.");
+			newTemplateScriptSB.append("getTimeZone(\"UTC\"))");
+		}
+
+		return script.replaceAll(
+			oldTemplateScriptSB.toString(), newTemplateScriptSB.toString());
+	}
+
 	protected String updateXSD(String xsd) throws Exception {
 		Document document = SAXReaderUtil.read(xsd);
 
@@ -732,6 +767,65 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 					catch (DocumentException de) {
 						throw new PortalException(de);
 					}
+				}
+		};
+
+		actionableDynamicQuery.performActions();
+	}
+
+	protected void verifyDDMTemplateWithDate() throws Exception {
+		ActionableDynamicQuery actionableDynamicQuery =
+			new DDMTemplateActionableDynamicQuery() {
+
+				@Override
+				protected void addCriteria(DynamicQuery dynamicQuery) {
+
+					DynamicQuery ddmStructureDynamicQuery =
+						DynamicQueryFactoryUtil.forClass(DDMStructure.class);
+
+						Property storageTypeProperty =
+							PropertyFactoryUtil.forName("storageType");
+
+						ddmStructureDynamicQuery.add(
+							storageTypeProperty.eq("xml"));
+
+						Property xsdProperty = PropertyFactoryUtil.forName(
+							"xsd");
+
+						ddmStructureDynamicQuery.add(
+							xsdProperty.like("%dataType=\"date\"%"));
+
+						Projection projection = ProjectionFactoryUtil.property(
+							"structureId");
+
+						ddmStructureDynamicQuery.setProjection(projection);
+
+						Property typeProperty = PropertyFactoryUtil.forName(
+							"type");
+
+						dynamicQuery.add(
+							typeProperty.eq(
+								DDMTemplateConstants.TEMPLATE_TYPE_DISPLAY));
+
+						Property classPKProperty = PropertyFactoryUtil.forName(
+								"classPK");
+
+						dynamicQuery.add(
+							classPKProperty.in(ddmStructureDynamicQuery));
+				}
+
+				@Override
+				protected void performAction(Object object)
+					throws PortalException, SystemException {
+
+					DDMTemplate ddmTemplate = (DDMTemplate)object;
+
+					String script = updateTemplateScriptDateGetDateStatement(
+						ddmTemplate.getLanguage(), ddmTemplate.getScript());
+
+					ddmTemplate.setScript(script);
+
+					DDMTemplateLocalServiceUtil.updateDDMTemplate(ddmTemplate);
 				}
 		};
 
