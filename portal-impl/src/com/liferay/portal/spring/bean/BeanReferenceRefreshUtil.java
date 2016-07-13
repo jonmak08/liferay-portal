@@ -14,6 +14,7 @@
 
 package com.liferay.portal.spring.bean;
 
+import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 
@@ -25,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 
 /**
  * @author Shuyang Zhou
@@ -114,7 +116,18 @@ public class BeanReferenceRefreshUtil {
 		public Object getNewReferencedBean(
 			String referencedBeanName, BeanFactory beanFactory) {
 
-			return beanFactory.getBean(referencedBeanName);
+			try {
+				return beanFactory.getBean(referencedBeanName);
+			}
+			catch (NoSuchBeanDefinitionException nsbde) {
+				if (_log.isInfoEnabled()) {
+					_log.info(
+							"Bean " + referencedBeanName + " may be defined in " +
+									"the portal");
+				}
+
+				return PortalBeanLocatorUtil.locate(referencedBeanName);
+			}
 		}
 
 	}
