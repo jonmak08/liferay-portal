@@ -16,6 +16,7 @@ package com.liferay.portlet.social.service;
 
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.User;
 import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.test.EnvironmentExecutionTestListener;
@@ -306,7 +307,8 @@ public class SocialRelationLocalServiceTest {
 		// Does dlc1 have 8 relations?
 
 		List<User> users = UserLocalServiceUtil.getSocialUsers(
-			dlc1User.getUserId(), QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			dlc1User.getUserId(), SocialRelationConstants.TYPE_UNI_ENEMY,
+			StringPool.NOT_EQUAL, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
 			new UserScreenNameComparator(true));
 
 		Assert.assertEquals(8, users.size());
@@ -336,7 +338,7 @@ public class SocialRelationLocalServiceTest {
 
 		List<User> users = UserLocalServiceUtil.getSocialUsers(
 			dlc1User.getUserId(), SocialRelationConstants.TYPE_BI_FRIEND,
-			QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			StringPool.EQUAL, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
 			new UserScreenNameComparator(true));
 
 		Assert.assertEquals(7, users.size());
@@ -353,7 +355,7 @@ public class SocialRelationLocalServiceTest {
 
 		users = UserLocalServiceUtil.getSocialUsers(
 			dlc1User.getUserId(), SocialRelationConstants.TYPE_BI_COWORKER,
-			QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			StringPool.EQUAL,  QueryUtil.ALL_POS, QueryUtil.ALL_POS,
 			new UserScreenNameComparator(true));
 
 		Assert.assertEquals(1, users.size());
@@ -364,8 +366,9 @@ public class SocialRelationLocalServiceTest {
 
 		users = UserLocalServiceUtil.getSocialUsers(
 			dlc1User.getUserId(),
-			SocialRelationConstants.TYPE_BI_ROMANTIC_PARTNER, QueryUtil.ALL_POS,
-			QueryUtil.ALL_POS, new UserScreenNameComparator(true));
+			SocialRelationConstants.TYPE_BI_ROMANTIC_PARTNER, StringPool.EQUAL,
+			QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			new UserScreenNameComparator(true));
 
 		Assert.assertEquals(1, users.size());
 
@@ -375,8 +378,9 @@ public class SocialRelationLocalServiceTest {
 
 		users = UserLocalServiceUtil.getSocialUsers(
 			dlc2User.getUserId(),
-			SocialRelationConstants.TYPE_BI_ROMANTIC_PARTNER, QueryUtil.ALL_POS,
-			QueryUtil.ALL_POS, new UserScreenNameComparator(true));
+			SocialRelationConstants.TYPE_BI_ROMANTIC_PARTNER, StringPool.EQUAL,
+			QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			new UserScreenNameComparator(true));
 
 		Assert.assertEquals(1, users.size());
 
@@ -386,8 +390,9 @@ public class SocialRelationLocalServiceTest {
 
 		users = UserLocalServiceUtil.getSocialUsers(
 			dlc3User.getUserId(),
-			SocialRelationConstants.TYPE_BI_ROMANTIC_PARTNER, QueryUtil.ALL_POS,
-			QueryUtil.ALL_POS, new UserScreenNameComparator(true));
+			SocialRelationConstants.TYPE_BI_ROMANTIC_PARTNER, StringPool.EQUAL,
+			QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			new UserScreenNameComparator(true));
 
 		Assert.assertEquals(0, users.size());
 	}
@@ -410,7 +415,7 @@ public class SocialRelationLocalServiceTest {
 
 		List<User> users = UserLocalServiceUtil.getSocialUsers(
 			fra1User.getUserId(), SocialRelationConstants.TYPE_UNI_PARENT,
-			QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			StringPool.EQUAL, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
 			new UserScreenNameComparator(true));
 
 		Assert.assertEquals(8, users.size());
@@ -428,7 +433,7 @@ public class SocialRelationLocalServiceTest {
 
 		users = UserLocalServiceUtil.getSocialUsers(
 			fra2User.getUserId(), SocialRelationConstants.TYPE_UNI_PARENT,
-			QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			StringPool.EQUAL, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
 			new UserScreenNameComparator(true));
 
 		Assert.assertEquals(0, users.size());
@@ -437,7 +442,7 @@ public class SocialRelationLocalServiceTest {
 
 		users = UserLocalServiceUtil.getSocialUsers(
 			fra3User.getUserId(), SocialRelationConstants.TYPE_UNI_CHILD,
-			QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			StringPool.EQUAL, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
 			new UserScreenNameComparator(true));
 
 		Assert.assertEquals(2, users.size());
@@ -449,7 +454,7 @@ public class SocialRelationLocalServiceTest {
 
 		users = UserLocalServiceUtil.getSocialUsers(
 			fra6User.getUserId(), SocialRelationConstants.TYPE_UNI_CHILD,
-			QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			StringPool.EQUAL, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
 			new UserScreenNameComparator(true));
 
 		Assert.assertEquals(0, users.size());
