@@ -461,6 +461,11 @@ public class LuceneHelperImpl implements LuceneHelper {
 	}
 
 	@Override
+	public Analyzer getKeywordAnalyzer() {
+		return _keywordAnalyzer;
+	}
+
+	@Override
 	public InputStream getLoadIndexesInputStreamFromCluster(
 			long companyId, Address bootupAddress)
 		throws SystemException {
@@ -682,6 +687,10 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 	public void setAnalyzer(Analyzer analyzer) {
 		_analyzer = analyzer;
+	}
+
+	public void setKeywordAnalyzer(Analyzer keywordAnalyzer) {
+		_keywordAnalyzer = keywordAnalyzer;
 	}
 
 	public void setVersion(Version version) {
@@ -1175,6 +1184,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 	private Analyzer _analyzer;
 	private Map<Long, IndexAccessor> _indexAccessors =
 		new ConcurrentHashMap<Long, IndexAccessor>();
+	private Analyzer _keywordAnalyzer;
 	private LoadIndexClusterEventListener _loadIndexClusterEventListener;
 	private ThreadPoolExecutor _luceneIndexThreadPoolExecutor;
 	private Version _version;
