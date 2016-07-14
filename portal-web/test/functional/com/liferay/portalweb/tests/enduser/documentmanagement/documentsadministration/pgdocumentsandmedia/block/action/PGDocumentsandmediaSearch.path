@@ -41,7 +41,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>SEARCH_RESULTS_TITLE_PARTIAl</td>
+	<td>SEARCH_RESULTS_TITLE_PARTIAL</td>
 	<td>//a[@class='entry-link']/div/span[@class='entry-title']/span</td>
 	<td></td>
 </tr>

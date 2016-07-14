@@ -1698,7 +1698,7 @@
 		<execute function="Type" locator1="PGDocumentsandmedia#BASIC_SEARCH_FIELD" value1="${dmDocumentTitle}" />
 		<execute function="AssertClick" locator1="PGDocumentsandmedia#BASIC_SEARCH_BUTTON" value1="Search" />
 
-		<execute function="AssertClick" locator1="PGDocumentsandmediaSearch#SEARCH_RESULTS_TITLE_PARTIAl" value1="${dmDocumentTitle}" />
+		<execute function="AssertClick" locator1="PGDocumentsandmediaSearch#SEARCH_RESULTS_TITLE_PARTIAL" value1="${dmDocumentTitle}" />
 
 		<execute macro="DMDocument#viewDocumentToolbarCmdPG" />
 
