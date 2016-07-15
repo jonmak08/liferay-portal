@@ -278,6 +278,8 @@ public interface PortletDataContext extends Serializable {
 
 	public Criterion getDateRangeCriteria(String propertyName);
 
+	public Map<String, List<String>> getDeletionKeysMap();
+
 	public Set<StagedModelType> getDeletionSystemEventStagedModelTypes();
 
 	public Date getEndDate();
@@ -581,6 +583,8 @@ public interface PortletDataContext extends Serializable {
 	public void setCompanyId(long companyId);
 
 	public void setDataStrategy(String dataStrategy);
+
+	public void setDeletionKeysMap(Map<String, List<String>> deletionKeysMap);
 
 	public void setEndDate(Date endDate);
 

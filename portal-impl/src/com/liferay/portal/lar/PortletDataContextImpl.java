@@ -956,6 +956,11 @@ public class PortletDataContextImpl implements PortletDataContext {
 	}
 
 	@Override
+	public Map<String, List<String>> getDeletionKeysMap() {
+		return _deletionKeysMap;
+	}
+
+	@Override
 	public Set<StagedModelType> getDeletionSystemEventStagedModelTypes() {
 		return _deletionSystemEventModelTypes;
 	}
@@ -2061,6 +2066,11 @@ public class PortletDataContextImpl implements PortletDataContext {
 	}
 
 	@Override
+	public void setDeletionKeysMap(Map<String, List<String>> deletionKeysMap) {
+		_deletionKeysMap = deletionKeysMap;
+	}
+
+	@Override
 	public void setEndDate(Date endDate) {
 		_endDate = endDate;
 	}
@@ -2805,6 +2815,7 @@ public class PortletDataContextImpl implements PortletDataContext {
 	private long _companyGroupId;
 	private long _companyId;
 	private String _dataStrategy;
+	private Map<String, List<String>> _deletionKeysMap;
 	private Set<StagedModelType> _deletionSystemEventModelTypes =
 		new HashSet<StagedModelType>();
 	private Date _endDate;
