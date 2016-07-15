@@ -52,6 +52,7 @@ import com.liferay.portal.kernel.util.DateRange;
 import com.liferay.portal.kernel.util.DigesterUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -75,7 +76,6 @@ import com.liferay.portal.repository.liferayrepository.model.LiferayFileEntry;
 import com.liferay.portal.repository.liferayrepository.model.LiferayFileVersion;
 import com.liferay.portal.security.auth.PrincipalThreadLocal;
 import com.liferay.portal.service.ServiceContext;
-import com.liferay.portal.util.Portal;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portal.util.PrefsPropsUtil;
@@ -2149,34 +2149,34 @@ public class DLFileEntryLocalServiceImpl
 		catch (Exception e) {
 		}
 
+		String layoutURL = StringPool.BLANK;
+
 		if ((request == null) || (servletContext == null)) {
-			if (Validator.isNull(serviceContext.getLayoutFullURL())) {
+			layoutURL = serviceContext.getLayoutFullURL();
+
+			if (Validator.isNull(layoutURL)) {
 				return StringPool.BLANK;
 			}
-
-			StringBundler sb = new StringBundler(4);
-
-			sb.append(serviceContext.getLayoutFullURL());
-			sb.append(Portal.FRIENDLY_URL_SEPARATOR);
-			sb.append("document_library/view_file_entry");
-			sb.append(dlFileEntry.getFileEntryId());
-
-			return sb.toString();
+		}
+		else {
+			layoutURL = getLayoutURL(
+				dlFileEntry.getGroupId(), PortletKeys.DOCUMENT_LIBRARY,
+				serviceContext);
 		}
 
-		String layoutURL = getLayoutURL(
-			dlFileEntry.getGroupId(), PortletKeys.DOCUMENT_LIBRARY,
-			serviceContext);
-
 		if (Validator.isNotNull(layoutURL)) {
-			StringBundler sb = new StringBundler(4);
+			String namespace = PortalUtil.getPortletNamespace(
+				PortletKeys.DOCUMENT_LIBRARY);
+			layoutURL = HttpUtil.addParameter(
+				layoutURL, "p_p_id", PortletKeys.DOCUMENT_LIBRARY);
+			layoutURL = HttpUtil.addParameter(
+				layoutURL, namespace + "struts_action",
+				"/document_library/view_file_entry");
+			layoutURL = HttpUtil.addParameter(
+				layoutURL, namespace + "fileEntryId",
+				dlFileEntry.getFileEntryId());
 
-			sb.append(layoutURL);
-			sb.append(Portal.FRIENDLY_URL_SEPARATOR);
-			sb.append("document_library/view_file_entry");
-			sb.append(dlFileEntry.getFileEntryId());
-
-			return sb.toString();
+			return layoutURL;
 		}
 
 		long controlPanelPlid = PortalUtil.getControlPanelPlid(
