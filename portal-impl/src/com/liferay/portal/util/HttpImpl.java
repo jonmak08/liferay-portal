@@ -1484,6 +1484,8 @@ public class HttpImpl implements Http {
 				String redirect = locationHeader.getValue();
 
 				if (followRedirects) {
+					httpMethod.releaseConnection();
+
 					return URLtoByteArray(
 						redirect, Http.Method.GET, headers, cookies, auth, body,
 						fileParts, parts, response, followRedirects, progressId,
