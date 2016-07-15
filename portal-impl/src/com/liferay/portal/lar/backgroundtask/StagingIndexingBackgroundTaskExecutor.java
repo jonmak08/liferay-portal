@@ -28,6 +28,7 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistryUtil;
+import com.liferay.portal.kernel.search.SearchException;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
@@ -73,6 +74,13 @@ public class StagingIndexingBackgroundTaskExecutor
 
 		PortletDataContext portletDataContext =
 			(PortletDataContext)taskContextMap.get("portletDataContext");
+
+		try {
+			deleteDocuments(portletDataContext);
+		}
+		catch (Exception e) {
+			_log.error("Unable to delete documents", e);
+		}
 
 		boolean importPermissions = MapUtil.getBoolean(
 			portletDataContext.getParameterMap(),
@@ -130,6 +138,27 @@ public class StagingIndexingBackgroundTaskExecutor
 		}
 
 		return BackgroundTaskResult.SUCCESS;
+	}
+
+	protected void deleteDocuments(PortletDataContext portletDataContext) {
+		Map<String, List<String>> deletionKeysMap =
+			portletDataContext.getDeletionKeysMap();
+
+		for (String className : deletionKeysMap.keySet()) {
+			Indexer indexer = IndexerRegistryUtil.getIndexer(className);
+
+			List<String> uids = deletionKeysMap.get(className);
+
+			for (String uid : uids) {
+				try {
+					indexer.delete(portletDataContext.getCompanyId(), uid);
+				}
+				catch (SearchException se) {
+					_log.error(
+						"Unable to delete document with uid: " + uid, se);
+				}
+			}
+		}
 	}
 
 	protected ActionableDynamicQuery getJournalArticleActionableDynamicQuery(
