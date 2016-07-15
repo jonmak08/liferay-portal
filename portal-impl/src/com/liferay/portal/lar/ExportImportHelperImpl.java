@@ -44,6 +44,7 @@ import com.liferay.portal.kernel.lar.StagedModelDataHandler;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerRegistryUtil;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.portal.kernel.lar.StagedModelType;
+import com.liferay.portal.kernel.lar.StagingIndexingDeletionThreadLocal;
 import com.liferay.portal.kernel.lar.UserIdStrategy;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -173,6 +174,9 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 		PortletDataContext clonedPortletDataContext =
 			PortletDataContextFactoryUtil.clonePortletDataContext(
 				portletDataContext);
+
+		clonedPortletDataContext.setDeletionKeysMap(
+			StagingIndexingDeletionThreadLocal.getDeletionKeysMap());
 
 		Map<String, Map<?, ?>> newPrimaryKeysMaps =
 			clonedPortletDataContext.getNewPrimaryKeysMaps();

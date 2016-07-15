@@ -15,8 +15,10 @@
 package com.liferay.portal.search;
 
 import com.liferay.portal.kernel.lar.ExportImportThreadLocal;
+import com.liferay.portal.kernel.lar.StagingIndexingDeletionThreadLocal;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.search.Indexer;
@@ -64,8 +66,24 @@ public class IndexableAdvice
 			return;
 		}
 
+		Indexer indexer = null;
+
 		if (StagedModel.class.isAssignableFrom(returnType) &&
 			ExportImportThreadLocal.isImportInProcess()) {
+
+			if (indexable.type() == IndexableType.DELETE) {
+				try {
+					indexer = IndexerRegistryUtil.getIndexer(
+						returnType.getName());
+
+					Document document = indexer.getDocument(result);
+
+					StagingIndexingDeletionThreadLocal.setDeletionKey(
+						indexer.getClass().getName(), document.getUID());
+				}
+				catch (Exception e) {
+				}
+			}
 
 			if (_log.isDebugEnabled()) {
 				_log.debug("Skipping indexing until the import is finished");
@@ -74,7 +92,9 @@ public class IndexableAdvice
 			return;
 		}
 
-		Indexer indexer = IndexerRegistryUtil.getIndexer(returnType.getName());
+		if (indexer == null) {
+			indexer = IndexerRegistryUtil.getIndexer(returnType.getName());
+		}
 
 		if (indexer == null) {
 			serviceBeanAopCacheManager.removeMethodInterceptor(
