@@ -107,9 +107,7 @@ public class PortalLDAPUtil {
 
 		if (_log.isDebugEnabled()) {
 			String debugString = MapUtil.toString(
-				environmentProperties, null,
-				Context.SECURITY_PRINCIPAL + "|" +
-					Context.SECURITY_CREDENTIALS);
+				environmentProperties, null, Context.SECURITY_CREDENTIALS);
 
 			_log.debug(debugString);
 		}
