@@ -86,7 +86,7 @@ public class StringUtilTest {
 		Assert.assertFalse(StringUtil.equalsIgnoreCase("Hello \n World", null));
 		Assert.assertFalse(StringUtil.equalsIgnoreCase("!", "A"));
 	}
-	
+
 	@Test
 	public void testIndexOfAny() throws Exception {
 		char[] chars = {CharPool.COLON, CharPool.COMMA};
