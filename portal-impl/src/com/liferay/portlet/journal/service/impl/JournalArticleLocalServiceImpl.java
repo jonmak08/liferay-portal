@@ -6270,8 +6270,12 @@ public class JournalArticleLocalServiceImpl
 				"/image/journal/article?img_id=" + imageId + "&t=" +
 					WebServerServletTokenUtil.getToken(imageId);
 
-			byte[] bytes = images.get(
-				elInstanceId + StringPool.UNDERLINE + elName + elLanguage);
+			byte[] bytes = null;
+
+			if (images != null) {
+				bytes = images.get(
+					elInstanceId + StringPool.UNDERLINE + elName + elLanguage);
+			}
 
 			Image image = imageLocalService.fetchImage(imageId);
 
@@ -6292,7 +6296,7 @@ public class JournalArticleLocalServiceImpl
 						elLanguage);
 				}
 
-				if (oldImage == null) {
+				if ((oldImage == null) && (images != null)) {
 					bytes = images.get(
 						elInstanceId + StringPool.UNDERLINE + elName +
 						defaultElLanguage);
