@@ -155,23 +155,21 @@ public class Summary {
 
 		if (_highlight) {
 			text = SearchUtil.highlight(
-				text, _queryTerms, ESCAPE_SAFE_HIGHLIGHT_1,
-				ESCAPE_SAFE_HIGHLIGHT_2);
+				text, _queryTerms, ESCAPE_SAFE_HIGHLIGHTS[0],
+				ESCAPE_SAFE_HIGHLIGHTS[1]);
 
 			text = HtmlUtil.escape(text);
 
-			text = StringUtil.replace(
-				text,
-				new String[] {ESCAPE_SAFE_HIGHLIGHT_1, ESCAPE_SAFE_HIGHLIGHT_2},
-				new String[] {SearchUtil.HIGHLIGHT_1, SearchUtil.HIGHLIGHT_2});
+			return StringUtil.replace(
+					text, ESCAPE_SAFE_HIGHLIGHTS, SearchUtil.HIGHLIGHTS);
+			
 		}
 
 		return text;
 	}
 
-	private static final String ESCAPE_SAFE_HIGHLIGHT_1 = "[@HIGHLIGHT1@]";
-
-	private static final String ESCAPE_SAFE_HIGHLIGHT_2 = "[@HIGHLIGHT2@]";
+	private static final String[] ESCAPE_SAFE_HIGHLIGHTS = {
+		"[@HIGHLIGHT1@]", "[@HIGHLIGHT2@]"};
 
 	private String _content;
 	private boolean _highlight;
