@@ -106,7 +106,7 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 		var checkbox = A.one('#<portlet:namespace /><%= randomNamespace + dateTogglerCheckboxName %>Checkbox');
 
 		checkbox.on(
-			'click', 
+			'click',
 			function(event) {
 				var checked = checkbox.attr('checked');
 
