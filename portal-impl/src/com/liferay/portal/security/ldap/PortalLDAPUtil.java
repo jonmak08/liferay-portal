@@ -599,6 +599,20 @@ public class PortalLDAPUtil {
 					continue;
 				}
 
+				String attributeID = StringUtil.toLowerCase(attribute.getID());
+
+				if (attributeID.indexOf("password") > -1) {
+					Attribute attributeClone = (Attribute)attribute.clone();
+
+					attributeClone.clear();
+					attributeClone.add("*****");
+
+					_log.debug(
+						"LDAP user attribute " + attributeClone.toString());
+
+					continue;
+				}
+
 				_log.debug("LDAP user attribute " + attribute.toString());
 			}
 		}
