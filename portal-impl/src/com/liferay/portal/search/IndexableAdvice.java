@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.lar.StagingIndexingDeletionThreadLocal;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.Document;
+import com.liferay.portal.kernel.search.DocumentImpl;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.search.Indexer;
@@ -27,6 +28,8 @@ import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.StagedModel;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.spring.aop.AnnotationChainableMethodAdvice;
+import com.liferay.portlet.documentlibrary.model.DLFileEntry;
+import com.liferay.portlet.documentlibrary.util.DLFileEntryIndexer;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -76,10 +79,25 @@ public class IndexableAdvice
 					indexer = IndexerRegistryUtil.getIndexer(
 						returnType.getName());
 
-					Document document = indexer.getDocument(result);
+					String className = indexer.getClass().getName();
+
+					Document document = null;
+
+					if (className.equals(DLFileEntryIndexer.class.getName())) {
+						DLFileEntry dlFileEntry = (DLFileEntry)result;
+
+						document = new DocumentImpl();
+
+						document.addUID(
+							DLFileEntryIndexer.PORTLET_ID,
+							dlFileEntry.getFileEntryId());
+					}
+					else {
+						document = indexer.getDocument(result);
+					}
 
 					StagingIndexingDeletionThreadLocal.setDeletionKey(
-						indexer.getClass().getName(), document.getUID());
+						className, document.getUID());
 				}
 				catch (Exception e) {
 				}
