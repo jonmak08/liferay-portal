@@ -106,10 +106,9 @@ public class PortalLDAPUtil {
 		PropertiesUtil.merge(environmentProperties, ldapConnectionProperties);
 
 		if (_log.isDebugEnabled()) {
-			String debugString = MapUtil.toString(
-				environmentProperties, null, Context.SECURITY_CREDENTIALS);
-
-			_log.debug(debugString);
+			_log.debug(
+				MapUtil.toString(
+					environmentProperties, null, Context.SECURITY_CREDENTIALS));
 		}
 
 		LdapContext ldapContext = null;
@@ -602,13 +601,14 @@ public class PortalLDAPUtil {
 				String attributeID = StringUtil.toLowerCase(attribute.getID());
 
 				if (attributeID.indexOf("password") > -1) {
-					Attribute attributeClone = (Attribute)attribute.clone();
+					Attribute clonedAttribute = (Attribute)attribute.clone();
 
-					attributeClone.clear();
-					attributeClone.add("*****");
+					clonedAttribute.clear();
+
+					clonedAttribute.add("*****");
 
 					_log.debug(
-						"LDAP user attribute " + attributeClone.toString());
+						"LDAP user attribute " + clonedAttribute.toString());
 
 					continue;
 				}
