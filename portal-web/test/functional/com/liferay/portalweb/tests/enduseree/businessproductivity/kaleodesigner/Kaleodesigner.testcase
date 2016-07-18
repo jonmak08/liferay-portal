@@ -1596,6 +1596,8 @@
 			<var name="portletName" value="Workflow" />
 		</execute>
 
+		<execute function="SikuliClick" locator1="Browser#FIREFOX_MAXIMIZE" />
+
 		<execute macro="KaleoDesigner#editWorkflowDefinitionViaWorkflowCP">
 			<var name="workflowDefinitionTitle" value="Single Approver" />
 		</execute>
