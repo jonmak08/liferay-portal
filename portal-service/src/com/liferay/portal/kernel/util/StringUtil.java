@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.search.util.SearchUtil;
 import com.liferay.portal.kernel.security.RandomUtil;
 
 import java.io.IOException;
@@ -665,37 +666,27 @@ public class StringUtil {
 		return _highlight(s, pattern, highlight1, highlight2);
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, moved to {@link
+	 *             com.liferay.portal.kernel.search.util.SearchUtil
+	 *             #highlight(String, String[])}}
+	 */
+	@Deprecated
 	public static String highlight(String s, String[] queryTerms) {
-		return highlight(
+		return SearchUtil.highlight(
 			s, queryTerms, "<span class=\"highlight\">", "</span>");
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, moved to {@link
+	 *             com.liferay.portal.kernel.search.util.SearchUtil
+	 *             #highlight(String, String[], String, String)}}
+	 */
+	@Deprecated
 	public static String highlight(
 		String s, String[] queryTerms, String highlight1, String highlight2) {
 
-		if (Validator.isNull(s) || ArrayUtil.isEmpty(queryTerms)) {
-			return s;
-		}
-
-		if (queryTerms.length == 0) {
-			return StringPool.BLANK;
-		}
-
-		StringBundler sb = new StringBundler(2 * queryTerms.length - 1);
-
-		for (int i = 0; i < queryTerms.length; i++) {
-			sb.append(Pattern.quote(queryTerms[i].trim()));
-
-			if ((i + 1) < queryTerms.length) {
-				sb.append(StringPool.PIPE);
-			}
-		}
-
-		int flags = Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE;
-
-		Pattern pattern = Pattern.compile(sb.toString(), flags);
-
-		return _highlight(s, pattern, highlight1, highlight2);
+		return SearchUtil.highlight(s, queryTerms, highlight1, highlight2);
 	}
 
 	/**
