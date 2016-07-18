@@ -38,6 +38,9 @@ String formName = (String)request.getAttribute("liferay-ui:tabs:formName");
 // Param
 
 String param = (String)request.getAttribute("liferay-ui:tabs:param");
+
+// URLs
+
 String[] urls = (String[])request.getAttribute("liferay-ui:tabs:urls");
 
 // Value
