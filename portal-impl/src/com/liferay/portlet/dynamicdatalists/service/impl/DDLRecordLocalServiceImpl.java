@@ -27,6 +27,7 @@ import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -698,6 +699,30 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 			fields.put(field);
 		}
 
+		Field fieldsDisplayField = fields.get(_FIELDS_DISPLAY_NAME);
+
+		if (fieldsDisplayField == null) {
+			StringBundler fieldsDisplayFieldSB = new StringBundler(
+				fieldsMap.size() * 4 - 1);
+
+			for (String fieldName : fields.getNames()) {
+				fieldsDisplayFieldSB.append(fieldName);
+				fieldsDisplayFieldSB.append(_INSTANCE_SEPARATOR);
+				fieldsDisplayFieldSB.append(StringUtil.randomString());
+				fieldsDisplayFieldSB.append(StringPool.COMMA);
+			}
+
+			if (fieldsDisplayFieldSB.index() > 0) {
+				fieldsDisplayFieldSB.setIndex(fieldsDisplayFieldSB.index() - 1);
+			}
+
+			fieldsDisplayField = new Field(
+				ddmStructureId, _FIELDS_DISPLAY_NAME,
+				fieldsDisplayFieldSB.toString());
+
+			fields.put(fieldsDisplayField);
+		}
+
 		return fields;
 	}
 
@@ -717,5 +742,9 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 
 		ddlRecordVersionPersistence.update(recordVersion);
 	}
+
+	private final String _FIELDS_DISPLAY_NAME = "_fieldsDisplay";
+
+	private final String _INSTANCE_SEPARATOR = "_INSTANCE_";
 
 }
