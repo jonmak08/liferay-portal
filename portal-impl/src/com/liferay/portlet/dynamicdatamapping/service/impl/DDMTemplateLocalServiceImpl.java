@@ -1344,12 +1344,36 @@ public class DDMTemplateLocalServiceImpl
 		DDMTemplate template = ddmTemplateLocalService.getDDMTemplate(
 			templateId);
 
-		File smallImageFile = getSmallImageFile(template);
+		File smallImageFile = copySmallImage(template);
 
 		return updateTemplate(
 			templateId, classPK, nameMap, descriptionMap, type, mode, language,
 			script, cacheable, template.isSmallImage(),
 			template.getSmallImageURL(), smallImageFile, serviceContext);
+	}
+
+	protected File copySmallImage(DDMTemplate template) throws SystemException {
+		File smallImageFile = null;
+
+		if (template.isSmallImage() &&
+			Validator.isNull(template.getSmallImageURL())) {
+
+			Image smallImage = ImageUtil.fetchByPrimaryKey(
+				template.getSmallImageId());
+
+			if (smallImage != null) {
+				smallImageFile = FileUtil.createTempFile(smallImage.getType());
+
+				try {
+					FileUtil.write(smallImageFile, smallImage.getTextObj());
+				}
+				catch (IOException ioe) {
+					_log.error(ioe, ioe);
+				}
+			}
+		}
+
+		return smallImageFile;
 	}
 
 	protected DDMTemplate copyTemplate(
@@ -1358,7 +1382,7 @@ public class DDMTemplateLocalServiceImpl
 			ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
-		File smallImageFile = getSmallImageFile(template);
+		File smallImageFile = copySmallImage(template);
 
 		return addTemplate(
 			userId, template.getGroupId(), template.getClassNameId(), classPK,
@@ -1384,32 +1408,6 @@ public class DDMTemplateLocalServiceImpl
 		}
 
 		return script;
-	}
-
-	protected File getSmallImageFile(DDMTemplate template)
-		throws SystemException {
-
-		File smallImageFile = null;
-
-		if (template.isSmallImage() &&
-			Validator.isNull(template.getSmallImageURL())) {
-
-			Image smallImage = ImageUtil.fetchByPrimaryKey(
-				template.getSmallImageId());
-
-			if (smallImage != null) {
-				smallImageFile = FileUtil.createTempFile(smallImage.getType());
-
-				try {
-					FileUtil.write(smallImageFile, smallImage.getTextObj());
-				}
-				catch (IOException ioe) {
-					_log.error(ioe, ioe);
-				}
-			}
-		}
-
-		return smallImageFile;
 	}
 
 	protected void saveImages(
