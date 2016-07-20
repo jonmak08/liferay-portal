@@ -42,7 +42,6 @@ import com.liferay.portal.model.User;
 import com.liferay.portal.model.UserGroup;
 import com.liferay.portal.model.UserGroupConstants;
 import com.liferay.portal.security.ldap.LDAPUserGroupTransactionThreadLocal;
-import com.liferay.portal.security.permission.PermissionCacheUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.base.UserGroupLocalServiceBaseImpl;
 import com.liferay.portal.util.PropsValues;
@@ -77,8 +76,6 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 		throws SystemException {
 
 		groupPersistence.addUserGroups(groupId, userGroupIds);
-
-		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -93,8 +90,6 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 		throws SystemException {
 
 		teamPersistence.addUserGroups(teamId, userGroupIds);
-
-		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -226,8 +221,6 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 	@Override
 	public void clearUserUserGroups(long userId) throws SystemException {
 		userPersistence.clearUserGroups(userId);
-
-		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
@@ -386,10 +379,6 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 		// User group
 
 		userGroupPersistence.remove(userGroup);
-
-		// Permission cache
-
-		PermissionCacheUtil.clearCache();
 
 		return userGroup;
 	}
@@ -700,8 +689,6 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 
 		indexer.reindex(userId);
-
-		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
@@ -725,8 +712,6 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 			userGroupIds, groupId);
 
 		groupPersistence.removeUserGroups(groupId, userGroupIds);
-
-		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -741,8 +726,6 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 		throws SystemException {
 
 		teamPersistence.removeUserGroups(teamId, userGroupIds);
-
-		PermissionCacheUtil.clearCache();
 	}
 
 	/**

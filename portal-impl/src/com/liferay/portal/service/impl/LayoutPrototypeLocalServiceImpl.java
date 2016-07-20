@@ -29,7 +29,6 @@ import com.liferay.portal.model.LayoutPrototype;
 import com.liferay.portal.model.ResourceConstants;
 import com.liferay.portal.model.SystemEventConstants;
 import com.liferay.portal.model.User;
-import com.liferay.portal.security.permission.PermissionCacheUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.base.LayoutPrototypeLocalServiceBaseImpl;
 
@@ -152,10 +151,6 @@ public class LayoutPrototypeLocalServiceImpl
 		// Layout Prototype
 
 		layoutPrototypePersistence.remove(layoutPrototype);
-
-		// Permission cache
-
-		PermissionCacheUtil.clearCache();
 
 		return layoutPrototype;
 	}

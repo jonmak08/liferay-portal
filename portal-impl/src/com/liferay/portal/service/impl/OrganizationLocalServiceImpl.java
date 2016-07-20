@@ -56,7 +56,6 @@ import com.liferay.portal.model.TreeModel;
 import com.liferay.portal.model.User;
 import com.liferay.portal.model.UserGroupRole;
 import com.liferay.portal.model.impl.OrganizationImpl;
-import com.liferay.portal.security.permission.PermissionCacheUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.base.OrganizationLocalServiceBaseImpl;
 import com.liferay.portal.util.PropsUtil;
@@ -105,8 +104,6 @@ public class OrganizationLocalServiceImpl
 		throws PortalException, SystemException {
 
 		groupPersistence.addOrganizations(groupId, organizationIds);
-
-		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -524,10 +521,6 @@ public class OrganizationLocalServiceImpl
 		// Organization
 
 		organizationPersistence.remove(organization);
-
-		// Permission cache
-
-		PermissionCacheUtil.clearCache();
 
 		return organization;
 	}
@@ -1583,8 +1576,6 @@ public class OrganizationLocalServiceImpl
 		throws PortalException, SystemException {
 
 		groupPersistence.setOrganizations(groupId, organizationIds);
-
-		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -1600,8 +1591,6 @@ public class OrganizationLocalServiceImpl
 		throws PortalException, SystemException {
 
 		groupPersistence.removeOrganizations(groupId, organizationIds);
-
-		PermissionCacheUtil.clearCache();
 	}
 
 	/**

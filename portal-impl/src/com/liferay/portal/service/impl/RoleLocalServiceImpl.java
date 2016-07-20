@@ -285,8 +285,6 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 
 		indexer.reindex(userId);
-
-		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
@@ -308,8 +306,6 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 
 		indexer.reindex(userId);
-
-		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
@@ -332,8 +328,6 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 
 		indexer.reindex(userId);
-
-		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
@@ -356,8 +350,6 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 
 		indexer.reindex(userId);
-
-		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
@@ -550,8 +542,6 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 
 		indexer.reindex(userId);
-
-		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
@@ -650,10 +640,6 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 
 		expandoRowLocalService.deleteRows(role.getRoleId());
 
-		// Permission cache
-
-		PermissionCacheUtil.clearCache();
-
 		return role;
 	}
 
@@ -677,8 +663,6 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 
 		indexer.reindex(userId);
-
-		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
@@ -701,8 +685,6 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 
 		indexer.reindex(userId);
-
-		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
@@ -725,8 +707,6 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 
 		indexer.reindex(userId);
-
-		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
@@ -749,8 +729,6 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 
 		indexer.reindex(userId);
-
-		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
@@ -1676,8 +1654,6 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 
 		indexer.reindex(userId);
-
-		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
@@ -1701,8 +1677,6 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
 
 		indexer.reindex(userId);
-
-		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**

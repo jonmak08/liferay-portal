@@ -99,7 +99,6 @@ import com.liferay.portal.model.WorkflowDefinitionLink;
 import com.liferay.portal.model.impl.LayoutImpl;
 import com.liferay.portal.security.auth.CompanyThreadLocal;
 import com.liferay.portal.security.permission.ActionKeys;
-import com.liferay.portal.security.permission.PermissionCacheUtil;
 import com.liferay.portal.security.permission.ResourceActionsUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.base.GroupLocalServiceBaseImpl;
@@ -560,8 +559,6 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 		throws SystemException {
 
 		rolePersistence.addGroups(roleId, groupIds);
-
-		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -576,8 +573,6 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 		throws SystemException {
 
 		userPersistence.addGroups(userId, groupIds);
-
-		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
@@ -958,10 +953,6 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 			else {
 				groupPersistence.remove(group);
 			}
-
-			// Permission cache
-
-			PermissionCacheUtil.clearCache();
 
 			return group;
 		}
@@ -3302,8 +3293,6 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 		throws SystemException {
 
 		rolePersistence.setGroups(roleId, groupIds);
-
-		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -3318,8 +3307,6 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 		throws SystemException {
 
 		rolePersistence.removeGroups(roleId, groupIds);
-
-		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -3336,8 +3323,6 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 		userGroupRoleLocalService.deleteUserGroupRoles(userId, groupIds);
 
 		userPersistence.removeGroups(userId, groupIds);
-
-		PermissionCacheUtil.clearCache(userId);
 	}
 
 	/**
