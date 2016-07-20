@@ -16,12 +16,15 @@ package com.liferay.portal.service.permission;
 
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.ResourceConstants;
+import com.liferay.portal.model.Role;
 import com.liferay.portal.model.RoleConstants;
 import com.liferay.portal.model.User;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.security.permission.PermissionThreadLocal;
 import com.liferay.portal.service.GroupLocalServiceUtil;
+import com.liferay.portal.service.ResourcePermissionLocalServiceUtil;
+import com.liferay.portal.service.RoleLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.ServiceTestUtil;
 import com.liferay.portal.service.UserLocalServiceUtil;
@@ -68,6 +71,14 @@ public abstract class BasePermissionTestCase {
 		RoleTestUtil.addResourcePermission(
 			getRoleName(), getResourceName(), ResourceConstants.SCOPE_GROUP,
 			getPrimKey(), ActionKeys.VIEW);
+
+		Role role = RoleLocalServiceUtil.getRole(
+			TestPropsValues.getCompanyId(), getRoleName());
+
+		ResourcePermissionLocalServiceUtil.setResourcePermissions(
+			group.getCompanyId(), getResourceName(),
+			ResourceConstants.SCOPE_INDIVIDUAL, getPrimKey(), role.getRoleId(),
+			new String[]{ActionKeys.VIEW});
 	}
 
 	protected abstract void doSetUp() throws Exception;
@@ -86,6 +97,10 @@ public abstract class BasePermissionTestCase {
 		RoleTestUtil.removeResourcePermission(
 			getRoleName(), getResourceName(), ResourceConstants.SCOPE_GROUP,
 			getPrimKey(), ActionKeys.VIEW);
+
+		RoleTestUtil.removeResourcePermission(
+			getRoleName(), getResourceName(),
+			ResourceConstants.SCOPE_INDIVIDUAL, getPrimKey(), ActionKeys.VIEW);
 	}
 
 	protected Group group;
