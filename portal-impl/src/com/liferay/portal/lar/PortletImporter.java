@@ -772,15 +772,15 @@ public class PortletImporter {
 				portletDataContext.getCompanyGroupId());
 		}
 
-		if (existingAssetCategory == null) {
+		if ((existingAssetCategory == null) ||
+			(sourceGroupId == companyGroupId)) {
+
 			existingAssetCategory = AssetCategoryUtil.fetchByG_P_N_V_First(
 				groupId, parentAssetCategoryId, assetCategory.getName(),
 				assetVocabularyId, null);
 		}
 
-		if ((existingAssetCategory == null) ||
-			(sourceGroupId == companyGroupId)) {
-
+		if (existingAssetCategory == null) {
 			serviceContext.setUuid(assetCategory.getUuid());
 
 			importedAssetCategory = AssetCategoryLocalServiceUtil.addCategory(
@@ -790,9 +790,8 @@ public class PortletImporter {
 				assetCategory.getDescriptionMap(), assetVocabularyId,
 				properties, serviceContext);
 		}
-		else if ((portletDataContext.isCompanyStagedGroupedModel(
-					existingAssetCategory)) &&
-				 (sourceGroupId != companyGroupId)) {
+		else if (portletDataContext.isCompanyStagedGroupedModel(
+					existingAssetCategory)) {
 
 			return;
 		}
@@ -961,14 +960,14 @@ public class PortletImporter {
 				portletDataContext.getCompanyGroupId());
 		}
 
-		if (existingAssetVocabulary == null) {
+		if ((existingAssetVocabulary == null) ||
+			(sourceGroupId == companyGroupId)) {
+
 			existingAssetVocabulary = AssetVocabularyUtil.fetchByG_N(
 				groupId, assetVocabulary.getName());
 		}
 
-		if ((existingAssetVocabulary == null) ||
-			(sourceGroupId == companyGroupId)) {
-
+		if (existingAssetVocabulary == null) {
 			serviceContext.setUuid(assetVocabulary.getUuid());
 
 			importedAssetVocabulary =
@@ -980,8 +979,7 @@ public class PortletImporter {
 					assetVocabulary.getSettings(), serviceContext);
 		}
 		else if (portletDataContext.isCompanyStagedGroupedModel(
-					existingAssetVocabulary) &&
-				 (sourceGroupId != companyGroupId)) {
+					existingAssetVocabulary)) {
 
 			return;
 		}
