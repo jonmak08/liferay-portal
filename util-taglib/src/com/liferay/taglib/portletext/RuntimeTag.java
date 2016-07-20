@@ -37,7 +37,6 @@ import com.liferay.portal.model.LayoutTypePortlet;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.service.PortletLocalServiceUtil;
 import com.liferay.portal.service.PortletPreferencesLocalServiceUtil;
-import com.liferay.portal.theme.PortletDisplay;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portlet.PortletPreferencesFactoryUtil;
@@ -108,8 +107,6 @@ public class RuntimeTag extends TagSupport {
 			ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
 				WebKeys.THEME_DISPLAY);
 
-			PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
-
 			Stack<String> embeddedPortletIds = _embeddedPortletIds.get();
 
 			if (embeddedPortletIds == null) {
@@ -118,9 +115,7 @@ public class RuntimeTag extends TagSupport {
 				_embeddedPortletIds.set(embeddedPortletIds);
 			}
 
-			if (embeddedPortletIds.search(portletDisplay.getId()) >
-					-1) {
-
+			if (embeddedPortletIds.search(portletId) > -1) {
 				String errorMessage = LanguageUtil.get(
 					pageContext, "the-application-cannot-include-itself");
 
