@@ -72,16 +72,6 @@ public class UserGroupGroupRoleLocalServiceImpl
 	}
 
 	@Override
-	public UserGroupGroupRole deleteUserGroupGroupRole(
-			UserGroupGroupRole userGroupGroupRole)
-		throws SystemException {
-
-		userGroupGroupRolePersistence.remove(userGroupGroupRole);
-
-		return userGroupGroupRole;
-	}
-
-	@Override
 	public void deleteUserGroupGroupRoles(
 			long userGroupId, long groupId, long[] roleIds)
 		throws SystemException {

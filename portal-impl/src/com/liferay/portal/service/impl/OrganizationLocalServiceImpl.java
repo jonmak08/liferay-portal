@@ -91,22 +91,6 @@ public class OrganizationLocalServiceImpl
 	extends OrganizationLocalServiceBaseImpl {
 
 	/**
-	 * Adds the organizations to the group.
-	 *
-	 * @param  groupId the primary key of the group
-	 * @param  organizationIds the primary keys of the organizations
-	 * @throws PortalException if a group or organization with the primary key
-	 *         could not be found
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	public void addGroupOrganizations(long groupId, long[] organizationIds)
-		throws PortalException, SystemException {
-
-		groupPersistence.addOrganizations(groupId, organizationIds);
-	}
-
-	/**
 	 * Adds an organization.
 	 *
 	 * <p>
@@ -1560,22 +1544,6 @@ public class OrganizationLocalServiceImpl
 		catch (Exception e) {
 			throw new SystemException(e);
 		}
-	}
-
-	/**
-	 * Sets the organizations in the group, removing and adding organizations to
-	 * the group as necessary.
-	 *
-	 * @param  groupId the primary key of the group
-	 * @param  organizationIds the primary keys of the organizations
-	 * @throws PortalException if a portal exception occurred
-	 * @throws SystemException if a system exception occurred
-	 */
-	@Override
-	public void setGroupOrganizations(long groupId, long[] organizationIds)
-		throws PortalException, SystemException {
-
-		groupPersistence.setOrganizations(groupId, organizationIds);
 	}
 
 	/**
