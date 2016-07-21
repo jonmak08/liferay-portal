@@ -605,8 +605,6 @@
 	</command>
 
 	<command name="searchCP">
-		<var name="webContentSearchTerm" value="${webContentSearchTerm}" />
-
 		<execute function="Type" locator1="CPWebcontent#TOOLBAR_SEARCH_FIELD" value1="${webContentSearchTerm}" />
 		<execute function="Click" locator1="CPWebcontent#TOOLBAR_SEARCH_BUTTON" />
 

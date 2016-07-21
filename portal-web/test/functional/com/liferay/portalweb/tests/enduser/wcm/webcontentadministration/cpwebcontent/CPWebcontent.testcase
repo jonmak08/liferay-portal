@@ -604,7 +604,6 @@
 		</execute>
 
 		<execute macro="WebContent#addMultipleCP">
-			<var name="webContentContent" value="The web content of ${webContentTitle}" />
 			<var name="webContentTitles" value="test content 1,test content 2,test content 3,test content 4,test content 5" />
 		</execute>
 
