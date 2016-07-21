@@ -3563,9 +3563,7 @@
 		</execute>
 	</command>
 
-	<!-- LRQA-20937 -->
-
-	<!--<command known-issues="LPS-55278" name="View24hourTimeFormat" priority="5">
+	<command name="View24hourTimeFormat" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Calendar Page" />
 		</execute>
@@ -3700,7 +3698,7 @@
 			<var name="endDateTime" value="11:00 PM" />
 			<var name="startDateTime" value="09:00 PM" />
 		</execute>
-	</command>-->
+	</command>
 
 	<command name="ViewAvailableCalendars" priority="5">
 		<execute macro="Page#gotoCP">
