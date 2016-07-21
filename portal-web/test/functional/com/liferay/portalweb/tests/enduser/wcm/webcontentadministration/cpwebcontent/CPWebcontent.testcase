@@ -596,7 +596,7 @@
 		</execute>
 	</command>
 
-	<command name="ViewPaginationViaBrowseByStructure" priority="5">
+	<command name="ViewPaginationViaBrowseByStructure" priority="4">
 		<execute macro="WebContentStructures#addMultipleCP">
 			<var name="structureDescription" value="WC Structure Description of ${structureName}" />
 			<var name="structureFieldNames" value="Boolean" />
