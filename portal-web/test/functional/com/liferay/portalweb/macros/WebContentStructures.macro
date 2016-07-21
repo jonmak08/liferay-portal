@@ -35,17 +35,26 @@
 	</command>
 
 	<command name="addMultipleCP">
-		<for list="${structureNames}" param="structureName">
-			<execute macro="Page#gotoContentCP">
-				<var name="portletName" value="Web Content" />
-			</execute>
+		<var name="i" value="0" />
 
-			<execute macro="WebContentStructures#addCP">
-				<var name="structureDescription" value="WC Structure Description of ${structureName}" />
-				<var name="structureFieldNames" value="Boolean" />
-				<var name="structureName" value="Test Structure ${structureName}" />
-			</execute>
-		</for>
+		<while max-iterations="25">
+			<not>
+				<equals arg1="${i}" arg2="${structureCount}" />
+			</not>
+			<then>
+				<var method="MathUtil#sum('${i}', '1')" name="i" />
+
+				<execute macro="Page#gotoContentCP">
+					<var name="portletName" value="Web Content" />
+				</execute>
+
+				<execute macro="WebContentStructures#addCP">
+					<var name="structureDescription" value="WC Structure Description of ${i}" />
+					<var name="structureFieldNames" value="Boolean" />
+					<var name="structureName" value="Test Structure ${i}" />
+				</execute>
+			</then>
+		</while>
 	</command>
 
 	<command name="addNullCP">

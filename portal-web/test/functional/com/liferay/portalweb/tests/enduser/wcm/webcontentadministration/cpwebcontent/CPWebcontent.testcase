@@ -598,9 +598,9 @@
 
 	<command name="ViewPaginationViaBrowseByStructure" priority="4">
 		<execute macro="WebContentStructures#addMultipleCP">
+			<var name="structureCount" value="21" />
 			<var name="structureDescription" value="WC Structure Description of ${structureName}" />
 			<var name="structureFieldNames" value="Boolean" />
-			<var name="structureNames" value="1,2,3,4,5,6" />
 		</execute>
 
 		<execute macro="WebContent#addMultipleCP">
@@ -608,9 +608,8 @@
 		</execute>
 
 		<execute macro="WebContent#viewCPBrowseByStructure">
-			<var name="paginationNumber" value="5" />
 			<var name="structureName" value="Basic Web Content" />
-			<var name="structureNameNextPage" value="Test Structure 6" />
+			<var name="structureNameNextPage" value="Test Structure 21" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -623,9 +622,8 @@
 		</execute>
 
 		<execute macro="WebContent#viewCPBrowseByStructure">
-			<var name="paginationNumber" value="5" />
 			<var name="structureName" value="Basic Web Content" />
-			<var name="structureNameNextPage" value="Test Structure 6" />
+			<var name="structureNameNextPage" value="Test Structure 21" />
 		</execute>
 	</command>
 </definition>
