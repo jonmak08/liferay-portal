@@ -272,7 +272,7 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 			classPK, messageId, permissionOwnerId,
 			ActionKeys.DELETE_DISCUSSION);
 
-		checkDiscussion(className, classPK, messageId);
+		checkDiscussion(className, classPK, 0, messageId);
 
 		mbMessageLocalService.deleteDiscussionMessage(messageId);
 	}
@@ -719,7 +719,7 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 			serviceContext.getScopeGroupId(), className, classPK, messageId,
 			permissionOwnerId, ActionKeys.UPDATE_DISCUSSION);
 
-		checkDiscussion(className, classPK, messageId);
+		checkDiscussion(className, classPK, 0, messageId);
 
 		return mbMessageLocalService.updateDiscussionMessage(
 			getUserId(), messageId, className, classPK, subject, body,
@@ -780,25 +780,6 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 	}
 
 	protected void checkDiscussion(
-			String className, long classPK, long messageId)
-		throws PortalException, SystemException {
-
-		long classNameId = ClassNameLocalServiceUtil.getClassNameId(className);
-
-		MBDiscussion mbDiscussion = mbDiscussionPersistence.findByC_C(
-			classNameId, classPK);
-
-		MBMessage mbMessage = mbMessagePersistence.findByPrimaryKey(messageId);
-
-		MBThread mbThread = mbThreadPersistence.findByPrimaryKey(
-			mbDiscussion.getThreadId());
-
-		if (mbThread.getRootMessageId() != mbMessage.getRootMessageId()) {
-			throw new PrincipalException();
-		}
-	}
-
-	protected void checkDiscussion(
 			String className, long classPK, long threadId, long messageId)
 		throws PortalException, SystemException {
 
@@ -807,13 +788,21 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 		MBDiscussion mbDiscussion = mbDiscussionPersistence.findByC_C(
 			classNameId, classPK);
 
-		if (mbDiscussion.getThreadId() != threadId) {
-			throw new PrincipalException();
+		MBThread mbThread;
+
+		if (threadId > 0) {
+			mbThread = mbThreadPersistence.findByPrimaryKey(threadId);
+
+			if (mbDiscussion.getThreadId() != threadId) {
+				throw new PrincipalException();
+			}
+		}
+		else {
+			mbThread = mbThreadPersistence.findByPrimaryKey(
+				mbDiscussion.getThreadId());
 		}
 
 		MBMessage mbMessage = mbMessagePersistence.findByPrimaryKey(messageId);
-
-		MBThread mbThread = mbThreadPersistence.findByPrimaryKey(threadId);
 
 		if (mbThread.getRootMessageId() != mbMessage.getRootMessageId()) {
 			throw new PrincipalException();
