@@ -161,7 +161,7 @@ public class Summary {
 			text = HtmlUtil.escape(text);
 
 			return StringUtil.replace(
-					text, _ESCAPE_SAFE_HIGHLIGHTS, SearchUtil.HIGHLIGHTS);
+				text, _ESCAPE_SAFE_HIGHLIGHTS, SearchUtil.HIGHLIGHTS);
 		}
 
 		return text;
