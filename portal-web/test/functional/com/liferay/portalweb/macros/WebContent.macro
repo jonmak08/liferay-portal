@@ -55,6 +55,19 @@
 		<execute function="AssertTextEquals" locator1="CPWebcontentAddwebcontent#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
+	<command name="addMultipleCP">
+		<for list="${webContentTitles}" param="webContentTitle">
+			<execute macro="Page#gotoContentCP">
+				<var name="portletName" value="Web Content" />
+			</execute>
+
+			<execute macro="WebContent#addCP">
+				<var name="webContentContent" value="The web content of ${webContentTitle}" />
+				<var name="webContentTitle" value="${webContentTitle}" />
+			</execute>
+		</for>
+	</command>
+
 	<command name="addNullCP">
 		<execute function="AssertClick" locator1="CPWebcontent#TOOLBAR_ADD" value1="Add" />
 		<execute function="AssertClick" locator1="CPWebcontent#ADD_MENULIST_BASIC_WEB_CONTENT" value1="Basic Web Content" />
@@ -591,6 +604,17 @@
 		<execute function="AssertTextEquals" locator1="CPWebcontentPreview#BODY_FIELD" value1="Text: ${webContentText}" />
 	</command>
 
+	<command name="searchCP">
+		<var name="webContentSearchTerm" value="${webContentSearchTerm}" />
+
+		<execute function="Type" locator1="CPWebcontent#TOOLBAR_SEARCH_FIELD" value1="${webContentSearchTerm}" />
+		<execute function="Click" locator1="CPWebcontent#TOOLBAR_SEARCH_BUTTON" />
+
+		<var name="key_webContentTitle" value="${webContentSearchResultsName}" />
+
+		<execute function="AssertElementPresent" locator1="CPWebcontent#ENTRY_ICON_TITLE" />
+	</command>
+
 	<command name="searchNoPGViaWCS">
 		<var name="key_webContentSearchResultsName" value="${webContentSearchResultsName}" />
 
@@ -704,6 +728,50 @@
 				</execute>
 			</then>
 		</if>
+	</command>
+
+	<command name="viewCPBrowseByStructure">
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Web Content" />
+		</execute>
+
+		<execute function="AssertClick" locator1="CPWebcontent#BROWSE_BY_STRUCTURE" value1="Browse by Structure" />
+
+		<var name="key_structureName" value="${structureName}" />
+
+		<execute function="AssertElementPresent" locator1="CPWebcontent#STRUCTURE_ITEM" value1="${structureName}" />
+
+		<if>
+			<isset var="paginationNumber" />
+			<then>
+				<execute function="AssertClick" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_PER_PAGE_SELECTOR_BUTTON" value1="20 Items Per Page" />
+
+				<var name="key_paginationNumber" value="${paginationNumber}" />
+
+				<execute function="AssertClick" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_NUMBER" value1="${paginationNumber}" />
+				<execute function="AssertTextEquals" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_PER_PAGE_SELECTOR_BUTTON" value1="${paginationNumber} Items Per Page" />
+
+				<execute function="AssertElementPresent" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_NEXT_BUTTON" value1="Next" />
+				<execute function="AssertClick" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_NEXT_BUTTON" value1="Next" />
+
+				<var name="key_structureName" value="${structureNameNextPage}" />
+
+				<execute function="AssertElementPresent" locator1="CPWebcontent#STRUCTURE_ITEM" value1="${structureNameNextPage}" />
+
+				<execute function="AssertElementPresent" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_PREVIOUS_BUTTON" value1="Previous" />
+				<execute function="AssertClick" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_PREVIOUS_BUTTON" value1="Previous" />
+
+				<var name="key_structureName" value="${structureName}" />
+
+				<execute function="AssertElementPresent" locator1="CPWebcontent#STRUCTURE_ITEM" value1="${structureName}" />
+			</then>
+		</if>
+
+		<execute function="AssertClick" locator1="CPWebcontent#BROWSE_BY_STRUCTURE_UP" value1="Up" />
+
+		<var name="key_structureName" value="${structureName}" />
+
+		<execute function="AssertElementNotPresent" locator1="CPWebcontent#STRUCTURE_ITEM" value1="${structureName}" />
 	</command>
 
 	<command name="viewCPDraft">
