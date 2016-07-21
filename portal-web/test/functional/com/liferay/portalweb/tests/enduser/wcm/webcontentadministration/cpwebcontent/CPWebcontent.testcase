@@ -600,7 +600,7 @@
 		<execute macro="WebContentStructures#addMultipleCP">
 			<var name="structureDescription" value="WC Structure Description of ${structureName}" />
 			<var name="structureFieldNames" value="Boolean" />
-			<var name="structureNames" value="Test Structure 1,Test Structure 2,Test Structure 3,Test Structure 4,Test Structure 5,Test Structure 6" />
+			<var name="structureNames" value="1,2,3,4,5,6" />
 		</execute>
 
 		<execute macro="WebContent#addMultipleCP">
