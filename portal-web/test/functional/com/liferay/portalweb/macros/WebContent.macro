@@ -738,7 +738,7 @@
 
 		<var name="key_structureName" value="${structureName}" />
 
-		<execute function="AssertElementPresent" locator1="CPWebcontent#STRUCTURE_ITEM" value1="${structureName}" />
+		<execute function="AssertElementPresent" locator1="CPWebcontent#BROWSE_BY_STRUCTURE_STRUCTURE_ITEM" value1="${structureName}" />
 
 		<if>
 			<isset var="paginationNumber" />
@@ -756,14 +756,14 @@
 
 				<var name="key_structureName" value="${structureNameNextPage}" />
 
-				<execute function="AssertElementPresent" locator1="CPWebcontent#STRUCTURE_ITEM" value1="${structureNameNextPage}" />
+				<execute function="AssertElementPresent" locator1="CPWebcontent#BROWSE_BY_STRUCTURE_STRUCTURE_ITEM" value1="${structureNameNextPage}" />
 				<execute function="AssertElementPresent" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_PREVIOUS_BUTTON" value1="Previous" />
 
 				<execute function="AssertClick" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_PREVIOUS_BUTTON" value1="Previous" />
 
 				<var name="key_structureName" value="${structureName}" />
 
-				<execute function="AssertElementPresent" locator1="CPWebcontent#STRUCTURE_ITEM" value1="${structureName}" />
+				<execute function="AssertElementPresent" locator1="CPWebcontent#BROWSE_BY_STRUCTURE_STRUCTURE_ITEM" value1="${structureName}" />
 			</then>
 		</if>
 
@@ -771,7 +771,7 @@
 
 		<var name="key_structureName" value="${structureName}" />
 
-		<execute function="AssertElementNotPresent" locator1="CPWebcontent#STRUCTURE_ITEM" value1="${structureName}" />
+		<execute function="AssertElementNotPresent" locator1="CPWebcontent#BROWSE_BY_STRUCTURE_STRUCTURE_ITEM" value1="${structureName}" />
 	</command>
 
 	<command name="viewCPDraft">

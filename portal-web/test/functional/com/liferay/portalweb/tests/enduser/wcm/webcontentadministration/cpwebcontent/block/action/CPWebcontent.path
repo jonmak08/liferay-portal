@@ -422,7 +422,7 @@
 	<td></td>
 	<td></td>
 </tr>
-<!--BROWSER_BY_STRUCTURE-->
+<!--BROWSE_BY_STRUCTURE-->
 <tr>
 	<td>BROWSE_BY_STRUCTURE</td>
 	<td>//li[contains(@class,'app-view-navigation-entry') and contains(@class,'folder') and contains(@class,'structure')]/a</td>
@@ -434,11 +434,16 @@
 	<td></td>
 </tr>
 <tr>
-	<td>STRUCTURE_ITEM</td>
+	<td>BROWSE_BY_STRUCTURE_STRUCTURE_ITEM</td>
 	<td>//li[contains(@class,'app-view-navigation-entry') and contains(@class,'folder') and contains(@class,'structure')]/a[contains(.,'${key_structureName}')]</td>
 	<td></td>
 </tr>
-<!--BROWSER_BY_STRUCTURE_PAGINATION-->
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--PAGINATION_BROWSE_BY_STRUCTURE_-->
 <tr>
 	<td>PAGINATION_BROWSE_BY_STRUCTURE_PER_PAGE_SELECTOR_BUTTON</td>
 	<td>//div[contains(@class,'folder-pagination')]//div[contains(@class,'lfr-pagination-delta-selector')]</td>
@@ -457,11 +462,6 @@
 <tr>
 	<td>PAGINATION_BROWSE_BY_STRUCTURE_NUMBER</td>
 	<td>//ul[contains(@class,'dropdown-menu')]/li/a[contains(.,'${key_paginationNumber}')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td></td>
-	<td></td>
 	<td></td>
 </tr>
 </tbody>
