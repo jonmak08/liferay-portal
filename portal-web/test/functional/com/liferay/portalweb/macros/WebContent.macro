@@ -606,6 +606,7 @@
 
 	<command name="searchCP">
 		<execute function="Type" locator1="CPWebcontent#TOOLBAR_SEARCH_FIELD" value1="${webContentSearchTerm}" />
+
 		<execute function="Click" locator1="CPWebcontent#TOOLBAR_SEARCH_BUTTON" />
 
 		<var name="key_webContentTitle" value="${webContentSearchResultsName}" />
@@ -747,16 +748,17 @@
 				<var name="key_paginationNumber" value="${paginationNumber}" />
 
 				<execute function="AssertClick" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_NUMBER" value1="${paginationNumber}" />
+				
 				<execute function="AssertTextEquals" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_PER_PAGE_SELECTOR_BUTTON" value1="${paginationNumber} Items Per Page" />
-
 				<execute function="AssertElementPresent" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_NEXT_BUTTON" value1="Next" />
+
 				<execute function="AssertClick" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_NEXT_BUTTON" value1="Next" />
 
 				<var name="key_structureName" value="${structureNameNextPage}" />
 
 				<execute function="AssertElementPresent" locator1="CPWebcontent#STRUCTURE_ITEM" value1="${structureNameNextPage}" />
-
 				<execute function="AssertElementPresent" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_PREVIOUS_BUTTON" value1="Previous" />
+
 				<execute function="AssertClick" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_PREVIOUS_BUTTON" value1="Previous" />
 
 				<var name="key_structureName" value="${structureName}" />
