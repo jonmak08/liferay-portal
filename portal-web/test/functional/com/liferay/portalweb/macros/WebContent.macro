@@ -751,21 +751,21 @@
 				
 				<execute function="AssertTextEquals" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_PER_PAGE_SELECTOR_BUTTON" value1="${paginationNumber} Items Per Page" />
 				<execute function="AssertElementPresent" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_NEXT_BUTTON" value1="Next" />
-
-				<execute function="AssertClick" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_NEXT_BUTTON" value1="Next" />
-
-				<var name="key_structureName" value="${structureNameNextPage}" />
-
-				<execute function="AssertElementPresent" locator1="CPWebcontent#BROWSE_BY_STRUCTURE_STRUCTURE_ITEM" value1="${structureNameNextPage}" />
-				<execute function="AssertElementPresent" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_PREVIOUS_BUTTON" value1="Previous" />
-
-				<execute function="AssertClick" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_PREVIOUS_BUTTON" value1="Previous" />
-
-				<var name="key_structureName" value="${structureName}" />
-
-				<execute function="AssertElementPresent" locator1="CPWebcontent#BROWSE_BY_STRUCTURE_STRUCTURE_ITEM" value1="${structureName}" />
 			</then>
 		</if>
+
+		<execute function="AssertClick" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_NEXT_BUTTON" value1="Next" />
+
+		<var name="key_structureName" value="${structureNameNextPage}" />
+
+		<execute function="AssertElementPresent" locator1="CPWebcontent#BROWSE_BY_STRUCTURE_STRUCTURE_ITEM" value1="${structureNameNextPage}" />
+		<execute function="AssertElementPresent" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_PREVIOUS_BUTTON" value1="Previous" />
+
+		<execute function="AssertClick" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_PREVIOUS_BUTTON" value1="Previous" />
+
+		<var name="key_structureName" value="${structureName}" />
+
+		<execute function="AssertElementPresent" locator1="CPWebcontent#BROWSE_BY_STRUCTURE_STRUCTURE_ITEM" value1="${structureName}" />
 
 		<execute function="AssertClick" locator1="CPWebcontent#BROWSE_BY_STRUCTURE_UP" value1="Up" />
 
