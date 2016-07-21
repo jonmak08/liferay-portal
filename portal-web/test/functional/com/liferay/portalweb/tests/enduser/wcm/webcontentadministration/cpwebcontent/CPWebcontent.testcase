@@ -595,4 +595,38 @@
 			<var name="webContentTitle" value="WC WebContent Title" />
 		</execute>
 	</command>
+
+	<command name="ViewPaginationViaBrowseByStructure" priority="5">
+		<execute macro="WebContentStructures#addMultipleCP">
+			<var name="structureDescription" value="WC Structure Description of ${structureName}" />
+			<var name="structureFieldNames" value="Boolean" />
+			<var name="structureNames" value="Test Structure 1,Test Structure 2,Test Structure 3,Test Structure 4,Test Structure 5,Test Structure 6" />
+		</execute>
+
+		<execute macro="WebContent#addMultipleCP">
+			<var name="webContentContent" value="The web content of ${webContentTitle}" />
+			<var name="webContentTitles" value="test content 1,test content 2,test content 3,test content 4,test content 5" />
+		</execute>
+
+		<execute macro="WebContent#viewCPBrowseByStructure">
+			<var name="paginationNumber" value="5" />
+			<var name="structureName" value="Basic Web Content" />
+			<var name="structureNameNextPage" value="Test Structure 6" />
+		</execute>
+
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Web Content" />
+		</execute>
+
+		<execute macro="WebContent#searchCP">
+			<var name="webContentSearchResultsName" value="test content 1" />
+			<var name="webContentSearchTerm" value="test" />
+		</execute>
+
+		<execute macro="WebContent#viewCPBrowseByStructure">
+			<var name="paginationNumber" value="5" />
+			<var name="structureName" value="Basic Web Content" />
+			<var name="structureNameNextPage" value="Test Structure 6" />
+		</execute>
+	</command>
 </definition>
