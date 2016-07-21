@@ -785,26 +785,26 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 
 		long classNameId = ClassNameLocalServiceUtil.getClassNameId(className);
 
-		MBDiscussion mbDiscussion = mbDiscussionPersistence.findByC_C(
+		MBDiscussion discussion = mbDiscussionPersistence.findByC_C(
 			classNameId, classPK);
 
-		MBThread mbThread;
+		MBThread thread;
 
 		if (threadId > 0) {
-			mbThread = mbThreadPersistence.findByPrimaryKey(threadId);
+			thread = mbThreadPersistence.findByPrimaryKey(threadId);
 
-			if (mbDiscussion.getThreadId() != threadId) {
+			if (discussion.getThreadId() != threadId) {
 				throw new PrincipalException();
 			}
 		}
 		else {
-			mbThread = mbThreadPersistence.findByPrimaryKey(
-				mbDiscussion.getThreadId());
+			thread = mbThreadPersistence.findByPrimaryKey(
+				discussion.getThreadId());
 		}
 
-		MBMessage mbMessage = mbMessagePersistence.findByPrimaryKey(messageId);
+		MBMessage message = mbMessagePersistence.findByPrimaryKey(messageId);
 
-		if (mbThread.getRootMessageId() != mbMessage.getRootMessageId()) {
+		if (thread.getRootMessageId() != message.getRootMessageId()) {
 			throw new PrincipalException();
 		}
 	}
