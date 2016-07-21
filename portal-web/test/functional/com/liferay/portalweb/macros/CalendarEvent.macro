@@ -1628,6 +1628,11 @@
 		<execute function="AssertTextEquals#assertValue" locator1="PGCalendarAddevent#END_DATE_TIME" value1="${endDateTime}" />
 	</command>
 
+	<command name="viewTimes24Hour">
+		<execute function="AssertTextEquals#assertValue" locator1="PGCalendarEditevent#START_DATE_TIME_24_HOUR" value1="${startDateTime}" />
+		<execute function="AssertTextEquals#assertValue" locator1="PGCalendarEditevent#END_DATE_TIME_24_HOUR" value1="${endDateTime}" />
+	</command>
+
 	<command name="viewTimesViaDetails">
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarVieweventdetails#START_DATE_FIELD" value1="${startDateTime}" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGCalendarVieweventdetails#END_DATE_FIELD" value1="${endDateTime}" />
