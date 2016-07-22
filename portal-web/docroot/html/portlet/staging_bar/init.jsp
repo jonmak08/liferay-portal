@@ -28,6 +28,8 @@ page import="com.liferay.portal.util.comparator.LayoutRevisionCreateDateComparat
 page import="com.liferay.portal.util.comparator.LayoutRevisionIdComparator" %>
 
 <%
+layout = LayoutLocalServiceUtil.fetchLayout(plid);
+
 Layout selLayout = layout;
 
 long selPlid = ParamUtil.getLong(request, "selPlid");
