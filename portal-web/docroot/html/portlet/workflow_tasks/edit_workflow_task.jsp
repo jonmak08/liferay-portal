@@ -82,13 +82,6 @@ else {
 }
 
 request.setAttribute(WebKeys.WORKFLOW_ASSET_PREVIEW, Boolean.TRUE);
-
-String modelResource = ResourceActionsUtil.getModelResource(locale, className);
-
-boolean isAssetDownloadable = false;
-
-String downloadURL = null;
-FileVersion fileVersion =null;
 %>
 
 <portlet:renderURL var="backURL">
@@ -188,7 +181,7 @@ FileVersion fileVersion =null;
 
 		<liferay-ui:panel-container cssClass="task-panel-container" extended="<%= true %>">
 			<c:if test="<%= assetRenderer != null %>">
-				<liferay-ui:panel defaultState="open" title='<%= LanguageUtil.format(pageContext, "preview-of-x", modelResource) %>'>
+				<liferay-ui:panel defaultState="open" title='<%= LanguageUtil.format(pageContext, "preview-of-x", ResourceActionsUtil.getModelResource(locale, className)) %>'>
 					<div class="task-content-actions">
 						<liferay-ui:icon-list>
 							<c:if test="<%= assetRenderer.hasViewPermission(permissionChecker) %>">
@@ -289,38 +282,31 @@ FileVersion fileVersion =null;
 		</liferay-ui:panel-container>
 	</aui:col>
 
-		<%
-		if ((modelResource!=null && StringUtil.equalsIgnoreCase(modelResource,"Document"))
-				&& assetRenderer.hasViewPermission(permissionChecker)) {
-
-			FileEntry fileEntry = (FileEntry)request.getAttribute(WebKeys.DOCUMENT_LIBRARY_FILE_ENTRY);
-			fileVersion = (FileVersion)request.getAttribute(WebKeys.DOCUMENT_LIBRARY_FILE_VERSION);
-
-			String previewURL = DLUtil.getPreviewURL(fileEntry, fileVersion, themeDisplay, StringPool.BLANK);
-
-			downloadURL = HttpUtil.addParameter(previewURL, "download", true);
-
-			isAssetDownloadable = true;
-		}
-		%>
-
 	<aui:col cssClass="lfr-asset-column lfr-asset-column-actions" last="<%= true %>" width="<%= 25 %>">
-
 		<div class="lfr-asset-summary">
-		<% if (isAssetDownloadable) { %>
-			<liferay-ui:icon
-				cssClass="lfr-asset-avatar"
-				image="../file_system/large/task"
-				message='<%= LanguageUtil.get(pageContext, "download") + " (" + TextFormatter.formatStorageSize(fileVersion.getSize(), locale) + ")" %>'
-				url="<%= downloadURL %>"
-			/>
-		<%} else { %>
-			<liferay-ui:icon
-				cssClass="lfr-asset-avatar"
-				image="../file_system/large/task"
-				message=""
-			/>
-		<%} %>
+			<c:choose>
+				<c:when test="<%= className.equals(DLFileEntry.class.getName()) && assetRenderer.hasViewPermission(permissionChecker) %>">
+
+					<%
+						FileVersion fileVersion = (FileVersion)request.getAttribute(WebKeys.DOCUMENT_LIBRARY_FILE_VERSION);
+					%>
+
+					<liferay-ui:icon
+						cssClass="lfr-asset-avatar"
+						image="../file_system/large/task"
+						message='<%= LanguageUtil.get(pageContext, "download") + " (" + TextFormatter.formatStorageSize(fileVersion.getSize(), locale) + ")" %>'
+						url="<%= assetRenderer.getURLDownload(themeDisplay) %>"
+					/>
+				</c:when>
+				<c:otherwise>
+					<liferay-ui:icon
+						cssClass="lfr-asset-avatar"
+						image="../file_system/large/task"
+						message=""
+					/>
+				</c:otherwise>
+			</c:choose>
+
 			<div class="task-name">
 				<%= LanguageUtil.get(pageContext, HtmlUtil.escape(workflowTask.getName())) %>
 			</div>
