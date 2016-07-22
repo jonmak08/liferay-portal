@@ -613,7 +613,7 @@ portletURL.setParameter("rootNodeName", rootNodeName);
 			form: document.<portlet:namespace />fm1,
 			incompleteProcessMessageNode: '#<portlet:namespace />incompleteProcessMessage',
 			layoutSetSettingsNode: '#<%= PortletDataHandlerKeys.LAYOUT_SET_SETTINGS %>Checkbox',
-			locale: '<%= locale.toLanguageTag() %>',
+			locale: '<%= LocaleUtil.toW3cLanguageId(locale) %>',
 			logoNode: '#<%= PortletDataHandlerKeys.LOGO %>Checkbox',
 			namespace: '<portlet:namespace />',
 			pageTreeId: '<%= treeId %>',

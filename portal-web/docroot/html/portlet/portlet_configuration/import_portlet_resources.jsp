@@ -378,7 +378,7 @@ ManifestSummary manifestSummary = ExportImportHelperUtil.getManifestSummary(them
 			deletePortletDataNode: '#<%= PortletDataHandlerKeys.DELETE_PORTLET_DATA %>Checkbox',
 			deletionsNode: '#<%= PortletDataHandlerKeys.DELETIONS %>Checkbox',
 			form: document.<portlet:namespace />fm1,
-			locale: '<%= locale.toLanguageTag() %>',
+			locale: '<%= LocaleUtil.toW3cLanguageId(locale) %>',
 			namespace: '<portlet:namespace />',
 			ratingsNode: '#<%= PortletDataHandlerKeys.RATINGS %>Checkbox',
 			timeZone: '<%= timeZone.getID() %>'

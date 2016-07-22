@@ -599,7 +599,7 @@ ManifestSummary manifestSummary = ExportImportHelperUtil.getManifestSummary(user
 			deletionsNode: '#<%= PortletDataHandlerKeys.DELETIONS %>Checkbox',
 			form: document.<portlet:namespace />fm1,
 			layoutSetSettingsNode: '#<%= PortletDataHandlerKeys.LAYOUT_SET_SETTINGS %>Checkbox',
-			locale: '<%= locale.toLanguageTag() %>',
+			locale: '<%= LocaleUtil.toW3cLanguageId(locale) %>',
 			logoNode: '#<%= PortletDataHandlerKeys.LOGO %>Checkbox',
 			namespace: '<portlet:namespace />',
 			ratingsNode: '#<%= PortletDataHandlerKeys.RATINGS %>Checkbox',

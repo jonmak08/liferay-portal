@@ -469,7 +469,7 @@ else {
 			form: document.<portlet:namespace />exportPagesFm,
 			incompleteProcessMessageNode: '#<portlet:namespace />incompleteProcessMessage',
 			layoutSetSettingsNode: '#<%= PortletDataHandlerKeys.LAYOUT_SET_SETTINGS %>Checkbox',
-			locale: '<%= locale.toLanguageTag() %>',
+			locale: '<%= LocaleUtil.toW3cLanguageId(locale) %>',
 			logoNode: '#<%= PortletDataHandlerKeys.LOGO %>Checkbox',
 			namespace: '<portlet:namespace />',
 			pageTreeId: '<%= treeId %>',

@@ -444,7 +444,7 @@ portletURL.setParameter("tabs3", "current-and-previous");
 			deletionsNode: '#<%= PortletDataHandlerKeys.DELETIONS %>Checkbox',
 			form: document.<portlet:namespace />fm1,
 			incompleteProcessMessageNode: '#<portlet:namespace />incompleteProcessMessage',
-			locale: '<%= locale.toLanguageTag() %>',
+			locale: '<%= LocaleUtil.toW3cLanguageId(locale) %>',
 			namespace: '<portlet:namespace />',
 			processesNode: '#exportProcesses',
 			processesResourceURL: '<%= HtmlUtil.escapeJS(exportProcessesURL.toString()) %>',

@@ -72,7 +72,7 @@ String[] tempFileEntryNames = LayoutServiceUtil.getTempFileEntryNames(scopeGroup
 		{
 			form: document.<portlet:namespace />fm1,
 			incompleteProcessMessageNode: '#<portlet:namespace />incompleteProcessMessage',
-			locale: '<%= locale.toLanguageTag() %>',
+			locale: '<%= LocaleUtil.toW3cLanguageId(locale) %>',
 			namespace: '<portlet:namespace />',
 			processesNode: '#importProcesses',
 			processesResourceURL: '<%= HtmlUtil.escapeJS(importProcessesURL.toString()) %>',
