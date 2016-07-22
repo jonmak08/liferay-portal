@@ -730,10 +730,6 @@
 	</command>
 
 	<command name="viewCPBrowseByStructure">
-		<execute macro="Page#gotoContentCP">
-			<var name="portletName" value="Web Content" />
-		</execute>
-
 		<execute function="AssertClick" locator1="CPWebcontent#BROWSE_BY_STRUCTURE" value1="Browse by Structure" />
 
 		<var name="key_structureName" value="${structureName}" />
@@ -748,7 +744,7 @@
 				<var name="key_paginationNumber" value="${paginationNumber}" />
 
 				<execute function="AssertClick" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_NUMBER" value1="${paginationNumber}" />
-				
+
 				<execute function="AssertTextEquals" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_PER_PAGE_SELECTOR_BUTTON" value1="${paginationNumber} Items Per Page" />
 				<execute function="AssertElementPresent" locator1="CPWebcontent#PAGINATION_BROWSE_BY_STRUCTURE_NEXT_BUTTON" value1="Next" />
 			</then>

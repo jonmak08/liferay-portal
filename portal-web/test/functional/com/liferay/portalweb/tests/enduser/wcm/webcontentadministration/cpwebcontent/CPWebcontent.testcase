@@ -607,6 +607,10 @@
 			<var name="webContentTitles" value="test content 1,test content 2,test content 3,test content 4,test content 5" />
 		</execute>
 
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Web Content" />
+		</execute>
+
 		<execute macro="WebContent#viewCPBrowseByStructure">
 			<var name="structureName" value="Basic Web Content" />
 			<var name="structureNameNextPage" value="Test Structure 21" />
