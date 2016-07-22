@@ -1693,6 +1693,8 @@ public class StagingImpl implements Staging {
 			setRecentLayoutAttribute(
 				portalPreferences, getRecentLayoutSetBranchIdKey(layoutSetId),
 				layoutSetBranchId);
+
+			ProxiedLayoutsThreadLocal.clearProxiedLayouts();
 		}
 		catch (JSONException jsone) {
 			if (_log.isWarnEnabled()) {
@@ -1720,6 +1722,8 @@ public class StagingImpl implements Staging {
 			setRecentLayoutAttribute(
 				portalPreferences, getRecentLayoutSetBranchIdKey(layoutSetId),
 				layoutSetBranchId);
+
+			ProxiedLayoutsThreadLocal.clearProxiedLayouts();
 		}
 		catch (JSONException jsone) {
 			if (_log.isWarnEnabled()) {
@@ -2610,6 +2614,8 @@ public class StagingImpl implements Staging {
 				portalPreferences,
 				getRecentLayoutBranchIdKey(layoutSetBranchId, plid),
 				layoutBranchId);
+
+			ProxiedLayoutsThreadLocal.clearProxiedLayouts();
 		}
 		catch (JSONException jsone) {
 			if (_log.isWarnEnabled()) {
