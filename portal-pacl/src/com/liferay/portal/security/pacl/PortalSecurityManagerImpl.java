@@ -82,7 +82,6 @@ import com.liferay.portal.velocity.VelocityTemplate;
 import com.liferay.portal.xsl.XSLTemplate;
 import com.liferay.portlet.PortletRequestImpl;
 import com.liferay.portlet.PortletResponseImpl;
-import com.liferay.portlet.PortletURLImpl;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
@@ -419,7 +418,6 @@ public class PortalSecurityManagerImpl extends SecurityManager
 		initClass(PortalPolicy.class);
 		initClass(PortletRequestImpl.class);
 		initClass(PortletResponseImpl.class);
-		initClass(PortletURLImpl.class);
 		initClass(Profile.class);
 		initClass(Reflection.class);
 		initClass(SchemeAwareContextWrapper.class);
