@@ -15,6 +15,7 @@
 package com.liferay.portlet.dynamicdatamapping.action;
 
 import com.liferay.portal.LocaleException;
+import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.Constants;
@@ -30,7 +31,7 @@ import com.liferay.portal.struts.PortletAction;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.WebKeys;
-import com.liferay.portlet.PortletURLImpl;
+import com.liferay.portlet.PortletURLFactoryUtil;
 import com.liferay.portlet.dynamicdatamapping.NoSuchStructureException;
 import com.liferay.portlet.dynamicdatamapping.RequiredStructureException;
 import com.liferay.portlet.dynamicdatamapping.StructureDuplicateElementException;
@@ -212,7 +213,7 @@ public class EditStructureAction extends PortletAction {
 			actionRequest, "availableFields");
 		String eventName = ParamUtil.getString(actionRequest, "eventName");
 
-		PortletURLImpl portletURL = new PortletURLImpl(
+		LiferayPortletURL portletURL = PortletURLFactoryUtil.create(
 			actionRequest, portletConfig.getPortletName(),
 			themeDisplay.getPlid(), PortletRequest.RENDER_PHASE);
 

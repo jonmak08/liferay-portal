@@ -35,7 +35,7 @@ import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portal.util.WebKeys;
-import com.liferay.portlet.PortletURLImpl;
+import com.liferay.portlet.PortletURLFactoryUtil;
 import com.liferay.portlet.journal.model.JournalArticle;
 import com.liferay.portlet.journal.model.JournalArticleDisplay;
 import com.liferay.portlet.journal.model.JournalFeed;
@@ -198,7 +198,7 @@ public class RSSAction extends com.liferay.portal.struts.RSSAction {
 			portletId = feed.getTargetPortletId();
 		}
 
-		PortletURL entryURL = new PortletURLImpl(
+		PortletURL entryURL = PortletURLFactoryUtil.create(
 			resourceRequest, portletId, plid, PortletRequest.RENDER_PHASE);
 
 		entryURL.setParameter("struts_action", "/journal_content/view");

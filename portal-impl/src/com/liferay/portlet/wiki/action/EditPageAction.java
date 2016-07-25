@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.wiki.action;
 
+import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.sanitizer.SanitizerException;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
@@ -33,7 +34,6 @@ import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.WebKeys;
 import com.liferay.portlet.PortletResponseImpl;
-import com.liferay.portlet.PortletURLImpl;
 import com.liferay.portlet.asset.AssetCategoryException;
 import com.liferay.portlet.asset.AssetTagException;
 import com.liferay.portlet.trash.util.TrashUtil;
@@ -316,7 +316,7 @@ public class EditPageAction extends PortletAction {
 
 		Layout layout = themeDisplay.getLayout();
 
-		PortletURLImpl portletURL = new StrutsActionPortletURL(
+		LiferayPortletURL portletURL = new StrutsActionPortletURL(
 			(PortletResponseImpl)actionResponse, themeDisplay.getPlid(),
 			PortletRequest.RENDER_PHASE);
 

@@ -401,7 +401,7 @@ public class PortletContainerImpl implements PortletContainer {
 			if (Validator.isNull(redirectLocation) &&
 				portlet.isActionURLRedirect()) {
 
-				PortletURL portletURL = new PortletURLImpl(
+				PortletURL portletURL = PortletURLFactoryUtil.create(
 					actionRequestImpl, actionRequestImpl.getPortletName(),
 					layout.getPlid(), PortletRequest.RENDER_PHASE);
 

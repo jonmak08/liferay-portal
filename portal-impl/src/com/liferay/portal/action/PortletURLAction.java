@@ -15,6 +15,7 @@
 package com.liferay.portal.action;
 
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.portlet.PortletModeFactory;
 import com.liferay.portal.kernel.portlet.WindowStateFactory;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
@@ -24,7 +25,7 @@ import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.WebKeys;
-import com.liferay.portlet.PortletURLImpl;
+import com.liferay.portlet.PortletURLFactoryUtil;
 
 import java.util.Map;
 
@@ -97,7 +98,7 @@ public class PortletURLAction extends Action {
 			request, "secure", request.isSecure());
 		String windowState = ParamUtil.getString(request, "windowState");
 
-		PortletURLImpl portletURL = new PortletURLImpl(
+		LiferayPortletURL portletURL = PortletURLFactoryUtil.create(
 			request, portletId, themeDisplay.getPlid(), lifecycle);
 
 		if (Validator.isNotNull(cacheability)) {

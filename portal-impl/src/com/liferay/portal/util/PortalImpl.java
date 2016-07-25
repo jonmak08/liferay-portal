@@ -178,7 +178,6 @@ import com.liferay.portlet.PortletQNameUtil;
 import com.liferay.portlet.PortletRequestImpl;
 import com.liferay.portlet.PortletResponseImpl;
 import com.liferay.portlet.PortletURLFactoryUtil;
-import com.liferay.portlet.PortletURLImpl;
 import com.liferay.portlet.RenderRequestImpl;
 import com.liferay.portlet.RenderResponseImpl;
 import com.liferay.portlet.StateAwareResponseImpl;
@@ -1700,7 +1699,7 @@ public class PortalImpl implements Portal {
 			_log.error("Unable to determine control panel layout id", e);
 		}
 
-		LiferayPortletURL liferayPortletURL = new PortletURLImpl(
+		LiferayPortletURL liferayPortletURL = PortletURLFactoryUtil.create(
 			request, portletId, plid, lifecycle);
 
 		liferayPortletURL.setDoAsGroupId(themeDisplay.getScopeGroupId());
@@ -1726,7 +1725,7 @@ public class PortalImpl implements Portal {
 			_log.error("Unable to determine control panel layout id", e);
 		}
 
-		LiferayPortletURL liferayPortletURL = new PortletURLImpl(
+		LiferayPortletURL liferayPortletURL = PortletURLFactoryUtil.create(
 			portletRequest, portletId, plid, lifecycle);
 
 		liferayPortletURL.setDoAsGroupId(themeDisplay.getScopeGroupId());
@@ -5689,7 +5688,7 @@ public class PortalImpl implements Portal {
 			if (request != null) {
 				Layout layout = (Layout)request.getAttribute(WebKeys.LAYOUT);
 
-				PortletURL portletURL = new PortletURLImpl(
+				PortletURL portletURL = PortletURLFactoryUtil.create(
 					request, PortletKeys.DIRECTORY, layout.getPlid(),
 					PortletRequest.RENDER_PHASE);
 

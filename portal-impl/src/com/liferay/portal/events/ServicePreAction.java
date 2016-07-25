@@ -97,7 +97,7 @@ import com.liferay.portal.util.WebKeys;
 import com.liferay.portal.webserver.WebServerServletTokenUtil;
 import com.liferay.portlet.PortalPreferences;
 import com.liferay.portlet.PortletPreferencesFactoryUtil;
-import com.liferay.portlet.PortletURLImpl;
+import com.liferay.portlet.PortletURLFactoryUtil;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
 import com.liferay.portlet.journal.NoSuchArticleException;
@@ -1004,9 +1004,10 @@ public class ServicePreAction extends Action {
 			if (hasUpdateLayoutPermission) {
 				themeDisplay.setShowPageSettingsIcon(true);
 
-				LiferayPortletURL pageSettingsURL = new PortletURLImpl(
-					request, PortletKeys.GROUP_PAGES, controlPanelPlid,
-					PortletRequest.RENDER_PHASE);
+				LiferayPortletURL pageSettingsURL =
+					PortletURLFactoryUtil.create(
+						request, PortletKeys.GROUP_PAGES, controlPanelPlid,
+						PortletRequest.RENDER_PHASE);
 
 				pageSettingsURL.setDoAsGroupId(scopeGroupId);
 				pageSettingsURL.setParameter(
@@ -1055,7 +1056,7 @@ public class ServicePreAction extends Action {
 					themeDisplay.setShowManageSiteMembershipsIcon(true);
 
 					LiferayPortletURL manageSiteMembershipsURL =
-						new PortletURLImpl(
+						PortletURLFactoryUtil.create(
 							request, PortletKeys.SITE_MEMBERSHIPS_ADMIN,
 							controlPanelPlid, PortletRequest.RENDER_PHASE);
 
@@ -1117,9 +1118,10 @@ public class ServicePreAction extends Action {
 
 				themeDisplay.setShowSiteSettingsIcon(true);
 
-				LiferayPortletURL siteSettingsURL = new PortletURLImpl(
-					request, PortletKeys.SITE_SETTINGS, controlPanelPlid,
-					PortletRequest.RENDER_PHASE);
+				LiferayPortletURL siteSettingsURL =
+					PortletURLFactoryUtil.create(
+						request, PortletKeys.SITE_SETTINGS, controlPanelPlid,
+						PortletRequest.RENDER_PHASE);
 
 				siteSettingsURL.setDoAsGroupId(scopeGroupId);
 				siteSettingsURL.setParameter(
@@ -1153,9 +1155,10 @@ public class ServicePreAction extends Action {
 
 				themeDisplay.setShowSiteMapSettingsIcon(true);
 
-				LiferayPortletURL siteMapSettingsURL = new PortletURLImpl(
-					request, PortletKeys.GROUP_PAGES, controlPanelPlid,
-					PortletRequest.RENDER_PHASE);
+				LiferayPortletURL siteMapSettingsURL =
+					PortletURLFactoryUtil.create(
+						request, PortletKeys.GROUP_PAGES, controlPanelPlid,
+						PortletRequest.RENDER_PHASE);
 
 				siteMapSettingsURL.setDoAsGroupId(scopeGroupId);
 				siteMapSettingsURL.setParameter(
@@ -1212,7 +1215,7 @@ public class ServicePreAction extends Action {
 				}
 
 				if (hasPublishStagingPermission) {
-					PortletURL publishToLiveURL = new PortletURLImpl(
+					PortletURL publishToLiveURL = PortletURLFactoryUtil.create(
 						request, PortletKeys.LAYOUTS_ADMIN, plid,
 						PortletRequest.RENDER_PHASE);
 
@@ -1243,7 +1246,7 @@ public class ServicePreAction extends Action {
 				themeDisplay);
 
 			if (myAccountPortlet != null) {
-				PortletURLImpl myAccountURL = new PortletURLImpl(
+				LiferayPortletURL myAccountURL = PortletURLFactoryUtil.create(
 					request, myAccountPortlet.getPortletId(), controlPanelPlid,
 					PortletRequest.RENDER_PHASE);
 
@@ -1331,7 +1334,7 @@ public class ServicePreAction extends Action {
 
 		themeDisplay.setURLSignOut(mainPath.concat(_PATH_PORTAL_LOGOUT));
 
-		PortletURL updateManagerURL = new PortletURLImpl(
+		PortletURL updateManagerURL = PortletURLFactoryUtil.create(
 			request, PortletKeys.MARKETPLACE_STORE, controlPanelPlid,
 			PortletRequest.RENDER_PHASE);
 

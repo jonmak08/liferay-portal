@@ -40,7 +40,7 @@ import com.liferay.portal.util.PortletKeys;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.WebKeys;
 import com.liferay.portlet.PortletPreferencesFactoryUtil;
-import com.liferay.portlet.PortletURLImpl;
+import com.liferay.portlet.PortletURLFactoryUtil;
 import com.liferay.portlet.login.util.LoginUtil;
 
 import javax.portlet.ActionRequest;
@@ -262,7 +262,7 @@ public class LoginAction extends PortletAction {
 
 		Layout layout = (Layout)actionRequest.getAttribute(WebKeys.LAYOUT);
 
-		PortletURL portletURL = new PortletURLImpl(
+		PortletURL portletURL = PortletURLFactoryUtil.create(
 			actionRequest, portletName, layout.getPlid(),
 			PortletRequest.RENDER_PHASE);
 

@@ -30,7 +30,7 @@ import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portal.util.WebKeys;
-import com.liferay.portlet.PortletURLImpl;
+import com.liferay.portlet.PortletURLFactoryUtil;
 
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletURL;
@@ -73,7 +73,7 @@ public class VerifyEmailAddressAction extends Action {
 			verifyEmailAddress(request, response, themeDisplay);
 
 			if (!themeDisplay.isSignedIn()) {
-				PortletURL portletURL = new PortletURLImpl(
+				PortletURL portletURL = PortletURLFactoryUtil.create(
 					request, PortletKeys.LOGIN, themeDisplay.getPlid(),
 					PortletRequest.RENDER_PHASE);
 

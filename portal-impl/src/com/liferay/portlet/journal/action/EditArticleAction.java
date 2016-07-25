@@ -18,6 +18,7 @@ import com.liferay.portal.LocaleException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
@@ -47,7 +48,6 @@ import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.WebKeys;
 import com.liferay.portlet.PortletURLFactoryUtil;
-import com.liferay.portlet.PortletURLImpl;
 import com.liferay.portlet.asset.AssetCategoryException;
 import com.liferay.portlet.asset.AssetTagException;
 import com.liferay.portlet.assetpublisher.util.AssetPublisherUtil;
@@ -449,28 +449,30 @@ public class EditArticleAction extends PortletAction {
 
 		String languageId = ParamUtil.getString(actionRequest, "languageId");
 
-		PortletURLImpl portletURL = new PortletURLImpl(
+		LiferayPortletURL liferayPortletURL = PortletURLFactoryUtil.create(
 			actionRequest, portletConfig.getPortletName(),
 			themeDisplay.getPlid(), PortletRequest.RENDER_PHASE);
 
-		portletURL.setParameter("struts_action", "/journal/edit_article");
-		portletURL.setParameter("redirect", redirect, false);
-		portletURL.setParameter(
+		liferayPortletURL.setParameter(
+			"struts_action", "/journal/edit_article");
+		liferayPortletURL.setParameter("redirect", redirect, false);
+		liferayPortletURL.setParameter(
 			"referringPortletResource", referringPortletResource, false);
-		portletURL.setParameter(
+		liferayPortletURL.setParameter(
 			"resourcePrimKey", String.valueOf(article.getResourcePrimKey()),
 			false);
-		portletURL.setParameter(
+		liferayPortletURL.setParameter(
 			"groupId", String.valueOf(article.getGroupId()), false);
-		portletURL.setParameter(
+		liferayPortletURL.setParameter(
 			"folderId", String.valueOf(article.getFolderId()), false);
-		portletURL.setParameter("articleId", article.getArticleId(), false);
-		portletURL.setParameter(
+		liferayPortletURL.setParameter(
+			"articleId", article.getArticleId(), false);
+		liferayPortletURL.setParameter(
 			"version", String.valueOf(article.getVersion()), false);
-		portletURL.setParameter("languageId", languageId, false);
-		portletURL.setWindowState(actionRequest.getWindowState());
+		liferayPortletURL.setParameter("languageId", languageId, false);
+		liferayPortletURL.setWindowState(actionRequest.getWindowState());
 
-		return portletURL.toString();
+		return liferayPortletURL.toString();
 	}
 
 	protected void moveArticles(ActionRequest actionRequest) throws Exception {
