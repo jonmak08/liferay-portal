@@ -484,7 +484,7 @@ AUI.add(
 									groupId: groupId,
 									label: label,
 									layoutId: layoutId,
-									levelKey: key,
+									path: path,
 									privateLayout: privateLayout
 								}
 							);
@@ -640,7 +640,7 @@ AUI.add(
 									groupId: value.groupId,
 									label: value.label,
 									layoutId: value.layoutId,
-									levelKey: key,
+									path: path.slice(),
 									privateLayout: privateLayout
 								}
 							);
@@ -854,11 +854,19 @@ AUI.add(
 					
 					_requestSiblingLayouts: function(groupId, privateLayout, callback) {
 						var instance = this;
+						
+						var cache;
 
 						var selectedLayout = instance.get('selectedLayout');
 
-						var cache = instance._getCache(selectedLayout.levelKey);
-console.log(selectedLayout.levelKey);
+						var path = selectedLayout;
+						
+						var lastIndex  = path.length - 1;
+						
+						if (lastIndex >= 0) {
+							cache = instance._getCache(path[lastIndex]);
+						}
+						
 						if (cache) {
 							callback.call(instance, cache.layouts);
 						}
@@ -955,7 +963,7 @@ console.log(selectedLayout.levelKey);
 							instance._cache[key] = {
 								end: end,
 								layouts: layouts,
-								path: path,
+								path: path.slice(),
 								start: start,
 								total: total
 							};
