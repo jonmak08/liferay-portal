@@ -756,6 +756,8 @@
 	</command>
 
 	<command name="AddListRecordWithLinkToPageField" priority="5">
+		<description message="This is a use case for LPS-65726" />
+	
 		<var name="ddlDataDefinitionDescription" value="Data Definition Description" />
 		<var name="ddlDataDefinitionName" value="Data Definition" />
 		<var name="ddlListDescription" value="List Description" />
