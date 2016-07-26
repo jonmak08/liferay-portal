@@ -224,7 +224,7 @@
 
 				<execute function="Click" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_PAGE_RADIO" />
 
-				<execute function="AssertClick" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_SELECT_BUTTON" value1="Select" />
+				<execute function="AssertClick" locator1="Button#SELECT" value1="Select" />
 
 				<execute function="AssertTextEquals" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_PAGE_SELECTED" value1="${ddlRecordFieldData}" />
 			</else>
