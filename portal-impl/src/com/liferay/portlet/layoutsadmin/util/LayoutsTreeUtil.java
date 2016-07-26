@@ -160,25 +160,6 @@ public class LayoutsTreeUtil {
 		return _toJSON(request, groupId, layoutTreeNodes);
 	}
 
-	private static JSONObject _toJSONObject(
-			HttpServletRequest request, long groupId, List<Layout> layouts,
-			int total)
-		throws Exception {
-
-		List<LayoutTreeNode> layoutTreeNodesList = new ArrayList<LayoutTreeNode>();
-
-		for (Layout layout : layouts) {
-			LayoutTreeNode layoutTreeNode = new LayoutTreeNode(layout);
-
-			layoutTreeNodesList.add(layoutTreeNode);
-		}
-
-		LayoutTreeNodes layoutTreeNodes = new LayoutTreeNodes(
-			layoutTreeNodesList, total);
-
-		return _toJSONObject(request, groupId, layoutTreeNodes);
-	}
-
 	private static Layout _fetchCurrentLayout(HttpServletRequest request) 
 			throws SystemException {
 		long selPlid = ParamUtil.getLong(request, "selPlid");
@@ -199,6 +180,25 @@ public class LayoutsTreeUtil {
 		return null;
 	}
 
+	private static JSONObject _toJSONObject(
+			HttpServletRequest request, long groupId, List<Layout> layouts,
+			int total)
+					throws Exception {
+		
+		List<LayoutTreeNode> layoutTreeNodesList = new ArrayList<LayoutTreeNode>();
+		
+		for (Layout layout : layouts) {
+			LayoutTreeNode layoutTreeNode = new LayoutTreeNode(layout);
+			
+			layoutTreeNodesList.add(layoutTreeNode);
+		}
+		
+		LayoutTreeNodes layoutTreeNodes = new LayoutTreeNodes(
+				layoutTreeNodesList, total);
+		
+		return _toJSONObject(request, groupId, layoutTreeNodes);
+	}
+	
 	private static List<Layout> _getAncestorLayouts(HttpServletRequest request)
 		throws Exception {
 
