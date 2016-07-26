@@ -166,7 +166,7 @@ public class LayoutsTreeUtil {
 			int total)
 		throws Exception {
 
-		List<LayoutTreeNode> layoutTreeNodesList = new ArrayList<>();
+		List<LayoutTreeNode> layoutTreeNodesList = new ArrayList<LayoutTreeNode>();
 
 		for (Layout layout : layouts) {
 			LayoutTreeNode layoutTreeNode = new LayoutTreeNode(layout);

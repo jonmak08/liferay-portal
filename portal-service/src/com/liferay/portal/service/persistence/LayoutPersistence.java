@@ -1368,6 +1368,76 @@ public interface LayoutPersistence extends BasePersistence<Layout> {
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
+	* Returns the layout where groupId = &#63; and privateLayout = &#63; and friendlyURL = &#63; or throws a {@link com.liferay.portal.NoSuchLayoutException} if it could not be found.
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param friendlyURL the friendly u r l
+	* @return the matching layout
+	* @throws com.liferay.portal.NoSuchLayoutException if a matching layout could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.liferay.portal.model.Layout findByG_P_F(long groupId,
+		boolean privateLayout, java.lang.String friendlyURL)
+		throws com.liferay.portal.NoSuchLayoutException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the layout where groupId = &#63; and privateLayout = &#63; and friendlyURL = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param friendlyURL the friendly u r l
+	* @return the matching layout, or <code>null</code> if a matching layout could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.liferay.portal.model.Layout fetchByG_P_F(long groupId,
+		boolean privateLayout, java.lang.String friendlyURL)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the layout where groupId = &#63; and privateLayout = &#63; and friendlyURL = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param friendlyURL the friendly u r l
+	* @param retrieveFromCache whether to use the finder cache
+	* @return the matching layout, or <code>null</code> if a matching layout could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.liferay.portal.model.Layout fetchByG_P_F(long groupId,
+		boolean privateLayout, java.lang.String friendlyURL,
+		boolean retrieveFromCache)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Removes the layout where groupId = &#63; and privateLayout = &#63; and friendlyURL = &#63; from the database.
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param friendlyURL the friendly u r l
+	* @return the layout that was removed
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.liferay.portal.model.Layout removeByG_P_F(long groupId,
+		boolean privateLayout, java.lang.String friendlyURL)
+		throws com.liferay.portal.NoSuchLayoutException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the number of layouts where groupId = &#63; and privateLayout = &#63; and friendlyURL = &#63;.
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param friendlyURL the friendly u r l
+	* @return the number of matching layouts
+	* @throws SystemException if a system exception occurred
+	*/
+	public int countByG_P_F(long groupId, boolean privateLayout,
+		java.lang.String friendlyURL)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
 	* Returns all the layouts where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63;.
 	*
 	* @param groupId the group ID
@@ -1611,76 +1681,6 @@ public interface LayoutPersistence extends BasePersistence<Layout> {
 	*/
 	public int filterCountByG_P_P(long groupId, boolean privateLayout,
 		long parentLayoutId)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Returns the layout where groupId = &#63; and privateLayout = &#63; and friendlyURL = &#63; or throws a {@link com.liferay.portal.NoSuchLayoutException} if it could not be found.
-	*
-	* @param groupId the group ID
-	* @param privateLayout the private layout
-	* @param friendlyURL the friendly u r l
-	* @return the matching layout
-	* @throws com.liferay.portal.NoSuchLayoutException if a matching layout could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public com.liferay.portal.model.Layout findByG_P_F(long groupId,
-		boolean privateLayout, java.lang.String friendlyURL)
-		throws com.liferay.portal.NoSuchLayoutException,
-			com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Returns the layout where groupId = &#63; and privateLayout = &#63; and friendlyURL = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
-	*
-	* @param groupId the group ID
-	* @param privateLayout the private layout
-	* @param friendlyURL the friendly u r l
-	* @return the matching layout, or <code>null</code> if a matching layout could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public com.liferay.portal.model.Layout fetchByG_P_F(long groupId,
-		boolean privateLayout, java.lang.String friendlyURL)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Returns the layout where groupId = &#63; and privateLayout = &#63; and friendlyURL = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
-	*
-	* @param groupId the group ID
-	* @param privateLayout the private layout
-	* @param friendlyURL the friendly u r l
-	* @param retrieveFromCache whether to use the finder cache
-	* @return the matching layout, or <code>null</code> if a matching layout could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public com.liferay.portal.model.Layout fetchByG_P_F(long groupId,
-		boolean privateLayout, java.lang.String friendlyURL,
-		boolean retrieveFromCache)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Removes the layout where groupId = &#63; and privateLayout = &#63; and friendlyURL = &#63; from the database.
-	*
-	* @param groupId the group ID
-	* @param privateLayout the private layout
-	* @param friendlyURL the friendly u r l
-	* @return the layout that was removed
-	* @throws SystemException if a system exception occurred
-	*/
-	public com.liferay.portal.model.Layout removeByG_P_F(long groupId,
-		boolean privateLayout, java.lang.String friendlyURL)
-		throws com.liferay.portal.NoSuchLayoutException,
-			com.liferay.portal.kernel.exception.SystemException;
-
-	/**
-	* Returns the number of layouts where groupId = &#63; and privateLayout = &#63; and friendlyURL = &#63;.
-	*
-	* @param groupId the group ID
-	* @param privateLayout the private layout
-	* @param friendlyURL the friendly u r l
-	* @return the number of matching layouts
-	* @throws SystemException if a system exception occurred
-	*/
-	public int countByG_P_F(long groupId, boolean privateLayout,
-		java.lang.String friendlyURL)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -1997,6 +1997,271 @@ public interface LayoutPersistence extends BasePersistence<Layout> {
 	*/
 	public int countByG_P_SPLU(long groupId, boolean privateLayout,
 		java.lang.String sourcePrototypeLayoutUuid)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns all the layouts where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63; and priority &le; &#63;.
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param parentLayoutId the parent layout ID
+	* @param priority the priority
+	* @return the matching layouts
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<com.liferay.portal.model.Layout> findByG_P_P_LtP(
+		long groupId, boolean privateLayout, long parentLayoutId, int priority)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns a range of all the layouts where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63; and priority &le; &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portal.model.impl.LayoutModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param parentLayoutId the parent layout ID
+	* @param priority the priority
+	* @param start the lower bound of the range of layouts
+	* @param end the upper bound of the range of layouts (not inclusive)
+	* @return the range of matching layouts
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<com.liferay.portal.model.Layout> findByG_P_P_LtP(
+		long groupId, boolean privateLayout, long parentLayoutId, int priority,
+		int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns an ordered range of all the layouts where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63; and priority &le; &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portal.model.impl.LayoutModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param parentLayoutId the parent layout ID
+	* @param priority the priority
+	* @param start the lower bound of the range of layouts
+	* @param end the upper bound of the range of layouts (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching layouts
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<com.liferay.portal.model.Layout> findByG_P_P_LtP(
+		long groupId, boolean privateLayout, long parentLayoutId, int priority,
+		int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the first layout in the ordered set where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63; and priority &le; &#63;.
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param parentLayoutId the parent layout ID
+	* @param priority the priority
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching layout
+	* @throws com.liferay.portal.NoSuchLayoutException if a matching layout could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.liferay.portal.model.Layout findByG_P_P_LtP_First(long groupId,
+		boolean privateLayout, long parentLayoutId, int priority,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.NoSuchLayoutException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the first layout in the ordered set where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63; and priority &le; &#63;.
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param parentLayoutId the parent layout ID
+	* @param priority the priority
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching layout, or <code>null</code> if a matching layout could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.liferay.portal.model.Layout fetchByG_P_P_LtP_First(
+		long groupId, boolean privateLayout, long parentLayoutId, int priority,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the last layout in the ordered set where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63; and priority &le; &#63;.
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param parentLayoutId the parent layout ID
+	* @param priority the priority
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching layout
+	* @throws com.liferay.portal.NoSuchLayoutException if a matching layout could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.liferay.portal.model.Layout findByG_P_P_LtP_Last(long groupId,
+		boolean privateLayout, long parentLayoutId, int priority,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.NoSuchLayoutException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the last layout in the ordered set where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63; and priority &le; &#63;.
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param parentLayoutId the parent layout ID
+	* @param priority the priority
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching layout, or <code>null</code> if a matching layout could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.liferay.portal.model.Layout fetchByG_P_P_LtP_Last(long groupId,
+		boolean privateLayout, long parentLayoutId, int priority,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the layouts before and after the current layout in the ordered set where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63; and priority &le; &#63;.
+	*
+	* @param plid the primary key of the current layout
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param parentLayoutId the parent layout ID
+	* @param priority the priority
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next layout
+	* @throws com.liferay.portal.NoSuchLayoutException if a layout with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.liferay.portal.model.Layout[] findByG_P_P_LtP_PrevAndNext(
+		long plid, long groupId, boolean privateLayout, long parentLayoutId,
+		int priority,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.NoSuchLayoutException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns all the layouts that the user has permission to view where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63; and priority &le; &#63;.
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param parentLayoutId the parent layout ID
+	* @param priority the priority
+	* @return the matching layouts that the user has permission to view
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<com.liferay.portal.model.Layout> filterFindByG_P_P_LtP(
+		long groupId, boolean privateLayout, long parentLayoutId, int priority)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns a range of all the layouts that the user has permission to view where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63; and priority &le; &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portal.model.impl.LayoutModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param parentLayoutId the parent layout ID
+	* @param priority the priority
+	* @param start the lower bound of the range of layouts
+	* @param end the upper bound of the range of layouts (not inclusive)
+	* @return the range of matching layouts that the user has permission to view
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<com.liferay.portal.model.Layout> filterFindByG_P_P_LtP(
+		long groupId, boolean privateLayout, long parentLayoutId, int priority,
+		int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns an ordered range of all the layouts that the user has permissions to view where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63; and priority &le; &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.portal.model.impl.LayoutModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param parentLayoutId the parent layout ID
+	* @param priority the priority
+	* @param start the lower bound of the range of layouts
+	* @param end the upper bound of the range of layouts (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching layouts that the user has permission to view
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<com.liferay.portal.model.Layout> filterFindByG_P_P_LtP(
+		long groupId, boolean privateLayout, long parentLayoutId, int priority,
+		int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the layouts before and after the current layout in the ordered set of layouts that the user has permission to view where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63; and priority &le; &#63;.
+	*
+	* @param plid the primary key of the current layout
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param parentLayoutId the parent layout ID
+	* @param priority the priority
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next layout
+	* @throws com.liferay.portal.NoSuchLayoutException if a layout with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public com.liferay.portal.model.Layout[] filterFindByG_P_P_LtP_PrevAndNext(
+		long plid, long groupId, boolean privateLayout, long parentLayoutId,
+		int priority,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.NoSuchLayoutException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Removes all the layouts where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63; and priority &le; &#63; from the database.
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param parentLayoutId the parent layout ID
+	* @param priority the priority
+	* @throws SystemException if a system exception occurred
+	*/
+	public void removeByG_P_P_LtP(long groupId, boolean privateLayout,
+		long parentLayoutId, int priority)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the number of layouts where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63; and priority &le; &#63;.
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param parentLayoutId the parent layout ID
+	* @param priority the priority
+	* @return the number of matching layouts
+	* @throws SystemException if a system exception occurred
+	*/
+	public int countByG_P_P_LtP(long groupId, boolean privateLayout,
+		long parentLayoutId, int priority)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Returns the number of layouts that the user has permission to view where groupId = &#63; and privateLayout = &#63; and parentLayoutId = &#63; and priority &le; &#63;.
+	*
+	* @param groupId the group ID
+	* @param privateLayout the private layout
+	* @param parentLayoutId the parent layout ID
+	* @param priority the priority
+	* @return the number of matching layouts that the user has permission to view
+	* @throws SystemException if a system exception occurred
+	*/
+	public int filterCountByG_P_P_LtP(long groupId, boolean privateLayout,
+		long parentLayoutId, int priority)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
