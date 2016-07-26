@@ -177,9 +177,28 @@ public class LayoutsTreeUtil {
 		LayoutTreeNodes layoutTreeNodes = new LayoutTreeNodes(
 			layoutTreeNodesList, total);
 
-		return LayoutsTreeUtil._toJSONObject(request, groupId, layoutTreeNodes);
-}
-	
+		return _toJSONObject(request, groupId, layoutTreeNodes);
+	}
+
+	private static Layout _fetchCurrentLayout(HttpServletRequest request) {
+		long selPlid = ParamUtil.getLong(request, "selPlid");
+
+		if (selPlid > 0) {
+			return LayoutLocalServiceUtil.fetchLayout(selPlid);
+		}
+
+		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		Layout layout = themeDisplay.getLayout();
+
+		if (!layout.isTypeControlPanel()) {
+			return layout;
+		}
+
+		return null;
+	}
+
 	private static List<Layout> _getAncestorLayouts(HttpServletRequest request)
 		throws Exception {
 
