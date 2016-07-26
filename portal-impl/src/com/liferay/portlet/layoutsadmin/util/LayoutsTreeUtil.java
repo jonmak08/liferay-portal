@@ -15,6 +15,7 @@
 package com.liferay.portlet.layoutsadmin.util;
 
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -74,18 +75,17 @@ public class LayoutsTreeUtil {
 	}
 		
 	public static String getLayoutsJSON(
-				HttpServletRequest request, long groupId, boolean privateLayout,
-				long includedLayoutId, int quantity)
+			HttpServletRequest request, long groupId, boolean privateLayout,
+			long layoutId, int quantity)
 			throws Exception {
 
-		Layout includedLayout = LayoutLocalServiceUtil.getLayout(
-			groupId, privateLayout, includedLayoutId);
+		Layout layout = LayoutLocalServiceUtil.getLayout(
+			groupId, privateLayout, layoutId);
 
-		long parentLayoutId = includedLayout.getParentLayoutId();
+		long parentLayoutId = layout.getParentLayoutId();
 
 		long includedLayoutIndex = LayoutServiceUtil.getLayoutsCount(
-			groupId, privateLayout, parentLayoutId,
-			includedLayout.getPriority());
+			groupId, privateLayout, parentLayoutId,	layout.getPriority());
 
 		int total = LayoutServiceUtil.getLayoutsCount(
 			groupId, privateLayout, parentLayoutId);
@@ -104,7 +104,7 @@ public class LayoutsTreeUtil {
 		}
 
 		List<Layout> ancestorLayouts = LayoutServiceUtil.getAncestorLayouts(
-			includedLayout.getPlid());
+				layout.getPlid());
 
 		long[] ancestorLayoutsIds = new long[ancestorLayouts.size()];
 
@@ -180,7 +180,8 @@ public class LayoutsTreeUtil {
 		return _toJSONObject(request, groupId, layoutTreeNodes);
 	}
 
-	private static Layout _fetchCurrentLayout(HttpServletRequest request) {
+	private static Layout _fetchCurrentLayout(HttpServletRequest request) 
+			throws SystemException {
 		long selPlid = ParamUtil.getLong(request, "selPlid");
 
 		if (selPlid > 0) {

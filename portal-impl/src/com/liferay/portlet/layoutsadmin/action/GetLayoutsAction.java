@@ -46,8 +46,8 @@ public class GetLayoutsAction extends JSONAction {
 		if (cmd.equals("get")) {
 			return getLayoutsJSON(request, groupId, treeId);
 		}
-		else if (cmd.equals("getLayoutsIn")) {
-			return getLayoutsInJSON(request, groupId);
+		else if (cmd.equals("getSiblingLayouts")) {
+			return getSiblingLayouts(request, groupId);
 		}
 		else if (cmd.equals("getAll")) {
 			return LayoutsTreeUtil.getLayoutsJSON(request, groupId, treeId);
@@ -56,29 +56,30 @@ public class GetLayoutsAction extends JSONAction {
 		return null;
 	}
 
-	protected String getLayoutsInJSON(
+	protected String getLayoutsJSON(
+			HttpServletRequest request, long groupId, String treeId)
+					throws Exception {
+		
+		boolean privateLayout = ParamUtil.getBoolean(request, "privateLayout");
+		long parentLayoutId = ParamUtil.getLong(request, "parentLayoutId");
+		boolean incomplete = ParamUtil.getBoolean(request, "incomplete", true);
+		
+		return LayoutsTreeUtil.getLayoutsJSON(
+				request, groupId, privateLayout, parentLayoutId, incomplete,
+				treeId);
+	}
+	
+	protected String getSiblingLayouts(
 			HttpServletRequest request, long groupId)
 		throws Exception {
 			
 		boolean privateLayout = ParamUtil.getBoolean(request, "privateLayout");
-		long includedLayoutId = ParamUtil.getLong(request, "includedLayoutId");
+		long layoutId = ParamUtil.getLong(request, "layoutId");
 		int quantity = ParamUtil.getInteger(request, "quantity");
 
 		return LayoutsTreeUtil.getLayoutsJSON(
-				request, groupId, privateLayout, includedLayoutId, quantity);
+				request, groupId, privateLayout, layoutId, quantity);
 	}
 	
-	protected String getLayoutsJSON(
-			HttpServletRequest request, long groupId, String treeId)
-		throws Exception {
-
-		boolean privateLayout = ParamUtil.getBoolean(request, "privateLayout");
-		long parentLayoutId = ParamUtil.getLong(request, "parentLayoutId");
-		boolean incomplete = ParamUtil.getBoolean(request, "incomplete", true);
-
-		return LayoutsTreeUtil.getLayoutsJSON(
-			request, groupId, privateLayout, parentLayoutId, incomplete,
-			treeId);
-	}
 
 }
