@@ -2777,11 +2777,16 @@ public class PortletDataContextImpl implements PortletDataContext {
 
 	private static final String[] _XSTREAM_DEFAULT_ALLOWED_CLASS_NAMES =
 		new String[] {
-			BigDecimal.class.getName(), byte[].class.getName(),
-			Date.class.getName(), Field.class.getName(), Fields.class.getName(),
-			InputStream.class.getName(), Locale.class.getName(),
+			BigDecimal.class.getName(), boolean[].class.getName(),
+			byte[].class.getName(), Date.class.getName(),
+			double[].class.getName(), Field.class.getName(),
+			Fields.class.getName(), float[].class.getName(),
+			InputStream.class.getName(), int[].class.getName(),
+			Locale.class.getName(), long[].class.getName(),
+			Number.class.getName(), Number[].class.getName(),
 			String.class.getName(), String[].class.getName(),
-			Time.class.getName(), Timestamp.class.getName()
+			short[].class.getName(), Time.class.getName(),
+			Timestamp.class.getName()
 		};
 
 	private static Log _log = LogFactoryUtil.getLog(
