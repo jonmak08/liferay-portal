@@ -825,12 +825,15 @@
 			<var name="ddlListName" value="${ddlListName}" />
 		</execute>
 
-		<execute macro="DDLRecord#populateField">
+		<execute macro="DDLRecord#populateFieldLinkToPage">
 			<var name="ddlRecordFieldData" value="${ddlRecordFieldData}" />
-			<var name="field" value="${field}" />
-			<var name="fieldFieldLabel" value="${fieldFieldLabel}" />
 			<var name="fieldName" value="${fieldName}" />
 			<var name="pagePrivacy" value="Public" />
+		</execute>
+		
+		<execute macro="DDLRecord#viewSelectedLinkToPage">
+			<var name="ddlRecordFieldData" value="${ddlRecordFieldData}" />
+			<var name="fieldName" value="${fieldName}" />
 		</execute>
 
 		<execute macro="DDLRecord#publishCP" />
