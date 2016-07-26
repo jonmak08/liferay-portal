@@ -108,10 +108,7 @@ public class ReCaptchaImpl extends SimpleCaptchaImpl {
 
 		options.addPart("remoteip", request.getRemoteAddr());
 		options.addPart("response", reCaptchaResponse);
-		options.setLocation(
-			HttpUtil.protocolize(
-				PropsValues.CAPTCHA_ENGINE_RECAPTCHA_URL_VERIFY,
-				request.isSecure()));
+		options.setLocation(PropsValues.CAPTCHA_ENGINE_RECAPTCHA_URL_VERIFY);
 		options.setPost(true);
 
 		String content = null;
