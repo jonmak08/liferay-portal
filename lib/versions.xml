@@ -3550,7 +3550,7 @@
 			</library>
 			<library>
 				<file-name>lib/portal/struts.jar</file-name>
-				<version>1.2.9</version>
+				<version>1.2.7</version>
 				<project-name>Struts</project-name>
 				<project-url>http://struts.apache.org</project-url>
 				<licenses>
