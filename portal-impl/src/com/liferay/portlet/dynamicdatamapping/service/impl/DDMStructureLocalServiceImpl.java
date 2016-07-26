@@ -1441,26 +1441,60 @@ public class DDMStructureLocalServiceImpl
 			return;
 		}
 
-		Element templateElement = templateDocument.getRootElement();
+		Element templateRootElement = templateDocument.getRootElement();
 
 		XPath structureXPath = SAXReaderUtil.createXPath(
-			"//dynamic-element[.//meta-data/entry[@name=\"required\"]=" +
-				"\"true\"]");
+			"//dynamic-element[@required=\"true\"]");
 
-		List<Node> nodes = structureXPath.selectNodes(structureDocument);
+		List<Node> structureNodes = structureXPath.selectNodes(structureDocument);
 
-		for (Node node : nodes) {
-			Element element = (Element)node;
+		for (Node structureNode : structureNodes) {
+			Element structureElement = (Element)structureNode;
 
-			String name = element.attributeValue("name");
+			String name = structureElement.attributeValue("name");
 
 			name = HtmlUtil.escapeXPathAttribute(name);
 
 			XPath templateXPath = SAXReaderUtil.createXPath(
 				"//dynamic-element[@name=" + name + "]");
 
-			if (!templateXPath.booleanValueOf(templateDocument)) {
-				templateElement.add(element.createCopy());
+			List<Node> matchingTemplateNodes = templateXPath.selectNodes(templateDocument);
+
+			if (matchingTemplateNodes.isEmpty()) {
+				templateRootElement.add(structureElement.createCopy());
+				continue;
+			}
+
+			String type = structureElement.attributeValue("type");
+
+			if (!(type.equals("select") || type.equals("radio"))) {
+				continue;
+			}
+
+			for (Node matchingTemplateNode : matchingTemplateNodes) {
+				Element matchingTemplateElement = (Element)matchingTemplateNode;
+
+				Element parentElement = matchingTemplateElement.getParent();
+
+				boolean removeSiblingElements = false;
+				List<Element> removedSiblingElements = new ArrayList<Element>();
+
+				for (Element siblingElement : parentElement.elements()) {
+					if (siblingElement.equals(matchingTemplateElement)) {
+						matchingTemplateElement.detach();
+						removeSiblingElements = true;
+					}
+					else if (removeSiblingElements) {
+						siblingElement.detach();
+						removedSiblingElements.add(siblingElement);
+					}
+				}
+
+				parentElement.add(structureElement.createCopy());
+
+				for (Element siblingElement : removedSiblingElements) {
+					parentElement.add(siblingElement);
+				}
 			}
 		}
 	}
