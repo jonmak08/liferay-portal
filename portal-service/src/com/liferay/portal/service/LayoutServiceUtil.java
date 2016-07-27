@@ -642,7 +642,8 @@ public class LayoutServiceUtil {
 	}
 
 	public static int getLayoutsCount(long groupId, boolean privateLayout,
-		long parentLayoutId, int priority) {
+		long parentLayoutId, int priority)
+		throws com.liferay.portal.kernel.exception.SystemException {
 		return getService()
 				   .getLayoutsCount(groupId, privateLayout, parentLayoutId,
 			priority);

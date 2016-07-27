@@ -641,7 +641,8 @@ public class LayoutServiceWrapper implements LayoutService,
 
 	@Override
 	public int getLayoutsCount(long groupId, boolean privateLayout,
-		long parentLayoutId, int priority) {
+		long parentLayoutId, int priority)
+		throws com.liferay.portal.kernel.exception.SystemException {
 		return _layoutService.getLayoutsCount(groupId, privateLayout,
 			parentLayoutId, priority);
 	}
