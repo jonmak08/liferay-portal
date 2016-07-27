@@ -25,10 +25,13 @@ import com.liferay.portal.model.LayoutConstants;
 import com.liferay.portal.model.LayoutTypePortlet;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.model.PortletConstants;
+import com.liferay.portal.model.Role;
+import com.liferay.portal.model.RoleConstants;
 import com.liferay.portal.model.User;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portal.service.PortletLocalServiceUtil;
 import com.liferay.portal.service.ResourceLocalServiceUtil;
+import com.liferay.portal.service.RoleLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.service.permission.PortletPermissionUtil;
@@ -171,6 +174,11 @@ public class TCKStrutsAction extends BaseStrutsAction {
 			long[] roleIds = null;
 			long[] userGroupIds = null;
 			boolean sendEmail = false;
+
+			Role powerUserRole = RoleLocalServiceUtil.getRole(
+				companyId, RoleConstants.POWER_USER);
+
+			roleIds = new long[] {powerUserRole.getRoleId()};
 
 			ServiceContext serviceContext = new ServiceContext();
 
