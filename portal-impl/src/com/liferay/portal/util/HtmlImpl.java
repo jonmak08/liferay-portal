@@ -81,51 +81,37 @@ public class HtmlImpl implements Html {
 
 			String replacement = null;
 
-			switch (c) {
-				case '<':
-					replacement = "&lt;";
+			if (c == '<') {
+				replacement = "&lt;";
+			}
+			else if (c == '>') {
+				replacement = "&gt;";
+			}
+			else if (c == '&') {
+				replacement = "&amp;";
+			}
+			else if (c == '"') {
+				replacement = "&#034;";
+			}
+			else if (c == '\'') {
+				replacement = "&#039;";
+			}
+			else if (c == '\u00bb') {
+				replacement = "&#187;";
+			}
+			else if (c == '\u2013') {
+				replacement = "&#x2013;";
+			}
+			else if (c == '\u2014') {
+				replacement = "&#x2014;";
+			}
+			else if (c == '\u2028') {
+				replacement = "&#x8232;";
+			}
+			else if (!_isValidXmlCharacter(c) ||
+					 _isUnicodeCompatibilityCharacter(c)) {
 
-					break;
-
-				case '>':
-					replacement = "&gt;";
-
-					break;
-
-				case '&':
-					replacement = "&amp;";
-
-					break;
-
-				case '"':
-					replacement = "&#034;";
-
-					break;
-
-				case '\'':
-					replacement = "&#039;";
-
-					break;
-
-				case '\u00bb': // '�'
-					replacement = "&#187;";
-
-					break;
-
-				case '\u2013':
-					replacement = "&#x2013;";
-
-					break;
-
-				case '\u2014':
-					replacement = "&#x2014;";
-
-					break;
-
-				case '\u2028':
-					replacement = "&#x8232;";
-
-					break;
+				replacement = StringPool.SPACE;
 			}
 
 			if (replacement != null) {
@@ -189,8 +175,14 @@ public class HtmlImpl implements Html {
 		for (int i = 0; i < text.length(); i++) {
 			char c = text.charAt(i);
 
-			if ((c > 255) || Character.isLetterOrDigit(c) ||
-				(c == CharPool.DASH) || (c == CharPool.UNDERLINE)) {
+			if ((type == ESCAPE_MODE_ATTRIBUTE) &&
+				(!_isValidXmlCharacter(c) ||
+				 _isUnicodeCompatibilityCharacter(c))) {
+
+				sb.append(StringPool.SPACE);
+			}
+			else if ((c > 255) || Character.isLetterOrDigit(c) ||
+					 (c == CharPool.DASH) || (c == CharPool.UNDERLINE)) {
 
 				sb.append(c);
 			}
@@ -208,7 +200,7 @@ public class HtmlImpl implements Html {
 			}
 		}
 
-		if (sb.length() == text.length()) {
+		if ((type != ESCAPE_MODE_ATTRIBUTE) && (sb.length() == text.length())) {
 			return text;
 		}
 		else {
@@ -660,6 +652,29 @@ public class HtmlImpl implements Html {
 		}
 
 		return pos;
+	}
+
+	private boolean _isUnicodeCompatibilityCharacter(char c) {
+		if (((c >= '\u007f') && (c <= '\u0084')) ||
+			((c >= '\u0086') && (c <= '\u009f')) ||
+			((c >= '\ufdd0') && (c <= '\ufdef'))) {
+
+			return true;
+		}
+
+		return false;
+	}
+
+	private boolean _isValidXmlCharacter(char c) {
+		if ((c == '\u0009') || (c == CharPool.NEW_LINE) ||
+			(c == CharPool.RETURN) || ((c >= '\u0020') && (c <= '\ud7ff')) ||
+			((c >= '\ue000') && (c <= '\ufffd')) ||
+			Character.isLowSurrogate(c) || Character.isHighSurrogate(c)) {
+
+			return true;
+		}
+
+		return false;
 	}
 
 	private static final String[] _MS_WORD_HTML = new String[] {
