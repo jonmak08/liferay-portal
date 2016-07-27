@@ -125,7 +125,7 @@ public class LayoutsTreeUtil {
 		jsonObject.put("ancestorLayoutIds", ancestorLayoutIds);
 		jsonObject.put("ancestorLayoutNames", ancestorLayoutNames);
 
-		jsonObject.put("startIndex", start);
+		jsonObject.put("start", start);
 
 		return jsonObject.toString();
 	}
