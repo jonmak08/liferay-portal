@@ -43,36 +43,11 @@ AUI.add(
 					},
 
 					selectedLayout: {
-						valueFn: function() {
-							var instance = this;
-
-							var layoutValue = instance.getParsedValue(instance.getValue());
-
-							if (layoutValue.layoutId) {
-								return layoutValue;
-							}
-
-							return null;
-						}
+						value: null
 					},
 					
 					selectedLayoutPath: {
-						valueFn: function() {
-							var instance = this;
-
-							var value = instance.getValue();
-
-							var privateLayout = !!(value && value.privateLayout);
-
-							var layoutsRoot = {
-								groupId: themeDisplay.getScopeGroupId(),
-								label: Liferay.Language.get('all'),
-								layoutId: 0,
-								privateLayout: privateLayout
-							};
-
-							return [layoutsRoot];
-						}
+						value: null
 					}
 				},
 
@@ -141,6 +116,45 @@ AUI.add(
 
 						return value;
 					},
+					
+					getSelectedLayout: function() {
+						var instance = this;
+
+						var selectedLayout = instance.get('selectedLayout');
+						if(selectedLayout){
+							return selectedLayout;
+						}
+													
+						var layoutValue = instance.getParsedValue(instance.getValue());
+
+						if (layoutValue.layoutId) {
+							return layoutValue;
+						}
+
+						return null;
+					},
+					
+					getSelectedLayoutPath: function() {
+						var instance = this;
+
+						var selectedLayoutPath = instance.get('selectedLayoutPath');
+						if(selectedLayoutPath){
+							return selectedLayoutPath;
+						}
+						
+						var value = instance.getValue();
+
+						var privateLayout = !!(value && value.privateLayout);
+
+						var layoutsRoot = {
+							groupId: themeDisplay.getScopeGroupId(),
+							label: Liferay.Language.get('all'),
+							layoutId: 0,
+							privateLayout: privateLayout
+						};
+
+						return [layoutsRoot];
+					},
 
 					getValue: function() {
 						var instance = this;
@@ -164,6 +178,7 @@ AUI.add(
 						if (parsedValue && parsedValue.layoutId) {
 							if (parsedValue.label) {
 								layoutNameNode.val(parsedValue.label);
+								layoutNameNode.attr('defaultValue', parsedValue.label)
 							}
 
 							value = JSON.stringify(parsedValue);
@@ -182,8 +197,7 @@ AUI.add(
 
 						if (Lang.isValue(value)) {
 							inputNode.val(value);
-
-							inputNode.set('defaultValue', value);
+							inputNode.attr('defaultValue', value);
 						}
 
 					},
@@ -321,7 +335,7 @@ AUI.add(
 									footer: [
 										{
 											cssClass: 'btn-lg btn-primary',
-											disabled: !instance.get('selectedLayout'),
+											disabled: !instance.getSelectedLayout(),
 											label: Liferay.Language.get('select'),
 											on: {
 												click: A.bind(instance._handleChooseButtonClick, instance)
@@ -356,7 +370,7 @@ AUI.add(
 
 						var currentTargetLayoutId = Number(event.currentTarget.getData('layoutId'));
 
-						var selectedLayoutPath = instance.get('selectedLayoutPath');
+						var selectedLayoutPath = instance.getSelectedLayoutPath();
 
 						var lastLayoutIndex = selectedLayoutPath.length - 1;
 
@@ -411,7 +425,7 @@ AUI.add(
 					_handleChooseButtonClick: function() {
 						var instance = this;
 
-						var selectedLayout = instance.get('selectedLayout');
+						var selectedLayout = instance.getSelectedLayout();
 
 						instance.setValue(selectedLayout);
 
@@ -422,7 +436,7 @@ AUI.add(
 						var instance = this;
 
 						instance.setValue('');
-						instance.set('selectedLayout', instance.get('selectedLayoutPath')[0]);
+						instance.set('selectedLayout', instance.getSelectedLayoutPath()[0]);
 					},
 
 					_handleControlButtonsClick: function(event) {
@@ -459,7 +473,7 @@ AUI.add(
 
 								instance._showLoader(currentTarget);
 
-								var selectedLayoutPath = instance.get('selectedLayoutPath');
+								var selectedLayoutPath = instance.getSelectedLayoutPath();
 
 								selectedLayoutPath.push(
 									{
@@ -480,7 +494,7 @@ AUI.add(
 							}
 						}
 						else if (event.target.hasClass('lfr-ddm-page-radio')) {
-							var path = instance.get('selectedLayoutPath');
+							var path = instance.getSelectedLayoutPath();
 
 							instance.set(
 								'selectedLayout',
@@ -536,7 +550,7 @@ AUI.add(
 								}
 							}
 							else if (scrollTop + innerHeight === scrollHeight) {
-								start = end + 1;
+								start = end;
 								end = start + delta;
 
 								if (start <= cache.total) {
@@ -560,6 +574,7 @@ AUI.add(
 
 						instance._cleanSelectedLayout();
 						instance._renderLayoutsList(currentTarget.test('.private'));
+						
 					},
 
 					_handleSelectButtonClick: function() {
@@ -628,7 +643,7 @@ AUI.add(
 							instance._initLayoutsList();
 
 							instance._renderNavbar(privateLayout);
-							instance._renderBreadcrumb(instance.get('selectedLayoutPath'));
+							instance._renderBreadcrumb(instance.getSelectedLayoutPath());
 							instance._renderLayoutsList(privateLayout);
 
 							var listNode = modal.bodyNode.one('.lfr-ddm-pages-container');
@@ -636,19 +651,21 @@ AUI.add(
 							listNode.on('scroll', instance._handleModalScroll, instance);
 						}
 						else {
-							var path = instance.get('selectedLayoutPath');
-
-							instance.set(
-								'selectedLayout',
-								{
-									groupId: value.groupId,
-									label: value.label,
-									layoutId: value.layoutId,
-									path: path.slice(),
-									privateLayout: privateLayout
-								}
-							);
-
+							var path = instance.getSelectedLayoutPath();
+							
+							if(path) {
+								instance.set(
+									'selectedLayout',
+									{
+										groupId: value.groupId,
+										label: value.label,
+										layoutId: value.layoutId,
+										path: path.slice(),
+										privateLayout: privateLayout
+									}
+								);
+							}
+							
 							instance._renderLayoutsList(privateLayout);
 						}
 
@@ -666,7 +683,7 @@ AUI.add(
 
 						breadcrumbContainer.empty();
 
-						var layoutsPathLenght = layoutsPath.length;
+						var layoutsPathLenght = layoutsPath ? layoutsPath.length : -1;
 
 						for (var index = 0; index < layoutsPathLenght; index++) {
 							var layoutPath = layoutsPath[index];
@@ -682,13 +699,15 @@ AUI.add(
 
 						var listNode = bodyNode.one('.lfr-ddm-pages-container');
 
-						var selectedLayout = instance.get('selectedLayout');
+						var selectedLayout = instance.getSelectedLayout();
 
 						listNode.empty();
 
 						layouts.forEach(
 							function(layout) {
-								var selected = selectedLayout && layout.layoutId === selectedLayout.layoutId;
+								var selected = selectedLayout && 
+									layout.layoutId.toString() === selectedLayout.layoutId &&
+									layout.privateLayout === selectedLayout.privateLayout;
 
 								instance._addListElement(layout, listNode, selected);
 							}
@@ -743,9 +762,11 @@ AUI.add(
 
 						instance._syncModalHeight();
 
-						var selectedLayout = instance.get('selectedLayout');
+						var selectedLayout = instance.getSelectedLayout();
 
-						if (selectedLayout && selectedLayout.layoutId) {
+						if (selectedLayout && selectedLayout.layoutId && 
+								selectedLayout.privateLayout === privateLayout) {
+							
 							var groupId = themeDisplay.getScopeGroupId();
 
 							instance._requestSiblingLayouts(
@@ -819,7 +840,7 @@ AUI.add(
 						if (!cache || start <= cache.total) {
 							if (instance._canLoadMore(key, start, end)) {
 								A.io.request(
-									themeDisplay.getPathMain() + '/portal/get_layouts',
+									themeDisplay.getPathMain() + '/layouts_admin/get_layouts',
 									{
 										after: {
 											success: function() {
@@ -842,7 +863,7 @@ AUI.add(
 											p_auth: Liferay.authToken,
 											paginate: true,
 											parentLayoutId: parentLayoutId,
-											privateLayout: privateLayout,
+											isPrivateLayout: privateLayout,
 											start: start
 										}
 									}
@@ -859,7 +880,7 @@ AUI.add(
 						
 						var cache;
 
-						var path = instance.get('selectedLayoutPath');
+						var path = instance.getSelectedLayoutPath();
 						
 						var lastIndex = path.length - 1;
 						
@@ -875,10 +896,10 @@ AUI.add(
 							callback.call(instance, cache.layouts);
 						}
 						else {
-							var selectedLayout = instance.get('selectedLayout');
+							var selectedLayout = instance.getSelectedLayout();
 							
 							A.io.request(
-								themeDisplay.getPathMain() + '/portal/get_layouts',
+								themeDisplay.getPathMain() + '/layouts_admin/get_layouts',
 								{
 									after: {
 										success: function() {
@@ -889,6 +910,10 @@ AUI.add(
 											if (layouts) {
 												var parentLayoutId = response.ancestorLayoutIds[0];
 
+												if (!parentLayoutId) {
+													parentLayoutId = 0;
+												}
+												
 												var key = [parentLayoutId, groupId, privateLayout].join('-');
 
 												var start = response.start;
@@ -913,7 +938,7 @@ AUI.add(
 										max: instance.get('delta'),
 										p_auth: Liferay.authToken,
 										paginate: true,
-										privateLayout: privateLayout,
+										isPrivateLayout: privateLayout,
 									}
 								}
 							);
@@ -926,7 +951,7 @@ AUI.add(
 						var ancestorLayoutIds = response.ancestorLayoutIds;
 
 						if (ancestorLayoutIds) {
-							var selectedLayoutPath = [instance.get('selectedLayoutPath')[0]];
+							var selectedLayoutPath = [instance.getSelectedLayoutPath()[0]];
 
 							var ancestorLayoutNames = response.ancestorLayoutNames;
 
@@ -969,7 +994,10 @@ AUI.add(
 						var cache = instance._cache[key];
 
 						if (!cache) {
-							var path = instance.get('selectedLayoutPath');
+							var path = instance.getSelectedLayoutPath();
+							if(!path) {
+								return;
+							}
 							cache = {
 								end: end,
 								layouts: layouts,
