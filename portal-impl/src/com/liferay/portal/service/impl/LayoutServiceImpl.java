@@ -872,7 +872,7 @@ public class LayoutServiceImpl extends LayoutServiceBaseImpl {
 	@Override
 	public int getLayoutsCount(
 			long groupId, boolean privateLayout, long parentLayoutId,
-			int priority) {
+			int priority) throws SystemException {
 		
 		return layoutPersistence.filterCountByG_P_P_LtP(
 				groupId, privateLayout, parentLayoutId, priority);
