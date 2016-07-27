@@ -398,7 +398,7 @@
 
 	<command name="addRSVP">
 		<execute macro="CalendarNavigator#gotoView">
-			<var name="viewType" value="Week" />
+			<var name="viewType" value="Month" />
 		</execute>
 
 		<execute macro="CalendarScheduler#selectSpecificEvent">
@@ -750,12 +750,11 @@
 
 	<command name="deleteSpecific">
 		<execute macro="CalendarNavigator#gotoView">
-			<var name="viewType" value="Week" />
+			<var name="viewType" value="Month" />
 		</execute>
 
-		<execute macro="CalendarScheduler#selectEvent">
+		<execute macro="CalendarScheduler#selectSpecificEvent">
 			<var name="eventTitle" value="${eventTitle}" />
-			<var name="eventType" value="${eventType}" />
 		</execute>
 
 		<execute macro="CalendarScheduler#viewEventTitleViaDialogBox">
@@ -813,12 +812,11 @@
 		</if>
 
 		<execute macro="CalendarNavigator#gotoView">
-			<var name="viewType" value="Week" />
+			<var name="viewType" value="Month" />
 		</execute>
 
-		<execute macro="CalendarScheduler#selectEvent">
+		<execute macro="CalendarScheduler#selectSpecificEvent">
 			<var name="eventTitle" value="${eventTitle}" />
-			<var name="eventType" value="${eventType}" />
 		</execute>
 
 		<execute macro="CalendarScheduler#viewEventTitleViaDialogBox">
@@ -1449,12 +1447,11 @@
 
 	<command name="viewDetails">
 		<execute macro="CalendarNavigator#gotoView">
-			<var name="viewType" value="Week" />
+			<var name="viewType" value="Month" />
 		</execute>
 
-		<execute macro="CalendarScheduler#selectEvent">
+		<execute macro="CalendarScheduler#selectSpecificEvent">
 			<var name="eventTitle" value="${eventTitle}" />
-			<var name="eventType" value="${eventType}" />
 		</execute>
 
 		<execute macro="CalendarScheduler#viewEventTitleViaDialogBox">
@@ -1656,12 +1653,11 @@
 
 	<command name="viewUsers">
 		<execute macro="CalendarNavigator#gotoView">
-			<var name="viewType" value="Week" />
+			<var name="viewType" value="Month" />
 		</execute>
 
-		<execute macro="CalendarScheduler#selectEvent">
+		<execute macro="CalendarScheduler#selectSpecificEvent">
 			<var name="eventTitle" value="${eventTitle}" />
-			<var name="eventType" value="${eventType}" />
 		</execute>
 
 		<execute macro="CalendarScheduler#viewEventTitleViaDialogBox">
