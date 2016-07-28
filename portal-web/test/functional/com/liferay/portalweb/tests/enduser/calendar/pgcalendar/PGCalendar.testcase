@@ -1582,12 +1582,12 @@
 			<var name="eventTitle" value="Calendar Event Title" />
 		</execute>
 
-		<execute macro="CalendarEvent#setDatesToday" />
-
 		<execute macro="CalendarEvent#setTimes">
 			<var name="endDateTime" value="10:00 AM" />
 			<var name="startDateTime" value="09:00 AM" />
 		</execute>
+
+		<execute macro="CalendarEvent#setDatesToday" />
 
 		<execute macro="CalendarEvent#save" />
 
@@ -1967,12 +1967,12 @@
 			<var name="eventTitle" value="Current Day Event" />
 		</execute>
 
-		<execute macro="CalendarEvent#setDatesToday" />
-
 		<execute macro="CalendarEvent#setTimes">
 			<var name="endDateTime" value="11:59 PM" />
 			<var name="startDateTime" value="11:58 PM" />
 		</execute>
+
+		<execute macro="CalendarEvent#setDatesToday" />
 
 		<execute macro="CalendarEvent#save" />
 
@@ -2033,12 +2033,12 @@
 			<var name="eventTitle" value="Current Day Event" />
 		</execute>
 
-		<execute macro="CalendarEvent#setDatesToday" />
-
 		<execute macro="CalendarEvent#setTimes">
 			<var name="endDateTime" value="11:59 PM" />
 			<var name="startDateTime" value="11:58 PM" />
 		</execute>
+
+		<execute macro="CalendarEvent#setDatesToday" />
 
 		<execute macro="CalendarEvent#save" />
 
@@ -3582,12 +3582,12 @@
 			<var name="eventTitle" value="Calendar Event Title" />
 		</execute>
 
-		<execute macro="CalendarEvent#setDatesToday" />
-
 		<execute macro="CalendarEvent#setTimes">
 			<var name="endDateTime" value="11:00 PM" />
 			<var name="startDateTime" value="09:00 PM" />
 		</execute>
+
+		<execute macro="CalendarEvent#setDatesToday" />
 
 		<execute macro="CalendarEvent#save" />
 
