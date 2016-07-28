@@ -16,12 +16,26 @@
 
 <%
 exportAssetURL.setWindowState(LiferayWindowState.EXCLUSIVE);
+
+String assetRendererClassName = assetRendererFactory.getClassName();
+
+List<String> extensionsList = ListUtil.toList(extensions);
+
+if (assetRendererClassName.equals(DLFileEntry.class.getName())) {
+	DLFileEntry dlFileEntry = DLFileEntryLocalServiceUtil.getDLFileEntry(assetEntry.getClassPK());
+
+	String dlFileEntryExtension = dlFileEntry.getExtension();
+
+	Collection<String> validConversions = ListUtil.toList(DocumentConversionUtil.getConversions(dlFileEntryExtension));
+
+	extensionsList.retainAll(validConversions);
+}
 %>
 
 <liferay-ui:icon-list>
 
 	<%
-	for (String extension : extensions) {
+	for (String extension : extensionsList) {
 		exportAssetURL.setParameter("targetExtension", extension);
 	%>
 
