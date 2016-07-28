@@ -63,7 +63,7 @@ public class DDLRecordSetPermission {
 		PermissionChecker permissionChecker, DDLRecordSet recordSet,
 		String actionId) {
 
-		if (actionId != ActionKeys.ADD_RECORD) {
+		if (!actionId.equals(ActionKeys.ADD_RECORD)) {
 			Boolean hasPermission = StagingPermissionUtil.hasPermission(
 				permissionChecker, recordSet.getGroupId(),
 				DDLRecordSet.class.getName(), recordSet.getRecordSetId(),
