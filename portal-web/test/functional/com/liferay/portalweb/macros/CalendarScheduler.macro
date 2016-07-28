@@ -90,6 +90,8 @@
 			<var name="viewType" value="Month" />
 		</execute>
 
+		<execute function="Refresh" />
+
 		<execute macro="CalendarScheduler#selectSpecificEvent">
 			<var name="eventTitle" value="${eventTitle}" />
 		</execute>
