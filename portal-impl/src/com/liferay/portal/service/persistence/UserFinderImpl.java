@@ -591,7 +591,9 @@ public class UserFinderImpl
 				}
 			}
 
-			return q.list(true).size();
+			List userIds = q.list(true);
+
+			return userIds.size();
 		}
 		catch (Exception e) {
 			throw new SystemException(e);
