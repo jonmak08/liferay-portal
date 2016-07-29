@@ -73,11 +73,11 @@ public class LayoutsTreeUtil {
 			request, groupId, privateLayout, parentLayoutId, null, incomplete,
 			treeId);
 	}
-		
+
 	public static String getLayoutsJSON(
 			HttpServletRequest request, long groupId, boolean privateLayout,
 			long layoutId, int max)
-			throws Exception {
+		throws Exception {
 
 		Layout layout = LayoutLocalServiceUtil.getLayout(
 			groupId, privateLayout, layoutId);
@@ -85,7 +85,7 @@ public class LayoutsTreeUtil {
 		long parentLayoutId = layout.getParentLayoutId();
 
 		long includedLayoutIndex = LayoutServiceUtil.getLayoutsCount(
-			groupId, privateLayout, parentLayoutId,	layout.getPriority());
+			groupId, privateLayout, parentLayoutId, layout.getPriority());
 
 		int total = LayoutServiceUtil.getLayoutsCount(
 			groupId, privateLayout, parentLayoutId);
@@ -129,7 +129,7 @@ public class LayoutsTreeUtil {
 
 		return jsonObject.toString();
 	}
-	
+
 	public static String getLayoutsJSON(
 			HttpServletRequest request, long groupId, boolean privateLayout,
 			long parentLayoutId, long[] expandedLayoutIds, boolean incomplete,
@@ -161,8 +161,9 @@ public class LayoutsTreeUtil {
 		return _toJSON(request, groupId, layoutTreeNodes);
 	}
 
-	private static Layout _fetchCurrentLayout(HttpServletRequest request) 
-			throws SystemException {
+	private static Layout _fetchCurrentLayout(HttpServletRequest request)
+		throws SystemException {
+
 		long selPlid = ParamUtil.getLong(request, "selPlid");
 
 		if (selPlid > 0) {
@@ -184,22 +185,23 @@ public class LayoutsTreeUtil {
 	private static JSONObject _toJSONObject(
 			HttpServletRequest request, long groupId, List<Layout> layouts,
 			int total)
-					throws Exception {
-		
-		List<LayoutTreeNode> layoutTreeNodesList = new ArrayList<LayoutTreeNode>();
-		
+		throws Exception {
+
+		List<LayoutTreeNode> layoutTreeNodesList =
+			new ArrayList<LayoutTreeNode>();
+
 		for (Layout layout : layouts) {
 			LayoutTreeNode layoutTreeNode = new LayoutTreeNode(layout);
-			
+
 			layoutTreeNodesList.add(layoutTreeNode);
 		}
-		
+
 		LayoutTreeNodes layoutTreeNodes = new LayoutTreeNodes(
 				layoutTreeNodesList, total);
-		
+
 		return _toJSONObject(request, groupId, layoutTreeNodes);
 	}
-	
+
 	private static List<Layout> _getAncestorLayouts(HttpServletRequest request)
 		throws Exception {
 

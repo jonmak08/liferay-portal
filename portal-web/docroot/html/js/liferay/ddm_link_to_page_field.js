@@ -6,7 +6,7 @@ AUI.add(
 		var GET_LAYOUTS_URL = themeDisplay.getPathMain() + '/layouts_admin/get_layouts';
 
 		var TPL_ICON_CARET = '<span class="collapse-icon-closed"><span class="icon-caret-right"></span></span>';
-		
+
 		var TPL_LAYOUTS_NAVBAR = '<nav class="navbar navbar-default">' +
 				'<div class="collapse navbar-collapse" style="height: 48px;">' +
 					'<ul class="nav navbar-nav">' +
@@ -17,7 +17,7 @@ AUI.add(
 			'</nav>';
 
 		var TPL_LOADER = '<span class="linear loading-icon"></span>';
-		
+
 		var TPL_PAGE = '<li class="lfr-ddm-link" data-groupId="{groupId}" data-layoutId="{layoutId}" data-nodeType="{nodeType}" data-privateLayout="{privateLayout}">' +
 				'<input class="lfr-ddm-page-radio" {checked} name="lfr-ddm-page" type="radio" />' +
 				'<a class="collapsed collapse-icon lfr-ddm-page-label" href="javascript:;">{pageTitle}{icon}</a>' +
@@ -45,7 +45,7 @@ AUI.add(
 					selectedLayout: {
 						value: null
 					},
-					
+
 					selectedLayoutPath: {
 						value: null
 					}
@@ -67,14 +67,14 @@ AUI.add(
 						var container = instance.get('container');
 
 						instance._currentParentLayoutId = 0;
-						
+
 						instance._loadingAnimationNode = A.Node.create(TPL_LOADER);
-						
+
 						instance._cache = {};
-						
+
 						instance.after('selectedLayoutChange', instance._afterSelectedLayoutChange);
 						instance.after('selectedLayoutPathChange', instance._afterSelectedLayoutPathChange);
-						
+
 						container.delegate('click', instance._handleControlButtonsClick, '.btn', instance);
 					},
 
@@ -116,15 +116,15 @@ AUI.add(
 
 						return value;
 					},
-					
+
 					getSelectedLayout: function() {
 						var instance = this;
 
 						var selectedLayout = instance.get('selectedLayout');
-						if(selectedLayout){
+						if (selectedLayout) {
 							return selectedLayout;
 						}
-													
+
 						var layoutValue = instance.getParsedValue(instance.getValue());
 
 						if (layoutValue.layoutId) {
@@ -133,15 +133,15 @@ AUI.add(
 
 						return null;
 					},
-					
+
 					getSelectedLayoutPath: function() {
 						var instance = this;
 
 						var selectedLayoutPath = instance.get('selectedLayoutPath');
-						if(selectedLayoutPath){
+						if (selectedLayoutPath) {
 							return selectedLayoutPath;
 						}
-						
+
 						var value = instance.getValue();
 
 						var privateLayout = !!(value && value.privateLayout);
@@ -256,17 +256,17 @@ AUI.add(
 						else {
 							container.append(entryNode);
 						}
-						
+
 						if (selected) {
 							entryNode.scrollIntoView();
 						}
 					},
-					
+
 					_afterSelectedLayoutChange: function(event) {
 						var instance = this;
-						
+
 						var modal = instance._modal;
-						
+
 						if (modal) {
 							var notSelected = !event.newVal;
 
@@ -278,13 +278,13 @@ AUI.add(
 							boundingBox.toggleClass('disabled', notSelected);
 						}
 					},
-					
+
 					_afterSelectedLayoutPathChange: function(event) {
 						var instance = this;
 
 						instance._renderBreadcrumb(event.newVal);
 					},
-					
+
 					_canLoadMore: function(key, start, end) {
 						var instance = this;
 
@@ -292,7 +292,7 @@ AUI.add(
 
 						return !cache || start < cache.start || end > cache.end;
 					},
-					
+
 					_cleanSelectedLayout: function() {
 						var instance = this;
 
@@ -304,7 +304,7 @@ AUI.add(
 							instance.set('selectedLayout', null);
 						}
 					},
-					
+
 					_getCache: function(key) {
 						var instance = this;
 
@@ -316,7 +316,7 @@ AUI.add(
 
 						return cache;
 					},
-					
+
 					_getModalConfig: function() {
 						var instance = this;
 
@@ -415,7 +415,7 @@ AUI.add(
 							instance.set('selectedLayoutPath', selectedLayoutPath);
 						}
 					},
-					
+
 					_handleCancelButtonClick: function(event) {
 						var instance = this;
 
@@ -508,25 +508,25 @@ AUI.add(
 							);
 						}
 					},
-					
+
 					_handleModalScroll: function(event) {
 						var instance = this;
 
 						var listNode = event.currentTarget;
 
 						var innerHeight = listNode.innerHeight();
-						
+
 						var scrollHeight = listNode.get('scrollHeight');
 						var scrollTop = listNode.get('scrollTop');
 
 						var delta = instance.get('delta');
 
 						var groupId = themeDisplay.getScopeGroupId();
-						
+
 						var parentLayoutId = instance._currentParentLayoutId;
-						
+
 						var privateLayout = !!instance._navbar.one('.private').hasClass('active');
-						
+
 						var key = [parentLayoutId, groupId, privateLayout].join('-');
 
 						if (!instance._isListNodeEmpty(key)) {
@@ -545,7 +545,7 @@ AUI.add(
 
 								if (end > start) {
 									listNode.prepend(instance._loadingAnimationNode);
-									
+
 									instance._requestLayouts(parentLayoutId, groupId, privateLayout, start, end, A.rbind('_renderLayoutsFragment', instance, key, 'up'));
 								}
 							}
@@ -555,26 +555,26 @@ AUI.add(
 
 								if (start <= cache.total) {
 									listNode.append(instance._loadingAnimationNode);
-									
+
 									instance._requestLayouts(parentLayoutId, groupId, privateLayout, start, end, A.rbind('_renderLayoutsFragment', instance, key));
 								}
 
 							}
 						}
 					},
-					
+
 					_handleNavbarClick: function(event) {
 						var instance = this;
 
 						var currentTarget = event.currentTarget;
 
 						event.container.one('.active').removeClass('active');
-						
+
 						currentTarget.addClass('active');
 
 						instance._cleanSelectedLayout();
 						instance._renderLayoutsList(currentTarget.test('.private'));
-						
+
 					},
 
 					_handleSelectButtonClick: function() {
@@ -582,7 +582,7 @@ AUI.add(
 
 						instance._openLinkToPageModal();
 					},
-					
+
 					_hideLoader: function() {
 						var instance = this;
 
@@ -598,7 +598,7 @@ AUI.add(
 
 						breadcrumbNode.delegate('click', instance._handleBreadcrumbElementClick, '.lfr-ddm-breadcrumb-element', instance);
 					},
-					
+
 					_initLayoutsList: function() {
 						var instance = this;
 
@@ -612,7 +612,7 @@ AUI.add(
 							navNode.delegate('click', instance._handleListEntryClick, '.lfr-ddm-link', instance);
 						}
 					},
-					
+
 					_isListNodeEmpty: function(key) {
 						var instance = this;
 
@@ -620,7 +620,7 @@ AUI.add(
 
 						return !(cache && cache.layouts);
 					},
-					
+
 					_openLinkToPageModal: function() {
 						var instance = this;
 
@@ -629,7 +629,7 @@ AUI.add(
 						var privateLayout = !!value.privateLayout;
 
 						var modal = instance._modal;
-						
+
 						if (!modal) {
 							var config = instance._getModalConfig();
 
@@ -652,8 +652,8 @@ AUI.add(
 						}
 						else {
 							var path = instance.getSelectedLayoutPath();
-							
-							if(path) {
+
+							if (path) {
 								instance.set(
 									'selectedLayout',
 									{
@@ -665,7 +665,7 @@ AUI.add(
 									}
 								);
 							}
-							
+
 							instance._renderLayoutsList(privateLayout);
 						}
 
@@ -705,7 +705,7 @@ AUI.add(
 
 						layouts.forEach(
 							function(layout) {
-								var selected = selectedLayout && 
+								var selected = selectedLayout &&
 									layout.layoutId.toString() === selectedLayout.layoutId &&
 									layout.privateLayout === selectedLayout.privateLayout;
 
@@ -715,7 +715,7 @@ AUI.add(
 
 						instance._syncModalHeight();
 					},
-					
+
 					_renderLayoutsFragment: function(layouts, key, direction) {
 						var instance = this;
 
@@ -750,7 +750,7 @@ AUI.add(
 
 						instance._syncModalHeight();
 					},
-					
+
 					_renderLayoutsList: function(privateLayout) {
 						var instance = this;
 
@@ -764,9 +764,9 @@ AUI.add(
 
 						var selectedLayout = instance.getSelectedLayout();
 
-						if (selectedLayout && selectedLayout.layoutId && 
+						if (selectedLayout && selectedLayout.layoutId &&
 								selectedLayout.privateLayout === privateLayout) {
-							
+
 							var groupId = themeDisplay.getScopeGroupId();
 
 							instance._requestSiblingLayouts(
@@ -784,7 +784,7 @@ AUI.add(
 									if (cache.start > 0 && listNode.get('scrollTop') === 0) {
 										listNode.set('scrollTop', 50);
 									}
-									
+
 									instance._hideLoader();
 								}
 							);
@@ -795,10 +795,10 @@ AUI.add(
 							instance._requestInitialLayouts(0, themeDisplay.getScopeGroupId(), privateLayout, instance._renderLayouts);
 						}
 					},
-					
+
 					_renderNavbar: function(privateLayout) {
 						var instance = this;
-						
+
 						var navbar = instance._navbar;
 
 						if (!navbar) {
@@ -819,7 +819,7 @@ AUI.add(
 							navbar.insertBefore(navbar, instance._modal.bodyNode);
 						}
 					},
-					
+
 					_requestInitialLayouts: function(parentLayoutId, groupId, privateLayout, callback) {
 						var instance = this;
 
@@ -829,7 +829,7 @@ AUI.add(
 
 						instance._requestLayouts(parentLayoutId, groupId, privateLayout, start, end, callback);
 					},
-					
+
 					_requestLayouts: function(parentLayoutId, groupId, privateLayout, start, end, callback) {
 						var instance = this;
 
@@ -874,30 +874,30 @@ AUI.add(
 							}
 						}
 					},
-					
+
 					_requestSiblingLayouts: function(groupId, privateLayout, callback) {
 						var instance = this;
-						
+
 						var cache;
 
 						var path = instance.getSelectedLayoutPath();
-						
+
 						var lastIndex = path.length - 1;
-						
+
 						if (lastIndex >= 0) {
 							var parentLayout = path[lastIndex];
-							
+
 							var key = [parentLayout.layoutId, parentLayout.groupId, parentLayout.privateLayout].join('-');
-							
+
 							cache = instance._getCache(key);
 						}
-						
+
 						if (cache) {
 							callback.call(instance, cache.layouts);
 						}
 						else {
 							var selectedLayout = instance.getSelectedLayout();
-							
+
 							A.io.request(
 								themeDisplay.getPathMain() + '/layouts_admin/get_layouts',
 								{
@@ -913,7 +913,7 @@ AUI.add(
 												if (!parentLayoutId) {
 													parentLayoutId = 0;
 												}
-												
+
 												var key = [parentLayoutId, groupId, privateLayout].join('-');
 
 												var start = response.start;
@@ -944,7 +944,7 @@ AUI.add(
 							);
 						}
 					},
-					
+
 					_setSelectedLayoutPath: function(groupId, privateLayout, response) {
 						var instance = this;
 
@@ -969,33 +969,33 @@ AUI.add(
 							instance.set('selectedLayoutPath', selectedLayoutPath);
 						}
 					},
-					
+
 					_showLoader: function(node) {
 						var instance = this;
 
 						instance._loadingAnimationNode.appendTo(node);
 					},
-					
+
 					_syncModalHeight: function() {
 						var instance = this;
 
 						var modal = instance._modal;
-						
+
 						var bodyNode = modal.bodyNode;
 
 						modal.fillHeight(bodyNode);
 
 						bodyNode.set('offsetHeight', Lang.toInt(bodyNode.get('offsetHeight')) - Lang.toInt(instance._navbar.get('offsetHeight')));
 					},
-					
+
 					_updateCache: function(key, layouts, start, end, total) {
 						var instance = this;
-						
+
 						var cache = instance._cache[key];
 
 						if (!cache) {
 							var path = instance.getSelectedLayoutPath();
-							if(!path) {
+							if (!path) {
 								return;
 							}
 							cache = {
@@ -1005,7 +1005,7 @@ AUI.add(
 								start: start,
 								total: total
 							};
-							
+
 							instance._cache[key] = cache;
 						}
 						else {
@@ -1026,7 +1026,7 @@ AUI.add(
 							cache.layouts = cachedLayouts;
 						}
 					}
-					
+
 				}
 			}
 		);

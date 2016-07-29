@@ -133,9 +133,9 @@
 	.lfr-ddm-breadcrumb {
 		padding-left: 0;
 		padding-right: 0;
-		
+
 		.lfr-ddm-breadcrumb-element {
-    		padding-right: 10px;
+			padding-right: 10px;
 		}
 
 	}
@@ -162,7 +162,7 @@
 				> a {
 					margin-left: 20px;
 					padding-left: 0;
-					
+
 					> .collapse-icon-closed{
 						padding-left: 10px;
 					}
@@ -179,12 +179,12 @@
 			.lfr-ddm-page-radio {
 				top: 10px;
 			}
-			
+
 			.lfr-ddm-page-label {
 				position: relative;
-    			top: -25px;
+				top: -25px;
 			}
-			
+
 		}
 	}
 }
