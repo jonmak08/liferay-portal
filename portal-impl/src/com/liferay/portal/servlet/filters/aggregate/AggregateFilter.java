@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.servlet.BrowserSniffer;
 import com.liferay.portal.kernel.servlet.BufferCacheServletResponse;
+import com.liferay.portal.kernel.servlet.FileTimestampUtil;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
@@ -45,9 +46,10 @@ import com.liferay.portal.util.PropsValues;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
+
 import java.net.URL;
 import java.net.URLConnection;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -261,37 +263,13 @@ public class AggregateFilter extends IgnoreModuleRequestFilter {
 			boolean staleCache = false;
 
 			for (String fileName : fileNames) {
-				URL resourceURL = _servletContext.getResource(
-					bundleDirName.concat(StringPool.SLASH).concat(fileName));
+				long lastModified = FileTimestampUtil.getTimestamp(
+						_servletContext,
+						bundleDirName.concat(StringPool.SLASH).concat(fileName));
 
-				if (resourceURL == null) {
-					continue;
-				}
-
-				URLConnection urlConnection = null;
-
-				try {
-					urlConnection = resourceURL.openConnection();
-
-					if (urlConnection.getLastModified() >
-							cacheFile.lastModified()) {
-
-						staleCache = true;
-
-						break;
-					}
-				}
-				finally {
-					if (urlConnection != null) {
-						try {
-							InputStream inputStream = urlConnection.getInputStream();
-
-							inputStream.close();
-						}
-						catch (IOException ioe) {
-
-						}
-					}
+				if (lastModified > cacheFile.lastModified()) {
+					staleCache = true;
+					break;
 				}
 			}
 
