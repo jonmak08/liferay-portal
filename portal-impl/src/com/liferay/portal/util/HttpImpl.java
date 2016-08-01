@@ -1636,16 +1636,17 @@ public class HttpImpl implements Http {
 
 	private static ThreadLocal<Cookie[]> _cookies = new ThreadLocal<Cookie[]>();
 
-	private Pattern _absoluteURLPattern = Pattern.compile(
+	private final Pattern _absoluteURLPattern = Pattern.compile(
 		"^[a-zA-Z0-9]+://");
+	private final Pattern _protocolRelativeURLPattern = Pattern.compile(
+		"^[\\s\\\\/]+");
+	private final Pattern _relativeURLPattern = Pattern.compile(
+		"^\\s*/[a-zA-Z0-9]+");
+
 	private HttpClient _httpClient = new HttpClient();
 	private Pattern _nonProxyHostsPattern;
-	private Pattern _protocolRelativeURLPattern = Pattern.compile(
-		"^[\\s\\\\/]+");
 	private Credentials _proxyCredentials;
 	private HttpClient _proxyHttpClient = new HttpClient();
-	private Pattern _relativeURLPattern = Pattern.compile(
-		"^\\s*/[a-zA-Z0-9]+");
 
 	private class FastProtocolSocketFactory
 		extends DefaultProtocolSocketFactory {
