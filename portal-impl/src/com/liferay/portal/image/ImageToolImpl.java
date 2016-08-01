@@ -584,6 +584,11 @@ public class ImageToolImpl implements ImageTool {
 				_log.debug(type + ": " + ioe.getMessage());
 			}
 		}
+		catch (IllegalArgumentException iae) {
+			if (_log.isDebugEnabled()) {
+				_log.debug(iae.getMessage());
+			}
+		}
 
 		return renderedImage;
 	}
