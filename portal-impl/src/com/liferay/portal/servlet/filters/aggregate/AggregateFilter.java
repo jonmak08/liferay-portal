@@ -265,7 +265,8 @@ public class AggregateFilter extends IgnoreModuleRequestFilter {
 			for (String fileName : fileNames) {
 				long lastModified = FileTimestampUtil.getTimestamp(
 						_servletContext,
-						bundleDirName.concat(StringPool.SLASH).concat(fileName));
+						bundleDirName.concat(
+								StringPool.SLASH).concat(fileName));
 
 				if (lastModified > cacheFile.lastModified()) {
 					staleCache = true;
