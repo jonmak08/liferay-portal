@@ -957,8 +957,14 @@ public class JournalArticleLocalServiceImpl
 
 		// Images
 
+		String articleId = article.getArticleId();
+
+		if (article.isInTrash()) {
+			articleId = TrashUtil.getOriginalTitle(articleId);
+		}
+
 		journalArticleImageLocalService.deleteImages(
-			article.getGroupId(), article.getArticleId(), article.getVersion());
+			article.getGroupId(), articleId, article.getVersion());
 
 		// Expando
 
