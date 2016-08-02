@@ -170,6 +170,6 @@ public class FieldConstants {
 		return false;
 	}
 
-	private static final Log _log = LogFactoryUtil.getLog(FieldConstants.class);
+	private static Log _log = LogFactoryUtil.getLog(FieldConstants.class);
 
 }
