@@ -576,6 +576,7 @@ public class UserFinderImpl
 
 		if (ArrayUtil.isNotEmpty(groupIds) && inherit &&
 			!socialRelationTypeUnionUserGroups) {
+
 			List<Organization> organizations = new ArrayList<Organization>();
 			List<Long> siteGroupIds = new ArrayList<Long>();
 			List<Long> userGroupIds = new ArrayList<Long>();
@@ -655,6 +656,7 @@ public class UserFinderImpl
 
 		if (ArrayUtil.isNotEmpty(roleIds) && inherit &&
 			!socialRelationTypeUnionUserGroups) {
+
 			List<Organization> organizations = new ArrayList<Organization>();
 			List<Long> siteGroupIds = new ArrayList<Long>();
 			List<Long> userGroupIds = new ArrayList<Long>();
