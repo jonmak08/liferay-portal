@@ -20,6 +20,7 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.service.ServiceContext;
@@ -1262,7 +1263,8 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 	public List<JournalArticle> getLayoutArticles(long groupId)
 		throws SystemException {
 
-		return journalArticlePersistence.filterFindByG_NotL(groupId, null);
+		return journalArticlePersistence.filterFindByG_NotL(
+			groupId, StringPool.BLANK);
 	}
 
 	/**
