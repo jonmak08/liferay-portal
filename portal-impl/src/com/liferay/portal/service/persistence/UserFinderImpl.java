@@ -570,7 +570,6 @@ public class UserFinderImpl
 		}
 
 		boolean inherit = GetterUtil.getBoolean(params.get("inherit"));
-
 		boolean socialRelationTypeUnionUserGroups = GetterUtil.getBoolean(
 			params.get("socialRelationTypeUnionUserGroups"));
 
