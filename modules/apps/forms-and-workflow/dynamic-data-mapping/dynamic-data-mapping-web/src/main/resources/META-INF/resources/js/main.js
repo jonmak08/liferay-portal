@@ -225,7 +225,7 @@ AUI.add(
 
 				UNIQUE_FIELD_NAMES_MAP: new A.Map(),
 
-				UNLOCALIZABLE_FIELD_ATTRS: ['dataType', 'fieldNamespace', 'indexType', 'localizable', 'multiple', 'name', 'readOnly', 'repeatable', 'required', 'showLabel', 'type'],
+				UNLOCALIZABLE_FIELD_ATTRS: ['dataType', 'fieldNamespace', 'indexType', 'localizable', 'multiple', 'name', 'nullable', 'readOnly', 'repeatable', 'required', 'showLabel', 'type'],
 
 				prototype: {
 					initializer: function() {

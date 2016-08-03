@@ -775,6 +775,8 @@ public class DDMImpl implements DDM {
 		for (DDMFormField ddmFormField : ddmFormFields) {
 			JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
 
+			_addDDMFormFieldProperties(jsonObject, ddmFormField);
+
 			jsonObject.put("dataType", ddmFormField.getDataType());
 			jsonObject.put("id", ddmFormField.getName());
 			jsonObject.put("indexType", ddmFormField.getIndexType());
@@ -1320,6 +1322,16 @@ public class DDMImpl implements DDM {
 		}
 
 		localizedValue.setDefaultLocale(newDefaultLocale);
+	}
+
+	private void _addDDMFormFieldProperties(
+		JSONObject jsonObject, DDMFormField ddmFormField) {
+
+		Map<String, Object> properties = ddmFormField.getProperties();
+
+		for (String propertyKey : properties.keySet()) {
+			jsonObject.put(propertyKey, properties.get(propertyKey));
+		}
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(DDMImpl.class);

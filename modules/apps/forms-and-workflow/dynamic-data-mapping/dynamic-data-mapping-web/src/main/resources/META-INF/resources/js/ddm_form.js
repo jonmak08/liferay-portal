@@ -914,6 +914,10 @@ AUI.add(
 					getValue: function() {
 						var instance = this;
 
+						var container = instance.get('container');
+
+						var disabledCheckbox = container.one('input[type=checkbox]');
+
 						var datePicker = instance.getDatePicker();
 
 						var selectedDate = datePicker.getDate();
@@ -922,7 +926,7 @@ AUI.add(
 
 						var inputNode = instance.getInputNode();
 
-						return inputNode.val() ? formattedDate : '';
+						return inputNode.val() && !(disabledCheckbox && disabledCheckbox.test(':checked')) ? formattedDate : '';
 					},
 
 					repeat: function() {

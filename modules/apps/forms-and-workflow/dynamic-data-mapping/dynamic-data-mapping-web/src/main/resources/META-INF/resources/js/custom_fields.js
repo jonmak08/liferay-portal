@@ -12,6 +12,11 @@ AUI.add(
 
 		var LString = Lang.String;
 
+		var booleanOptions = {
+			'false': Liferay.Language.get('no'),
+			'true': Liferay.Language.get('yes')
+		};
+
 		var booleanParse = A.DataType.Boolean.parse;
 		var camelize = Lang.String.camelize;
 		var instanceOf = A.instanceOf;
@@ -931,11 +936,6 @@ AUI.add(
 				};
 			}
 
-			var booleanOptions = {
-				'false': Liferay.Language.get('no'),
-				'true': Liferay.Language.get('yes')
-			};
-
 			model.forEach(
 				function(item, index) {
 					if (item.attributeName == 'name') {
@@ -1007,6 +1007,11 @@ AUI.add(
 
 					fieldNamespace: {
 						value: 'ddm'
+					},
+
+					nullable: {
+						setter: booleanParse,
+						value: true
 					}
 				},
 
@@ -1071,6 +1076,22 @@ AUI.add(
 										name: Liferay.Language.get('predefined-value')
 									};
 								}
+							}
+						);
+
+						model.push(
+							{
+								attributeName: 'nullable',
+								editor: new A.RadioCellEditor(
+									{
+										editable: false,
+										options: booleanOptions
+									}
+								),
+								formatter: function(val) {
+									return booleanOptions[val.data.value];
+								},
+								name: Liferay.Language.get('nullable')
 							}
 						);
 

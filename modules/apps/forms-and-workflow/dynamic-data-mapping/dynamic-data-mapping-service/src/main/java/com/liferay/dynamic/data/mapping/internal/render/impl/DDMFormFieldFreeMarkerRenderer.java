@@ -141,6 +141,11 @@ public class DDMFormFieldFreeMarkerRenderer implements DDMFormFieldRenderer {
 		fieldContext.put(
 			"multiple", Boolean.toString(ddmFormField.isMultiple()));
 		fieldContext.put("name", ddmFormField.getName());
+
+		boolean nullable = GetterUtil.getBoolean(
+			ddmFormField.getProperty("nullable"), true);
+
+		fieldContext.put("nullable", nullable);
 		fieldContext.put(
 			"readOnly", Boolean.toString(ddmFormField.isReadOnly()));
 		fieldContext.put(

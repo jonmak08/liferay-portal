@@ -4,8 +4,6 @@
 <#assign MONTH = staticUtil["java.util.Calendar"].MONTH>
 <#assign YEAR = staticUtil["java.util.Calendar"].YEAR>
 
-<#assign nullable = false>
-
 <#if (hasFieldValue)>
 	<#assign dateValue = fieldRawValue?date["yyyy-MM-dd"]>
 
@@ -21,8 +19,6 @@
 	<#assign calendar = calendarFactory.getCalendar(timeZone)>
 
 	<#assign fieldValue = calendarFactory.getCalendar(calendar.get(YEAR), calendar.get(MONTH), calendar.get(DATE))>
-
-	<#assign nullable = true>
 </#if>
 
 <#assign dayValue = paramUtil.getInteger(request, "${namespacedFieldName}Day", fieldValue.get(DATE))>
@@ -39,7 +35,7 @@
 			monthParam="${namespacedFieldName}Month"
 			monthValue=monthValue
 			name="${namespacedFieldName}"
-			nullable=nullable
+			nullable=fieldStructure.nullable
 			required=required
 			yearParam="${namespacedFieldName}Year"
 			yearValue=yearValue
