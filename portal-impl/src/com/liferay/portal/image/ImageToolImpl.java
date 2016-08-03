@@ -586,7 +586,7 @@ public class ImageToolImpl implements ImageTool {
 		}
 		catch (IllegalArgumentException iae) {
 			if (_log.isDebugEnabled()) {
-				_log.debug(iae);
+				_log.debug(iae, iae);
 			}
 		}
 
