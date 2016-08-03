@@ -15,7 +15,6 @@
 package com.liferay.portlet.dynamicdatamapping.service;
 
 import com.liferay.portal.kernel.xml.Document;
-import com.liferay.portal.kernel.xml.DocumentException;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.Node;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
@@ -26,12 +25,12 @@ import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.model.impl.DDMStructureImpl;
 import com.liferay.portlet.dynamicdatamapping.service.impl.DDMStructureLocalServiceImpl;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import java.util.List;
 
 /**
  * @author Tyler Wong
@@ -57,7 +56,7 @@ public class DDMAppendNewStructureRequiredFieldsTest
 
 	@Test
 	public void testAddSelectOptionRequired() throws Exception {
-		addSelectElement(_ddmStructure, "true");
+		addSelectElement(_ddmStructure, "true", null);
 
 		addOptionElement(_ddmStructure, "select", 4);
 
@@ -68,7 +67,7 @@ public class DDMAppendNewStructureRequiredFieldsTest
 
 	@Test
 	public void testAddSelectOptionNotRequired() throws Exception {
-		addSelectElement(_ddmStructure, "false");
+		addSelectElement(_ddmStructure, "false", null);
 
 		addOptionElement(_ddmStructure, "select", 4);
 
@@ -79,7 +78,7 @@ public class DDMAppendNewStructureRequiredFieldsTest
 
 	@Test
 	public void testAddRadioOptionRequired() throws Exception {
-		addRadioElement(_ddmStructure, "true");
+		addRadioElement(_ddmStructure, "true", null);
 
 		addOptionElement(_ddmStructure, "radio", 4);
 
@@ -90,7 +89,7 @@ public class DDMAppendNewStructureRequiredFieldsTest
 
 	@Test
 	public void testAddRadioOptionNotRequired() throws Exception {
-		addRadioElement(_ddmStructure, "false");
+		addRadioElement(_ddmStructure, "false", null);
 
 		addOptionElement(_ddmStructure, "radio", 4);
 
@@ -101,7 +100,7 @@ public class DDMAppendNewStructureRequiredFieldsTest
 
 	@Test
 	public void testAddTextElementRequired() throws Exception {
-		addTextElement(_ddmStructure, "true");
+		addTextElement(_ddmStructure, "true", null);
 
 		appendNewStructureRequiredFields(_ddmStructure, _templateDocument);
 
@@ -110,11 +109,184 @@ public class DDMAppendNewStructureRequiredFieldsTest
 
 	@Test
 	public void testAddTextElementNotRequired() throws Exception {
-		addTextElement(_ddmStructure, "false");
+		addTextElement(_ddmStructure, "false", null);
 
 		appendNewStructureRequiredFields(_ddmStructure, _templateDocument);
 
 		Assert.assertNotEquals(_ddmStructure.getXsd(), _templateDocument.asXML());
+	}
+
+	@Test
+	public void testOverrideTemplateSelectElement() throws Exception {
+		addSelectElement(_ddmStructure, "true", null);
+
+		appendNewStructureRequiredFields(_ddmStructure, _templateDocument);
+
+		addOptionElement(_templateDocument, "select", 4);
+
+		appendNewStructureRequiredFields(_ddmStructure, _templateDocument);
+
+		Assert.assertEquals(_ddmStructure.getXsd(), _templateDocument.asXML());
+	}
+
+	@Test
+	public void testOverrideTemplateSelectElement2() throws Exception {
+		addSelectElement(_ddmStructure, "true", null);
+
+		appendNewStructureRequiredFields(_ddmStructure, _templateDocument);
+
+		addOptionElement(_ddmStructure, "select", 4);
+
+		appendNewStructureRequiredFields(_ddmStructure, _templateDocument);
+
+		Assert.assertEquals(_ddmStructure.getXsd(), _templateDocument.asXML());
+	}
+
+	@Test
+	public void testOverrideTemplateSelectElement3() throws Exception {
+		addSelectElement(_ddmStructure, "true", null);
+
+		appendNewStructureRequiredFields(_ddmStructure, _templateDocument);
+
+		addOptionElement(_ddmStructure, "select", 4);
+		addOptionElement(_templateDocument, "select", 5);
+
+		appendNewStructureRequiredFields(_ddmStructure, _templateDocument);
+
+		Assert.assertEquals(_ddmStructure.getXsd(), _templateDocument.asXML());
+	}
+
+	@Test
+	public void testOverrideTemplateSelectElement4() throws Exception {
+		addSelectElement(_ddmStructure, "true", "select1");
+		addSelectElement(_templateDocument, "true", "select1");
+
+		appendNewStructureRequiredFields(_ddmStructure, _templateDocument);
+
+		Assert.assertEquals(_ddmStructure.getXsd(), _templateDocument.asXML());
+	}
+
+	@Test
+	public void testOverrideTemplateSelectElement5() throws Exception {
+		addSelectElement(_ddmStructure, "true", "select1");
+		addSelectElement(_templateDocument, "true", "select1");
+
+		addOptionElement(_ddmStructure, "select", 4);
+
+		appendNewStructureRequiredFields(_ddmStructure, _templateDocument);
+
+		Assert.assertEquals(_ddmStructure.getXsd(), _templateDocument.asXML());
+	}
+
+	@Test
+	public void testFailOverrideTemplateSelectElement6() throws Exception {
+		addSelectElement(_ddmStructure, "true", "select1");
+		addSelectElement(_templateDocument, "false", "select1");
+
+		appendNewStructureRequiredFields(_ddmStructure, _templateDocument);
+
+		Assert.assertEquals(_ddmStructure.getXsd(), _templateDocument.asXML());
+	}
+
+	@Test
+	public void testFailOverrideTemplateSelectElement() throws Exception {
+		addSelectElement(_ddmStructure, "true", "select1");
+		addSelectElement(_templateDocument, "true", "select2");
+
+		appendNewStructureRequiredFields(_ddmStructure, _templateDocument);
+
+		Assert.assertNotEquals(_ddmStructure.getXsd(), _templateDocument.asXML());
+	}
+
+	@Test
+	public void testOverrideTemplateWithOtherFieldsSelectElement() throws Exception {
+		addSelectElement(_ddmStructure, "true", "select1");
+		addSelectElement(_templateDocument, "true", "select1");
+
+		addDDMParagraphElement(_templateDocument);
+
+		appendNewStructureRequiredFields(_ddmStructure, _templateDocument);
+
+		Assert.assertNotEquals(_ddmStructure.getXsd(), _templateDocument.asXML());
+
+		Document structureDocument = getStructureDocument(_ddmStructure);
+
+		XPath selectElementXPath = SAXReaderUtil.createXPath("//dynamic-element[@name=\"select1\"]");
+
+		List<Node> structureSelectNodes = selectElementXPath.selectNodes(structureDocument);
+
+		Node structureSelectNode = structureSelectNodes.get(0);
+
+		List<Node> templateSelectNodes = selectElementXPath.selectNodes(_templateDocument);
+
+		Node templateSelectNode = templateSelectNodes.get(0);
+
+		Assert.assertEquals(structureSelectNode.asXML(), templateSelectNode.asXML());
+	}
+
+	@Test
+	public void testOverrideTemplateWithOtherFieldsSelectElement2() throws Exception {
+		addDDMParagraphElement(_templateDocument);
+
+		addSelectElement(_ddmStructure, "true", "select1");
+		addSelectElement(_templateDocument, "true", "select1");
+
+		appendNewStructureRequiredFields(_ddmStructure, _templateDocument);
+
+		Assert.assertNotEquals(_ddmStructure.getXsd(), _templateDocument.asXML());
+
+		Document structureDocument = getStructureDocument(_ddmStructure);
+
+		XPath selectElementXPath = SAXReaderUtil.createXPath("//dynamic-element[@name=\"select1\"]");
+
+		List<Node> structureSelectNodes = selectElementXPath.selectNodes(structureDocument);
+
+		Node structureSelectNode = structureSelectNodes.get(0);
+
+		List<Node> templateSelectNodes = selectElementXPath.selectNodes(_templateDocument);
+
+		Node templateSelectNode = templateSelectNodes.get(0);
+
+		Assert.assertEquals(structureSelectNode.asXML(), templateSelectNode.asXML());
+	}
+
+	protected Element addDDMParagraphElement(Document templateDocument) throws Exception {
+		Element rootElement = templateDocument.getRootElement();
+
+		return addDDMParagraphElement(rootElement);
+	}
+
+	protected Element addDDMParagraphElement(Element element) throws Exception {
+		Element dynamicElement = element.addElement("dynamic-element");
+
+		dynamicElement.addAttribute("fieldNamespace", "ddm");
+		dynamicElement.addAttribute("indexType", "keyword");
+		dynamicElement.addAttribute("localizable", "true");
+		dynamicElement.addAttribute("name", ServiceTestUtil.randomString());
+		dynamicElement.addAttribute("readOnly", "false");
+		dynamicElement.addAttribute("repeatable", "false");
+		dynamicElement.addAttribute("required", "false");
+		dynamicElement.addAttribute("showLabel", "true");
+		dynamicElement.addAttribute("type", "ddm-paragraph");
+		dynamicElement.addAttribute("width", "");
+
+		Element metadataElement = dynamicElement.addElement("meta-data");
+
+		metadataElement.addAttribute("locale", "en_US");
+
+		Element metadataEntryElement1 = metadataElement.addElement("entry");
+
+		metadataEntryElement1.addAttribute("name", "label");
+
+		metadataEntryElement1.addCDATA("Paragraph");
+
+		Element metadataEntryElement2 = metadataElement.addElement("entry");
+
+		metadataEntryElement2.addAttribute("name", "style");
+
+		metadataEntryElement2.addCDATA("");
+
+		return dynamicElement;
 	}
 
 	protected Element addRootElement(Document document) {
@@ -126,14 +298,14 @@ public class DDMAppendNewStructureRequiredFieldsTest
 		return rootElement;
 	}
 
-	protected Element addTextElement(DDMStructure ddmStructure, String required) throws Exception {
+	protected Element addTextElement(DDMStructure ddmStructure, String required, String name) throws Exception {
 		Document structureDocument = getStructureDocument(ddmStructure);
 
 		Element rootElement = structureDocument.getRootElement();
 
 		Element textElement = rootElement.addElement("dynamic-element");
 
-		addDynamicElementAttributes(textElement, required, "text");
+		addDynamicElementAttributes(textElement, required, "text", name);
 
 		addDynamicElementMetadata(textElement, "text");
 
@@ -142,22 +314,26 @@ public class DDMAppendNewStructureRequiredFieldsTest
 		return textElement;
 	}
 
-	protected Element addSelectElement(DDMStructure ddmStructure, String required) throws Exception {
+	protected Element addSelectElement(DDMStructure ddmStructure, String required, String name) throws Exception {
 		Document structureDocument = getStructureDocument(ddmStructure);
 
-		Element rootElement = structureDocument.getRootElement();
-
-		Element dynamicElement = addSelectElement(rootElement, required);
+		Element dynamicElement = addSelectElement(structureDocument, required, name);
 
 		_ddmStructure.setXsd(structureDocument.asXML());
 
 		return dynamicElement;
 	}
 
-	protected Element addSelectElement(Element element, String required) throws Exception {
+	protected Element addSelectElement(Document document, String required, String name) throws Exception {
+		Element rootElement = document.getRootElement();
+
+		return addSelectElement(rootElement, required, name);
+	}
+
+	protected Element addSelectElement(Element element, String required, String name) throws Exception {
 		Element dynamicElement = element.addElement("dynamic-element");
 
-		addDynamicElementAttributes(dynamicElement, required, "select");
+		addDynamicElementAttributes(dynamicElement, required, "select", name);
 
 		addOptionElement(dynamicElement, 1);
 		addOptionElement(dynamicElement, 2);
@@ -168,22 +344,22 @@ public class DDMAppendNewStructureRequiredFieldsTest
 		return dynamicElement;
 	}
 
-	protected Element addRadioElement(DDMStructure ddmStructure, String required) throws Exception {
+	protected Element addRadioElement(DDMStructure ddmStructure, String required, String name) throws Exception {
 		Document structureDocument = getStructureDocument(ddmStructure);
 
 		Element rootElement = structureDocument.getRootElement();
 
-		Element dynamicElement = addRadioElement(rootElement, required);
+		Element dynamicElement = addRadioElement(rootElement, required, name);
 
 		_ddmStructure.setXsd(structureDocument.asXML());
 
 		return dynamicElement;
 	}
 
-	protected Element addRadioElement(Element element, String required) throws Exception {
+	protected Element addRadioElement(Element element, String required, String name) throws Exception {
 		Element dynamicElement = element.addElement("dynamic-element");
 
-		addDynamicElementAttributes(dynamicElement, required, "radio");
+		addDynamicElementAttributes(dynamicElement, required, "radio", name);
 
 		addOptionElement(dynamicElement, 1);
 		addOptionElement(dynamicElement, 2);
@@ -194,20 +370,28 @@ public class DDMAppendNewStructureRequiredFieldsTest
 		return dynamicElement;
 	}
 
-	protected void addOptionElement(DDMStructure ddmStructure, String type, int num) throws Exception {
-		XPath structureXPath = SAXReaderUtil.createXPath("//dynamic-element[@type=\"" + type + "\"]");
+	protected void addOptionElement(DDMStructure ddmStructure, String type, int num)
+		throws Exception {
 
 		Document structureDocument = getStructureDocument(ddmStructure);
 
-		List<Node> selectNodes = structureXPath.selectNodes(structureDocument);
-
-		Node selectNode = selectNodes.get(0);  // Only testing for first selected element
-
-		Element selectElement = (Element) selectNode;
-
-		addOptionElement(selectElement, num);
+		addOptionElement(structureDocument, type, num);
 
 		_ddmStructure.setXsd(structureDocument.asXML());
+	}
+
+	protected void addOptionElement(Document document, String type, int num)
+		throws Exception {
+
+		XPath structureXPath = SAXReaderUtil.createXPath("//dynamic-element[@type=\"" + type + "\"]");
+
+		List<Node> selectNodes = structureXPath.selectNodes(document);
+
+		Node selectNode = selectNodes.get(0);
+
+		Element selectElement = (Element)selectNode;
+
+		addOptionElement(selectElement, num);
 	}
 
 	protected void addOptionElement(Element dynamicElement, int num) throws Exception {
@@ -227,7 +411,10 @@ public class DDMAppendNewStructureRequiredFieldsTest
 		optionMetadataEntryElement.addCDATA("option " + num);
 	}
 
-	protected Element addDynamicElementAttributes(Element dynamicElement, String required, String type) throws Exception {
+	protected Element addDynamicElementAttributes(
+			Element dynamicElement, String required, String type, String name)
+		throws Exception {
+
 		dynamicElement.addAttribute("dataType", "string");
 		dynamicElement.addAttribute("indexType", "keyword");
 		dynamicElement.addAttribute("localizable", "true");
@@ -236,7 +423,13 @@ public class DDMAppendNewStructureRequiredFieldsTest
 			dynamicElement.addAttribute("multiple", "false");
 		}
 
-		dynamicElement.addAttribute("name", ServiceTestUtil.randomString());
+		if (name != null && !name.equals("")) {
+			dynamicElement.addAttribute("name", name);
+		}
+		else {
+			dynamicElement.addAttribute("name", ServiceTestUtil.randomString());
+		}
+
 		dynamicElement.addAttribute("readOnly", "false");
 		dynamicElement.addAttribute("repeatable", "false");
 		dynamicElement.addAttribute("required", required);
@@ -305,7 +498,7 @@ public class DDMAppendNewStructureRequiredFieldsTest
 		metadataEntryElement3.addCDATA("");
 	}
 
-	protected Document getStructureDocument(DDMStructure ddmStructure) throws DocumentException {
+	protected Document getStructureDocument(DDMStructure ddmStructure) throws Exception {
 		String xsd = ddmStructure.getXsd();
 
 		return SAXReaderUtil.read(xsd);
