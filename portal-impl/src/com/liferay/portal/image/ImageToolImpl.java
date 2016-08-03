@@ -579,14 +579,14 @@ public class ImageToolImpl implements ImageTool {
 
 			renderedImage = imageDecoder.decodeAsRenderedImage();
 		}
-		catch (IOException ioe) {
-			if (_log.isDebugEnabled()) {
-				_log.debug(type + ": " + ioe.getMessage());
-			}
-		}
 		catch (IllegalArgumentException iae) {
 			if (_log.isDebugEnabled()) {
 				_log.debug(iae, iae);
+			}
+		}
+		catch (IOException ioe) {
+			if (_log.isDebugEnabled()) {
+				_log.debug(type + ": " + ioe.getMessage());
 			}
 		}
 
