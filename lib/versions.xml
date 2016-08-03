@@ -3035,6 +3035,11 @@
 						<copyright-notice>Copyright (c) 2009 The Apache Software Foundation</copyright-notice>
 					</license>
 				</licenses>
+				<comments>
+					This includes a public patch from bug 56164 for
+					CVE-2014-3529 and from bug 54764 for CVE-2014-3574. See the
+					Ant target "build-poi-ooxml-jar" in portal-impl/build.xml.
+				</comments>
 			</library>
 			<library>
 				<file-name>lib/portal/poi-ooxml-schemas.jar</file-name>
