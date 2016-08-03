@@ -2165,10 +2165,12 @@ public class DLFileEntryLocalServiceImpl
 		}
 
 		if (Validator.isNotNull(layoutURL)) {
-			String namespace = PortalUtil.getPortletNamespace(
-				PortletKeys.DOCUMENT_LIBRARY);
 			layoutURL = HttpUtil.addParameter(
 				layoutURL, "p_p_id", PortletKeys.DOCUMENT_LIBRARY);
+
+			String namespace = PortalUtil.getPortletNamespace(
+				PortletKeys.DOCUMENT_LIBRARY);
+
 			layoutURL = HttpUtil.addParameter(
 				layoutURL, namespace + "struts_action",
 				"/document_library/view_file_entry");
