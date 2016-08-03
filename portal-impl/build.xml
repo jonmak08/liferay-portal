@@ -615,6 +615,12 @@ public class Creole10Parser]]></replacevalue>
 			strip="1"
 		/>
 
+		<patch
+			dir="${tstamp.value}"
+			patchfile="${project.dir}/lib/portal/poi-ooxml/LPS-67439-CVE-2014-3574.patch"
+			strip="1"
+		/>
+
 		<antcall target="compile-java">
 			<param name="javac.classpathref" value="project.classpath" />
 			<param name="javac.destdir" value="${tstamp.value}" />
