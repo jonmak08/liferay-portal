@@ -1264,7 +1264,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 		throws SystemException {
 
 		return journalArticlePersistence.filterFindByG_NotL(
-			groupId, StringPool.BLANK);
+			groupId, new String[] {null, StringPool.BLANK});
 	}
 
 	/**
