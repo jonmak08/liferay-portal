@@ -638,6 +638,8 @@ AUI.add(
 
 							modal.render();
 
+							A.after('windowresize', A.bind(instance._syncModalHeight, instance));
+
 							instance._modal = modal;
 
 							instance._initBreadcrumb();
