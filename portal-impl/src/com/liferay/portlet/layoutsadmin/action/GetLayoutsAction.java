@@ -60,8 +60,7 @@ public class GetLayoutsAction extends JSONAction {
 			HttpServletRequest request, long groupId, String treeId)
 		throws Exception {
 
-		boolean privateLayout = ParamUtil.getBoolean(
-			request, "isPrivateLayout");
+		boolean privateLayout = ParamUtil.getBoolean(request, "privateLayout");
 		long parentLayoutId = ParamUtil.getLong(request, "parentLayoutId");
 		boolean incomplete = ParamUtil.getBoolean(request, "incomplete", true);
 
@@ -74,8 +73,7 @@ public class GetLayoutsAction extends JSONAction {
 			HttpServletRequest request, long groupId)
 		throws Exception {
 
-		boolean privateLayout = ParamUtil.getBoolean(
-			request, "isPrivateLayout");
+		boolean privateLayout = ParamUtil.getBoolean(request, "privateLayout");
 		long layoutId = ParamUtil.getLong(request, "layoutId");
 		int max = ParamUtil.getInteger(request, "max");
 

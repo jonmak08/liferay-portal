@@ -3,8 +3,6 @@ AUI.add(
 	function(A) {
 		var Lang = A.Lang;
 
-		var GET_LAYOUTS_URL = themeDisplay.getPathMain() + '/layouts_admin/get_layouts';
-
 		var TPL_ICON_CARET = '<span class="collapse-icon-closed"><span class="icon-caret-right"></span></span>';
 
 		var TPL_LAYOUTS_NAVBAR = '<nav class="navbar navbar-default">' +
@@ -122,6 +120,7 @@ AUI.add(
 						var instance = this;
 
 						var selectedLayout = instance.get('selectedLayout');
+
 						if (selectedLayout) {
 							return selectedLayout;
 						}
@@ -139,6 +138,7 @@ AUI.add(
 						var instance = this;
 
 						var selectedLayoutPath = instance.get('selectedLayoutPath');
+
 						if (selectedLayoutPath) {
 							return selectedLayoutPath;
 						}
@@ -179,7 +179,7 @@ AUI.add(
 						if (parsedValue && parsedValue.layoutId) {
 							if (parsedValue.label) {
 								layoutNameNode.val(parsedValue.label);
-								layoutNameNode.attr('defaultValue', parsedValue.label)
+								layoutNameNode.attr('defaultValue', parsedValue.label);
 							}
 
 							value = JSON.stringify(parsedValue);
@@ -866,7 +866,7 @@ AUI.add(
 											p_auth: Liferay.authToken,
 											paginate: true,
 											parentLayoutId: parentLayoutId,
-											isPrivateLayout: privateLayout,
+											privateLayout: privateLayout,
 											start: start
 										}
 									}
@@ -941,7 +941,7 @@ AUI.add(
 										max: instance.get('delta'),
 										p_auth: Liferay.authToken,
 										paginate: true,
-										isPrivateLayout: privateLayout,
+										privateLayout: privateLayout
 									}
 								}
 							);
@@ -998,9 +998,11 @@ AUI.add(
 
 						if (!cache) {
 							var path = instance.getSelectedLayoutPath();
+
 							if (!path) {
 								return;
 							}
+
 							cache = {
 								end: end,
 								layouts: layouts,
