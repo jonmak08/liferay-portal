@@ -138,6 +138,11 @@
 			padding-right: 10px;
 		}
 
+		.lfr-ddm-breadcrumb-element-separator {
+			margin-left: 10px;
+    		margin-right: 0px;
+		}
+	}
 	}
 
 	.lfr-ddm-pages-container {

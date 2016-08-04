@@ -27,6 +27,7 @@ AUI.add(
 
 		var TPL_PAGES_BREADCRUMB_ELEMENT = '<li class="lfr-ddm-breadcrumb-element" data-groupId={groupId} data-layoutId={layoutId} data-privateLayout={privateLayout}>' +
 				'<a title="{label}">{label}</a>' +
+				'<span class="lfr-ddm-breadcrumb-element-separator">&gt;</span>' +
 			'</li>';
 
 		var TPL_PAGES_CONTAINER = '<ul class="lfr-ddm-pages-container nav"></ul>';
