@@ -802,10 +802,13 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 				discussion.getThreadId());
 		}
 
-		MBMessage message = mbMessagePersistence.findByPrimaryKey(messageId);
+		if (messageId != MBMessageConstants.DEFAULT_PARENT_MESSAGE_ID) {
+			MBMessage message = mbMessagePersistence.findByPrimaryKey(
+				messageId);
 
-		if (thread.getRootMessageId() != message.getRootMessageId()) {
-			throw new PrincipalException();
+			if (thread.getRootMessageId() != message.getRootMessageId()) {
+				throw new PrincipalException();
+			}
 		}
 	}
 
