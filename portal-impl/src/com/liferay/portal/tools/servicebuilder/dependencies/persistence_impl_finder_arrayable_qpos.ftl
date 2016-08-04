@@ -1,7 +1,15 @@
 <#list finderColsList as finderCol>
 	<#if finderCol.hasArrayableOperator()>
 		if (${finderCol.names} != null) {
+		<#if finderCol.type == "String">
+			for (String ${finderCol.name} : ${finderCol.names}) {
+				if (${finderCol.name} != null && !${finderCol.name}.isEmpty()) {
+					qPos.add(${finderCol.name});
+				}
+			}
+		<#else>
 			qPos.add(${finderCol.names});
+		</#if>
 		}
 	<#else>
 		<#if !finderCol.isPrimitiveType()>
