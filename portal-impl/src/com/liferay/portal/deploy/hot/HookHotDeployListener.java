@@ -234,7 +234,7 @@ public class HookHotDeployListener
 		"default.wap.theme.id", "dl.file.entry.drafts.enabled",
 		"dl.file.entry.open.in.ms.office.manual.check.in.required",
 		"dl.file.entry.processors", "dl.repository.impl",
-		"dl.store.antivirus.impl", "dl.store.antivirus.enabled",
+		"dl.store.antivirus.enabled", "dl.store.antivirus.impl",
 		"dl.store.impl", "dockbar.add.portlets",
 		"field.enable.com.liferay.portal.model.Contact.birthday",
 		"field.enable.com.liferay.portal.model.Contact.male",
