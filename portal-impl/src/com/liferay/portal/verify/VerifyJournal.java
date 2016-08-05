@@ -28,6 +28,7 @@ import com.liferay.portal.kernel.util.FriendlyURLNormalizerUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
+import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -39,6 +40,7 @@ import com.liferay.portal.kernel.xml.Node;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.service.ResourceLocalServiceUtil;
 import com.liferay.portal.util.PortalInstances;
+import com.liferay.portal.util.PortalUtil;
 import com.liferay.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
@@ -96,13 +98,15 @@ public class VerifyJournal extends VerifyProcess {
 		verifyURLTitle();
 	}
 
-	protected void updateDynamicElements(List<Element> dynamicElements)
+	protected void updateDynamicElements(
+			List<Element> dynamicElements, String defaultLanguageId)
 		throws PortalException, SystemException {
 
 		DDMFieldsCounter ddmFieldsCounter = new DDMFieldsCounter();
 
 		for (Element dynamicElement : dynamicElements) {
-			updateDynamicElements(dynamicElement.elements("dynamic-element"));
+			updateDynamicElements(
+				dynamicElement.elements("dynamic-element"), defaultLanguageId);
 
 			String name = dynamicElement.attributeValue("name");
 
@@ -114,6 +118,14 @@ public class VerifyJournal extends VerifyProcess {
 
 			if (type.equals("image")) {
 				updateImageElement(dynamicElement, name, index);
+			}
+
+			Element dynamicContent = dynamicElement.element("dynamic-content");
+
+			if (Validator.isNull(
+					dynamicContent.attributeValue("language-id"))) {
+
+				dynamicContent.addAttribute("language-id", defaultLanguageId);
 			}
 
 			ddmFieldsCounter.incrementKey(name);
@@ -516,7 +528,16 @@ public class VerifyJournal extends VerifyProcess {
 
 		Element rootElement = document.getRootElement();
 
-		updateDynamicElements(rootElement.elements("dynamic-element"));
+		String defaultLanguageId = rootElement.attributeValue("default-locale");
+
+		if (Validator.isNull(defaultLanguageId)) {
+			defaultLanguageId =
+				LocaleUtil.toLanguageId(
+					PortalUtil.getSiteDefaultLocale(article.getGroupId()));
+		}
+
+		updateDynamicElements(
+			rootElement.elements("dynamic-element"), defaultLanguageId);
 
 		article.setContent(document.asXML());
 
