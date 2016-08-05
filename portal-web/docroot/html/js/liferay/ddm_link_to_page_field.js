@@ -200,7 +200,6 @@ AUI.add(
 							inputNode.val(value);
 							inputNode.attr('defaultValue', value);
 						}
-
 					},
 
 					syncReadOnlyUI: function() {
@@ -575,7 +574,6 @@ AUI.add(
 
 						instance._cleanSelectedLayout();
 						instance._renderLayoutsList(currentTarget.test('.private'));
-
 					},
 
 					_handleSelectButtonClick: function() {
