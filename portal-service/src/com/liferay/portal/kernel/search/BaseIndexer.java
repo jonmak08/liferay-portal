@@ -1153,9 +1153,7 @@ public abstract class BaseIndexer implements Indexer {
 		searchContext.addFacet(multiValueFacet);
 	}
 
-	protected void addStagingGroupKeyword(Document document, long groupId)
-		throws Exception {
-
+	protected void addStagingGroupKeyword(Document document, long groupId) {
 		if (!isStagingAware()) {
 			return;
 		}
@@ -1669,20 +1667,33 @@ public abstract class BaseIndexer implements Indexer {
 
 	protected abstract String getPortletId(SearchContext searchContext);
 
-	protected long getSiteGroupId(long groupId) {
-		long siteGroupId = groupId;
+	protected Group getSiteGroup(long groupId) {
+		Group group = null;
 
 		try {
-			Group group = GroupLocalServiceUtil.getGroup(groupId);
+			group = GroupLocalServiceUtil.getGroup(groupId);
 
 			if (group.isLayout()) {
-				siteGroupId = group.getParentGroupId();
+				group = group.getParentGroup();
 			}
 		}
-		catch (Exception e) {
+		catch (PortalException e) {
+			if (_log.isDebugEnabled()) {
+				_log.debug("Unable to retrieve site group", e);
+			}
 		}
 
-		return siteGroupId;
+		return group;
+	}
+
+	protected long getSiteGroupId(long groupId) {
+		Group group = getSiteGroup(groupId);
+
+		if (group == null) {
+			return groupId;
+		}
+
+		return group.getGroupId();
 	}
 
 	protected Locale getSnippetLocale(Document document, Locale locale) {
@@ -1709,18 +1720,14 @@ public abstract class BaseIndexer implements Indexer {
 		return null;
 	}
 
-	protected boolean isStagingGroup(long groupId) throws PortalException {
-		Group group = GroupLocalServiceUtil.getGroup(groupId);
+	protected boolean isStagingGroup(long groupId) {
+		Group group = getSiteGroup(groupId);
 
-		if (group.isLayout()) {
-			group = GroupLocalServiceUtil.getGroup(group.getParentGroupId());
+		if (group == null) {
+			return false;
 		}
 
-		if (group.isStagingGroup()) {
-			return true;
-		}
-
-		return false;
+		return group.isStagingGroup();
 	}
 
 	protected boolean isUseSearchResultPermissionFilter(
