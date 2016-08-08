@@ -141,7 +141,7 @@ boolean anonymousAccount = ParamUtil.getBoolean(request, "anonymousUser");
 		['aui-base']
 	);
 
-	<c:if test="<%= !company.isStrangers() %>">
+	<c:if test="<%= !company.isStrangers() && (user == null) %>">
 		<portlet:namespace />closeDialog();
 	</c:if>
 </aui:script>
