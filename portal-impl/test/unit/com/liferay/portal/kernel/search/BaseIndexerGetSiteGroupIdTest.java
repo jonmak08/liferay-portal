@@ -15,18 +15,16 @@
 package com.liferay.portal.kernel.search;
 
 import com.liferay.portal.NoSuchGroupException;
-import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.service.GroupLocalService;
 import com.liferay.portal.service.GroupLocalServiceUtil;
+import com.liferay.portal.util.RandomTestUtil;
 
 import java.util.Locale;
 
-import javax.portlet.PortletRequest;
-import javax.portlet.PortletResponse;
+import javax.portlet.PortletURL;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -158,7 +156,7 @@ public class BaseIndexerGetSiteGroupIdTest extends PowerMockito {
 	}
 
 	protected Group setUpLayoutGroup(long groupId, long parentGroupId)
-		throws PortalException {
+		throws Exception {
 
 		Group group = Mockito.mock(Group.class);
 
@@ -203,7 +201,7 @@ public class BaseIndexerGetSiteGroupIdTest extends PowerMockito {
 		return parentGroup;
 	}
 
-	protected void setUpNonexistentGroup(long groupId) throws PortalException {
+	protected void setUpNonexistentGroup(long groupId) throws Exception {
 		Mockito.doThrow(
 			new NoSuchGroupException()
 		).when(
@@ -225,7 +223,12 @@ public class BaseIndexerGetSiteGroupIdTest extends PowerMockito {
 	private static class TestIndexer extends BaseIndexer {
 
 		@Override
-		public String getClassName() {
+		public String[] getClassNames() {
+			return null;
+		}
+
+		@Override
+		public String getPortletId() {
 			return null;
 		}
 
@@ -241,7 +244,7 @@ public class BaseIndexerGetSiteGroupIdTest extends PowerMockito {
 		@Override
 		protected Summary doGetSummary(
 				Document document, Locale locale, String snippet,
-				PortletRequest portletRequest, PortletResponse portletResponse)
+				PortletURL portletURL)
 			throws Exception {
 
 			return null;
@@ -258,6 +261,11 @@ public class BaseIndexerGetSiteGroupIdTest extends PowerMockito {
 
 		@Override
 		protected void doReindex(String[] ids) throws Exception {
+		}
+
+		@Override
+		protected String getPortletId(SearchContext searchContext) {
+			return null;
 		}
 
 	}
