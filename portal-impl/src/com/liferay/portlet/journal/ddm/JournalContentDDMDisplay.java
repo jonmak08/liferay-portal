@@ -15,6 +15,7 @@
 package com.liferay.portlet.journal.ddm;
 
 import com.liferay.portal.util.PortletKeys;
+import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 
 /**
  * @author Eduardo Garcia
@@ -24,6 +25,17 @@ public class JournalContentDDMDisplay extends JournalDDMDisplay {
 	@Override
 	public String getPortletId() {
 		return PortletKeys.JOURNAL_CONTENT;
+	}
+
+	@Override
+	public boolean isEnableSelectStructureLink(
+		DDMStructure structure, long classPK) {
+
+		if (structure.getStructureId() == classPK) {
+			return false;
+		}
+
+		return true;
 	}
 
 }
