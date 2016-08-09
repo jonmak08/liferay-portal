@@ -708,7 +708,8 @@ public class ServletResponseUtil {
 
 		if (Validator.isNotNull(contentType)) {
 			if (contentType.equals(ContentTypes.IMAGE_X_MS_BMP) &&
-					BrowserSnifferUtil.isIe(request)) {
+				BrowserSnifferUtil.isIe(request)) {
+
 				contentType = ContentTypes.IMAGE_BMP;
 			}
 
