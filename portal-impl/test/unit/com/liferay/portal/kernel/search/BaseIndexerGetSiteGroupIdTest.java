@@ -15,12 +15,16 @@
 package com.liferay.portal.kernel.search;
 
 import com.liferay.portal.NoSuchGroupException;
+import com.liferay.portal.kernel.util.FastDateFormatFactory;
+import com.liferay.portal.kernel.util.FastDateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.service.GroupLocalService;
 import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.util.RandomTestUtil;
+
+import java.text.SimpleDateFormat;
 
 import java.util.Locale;
 
@@ -53,6 +57,7 @@ public class BaseIndexerGetSiteGroupIdTest extends PowerMockito {
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 
+		setUpFastDateFormatFactoryUtil();
 		setUpGroupLocalServiceUtil();
 		setUpPropsUtil();
 
@@ -125,6 +130,23 @@ public class BaseIndexerGetSiteGroupIdTest extends PowerMockito {
 		setUpNonexistentGroup(groupId);
 
 		Assert.assertEquals(false, _indexer.isStagingGroup(groupId));
+	}
+
+	protected void setUpFastDateFormatFactoryUtil() {
+		FastDateFormatFactoryUtil fastDateFormatFactoryUtil =
+			new FastDateFormatFactoryUtil();
+
+		FastDateFormatFactory fastDateFormatFactory = Mockito.mock(
+			FastDateFormatFactory.class);
+
+		Mockito.when(
+			fastDateFormatFactory.getSimpleDateFormat("yyyyMMddHHmmss")
+		).thenReturn(
+			new SimpleDateFormat("yyyyMMddHHmmss")
+		);
+
+		fastDateFormatFactoryUtil.setFastDateFormatFactory(
+			fastDateFormatFactory);
 	}
 
 	protected Group setUpGroup(long groupId) throws Exception {
