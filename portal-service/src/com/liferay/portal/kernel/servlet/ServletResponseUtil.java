@@ -334,11 +334,6 @@ public class ServletResponseUtil {
 					_log.debug("Writing full range");
 				}
 
-				if (contentType.equals(ContentTypes.IMAGE_X_MS_BMP) &&
-						BrowserSnifferUtil.isIe(request)) {
-					contentType = ContentTypes.IMAGE_BMP;
-				}
-
 				response.setContentType(contentType);
 
 				setHeaders(
@@ -712,6 +707,11 @@ public class ServletResponseUtil {
 		// LEP-2201
 
 		if (Validator.isNotNull(contentType)) {
+			if (contentType.equals(ContentTypes.IMAGE_X_MS_BMP) &&
+					BrowserSnifferUtil.isIe(request)) {
+				contentType = ContentTypes.IMAGE_BMP;
+			}
+
 			response.setContentType(contentType);
 		}
 
