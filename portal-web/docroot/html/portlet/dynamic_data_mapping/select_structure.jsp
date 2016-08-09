@@ -82,7 +82,7 @@ String eventName = ParamUtil.getString(request, "eventName", "selectStructure");
 			/>
 
 			<liferay-ui:search-container-column-text>
-				<c:if test="<%= (structure.getStructureId() != classPK) && ((classPK == 0) || (structure.getParentStructureId() == 0) || (structure.getParentStructureId() != classPK)) %>">
+				<c:if test="<%= ddmDisplay.isEnableSelectStructureLink(structure, classPK) %>">
 
 					<%
 					Map<String, Object> data = new HashMap<String, Object>();
