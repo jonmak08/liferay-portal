@@ -702,7 +702,7 @@ table_row  returns [CollectionNode row = new CollectionNode()]
 			TableCellNode space = new TableDataNode(cn);
 			$row.add(space);
 		}
-	|   tc = table_cell { $row.add($tc.cell); }
+	|	tc = table_cell { $row.add($tc.cell); }
 	)+  table_rowseparator
 	;
 table_cell returns [TableCellNode cell = null]
