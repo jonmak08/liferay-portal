@@ -1391,33 +1391,12 @@
 	</command>
 
 	<command name="SearchFolderDocumentNoPermission" priority="5">
-		<var name="dmDocumentDescription" value="DM Document Description" />
-		<var name="dmDocumentFile" value="Document_1.doc" />
-		<var name="dmDocumentTitle" value="DM Document Title" />
-		<var name="dmFolderDescription" value="DM Folder Description" />
-		<var name="dmFolderName" value="DM Folder Name" />
-		<var name="dmSubFolderDescription" value="DM SubFolder Description" />
-		<var name="dmSubFolderName" value="DM SubFolder Name" />
-		<var name="portletName1" value="Search" />
-		<var name="portletName2" value="Documents and Media" />
-		<var name="roleName" value="Guest" />
-		<var name="siteName1" value="Site Name 1" />
-		<var name="siteName2" value="Site Name 2" />
-		<var name="sitePageName1" value="Search Page" />
-		<var name="sitePageName2" value="Documents and Media Page" />
-		<var name="teamName" value="Site Team Name" />
-		<var name="userEmailAddress" value="userea@liferay.com" />
-		<var name="userFirstName" value="userfn" />
-		<var name="userGroupName" value="UG UserGroup Name" />
-		<var name="userLastName" value="userln" />
-		<var name="userScreenName" value="usersn" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="User Groups" />
 		</execute>
 
 		<execute macro="UserGroup#addCP">
-			<var name="userGroupName" value="${userGroupName}" />
+			<var name="userGroupName" value="UG UserGroup Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -1425,47 +1404,47 @@
 		</execute>
 
 		<execute macro="Site#addBlankCP">
-			<var name="siteName" value="${siteName1}" />
+			<var name="siteName" value="Site Name 1" />
 		</execute>
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteScopeName" value="${siteName1}" />
+			<var name="siteScopeName" value="Site Name 1" />
 		</execute>
 
 		<execute macro="Site#addMemberUserGroupCP">
-			<var name="siteName" value="${siteName1}" />
-			<var name="userGroupName" value="${userGroupName}" />
+			<var name="siteName" value="Site Name 1" />
+			<var name="userGroupName" value="UG UserGroup Name" />
 		</execute>
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Teams" />
-			<var name="siteScopeName" value="${siteName1}" />
+			<var name="siteScopeName" value="Site Name 1" />
 		</execute>
 
 		<execute macro="Team#addCP">
 			<var name="teamDescription" value="Site Team Description" />
-			<var name="teamName" value="${teamName}" />
+			<var name="teamName" value="Site Team Name" />
 		</execute>
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Teams" />
-			<var name="siteScopeName" value="${siteName1}" />
+			<var name="siteScopeName" value="Site Name 1" />
 		</execute>
 
 		<execute macro="Team#assignUserGroups">
-			<var name="teamName" value="${teamName}" />
-			<var name="userGroupName" value="${userGroupName}" />
+			<var name="teamName" value="Site Team Name" />
+			<var name="userGroupName" value="UG UserGroup Name" />
 		</execute>
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteScopeName" value="${siteName1}" />
+			<var name="siteScopeName" value="Site Name 1" />
 		</execute>
 
 		<execute macro="Site#assignSiteRolesSiteAdministratorUserGroupsCP">
-			<var name="siteName" value="${siteName1}" />
-			<var name="userGroupName" value="${userGroupName}" />
+			<var name="siteName" value="Site Name 1" />
+			<var name="userGroupName" value="UG UserGroup Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -1473,10 +1452,10 @@
 		</execute>
 
 		<execute macro="User#addCP">
-			<var name="userEmailAddress" value="${userEmailAddress}" />
-			<var name="userFirstName" value="${userFirstName}" />
-			<var name="userLastName" value="${userLastName}" />
-			<var name="userScreenName" value="${userScreenName}" />
+			<var name="userEmailAddress" value="userea@liferay.com" />
+			<var name="userFirstName" value="userfn" />
+			<var name="userLastName" value="userln" />
+			<var name="userScreenName" value="usersn" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -1484,8 +1463,8 @@
 		</execute>
 
 		<execute macro="User#editPasswordCP">
-			<var name="userEmailAddress" value="${userEmailAddress}" />
-			<var name="userScreenName" value="${userScreenName}" />
+			<var name="userEmailAddress" value="userea@liferay.com" />
+			<var name="userScreenName" value="usersn" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -1493,8 +1472,8 @@
 		</execute>
 
 		<execute macro="UserGroup#assignMemberCP">
-			<var name="userGroupName" value="${userGroupName}" />
-			<var name="userScreenName" value="${userScreenName}" />
+			<var name="userGroupName" value="UG UserGroup Name" />
+			<var name="userScreenName" value="usersn" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -1502,7 +1481,7 @@
 		</execute>
 
 		<execute macro="Site#addBlankCP">
-			<var name="siteName" value="${siteName2}" />
+			<var name="siteName" value="Site Name 2" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -1510,79 +1489,79 @@
 		</execute>
 
 		<execute macro="SitePage#addCP">
-			<var name="siteName" value="${siteName2}" />
-			<var name="sitePageName" value="${sitePageName2}" />
+			<var name="siteName" value="Site Name 2" />
+			<var name="sitePageName" value="Documents and Media Page" />
 			<var name="sitePagePrivacy" value="Public" />
 		</execute>
 
 		<execute macro="Page#openURL">
-			<var name="siteName" value="${siteName2}" />
+			<var name="siteName" value="Site Name 2" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
-			<var name="portletName" value="${portletName2}" />
+			<var name="portletName" value="Documents and Media" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${sitePageName2}" />
-			<var name="siteName" value="${siteName2}" />
+			<var name="pageName" value="Documents and Media Page" />
+			<var name="siteName" value="Site Name 2" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="DMFolder#addPG">
-			<var name="dmFolderDescription" value="${dmFolderDescription}" />
-			<var name="dmFolderName" value="${dmFolderName}" />
+			<var name="dmFolderDescription" value="DM Folder Description" />
+			<var name="dmFolderName" value="DM Folder Name" />
 		</execute>
 
 		<execute macro="DMFolder#removeFolderViewPermissionsPG">
-			<var name="dmFolderName" value="${dmFolderName}" />
-			<var name="roleName" value="${roleName}" />
+			<var name="dmFolderName" value="DM Folder Name" />
+			<var name="roleName" value="Guest" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${sitePageName2}" />
-			<var name="siteName" value="${siteName2}" />
+			<var name="pageName" value="Documents and Media Page" />
+			<var name="siteName" value="Site Name 2" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="DMFolder#gotoPG">
-			<var name="dmFolderName" value="${dmFolderName}" />
+			<var name="dmFolderName" value="DM Folder Name" />
 		</execute>
 
 		<execute macro="DMFolder#addSubfolderPG">
-			<var name="dmSubFolderDescription" value="${dmSubFolderDescription}" />
-			<var name="dmSubFolderName" value="${dmSubFolderName}" />
+			<var name="dmSubFolderDescription" value="DM SubFolder Description" />
+			<var name="dmSubFolderName" value="DM SubFolder Name" />
 		</execute>
 
 		<execute macro="DMFolder#viewFolderViewPermissionsPG">
-			<var name="dmFolderName" value="${dmSubFolderName}" />
-			<var name="roleName" value="${roleName}" />
+			<var name="dmFolderName" value="DM SubFolder Name" />
+			<var name="roleName" value="Guest" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${sitePageName2}" />
-			<var name="siteName" value="${siteName2}" />
+			<var name="pageName" value="Documents and Media Page" />
+			<var name="siteName" value="Site Name 2" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="DMFolder#gotoPG">
-			<var name="dmFolderName" value="${dmFolderName}" />
+			<var name="dmFolderName" value="DM Folder Name" />
 		</execute>
 
 		<execute macro="DMFolder#gotoPG">
-			<var name="dmFolderName" value="${dmSubFolderName}" />
+			<var name="dmFolderName" value="DM SubFolder Name" />
 		</execute>
 
 		<execute macro="DMDocument#addPG">
-			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-			<var name="dmDocumentFile" value="${dmDocumentFile}" />
-			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
+			<var name="dmDocumentDescription" value="DM Document Description" />
+			<var name="dmDocumentFile" value="Document_1.doc" />
+			<var name="dmDocumentTitle" value="DM Document Title" />
 		</execute>
 
 		<execute macro="DMDocument#viewDocumentViewPermissionsPG">
-			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-			<var name="roleName" value="${roleName}" />
+			<var name="dmDocumentTitle" value="DM Document Title" />
+			<var name="roleName" value="Guest" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -1590,18 +1569,18 @@
 		</execute>
 
 		<execute macro="SitePage#addCP">
-			<var name="siteName" value="${siteName1}" />
-			<var name="sitePageName" value="${sitePageName1}" />
+			<var name="siteName" value="Site Name 1" />
+			<var name="sitePageName" value="Search Page" />
 			<var name="sitePagePrivacy" value="Public" />
 		</execute>
 
 		<execute macro="Page#openURL">
-			<var name="siteName" value="${siteName1}" />
+			<var name="siteName" value="Site Name 1" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
-			<var name="portletName" value="${portletName1}" />
+			<var name="portletName" value="Search" />
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
@@ -1610,16 +1589,16 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${sitePageName1}" />
-			<var name="siteName" value="${siteName1}" />
+			<var name="pageName" value="Search Page" />
+			<var name="siteName" value="Site Name 1" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Search#searchNoPG">
-			<var name="searchAssetTitle" value="${dmDocumentTitle}" />
+			<var name="searchAssetTitle" value="DM Document Title" />
 			<var name="searchAssetType" value="Document" />
 			<var name="searchNoResults" value="true" />
-			<var name="searchTerm" value="${dmDocumentTitle}" />
+			<var name="searchTerm" value="DM Document Title" />
 		</execute>
 	</command>
 
