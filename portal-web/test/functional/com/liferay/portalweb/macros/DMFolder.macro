@@ -428,7 +428,7 @@
 	</command>
 
 	<command name="viewFolderViewPermissionsPG">
-		<var name="key_dmFolderName" value="${dmFolder}" />
+		<var name="key_dmFolderName" value="${dmFolderName}" />
 		<var method="StringUtil#replace('${roleName}', ' ', '-')" name="key_roleName" />
 		<var method="StringUtil#lowerCase('${key_roleName}')" name="key_roleName" />
 
