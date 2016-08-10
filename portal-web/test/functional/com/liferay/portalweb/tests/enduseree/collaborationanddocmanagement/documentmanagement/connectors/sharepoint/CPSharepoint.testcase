@@ -124,6 +124,8 @@
 			<var name="dmRepositoryName" value="Sharepoint Repository Name" />
 		</execute>
 
+		<execute function="Pause" locator1="30000" />
+
 		<execute macro="DMFolder#addSubfolderPG">
 			<var name="dmSubFolderName" value="DM Folder Name" />
 		</execute>
@@ -257,6 +259,8 @@
 		<execute macro="DMRepository#gotoCP">
 			<var name="dmRepositoryName" value="Sharepoint Repository Name" />
 		</execute>
+
+		<execute function="Pause" locator1="30000" />
 
 		<execute macro="DMFolder#addSubfolderPG">
 			<var name="dmSubFolderName" value="DM Folder3 Name" />
@@ -439,6 +443,8 @@
 			<var name="dmRepositoryName" value="Sharepoint Repository Name" />
 		</execute>
 
+		<execute function="Pause" locator1="30000" />
+
 		<execute macro="DMDocument#addCP">
 			<var name="dmDocumentFile" value="Document_3.docx" />
 			<var name="dmDocumentTitle" value="Document_3.docx" />
@@ -511,6 +517,8 @@
 			<var name="dmRepositoryName" value="Sharepoint Repository Name" />
 		</execute>
 
+		<execute function="Pause" locator1="30000" />
+
 		<execute macro="DMDocument#addCP">
 			<var name="dmDocumentFile" value="Document_2.odt" />
 			<var name="dmDocumentTitle" value="Document_2.odt" />
@@ -530,6 +538,8 @@
 		<execute macro="DMRepository#gotoCP">
 			<var name="dmRepositoryName" value="Sharepoint Repository Name" />
 		</execute>
+
+		<execute function="Pause" locator1="30000" />
 
 		<execute macro="DMDocument#addCP">
 			<var name="dmDocumentFile" value="Document_3.odt" />
@@ -553,6 +563,8 @@
 		<execute macro="DMRepository#gotoCP">
 			<var name="dmRepositoryName" value="Sharepoint Repository Name" />
 		</execute>
+
+		<execute function="Pause" locator1="30000" />
 
 		<execute macro="DMDocument#addCP">
 			<var name="dmDocumentFile" value="Document_1.jpg" />
