@@ -398,7 +398,7 @@ app.server.type=@{app.server.type}]]></echo>
 				<![CDATA[
 					git apply --exclude=.gitignore --whitespace=nowarn liferay-portal-source.diff
 
-					unzip liferay-portal-bundle-@{app.server.type}.zip
+					unzip -o liferay-portal-bundle-@{app.server.type}.zip
 
 					chmod -R a+x bundles
 				]]>
@@ -543,7 +543,7 @@ app.server.type=@{app.server.type}]]></echo>
 									<![CDATA[
 										git apply --exclude=.gitignore --whitespace=nowarn liferay-portal-source.diff
 
-										unzip liferay-portal-bundle-@{app.server.type}.zip
+										unzip -o liferay-portal-bundle-@{app.server.type}.zip
 
 										chmod -R a+x bundles
 									]]>
