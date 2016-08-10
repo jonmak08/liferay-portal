@@ -315,15 +315,21 @@
 		<var name="key_userGroupName" value="${userGroupName}" />
 
 		<execute function="AssertClick" locator1="CPSitememberships#NAVIGATION_USER_GROUPS" value1="User Groups" />
+
 		<execute function="Type" locator1="CPSitemembershipsUsergroups#SEARCH_FIELD" value1="${userGroupName}" />
+
 		<execute function="AssertClick" locator1="CPSitemembershipsUsergroups#SEARCH_BUTTON" value1="Search" />
 
 		<execute function="AssertTextEquals" locator1="CPSitemembershipsUsergroups#USER_GROUP_TABLE_NAME" value1="${userGroupName}" />
+
 		<execute function="AssertClick" locator1="CPSitemembershipsUsergroups#USER_GROUP_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPSitemembershipsUsergroups#USER_GROUP_MENULIST_ASSIGN_SITE_ROLES" value1="Assign Site Roles" />
 
 		<execute function="Check" locator1="CPSitemembershipsUsergroups#SITE_ADMINISTRATOR_CHECKBOX" />
+
 		<execute function="Click" locator1="CPSitemembershipsUsergroups#UPDATE_ASSOCIATIONS_BUTTON" />
+
 		<execute function="AssertTextEquals" locator1="CPSitemembershipsUsergroups#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="AssertChecked" locator1="CPSitemembershipsUsergroups#SITE_ADMINISTRATOR_CHECKBOX" />
 	</command>
