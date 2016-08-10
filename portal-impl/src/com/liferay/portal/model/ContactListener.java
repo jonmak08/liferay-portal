@@ -15,6 +15,8 @@
 package com.liferay.portal.model;
 
 import com.liferay.portal.ModelListenerException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.security.ldap.LDAPUserTransactionThreadLocal;
 import com.liferay.portal.security.ldap.PortalLDAPExporterUtil;
 import com.liferay.portal.service.ServiceContext;
@@ -37,7 +39,7 @@ public class ContactListener extends BaseModelListener<Contact> {
 			exportToLDAP(contact);
 		}
 		catch (Exception e) {
-			throw new ModelListenerException(e);
+			_log.error(e, e);
 		}
 	}
 
@@ -47,7 +49,7 @@ public class ContactListener extends BaseModelListener<Contact> {
 			exportToLDAP(contact);
 		}
 		catch (Exception e) {
-			throw new ModelListenerException(e);
+			_log.error(e, e);
 		}
 	}
 
@@ -68,5 +70,7 @@ public class ContactListener extends BaseModelListener<Contact> {
 
 		PortalLDAPExporterUtil.exportToLDAP(contact, expandoBridgeAttributes);
 	}
+
+	private static Log _log = LogFactoryUtil.getLog(ContactListener.class);
 
 }

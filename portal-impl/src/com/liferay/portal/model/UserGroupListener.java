@@ -15,6 +15,8 @@
 package com.liferay.portal.model;
 
 import com.liferay.portal.ModelListenerException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.security.ldap.LDAPOperation;
 import com.liferay.portal.security.ldap.LDAPUserTransactionThreadLocal;
 import com.liferay.portal.security.ldap.PortalLDAPExporterUtil;
@@ -38,7 +40,7 @@ public class UserGroupListener extends BaseModelListener<UserGroup> {
 			}
 		}
 		catch (Exception e) {
-			throw new ModelListenerException(e);
+			_log.error(e, e);
 		}
 	}
 
@@ -56,7 +58,7 @@ public class UserGroupListener extends BaseModelListener<UserGroup> {
 			}
 		}
 		catch (Exception e) {
-			throw new ModelListenerException(e);
+			_log.error(e, e);
 		}
 	}
 
@@ -70,5 +72,7 @@ public class UserGroupListener extends BaseModelListener<UserGroup> {
 
 		PortalLDAPExporterUtil.exportToLDAP(userId, userGroupId, ldapOperation);
 	}
+
+	private static Log _log = LogFactoryUtil.getLog(UserGroupListener.class);
 
 }

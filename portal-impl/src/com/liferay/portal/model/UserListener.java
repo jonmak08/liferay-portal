@@ -16,6 +16,8 @@ package com.liferay.portal.model;
 
 import com.liferay.portal.ModelListenerException;
 import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.model.impl.UserModelImpl;
 import com.liferay.portal.security.auth.PrincipalThreadLocal;
@@ -54,7 +56,7 @@ public class UserListener extends BaseModelListener<User> {
 			}
 		}
 		catch (Exception e) {
-			throw new ModelListenerException(e);
+			_log.error(e, e);
 		}
 	}
 
@@ -64,7 +66,7 @@ public class UserListener extends BaseModelListener<User> {
 			exportToLDAP(user);
 		}
 		catch (Exception e) {
-			throw new ModelListenerException(e);
+			_log.error(e, e);
 		}
 	}
 
@@ -74,7 +76,7 @@ public class UserListener extends BaseModelListener<User> {
 			exportToLDAP(user);
 		}
 		catch (Exception e) {
-			throw new ModelListenerException(e);
+			_log.error(e, e);
 		}
 	}
 
@@ -127,5 +129,7 @@ public class UserListener extends BaseModelListener<User> {
 				new ServiceContext());
 		}
 	}
+
+	private static Log _log = LogFactoryUtil.getLog(UserListener.class);
 
 }
