@@ -586,7 +586,16 @@ public class JournalConverterImpl implements JournalConverter {
 		Field ddmField = new Field();
 
 		ddmField.setDDMStructureId(ddmStructure.getStructureId());
-		ddmField.setDefaultLocale(LocaleUtil.fromLanguageId(defaultLanguageId));
+		Locale defaultLocale = null;
+
+		if (defaultLanguageId == null) {
+			defaultLocale = LocaleUtil.getSiteDefault();
+		}
+		else {
+			defaultLocale = LocaleUtil.fromLanguageId(defaultLanguageId);
+		}
+
+		ddmField.setDefaultLocale(defaultLocale);
 
 		String name = dynamicElementElement.attributeValue("name");
 
@@ -607,7 +616,7 @@ public class JournalConverterImpl implements JournalConverter {
 			"dynamic-content");
 
 		for (Element dynamicContentElement : dynamicContentElements) {
-			Locale locale = LocaleUtil.fromLanguageId(defaultLanguageId);
+			Locale locale = defaultLocale;
 
 			String languageId = dynamicContentElement.attributeValue(
 				"language-id", defaultLanguageId);
