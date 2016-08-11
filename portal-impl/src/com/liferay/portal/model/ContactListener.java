@@ -14,7 +14,6 @@
 
 package com.liferay.portal.model;
 
-import com.liferay.portal.ModelListenerException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.security.ldap.LDAPUserTransactionThreadLocal;
@@ -34,7 +33,7 @@ import java.util.Map;
 public class ContactListener extends BaseModelListener<Contact> {
 
 	@Override
-	public void onAfterCreate(Contact contact) throws ModelListenerException {
+	public void onAfterCreate(Contact contact) {
 		try {
 			exportToLDAP(contact);
 		}
@@ -44,7 +43,7 @@ public class ContactListener extends BaseModelListener<Contact> {
 	}
 
 	@Override
-	public void onAfterUpdate(Contact contact) throws ModelListenerException {
+	public void onAfterUpdate(Contact contact) {
 		try {
 			exportToLDAP(contact);
 		}

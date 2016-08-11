@@ -14,7 +14,6 @@
 
 package com.liferay.portal.model;
 
-import com.liferay.portal.ModelListenerException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.security.ldap.LDAPOperation;
@@ -29,8 +28,7 @@ public class UserGroupListener extends BaseModelListener<UserGroup> {
 	@Override
 	public void onAfterAddAssociation(
 			Object userGroupId, String associationClassName,
-			Object associationClassPK)
-		throws ModelListenerException {
+			Object associationClassPK) {
 
 		try {
 			if (associationClassName.equals(User.class.getName())) {
@@ -47,8 +45,7 @@ public class UserGroupListener extends BaseModelListener<UserGroup> {
 	@Override
 	public void onAfterRemoveAssociation(
 			Object userGroupId, String associationClassName,
-			Object associationClassPK)
-		throws ModelListenerException {
+			Object associationClassPK) {
 
 		try {
 			if (associationClassName.equals(User.class.getName())) {
