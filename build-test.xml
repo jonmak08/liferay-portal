@@ -1488,6 +1488,8 @@ counter.jdbc.prefix=jdbc.counter.]]></echo>
 				fix.pack.file.name="${fix.pack.file.name}"
 			/>
 
+			<delete file="@{bundles.dir}/patching-tool/default.properties" />
+
 			<execute dir="@{bundles.dir}/patching-tool">
 				patching-tool${file.suffix.bat} auto-discovery
 				patching-tool${file.suffix.bat} install -force
@@ -4338,6 +4340,8 @@ ${lcs.portal.bundle.properties}</echo>
 				<include name="*.sh" />
 			</fileset>
 		</chmod>
+
+		<delete file="${app.server.parent.dir}/patching-tool/default.properties" />
 
 		<execute dir="${app.server.parent.dir}/patching-tool">
 			patching-tool${file.suffix.bat} auto-discovery
