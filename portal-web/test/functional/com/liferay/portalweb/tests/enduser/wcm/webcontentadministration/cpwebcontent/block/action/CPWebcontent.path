@@ -341,6 +341,11 @@
 </tr>
 <!--ENTRY_LIST-->
 <tr>
+	<td>ENTRY_LIST_TITLE</td>
+	<td>//td[@class='table-cell ']//span[contains(.,'${key_webContentTitle}')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td></td>
 	<td></td>
 	<td></td>
