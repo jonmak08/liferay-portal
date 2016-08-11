@@ -179,6 +179,7 @@ create unique index IX_ED5CA615 on DLFileEntry (groupId, folderId, title);
 create index IX_D20C434D on DLFileEntry (groupId, userId, folderId);
 create index IX_D9492CF6 on DLFileEntry (mimeType);
 create index IX_1B352F4A on DLFileEntry (repositoryId, folderId);
+create index IX_25F5CAB9 on DLFileEntry (smallImageId, largeImageId, custom1ImageId, custom2ImageId);
 create index IX_31079DE8 on DLFileEntry (uuid_, companyId);
 create unique index IX_BC2E7E6A on DLFileEntry (uuid_, groupId);
 
