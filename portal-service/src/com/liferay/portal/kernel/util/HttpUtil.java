@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermissio
 import com.liferay.portal.kernel.security.pacl.permission.PortalSocketPermission;
 
 import java.io.IOException;
-
 import java.io.InputStream;
+
 import java.net.URL;
 
 import java.util.ArrayList;

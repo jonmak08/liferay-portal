@@ -41,6 +41,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import java.lang.ref.Reference;
+
 import java.net.InetAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -236,7 +237,7 @@ public class HttpImpl implements Http {
 			sb.append(StringPool.QUESTION);
 		}
 		else if (!url.endsWith(StringPool.QUESTION) &&
-			!url.endsWith(StringPool.AMPERSAND)) {
+				 !url.endsWith(StringPool.AMPERSAND)) {
 
 			sb.append(StringPool.AMPERSAND);
 		}
@@ -1661,7 +1662,7 @@ public class HttpImpl implements Http {
 				}
 				else if (method.equals(Http.Method.POST)) {
 					if (!hasRequestHeader(
-						requestBuilder, HttpHeaders.CONTENT_TYPE)) {
+							requestBuilder, HttpHeaders.CONTENT_TYPE)) {
 
 						ConnectionConfig.Builder connectionConfigBuilder =
 							ConnectionConfig.custom();
@@ -1694,10 +1695,10 @@ public class HttpImpl implements Http {
 			}
 
 			if ((method.equals(Http.Method.POST) ||
-				method.equals(Http.Method.PUT)) &&
+				 method.equals(Http.Method.PUT)) &&
 				((body != null) ||
-					((fileParts != null) && !fileParts.isEmpty()) ||
-					((parts != null) && !parts.isEmpty())) &&
+				 ((fileParts != null) && !fileParts.isEmpty()) ||
+				 ((parts != null) && !parts.isEmpty())) &&
 				!hasRequestHeader(requestBuilder, HttpHeaders.CONTENT_TYPE)) {
 
 				requestBuilder.addHeader(
@@ -1844,7 +1845,7 @@ public class HttpImpl implements Http {
 					reference.clear();
 				}
 
-			};		}
+			}; }
 		finally {
 			try {
 				if (basicCookieStore != null) {
@@ -1908,9 +1909,10 @@ public class HttpImpl implements Http {
 	private static final int _TIMEOUT = GetterUtil.getInteger(
 		PropsUtil.get(HttpImpl.class.getName() + ".timeout"), 5000);
 
-	private static final Log _log = LogFactoryUtil.getLog(HttpImpl.class);
+	private static Log _log = LogFactoryUtil.getLog(HttpImpl.class);
 
-	private static final ThreadLocal<Cookie[]> _cookies = new ThreadLocal<>();
+	private static final ThreadLocal<Cookie[]> _cookies =
+		new ThreadLocal<Cookie[]>();
 
 	private final Pattern _absoluteURLPattern = Pattern.compile(
 		"^[a-zA-Z0-9]+://");
@@ -1920,7 +1922,7 @@ public class HttpImpl implements Http {
 		_poolingHttpClientConnectionManager;
 	private final Pattern _protocolRelativeURLPattern = Pattern.compile(
 		"^[\\s\\\\/]+");
-	private final List<String> _proxyAuthPrefs = new ArrayList<>();
+	private final List<String> _proxyAuthPrefs = new ArrayList<String>();
 	private final CloseableHttpClient _proxyCloseableHttpClient;
 	private final Credentials _proxyCredentials;
 	private final Pattern _relativeURLPattern = Pattern.compile(
