@@ -67,8 +67,8 @@ public class UserListener extends BaseModelListener<User> {
 		}
 		catch (Exception e) {
 			_log.error(
-				"Error exporting user to LDAP for userId = " +
-					user.getUserId(),
+				"Unable to export user " + user.getUserId() +
+					" to LDAP on after create",
 				e);
 		}
 	}
@@ -80,8 +80,8 @@ public class UserListener extends BaseModelListener<User> {
 		}
 		catch (Exception e) {
 			_log.error(
-				"Error exporting user to LDAP for userId = " +
-					user.getUserId(),
+				"Unable to export user " + user.getUserId() +
+					" to LDAP on after update",
 				e);
 		}
 	}
