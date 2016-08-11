@@ -16,8 +16,11 @@ package com.liferay.portal.util;
 
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
+import com.liferay.portal.kernel.io.unsync.UnsyncFilterInputStream;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.memory.FinalizeAction;
+import com.liferay.portal.kernel.memory.FinalizeManager;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.upload.ProgressInputStream;
@@ -37,6 +40,7 @@ import com.liferay.portal.kernel.util.Validator;
 import java.io.IOException;
 import java.io.InputStream;
 
+import java.lang.ref.Reference;
 import java.net.InetAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -1137,6 +1141,39 @@ public class HttpImpl implements Http {
 	}
 
 	@Override
+	public InputStream URLtoInputStream(Http.Options options)
+		throws IOException {
+
+		return URLtoInputStream(
+			options.getLocation(), options.getMethod(), options.getHeaders(),
+			options.getCookies(), options.getAuth(), options.getBody(),
+			options.getFileParts(), options.getParts(), options.getResponse(),
+			options.isFollowRedirects(), options.getProgressId(),
+			options.getPortletRequest(), options.getTimeout());
+	}
+
+	@Override
+	public InputStream URLtoInputStream(String location) throws IOException {
+		Http.Options options = new Http.Options();
+
+		options.setLocation(location);
+
+		return URLtoInputStream(options);
+	}
+
+	@Override
+	public InputStream URLtoInputStream(String location, boolean post)
+		throws IOException {
+
+		Http.Options options = new Http.Options();
+
+		options.setLocation(location);
+		options.setPost(post);
+
+		return URLtoInputStream(options);
+	}
+
+	@Override
 	public String URLtoString(Http.Options options) throws IOException {
 		return new String(URLtoByteArray(options));
 	}
@@ -1526,6 +1563,45 @@ public class HttpImpl implements Http {
 			PortletRequest portletRequest, int timeout)
 		throws IOException {
 
+		InputStream inputStream = URLtoInputStream(
+			location, method, headers, cookies, auth, body, fileParts, parts,
+			response, followRedirects, progressId, portletRequest, timeout);
+
+		if (inputStream == null) {
+			return null;
+		}
+
+		try {
+			int contentLengthLong = response.getContentLength();
+
+			if (contentLengthLong > _MAX_BYTE_ARRAY_LENGTH) {
+				StringBundler sb = new StringBundler(5);
+
+				sb.append("Retrieving ");
+				sb.append(location);
+				sb.append(" yields a file of size ");
+				sb.append(contentLengthLong);
+				sb.append(
+					" bytes that is too large to convert to a byte array");
+
+				throw new OutOfMemoryError(sb.toString());
+			}
+
+			return FileUtil.getBytes(inputStream);
+		}
+		finally {
+			inputStream.close();
+		}
+	}
+
+	protected InputStream URLtoInputStream(
+			String location, Http.Method method, Map<String, String> headers,
+			Cookie[] cookies, Http.Auth auth, Http.Body body,
+			List<Http.FilePart> fileParts, Map<String, String> parts,
+			Http.Response response, boolean followRedirects, String progressId,
+			PortletRequest portletRequest, int timeout)
+		throws IOException {
+
 		byte[] bytes = null;
 
 		CloseableHttpResponse closeableHttpResponse = null;
@@ -1685,7 +1761,7 @@ public class HttpImpl implements Http {
 				if (followRedirects) {
 					closeableHttpResponse.close();
 
-					return URLtoByteArray(
+					return URLtoInputStream(
 						redirect, Http.Method.GET, headers, cookies, auth, body,
 						fileParts, parts, response, followRedirects, progressId,
 						portletRequest, timeout);
@@ -1727,28 +1803,8 @@ public class HttpImpl implements Http {
 				if (Validator.isNotNull(progressId) &&
 					(portletRequest != null)) {
 
-					ProgressInputStream progressInputStream =
-						new ProgressInputStream(
-							portletRequest, inputStream, contentLength,
-							progressId);
-
-					UnsyncByteArrayOutputStream unsyncByteArrayOutputStream =
-						new UnsyncByteArrayOutputStream(contentLength);
-
-					try {
-						progressInputStream.readAll(
-							unsyncByteArrayOutputStream);
-					}
-					finally {
-						progressInputStream.clearProgress();
-					}
-
-					bytes = unsyncByteArrayOutputStream.unsafeGetByteArray();
-
-					unsyncByteArrayOutputStream.close();
-				}
-				else {
-					bytes = FileUtil.getBytes(inputStream);
+					inputStream = new ProgressInputStream(
+						portletRequest, inputStream, contentLength, progressId);
 				}
 			}
 
@@ -1756,8 +1812,39 @@ public class HttpImpl implements Http {
 				response.addHeader(header.getName(), header.getValue());
 			}
 
-			return bytes;
-		}
+			final CloseableHttpResponse referenceCloseableHttpResponse =
+				closeableHttpResponse;
+
+			final Reference<InputStream> reference = FinalizeManager.register(
+				inputStream,
+				new FinalizeAction() {
+
+					@Override
+					public void doFinalize() {
+						try {
+							referenceCloseableHttpResponse.close();
+						}
+						catch (IOException ioe) {
+							if (_log.isDebugEnabled()) {
+								_log.debug("Unable to close response", ioe);
+							}
+						}
+					}
+
+				});
+
+			return new UnsyncFilterInputStream(inputStream) {
+
+				@Override
+				public void close() throws IOException {
+					super.close();
+
+					referenceCloseableHttpResponse.close();
+
+					reference.clear();
+				}
+
+			};		}
 		finally {
 			try {
 				if (basicCookieStore != null) {
