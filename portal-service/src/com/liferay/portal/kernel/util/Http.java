@@ -390,6 +390,10 @@ public interface Http {
 			return _response;
 		}
 
+		public int getTimeout() {
+			return _timeout;
+		}
+
 		public boolean isDelete() {
 			if (_method == Method.DELETE) {
 				return true;
@@ -540,6 +544,10 @@ public interface Http {
 			_response = response;
 		}
 
+		public void setTimeout(int timeout) {
+			_timeout = timeout;
+		}
+
 		private Auth _auth;
 		private Body _body;
 		private Cookie[] _cookies;
@@ -552,6 +560,7 @@ public interface Http {
 		private PortletRequest _portletRequest;
 		private String _progressId;
 		private Response _response = new Response();
+		private int _timeout;
 
 	}
 

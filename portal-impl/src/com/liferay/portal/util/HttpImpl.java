@@ -1112,7 +1112,7 @@ public class HttpImpl implements Http {
 			options.getCookies(), options.getAuth(), options.getBody(),
 			options.getFileParts(), options.getParts(), options.getResponse(),
 			options.isFollowRedirects(), options.getProgressId(),
-			options.getPortletRequest());
+			options.getPortletRequest(), options.getTimeout());
 	}
 
 	@Override
@@ -1242,7 +1242,9 @@ public class HttpImpl implements Http {
 		return _closeableHttpClient;
 	}
 
-	protected RequestConfig.Builder getRequestConfigBuilder(URI uri) {
+	protected RequestConfig.Builder getRequestConfigBuilder(
+			URI uri, int timeout)
+		throws IOException {
 
 		if (_log.isDebugEnabled()) {
 			_log.debug("Location is " + uri.toString());
@@ -1276,10 +1278,12 @@ public class HttpImpl implements Http {
 				httpRoute, maxConnectionsPerHost);
 		}
 
-		int timeout = GetterUtil.getInteger(
-			PropsUtil.get(
-				HttpImpl.class.getName() + ".timeout",
-				new Filter(uri.getHost())));
+		if (timeout == 0) {
+			timeout = GetterUtil.getInteger(
+				PropsUtil.get(
+					HttpImpl.class.getName() + ".timeout",
+					new Filter(uri.getHost())));
+		}
 
 		if (timeout > 0) {
 			requestConfigBuilder = requestConfigBuilder.setConnectTimeout(
@@ -1519,12 +1523,18 @@ public class HttpImpl implements Http {
 			Cookie[] cookies, Http.Auth auth, Http.Body body,
 			List<Http.FilePart> fileParts, Map<String, String> parts,
 			Http.Response response, boolean followRedirects, String progressId,
-			PortletRequest portletRequest)
+			PortletRequest portletRequest, int timeout)
 		throws IOException {
 
 		byte[] bytes = null;
 
 		CloseableHttpResponse closeableHttpResponse = null;
+
+		if (!location.startsWith(Http.HTTP_WITH_SLASH) &&
+			!location.startsWith(Http.HTTPS_WITH_SLASH)) {
+
+			location = Http.HTTP_WITH_SLASH + location;
+		}
 
 		URI uri = null;
 
@@ -1540,20 +1550,11 @@ public class HttpImpl implements Http {
 		try {
 			_cookies.set(null);
 
-			if (location == null) {
-				return null;
-			}
-			else if (!location.startsWith(Http.HTTP_WITH_SLASH) &&
-				!location.startsWith(Http.HTTPS_WITH_SLASH)) {
-
-				location = Http.HTTP_WITH_SLASH + location;
-			}
-
 			HttpHost targetHttpHost = new HttpHost(
 				uri.getHost(), uri.getPort());
 
 			RequestConfig.Builder requestConfigBuilder =
-				getRequestConfigBuilder(uri);
+				getRequestConfigBuilder(uri, timeout);
 
 			RequestConfig requestConfig = requestConfigBuilder.build();
 
@@ -1687,7 +1688,7 @@ public class HttpImpl implements Http {
 					return URLtoByteArray(
 						redirect, Http.Method.GET, headers, cookies, auth, body,
 						fileParts, parts, response, followRedirects, progressId,
-						portletRequest);
+						portletRequest, timeout);
 				}
 				else {
 					response.setRedirect(redirect);
@@ -1768,8 +1769,13 @@ public class HttpImpl implements Http {
 				_log.error(e, e);
 			}
 
-			if (closeableHttpResponse != null) {
-				closeableHttpResponse.close();
+			try {
+				if (closeableHttpResponse != null) {
+					closeableHttpResponse.close();
+				}
+			}
+			catch (Exception e) {
+				_log.error(e, e);
 			}
 		}
 	}
