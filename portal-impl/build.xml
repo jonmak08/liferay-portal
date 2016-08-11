@@ -55,6 +55,7 @@ svn://svn.liferay.com/repos/public/alloy/trunk/sandbox/taglibs.
 				<include name="**/AxisEngine.java" />
 				<include name="**/EngineConfiguration.java" />
 				<include name="**/JavaServiceDesc.java" />
+				<include name="**/JSSESocketFactory.java" />
 				<include name="**/MapDeserializer.java" />
 				<include name="**/Session.java" />
 				<include name="**/Types.java" />
@@ -66,6 +67,12 @@ svn://svn.liferay.com/repos/public/alloy/trunk/sandbox/taglibs.
 		<patch
 			dir="${tstamp.value}"
 			patchfile="${project.dir}/lib/portal/axis/AXIS-2585.patch"
+			strip="1"
+		/>
+
+		<patch
+			dir="${tstamp.value}"
+			patchfile="${project.dir}/lib/portal/axis/AXIS-2905.patch"
 			strip="1"
 		/>
 
@@ -101,7 +108,7 @@ svn://svn.liferay.com/repos/public/alloy/trunk/sandbox/taglibs.
 
 		<mirrors-get
 			dest="${project.dir}/lib/portal/axis.jar.new"
-			src="http://search.maven.org/remotecontent?filepath=axis/axis/1.4/axis-1.4.jar"
+			src="http://repo1.maven.org/maven2/axis/axis/1.4/axis-1.4.jar"
 		/>
 
 		<jar destfile="${project.dir}/lib/portal/axis.jar.new" update="true">
