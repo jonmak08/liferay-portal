@@ -38,7 +38,10 @@ public class ContactListener extends BaseModelListener<Contact> {
 			exportToLDAP(contact);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(
+				"Error exporting contact to LDAP for userId = " +
+					contact.getUserId(),
+				e);
 		}
 	}
 
@@ -48,7 +51,10 @@ public class ContactListener extends BaseModelListener<Contact> {
 			exportToLDAP(contact);
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(
+				"Error exporting contact to LDAP for userId = " +
+					contact.getUserId(),
+				e);
 		}
 	}
 

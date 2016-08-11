@@ -38,7 +38,10 @@ public class UserGroupListener extends BaseModelListener<UserGroup> {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(
+				"Error exporting user group add to LDAP for userId = " +
+					associationClassPK,
+				e);
 		}
 	}
 
@@ -55,7 +58,10 @@ public class UserGroupListener extends BaseModelListener<UserGroup> {
 			}
 		}
 		catch (Exception e) {
-			_log.error(e, e);
+			_log.error(
+				"Error exporting user group removal to LDAP for userId = " +
+					associationClassPK,
+				e);
 		}
 	}
 
