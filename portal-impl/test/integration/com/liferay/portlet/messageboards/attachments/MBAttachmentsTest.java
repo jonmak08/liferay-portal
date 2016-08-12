@@ -31,7 +31,6 @@ import com.liferay.portal.test.MainServletExecutionTestListener;
 import com.liferay.portal.test.TransactionalExecutionTestListener;
 import com.liferay.portal.util.GroupTestUtil;
 import com.liferay.portal.util.TestPropsValues;
-import com.liferay.portlet.documentlibrary.model.DLFileEntryConstants;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.service.DLFolderLocalServiceUtil;
 import com.liferay.portlet.messageboards.model.MBCategory;
@@ -40,9 +39,6 @@ import com.liferay.portlet.messageboards.model.MBMessage;
 import com.liferay.portlet.messageboards.model.MBMessageConstants;
 import com.liferay.portlet.messageboards.service.MBMessageLocalServiceUtil;
 import com.liferay.portlet.messageboards.util.MBTestUtil;
-import com.liferay.portlet.trash.model.TrashEntry;
-import com.liferay.portlet.trash.service.TrashEntryLocalServiceUtil;
-import com.liferay.portlet.trash.service.TrashEntryServiceUtil;
 
 import java.io.InputStream;
 
@@ -451,10 +447,8 @@ public class MBAttachmentsTest {
 			_message.getDeletedAttachmentsFileEntriesCount());
 
 		if (restore) {
-			TrashEntry trashEntry = TrashEntryLocalServiceUtil.getEntry(
-				DLFileEntryConstants.getClassName(), fileEntryId);
-
-			TrashEntryServiceUtil.restoreEntry(trashEntry.getEntryId());
+			MBMessageLocalServiceUtil.restoreMessageAttachmentFromTrash(
+				TestPropsValues.getUserId(), _message.getMessageId(), fileName);
 
 			Assert.assertEquals(
 				initialNotInTrashCount + 1,
