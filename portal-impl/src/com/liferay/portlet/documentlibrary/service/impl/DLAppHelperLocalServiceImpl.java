@@ -1042,7 +1042,8 @@ public class DLAppHelperLocalServiceImpl
 
 		if (!DLAppHelperThreadLocal.isEnabled()) {
 			dlFileEntryLocalService.updateStatus(
-				userId, fileVersion.getFileVersionId(), 0,
+				userId, fileVersion.getFileVersionId(),
+				WorkflowConstants.STATUS_APPROVED,
 				new HashMap<String, Serializable>(), new ServiceContext());
 
 			return;
