@@ -1826,7 +1826,7 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 
 		// Attachments
 
-		for (FileEntry fileEntry : page.getAttachmentsFileEntries()) {
+		for (FileEntry fileEntry : page.getDeletedAttachmentsFileEntries()) {
 			PortletFileRepositoryUtil.restorePortletFileEntryFromTrash(
 				userId, fileEntry.getFileEntryId());
 		}
