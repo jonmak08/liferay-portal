@@ -1038,12 +1038,20 @@ public class DLAppHelperLocalServiceImpl
 
 		DLFileEntry dlFileEntry = (DLFileEntry)fileEntry.getModel();
 
+		FileVersion fileVersion = fileEntry.getFileVersion();
+
+		if (!DLAppHelperThreadLocal.isEnabled()) {
+			dlFileEntryLocalService.updateStatus(
+				userId, fileVersion.getFileVersionId(), 0,
+				new HashMap<String, Serializable>(), new ServiceContext());
+
+			return;
+		}
+
 		dlFileEntry.setTitle(
 			TrashUtil.getOriginalTitle(dlFileEntry.getTitle()));
 
 		dlFileEntryPersistence.update(dlFileEntry);
-
-		FileVersion fileVersion = fileEntry.getFileVersion();
 
 		TrashEntry trashEntry = trashEntryLocalService.getEntry(
 			DLFileEntryConstants.getClassName(), fileEntry.getFileEntryId());
@@ -1052,22 +1060,19 @@ public class DLAppHelperLocalServiceImpl
 			userId, fileVersion.getFileVersionId(), trashEntry.getStatus(),
 			new HashMap<String, Serializable>(), new ServiceContext());
 
-		if (DLAppHelperThreadLocal.isEnabled()) {
+		// File rank
 
-			// File rank
+		dlFileRankLocalService.enableFileRanks(fileEntry.getFileEntryId());
 
-			dlFileRankLocalService.enableFileRanks(fileEntry.getFileEntryId());
+		// File shortcut
 
-			// File shortcut
+		dlFileShortcutLocalService.enableFileShortcuts(
+			fileEntry.getFileEntryId());
 
-			dlFileShortcutLocalService.enableFileShortcuts(
-				fileEntry.getFileEntryId());
+		// Sync
 
-			// Sync
-
-			registerDLSyncEventCallback(
-				DLSyncConstants.EVENT_RESTORE_FROM_TRASH, fileEntry);
-		}
+		registerDLSyncEventCallback(
+			DLSyncConstants.EVENT_RESTORE_FROM_TRASH, fileEntry);
 
 		// Trash
 
@@ -1085,10 +1090,6 @@ public class DLAppHelperLocalServiceImpl
 		}
 
 		trashEntryLocalService.deleteEntry(trashEntry.getEntryId());
-
-		if (!DLAppHelperThreadLocal.isEnabled()) {
-			return;
-		}
 
 		// Social
 
@@ -1765,6 +1766,10 @@ public class DLAppHelperLocalServiceImpl
 
 		DLFileEntry dlFileEntry = (DLFileEntry)fileEntry.getModel();
 
+		if (!DLAppHelperThreadLocal.isEnabled()) {
+			return fileEntry;
+		}
+
 		UnicodeProperties typeSettingsProperties = new UnicodeProperties();
 
 		typeSettingsProperties.put("title", dlFileEntry.getTitle());
@@ -1788,10 +1793,6 @@ public class DLAppHelperLocalServiceImpl
 			DLFileEntry.class);
 
 		indexer.reindex(dlFileEntry);
-
-		if (!DLAppHelperThreadLocal.isEnabled()) {
-			return fileEntry;
-		}
 
 		// Social
 
