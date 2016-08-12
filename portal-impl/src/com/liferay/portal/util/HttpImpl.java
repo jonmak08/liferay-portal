@@ -96,6 +96,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.http.pool.PoolStats;
+import org.apache.http.util.EntityUtils;
 
 /**
  * @author Brian Wing Shun Chan
@@ -494,7 +495,7 @@ public class HttpImpl implements Http {
 	@Deprecated
 	@SuppressWarnings("unused")
 	public org.apache.commons.httpclient.HostConfiguration getHostConfiguration(
-		String location)
+			String location)
 		throws IOException {
 
 		throw new UnsupportedOperationException();
@@ -1605,8 +1606,6 @@ public class HttpImpl implements Http {
 
 		byte[] bytes = null;
 
-		CloseableHttpResponse closeableHttpResponse = null;
-
 		if (!location.startsWith(Http.HTTP_WITH_SLASH) &&
 			!location.startsWith(Http.HTTPS_WITH_SLASH)) {
 
@@ -1623,6 +1622,9 @@ public class HttpImpl implements Http {
 		}
 
 		BasicCookieStore basicCookieStore = null;
+
+		CloseableHttpResponse closeableHttpResponse = null;
+		HttpEntity httpEntity = null;
 
 		try {
 			_cookies.set(null);
@@ -1746,33 +1748,34 @@ public class HttpImpl implements Http {
 			closeableHttpResponse = httpClient.execute(
 				targetHttpHost, requestBuilder.build(), httpClientContext);
 
+			httpEntity = closeableHttpResponse.getEntity();
+
 			response.setResponseCode(
 				closeableHttpResponse.getStatusLine().getStatusCode());
 
 			Header locationHeader = closeableHttpResponse.getFirstHeader(
 				"location");
 
-			String locationHeaderValue = locationHeader.getValue();
+			if (locationHeader != null) {
+				String locationHeaderValue = locationHeader.getValue();
 
-			if ((locationHeader != null) &&
-				!locationHeaderValue.equals(location)) {
+				if (!locationHeaderValue.equals(location)) {
+					if (followRedirects) {
+						EntityUtils.consumeQuietly(httpEntity);
 
-				String redirect = locationHeaderValue;
+						closeableHttpResponse.close();
 
-				if (followRedirects) {
-					closeableHttpResponse.close();
-
-					return URLtoInputStream(
-						redirect, Http.Method.GET, headers, cookies, auth, body,
-						fileParts, parts, response, followRedirects, progressId,
-						portletRequest, timeout);
-				}
-				else {
-					response.setRedirect(redirect);
+						return URLtoInputStream(
+							locationHeaderValue, Http.Method.GET, headers,
+							cookies, auth, body, fileParts, parts, response,
+							followRedirects, progressId, portletRequest,
+							timeout);
+					}
+					else {
+						response.setRedirect(locationHeaderValue);
+					}
 				}
 			}
-
-			HttpEntity httpEntity = closeableHttpResponse.getEntity();
 
 			InputStream inputStream = httpEntity.getContent();
 
@@ -1845,21 +1848,31 @@ public class HttpImpl implements Http {
 					reference.clear();
 				}
 
-			}; }
+			};
+		}
+		catch (Exception e) {
+			if (httpEntity != null) {
+				EntityUtils.consumeQuietly(httpEntity);
+			}
+
+			if (closeableHttpResponse != null) {
+				try {
+					closeableHttpResponse.close();
+				}
+				catch (IOException ioe) {
+					if (_log.isWarnEnabled()) {
+						_log.warn("Error closing response", e);
+					}
+				}
+			}
+
+			throw new IOException(e);
+		}
 		finally {
 			try {
 				if (basicCookieStore != null) {
 					_cookies.set(
 						toServletCookies(basicCookieStore.getCookies()));
-				}
-			}
-			catch (Exception e) {
-				_log.error(e, e);
-			}
-
-			try {
-				if (closeableHttpResponse != null) {
-					closeableHttpResponse.close();
 				}
 			}
 			catch (Exception e) {
