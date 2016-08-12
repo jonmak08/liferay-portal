@@ -6,8 +6,6 @@
 
 <#assign utcTimeZone = timeZoneUtil.getTimeZone("UTC")>
 
-<#assign nullable = false>
-
 <#if (fieldRawValue?is_date)>
 	<#assign fieldValue = calendarFactory.getCalendar(fieldRawValue?long, utcTimeZone)>
 <#elseif (validator.isNotNull(predefinedValue))>
@@ -18,8 +16,6 @@
 	<#assign calendar = calendarFactory.getCalendar(utcTimeZone)>
 
 	<#assign fieldValue = calendarFactory.getCalendar(calendar.get(YEAR), calendar.get(MONTH), calendar.get(DATE))>
-
-	<#assign nullable = true>
 </#if>
 
 <#if cssClass??>
@@ -39,7 +35,7 @@
 		monthParam="${namespacedFieldName}Month"
 		monthValue=monthValue
 		name="${namespacedFieldName}"
-		nullable=nullable
+		nullable=true
 		required=required
 		yearParam="${namespacedFieldName}Year"
 		yearValue=yearValue
