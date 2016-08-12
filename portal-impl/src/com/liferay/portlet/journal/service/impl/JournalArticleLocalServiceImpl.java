@@ -1437,7 +1437,7 @@ public class JournalArticleLocalServiceImpl
 		}
 
 		return fetchLatestArticleByUrlTitle(
-			groupId, urlTitle, WorkflowConstants.STATUS_PENDING);
+			groupId, urlTitle, WorkflowConstants.STATUS_ANY);
 	}
 
 	@Override
@@ -1731,7 +1731,7 @@ public class JournalArticleLocalServiceImpl
 		}
 
 		return getLatestArticleByUrlTitle(
-			groupId, urlTitle, WorkflowConstants.STATUS_PENDING);
+			groupId, urlTitle, WorkflowConstants.STATUS_ANY);
 	}
 
 	/**
