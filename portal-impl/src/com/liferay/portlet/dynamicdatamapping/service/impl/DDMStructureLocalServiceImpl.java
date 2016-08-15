@@ -1446,7 +1446,8 @@ public class DDMStructureLocalServiceImpl
 		XPath structureXPath = SAXReaderUtil.createXPath(
 			"//dynamic-element[@required=\"true\"]");
 
-		List<Node> structureNodes = structureXPath.selectNodes(structureDocument);
+		List<Node> structureNodes = structureXPath.selectNodes(
+			structureDocument);
 
 		for (Node structureNode : structureNodes) {
 			Element structureElement = (Element)structureNode;
@@ -1458,7 +1459,8 @@ public class DDMStructureLocalServiceImpl
 			XPath templateXPath = SAXReaderUtil.createXPath(
 				"//dynamic-element[@name=" + name + "]");
 
-			List<Node> matchingTemplateNodes = templateXPath.selectNodes(templateDocument);
+			List<Node> matchingTemplateNodes = templateXPath.selectNodes(
+				templateDocument);
 
 			if (matchingTemplateNodes.isEmpty()) {
 				templateRootElement.add(structureElement.createCopy());
