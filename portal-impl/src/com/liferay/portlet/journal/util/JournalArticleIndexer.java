@@ -15,6 +15,8 @@
 package com.liferay.portlet.journal.util;
 
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.OrderFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
@@ -56,6 +58,8 @@ import com.liferay.portlet.journal.model.JournalArticleDisplay;
 import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.portlet.journal.service.permission.JournalArticlePermission;
 import com.liferay.portlet.journal.service.persistence.JournalArticleActionableDynamicQuery;
+import com.liferay.portlet.journal.util.comparator.ArticleIDComparator;
+import com.liferay.portlet.journal.util.comparator.ArticleResourcePKComparator;
 import com.liferay.portlet.trash.util.TrashUtil;
 
 import java.io.Serializable;
@@ -849,12 +853,17 @@ public class JournalArticleIndexer extends BaseIndexer {
 		ActionableDynamicQuery actionableDynamicQuery =
 			new JournalArticleActionableDynamicQuery() {
 
+			long _lastResourcePK;
+
 			@Override
 			protected void performAction(Object object) throws SystemException {
 
 				JournalArticle article = (JournalArticle)object;
 
 				if (!PropsValues.JOURNAL_ARTICLE_INDEX_ALL_VERSIONS) {
+					long resourcePK = article.getResourcePrimKey();
+					if (_lastResourcePK == resourcePK) return;
+
 					JournalArticle latestIndexableArticle =
 						fetchLatestIndexableArticleVersion(
 							article.getResourcePrimKey());
@@ -863,6 +872,7 @@ public class JournalArticleIndexer extends BaseIndexer {
 						return;
 					}
 
+					_lastResourcePK = resourcePK;
 					article = latestIndexableArticle;
 				}
 
@@ -881,6 +891,13 @@ public class JournalArticleIndexer extends BaseIndexer {
 				}
 			}
 
+			@Override
+			protected void addOrderCriteria(DynamicQuery dynamicQuery) {
+				if (!PropsValues.JOURNAL_ARTICLE_INDEX_ALL_VERSIONS) {
+					OrderFactoryUtil.addOrderByComparator(
+							dynamicQuery, new ArticleResourcePKComparator(true));
+				}
+			}
 		};
 
 		actionableDynamicQuery.setCompanyId(companyId);
