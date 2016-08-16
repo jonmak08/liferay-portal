@@ -204,7 +204,7 @@ public class SubscriptionPermissionImpl implements SubscriptionPermission {
 					permissionChecker, classPK, actionId);
 			}
 
-			if (actionId == ActionKeys.SUBSCRIBE) {
+			if (actionId.equals(ActionKeys.SUBSCRIBE)) {
 				return JournalPermission.contains(
 					permissionChecker, article.getGroupId(), actionId);
 			}
