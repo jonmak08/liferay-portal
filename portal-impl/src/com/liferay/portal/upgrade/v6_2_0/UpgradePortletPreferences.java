@@ -21,9 +21,11 @@ import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.util.PropsValues;
 import com.liferay.util.dao.orm.CustomSQLUtil;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -53,6 +55,11 @@ public class UpgradePortletPreferences extends UpgradeProcess {
 		try {
 			con = DataAccess.getUpgradeOptimizedConnection();
 
+			DatabaseMetaData databaseMetaData = con.getMetaData();
+
+			boolean supportsBatchUpdates =
+				databaseMetaData.supportsBatchUpdates();
+
 			StringBundler sb = new StringBundler(7);
 
 			sb.append("select PortletPreferences.portletPreferencesId, ");
@@ -73,6 +80,12 @@ public class UpgradePortletPreferences extends UpgradeProcess {
 
 			rs = ps.executeQuery();
 
+			ps = con.prepareStatement(
+				"delete from PortletPreferences where portletPreferencesId = " +
+					"?");
+
+			int count = 0;
+
 			while (rs.next()) {
 				long portletPreferencesId = rs.getLong("portletPreferencesId");
 				String portletId = GetterUtil.getString(
@@ -84,7 +97,32 @@ public class UpgradePortletPreferences extends UpgradeProcess {
 					continue;
 				}
 
-				deletePortletPreferences(portletPreferencesId);
+				if (_log.isDebugEnabled()) {
+					_log.debug(
+						"Deleting portlet preferences " + portletPreferencesId);
+				}
+
+				ps.setLong(1, portletPreferencesId);
+
+				if (supportsBatchUpdates) {
+					ps.addBatch();
+
+					if (count == PropsValues.HIBERNATE_JDBC_BATCH_SIZE) {
+						ps.executeBatch();
+
+						count = 0;
+					}
+					else {
+						count++;
+					}
+				}
+				else {
+					ps.executeUpdate();
+				}
+			}
+
+			if (supportsBatchUpdates && (count > 0)) {
+				ps.executeBatch();
 			}
 		}
 		finally {
