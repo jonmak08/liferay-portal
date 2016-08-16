@@ -84,10 +84,12 @@
 			<isset var="kbFolderName" />
 			<then>
 				<execute function="AssertTextEquals" locator1="PGSearch#INCREMENTAL_SEARCH_SUGGESTION" value1="${kbFolderName} > ${kbArticleTitle}" />
+
 				<execute function="AssertClick" locator1="PGSearch#INCREMENTAL_SEARCH_SUGGESTION" value1="${kbFolderName} > ${kbArticleTitle}" />
 			</then>
 			<else>
 				<execute function="AssertTextEquals" locator1="PGSearch#INCREMENTAL_SEARCH_SUGGESTION" value1="${kbArticleTitle}" />
+
 				<execute function="AssertClick" locator1="PGSearch#INCREMENTAL_SEARCH_SUGGESTION" value1="${kbArticleTitle}" />
 			</else>
 		</if>
