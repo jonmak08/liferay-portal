@@ -24,6 +24,10 @@
 
 <#assign parentFieldRawValues = jsonFactoryUtil.looseDeserialize(parentFieldRawValue)>
 
+<#if !parentFieldRawValues?is_enumerable>
+	<#assign parentFieldRawValues = stringUtil.split("" + parentFieldRawValues)>
+</#if>
+
 <#assign selected = paramUtil.getParameterValues(request, namespacedParentFieldName, parentFieldRawValues)?seq_contains(fieldStructure.value)>
 
 <#if parentType == "select">
