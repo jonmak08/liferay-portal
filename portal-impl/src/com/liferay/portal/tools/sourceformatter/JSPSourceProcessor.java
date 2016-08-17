@@ -571,7 +571,8 @@ public class JSPSourceProcessor extends BaseSourceProcessor {
 				}
 			}
 
-			if ((trimmedLine.startsWith("if (") ||
+			if (javaSource &&
+				(trimmedLine.startsWith("if (") ||
 				 trimmedLine.startsWith("else if (") ||
 				 trimmedLine.startsWith("while (")) &&
 				trimmedLine.endsWith(") {")) {
