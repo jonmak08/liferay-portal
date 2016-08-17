@@ -27,8 +27,8 @@ public class UserGroupListener extends BaseModelListener<UserGroup> {
 
 	@Override
 	public void onAfterAddAssociation(
-			Object userGroupId, String associationClassName,
-			Object associationClassPK) {
+		Object userGroupId, String associationClassName,
+		Object associationClassPK) {
 
 		try {
 			if (associationClassName.equals(User.class.getName())) {
@@ -47,8 +47,8 @@ public class UserGroupListener extends BaseModelListener<UserGroup> {
 
 	@Override
 	public void onAfterRemoveAssociation(
-			Object userGroupId, String associationClassName,
-			Object associationClassPK) {
+		Object userGroupId, String associationClassName,
+		Object associationClassPK) {
 
 		try {
 			if (associationClassName.equals(User.class.getName())) {
