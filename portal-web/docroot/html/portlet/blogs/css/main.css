@@ -43,6 +43,10 @@
 		padding-left: 25px;
 	}
 
+	.entry-footer {
+		overflow: auto;
+	}
+
 	.taglib-asset-categories-summary, .taglib-asset-tags-summary {
 		border-left: 1px solid #999;
 		padding-left: 10px;
