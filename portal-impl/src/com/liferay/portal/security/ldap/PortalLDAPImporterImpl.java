@@ -565,7 +565,7 @@ public class PortalLDAPImporterImpl implements PortalLDAPImporter {
 			ServiceContext serviceContext = ldapUser.getServiceContext();
 
 			return UserLocalServiceUtil.fetchUserByUuidAndCompanyId(
-				serviceContext.getUuid(), companyId);
+				serviceContext.getUuidWithoutReset(), companyId);
 		}
 
 		String authType = PrefsPropsUtil.getString(
