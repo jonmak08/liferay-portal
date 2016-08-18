@@ -596,6 +596,37 @@
 		</execute>
 	</command>
 
+	<command name="SortWebContentByVersion" priority="4">
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Web Content" />
+		</execute>
+
+		<execute macro="WebContent#addCP">
+			<var name="webContentContent" value="WC WebContent Content" />
+			<var name="webContentTitle" value="WC WebContent Title" />
+		</execute>
+
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Web Content" />
+		</execute>
+
+		<execute macro="WebContent#gotoEditCP">
+			<var name="webContentTitle" value="WC WebContent Title" />
+		</execute>
+
+		<execute macro="WebContent#gotoViewHistory" />
+
+		<execute macro="WebContent#expireSpecificVersionFromHistory">
+			<var name="webContentTitle" value="WC WebContent Title" />
+		</execute>
+
+		<execute macro="WebContent#sortByVersionFromHistory" />
+
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Web Content" />
+		</execute>
+	</command>
+
 	<command name="ViewPaginationViaBrowseByStructure" priority="4">
 		<execute macro="WebContentStructures#addMultipleCP">
 			<var name="structureCount" value="21" />
