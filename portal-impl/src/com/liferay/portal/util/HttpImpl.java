@@ -1622,7 +1622,6 @@ public class HttpImpl implements Http {
 		}
 
 		BasicCookieStore basicCookieStore = null;
-
 		CloseableHttpResponse closeableHttpResponse = null;
 		HttpEntity httpEntity = null;
 
@@ -1861,7 +1860,7 @@ public class HttpImpl implements Http {
 				}
 				catch (IOException ioe) {
 					if (_log.isWarnEnabled()) {
-						_log.warn("Error closing response", e);
+						_log.warn("Unable to close response", e);
 					}
 				}
 			}
