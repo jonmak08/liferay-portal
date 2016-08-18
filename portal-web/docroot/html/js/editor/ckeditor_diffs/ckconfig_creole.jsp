@@ -188,6 +188,7 @@ CKEDITOR.config.contentsLangDirection = '<%= HtmlUtil.escapeJS(contentsLanguageD
 				infoTab.remove('cmbWidthType');
 				infoTab.remove('htmlHeightType');
 				infoTab.remove('txtBorder');
+				infoTab.remove('txtCaption');
 				infoTab.remove('txtCellPad');
 				infoTab.remove('txtCellSpace');
 				infoTab.remove('txtHeight');

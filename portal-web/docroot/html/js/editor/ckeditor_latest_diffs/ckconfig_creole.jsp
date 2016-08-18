@@ -192,6 +192,7 @@ response.setContentType(ContentTypes.TEXT_JAVASCRIPT);
 				infoTab.remove('cmbWidthType');
 				infoTab.remove('htmlHeightType');
 				infoTab.remove('txtBorder');
+				infoTab.remove('txtCaption');
 				infoTab.remove('txtCellPad');
 				infoTab.remove('txtCellSpace');
 				infoTab.remove('txtHeight');
