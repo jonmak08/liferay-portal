@@ -45,6 +45,8 @@ public class SystemProperties {
 
 	public static final String TMP_DIR = "java.io.tmpdir";
 
+	public static final String HTTP_HEADER_SECURE_X_FRAME_OPTIONS_255 = "http.header.secure.x.frame.options.255";
+
 	public static void clear(String key) {
 		System.clearProperty(key);
 
