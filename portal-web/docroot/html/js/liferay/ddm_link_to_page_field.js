@@ -573,6 +573,9 @@ AUI.add(
 						currentTarget.addClass('active');
 
 						instance._cleanSelectedLayout();
+
+						instance._resetBreadcrumb(currentTarget.test('.private'));
+
 						instance._renderLayoutsList(currentTarget.test('.private'));
 					},
 
@@ -944,6 +947,16 @@ AUI.add(
 								}
 							);
 						}
+					},
+
+					_resetBreadcrumb: function(pagesType) {
+						var instance = this;
+
+						var selectedLayoutRoot = instance.getSelectedLayoutPath()[0];
+
+						selectedLayoutRoot.privateLayout = pagesType;
+
+						instance.set('selectedLayoutPath', [selectedLayoutRoot]);
 					},
 
 					_setSelectedLayoutPath: function(groupId, privateLayout, response) {
