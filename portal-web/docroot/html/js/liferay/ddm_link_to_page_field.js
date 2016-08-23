@@ -574,9 +574,10 @@ AUI.add(
 
 						instance._cleanSelectedLayout();
 
-						instance._resetBreadcrumb(currentTarget.test('.private'));
+						var privateLayout = currentTarget.test('.private');
 
-						instance._renderLayoutsList(currentTarget.test('.private'));
+						instance._resetBreadcrumb(privateLayout);
+						instance._renderLayoutsList(privateLayout);
 					},
 
 					_handleSelectButtonClick: function() {
@@ -949,12 +950,12 @@ AUI.add(
 						}
 					},
 
-					_resetBreadcrumb: function(pagesType) {
+					_resetBreadcrumb: function(privateLayout) {
 						var instance = this;
 
 						var selectedLayoutRoot = instance.getSelectedLayoutPath()[0];
 
-						selectedLayoutRoot.privateLayout = pagesType;
+						selectedLayoutRoot.privateLayout = privateLayout;
 
 						instance.set('selectedLayoutPath', [selectedLayoutRoot]);
 					},
