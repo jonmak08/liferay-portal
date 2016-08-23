@@ -381,7 +381,6 @@ AUI.add(
 							{
 								recordSetId: recordsetId,
 								minDisplayRows: minDisplayRows,
-								recordSetId: recordsetId,
 								serviceContext: AJSON.stringify(
 									{
 										scopeGroupId: themeDisplay.getScopeGroupId(),
@@ -599,10 +598,8 @@ AUI.add(
 							groupId: themeDisplay.getScopeGroupId(),
 							recordSetId: recordsetId,
 							displayIndex: displayIndex,
-							fieldsMap: AJSON.stringify(fieldsMap),
-							groupId: themeDisplay.getScopeGroupId(),
-							recordSetId: recordsetId,
-							serviceContext: AJSON.stringify(
+							fieldsMap: JSON.stringify(fieldsMap),
+							serviceContext: JSON.stringify(
 								{
 									scopeGroupId: themeDisplay.getScopeGroupId(),
 									userId: themeDisplay.getUserId(),
@@ -890,7 +887,6 @@ AUI.add(
 							displayIndex: displayIndex,
 							fieldsMap: AJSON.stringify(fieldsMap),
 							mergeFields: merge,
-							recordId: recordId,
 							serviceContext: AJSON.stringify(
 								{
 									scopeGroupId: themeDisplay.getScopeGroupId(),
