@@ -256,7 +256,7 @@ else {
 			nodeSelector: '.lfr-page-template',
 			parentLayoutId: <%= parentLayoutId %>,
 			refresh: <%= layout.isTypeControlPanel() %>,
-			selected: !A.one('#<portlet:namespace /><%= addPageFormName %>').ancestor().hasClass('hide'),
+			selected: !A.one('#<portlet:namespace /><%= HtmlUtil.escapeJS(addPageFormName) %>').ancestor().hasClass('hide'),
 			toggleOnCancel: <%= portletName.equals(PortletKeys.DOCKBAR) %>
 		}
 	);
