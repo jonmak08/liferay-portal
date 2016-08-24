@@ -17,6 +17,7 @@ package com.liferay.portlet.dynamicdatamapping.storage;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 
 import java.io.Serializable;
@@ -128,7 +129,7 @@ public class FieldConstants {
 		}
 
 		if (isNumericType(type) && Validator.isNull(value)) {
-			return null;
+			return StringPool.BLANK;
 		}
 
 		if (type.equals(BOOLEAN)) {
