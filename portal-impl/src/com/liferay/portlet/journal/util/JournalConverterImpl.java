@@ -586,6 +586,7 @@ public class JournalConverterImpl implements JournalConverter {
 		Field ddmField = new Field();
 
 		ddmField.setDDMStructureId(ddmStructure.getStructureId());
+
 		Locale defaultLocale = null;
 
 		if (defaultLanguageId == null) {
