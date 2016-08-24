@@ -1160,9 +1160,10 @@ public class JournalUtil {
 
 			if (Validator.isNull(availableLocales)) {
 				updatedRootElement = updatedRootElement.addAttribute(
-						"available-locales", StringPool.BLANK);
+					"available-locales", StringPool.BLANK);
+
 				availableLocales = updatedRootElement.attribute(
-						"available-locales");
+					"available-locales");
 			}
 
 			String defaultImportLocaleId = LocaleUtil.toLanguageId(
@@ -1176,6 +1177,7 @@ public class JournalUtil {
 				}
 				else {
 					StringBundler sb = new StringBundler(3);
+
 					sb.append(availableLocales.getValue());
 					sb.append(StringPool.COMMA);
 					sb.append(defaultImportLocaleId);
@@ -1196,6 +1198,7 @@ public class JournalUtil {
 			if (Validator.isNull(defaultLocale)) {
 				updatedRootElement = updatedRootElement.addAttribute(
 					"default-locale", StringPool.BLANK);
+
 				defaultLocale = updatedRootElement.attribute("default-locale");
 			}
 
