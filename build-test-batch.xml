@@ -514,8 +514,8 @@ app.server.type=@{app.server.type}]]></echo>
 				<test-set-up>
 					<if>
 						<and>
-							<matches pattern="http" string="@{test.portal.bundle.zip.url}" />
-							<matches pattern="http" string="@{test.sql.zip.url}" />
+							<matches pattern="https?://" string="@{test.portal.bundle.zip.url}" />
+							<matches pattern="https?://" string="@{test.sql.zip.url}" />
 						</and>
 						<then>
 							<propertycopy from="app.server.${app.server.type}.bin.dir" name="test.app.server.bin.dir" />
@@ -529,7 +529,7 @@ app.server.type=@{app.server.type}]]></echo>
 							</antcall>
 
 							<if>
-								<matches pattern="http" string="@{test.license.xml.url}" />
+								<matches pattern="https?://" string="@{test.license.xml.url}" />
 								<then>
 									<antcall target="deploy-license-xml">
 										<param name="test.build.license.xml.zip.url" value="@{test.license.xml.url}" />
@@ -578,7 +578,7 @@ app.server.type=@{app.server.type}]]></echo>
 					</if>
 
 					<if>
-						<matches pattern="http" string="@{test.plugin.zip.url}" />
+						<matches pattern="https?://" string="@{test.plugin.zip.url}" />
 						<then>
 							<mkdir dir="${liferay.home}/deploy" />
 
