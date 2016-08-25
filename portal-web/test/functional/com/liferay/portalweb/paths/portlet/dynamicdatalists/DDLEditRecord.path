@@ -14,6 +14,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>LINK_TO_PAGE_NAV_ITEM</td>
+	<td>//nav[contains(@class,'navbar-default')]//a[contains(.,'${key_navItem}')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>LINK_TO_PAGE_PAGE_RADIO</td>
 	<td>//a[contains(.,'${key_pageName}')]/../input[@type='radio']</td>
 	<td></td>
