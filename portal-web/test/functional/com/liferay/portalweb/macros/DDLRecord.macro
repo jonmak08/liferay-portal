@@ -226,9 +226,9 @@
 					<var name="pagePrivacy" value="${pagePrivacy}" />
 				</execute>
 
-				<var name="key_pageName" value="${ddlRecordFieldData}" />
-
-				<execute function="Click" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_PAGE_RADIO" />
+				<execute macro="DDLRecord#selectLinkToPageRadio">
+					<var name="ddlRecordFieldData" value="${ddlRecordFieldData}" />
+				</execute>
 
 				<execute function="AssertClick" locator1="Button#SELECT" value1="Select" />
 
@@ -267,6 +267,12 @@
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGDynamicdatalistsAddrecord#PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="AssertTextEquals" locator1="PGDynamicdatalists#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+	</command>
+
+	<command name="selectLinkToPageRadio">
+		<var name="key_pageName" value="${ddlRecordFieldData}" />
+
+		<execute function="Click" locator1="DDLEditRecord#LINK_TO_PAGE_PAGE_RADIO" />
 	</command>
 
 	<command name="viewCP">
