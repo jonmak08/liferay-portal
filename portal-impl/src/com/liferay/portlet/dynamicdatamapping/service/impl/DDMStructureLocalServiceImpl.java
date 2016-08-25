@@ -1527,6 +1527,10 @@ public class DDMStructureLocalServiceImpl
 
 		syncStructureTemplatesFields(structure);
 
+		if (!serviceContext.isIndexingEnabled()) {
+			return structure;
+		}
+
 		Indexer indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 			structure.getClassName());
 

@@ -6859,8 +6859,14 @@ public class JournalArticleLocalServiceImpl
 				}
 			}
 
+			boolean indexingEnabled = serviceContext.isIndexingEnabled();
+
+			serviceContext.setIndexingEnabled(false);
+
 			ddmStructureLocalService.updateXSD(
 				ddmStructureId, documentXSD.asXML(), serviceContext);
+
+			serviceContext.setIndexingEnabled(indexingEnabled);
 		}
 		catch (DocumentException de) {
 			throw new SystemException(de);
