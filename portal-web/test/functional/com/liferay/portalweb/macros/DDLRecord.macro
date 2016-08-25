@@ -79,6 +79,12 @@
 		<execute function="AssertClick" locator1="DDLEditRecord#LINK_TO_PAGE_NAV_ITEM" value1="${pagePrivacy} Pages" />
 	</command>
 
+	<command name="gotoLinkToPageSelect">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertClick" locator1="DDLEditRecord#LINK_TO_PAGE_SELECT_PAGE_BUTTON" value1="Select" />
+	</command>
+
 	<command name="populateField">
 		<var name="key_fieldName" value="${fieldName}" />
 
@@ -217,16 +223,15 @@
 	</command>
 
 	<command name="populateFieldLinkToPage">
-		<var name="key_ddlRecordFieldData" value="${ddlRecordFieldData}" />
-		<var name="key_fieldName" value="${fieldName}" />
-
 		<if>
 			<condition function="IsElementPresent" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_SELECT" />
 			<then>
 				<execute function="Select" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_SELECT" value1="regexp:–\s+${ddlRecordFieldData}" />
 			</then>
 			<else>
-				<execute function="AssertClick" locator1="CPDynamicdatalistsListAddrecord#LINK_TO_PAGE_SELECT_PAGE_BUTTON" value1="Select Page" />
+				<execute macro="DDLRecord#gotoLinkToPageSelect">
+					<var name="fieldName" value="${fieldName}" />
+				</execute>
 
 				<execute macro="DDLRecord#gotoLinkToPageNavItem">
 					<var name="pagePrivacy" value="${pagePrivacy}" />
@@ -544,9 +549,9 @@
 	</command>
 
 	<command name="viewSelectedLinkToPage">
-		<var name="key_fieldName" value="${fieldName}" />
-
-		<execute function="AssertClick" locator1="DDLEditRecord#LINK_TO_PAGE_SELECT_PAGE_BUTTON" value1="Select Page" />
+		<execute macro="DDLRecord#gotoLinkToPageSelect">
+			<var name="fieldName" value="${fieldName}" />
+		</execute>
 
 		<var name="key_pageName" value="${ddlRecordFieldData}" />
 
