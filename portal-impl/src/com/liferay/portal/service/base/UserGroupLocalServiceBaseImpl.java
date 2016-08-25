@@ -417,9 +417,9 @@ public abstract class UserGroupLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void addGroupUserGroups(long groupId, List<UserGroup> userGroups)
+	public void addGroupUserGroups(long groupId, List<UserGroup> UserGroups)
 		throws SystemException {
-		groupPersistence.addUserGroups(groupId, userGroups);
+		groupPersistence.addUserGroups(groupId, UserGroups);
 	}
 
 	/**
@@ -461,9 +461,9 @@ public abstract class UserGroupLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void deleteGroupUserGroups(long groupId, List<UserGroup> userGroups)
+	public void deleteGroupUserGroups(long groupId, List<UserGroup> UserGroups)
 		throws SystemException {
-		groupPersistence.removeUserGroups(groupId, userGroups);
+		groupPersistence.removeUserGroups(groupId, UserGroups);
 	}
 
 	/**
@@ -559,9 +559,9 @@ public abstract class UserGroupLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void addTeamUserGroups(long teamId, List<UserGroup> userGroups)
+	public void addTeamUserGroups(long teamId, List<UserGroup> UserGroups)
 		throws SystemException {
-		teamPersistence.addUserGroups(teamId, userGroups);
+		teamPersistence.addUserGroups(teamId, UserGroups);
 	}
 
 	/**
@@ -603,9 +603,9 @@ public abstract class UserGroupLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void deleteTeamUserGroups(long teamId, List<UserGroup> userGroups)
+	public void deleteTeamUserGroups(long teamId, List<UserGroup> UserGroups)
 		throws SystemException {
-		teamPersistence.removeUserGroups(teamId, userGroups);
+		teamPersistence.removeUserGroups(teamId, UserGroups);
 	}
 
 	/**
@@ -701,9 +701,9 @@ public abstract class UserGroupLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void addUserUserGroups(long userId, List<UserGroup> userGroups)
+	public void addUserUserGroups(long userId, List<UserGroup> UserGroups)
 		throws SystemException {
-		userPersistence.addUserGroups(userId, userGroups);
+		userPersistence.addUserGroups(userId, UserGroups);
 	}
 
 	/**
@@ -745,9 +745,9 @@ public abstract class UserGroupLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void deleteUserUserGroups(long userId, List<UserGroup> userGroups)
+	public void deleteUserUserGroups(long userId, List<UserGroup> UserGroups)
 		throws SystemException {
-		userPersistence.removeUserGroups(userId, userGroups);
+		userPersistence.removeUserGroups(userId, UserGroups);
 	}
 
 	/**

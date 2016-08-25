@@ -311,9 +311,9 @@ public class GroupLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void addOrganizationGroups(long organizationId,
-		java.util.List<com.liferay.portal.model.Group> groups)
+		java.util.List<com.liferay.portal.model.Group> Groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().addOrganizationGroups(organizationId, groups);
+		getService().addOrganizationGroups(organizationId, Groups);
 	}
 
 	/**
@@ -354,9 +354,9 @@ public class GroupLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteOrganizationGroups(long organizationId,
-		java.util.List<com.liferay.portal.model.Group> groups)
+		java.util.List<com.liferay.portal.model.Group> Groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().deleteOrganizationGroups(organizationId, groups);
+		getService().deleteOrganizationGroups(organizationId, Groups);
 	}
 
 	/**
@@ -451,9 +451,9 @@ public class GroupLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void addRoleGroups(long roleId,
-		java.util.List<com.liferay.portal.model.Group> groups)
+		java.util.List<com.liferay.portal.model.Group> Groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().addRoleGroups(roleId, groups);
+		getService().addRoleGroups(roleId, Groups);
 	}
 
 	/**
@@ -493,9 +493,9 @@ public class GroupLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteRoleGroups(long roleId,
-		java.util.List<com.liferay.portal.model.Group> groups)
+		java.util.List<com.liferay.portal.model.Group> Groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().deleteRoleGroups(roleId, groups);
+		getService().deleteRoleGroups(roleId, Groups);
 	}
 
 	/**
@@ -586,9 +586,9 @@ public class GroupLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void addUserGroupGroups(long userGroupId,
-		java.util.List<com.liferay.portal.model.Group> groups)
+		java.util.List<com.liferay.portal.model.Group> Groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().addUserGroupGroups(userGroupId, groups);
+		getService().addUserGroupGroups(userGroupId, Groups);
 	}
 
 	/**
@@ -628,9 +628,9 @@ public class GroupLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteUserGroupGroups(long userGroupId,
-		java.util.List<com.liferay.portal.model.Group> groups)
+		java.util.List<com.liferay.portal.model.Group> Groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().deleteUserGroupGroups(userGroupId, groups);
+		getService().deleteUserGroupGroups(userGroupId, Groups);
 	}
 
 	/**
@@ -724,9 +724,9 @@ public class GroupLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void addUserGroups(long userId,
-		java.util.List<com.liferay.portal.model.Group> groups)
+		java.util.List<com.liferay.portal.model.Group> Groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().addUserGroups(userId, groups);
+		getService().addUserGroups(userId, Groups);
 	}
 
 	/**
@@ -766,9 +766,9 @@ public class GroupLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteUserGroups(long userId,
-		java.util.List<com.liferay.portal.model.Group> groups)
+		java.util.List<com.liferay.portal.model.Group> Groups)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().deleteUserGroups(userId, groups);
+		getService().deleteUserGroups(userId, Groups);
 	}
 
 	/**

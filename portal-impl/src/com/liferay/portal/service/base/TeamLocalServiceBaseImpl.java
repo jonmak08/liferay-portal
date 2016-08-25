@@ -376,9 +376,9 @@ public abstract class TeamLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void addUserTeams(long userId, List<Team> teams)
+	public void addUserTeams(long userId, List<Team> Teams)
 		throws SystemException {
-		userPersistence.addTeams(userId, teams);
+		userPersistence.addTeams(userId, Teams);
 	}
 
 	/**
@@ -420,9 +420,9 @@ public abstract class TeamLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void deleteUserTeams(long userId, List<Team> teams)
+	public void deleteUserTeams(long userId, List<Team> Teams)
 		throws SystemException {
-		userPersistence.removeTeams(userId, teams);
+		userPersistence.removeTeams(userId, Teams);
 	}
 
 	/**
@@ -516,9 +516,9 @@ public abstract class TeamLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void addUserGroupTeams(long userGroupId, List<Team> teams)
+	public void addUserGroupTeams(long userGroupId, List<Team> Teams)
 		throws SystemException {
-		userGroupPersistence.addTeams(userGroupId, teams);
+		userGroupPersistence.addTeams(userGroupId, Teams);
 	}
 
 	/**
@@ -560,9 +560,9 @@ public abstract class TeamLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void deleteUserGroupTeams(long userGroupId, List<Team> teams)
+	public void deleteUserGroupTeams(long userGroupId, List<Team> Teams)
 		throws SystemException {
-		userGroupPersistence.removeTeams(userGroupId, teams);
+		userGroupPersistence.removeTeams(userGroupId, Teams);
 	}
 
 	/**

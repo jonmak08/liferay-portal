@@ -332,10 +332,10 @@ public class OrganizationLocalServiceWrapper implements OrganizationLocalService
 	*/
 	@Override
 	public void addGroupOrganizations(long groupId,
-		java.util.List<com.liferay.portal.model.Organization> organizations)
+		java.util.List<com.liferay.portal.model.Organization> Organizations)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		_organizationLocalService.addGroupOrganizations(groupId, organizations);
+		_organizationLocalService.addGroupOrganizations(groupId, Organizations);
 	}
 
 	/**
@@ -382,10 +382,10 @@ public class OrganizationLocalServiceWrapper implements OrganizationLocalService
 	*/
 	@Override
 	public void deleteGroupOrganizations(long groupId,
-		java.util.List<com.liferay.portal.model.Organization> organizations)
+		java.util.List<com.liferay.portal.model.Organization> Organizations)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		_organizationLocalService.deleteGroupOrganizations(groupId,
-			organizations);
+			Organizations);
 	}
 
 	/**
@@ -493,9 +493,9 @@ public class OrganizationLocalServiceWrapper implements OrganizationLocalService
 	*/
 	@Override
 	public void addUserOrganizations(long userId,
-		java.util.List<com.liferay.portal.model.Organization> organizations)
+		java.util.List<com.liferay.portal.model.Organization> Organizations)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		_organizationLocalService.addUserOrganizations(userId, organizations);
+		_organizationLocalService.addUserOrganizations(userId, Organizations);
 	}
 
 	/**
@@ -541,9 +541,9 @@ public class OrganizationLocalServiceWrapper implements OrganizationLocalService
 	*/
 	@Override
 	public void deleteUserOrganizations(long userId,
-		java.util.List<com.liferay.portal.model.Organization> organizations)
+		java.util.List<com.liferay.portal.model.Organization> Organizations)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		_organizationLocalService.deleteUserOrganizations(userId, organizations);
+		_organizationLocalService.deleteUserOrganizations(userId, Organizations);
 	}
 
 	/**

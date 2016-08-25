@@ -284,7 +284,7 @@ public interface UserGroupLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void addGroupUserGroups(long groupId,
-		java.util.List<com.liferay.portal.model.UserGroup> userGroups)
+		java.util.List<com.liferay.portal.model.UserGroup> UserGroups)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -316,7 +316,7 @@ public interface UserGroupLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void deleteGroupUserGroups(long groupId,
-		java.util.List<com.liferay.portal.model.UserGroup> userGroups)
+		java.util.List<com.liferay.portal.model.UserGroup> UserGroups)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -394,7 +394,7 @@ public interface UserGroupLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void addTeamUserGroups(long teamId,
-		java.util.List<com.liferay.portal.model.UserGroup> userGroups)
+		java.util.List<com.liferay.portal.model.UserGroup> UserGroups)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -426,7 +426,7 @@ public interface UserGroupLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void deleteTeamUserGroups(long teamId,
-		java.util.List<com.liferay.portal.model.UserGroup> userGroups)
+		java.util.List<com.liferay.portal.model.UserGroup> UserGroups)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -503,7 +503,7 @@ public interface UserGroupLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void addUserUserGroups(long userId,
-		java.util.List<com.liferay.portal.model.UserGroup> userGroups)
+		java.util.List<com.liferay.portal.model.UserGroup> UserGroups)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -535,7 +535,7 @@ public interface UserGroupLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void deleteUserUserGroups(long userId,
-		java.util.List<com.liferay.portal.model.UserGroup> userGroups)
+		java.util.List<com.liferay.portal.model.UserGroup> UserGroups)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**

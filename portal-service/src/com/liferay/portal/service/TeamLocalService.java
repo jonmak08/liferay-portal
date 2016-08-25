@@ -254,7 +254,7 @@ public interface TeamLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void addUserTeams(long userId,
-		java.util.List<com.liferay.portal.model.Team> teams)
+		java.util.List<com.liferay.portal.model.Team> Teams)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -285,7 +285,7 @@ public interface TeamLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void deleteUserTeams(long userId,
-		java.util.List<com.liferay.portal.model.Team> teams)
+		java.util.List<com.liferay.portal.model.Team> Teams)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -362,7 +362,7 @@ public interface TeamLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void addUserGroupTeams(long userGroupId,
-		java.util.List<com.liferay.portal.model.Team> teams)
+		java.util.List<com.liferay.portal.model.Team> Teams)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -394,7 +394,7 @@ public interface TeamLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void deleteUserGroupTeams(long userGroupId,
-		java.util.List<com.liferay.portal.model.Team> teams)
+		java.util.List<com.liferay.portal.model.Team> Teams)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
