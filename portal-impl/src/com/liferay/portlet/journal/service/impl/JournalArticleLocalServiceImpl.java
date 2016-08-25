@@ -6827,6 +6827,8 @@ public class JournalArticleLocalServiceImpl
 			long ddmStructureId, String content, ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
+		boolean indexingEnabled = serviceContext.isIndexingEnabled();
+
 		try {
 			DDMStructure ddmStructure =
 				ddmStructureLocalService.fetchDDMStructure(ddmStructureId);
@@ -6859,20 +6861,16 @@ public class JournalArticleLocalServiceImpl
 				}
 			}
 
-			boolean indexingEnabled = serviceContext.isIndexingEnabled();
+			serviceContext.setIndexingEnabled(false);
 
-			try {
-				serviceContext.setIndexingEnabled(false);
-
-				ddmStructureLocalService.updateXSD(
-					ddmStructureId, documentXSD.asXML(), serviceContext);
-			}
-			finally {
-				serviceContext.setIndexingEnabled(indexingEnabled);
-			}
+			ddmStructureLocalService.updateXSD(
+				ddmStructureId, documentXSD.asXML(), serviceContext);
 		}
 		catch (DocumentException de) {
 			throw new SystemException(de);
+		}
+		finally {
+			serviceContext.setIndexingEnabled(indexingEnabled);
 		}
 	}
 
