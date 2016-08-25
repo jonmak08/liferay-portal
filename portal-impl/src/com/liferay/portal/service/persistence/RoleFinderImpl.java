@@ -272,10 +272,10 @@ public class RoleFinderImpl
 			String sql = CustomSQLUtil.get(COUNT_BY_C_N_D_T);
 
 			sql = CustomSQLUtil.replaceKeywords(
-					sql, "lower(Role_.name)", StringPool.LIKE, false, names);
+				sql, "lower(Role_.name)", StringPool.LIKE, false, names);
 			sql = CustomSQLUtil.replaceKeywords(
-					sql, "lower(Role_.description)", StringPool.LIKE, true,
-					descriptions);
+				sql, "lower(Role_.description)", StringPool.LIKE, true,
+				descriptions);
 			sql = StringUtil.replace(sql, "[$TYPE$]", getTypes(types));
 			sql = StringUtil.replace(sql, "[$JOIN$]", getJoin(params));
 			sql = StringUtil.replace(sql, "[$WHERE$]", getWhere(params));
@@ -283,8 +283,8 @@ public class RoleFinderImpl
 
 			if (inlineSQLHelper) {
 				sql = InlineSQLHelperUtil.replacePermissionCheck(
-						sql, Role.class.getName(), "Role_.roleId", null, null,
-						new long[] {0}, null);
+					sql, Role.class.getName(), "Role_.roleId", null, null,
+					new long[] {0}, null);
 			}
 
 			SQLQuery q = session.createSQLQuery(sql);
@@ -342,10 +342,10 @@ public class RoleFinderImpl
 			String sql = CustomSQLUtil.get(FIND_BY_C_N_D_T);
 
 			sql = CustomSQLUtil.replaceKeywords(
-					sql, "lower(Role_.name)", StringPool.LIKE, false, names);
+				sql, "lower(Role_.name)", StringPool.LIKE, false, names);
 			sql = CustomSQLUtil.replaceKeywords(
-					sql, "lower(Role_.description)", StringPool.LIKE, true,
-					descriptions);
+				sql, "lower(Role_.description)", StringPool.LIKE, true,
+				descriptions);
 			sql = StringUtil.replace(sql, "[$TYPE$]", getTypes(types));
 			sql = StringUtil.replace(sql, "[$JOIN$]", getJoin(params));
 			sql = StringUtil.replace(sql, "[$WHERE$]", getWhere(params));
@@ -354,8 +354,8 @@ public class RoleFinderImpl
 
 			if (inlineSQLHelper) {
 				sql = InlineSQLHelperUtil.replacePermissionCheck(
-						sql, Role.class.getName(), "Role_.roleId", null, null,
-						new long[] {0}, null);
+					sql, Role.class.getName(), "Role_.roleId", null, null,
+					new long[] {0}, null);
 			}
 
 			SQLQuery q = session.createSQLQuery(sql);
@@ -716,8 +716,8 @@ public class RoleFinderImpl
 		throws SystemException {
 
 		return doFindByC_N_D_T(
-				companyId, names, descriptions, types, params, andOperator,
-				start, end, obc, true);
+			companyId, names, descriptions, types, params, andOperator, start,
+			end, obc, true);
 	}
 
 	@Override

@@ -184,7 +184,7 @@ public class InlineSQLHelperImpl implements InlineSQLHelper {
 		long[] groupIds, String bridgeJoin) {
 
 		String groupIdField = classPKField.substring(
-				0, classPKField.lastIndexOf(CharPool.PERIOD));
+			0, classPKField.lastIndexOf(CharPool.PERIOD));
 
 		return replacePermissionCheck(
 			sql, className, classPKField, userIdField,

@@ -377,9 +377,10 @@ public class RoleServiceImpl extends RoleServiceBaseImpl {
 
 	@Override
 	public List<Role> search(
-		long companyId, String keywords, Integer[] types,
-		LinkedHashMap<String, Object> params, int start, int end,
-		OrderByComparator obc) throws SystemException {
+			long companyId, String keywords, Integer[] types,
+			LinkedHashMap<String, Object> params, int start, int end,
+			OrderByComparator obc)
+		throws SystemException {
 
 		return roleFinder.filterFindByKeywords(
 			companyId, keywords, types, params, start, end, obc);
@@ -387,8 +388,9 @@ public class RoleServiceImpl extends RoleServiceBaseImpl {
 
 	@Override
 	public int searchCount(
-		long companyId, String keywords, Integer[] types,
-		LinkedHashMap<String, Object> params) throws SystemException {
+			long companyId, String keywords, Integer[] types,
+			LinkedHashMap<String, Object> params)
+		throws SystemException {
 
 		return roleFinder.filterCountByKeywords(
 			companyId, keywords, types, params);
