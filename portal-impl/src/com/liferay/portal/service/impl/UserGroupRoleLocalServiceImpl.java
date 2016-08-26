@@ -22,6 +22,7 @@ import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Role;
 import com.liferay.portal.model.User;
 import com.liferay.portal.model.UserGroupRole;
+import com.liferay.portal.security.permission.PermissionCacheUtil;
 import com.liferay.portal.service.base.UserGroupRoleLocalServiceBaseImpl;
 import com.liferay.portal.service.persistence.UserGroupRolePK;
 
@@ -54,6 +55,8 @@ public class UserGroupRoleLocalServiceImpl
 			groupPersistence.addUser(groupId, userId);
 		}
 
+		PermissionCacheUtil.clearCache(userId);
+
 		return userGroupRoles;
 	}
 
@@ -77,6 +80,8 @@ public class UserGroupRoleLocalServiceImpl
 			groupPersistence.addUsers(groupId, userIds);
 		}
 
+		PermissionCacheUtil.clearCache(userIds);
+
 		return userGroupRoles;
 	}
 
@@ -85,6 +90,8 @@ public class UserGroupRoleLocalServiceImpl
 		throws SystemException {
 
 		userGroupRolePersistence.remove(userGroupRole);
+
+		PermissionCacheUtil.clearCache(userGroupRole.getUserId());
 
 		return userGroupRole;
 	}
@@ -103,6 +110,8 @@ public class UserGroupRoleLocalServiceImpl
 			catch (NoSuchUserGroupRoleException nsugre) {
 			}
 		}
+
+		PermissionCacheUtil.clearCache(userId);
 	}
 
 	@Override
@@ -112,6 +121,8 @@ public class UserGroupRoleLocalServiceImpl
 		for (long groupId : groupIds) {
 			userGroupRolePersistence.removeByU_G(userId, groupId);
 		}
+
+		PermissionCacheUtil.clearCache(userId);
 	}
 
 	@Override
@@ -121,6 +132,8 @@ public class UserGroupRoleLocalServiceImpl
 		for (long userId : userIds) {
 			userGroupRolePersistence.removeByU_G(userId, groupId);
 		}
+
+		PermissionCacheUtil.clearCache(userIds);
 	}
 
 	@Override
@@ -142,6 +155,8 @@ public class UserGroupRoleLocalServiceImpl
 				}
 			}
 		}
+
+		PermissionCacheUtil.clearCache(userIds);
 	}
 
 	@Override
@@ -157,6 +172,8 @@ public class UserGroupRoleLocalServiceImpl
 			catch (NoSuchUserGroupRoleException nsugre) {
 			}
 		}
+
+		PermissionCacheUtil.clearCache(userIds);
 	}
 
 	@Override
@@ -164,6 +181,8 @@ public class UserGroupRoleLocalServiceImpl
 		throws SystemException {
 
 		userGroupRolePersistence.removeByGroupId(groupId);
+
+		PermissionCacheUtil.clearCache();
 	}
 
 	@Override
@@ -171,6 +190,8 @@ public class UserGroupRoleLocalServiceImpl
 		throws SystemException {
 
 		userGroupRolePersistence.removeByRoleId(roleId);
+
+		PermissionCacheUtil.clearCache();
 	}
 
 	@Override
@@ -178,6 +199,8 @@ public class UserGroupRoleLocalServiceImpl
 		throws SystemException {
 
 		userGroupRolePersistence.removeByUserId(userId);
+
+		PermissionCacheUtil.clearCache(userId);
 	}
 
 	@Override

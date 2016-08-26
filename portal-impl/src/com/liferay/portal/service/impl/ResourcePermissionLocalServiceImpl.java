@@ -897,6 +897,8 @@ public class ResourcePermissionLocalServiceImpl
 		}
 
 		roleLocalService.deleteRole(fromRoleId);
+
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**
@@ -948,6 +950,8 @@ public class ResourcePermissionLocalServiceImpl
 		if (resourcePermissions.isEmpty()) {
 			roleLocalService.deleteRole(fromRoleId);
 		}
+
+		PermissionCacheUtil.clearCache();
 	}
 
 	/**

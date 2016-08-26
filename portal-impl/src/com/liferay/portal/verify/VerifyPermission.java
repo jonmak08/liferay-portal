@@ -39,6 +39,7 @@ import com.liferay.portal.model.RoleConstants;
 import com.liferay.portal.model.User;
 import com.liferay.portal.model.UserGroup;
 import com.liferay.portal.security.permission.ActionKeys;
+import com.liferay.portal.security.permission.PermissionCacheUtil;
 import com.liferay.portal.security.permission.ResourceActionsUtil;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portal.service.ResourceActionLocalServiceUtil;
@@ -188,6 +189,8 @@ public class VerifyPermission extends VerifyProcess {
 				_log.error(e, e);
 			}
 		}
+
+		PermissionCacheUtil.clearResourceCache();
 	}
 
 	protected void fixUserDefaultRolePermissions() throws Exception {
