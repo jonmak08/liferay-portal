@@ -182,7 +182,8 @@ public class JSONArrayImpl implements JSONArray {
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		try {
-			_jsonArray = new org.json.JSONArray(objectInput.readUTF());
+			_jsonArray = new org.json.JSONArray(
+				(String)objectInput.readObject());
 		}
 		catch (Exception e) {
 			throw new IOException(e);
@@ -216,7 +217,7 @@ public class JSONArrayImpl implements JSONArray {
 
 	@Override
 	public void writeExternal(ObjectOutput objectOutput) throws IOException {
-		objectOutput.writeUTF(toString());
+		objectOutput.writeObject(toString());
 	}
 
 	private static final String _NULL_JSON = "[]";
