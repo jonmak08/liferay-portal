@@ -548,6 +548,34 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 	}
 
 	/**
+	 * Adds the groups to the role.
+	 *
+	 * @param  roleId the primary key of the role
+	 * @param  groupIds the primary keys of the groups
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void addRoleGroups(long roleId, long[] groupIds)
+		throws SystemException {
+
+		rolePersistence.addGroups(roleId, groupIds);
+	}
+
+	/**
+	 * Adds the user to the groups.
+	 *
+	 * @param  userId the primary key of the user
+	 * @param  groupIds the primary keys of the groups
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void addUserGroups(long userId, long[] groupIds)
+		throws SystemException {
+
+		userPersistence.addGroups(userId, groupIds);
+	}
+
+	/**
 	 * Adds a company group if it does not exist. This method is typically used
 	 * when a virtual host is added.
 	 *
@@ -3250,6 +3278,21 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 		return searchCount(
 			companyId, getClassNameIds(), GroupConstants.ANY_PARENT_GROUP_ID,
 			name, description, params, andOperator);
+	}
+
+	/**
+	 * Sets the groups associated with the role, removing and adding
+	 * associations as necessary.
+	 *
+	 * @param  roleId the primary key of the role
+	 * @param  groupIds the primary keys of the groups
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void setRoleGroups(long roleId, long[] groupIds)
+		throws SystemException {
+
+		rolePersistence.setGroups(roleId, groupIds);
 	}
 
 	/**

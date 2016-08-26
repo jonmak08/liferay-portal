@@ -65,6 +65,34 @@ import java.util.Map;
 public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 
 	/**
+	 * Adds the user groups to the group.
+	 *
+	 * @param  groupId the primary key of the group
+	 * @param  userGroupIds the primary keys of the user groups
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void addGroupUserGroups(long groupId, long[] userGroupIds)
+		throws SystemException {
+
+		groupPersistence.addUserGroups(groupId, userGroupIds);
+	}
+
+	/**
+	 * Adds the user groups to the team.
+	 *
+	 * @param  teamId the primary key of the team
+	 * @param  userGroupIds the primary keys of the user groups
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void addTeamUserGroups(long teamId, long[] userGroupIds)
+		throws SystemException {
+
+		teamPersistence.addUserGroups(teamId, userGroupIds);
+	}
+
+	/**
 	 * Adds a user group.
 	 *
 	 * <p>
@@ -181,6 +209,18 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 		indexer.reindex(userGroup);
 
 		return userGroup;
+	}
+
+	/**
+	 * Clears all associations between the user and its user groups and clears
+	 * the permissions cache.
+	 *
+	 * @param  userId the primary key of the user
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void clearUserUserGroups(long userId) throws SystemException {
+		userPersistence.clearUserGroups(userId);
 	}
 
 	/**

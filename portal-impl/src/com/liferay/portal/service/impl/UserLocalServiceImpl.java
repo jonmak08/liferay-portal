@@ -1592,6 +1592,30 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	}
 
 	/**
+	 * Removes all the users from the organization.
+	 *
+	 * @param  organizationId the primary key of the organization
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void clearOrganizationUsers(long organizationId)
+		throws SystemException {
+
+		organizationPersistence.clearUsers(organizationId);
+	}
+
+	/**
+	 * Removes all the users from the user group.
+	 *
+	 * @param  userGroupId the primary key of the user group
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void clearUserGroupUsers(long userGroupId) throws SystemException {
+		userGroupPersistence.clearUsers(userGroupId);
+	}
+
+	/**
 	 * Completes the user's registration by generating a password and sending
 	 * the confirmation email.
 	 *
