@@ -989,7 +989,17 @@ Please set the environment variable ANT_OPTS to the recommended value of
 			<if>
 				<available file="@{file}.md5" />
 				<then>
+					<local name="md5.checksum" />
+
 					<loadfile property="md5.checksum" srcFile="@{file}.md5" />
+
+					<propertyregex
+						input="${md5.checksum}"
+						property="md5.checksum"
+						override="true"
+						regexp="^(\w+)"
+						select="\1"
+					/>
 
 					<checksum file="@{file}" property="${md5.checksum}" verifyproperty="valid.checksum" />
 				</then>
@@ -1071,6 +1081,8 @@ Please set the environment variable ANT_OPTS to the recommended value of
 										src="${mirrors.src}"
 										verbose="@{verbose}"
 									/>
+
+									<md5check file="${mirrors.cache.artifact.dir}/${mirrors.cache.artifact.file.name}" md5.url="${mirrors.src}.md5" />
 								</try>
 								<catch>
 									<get
@@ -1079,6 +1091,8 @@ Please set the environment variable ANT_OPTS to the recommended value of
 										src="${src}"
 										verbose="@{verbose}"
 									/>
+
+									<md5check file="${mirrors.cache.artifact.dir}/${mirrors.cache.artifact.file.name}" md5.url="${src}.md5" />
 								</catch>
 							</trycatch>
 						</then>
@@ -1089,10 +1103,10 @@ Please set the environment variable ANT_OPTS to the recommended value of
 								src="${src}"
 								verbose="@{verbose}"
 							/>
+
+							<md5check file="${mirrors.cache.artifact.dir}/${mirrors.cache.artifact.file.name}" md5.url="${src}.md5" />
 						</else>
 					</if>
-
-					<!--<md5check file="${mirrors.cache.artifact.dir}/${mirrors.cache.artifact.file.name}" md5.url="${src}.md5" />-->
 				</then>
 			</if>
 
