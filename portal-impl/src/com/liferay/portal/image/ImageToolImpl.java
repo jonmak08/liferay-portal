@@ -55,8 +55,6 @@ import java.io.OutputStream;
 
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -421,49 +419,38 @@ public class ImageToolImpl implements ImageTool {
 	public ImageBag read(byte[] bytes) throws IOException {
 		String formatName = null;
 		ImageInputStream imageInputStream = null;
-		Queue<ImageReader> imageReaders = new LinkedList<ImageReader>();
 		RenderedImage renderedImage = null;
 		String type = TYPE_NOT_AVAILABLE;
 
-		try {
-			imageInputStream = ImageIO.createImageInputStream(
-				new ByteArrayInputStream(bytes));
+		imageInputStream = ImageIO.createImageInputStream(
+			new ByteArrayInputStream(bytes));
 
-			Iterator<ImageReader> iterator = ImageIO.getImageReaders(
-				imageInputStream);
+		Iterator<ImageReader> iterator = ImageIO.getImageReaders(
+			imageInputStream);
 
-			while ((renderedImage == null) && iterator.hasNext()) {
-				ImageReader imageReader = iterator.next();
+		while ((renderedImage == null) && iterator.hasNext()) {
+			ImageReader imageReader = iterator.next();
 
-				imageReaders.offer(imageReader);
-
+			try {
 				try {
 					imageReader.setInput(imageInputStream);
 
 					renderedImage = imageReader.read(0);
-				}
-				catch (IOException ioe) {
+				} catch (IOException ioe) {
+					_dispose(imageInputStream, imageReader);
+
 					continue;
 				}
 
 				formatName = StringUtil.toLowerCase(
 					imageReader.getFormatName());
-			}
-
-			if (renderedImage == null) {
-				throw new IOException("Unsupported image type");
+			} finally {
+				_dispose(imageInputStream, imageReader);
 			}
 		}
-		finally {
-			while (!imageReaders.isEmpty()) {
-				ImageReader imageReader = imageReaders.poll();
 
-				imageReader.dispose();
-			}
-
-			if (imageInputStream != null) {
-				imageInputStream.close();
-			}
+		if (renderedImage == null) {
+			throw new IOException("Unsupported image type");
 		}
 
 		type = TYPE_JPEG;
@@ -490,6 +477,19 @@ public class ImageToolImpl implements ImageTool {
 		}
 
 		return new ImageBag(renderedImage, type);
+	}
+
+	private void _dispose(
+			ImageInputStream imageInputStream, ImageReader imageReader)
+		throws IOException {
+
+		if (imageReader != null) {
+			imageReader.dispose();
+		}
+
+		if (imageInputStream != null) {
+			imageInputStream.close();
+		}
 	}
 
 	@Override
