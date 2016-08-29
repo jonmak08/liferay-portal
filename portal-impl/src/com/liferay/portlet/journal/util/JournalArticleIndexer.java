@@ -852,8 +852,6 @@ public class JournalArticleIndexer extends BaseIndexer {
 		ActionableDynamicQuery actionableDynamicQuery =
 			new JournalArticleActionableDynamicQuery() {
 
-			private long _processedArticleResourcePrimKey = 0;
-
 			@Override
 			protected void performAction(Object object) throws SystemException {
 
@@ -902,6 +900,9 @@ public class JournalArticleIndexer extends BaseIndexer {
 						dynamicQuery, new ArticleResourcePKComparator(true));
 				}
 			}
+
+			private long _processedArticleResourcePrimKey;
+
 		};
 
 		actionableDynamicQuery.setCompanyId(companyId);
