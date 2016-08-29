@@ -1390,7 +1390,7 @@
 		</execute>
 	</command>
 
-	<command name="SearchFolderDocumentNoPermission" priority="5">
+	<command name="ViewSearchResultsForChildObjectRespectsParentFolderPermissions" priority="4">
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="User Groups" />
 		</execute>
