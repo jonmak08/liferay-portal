@@ -58,7 +58,6 @@ import com.liferay.portlet.journal.model.JournalArticleDisplay;
 import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.portlet.journal.service.permission.JournalArticlePermission;
 import com.liferay.portlet.journal.service.persistence.JournalArticleActionableDynamicQuery;
-import com.liferay.portlet.journal.util.comparator.ArticleIDComparator;
 import com.liferay.portlet.journal.util.comparator.ArticleResourcePKComparator;
 import com.liferay.portlet.trash.util.TrashUtil;
 
@@ -853,7 +852,7 @@ public class JournalArticleIndexer extends BaseIndexer {
 		ActionableDynamicQuery actionableDynamicQuery =
 			new JournalArticleActionableDynamicQuery() {
 
-			long _lastResourcePK;
+			private long _processedArticleResourcePrimKey = 0;
 
 			@Override
 			protected void performAction(Object object) throws SystemException {
@@ -861,8 +860,14 @@ public class JournalArticleIndexer extends BaseIndexer {
 				JournalArticle article = (JournalArticle)object;
 
 				if (!PropsValues.JOURNAL_ARTICLE_INDEX_ALL_VERSIONS) {
-					long resourcePK = article.getResourcePrimKey();
-					if (_lastResourcePK == resourcePK) return;
+					if (article.getResourcePrimKey() ==
+							_processedArticleResourcePrimKey) {
+
+						return;
+					}
+
+					_processedArticleResourcePrimKey =
+						article.getResourcePrimKey();
 
 					JournalArticle latestIndexableArticle =
 						fetchLatestIndexableArticleVersion(
@@ -872,7 +877,6 @@ public class JournalArticleIndexer extends BaseIndexer {
 						return;
 					}
 
-					_lastResourcePK = resourcePK;
 					article = latestIndexableArticle;
 				}
 
@@ -895,7 +899,7 @@ public class JournalArticleIndexer extends BaseIndexer {
 			protected void addOrderCriteria(DynamicQuery dynamicQuery) {
 				if (!PropsValues.JOURNAL_ARTICLE_INDEX_ALL_VERSIONS) {
 					OrderFactoryUtil.addOrderByComparator(
-							dynamicQuery, new ArticleResourcePKComparator(true));
+						dynamicQuery, new ArticleResourcePKComparator(true));
 				}
 			}
 		};

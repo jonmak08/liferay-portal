@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * The contents of this file are subject to the terms of the Liferay Enterprise
  * Subscription License ("License"). You may not use this file except in
@@ -15,7 +15,6 @@
 package com.liferay.portlet.journal.util.comparator;
 
 import com.liferay.portal.kernel.util.OrderByComparator;
-import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portlet.journal.model.JournalArticle;
 
 /**
@@ -48,6 +47,7 @@ public class ArticleResourcePKComparator extends OrderByComparator {
 		long resourcePK2 = article2.getResourcePrimKey();
 
 		int value = 1;
+
 		if (resourcePK1 <= resourcePK2) {
 			value = -1;
 		}
