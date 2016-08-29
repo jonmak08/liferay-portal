@@ -97,6 +97,7 @@ import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
 import com.liferay.portal.language.LanguageResources;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.Company;
+import com.liferay.portal.model.CompanyConstants;
 import com.liferay.portal.model.LayoutConstants;
 import com.liferay.portal.model.ModelListener;
 import com.liferay.portal.model.Release;
@@ -1819,7 +1820,16 @@ public class HookHotDeployListener
 			}
 		}
 
-		PropsUtil.addProperties(portalProperties);
+		Long companyId = CompanyThreadLocal.getCompanyId();
+
+		try {
+			CompanyThreadLocal.setCompanyId(CompanyConstants.SYSTEM);
+
+			PropsUtil.addProperties(portalProperties);
+		}
+		finally {
+			CompanyThreadLocal.setCompanyId(companyId);
+		}
 
 		if (_log.isDebugEnabled() && portalProperties.containsKey(LOCALES)) {
 			_log.debug(
