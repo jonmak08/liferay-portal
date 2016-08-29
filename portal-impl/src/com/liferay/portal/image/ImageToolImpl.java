@@ -436,7 +436,8 @@ public class ImageToolImpl implements ImageTool {
 					imageReader.setInput(imageInputStream);
 
 					renderedImage = imageReader.read(0);
-				} catch (IOException ioe) {
+				}
+				catch (IOException ioe) {
 					_dispose(imageInputStream, imageReader);
 
 					continue;
@@ -444,7 +445,8 @@ public class ImageToolImpl implements ImageTool {
 
 				formatName = StringUtil.toLowerCase(
 					imageReader.getFormatName());
-			} finally {
+			}
+			finally {
 				_dispose(imageInputStream, imageReader);
 			}
 		}
