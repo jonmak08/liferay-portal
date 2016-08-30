@@ -44,6 +44,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>LOADING_MASK</td>
+	<td>//div[contains(@class,'loadingmask') and not(contains(@class,'hidden'))]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ORGANIZATION_URL</td>
 	<td>/web/organization-name/</td>
 	<td></td>
