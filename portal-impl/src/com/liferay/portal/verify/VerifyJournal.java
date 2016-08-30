@@ -73,6 +73,7 @@ import java.sql.ResultSet;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.Callable;
 import java.util.regex.Pattern;
 
 import javax.portlet.PortletPreferences;
@@ -535,27 +536,16 @@ public class VerifyJournal extends VerifyProcess {
 		String defaultLanguageId = rootElement.attributeValue("default-locale");
 
 		if (Validator.isNull(defaultLanguageId)) {
-			Locale originalDefaultLocale = LocaleThreadLocal.getDefaultLocale();
-			Locale originalSiteDefaultLocale =
-				LocaleThreadLocal.getSiteDefaultLocale();
-
-			Company company = CompanyLocalServiceUtil.getCompany(
-				article.getCompanyId());
-
-			try {
-				LocaleThreadLocal.setDefaultLocale(company.getLocale());
-				LocaleThreadLocal.setSiteDefaultLocale(
-					PortalUtil.getSiteDefaultLocale(article.getGroupId()));
-
-				defaultLanguageId =
-					LocaleUtil.toLanguageId(
-						PortalUtil.getSiteDefaultLocale(article.getGroupId()));
-			}
-			finally {
-				LocaleThreadLocal.setDefaultLocale(originalDefaultLocale);
-				LocaleThreadLocal.setSiteDefaultLocale(
-					originalSiteDefaultLocale);
-			}
+			LocaleThreadLocalHandler<String> handler =
+				new LocaleThreadLocalHandler<String>(article) {
+					@Override
+					public String call() throws Exception {
+						return LocaleUtil.toLanguageId(
+							PortalUtil.getSiteDefaultLocale(
+								_article.getGroupId()));
+					}
+				};
+			defaultLanguageId = handler.getSiteDefaultLocale();
 		}
 
 		updateDynamicElements(
@@ -564,6 +554,38 @@ public class VerifyJournal extends VerifyProcess {
 		article.setContent(document.asXML());
 
 		JournalArticleLocalServiceUtil.updateJournalArticle(article);
+	}
+
+	private abstract class LocaleThreadLocalHandler<T> implements Callable<T> {
+
+			private LocaleThreadLocalHandler(JournalArticle article) {
+				this._article = article;
+			}
+
+			public T getSiteDefaultLocale() throws Exception {
+				Locale originalDefaultLocale =
+					LocaleThreadLocal.getDefaultLocale();
+				Locale originalSiteDefaultLocale =
+					LocaleThreadLocal.getSiteDefaultLocale();
+
+				Company company = CompanyLocalServiceUtil.getCompany(
+					_article.getCompanyId());
+
+				try {
+					LocaleThreadLocal.setDefaultLocale(company.getLocale());
+					LocaleThreadLocal.setSiteDefaultLocale(
+						PortalUtil.getSiteDefaultLocale(_article.getGroupId()));
+
+					return call();
+				}
+				finally {
+					LocaleThreadLocal.setDefaultLocale(originalDefaultLocale);
+					LocaleThreadLocal.setSiteDefaultLocale(
+						originalSiteDefaultLocale);
+				}
+			}
+
+			public JournalArticle _article;
 	}
 
 	protected void verifyModifiedDate() throws Exception {
