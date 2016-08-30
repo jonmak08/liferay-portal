@@ -28,6 +28,7 @@ import com.liferay.portal.kernel.util.FriendlyURLNormalizerUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
+import com.liferay.portal.kernel.util.LocaleThreadLocal;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -38,6 +39,8 @@ import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.Node;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
+import com.liferay.portal.model.Company;
+import com.liferay.portal.service.CompanyLocalServiceUtil;
 import com.liferay.portal.service.ResourceLocalServiceUtil;
 import com.liferay.portal.util.PortalInstances;
 import com.liferay.portal.util.PortalUtil;
@@ -69,6 +72,7 @@ import java.sql.ResultSet;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 import javax.portlet.PortletPreferences;
@@ -531,9 +535,27 @@ public class VerifyJournal extends VerifyProcess {
 		String defaultLanguageId = rootElement.attributeValue("default-locale");
 
 		if (Validator.isNull(defaultLanguageId)) {
-			defaultLanguageId =
-				LocaleUtil.toLanguageId(
+			Locale originalDefaultLocale = LocaleThreadLocal.getDefaultLocale();
+			Locale originalSiteDefaultLocale =
+				LocaleThreadLocal.getSiteDefaultLocale();
+
+			Company company = CompanyLocalServiceUtil.getCompany(
+				article.getCompanyId());
+
+			try {
+				LocaleThreadLocal.setDefaultLocale(company.getLocale());
+				LocaleThreadLocal.setSiteDefaultLocale(
 					PortalUtil.getSiteDefaultLocale(article.getGroupId()));
+
+				defaultLanguageId =
+					LocaleUtil.toLanguageId(
+						PortalUtil.getSiteDefaultLocale(article.getGroupId()));
+			}
+			finally {
+				LocaleThreadLocal.setDefaultLocale(originalDefaultLocale);
+				LocaleThreadLocal.setSiteDefaultLocale(
+					originalSiteDefaultLocale);
+			}
 		}
 
 		updateDynamicElements(
