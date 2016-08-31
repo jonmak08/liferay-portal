@@ -330,12 +330,26 @@
 		<var name="key_fieldName" value="${fieldName}" />
 		<var name="key_kfProcessFieldData" value="${kfProcessFieldData}" />
 
+		<if>
+			<condition function="IsElementPresent" locator1="PGKaleoformsSubmitnew#COMPLETE_FORM_IFRAME" />
+			<then>
+				<execute function="SelectFrame" locator1="PGKaleoformsSubmitnew#COMPLETE_FORM_IFRAME" />
+			</then>
+		</if>
+
 		<execute function="AssertTextEquals" locator1="PGKaleoformsSubmitnew#NEW_PROCESS_FIELDS_TEXT_FIELD" value1="${kfProcessFieldData}" />
 	</command>
 
 	<command name="viewCompleteFormFieldTextBox">
 		<var name="key_fieldName" value="${fieldName}" />
 		<var name="key_kfProcessFieldData" value="${kfProcessFieldData}" />
+
+		<if>
+			<condition function="IsElementPresent" locator1="PGKaleoformsSubmitnew#COMPLETE_FORM_IFRAME" />
+			<then>
+				<execute function="SelectFrame" locator1="PGKaleoformsSubmitnew#COMPLETE_FORM_IFRAME" />
+			</then>
+		</if>
 
 		<execute function="AssertTextEquals" locator1="PGKaleoformsSubmitnew#NEW_PROCESS_FIELDS_TEXT_BOX_FIELD" value1="${kfProcessFieldData}" />
 	</command>
