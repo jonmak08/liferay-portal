@@ -16,11 +16,16 @@ package com.liferay.portal.verify;
 
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.EntityCacheUtil;
 import com.liferay.portal.kernel.dao.orm.FinderCacheUtil;
+import com.liferay.portal.kernel.dao.orm.Property;
+import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -46,6 +51,7 @@ import com.liferay.portal.service.ResourceActionLocalServiceUtil;
 import com.liferay.portal.service.ResourcePermissionLocalServiceUtil;
 import com.liferay.portal.service.RoleLocalServiceUtil;
 import com.liferay.portal.service.impl.ResourcePermissionLocalServiceImpl;
+import com.liferay.portal.service.persistence.ResourcePermissionActionableDynamicQuery;
 import com.liferay.portal.util.PortalInstances;
 import com.liferay.portal.util.PortalUtil;
 
@@ -105,19 +111,36 @@ public class VerifyPermission extends VerifyProcess {
 		Role role = RoleLocalServiceUtil.getRole(
 			companyId, RoleConstants.GUEST);
 
-		List<ResourcePermission> resourcePermissions =
-			ResourcePermissionLocalServiceUtil.getRoleResourcePermissions(
-				role.getRoleId());
+		final long roleId = role.getRoleId();
 
-		for (ResourcePermission resourcePermission : resourcePermissions) {
-			if (isPrivateLayout(
-					resourcePermission.getName(),
-					resourcePermission.getPrimKey())) {
+		ActionableDynamicQuery actionableDynamicQuery =
+			new ResourcePermissionActionableDynamicQuery() {
+				@Override
+				public void addCriteria(DynamicQuery dynamicQuery) {
+					Property property = PropertyFactoryUtil.forName("roleId");
 
-				ResourcePermissionLocalServiceUtil.deleteResourcePermission(
-					resourcePermission.getResourcePermissionId());
-			}
-		}
+					dynamicQuery.add(property.eq(roleId));
+				}
+
+				@Override
+				public void performAction(Object object)
+					throws PortalException, SystemException {
+
+					ResourcePermission resourcePermission =
+						(ResourcePermission)object;
+
+					if (isPrivateLayout(
+							resourcePermission.getName(),
+							resourcePermission.getPrimKey())) {
+
+						ResourcePermissionLocalServiceUtil.
+							deleteResourcePermission(
+								resourcePermission.getResourcePermissionId());
+					}
+				}
+			};
+
+		actionableDynamicQuery.performActions();
 	}
 
 	@Override
@@ -356,7 +379,7 @@ public class VerifyPermission extends VerifyProcess {
 	}
 
 	protected boolean isPrivateLayout(String name, String primKey)
-		throws Exception {
+		throws PortalException, SystemException {
 
 		if (!name.equals(Layout.class.getName()) &&
 			!primKey.contains(PortletConstants.LAYOUT_SEPARATOR)) {
