@@ -21,6 +21,7 @@ import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.util.PortalUtil;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -724,7 +725,11 @@ public class PortletDisplay implements Serializable {
 	}
 
 	public void setURLBack(String urlBack) {
-		_urlBack = urlBack;
+		_urlBack = PortalUtil.escapeRedirect(urlBack);
+
+		if (_urlBack == null) {
+			_urlBack = StringPool.BLANK;
+		}
 	}
 
 	public void setURLClose(String urlClose) {
