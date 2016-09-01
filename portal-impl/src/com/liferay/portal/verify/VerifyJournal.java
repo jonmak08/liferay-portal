@@ -566,8 +566,7 @@ public class VerifyJournal extends VerifyProcess {
 		}
 
 		public T getSiteDefaultLocale() throws Exception {
-			Locale originalDefaultLocale =
-				LocaleThreadLocal.getDefaultLocale();
+			Locale originalDefaultLocale = LocaleThreadLocal.getDefaultLocale();
 			Locale originalSiteDefaultLocale =
 				LocaleThreadLocal.getSiteDefaultLocale();
 
