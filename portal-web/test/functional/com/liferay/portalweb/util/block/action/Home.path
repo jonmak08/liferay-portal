@@ -44,8 +44,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>LOADING_MASK</td>
-	<td>//div[contains(@class,'loadingmask') and not(contains(@class,'hidden'))]</td>
+	<td>LOADING_MASK_HIDDEN</td>
+	<td>//div[contains(@class,'overlaymask') and contains(@class,'loadingmask') and (contains(@class,'hidden'))]</td>
 	<td></td>
 </tr>
 <tr>
