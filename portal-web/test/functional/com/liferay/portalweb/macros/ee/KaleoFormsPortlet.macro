@@ -193,6 +193,13 @@
 	<command name="populateFieldText">
 		<var name="key_fieldName" value="${fieldName}" />
 
+		<if>
+			<condition function="IsElementPresent" locator1="PGKaleoformsSubmitnew#COMPLETE_FORM_IFRAME" />
+			<then>
+				<execute function="SelectFrame" locator1="PGKaleoformsSubmitnew#COMPLETE_FORM_IFRAME" />
+			</then>
+		</if>
+
 		<execute function="Type" locator1="PGKaleoformsSubmitnew#NEW_PROCESS_FIELDS_TEXT_FIELD" value1="${kfProcessFieldData}" />
 	</command>
 
