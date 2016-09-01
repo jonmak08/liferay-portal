@@ -561,34 +561,35 @@ public class VerifyJournal extends VerifyProcess {
 
 	private abstract class LocaleThreadLocalHandler<T> implements Callable<T> {
 
-			private LocaleThreadLocalHandler(JournalArticle article) {
-				this._article = article;
+		private LocaleThreadLocalHandler(JournalArticle article) {
+			_article = article;
+		}
+
+		public T getSiteDefaultLocale() throws Exception {
+			Locale originalDefaultLocale =
+				LocaleThreadLocal.getDefaultLocale();
+			Locale originalSiteDefaultLocale =
+				LocaleThreadLocal.getSiteDefaultLocale();
+
+			Company company = CompanyLocalServiceUtil.getCompany(
+				_article.getCompanyId());
+
+			try {
+				LocaleThreadLocal.setDefaultLocale(company.getLocale());
+				LocaleThreadLocal.setSiteDefaultLocale(
+					PortalUtil.getSiteDefaultLocale(_article.getGroupId()));
+
+				return call();
 			}
-
-			public T getSiteDefaultLocale() throws Exception {
-				Locale originalDefaultLocale =
-					LocaleThreadLocal.getDefaultLocale();
-				Locale originalSiteDefaultLocale =
-					LocaleThreadLocal.getSiteDefaultLocale();
-
-				Company company = CompanyLocalServiceUtil.getCompany(
-					_article.getCompanyId());
-
-				try {
-					LocaleThreadLocal.setDefaultLocale(company.getLocale());
-					LocaleThreadLocal.setSiteDefaultLocale(
-						PortalUtil.getSiteDefaultLocale(_article.getGroupId()));
-
-					return call();
-				}
-				finally {
-					LocaleThreadLocal.setDefaultLocale(originalDefaultLocale);
-					LocaleThreadLocal.setSiteDefaultLocale(
-						originalSiteDefaultLocale);
-				}
+			finally {
+				LocaleThreadLocal.setDefaultLocale(originalDefaultLocale);
+				LocaleThreadLocal.setSiteDefaultLocale(
+					originalSiteDefaultLocale);
 			}
+		}
 
-			private JournalArticle _article;
+		private JournalArticle _article;
+
 	}
 
 	protected void verifyModifiedDate() throws Exception {
