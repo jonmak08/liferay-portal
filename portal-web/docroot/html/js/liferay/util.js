@@ -1799,7 +1799,7 @@
 			};
 
 			if (dialog) {
-				eventHandles.push(dialog.after('visibleChange', detachSelectionOnHideFn));
+				eventHandles.push(dialog.after(['destroy', 'visibleChange'], detachSelectionOnHideFn));
 
 				dialog.show();
 			}
@@ -1807,7 +1807,7 @@
 				Util.openWindow(
 					config,
 					function(dialogWindow) {
-						eventHandles.push(dialogWindow.after('visibleChange', detachSelectionOnHideFn));
+						eventHandles.push(dialogWindow.after(['destroy', 'visibleChange'], detachSelectionOnHideFn));
 					}
 				);
 			}
