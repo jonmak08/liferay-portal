@@ -422,13 +422,13 @@ public class PropsUtil {
 	private void _removeProperties(Properties properties) {
 		Configuration configuration = _getConfiguration();
 
-		return configuration.removeProperties(properties);
+		configuration.removeProperties(properties);
 	}
 
 	private void _set(String key, String value) {
 		Configuration configuration = _getConfiguration();
 
-		return configuration.set(key, value);
+		configuration.set(key, value);
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(PropsUtil.class);
