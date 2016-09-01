@@ -222,7 +222,9 @@ public class PropsUtil {
 	}
 
 	private void _addProperties(Company company, Properties properties) {
-		_getConfiguration(company).addProperties(properties);
+		Configuration configuration = _getConfiguration(company);
+
+		configuration.addProperties(properties);
 	}
 
 	private void _addProperties(
@@ -236,7 +238,9 @@ public class PropsUtil {
 	}
 
 	private void _addProperties(Properties properties) {
-		_getConfiguration().addProperties(properties);
+		Configuration configuration = _getConfiguration();
+
+		configuration.addProperties(properties);
 	}
 
 	private void _addProperties(UnicodeProperties unicodeProperties) {
@@ -248,23 +252,33 @@ public class PropsUtil {
 	}
 
 	private boolean _contains(String key) {
-		return _getConfiguration().contains(key);
+		Configuration configuration = _getConfiguration();
+
+		return configuration.contains(key);
 	}
 
 	private String _get(String key) {
-		return _getConfiguration().get(key);
+		Configuration configuration = _getConfiguration();
+
+		return configuration.get(key);
 	}
 
 	private String _get(String key, Filter filter) {
-		return _getConfiguration().get(key, filter);
+		Configuration configuration = _getConfiguration();
+
+		return configuration.get(key, filter);
 	}
 
 	private String[] _getArray(String key) {
-		return _getConfiguration().getArray(key);
+		Configuration configuration = _getConfiguration();
+
+		return configuration.getArray(key);
 	}
 
 	private String[] _getArray(String key, Filter filter) {
-		return _getConfiguration().getArray(key, filter);
+		Configuration configuration = _getConfiguration();
+
+		return configuration.getArray(key, filter);
 	}
 
 	private Configuration _getConfiguration() {
@@ -388,23 +402,33 @@ public class PropsUtil {
 	}
 
 	private Properties _getProperties() {
-		return _getConfiguration().getProperties();
+		Configuration configuration = _getConfiguration();
+
+		return configuration.getProperties();
 	}
 
 	private Properties _getProperties(long companyId) {
-		return _getConfiguration(companyId).getProperties();
+		Configuration configuration = _getConfiguration(companyId);
+
+		return configuration.getProperties();
 	}
 
 	private Properties _getProperties(String prefix, boolean removePrefix) {
-		return _getConfiguration().getProperties(prefix, removePrefix);
+		Configuration configuration = _getConfiguration();
+
+		return configuration.getProperties(prefix, removePrefix);
 	}
 
 	private void _removeProperties(Properties properties) {
-		_getConfiguration().removeProperties(properties);
+		Configuration configuration = _getConfiguration();
+
+		return configuration.removeProperties(properties);
 	}
 
 	private void _set(String key, String value) {
-		_getConfiguration().set(key, value);
+		Configuration configuration = _getConfiguration();
+
+		return configuration.set(key, value);
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(PropsUtil.class);
