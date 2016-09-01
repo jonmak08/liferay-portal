@@ -1603,6 +1603,10 @@
 
 		<execute macro="KaleoFormsPortlet#saveProcessRecord" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#viewProcessAssignedToMe">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -1633,6 +1637,10 @@
 
 		<execute macro="KaleoFormsPortlet#saveProcessRecord" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#viewSecondProcessAssignedToMe">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -1664,6 +1672,14 @@
 
 		<execute macro="KaleoFormsPortlet#saveProcessRecord" />
 
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
+
+		<execute macro="KaleoFormsPortlet#viewProcessAssignedToMe">
+			<var name="kfProcessName" value="Kaleo Forms Process" />
+		</execute>
+
 		<execute macro="KaleoFormsPortlet#viewProcessEntryField">
 			<var name="fieldName" value="Text" />
 			<var name="kfProcessFieldData" value="Test 1 EDIT new edit" />
@@ -1690,6 +1706,14 @@
 		</execute>
 
 		<execute macro="KaleoFormsPortlet#saveProcessRecord" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Kaleo Forms Page" />
+		</execute>
+
+		<execute macro="KaleoFormsPortlet#viewSecondProcessAssignedToMe">
+			<var name="kfProcessName" value="Kaleo Forms Process" />
+		</execute>
 
 		<execute macro="KaleoFormsPortlet#viewProcessEntryField">
 			<var name="fieldName" value="Text" />
