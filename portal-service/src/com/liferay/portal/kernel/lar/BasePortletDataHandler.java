@@ -483,37 +483,41 @@ public abstract class BasePortletDataHandler implements PortletDataHandler {
 					Element referencesElement = importDataRootElement.element(
 						"references");
 
-					List<Element> referenceElements =
-						referencesElement.elements();
-
-					String ddmTemplateUuid =
-						PortletDisplayTemplateUtil.getDDMTemplateUuid(
-							displayStyle);
-
 					boolean preloaded = false;
 					long referenceClassNameId = 0;
 					String templateKey = null;
 
-					for (Element referenceElement : referenceElements) {
-						String className = referenceElement.attributeValue(
-							"class-name");
-						String uuid = referenceElement.attributeValue("uuid");
+					if (referencesElement != null) {
+						List<Element> referenceElements =
+							referencesElement.elements();
 
-						if (!className.equals(DDMTemplate.class.getName()) ||
-							!uuid.equals(ddmTemplateUuid)) {
+						String ddmTemplateUuid =
+							PortletDisplayTemplateUtil.getDDMTemplateUuid(
+								displayStyle);
 
-							continue;
+						for (Element referenceElement : referenceElements) {
+							String className = referenceElement.attributeValue(
+								"class-name");
+							String uuid = referenceElement.attributeValue(
+								"uuid");
+
+							if (!className.equals(
+									DDMTemplate.class.getName()) ||
+								!uuid.equals(ddmTemplateUuid)) {
+
+								continue;
+							}
+
+							preloaded = GetterUtil.getBoolean(
+								referenceElement.attributeValue("preloaded"));
+							referenceClassNameId = PortalUtil.getClassNameId(
+								referenceElement.attributeValue(
+									"referenced-class-name"));
+							templateKey = referenceElement.attributeValue(
+								"template-key");
+
+							break;
 						}
-
-						preloaded = GetterUtil.getBoolean(
-							referenceElement.attributeValue("preloaded"));
-						referenceClassNameId = PortalUtil.getClassNameId(
-							referenceElement.attributeValue(
-								"referenced-class-name"));
-						templateKey = referenceElement.attributeValue(
-							"template-key");
-
-						break;
 					}
 
 					if (!preloaded) {
@@ -523,9 +527,10 @@ public abstract class BasePortletDataHandler implements PortletDataHandler {
 								displayStyle);
 					}
 					else {
-						ddmTemplate = DDMTemplateLocalServiceUtil.fetchTemplate(
-							portletDataContext.getCompanyGroupId(),
-							referenceClassNameId, templateKey);
+						ddmTemplate =
+							DDMTemplateLocalServiceUtil.fetchTemplate(
+								portletDataContext.getCompanyGroupId(),
+								referenceClassNameId, templateKey);
 					}
 				}
 				else if (displayStyleGroupId ==
