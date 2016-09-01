@@ -526,7 +526,7 @@ public class VerifyJournal extends VerifyProcess {
 		}
 	}
 
-	protected void verifyDynamicElements(JournalArticle article)
+	protected void verifyDynamicElements(final JournalArticle article)
 		throws Exception {
 
 		Document document = SAXReaderUtil.read(article.getContent());
@@ -536,16 +536,19 @@ public class VerifyJournal extends VerifyProcess {
 		String defaultLanguageId = rootElement.attributeValue("default-locale");
 
 		if (Validator.isNull(defaultLanguageId)) {
-			LocaleThreadLocalHandler<String> handler =
+			LocaleThreadLocalHandler<String> localeThreadLocalHandler =
 				new LocaleThreadLocalHandler<String>(article) {
+
 					@Override
 					public String call() throws Exception {
 						return LocaleUtil.toLanguageId(
 							PortalUtil.getSiteDefaultLocale(
-								_article.getGroupId()));
+								article.getGroupId()));
 					}
+
 				};
-			defaultLanguageId = handler.getSiteDefaultLocale();
+
+			defaultLanguageId = localeThreadLocalHandler.getSiteDefaultLocale();
 		}
 
 		updateDynamicElements(
@@ -585,7 +588,7 @@ public class VerifyJournal extends VerifyProcess {
 				}
 			}
 
-			public JournalArticle _article;
+			private JournalArticle _article;
 	}
 
 	protected void verifyModifiedDate() throws Exception {
