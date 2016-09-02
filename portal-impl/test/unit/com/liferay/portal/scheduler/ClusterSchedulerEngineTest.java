@@ -464,7 +464,7 @@ public class ClusterSchedulerEngineTest {
 	}
 
 	@Test
-	public void testSchedule2() throws Exception {
+	public void testScheduleOnSlave() throws Exception {
 		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(1, 0);
 
 		_setupClusterMasterExecutor(false, mockSchedulerEngine);
@@ -472,21 +472,17 @@ public class ClusterSchedulerEngineTest {
 		_clusterSchedulerEngine = _getClusterSchedulerEngine(
 			new MockSchedulerEngine(0, 0));
 
-		Map<String, SchedulerResponse> schedulerResponses =
-			_getMemoryClusteredJobs(_clusterSchedulerEngine);
-
-		Assert.assertEquals(1, schedulerResponses.size());
-
 		Trigger trigger = TriggerFactoryUtil.buildTrigger(
-			TriggerType.SIMPLE, _TEST_JOB_NAME_PREFIX + "new",
+			TriggerType.SIMPLE, _TEST_JOB_NAME_PREFIX + "0",
 			_MEMORY_CLUSTER_TEST_GROUP_NAME, null, null, _DEFAULT_INTERVAL);
 
 		_clusterSchedulerEngine.schedule(
 			trigger, StringPool.BLANK, StringPool.BLANK, new Message());
 
-		schedulerResponses = _getMemoryClusteredJobs(_clusterSchedulerEngine);
+		Map<String, SchedulerResponse> schedulerResponses =
+			_getMemoryClusteredJobs(_clusterSchedulerEngine);
 
-		Assert.assertEquals(2, schedulerResponses.size());
+		Assert.assertEquals(1, schedulerResponses.size());
 	}
 
 	@Test
@@ -1074,14 +1070,28 @@ public class ClusterSchedulerEngineTest {
 
 			MethodKey methodKey = methodHandler.getMethodKey();
 
-			if (!methodKey.equals(_getScheduledJobsMethodKey)) {
-				return null;
-			}
-
 			try {
-				return new MockFuture<T>(
-					(T)_mockSchedulerEngine.getScheduledJobs(
-						StorageType.MEMORY_CLUSTERED));
+				if (methodKey.equals(_getScheduledJobsMethodKey)) {
+					return new MockFuture<T>(
+						(T)_mockSchedulerEngine.getScheduledJobs(
+							StorageType.MEMORY_CLUSTERED));
+				}
+				else if (methodKey.equals(_getScheduledJobMethodKey)) {
+					String jobName = (String)methodHandler.getArguments()[0];
+					String groupName = (String)methodHandler.getArguments()[1];
+					StorageType storageType =
+						(StorageType)methodHandler.getArguments()[2];
+					String namespaceGroupName = storageType.toString().concat(
+						StringPool.POUND).concat(groupName);
+
+					Object[] methodArguments = methodHandler.getArguments();
+					return new MockFuture<T>(
+						(T)_mockSchedulerEngine.getScheduledJob(
+							jobName, namespaceGroupName));
+				}
+				else {
+					return null;
+				}
 			}
 			catch (SchedulerException se) {
 				throw new SystemException(se);
@@ -1117,6 +1127,11 @@ public class ClusterSchedulerEngineTest {
 
 			return master;
 		}
+
+		private static final MethodKey _getScheduledJobMethodKey =
+			new MethodKey(
+				SchedulerEngineHelperUtil.class, "getScheduledJob",
+				String.class, String.class, StorageType.class);
 
 		private static final MethodKey _getScheduledJobsMethodKey =
 			new MethodKey(
