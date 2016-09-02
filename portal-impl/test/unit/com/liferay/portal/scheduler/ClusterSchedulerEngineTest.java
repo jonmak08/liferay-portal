@@ -55,6 +55,7 @@ import java.lang.reflect.Method;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -472,9 +473,12 @@ public class ClusterSchedulerEngineTest {
 		_clusterSchedulerEngine = _getClusterSchedulerEngine(
 			new MockSchedulerEngine(0, 0));
 
+		Date startDate = new Date(System.currentTimeMillis() + 3600);
+
 		Trigger trigger = TriggerFactoryUtil.buildTrigger(
 			TriggerType.SIMPLE, _TEST_JOB_NAME_PREFIX + "0",
-			_MEMORY_CLUSTER_TEST_GROUP_NAME, null, null, _DEFAULT_INTERVAL);
+			_MEMORY_CLUSTER_TEST_GROUP_NAME, startDate, null,
+			_DEFAULT_INTERVAL);
 
 		_clusterSchedulerEngine.schedule(
 			trigger, StringPool.BLANK, StringPool.BLANK, new Message());
@@ -483,6 +487,12 @@ public class ClusterSchedulerEngineTest {
 			_getMemoryClusteredJobs(_clusterSchedulerEngine);
 
 		Assert.assertEquals(1, schedulerResponses.size());
+
+		SchedulerResponse schedulerResponse = schedulerResponses.get(
+			_MEMORY_CLUSTER_TEST_GROUP_NAME + "." +
+				_TEST_JOB_NAME_PREFIX + "0");
+		Assert.assertNotEquals(
+			schedulerResponse.getTrigger().getStartDate(), startDate);
 	}
 
 	@Test
