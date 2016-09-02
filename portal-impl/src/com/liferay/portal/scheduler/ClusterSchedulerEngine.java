@@ -286,24 +286,48 @@ public class ClusterSchedulerEngine
 
 		try {
 			if (memoryClusteredSlaveJob) {
-				SchedulerResponse schedulerResponse = new SchedulerResponse();
+				ObjectValuePair<SchedulerResponse, TriggerState> value =
+					_memoryClusteredJobs.get(getFullName(jobName, groupName));
 
-				schedulerResponse.setDescription(description);
-				schedulerResponse.setDestinationName(destinationName);
-				schedulerResponse.setGroupName(groupName);
-				schedulerResponse.setJobName(jobName);
-				schedulerResponse.setMessage(message);
-				schedulerResponse.setTrigger(trigger);
+				if (value == null) {
+					ObjectValuePair<String, StorageType> resolvedGroupName =
+						resolveGroupName(groupName);
 
-				_memoryClusteredJobs.put(
-					getFullName(jobName, groupName),
-					new ObjectValuePair<SchedulerResponse, TriggerState>(
-						schedulerResponse, TriggerState.NORMAL));
+					MethodHandler methodHandler = new MethodHandler(
+						_getScheduledJobMethodKey, jobName,
+						resolvedGroupName.getKey(),
+						resolvedGroupName.getValue());
+
+					Future<SchedulerResponse> future =
+						ClusterMasterExecutorUtil.executeOnMaster(
+							methodHandler);
+
+					SchedulerResponse schedulerResponse = future.get(
+						PropsValues.CLUSTERABLE_ADVICE_CALL_MASTER_TIMEOUT,
+						TimeUnit.SECONDS);
+
+					if (schedulerResponse == null) {
+						throw new NullPointerException(
+							"Unable to find memory clustered job (job name : " +
+								trigger.getJobName() + ", group name : " +
+								trigger.getGroupName() + " on master node.");
+					}
+
+					addMemoryClusteredJob(schedulerResponse);
+				}
 			}
 			else {
 				_schedulerEngine.schedule(
 					trigger, description, destinationName, message);
 			}
+		}
+		catch (Exception e) {
+			if (!(e instanceof SchedulerException)) {
+				e = new SchedulerException(
+					"Unable to retrieve memory clustered job from master", e);
+			}
+
+			throw (SchedulerException)e;
 		}
 		finally {
 			_readLock.unlock();
@@ -465,6 +489,35 @@ public class ClusterSchedulerEngine
 		setClusterableThreadLocal(groupName);
 	}
 
+	protected void addMemoryClusteredJob(SchedulerResponse schedulerResponse)
+		throws SchedulerException {
+
+		Trigger oldTrigger = schedulerResponse.getTrigger();
+
+		String jobName = schedulerResponse.getJobName();
+		String groupName = SchedulerEngineHelperUtil.namespaceGroupName(
+			schedulerResponse.getGroupName(), StorageType.MEMORY_CLUSTERED);
+
+		Trigger newTrigger = TriggerFactoryUtil.buildTrigger(
+			oldTrigger.getTriggerType(), jobName, groupName,
+			oldTrigger.getStartDate(), oldTrigger.getEndDate(),
+			oldTrigger.getTriggerContent());
+
+		schedulerResponse.setTrigger(newTrigger);
+
+		TriggerState triggerState = SchedulerEngineHelperUtil.getJobState(
+			schedulerResponse);
+
+		Message message = schedulerResponse.getMessage();
+
+		message.remove(JOB_STATE);
+
+		_memoryClusteredJobs.put(
+			getFullName(jobName, groupName),
+			new ObjectValuePair<SchedulerResponse, TriggerState>(
+				schedulerResponse, triggerState));
+	}
+
 	protected String getFullName(String jobName, String groupName) {
 		return groupName.concat(StringPool.PERIOD).concat(jobName);
 	}
@@ -481,30 +534,7 @@ public class ClusterSchedulerEngine
 			TimeUnit.SECONDS);
 
 		for (SchedulerResponse schedulerResponse : schedulerResponses) {
-			Trigger oldTrigger = schedulerResponse.getTrigger();
-
-			String jobName = schedulerResponse.getJobName();
-			String groupName = SchedulerEngineHelperUtil.namespaceGroupName(
-				schedulerResponse.getGroupName(), StorageType.MEMORY_CLUSTERED);
-
-			Trigger newTrigger = TriggerFactoryUtil.buildTrigger(
-				oldTrigger.getTriggerType(), jobName, groupName,
-				oldTrigger.getStartDate(), oldTrigger.getEndDate(),
-				oldTrigger.getTriggerContent());
-
-			schedulerResponse.setTrigger(newTrigger);
-
-			TriggerState triggerState = SchedulerEngineHelperUtil.getJobState(
-				schedulerResponse);
-
-			Message message = schedulerResponse.getMessage();
-
-			message.remove(JOB_STATE);
-
-			_memoryClusteredJobs.put(
-				getFullName(jobName, groupName),
-				new ObjectValuePair<SchedulerResponse, TriggerState>(
-					schedulerResponse, triggerState));
+			addMemoryClusteredJob(schedulerResponse);
 		}
 	}
 
@@ -621,6 +651,10 @@ public class ClusterSchedulerEngine
 
 	private static Log _log = LogFactoryUtil.getLog(
 		ClusterSchedulerEngine.class);
+
+	private static final MethodKey _getScheduledJobMethodKey = new MethodKey(
+			SchedulerEngineHelperUtil.class, "getScheduledJob", String.class,
+			String.class, StorageType.class);
 
 	private static final MethodKey _getScheduledJobsMethodKey = new MethodKey(
 		SchedulerEngineHelperUtil.class, "getScheduledJobs", StorageType.class);
