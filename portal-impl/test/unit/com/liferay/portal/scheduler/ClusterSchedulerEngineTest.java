@@ -67,7 +67,9 @@ import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 /**
  * @author Tina Tian
@@ -493,6 +495,32 @@ public class ClusterSchedulerEngineTest {
 				_TEST_JOB_NAME_PREFIX + "0");
 		Assert.assertNotEquals(
 			schedulerResponse.getTrigger().getStartDate(), startDate);
+	}
+
+	@Test
+	public void testScheduleNonExistingJobOnSlave() throws Exception {
+		MockSchedulerEngine mockSchedulerEngine = new MockSchedulerEngine(1, 0);
+
+		_setupClusterMasterExecutor(false, mockSchedulerEngine);
+
+		_clusterSchedulerEngine = _getClusterSchedulerEngine(
+			mockSchedulerEngine);
+
+		List<SchedulerResponse> schedulerResponses =
+			_clusterSchedulerEngine.getScheduledJobs();
+
+		Assert.assertEquals(1, schedulerResponses.size());
+
+		Trigger trigger = TriggerFactoryUtil.buildTrigger(
+			TriggerType.SIMPLE, _TEST_JOB_NAME_PREFIX + "new",
+			_MEMORY_CLUSTER_TEST_GROUP_NAME, null, null, _DEFAULT_INTERVAL);
+
+		thrown.expect(SchedulerException.class);
+		thrown.expectMessage(
+			"Unable to retrieve memory clustered job from master");
+
+		_clusterSchedulerEngine.schedule(
+			trigger, StringPool.BLANK, StringPool.BLANK, new Message());
 	}
 
 	@Test
@@ -1059,6 +1087,9 @@ public class ClusterSchedulerEngineTest {
 		_threadLocalContext;
 
 	private ClusterSchedulerEngine _clusterSchedulerEngine;
+
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
 
 	private static class MockClusterMasterExecutor
 		extends ClusterMasterExecutorImpl {
