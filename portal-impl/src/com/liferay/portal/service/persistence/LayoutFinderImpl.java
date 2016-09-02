@@ -66,6 +66,7 @@ public class LayoutFinderImpl
 
 			QueryPos qPos = QueryPos.getInstance(q);
 
+			qPos.add(Layout.class.getName());
 			qPos.add(ResourceConstants.SCOPE_INDIVIDUAL);
 			qPos.add(roleId);
 
