@@ -11,7 +11,7 @@
 <!--COMPLETE_FORM-->
 <tr>
 	<td>COMPLETE_FORM_IFRAME</td>
-	<td>//iframe[contains(@class,'dialog-iframe-node')]</td>
+	<td>//iframe[contains(@class,'dialog-iframe-node') and contains(@src,'edit_form')]</td>
 	<td></td>
 </tr>
 <!--NEW_PROCESS-->
