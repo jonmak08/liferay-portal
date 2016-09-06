@@ -16,6 +16,6 @@
 
 <%@ include file="/html/portlet/document_library/init.jsp" %>
 
-<liferay-util:include page="/html/portlet/document_library/view_file_entry.jsp" >
-	<liferay-util:param name="allowActions" value="<%= Boolean.FALSE.toString() %>" />
+<liferay-util:include page="/html/portlet/document_library/view_file_entry.jsp">
+	<liferay-util:param name="showHistoryActions" value="<%= Boolean.FALSE.toString() %>" />
 </liferay-util:include>

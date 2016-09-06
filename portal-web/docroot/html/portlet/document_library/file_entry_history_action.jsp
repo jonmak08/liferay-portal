@@ -17,8 +17,9 @@
 <%@ include file="/html/portlet/document_library/init.jsp" %>
 
 <%
-boolean allowActions = ParamUtil.getBoolean(request, "showHistoryActions", true);
 String redirect = ParamUtil.getString(request, "redirect");
+
+boolean showHistoryActions = ParamUtil.getBoolean(request, "showHistoryActions", true);
 
 ResultRow row = (ResultRow)request.getAttribute(WebKeys.SEARCH_CONTAINER_RESULT_ROW);
 
@@ -34,7 +35,7 @@ FileVersion fileVersion = (FileVersion)objArray[1];
 		url="<%= DLUtil.getPreviewURL(fileEntry, fileVersion, themeDisplay, StringPool.BLANK) %>"
 	/>
 
-	<c:if test="<%= allowActions %>">
+	<c:if test="<%= showHistoryActions %>">
 		<portlet:renderURL var="viewFileVersionURL">
 			<c:choose>
 				<c:when test="<%= portletName.equals(PortletKeys.TRASH) %>">
