@@ -527,10 +527,9 @@ public abstract class BasePortletDataHandler implements PortletDataHandler {
 								displayStyle);
 					}
 					else {
-						ddmTemplate =
-							DDMTemplateLocalServiceUtil.fetchTemplate(
-								portletDataContext.getCompanyGroupId(),
-								referenceClassNameId, templateKey);
+						ddmTemplate = DDMTemplateLocalServiceUtil.fetchTemplate(
+							portletDataContext.getCompanyGroupId(),
+							referenceClassNameId, templateKey);
 					}
 				}
 				else if (displayStyleGroupId ==
