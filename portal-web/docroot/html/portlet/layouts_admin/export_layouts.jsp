@@ -637,8 +637,7 @@ portletURL.setParameter("rootNodeName", rootNodeName);
 	form.on(
 		'submit',
 		function(event) {
-			event.preventDefault();
-			event.stopPropagation();
+			event.halt();
 
 			var A = AUI();
 
