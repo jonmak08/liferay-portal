@@ -270,6 +270,7 @@ portletURL.setParameter("rootNodeName", rootNodeName);
 											<aui:input name="<%= PortletDataHandlerKeys.PORTLET_DATA %>" type="hidden" value="<%= true %>" />
 
 											<div class="hide" id="<portlet:namespace />range">
+												<div id="<portlet:namespace />rangeMessages"></div>
 												<ul class="lfr-tree unstyled">
 													<li class="tree-item">
 														<aui:fieldset cssClass="portlet-data-section" label="date-range">

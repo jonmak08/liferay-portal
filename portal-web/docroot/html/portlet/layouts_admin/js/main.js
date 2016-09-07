@@ -126,20 +126,32 @@ AUI.add(
 					showNotification: function(dateChecker) {
 						var instance = this;
 
+						var message = instance._getNotificationMessage(dateChecker);
+
+						var htmlMessage = message + '<button type="button" class="close">&times;</button>';
+
 						if (instance._notice) {
 							instance._notice.remove();
 						}
 
-						var message = instance._getNotificationMessage(dateChecker);
+						var noticeConfig =
+						{
+							closeText: false,
+							content: htmlMessage,
+							timeout: 10000,
+							toggleText: false,
+							type: 'warning'
+						};
+
+						if (instance._rangeDialog.get('visible')) {
+							var messageNode = instance.byId('rangeMessages');
+							var noticeNode = A.Node.create('<div class="alert" dynamic="true"></div>');
+							messageNode.append(noticeNode);
+							noticeConfig.node = noticeNode;
+						}
 
 						instance._notice = new Liferay.Notice(
-							{
-								closeText: false,
-								content: message + '<button type="button" class="close">&times;</button>',
-								timeout: 10000,
-								toggleText: false,
-								type: 'warning'
-							}
+							noticeConfig
 						);
 
 						instance._notice.show();
