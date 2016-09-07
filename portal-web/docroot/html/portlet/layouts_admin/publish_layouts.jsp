@@ -406,7 +406,10 @@ else {
 		window,
 		'<portlet:namespace />publishPages',
 		function() {
-			if (confirm('<%= UnicodeLanguageUtil.get(pageContext, "are-you-sure-you-want-to-" + publishActionKey + "-these-pages") %>')) {
+			var exportImport = Liferay.component('<portlet:namespace />ExportImportComponent');
+			var dateChecker = exportImport.getDateRangeChecker();
+
+			if (dateChecker.validRange && confirm('<%= UnicodeLanguageUtil.get(pageContext, "are-you-sure-you-want-to-" + publishActionKey + "-these-pages") %>')) {
 				var A = AUI();
 
 				var allContentRadioChecked = A.one('#<portlet:namespace />allContent').attr('checked');
@@ -460,7 +463,7 @@ else {
 		<portlet:param name="localPublishing" value="<%= String.valueOf(localPublishing) %>" />
 	</liferay-portlet:resourceURL>
 
-	new Liferay.ExportImport(
+	var exportImport = new Liferay.ExportImport(
 		{
 			commentsNode: '#<%= PortletDataHandlerKeys.COMMENTS %>Checkbox',
 			deleteMissingLayoutsNode: '#<%= PortletDataHandlerKeys.DELETE_MISSING_LAYOUTS %>Checkbox',
@@ -492,4 +495,6 @@ else {
 			userPreferencesNode: '#<%= PortletDataHandlerKeys.PORTLET_USER_PREFERENCES_ALL %>Checkbox'
 		}
 	);
+
+	Liferay.component('<portlet:namespace />ExportImportComponent', exportImport);
 </aui:script>

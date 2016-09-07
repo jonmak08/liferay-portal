@@ -438,7 +438,7 @@ portletURL.setParameter("tabs3", "current-and-previous");
 		<portlet:param name="portletResource" value="<%= portletResource %>" />
 	</liferay-portlet:resourceURL>
 
-	new Liferay.ExportImport(
+	var exportImport = new Liferay.ExportImport(
 		{
 			commentsNode: '#<%= PortletDataHandlerKeys.COMMENTS %>Checkbox',
 			deletionsNode: '#<%= PortletDataHandlerKeys.DELETIONS %>Checkbox',
@@ -456,14 +456,22 @@ portletURL.setParameter("tabs3", "current-and-previous");
 		}
 	);
 
+	Liferay.component('<portlet:namespace />ExportImportComponent', exportImport);
+
 	var form = A.one('#<portlet:namespace />fm1');
 
 	form.on(
 		'submit',
 		function(event) {
 			event.preventDefault();
+			event.stopPropagation();
 
-			submitForm(form, form.attr('action'), false);
+			var exportImport = Liferay.component('<portlet:namespace />ExportImportComponent');
+			var dateChecker = exportImport.getDateRangeChecker();
+
+			if (dateChecker.validRange) {
+				submitForm(form, form.attr('action'), false);
+			}
 		}
 	);
 </aui:script>

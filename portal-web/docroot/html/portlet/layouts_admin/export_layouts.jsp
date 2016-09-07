@@ -605,7 +605,7 @@ portletURL.setParameter("rootNodeName", rootNodeName);
 		<portlet:param name="groupId" value="<%= String.valueOf(liveGroupId) %>" />
 	</liferay-portlet:resourceURL>
 
-	new Liferay.ExportImport(
+	var exportImport = new Liferay.ExportImport(
 		{
 			archivedSetupsNode: '#<%= PortletDataHandlerKeys.PORTLET_ARCHIVED_SETUPS_ALL %>Checkbox',
 			commentsNode: '#<%= PortletDataHandlerKeys.COMMENTS %>Checkbox',
@@ -630,38 +630,46 @@ portletURL.setParameter("rootNodeName", rootNodeName);
 		}
 	);
 
+	Liferay.component('<portlet:namespace />ExportImportComponent', exportImport);
+
 	var form = A.one('#<portlet:namespace />fm1');
 
 	form.on(
 		'submit',
 		function(event) {
 			event.preventDefault();
+			event.stopPropagation();
 
 			var A = AUI();
 
-			var allContentRadioChecked = A.one('#<portlet:namespace />allContent').attr('checked');
+			var exportImport = Liferay.component('<portlet:namespace />ExportImportComponent');
+			var dateChecker = exportImport.getDateRangeChecker();
 
-			if (allContentRadioChecked) {
-				var selectedContents = A.one('#<portlet:namespace />selectContents');
+			if (dateChecker.validRange) {
+				var allContentRadioChecked = A.one('#<portlet:namespace />allContent').attr('checked');
 
-				var checkedNodes = selectedContents.all('input[type=checkbox]');
+				if (allContentRadioChecked) {
+					var selectedContents = A.one('#<portlet:namespace />selectContents');
 
-				checkedNodes.each(
-					function(item, index, collection) {
-						if (!item.attr('checked')) {
-							item.attr('checked', true);
+					var checkedNodes = selectedContents.all('input[type=checkbox]');
 
-							Liferay.Util.updateCheckboxValue(item);
+					checkedNodes.each(
+						function(item, index, collection) {
+							if (!item.attr('checked')) {
+								item.attr('checked', true);
+
+								Liferay.Util.updateCheckboxValue(item);
+							}
 						}
-					}
-				);
+					);
 
-				var portletDataControlDefault = A.one('#<portlet:namespace /><%= PortletDataHandlerKeys.PORTLET_DATA_CONTROL_DEFAULT %>');
+					var portletDataControlDefault = A.one('#<portlet:namespace /><%= PortletDataHandlerKeys.PORTLET_DATA_CONTROL_DEFAULT %>');
 
-				portletDataControlDefault.val(true);
+					portletDataControlDefault.val(true);
+				}
+
+				submitForm(form, form.attr('action'), false);
 			}
-
-			submitForm(form, form.attr('action'), false);
 		}
 	);
 </aui:script>

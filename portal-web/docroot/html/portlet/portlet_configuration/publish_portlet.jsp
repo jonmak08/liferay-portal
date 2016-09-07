@@ -101,7 +101,7 @@ portletURL.setParameter("tabs3", "current-and-previous");
 					<portlet:param name="struts_action" value="/portlet_configuration/export_import" />
 				</portlet:actionURL>
 
-				<aui:form action="<%= publishPortletURL %>" cssClass="lfr-export-dialog" method="post" name="fm1" onSubmit='<%= "event.preventDefault(); " + renderResponse.getNamespace() + "publishToLive();" %>'>
+				<aui:form action="<%= publishPortletURL %>" cssClass="lfr-export-dialog" method="post" name="fm1" onSubmit='<%= "event.preventDefault(); event.stopPropagation(); " + renderResponse.getNamespace() + "publishToLive();" %>'>
 					<aui:input name="<%= Constants.CMD %>" type="hidden" value="publish_to_live" />
 					<aui:input name="tabs1" type="hidden" value="export_import" />
 					<aui:input name="tabs2" type="hidden" value="<%= tabs2 %>" />
@@ -498,7 +498,7 @@ portletURL.setParameter("tabs3", "current-and-previous");
 				<portlet:param name="portletResource" value="<%= portletResource %>" />
 			</liferay-portlet:resourceURL>
 
-			new Liferay.ExportImport(
+			var exportImport = new Liferay.ExportImport(
 				{
 					commentsNode: '#<%= PortletDataHandlerKeys.COMMENTS %>Checkbox',
 					deletePortletDataNode: '#<%= PortletDataHandlerKeys.DELETE_PORTLET_DATA %>Checkbox',
@@ -517,11 +517,16 @@ portletURL.setParameter("tabs3", "current-and-previous");
 					timeZone: '<%= timeZone.getID() %>'
 				}
 			);
+
+			Liferay.component('<portlet:namespace />ExportImportComponent', exportImport);
 		</aui:script>
 
 		<aui:script>
 			function <portlet:namespace />copyFromLive() {
-				if (confirm('<%= UnicodeLanguageUtil.get(pageContext, "are-you-sure-you-want-to-copy-from-live-and-update-the-existing-staging-portlet-information") %>')) {
+				var exportImport = Liferay.component('<portlet:namespace />ExportImportComponent');
+				var dateChecker = exportImport.getDateRangeChecker();
+
+				if (dateChecker.validRange && confirm('<%= UnicodeLanguageUtil.get(pageContext, "are-you-sure-you-want-to-copy-from-live-and-update-the-existing-staging-portlet-information") %>')) {
 					document.<portlet:namespace />fm1.<portlet:namespace /><%= Constants.CMD %>.value = "copy_from_live";
 
 					submitForm(document.<portlet:namespace />fm1);
@@ -529,7 +534,10 @@ portletURL.setParameter("tabs3", "current-and-previous");
 			}
 
 			function <portlet:namespace />publishToLive() {
-				if (confirm('<%= UnicodeLanguageUtil.get(pageContext, "are-you-sure-you-want-to-publish-to-live-and-update-the-existing-portlet-data") %>')) {
+				var exportImport = Liferay.component('<portlet:namespace />ExportImportComponent');
+				var dateChecker = exportImport.getDateRangeChecker();
+
+				if (dateChecker.validRange && confirm('<%= UnicodeLanguageUtil.get(pageContext, "are-you-sure-you-want-to-publish-to-live-and-update-the-existing-portlet-data") %>')) {
 					submitForm(document.<portlet:namespace />fm1);
 				}
 			}
