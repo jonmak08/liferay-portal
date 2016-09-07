@@ -639,8 +639,6 @@ portletURL.setParameter("rootNodeName", rootNodeName);
 		function(event) {
 			event.halt();
 
-			var A = AUI();
-
 			var exportImport = Liferay.component('<portlet:namespace />ExportImportComponent');
 			var dateChecker = exportImport.getDateRangeChecker();
 
