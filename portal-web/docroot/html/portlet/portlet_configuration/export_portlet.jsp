@@ -472,6 +472,9 @@ portletURL.setParameter("tabs3", "current-and-previous");
 			if (dateChecker.validRange) {
 				submitForm(form, form.attr('action'), false);
 			}
+			else {
+				exportImport.showNotification(dateChecker);
+			}
 		}
 	);
 </aui:script>

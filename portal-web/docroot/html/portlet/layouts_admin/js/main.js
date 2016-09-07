@@ -124,6 +124,28 @@ AUI.add(
 						}
 					},
 
+					showNotification: function(dateChecker) {
+						var instance = this;
+
+						if (instance._notice) {
+							instance._notice.remove();
+						}
+
+						var message = instance._getNotificationMessage(dateChecker);
+
+						instance._notice = new Liferay.Notice(
+							{
+								closeText: false,
+								content: message + '<button type="button" class="close">&times;</button>',
+								timeout: 10000,
+								toggleText: false,
+								type: 'warning'
+							}
+						);
+
+						instance._notice.show();
+					},
+
 					_bindUI: function() {
 						var instance = this;
 
@@ -716,6 +738,21 @@ AUI.add(
 						return remoteDialog;
 					},
 
+					_getNotificationMessage: function(dateChecker) {
+						var instance = this;
+
+						var message;
+
+						if (!instance._rangeEndsLater()) {
+							message = Liferay.Language.get('end-date-must-be-greater-than-start-date');
+						}
+						else if (!instance._rangeEndsInPast(dateChecker.todayUsed) || !instance._rangeStartsInPast(dateChecker.todayUsed)) {
+							message = Liferay.Language.get('selected-dates-cannot-be-in-the-future');
+						}
+
+						return message;
+					},
+
 					_getScheduledPublishingEventsDialog: function() {
 						var instance = this;
 
@@ -1225,30 +1262,7 @@ AUI.add(
 							rangeDialog.hide();
 						}
 						else {
-							var message;
-
-							if (!instance._rangeEndsLater()) {
-								message = Liferay.Language.get('end-date-must-be-greater-than-start-date');
-							}
-							else if (!instance._rangeEndsInPast(dateChecker.todayUsed) || !instance._rangeStartsInPast(dateChecker.todayUsed)) {
-								message = Liferay.Language.get('selected-dates-cannot-be-in-the-future');
-							}
-
-							if (instance._notice) {
-								instance._notice.remove();
-							}
-
-							instance._notice = new Liferay.Notice(
-								{
-									closeText: false,
-									content: message + '<button type="button" class="close">&times;</button>',
-									timeout: 10000,
-									toggleText: false,
-									type: 'warning'
-								}
-							);
-
-							instance._notice.show();
+							instance.showNotification(dateChecker);
 						}
 					},
 

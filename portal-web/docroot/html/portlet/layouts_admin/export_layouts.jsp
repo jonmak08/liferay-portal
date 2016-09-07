@@ -670,6 +670,9 @@ portletURL.setParameter("rootNodeName", rootNodeName);
 
 				submitForm(form, form.attr('action'), false);
 			}
+			else {
+				exportImport.showNotification(dateChecker);
+			}
 		}
 	);
 </aui:script>

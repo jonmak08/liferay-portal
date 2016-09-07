@@ -436,6 +436,9 @@ else {
 
 				submitForm(document.<portlet:namespace />exportPagesFm);
 			}
+			else if (!dateChecker.validRange) {
+				exportImport.showNotification(dateChecker);
+			}
 		},
 		['aui-base']
 	);
