@@ -77,11 +77,11 @@ public class JSONWebServiceServiceAction extends JSONServiceAction {
 		catch (InvocationTargetException ite) {
 			Throwable throwable = ite.getCause();
 
-			int status = 0;
-
 			if (throwable instanceof SecurityException) {
 				throw (SecurityException)throwable;
 			}
+
+			int status = 0;
 
 			if (throwable instanceof PrincipalException) {
 				status = HttpServletResponse.SC_FORBIDDEN;
