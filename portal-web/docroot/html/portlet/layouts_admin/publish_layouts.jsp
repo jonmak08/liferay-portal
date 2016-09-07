@@ -407,6 +407,7 @@ else {
 		'<portlet:namespace />publishPages',
 		function() {
 			var exportImport = Liferay.component('<portlet:namespace />ExportImportComponent');
+
 			var dateChecker = exportImport.getDateRangeChecker();
 
 			if (dateChecker.validRange && confirm('<%= UnicodeLanguageUtil.get(pageContext, "are-you-sure-you-want-to-" + publishActionKey + "-these-pages") %>')) {

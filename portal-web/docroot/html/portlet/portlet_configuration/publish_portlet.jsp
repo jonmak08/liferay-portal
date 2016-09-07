@@ -524,6 +524,7 @@ portletURL.setParameter("tabs3", "current-and-previous");
 		<aui:script>
 			function <portlet:namespace />copyFromLive() {
 				var exportImport = Liferay.component('<portlet:namespace />ExportImportComponent');
+
 				var dateChecker = exportImport.getDateRangeChecker();
 
 				if (dateChecker.validRange && confirm('<%= UnicodeLanguageUtil.get(pageContext, "are-you-sure-you-want-to-copy-from-live-and-update-the-existing-staging-portlet-information") %>')) {
