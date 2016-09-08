@@ -954,15 +954,8 @@ public class PortalImpl implements Portal {
 			}
 		}
 		else {
-			LayoutQueryStringComposite layoutQueryStringComposite =
-				getPortletFriendlyURLMapperLayoutQueryStringComposite(
-					groupId, privateLayout, friendlyURL, params,
-					requestContext);
-
-			layout = layoutQueryStringComposite.getLayout();
-			layoutQueryStringCompositeFriendlyURL =
-				layoutQueryStringComposite.getFriendlyURL();
-			queryString = layoutQueryStringComposite.getQueryString();
+			return getPortletFriendlyURLMapperLayoutQueryStringComposite(
+				groupId, privateLayout, friendlyURL, params, requestContext);
 		}
 
 		return new LayoutQueryStringComposite(
