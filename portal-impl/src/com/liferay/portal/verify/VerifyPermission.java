@@ -108,10 +108,8 @@ public class VerifyPermission extends VerifyProcess {
 	protected void deleteDefaultPrivateLayoutPermissions_6(long companyId)
 		throws Exception {
 
-		Role role = RoleLocalServiceUtil.getRole(
+		final Role role = RoleLocalServiceUtil.getRole(
 			companyId, RoleConstants.GUEST);
-
-		final long roleId = role.getRoleId();
 
 		ActionableDynamicQuery actionableDynamicQuery =
 			new ResourcePermissionActionableDynamicQuery() {
@@ -119,7 +117,7 @@ public class VerifyPermission extends VerifyProcess {
 				public void addCriteria(DynamicQuery dynamicQuery) {
 					Property property = PropertyFactoryUtil.forName("roleId");
 
-					dynamicQuery.add(property.eq(roleId));
+					dynamicQuery.add(property.eq(role.getRoleId()));
 				}
 
 				@Override
