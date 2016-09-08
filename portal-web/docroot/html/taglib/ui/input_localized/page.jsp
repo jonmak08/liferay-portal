@@ -72,7 +72,7 @@ if (!Validator.isNull(languageId)) {
 
 List<String> languageIds = new ArrayList<String>();
 
-String fieldName = HtmlUtil.escapeAttribute(name + fieldSuffix);
+String fieldName = name + fieldSuffix;
 
 Exception exception = (Exception)request.getAttribute("liferay-ui:error:exception");
 String focusField = (String)request.getAttribute("liferay-ui:error:focusField");
@@ -111,19 +111,19 @@ if ((exception != null) && fieldName.equals(focusField)) {
 				}
 
 				function <portlet:namespace /><%= randomNamespace %>OnBlurEditor() {
-					Liferay.component('<portlet:namespace /><%= fieldName %>').blur();
+					Liferay.component('<portlet:namespace /><%= HtmlUtil.escapeJS(fieldName) %>').blur();
 				}
 
 				function <portlet:namespace /><%= randomNamespace %>OnChangeEditor() {
-					var inputLocalized = Liferay.component('<portlet:namespace /><%= fieldName %>');
+					var inputLocalized = Liferay.component('<portlet:namespace /><%= HtmlUtil.escapeJS(fieldName) %>');
 
-					var editor = window['<portlet:namespace /><%= fieldName %>'];
+					var editor = window['<portlet:namespace /><%= HtmlUtil.escapeJS(fieldName) %>'];
 
 					inputLocalized.updateInputLanguage(editor.getHTML());
 				}
 
 				function <portlet:namespace /><%= randomNamespace %>OnFocusEditor() {
-					Liferay.component('<portlet:namespace /><%= fieldName %>').focus();
+					Liferay.component('<portlet:namespace /><%= HtmlUtil.escapeJS(fieldName) %>').focus();
 				}
 			</aui:script>
 
@@ -131,7 +131,7 @@ if ((exception != null) && fieldName.equals(focusField)) {
 				A.all('#<portlet:namespace /><%= id %>ContentBox .palette-item-inner').on(
 					'click',
 					function() {
-						window['<portlet:namespace /><%= fieldName %>'].focus();
+						window['<portlet:namespace /><%= HtmlUtil.escapeJS(fieldName) %>'].focus();
 					}
 				);
 			</aui:script>
@@ -309,7 +309,7 @@ if ((exception != null) && fieldName.equals(focusField)) {
 					contentBox: '#<portlet:namespace /><%= id %>ContentBox',
 
 					<c:if test='<%= type.equals("editor") %>'>
-						editor: window['<portlet:namespace /><%= fieldName %>'],
+						editor: window['<portlet:namespace /><%= HtmlUtil.escapeJS(fieldName) %>'],
 					</c:if>
 
 					inputPlaceholder: '#<portlet:namespace /><%= id + HtmlUtil.getAUICompatibleId(fieldSuffix) %>',
