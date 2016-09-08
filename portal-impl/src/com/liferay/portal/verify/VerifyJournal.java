@@ -40,7 +40,9 @@ import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.Node;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.model.Company;
+import com.liferay.portal.model.Group;
 import com.liferay.portal.service.CompanyLocalServiceUtil;
+import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.service.ResourceLocalServiceUtil;
 import com.liferay.portal.util.PortalInstances;
 import com.liferay.portal.util.PortalUtil;
@@ -536,8 +538,10 @@ public class VerifyJournal extends VerifyProcess {
 		String defaultLanguageId = rootElement.attributeValue("default-locale");
 
 		if (Validator.isNull(defaultLanguageId)) {
+			Group group = GroupLocalServiceUtil.getGroup(article.getGroupId());
+
 			LocaleThreadLocalHandler<String> localeThreadLocalHandler =
-				new LocaleThreadLocalHandler<String>(article) {
+				new LocaleThreadLocalHandler<String>(group) {
 
 					@Override
 					public String call() throws Exception {
@@ -561,8 +565,8 @@ public class VerifyJournal extends VerifyProcess {
 
 	private abstract class LocaleThreadLocalHandler<T> implements Callable<T> {
 
-		private LocaleThreadLocalHandler(JournalArticle article) {
-			_article = article;
+		private LocaleThreadLocalHandler(Group group) {
+			_group = group;
 		}
 
 		public T getSiteDefaultLocale() throws Exception {
@@ -571,12 +575,12 @@ public class VerifyJournal extends VerifyProcess {
 				LocaleThreadLocal.getSiteDefaultLocale();
 
 			Company company = CompanyLocalServiceUtil.getCompany(
-				_article.getCompanyId());
+				_group.getCompanyId());
 
 			try {
 				LocaleThreadLocal.setDefaultLocale(company.getLocale());
 				LocaleThreadLocal.setSiteDefaultLocale(
-					PortalUtil.getSiteDefaultLocale(_article.getGroupId()));
+					PortalUtil.getSiteDefaultLocale(_group.getGroupId()));
 
 				return call();
 			}
@@ -587,7 +591,7 @@ public class VerifyJournal extends VerifyProcess {
 			}
 		}
 
-		private JournalArticle _article;
+		private Group _group;
 
 	}
 
