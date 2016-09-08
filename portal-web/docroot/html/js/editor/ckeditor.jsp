@@ -87,6 +87,18 @@ String toolbarSet = (String)request.getAttribute("liferay-ui:input-editor:toolba
 if (!inlineEdit) {
 	name = namespace + name;
 }
+
+String textareaName = HtmlUtil.escapeAttribute(name);
+
+String modules = "aui-node-base";
+
+if (inlineEdit && Validator.isNotNull(inlineEditSaveURL)) {
+	textareaName = textareaName + "_original";
+
+	modules += ",inline-editor-ckeditor";
+}
+
+name = HtmlUtil.escapeJS(name);
 %>
 
 <c:if test="<%= hideImageResizing %>">
@@ -198,18 +210,6 @@ if (!inlineEdit) {
 		}
 	};
 </aui:script>
-
-<%
-String textareaName = name;
-
-String modules = "aui-node-base";
-
-if (inlineEdit && Validator.isNotNull(inlineEditSaveURL)) {
-	textareaName = name + "_original";
-
-	modules += ",inline-editor-ckeditor";
-}
-%>
 
 <div class="<%= cssClass %>">
 	<textarea id="<%= textareaName %>" name="<%= textareaName %>" style="display: none;"></textarea>
