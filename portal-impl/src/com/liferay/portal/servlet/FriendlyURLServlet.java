@@ -110,12 +110,10 @@ public class FriendlyURLServlet extends HttpServlet {
 
 		String pathInfo = getPathInfo(request);
 
-		Object[] redirectArray = null;
-
 		boolean forcePermanentRedirect = false;
 
 		try {
-			redirectArray = getRedirect(
+			Object[] redirectArray = getRedirect(
 				request, pathInfo, Portal.PATH_MAIN, request.getParameterMap());
 
 			redirect = (String)redirectArray[0];
