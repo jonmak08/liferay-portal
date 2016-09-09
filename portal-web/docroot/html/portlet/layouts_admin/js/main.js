@@ -109,6 +109,7 @@ AUI.add(
 
 					getDateRangeChecker: function() {
 						var instance = this;
+
 						var today = new Date();
 
 						var dateRangeChecker = {
@@ -126,18 +127,15 @@ AUI.add(
 					showNotification: function(dateChecker) {
 						var instance = this;
 
-						var message = instance._getNotificationMessage(dateChecker);
-
-						var htmlMessage = message + '<button type="button" class="close">&times;</button>';
-
 						if (instance._notice) {
 							instance._notice.remove();
 						}
 
-						var noticeConfig =
-						{
+						var message = instance._getNotificationMessage(dateChecker);
+
+						var noticeConfig = {
 							closeText: false,
-							content: htmlMessage,
+							content: message + '<button type="button" class="close">&times;</button>',
 							timeout: 10000,
 							toggleText: false,
 							type: 'warning'
@@ -145,14 +143,15 @@ AUI.add(
 
 						if (instance._rangeDialog.get('visible')) {
 							var messageNode = instance.byId('rangeMessages');
+
 							var noticeNode = A.Node.create('<div class="alert" dynamic="true"></div>');
+
 							messageNode.append(noticeNode);
+
 							noticeConfig.node = noticeNode;
 						}
 
-						instance._notice = new Liferay.Notice(
-							noticeConfig
-						);
+						instance._notice = new Liferay.Notice(noticeConfig);
 
 						instance._notice.show();
 					},
