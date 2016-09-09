@@ -366,13 +366,14 @@
 
 		<replace file="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay/frmresourceslist.html">
 			<replacetoken><![CDATA[function LoadResources( resourceType, folderPath )]]></replacetoken>
-			<replacevalue><![CDATA[function LoadResources( resourceType, sortType, ascending, folderPath )]]></replacevalue>
+			<replacevalue><![CDATA[function LoadResources( doAsGroupId, resourceType, sortType, ascending, folderPath )]]></replacevalue>
 		</replace>
 
 		<replace file="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay/frmresourceslist.html">
 			<replacetoken><![CDATA[oConnector.ResourceType = resourceType ;]]></replacetoken>
 			<replacevalue>
 				<![CDATA[
+					oConnector.DoAsGroupId = doAsGroupId;
 					oConnector.ResourceType = resourceType;
 					oConnector.SortType = sortType;
 					oConnector.Ascending = ascending;
@@ -383,7 +384,7 @@
 		<replace file="docroot/html/js/editor/${ckeditor.deploy.dir}/editor/filemanager/browser/liferay/frmresourceslist.html">
 			<replacetoken><![CDATA[LoadResources( oConnector.ResourceType, oConnector.CurrentFolder ) ;]]></replacetoken>
 			<replacevalue>
-				<![CDATA[LoadResources( oConnector.ResourceType, oConnector.SortType, oConnector.Ascending, oConnector.CurrentFolder ) ;]]>
+				<![CDATA[LoadResources( oConnector.DoAsGroupId, oConnector.ResourceType, oConnector.SortType, oConnector.Ascending, oConnector.CurrentFolder ) ;]]>
 			</replacevalue>
 		</replace>
 	</target>
@@ -624,6 +625,7 @@
 					<replacetoken><![CDATA[oConnector.ResourceType		= GetUrlParam( 'Type' ) ;]]></replacetoken>
 					<replacevalue>
 						<![CDATA[
+							oConnector.DoAsGroupId		= GetUrlParam( 'DoAsGroupId' );
 							oConnector.ResourceType		= GetUrlParam( 'Type' );
 							oConnector.SortType		= GetUrlParam( 'SortType' );
 							oConnector.Ascending		= GetUrlParam( 'Ascending' );
@@ -653,6 +655,7 @@
 					<replacetoken><![CDATA[sUrl += '&Type=' + this.ResourceType ;]]></replacetoken>
 					<replacevalue>
 						<![CDATA[
+							sUrl += '&doAsGroupId=' + this.DoAsGroupId;
 							sUrl += '&Type=' + this.ResourceType;
 							sUrl += '&SortType=' + this.SortType;
 							sUrl += '&Ascending=' + this.Ascending;
@@ -669,20 +672,21 @@
 
 				<replace file="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay/frmactualfolder.html">
 					<replacetoken><![CDATA[function SetCurrentFolder( resourceType, folderPath )]]></replacetoken>
-					<replacevalue><![CDATA[function SetCurrentFolder( resourceType, sortType, ascending, folderPath )]]></replacevalue>
+					<replacevalue><![CDATA[function SetCurrentFolder( doAsGroupId, resourceType, sortType, ascending, folderPath )]]></replacevalue>
 				</replace>
 
 				<!-- frmcreatefolder.html -->
 
 				<replace file="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay/frmcreatefolder.html">
 					<replacetoken><![CDATA[function SetCurrentFolder( resourceType, folderPath )]]></replacetoken>
-					<replacevalue><![CDATA[function SetCurrentFolder( resourceType, sortType, ascending, folderPath )]]></replacevalue>
+					<replacevalue><![CDATA[function SetCurrentFolder( doAsGroupId, resourceType, sortType, ascending, folderPath )]]></replacevalue>
 				</replace>
 
 				<replace file="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay/frmcreatefolder.html">
 					<replacetoken><![CDATA[oConnector.ResourceType = resourceType ;]]></replacetoken>
 					<replacevalue>
 						<![CDATA[
+							oConnector.DoAsGroupId = doAsGroupId;
 							oConnector.ResourceType = resourceType;
 							oConnector.SortType = sortType;
 							oConnector.Ascending = ascending;
@@ -714,7 +718,7 @@
 
 				<replace file="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay/frmfolders.html">
 					<replacetoken><![CDATA[window.parent.frames['frmActualFolder'].SetCurrentFolder( oConnector.ResourceType, folderPath ) ;]]></replacetoken>
-					<replacevalue><![CDATA[window.parent.frames['frmActualFolder'].SetCurrentFolder( oConnector.ResourceType, oConnector.SortType, oConnector.Ascending, escapeHTML( folderPath ) ) ;]]></replacevalue>
+					<replacevalue><![CDATA[window.parent.frames['frmActualFolder'].SetCurrentFolder( oConnector.DoAsGroupId, oConnector.ResourceType, oConnector.SortType, oConnector.Ascending, escapeHTML( folderPath ) ) ;]]></replacevalue>
 				</replace>
 
 				<replace file="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay/frmfolders.html">
@@ -747,7 +751,7 @@
 
 				<replace file="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay/frmfolders.html">
 					<replacetoken><![CDATA[oConnector.ResourceType, folderPath]]></replacetoken>
-					<replacevalue><![CDATA[oConnector.ResourceType, oConnector.SortType, oConnector.Ascending, folderPath]]></replacevalue>
+					<replacevalue><![CDATA[oConnector.DoAsGroupId, oConnector.ResourceType, oConnector.SortType, oConnector.Ascending, folderPath]]></replacevalue>
 				</replace>
 
 				<!-- frmresourceslist.html -->
@@ -958,13 +962,14 @@
 
 				<replace file="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay/frmupload.html">
 					<replacetoken><![CDATA[function SetCurrentFolder( resourceType, folderPath )]]></replacetoken>
-					<replacevalue><![CDATA[function SetCurrentFolder( resourceType, sortType, ascending, folderPath )]]></replacevalue>
+					<replacevalue><![CDATA[function SetCurrentFolder( doAsGroupId, resourceType, sortType, ascending, folderPath )]]></replacevalue>
 				</replace>
 
 				<replace file="docroot/html/js/editor/fckeditor/editor/filemanager/browser/liferay/frmupload.html">
 					<replacetoken><![CDATA[sUrl += '&Type=' + resourceType ;]]></replacetoken>
 					<replacevalue>
 						<![CDATA[
+							sUrl += '&DoAsGroupId=' + doAsGroupId;
 							sUrl += '&Type=' + resourceType;
 							sUrl += '&SortType=' + sortType;
 							sUrl += '&Ascending=' + ascending;
