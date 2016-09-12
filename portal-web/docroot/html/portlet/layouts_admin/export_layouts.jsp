@@ -271,6 +271,7 @@ portletURL.setParameter("rootNodeName", rootNodeName);
 
 											<div class="hide" id="<portlet:namespace />range">
 												<div id="<portlet:namespace />rangeMessages"></div>
+
 												<ul class="lfr-tree unstyled">
 													<li class="tree-item">
 														<aui:fieldset cssClass="portlet-data-section" label="date-range">

@@ -156,6 +156,7 @@ portletURL.setParameter("tabs3", "current-and-previous");
 								<li class="tree-item">
 									<div class="hide" id="<portlet:namespace />range">
 										<div id="<portlet:namespace />rangeMessages"></div>
+
 										<aui:fieldset cssClass="portlet-data-section" label="date-range">
 											<aui:input data-name='<%= LanguageUtil.get(pageContext, "all") %>' id="rangeAll" label="all" name="range" type="radio" value="all" />
 
