@@ -410,7 +410,9 @@ else {
 
 			var dateChecker = exportImport.getDateRangeChecker();
 
-			if (dateChecker.validRange && confirm('<%= UnicodeLanguageUtil.get(pageContext, "are-you-sure-you-want-to-" + publishActionKey + "-these-pages") %>')) {
+			var validRange = dateChecker.validRange;
+
+			if (validRange && confirm('<%= UnicodeLanguageUtil.get(pageContext, "are-you-sure-you-want-to-" + publishActionKey + "-these-pages") %>')) {
 				var A = AUI();
 
 				var allContentRadioChecked = A.one('#<portlet:namespace />allContent').attr('checked');
@@ -437,7 +439,7 @@ else {
 
 				submitForm(document.<portlet:namespace />exportPagesFm);
 			}
-			else if (!dateChecker.validRange) {
+			else if (!validRange) {
 				exportImport.showNotification(dateChecker);
 			}
 		},

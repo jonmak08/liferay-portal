@@ -196,6 +196,7 @@ portletURL.setParameter("tabs3", "current-and-previous");
 										<li class="tree-item">
 											<div class="hide" id="<portlet:namespace />range">
 												<div id="<portlet:namespace />rangeMessages"></div>
+
 												<aui:fieldset cssClass="date-range-options" label="date-range">
 													<aui:input data-name='<%= LanguageUtil.get(pageContext, "all") %>' id="rangeAll" label="all" name="range" type="radio" value="all" />
 
@@ -528,12 +529,14 @@ portletURL.setParameter("tabs3", "current-and-previous");
 
 				var dateChecker = exportImport.getDateRangeChecker();
 
-				if (dateChecker.validRange && confirm('<%= UnicodeLanguageUtil.get(pageContext, "are-you-sure-you-want-to-copy-from-live-and-update-the-existing-staging-portlet-information") %>')) {
+				var validRange = dateChecker.validRange;
+
+				if (validRange && confirm('<%= UnicodeLanguageUtil.get(pageContext, "are-you-sure-you-want-to-copy-from-live-and-update-the-existing-staging-portlet-information") %>')) {
 					document.<portlet:namespace />fm1.<portlet:namespace /><%= Constants.CMD %>.value = "copy_from_live";
 
 					submitForm(document.<portlet:namespace />fm1);
 				}
-				else if (!dateChecker.validRange) {
+				else if (!validRange) {
 					exportImport.showNotification(dateChecker);
 				}
 			}
@@ -543,10 +546,12 @@ portletURL.setParameter("tabs3", "current-and-previous");
 
 				var dateChecker = exportImport.getDateRangeChecker();
 
-				if (dateChecker.validRange && confirm('<%= UnicodeLanguageUtil.get(pageContext, "are-you-sure-you-want-to-publish-to-live-and-update-the-existing-portlet-data") %>')) {
+				var validRange = dateChecker.validRange;
+
+				if (validRange && confirm('<%= UnicodeLanguageUtil.get(pageContext, "are-you-sure-you-want-to-publish-to-live-and-update-the-existing-portlet-data") %>')) {
 					submitForm(document.<portlet:namespace />fm1);
 				}
-				else if (!dateChecker.validRange) {
+				else if (!validRange) {
 					exportImport.showNotification(dateChecker);
 				}
 			}

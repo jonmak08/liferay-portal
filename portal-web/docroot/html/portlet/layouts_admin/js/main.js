@@ -115,7 +115,7 @@ AUI.add(
 						var dateRangeChecker = {
 							todayUsed: today,
 							validRange: true
-						}
+						};
 
 						if (instance._isChecked('rangeDateRangeNode')) {
 							dateRangeChecker.validRange = instance._rangeEndsLater() && instance._rangeEndsInPast(today) && instance._rangeStartsInPast(today);
@@ -127,8 +127,10 @@ AUI.add(
 					showNotification: function(dateChecker) {
 						var instance = this;
 
-						if (instance._notice) {
-							instance._notice.remove();
+						var notice = instance._notice;
+
+						if (notice) {
+							notice.remove();
 						}
 
 						var message = instance._getNotificationMessage(dateChecker);
@@ -146,7 +148,9 @@ AUI.add(
 
 							var noticeNode = A.Node.create('<div class="alert" dynamic="true"></div>');
 
-							messageNode.append(noticeNode);
+							if (messageNode) {
+								messageNode.append(noticeNode);
+							}
 
 							noticeConfig.node = noticeNode;
 						}
@@ -576,6 +580,21 @@ AUI.add(
 						return globalContentDialog;
 					},
 
+					_getNotificationMessage: function(dateChecker) {
+						var instance = this;
+
+						var message;
+
+						if (!instance._rangeEndsLater()) {
+							message = Liferay.Language.get('end-date-must-be-greater-than-start-date');
+						}
+						else if (!instance._rangeEndsInPast(dateChecker.todayUsed) || !instance._rangeStartsInPast(dateChecker.todayUsed)) {
+							message = Liferay.Language.get('selected-dates-cannot-be-in-the-future');
+						}
+
+						return message;
+					},
+
 					_getPagesDialog: function() {
 						var instance = this;
 
@@ -748,21 +767,6 @@ AUI.add(
 						return remoteDialog;
 					},
 
-					_getNotificationMessage: function(dateChecker) {
-						var instance = this;
-
-						var message;
-
-						if (!instance._rangeEndsLater()) {
-							message = Liferay.Language.get('end-date-must-be-greater-than-start-date');
-						}
-						else if (!instance._rangeEndsInPast(dateChecker.todayUsed) || !instance._rangeStartsInPast(dateChecker.todayUsed)) {
-							message = Liferay.Language.get('selected-dates-cannot-be-in-the-future');
-						}
-
-						return message;
-					},
-
 					_getScheduledPublishingEventsDialog: function() {
 						var instance = this;
 
@@ -810,9 +814,6 @@ AUI.add(
 					_getSelectedDates: function() {
 						var instance = this;
 
-						var startDatePicker = Liferay.component(instance.ns('startDateDatePicker'));
-						var startTimePicker = Liferay.component(instance.ns('startTimeTimePicker'));
-
 						var endDatePicker = Liferay.component(instance.ns('endDateDatePicker'));
 						var endTimePicker = Liferay.component(instance.ns('endTimeTimePicker'));
 
@@ -823,6 +824,9 @@ AUI.add(
 						endDate.setMinutes(endTime.getMinutes());
 						endDate.setSeconds(0);
 						endDate.setMilliseconds(0);
+
+						var startDatePicker = Liferay.component(instance.ns('startDateDatePicker'));
+						var startTimePicker = Liferay.component(instance.ns('startTimeTimePicker'));
 
 						var startDate = startDatePicker.getDate();
 						var startTime = startTimePicker.getTime();
