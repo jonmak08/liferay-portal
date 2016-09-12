@@ -139,14 +139,8 @@ if (forcePost && (portletURL != null)) {
 					sb.append(_getHREF(formName, namespace + curParam, i, jsCall, url, urlAnchor));
 
 					if (forcePost) {
-						sb.append("' onclick='event.preventDefault(); ");
-						sb.append(namespace);
-						sb.append("submitForm(");
-						sb.append(namespace);
-						sb.append(curParam);
-						sb.append(",");
-						sb.append(i);
-						sb.append(");");
+						sb.append("' onClick='");
+						sb.append(_getOnClick(namespace, deltaParam, curDelta));
 					}
 
 					sb.append("'>");
@@ -218,7 +212,7 @@ if (forcePost && (portletURL != null)) {
 
 										<liferay-ui:icon
 											message="<%= String.valueOf(i) %>"
-											onClick='<%= forcePost ? "event.preventDefault(); " + namespace + "submitForm(\\"" + namespace + curParam + "\\"," + i + ");" : "" %>'
+											onClick='<%= forcePost ? _getOnClick(namespace, curParam, i) : "" %>'
 											url='<%= url + namespace + curParam + "=" + i + urlAnchor %>'
 										/>
 
@@ -254,7 +248,7 @@ if (forcePost && (portletURL != null)) {
 
 										<liferay-ui:icon
 											message="<%= String.valueOf(curDelta) %>"
-											onClick='<%= forcePost ? "event.preventDefault(); " + namespace + "submitForm(\\"" + namespace + deltaParam + "\\"," + curDelta + ");" : "" %>'
+											onClick='<%= forcePost ? _getOnClick(namespace, deltaParam, curDelta) : "" %>'
 											url='<%= deltaURL + "&" + namespace + deltaParam + "=" + curDelta + urlAnchor %>'
 										/>
 
@@ -277,20 +271,20 @@ if (forcePost && (portletURL != null)) {
 		<ul class="pager lfr-pagination-buttons">
 			<c:if test='<%= type.equals("approximate") || type.equals("more") || type.equals("regular") %>'>
 				<li class="<%= (cur != 1) ? "" : "disabled" %> first">
-					<a href="<%= (cur != 1) ? _getHREF(formName, namespace + curParam, 1, jsCall, url, urlAnchor) : "javascript:;" %>" onclick="<%= (cur != 1 && forcePost) ? "event.preventDefault(); " + namespace + "submitForm('" + namespace + curParam + "'," + 1 + ");" : "" %>" tabIndex="<%= (cur != 1) ? "0" : "-1" %>" target="<%= target %>">
+					<a href="<%= (cur != 1) ? _getHREF(formName, namespace + curParam, 1, jsCall, url, urlAnchor) : "javascript:;" %>" onclick="<%= (cur != 1 && forcePost) ? _getOnClick(namespace, curParam, 1) : "" %>" tabIndex="<%= (cur != 1) ? "0" : "-1" %>" target="<%= target %>">
 						&larr; <liferay-ui:message key="first" />
 					</a>
 				</li>
 			</c:if>
 
 			<li class="<%= (cur != 1) ? "" : "disabled" %>">
-				<a href="<%= (cur != 1) ? _getHREF(formName, namespace + curParam, cur - 1, jsCall, url, urlAnchor) : "javascript:;" %>" onclick="<%= (cur != 1 && forcePost) ? "event.preventDefault(); " + namespace + "submitForm('" + namespace + curParam + "'," + (cur - 1) + ");" : "" %>" tabIndex="<%= (cur != 1) ? "0" : "-1" %>" target="<%= target %>">
+				<a href="<%= (cur != 1) ? _getHREF(formName, namespace + curParam, cur - 1, jsCall, url, urlAnchor) : "javascript:;" %>" onclick="<%= (cur != 1 && forcePost) ? _getOnClick(namespace, curParam, cur - 1) : "" %>" tabIndex="<%= (cur != 1) ? "0" : "-1" %>" target="<%= target %>">
 					<liferay-ui:message key="previous" />
 				</a>
 			</li>
 
 			<li class="<%= (cur != pages) ? "" : "disabled" %>">
-				<a href="<%= (cur != pages) ? _getHREF(formName, namespace + curParam, cur + 1, jsCall, url, urlAnchor) : "javascript:;" %>" onclick="<%= (cur != pages && forcePost) ? "event.preventDefault(); " + namespace + "submitForm('" + namespace + curParam + "'," + (cur + 1) + ");" : "" %>" tabIndex="<%= (cur != pages) ? "0" : "-1" %>" target="<%= target %>">
+				<a href="<%= (cur != pages) ? _getHREF(formName, namespace + curParam, cur + 1, jsCall, url, urlAnchor) : "javascript:;" %>" onclick="<%= (cur != pages && forcePost) ? _getOnClick(namespace, curParam, cur + 1) : "" %>" tabIndex="<%= (cur != pages) ? "0" : "-1" %>" target="<%= target %>">
 					<c:choose>
 						<c:when test='<%= type.equals("approximate") || type.equals("more") %>'>
 							<liferay-ui:message key="more" />
@@ -304,7 +298,7 @@ if (forcePost && (portletURL != null)) {
 
 			<c:if test='<%= type.equals("regular") %>'>
 				<li class="<%= (cur != pages) ? "" : "disabled" %> last">
-					<a href="<%= (cur != pages) ? _getHREF(formName, namespace + curParam, pages, jsCall, url, urlAnchor) : "javascript:;" %>" onclick="<%= (cur != pages && forcePost) ? "event.preventDefault(); " + namespace + "submitForm('" + namespace + curParam + "'," + pages + ");" : "" %>" tabIndex="<%= (cur != pages) ? "0" : "-1" %>" target="<%= target %>">
+					<a href="<%= (cur != pages) ? _getHREF(formName, namespace + curParam, pages, jsCall, url, urlAnchor) : "javascript:;" %>" onclick="<%= (cur != pages && forcePost) ? _getOnClick(namespace, curParam, pages) : "" %>" tabIndex="<%= (cur != pages) ? "0" : "-1" %>" target="<%= target %>">
 						<liferay-ui:message key="last" /> &rarr;
 					</a>
 				</li>
@@ -341,5 +335,11 @@ private String _getHREF(String formName, String curParam, int cur, String jsCall
 	}
 
 	return href;
+}
+%>
+
+<%!
+private String _getOnClick(String namespace, String curParam, int cur) {
+	return "event.preventDefault(); " + namespace + "submitForm('" + namespace + curParam + "','" + cur + "');";
 }
 %>
