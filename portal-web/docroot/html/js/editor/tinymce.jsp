@@ -53,8 +53,6 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
 
 <aui:script use="aui-node-base">
 	window['<%= name %>'] = {
-		onChangeCallbackCounter: 0,
-
 		destroy: function() {
 			tinyMCE.editors['<%= name %>'].destroy();
 
@@ -116,26 +114,7 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
 		%>
 
 			onChangeCallback: function(tinyMCE) {
-
-				// This purposely ignores the first callback event because each call
-				// to setContent triggers an undo level which fires the callback
-				// when no changes have yet been made.
-
-				// setContent is not really the correct way of initializing this
-				// editor with content. The content should be placed statically
-				// (from the editor's perspective) within the textarea. This is a
-				// problem from the portal's perspective because it's passing the
-				// content via a javascript method (initMethod).
-
-				var onChangeCallbackCounter = window['<%= name %>'].onChangeCallbackCounter;
-
-				if (onChangeCallbackCounter > 0) {
-
-					<%= HtmlUtil.escapeJS(onChangeMethod) %>(window['<%= name %>'].getHTML());
-
-				}
-
-				onChangeCallbackCounter++;
+				<%= HtmlUtil.escapeJS(onChangeMethod) %>(window['<%= name %>'].getHTML());
 			},
 
 		<%
