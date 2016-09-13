@@ -102,7 +102,7 @@ public class CookieKeys {
 		Cookie cookieSupportCookie = new Cookie(COOKIE_SUPPORT, "true");
 
 		cookieSupportCookie.setPath(StringPool.SLASH);
-		cookieSupportCookie.setMaxAge(MAX_AGE);
+		cookieSupportCookie.setMaxAge((int)(Time.YEAR / 1000));
 
 		addCookie(request, response, cookieSupportCookie);
 	}
