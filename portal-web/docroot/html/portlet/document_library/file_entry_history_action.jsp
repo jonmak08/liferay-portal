@@ -96,5 +96,4 @@ FileVersion fileVersion = (FileVersion)objArray[1];
 			/>
 		</c:if>
 	</c:if>
-
 </liferay-ui:icon-menu>
