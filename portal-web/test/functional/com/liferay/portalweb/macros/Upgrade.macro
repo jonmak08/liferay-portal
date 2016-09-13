@@ -1,5 +1,5 @@
 <definition>
-	<!--For 6.1.20 and 6.1.30-->
+	<!--For 6.1.20-->
 	<command name="viewDataArchiveVersion1">
 		<execute macro="User#loginPG" />
 
@@ -57,7 +57,7 @@
 		</execute>
 	</command>
 
-	<!--For 6.0.6 and 6.1.2-->
+	<!--For 6.0.6 and 6.0.12 and 6.1.2 and 6.1.30-->
 	<command name="viewDataArchiveVersion2">
 		<execute macro="User#loginPG" />
 
@@ -130,7 +130,7 @@
 		</execute>
 	</command>
 
-	<!--For 6.0.11 and 6.0.12 and 6.1.10-->
+	<!--For 6.0.11 and 6.1.10-->
 	<command name="viewDataArchiveVersion3">
 		<execute macro="User#loginPG" />
 
