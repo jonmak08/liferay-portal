@@ -958,12 +958,13 @@ public class HttpImpl implements Http {
 
 		url = url.trim();
 
-		Matcher matcher = _relativeURLPattern.matcher(url);
+		if ((url.length() >= 2) && (url.charAt(0) == CharPool.SLASH) &&
+			_isLetterOrNumber(url.charAt(1))) {
 
-		if (matcher.lookingAt()) {
 			return url;
 		}
 
+		Matcher matcher = null;
 		boolean modified = false;
 
 		do {
@@ -1882,6 +1883,20 @@ public class HttpImpl implements Http {
 		}
 	}
 
+	private boolean _isLetterOrNumber(char targetChar) {
+		if (((CharPool.NUMBER_0 <= targetChar) &&
+			 (targetChar <= CharPool.NUMBER_9)) ||
+			((CharPool.UPPER_CASE_A <= targetChar) &&
+			 (targetChar <= CharPool.UPPER_CASE_Z)) ||
+			((CharPool.LOWER_CASE_A <= targetChar) &&
+			 (targetChar <= CharPool.LOWER_CASE_Z))) {
+
+			return true;
+		}
+
+		return false;
+	}
+
 	private static final String _DEFAULT_USER_AGENT =
 		"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)";
 
@@ -1939,7 +1954,5 @@ public class HttpImpl implements Http {
 	private final List<String> _proxyAuthPrefs = new ArrayList<String>();
 	private final CloseableHttpClient _proxyCloseableHttpClient;
 	private final Credentials _proxyCredentials;
-	private final Pattern _relativeURLPattern = Pattern.compile(
-		"/[a-zA-Z0-9]+");
 
 }
