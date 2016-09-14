@@ -859,6 +859,12 @@
 		a {
 			font-weight: inherit;
 		}
+
+		table {
+			th {
+				font-weight: bold;
+			}
+		}
 	}
 
 	/* ---------- Extras ---------- */
