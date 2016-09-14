@@ -1479,15 +1479,18 @@ public class DDMStructureLocalServiceImpl
 				Element parentElement = matchingTemplateElement.getParent();
 
 				boolean removeSiblingElements = false;
+
 				List<Element> removedSiblingElements = new ArrayList<Element>();
 
 				for (Element siblingElement : parentElement.elements()) {
 					if (siblingElement.equals(matchingTemplateElement)) {
 						matchingTemplateElement.detach();
+
 						removeSiblingElements = true;
 					}
 					else if (removeSiblingElements) {
 						siblingElement.detach();
+
 						removedSiblingElements.add(siblingElement);
 					}
 				}
