@@ -95,7 +95,6 @@ public class CacheFilter extends BasePortalFilter {
 		// Url
 
 		sb.append(request.getRequestURL());
-		sb.append(StringPool.QUESTION);
 
 		String queryString = request.getQueryString();
 
@@ -115,6 +114,7 @@ public class CacheFilter extends BasePortalFilter {
 		}
 
 		if (queryString != null) {
+			sb.append(StringPool.QUESTION);
 			sb.append(queryString);
 		}
 
