@@ -155,7 +155,7 @@ public class StagingIndexingBackgroundTaskExecutor
 				}
 				catch (SearchException se) {
 					_log.error(
-						"Unable to delete document with uid: " + uid, se);
+						"Unable to delete document with UID " + uid, se);
 				}
 			}
 		}
