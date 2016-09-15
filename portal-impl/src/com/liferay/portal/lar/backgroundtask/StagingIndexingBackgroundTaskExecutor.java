@@ -154,8 +154,7 @@ public class StagingIndexingBackgroundTaskExecutor
 					indexer.delete(portletDataContext.getCompanyId(), uid);
 				}
 				catch (SearchException se) {
-					_log.error(
-						"Unable to delete document with UID " + uid, se);
+					_log.error("Unable to delete document with UID " + uid, se);
 				}
 			}
 		}
