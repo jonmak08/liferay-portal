@@ -1927,17 +1927,17 @@ public class HttpImpl implements Http {
 		new ThreadLocal<Cookie[]>();
 
 	private final Pattern _absoluteURLPattern = Pattern.compile(
-		"^[a-zA-Z0-9]+://");
+		"[a-zA-Z0-9]+://");
 	private final CloseableHttpClient _closeableHttpClient;
 	private final Pattern _nonProxyHostsPattern;
 	private final PoolingHttpClientConnectionManager
 		_poolingHttpClientConnectionManager;
 	private final Pattern _protocolRelativeURLPattern = Pattern.compile(
-		"^[\\s\\\\/]+");
+		"[\\s\\\\/]+");
 	private final List<String> _proxyAuthPrefs = new ArrayList<String>();
 	private final CloseableHttpClient _proxyCloseableHttpClient;
 	private final Credentials _proxyCredentials;
 	private final Pattern _relativeURLPattern = Pattern.compile(
-		"^\\s*/[a-zA-Z0-9]+");
+		"\\s*/[a-zA-Z0-9]+");
 
 }
