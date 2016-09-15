@@ -112,12 +112,14 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 
 				var form = A.one('#<portlet:namespace /><%= formName %>');
 
-				if (form) {
-					form.one('#<%= dayParamId %>').attr('disabled', checked);
-					form.one('#<%= monthParamId %>').attr('disabled', checked);
-					form.one('#<%= nameId %>').attr('disabled', checked);
-					form.one('#<%= yearParamId %>').attr('disabled', checked);
+				if (!form) {
+					form = checkbox.attr('form');
 				}
+
+				form.one('#<%= dayParamId %>').attr('disabled', checked);
+				form.one('#<%= monthParamId %>').attr('disabled', checked);
+				form.one('#<%= nameId %>').attr('disabled', checked);
+				form.one('#<%= yearParamId %>').attr('disabled', checked);
 			}
 		);
 	</aui:script>
