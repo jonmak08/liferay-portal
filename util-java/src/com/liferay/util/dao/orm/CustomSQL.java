@@ -462,7 +462,7 @@ public class CustomSQL {
 
 			String[] configs = getConfigs();
 
-			Map<String, String> sqlPool = new HashMap<>();
+			Map<String, String> sqlPool = new HashMap<String, String>();
 
 			for (String config : configs) {
 				_read(classLoader, config, sqlPool);
@@ -828,11 +828,13 @@ public class CustomSQL {
 			ClassLoader classLoader, String source, Map<String, String> sqlPool)
 		throws Exception {
 
-		try (InputStream is = classLoader.getResourceAsStream(source)) {
-			if (is == null) {
-				return;
-			}
+		InputStream is = classLoader.getResourceAsStream(source);
 
+		if (is == null) {
+			return;
+		}
+
+		try {
 			if (_log.isDebugEnabled()) {
 				_log.debug("Loading " + source);
 			}
@@ -856,6 +858,9 @@ public class CustomSQL {
 					sqlPool.put(id, content);
 				}
 			}
+		}
+		finally {
+			StreamUtil.cleanUp(is);
 		}
 	}
 
