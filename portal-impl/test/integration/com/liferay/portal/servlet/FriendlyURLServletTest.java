@@ -17,6 +17,7 @@ package com.liferay.portal.servlet;
 import com.liferay.portal.NoSuchGroupException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
+import com.liferay.portal.kernel.test.ReflectionTestUtil;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
@@ -38,7 +39,6 @@ import com.liferay.portal.util.Portal;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.WebKeys;
 
-import java.util.Collections;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -119,21 +119,6 @@ public class FriendlyURLServletTest {
 		testGetI18nRedirect("/en_US", "/en_US");
 	}
 
-	@Test
-	public void testGetRedirectWithInvalidPath() throws Exception {
-		MockHttpServletRequest mockHttpServletRequest =
-			new MockHttpServletRequest();
-
-		mockHttpServletRequest.setPathInfo(StringPool.SLASH);
-
-		testGetRedirect(
-			mockHttpServletRequest, null, Portal.PATH_MAIN,
-			new Object[] {Portal.PATH_MAIN, false});
-		testGetRedirect(
-			mockHttpServletRequest, "test", Portal.PATH_MAIN,
-			new Object[] {Portal.PATH_MAIN, false});
-	}
-
 	@Test(expected = NoSuchGroupException.class)
 	public void testGetRedirectWithNonExistentSite() throws Exception {
 		MockHttpServletRequest mockHttpServletRequest =
@@ -200,8 +185,10 @@ public class FriendlyURLServletTest {
 			Object[] expectedRedirectArray)
 		throws Exception {
 
-		Object[] actualRedirectArray = _friendlyURLServlet.getRedirect(
-			request, path, mainPath, Collections.<String, String[]>emptyMap());
+		Object[] actualRedirectArray = ReflectionTestUtil.invoke(
+			_friendlyURLServlet, "_getRedirect",
+			new Class<?>[] {HttpServletRequest.class, String.class}, request,
+			path);
 
 		Assert.assertArrayEquals(expectedRedirectArray, actualRedirectArray);
 	}
