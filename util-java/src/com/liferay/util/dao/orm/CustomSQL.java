@@ -46,6 +46,7 @@ import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -454,13 +455,6 @@ public class CustomSQL {
 			DataAccess.cleanUp(con);
 		}
 
-		if (_sqlPool == null) {
-			_sqlPool = new HashMap<String, String>();
-		}
-		else {
-			_sqlPool.clear();
-		}
-
 		try {
 			Class<?> clazz = getClass();
 
@@ -468,9 +462,13 @@ public class CustomSQL {
 
 			String[] configs = getConfigs();
 
-			for (String _config : configs) {
-				read(classLoader, _config);
+			Map<String, String> sqlPool = new HashMap<>();
+
+			for (String config : configs) {
+				read(classLoader, config, sqlPool);
 			}
+
+			_sqlPool = sqlPool;
 		}
 		catch (Exception e) {
 			_log.error(e, e);
@@ -765,7 +763,16 @@ public class CustomSQL {
 		}
 	}
 
-	protected void read(ClassLoader classLoader, String source)
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #read(ClassLoader, String,
+	 *             Map)}
+	 */
+	@Deprecated
+	protected void read(ClassLoader classLoader, String source) {
+	}
+
+	private void read(
+			ClassLoader classLoader, String source, Map<String, String> sqlPool)
 		throws Exception {
 
 		InputStream is = classLoader.getResourceAsStream(source);
@@ -787,7 +794,7 @@ public class CustomSQL {
 				String file = sqlElement.attributeValue("file");
 
 				if (Validator.isNotNull(file)) {
-					read(classLoader, file);
+					read(classLoader, file, sqlPool);
 				}
 				else {
 					String id = sqlElement.attributeValue("id");
@@ -795,7 +802,7 @@ public class CustomSQL {
 
 					content = replaceIsNull(content);
 
-					_sqlPool.put(id, content);
+					sqlPool.put(id, content);
 				}
 			}
 		}
@@ -885,7 +892,7 @@ public class CustomSQL {
 
 	private String _functionIsNotNull;
 	private String _functionIsNull;
-	private Map<String, String> _sqlPool;
+	private volatile Map<String, String> _sqlPool = Collections.emptyMap();
 	private boolean _vendorDB2;
 	private boolean _vendorHSQL;
 	private boolean _vendorInformix;
