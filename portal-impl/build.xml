@@ -192,7 +192,7 @@ svn://svn.liferay.com/repos/public/alloy/trunk/sandbox/taglibs.
 
 		<delete file="commons-fileupload-1.2.2-src.zip" />
 
-		<patch patchfile="${project.dir}/lib/portal/commons-fileupload/LPS-44121.patch"
+		<patch patchfile="${project.dir}/lib/portal/commons-fileupload/LPS-44121-CVE-2014-0050.patch"
 			dir="${tstamp.value}/commons-fileupload-1.2.2-src"
 			strip="2"
 		/>
@@ -207,7 +207,7 @@ svn://svn.liferay.com/repos/public/alloy/trunk/sandbox/taglibs.
 		/>
 
 		<delete dir="${tstamp.value}" />
-</target>
+	</target>
 
 	<target name="build-creole-parser">
 		<delete>
