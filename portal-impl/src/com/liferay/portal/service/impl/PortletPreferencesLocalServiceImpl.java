@@ -22,14 +22,18 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.spring.aop.Skip;
+import com.liferay.portal.kernel.staging.LayoutStagingUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.model.Layout;
+import com.liferay.portal.model.LayoutRevision;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.model.PortletConstants;
 import com.liferay.portal.model.PortletPreferences;
 import com.liferay.portal.model.PortletPreferencesIds;
 import com.liferay.portal.service.base.PortletPreferencesLocalServiceBaseImpl;
+import com.liferay.portal.staging.StagingAdvicesThreadLocal;
 import com.liferay.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portlet.PortletPreferencesImpl;
 
@@ -228,7 +232,7 @@ public class PortletPreferencesLocalServiceImpl
 		throws SystemException {
 
 		return portletPreferencesPersistence.countByO_P_P(
-			ownerType, plid, portletId);
+			ownerType, _swapPlidForPortletPreferences(plid), portletId);
 	}
 
 	@Override
@@ -243,6 +247,8 @@ public class PortletPreferencesLocalServiceImpl
 			long ownerId, int ownerType, long plid, Portlet portlet,
 			boolean excludeDefaultPreferences)
 		throws SystemException {
+
+		plid = _swapPlidForPortletPreferences(plid);
 
 		String portletId = portlet.getPortletId();
 
@@ -446,6 +452,45 @@ public class PortletPreferencesLocalServiceImpl
 
 			LockRegistry.freeLock(groupName, key);
 		}
+	}
+
+	private LayoutRevision _getLayoutRevision(long plid) {
+		if (plid <= 0) {
+			return null;
+		}
+
+		LayoutRevision layoutRevision =
+			layoutRevisionPersistence.fetchByPrimaryKey(plid);
+
+		if (layoutRevision != null) {
+			return layoutRevision;
+		}
+
+		Layout layout = layoutPersistence.fetchByPrimaryKey(plid);
+
+		if (layout == null) {
+			return null;
+		}
+
+		if (!LayoutStagingUtil.isBranchingLayout(layout)) {
+			return null;
+		}
+
+		return LayoutStagingUtil.getLayoutRevision(layout);
+	}
+
+	private long _swapPlidForPortletPreferences(long plid) {
+		if (!StagingAdvicesThreadLocal.isEnabled()) {
+			return plid;
+		}
+
+		LayoutRevision layoutRevision = _getLayoutRevision(plid);
+
+		if (layoutRevision == null) {
+			return plid;
+		}
+
+		return layoutRevision.getLayoutRevisionId();
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(
