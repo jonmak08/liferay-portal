@@ -2404,9 +2404,7 @@
 			<var name="uncheckContentNameList" value="Web Content" />
 		</execute>
 
-		<execute macro="Staging#publishToLive">
-			<var name="publishValidation" value="true" />
-		</execute>
+		<execute macro="Staging#publishToLive" />
 
 		<execute macro="Staging#gotoPublishToLive" />
 
@@ -2453,9 +2451,7 @@
 			<var name="uncheckContentNameList" value="Audience Targeting,Web Content" />
 		</execute>
 
-		<execute macro="Staging#publishToLive">
-			<var name="publishValidation" value="true" />
-		</execute>
+		<execute macro="Staging#publishToLive" />
 	</command>
 
 	<command known-issues="WCM-345,LPS-54232" name="StagingUncheckAppCTRefAllAndContentAT" priority="4">
@@ -2496,9 +2492,7 @@
 			<var name="uncheckContentNameList" value="Audience Targeting" />
 		</execute>
 
-		<execute macro="Staging#publishToLive">
-			<var name="publishValidation" value="true" />
-		</execute>
+		<execute macro="Staging#publishToLive" />
 	</command>
 
 	<command known-issues="LPS-54232" name="StagingUncheckAppCTRefAllAndContentWC" priority="4">
@@ -2539,9 +2533,7 @@
 			<var name="uncheckContentNameList" value="Web Content" />
 		</execute>
 
-		<execute macro="Staging#publishToLive">
-			<var name="publishValidation" value="true" />
-		</execute>
+		<execute macro="Staging#publishToLive" />
 	</command>
 
 	<command name="UserSegmentAddCategorizationToContent" priority="5">
