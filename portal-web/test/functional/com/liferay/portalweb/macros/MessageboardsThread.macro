@@ -6,7 +6,9 @@
 		<execute function="AssertClick" locator1="CPMessageboards#POST_NEW_THREAD_BUTTON" value1="Post New Thread" />
 
 		<execute function="Type" locator1="CPMessageboardsPostthread#SUBJECT_FIELD" value1="${threadSubject}" />
+
 		<execute function="Type#typeCKEditor" locator1="CPMessageboardsPostthread#BODY_FIELD" value1="${threadBody}" />
+
 		<execute function="AssertClick" locator1="CPMessageboardsPostthread#PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="AssertTextEquals#assertText" locator1="CPMessageboardsThread#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -25,7 +27,9 @@
 		</if>
 
 		<execute function="UploadCommonFile" locator1="PGMessageboardsPostthread#ATTACHMENTS_FILE_FIELD_1" value1="${mbThreadAttachment}" />
+
 		<execute function="AssertClick" locator1="PGMessageboardsPostthread#PUBLISH_BUTTON" value1="Publish" />
+
 		<execute function="AssertTextEquals" locator1="PGMessageboardsPostthread#ERROR_MESSAGE_1" value1="Your request failed to complete." />
 
 		<if>
@@ -66,7 +70,9 @@
 			<equals arg1="${source}" arg2="true" />
 			<then>
 				<execute function="Click" locator1="PGMessageboardsPostthread#SOURCE_BUTTON" />
+
 				<execute function="Type" locator1="PGMessageboardsPostthread#BODY_FIELD_SOURCE_ON" value1="${threadBody}" />
+
 				<execute function="Click" locator1="PGMessageboardsPostthread#SOURCE_BUTTON" />
 
 				<if>
@@ -75,6 +81,7 @@
 						<var name="key_fontSize" value="${fontSize}" />
 
 						<execute function="AssertClick" locator1="PGMessageboardsPostthread#FONT_SIZE_DROPDOWN" value1="Size" />
+
 						<execute function="AssertTextEquals" locator1="PGMessageboardsPostthread#FONT_SIZE_DROPDOWN_SELECT" value1="${key_fontSize}" />
 					</then>
 				</if>
@@ -147,6 +154,7 @@
 			<condition function="IsElementNotPresent" locator1="PGMessageboardsPostthread#CATEGORIZATION_TAGS_ADD_BUTTON" />
 			<then>
 				<execute function="AssertClick" locator1="PGMessageboardsPostthread#CATEGORIZATION_TOGGLE" value1="Categorization" />
+
 				<execute function="AssertElementPresent" locator1="PGMessageboardsPostthread#CATEGORIZATION_TAGS_ADD_BUTTON" />
 			</then>
 		</if>
@@ -156,6 +164,7 @@
 			<then>
 				<for list="${tagNameList}" param="tagName">
 					<execute function="Type" locator1="PGMessageboardsPostthread#CATEGORIZATION_TAGS_FIELD" value1="${tagName}" />
+
 					<execute function="AssertClick" locator1="PGMessageboardsPostthread#CATEGORIZATION_TAGS_ADD_BUTTON" value1="Add" />
 				</for>
 			</then>
@@ -163,7 +172,9 @@
 				<var name="key_tagName" value="${tagName}" />
 
 				<execute function="Type" locator1="PGMessageboardsPostthread#CATEGORIZATION_TAGS_FIELD" value1="${tagName}" />
+
 				<execute function="AssertClick" locator1="PGMessageboardsPostthread#CATEGORIZATION_TAGS_ADD_BUTTON" value1="Add" />
+
 				<execute function="AssertElementPresent" locator1="PGMessageboardsPostthread#CATEGORIZATION_TAG" value1="${tagName}" />
 			</else>
 		</if>
@@ -173,7 +184,9 @@
 		<execute function="AssertClick" locator1="CPMessageboards#POST_NEW_THREAD_BUTTON" value1="Post New Thread" />
 
 		<execute function="Type" locator1="CPMessageboardsPostthread#SUBJECT_FIELD" value1="${threadSubject}" />
+
 		<execute function="Type#typeCKEditor" locator1="CPMessageboardsPostthread#BODY_FIELD" value1="${threadBody}" />
+
 		<execute function="Click" locator1="CPMessageboardsPostthread#SUBMIT_FOR_PUBLICATION_BUTTON" />
 
 		<execute function="AssertTextEquals#assertText" locator1="CPMessageboardsThread#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -183,7 +196,9 @@
 		<execute function="Click" locator1="PGMessageboards#POST_NEW_THREAD_BUTTON" />
 
 		<execute function="Type" locator1="PGMessageboardsPostthread#SUBJECT_FIELD" value1="${threadSubject}" />
+
 		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="PGMessageboardsPostthread#BODY_FIELD" value1="${threadBody}" />
+
 		<execute function="Click" locator1="PGMessageboardsPostthread#SUBMIT_FOR_PUBLICATION_BUTTON" />
 
 		<execute function="AssertTextEquals#assertText" locator1="PGMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -204,6 +219,7 @@
 		</if>
 
 		<execute function="AssertClick" locator1="PGMessageboardsThread#MESSAGE_BAN_THIS_USER" value1="Ban This User" />
+
 		<execute function="AssertTextEquals" locator1="PGMessageboardsThread#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -211,8 +227,11 @@
 		<var name="key_threadSubject" value="${threadSubject}" />
 
 		<execute function="AssertTextEquals" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
+
 		<execute function="AssertClick#assertTextClickAt" locator1="PGMessageboards#THREAD_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="Click" locator1="PGMessageboards#THREAD_MENULIST_RECYCLE_BIN" />
+
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGMessageboards#SUCCESS_MESSAGE_RECYCLE_BIN" value1="The ${assetType} ${threadSubject} was moved to the Recycle Bin. Undo" />
 		<execute function="AssertElementNotPresent" locator1="PGMessageboards#THREAD_TABLE_THREAD" />
 
@@ -228,6 +247,7 @@
 			<condition function="IsElementNotPresent" locator1="CPMessageboardsThread#MESSAGE_EDIT_1" />
 			<then>
 				<execute function="MakeVisible" locator1="CPMessageboardsThread#MESSAGE_EDIT_1" value1="Edit" />
+
 				<execute function="Click" locator1="CPMessageboardsThread#MESSAGE_EDIT_1" value1="Edit" />
 			</then>
 			<else>
@@ -243,6 +263,7 @@
 		</if>
 
 		<execute function="Type#typeCKEditor" locator1="CPMessageboardsPostthread#BODY_FIELD" value1="${threadBodyEdit}" />
+
 		<execute function="AssertClick" locator1="CPMessageboardsPostthread#PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="AssertTextEquals#assertText" locator1="CPMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -254,6 +275,7 @@
 		<var name="key_threadSubject" value="${threadSubject}" />
 
 		<execute function="AssertTextEquals" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
+
 		<execute function="Click" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
 
 		<execute function="Click" locator1="PGMessageboardsThread#MESSAGE_EDIT_1" value1="Edit" />
@@ -276,6 +298,7 @@
 				<equals arg1="${preview}" arg2="true" />
 				<then>
 					<execute function="AssertClickNoError" locator1="PGMessageboardsPostthread#PREVIEW_BUTTON" value1="Preview" />
+
 					<execute function="Confirm" value1="In order to preview your changes, the message will be saved as a draft and other users may not be able to see it. Are you sure you want to do this?" />
 
 					<var name="key_threadSubject" value="${threadSubject}" />
@@ -308,10 +331,13 @@
 		</if>
 
 		<execute function="AssertTextEquals" locator1="PGMessageboardsMyposts#THREAD_TABLE_THREAD" value1="${threadSubject}" />
+
 		<execute function="Click" locator1="PGMessageboardsMyposts#THREAD_TABLE_ACTIONS" />
+
 		<execute function="AssertClick" locator1="PGMessageboardsMyposts#THREAD_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertClick" locator1="PGMessageboardsPostthread#PUBLISH_BUTTON" value1="Publish" />
+
 		<execute function="AssertTextEquals#assertText" locator1="PGMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -321,9 +347,13 @@
 		<execute function="AssertTextEquals" locator1="PGMessageboardsThread#REPORT_INAPPROPRIATE_CONTENT_HEADER" value1="Report Inappropriate Content" />
 		<execute function="AssertTextEquals" locator1="PGMessageboardsThread#REPORT_INAPPROPRIATE_CONTENT_WARNING" value1="You are about to report a violation of our Terms of Use. All reports are strictly confidential." />
 		<execute function="AssertTextEquals" locator1="PGMessageboardsThread#REPORT_INAPPROPRIATE_CONTENT_WARNING_TERMS_OF_USE_LINK" value1="Terms of Use" />
+
 		<execute function="Select" locator1="PGMessageboardsThread#REPORT_INAPPROPRIATE_CONTENT_REASON_SELECT" value1="${flagReason}" />
+
 		<execute function="AssertClick" locator1="PGMessageboardsThread#REPORT_INAPPROPRIATE_CONTENT_SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="PGMessageboardsThread#REPORT_INAPPROPRIATE_CONTENT_SUCCESS_MESSAGE" value1="Although we cannot disclose our final decision, we do review every report and appreciate your effort to make sure Liferay is a safe environment for everyone." />
+
 		<execute function="Click" locator1="PGMessageboardsThread#REPORT_INAPPROPRIATE_CONTENT_CLOSE_BUTTON" />
 	</command>
 
@@ -337,9 +367,11 @@
 		<var name="key_threadSubject" value="${threadSubject}" />
 
 		<execute function="AssertTextEquals" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
+
 		<execute function="Click" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
 
 		<execute function="AssertClick" locator1="PGMessageboardsThread#THREAD_ACTIONS_LOCK_THREAD" value1="Lock Thread" />
+
 		<execute function="AssertTextEquals" locator1="PGMessageboardsThread#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -367,6 +399,7 @@
 		</if>
 
 		<execute function="AssertClick" locator1="PGMessageboardsCategory#THREAD_TABLE_ACTIONS_GENERIC" value1="Actions" />
+
 		<execute function="AssertClick" locator1="PGMessageboardsCategory#THREAD_MENULIST_MOVE" value1="Move" />
 
 		<execute function="AssertClick" locator1="PGMessageboardsMovethread#SELECT_BUTTON" value1="Select" />
@@ -381,15 +414,21 @@
 			<equals arg1="${explanationPost}" arg2="true" />
 			<then>
 				<execute function="SelectFrame" value1="relative=top" />
+
 				<execute function="AssertElementPresent" locator1="PGMessageboardsMovethread#CATEGORY_FIELD" />
+
 				<execute function="Check" locator1="PGMessageboardsMovethread#ADD_EXPLANATION_POST_CHECKBOX" />
+
 				<execute function="Type" locator1="PGMessageboardsMovethread#ADD_EXPLANATION_POST_SUBJECT_FIELD" value1="${explanationSubject}" />
+
 				<execute function="Type#typeCKEditor" locator1="PGMessageboardsMovethread#ADD_EXPLANATION_POST_BODY_FIELD" value1="${explanationBody}" />
 			</then>
 		</if>
 
 		<execute function="SelectFrame" value1="relative=top" />
+
 		<execute function="AssertElementPresent" locator1="PGMessageboardsMovethread#CATEGORY_FIELD" />
+
 		<execute function="AssertClick" locator1="PGMessageboardsMovethread#MOVE_THREAD_BUTTON" value1="Move Thread" />
 	</command>
 
@@ -411,6 +450,7 @@
 		</if>
 
 		<execute function="AssertClick" locator1="PGMessageboardsCategory#THREAD_TABLE_ACTIONS_GENERIC" value1="Actions" />
+
 		<execute function="AssertClick" locator1="PGMessageboardsCategory#THREAD_MENULIST_MOVE" value1="Move" />
 
 		<execute function="AssertClick" locator1="PGMessageboardsMovethread#SELECT_BUTTON" value1="Select" />
@@ -430,15 +470,21 @@
 			<equals arg1="${explanationPost}" arg2="true" />
 			<then>
 				<execute function="SelectFrame" value1="relative=top" />
+
 				<execute function="AssertElementPresent" locator1="PGMessageboardsMovethread#CATEGORY_FIELD" />
+
 				<execute function="Check" locator1="PGMessageboardsMovethread#ADD_EXPLANATION_POST_CHECKBOX" />
+
 				<execute function="Type" locator1="PGMessageboardsMovethread#ADD_EXPLANATION_POST_SUBJECT_FIELD" value1="${explanationSubject}" />
+
 				<execute function="Type#typeCKEditor" locator1="PGMessageboardsMovethread#ADD_EXPLANATION_POST_BODY_FIELD" value1="${explanationBody}" />
 			</then>
 		</if>
 
 		<execute function="SelectFrame" value1="relative=top" />
+
 		<execute function="AssertElementPresent" locator1="PGMessageboardsMovethread#CATEGORY_FIELD" />
+
 		<execute function="AssertClick" locator1="PGMessageboardsMovethread#MOVE_THREAD_BUTTON" value1="Move Thread" />
 	</command>
 
@@ -446,9 +492,13 @@
 		<var name="key_threadSubject" value="${threadSubject}" />
 
 		<execute function="AssertTextEquals" locator1="CPMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
+
 		<execute function="AssertClick" locator1="CPMessageboards#THREAD_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertElementPresent#assertVisible" locator1="CPMessageboards#THREAD_MENULIST_MOVE_TO_THE_RECYCLE_BIN" />
+
 		<execute function="AssertClick" locator1="CPMessageboards#THREAD_MENULIST_MOVE_TO_THE_RECYCLE_BIN" value1="Move to the Recycle Bin" />
+
 		<execute function="AssertTextEquals#assertPartialText" locator1="CPMessageboards#SUCCESS_MESSAGE_RECYCLE_BIN" value1="The ${assetType} ${threadSubject} was moved to the Recycle Bin. Undo" />
 		<execute function="AssertTextEquals#assertText" locator1="CPMessageboards#INFO_MESSAGE_THREAD" value1="There are no threads in this category." />
 	</command>
@@ -461,6 +511,7 @@
 		<execute function="AssertClick" locator1="PGMessageboardsThread#MESSAGE_QUICK_REPLY_1" value1="Quick Reply" />
 
 		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="PGMessageboardsThread#QUICK_REPLY_BODY_FIELD" value1="${threadReplyBody}" />
+
 		<execute function="AssertClick" locator1="PGMessageboardsThread#QUICK_REPLY_PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="AssertTextEquals" locator1="PGMessageboardsThread#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -487,13 +538,19 @@
 		<var name="key_threadSubject" value="${threadSubject}" />
 
 		<execute function="AssertClick#assertTextClickAt" locator1="PGMessageboards#THREAD_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="PGMessageboards#THREAD_MENULIST_PERMISSIONS" value1="Permissions" />
 
 		<execute function="SelectFrame" locator1="Permissions#PERMISSIONS_IFRAME" />
+
 		<execute function="AssertTextEquals" locator1="Permissions#HEADER_TITLE" value1="${threadSubject}" />
+
 		<execute function="Uncheck" locator1="Permissions#CONFIGURATION_PERMISSIONS_VIEW_CHECKBOX" />
+
 		<execute function="AssertClick" locator1="Permissions#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="Permissions#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
@@ -517,6 +574,7 @@
 				<var name="key_threadSubject" value="${threadSubject}" />
 
 				<execute function="AssertTextEquals" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
+
 				<execute function="Click" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
 			</else>
 		</if>
@@ -572,12 +630,15 @@
 		<var name="key_threadSubject" value="${threadSubject}" />
 
 		<execute function="AssertTextEquals" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
+
 		<execute function="Click" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
 
 		<execute function="AssertClick" locator1="PGMessageboardsThread#MESSAGE_REPLY_WITH_QUOTE_1" value1="Reply with Quote" />
 
 		<execute function="Click" locator1="PGMessageboardsPostthread#SOURCE_BUTTON" />
+
 		<execute function="Type#sendKeys" locator1="PGMessageboardsPostthread#BODY_FIELD_SOURCE_ON_SEND_KEYS" value1="${threadReplyBody}" />
+
 		<execute function="AssertClick" locator1="PGMessageboardsPostthread#PUBLISH_BUTTON" value1="Publish" />
 
 		<execute function="AssertTextEquals#assertText" locator1="PGMessageboards#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -587,6 +648,7 @@
 		<var name="key_threadSubject" value="${threadSubject}" />
 
 		<execute function="Type" locator1="PGMessageboards#NAVIGATION_SEARCH_FIELD" value1="${threadKeyword}" />
+
 		<execute function="AssertClick" locator1="PGMessageboards#NAVIGATION_SEARCH_BUTTON" value1="Search" />
 
 		<execute function="AssertTextEquals" locator1="PGMessageboardsSearch#SEARCH_RESULTS_ENTRY_TITLE" value1="${threadSubject}" />
@@ -596,6 +658,7 @@
 		<var name="key_threadSubject" value="${threadSubject}" />
 
 		<execute function="AssertTextEquals" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
+
 		<execute function="Click" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
 
 		<var name="key_threadBody" value="${threadReplyBody}" />
@@ -604,12 +667,19 @@
 
 		<execute function="AssertTextEquals" locator1="PGMessageboardsSplitthread#INFO_MESSAGE" value1="Click OK to create a new thread with the following messages." />
 		<execute function="AssertTextEquals" locator1="PGMessageboardsSplitthread#THREAD_TABLE_SUBJECT" value1="RE: ${threadSubject}" />
+
 		<execute function="Type" locator1="PGMessageboardsSplitthread#SUBJECT_FIELD" value1="${threadSplitSubject}" />
+
 		<execute function="AssertTextEquals" locator1="PGMessageboardsSplitthread#ADD_EXPLANATION_POST_LABEL" value1="Add explanation post to the source thread." />
+
 		<execute function="Check" locator1="PGMessageboardsSplitthread#ADD_EXPLANATION_POST_CHECKBOX" />
+
 		<execute function="AssertTextEquals" locator1="PGMessageboardsSplitthread#ADD_EXPLANATION_POST_INFO_MESSAGE" value1="The following post will be added in place of the moved message." />
+
 		<execute function="Type" locator1="PGMessageboardsSplitthread#ADD_EXPLANATION_POST_SUBJECT_FIELD" value1="${threadSplitReplySubject}" />
+
 		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="PGMessageboardsSplitthread#ADD_EXPLANATION_POST_BODY_FIELD" value1="${threadSplitReplyBody}" />
+
 		<execute function="AssertClick" locator1="PGMessageboardsSplitthread#OK_BUTTON" value1="OK" />
 
 		<execute function="AssertTextEquals" locator1="PGMessageboardsThread#TITLE_HEADER" value1="${threadSplitSubject}" />
@@ -626,7 +696,9 @@
 			<condition function="IsElementPresent#isVisible" locator1="CPMessageboards#THREAD_TABLE_ALL_CHECKBOX" />
 			<then>
 				<execute function="Click" locator1="CPMessageboards#THREAD_TABLE_ALL_CHECKBOX" />
+
 				<execute function="AssertClick" locator1="CPMessageboards#THREADS_RECYCLE_BIN_BUTTON" value1="Move to the Recycle Bin" />
+
 				<execute function="AssertTextEquals#assertPartialText" locator1="CPMessageboards#SUCCESS_MESSAGE_RECYCLE_BIN" value1="moved to the Recycle Bin. Undo" />
 			</then>
 		</if>
@@ -651,6 +723,7 @@
 			<condition function="IsElementPresent" locator1="PGMessageboards#THREAD_TABLE_ACTIONS_GENERIC" />
 			<then>
 				<execute function="AssertClick" locator1="PGMessageboards#THREAD_TABLE_ACTIONS_GENERIC" value1="Actions" />
+
 				<execute function="AssertClick" locator1="PGMessageboardsMyposts#THREAD_MENULIST_MOVE_TO_THE_RECYCLE_BIN" value1="Move to the Recycle Bin" />
 			</then>
 		</while>
@@ -661,6 +734,7 @@
 			<condition function="IsElementPresent" locator1="PGMessageboardsMyposts#THREAD_TABLE_ACTIONS_GENERIC" />
 			<then>
 				<execute function="AssertClick" locator1="PGMessageboardsMyposts#THREAD_TABLE_ACTIONS_GENERIC" value1="Actions" />
+
 				<execute function="AssertClick" locator1="PGMessageboardsMyposts#THREAD_MENULIST_MOVE_TO_THE_RECYCLE_BIN" value1="Move to the Recycle Bin" />
 			</then>
 		</while>
@@ -672,8 +746,11 @@
 		<var name="key_threadSubject" value="${threadSubject}" />
 
 		<execute function="AssertTextEquals" locator1="PGMessageboards#THREAD_TABLE_FLAG" value1="Resolved" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
+
 		<execute function="AssertTextEquals" locator1="PGMessageboardsThread#MESSAGE_ANSWER_1" value1="Answer" />
+
 		<execute function="AssertClick" locator1="PGMessageboardsThread#THREAD_CONTROLS_BACK" value1="Back" />
 	</command>
 
@@ -688,6 +765,7 @@
 		<execute function="AssertElementPresent" locator1="CPMessageboards#THREAD_TABLE_VIEWS" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="CPMessageboards#THREAD_TABLE_LAST_POST" value1="By: ${userName}" />
 		<execute function="AssertTextEquals#assertText" locator1="CPMessageboards#THREAD_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
 
 		<execute function="AssertTextEquals" locator1="CPMessageboardsThread#TITLE_HEADER" value1="${threadSubject}" />
@@ -715,6 +793,7 @@
 		<var name="key_threadSubject" value="${threadSubject}" />
 
 		<execute function="AssertElementPresent" locator1="PGMessageboards#THREAD_TABLE_THREAD_LOCKED_ICON" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
 
 		<execute function="AssertTextEquals" locator1="PGMessageboardsThread#THREAD_ACTIONS_UNLOCK_THREAD" value1="Unlock Thread" />
@@ -731,10 +810,12 @@
 			<equals arg1="${displayStyle}" arg2="Question" />
 			<then>
 				<execute function="AssertTextEquals" locator1="PGMessageboardsCategory#QUESTION_CATEGORY_THREAD_TABLE_STATISTICS_ANSWERS" value1="${questionAnswers}" />
+
 				<execute function="AssertClick" locator1="PGMessageboardsCategory#QUESTION_CATEGORY_THREAD_TABLE_QUESTION" value1="${threadSubject}" />
 			</then>
 			<else>
 				<execute function="AssertClick" locator1="PGMessageboards#THREAD_TABLE_FLAG" value1="Resolved" />
+
 				<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
 			</else>
 		</if>
@@ -746,6 +827,7 @@
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGMessageboards#POST_NEW_THREAD_BUTTON" value1="Post New Thread" />
 
 		<execute function="AssertChecked" locator1="PGMessageboardsPostthread#MARK_AS_A_QUESTION_CHECKBOX" />
+
 		<execute function="AssertClick" locator1="PGMessageboardsPostthread#CANCEL_BUTTON" value1="Cancel" />
 	</command>
 
@@ -753,6 +835,7 @@
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGMessageboards#POST_NEW_THREAD_BUTTON" value1="Post New Thread" />
 
 		<execute function="AssertNotChecked" locator1="PGMessageboardsPostthread#MARK_AS_A_QUESTION_CHECKBOX" />
+
 		<execute function="AssertClick" locator1="PGMessageboardsPostthread#CANCEL_BUTTON" value1="Cancel" />
 	</command>
 
@@ -784,6 +867,7 @@
 		<execute function="AssertTextEquals" locator1="PGMessageboards#THREAD_TABLE_STARTED_BY" value1="${userName}" />
 		<execute function="AssertTextEquals" locator1="PGMessageboards#THREAD_TABLE_POSTS" value1="${postCount}" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGMessageboards#THREAD_TABLE_LAST_POST" value1="By: ${userName}" />
+
 		<execute function="Click" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
 
 		<execute function="AssertTextEquals" locator1="PGMessageboardsThread#TITLE_HEADER" value1="${threadSubject}" />
@@ -826,6 +910,7 @@
 
 		<execute function="AssertTextEquals" locator1="PGAssetpublisher#ASSET_ABSTRACT_TITLE" value1="${threadSubject}" />
 		<execute function="AssertTextEquals" locator1="PGAssetpublisher#ASSET_ABSTRACT_SUMMARY" value1="${threadBody}" />
+
 		<execute function="AssertClick" locator1="PGAssetpublisher#ASSET_ABSTRACT_TITLE" value1="${threadSubject}" />
 
 		<execute function="AssertTextEquals" locator1="PGAssetpublisherAsset#ASSET_TITLE" value1="${threadSubject}" />
@@ -905,6 +990,7 @@
 
 		<execute function="AssertTextEquals" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
 		<execute function="AssertTextEquals" locator1="PGMessageboards#THREAD_TABLE_POSTS" value1="2" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
 
 		<execute function="AssertTextEquals" locator1="PGMessageboardsThread#TITLE_HEADER" value1="${threadSubject}" />
@@ -925,6 +1011,7 @@
 
 		<execute function="AssertTextEquals" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSplitSubject}" />
 		<execute function="AssertTextEquals" locator1="PGMessageboards#THREAD_TABLE_POSTS" value1="1" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSplitSubject}" />
 
 		<execute function="AssertTextEquals" locator1="PGMessageboardsThread#TITLE_HEADER" value1="${threadSplitSubject}" />
