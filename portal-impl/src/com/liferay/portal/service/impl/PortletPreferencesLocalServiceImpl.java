@@ -470,7 +470,9 @@ public class PortletPreferencesLocalServiceImpl
 		}
 	}
 
-	private LayoutRevision _getLayoutRevision(long plid) {
+	private LayoutRevision _getLayoutRevision(long plid)
+		throws SystemException {
+
 		if (plid <= 0) {
 			return null;
 		}
@@ -495,7 +497,9 @@ public class PortletPreferencesLocalServiceImpl
 		return LayoutStagingUtil.getLayoutRevision(layout);
 	}
 
-	private long _swapPlidForPortletPreferences(long plid) {
+	private long _swapPlidForPortletPreferences(long plid)
+		throws SystemException {
+
 		if (!StagingAdvicesThreadLocal.isEnabled()) {
 			return plid;
 		}
@@ -509,7 +513,7 @@ public class PortletPreferencesLocalServiceImpl
 		return layoutRevision.getLayoutRevisionId();
 	}
 
-	private long _swapPlidForPreferences(long plid) {
+	private long _swapPlidForPreferences(long plid) throws SystemException {
 		if (!StagingAdvicesThreadLocal.isEnabled()) {
 			return plid;
 		}
@@ -537,7 +541,9 @@ public class PortletPreferencesLocalServiceImpl
 		}
 	}
 
-	private long _swapPlidForUpdatePreferences(long plid) {
+	private long _swapPlidForUpdatePreferences(long plid)
+		throws SystemException {
+
 		if (!StagingAdvicesThreadLocal.isEnabled()) {
 			return plid;
 		}
@@ -575,8 +581,10 @@ public class PortletPreferencesLocalServiceImpl
 				layoutRevision.getKeywords(), layoutRevision.getRobots(),
 				layoutRevision.getTypeSettings(), layoutRevision.getIconImage(),
 				layoutRevision.getIconImageId(), layoutRevision.getThemeId(),
-				layoutRevision.getColorSchemeId(), layoutRevision.getCss(),
-				serviceContext);
+				layoutRevision.getColorSchemeId(),
+				layoutRevision.getWapColorSchemeId(),
+				layoutRevision.getWapThemeId(),
+				layoutRevision.getCss(), serviceContext);
 		}
 		catch (PortalException pe) {
 			ReflectionUtil.throwException(pe);
