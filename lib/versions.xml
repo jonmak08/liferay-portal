@@ -1540,7 +1540,8 @@
 					</license>
 				</licenses>
 				<comments>
-					This includes a public patch for CVE-2014-0050.
+					This includes a public patch for CVE-2014-0050 and CVE-2016-3092.
+					See the Ant target "build-commons-fileupload-jar" in portal-impl/build.xml.
 				</comments>
 			</library>
 			<library>
