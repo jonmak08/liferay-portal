@@ -42,10 +42,8 @@
 	</bean>
 	<bean id="com.liferay.portal.service.impl.LayoutLocalServiceStagingAdvice" class="com.liferay.portal.service.impl.LayoutLocalServiceStagingAdvice" />
 	<bean id="com.liferay.portal.service.impl.LayoutSetLocalServiceStagingAdvice" class="com.liferay.portal.service.impl.LayoutSetLocalServiceStagingAdvice" />
-	<bean id="com.liferay.portal.service.impl.PortletPreferencesLocalServiceStagingAdvice" class="com.liferay.portal.service.impl.PortletPreferencesLocalServiceStagingAdvice" />
 	<aop:config proxy-target-class="false">
 		<aop:advisor advice-ref="com.liferay.portal.service.impl.LayoutLocalServiceStagingAdvice" pointcut="bean(com.liferay.portal.service.LayoutLocalService)" />
 		<aop:advisor advice-ref="com.liferay.portal.service.impl.LayoutSetLocalServiceStagingAdvice" pointcut="bean(com.liferay.portal.service.LayoutSetLocalService)" />
-		<aop:advisor advice-ref="com.liferay.portal.service.impl.PortletPreferencesLocalServiceStagingAdvice" pointcut="bean(com.liferay.portal.service.PortletPreferencesLocalService)" />
 	</aop:config>
 </beans>
