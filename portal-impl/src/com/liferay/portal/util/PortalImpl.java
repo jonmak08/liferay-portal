@@ -5340,8 +5340,6 @@ public class PortalImpl implements Portal {
 
 			String currentRequestClassName = currentRequestClass.getName();
 
-			boolean unWrap = false;
-
 			if (!_needToUnWrapRequest(currentRequestClassName)) {
 				break;
 			}
