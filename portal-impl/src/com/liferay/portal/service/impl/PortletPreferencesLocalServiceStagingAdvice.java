@@ -17,19 +17,14 @@ package com.liferay.portal.service.impl;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.staging.LayoutStagingUtil;
 import com.liferay.portal.kernel.staging.MergeLayoutPrototypesThreadLocal;
-import com.liferay.portal.kernel.staging.StagingUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.model.Layout;
 import com.liferay.portal.model.LayoutRevision;
-import com.liferay.portal.model.PortletPreferencesIds;
-import com.liferay.portal.model.User;
-import com.liferay.portal.security.auth.PrincipalThreadLocal;
 import com.liferay.portal.service.LayoutLocalServiceUtil;
 import com.liferay.portal.service.LayoutRevisionLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.ServiceContextThreadLocal;
-import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.service.persistence.LayoutRevisionUtil;
 import com.liferay.portal.staging.ProxiedLayoutsThreadLocal;
 import com.liferay.portal.staging.StagingAdvicesThreadLocal;
@@ -68,12 +63,6 @@ public class PortletPreferencesLocalServiceStagingAdvice
 				 (arguments.length == 4))) {
 
 				return getPortletPreferences(methodInvocation);
-			}
-			else if (methodName.equals("getPreferences")) {
-				return getPreferences(methodInvocation);
-			}
-			else if (methodName.equals("getStrictPreferences")) {
-				return getPreferences(methodInvocation);
 			}
 			else if (methodName.equals("updatePreferences")) {
 				return updatePreferences(methodInvocation);
@@ -153,54 +142,6 @@ public class PortletPreferencesLocalServiceStagingAdvice
 		}
 
 		arguments[index] = layoutRevision.getLayoutRevisionId();
-
-		return methodInvocation.proceed();
-	}
-
-	protected Object getPreferences(MethodInvocation methodInvocation)
-		throws Throwable {
-
-		Object[] arguments = methodInvocation.getArguments();
-
-		long plid = 0;
-
-		if (arguments.length == 1) {
-			PortletPreferencesIds portletPreferencesIds =
-				(PortletPreferencesIds)arguments[0];
-
-			plid = portletPreferencesIds.getPlid();
-		}
-		else {
-			plid = (Long)arguments[3];
-		}
-
-		LayoutRevision layoutRevision = getLayoutRevision(plid);
-
-		if (layoutRevision == null) {
-			return methodInvocation.proceed();
-		}
-
-		User user = UserLocalServiceUtil.fetchUser(
-			PrincipalThreadLocal.getUserId());
-
-		if ((user == null) || user.isDefaultUser()) {
-			plid = layoutRevision.getLayoutRevisionId();
-		}
-		else {
-			plid = StagingUtil.getRecentLayoutRevisionId(
-				user, layoutRevision.getLayoutSetBranchId(),
-				layoutRevision.getPlid());
-		}
-
-		if (arguments.length == 1) {
-			PortletPreferencesIds portletPreferencesIds =
-				(PortletPreferencesIds)arguments[0];
-
-			portletPreferencesIds.setPlid(plid);
-		}
-		else {
-			arguments[3] = plid;
-		}
 
 		return methodInvocation.proceed();
 	}

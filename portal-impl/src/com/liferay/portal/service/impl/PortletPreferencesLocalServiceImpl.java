@@ -23,6 +23,8 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.spring.aop.Skip;
 import com.liferay.portal.kernel.staging.LayoutStagingUtil;
+import com.liferay.portal.kernel.staging.StagingUtil;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
@@ -32,6 +34,8 @@ import com.liferay.portal.model.Portlet;
 import com.liferay.portal.model.PortletConstants;
 import com.liferay.portal.model.PortletPreferences;
 import com.liferay.portal.model.PortletPreferencesIds;
+import com.liferay.portal.model.User;
+import com.liferay.portal.security.auth.PrincipalThreadLocal;
 import com.liferay.portal.service.base.PortletPreferencesLocalServiceBaseImpl;
 import com.liferay.portal.staging.StagingAdvicesThreadLocal;
 import com.liferay.portlet.PortletPreferencesFactoryUtil;
@@ -415,6 +419,8 @@ public class PortletPreferencesLocalServiceImpl
 			String portletId, String defaultPreferences, boolean strict)
 		throws SystemException {
 
+		plid = _swapPlidForPreferences(plid);
+
 		DB db = DBFactoryUtil.getDB();
 
 		String dbType = db.getType();
@@ -491,6 +497,34 @@ public class PortletPreferencesLocalServiceImpl
 		}
 
 		return layoutRevision.getLayoutRevisionId();
+	}
+
+	private long _swapPlidForPreferences(long plid) {
+		if (!StagingAdvicesThreadLocal.isEnabled()) {
+			return plid;
+		}
+
+		LayoutRevision layoutRevision = _getLayoutRevision(plid);
+
+		if (layoutRevision == null) {
+			return plid;
+		}
+
+		User user = userPersistence.fetchByPrimaryKey(
+			PrincipalThreadLocal.getUserId());
+
+		if ((user == null) || user.isDefaultUser()) {
+			return layoutRevision.getLayoutRevisionId();
+		}
+
+		try {
+			return StagingUtil.getRecentLayoutRevisionId(
+				user, layoutRevision.getLayoutSetBranchId(),
+				layoutRevision.getPlid());
+		}
+		catch (PortalException pe) {
+			return ReflectionUtil.throwException(pe);
+		}
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(
