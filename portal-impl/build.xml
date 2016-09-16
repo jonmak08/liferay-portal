@@ -197,6 +197,11 @@ svn://svn.liferay.com/repos/public/alloy/trunk/sandbox/taglibs.
 			strip="2"
 		/>
 
+		<patch patchfile="${project.dir}/lib/portal/commons-fileupload/LPS-67541-CVE-2016-3092.patch"
+			dir="${tstamp.value}/commons-fileupload-1.2.2-src"
+			strip="2"
+		/>
+
 		<artifact:mvn pom="${tstamp.value}/commons-fileupload-1.2.2-src/pom.xml">
 			<arg value="package" />
 		</artifact:mvn>
