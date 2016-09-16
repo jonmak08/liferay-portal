@@ -190,7 +190,7 @@ public class PortletPreferencesLocalServiceImpl
 		throws SystemException {
 
 		return portletPreferencesPersistence.findByO_P_P(
-			ownerType, plid, portletId);
+			ownerType, _swapPlidForPortletPreferences(plid), portletId);
 	}
 
 	@Override
@@ -199,7 +199,7 @@ public class PortletPreferencesLocalServiceImpl
 		throws SystemException {
 
 		return portletPreferencesPersistence.findByO_O_P(
-			ownerId, ownerType, plid);
+			ownerId, ownerType, _swapPlidForPortletPreferences(plid));
 	}
 
 	@Override
@@ -208,7 +208,8 @@ public class PortletPreferencesLocalServiceImpl
 		throws PortalException, SystemException {
 
 		return portletPreferencesPersistence.findByO_O_P_P(
-			ownerId, ownerType, plid, portletId);
+			ownerId, ownerType, _swapPlidForPortletPreferences(plid),
+			portletId);
 	}
 
 	@Override
@@ -226,7 +227,8 @@ public class PortletPreferencesLocalServiceImpl
 			long plid, String portletId)
 		throws SystemException {
 
-		return portletPreferencesPersistence.findByP_P(plid, portletId);
+		return portletPreferencesPersistence.findByP_P(
+			_swapPlidForPortletPreferences(plid), portletId);
 	}
 
 	@Override
