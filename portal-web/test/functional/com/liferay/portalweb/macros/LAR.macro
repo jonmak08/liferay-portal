@@ -1,7 +1,7 @@
 <definition>
 	<command name="configureExportSiteOptions">
 		<execute macro="LAR#configureExportSiteOptionsCmd">
-			<var name="applicationName" value="${mainApplication}" />
+			<var name="applicationName" value="${applicationName}" />
 			<var name="checkContentNameList" value="${checkContentNameList}" />
 			<var name="contentDateRange" value="${contentDateRange}" />
 			<var name="contentName" value="${contentName}" />
