@@ -759,7 +759,7 @@ public class LanguageImpl implements Language, Serializable {
 			CookieKeys.GUEST_LANGUAGE_ID, languageId);
 
 		languageIdCookie.setPath(StringPool.SLASH);
-		languageIdCookie.setMaxAge((int)(Time.YEAR / 1000));
+		languageIdCookie.setMaxAge(CookieKeys.MAX_AGE_IN_SECONDS);
 
 		CookieKeys.addCookie(request, response, languageIdCookie);
 	}
