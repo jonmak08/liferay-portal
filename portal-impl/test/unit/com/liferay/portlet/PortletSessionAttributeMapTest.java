@@ -16,8 +16,6 @@ package com.liferay.portlet;
 
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
 
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.AbstractMap.SimpleEntry;
 import java.util.Collection;
 import java.util.HashMap;
@@ -192,12 +190,8 @@ public class PortletSessionAttributeMapTest {
 			Assert.fail();
 		}
 		catch (Exception e) {
-			Assert.assertSame(InvocationTargetException.class, e.getClass());
-
-			Throwable throwable = e.getCause();
-
 			Assert.assertSame(
-				UnsupportedOperationException.class, throwable.getClass());
+				UnsupportedOperationException.class, e.getClass());
 		}
 
 		try {
