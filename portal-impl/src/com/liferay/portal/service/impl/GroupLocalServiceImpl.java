@@ -2100,6 +2100,21 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 		}
 	}
 
+	@Override
+	public boolean isActive(Group group) {
+		if (!group.isStagingGroup()) {
+			return group.isActive();
+		}
+
+		Group liveGroup = group.getLiveGroup();
+
+		if (liveGroup == null) {
+			return false;
+		}
+
+		return liveGroup.isActive();
+	}
+
 	/**
 	 * Returns the group with the matching group name by first searching the
 	 * system groups and then using the finder cache.
