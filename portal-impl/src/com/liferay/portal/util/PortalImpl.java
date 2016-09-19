@@ -5340,7 +5340,7 @@ public class PortalImpl implements Portal {
 
 			String currentRequestClassName = currentRequestClass.getName();
 
-			if (!_needToUnWrapRequest(currentRequestClassName)) {
+			if (!isUnwrapRequest(currentRequestClassName)) {
 				break;
 			}
 
@@ -8212,7 +8212,7 @@ public class PortalImpl implements Portal {
 		themeDisplay.setLocale(locale);
 	}
 
-	private boolean _needToUnWrapRequest(String currentRequestClassName) {
+	protected boolean isUnwrapRequest(String currentRequestClassName) {
 		for (String requestUnwrapPackage :
 				PropsValues.REQUEST_UNWRAP_PACKAGES) {
 
