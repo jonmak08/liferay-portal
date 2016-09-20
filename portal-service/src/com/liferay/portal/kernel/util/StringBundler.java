@@ -22,6 +22,8 @@ import java.io.Writer;
 
 import java.lang.reflect.Constructor;
 
+import java.util.Arrays;
+
 /**
  * <p>
  * See http://issues.liferay.com/browse/LPS-6072.
@@ -29,6 +31,7 @@ import java.lang.reflect.Constructor;
  *
  * @author Shuyang Zhou
  * @author Brian Wing Shun Chan
+ * @author Preston Crary
  */
 public class StringBundler implements Serializable {
 
@@ -254,7 +257,7 @@ public class StringBundler implements Serializable {
 			length += _array[i].length();
 		}
 
-		StringBuilder sb = null;
+		UnsafeStringBuilder usb = null;
 
 		if ((length > _unsafeCreateLimit) && (_stringConstructor != null) &&
 			CharBufferPool.isEnabled() && unsafeCreate) {
@@ -281,28 +284,28 @@ public class StringBundler implements Serializable {
 			}
 		}
 		else if (length > _threadLocalBufferLimit) {
-			sb = _stringBuilderThreadLocal.get();
+			usb = _unsafeStringBuilderThreadLocal.get();
 
-			if (sb == null) {
-				sb = new StringBuilder(length);
+			if (usb == null) {
+				usb = new UnsafeStringBuilder(length);
 
-				_stringBuilderThreadLocal.set(sb);
+				_unsafeStringBuilderThreadLocal.set(usb);
 			}
-			else if (sb.capacity() < length) {
-				sb.setLength(length);
+			else {
+				usb.ensureCapacity(length);
 			}
 
-			sb.setLength(0);
+			usb.setLength(0);
 		}
 		else {
-			sb = new StringBuilder(length);
+			usb = new UnsafeStringBuilder(length);
 		}
 
 		for (int i = 0; i < _arrayIndex; i++) {
-			sb.append(_array[i]);
+			usb.append(_array[i]);
 		}
 
-		return sb.toString();
+		return usb.toString();
 	}
 
 	public void writeTo(Writer writer) throws IOException {
@@ -335,19 +338,20 @@ public class StringBundler implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private static ThreadLocal<StringBuilder> _stringBuilderThreadLocal;
+	private static final ThreadLocal<UnsafeStringBuilder>
+		_unsafeStringBuilderThreadLocal;
 	private static Constructor<String> _stringConstructor;
 	private static int _threadLocalBufferLimit;
 	private static int _unsafeCreateLimit;
 
 	static {
 		if (_THREADLOCAL_BUFFER_LIMIT > 0) {
-			_stringBuilderThreadLocal =
-				new SoftReferenceThreadLocal<StringBuilder>();
+			_unsafeStringBuilderThreadLocal =
+				new SoftReferenceThreadLocal<UnsafeStringBuilder>();
 			_threadLocalBufferLimit = _THREADLOCAL_BUFFER_LIMIT;
 		}
 		else {
-			_stringBuilderThreadLocal = null;
+			_unsafeStringBuilderThreadLocal = null;
 			_threadLocalBufferLimit = Integer.MAX_VALUE;
 		}
 
@@ -371,5 +375,39 @@ public class StringBundler implements Serializable {
 
 	private String[] _array;
 	private int _arrayIndex;
+
+	private static class UnsafeStringBuilder {
+
+		public void append(String s) {
+			int len = s.length();
+
+			s.getChars(0, len, _value, _count);
+
+			_count += len;
+		}
+
+		public void ensureCapacity(int newLength) {
+			if (_value.length < newLength) {
+				_value = Arrays.copyOf(_value, newLength);
+			}
+		}
+
+		public void setLength(int newLength) {
+			_count = newLength;
+		}
+
+		@Override
+		public String toString() {
+			return new String(_value, 0, _count);
+		}
+
+		private UnsafeStringBuilder(int initialCapacity) {
+			_value = new char[initialCapacity];
+		}
+
+		private int _count;
+		private char[] _value;
+
+	}
 
 }
