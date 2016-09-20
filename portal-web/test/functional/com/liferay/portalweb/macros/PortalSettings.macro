@@ -5,6 +5,22 @@
 		<execute function="AssertTextEquals" locator1="CPPortalsettingsDisplaysettings#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
+	<command name="configureAuthenticationLDAPCP">
+		<execute function="AssertClick" locator1="CPPortalsettings#MENU_CONFIGURATION_AUTHENTICATION" value1="Authentication" />
+
+		<execute function="AssertClick" locator1="CPPortalsettingsAuthentication#NAVIGATION_LDAP" value1="LDAP" />
+
+		<execute function="Check" locator1="CPPortalsettingsAuthentication#AUTHENTICATION_LDAP_ENABLED_CHECKBOX" />
+		<execute function="Check" locator1="CPPortalsettingsAuthentication#AUTHENTICATION_LDAP_IMPORT_ENABLED_CHECKBOX" />
+
+		<execute function="AssertElementPresent" locator1="CPPortalsettingsAuthentication#AUTHENTICATION_LDAP_IMPORT_ON_STARTUP_ENABLED_CHECKBOX" />
+
+		<execute function="Check" locator1="CPPortalsettingsAuthentication#AUTHENTICATION_LDAP_IMPORT_ON_STARTUP_ENABLED_CHECKBOX" />
+		<execute function="Check" locator1="CPPortalsettingsAuthentication#AUTHENTICATION_LDAP_USE_LDAP_PASSWORD_POLICY_CHECKBOX" />
+
+		<execute function="AssertClick" locator1="CPPortalsettingsUsers#SAVE_BUTTON" value1="Save" />
+	</command>
+
 	<command name="configureContentSharingAcrossSitesCP">
 		<execute function="AssertClick" locator1="CPPortalsettings#MENU_CONFIGURATION_CONTENT_SHARING" value1="Content Sharing" />
 
