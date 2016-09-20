@@ -404,26 +404,26 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 		LayoutSet layoutSet = layoutSetPersistence.findByG_P(
 			groupId, privateLayout);
 
-		layoutSet.setModifiedDate(new Date());
+
+
+		if (Validator.isNull(themeId)) {
+			themeId = ThemeFactoryUtil.getDefaultRegularThemeId(
+				layoutSet.getCompanyId());
+		}
+
+		if (Validator.isNull(colorSchemeId)) {
+			colorSchemeId =
+				ColorSchemeFactoryUtil.getDefaultRegularColorSchemeId();
+		}
 		
 		LayoutSetBranch layoutSetBranch = _getLayoutSetBranch(layoutSet);
-
+		
 		if (layoutSetBranch == null) {
-			layoutSet.setModifiedDate(new Date());
 
-			if (Validator.isNull(themeId)) {
-				themeId = ThemeFactoryUtil.getDefaultRegularThemeId(
-					layoutSet.getCompanyId());
-			}
-
-			if (Validator.isNull(colorSchemeId)) {
-				colorSchemeId =
-					ColorSchemeFactoryUtil.getDefaultRegularColorSchemeId();
-			}
-
-			layoutSet.setThemeId(themeId);
 			layoutSet.setColorSchemeId(colorSchemeId);
 			layoutSet.setCss(css);
+			layoutSet.setModifiedDate(new Date());
+			layoutSet.setThemeId(themeId);
 
 			layoutSetPersistence.update(layoutSet);
 
@@ -443,25 +443,17 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 			return layoutSet;
 		}
 
-		if (Validator.isNull(themeId)) {
-			themeId = ThemeFactoryUtil.getDefaultRegularThemeId(
-				layoutSetBranch.getCompanyId());
-		}
-
-		if (Validator.isNull(colorSchemeId)) {
-			colorSchemeId =
-				ColorSchemeFactoryUtil.getDefaultRegularColorSchemeId();
-		}
-
 		if (wapTheme) {
-			layoutSetBranch.setWapThemeId(themeId);
 			layoutSetBranch.setWapColorSchemeId(colorSchemeId);
+			layoutSetBranch.setWapThemeId(themeId);
 		}
 		else {
-			layoutSetBranch.setThemeId(themeId);
 			layoutSetBranch.setColorSchemeId(colorSchemeId);
 			layoutSetBranch.setCss(css);
+			layoutSetBranch.setThemeId(themeId);
 		}
+		
+		layoutSetBranch.setModifiedDate(new Date());
 
 		layoutSetBranchPersistence.update(layoutSetBranch);
 
