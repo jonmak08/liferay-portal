@@ -14,13 +14,13 @@
  */
 --%>
 
-<%@ include file="/html/portlet/init.jsp" %>
+<%@ include file="/html/portlet/dockbar/init.jsp" %>
 
-<%@ page import="com.liferay.portal.NoSuchGroupException" %><%@
-page import="com.liferay.portal.util.PortletCategoryUtil" %><%@
-page import="com.liferay.taglib.aui.AUIUtil" %>
+<liferay-ui:error-header />
+<liferay-ui:error exception="<%= NoSuchGroupException.class %>" message="the-site-could-not-be-found" />
+<liferay-ui:error exception="<%= NoSuchLayoutException.class %>" message="the-page-could-not-be-found" />
+<liferay-ui:error exception="<%= NoSuchRoleException.class %>" message="the-role-could-not-be-found" />
 
-<%@ page import="java.util.regex.Matcher" %><%@
-page import="java.util.regex.Pattern" %>
-
-<%@ include file="/html/portlet/dockbar/init-ext.jsp" %>
+<c:if test="<%= permissionChecker.isSignedIn() %>">
+	<liferay-ui:error exception="<%= PrincipalException.class %>" message="you-do-not-have-the-required-permissions" />
+</c:if>
