@@ -73,13 +73,7 @@ public class LayoutSetLocalServiceStagingAdvice
 		Object thisObject = methodInvocation.getThis();
 		Object[] arguments = methodInvocation.getArguments();
 
-		if (methodName.equals("updateLogo") && (arguments.length == 5)) {
-			updateLogo(
-				(LayoutSetLocalService)thisObject, (Long)arguments[0],
-				(Boolean)arguments[1], (Boolean)arguments[2],
-				(InputStream)arguments[3], (Boolean)arguments[4]);
-		}
-		else if (methodName.equals("updateLookAndFeel") &&
+		if (methodName.equals("updateLookAndFeel") &&
 				 (arguments.length == 6)) {
 
 			returnValue = updateLookAndFeel(
@@ -121,50 +115,6 @@ public class LayoutSetLocalServiceStagingAdvice
 		return wrapReturnValue(returnValue);
 	}
 
-	public LayoutSet updateLogo(
-			LayoutSetLocalService layoutSetLocalService, long groupId,
-			boolean privateLayout, boolean logo, InputStream is,
-			boolean cleanUpStream)
-		throws PortalException, SystemException {
-
-		LayoutSet layoutSet = layoutSetPersistence.findByG_P(
-			groupId, privateLayout);
-
-		LayoutSetBranch layoutSetBranch = _getLayoutSetBranch(layoutSet);
-
-		if (layoutSetBranch == null) {
-			return layoutSetLocalService.updateLogo(
-				groupId, privateLayout, logo, is, cleanUpStream);
-		}
-
-		layoutSetBranch.setModifiedDate(new Date());
-		layoutSetBranch.setLogo(logo);
-
-		if (logo) {
-			long logoId = layoutSetBranch.getLogoId();
-
-			if (logoId <= 0) {
-				logoId = counterLocalService.increment();
-
-				layoutSet.setLogoId(logoId);
-			}
-		}
-		else {
-			layoutSet.setLogoId(0);
-		}
-
-		layoutSetBranchPersistence.update(layoutSetBranch);
-
-		if (logo) {
-			imageLocalService.updateImage(
-				layoutSetBranch.getLogoId(), is, cleanUpStream);
-		}
-		else {
-			imageLocalService.deleteImage(layoutSetBranch.getLogoId());
-		}
-
-		return layoutSet;
-	}
 
 	public LayoutSet updateLookAndFeel(
 			LayoutSetLocalService target, long groupId, boolean privateLayout,
@@ -327,7 +277,6 @@ public class LayoutSetLocalServiceStagingAdvice
 		new HashSet<String>();
 
 	static {
-		_layoutSetLocalServiceStagingAdviceMethodNames.add("updateLogo");
 		_layoutSetLocalServiceStagingAdviceMethodNames.add("updateLookAndFeel");
 		_layoutSetLocalServiceStagingAdviceMethodNames.add("updateSettings");
 	}

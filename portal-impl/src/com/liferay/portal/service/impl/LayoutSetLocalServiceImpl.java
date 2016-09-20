@@ -334,32 +334,65 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 
 		LayoutSet layoutSet = layoutSetPersistence.findByG_P(
 			groupId, privateLayout);
+		
+		LayoutSetBranch layoutSetBranch = _getLayoutSetBranch(layoutSet);
+		
+		if (layoutSetBranch == null) {
 
-		layoutSet.setModifiedDate(new Date());
-		layoutSet.setLogo(logo);
+			layoutSet.setLogo(logo);
+			layoutSet.setModifiedDate(new Date());
+	
+			if (logo) {
+				long logoId = layoutSet.getLogoId();
+	
+				if (logoId <= 0) {
+					logoId = counterLocalService.increment();
+	
+					layoutSet.setLogoId(logoId);
+				}
+			}
+			else {
+				layoutSet.setLogoId(0);
+			}
+	
+			if (logo) {
+				imageLocalService.updateImage(
+					layoutSet.getLogoId(), is, cleanUpStream);
+			}
+			else {
+				imageLocalService.deleteImage(layoutSet.getLogoId());
+			}
+	
+			return layoutSetPersistence.update(layoutSet);
+		}
+		
+		layoutSetBranch.setLogo(logo);
+		layoutSetBranch.setModifiedDate(new Date());
 
 		if (logo) {
-			long logoId = layoutSet.getLogoId();
+			long logoId = layoutSetBranch.getLogoId();
 
 			if (logoId <= 0) {
 				logoId = counterLocalService.increment();
 
-				layoutSet.setLogoId(logoId);
+				layoutSetBranch.setLogoId(logoId);
 			}
 		}
 		else {
-			layoutSet.setLogoId(0);
+			layoutSetBranch.setLogoId(0);
 		}
 
 		if (logo) {
 			imageLocalService.updateImage(
-				layoutSet.getLogoId(), is, cleanUpStream);
+				layoutSetBranch.getLogoId(), is, cleanUpStream);
 		}
 		else {
 			imageLocalService.deleteImage(layoutSet.getLogoId());
 		}
-
-		return layoutSetPersistence.update(layoutSet);
+		
+		layoutSetBranchPersistence.update(layoutSetBranch);
+		
+		return layoutSet;
 	}
 
 	@Override
