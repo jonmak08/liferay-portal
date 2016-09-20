@@ -14,24 +14,17 @@
 
 package com.liferay.portal.service.impl;
 
-import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.staging.LayoutStagingUtil;
-import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.LayoutSet;
-import com.liferay.portal.model.LayoutSetBranch;
 import com.liferay.portal.model.LayoutSetStagingHandler;
-import com.liferay.portal.service.LayoutSetLocalService;
 import com.liferay.portal.staging.StagingAdvicesThreadLocal;
 import com.liferay.portal.util.ClassLoaderUtil;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -63,64 +56,7 @@ public class LayoutSetLocalServiceStagingAdvice
 			return wrapReturnValue(methodInvocation.proceed());
 		}
 
-		Object returnValue = null;
-
-		Object thisObject = methodInvocation.getThis();
-		Object[] arguments = methodInvocation.getArguments();
-
-		if (methodName.equals("updateSettings")) {
-			returnValue = updateSettings(
-				(LayoutSetLocalService)thisObject, (Long)arguments[0],
-				(Boolean)arguments[1], (String)arguments[2]);
-		}
-		else {
-			try {
-				Class<?> clazz = getClass();
-
-				Class<?>[] parameterTypes = ArrayUtil.append(
-					new Class<?>[] {LayoutSetLocalService.class},
-					method.getParameterTypes());
-
-				Method layoutSetLocalServiceStagingAdviceMethod =
-					clazz.getMethod(methodName, parameterTypes);
-
-				arguments = ArrayUtil.append(
-					new Object[] {thisObject}, arguments);
-
-				returnValue = layoutSetLocalServiceStagingAdviceMethod.invoke(
-					this, arguments);
-			}
-			catch (InvocationTargetException ite) {
-				throw ite.getTargetException();
-			}
-			catch (NoSuchMethodException nsme) {
-				returnValue = methodInvocation.proceed();
-			}
-		}
-
-		return wrapReturnValue(returnValue);
-	}
-
-	public LayoutSet updateSettings(
-			LayoutSetLocalService target, long groupId, boolean privateLayout,
-			String settings)
-		throws PortalException, SystemException {
-
-		LayoutSet layoutSet = layoutSetPersistence.findByG_P(
-			groupId, privateLayout);
-
-		LayoutSetBranch layoutSetBranch = _getLayoutSetBranch(layoutSet);
-
-		if (layoutSetBranch == null) {
-			return target.updateSettings(groupId, privateLayout, settings);
-		}
-
-		layoutSetBranch.setModifiedDate(new Date());
-		layoutSetBranch.setSettings(settings);
-
-		layoutSetBranchPersistence.update(layoutSetBranch);
-
-		return layoutSet;
+		return wrapReturnValue(methodInvocation.proceed());
 	}
 
 	protected LayoutSet unwrapLayoutSet(LayoutSet layoutSet) {
@@ -194,33 +130,8 @@ public class LayoutSetLocalServiceStagingAdvice
 
 		return returnValue;
 	}
-	
-	private LayoutSetBranch _getLayoutSetBranch(LayoutSet layoutSet)
-		throws PortalException, SystemException {
-
-		LayoutSetStagingHandler layoutSetStagingHandler =
-			LayoutStagingUtil.getLayoutSetStagingHandler(layoutSet);
-
-		if (layoutSetStagingHandler != null) {
-			return layoutSetStagingHandler.getLayoutSetBranch();
-		}
-
-		if (LayoutStagingUtil.isBranchingLayoutSet(
-				layoutSet.getGroup(), layoutSet.getPrivateLayout())) {
-
-			layoutSetStagingHandler = new LayoutSetStagingHandler(layoutSet);
-
-			return layoutSetStagingHandler.getLayoutSetBranch();
-		}
-
-		return null;
-	}
 
 	private static Set<String> _layoutSetLocalServiceStagingAdviceMethodNames =
 		new HashSet<String>();
-
-	static {
-		_layoutSetLocalServiceStagingAdviceMethodNames.add("updateSettings");
-	}
 
 }
