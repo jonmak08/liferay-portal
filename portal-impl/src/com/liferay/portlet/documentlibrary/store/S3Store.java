@@ -438,8 +438,10 @@ public class S3Store extends BaseStore {
 			String versionLabel, InputStream is)
 		throws SystemException {
 
+		File file = null;
+
 		try {
-			File file = FileUtil.createTempFile(is);
+			file = FileUtil.createTempFile(is);
 
 			updateFile(companyId, repositoryId, fileName, versionLabel, file);
 		}
@@ -448,6 +450,8 @@ public class S3Store extends BaseStore {
 		}
 		finally {
 			StreamUtil.cleanUp(is);
+
+			FileUtil.delete(file);
 		}
 	}
 
