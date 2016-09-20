@@ -161,6 +161,17 @@
 	<td></td>
 	<td></td>
 </tr>
+<!--AUTHENTICATION_LDAP_BODY-->
+<tr>
+	<td>TEST_LDAP_SUCCESS_BODY</td>
+	<td>//div[contains(@class,'modal-focused')]//div[contains(@class,'modal-body')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 <!--LDAP_SERVER-->
 <tr>
 	<td>LDAP_SERVER_SERVER_NAME</td>
@@ -235,6 +246,17 @@
 <tr>
 	<td>LDAP_SERVER_TEST_LDAP_GROUPS_BUTTON</td>
 	<td>//button[contains(.,'Test LDAP Groups')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--LDAP_SERVERS_TABLE-->
+<tr>
+	<td>LDAP_SERVERS_TABLE_EDIT</td>
+	<td>//tr[contains(.,'${key_LDAPServerName}')]/td[3]//img[@title='Edit']</td>
 	<td></td>
 </tr>
 <tr>

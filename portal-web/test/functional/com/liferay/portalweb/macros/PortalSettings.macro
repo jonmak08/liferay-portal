@@ -254,6 +254,34 @@
 		</execute>
 	</command>
 
+	<command name="testLDAPConnectionCP">
+		<var name="key_LDAPServerName" value="${LDAPServerName}" />
+
+		<execute function="AssertClick" locator1="CPPortalsettings#MENU_CONFIGURATION_AUTHENTICATION" value1="Authentication" />
+
+		<execute function="AssertClick" locator1="CPPortalsettingsAuthentication#NAVIGATION_LDAP" value1="LDAP" />
+
+		<execute function="Click" locator1="CPPortalsettingsAuthentication#LDAP_SERVERS_TABLE_EDIT" />
+
+		<execute function="AssertClick" locator1="CPPortalsettingsAuthentication#LDAP_SERVER_TEST_LDAP_CONNECTION_BUTTON" value1="Test LDAP Connection" />
+
+		<execute function="AssertTextEquals" locator1="CPPortalsettingsAuthentication#TEST_LDAP_SUCCESS_BODY" value1="Liferay has successfully connected to the LDAP server." />
+
+		<execute function="Click" locator1="Button#CLOSE_MODAL" />
+
+		<execute function="AssertClick" locator1="CPPortalsettingsAuthentication#LDAP_SERVER_TEST_LDAP_USERS_BUTTON" value1="Test LDAP Users" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="CPPortalsettingsAuthentication#TEST_LDAP_SUCCESS_BODY" value1="A subset of users has been displayed for you to review." />
+
+		<execute function="Click" locator1="Button#CLOSE_MODAL" />
+
+		<execute function="AssertClick" locator1="CPPortalsettingsAuthentication#LDAP_SERVER_TEST_LDAP_GROUPS_BUTTON" value1="Test LDAP Groups" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="CPPortalsettingsAuthentication#TEST_LDAP_SUCCESS_BODY" value1="A subset of groups has been displayed for you to review." />
+
+		<execute function="Click" locator1="Button#CLOSE_MODAL" />
+	</command>
+
 	<command name="viewAuthenticationCASCP">
 		<execute function="AssertClick" locator1="CPPortalsettings#MENU_CONFIGURATION_AUTHENTICATION" value1="Authentication" />
 
