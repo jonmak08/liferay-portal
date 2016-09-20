@@ -38,23 +38,25 @@ public class LayoutSetLocalServiceStagingAdvice implements MethodInterceptor {
 
 	@Override
 	public Object invoke(MethodInvocation methodInvocation) throws Throwable {
+		Object returnValue = methodInvocation.proceed();
 
-		if (StagingAdvicesThreadLocal.isEnabled()) {
-			return wrapReturnValue(methodInvocation.proceed());
+		if (!StagingAdvicesThreadLocal.isEnabled()) {
+			return returnValue;
 		}
 
-		return methodInvocation.proceed();
-	}
-
-	protected LayoutSet unwrapLayoutSet(LayoutSet layoutSet) {
-		LayoutSetStagingHandler layoutSetStagingHandler =
-			LayoutStagingUtil.getLayoutSetStagingHandler(layoutSet);
-
-		if (layoutSetStagingHandler == null) {
-			return layoutSet;
+		if (returnValue instanceof LayoutSet) {
+			return wrapLayoutSet((LayoutSet)returnValue);
 		}
 
-		return layoutSetStagingHandler.getLayoutSet();
+		if (returnValue instanceof List<?>) {
+			List<?> list = (List<?>)returnValue;
+
+			if (!list.isEmpty() && (list.get(0) instanceof LayoutSet)) {
+				returnValue = wrapLayoutSets((List<LayoutSet>)returnValue);
+			}
+		}
+
+		return returnValue;
 	}
 
 	protected LayoutSet wrapLayoutSet(LayoutSet layoutSet)
@@ -102,23 +104,6 @@ public class LayoutSetLocalServiceStagingAdvice implements MethodInterceptor {
 		}
 
 		return wrappedLayoutSets;
-	}
-
-	protected Object wrapReturnValue(Object returnValue)
-		throws SystemException {
-		
-		if (returnValue instanceof LayoutSet) {
-			returnValue = wrapLayoutSet((LayoutSet)returnValue);
-		}
-		else if (returnValue instanceof List<?>) {
-			List<?> list = (List<?>)returnValue;
-
-			if (!list.isEmpty() && (list.get(0) instanceof LayoutSet)) {
-				returnValue = wrapLayoutSets((List<LayoutSet>)returnValue);
-			}
-		}
-
-		return returnValue;
 	}
 
 }
