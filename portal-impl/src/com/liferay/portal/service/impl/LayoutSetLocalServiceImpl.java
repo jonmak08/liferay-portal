@@ -284,7 +284,7 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 
 		layoutSetBranchPersistence.update(layoutSetBranch);
 	}
-	
+
 	@Override
 	public LayoutSet updateLogo(
 			long groupId, boolean privateLayout, boolean logo, byte[] bytes)
@@ -334,27 +334,26 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 
 		LayoutSet layoutSet = layoutSetPersistence.findByG_P(
 			groupId, privateLayout);
-		
-		LayoutSetBranch layoutSetBranch = _getLayoutSetBranch(layoutSet);
-		
-		if (layoutSetBranch == null) {
 
+		LayoutSetBranch layoutSetBranch = _getLayoutSetBranch(layoutSet);
+
+		if (layoutSetBranch == null) {
 			layoutSet.setLogo(logo);
 			layoutSet.setModifiedDate(new Date());
-	
+
 			if (logo) {
 				long logoId = layoutSet.getLogoId();
-	
+
 				if (logoId <= 0) {
 					logoId = counterLocalService.increment();
-	
+
 					layoutSet.setLogoId(logoId);
 				}
 			}
 			else {
 				layoutSet.setLogoId(0);
 			}
-	
+
 			if (logo) {
 				imageLocalService.updateImage(
 					layoutSet.getLogoId(), is, cleanUpStream);
@@ -362,10 +361,10 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 			else {
 				imageLocalService.deleteImage(layoutSet.getLogoId());
 			}
-	
+
 			return layoutSetPersistence.update(layoutSet);
 		}
-		
+
 		layoutSetBranch.setLogo(logo);
 		layoutSetBranch.setModifiedDate(new Date());
 
@@ -389,9 +388,9 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 		else {
 			imageLocalService.deleteImage(layoutSet.getLogoId());
 		}
-		
+
 		layoutSetBranchPersistence.update(layoutSetBranch);
-		
+
 		return layoutSet;
 	}
 
@@ -404,8 +403,6 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 		LayoutSet layoutSet = layoutSetPersistence.findByG_P(
 			groupId, privateLayout);
 
-
-
 		if (Validator.isNull(themeId)) {
 			themeId = ThemeFactoryUtil.getDefaultRegularThemeId(
 				layoutSet.getCompanyId());
@@ -415,11 +412,10 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 			colorSchemeId =
 				ColorSchemeFactoryUtil.getDefaultRegularColorSchemeId();
 		}
-		
-		LayoutSetBranch layoutSetBranch = _getLayoutSetBranch(layoutSet);
-		
-		if (layoutSetBranch == null) {
 
+		LayoutSetBranch layoutSetBranch = _getLayoutSetBranch(layoutSet);
+
+		if (layoutSetBranch == null) {
 			layoutSet.setColorSchemeId(colorSchemeId);
 			layoutSet.setCss(css);
 			layoutSet.setModifiedDate(new Date());
@@ -452,7 +448,7 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 			layoutSetBranch.setCss(css);
 			layoutSetBranch.setThemeId(themeId);
 		}
-		
+
 		layoutSetBranch.setModifiedDate(new Date());
 
 		layoutSetBranchPersistence.update(layoutSetBranch);
@@ -620,7 +616,7 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 
 		return layoutSet;
 	}
-	
+
 	private LayoutSetBranch _getLayoutSetBranch(LayoutSet layoutSet)
 		throws PortalException, SystemException {
 

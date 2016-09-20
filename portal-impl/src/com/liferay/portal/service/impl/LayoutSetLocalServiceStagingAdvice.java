@@ -61,7 +61,7 @@ public class LayoutSetLocalServiceStagingAdvice implements MethodInterceptor {
 
 	protected LayoutSet wrapLayoutSet(LayoutSet layoutSet)
 		throws SystemException {
-		
+
 		LayoutSetStagingHandler layoutSetStagingHandler =
 			LayoutStagingUtil.getLayoutSetStagingHandler(layoutSet);
 
@@ -69,12 +69,10 @@ public class LayoutSetLocalServiceStagingAdvice implements MethodInterceptor {
 			return layoutSet;
 		}
 
-
 		try {
-
 			if (!LayoutStagingUtil.isBranchingLayoutSet(
-				layoutSet.getGroup(), layoutSet.getPrivateLayout())) {
-	
+					layoutSet.getGroup(), layoutSet.getPrivateLayout())) {
+
 				return layoutSet;
 			}
 		}
@@ -90,7 +88,7 @@ public class LayoutSetLocalServiceStagingAdvice implements MethodInterceptor {
 
 	protected List<LayoutSet> wrapLayoutSets(List<LayoutSet> layoutSets)
 		throws SystemException {
-		
+
 		if (layoutSets.isEmpty()) {
 			return layoutSets;
 		}
@@ -99,7 +97,6 @@ public class LayoutSetLocalServiceStagingAdvice implements MethodInterceptor {
 			layoutSets.size());
 
 		for (LayoutSet layoutSet : layoutSets) {
-
 			wrappedLayoutSets.add(wrapLayoutSet(layoutSet));
 		}
 
