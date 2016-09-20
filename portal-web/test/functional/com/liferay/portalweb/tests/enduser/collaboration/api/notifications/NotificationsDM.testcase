@@ -194,9 +194,7 @@
 		</execute>
 	</command>
 
-	<!-- LRQA-20937 -->
-
-	<!--<command known-issues="LPS-50589" name="ViewWebsiteNotificationForNewDocumentInFolder" priority="5">
+	<command name="ViewWebsiteNotificationForNewDocumentInFolder" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 		</execute>
@@ -267,11 +265,9 @@
 		<execute macro="Notifications#viewCount">
 			<var name="notificationCount" value="0" />
 		</execute>
-	</command>-->
+	</command>
 
-	<!-- LRQA-20937 -->
-
-	<!--<command known-issues="LPS-50589" name="ViewWebsiteNotificationForUpdatedDocumentInFolder" priority="5">
+	<command name="ViewWebsiteNotificationForUpdatedDocumentInFolder" priority="5">
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="${pageName}" />
 		</execute>
@@ -347,5 +343,5 @@
 		<execute macro="Notifications#viewCount">
 			<var name="notificationCount" value="0" />
 		</execute>
-	</command>-->
+	</command>
 </definition>
