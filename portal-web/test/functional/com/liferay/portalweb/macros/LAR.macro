@@ -3,10 +3,8 @@
 		<execute macro="LAR#configureExportSiteOptionsCmd">
 			<var name="applicationName" value="${applicationName}" />
 			<var name="checkContentNameList" value="${checkContentNameList}" />
-			<var name="contentDateRange" value="${contentDateRange}" />
+			<var name="contentDeletion" value="${contentDeletion}" />
 			<var name="contentName" value="${contentName}" />
-			<var name="pageName" value="${pageName}" />
-			<var name="subApplication" value="${uncheckSubApplication}" />
 			<var name="subContent" value="${subContent}" />
 			<var name="uncheckContentNameList" value="${uncheckContentNameList}" />
 			<var name="uncheckSubContent" value="${uncheckSubContent}" />
