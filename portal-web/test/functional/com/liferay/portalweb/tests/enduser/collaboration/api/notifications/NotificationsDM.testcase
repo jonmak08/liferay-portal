@@ -341,7 +341,7 @@
 		</execute>
 
 		<execute macro="Notifications#viewCount">
-			<var name="notificationCount" value="0" />
+			<var name="notificationCount" value="1" />
 		</execute>
 	</command>
 </definition>
