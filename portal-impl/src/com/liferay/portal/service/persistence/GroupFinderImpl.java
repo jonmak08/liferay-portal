@@ -294,14 +294,14 @@ public class GroupFinderImpl
 			Set<Long> groupIds = new HashSet<Long>();
 
 			groupIds.addAll(
-				countByC_C_PG_N_D(
+				countByC_PG_N_D(
 					session, companyId, parentGroupId, parentGroupIdComparator,
 					names, descriptions, params1, andOperator));
 
 			if (doUnion) {
 				if (params2.containsKey("classNameIds")) {
 					groupIds.addAll(
-						countByC_C_PG_N_D(
+						countByC_PG_N_D(
 							session, companyId, parentGroupId,
 							parentGroupIdComparator, names, descriptions,
 							params2, andOperator));
@@ -309,7 +309,7 @@ public class GroupFinderImpl
 
 				if (params3.containsKey("classNameIds")) {
 					groupIds.addAll(
-						countByC_C_PG_N_D(
+						countByC_PG_N_D(
 							session, companyId, parentGroupId,
 							parentGroupIdComparator, names, descriptions,
 							params3, andOperator));
@@ -317,7 +317,7 @@ public class GroupFinderImpl
 
 				if (params4.containsKey("classNameIds")) {
 					groupIds.addAll(
-						countByC_C_PG_N_D(
+						countByC_PG_N_D(
 							session, companyId, parentGroupId,
 							parentGroupIdComparator, names, descriptions,
 							params4, andOperator));
@@ -947,7 +947,7 @@ public class GroupFinderImpl
 		return 0;
 	}
 
-	protected List<Long> countByC_C_PG_N_D(
+	protected List<Long> countByC_PG_N_D(
 			Session session, long companyId, long parentGroupId,
 			String parentGroupIdComparator, String[] names,
 			String[] descriptions, LinkedHashMap<String, Object> params,
