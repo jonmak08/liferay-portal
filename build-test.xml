@@ -4787,10 +4787,6 @@ mail.session.mail.smtp.port=25000</echo>
 	</target>
 
 	<target name="prepare-portal-properties">
-		<execute>
-			<![CDATA[git checkout -- portal-impl/src/portal.properties]]>
-		</execute>
-
 		<replace file="portal-impl/src/portal.properties">
 			<replacefilter
 				token="#upgrade.processes="
