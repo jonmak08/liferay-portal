@@ -405,10 +405,47 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 			groupId, privateLayout);
 
 		layoutSet.setModifiedDate(new Date());
+		
+		LayoutSetBranch layoutSetBranch = _getLayoutSetBranch(layoutSet);
+
+		if (layoutSetBranch == null) {
+			layoutSet.setModifiedDate(new Date());
+
+			if (Validator.isNull(themeId)) {
+				themeId = ThemeFactoryUtil.getDefaultRegularThemeId(
+					layoutSet.getCompanyId());
+			}
+
+			if (Validator.isNull(colorSchemeId)) {
+				colorSchemeId =
+					ColorSchemeFactoryUtil.getDefaultRegularColorSchemeId();
+			}
+
+			layoutSet.setThemeId(themeId);
+			layoutSet.setColorSchemeId(colorSchemeId);
+			layoutSet.setCss(css);
+
+			layoutSetPersistence.update(layoutSet);
+
+			if (PrefsPropsUtil.getBoolean(
+					PropsKeys.THEME_SYNC_ON_GROUP,
+					PropsValues.THEME_SYNC_ON_GROUP)) {
+
+				LayoutSet otherLayoutSet = layoutSetPersistence.findByG_P(
+					layoutSet.getGroupId(), layoutSet.isPrivateLayout());
+
+				otherLayoutSet.setThemeId(themeId);
+				otherLayoutSet.setColorSchemeId(colorSchemeId);
+
+				layoutSetPersistence.update(otherLayoutSet);
+			}
+
+			return layoutSet;
+		}
 
 		if (Validator.isNull(themeId)) {
 			themeId = ThemeFactoryUtil.getDefaultRegularThemeId(
-				layoutSet.getCompanyId());
+				layoutSetBranch.getCompanyId());
 		}
 
 		if (Validator.isNull(colorSchemeId)) {
@@ -417,35 +454,16 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 		}
 
 		if (wapTheme) {
-			layoutSet.setWapThemeId(themeId);
-			layoutSet.setWapColorSchemeId(colorSchemeId);
+			layoutSetBranch.setWapThemeId(themeId);
+			layoutSetBranch.setWapColorSchemeId(colorSchemeId);
 		}
 		else {
-			layoutSet.setThemeId(themeId);
-			layoutSet.setColorSchemeId(colorSchemeId);
-			layoutSet.setCss(css);
+			layoutSetBranch.setThemeId(themeId);
+			layoutSetBranch.setColorSchemeId(colorSchemeId);
+			layoutSetBranch.setCss(css);
 		}
 
-		layoutSetPersistence.update(layoutSet);
-
-		if (PrefsPropsUtil.getBoolean(
-				PropsKeys.THEME_SYNC_ON_GROUP,
-				PropsValues.THEME_SYNC_ON_GROUP)) {
-
-			LayoutSet otherLayoutSet = layoutSetPersistence.findByG_P(
-				layoutSet.getGroupId(), layoutSet.isPrivateLayout());
-
-			if (wapTheme) {
-				otherLayoutSet.setWapThemeId(themeId);
-				otherLayoutSet.setWapColorSchemeId(colorSchemeId);
-			}
-			else {
-				otherLayoutSet.setThemeId(themeId);
-				otherLayoutSet.setColorSchemeId(colorSchemeId);
-			}
-
-			layoutSetPersistence.update(otherLayoutSet);
-		}
+		layoutSetBranchPersistence.update(layoutSetBranch);
 
 		return layoutSet;
 	}

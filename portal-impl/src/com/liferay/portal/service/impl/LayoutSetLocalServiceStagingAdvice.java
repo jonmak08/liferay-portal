@@ -18,10 +18,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.staging.LayoutStagingUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
-import com.liferay.portal.kernel.util.ColorSchemeFactoryUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
-import com.liferay.portal.kernel.util.ThemeFactoryUtil;
-import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.LayoutSet;
 import com.liferay.portal.model.LayoutSetBranch;
@@ -29,8 +26,6 @@ import com.liferay.portal.model.LayoutSetStagingHandler;
 import com.liferay.portal.service.LayoutSetLocalService;
 import com.liferay.portal.staging.StagingAdvicesThreadLocal;
 import com.liferay.portal.util.ClassLoaderUtil;
-
-import java.io.InputStream;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -73,16 +68,7 @@ public class LayoutSetLocalServiceStagingAdvice
 		Object thisObject = methodInvocation.getThis();
 		Object[] arguments = methodInvocation.getArguments();
 
-		if (methodName.equals("updateLookAndFeel") &&
-				 (arguments.length == 6)) {
-
-			returnValue = updateLookAndFeel(
-				(LayoutSetLocalService)thisObject, (Long)arguments[0],
-				(Boolean)arguments[1], (String)arguments[2],
-				(String)arguments[3], (String)arguments[4],
-				(Boolean)arguments[5]);
-		}
-		else if (methodName.equals("updateSettings")) {
+		if (methodName.equals("updateSettings")) {
 			returnValue = updateSettings(
 				(LayoutSetLocalService)thisObject, (Long)arguments[0],
 				(Boolean)arguments[1], (String)arguments[2]);
@@ -113,49 +99,6 @@ public class LayoutSetLocalServiceStagingAdvice
 		}
 
 		return wrapReturnValue(returnValue);
-	}
-
-
-	public LayoutSet updateLookAndFeel(
-			LayoutSetLocalService target, long groupId, boolean privateLayout,
-			String themeId, String colorSchemeId, String css, boolean wapTheme)
-		throws PortalException, SystemException {
-
-		LayoutSet layoutSet = layoutSetPersistence.findByG_P(
-			groupId, privateLayout);
-
-		LayoutSetBranch layoutSetBranch = _getLayoutSetBranch(layoutSet);
-
-		if (layoutSetBranch == null) {
-			return target.updateLookAndFeel(
-				groupId, privateLayout, themeId, colorSchemeId, css, wapTheme);
-		}
-
-		layoutSetBranch.setModifiedDate(new Date());
-
-		if (Validator.isNull(themeId)) {
-			themeId = ThemeFactoryUtil.getDefaultRegularThemeId(
-				layoutSetBranch.getCompanyId());
-		}
-
-		if (Validator.isNull(colorSchemeId)) {
-			colorSchemeId =
-				ColorSchemeFactoryUtil.getDefaultRegularColorSchemeId();
-		}
-
-		if (wapTheme) {
-			layoutSetBranch.setWapThemeId(themeId);
-			layoutSetBranch.setWapColorSchemeId(colorSchemeId);
-		}
-		else {
-			layoutSetBranch.setThemeId(themeId);
-			layoutSetBranch.setColorSchemeId(colorSchemeId);
-			layoutSetBranch.setCss(css);
-		}
-
-		layoutSetBranchPersistence.update(layoutSetBranch);
-
-		return layoutSet;
 	}
 
 	public LayoutSet updateSettings(
@@ -277,7 +220,6 @@ public class LayoutSetLocalServiceStagingAdvice
 		new HashSet<String>();
 
 	static {
-		_layoutSetLocalServiceStagingAdviceMethodNames.add("updateLookAndFeel");
 		_layoutSetLocalServiceStagingAdviceMethodNames.add("updateSettings");
 	}
 
