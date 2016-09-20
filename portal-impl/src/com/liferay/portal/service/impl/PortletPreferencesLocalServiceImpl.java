@@ -583,8 +583,8 @@ public class PortletPreferencesLocalServiceImpl
 				layoutRevision.getIconImageId(), layoutRevision.getThemeId(),
 				layoutRevision.getColorSchemeId(),
 				layoutRevision.getWapColorSchemeId(),
-				layoutRevision.getWapThemeId(),
-				layoutRevision.getCss(), serviceContext);
+				layoutRevision.getWapThemeId(), layoutRevision.getCss(),
+				serviceContext);
 		}
 		catch (PortalException pe) {
 			ReflectionUtil.throwException(pe);
