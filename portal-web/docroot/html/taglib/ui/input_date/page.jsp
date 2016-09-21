@@ -70,7 +70,22 @@ else {
 	}
 }
 
+boolean nullDate = false;
+
+if (nullable && !required && (dayValue == 0) && (monthValue == -1) && (yearValue == 0)) {
+	nullDate = true;
+}
+
+String dateString = null;
+
 Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPattern, locale);
+
+if (nullable && nullDate) {
+	dateString = StringPool.BLANK;
+}
+else {
+	dateString = format.format(calendar.getTime());
+}
 %>
 
 <span class="lfr-input-date <%= cssClass %>" id="<%= randomNamespace %>displayDate">
@@ -79,7 +94,7 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 			<input class="input-medium" <%= disabled ? "disabled=\"disabled\"" : "" %> id="<%= nameId %>" name="<%= namespace + HtmlUtil.escapeAttribute(name) %>" type="date" value="<%= format.format(calendar.getTime()) %>" />
 		</c:when>
 		<c:otherwise>
-			<aui:input disabled="<%= disabled %>" id="<%= HtmlUtil.getAUICompatibleId(name) %>" label="" name="<%= name %>" placeholder="<%= StringUtil.toLowerCase(simpleDateFormatPattern) %>" required="<%= required %>" title="" type="text" value="<%= format.format(calendar.getTime()) %>" wrappedField="<%= true %>">
+			<aui:input disabled="<%= disabled %>" id="<%= HtmlUtil.getAUICompatibleId(name) %>" label="" name="<%= name %>" placeholder="<%= StringUtil.toLowerCase(simpleDateFormatPattern) %>" required="<%= required %>" title="" type="text" value="<%= dateString %>" wrappedField="<%= true %>">
 				<aui:validator customValidatorRequired="<%= Boolean.FALSE %>" errorMessage="please-enter-a-valid-date" name="custom">
 					function(val) {
 						return AUI().use('aui-datatype-date-parse').Parsers.date('<%= mask %>', val);
@@ -116,10 +131,22 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 					form = checkbox.attr('form');
 				}
 
-				form.one('#<%= dayParamId %>').attr('disabled', checked);
-				form.one('#<%= monthParamId %>').attr('disabled', checked);
-				form.one('#<%= nameId %>').attr('disabled', checked);
-				form.one('#<%= yearParamId %>').attr('disabled', checked);
+				var dayField = form.one('#<%= dayParamId %>');
+				var inputDateField = form.one('#<%= nameId %>');
+				var monthField = form.one('#<%= monthParamId %>');
+				var yearField = form.one('#<%= yearParamId %>');
+
+				dayField.attr('disabled', checked);
+				inputDateField.attr('disabled', checked);
+				monthField.attr('disabled', checked);
+				yearField.attr('disabled', checked);
+
+				if (checked) {
+					inputDateField.val('');
+					dayField.val('');
+					monthField.val('');
+					yearField.val('');
+				}
 			}
 		);
 	</aui:script>

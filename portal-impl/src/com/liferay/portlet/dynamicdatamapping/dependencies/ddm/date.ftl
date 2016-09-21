@@ -6,25 +6,36 @@
 
 <#assign utcTimeZone = timeZoneUtil.getTimeZone("UTC")>
 
-<#if (fieldRawValue?is_date)>
-	<#assign fieldValue = calendarFactory.getCalendar(fieldRawValue?long, utcTimeZone)>
-<#elseif (validator.isNotNull(predefinedValue))>
-	<#assign predefinedDate = dateUtil.parseDate(predefinedValue, requestedLocale)>
+<#if fieldValue != "">
+	<#if (fieldRawValue?is_date)>
+		<#assign fieldValue = calendarFactory.getCalendar(fieldRawValue?long, utcTimeZone)>
 
-	<#assign fieldValue = calendarFactory.getCalendar(predefinedDate?long)>
+	<#elseif (validator.isNotNull(predefinedValue))>
+			<#assign predefinedDate = dateUtil.parseDate(predefinedValue, requestedLocale)>
+
+			<#assign fieldValue = calendarFactory.getCalendar(predefinedDate?long)>
+	<#else>
+			<#assign calendar = calendarFactory.getCalendar(timeZone)>
+
+			<#assign fieldValue = calendarFactory.getCalendar(calendar.get(YEAR), calendar.get(MONTH), calendar.get(DATE))>
+	</#if>
+
+	<#assign day = fieldValue.get(DATE)>
+	<#assign month = fieldValue.get(MONTH)>
+	<#assign year = fieldValue.get(YEAR)>
 <#else>
-	<#assign calendar = calendarFactory.getCalendar(utcTimeZone)>
-
-	<#assign fieldValue = calendarFactory.getCalendar(calendar.get(YEAR), calendar.get(MONTH), calendar.get(DATE))>
+	<#assign day = 0>
+	<#assign month = -1>
+	<#assign year = 0>
 </#if>
 
 <#if cssClass??>
 	<#assign cssClass = cssClass?replace("\\bspan[0-9]+", "", "ir")>
 </#if>
 
-<#assign dayValue = paramUtil.getInteger(request, "${namespacedFieldName}Day", fieldValue.get(DATE))>
-<#assign monthValue = paramUtil.getInteger(request, "${namespacedFieldName}Month", fieldValue.get(MONTH))>
-<#assign yearValue = paramUtil.getInteger(request, "${namespacedFieldName}Year", fieldValue.get(YEAR))>
+<#assign dayValue = paramUtil.getInteger(request, "${namespacedFieldName}Day", day)>
+<#assign monthValue = paramUtil.getInteger(request, "${namespacedFieldName}Month", month)>
+<#assign yearValue = paramUtil.getInteger(request, "${namespacedFieldName}Year", year)>
 
 <@aui["field-wrapper"] data=data helpMessage=escape(fieldStructure.tip) label=escape(label) name=namespacedFieldName>
 	<@liferay_ui["input-date"]
