@@ -728,16 +728,6 @@ public class LayoutTypePortletImpl
 
 		boolean customizable = GetterUtil.getBoolean(customizableString);
 
-		if (!customizable && hasUserPreferences()) {
-			String columnValue = _portalPreferences.getValue(
-				CustomizedPages.namespacePlid(getPlid()), columnId,
-				StringPool.NULL);
-
-			if (!Validator.equals(columnValue, StringPool.NULL)) {
-				setUserPreference(columnId, null);
-			}
-		}
-
 		if (customizable) {
 			if (isLayoutSetPrototype()) {
 				return false;
@@ -745,8 +735,19 @@ public class LayoutTypePortletImpl
 
 			return true;
 		}
+		else {
+			if (hasUserPreferences()) {
+				String columnValue = _portalPreferences.getValue(
+					CustomizedPages.namespacePlid(getPlid()), columnId,
+					StringPool.NULL);
 
-		return false;
+				if (!Validator.equals(columnValue, StringPool.NULL)) {
+					setUserPreference(columnId, null);
+				}
+			}
+
+			return false;
+		}
 	}
 
 	@Override
