@@ -761,9 +761,10 @@ public class GroupFinderImpl
 		}
 
 		String sql = null;
+		String sqlKey = null;
 
 		if (_isCacheableSQL(classNameIds)) {
-			String sqlKey = _buildSQLKey(
+			sqlKey = _buildSQLKey(
 				params1, params2, params3, params4, obc, doUnion);
 
 			sql = _findByC_C_PG_N_DSQLCache.get(sqlKey);
@@ -801,10 +802,7 @@ public class GroupFinderImpl
 
 			sql = sb.toString();
 
-			if (_isCacheableSQL(classNameIds)) {
-				String sqlKey = _buildSQLKey(
-					params1, params2, params3, params4, obc, doUnion);
-
+			if (sqlKey != null) {
 				_findByC_C_PG_N_DSQLCache.put(sqlKey, sql);
 			}
 		}
