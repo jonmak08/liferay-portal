@@ -46,7 +46,7 @@ public class CookieKeys {
 
 	public static final int MAX_AGE = (int)Time.YEAR;
 
-	public static final int MAX_AGE_IN_SECONDS = MAX_AGE / 1000;
+	public static final int MAX_AGE_IN_SECONDS = (int)(Time.YEAR / 1000);
 
 	public static final String PASSWORD = "PASSWORD";
 
