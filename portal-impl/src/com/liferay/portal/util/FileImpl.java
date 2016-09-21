@@ -413,12 +413,13 @@ public class FileImpl implements com.liferay.portal.kernel.util.File {
 				if (_log.isWarnEnabled()) {
 					_log.warn(
 						"Unable to extract text from an encrypted file " +
-							fileName);
+							fileName,
+						e);
 				}
 			}
 			else if (e instanceof TikaException) {
 				if (_log.isWarnEnabled()) {
-					_log.warn("Unable to extract text from " + fileName);
+					_log.warn("Unable to extract text from " + fileName, e);
 				}
 			}
 			else {
