@@ -16,6 +16,7 @@ package com.liferay.portal.util;
 
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.transaction.Transactional;
+import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -158,6 +159,7 @@ public class PortalImplAlternateURLTest {
 		themeDisplay.setCompany(company);
 
 		themeDisplay.setLayoutSet(group.getPublicLayoutSet());
+		themeDisplay.setPortalDomain(HttpUtil.getDomain(portalURL));
 		themeDisplay.setPortalURL(portalURL);
 
 		return themeDisplay;
