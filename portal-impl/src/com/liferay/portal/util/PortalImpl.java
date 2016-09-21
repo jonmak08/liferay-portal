@@ -7743,7 +7743,9 @@ public class PortalImpl implements Portal {
 		if (useGroupVirtualHostName) {
 			String virtualHostname = getVirtualHostname(layoutSet);
 
-			String portalDomain = HttpUtil.getDomain(portalURL);
+			int index = portalURL.indexOf("://");
+			
+			String portalDomain = portalURL.substring(index + 3);
 
 			if (Validator.isNotNull(virtualHostname) &&
 				(canonicalURL ||
