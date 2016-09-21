@@ -43,6 +43,7 @@ import com.liferay.portal.util.comparator.GroupNameComparator;
 import com.liferay.util.dao.orm.CustomSQLUtil;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -1247,7 +1248,7 @@ public class GroupFinderImpl
 
 		for (LinkedHashMap<String, Object> param : params) {
 			if (param != null) {
-				size += param.size() * 2;
+				size += param.size() * 4;
 			}
 		}
 
@@ -1255,8 +1256,24 @@ public class GroupFinderImpl
 
 		for (LinkedHashMap<String, Object> param : params) {
 			if (param != null) {
-				for (String key : param.keySet()) {
+				for (Map.Entry<String, Object> entry : param.entrySet()) {
+					String key = entry.getKey();
+					Object value = entry.getValue();
+
 					sb.append(key);
+					sb.append(StringPool.DASH);
+
+					if (value instanceof long[]) {
+						long[] values = (long[])value;
+
+						sb.append(values.length);
+					}
+					else if (value instanceof Collection<?>) {
+						Collection<?> values = (Collection<?>)value;
+
+						sb.append(values.size());
+					}
+
 					sb.append(StringPool.COMMA);
 				}
 			}
