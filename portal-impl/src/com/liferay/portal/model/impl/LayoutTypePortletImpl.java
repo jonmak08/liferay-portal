@@ -735,19 +735,18 @@ public class LayoutTypePortletImpl
 
 			return true;
 		}
-		else {
-			if (hasUserPreferences()) {
-				String columnValue = _portalPreferences.getValue(
-					CustomizedPages.namespacePlid(getPlid()), columnId,
-					StringPool.NULL);
 
-				if (!Validator.equals(columnValue, StringPool.NULL)) {
-					setUserPreference(columnId, null);
-				}
+		if (hasUserPreferences()) {
+			String columnValue = _portalPreferences.getValue(
+				CustomizedPages.namespacePlid(getPlid()), columnId,
+				StringPool.NULL);
+
+			if (!Validator.equals(columnValue, StringPool.NULL)) {
+				setUserPreference(columnId, null);
 			}
-
-			return false;
 		}
+
+		return false;
 	}
 
 	@Override
@@ -1936,10 +1935,6 @@ public class LayoutTypePortletImpl
 	}
 
 	protected void setUserPreference(String key, String value) {
-		if (!hasUserPreferences()) {
-			return;
-		}
-
 		_portalPreferences.setValue(
 			CustomizedPages.namespacePlid(getPlid()), key, value);
 
