@@ -9,15 +9,15 @@
 		<execute macro="User#firstLoginPG" />
 
 		<execute macro="Page#addPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
-			<var name="portletName" value="${portletName}" />
+			<var name="portletName" value="Documents and Media" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -74,7 +74,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMFolder#addPG">
@@ -96,7 +96,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMFolder#gotoPG">
@@ -117,7 +117,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Notifications#viewCount">
@@ -138,7 +138,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMFolder#addPG">
@@ -160,7 +160,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMFolder#gotoPG">
@@ -186,7 +186,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Notifications#viewCountAlert">
@@ -196,7 +196,7 @@
 
 	<command name="ViewWebsiteNotificationForNewDocumentInFolder" priority="5">
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMFolder#addPG">
@@ -218,7 +218,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMFolder#gotoPG">
@@ -239,7 +239,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Notifications#viewCountAlert">
@@ -269,7 +269,7 @@
 
 	<command name="ViewWebsiteNotificationForUpdatedDocumentInFolder" priority="5">
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMFolder#addPG">
@@ -291,7 +291,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMFolder#gotoPG">
@@ -317,7 +317,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Notifications#viewCountAlert">
