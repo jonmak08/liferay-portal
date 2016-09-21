@@ -77,13 +77,11 @@ public class JSONWebServiceServiceAction extends JSONServiceAction {
 		catch (InvocationTargetException ite) {
 			Throwable throwable = ite.getCause();
 
-			if (throwable instanceof SecurityException) {
-				throw (SecurityException)throwable;
-			}
-
 			int status = 0;
 
-			if (throwable instanceof PrincipalException) {
+			if (throwable instanceof PrincipalException ||
+				throwable instanceof SecurityException) {
+
 				status = HttpServletResponse.SC_FORBIDDEN;
 			}
 			else {
@@ -108,6 +106,8 @@ public class JSONWebServiceServiceAction extends JSONServiceAction {
 			else {
 				_log.error(getThrowableMessage(e));
 			}
+
+			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 
 			return JSONFactoryUtil.serializeThrowable(e);
 		}
