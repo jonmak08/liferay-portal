@@ -1230,6 +1230,10 @@ public class GroupFinderImpl
 	private final String _buildSQLCacheKey(
 		OrderByComparator obc, Map<String, Object>... params) {
 
+		if (obc == null) {
+			return _buildSQLCacheKey(StringPool.BLANK, params);
+		}
+
 		return _buildSQLCacheKey(obc.getOrderBy(), params);
 	}
 
