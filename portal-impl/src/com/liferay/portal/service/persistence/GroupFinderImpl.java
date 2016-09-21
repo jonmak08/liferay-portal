@@ -1258,7 +1258,6 @@ public class GroupFinderImpl
 				sb.append(StringPool.COMMA);
 
 				String key = entry.getKey();
-				Object value = entry.getValue();
 
 				if (key.equals("rolePermissions")) {
 					List<Object> values = (List<Object>)entry.getValue();
@@ -1275,6 +1274,8 @@ public class GroupFinderImpl
 
 				sb.append(key);
 				sb.append(StringPool.DASH);
+
+				Object value = entry.getValue();
 
 				if (value instanceof long[]) {
 					long[] values = (long[])value;
