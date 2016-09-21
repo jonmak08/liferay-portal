@@ -856,7 +856,7 @@ public class GroupFinderImpl
 	}
 
 	protected int countByGroupId(
-			Session session, long groupId, LinkedHashMap<String, Object> params)
+			Session session, long groupId, Map<String, Object> params)
 		throws Exception {
 
 		String sql = CustomSQLUtil.get(COUNT_BY_GROUP_ID);
@@ -889,7 +889,7 @@ public class GroupFinderImpl
 	protected List<Long> countByC_PG_N_D(
 			Session session, long companyId, long parentGroupId,
 			String parentGroupIdComparator, String[] names,
-			String[] descriptions, LinkedHashMap<String, Object> params,
+			String[] descriptions, Map<String, Object> params,
 			boolean andOperator)
 		throws Exception {
 
@@ -924,7 +924,7 @@ public class GroupFinderImpl
 		return q.list(true);
 	}
 
-	protected String getJoin(LinkedHashMap<String, Object> params) {
+	protected String getJoin(Map<String, Object> params) {
 		if ((params == null) || params.isEmpty()) {
 			return StringPool.BLANK;
 		}
@@ -964,7 +964,7 @@ public class GroupFinderImpl
 		return sb.toString();
 	}
 
-	protected String getWhere(LinkedHashMap<String, Object> params) {
+	protected String getWhere(Map<String, Object> params) {
 		if ((params == null) || params.isEmpty()) {
 			return StringPool.BLANK;
 		}
@@ -1070,7 +1070,7 @@ public class GroupFinderImpl
 	}
 
 	protected String replaceJoinAndWhere(
-		String sql, LinkedHashMap<String, Object> params) {
+		String sql, Map<String, Object> params) {
 
 		if (params.isEmpty()) {
 			return StringUtil.replace(
@@ -1110,7 +1110,7 @@ public class GroupFinderImpl
 		return sql;
 	}
 
-	protected void setJoin(QueryPos qPos, LinkedHashMap<String, Object> params)
+	protected void setJoin(QueryPos qPos, Map<String, Object> params)
 		throws Exception {
 
 		if (params == null) {
@@ -1240,18 +1240,18 @@ public class GroupFinderImpl
 
 	@SafeVarargs
 	private final String _buildSQLCacheKey(
-		OrderByComparator obc, LinkedHashMap<String, Object>... params) {
+		OrderByComparator obc, Map<String, Object>... params) {
 
 		return _buildSQLCacheKey(obc.getOrderBy(), params);
 	}
 
 	@SafeVarargs
 	private final String _buildSQLCacheKey(
-		String sql, LinkedHashMap<String, Object>... params) {
+		String sql, Map<String, Object>... params) {
 
 		int size = 1;
 
-		for (LinkedHashMap<String, Object> param : params) {
+		for (Map<String, Object> param : params) {
 			if (param != null) {
 				size += param.size() * 4;
 			}
@@ -1261,7 +1261,7 @@ public class GroupFinderImpl
 
 		sb.append(sql);
 
-		for (LinkedHashMap<String, Object> param : params) {
+		for (Map<String, Object> param : params) {
 			if (param != null) {
 				for (Map.Entry<String, Object> entry : param.entrySet()) {
 					sb.append(StringPool.COMMA);
@@ -1470,10 +1470,9 @@ public class GroupFinderImpl
 	}
 
 	private void _populateUnionParams(
-		long userId, long[] classNameIds, LinkedHashMap<String, Object> params1,
-		LinkedHashMap<String, Object> params2,
-		LinkedHashMap<String, Object> params3,
-		LinkedHashMap<String, Object> params4) {
+		long userId, long[] classNameIds, Map<String, Object> params1,
+		Map<String, Object> params2, Map<String, Object> params3,
+		Map<String, Object> params4) {
 
 		params2.remove("usersGroups");
 		params2.put("groupOrg", userId);
