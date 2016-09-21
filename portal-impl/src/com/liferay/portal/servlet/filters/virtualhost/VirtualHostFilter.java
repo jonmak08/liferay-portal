@@ -73,14 +73,15 @@ public class VirtualHostFilter extends BasePortalFilter {
 	public boolean isFilterEnabled(
 		HttpServletRequest request, HttpServletResponse response) {
 
-		StringBuffer requestURL = request.getRequestURL();
+		String uri = request.getRequestURI();
 
-		if (isValidRequestURL(requestURL)) {
-			return true;
+		for (String extension : PropsValues.VIRTUAL_HOSTS_IGNORE_EXTENSIONS) {
+			if (uri.endsWith(extension)) {
+				return false;
+			}
 		}
-		else {
-			return false;
-		}
+
+		return true;
 	}
 
 	protected boolean isDocumentFriendlyURL(
