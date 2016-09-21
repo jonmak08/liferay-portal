@@ -360,7 +360,7 @@ public class LayoutTypePortletImpl
 			layoutTemplate = new LayoutTemplateImpl(
 				StringPool.BLANK, StringPool.BLANK);
 
-			List<String> columns = new ArrayList<String>();
+			List<String> columns = new ArrayList<String>(10);
 
 			for (int i = 1; i <= 10; i++) {
 				columns.add(LayoutTypePortletConstants.COLUMN_PREFIX + i);
@@ -723,23 +723,27 @@ public class LayoutTypePortletImpl
 
 	@Override
 	public boolean isColumnCustomizable(String columnId) {
-		if (!isLayoutSetPrototype()) {
-			String customizableString = getTypeSettingsProperty(
-				CustomizedPages.namespaceColumnId(columnId));
+		String customizableString = getTypeSettingsProperty(
+			CustomizedPages.namespaceColumnId(columnId));
 
-			boolean customizable = GetterUtil.getBoolean(customizableString);
+		boolean customizable = GetterUtil.getBoolean(customizableString);
 
-			if (!customizable && hasUserPreferences()) {
-				String columnValue = _portalPreferences.getValue(
-					CustomizedPages.namespacePlid(getPlid()), columnId,
-					StringPool.NULL);
+		if (!customizable && hasUserPreferences()) {
+			String columnValue = _portalPreferences.getValue(
+				CustomizedPages.namespacePlid(getPlid()), columnId,
+				StringPool.NULL);
 
-				if (!Validator.equals(columnValue, StringPool.NULL)) {
-					setUserPreference(columnId, null);
-				}
+			if (!Validator.equals(columnValue, StringPool.NULL)) {
+				setUserPreference(columnId, null);
+			}
+		}
+
+		if (customizable) {
+			if (isLayoutSetPrototype()) {
+				return false;
 			}
 
-			return customizable;
+			return true;
 		}
 
 		return false;
