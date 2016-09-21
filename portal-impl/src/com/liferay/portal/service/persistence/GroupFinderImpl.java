@@ -762,7 +762,7 @@ public class GroupFinderImpl
 
 		String sql = null;
 
-		if (classNameIds == _getGroupOrganizationClassNameIds()) {
+		if (_isCacheableSQL(classNameIds)) {
 			String sqlKey = _buildSQLKey(
 				params1, params2, params3, params4, obc, doUnion);
 
@@ -801,7 +801,7 @@ public class GroupFinderImpl
 
 			sql = sb.toString();
 
-			if (classNameIds == _getGroupOrganizationClassNameIds()) {
+			if (_isCacheableSQL(classNameIds)) {
 				String sqlKey = _buildSQLKey(
 					params1, params2, params3, params4, obc, doUnion);
 
@@ -1527,6 +1527,31 @@ public class GroupFinderImpl
 		_whereMap = whereMap;
 
 		return _whereMap;
+	}
+
+	private boolean _isCacheableSQL(long[] classNameIds) {
+		if (classNameIds == null) {
+			return true;
+		}
+
+		if (classNameIds.length > 3) {
+			return false;
+		}
+
+		long groupClassNameId = _getGroupOrganizationClassNameIds()[0];
+		long organizationClassNameId = _getGroupOrganizationClassNameIds()[1];
+		long userGroupClassNameId = _getUserGroupClassNameId();
+
+		for (long classNameId : classNameIds) {
+			if ((classNameId != groupClassNameId) &&
+				(classNameId != organizationClassNameId) &&
+				(classNameId != userGroupClassNameId)) {
+
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	private String _removeWhere(String join) {
