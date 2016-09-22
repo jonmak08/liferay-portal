@@ -139,7 +139,7 @@ public class UnicodeProperties extends HashMap<String, String> {
 				value = _decode(value);
 			}
 
-		setProperty(line.substring(0, pos).trim(), value);
+			setProperty(line.substring(0, pos).trim(), value);
 		}
 	}
 
