@@ -2430,7 +2430,7 @@ public class ServicePreAction extends Action {
 			}
 		}
 	}
-	
+
 	private static String _getPortalDomain(String portalURL) {
 		String portalDomain = _portalDomains.get(portalURL);
 
@@ -2453,7 +2453,8 @@ public class ServicePreAction extends Action {
 	private static final String _PATH_PORTAL_LOGOUT = "/portal/logout";
 
 	private static Log _log = LogFactoryUtil.getLog(ServicePreAction.class);
-	
+
 	private static final Map<String, String> _portalDomains =
 		new ConcurrentHashMap();
+
 }
