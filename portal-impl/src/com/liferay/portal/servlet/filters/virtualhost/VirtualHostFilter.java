@@ -139,6 +139,10 @@ public class VirtualHostFilter extends BasePortalFilter {
 		return true;
 	}
 
+	/**
+	 * @deprecated As of 6.2.0, with no direct replacement
+	 */
+	@Deprecated
 	protected boolean isValidRequestURL(StringBuffer requestURL) {
 		if (requestURL == null) {
 			return false;
@@ -194,7 +198,7 @@ public class VirtualHostFilter extends BasePortalFilter {
 			}
 		}
 
-		int pos = friendlyURL.indexOf(StringPool.SEMICOLON);
+		int pos = friendlyURL.indexOf(CharPool.SEMICOLON);
 
 		if (pos != -1) {
 			friendlyURL = friendlyURL.substring(0, pos);
