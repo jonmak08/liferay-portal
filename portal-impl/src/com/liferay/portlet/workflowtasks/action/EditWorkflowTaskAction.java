@@ -164,7 +164,8 @@ public class EditWorkflowTaskAction extends PortletAction {
 
 			throw new PrincipalException(
 				String.format(
-					"User %d does not have permission to assign task %d",
+					"User %d does not have permissions to assign the task " +
+						"%d to someone.",
 					themeDisplay.getUserId(), workflowTaskId));
 		}
 	}
