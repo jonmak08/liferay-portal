@@ -60,9 +60,12 @@ public class ServerDetector {
 	}
 
 	public static void init(String serverId) {
-
-		_serverType = ServerType.valueOf(StringUtil.toUpperCase(serverId));
-		_init();
+		try {
+			_serverType = ServerType.valueOf(StringUtil.toUpperCase(serverId));
+		}
+		catch (IllegalArgumentException iae) {
+			_serverType = _detectServerType();
+		}
 	}
 
 	public static boolean isGeronimo() {
@@ -138,7 +141,7 @@ public class ServerDetector {
 	}
 
 	public static boolean isSupportsComet() {
-		return _supportsComet;
+		return _SUPPORTS_COMET;
 	}
 
 	public static boolean isSupportsHotDeploy() {
@@ -208,6 +211,69 @@ public class ServerDetector {
 		}
 	}
 
+	private static ServerType _detectServerType() {
+		String serverId = System.getProperty(SERVER_DETECTOR_SERVER_ID);
+
+		if (serverId != null) {
+			return ServerType.valueOf(StringUtil.toUpperCase(serverId));
+		}
+
+		if (_hasSystemProperty("org.apache.geronimo.home.dir")) {
+			return ServerType.GERONIMO;
+		}
+
+		if (_hasSystemProperty("com.sun.aas.instanceRoot")) {
+			return ServerType.GLASSFISH;
+		}
+
+		if (_hasSystemProperty("jboss.home.dir")) {
+			if (_isJBoss5()) {
+				return _serverType = ServerType.JBOSS5;
+			}
+			else {
+				return _serverType = ServerType.JBOSS7;
+			}
+		}
+
+		if (_hasSystemProperty("jonas.base")) {
+			return ServerType.JONAS;
+		}
+
+		if (_detect("oracle.oc4j.util.ClassUtils")) {
+			return ServerType.OC4J;
+		}
+
+		if (_hasSystemProperty("resin.home")) {
+			return ServerType.RESIN;
+		}
+
+		if (_detect("/weblogic/Server.class")) {
+			return ServerType.WEBLOGIC;
+		}
+
+		if (_detect("/com/ibm/websphere/product/VersionInfo.class")) {
+			return ServerType.WEBSPHERE;
+		}
+
+		if (_hasSystemProperty("jboss.home.dir")) {
+			return ServerType.WILDFLY;
+		}
+
+		if (_hasSystemProperty("jetty.home")) {
+			return ServerType.JETTY;
+		}
+
+		if (_hasSystemProperty("catalina.base")) {
+			return ServerType.TOMCAT;
+		}
+
+		return null;
+
+		/*if (_serverId == null) {
+			throw new RuntimeException("Server is not supported");
+		}*/
+	}
+
 	private static boolean _hasSystemProperty(String key) {
 		String value = System.getProperty(key);
 
@@ -217,75 +283,6 @@ public class ServerDetector {
 		else {
 			return false;
 		}
-	}
-
-	private static void _init() {
-
-		String serverId = System.getProperty(SERVER_DETECTOR_SERVER_ID);
-
-		if (serverId != null) {
-			_serverType = ServerType.valueOf(StringUtil.toUpperCase(serverId));
-		}
-		else if (_hasSystemProperty("org.apache.geronimo.home.dir")) {
-			_serverType = ServerType.GERONIMO;
-		}
-		else if (_hasSystemProperty("com.sun.aas.instanceRoot")) {
-			_serverType = ServerType.GLASSFISH;
-		}
-		else if (_hasSystemProperty("jboss.home.dir")) {
-			_serverType = ServerType.JBOSS;
-
-			if (_isJBoss5()) {
-				_serverType = ServerType.JBOSS5;
-			}
-			else {
-				_serverType = ServerType.JBOSS7;
-			}
-		}
-		else if (_hasSystemProperty("jonas.base")) {
-			_serverType = ServerType.JONAS;
-		}
-		else if (_detect("oracle.oc4j.util.ClassUtils")) {
-			_serverType = ServerType.OC4J;
-		}
-		else if (_hasSystemProperty("resin.home")) {
-			_serverType = ServerType.RESIN;
-		}
-		else if (_detect("/weblogic/Server.class")) {
-			_serverType = ServerType.WEBLOGIC;
-		}
-		else if (_detect("/com/ibm/websphere/product/VersionInfo.class")) {
-			_serverType = ServerType.WEBSPHERE;
-		}
-		else if (_hasSystemProperty("jboss.home.dir")) {
-			_serverType = ServerType.WILDFLY;
-		}
-
-		if (_serverType == null) {
-			if (_hasSystemProperty("jetty.home")) {
-				_serverType = ServerType.JETTY;
-			}
-			else if (_hasSystemProperty("catalina.base")) {
-				_serverType = ServerType.TOMCAT;
-			}
-		}
-
-		if (System.getProperty("external-properties") == null) {
-			if (_log.isInfoEnabled()) {
-				if (_serverType != null) {
-					_log.info(
-						"Detected server " +
-							StringUtil.toLowerCase(_serverType.toString()));
-				}
-				else {
-					_log.info("No server detected");
-				}
-			}
-		}
-
-		/*if (_serverId == null) {
-			throw new RuntimeException("Server is not supported");
-		}*/
 	}
 
 	private static boolean _isJBoss5() {
@@ -318,15 +315,29 @@ public class ServerDetector {
 		return false;
 	}
 
+	private static final boolean _SUPPORTS_COMET = false;
+
 	private static Log _log = LogFactoryUtil.getLog(ServerDetector.class);
 
 	private static ServerType _serverType;
 
 	static {
-		_init();
+		_serverType = _detectServerType();
+
+		if (System.getProperty("external-properties") == null) {
+			if (_log.isInfoEnabled()) {
+				if (_serverType != null) {
+					_log.info(
+						"Detected server " +
+							StringUtil.toLowerCase(_serverType.toString()));
+				}
+				else {
+					_log.info("No server detected");
+				}
+			}
+		}
 	}
 
-	private static boolean _supportsComet;
 	private static boolean _supportsHotDeploy;
 
 	private enum ServerType {
