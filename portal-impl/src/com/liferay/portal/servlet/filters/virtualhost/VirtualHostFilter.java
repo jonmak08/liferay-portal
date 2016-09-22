@@ -202,6 +202,10 @@ public class VirtualHostFilter extends BasePortalFilter {
 
 		String i18nLanguageId = _findLanguageId(friendlyURL);
 
+		if (i18nLanguageId != null) {
+			friendlyURL = friendlyURL.substring(i18nLanguageId.length());
+		}
+
 		friendlyURL = StringUtil.replace(
 			friendlyURL, PropsValues.WIDGET_SERVLET_MAPPING, StringPool.BLANK);
 
@@ -215,9 +219,27 @@ public class VirtualHostFilter extends BasePortalFilter {
 			_log.debug("Friendly URL is not valid");
 
 			if (i18nLanguageId != null) {
-				String forwardURL = StringUtil.replace(
-					originalFriendlyURL, StringUtil.toLowerCase(i18nLanguageId),
-					i18nLanguageId);
+				String forwardURL = originalFriendlyURL;
+
+				int offset =
+					originalFriendlyURL.length() - friendlyURL.length() -
+					i18nLanguageId.length();
+
+				if (!originalFriendlyURL.regionMatches(
+						offset, i18nLanguageId, 0, i18nLanguageId.length())) {
+
+					if (offset > 0) {
+						String prefix = originalFriendlyURL.substring(
+							0, offset);
+
+						forwardURL = prefix.concat(i18nLanguageId);
+					}
+					else {
+						forwardURL = i18nLanguageId;
+					}
+
+					forwardURL = forwardURL.concat(friendlyURL);
+				}
 
 				RequestDispatcher requestDispatcher =
 					_servletContext.getRequestDispatcher(forwardURL);
