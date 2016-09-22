@@ -31,9 +31,11 @@ import com.liferay.portal.util.WebKeys;
 import java.io.IOException;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
@@ -43,6 +45,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import jodd.util.StringUtil;
 
 import org.apache.struts.Globals;
 
@@ -52,11 +55,15 @@ import org.apache.struts.Globals;
 public class I18nServlet extends HttpServlet {
 
 	public static Set<String> getLanguageIds() {
+		return new HashSet<String>(_languageIds.values());
+	}
+
+	public static Map<String, String> getLanguageIdsMap() {
 		return _languageIds;
 	}
 
 	public static void setLanguageIds(Element root) {
-		_languageIds = new HashSet<String>();
+		Map<String, String> languageIds = new HashMap<String, String>();
 
 		List<Element> rootElements = root.elements("servlet-mapping");
 
@@ -69,11 +76,11 @@ public class I18nServlet extends HttpServlet {
 				String languageId = urlPattern.substring(
 					0, urlPattern.lastIndexOf(CharPool.SLASH));
 
-				_languageIds.add(languageId);
+				languageIds.put(StringUtil.toLowerCase(languageId), languageId);
 			}
 		}
 
-		_languageIds = Collections.unmodifiableSet(_languageIds);
+		_languageIds = Collections.unmodifiableMap(languageIds);
 	}
 
 	@Override
@@ -186,6 +193,6 @@ public class I18nServlet extends HttpServlet {
 
 	private static Log _log = LogFactoryUtil.getLog(I18nServlet.class);
 
-	private static Set<String> _languageIds;
+	private static Map<String, String> _languageIds;
 
 }
