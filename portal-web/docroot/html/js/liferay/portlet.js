@@ -534,30 +534,30 @@
 						}
 					);
 				}
+			}
 
-				Liferay.fire(
-					'portletReady',
-					{
-						portlet: portlet,
-						portletId: portletId
-					}
-				);
+			Liferay.fire(
+				'portletReady',
+				{
+					portlet: portlet,
+					portletId: portletId
+				}
+			);
 
-				var list = instance.list;
+			var list = instance.list;
 
-				var index = arrayIndexOf(list, portletId);
+			var index = arrayIndexOf(list, portletId);
 
-				if (index > -1) {
-					list.splice(index, 1);
+			if (index > -1) {
+				list.splice(index, 1);
 
-					if (!list.length) {
-						Liferay.fire(
-							'allPortletsReady',
-							{
-								portletId: portletId
-							}
-						);
-					}
+				if (!list.length) {
+					Liferay.fire(
+						'allPortletsReady',
+						{
+							portletId: portletId
+						}
+					);
 				}
 			}
 		},
