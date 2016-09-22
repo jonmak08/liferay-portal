@@ -26,7 +26,7 @@ import com.liferay.portal.security.permission.PermissionChecker;
  */
 public class WorkflowTaskPermissionChecker {
 
-	public static boolean hasPermission(
+	public static boolean hasAssignmentPermission(
 		long groupId, WorkflowTask workflowTask,
 		PermissionChecker permissionChecker) {
 

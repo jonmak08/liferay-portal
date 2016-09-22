@@ -144,30 +144,22 @@ public class EditWorkflowTaskAction extends PortletAction {
 			actionRequest, "assigneeUserId");
 		String comment = ParamUtil.getString(actionRequest, "comment");
 
-		checkWorkflowTaskAssignmentPermission(workflowTaskId, themeDisplay);
-
-		WorkflowTaskManagerUtil.assignWorkflowTaskToUser(
-			themeDisplay.getCompanyId(), themeDisplay.getUserId(),
-			workflowTaskId, assigneeUserId, comment, null, null);
-	}
-
-	protected void checkWorkflowTaskAssignmentPermission(
-			long workflowTaskId, ThemeDisplay themeDisplay)
-		throws Exception {
-
 		WorkflowTask workflowTask = WorkflowTaskManagerUtil.getWorkflowTask(
 			themeDisplay.getCompanyId(), workflowTaskId);
 
-		if (!WorkflowTaskPermissionChecker.hasPermission(
+		if (!WorkflowTaskPermissionChecker.hasAssignmentPermission(
 				themeDisplay.getScopeGroupId(), workflowTask,
 				themeDisplay.getPermissionChecker())) {
 
 			throw new PrincipalException(
-				String.format(
-					"User %d does not have permissions to assign the task " +
-						"%d to someone.",
-					themeDisplay.getUserId(), workflowTaskId));
+				"User " + themeDisplay.getUserId() + " does not have " +
+				"permissions to assign the task " + workflowTaskId +
+				"to someone.");
 		}
+
+		WorkflowTaskManagerUtil.assignWorkflowTaskToUser(
+			themeDisplay.getCompanyId(), themeDisplay.getUserId(),
+			workflowTaskId, assigneeUserId, comment, null, null);
 	}
 
 	protected void completeTask(ActionRequest actionRequest) throws Exception {

@@ -14,11 +14,11 @@
 
 package com.liferay.portlet.workflowtasks.action;
 
-import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.workflow.WorkflowTask;
 import com.liferay.portal.kernel.workflow.WorkflowTaskManagerUtil;
 import com.liferay.portal.security.auth.PrincipalException;
+import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.WebKeys;
@@ -43,10 +43,21 @@ public class ActionUtil {
 			ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
 				WebKeys.THEME_DISPLAY);
 
+			PermissionChecker permissionChecker =
+				themeDisplay.getPermissionChecker();
+
 			workflowTask = WorkflowTaskManagerUtil.getWorkflowTask(
 				themeDisplay.getCompanyId(), workflowTaskId);
 
-			checkWorkflowTaskViewPermission(workflowTask, themeDisplay);
+			if (!WorkflowTaskPermissionChecker.hasAssignmentPermission(
+					themeDisplay.getScopeGroupId(), workflowTask,
+				permissionChecker)) {
+
+				throw new PrincipalException(
+					"User " + themeDisplay.getUserId() + " does not have " +
+					"permissions to assign the task " + workflowTaskId +
+					"to someone.");
+			}
 		}
 
 		request.setAttribute(WebKeys.WORKFLOW_TASK, workflowTask);
@@ -59,22 +70,6 @@ public class ActionUtil {
 			portletRequest);
 
 		getWorkflowTask(request);
-	}
-
-	protected static void checkWorkflowTaskViewPermission(
-			WorkflowTask workflowTask, ThemeDisplay themeDisplay)
-		throws PortalException {
-
-		if (!WorkflowTaskPermissionChecker.hasPermission(
-				themeDisplay.getScopeGroupId(), workflowTask,
-				themeDisplay.getPermissionChecker())) {
-
-			throw new PrincipalException(
-				String.format(
-					"User %d does not have permissions to view the task %d ",
-					themeDisplay.getUserId(),
-					workflowTask.getWorkflowTaskId()));
-		}
 	}
 
 }
