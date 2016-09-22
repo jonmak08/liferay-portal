@@ -136,8 +136,8 @@ else {
 				var monthField = form.one('#<%= monthParamId %>');
 				var yearField = form.one('#<%= yearParamId %>');
 
-				dayField.attr('disabled', checked);
 				inputDateField.attr('disabled', checked);
+				dayField.attr('disabled', checked);
 				monthField.attr('disabled', checked);
 				yearField.attr('disabled', checked);
 

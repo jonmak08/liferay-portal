@@ -9,15 +9,14 @@
 <#if fieldValue != "">
 	<#if (fieldRawValue?is_date)>
 		<#assign fieldValue = calendarFactory.getCalendar(fieldRawValue?long, utcTimeZone)>
-
 	<#elseif (validator.isNotNull(predefinedValue))>
-			<#assign predefinedDate = dateUtil.parseDate(predefinedValue, requestedLocale)>
+		<#assign predefinedDate = dateUtil.parseDate(predefinedValue, requestedLocale)>
 
-			<#assign fieldValue = calendarFactory.getCalendar(predefinedDate?long)>
+		<#assign fieldValue = calendarFactory.getCalendar(predefinedDate?long)>
 	<#else>
-			<#assign calendar = calendarFactory.getCalendar(timeZone)>
+		<#assign calendar = calendarFactory.getCalendar(timeZone)>
 
-			<#assign fieldValue = calendarFactory.getCalendar(calendar.get(YEAR), calendar.get(MONTH), calendar.get(DATE))>
+		<#assign fieldValue = calendarFactory.getCalendar(calendar.get(YEAR), calendar.get(MONTH), calendar.get(DATE))>
 	</#if>
 
 	<#assign day = fieldValue.get(DATE)>
