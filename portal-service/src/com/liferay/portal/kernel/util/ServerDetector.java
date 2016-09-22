@@ -228,10 +228,10 @@ public class ServerDetector {
 
 		if (_hasSystemProperty("jboss.home.dir")) {
 			if (_isJBoss5()) {
-				return _serverType = ServerType.JBOSS5;
+				return ServerType.JBOSS5;
 			}
 			else {
-				return _serverType = ServerType.JBOSS7;
+				return ServerType.JBOSS7;
 			}
 		}
 
@@ -267,7 +267,7 @@ public class ServerDetector {
 			return ServerType.TOMCAT;
 		}
 
-		return null;
+		return ServerType.UNKNOWN;
 
 		/*if (_serverId == null) {
 			throw new RuntimeException("Server is not supported");
@@ -326,14 +326,9 @@ public class ServerDetector {
 
 		if (System.getProperty("external-properties") == null) {
 			if (_log.isInfoEnabled()) {
-				if (_serverType != null) {
-					_log.info(
-						"Detected server " +
-							StringUtil.toLowerCase(_serverType.toString()));
-				}
-				else {
-					_log.info("No server detected");
-				}
+				_log.info(
+					"Detected server " +
+						StringUtil.toLowerCase(_serverType.toString()));
 			}
 		}
 	}
@@ -343,7 +338,7 @@ public class ServerDetector {
 	private enum ServerType {
 
 		GERONIMO, GLASSFISH, JBOSS, JBOSS5, JBOSS7, JETTY, JONAS, OC4J, RESIN,
-		TOMCAT, WEBLOGIC, WEBSPHERE, WILDFLY;
+		TOMCAT, UNKNOWN, WEBLOGIC, WEBSPHERE, WILDFLY;
 	}
 
 }
