@@ -486,11 +486,11 @@ public class PortletImporter {
 		readComments(portletDataContext);
 
 		String layoutsImportMode = MapUtil.getString(
-				parameterMap, PortletDataHandlerKeys.LAYOUTS_IMPORT_MODE);
+			parameterMap, PortletDataHandlerKeys.LAYOUTS_IMPORT_MODE);
 
 		if (!layoutsImportMode.equals(
 				PortletDataHandlerKeys.
-				LAYOUTS_IMPORT_MODE_CREATED_FROM_PROTOTYPE)) {
+					LAYOUTS_IMPORT_MODE_CREATED_FROM_PROTOTYPE)) {
 
 			readExpandoTables(portletDataContext);
 		}

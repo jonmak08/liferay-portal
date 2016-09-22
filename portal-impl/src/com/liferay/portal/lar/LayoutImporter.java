@@ -633,8 +633,10 @@ public class LayoutImporter {
 		_portletImporter.readComments(portletDataContext);
 
 		if (!layoutsImportMode.equals(
-				PortletDataHandlerKeys.LAYOUTS_IMPORT_MODE_CREATED_FROM_PROTOTYPE)) {
-					_portletImporter.readExpandoTables(portletDataContext);
+				PortletDataHandlerKeys.
+					LAYOUTS_IMPORT_MODE_CREATED_FROM_PROTOTYPE)) {
+
+			_portletImporter.readExpandoTables(portletDataContext);
 		}
 
 		_portletImporter.readLocks(portletDataContext);
