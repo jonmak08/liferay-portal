@@ -53,6 +53,10 @@ public class ServerDetector {
 
 	public static final String WILDFLY_ID = "wildfly";
 
+	/**
+	 * @deprecated As of 7.0.0, with no direct replacement
+	 */
+	@Deprecated
 	public static ServerDetector getInstance() {
 		return new ServerDetector();
 	}
@@ -61,6 +65,10 @@ public class ServerDetector {
 		return StringUtil.toLowerCase(_serverType.toString());
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, with no direct replacement
+	 */
+	@Deprecated
 	public static void init(String serverId) {
 		ServerType serverType = null;
 
