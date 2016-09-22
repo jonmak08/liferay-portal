@@ -31,15 +31,11 @@ public class WorkflowTaskPermissionChecker {
 		PermissionChecker permissionChecker) {
 
 		if (permissionChecker.isOmniadmin() ||
-			permissionChecker.isCompanyAdmin()) {
+			permissionChecker.isCompanyAdmin() ||
+			permissionChecker.isContentReviewer(
+					permissionChecker.getCompanyId(), groupId)) {
 
 			return true;
-		}
-
-		if (!permissionChecker.isContentReviewer(
-				permissionChecker.getCompanyId(), groupId)) {
-
-			return false;
 		}
 
 		long[] roleIds = permissionChecker.getRoleIds(
