@@ -1673,6 +1673,15 @@ public class DDMStructureLocalServiceImpl
 				continue;
 			}
 
+			XPath structureXPath = SAXReaderUtil.createXPath(
+				"//dynamic-element[@name=\"" + fieldName + "\"]");
+
+			Element structureElement =
+				(Element)structureXPath.selectSingleNode(
+					structureDocument.getRootElement());
+
+			syncFieldOptions(structureElement, dynamicElementElement);
+
 			String mode = template.getMode();
 
 			if (mode.equals(DDMTemplateConstants.TEMPLATE_MODE_CREATE)) {
