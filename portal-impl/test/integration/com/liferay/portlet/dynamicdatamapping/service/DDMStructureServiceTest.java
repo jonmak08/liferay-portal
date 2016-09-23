@@ -17,6 +17,11 @@ package com.liferay.portlet.dynamicdatamapping.service;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.xml.Document;
+import com.liferay.portal.kernel.xml.Element;
+import com.liferay.portal.kernel.xml.Node;
+import com.liferay.portal.kernel.xml.SAXReaderUtil;
+import com.liferay.portal.kernel.xml.XPath;
 import com.liferay.portal.service.ServiceTestUtil;
 import com.liferay.portal.test.EnvironmentExecutionTestListener;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
@@ -331,6 +336,453 @@ public class DDMStructureServiceTest extends BaseDDMServiceTestCase {
 			structure.getNameMap(), structure.getDescriptionMap(),
 			structure.getXsd(),
 			ServiceTestUtil.getServiceContext(group.getGroupId()));
+	}
+
+	@Test
+	public void testAddSelectOptionRequired() throws Exception {
+		String structureName = ServiceTestUtil.randomString();
+		String templateName = ServiceTestUtil.randomString();
+
+		DDMStructure ddmStructure = addStructure(_classNameId, structureName);
+
+		DDMTemplate ddmTemplate = addFormTemplate(
+			ddmStructure.getStructureId(), templateName,
+			getTestStructureXsd("xml"));
+
+		Document structureDocument = getStructureDocument(ddmStructure);
+
+		Element rootElement = structureDocument.getRootElement();
+
+		Element selectElement = addSelectElement(rootElement, "true", null);
+
+		addOptionElement(selectElement, 4);
+
+		addDynamicElementMetadata(selectElement, "select");
+
+		ddmStructure.setXsd(structureDocument.asXML());
+
+		ddmStructure = updateStructure(ddmStructure);
+
+		ddmTemplate = DDMTemplateLocalServiceUtil.getDDMTemplate(
+			ddmTemplate.getTemplateId());
+
+		Assert.assertEquals(ddmStructure.getXsd(), ddmTemplate.getScript());
+	}
+
+	@Test
+	public void testAddSelectOptionNotRequired() throws Exception {
+		String structureName = ServiceTestUtil.randomString();
+		String templateName = ServiceTestUtil.randomString();
+
+		DDMStructure ddmStructure = addStructure(_classNameId, structureName);
+
+		DDMTemplate ddmTemplate = addFormTemplate(
+			ddmStructure.getStructureId(), templateName,
+			getTestStructureXsd("xml"));
+
+		Document structureDocument = getStructureDocument(ddmStructure);
+
+		Element rootElement = structureDocument.getRootElement();
+
+		Element selectElement = addSelectElement(rootElement, "false", null);
+
+		addOptionElement(selectElement, 4);
+
+		addDynamicElementMetadata(selectElement, "select");
+
+		ddmStructure.setXsd(structureDocument.asXML());
+
+		ddmStructure = updateStructure(ddmStructure);
+
+		ddmTemplate = DDMTemplateLocalServiceUtil.getDDMTemplate(
+			ddmTemplate.getTemplateId());
+
+		Assert.assertNotEquals(ddmStructure.getXsd(), ddmTemplate.getScript());
+	}
+
+	@Test
+	public void testAddRadioOptionRequired() throws Exception {
+		String structureName = ServiceTestUtil.randomString();
+		String templateName = ServiceTestUtil.randomString();
+
+		DDMStructure ddmStructure = addStructure(_classNameId, structureName);
+
+		DDMTemplate ddmTemplate = addFormTemplate(
+			ddmStructure.getStructureId(), templateName,
+			getTestStructureXsd("xml"));
+
+		Document structureDocument = getStructureDocument(ddmStructure);
+
+		Element rootElement = structureDocument.getRootElement();
+
+		Element radioElement = addRadioElement(rootElement, "true", null);
+
+		addOptionElement(radioElement, 4);
+
+		addDynamicElementMetadata(radioElement, "radio");
+
+		ddmStructure.setXsd(structureDocument.asXML());
+
+		ddmStructure = updateStructure(ddmStructure);
+
+		ddmTemplate = DDMTemplateLocalServiceUtil.getDDMTemplate(
+			ddmTemplate.getTemplateId());
+
+		Assert.assertEquals(ddmStructure.getXsd(), ddmTemplate.getScript());
+	}
+
+	@Test
+	public void testAddRadioOptionNotRequired() throws Exception {
+		String structureName = ServiceTestUtil.randomString();
+		String templateName = ServiceTestUtil.randomString();
+
+		DDMStructure ddmStructure = addStructure(_classNameId, structureName);
+
+		DDMTemplate ddmTemplate = addFormTemplate(
+			ddmStructure.getStructureId(), templateName,
+			getTestStructureXsd("xml"));
+
+		Document structureDocument = getStructureDocument(ddmStructure);
+
+		Element rootElement = structureDocument.getRootElement();
+
+		Element radioElement = addRadioElement(rootElement, "false", null);
+
+		addOptionElement(radioElement, 4);
+
+		addDynamicElementMetadata(radioElement, "radio");
+
+		ddmStructure.setXsd(structureDocument.asXML());
+
+		ddmStructure = updateStructure(ddmStructure);
+
+		ddmTemplate = DDMTemplateLocalServiceUtil.getDDMTemplate(
+			ddmTemplate.getTemplateId());
+
+		Assert.assertNotEquals(ddmStructure.getXsd(), ddmTemplate.getScript());
+	}
+
+	@Test
+	public void testOverrideTemplateSelectElement() throws Exception {
+		String structureName = ServiceTestUtil.randomString();
+		String templateName = ServiceTestUtil.randomString();
+
+		DDMStructure ddmStructure = addStructure(_classNameId, structureName);
+
+		DDMTemplate ddmTemplate = addFormTemplate(
+			ddmStructure.getStructureId(), templateName,
+			getTestStructureXsd("xml"));
+
+		Document structureDocument = getStructureDocument(ddmStructure);
+
+		Element rootElement = structureDocument.getRootElement();
+
+		Element selectElement = addSelectElement(rootElement, "true", null);
+
+		addDynamicElementMetadata(selectElement, "select");
+
+		ddmStructure.setXsd(structureDocument.asXML());
+
+		ddmStructure = updateStructure(ddmStructure);
+
+		ddmTemplate = DDMTemplateLocalServiceUtil.getDDMTemplate(
+			ddmTemplate.getTemplateId());
+
+		Document templateDocument = SAXReaderUtil.read(ddmTemplate.getScript());
+
+		addOptionElement(templateDocument, "select", 4);
+
+		ddmTemplate.setScript(templateDocument.asXML());
+
+		DDMTemplateLocalServiceUtil.updateDDMTemplate(ddmTemplate);
+
+		ddmStructure = updateStructure(ddmStructure);
+
+		ddmTemplate = DDMTemplateLocalServiceUtil.getDDMTemplate(
+			ddmTemplate.getTemplateId());
+
+		Assert.assertEquals(ddmStructure.getXsd(), ddmTemplate.getScript());
+	}
+
+	@Test
+	public void testOverrideTemplateSelectElement2() throws Exception {
+		String structureName = ServiceTestUtil.randomString();
+		String templateName = ServiceTestUtil.randomString();
+
+		DDMStructure ddmStructure = addStructure(_classNameId, structureName);
+
+		DDMTemplate ddmTemplate = addFormTemplate(
+			ddmStructure.getStructureId(), templateName,
+			getTestStructureXsd("xml"));
+
+		Document templateDocument = SAXReaderUtil.read(ddmTemplate.getScript());
+
+		Element selectElement = addSelectElement(
+			templateDocument, "true", "select1");
+
+		addDynamicElementMetadata(selectElement, "select");
+
+		ddmTemplate.setScript(templateDocument.asXML());
+
+		DDMTemplateLocalServiceUtil.updateDDMTemplate(ddmTemplate);
+
+		Document structureDocument = getStructureDocument(ddmStructure);
+
+		selectElement = addSelectElement(structureDocument, "true", "select1");
+
+		addDynamicElementMetadata(selectElement, "select");
+
+		ddmStructure.setXsd(structureDocument.asXML());
+
+		ddmStructure = updateStructure(ddmStructure);
+
+		ddmTemplate = DDMTemplateLocalServiceUtil.getDDMTemplate(
+			ddmTemplate.getTemplateId());
+
+		Assert.assertEquals(ddmStructure.getXsd(), ddmTemplate.getScript());
+	}
+
+	@Test
+	public void testFailOverrideTemplateSelectElement() throws Exception {
+		String structureName = ServiceTestUtil.randomString();
+		String templateName = ServiceTestUtil.randomString();
+
+		DDMStructure ddmStructure = addStructure(_classNameId, structureName);
+
+		DDMTemplate ddmTemplate = addFormTemplate(
+			ddmStructure.getStructureId(), templateName,
+			getTestStructureXsd("xml"));
+
+		Document templateDocument = SAXReaderUtil.read(ddmTemplate.getScript());
+
+		Element selectElement = addSelectElement(
+			templateDocument, "true", "select2");
+
+		addDynamicElementMetadata(selectElement, "select");
+
+		ddmTemplate.setScript(templateDocument.asXML());
+
+		DDMTemplateLocalServiceUtil.updateDDMTemplate(ddmTemplate);
+
+		Document structureDocument = getStructureDocument(ddmStructure);
+
+		selectElement = addSelectElement(structureDocument, "true", "select1");
+
+		addDynamicElementMetadata(selectElement, "select");
+
+		ddmStructure.setXsd(structureDocument.asXML());
+
+		ddmStructure = updateStructure(ddmStructure);
+
+		ddmTemplate = DDMTemplateLocalServiceUtil.getDDMTemplate(
+			ddmTemplate.getTemplateId());
+
+		Assert.assertEquals(ddmStructure.getXsd(), ddmTemplate.getScript());
+	}
+
+	protected Element addRootElement(Document document) {
+		Element rootElement = document.addElement("root");
+
+		rootElement.addAttribute("available-locales", "en_US");
+		rootElement.addAttribute("default-locale", "en_US");
+
+		return rootElement;
+	}
+
+	protected Element addSelectElement(
+		DDMStructure ddmStructure, String required, String name)
+			throws Exception {
+
+		Document structureDocument = getStructureDocument(ddmStructure);
+
+		Element dynamicElement = addSelectElement(
+			structureDocument, required, name);
+
+		ddmStructure.setXsd(structureDocument.asXML());
+
+		return dynamicElement;
+	}
+
+	protected Element addSelectElement(
+			Document document, String required, String name)
+		throws Exception {
+
+		Element rootElement = document.getRootElement();
+
+		return addSelectElement(rootElement, required, name);
+	}
+
+	protected Element addSelectElement(
+			Element element, String required, String name)
+		throws Exception {
+
+		Element dynamicElement = element.addElement("dynamic-element");
+
+		addDynamicElementAttributes(dynamicElement, required, "select", name);
+
+		addOptionElement(dynamicElement, 1);
+		addOptionElement(dynamicElement, 2);
+		addOptionElement(dynamicElement, 3);
+
+		return dynamicElement;
+	}
+
+	protected Element addRadioElement(
+			Element element, String required, String name)
+		throws Exception {
+
+		Element dynamicElement = element.addElement("dynamic-element");
+
+		addDynamicElementAttributes(dynamicElement, required, "radio", name);
+
+		addOptionElement(dynamicElement, 1);
+		addOptionElement(dynamicElement, 2);
+		addOptionElement(dynamicElement, 3);
+
+		return dynamicElement;
+	}
+
+	protected void addOptionElement(
+			DDMStructure ddmStructure, String type, int num)
+		throws Exception {
+
+		Document structureDocument = getStructureDocument(ddmStructure);
+
+		addOptionElement(structureDocument, type, num);
+
+		ddmStructure.setXsd(structureDocument.asXML());
+	}
+
+	protected void addOptionElement(Document document, String type, int num)
+		throws Exception {
+
+		XPath structureXPath = SAXReaderUtil.createXPath(
+			"//dynamic-element[@type=\"" + type + "\"]");
+
+		List<Node> selectNodes = structureXPath.selectNodes(document);
+
+		Node selectNode = selectNodes.get(0);
+
+		Element selectElement = (Element)selectNode;
+
+		addOptionElement(selectElement, num);
+	}
+
+	protected void addOptionElement(Element dynamicElement, int num)
+		throws Exception {
+
+		Element optionElement = dynamicElement.addElement("dynamic-element");
+
+		optionElement.addAttribute("name", ServiceTestUtil.randomString());
+		optionElement.addAttribute("type", "option");
+		optionElement.addAttribute("value", "value " + num);
+
+		Element optionMetadataElement = optionElement.addElement("meta-data");
+
+		optionMetadataElement.addAttribute("locale", "en_US");
+
+		Element optionMetadataEntryElement = optionMetadataElement.addElement(
+			"entry");
+
+		optionMetadataEntryElement.addAttribute("name", "label");
+		optionMetadataEntryElement.addCDATA("option " + num);
+	}
+
+	protected Element addDynamicElementAttributes(
+			Element dynamicElement, String required, String type, String name)
+		throws Exception {
+
+		dynamicElement.addAttribute("dataType", "string");
+		dynamicElement.addAttribute("indexType", "keyword");
+		dynamicElement.addAttribute("localizable", "true");
+
+		if (type.equals("select")) {
+			dynamicElement.addAttribute("multiple", "false");
+		}
+
+		if ((name != null) && !name.equals("")) {
+			dynamicElement.addAttribute("name", name);
+		}
+		else {
+			dynamicElement.addAttribute("name", ServiceTestUtil.randomString());
+		}
+
+		dynamicElement.addAttribute("readOnly", "false");
+		dynamicElement.addAttribute("repeatable", "false");
+		dynamicElement.addAttribute("required", required);
+		dynamicElement.addAttribute("showLabel", "true");
+		dynamicElement.addAttribute("type", type);
+
+		if (type.equals("select")) {
+			dynamicElement.addAttribute("type", "select");
+		}
+
+		if (type.equals("radio")) {
+			dynamicElement.addAttribute("type", "radio");
+		}
+
+		if (type.equals("text")) {
+			dynamicElement.addAttribute("type", "text");
+		}
+
+		if (type.equals("select") || type.equals("radio")) {
+			dynamicElement.addAttribute("width", "");
+		}
+
+		if (type.equals("text")) {
+			dynamicElement.addAttribute("width", "small");
+		}
+
+		return dynamicElement;
+	}
+
+	protected void addDynamicElementMetadata(
+		Element dynamicElement, String type) {
+
+		Element metadataElement = dynamicElement.addElement("meta-data");
+
+		metadataElement.addAttribute("locale", "en_US");
+
+		Element metadataEntryElement1 = metadataElement.addElement("entry");
+
+		metadataEntryElement1.addAttribute("name", "label");
+
+		if (type.equals("select")) {
+			metadataEntryElement1.addCDATA("Select");
+		}
+
+		if (type.equals("radio")) {
+			metadataEntryElement1.addCDATA("Radio");
+		}
+
+		if (type.equals("text")) {
+			metadataEntryElement1.addCDATA("Text");
+		}
+
+		Element metadataEntryElement2 = metadataElement.addElement("entry");
+
+		metadataEntryElement2.addAttribute("name", "predefinedValue");
+
+		if (type.equals("select") || type.equals("radio")) {
+			metadataEntryElement2.addCDATA("\"\"");
+		}
+
+		if (type.equals("text")) {
+			metadataEntryElement2.addCDATA("");
+		}
+
+		Element metadataEntryElement3 = metadataElement.addElement("entry");
+
+		metadataEntryElement3.addAttribute("name", "tip");
+		metadataEntryElement3.addCDATA("");
+	}
+
+	protected Document getStructureDocument(DDMStructure ddmStructure)
+		throws Exception {
+
+		String xsd = ddmStructure.getXsd();
+
+		return SAXReaderUtil.read(xsd);
 	}
 
 	private long _classNameId = PortalUtil.getClassNameId(DDLRecord.class);
