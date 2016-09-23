@@ -1424,22 +1424,8 @@ public class DDMStructureLocalServiceImpl
 	}
 
 	protected void appendNewStructureRequiredFields(
-		DDMStructure structure, Document templateDocument) {
-
-		String xsd = structure.getXsd();
-
-		Document structureDocument = null;
-
-		try {
-			structureDocument = SAXReaderUtil.read(xsd);
-		}
-		catch (DocumentException de) {
-			if (_log.isWarnEnabled()) {
-				_log.warn(de, de);
-			}
-
-			return;
-		}
+		DDMStructure structure, Document structureDocument,
+		Document templateDocument) {
 
 		Element templateRootElement = templateDocument.getRootElement();
 
@@ -1613,6 +1599,19 @@ public class DDMStructureLocalServiceImpl
 			structure.getGroupId(), classNameId, structure.getStructureId(),
 			DDMTemplateConstants.TEMPLATE_TYPE_FORM);
 
+		Document structureDocument = null;
+
+		try {
+			structureDocument = SAXReaderUtil.read(structure.getXsd());
+		}
+		catch (DocumentException de) {
+			if (_log.isWarnEnabled()) {
+				_log.warn(de, de);
+			}
+
+			return;
+		}
+
 		for (DDMTemplate template : templates) {
 			String script = template.getScript();
 
@@ -1631,9 +1630,11 @@ public class DDMStructureLocalServiceImpl
 
 			Element templateRootElement = templateDocument.getRootElement();
 
-			syncStructureTemplatesFields(template, templateRootElement);
+			syncStructureTemplatesFields(
+				structureDocument, template, templateRootElement);
 
-			appendNewStructureRequiredFields(structure, templateDocument);
+			appendNewStructureRequiredFields(
+				structure, structureDocument, templateDocument);
 
 			try {
 				script = DDMXMLUtil.formatXML(templateDocument.asXML());
@@ -1649,7 +1650,8 @@ public class DDMStructureLocalServiceImpl
 	}
 
 	protected void syncStructureTemplatesFields(
-			DDMTemplate template, Element templateElement)
+			Document structureDocument, DDMTemplate template,
+			Element templateElement)
 		throws PortalException, SystemException {
 
 		DDMStructure structure = DDMTemplateHelperUtil.fetchStructure(template);
@@ -1693,7 +1695,8 @@ public class DDMStructureLocalServiceImpl
 				}
 			}
 
-			syncStructureTemplatesFields(template, dynamicElementElement);
+			syncStructureTemplatesFields(
+				structureDocument, template, dynamicElementElement);
 		}
 	}
 
