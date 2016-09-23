@@ -449,22 +449,27 @@ public class StringBundlerTest {
 
 	@Test
 	public void testUnsafeStringBuilderEnsureCapacity() {
-		StringBundler sb = new StringBundler(5);
+		StringBundler sb = new StringBundler(4);
 
 		sb.append("test1");
 		sb.append("test2");
 		sb.append("test3");
+
+		Assert.assertEquals("test1test2test3", sb.toString());
+
 		sb.append("test4");
 
 		Assert.assertEquals("test1test2test3test4", sb.toString());
 
-		sb.append("test5");
-
-		Assert.assertEquals("test1test2test3test4test5", sb.toString());
-
 		sb.setIndex(sb.index() - 1);
 
-		Assert.assertEquals("test1test2test3test4", sb.toString());
+		Assert.assertEquals("test1test2test3", sb.toString());
+
+		sb.append("test4test5test6test7test8test9test10");
+
+		Assert.assertEquals(
+			"test1test2test3test4test5test6test7test8test9test10",
+			sb.toString());
 	}
 
 	@Test
