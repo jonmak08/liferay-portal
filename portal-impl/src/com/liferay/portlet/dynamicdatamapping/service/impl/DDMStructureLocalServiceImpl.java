@@ -1464,42 +1464,6 @@ public class DDMStructureLocalServiceImpl
 
 			if (matchingTemplateNodes.isEmpty()) {
 				templateRootElement.add(structureElement.createCopy());
-				continue;
-			}
-
-			String type = structureElement.attributeValue("type");
-
-			if (!(type.equals("select") || type.equals("radio"))) {
-				continue;
-			}
-
-			for (Node matchingTemplateNode : matchingTemplateNodes) {
-				Element matchingTemplateElement = (Element)matchingTemplateNode;
-
-				Element parentElement = matchingTemplateElement.getParent();
-
-				boolean removeSiblingElements = false;
-
-				List<Element> removedSiblingElements = new ArrayList<Element>();
-
-				for (Element siblingElement : parentElement.elements()) {
-					if (siblingElement.equals(matchingTemplateElement)) {
-						matchingTemplateElement.detach();
-
-						removeSiblingElements = true;
-					}
-					else if (removeSiblingElements) {
-						siblingElement.detach();
-
-						removedSiblingElements.add(siblingElement);
-					}
-				}
-
-				parentElement.add(structureElement.createCopy());
-
-				for (Element siblingElement : removedSiblingElements) {
-					parentElement.add(siblingElement);
-				}
 			}
 		}
 	}
@@ -1730,6 +1694,35 @@ public class DDMStructureLocalServiceImpl
 			}
 
 			syncStructureTemplatesFields(template, dynamicElementElement);
+		}
+	}
+
+	protected void syncFieldOptions(
+			Element structureElement, Element templateElement) {
+
+		if (structureElement == null) {
+			return;
+		}
+
+		String type = templateElement.attributeValue("type");
+
+		if (!(type.equals("select") || type.equals("radio"))) {
+			return;
+		}
+
+		List<Element> metadataElements = templateElement.elements("meta-data");
+
+		templateElement.clearContent();
+
+		List<Element> dynamicElementElements = structureElement.elements(
+			"dynamic-element");
+
+		for (Element dynamicElement :dynamicElementElements) {
+			templateElement.add(dynamicElement.createCopy());
+		}
+
+		for (Element metadateElement : metadataElements) {
+			templateElement.add(metadateElement.createCopy());
 		}
 	}
 
