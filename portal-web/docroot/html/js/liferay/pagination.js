@@ -491,7 +491,7 @@ AUI.add(
 						instance._dispatchRequest(
 							{
 								itemsPerPage: itemsPerPage,
-								page: instance.get(STR_PAGE)
+								page: (event.newVal == event.prevVal) ? instance.get(STR_PAGE) : 1
 							}
 						);
 					},
