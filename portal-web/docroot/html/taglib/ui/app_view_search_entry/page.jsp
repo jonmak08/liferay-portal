@@ -53,14 +53,16 @@ List<String> versions = (List<String>)request.getAttribute("liferay-ui:app-view-
 
 		<div class="entry-metadata">
 			<span class="entry-title">
-				<c:choose>
-					<c:when test="<%= highlightEnabled %>">
-						<%= StringUtil.highlight(HtmlUtil.escape(title), queryTerms) %>
-					</c:when>
-					<c:otherwise>
-						<%= HtmlUtil.escape(title) %>
-					</c:otherwise>
-				</c:choose>
+
+				<%
+				title = HtmlUtil.escape(title);
+
+				if (highlightEnabled) {
+					title = StringUtil.highlight(title, queryTerms);
+				}
+				%>
+
+				<%= title %>
 
 				<c:if test="<%= (status != WorkflowConstants.STATUS_ANY) && (status != WorkflowConstants.STATUS_APPROVED) %>">
 					<aui:workflow-status showIcon="<%= false %>" showLabel="<%= false %>" status="<%= status %>" />
@@ -112,14 +114,16 @@ List<String> versions = (List<String>)request.getAttribute("liferay-ui:app-view-
 			</c:if>
 
 			<span class="entry-description">
-				<c:choose>
-					<c:when test="<%= highlightEnabled %>">
-						<%= StringUtil.highlight(HtmlUtil.escape(description), queryTerms) %>
-					</c:when>
-					<c:otherwise>
-						<%= HtmlUtil.escape(description) %>
-					</c:otherwise>
-				</c:choose>
+
+				<%
+				description = HtmlUtil.escape(description);
+
+				if (highlightEnabled) {
+					description = StringUtil.highlight(description, queryTerms);
+				}
+				%>
+
+				<%= description %>
 			</span>
 		</div>
 	</a>
@@ -150,16 +154,13 @@ List<String> versions = (List<String>)request.getAttribute("liferay-ui:app-view-
 
 							<%
 							String body = (Validator.isNotNull(summary.getContent()) ? HtmlUtil.escape(summary.getContent()) : fileEntry.getTitle());
+
+							if (highlightEnabled) {
+								body = StringUtil.highlight(body, queryTerms);
+							}
 							%>
 
-							<c:choose>
-								<c:when test="<%= highlightEnabled %>">
-									<%= StringUtil.highlight(body, queryTerms) %>
-								</c:when>
-								<c:otherwise>
-									<%= body %>
-								</c:otherwise>
-							</c:choose>
+							<%= body %>
 						</span>
 				</aui:a>
 			</div>
