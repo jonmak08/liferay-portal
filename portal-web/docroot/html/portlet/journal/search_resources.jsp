@@ -296,7 +296,7 @@ ArticleSearch searchContainer = new ArticleSearch(liferayPortletRequest, entryEn
 										showCheckbox="<%= JournalArticlePermission.contains(permissionChecker, article, ActionKeys.DELETE) || JournalArticlePermission.contains(permissionChecker, article, ActionKeys.UPDATE) %>"
 										status="<%= article.getStatus() %>"
 										thumbnailSrc='<%= Validator.isNotNull(article.getArticleImageURL(themeDisplay)) ? article.getArticleImageURL(themeDisplay) : themeDisplay.getPathThemeImages() + "/file_system/large/article.png" %>'
-										title="<%= (summary != null) ? summary.getTitle() : article.getTitle(locale) %>"
+										title="<%= article.getTitle(locale) %>"
 										url="<%= rowURL.toString() %>"
 										versions="<%= versions %>"
 									/>
