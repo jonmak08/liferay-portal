@@ -672,7 +672,8 @@ public class StringUtil {
 	 */
 	@Deprecated
 	public static String highlight(String s, String[] queryTerms) {
-		return SearchUtil.highlight(s, queryTerms);
+		return SearchUtil.highlight(
+			s, queryTerms, SearchUtil.HIGHLIGHT_1, SearchUtil.HIGHLIGHT_2);
 	}
 
 	/**

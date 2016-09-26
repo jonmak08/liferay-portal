@@ -28,11 +28,12 @@ import java.util.regex.Pattern;
  */
 public class SearchUtil {
 
-	public static final String[] HIGHLIGHTS = {
-		"<span class=\"highlight\">", "</span>"};
+	public static final String HIGHLIGHT_1 = "<span class=\"highlight\">";
+
+	public static final String HIGHLIGHT_2 = "</span>";
 
 	public static String highlight(String s, String[] queryTerms) {
-		return highlight(s, queryTerms, HIGHLIGHTS[0], HIGHLIGHTS[1]);
+		return highlight(s, queryTerms, HIGHLIGHT_1, HIGHLIGHT_2);
 	}
 
 	public static String highlight(
