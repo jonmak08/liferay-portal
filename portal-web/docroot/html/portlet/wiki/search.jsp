@@ -78,6 +78,8 @@ portletURL.setParameter("keywords", keywords);
 
 		QueryConfig queryConfig = new QueryConfig();
 
+		queryConfig.setHighlightEnabled(true);
+
 		searchContext.setQueryConfig(queryConfig);
 
 		searchContext.setStart(searchContainer.getStart());
@@ -128,7 +130,6 @@ portletURL.setParameter("keywords", keywords);
 				cssClass='<%= MathUtil.isEven(index) ? "search" : "search alt" %>'
 				description="<%= (summary != null) ? summary.getContent() : wikiPage.getSummary() %>"
 				fileEntryTuples="<%= searchResult.getFileEntryTuples() %>"
-				highlightEnabled="<%= queryConfig.isHighlightEnabled() %>"
 				mbMessages="<%= searchResult.getMBMessages() %>"
 				queryTerms="<%= hits.getQueryTerms() %>"
 				title="<%= (summary != null) ? summary.getTitle() : wikiPage.getTitle() %>"
