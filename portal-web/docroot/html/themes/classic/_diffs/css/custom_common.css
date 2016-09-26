@@ -860,10 +860,8 @@
 			font-weight: inherit;
 		}
 
-		table {
-			th {
-				font-weight: bold;
-			}
+		th {
+			font-weight: bold;
 		}
 	}
 
