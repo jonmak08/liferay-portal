@@ -155,20 +155,20 @@ public class Summary {
 
 		if (_highlight) {
 			text = SearchUtil.highlight(
-				text, _queryTerms, _ESCAPE_SAFE_HIGHLIGHTS[0],
-				_ESCAPE_SAFE_HIGHLIGHTS[1]);
+				text, _queryTerms, ESCAPE_SAFE_HIGHLIGHTS[0],
+				ESCAPE_SAFE_HIGHLIGHTS[1]);
 
 			text = HtmlUtil.escape(text);
 
 			return StringUtil.replace(
-					text, _ESCAPE_SAFE_HIGHLIGHTS, SearchUtil.HIGHLIGHTS);
+					text, ESCAPE_SAFE_HIGHLIGHTS, SearchUtil.HIGHLIGHTS);
 			
 		}
 
 		return text;
 	}
 
-	private static final String[] _ESCAPE_SAFE_HIGHLIGHTS =
+	private static final String[] ESCAPE_SAFE_HIGHLIGHTS =
 		{"[@HIGHLIGHT1@]", "[@HIGHLIGHT2@]"};
 
 	private String _content;
