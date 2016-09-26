@@ -18,6 +18,7 @@ import com.liferay.portal.captcha.CaptchaImpl;
 import com.liferay.portal.events.EventsProcessorUtil;
 import com.liferay.portal.kernel.bean.BeanLocatorException;
 import com.liferay.portal.kernel.bean.ClassLoaderBeanHandler;
+import com.liferay.portal.kernel.bean.IdentifiableBean;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
 import com.liferay.portal.kernel.captcha.Captcha;
@@ -2332,7 +2333,7 @@ public class HookHotDeployListener
 				PortalClassLoaderUtil.getClassLoader();
 
 			previousService = ProxyUtil.newProxyInstance(
-				portalClassLoader, new Class<?>[] {serviceTypeClass},
+				portalClassLoader, new Class<?>[] {serviceTypeClass, IdentifiableBean.class},
 				new ClassLoaderBeanHandler(previousService, portalClassLoader));
 		}
 
@@ -2340,7 +2341,7 @@ public class HookHotDeployListener
 			previousService);
 
 		Object nextTarget = ProxyUtil.newProxyInstance(
-			portletClassLoader, new Class<?>[] {serviceTypeClass},
+			portletClassLoader, new Class<?>[] {serviceTypeClass, IdentifiableBean.class},
 			new ClassLoaderBeanHandler(nextService, portletClassLoader));
 
 		TargetSource nextTargetSource = new SingletonTargetSource(nextTarget);
