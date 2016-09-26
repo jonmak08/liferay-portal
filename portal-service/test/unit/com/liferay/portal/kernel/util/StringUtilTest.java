@@ -86,15 +86,6 @@ public class StringUtilTest {
 		Assert.assertFalse(StringUtil.equalsIgnoreCase("Hello \n World", null));
 		Assert.assertFalse(StringUtil.equalsIgnoreCase("!", "A"));
 	}
-	
-	@Test
-	public void testHighlight() throws Exception {
-		Assert.assertEquals(
-			"<span class=\"highlight\">Hello</span> World <span " +
-				"class=\"highlight\">Liferay</span>",
-			StringUtil.highlight(
-				"Hello World Liferay", new String[] {"Hello","Liferay"}));
-	}
 
 	@Test
 	public void testIndexOfAny() throws Exception {
