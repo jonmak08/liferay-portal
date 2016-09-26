@@ -70,7 +70,7 @@ public class GroupFinderImpl
 		GroupFinder.class.getName() + ".countByC_PG_N_D";
 
 	public static final String FIND_BY_COMPANY_ID =
-			GroupFinder.class.getName() + ".findByCompanyId";
+		GroupFinder.class.getName() + ".findByCompanyId";
 
 	public static final String FIND_BY_LAYOUTS =
 		GroupFinder.class.getName() + ".findByLayouts";
@@ -1450,7 +1450,6 @@ public class GroupFinderImpl
 
 		long groupClassNameId = groupOrganizationClassNameIds[0];
 		long organizationClassNameId = groupOrganizationClassNameIds[1];
-
 		long userGroupClassNameId = _getUserGroupClassNameId();
 
 		for (long classNameId : classNameIds) {
