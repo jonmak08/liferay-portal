@@ -40,7 +40,6 @@ List<String> versions = (List<String>)request.getAttribute("liferay-ui:app-view-
 
 Summary summary = new Summary(title, description, null);
 
-summary.setHighlight(highlightEnabled);
 summary.setQueryTerms(queryTerms);
 %>
 
@@ -58,7 +57,7 @@ summary.setQueryTerms(queryTerms);
 
 		<div class="entry-metadata">
 			<span class="entry-title">
-				<%= summary.getHighlightedContent() %>
+				<%= summary.getTitle(escape, highlightEnabled) %>
 
 				<c:if test="<%= (status != WorkflowConstants.STATUS_ANY) && (status != WorkflowConstants.STATUS_APPROVED) %>">
 					<aui:workflow-status showIcon="<%= false %>" showLabel="<%= false %>" status="<%= status %>" />
@@ -110,7 +109,7 @@ summary.setQueryTerms(queryTerms);
 			</c:if>
 
 			<span class="entry-description">
-				<%= summary.getHighlightedContent() %>
+				<%= summary.getContent(escape, highlightEnabled) %>
 			</span>
 		</div>
 	</a>
@@ -142,7 +141,7 @@ summary.setQueryTerms(queryTerms);
 						</span>
 
 						<span class="body">
-							<%= summary.getHighlightedContent() %>
+							<%= summary.getContent(escape, highlightEnabled) %>
 						</span>
 				</aui:a>
 			</div>
@@ -177,7 +176,7 @@ summary.setQueryTerms(queryTerms);
 					</span>
 
 					<span class="body">
-						<%= summary.getHighlightedContent() %>
+						<%= summary.getContent(escape, highlightEnabled) %>
 					</span>
 				</aui:a>
 			</div>
