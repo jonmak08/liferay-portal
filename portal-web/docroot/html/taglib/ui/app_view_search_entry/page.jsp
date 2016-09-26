@@ -160,9 +160,6 @@ summary.setQueryTerms(queryTerms);
 			User userDisplay = UserLocalServiceUtil.getUser(mbMessage.getUserId());
 
 			summary = new Summary(null, mbMessage.getSubject(), null);
-
-			summary.setHighlight(highlightEnabled);
-			summary.setQueryTerms(queryTerms);
 		%>
 
 			<div class="entry-discussion">
