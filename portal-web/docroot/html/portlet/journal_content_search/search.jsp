@@ -92,9 +92,7 @@
 
 					Summary summary = indexer.getSummary(doc, locale, StringPool.BLANK, summaryURL);
 
-					summary.setHighlight(PropsValues.INDEX_SEARCH_HIGHLIGHT_ENABLED);
-
-					ResultRow row = new ResultRow(new Object[] {queryTerms, doc, summary}, i, i);
+					ResultRow row = new ResultRow(new Object[] {queryTerms, doc, queryConfig.isHighlightEnabled(), summary}, i, i);
 
 					// Position
 
@@ -104,7 +102,11 @@
 
 					// Title
 
-					String title = HtmlUtil.escape(summary.getHighlightedTitle(queryTerms));
+					String title = HtmlUtil.escape(summary.getTitle());
+
+					if (queryConfig.isHighlightEnabled()) {
+						title = StringUtil.highlight(title, queryTerms);
+					}
 
 					row.addText(title);
 
