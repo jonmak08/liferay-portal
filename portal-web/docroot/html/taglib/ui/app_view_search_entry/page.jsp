@@ -37,10 +37,6 @@ String thumbnailSrc = (String)request.getAttribute("liferay-ui:app-view-search-e
 String title = (String)request.getAttribute("liferay-ui:app-view-search-entry:title");
 String url = (String)request.getAttribute("liferay-ui:app-view-search-entry:url");
 List<String> versions = (List<String>)request.getAttribute("liferay-ui:app-view-search-entry:versions");
-
-Summary summary = new Summary(title, description, null);
-
-summary.setQueryTerms(queryTerms);
 %>
 
 <div class="app-view-entry app-view-search-entry-taglib entry-display-style <%= showCheckbox ? "selectable" : StringPool.BLANK %> <%= cssClass %>" data-title="<%= HtmlUtil.escapeAttribute(StringUtil.shorten(title, 60)) %>">
@@ -57,7 +53,14 @@ summary.setQueryTerms(queryTerms);
 
 		<div class="entry-metadata">
 			<span class="entry-title">
-				<%= summary.getTitle(escape, highlightEnabled) %>
+				<c:choose>
+					<c:when test="<%= highlightEnabled %>">
+						<%= StringUtil.highlight(HtmlUtil.escape(title), queryTerms) %>
+					</c:when>
+					<c:otherwise>
+						<%= HtmlUtil.escape(title) %>
+					</c:otherwise>
+				</c:choose>
 
 				<c:if test="<%= (status != WorkflowConstants.STATUS_ANY) && (status != WorkflowConstants.STATUS_APPROVED) %>">
 					<aui:workflow-status showIcon="<%= false %>" showLabel="<%= false %>" status="<%= status %>" />
@@ -109,7 +112,14 @@ summary.setQueryTerms(queryTerms);
 			</c:if>
 
 			<span class="entry-description">
-				<%= summary.getContent(escape, highlightEnabled) %>
+				<c:choose>
+					<c:when test="<%= highlightEnabled %>">
+						<%= StringUtil.highlight(HtmlUtil.escape(description), queryTerms) %>
+					</c:when>
+					<c:otherwise>
+						<%= HtmlUtil.escape(description) %>
+					</c:otherwise>
+				</c:choose>
 			</span>
 		</div>
 	</a>
@@ -119,11 +129,7 @@ summary.setQueryTerms(queryTerms);
 		<%
 		for (Tuple fileEntryTuple : fileEntryTuples) {
 			FileEntry fileEntry = (FileEntry)fileEntryTuple.getObject(0);
-			summary = (Summary)fileEntryTuple.getObject(1);
-
-			if (Validator.isNull(summary.getContent())) {
-				summary.setContent(fileEntry.getTitle());
-			}
+			Summary summary = (Summary)fileEntryTuple.getObject(1);
 		%>
 
 			<div class="entry-attachment">
@@ -141,7 +147,19 @@ summary.setQueryTerms(queryTerms);
 						</span>
 
 						<span class="body">
-							<%= summary.getContent(escape, highlightEnabled) %>
+
+							<%
+							String body = (Validator.isNotNull(summary.getContent()) ? HtmlUtil.escape(summary.getContent()) : fileEntry.getTitle());
+							%>
+
+							<c:choose>
+								<c:when test="<%= highlightEnabled %>">
+									<%= StringUtil.highlight(body, queryTerms) %>
+								</c:when>
+								<c:otherwise>
+									<%= body %>
+								</c:otherwise>
+							</c:choose>
 						</span>
 				</aui:a>
 			</div>
@@ -157,8 +175,6 @@ summary.setQueryTerms(queryTerms);
 		<%
 		for (MBMessage mbMessage : mbMessages) {
 			User userDisplay = UserLocalServiceUtil.getUser(mbMessage.getUserId());
-
-			summary = new Summary(null, mbMessage.getSubject(), null);
 		%>
 
 			<div class="entry-discussion">
@@ -176,7 +192,12 @@ summary.setQueryTerms(queryTerms);
 					</span>
 
 					<span class="body">
-						<%= summary.getContent(escape, highlightEnabled) %>
+						<c:when test="<%= highlightEnabled %>">
+							<%= HtmlUtil.escape(StringUtil.highlight(mbMessage.getSubject(), queryTerms)) %>
+						</c:when>
+						<c:otherwise>
+							<%= HtmlUtil.escape(mbMessage.getSubject()) %>
+						</c:otherwise>
 					</span>
 				</aui:a>
 			</div>
