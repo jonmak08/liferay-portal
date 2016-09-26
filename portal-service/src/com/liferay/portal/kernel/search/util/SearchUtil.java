@@ -28,11 +28,6 @@ import java.util.regex.Pattern;
  */
 public class SearchUtil {
 
-	public static final String DEFAULT_HIGHLIGHT_1 =
-		"<span class=\"highlight\">";
-
-	public static final String DEFAULT_HIGHLIGHT_2 = "</span>";
-
 	/**
 	 * Returns the string <code>s</code> with any of the query terms found
 	 * within it highlighted with HTML.
@@ -45,7 +40,7 @@ public class SearchUtil {
 	 */
 	public static String highlight(String s, String[] queryTerms) {
 		return highlight(
-			s, queryTerms, DEFAULT_HIGHLIGHT_1, DEFAULT_HIGHLIGHT_2);
+			s, queryTerms, "<span class=\"highlight\">", "</span>");
 	}
 
 	/**
