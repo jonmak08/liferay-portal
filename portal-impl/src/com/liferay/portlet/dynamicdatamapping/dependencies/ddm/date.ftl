@@ -23,9 +23,17 @@
 	<#assign month = fieldValue.get(MONTH)>
 	<#assign year = fieldValue.get(YEAR)>
 <#else>
-	<#assign day = 0>
-	<#assign month = -1>
-	<#assign year = 0>
+	<#if required>
+		<#assign calendar = calendarFactory.getCalendar(timeZone)>
+
+		<#assign day = calendar.get(DATE)>
+		<#assign month = calendar.get(MONTH)>
+		<#assign year = calendar.get(YEAR)>
+	<#else>
+		<#assign day = 0>
+		<#assign month = -1>
+		<#assign year = 0>
+	</#if>
 </#if>
 
 <#if cssClass??>
