@@ -5,6 +5,8 @@
 	<property name="testray.main.component.name" value="Upgrades" />
 
 	<command name="View6130DataArchive" priority="5">
+		<property name="portal.acceptance" value="pending" />
+
 		<execute macro="Upgrade#viewDataArchiveVersion2" />
 	</command>
 </definition>
