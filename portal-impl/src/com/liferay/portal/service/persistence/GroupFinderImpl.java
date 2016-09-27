@@ -1118,7 +1118,8 @@ public class GroupFinderImpl
 			else if (key.equals("classNameIds")) {
 				if (entry.getValue() instanceof Long) {
 					Long entryValue = (Long)entry.getValue();
-					qPos.add(entryValue.longValue());
+
+					qPos.add(entryValue);
 				}
 				else {
 					for (long classNameId : (long[])entry.getValue()) {
