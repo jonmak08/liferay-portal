@@ -954,6 +954,7 @@ else {
 	if (portlet.isStaticStart()) {
 		staticVar = "start";
 	}
+
 	if (portlet.isStaticEnd()) {
 		staticVar = "end";
 	}
