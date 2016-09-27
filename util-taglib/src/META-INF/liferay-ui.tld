@@ -368,6 +368,11 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<attribute>
+			<name>highlightEnabled</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
 			<description>Whether the entry is locked. The default value is <![CDATA[<code>false</code>]]>.</description>
 			<name>locked</name>
 			<required>false</required>

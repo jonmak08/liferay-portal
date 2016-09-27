@@ -63,12 +63,6 @@
 				searchContext.setGroupIds(null);
 				searchContext.setKeywords(keywords);
 
-				QueryConfig queryConfig = new QueryConfig();
-
-				queryConfig.setHighlightEnabled(true);
-
-				searchContext.setQueryConfig(queryConfig);
-
 				Hits hits = indexer.search(searchContext);
 
 				String[] queryTerms = hits.getQueryTerms();
@@ -94,7 +88,10 @@
 
 					Summary summary = indexer.getSummary(doc, locale, StringPool.BLANK, summaryURL);
 
-					ResultRow row = new ResultRow(new Object[] {queryTerms, doc, summary}, i, i);
+					summary.setHighlight(PropsValues.INDEX_SEARCH_HIGHLIGHT_ENABLED);
+					summary.setQueryTerms(queryTerms);
+
+					ResultRow row = new ResultRow(new Object[] {doc, summary}, i, i);
 
 					// Position
 
@@ -104,9 +101,7 @@
 
 					// Title
 
-					String title = HtmlUtil.escape(summary.getTitle());
-
-					title = StringUtil.highlight(title, queryTerms);
+					String title = summary.getHighlightedTitle();
 
 					row.addText(title);
 

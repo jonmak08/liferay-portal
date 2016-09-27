@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.search.util.SearchUtil;
 import com.liferay.portal.kernel.security.RandomUtil;
 
 import java.io.IOException;
@@ -665,45 +666,24 @@ public class StringUtil {
 		return _highlight(s, pattern, highlight1, highlight2);
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, moved to {@link SearchUtil#highlight(String,
+	 *             String[])}}
+	 */
+	@Deprecated
 	public static String highlight(String s, String[] queryTerms) {
-		return highlight(
-			s, queryTerms, "<span class=\"highlight\">", "</span>");
+		return SearchUtil.highlight(s, queryTerms);
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, moved to {@link SearchUtil#highlight(String,
+	 *             String[], String, String)}}
+	 */
+	@Deprecated
 	public static String highlight(
 		String s, String[] queryTerms, String highlight1, String highlight2) {
 
-		if (_highlightEnabled == null) {
-			_highlightEnabled = GetterUtil.getBoolean(
-				PropsUtil.get(PropsKeys.INDEX_SEARCH_HIGHLIGHT_ENABLED));
-		}
-
-		if (Validator.isNull(s) || ArrayUtil.isEmpty(queryTerms) ||
-			!_highlightEnabled) {
-
-			return s;
-		}
-
-		StringBundler sb = new StringBundler(2 * queryTerms.length - 1);
-
-		for (int i = 0; i < queryTerms.length; i++) {
-			sb.append(Pattern.quote(queryTerms[i].trim()));
-
-			if ((i + 1) < queryTerms.length) {
-				sb.append(StringPool.PIPE);
-			}
-		}
-
-		int flags = Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE;
-
-		Pattern pattern = Pattern.compile(sb.toString(), flags);
-
-		s = _highlight(
-			HtmlUtil.unescape(s), pattern, _ESCAPE_SAFE_HIGHLIGHTS[0],
-			_ESCAPE_SAFE_HIGHLIGHTS[1]);
-
-		return StringUtil.replace(
-			HtmlUtil.escape(s), _ESCAPE_SAFE_HIGHLIGHTS, _HIGHLIGHTS);
+		return SearchUtil.highlight(s, queryTerms, highlight1, highlight2);
 	}
 
 	/**
