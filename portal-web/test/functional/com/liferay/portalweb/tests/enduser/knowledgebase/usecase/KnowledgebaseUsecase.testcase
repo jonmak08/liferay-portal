@@ -17,15 +17,12 @@
 	</tear-down>
 
 	<command name="DeleteConfiguredKBFolder" priority="4">
-		<var name="kbArticleContent" value="Article Content" />
-		<var name="pageName" value="Knowledge Base Page" />
-
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Page" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -37,7 +34,7 @@
 		</execute>
 
 		<execute macro="KBArticle#addCP">
-			<var name="kbArticleContent" value="${kbArticleContent}" />
+			<var name="kbArticleContent" value="Article Content" />
 			<var name="kbArticleTitle" value="KB Article Outside Folder" />
 		</execute>
 
@@ -51,12 +48,12 @@
 		</execute>
 
 		<execute macro="KBArticle#addCP">
-			<var name="kbArticleContent" value="${kbArticleContent}" />
+			<var name="kbArticleContent" value="Article Content" />
 			<var name="kbArticleTitle" value="KB Article Inside Folder" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Page" />
 		</execute>
 
 		<execute macro="KBArticle#configureKBFolderDisplay">
@@ -72,7 +69,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Page" />
 		</execute>
 
 		<execute macro="KBArticle#viewDefaultPGViaKBDisplay" />
@@ -82,11 +79,11 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Page" />
 		</execute>
 
 		<execute macro="KBArticle#viewViaKBDisplayPG">
-			<var name="kbArticleContent" value="${kbArticleContent}" />
+			<var name="kbArticleContent" value="Article Content" />
 			<var name="kbArticleTitle" value="KB Article Outside Folder" />
 		</execute>
 	</command>
@@ -564,13 +561,11 @@
 	</command>
 
 	<command name="SearchKBArticlesViaKBSearchPG" priority="5">
-		<var name="kbArticleCounterList" value="1,2" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Knowledge Base" />
 		</execute>
 
-		<for list="${kbArticleCounterList}" param="kbCount">
+		<for list="1,2" param="kbCount">
 			<execute macro="KBArticle#addCP">
 				<var name="kbArticleContent" value="Knowledge Base Article Content ${kbCount}" />
 				<var name="kbArticleTitle" value="Knowledge Base Article Title ${kbCount}" />
@@ -1121,18 +1116,12 @@
 	</command>
 
 	<command name="ViewKBArticleFriendlyURL" priority="3">
-		<var name="kbArticleContent" value="KB Article Content" />
-		<var name="kbArticleContent2" value="KB Article 2 Content" />
-		<var name="kbArticleTitle" value="Article Title" />
-		<var name="kbArticleTitle2" value="KB Article 2 Title" />
-		<var name="pageName" value="Knowledge Base Display" />
-
 		<execute macro="Page#addPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Display" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Display" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -1144,42 +1133,37 @@
 		</execute>
 
 		<execute macro="KBArticle#addCP">
-			<var name="kbArticleContent" value="${kbArticleContent}" />
+			<var name="kbArticleContent" value="KB Article Content" />
 			<var name="kbArticleFriendlyURL" value="friendly-url-test" />
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
+			<var name="kbArticleTitle" value="Article Title" />
 		</execute>
 
 		<execute macro="KBArticle#addCP">
-			<var name="kbArticleContent" value="${kbArticleContent2}" />
-			<var name="kbArticleTitle" value="${kbArticleTitle2}" />
+			<var name="kbArticleContent" value="KB Article 2 Content" />
+			<var name="kbArticleTitle" value="KB Article 2 Title" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Display" />
 		</execute>
 
 		<execute macro="KBArticle#gotoViaKBDisplayPG">
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
+			<var name="kbArticleTitle" value="Article Title" />
 		</execute>
 
 		<execute macro="KBArticle#viewKBDisplayPG">
 			<var name="kbArticleFriendlyURL" value="friendly-url-test" />
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
+			<var name="kbArticleTitle" value="Article Title" />
 		</execute>
 
 		<execute macro="KBArticle#viewPGViaKBDisplay">
-			<var name="kbArticleContent" value="${kbArticleContent}" />
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
+			<var name="kbArticleContent" value="KB Article Content" />
+			<var name="kbArticleTitle" value="Article Title" />
 		</execute>
 	</command>
 
 	<command name="ViewKBArticleGitHubSourceURL" priority="3">
 		<property name="portlet.properties.knowledge-base-portlet" value="knowledge.base.source.url.enabled=true" />
-
-		<var name="history" value="true" />
-		<var name="kbArticleSourceURL" value="https://www.google.com/?gws_rd=ssl" />
-		<var name="print" value="true" />
-		<var name="subscribe" value="true" />
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Knowledge Base" />
@@ -1187,7 +1171,7 @@
 
 		<execute macro="KBArticle#addCP">
 			<var name="kbArticleContent" value="Knowledge Base Article Content" />
-			<var name="kbArticleSourceURL" value="${kbArticleSourceURL}" />
+			<var name="kbArticleSourceURL" value="https://www.google.com/?gws_rd=ssl" />
 			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 		</execute>
 
@@ -1208,26 +1192,21 @@
 		</execute>
 
 		<execute macro="KBArticle#viewKBDisplayPG">
-			<var name="history" value="${history}" />
+			<var name="history" value="true" />
 			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
-			<var name="print" value="${print}" />
+			<var name="print" value="true" />
 			<var name="sourceURL" value="true" />
-			<var name="subscribe" value="${subscribe}" />
+			<var name="subscribe" value="true" />
 		</execute>
 	</command>
 
 	<command name="ViewKBArticleNoHierarchyInFolder" priority="3">
-		<var name="kbArticleContent" value="Test Content" />
-		<var name="kbArticleTitle" value="Article 1 Title" />
-		<var name="kbFolderName" value="Folder 1" />
-		<var name="pageName" value="Knowledge Base Page" />
-
 		<execute macro="Page#addPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Page" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -1239,7 +1218,7 @@
 		</execute>
 
 		<execute macro="KBFolder#addCP">
-			<var name="kbFolderName" value="${kbFolderName}" />
+			<var name="kbFolderName" value="Folder 1" />
 		</execute>
 
 		<execute macro="KBFolder#addCP">
@@ -1247,22 +1226,22 @@
 		</execute>
 
 		<execute macro="KBArticle#addCP">
-			<var name="kbArticleContent" value="${kbArticleContent}" />
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
+			<var name="kbArticleContent" value="Test Content" />
+			<var name="kbArticleTitle" value="Article 1 Title" />
 		</execute>
 
 		<execute macro="KBArticle#addCP">
-			<var name="kbArticleContent" value="${kbArticleContent}" />
+			<var name="kbArticleContent" value="Test Content" />
 			<var name="kbArticleTitle" value="Article 2 Title" />
 		</execute>
 
 		<execute macro="KBArticle#moveArticleCP">
 			<var name="kbArticleCurrentParent" value="(None)" />
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
+			<var name="kbArticleTitle" value="Article 1 Title" />
 		</execute>
 
 		<execute macro="KBFolder#selectParentCP">
-			<var name="kbFolderName" value="${kbFolderName}" />
+			<var name="kbFolderName" value="Folder 1" />
 		</execute>
 
 		<execute macro="KBArticle#moveArticleCP">
@@ -1275,11 +1254,11 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Page" />
 		</execute>
 
 		<execute macro="KBArticle#viewNoHierarchyPG">
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
+			<var name="kbArticleTitle" value="Article 1 Title" />
 		</execute>
 	</command>
 
@@ -1961,8 +1940,6 @@
 	</command>
 
 	<command name="ViewKBArticlesWithTheSamePriorityViaNavigationLinks" priority="3">
-		<var name="kbArticleCounterList" value="1,2,3" />
-
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
@@ -1979,14 +1956,14 @@
 			<var name="portletName" value="Knowledge Base" />
 		</execute>
 
-		<for list="${kbArticleCounterList}" param="kbCount">
+		<for list="1,2,3" param="kbCount">
 			<execute macro="KBArticle#addCP">
 				<var name="kbArticleContent" value="Knowledge Base Article Parent Content ${kbCount}" />
 				<var name="kbArticleTitle" value="Knowledge Base Article Parent Title ${kbCount}" />
 			</execute>
 		</for>
 
-		<for list="${kbArticleCounterList}" param="kbCount">
+		<for list="1,2,3" param="kbCount">
 			<execute macro="KBArticle#viewKBArticlePriorityCP">
 				<var name="kbArticleTitle" value="Knowledge Base Article Parent Title ${kbCount}" />
 				<var name="kbPriority" value="${kbCount}.0" />
@@ -2458,7 +2435,6 @@
 	</command>
 
 	<command name="ViewUnchangedKBArticlePriorityAfterEdit" priority="5">
-		<var name="kbArticleCounterList" value="1,2,3" />
 
 		<!-- Change the layout to 70/30 to widen the portlet so to avoid "Element cannot be scrolled into view" error -->
 
@@ -2484,7 +2460,7 @@
 			<var name="kbArticleTitle" value="Knowledge Base Article Parent Title 1" />
 		</execute>
 
-		<for list="${kbArticleCounterList}" param="kbCount">
+		<for list="1,2,3" param="kbCount">
 			<execute macro="KBArticle#addChildPGViaKBAdmin">
 				<var name="kbArticleTitle" value="Knowledge Base Article Parent Title 1" />
 				<var name="kbChildArticleContent" value="Knowledge Base Article Parent Content 1 Child ${kbCount}" />
@@ -2497,7 +2473,7 @@
 			<var name="kbArticleTitle" value="Knowledge Base Article Parent Title 1" />
 		</execute>
 
-		<for list="${kbArticleCounterList}" param="kbCount">
+		<for list="1,2,3" param="kbCount">
 			<execute macro="KBArticle#viewKBArticlePriorityCP">
 				<var name="kbArticleTitle" value="Knowledge Base Article Parent Title 1 Child ${kbCount}" />
 				<var name="kbPriority" value="${kbCount}.0" />

@@ -11,7 +11,7 @@
 		</execute>
 
 		<execute macro="Site#addBlankCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -19,7 +19,7 @@
 		</execute>
 
 		<execute macro="SitePage#addCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="sitePageName" value="Staging Test Page" />
 			<var name="sitePagePrivacy" value="Public" />
 		</execute>
@@ -94,35 +94,32 @@
 	<command name="PublishCustomPortletTitle" priority="5">
 		<execute test-case="super#AddSitePagesVariation" />
 
-		<var name="pageName" value="Staging Test Page" />
-		<var name="portletName" value="Sites Directory" />
-
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Staging Test Page" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
-			<var name="portletName" value="${portletName}" />
+			<var name="portletName" value="Sites Directory" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Staging Test Page" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="SitesDirectory#viewPortletTitlePG">
-			<var name="portletName" value="${portletName}" />
+			<var name="portletName" value="Sites Directory" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Staging Test Page" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -131,18 +128,18 @@
 		</execute>
 
 		<execute macro="SitesDirectory#configureCustomTitleViaLookandfeelPG">
-			<var name="portletName" value="${portletName}" />
+			<var name="portletName" value="Sites Directory" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Staging Test Page" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="SitesDirectory#viewPortletTitlePG">
-			<var name="portletName" value="${portletName} Custom" />
+			<var name="portletName" value="Sites Directory Custom" />
 		</execute>
 
 		<execute macro="Staging#gotoPublishToLive" />
@@ -154,19 +151,19 @@
 		<execute macro="Staging#publishToLive" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Staging Test Page" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Portlet#viewNoSpecificPG">
-			<var name="portletName" value="${portletName}" />
+			<var name="portletName" value="Sites Directory" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Staging Test Page" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -175,13 +172,13 @@
 		<execute macro="Staging#publishToLive" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Staging Test Page" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="SitesDirectory#viewPortletTitlePG">
-			<var name="portletName" value="${portletName} Custom" />
+			<var name="portletName" value="Sites Directory Custom" />
 		</execute>
 	</command>
 
@@ -457,18 +454,14 @@
 	</command>
 
 	<command name="StagingDemoLocalLive1" priority="5">
-		<var name="pageName" value="Staging Test Page" />
-		<var name="roleName" value="Staging Admin" />
-		<var name="siteName" value="${siteName}" />
-
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Staging#activateStagingCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -479,7 +472,7 @@
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Roles" />
-			<var name="roleName" value="${roleName}" />
+			<var name="roleName" value="Staging Admin" />
 		</execute>
 
 		<execute macro="Role#definePermissionCmdCP">
@@ -487,7 +480,7 @@
 			<var name="permissionDefinitionValue" value="Action" />
 			<var name="permissionNavigationKey" value="SITE_ADMIN_CONTENT_DOCUMENTS_AND_MEDIA" />
 			<var name="permissionNavigationValue" value="Documents and Media" />
-			<var name="roleName" value="${roleName}" />
+			<var name="roleName" value="Staging Admin" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -513,8 +506,8 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
+			<var name="siteScopeName" value="Site Name" />
 		</execute>
 
 		<execute macro="Site#addMemberCP">
@@ -525,12 +518,12 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
+			<var name="siteScopeName" value="Site Name" />
 		</execute>
 
 		<execute macro="Site#assignRoleCP">
-			<var name="roleName" value="${roleName}" />
+			<var name="roleName" value="Staging Admin" />
 			<var name="userFirstName" value="userfn" />
 			<var name="userLastName" value="userln" />
 			<var name="userScreenName" value="usersn" />
@@ -542,9 +535,9 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Staging Test Page" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -559,33 +552,33 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Staging Test Page" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Staging#gotoPublishToLive" />
 
 		<execute macro="Staging#configurePublishToLive">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Staging Test Page" />
 			<var name="uncheckContentNameList" value="Documents and Media" />
 		</execute>
 
 		<execute macro="Staging#publishToLive" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Staging Test Page" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="DMPortlet#viewDefaultPG" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Staging Test Page" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -593,14 +586,14 @@
 
 		<execute macro="Staging#configurePublishToLive">
 			<var name="contentDateRange" value="All" />
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Staging Test Page" />
 		</execute>
 
 		<execute macro="Staging#publishToLive" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Staging Test Page" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -611,28 +604,24 @@
 	</command>
 
 	<command name="StagingDemoLocalLive2" priority="5">
-		<var name="pageName" value="Home" />
-		<var name="roleName" value="Staging Admin" />
-		<var name="siteName" value="Community Site Name" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
 		<execute macro="Site#addCommunityCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="uncheckPropagation" value="true" />
 		</execute>
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Staging#activateStagingCP">
 			<var name="pageVersioningEnabled" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -643,7 +632,7 @@
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
-			<var name="roleName" value="${roleName}" />
+			<var name="roleName" value="Staging Admin" />
 		</execute>
 
 		<execute macro="User#addCP">
@@ -665,8 +654,8 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
+			<var name="siteScopeName" value="Community Site Name" />
 		</execute>
 
 		<execute macro="Site#addMemberCP">
@@ -677,12 +666,12 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
+			<var name="siteScopeName" value="Community Site Name" />
 		</execute>
 
 		<execute macro="Site#assignRoleCP">
-			<var name="roleName" value="${roleName}" />
+			<var name="roleName" value="Staging Admin" />
 			<var name="userFirstName" value="userfn" />
 			<var name="userLastName" value="userln" />
 			<var name="userScreenName" value="usersn" />
@@ -694,9 +683,9 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -732,8 +721,8 @@
 		<execute macro="Staging#publishToLive" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Home" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -743,28 +732,24 @@
 	</command>
 
 	<command name="StagingDemoLocalLive3" priority="5">
-		<var name="pageName" value="Home" />
-		<var name="roleName" value="Staging Admin" />
-		<var name="siteName" value="Community Site Name" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
 		<execute macro="Site#addCommunityCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="uncheckPropagation" value="true" />
 		</execute>
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Staging#activateStagingCP">
 			<var name="pageVersioningEnabled" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -775,7 +760,7 @@
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
-			<var name="roleName" value="${roleName}" />
+			<var name="roleName" value="Staging Admin" />
 		</execute>
 
 		<execute macro="User#addCP">
@@ -797,8 +782,8 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
+			<var name="siteScopeName" value="Community Site Name" />
 		</execute>
 
 		<execute macro="Site#addMemberCP">
@@ -809,12 +794,12 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
+			<var name="siteScopeName" value="Community Site Name" />
 		</execute>
 
 		<execute macro="Site#assignRoleCP">
-			<var name="roleName" value="${roleName}" />
+			<var name="roleName" value="Staging Admin" />
 			<var name="userFirstName" value="userfn" />
 			<var name="userLastName" value="userln" />
 			<var name="userScreenName" value="usersn" />
@@ -826,9 +811,9 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -837,9 +822,9 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -848,9 +833,9 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -860,9 +845,9 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -871,9 +856,9 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -884,7 +869,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Wiki" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -895,7 +880,7 @@
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Test Page Name" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -909,7 +894,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Test Page Name" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -925,7 +910,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Test Page Name" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -934,7 +919,7 @@
 		</execute>
 
 		<execute macro="Page#deletePG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 		</execute>
 
 		<execute macro="Staging#changeSitePageVariationPG">
@@ -947,20 +932,20 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Page#viewPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Test Page Name" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -970,7 +955,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Test Page Name" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -982,7 +967,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Test Page Name" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -994,7 +979,7 @@
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Empty Page Name" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1005,7 +990,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Empty Page Name" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1015,7 +1000,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Empty Page Name" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1027,7 +1012,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Empty Page Name" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1037,9 +1022,9 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1048,13 +1033,13 @@
 		</execute>
 
 		<execute macro="Page#viewPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Wiki" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1069,7 +1054,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Test Page Name" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1083,28 +1068,24 @@
 	</command>
 
 	<command name="StagingDemoLocalLive4" priority="5">
-		<var name="pageName" value="Home" />
-		<var name="roleName" value="Staging Admin" />
-		<var name="siteName" value="Community Site Name" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
 		<execute macro="Site#addCommunityCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="uncheckPropagation" value="true" />
 		</execute>
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Staging#activateStagingCP">
 			<var name="pageVersioningEnabled" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -1115,7 +1096,7 @@
 
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
-			<var name="roleName" value="${roleName}" />
+			<var name="roleName" value="Staging Admin" />
 		</execute>
 
 		<execute macro="User#addCP">
@@ -1137,8 +1118,8 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
+			<var name="siteScopeName" value="Community Site Name" />
 		</execute>
 
 		<execute macro="Site#addMemberCP">
@@ -1149,12 +1130,12 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
+			<var name="siteScopeName" value="Community Site Name" />
 		</execute>
 
 		<execute macro="Site#assignRoleCP">
-			<var name="roleName" value="${roleName}" />
+			<var name="roleName" value="Staging Admin" />
 			<var name="userFirstName" value="userfn" />
 			<var name="userLastName" value="userln" />
 			<var name="userScreenName" value="usersn" />
@@ -1166,9 +1147,9 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1178,9 +1159,9 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1192,30 +1173,30 @@
 
 		<execute macro="Staging#configurePublishToLive">
 			<var name="deleteMissingPages" value="true" />
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 		</execute>
 
 		<execute macro="Staging#publishToLive" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Home" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute function="AssertTextNotPresent" locator1="Home#PAGE_2" value1="Wiki" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Page#addPG">
 			<var name="pageName" value="New Page Name" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1224,8 +1205,8 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Home" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1233,8 +1214,8 @@
 		<execute function="Pause" locator1="120000" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Home" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1246,13 +1227,13 @@
 
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Test Page Name 1" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Test Page Name 1" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1262,13 +1243,13 @@
 
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Test Page Name 2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Test Page Name 2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1278,13 +1259,13 @@
 
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Test Page Name 3" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Test Page Name 3" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1294,7 +1275,7 @@
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Workflow Configuration" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteScopeName" value="Site Name" />
 		</execute>
 
 		<execute macro="Workflow#configureSiteWorkflow">
@@ -1310,12 +1291,12 @@
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Staging#activateStagingCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoMyAccount">
@@ -1326,7 +1307,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1338,11 +1319,9 @@
 	<command name="StagingKaleoWebContentLinkingUnapprovedContent" priority="5">
 		<property name="web.plugins.includes" value="kaleo-web" />
 
-		<var name="siteName" value="${siteName}" />
-
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Workflow Configuration" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteScopeName" value="Site Name" />
 		</execute>
 
 		<execute macro="Workflow#configureSiteWorkflow">
@@ -1357,19 +1336,19 @@
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Staging#activateStagingCP">
 			<var name="pageVersioningEnabled" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1419,7 +1398,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1430,7 +1409,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1438,23 +1417,20 @@
 	</command>
 
 	<command name="StagingLocalLiveLock" priority="5">
-		<var name="pageName" value="Staging Test Page" />
-		<var name="siteName" value="${siteName}" />
-
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Staging#activateStagingCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Staging Test Page" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1468,9 +1444,9 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Staging Test Page" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1479,8 +1455,8 @@
 		<execute macro="Staging#publishToLive" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Staging Test Page" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1491,7 +1467,7 @@
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1505,34 +1481,29 @@
 	<command name="StagingLocalLiveWorkflow" priority="5">
 		<property name="web.plugins.includes" value="kaleo-web" />
 
-		<var name="pageName" value="Home" />
-		<var name="siteName" value="Community Site Name" />
-		<var name="webContentContent" value="Web Content Content" />
-		<var name="webContentTitle" value="Web Content Title" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
 		<execute macro="Site#addCommunityCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="uncheckPropagation" value="true" />
 		</execute>
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Staging#activateStagingCP">
 			<var name="pageVersioningEnabled" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Workflow Configuration" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1743,8 +1714,8 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
+			<var name="siteScopeName" value="Community Site Name" />
 		</execute>
 
 		<execute macro="Site#addMemberCP">
@@ -1755,8 +1726,8 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
+			<var name="siteScopeName" value="Community Site Name" />
 		</execute>
 
 		<execute macro="Site#assignRoleCP">
@@ -1768,8 +1739,8 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
+			<var name="siteScopeName" value="Community Site Name" />
 		</execute>
 
 		<execute macro="Site#assignRoleCP">
@@ -1802,8 +1773,8 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
+			<var name="siteScopeName" value="Community Site Name" />
 		</execute>
 
 		<execute macro="Site#addMemberCP">
@@ -1814,8 +1785,8 @@
 
 		<execute macro="Page#gotoUsersCP">
 			<var name="portletName" value="Site Memberships" />
-			<var name="siteName" value="${siteName}" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
+			<var name="siteScopeName" value="Community Site Name" />
 		</execute>
 
 		<execute macro="Site#assignRoleCP">
@@ -1831,9 +1802,9 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1842,8 +1813,8 @@
 		</execute>
 
 		<execute macro="WebContent#addWithWorkflowPGViaWCD">
-			<var name="webContentContent" value="${webContentContent}" />
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentContent" value="Web Content Content" />
+			<var name="webContentTitle" value="Web Content Title" />
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
@@ -1856,20 +1827,20 @@
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
-			<var name="workflowAssetTitle" value="${webContentTitle}" />
+			<var name="workflowAssetTitle" value="Web Content Title" />
 			<var name="workflowAssetType" value="Web Content Article" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
 		<execute macro="Workflow#approveTaskByActions">
-			<var name="workflowAssetTitle" value="${webContentTitle}" />
+			<var name="workflowAssetTitle" value="Web Content Title" />
 			<var name="workflowAssetType" value="Web Content Article" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Home" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1881,9 +1852,9 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1916,9 +1887,9 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Home" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1931,13 +1902,13 @@
 		<execute macro="Staging#publishToLive" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Home" />
+			<var name="siteName" value="Community Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="WebContent#viewPGViaWCD">
-			<var name="webContentContent" value="${webContentContent}" />
+			<var name="webContentContent" value="Web Content Content" />
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
@@ -1956,7 +1927,7 @@
 		</execute>
 
 		<execute macro="Workflow#viewCompletedTasks">
-			<var name="workflowAssetTitle" value="${webContentTitle}" />
+			<var name="workflowAssetTitle" value="Web Content Title" />
 			<var name="workflowAssetType" value="Web Content Article" />
 			<var name="workflowTask" value="Review" />
 		</execute>
@@ -1967,19 +1938,19 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Staging Test Page 2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1989,7 +1960,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page 2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -1999,18 +1970,18 @@
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Site Settings" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Staging#activateStagingCP">
 			<var name="pageVersioningEnabled" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Workflow Configuration" />
-			<var name="siteScopeName" value="${siteName}" />
+			<var name="siteScopeName" value="Site Name" />
 		</execute>
 
 		<execute macro="Workflow#configureSiteWorkflow">
@@ -2021,7 +1992,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2033,7 +2004,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page 2" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2061,7 +2032,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2070,7 +2041,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page 2" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2079,7 +2050,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2088,7 +2059,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page 2" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2098,7 +2069,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2106,7 +2077,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page 2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2131,7 +2102,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page 2" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2145,7 +2116,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page 2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2163,7 +2134,7 @@
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page 2" />
 			<var name="pageStaging" value="true" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -2175,7 +2146,7 @@
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page 2" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
