@@ -345,6 +345,14 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 						group = GroupLocalServiceUtil.getGroup(parentGroupId);
 					}
 				}
+
+				if (group.isStagingGroup()) {
+					groupId = group.getLiveGroupId();
+
+					group = GroupLocalServiceUtil.getGroup(groupId);
+
+					parentGroupId = 0;
+				}
 			}
 
 			UserPermissionCheckerBag userPermissionCheckerBag =
