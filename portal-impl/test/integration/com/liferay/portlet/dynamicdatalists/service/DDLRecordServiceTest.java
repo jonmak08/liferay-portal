@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.kernel.transaction.Transactional;
+import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.service.ServiceTestUtil;
 import com.liferay.portal.test.EnvironmentExecutionTestListener;
@@ -26,12 +27,20 @@ import com.liferay.portal.test.Sync;
 import com.liferay.portal.test.SynchronousDestinationExecutionTestListener;
 import com.liferay.portal.test.TransactionalExecutionTestListener;
 import com.liferay.portal.util.PortalUtil;
+import com.liferay.portlet.dynamicdatalists.model.DDLRecord;
 import com.liferay.portlet.dynamicdatalists.model.DDLRecordSet;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructureConstants;
 import com.liferay.portlet.dynamicdatamapping.storage.Field;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
 import com.liferay.portlet.dynamicdatamapping.storage.StorageType;
+
+import java.io.Serializable;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -64,6 +73,51 @@ public class DDLRecordServiceTest extends BaseDDLServiceTestCase {
 
 		addRecord("Joe Bloggs", "Simple description");
 		addRecord("Bloggs","Another description example");
+	}
+
+	@Test
+	public void testFieldDisplay() throws Exception {
+		DDMStructure ddmStructure = addStructure(
+			PortalUtil.getClassNameId(DDLRecordSet.class), null,
+			StringUtil.randomString(), readText("test-field-display.xsd"),
+			StorageType.XML.getValue(), DDMStructureConstants.TYPE_DEFAULT);
+
+		DDLRecordSet ddlRecordSet = addRecordSet(ddmStructure.getStructureId());
+
+		Map<String, Serializable> fieldsMap =
+			new HashMap<String, Serializable>();
+		fieldsMap.put("contact_name", "name");
+		fieldsMap.put("email", "email@test.com");
+
+		DDLRecord ddlRecord = addRecord(
+			ddlRecordSet.getRecordSetId(), fieldsMap);
+
+		Fields fields = ddlRecord.getFields();
+
+		Field field = fields.get("_fieldsDisplay");
+
+		Assert.assertNotNull(field);
+
+		Pattern pattern = Pattern.compile(
+			"email_INSTANCE_[\\w]+,contact_name_INSTANCE_[\\w]+");
+
+		Matcher matcher = pattern.matcher(field.getValue().toString());
+
+		Assert.assertTrue(matcher.matches());
+
+		fieldsMap.put("description", "description");
+
+		ddlRecord = updateRecord(ddlRecord.getRecordId(), fieldsMap);
+
+		fields = ddlRecord.getFields();
+
+		field = fields.get("_fieldsDisplay");
+
+		Assert.assertNotNull(field);
+
+		matcher = pattern.matcher(field.getValue().toString());
+
+		Assert.assertTrue(matcher.matches());
 	}
 
 	@Test
