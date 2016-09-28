@@ -8,6 +8,8 @@
 	<set-up>
 		<execute macro="User#firstLoginPG" />
 
+		<execute function="Pause" locator1="30000" />
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Documents and Media Page" />
 		</execute>
