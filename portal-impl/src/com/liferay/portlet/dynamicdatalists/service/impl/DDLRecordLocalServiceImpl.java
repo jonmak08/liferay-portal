@@ -743,8 +743,8 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 		ddlRecordVersionPersistence.update(recordVersion);
 	}
 
-	private final String _FIELDS_DISPLAY_NAME = "_fieldsDisplay";
+	private static final String _FIELDS_DISPLAY_NAME = "_fieldsDisplay";
 
-	private final String _INSTANCE_SEPARATOR = "_INSTANCE_";
+	private static final String _INSTANCE_SEPARATOR = "_INSTANCE_";
 
 }
