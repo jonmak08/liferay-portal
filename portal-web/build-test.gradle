@@ -16,6 +16,15 @@ buildscript {
 
 apply plugin: "com.liferay.poshi.runner"
 
+poshiRunner {
+	if (project.hasProperty("poshiRunnerExtProperties")) {
+		poshiPropertiesFile = new File(projectDir.parentFile, project.properties["poshiRunnerExtProperties"])
+	}
+
+	openCVVersion = "2.4.10-0.10"
+	version = "1.0.46"
+}
+
 configurations {
 	sikuliComplete
 }
@@ -27,22 +36,6 @@ dependencies {
 	}
 
 	sikuliComplete classifier: "macosx-x86_64", group: "org.bytedeco.javacpp-presets", name: "opencv", version: poshiRunner.openCVVersion
-}
-
-poshiRunner {
-	if (project.hasProperty("poshiRunnerExtProperties")) {
-		File poshiRunnerExtProperties = new File(project.properties["poshiRunnerExtProperties"])
-
-		if (poshiRunnerExtProperties.exists()) {
-			project.ext.testProperties = new Properties()
-
-			testProperties.load(new FileInputStream(project.properties["poshiRunnerExtProperties"]))
-
-			setPoshiProperties testProperties
-		}
-	}
-
-	version = "1.0.46"
 }
 
 repositories {
