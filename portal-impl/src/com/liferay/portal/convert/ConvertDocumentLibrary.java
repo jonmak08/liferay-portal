@@ -167,8 +167,9 @@ public class ConvertDocumentLibrary extends ConvertProcess {
 			protected void performAction(Object object) throws SystemException {
 				DLFileEntry dlFileEntry = (DLFileEntry)object;
 
+				long dataRepositoryId = 0;
+
 				long classNameId = dlFileEntry.getClassNameId();
-				long dataRepositoryId;
 
 				if ((classNameId == mbAttachmentClassNameId) ||
 					(classNameId == wikiAttachmentClassNameId)) {
