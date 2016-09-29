@@ -180,6 +180,14 @@ catch (NoSuchArticleException nsae) {
 	headerNames.add("modified-date");
 	headerNames.add("display-date");
 	headerNames.add("author");
+
+	if (PropsValues.JOURNAL_ARTICLES_SEARCH_WITH_INDEX) {
+		Map<String, String> orderableHeaders = new HashMap<String, String>();
+		orderableHeaders.put("title", "title");
+		orderableHeaders.put("modified-date", "modified-date");
+		orderableHeaders.put("display-date", "display-date");
+		searchContainer.setOrderableHeaders(orderableHeaders);
+	}
 	%>
 
 	<liferay-ui:search-form
