@@ -1245,7 +1245,8 @@ public class ResourcePermissionLocalServiceImpl
 
 			int size = roleIds.length;
 
-			List<ResourcePermission> resourcePermissions = new ArrayList(size);
+			List<ResourcePermission> resourcePermissions =
+				new ArrayList<ResourcePermission>(size);
 
 			int batchSize = 1000;
 			int start = 0;
