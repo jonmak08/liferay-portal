@@ -251,112 +251,16 @@ public class RoleFinderImpl
 			end, obc, true);
 	}
 
-	protected int doCountByC_N_D_T(
-			long companyId, String[] names, String[] descriptions,
-			Integer[] types, LinkedHashMap<String, Object> params,
-			boolean andOperator, boolean inlineSQLHelper)
+	@Override
+	public List<Role> findByUserGroupRole(long userId, long groupId)
 		throws SystemException {
-
-		names = CustomSQLUtil.keywords(names, true);
-		descriptions = CustomSQLUtil.keywords(descriptions, true);
-
-		if (types == null) {
-			types = new Integer[0];
-		}
 
 		Session session = null;
 
 		try {
 			session = openSession();
 
-			String sql = CustomSQLUtil.get(COUNT_BY_C_N_D_T);
-
-			sql = CustomSQLUtil.replaceKeywords(
-				sql, "lower(Role_.name)", StringPool.LIKE, false, names);
-			sql = CustomSQLUtil.replaceKeywords(
-				sql, "lower(Role_.description)", StringPool.LIKE, true,
-				descriptions);
-			sql = StringUtil.replace(sql, "[$TYPE$]", getTypes(types));
-			sql = StringUtil.replace(sql, "[$JOIN$]", getJoin(params));
-			sql = StringUtil.replace(sql, "[$WHERE$]", getWhere(params));
-			sql = CustomSQLUtil.replaceAndOperator(sql, andOperator);
-
-			if (inlineSQLHelper) {
-				sql = InlineSQLHelperUtil.replacePermissionCheck(
-					sql, Role.class.getName(), "Role_.roleId", null, null,
-					new long[] {0}, null);
-			}
-
-			SQLQuery q = session.createSQLQuery(sql);
-
-			q.addScalar(COUNT_COLUMN_NAME, Type.LONG);
-
-			QueryPos qPos = QueryPos.getInstance(q);
-
-			setJoin(qPos, params);
-
-			qPos.add(companyId);
-			qPos.add(names, 2);
-			qPos.add(descriptions, 2);
-			qPos.add(types);
-
-			Iterator<Long> itr = q.iterate();
-
-			if (itr.hasNext()) {
-				Long count = itr.next();
-
-				if (count != null) {
-					return count.intValue();
-				}
-			}
-
-			return 0;
-		}
-		catch (Exception e) {
-			throw new SystemException(e);
-		}
-		finally {
-			closeSession(session);
-		}
-	}
-
-	protected List<Role> doFindByC_N_D_T(
-			long companyId, String[] names, String[] descriptions,
-			Integer[] types, LinkedHashMap<String, Object> params,
-			boolean andOperator, int start, int end, OrderByComparator obc,
-			boolean inlineSQLHelper)
-		throws SystemException {
-
-		names = CustomSQLUtil.keywords(names, true);
-		descriptions = CustomSQLUtil.keywords(descriptions, true);
-
-		if (types == null) {
-			types = new Integer[0];
-		}
-
-		Session session = null;
-
-		try {
-			session = openSession();
-
-			String sql = CustomSQLUtil.get(FIND_BY_C_N_D_T);
-
-			sql = CustomSQLUtil.replaceKeywords(
-				sql, "lower(Role_.name)", StringPool.LIKE, false, names);
-			sql = CustomSQLUtil.replaceKeywords(
-				sql, "lower(Role_.description)", StringPool.LIKE, true,
-				descriptions);
-			sql = StringUtil.replace(sql, "[$TYPE$]", getTypes(types));
-			sql = StringUtil.replace(sql, "[$JOIN$]", getJoin(params));
-			sql = StringUtil.replace(sql, "[$WHERE$]", getWhere(params));
-			sql = CustomSQLUtil.replaceAndOperator(sql, andOperator);
-			sql = CustomSQLUtil.replaceOrderBy(sql, obc);
-
-			if (inlineSQLHelper) {
-				sql = InlineSQLHelperUtil.replacePermissionCheck(
-					sql, Role.class.getName(), "Role_.roleId", null, null,
-					new long[] {0}, null);
-			}
+			String sql = CustomSQLUtil.get(FIND_BY_USER_GROUP_ROLE);
 
 			SQLQuery q = session.createSQLQuery(sql);
 
@@ -364,14 +268,10 @@ public class RoleFinderImpl
 
 			QueryPos qPos = QueryPos.getInstance(q);
 
-			setJoin(qPos, params);
+			qPos.add(userId);
+			qPos.add(groupId);
 
-			qPos.add(companyId);
-			qPos.add(names, 2);
-			qPos.add(descriptions, 2);
-			qPos.add(types);
-
-			return (List<Role>)QueryUtil.list(q, getDialect(), start, end);
+			return q.list(true);
 		}
 		catch (Exception e) {
 			throw new SystemException(e);
@@ -421,6 +321,7 @@ public class RoleFinderImpl
 		}
 	}
 
+	@Override
 	public List<Role> filterFindByKeywords(
 			long companyId, String keywords, Integer[] types,
 			LinkedHashMap<String, Object> params, int start, int end,
@@ -516,36 +417,6 @@ public class RoleFinderImpl
 			qPos.add(groupId);
 
 			return (List<Role>)QueryUtil.list(q, getDialect(), start, end);
-		}
-		catch (Exception e) {
-			throw new SystemException(e);
-		}
-		finally {
-			closeSession(session);
-		}
-	}
-
-	@Override
-	public List<Role> findByUserGroupRole(long userId, long groupId)
-		throws SystemException {
-
-		Session session = null;
-
-		try {
-			session = openSession();
-
-			String sql = CustomSQLUtil.get(FIND_BY_USER_GROUP_ROLE);
-
-			SQLQuery q = session.createSQLQuery(sql);
-
-			q.addEntity("Role_", RoleImpl.class);
-
-			QueryPos qPos = QueryPos.getInstance(q);
-
-			qPos.add(userId);
-			qPos.add(groupId);
-
-			return q.list(true);
 		}
 		catch (Exception e) {
 			throw new SystemException(e);
@@ -884,6 +755,136 @@ public class RoleFinderImpl
 
 		return filterCountByC_N_D_T(
 			companyId, names, descriptions, types, params, andOperator);
+	}
+
+	protected int doCountByC_N_D_T(
+			long companyId, String[] names, String[] descriptions,
+			Integer[] types, LinkedHashMap<String, Object> params,
+			boolean andOperator, boolean inlineSQLHelper)
+		throws SystemException {
+
+		names = CustomSQLUtil.keywords(names, true);
+		descriptions = CustomSQLUtil.keywords(descriptions, true);
+
+		if (types == null) {
+			types = new Integer[0];
+		}
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			String sql = CustomSQLUtil.get(COUNT_BY_C_N_D_T);
+
+			sql = CustomSQLUtil.replaceKeywords(
+				sql, "lower(Role_.name)", StringPool.LIKE, false, names);
+			sql = CustomSQLUtil.replaceKeywords(
+				sql, "lower(Role_.description)", StringPool.LIKE, true,
+				descriptions);
+			sql = StringUtil.replace(sql, "[$TYPE$]", getTypes(types));
+			sql = StringUtil.replace(sql, "[$JOIN$]", getJoin(params));
+			sql = StringUtil.replace(sql, "[$WHERE$]", getWhere(params));
+			sql = CustomSQLUtil.replaceAndOperator(sql, andOperator);
+
+			if (inlineSQLHelper) {
+				sql = InlineSQLHelperUtil.replacePermissionCheck(
+					sql, Role.class.getName(), "Role_.roleId", null, null,
+					new long[] {0}, null);
+			}
+
+			SQLQuery q = session.createSQLQuery(sql);
+
+			q.addScalar(COUNT_COLUMN_NAME, Type.LONG);
+
+			QueryPos qPos = QueryPos.getInstance(q);
+
+			setJoin(qPos, params);
+
+			qPos.add(companyId);
+			qPos.add(names, 2);
+			qPos.add(descriptions, 2);
+			qPos.add(types);
+
+			Iterator<Long> itr = q.iterate();
+
+			if (itr.hasNext()) {
+				Long count = itr.next();
+
+				if (count != null) {
+					return count.intValue();
+				}
+			}
+
+			return 0;
+		}
+		catch (Exception e) {
+			throw new SystemException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected List<Role> doFindByC_N_D_T(
+			long companyId, String[] names, String[] descriptions,
+			Integer[] types, LinkedHashMap<String, Object> params,
+			boolean andOperator, int start, int end, OrderByComparator obc,
+			boolean inlineSQLHelper)
+		throws SystemException {
+
+		names = CustomSQLUtil.keywords(names, true);
+		descriptions = CustomSQLUtil.keywords(descriptions, true);
+
+		if (types == null) {
+			types = new Integer[0];
+		}
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			String sql = CustomSQLUtil.get(FIND_BY_C_N_D_T);
+
+			sql = CustomSQLUtil.replaceKeywords(
+				sql, "lower(Role_.name)", StringPool.LIKE, false, names);
+			sql = CustomSQLUtil.replaceKeywords(
+				sql, "lower(Role_.description)", StringPool.LIKE, true,
+				descriptions);
+			sql = StringUtil.replace(sql, "[$TYPE$]", getTypes(types));
+			sql = StringUtil.replace(sql, "[$JOIN$]", getJoin(params));
+			sql = StringUtil.replace(sql, "[$WHERE$]", getWhere(params));
+			sql = CustomSQLUtil.replaceAndOperator(sql, andOperator);
+			sql = CustomSQLUtil.replaceOrderBy(sql, obc);
+
+			if (inlineSQLHelper) {
+				sql = InlineSQLHelperUtil.replacePermissionCheck(
+					sql, Role.class.getName(), "Role_.roleId", null, null,
+					new long[] {0}, null);
+			}
+
+			SQLQuery q = session.createSQLQuery(sql);
+
+			q.addEntity("Role_", RoleImpl.class);
+
+			QueryPos qPos = QueryPos.getInstance(q);
+
+			setJoin(qPos, params);
+
+			qPos.add(companyId);
+			qPos.add(names, 2);
+			qPos.add(descriptions, 2);
+			qPos.add(types);
+
+			return (List<Role>)QueryUtil.list(q, getDialect(), start, end);
+		}
+		catch (Exception e) {
+			throw new SystemException(e);
+		}
+		finally {
+			closeSession(session);
+		}
 	}
 
 	protected String getCountByR_U_SQL() {

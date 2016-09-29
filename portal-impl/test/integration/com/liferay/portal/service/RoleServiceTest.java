@@ -39,6 +39,13 @@ import org.junit.runner.RunWith;
 @RunWith(LiferayIntegrationJUnitTestRunner.class)
 public class RoleServiceTest extends BasePermissionTestCase {
 
+	@After
+	public void tearDown() throws Exception {
+		if (_role != null) {
+			RoleLocalServiceUtil.deleteRole(_role);
+		}
+	}
+
 	@Test
 	public void testSearch() throws Exception {
 		List<Role> roles = RoleServiceUtil.search(
@@ -83,13 +90,6 @@ public class RoleServiceTest extends BasePermissionTestCase {
 	protected void doSetUp() throws Exception {
 		_role = RoleTestUtil.addRole(
 			ServiceTestUtil.randomString(), RoleConstants.TYPE_REGULAR);
-	}
-
-	@After
-	public void tearDown() throws Exception {
-		if (_role != null) {
-			RoleLocalServiceUtil.deleteRole(_role);
-		}
 	}
 
 	@Override
