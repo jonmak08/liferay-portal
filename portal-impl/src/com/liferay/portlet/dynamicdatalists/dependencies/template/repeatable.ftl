@@ -1,4 +1,4 @@
-<#assign itemName = "curValue_" + name>
+<#assign itemName = "curValue_" + name?replace('-','_')>
 
 <#if language == "ftl">
 	<#assign fieldValues = "cur_record.getFieldValues(\"" + name + "\", locale)">

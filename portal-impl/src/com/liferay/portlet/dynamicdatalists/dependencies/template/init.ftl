@@ -13,7 +13,7 @@
 <#assign fieldValue = "cur_record.getFieldValue(\"" + name + "\", " + localeVariable + ")">
 
 <#if repeatable>
-	<#assign fieldValue = "curValue_" + name>
+	<#assign fieldValue = "curValue_.vars['" + name + "']">
 </#if>
 
 <#-- Util -->
