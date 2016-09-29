@@ -386,7 +386,7 @@ public class StringBundler implements Serializable {
 			if (_value.length < newLength) {
 				int length = _value.length * 2 + 2;
 
-				if ((length - newLength) < 0) {
+				if (length < newLength) {
 					length = newLength;
 				}
 
