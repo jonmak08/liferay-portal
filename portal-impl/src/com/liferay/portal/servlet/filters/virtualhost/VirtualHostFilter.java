@@ -151,7 +151,7 @@ public class VirtualHostFilter extends BasePortalFilter {
 	}
 
 	/**
-	 * @deprecated As of 6.2.0, with no direct replacement
+	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
 	protected boolean isValidRequestURL(StringBuffer requestURL) {
@@ -222,7 +222,7 @@ public class VirtualHostFilter extends BasePortalFilter {
 
 				int offset =
 					originalFriendlyURL.length() - friendlyURL.length() -
-					i18nLanguageId.length();
+						i18nLanguageId.length();
 
 				if (!originalFriendlyURL.regionMatches(
 						offset, i18nLanguageId, 0, i18nLanguageId.length())) {
@@ -358,34 +358,6 @@ public class VirtualHostFilter extends BasePortalFilter {
 		}
 	}
 
-	private static final String _PATH_DOCUMENTS = "/documents/";
-
-	private static final String _PATH_MODULE_SLASH =
-		Portal.PATH_MODULE + StringPool.SLASH;
-
-	private static final String _PRIVATE_GROUP_SERVLET_MAPPING =
-		PropsValues.LAYOUT_FRIENDLY_URL_PRIVATE_GROUP_SERVLET_MAPPING;
-
-	private static final String _PRIVATE_GROUP_SERVLET_MAPPING_SLASH =
-		_PRIVATE_GROUP_SERVLET_MAPPING + StringPool.SLASH;
-
-	private static final String _PRIVATE_USER_SERVLET_MAPPING =
-		PropsValues.LAYOUT_FRIENDLY_URL_PRIVATE_USER_SERVLET_MAPPING;
-
-	private static final String _PRIVATE_USER_SERVLET_MAPPING_SLASH =
-		_PRIVATE_USER_SERVLET_MAPPING + StringPool.SLASH;
-
-	private static final String _PUBLIC_GROUP_SERVLET_MAPPING =
-		PropsValues.LAYOUT_FRIENDLY_URL_PUBLIC_SERVLET_MAPPING;
-
-	private static final String _PUBLIC_GROUP_SERVLET_MAPPING_SLASH =
-		_PUBLIC_GROUP_SERVLET_MAPPING + StringPool.SLASH;
-
-	private static Log _log = LogFactoryUtil.getLog(VirtualHostFilter.class);
-
-	private String _contextPath;
-	private ServletContext _servletContext;
-
 	private String _findLanguageId(String friendlyURL) {
 		if (friendlyURL.isEmpty() ||
 			(friendlyURL.charAt(0) != CharPool.SLASH)) {
@@ -413,5 +385,33 @@ public class VirtualHostFilter extends BasePortalFilter {
 
 		return languageId;
 	}
+
+	private static final String _PATH_DOCUMENTS = "/documents/";
+
+	private static final String _PATH_MODULE_SLASH =
+		Portal.PATH_MODULE + StringPool.SLASH;
+
+	private static final String _PRIVATE_GROUP_SERVLET_MAPPING =
+		PropsValues.LAYOUT_FRIENDLY_URL_PRIVATE_GROUP_SERVLET_MAPPING;
+
+	private static final String _PRIVATE_GROUP_SERVLET_MAPPING_SLASH =
+		_PRIVATE_GROUP_SERVLET_MAPPING + StringPool.SLASH;
+
+	private static final String _PRIVATE_USER_SERVLET_MAPPING =
+		PropsValues.LAYOUT_FRIENDLY_URL_PRIVATE_USER_SERVLET_MAPPING;
+
+	private static final String _PRIVATE_USER_SERVLET_MAPPING_SLASH =
+		_PRIVATE_USER_SERVLET_MAPPING + StringPool.SLASH;
+
+	private static final String _PUBLIC_GROUP_SERVLET_MAPPING =
+		PropsValues.LAYOUT_FRIENDLY_URL_PUBLIC_SERVLET_MAPPING;
+
+	private static final String _PUBLIC_GROUP_SERVLET_MAPPING_SLASH =
+		_PUBLIC_GROUP_SERVLET_MAPPING + StringPool.SLASH;
+
+	private static Log _log = LogFactoryUtil.getLog(VirtualHostFilter.class);
+
+	private String _contextPath;
+	private ServletContext _servletContext;
 
 }
