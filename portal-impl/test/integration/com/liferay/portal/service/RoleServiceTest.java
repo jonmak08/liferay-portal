@@ -41,6 +41,8 @@ public class RoleServiceTest extends BasePermissionTestCase {
 
 	@After
 	public void tearDown() throws Exception {
+		super.tearDown();
+
 		if (_role != null) {
 			RoleLocalServiceUtil.deleteRole(_role);
 		}
