@@ -534,7 +534,7 @@ public class GroupFinderImpl
 			sb.append(replaceJoinAndWhere(findByCompanyIdSQL, params1));
 
 			if (doUnion) {
-				sb.append(" UNION (");
+				sb.append(") UNION (");
 				sb.append(replaceJoinAndWhere(findByCompanyIdSQL, params2));
 				sb.append(") UNION (");
 				sb.append(replaceJoinAndWhere(findByCompanyIdSQL, params3));
