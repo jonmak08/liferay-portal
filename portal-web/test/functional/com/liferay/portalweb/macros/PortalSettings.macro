@@ -1,4 +1,10 @@
 <definition>
+	<command name="_gotoLDAPTab">
+		<execute function="AssertClick" locator1="CPPortalsettings#MENU_CONFIGURATION_AUTHENTICATION" value1="Authentication" />
+
+		<execute function="AssertClick" locator1="CPPortalsettingsAuthentication#NAVIGATION_LDAP" value1="LDAP" />
+	</command>
+
 	<command name="_saveDisplaySettings">
 		<execute function="AssertClick" locator1="CPPortalsettingsDisplaysettings#SAVE_BUTTON" value1="Save" />
 
@@ -6,9 +12,7 @@
 	</command>
 
 	<command name="addLDAPServerCP">
-		<execute function="AssertClick" locator1="CPPortalsettings#MENU_CONFIGURATION_AUTHENTICATION" value1="Authentication" />
-
-		<execute function="AssertClick" locator1="CPPortalsettingsAuthentication#NAVIGATION_LDAP" value1="LDAP" />
+		<execute macro="PortalSettings#_gotoLDAPTab" />
 
 		<execute function="AssertClick" locator1="CPPortalsettingsAuthentication#AUTHENTICATION_LDAP_ADD_BUTTON" value1="Add" />
 
@@ -21,9 +25,7 @@
 	</command>
 
 	<command name="configureAuthenticationLDAPCP">
-		<execute function="AssertClick" locator1="CPPortalsettings#MENU_CONFIGURATION_AUTHENTICATION" value1="Authentication" />
-
-		<execute function="AssertClick" locator1="CPPortalsettingsAuthentication#NAVIGATION_LDAP" value1="LDAP" />
+		<execute macro="PortalSettings#_gotoLDAPTab" />
 
 		<execute function="Check" locator1="CPPortalsettingsAuthentication#AUTHENTICATION_LDAP_ENABLED_CHECKBOX" />
 		<execute function="Check" locator1="CPPortalsettingsAuthentication#AUTHENTICATION_LDAP_IMPORT_ENABLED_CHECKBOX" />
@@ -257,9 +259,7 @@
 	<command name="testLDAPConnectionCP">
 		<var name="key_LDAPServerName" value="${LDAPServerName}" />
 
-		<execute function="AssertClick" locator1="CPPortalsettings#MENU_CONFIGURATION_AUTHENTICATION" value1="Authentication" />
-
-		<execute function="AssertClick" locator1="CPPortalsettingsAuthentication#NAVIGATION_LDAP" value1="LDAP" />
+		<execute macro="PortalSettings#_gotoLDAPTab" />
 
 		<execute function="Click" locator1="CPPortalsettingsAuthentication#LDAP_SERVERS_TABLE_EDIT" />
 
@@ -317,9 +317,8 @@
 	</command>
 
 	<command name="viewAuthenticationLDAPCP">
-		<execute function="AssertClick" locator1="CPPortalsettings#MENU_CONFIGURATION_AUTHENTICATION" value1="Authentication" />
+		<execute macro="PortalSettings#_gotoLDAPTab" />
 
-		<execute function="AssertClick" locator1="CPPortalsettingsAuthentication#NAVIGATION_LDAP" value1="LDAP" />
 		<execute function="AssertElementPresent" locator1="CPPortalsettingsAuthentication#AUTHENTICATION_LDAP_ENABLED_CHECKBOX" />
 		<execute function="AssertElementPresent" locator1="CPPortalsettingsAuthentication#AUTHENTICATION_LDAP_REQUIRED_CHECKBOX" />
 		<execute function="AssertElementPresent" locator1="CPPortalsettingsAuthentication#AUTHENTICATION_LDAP_IMPORT_ENABLED_CHECKBOX" />
