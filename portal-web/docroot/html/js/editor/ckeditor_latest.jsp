@@ -106,7 +106,15 @@ private static class CustomCKEditorOutputData extends OutputData {
 }
 
 private static String _replaceVariations(String content) {
-	content = StringUtil.replace(content, "/ckeditor/", "/ckeditor_latest/");
+	String ckEditor = "/ckeditor/";
+	String ckEditorLatest = "/ckeditor_latest/";
+
+	if (!content.contains(ckEditor)) {
+		ckEditor = HtmlUtil.escape(ckEditor);
+		ckEditorLatest = HtmlUtil.escape(ckEditorLatest);
+	}
+
+	content = StringUtil.replace(content, ckEditor, ckEditorLatest);
 	content = StringUtil.replace(content, "CKEDITOR.env.isCompatible = true;", "");
 
 	return content;
