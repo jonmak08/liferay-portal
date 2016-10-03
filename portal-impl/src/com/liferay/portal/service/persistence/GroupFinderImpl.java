@@ -1227,7 +1227,6 @@ public class GroupFinderImpl
 		}
 	}
 
-	@SafeVarargs
 	private final String _buildSQLCacheKey(
 		OrderByComparator obc, Map<String, Object>... params) {
 
@@ -1238,7 +1237,6 @@ public class GroupFinderImpl
 		return _buildSQLCacheKey(obc.getOrderBy(), params);
 	}
 
-	@SafeVarargs
 	private final String _buildSQLCacheKey(
 		String sql, Map<String, Object>... params) {
 
