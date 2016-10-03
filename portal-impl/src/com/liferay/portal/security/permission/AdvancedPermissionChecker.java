@@ -339,11 +339,12 @@ public class AdvancedPermissionChecker extends BasePermissionChecker {
 				group = GroupLocalServiceUtil.getGroup(groupId);
 
 				if (group.isLayout()) {
-					parentGroupId = group.getParentGroupId();
+					Layout layout = LayoutLocalServiceUtil.getLayout(
+						group.getClassPK());
 
-					if (parentGroupId > 0) {
-						group = GroupLocalServiceUtil.getGroup(parentGroupId);
-					}
+					groupId = layout.getGroupId();
+
+					group = GroupLocalServiceUtil.getGroup(groupId);
 				}
 
 				if (group.isStagingGroup()) {
