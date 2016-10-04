@@ -25,6 +25,13 @@ $dockbarOpenGradientStart: #0EA6F9;
 		font-weight: normal;
 	}
 
+	label {
+		input[type="checkbox"],
+		input[type="radio"] {
+			margin: 0 0 2px;
+		}
+	}
+
 	legend {
 		color: #8D8D8D;
 		font-size: 18px;
