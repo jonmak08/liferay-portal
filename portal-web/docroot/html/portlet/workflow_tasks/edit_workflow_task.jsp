@@ -295,6 +295,7 @@ request.setAttribute(WebKeys.WORKFLOW_ASSET_PREVIEW, Boolean.TRUE);
 						cssClass="lfr-asset-avatar"
 						image="../file_system/large/task"
 						message='<%= LanguageUtil.get(pageContext, "download") + " (" + TextFormatter.formatStorageSize(fileVersion.getSize(), locale) + ")" %>'
+						method="get"
 						url="<%= assetRenderer.getURLDownload(themeDisplay) %>"
 					/>
 				</c:when>
