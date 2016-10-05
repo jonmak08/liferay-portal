@@ -61,6 +61,8 @@ import com.liferay.portlet.dynamicdatamapping.service.base.DDMStructureLocalServ
 import com.liferay.portlet.dynamicdatamapping.util.DDMTemplateHelperUtil;
 import com.liferay.portlet.dynamicdatamapping.util.DDMXMLUtil;
 
+import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -1752,9 +1754,16 @@ public class DDMStructureLocalServiceImpl
 				element.attributeValue("name"));
 
 			if (Validator.isNull(name)) {
+				String formattedString = StringPool.BLANK;
+
+				try {
+					formattedString = element.formattedString();
+				}
+				catch (IOException e) {
+				}
+
 				throw new StructureXsdException(
-					"Element must have a name attribute " +
-						element.formattedString());
+					"Element must have a name attribute " + formattedString);
 			}
 
 			if (name.startsWith(DDMStructureConstants.XSD_NAME_RESERVED)) {
