@@ -332,14 +332,14 @@ name = HtmlUtil.escapeJS(name);
 
 		sb.append(mainPath);
 		sb.append("/portal/fckeditor?p_p_id=");
-		sb.append(HttpUtil.encodeURL(portletId));
+		sb.append(portletId);
 		sb.append("&doAsUserId=");
-		sb.append(HttpUtil.encodeURL(doAsUserId));
+		sb.append(doAsUserId);
 		sb.append("&doAsGroupId=");
-		sb.append(HttpUtil.encodeURL(String.valueOf(doAsGroupId)));
+		sb.append(String.valueOf(doAsGroupId));
 		sb.append(fileBrowserParams);
 
-		String connectorURL = HtmlUtil.escapeJS(HtmlUtil.escapeURL(sb.toString()));
+		String connectorURL = HtmlUtil.escapeURL(sb.toString());
 		%>
 
 		<c:choose>
