@@ -350,8 +350,8 @@ public abstract class AssetEntryLocalServiceBaseImpl
 	 */
 	@Override
 	public void addAssetCategoryAssetEntries(long categoryId,
-		List<AssetEntry> AssetEntries) throws SystemException {
-		assetCategoryPersistence.addAssetEntries(categoryId, AssetEntries);
+		List<AssetEntry> assetEntries) throws SystemException {
+		assetCategoryPersistence.addAssetEntries(categoryId, assetEntries);
 	}
 
 	/**
@@ -395,8 +395,8 @@ public abstract class AssetEntryLocalServiceBaseImpl
 	 */
 	@Override
 	public void deleteAssetCategoryAssetEntries(long categoryId,
-		List<AssetEntry> AssetEntries) throws SystemException {
-		assetCategoryPersistence.removeAssetEntries(categoryId, AssetEntries);
+		List<AssetEntry> assetEntries) throws SystemException {
+		assetCategoryPersistence.removeAssetEntries(categoryId, assetEntries);
 	}
 
 	/**
@@ -496,8 +496,8 @@ public abstract class AssetEntryLocalServiceBaseImpl
 	 */
 	@Override
 	public void addAssetTagAssetEntries(long tagId,
-		List<AssetEntry> AssetEntries) throws SystemException {
-		assetTagPersistence.addAssetEntries(tagId, AssetEntries);
+		List<AssetEntry> assetEntries) throws SystemException {
+		assetTagPersistence.addAssetEntries(tagId, assetEntries);
 	}
 
 	/**
@@ -540,8 +540,8 @@ public abstract class AssetEntryLocalServiceBaseImpl
 	 */
 	@Override
 	public void deleteAssetTagAssetEntries(long tagId,
-		List<AssetEntry> AssetEntries) throws SystemException {
-		assetTagPersistence.removeAssetEntries(tagId, AssetEntries);
+		List<AssetEntry> assetEntries) throws SystemException {
+		assetTagPersistence.removeAssetEntries(tagId, assetEntries);
 	}
 
 	/**

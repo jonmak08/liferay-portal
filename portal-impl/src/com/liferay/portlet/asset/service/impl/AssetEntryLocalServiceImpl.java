@@ -867,7 +867,7 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 
 	@Override
 	public void validate(
-			long groupId, String className, long classPK long[] categoryIds,
+			long groupId, String className, long classPK, long[] categoryIds,
 			String[] tagNames)
 		throws PortalException, SystemException {
 

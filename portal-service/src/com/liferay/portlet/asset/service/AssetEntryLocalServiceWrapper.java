@@ -297,10 +297,10 @@ public class AssetEntryLocalServiceWrapper implements AssetEntryLocalService,
 	*/
 	@Override
 	public void addAssetCategoryAssetEntries(long categoryId,
-		java.util.List<com.liferay.portlet.asset.model.AssetEntry> AssetEntries)
+		java.util.List<com.liferay.portlet.asset.model.AssetEntry> assetEntries)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		_assetEntryLocalService.addAssetCategoryAssetEntries(categoryId,
-			AssetEntries);
+			assetEntries);
 	}
 
 	/**
@@ -348,10 +348,10 @@ public class AssetEntryLocalServiceWrapper implements AssetEntryLocalService,
 	*/
 	@Override
 	public void deleteAssetCategoryAssetEntries(long categoryId,
-		java.util.List<com.liferay.portlet.asset.model.AssetEntry> AssetEntries)
+		java.util.List<com.liferay.portlet.asset.model.AssetEntry> assetEntries)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		_assetEntryLocalService.deleteAssetCategoryAssetEntries(categoryId,
-			AssetEntries);
+			assetEntries);
 	}
 
 	/**
@@ -458,9 +458,9 @@ public class AssetEntryLocalServiceWrapper implements AssetEntryLocalService,
 	*/
 	@Override
 	public void addAssetTagAssetEntries(long tagId,
-		java.util.List<com.liferay.portlet.asset.model.AssetEntry> AssetEntries)
+		java.util.List<com.liferay.portlet.asset.model.AssetEntry> assetEntries)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		_assetEntryLocalService.addAssetTagAssetEntries(tagId, AssetEntries);
+		_assetEntryLocalService.addAssetTagAssetEntries(tagId, assetEntries);
 	}
 
 	/**
@@ -505,9 +505,9 @@ public class AssetEntryLocalServiceWrapper implements AssetEntryLocalService,
 	*/
 	@Override
 	public void deleteAssetTagAssetEntries(long tagId,
-		java.util.List<com.liferay.portlet.asset.model.AssetEntry> AssetEntries)
+		java.util.List<com.liferay.portlet.asset.model.AssetEntry> assetEntries)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		_assetEntryLocalService.deleteAssetTagAssetEntries(tagId, AssetEntries);
+		_assetEntryLocalService.deleteAssetTagAssetEntries(tagId, assetEntries);
 	}
 
 	/**
@@ -937,6 +937,15 @@ public class AssetEntryLocalServiceWrapper implements AssetEntryLocalService,
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return _assetEntryLocalService.updateVisible(className, classPK, visible);
+	}
+
+	@Override
+	public void validate(long groupId, java.lang.String className,
+		long classPK, long[] categoryIds, java.lang.String[] tagNames)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		_assetEntryLocalService.validate(groupId, className, classPK,
+			categoryIds, tagNames);
 	}
 
 	@Override

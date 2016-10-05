@@ -283,9 +283,9 @@ public class AssetEntryLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void addAssetCategoryAssetEntries(long categoryId,
-		java.util.List<com.liferay.portlet.asset.model.AssetEntry> AssetEntries)
+		java.util.List<com.liferay.portlet.asset.model.AssetEntry> assetEntries)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().addAssetCategoryAssetEntries(categoryId, AssetEntries);
+		getService().addAssetCategoryAssetEntries(categoryId, assetEntries);
 	}
 
 	/**
@@ -327,9 +327,9 @@ public class AssetEntryLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteAssetCategoryAssetEntries(long categoryId,
-		java.util.List<com.liferay.portlet.asset.model.AssetEntry> AssetEntries)
+		java.util.List<com.liferay.portlet.asset.model.AssetEntry> assetEntries)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().deleteAssetCategoryAssetEntries(categoryId, AssetEntries);
+		getService().deleteAssetCategoryAssetEntries(categoryId, assetEntries);
 	}
 
 	/**
@@ -425,9 +425,9 @@ public class AssetEntryLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void addAssetTagAssetEntries(long tagId,
-		java.util.List<com.liferay.portlet.asset.model.AssetEntry> AssetEntries)
+		java.util.List<com.liferay.portlet.asset.model.AssetEntry> assetEntries)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().addAssetTagAssetEntries(tagId, AssetEntries);
+		getService().addAssetTagAssetEntries(tagId, assetEntries);
 	}
 
 	/**
@@ -467,9 +467,9 @@ public class AssetEntryLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static void deleteAssetTagAssetEntries(long tagId,
-		java.util.List<com.liferay.portlet.asset.model.AssetEntry> AssetEntries)
+		java.util.List<com.liferay.portlet.asset.model.AssetEntry> assetEntries)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().deleteAssetTagAssetEntries(tagId, AssetEntries);
+		getService().deleteAssetTagAssetEntries(tagId, assetEntries);
 	}
 
 	/**
@@ -863,6 +863,13 @@ public class AssetEntryLocalServiceUtil {
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return getService().updateVisible(className, classPK, visible);
+	}
+
+	public static void validate(long groupId, java.lang.String className,
+		long classPK, long[] categoryIds, java.lang.String[] tagNames)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		getService().validate(groupId, className, classPK, categoryIds, tagNames);
 	}
 
 	public static void validate(long groupId, java.lang.String className,

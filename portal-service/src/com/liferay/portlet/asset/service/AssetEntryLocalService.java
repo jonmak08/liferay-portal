@@ -260,7 +260,7 @@ public interface AssetEntryLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void addAssetCategoryAssetEntries(long categoryId,
-		java.util.List<com.liferay.portlet.asset.model.AssetEntry> AssetEntries)
+		java.util.List<com.liferay.portlet.asset.model.AssetEntry> assetEntries)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -292,7 +292,7 @@ public interface AssetEntryLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void deleteAssetCategoryAssetEntries(long categoryId,
-		java.util.List<com.liferay.portlet.asset.model.AssetEntry> AssetEntries)
+		java.util.List<com.liferay.portlet.asset.model.AssetEntry> assetEntries)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -370,7 +370,7 @@ public interface AssetEntryLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void addAssetTagAssetEntries(long tagId,
-		java.util.List<com.liferay.portlet.asset.model.AssetEntry> AssetEntries)
+		java.util.List<com.liferay.portlet.asset.model.AssetEntry> assetEntries)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -402,7 +402,7 @@ public interface AssetEntryLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public void deleteAssetTagAssetEntries(long tagId,
-		java.util.List<com.liferay.portlet.asset.model.AssetEntry> AssetEntries)
+		java.util.List<com.liferay.portlet.asset.model.AssetEntry> assetEntries)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -704,6 +704,11 @@ public interface AssetEntryLocalService extends BaseLocalService,
 
 	public com.liferay.portlet.asset.model.AssetEntry updateVisible(
 		java.lang.String className, long classPK, boolean visible)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	public void validate(long groupId, java.lang.String className,
+		long classPK, long[] categoryIds, java.lang.String[] tagNames)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
