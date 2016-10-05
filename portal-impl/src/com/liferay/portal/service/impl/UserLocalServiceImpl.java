@@ -6329,12 +6329,10 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		String oldEncPwd = user.getPassword();
 
 		if (!user.isPasswordEncrypted()) {
-			oldEncPwd = PasswordEncryptorUtil.encrypt(
-				user.getPassword());
+			oldEncPwd = PasswordEncryptorUtil.encrypt(user.getPassword());
 		}
 
-		passwordTrackerLocalService.trackPassword(
-			user.getUserId(), oldEncPwd);
+		passwordTrackerLocalService.trackPassword(user.getUserId(), oldEncPwd);
 	}
 
 	/**
