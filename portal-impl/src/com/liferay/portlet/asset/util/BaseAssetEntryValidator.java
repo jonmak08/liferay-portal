@@ -34,6 +34,7 @@ import com.liferay.portlet.asset.model.AssetRendererFactory;
 import com.liferay.portlet.asset.model.AssetVocabulary;
 import com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil;
 import com.liferay.portlet.asset.service.AssetVocabularyLocalServiceUtil;
+import com.liferay.portlet.blogs.model.BlogsEntry;
 
 import java.util.List;
 
@@ -154,6 +155,19 @@ public class BaseAssetEntryValidator implements AssetEntryValidator {
 				}
 			}
 		}
+	}
+
+	@Override
+	public void validate(long groupId, String className, long classPK,
+			long[] categoryIds, String[] entryNames)
+		throws PortalException, SystemException {
+
+		if (className.equals(BlogsEntry.class.getName()) && 
+			(classPK == groupId)) {
+			return;
+		}
+
+		validate(groupId, className, categoryIds, entryNames);
 	}
 
 }
