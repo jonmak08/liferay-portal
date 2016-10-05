@@ -538,7 +538,7 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 
 		long classNameId = PortalUtil.getClassNameId(className);
 
-		validate(groupId, className, categoryIds, tagNames);
+		validate(groupId, className, classPK, categoryIds, tagNames);
 
 		AssetEntry entry = assetEntryPersistence.fetchByC_C(
 			classNameId, classPK);
@@ -863,6 +863,22 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 			classNameId, classPK);
 
 		return updateVisible(entry, visible);
+	}
+
+	@Override
+	public void validate(
+			long groupId, String className, long classPK long[] categoryIds,
+			String[] tagNames)
+		throws PortalException, SystemException {
+
+		if (ExportImportThreadLocal.isImportInProcess()) {
+			return;
+		}
+
+		AssetEntryValidator validator = (AssetEntryValidator)InstancePool.get(
+			PropsValues.ASSET_ENTRY_VALIDATOR);
+
+		validator.validate(groupId, className, classPK, categoryIds, tagNames);
 	}
 
 	@Override
