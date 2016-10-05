@@ -115,6 +115,7 @@ private static String _replaceVariations(String content) {
 	}
 
 	content = StringUtil.replace(content, ckEditor, ckEditorLatest);
+
 	content = StringUtil.replace(content, "CKEDITOR.env.isCompatible = true;", "");
 
 	return content;
