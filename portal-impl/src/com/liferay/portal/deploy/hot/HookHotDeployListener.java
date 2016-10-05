@@ -2333,7 +2333,9 @@ public class HookHotDeployListener
 				PortalClassLoaderUtil.getClassLoader();
 
 			previousService = ProxyUtil.newProxyInstance(
-				portalClassLoader, new Class<?>[] {serviceTypeClass, IdentifiableBean.class},
+				portalClassLoader, new Class<?>[] {
+					serviceTypeClass,
+					IdentifiableBean.class},
 				new ClassLoaderBeanHandler(previousService, portalClassLoader));
 		}
 
@@ -2341,7 +2343,9 @@ public class HookHotDeployListener
 			previousService);
 
 		Object nextTarget = ProxyUtil.newProxyInstance(
-			portletClassLoader, new Class<?>[] {serviceTypeClass, IdentifiableBean.class},
+			portletClassLoader, new Class<?>[] {
+				serviceTypeClass,
+				IdentifiableBean.class},
 			new ClassLoaderBeanHandler(nextService, portletClassLoader));
 
 		TargetSource nextTargetSource = new SingletonTargetSource(nextTarget);
