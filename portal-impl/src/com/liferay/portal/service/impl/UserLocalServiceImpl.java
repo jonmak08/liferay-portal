@@ -3702,15 +3702,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 					passwordReset = true;
 				}
 
-				String oldEncPwd = user.getPassword();
-
-				if (!user.isPasswordEncrypted()) {
-					oldEncPwd = PasswordEncryptorUtil.encrypt(
-						user.getPassword());
-				}
-
-				passwordTrackerLocalService.trackPassword(
-					user.getUserId(), oldEncPwd);
+				trackPassword(user);
 
 				user.setPassword(PasswordEncryptorUtil.encrypt(newPassword));
 				user.setPasswordUnencrypted(newPassword);
@@ -4821,12 +4813,8 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		if (!silentUpdate) {
 			validatePassword(user.getCompanyId(), userId, password1, password2);
-		}
 
-		String oldEncPwd = user.getPassword();
-
-		if (!user.isPasswordEncrypted()) {
-			oldEncPwd = PasswordEncryptorUtil.encrypt(user.getPassword());
+			trackPassword(user);
 		}
 
 		String newEncPwd = PasswordEncryptorUtil.encrypt(password1);
@@ -4873,8 +4861,6 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		if (!silentUpdate) {
 			user.setPasswordModified(false);
-
-			passwordTrackerLocalService.trackPassword(userId, oldEncPwd);
 		}
 
 		return user;
@@ -6337,6 +6323,18 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		user.setEmailAddress(emailAddress);
 		user.setDigest(StringPool.BLANK);
+	}
+
+	protected void trackPassword(User user) throws PortalException {
+		String oldEncPwd = user.getPassword();
+
+		if (!user.isPasswordEncrypted()) {
+			oldEncPwd = PasswordEncryptorUtil.encrypt(
+				user.getPassword());
+		}
+
+		passwordTrackerLocalService.trackPassword(
+			user.getUserId(), oldEncPwd);
 	}
 
 	/**
