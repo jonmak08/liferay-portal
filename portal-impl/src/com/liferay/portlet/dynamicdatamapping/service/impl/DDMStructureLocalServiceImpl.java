@@ -150,7 +150,7 @@ public class DDMStructureLocalServiceImpl
 			xsd = DDMXMLUtil.formatXML(xsd);
 		}
 		catch (Exception e) {
-			throw new StructureXsdException();
+			throw new StructureXsdException(e);
 		}
 
 		Date now = new Date();
@@ -1492,7 +1492,7 @@ public class DDMStructureLocalServiceImpl
 			xsd = DDMXMLUtil.formatXML(xsd);
 		}
 		catch (Exception e) {
-			throw new StructureXsdException();
+			throw new StructureXsdException(e);
 		}
 
 		String parentXsd = StringPool.BLANK;
@@ -1640,7 +1640,7 @@ public class DDMStructureLocalServiceImpl
 				script = DDMXMLUtil.formatXML(templateDocument.asXML());
 			}
 			catch (Exception e) {
-				throw new StructureXsdException();
+				throw new StructureXsdException(e);
 			}
 
 			template.setScript(script);
@@ -1751,12 +1751,20 @@ public class DDMStructureLocalServiceImpl
 			String name = StringUtil.toLowerCase(
 				element.attributeValue("name"));
 
+			if (Validator.isNull(name)) {
+				throw new StructureXsdException(
+					"Element must have a name attribute " +
+						element.formattedString());
+			}
+
 			if (name.startsWith(DDMStructureConstants.XSD_NAME_RESERVED)) {
-				throw new StructureXsdException();
+				throw new StructureXsdException(
+					"Element name " + name + " is reserved");
 			}
 
 			if (elementNames.contains(name)) {
-				throw new StructureDuplicateElementException();
+				throw new StructureDuplicateElementException(
+					"Element with name " + name + " already exists");
 			}
 
 			elementNames.add(name);
@@ -1813,7 +1821,9 @@ public class DDMStructureLocalServiceImpl
 		String name = nameMap.get(contentDefaultLocale);
 
 		if (Validator.isNull(name)) {
-			throw new StructureNameException();
+			throw new StructureNameException(
+				"Name is null for locale " +
+					contentDefaultLocale.getDisplayName());
 		}
 
 		Locale[] availableLocales = LanguageUtil.getAvailableLocales();
@@ -1868,7 +1878,7 @@ public class DDMStructureLocalServiceImpl
 			throw sxe;
 		}
 		catch (Exception e) {
-			throw new StructureXsdException();
+			throw new StructureXsdException(e);
 		}
 	}
 

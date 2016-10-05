@@ -106,6 +106,10 @@ public class DDMXMLImpl implements DDMXML {
 			document = SAXReaderUtil.read(xml);
 		}
 		catch (DocumentException de) {
+			if (_log.isDebugEnabled()) {
+				_log.debug(de.getMessage(), de);
+			}
+
 			return null;
 		}
 
@@ -293,7 +297,7 @@ public class DDMXMLImpl implements DDMXML {
 				_log.debug("Invalid XML content " + e.getMessage(), e);
 			}
 
-			throw new StructureXsdException();
+			throw new StructureXsdException(e);
 		}
 	}
 
