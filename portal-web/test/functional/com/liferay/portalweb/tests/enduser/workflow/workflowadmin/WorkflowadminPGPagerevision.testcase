@@ -1,6 +1,7 @@
 <definition component-name="portal-workflow">
-	<property name="web.plugins.includes" value="kaleo-web" />
+	<property name="portal.release" value="true" />
 	<property name="testray.main.component.name" value="Workflow" />
+	<property name="web.plugins.includes" value="kaleo-web" />
 
 	<var name="siteName" value="Site Name" />
 	<var name="sitePageName" value="Site Page Name" />
