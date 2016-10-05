@@ -281,15 +281,25 @@ public class LDAPAuth implements Authenticator {
 				Attributes attributes = PortalLDAPUtil.getUserAttributes(
 					ldapServerId, companyId, ldapContext, fullUserDN);
 
-				// Get user or create from LDAP
-
-				User user = PortalLDAPImporterUtil.importLDAPUser(
-						ldapServerId, companyId, ldapContext, attributes, password);
-
 				// Authenticate
 
 				LDAPAuthResult ldapAuthResult = authenticate(
 					ldapContext, companyId, attributes, fullUserDN, password);
+
+				// Get user or create from LDAP
+
+				User user = null;
+
+				if (ldapAuthResult.isAuthenticated()) {
+					user = PortalLDAPImporterUtil.importLDAPUser(
+						ldapServerId, companyId, ldapContext, attributes,
+						password);
+				}
+				else {
+					user = PortalLDAPImporterUtil.importLDAPUser(
+						ldapServerId, companyId, ldapContext, attributes,
+						StringPool.BLANK);
+				}
 
 				// Process LDAP failure codes
 
