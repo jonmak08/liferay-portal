@@ -254,8 +254,7 @@ public class EditTemplateAction extends PortletAction {
 		String script = FileUtil.read(file);
 
 		if (Validator.isNotNull(script) && !isValidFile(file)) {
-			throw new TemplateScriptException(
-				"Script has invalid contentType");
+			throw new TemplateScriptException("Script has invalid contentType");
 		}
 
 		return GetterUtil.getString(script, scriptContent);
