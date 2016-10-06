@@ -499,6 +499,12 @@
 			<then>
 				<execute function="AssertTextEquals#assertPartialText" locator1="PGStagingPublishtolivenow#CURRENT_AND_PREVIOUS_TABLE_STATUS" value1="Failed" />
 			</then>
+			<elseif>
+				<equals arg1="${publishValidation}" arg2="true" />
+				<then>
+					<execute function="AssertTextEquals" locator1="PGStagingPublishtolivenow#CURRENT_AND_PREVIOUS_TABLE_STATUS" value1="Successful Details" />
+				</then>
+			</elseif>
 			<else>
 				<execute function="AssertTextEquals" locator1="PGStagingPublishtolivenow#CURRENT_AND_PREVIOUS_TABLE_STATUS" value1="Successful" />
 			</else>

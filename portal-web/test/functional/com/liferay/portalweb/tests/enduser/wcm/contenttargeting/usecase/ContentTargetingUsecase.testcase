@@ -2404,7 +2404,9 @@
 			<var name="uncheckContentNameList" value="Web Content" />
 		</execute>
 
-		<execute macro="Staging#publishToLive" />
+		<execute macro="Staging#publishToLive">
+			<var name="publishValidation" value="true" />
+		</execute>
 
 		<execute macro="Staging#gotoPublishToLive" />
 
