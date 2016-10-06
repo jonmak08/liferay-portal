@@ -288,7 +288,7 @@ request.setAttribute(WebKeys.WORKFLOW_ASSET_PREVIEW, Boolean.TRUE);
 				<c:when test="<%= className.equals(DLFileEntry.class.getName()) && assetRenderer.hasViewPermission(permissionChecker) %>">
 
 					<%
-						FileVersion fileVersion = (FileVersion)request.getAttribute(WebKeys.DOCUMENT_LIBRARY_FILE_VERSION);
+					FileVersion fileVersion = (FileVersion)request.getAttribute(WebKeys.DOCUMENT_LIBRARY_FILE_VERSION);
 					%>
 
 					<liferay-ui:icon
