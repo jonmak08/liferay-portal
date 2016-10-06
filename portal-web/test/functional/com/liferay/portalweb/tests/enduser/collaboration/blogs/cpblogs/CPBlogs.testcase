@@ -12,7 +12,6 @@
 
 	<command description="Ensure that a user can add multiple Blogs Entries." name="AddBlogsEntries" priority="5">
 		<property name="testray.component.names" value="Blogs" />
-	<property name="portal.release" value="true" />
 		<property name="testray.main.component.name" value="Blogs" />
 
 		<execute macro="Page#gotoContentCP">
