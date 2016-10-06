@@ -88,7 +88,7 @@
 		font-weight: 200;
 
 		input[type="checkbox"], input[type="radio"] {
-			margin: 0 0 2px;
+			vertical-align: text-top;
 		}
 	}
 
