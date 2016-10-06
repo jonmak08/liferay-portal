@@ -14,13 +14,7 @@
 
 package com.liferay.portlet.grouppages.action;
 
-import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.Group;
-import com.liferay.portal.model.Layout;
-import com.liferay.portal.security.permission.ActionKeys;
-import com.liferay.portal.security.permission.PermissionChecker;
-import com.liferay.portal.service.permission.LayoutPermissionUtil;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.WebKeys;
 
@@ -44,17 +38,4 @@ public class EditLayoutsAction
 		return group;
 	}
 
-	@Override
-	protected void checkPermission(
-			PermissionChecker permissionChecker, Group group, Layout layout,
-			long selPlid)
-		throws PortalException, SystemException {
-
-		super.checkPermission(permissionChecker, group, layout, selPlid);
-
-		if (selPlid > 0) {
-			LayoutPermissionUtil.check(
-				permissionChecker, layout, ActionKeys.UPDATE);
-		}
-	}
 }
