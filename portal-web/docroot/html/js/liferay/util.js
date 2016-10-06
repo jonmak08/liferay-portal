@@ -1321,6 +1321,8 @@
 		function(el, caretPosition) {
 			Util.addInputFocus();
 
+			var element = A.one(el);
+
 			var interacting = false;
 
 			var clickHandle = A.getDoc().on(
@@ -1333,10 +1335,28 @@
 			);
 
 			if (!interacting) {
-				el = A.one(el);
-
 				try {
-					el.focus();
+					var focusable;
+					var form;
+
+					if (element) {
+						element = element.getDOM();
+
+						focusable = !element.disabled && !element.hidden;
+						form = element.closest('form');
+					}
+
+					if ((!form || !form.length) && focusable) {
+						element.focus();
+					}
+					else {
+						Liferay.once(
+							form.id + 'formReady',
+							function() {
+								element.focus();
+							}
+						);
+					}
 				}
 				catch (e) {
 				}

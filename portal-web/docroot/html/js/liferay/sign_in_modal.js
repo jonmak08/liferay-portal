@@ -45,7 +45,9 @@ AUI.add(
 							var formNode = signInPortlet.one('form');
 
 							if (formNode) {
-								var form = Liferay.Form.get(formNode.attr('id'));
+								instance._signInFormId = formNode.attr('id');
+
+								var form = Liferay.Form.get(instance._signInFormId);
 
 								instance._formValidator = form.formValidator;
 
@@ -69,6 +71,8 @@ AUI.add(
 
 						if (instance._signInPortletBody && instance._hasSignInForm) {
 							instance._loadDOM();
+
+							Liferay.fire(instance._signInFormId + 'formReady');
 						}
 						else {
 							instance._loadIO();

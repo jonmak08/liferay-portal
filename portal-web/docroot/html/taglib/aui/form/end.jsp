@@ -21,10 +21,14 @@
 	</c:if>
 </form>
 
+<%
+String formId = namespace + HtmlUtil.escapeJS(name);
+%>
+
 <aui:script use="liferay-form">
 	Liferay.Form.register(
 		{
-			id: '<%= namespace + HtmlUtil.escapeJS(name) %>'
+			id: '<%= formId %>'
 
 			<c:if test="<%= validatorTagsMap != null %>">
 				, fieldRules: [
@@ -67,6 +71,8 @@
 	);
 
 	<c:if test="<%= Validator.isNotNull(onSubmit) %>">
-		A.all('#<%= namespace + HtmlUtil.escapeJS(name) %> .input-container').removeAttribute('disabled');
+		A.all('#<%= formId %> .input-container').removeAttribute('disabled');
 	</c:if>
+
+	Liferay.fire('<%= formId %>formReady');
 </aui:script>
