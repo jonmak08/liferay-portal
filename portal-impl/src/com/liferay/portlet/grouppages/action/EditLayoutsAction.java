@@ -57,5 +57,4 @@ public class EditLayoutsAction
 				permissionChecker, layout, ActionKeys.UPDATE);
 		}
 	}
-
 }
