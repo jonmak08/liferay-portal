@@ -1263,21 +1263,24 @@ public class ResourcePermissionLocalServiceImpl
 					companyId, name, scope, primKey,
 					ArrayUtil.subset(roleIds, start, roleIds.length)));
 
+			Map<Long, String[]> roleIdsToActionIdsCopy = new HashMap<>(
+				roleIdsToActionIds);
+
 			for (ResourcePermission resourcePermission : resourcePermissions) {
 				long roleId = resourcePermission.getRoleId();
-				String[] actionIds = roleIdsToActionIds.remove(roleId);
+				String[] actionIds = roleIdsToActionIdsCopy.remove(roleId);
 
 				doUpdateResourcePermission(
 					companyId, name, scope, primKey, ownerId, roleId, actionIds,
 					ResourcePermissionConstants.OPERATOR_SET, true);
 			}
 
-			if (roleIdsToActionIds.isEmpty()) {
+			if (roleIdsToActionIdsCopy.isEmpty()) {
 				return;
 			}
 
 			for (Map.Entry<Long, String[]> entry :
-					roleIdsToActionIds.entrySet()) {
+					roleIdsToActionIdsCopy.entrySet()) {
 
 				long roleId = entry.getKey();
 				String[] actionIds = entry.getValue();
