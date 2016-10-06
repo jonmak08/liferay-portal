@@ -158,12 +158,14 @@ public class BaseAssetEntryValidator implements AssetEntryValidator {
 	}
 
 	@Override
-	public void validate(long groupId, String className, long classPK,
-			long[] categoryIds, String[] entryNames)
+	public void validate(
+			long groupId, String className, long classPK, long[] categoryIds,
+			String[] entryNames)
 		throws PortalException, SystemException {
 
-		if (className.equals(BlogsEntry.class.getName()) && 
+		if (className.equals(BlogsEntry.class.getName()) &&
 			(classPK == groupId)) {
+
 			return;
 		}
 
