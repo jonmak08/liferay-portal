@@ -2369,7 +2369,7 @@
 			</library>
 			<library>
 				<file-name>lib/portal/jets3t.jar</file-name>
-				<version>0.9.4</version>
+				<version>0.9.0</version>
 				<project-name>JetS3t</project-name>
 				<project-url>http://jets3t.s3.amazonaws.com/index.html</project-url>
 				<licenses>
