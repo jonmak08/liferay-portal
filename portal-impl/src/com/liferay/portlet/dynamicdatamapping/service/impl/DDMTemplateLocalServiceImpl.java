@@ -1443,7 +1443,7 @@ public class DDMTemplateLocalServiceImpl
 
 		if (template != null) {
 			throw new TemplateDuplicateTemplateKeyException(
-					"Template already exists with template key " + templateKey);
+				"Template already exists with template key " + templateKey);
 		}
 
 		validate(
