@@ -26,8 +26,7 @@ $dockbarOpenGradientStart: #0EA6F9;
 	}
 
 	label {
-		input[type="checkbox"],
-		input[type="radio"] {
+		input[type="checkbox"], input[type="radio"] {
 			margin: 0 0 2px;
 		}
 	}
