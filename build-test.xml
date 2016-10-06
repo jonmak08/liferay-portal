@@ -5011,6 +5011,15 @@ mail.session.mail.smtp.port=25000</echo>
 		</if>
 
 		<if>
+			<isset property="marketplace.url" />
+			<then>
+				<echo append="true" file="${test.ext.properties.file}">
+					marketplace.url=${marketplace.url}
+				</echo>
+			</then>
+		</if>
+
+		<if>
 			<isset property="osb.lcs.portlet.host.name" />
 			<then>
 				<echo append="true" file="${test.ext.properties.file}">
