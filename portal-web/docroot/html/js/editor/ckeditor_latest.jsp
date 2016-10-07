@@ -110,8 +110,8 @@ private static String _replaceVariations(String content) {
 	String ckEditorLatest = "/ckeditor_latest/";
 
 	if (!content.contains(ckEditor)) {
-		ckEditor = HtmlUtil.escape(ckEditor);
-		ckEditorLatest = HtmlUtil.escape(ckEditorLatest);
+		ckEditor = HtmlUtil.escapeAttribute(ckEditor);
+		ckEditorLatest = HtmlUtil.escapeAttribute(ckEditorLatest);
 	}
 
 	content = StringUtil.replace(content, ckEditor, ckEditorLatest);
