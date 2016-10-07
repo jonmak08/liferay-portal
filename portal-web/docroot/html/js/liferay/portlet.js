@@ -426,6 +426,11 @@
 						link.attr('alt', title);
 						link.attr('title', title);
 
+						el.parentNode.setAttribute("onmouseover",
+								"Liferay.Portal.ToolTip.show(" +
+								el.getAttribute('id')  + ", '" +
+								title + "')");
+
 						var linkText = link.one('.taglib-text-icon');
 
 						if (linkText) {
