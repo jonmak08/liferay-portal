@@ -6325,7 +6325,9 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		user.setDigest(StringPool.BLANK);
 	}
 
-	protected void trackPassword(User user) throws PortalException {
+	protected void trackPassword(User user)
+		throws PortalException, SystemException {
+
 		String oldEncPwd = user.getPassword();
 
 		if (!user.isPasswordEncrypted()) {
