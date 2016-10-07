@@ -86,6 +86,7 @@ public class DDLRecordServiceTest extends BaseDDLServiceTestCase {
 
 		Map<String, Serializable> fieldsMap =
 			new HashMap<String, Serializable>();
+
 		fieldsMap.put("contact_name", "name");
 		fieldsMap.put("email", "email@test.com");
 
