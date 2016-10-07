@@ -77,7 +77,7 @@ public class SpringHibernateThreadLocalUtil {
 		}
 		else {
 			if (resources == null) {
-				resources = new HashMap<>();
+				resources = new HashMap<Object, Object>();
 
 				_resourcesThreadLocal.set(resources);
 			}
@@ -117,11 +117,11 @@ public class SpringHibernateThreadLocalUtil {
 					Object value = threadLocal.get();
 
 					if (threadLocal instanceof NamedThreadLocal) {
-						threadLocal = new InitialThreadLocal<>(
+						threadLocal = new InitialThreadLocal<Object>(
 							(String)nameField.get(threadLocal), null);
 					}
 					else {
-						threadLocal = new CentralizedThreadLocal<>(false);
+						threadLocal = new CentralizedThreadLocal<Object>(false);
 					}
 
 					if (value != null) {
