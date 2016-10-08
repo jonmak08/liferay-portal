@@ -144,7 +144,7 @@ public class ScopeFacet extends MultiValueFacet {
 			try {
 				Group group = GroupLocalServiceUtil.getGroup(groupId);
 
-				if (!GroupLocalServiceUtil.isActive(group)) {
+				if (!GroupLocalServiceUtil.isLiveGroupActive(group)) {
 					continue;
 				}
 
