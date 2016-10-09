@@ -105,9 +105,7 @@
 		</execute>
 	</command>
 
-	<!-- LRQA-20937 -->
-
-	<!--<command known-issues="LPS-55332" name="AddWebContentPortalScopeCurrentPage" priority="5">
+	<command name="AddWebContentPortalScopeCurrentPage" priority="5">
 		<var name="pageName1" value="Web Content Display Page1" />
 		<var name="pageName2" value="Web Content Display Page2" />
 		<var name="pageName3" value="Web Content Display Page3" />
@@ -228,7 +226,7 @@
 		<execute macro="WebContent#tearDownCP">
 			<var name="contentScopeName" value="${pageName1}" />
 		</execute>
-	</command>-->
+	</command>
 
 	<command name="AddWebContentViaAddContentPanel" priority="5">
 		<var name="pageName" value="Web Content Page" />
