@@ -17,9 +17,11 @@ package com.liferay.portal.verify;
 import com.liferay.portal.kernel.concurrent.ThrowableAwareRunnable;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.dao.shard.ShardUtil;
+import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.security.auth.FullNameGenerator;
@@ -32,6 +34,7 @@ import java.sql.Timestamp;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * @author Michael C. Han
@@ -133,6 +136,10 @@ public class VerifyAuditedModel extends VerifyProcess {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
+		Locale locale = LocaleUtil.getSiteDefault();
+		String anonymousUserName = LanguageUtil.format(
+			locale, "anonymous", new Object[]{});
+
 		try {
 			con = DataAccess.getUpgradeOptimizedConnection();
 
@@ -154,7 +161,7 @@ public class VerifyAuditedModel extends VerifyProcess {
 
 				if (allowAnonymousUser) {
 					userId = previousUserId;
-					userName = "Anonymous";
+					userName = anonymousUserName;
 				}
 				else {
 					userId = rs.getLong("userId");
