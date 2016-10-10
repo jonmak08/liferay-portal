@@ -6120,7 +6120,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 				!key.equals("usersRoles") &&
 				!key.equals("usersTeams") &&
 				!key.equals("usersUserGroups") &&
-				!key.equals("queryDatabase")) {
+				!key.equals("forceDatabase")) {
 
 				return true;
 			}
@@ -6132,9 +6132,9 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 			return true;
 		}
 
-		Boolean queryDatabase = (Boolean)params.get("queryDatabase");
+		Boolean forceDatabase = (Boolean)params.get("forceDatabase");
 
-		if ((queryDatabase != null) && queryDatabase) {
+		if ((forceDatabase != null) && forceDatabase) {
 			return true;
 		}
 

@@ -15,7 +15,8 @@
 --%>
 
 <%
-userParams.put("queryDatabase", Boolean.TRUE);
+userParams.put("forceDatabase", Boolean.TRUE);
+
 if (searchTerms.isAdvancedSearch()) {
 	total = UserLocalServiceUtil.searchCount(company.getCompanyId(), searchTerms.getFirstName(), searchTerms.getMiddleName(), searchTerms.getLastName(), searchTerms.getScreenName(), searchTerms.getEmailAddress(), searchTerms.getStatus(), userParams, searchTerms.isAndOperator());
 
