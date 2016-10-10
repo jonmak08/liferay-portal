@@ -218,7 +218,7 @@
 	</command>
 
 	<command name="AddDMDocumentStagingLocalLive" priority="5">
-		<property name="portal.acceptance" value="pending" />
+		<property name="portal.acceptance" value="true" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page" />

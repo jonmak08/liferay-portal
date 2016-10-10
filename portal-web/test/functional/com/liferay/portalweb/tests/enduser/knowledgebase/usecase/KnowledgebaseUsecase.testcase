@@ -92,7 +92,7 @@
 	<command name="DeleteImportedArticles" priority="5">
 		<property name="ignore.errors" value="java.lang.IllegalStateException|Exception in thread &quot;TrueZIP ArchiveController Shutdown Hook&quot; java.lang.NoClassDefFoundError: de/schlichtherle/io/ArchiveControllers$ControllerEnumeration" />
 		<property name="ignore.errors.delimiter" value="|" />
-		<property name="portal.acceptance" value="pending" />
+		<property name="portal.acceptance" value="true" />
 
 		<!-- Change the layout to 70/30 to widen the portlet so to avoid "Element cannot be scrolled into view" error -->
 

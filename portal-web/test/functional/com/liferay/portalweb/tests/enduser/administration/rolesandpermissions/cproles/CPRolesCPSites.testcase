@@ -22,6 +22,8 @@
 	</tear-down>
 
 	<command name="AddSiteRegRole" priority="5">
+		<property name="portal.acceptance" value="true" />
+
 		<execute macro="Permissions#setUpRegRoleLoginUserCP">
 			<var name="roleName" value="Regrole Name" />
 			<var name="userEmailAddress" value="userea@liferay.com" />
