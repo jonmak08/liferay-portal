@@ -6119,7 +6119,8 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 				!key.equals("usersOrgsCount") &&
 				!key.equals("usersRoles") &&
 				!key.equals("usersTeams") &&
-				!key.equals("usersUserGroups")) {
+				!key.equals("usersUserGroups") &&
+				!key.equals("queryDatabase")) {
 
 				return true;
 			}
@@ -6128,6 +6129,12 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		Boolean inherit = (Boolean)params.get("inherit");
 
 		if ((inherit != null) && inherit) {
+			return true;
+		}
+
+		Boolean queryDatabase = (Boolean)params.get("queryDatabase");
+
+		if ((queryDatabase != null) && queryDatabase) {
 			return true;
 		}
 
