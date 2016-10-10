@@ -64,7 +64,8 @@ public class VerifyAuditedModel extends VerifyProcess {
 					new VerifyAuditedModelRunnable(
 						ShardUtil.getCurrentShardName(), model[0], model[1],
 						model[2], model[3], model[4],
-						GetterUtil.getBoolean(model[5]));
+						GetterUtil.getBoolean(model[5]),
+						GetterUtil.getBoolean(model[6]));
 
 				verifyAuditedModelRunnables.add(verifyAuditedModelRunnable);
 
@@ -124,7 +125,8 @@ public class VerifyAuditedModel extends VerifyProcess {
 	}
 
 	protected Object[] getModelArray(
-			String modelName, String pkColumnName, long primKey)
+			String modelName, String pkColumnName, long primKey,
+			boolean allowAnonymousUser, long previousUserId)
 		throws Exception {
 
 		Connection con = null;
@@ -144,13 +146,23 @@ public class VerifyAuditedModel extends VerifyProcess {
 
 			if (rs.next()) {
 				long companyId = rs.getLong("companyId");
-				long userId = rs.getLong("userId");
 				Timestamp createDate = rs.getTimestamp("createDate");
 				Timestamp modifiedDate = rs.getTimestamp("modifiedDate");
 
+				long userId;
+				String userName;
+
+				if (allowAnonymousUser) {
+					userId = previousUserId;
+					userName = "Anonymous";
+				}
+				else {
+					userId = rs.getLong("userId");
+					userName = getUserName(userId);
+				}
+
 				return new Object[] {
-					companyId, userId, getUserName(userId), createDate,
-					modifiedDate
+					companyId, userId, userName, createDate, modifiedDate
 				};
 			}
 
@@ -271,7 +283,7 @@ public class VerifyAuditedModel extends VerifyProcess {
 	protected void verifyModel(
 			String modelName, String pkColumnName, String joinByColumnName,
 			String relatedModelName, String relatedPKColumnName,
-			boolean updateDates)
+			boolean updateDates, boolean allowAnonymousUser)
 		throws Exception {
 
 		Connection con = null;
@@ -281,11 +293,12 @@ public class VerifyAuditedModel extends VerifyProcess {
 		try {
 			con = DataAccess.getUpgradeOptimizedConnection();
 
-			StringBundler sb = new StringBundler(8);
+			StringBundler sb = new StringBundler(9);
 
 			sb.append("select ");
 			sb.append(pkColumnName);
 			sb.append(", companyId");
+			sb.append(", userId");
 
 			if (joinByColumnName != null) {
 				sb.append(StringPool.COMMA_AND_SPACE);
@@ -307,12 +320,14 @@ public class VerifyAuditedModel extends VerifyProcess {
 			while (rs.next()) {
 				long companyId = rs.getLong("companyId");
 				long primKey = rs.getLong(pkColumnName);
+				long previousUserId = rs.getLong("userId");
 
 				if (joinByColumnName != null) {
 					long relatedPrimKey = rs.getLong(joinByColumnName);
 
 					modelArray = getModelArray(
-						relatedModelName, relatedPKColumnName, relatedPrimKey);
+						relatedModelName, relatedPKColumnName, relatedPrimKey,
+						allowAnonymousUser, previousUserId);
 				}
 				else if (previousCompanyId != companyId) {
 					modelArray = getDefaultUserArray(con, companyId);
@@ -335,46 +350,48 @@ public class VerifyAuditedModel extends VerifyProcess {
 
 	private static final String[][] _MODELS = new String[][] {
 		new String[] {
-			"Layout", "plid", null, null, null, "false"
+			"Layout", "plid", null, null, null, "false", "false"
 		},
 		new String[] {
-			"LayoutPrototype", "layoutPrototypeId", null, null, null, "true"
-		},
-		new String[] {
-			"LayoutSetPrototype", "layoutSetPrototypeId", null, null, null,
+			"LayoutPrototype", "layoutPrototypeId", null, null, null, "true",
 			"false"
 		},
 		new String[] {
+			"LayoutSetPrototype", "layoutSetPrototypeId", null, null, null,
+			"false", "false"
+		},
+		new String[] {
 			"MBDiscussion", "discussionId", "threadId", "MBThread", "threadId",
-			"true"
+			"true", "false"
 		},
 		new String[] {
 			"MBThread", "threadId", "rootMessageId", "MBMessage", "messageId",
-			"true"
+			"true", "false"
 		},
 		new String[] {
 			"MBThreadFlag", "threadFlagId", "userId", "User_", "userId", "true",
+			"false"
 		},
 		new String[] {
-			"Organization_", "organizationId", null, null, null, "true"
+			"Organization_", "organizationId", null, null, null, "true", "false"
 		},
 		new String[] {
 			"PollsChoice", "choiceId", "questionId", "PollsQuestion",
-			"questionId", "true"
+			"questionId", "true", "false"
 		},
 		new String[] {
 			"PollsVote", "voteId", "questionId", "PollsQuestion", "questionId",
-			"true"
+			"true", "true"
 		},
 		new String[] {
 			"RepositoryEntry", "repositoryEntryId", "repositoryId",
-			"Repository", "repositoryId", "true"
+			"Repository", "repositoryId", "true", "false"
 		},
 		new String[] {
-			"Role_", "roleId", null, null, null, "true"
+			"Role_", "roleId", null, null, null, "true", "false"
 		},
 		new String[] {
-			"UserGroup", "userGroupId", null, null, null, "true"
+			"UserGroup", "userGroupId", null, null, null, "true", "false"
 		}
 	};
 
@@ -385,7 +402,8 @@ public class VerifyAuditedModel extends VerifyProcess {
 		private VerifyAuditedModelRunnable(
 			String shardName, String modelName, String pkColumnName,
 			String joinByColumnName, String relatedModelName,
-			String relatedPKColumnName, boolean updateDates) {
+			String relatedPKColumnName, boolean updateDates,
+			boolean allowAnonymousUser) {
 
 			super(shardName);
 
@@ -395,13 +413,14 @@ public class VerifyAuditedModel extends VerifyProcess {
 			_relatedModelName = relatedModelName;
 			_relatedPKColumnName = relatedPKColumnName;
 			_updateDates = updateDates;
+			_allowAnonymousUser = allowAnonymousUser;
 		}
 
 		@Override
 		protected void doRun() throws Exception {
 			verifyModel(
 				_modelName, _pkColumnName, _joinByColumnName, _relatedModelName,
-				_relatedPKColumnName, _updateDates);
+				_relatedPKColumnName, _updateDates, _allowAnonymousUser);
 		}
 
 		private final String _joinByColumnName;
@@ -410,6 +429,7 @@ public class VerifyAuditedModel extends VerifyProcess {
 		private final String _relatedModelName;
 		private final String _relatedPKColumnName;
 		private final boolean _updateDates;
+		private final boolean _allowAnonymousUser;
 
 	}
 
