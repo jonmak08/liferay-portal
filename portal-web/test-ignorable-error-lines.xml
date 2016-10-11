@@ -15,6 +15,10 @@
 			<matches></matches>
 		</ignore-error>
 		<ignore-error description="LRQA-28301">
+			<contains>TypeError: AString is undefined</contains>
+			<matches></matches>
+		</ignore-error>
+		<ignore-error description="LRQA-28301">
 			<contains>TypeError: b.provide is not a function</contains>
 			<matches></matches>
 		</ignore-error>
