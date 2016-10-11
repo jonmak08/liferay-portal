@@ -252,7 +252,7 @@ Parse.Simple.Creole = function(options) {
 				var imagePathPrefix = options ? options.imagePrefix : '';
 
 				if (imagePathPrefix) {
-					if (!(/^https?:\/\//gi.test(imagePath))) {
+					if (!(/^(https?:\/\/|data:image)/gi.test(imagePath))) {
 						imagePath = imagePathPrefix + imagePath;
 					}
 				}
