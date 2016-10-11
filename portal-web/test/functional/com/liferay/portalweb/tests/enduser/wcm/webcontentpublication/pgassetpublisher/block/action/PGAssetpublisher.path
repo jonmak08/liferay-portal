@@ -165,7 +165,7 @@
 </tr>
 <tr>
 	<td>ASSET_ABSTRACT_READ_MORE</td>
-	<td>//a[contains(.,'Read More')]</td>
+	<td>//div[contains(.,'${key_assetTitle}')]/a[contains(.,'Read More')]</td>
 	<td></td>
 </tr>
 <tr>
