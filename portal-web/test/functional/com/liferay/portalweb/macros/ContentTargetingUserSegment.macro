@@ -153,6 +153,7 @@
 		</execute>
 
 		<execute function="Select" locator1="CPContenttargetingAddusersegment#USER_SEGMENT_RULE_SESSION_ATTRIBUTES_LOCATION_COUNTRY_SELECT" value1="${countryName}" />
+
 		<execute function="Select" locator1="CPContenttargetingAddusersegment#USER_SEGMENT_RULE_SESSION_ATTRIBUTES_LOCATION_REGION_SELECT" value1="${regionName}" />
 	</command>
 
@@ -215,6 +216,7 @@
 		</execute>
 
 		<execute function="Select" locator1="CPContenttargetingAddusersegment#USER_SEGMENT_RULE_USER_ATTRIBUTES_ORGANIZATION_ORGANIZATION_SELECT" value1="${organizationName}" />
+
 		<execute function="Select" locator1="CPContenttargetingAddusersegment#USER_SEGMENT_RULE_USER_ATTRIBUTES_ORGANIZATION_ROLE_SELECT" value1="${organizationRole}" />
 	</command>
 
@@ -240,6 +242,7 @@
 		</execute>
 
 		<execute function="Select" locator1="CPContenttargetingAddusersegment#USER_SEGMENT_RULE_USER_ATTRIBUTES_SITE_ROLE_SITE_ROLE_SELECT" value1="${siteRole}" />
+
 		<execute function="Select" locator1="CPContenttargetingAddusersegment#USER_SEGMENT_RULE_USER_ATTRIBUTES_SITE_ROLE_SITE_SELECT" value1="${siteRoleSite}" />
 	</command>
 
