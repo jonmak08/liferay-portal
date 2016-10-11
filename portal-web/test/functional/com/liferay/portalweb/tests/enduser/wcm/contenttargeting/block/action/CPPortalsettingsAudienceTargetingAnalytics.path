@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>CPPortalsettingsAudienceTargetingAnalytics</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">CPPortalsettingsAudienceTargetingAnalytics</td></tr>
+</thead>
+<tbody>
+<tr>
+	<td>ANONYMOUS_USERS_CHECKBOX</td>
+	<td>//label[contains(.,'Anonymous Users')]//input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PAGES_CHECKBOX</td>
+	<td>//label[contains(.,'Pages')]//input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CONTENT_CHECKBOX</td>
+	<td>//label[contains(.,'Content')]//input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FORMS_CHECKBOX</td>
+	<td>//label[contains(.,'Forms')]//input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FORM_VIEWS_CHECKBOX</td>
+	<td>//label[contains(.,'Form Views')]//input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FORM_INTERACTIONS</td>
+	<td>//label[contains(.,'Form Interactions')]//input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FORM_SUBMITS</td>
+	<td>//label[contains(.,'Form Submits')]//input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LINKS_CHECKBOX</td>
+	<td>//label[contains(.,'Links')]//input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>YOUTUBE_VIDEOS_CHECKBOX</td>
+	<td>//label[contains(.,'Youtube Videos')]//input[@type='checkbox']</td>
+	<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

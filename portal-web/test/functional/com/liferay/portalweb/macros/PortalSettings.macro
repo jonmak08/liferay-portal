@@ -25,6 +25,36 @@
 		<execute macro="Button#clickSave" />
 	</command>
 
+	<command name="configureAudienceTargetingAnalyticsCP">
+		<execute function="AssertClick" locator1="CPPortalsettings#MENU_MISCELLANEOUS_AUDIENCE_TARGETING_ANALYTICS" value1="Audience Targeting Analytics" />
+
+		<if>
+			<isset var="enableAnalyticsList" />
+			<then>
+				<for list="${enableAnalyticsList}" param="analyticsName">
+					<var method="StringUtil#upperCase('${analyticsName}')" name="analyticsName" />
+					<var method="StringUtil#replace('${analyticsName}', ' ', '_')" name="analyticsName" />
+
+					<execute function="Check" locator1="CPPortalsettingsAudienceTargetingAnalytics#${analyticsName}_CHECKBOX" />
+				</for>
+			</then>
+		</if>
+
+		<if>
+			<isset var="disableAnalyticsList" />
+			<then>
+				<for list="${disableAnalyticsList}" param="analyticsName">
+					<var method="StringUtil#upperCase('${analyticsName}')" name="analyticsName" />
+					<var method="StringUtil#replace('${analyticsName}', ' ', '_')" name="analyticsName" />
+
+					<execute function="Uncheck" locator1="CPPortalsettingsAudienceTargetingAnalytics#${analyticsName}_CHECKBOX" />
+				</for>
+			</then>
+		</if>
+
+		<execute function="Click" locator1="CPPortalsettings#SAVE_BUTTON" />
+	</command>
+
 	<command name="configureAuthenticationLDAPCP">
 		<execute macro="PortalSettings#_gotoLDAPTab" />
 

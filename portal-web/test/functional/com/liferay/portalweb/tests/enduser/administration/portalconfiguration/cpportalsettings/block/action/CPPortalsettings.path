@@ -71,6 +71,11 @@
 </tr>
 <!--MENU_MISCELLANEOUS-->
 <tr>
+	<td>MENU_MISCELLANEOUS_AUDIENCE_TARGETING_ANALYTICS</td>
+	<td>//a[@id='_130_contentTargetingAnalyticsLink']</td>
+	<td></td>
+</tr>
+<tr>
 	<td>MENU_MISCELLANEOUS_DISPLAY_SETTINGS</td>
 	<td>//a[@id='_130_displaySettingsLink']</td>
 	<td></td>
