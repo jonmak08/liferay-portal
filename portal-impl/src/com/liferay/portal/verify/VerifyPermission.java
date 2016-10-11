@@ -59,7 +59,6 @@ import com.liferay.portal.upgrade.AutoBatchPreparedStatementUtil;
 import com.liferay.portal.util.PortalInstances;
 import com.liferay.portal.util.PortalUtil;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -428,27 +427,13 @@ public class VerifyPermission extends VerifyProcess {
 
 		runSQL(sb.toString());
 
-		CallableStatement cs = null;
-
-		Connection con = DataAccess.getUpgradeOptimizedConnection();
-
-		try {
-			cs = con.prepareCall(
-				"{call DBMS_ERRLOG.CREATE_ERROR_LOG('ResourcePermission')}");
-
-			cs.execute();
-		}
-		finally {
-			DataAccess.cleanUp(con, cs);
-		}
-
 		for (long companyId : companyIds) {
 			Role powerUserRole = RoleLocalServiceUtil.getRole(
 				companyId, RoleConstants.POWER_USER);
 			Role userRole = RoleLocalServiceUtil.getRole(
 				companyId, RoleConstants.USER);
 
-			sb = new StringBundler(20);
+			sb = new StringBundler(19);
 
 			sb.append("update ResourcePermission r1 set roleId = ");
 			sb.append(userRole.getRoleId());
@@ -468,13 +453,10 @@ public class VerifyPermission extends VerifyProcess {
 			sb.append(userGroupClassNameId);
 			sb.append(") and Layout.type_ = '");
 			sb.append(LayoutConstants.TYPE_PORTLET);
-			sb.append("') log errors into ERR$_ResourcePermission ('') ");
-			sb.append("reject limit unlimited");
+			sb.append("')");
 
 			runSQL(sb.toString());
 		}
-
-		runSQL("drop table ERR$_ResourcePermission");
 
 		runSQL("alter table ResourcePermission drop column plid");
 	}
