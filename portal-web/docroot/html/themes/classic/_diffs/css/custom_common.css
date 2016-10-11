@@ -1007,6 +1007,12 @@
 		@include opacity(0.8);
 	}
 
+	&.ie label {
+		input[type="checkbox"], input[type="radio"] {
+			vertical-align: top;
+		}
+	}
+
 	&.ie6, &.ie7 {
 		.logo, .logo:hover {
 			line-height: normal;
