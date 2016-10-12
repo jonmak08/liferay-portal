@@ -499,9 +499,7 @@ public class Table {
 					ps.addBatch();
 
 					if (count == _BATCH_SIZE) {
-						ps.executeBatch();
-
-						ps.close();
+						populateTableRows(ps, true);
 
 						count = 0;
 					}
@@ -510,17 +508,13 @@ public class Table {
 					}
 				}
 				else {
-					ps.executeUpdate();
-
-					ps.close();
+					populateTableRows(ps, false);
 				}
 			}
 
 			if (databaseMetaData.supportsBatchUpdates()) {
 				if (count != 0) {
-					ps.executeBatch();
-
-					ps.close();
+					populateTableRows(ps, true);
 				}
 			}
 		}
