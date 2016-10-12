@@ -231,15 +231,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 		Analyzer analyzer = getAnalyzer();
 
-		if (analyzer instanceof PerFieldAnalyzer) {
-			PerFieldAnalyzer perFieldAnalyzer = (PerFieldAnalyzer)analyzer;
-
-			Analyzer fieldAnalyzer = perFieldAnalyzer.getAnalyzer(field);
-
-			if (fieldAnalyzer instanceof LikeKeywordAnalyzer) {
-				like = true;
-			}
-		}
+		like = like || isLikeField(field);
 
 		boolean isLucene = isLuceneSearchEngine();
 
@@ -621,6 +613,20 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 		if (_log.isDebugEnabled()) {
 			_log.debug("Load index from cluster is not enabled");
+		}
+
+		return false;
+	}
+
+	public boolean isLikeField(String field) {
+		if (_analyzer instanceof PerFieldAnalyzer) {
+			PerFieldAnalyzer perFieldAnalyzer = (PerFieldAnalyzer)_analyzer;
+
+			Analyzer fieldAnalyzer = perFieldAnalyzer.getAnalyzer(field);
+
+			if (fieldAnalyzer instanceof LikeKeywordAnalyzer) {
+				return true;
+			}
 		}
 
 		return false;
