@@ -355,7 +355,7 @@ public class UpgradeImageGallery extends UpgradeProcess {
 
 			rs = ps.executeQuery();
 
-			ps2 = AutoBatchPreparedStatementUtil.autoBatch(
+			ps2 = AutoBatchPreparedStatementUtil.autoBath(
 				con.prepareStatement(deleteSQL));
 
 			while (rs.next()) {

@@ -30,7 +30,7 @@ import java.sql.SQLException;
  */
 public class AutoBatchPreparedStatementUtil {
 
-	public static PreparedStatement autoBatch(
+	public static PreparedStatement autoBath(
 			PreparedStatement preparedStatement)
 		throws SQLException {
 
