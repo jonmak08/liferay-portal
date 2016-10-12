@@ -233,12 +233,6 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 		like = like || isLikeField(field);
 
-		boolean isLucene = isLuceneSearchEngine();
-
-		if (!isLucene) {
-			analyzer = getKeywordAnalyzer();
-		}
-
 		if (like) {
 			value = StringUtil.replace(
 				value, StringPool.PERCENT, StringPool.BLANK);
@@ -382,6 +376,10 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 	@Override
 	public Analyzer getAnalyzer() {
+		if (!isLuceneSearchEngine()) {
+			return getKeywordAnalyzer();
+		}
+
 		return _analyzer;
 	}
 
