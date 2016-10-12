@@ -542,7 +542,8 @@
 
 				<execute function="AssertTextEquals" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_NAME" value1="${globalSiteName}" />
 				<execute function="AssertTextEquals" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_TYPE" value1="${globalSiteType}" />
-				<execute function="AssertElementPresent#assertVisible" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON" />
+				<execute function=
+"AssertVisible" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON" />
 
 				<var name="key_siteName" value="${liferaySiteName}" />
 
@@ -555,7 +556,8 @@
 						<execute function="AssertElementPresent" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON_DISABLED" />
 					</then>
 					<else>
-						<execute function="AssertElementPresent#assertVisible" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON" />
+						<execute function=
+"AssertVisible" locator1="PGAssetpublisherConfigurationSites#SITES_TABLE_CHOOSE_BUTTON" />
 					</else>
 				</if>
 			</then>

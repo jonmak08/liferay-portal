@@ -308,7 +308,7 @@
 
 				<execute function="AssertClick" locator1="PGWikiAddpage#SOURCE_CREOLE_BUTTON" value1="Source" />
 
-				<execute function="Type#type" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${wikiPageContent}" />
+				<execute function="Type" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${wikiPageContent}" />
 			</then>
 			<elseif>
 				<equals arg1="${htmlSource}" arg2="true" />
@@ -354,7 +354,7 @@
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGWikidisplayAddpage#FORMAT_DROPDOWN" value1="Source" />
 
-		<execute function="Type#type" locator1="PGWikidisplayAddpage#CK_EDITOR_SOURCE_FIELD" value1="${wikiPageContent}" />
+		<execute function="Type" locator1="PGWikidisplayAddpage#CK_EDITOR_SOURCE_FIELD" value1="${wikiPageContent}" />
 
 		<execute function="AssertClick#assertTextClickAtAndWaitCKEditor" locator1="PGWikidisplayAddpage#PUBLISH_BUTTON" value1="Publish" />
 
@@ -489,7 +489,7 @@
 
 				<execute function="AssertClick" locator1="PGWikiAddpage#SOURCE_CREOLE_BUTTON" value1="Source" />
 
-				<execute function="Type#type" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${wikiPageContent}" />
+				<execute function="Type" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${wikiPageContent}" />
 			</then>
 			<elseif>
 				<equals arg1="${htmlSource}" arg2="true" />
@@ -738,7 +738,7 @@
 
 					<execute function="AssertClick" locator1="PGWikiAddpage#SOURCE_HTML_BUTTON" value1="Source" />
 
-					<execute function="Type#type" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${welcomeToLiferay}" />
+					<execute function="Type" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${welcomeToLiferay}" />
 				</then>
 			</elseif>
 			<elseif>
@@ -750,7 +750,7 @@
 
 					<execute function="AssertClick" locator1="PGWikiAddpage#SOURCE_MEDIAWIKI_BUTTON" value1="Source" />
 
-					<execute function="Type#type" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${wikiPageMediaWikiContent}" />
+					<execute function="Type" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${wikiPageMediaWikiContent}" />
 				</then>
 			</elseif>
 			<else>
@@ -1016,14 +1016,14 @@
 					<![CDATA[<p>${wikiPageContent} <a href="${siteNameURL}${pageNameURL}/-/wiki${wikiNodeNameURL}${wikiPage2TitleURL}">Link to ${wikiPage2Title}</a></p>]]>
 				</var>
 
-				<execute function="Type#type" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${wikiPageContentURL}" />
+				<execute function="Type" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${wikiPageContentURL}" />
 			</then>
 			<else>
 				<var name="wikiPageContentLinkHTML">
 					<![CDATA[<p>${wikiPageContent} <a href="${pageAccessURL}${siteNameURL}${pageStagingURL}${pageNameURL}/-/wiki${wikiNodeNameURL}${wikiPage2TitleURL}">Link to ${wikiPage2Title}</a></p>]]>
 				</var>
 
-				<execute function="Type#type" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${wikiPageContentLinkHTML}" />
+				<execute function="Type" locator1="PGWikiAddpage#CK_EDITOR_SOURCE_FIELD" value1="${wikiPageContentLinkHTML}" />
 			</else>
 		</if>
 

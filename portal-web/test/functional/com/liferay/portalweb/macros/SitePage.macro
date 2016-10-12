@@ -180,7 +180,8 @@
 
 	<command name="expandRootCP">
 		<execute function="Click" locator1="CPSitepages#PAGE_TREE_ROOT_ARROW" />
-		<execute function="AssertElementPresent#assertElementPresent" locator1="CPSitepages#PAGE_TREE_PAGE_LINK_1" />
+		<execute function=
+"AssertElementPresent" locator1="CPSitepages#PAGE_TREE_PAGE_LINK_1" />
 
 		<if>
 			<condition function="IsNotVisible" locator1="CPSitepages#PAGE_TREE_PAGE_LINK_1" />
@@ -192,7 +193,8 @@
 
 	<command name="expandTreeCP">
 		<execute function="Click" locator1="CPSitepages#PAGE_TREE_PAGE_ARROW_1" />
-		<execute function="AssertElementPresent#assertElementPresent" locator1="CPSitepages#PAGE_TREE_PAGE_LINK_2" />
+		<execute function=
+"AssertElementPresent" locator1="CPSitepages#PAGE_TREE_PAGE_LINK_2" />
 
 		<if>
 			<condition function="IsNotVisible" locator1="CPSitepages#PAGE_TREE_PAGE_LINK_2" />

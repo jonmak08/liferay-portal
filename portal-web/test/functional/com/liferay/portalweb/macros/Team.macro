@@ -16,7 +16,7 @@
 		<var name="key_teamName" value="${teamName}" />
 		<var name="key_userScreenName" value="${userScreenName}" />
 
-		<execute function="Type#type" locator1="CPSiteteams#SEARCH_FIELD" value1="${teamName}" />
+		<execute function="Type" locator1="CPSiteteams#SEARCH_FIELD" value1="${teamName}" />
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPSiteteams#SEARCH_BUTTON" value1="Search" />
 
@@ -28,7 +28,7 @@
 
 		<execute function="AssertClick#assertTextClickAt" locator1="CPSiteteamsAssignmembers#AVAILABLE" value1="Available" />
 
-		<execute function="Type#type" locator1="CPSiteteamsAssignmembers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
+		<execute function="Type" locator1="CPSiteteamsAssignmembers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
 
 		<execute function="AssertClick#assertTextClickAt" locator1="CPSiteteamsAssignmembers#SEARCH_BUTTON" value1="Search" />
 
@@ -53,7 +53,7 @@
 	<command name="assignUserGroups">
 		<var name="key_teamName" value="${teamName}" />
 
-		<execute function="Type#type" locator1="CPSiteteams#SEARCH_FIELD" value1="${teamName}" />
+		<execute function="Type" locator1="CPSiteteams#SEARCH_FIELD" value1="${teamName}" />
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPSiteteams#SEARCH_BUTTON" value1="Search" />
 

@@ -528,7 +528,7 @@
 
 	<command name="editCP">
 		<execute function="AssertTextEquals" locator1="CPSitesettings#NAME_FIELD" value1="${siteName}" />
-		<execute function="Type#type" locator1="CPSitesettings#NAME_FIELD" value1="${siteNameEdit}" />
+		<execute function="Type" locator1="CPSitesettings#NAME_FIELD" value1="${siteNameEdit}" />
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPSitesettings#SAVE_BUTTON" value1="Save" />
 
