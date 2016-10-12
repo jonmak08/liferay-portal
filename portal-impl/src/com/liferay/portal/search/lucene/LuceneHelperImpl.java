@@ -241,9 +241,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 			}
 		}
 
-		String vendor = SearchEngineUtil.getSearchEngine().getVendor();
-
-		boolean isLucene = "Lucene".equals(vendor);
+		boolean isLucene = isLuceneSearchEngine();
 
 		if (!isLucene) {
 			analyzer = getKeywordAnalyzer();
@@ -626,6 +624,12 @@ public class LuceneHelperImpl implements LuceneHelper {
 		}
 
 		return false;
+	}
+
+	public boolean isLuceneSearchEngine() {
+		String vendor = SearchEngineUtil.getSearchEngine().getVendor();
+
+		return "Lucene".equals(vendor);
 	}
 
 	@Override
