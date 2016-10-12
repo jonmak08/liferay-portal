@@ -21,10 +21,11 @@ import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.upgrade.AutoBatchPreparedStatementUtil;
+import com.liferay.portal.util.PropsValues;
 import com.liferay.util.dao.orm.CustomSQLUtil;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -48,12 +49,16 @@ public class UpgradePortletPreferences extends UpgradeProcess {
 	@Override
 	protected void doUpgrade() throws Exception {
 		Connection con = null;
-		PreparedStatement ps1 = null;
-		PreparedStatement ps2 = null;
+		PreparedStatement ps = null;
 		ResultSet rs = null;
 
 		try {
 			con = DataAccess.getUpgradeOptimizedConnection();
+
+			DatabaseMetaData databaseMetaData = con.getMetaData();
+
+			boolean supportsBatchUpdates =
+				databaseMetaData.supportsBatchUpdates();
 
 			StringBundler sb = new StringBundler(7);
 
@@ -71,14 +76,15 @@ public class UpgradePortletPreferences extends UpgradeProcess {
 
 			sql = StringUtil.replace(sql, "?", "preferences");
 
-			ps1 = con.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 
-			rs = ps1.executeQuery();
+			rs = ps.executeQuery();
 
-			ps2 = AutoBatchPreparedStatementUtil.autoBatch(
-				con.prepareStatement(
-					"delete from PortletPreferences where " +
-						"portletPreferencesId = ?"));
+			ps = con.prepareStatement(
+				"delete from PortletPreferences where portletPreferencesId = " +
+					"?");
+
+			int count = 0;
 
 			while (rs.next()) {
 				long portletPreferencesId = rs.getLong("portletPreferencesId");
@@ -96,16 +102,31 @@ public class UpgradePortletPreferences extends UpgradeProcess {
 						"Deleting portlet preferences " + portletPreferencesId);
 				}
 
-				ps2.setLong(1, portletPreferencesId);
+				ps.setLong(1, portletPreferencesId);
 
-				ps2.addBatch();
+				if (supportsBatchUpdates) {
+					ps.addBatch();
+
+					if (count == PropsValues.HIBERNATE_JDBC_BATCH_SIZE) {
+						ps.executeBatch();
+
+						count = 0;
+					}
+					else {
+						count++;
+					}
+				}
+				else {
+					ps.executeUpdate();
+				}
 			}
 
-			ps2.executeBatch();
+			if (supportsBatchUpdates && (count > 0)) {
+				ps.executeBatch();
+			}
 		}
 		finally {
-			DataAccess.cleanUp(ps1);
-			DataAccess.cleanUp(con, ps2, rs);
+			DataAccess.cleanUp(con, ps, rs);
 		}
 	}
 
