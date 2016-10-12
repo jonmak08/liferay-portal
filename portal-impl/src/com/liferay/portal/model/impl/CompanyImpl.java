@@ -17,6 +17,9 @@ package com.liferay.portal.model.impl;
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.io.ProtectedObjectInputStream;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.Base64;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -41,6 +44,12 @@ import com.liferay.portal.service.VirtualHostLocalServiceUtil;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PrefsPropsUtil;
 import com.liferay.portal.util.PropsValues;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InvalidClassException;
+import java.io.ObjectInputStream;
+import java.io.ObjectStreamClass;
 
 import java.security.Key;
 
@@ -128,8 +137,19 @@ public class CompanyImpl extends CompanyBaseImpl {
 		if (_keyObj == null) {
 			String key = getKey();
 
-			if (Validator.isNotNull(key)) {
-				_keyObj = (Key)Base64.stringToObjectSilent(key);
+			if (Validator.isBlank(key)) {
+				return _keyObj;
+			}
+
+			try {
+				ObjectInputStream ois = new CompanyKeyObjectInputStream(key);
+
+				_keyObj = (Key)ois.readObject();
+			}
+			catch (Exception e) {
+				_log.error(
+					"Unable to deserialize " + key +
+						". Possible java deserialization attack", e);
 			}
 		}
 
@@ -326,5 +346,43 @@ public class CompanyImpl extends CompanyBaseImpl {
 
 	@CacheField
 	private String _virtualHostname;
+
+	private static Log _log = LogFactoryUtil.getLog(CompanyImpl.class);
+
+	class CompanyKeyObjectInputStream extends ProtectedObjectInputStream {
+
+		public CompanyKeyObjectInputStream(String key) throws IOException {
+			super(new ByteArrayInputStream(Base64.decode(key)));
+		}
+
+		@Override
+		protected Class<?> doResolveClass(ObjectStreamClass objectStreamClass)
+			throws ClassNotFoundException, IOException {
+
+			Class streamClass = super.doResolveClass(objectStreamClass);
+
+			if (streamClass == null) {
+				return null;
+			}
+
+			if (_log.isDebugEnabled()) {
+				_log.debug("Deserializating " + streamClass);
+			}
+
+			if (streamClass.isArray() &&
+				streamClass.getComponentType().isPrimitive()) {
+
+				return streamClass;
+			}
+
+			if (Key.class.isAssignableFrom(streamClass)) {
+				return streamClass;
+			}
+
+			throw new InvalidClassException(
+				"Rejected resolving of illegal class " +
+					objectStreamClass.getName());
+		}
+	}
 
 }
