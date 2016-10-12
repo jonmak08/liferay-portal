@@ -334,16 +334,8 @@ public class UpgradeImageGallery extends UpgradeProcess {
 			String igResourceName, String dlResourceName)
 		throws Exception {
 
-		String selectSQL =
-			"select companyId, scope, primKey, roleId from " +
-				"ResourcePermission where name = ?";
-		String deleteSQL =
-			"delete from ResourcePermission where name = ? and companyId = ? " +
-				"and scope = ? and primKey = ? and roleId = ?";
-
 		Connection con = null;
 		PreparedStatement ps = null;
-		PreparedStatement ps2 = null;
 		ResultSet rs = null;
 
 		try {
@@ -354,28 +346,33 @@ public class UpgradeImageGallery extends UpgradeProcess {
 			boolean supportsBatchUpdates =
 				databaseMetaData.supportsBatchUpdates();
 
-			ps = con.prepareStatement(selectSQL);
+			ps = con.prepareStatement(
+				"select companyId, scope, primKey, roleId from " +
+					"ResourcePermission where name = ?");
 
 			ps.setString(1, igResourceName);
 
 			rs = ps.executeQuery();
 
-			ps2 = con.prepareStatement(deleteSQL);
+			ps = con.prepareStatement(
+				"delete from ResourcePermission where name = ? and " +
+					"companyId = ? and scope = ? and primKey = ? and " +
+						"roleId = ?");
 
 			int count = 0;
 
 			while (rs.next()) {
-				ps2.setString(1, dlResourceName);
-				ps2.setLong(2, rs.getLong("companyId"));
-				ps2.setInt(3, rs.getInt("scope"));
-				ps2.setString(4, rs.getString("primKey"));
-				ps2.setLong(5, rs.getLong("roleId"));
+				ps.setString(1, dlResourceName);
+				ps.setLong(2, rs.getLong("companyId"));
+				ps.setInt(3, rs.getInt("scope"));
+				ps.setString(4, rs.getString("primKey"));
+				ps.setLong(5, rs.getLong("roleId"));
 
 				if (supportsBatchUpdates) {
-					ps2.addBatch();
+					ps.addBatch();
 
 					if (count == PropsValues.HIBERNATE_JDBC_BATCH_SIZE) {
-						ps2.executeBatch();
+						ps.executeBatch();
 
 						count = 0;
 					}
@@ -384,17 +381,16 @@ public class UpgradeImageGallery extends UpgradeProcess {
 					}
 				}
 				else {
-					ps2.executeUpdate();
+					ps.executeUpdate();
 				}
 			}
 
 			if (supportsBatchUpdates && (count > 0)) {
-				ps2.executeBatch();
+				ps.executeBatch();
 			}
 		}
 		finally {
-			DataAccess.cleanUp(ps);
-			DataAccess.cleanUp(con, ps2, rs);
+			DataAccess.cleanUp(con, ps, rs);
 		}
 	}
 
