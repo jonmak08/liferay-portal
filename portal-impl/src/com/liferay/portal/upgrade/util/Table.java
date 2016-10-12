@@ -452,7 +452,9 @@ public class Table {
 	public void populateTable(String tempFileName, Connection con)
 		throws Exception {
 
-		PreparedStatement ps = con.prepareStatement(getInsertSQL());
+		PreparedStatement ps = null;
+
+		String insertSQL = getInsertSQL();
 
 		UnsyncBufferedReader unsyncBufferedReader = new UnsyncBufferedReader(
 			new FileReader(tempFileName));
@@ -481,6 +483,10 @@ public class Table {
 							"Attempted to insert row " + line + ".");
 				}
 
+				if (count == 0) {
+					ps = con.prepareStatement(insertSQL);
+				}
+
 				int[] order = getOrder();
 
 				for (int i = 0; i < order.length; i++) {
@@ -495,6 +501,8 @@ public class Table {
 					if (count == _BATCH_SIZE) {
 						ps.executeBatch();
 
+						ps.close();
+
 						count = 0;
 					}
 					else {
@@ -503,11 +511,15 @@ public class Table {
 				}
 				else {
 					ps.executeUpdate();
+
+					ps.close();
 				}
 			}
 
 			if (count != 0) {
 				ps.executeBatch();
+
+				ps.close();
 			}
 		}
 		finally {
