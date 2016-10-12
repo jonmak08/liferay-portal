@@ -31,13 +31,14 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.SystemProperties;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
-import com.liferay.portal.upgrade.AutoBatchPreparedStatementUtil;
+import com.liferay.portal.util.PropsUtil;
 
 import java.io.FileReader;
 import java.io.FileWriter;
 
 import java.sql.Clob;
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -451,8 +452,7 @@ public class Table {
 	public void populateTable(String tempFileName, Connection con)
 		throws Exception {
 
-		PreparedStatement ps = AutoBatchPreparedStatementUtil.autoBath(
-			con.prepareStatement(getInsertSQL()));
+		PreparedStatement ps = con.prepareStatement(getInsertSQL());
 
 		UnsyncBufferedReader unsyncBufferedReader = new UnsyncBufferedReader(
 			new FileReader(tempFileName));
@@ -460,6 +460,16 @@ public class Table {
 		String line = null;
 
 		try {
+			DatabaseMetaData databaseMetaData = con.getMetaData();
+
+			if (!databaseMetaData.supportsBatchUpdates()) {
+				if (_log.isDebugEnabled()) {
+					_log.debug("Database does not support batch updates");
+				}
+			}
+
+			int count = 0;
+
 			while ((line = unsyncBufferedReader.readLine()) != null) {
 				String[] values = StringUtil.split(line);
 
@@ -479,10 +489,26 @@ public class Table {
 					setColumn(ps, i, (Integer)columns[pos][1], values[pos]);
 				}
 
-				ps.addBatch();
+				if (databaseMetaData.supportsBatchUpdates()) {
+					ps.addBatch();
+
+					if (count == _BATCH_SIZE) {
+						ps.executeBatch();
+
+						count = 0;
+					}
+					else {
+						count++;
+					}
+				}
+				else {
+					ps.executeUpdate();
+				}
 			}
 
-			ps.executeBatch();
+			if (count != 0) {
+				ps.executeBatch();
+			}
 		}
 		finally {
 			DataAccess.cleanUp(null, ps);
@@ -598,6 +624,9 @@ public class Table {
 	public void setSelectSQL(String selectSQL) throws Exception {
 		_selectSQL = selectSQL;
 	}
+
+	private static final int _BATCH_SIZE = GetterUtil.getInteger(
+		PropsUtil.get("hibernate.jdbc.batch_size"));
 
 	private static final String[][] _SAFE_TABLE_CHARS = {
 		{StringPool.COMMA, StringPool.NEW_LINE, StringPool.RETURN},
