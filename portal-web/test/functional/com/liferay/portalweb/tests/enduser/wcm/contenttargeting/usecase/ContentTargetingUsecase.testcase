@@ -3966,18 +3966,25 @@
 
 		<var name="count" value="0" />
 
-		<for list="1,2,3,4,5" param="count">
-			<execute macro="Page#gotoPG">
-				<var name="pageName" value="Test Page Name" />
-				<var name="siteName" value="Site Name" />
-				<var name="siteURL" value="true" />
-			</execute>
+		<while>
+			<not>
+				<equals arg1="${count}" arg2="5" />
+			</not>
+			<then>
+				<execute macro="Page#gotoPG">
+					<var name="pageName" value="Test Page Name" />
+					<var name="siteName" value="Site Name" />
+					<var name="siteURL" value="true" />
+				</execute>
 
-			<execute macro="BlogsEntry#viewEntryViaAPPG">
-				<var name="entryContent" value="Blogs Entry Content" />
-				<var name="entryTitle" value="Blogs Entry Title" />
-			</execute>
-		</for>
+				<execute macro="BlogsEntry#viewEntryViaAPPG">
+					<var name="entryContent" value="Blogs Entry Content" />
+					<var name="entryTitle" value="Blogs Entry Title" />
+				</execute>
+
+				<var method="MathUtil#sum('${count}', '1'}" name="count" />
+			</then>
+		</while>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Display Page Name" />
