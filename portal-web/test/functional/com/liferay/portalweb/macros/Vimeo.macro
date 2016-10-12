@@ -10,8 +10,6 @@
 				<execute function="AssertClick" locator1="PGVimeoConfiguration#ADVANCED_OPTIONS" value1="Advanced Options" />
 
 				<execute function="Check" locator1="PGVimeoConfiguration#ENABLE_FULLSCREEN_OPTIONS_CHECKBOX" />
-
-				<execute function="AssertChecked" locator1="PGVimeoConfiguration#ENABLE_FULLSCREEN_OPTIONS_CHECKBOX" />
 			</then>
 			<else>
 				<execute function="Type" locator1="PGVimeoConfiguration#URL_FIELD" value1="${vimeoURL}" />
