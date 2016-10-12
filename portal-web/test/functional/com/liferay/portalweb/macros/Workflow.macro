@@ -125,23 +125,29 @@
 		<execute function="AssertClick" locator1="CPPortalWorkflowconfiguration#NAVIGATION_DEFAULT_CONFIGURATION" value1="Default Configuration" />
 
 		<execute function="Select" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#${workflowResourceKey}" value1="${workflowDefinition}" />
+
 		<execute function="AssertClick" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="configureSiteWorkflow">
 		<execute function="Select" locator1="CPSiteWorkflowconfiguration#${workflowResourceKey}" value1="${workflowDefinition}" />
+
 		<execute function="AssertClick" locator1="CPSiteWorkflowconfiguration#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="CPSiteWorkflowconfiguration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="confirmAndViewSucessMessageViaActions">
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="CPMyworkflowtasks#DIALOG_BOX_OK_BUTTON" value1="OK" />
+
 		<execute function="AssertTextEquals" locator1="CPMyworkflowtasks#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="confirmAndViewSucessMessageViaDetails">
 		<execute function="AssertClick" locator1="CPMyworkflowtasksTask#DIALOG_BOX_OK_BUTTON" value1="OK" />
+
 		<execute function="AssertTextEquals#assertText" locator1="CPMyworkflowtasksTask#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -167,7 +173,9 @@
 
 	<command name="deactivateWorkflowDefinitionCmd">
 		<execute function="AssertClickNoError" locator1="CPPortalWorkflowconfiguration#DEFINITION_MENULIST_DEACTIVATE" value1="Deactivate" />
+
 		<execute function="Confirm" value1="Are you sure you want to deactivate this?" />
+
 		<execute function="AssertTextEquals" locator1="CPPortalWorkflowconfiguration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -187,7 +195,9 @@
 
 	<command name="deleteWorkflowDefinitionCmd">
 		<execute function="AssertClickNoError" locator1="CPPortalWorkflowconfiguration#DEFINITION_MENULIST_DELETE" value1="Delete" />
+
 		<execute function="Confirm" value1="Are you sure you want to delete this? It will be deleted immediately." />
+
 		<execute function="AssertTextEquals" locator1="CPPortalWorkflowconfiguration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -217,8 +227,11 @@
 		<var name="key_workflowDefinitionName" value="${workflowDefinitionName}" />
 
 		<execute function="AssertTextEquals" locator1="CPPortalWorkflowconfiguration#DEFINITION_TABLE_ACTIVE" value1="No" />
+
 		<execute function="AssertClick" locator1="CPPortalWorkflowconfiguration#DEFINITION_TABLE_DEACTIVATED_DEFINITION_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPPortalWorkflowconfiguration#DEFINITION_MENULIST_ACTIVATE" value1="Activate" />
+
 		<execute function="AssertTextEquals" locator1="CPPortalWorkflowconfiguration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="AssertTextEquals" locator1="CPPortalWorkflowconfiguration#DEFINITION_TABLE_ACTIVE" value1="Yes" />
 	</command>
@@ -335,6 +348,7 @@
 		<execute function="Select" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#RESOURCE_TABLE_COMMENTS_SELECT" value1="${noWorkflow}" />
 		<execute function="Select" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#RESOURCE_TABLE_MESSAGE_BOARDS_MESSAGE_SELECT" value1="${noWorkflow}" />
 		<execute function="Select" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#RESOURCE_TABLE_WIKI_PAGE_SELECT" value1="${noWorkflow}" />
+
 		<execute function="AssertClick" locator1="CPPortalWorkflowconfigurationDefaultconfiguration#SAVE_BUTTON" value1="Save" />
 	</command>
 
@@ -358,6 +372,7 @@
 		<execute function="Select" locator1="CPSiteWorkflowconfiguration#RESOURCE_TABLE_COMMENTS_SELECT" value1="${defaultWorkflow}" />
 		<execute function="Select" locator1="CPSiteWorkflowconfiguration#RESOURCE_TABLE_MESSAGE_BOARDS_MESSAGE_SELECT" value1="${defaultWorkflow}" />
 		<execute function="Select" locator1="CPSiteWorkflowconfiguration#RESOURCE_TABLE_WIKI_PAGE_SELECT" value1="${defaultWorkflow}" />
+
 		<execute function="AssertClick" locator1="CPSiteWorkflowconfiguration#SAVE_BUTTON" value1="Save" />
 	</command>
 
@@ -448,7 +463,9 @@
 		<execute function="AssertClick" locator1="CPPortalWorkflowconfiguration#TOOLBAR_UPLOAD_DEFINITION" value1="Upload Definition" />
 
 		<execute function="Type" locator1="CPPortalWorkflowconfigurationUploadDefinition#TITLE_FIELD" value1="${workflowDefinitionTitle}" />
+
 		<execute function="UploadCommonFile" locator1="CPPortalWorkflowconfigurationUploadDefinition#FILE_UPLOAD" value1="${workflowDefinitionFile}" />
+
 		<execute function="AssertClick" locator1="CPPortalWorkflowconfigurationUploadDefinition#SAVE_BUTTON" value1="Save" />
 
 		<execute function="AssertTextEquals" locator1="CPPortalWorkflowconfiguration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -493,6 +510,7 @@
 
 	<command name="viewDefaultMySubmissionsCP">
 		<execute function="AssertTextEquals" locator1="CPMysubmissions#INFO_MESSAGE" value1="There are no pending publications requested by me." />
+
 		<execute function="AssertClick" locator1="CPMysubmissions#NAVIGATION_COMPLETED" value1="Completed" />
 
 		<execute function="AssertTextEquals" locator1="CPMysubmissionsCompleted#INFO_MESSAGE" value1="There are no completed publications requested by me." />
@@ -501,6 +519,7 @@
 	<command name="viewDefaultMyWorkflowTasksCP">
 		<execute function="AssertTextEquals" locator1="CPMyworkflowtasks#ASSIGNED_TO_ME_INFO_MESSAGE" value1="There are no pending tasks assigned to you." />
 		<execute function="AssertTextEquals" locator1="CPMyworkflowtasks#ASSIGNED_TO_MY_ROLES_INFO_MESSAGE" value1="There are no pending tasks assigned to your roles." />
+
 		<execute function="AssertClick" locator1="CPMyworkflowtasks#NAVIGATION_COMPLETED" value1="Completed" />
 
 		<execute function="AssertTextEquals" locator1="CPMyworkflowtasksCompleted#INFO_MESSAGE" value1="There are no completed tasks." />
@@ -633,6 +652,7 @@
 		<var name="key_workflowAssetTitle" value="${workflowAssetTitle}" />
 
 		<execute function="AssertTextEquals" locator1="CPMysubmissions#PENDING_TABLE_WITHDRAW_SUBMISSION" value1="Withdraw Submission" />
+
 		<execute function="AssertClick" locator1="CPMysubmissions#PENDING_TABLE_ASSET_TITLE" value1="${workflowAssetTitle}" />
 
 		<execute macro="Workflow#viewMySubmissionsTaskPreview">
@@ -658,6 +678,7 @@
 		<execute function="AssertTextEquals" locator1="CPMysubmissionsCompleted#COMPLETED_TABLE_STATUS" value1="${workflowTask}" />
 		<execute function="AssertElementPresent" locator1="CPMysubmissionsCompleted#COMPLETED_TABLE_LAST_ACTIVITY_DATE" />
 		<execute function="AssertElementPresent" locator1="CPMysubmissionsCompleted#COMPLETED_TABLE_END_DATE" />
+
 		<execute function="AssertClick" locator1="CPMysubmissionsCompleted#COMPLETED_TABLE_ASSET_TITLE" value1="${workflowAssetTitle}" />
 
 		<execute macro="Workflow#viewMySubmissionsTaskPreview">

@@ -679,6 +679,7 @@
 
 	<command name="viewTranslationsPG">
 		<execute function="Open" locator1="${sitePageURL}" />
+
 		<execute function="AssertLocation" value1="${sitePageURL}" />
 
 		<if>

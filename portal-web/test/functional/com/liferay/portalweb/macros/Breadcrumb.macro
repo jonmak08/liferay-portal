@@ -31,6 +31,7 @@
 			</then>
 			<else>
 				<execute function="AssertClick" locator1="PGBreadcrumbConfiguration#PORTLET_CONFIGURATION_SAVE_BUTTON" value1="Save" />
+
 				<execute function="AssertTextEquals" locator1="PGBreadcrumbConfiguration#PORTLET_CONFIGURATION_SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 			</else>
 		</if>

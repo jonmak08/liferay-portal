@@ -98,7 +98,9 @@
 
 		<execute function="AssertTextEquals" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_EVENT_TITLE" value1="${eventTitle}" />
 		<execute function="AssertElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarDefaultName}" />
+
 		<execute function="Select" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarName}" />
+
 		<execute function="AssertElementPresent" locator1="PGCalendar#SCHEDULER_EVENT_DIALOG_BOX_CALENDAR_SELECT" value1="${calendarName}" />
 
 		<execute macro="CalendarScheduler#saveEvent" />
@@ -463,6 +465,7 @@
 					<condition function="IsElementPresent" locator1="PGCalendarMonthView#SCHEDULER_EVENT_MONTH_VIEW_SHOW_MORE_LINK" />
 					<then>
 						<execute function="AssertClick" locator1="PGCalendarMonthView#SCHEDULER_EVENT_MONTH_VIEW_SHOW_MORE_LINK" value1="Show ${eventNumber} more" />
+
 						<execute function="AssertElementPresent" locator1="PGCalendarMonthView#SCHEDULER_EVENT_MONTH_VIEW_SHOW_MORE_DIALOG_BOX" />
 
 						<while>

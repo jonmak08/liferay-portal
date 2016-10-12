@@ -15,6 +15,7 @@
 		</if>
 
 		<execute function="AssertClick" locator1="CPPagetemplatesAdd#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="CPPagetemplates#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 		<var name="key_pageTemplateName" value="${pageTemplateName}" />
@@ -27,7 +28,9 @@
 		<var name="key_pageTemplateName" value="${pageTemplateName}" />
 
 		<execute function="AssertClick" locator1="CPPagetemplates#PAGE_TEMPLATE_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClickNoError" locator1="CPPagetemplates#PAGE_TEMPLATE_MENULIST_DELETE" value1="Delete" />
+
 		<execute function="Confirm" value1="Are you sure you want to delete this? It will be deleted immediately." />
 
 		<execute function="AssertTextEquals" locator1="CPPagetemplates#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -37,7 +40,9 @@
 		<var name="key_pageTemplateName" value="${pageTemplateName}" />
 
 		<execute function="AssertTextEquals" locator1="CPPagetemplates#PAGE_TEMPLATE_TABLE_NAME" value1="${pageTemplateName}" />
+
 		<execute function="AssertClick" locator1="CPPagetemplates#PAGE_TEMPLATE_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPPagetemplates#PAGE_TEMPLATE_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="Type" locator1="CPPagetemplatesEdit#NAME_FIELD" value1="${pageTemplateName} Edit" />
@@ -53,6 +58,7 @@
 		</if>
 
 		<execute function="AssertTextEquals" locator1="CPPagetemplatesEdit#OPEN_PAGE_TEMPLATE" value1="Open Page Template" />
+
 		<execute function="AssertClick" locator1="CPPagetemplatesEdit#SAVE_BUTTON" value1="Save" />
 
 		<var name="key_pageTemplateName" value="${pageTemplateName}" />
@@ -71,8 +77,11 @@
 			<condition function="IsElementPresent" locator1="CPPagetemplates#PAGE_TEMPLATE_TABLE_ACTIONS_4" />
 			<then>
 				<execute function="Click" locator1="CPPagetemplates#PAGE_TEMPLATE_TABLE_ACTIONS_4" />
+
 				<execute function="AssertClick" locator1="CPPagetemplates#PAGE_TEMPLATE_MENULIST_DELETE" value1="Delete" />
+
 				<execute function="Confirm" value1="Are you sure you want to delete this? It will be deleted immediately." />
+
 				<execute function="AssertTextEquals" locator1="CPPagetemplates#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 			</then>
 		</while>

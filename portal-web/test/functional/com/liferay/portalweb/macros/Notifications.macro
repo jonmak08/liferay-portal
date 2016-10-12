@@ -3,6 +3,7 @@
 		<var name="key_requestsContent" value="${requestsContent}" />
 
 		<execute function="AssertTextEquals" locator1="PGNotificationsdockbar#REQUESTS_CONTENT" value1="${requestsContent}" />
+
 		<execute function="AssertClick" locator1="PGNotificationsdockbar#REQUESTS_CONFIRM_BUTTON" value1="Confirm" />
 	</command>
 
@@ -104,6 +105,7 @@
 
 	<command name="viewNotification">
 		<execute function="AssertClick" locator1="PGNotificationsdockbar#COUNT_ALERT" value1="${notificationCount}" />
+
 		<execute function="AssertTextEquals" locator1="PGNotificationsdockbar#NOTIFICATIONS_CONTENT_GENERIC" value1="${notificationContent}" />
 	</command>
 

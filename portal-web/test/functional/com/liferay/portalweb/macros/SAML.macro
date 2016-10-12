@@ -109,6 +109,7 @@
 		</execute>
 
 		<execute function="Pause" locator1="5000" />
+
 		<execute function="AssertLocation" value1="${spURL}" />
 	</command>
 
@@ -127,6 +128,7 @@
 		</execute>
 
 		<execute function="Pause" locator1="5000" />
+
 		<execute function="AssertLocation" value1="${spURL}" />
 	</command>
 </definition>

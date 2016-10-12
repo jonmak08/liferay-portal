@@ -38,7 +38,9 @@
 			</then>
 			<else>
 				<execute function="AssertTextEquals#assertText" locator1="Setupwizard#DATABASE_CONFIGURED_JDBC_DRIVER_CLASS_NAME_LABEL" value1="Configured Database" />
+
 				<execute function="AssertClick#assertTextClickAtAndWait" locator1="Setupwizard#DATABASE_CHANGE_LINK" value1="(Change)" />
+
 				<execute function="AssertTextEquals#assertText" locator1="Setupwizard#DATABASE_CHANGE_DATABASE_TYPE_LABEL" value1="Database Type" />
 				<execute function="AssertTextEquals#assertText" locator1="Setupwizard#DATABASE_CHANGE_JDBC_URL_LABEL" value1="JDBC URL (Required)" />
 				<execute function="AssertTextEquals#assertText" locator1="Setupwizard#DATABASE_CHANGE_JDBC_DRIVER_CLASS_NAME_LABEL" value1="JDBC Driver Class Name (Required)" />
@@ -66,11 +68,13 @@
 			<then>
 				<execute function="Type" locator1="PGLoginNewpassword#PASSWORD_FIELD" value1="test" />
 				<execute function="Type" locator1="PGLoginNewpassword#ENTER_AGAIN_FIELD" value1="test" />
+
 				<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGLoginNewpassword#SAVE_BUTTON" value1="Save" />
 			</then>
 		</if>
 
 		<execute function="Type#pauseType" locator1="PGLoginPasswordreminder#ANSWER_FIELD" value1="test" />
+
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="PGLoginPasswordreminder#SAVE_BUTTON" value1="Save" />
 	</command>
 </definition>

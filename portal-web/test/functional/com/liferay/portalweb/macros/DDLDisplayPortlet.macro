@@ -1,6 +1,7 @@
 <definition>
 	<command name="configureListViewPG">
 		<execute function="Click" locator1="PGDynamicdatalists#OPTIONS_ICON" />
+
 		<execute function="AssertClick" locator1="PGDynamicdatalists#OPTIONS_MENULIST_CONFIGURATION" value1="Configuration" />
 
 		<execute function="SelectFrame" locator1="PGDynamicdatalistsConfiguration#CONFIGURATION_IFRAME" />
@@ -16,6 +17,7 @@
 		</if>
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGDynamicdatalistsConfiguration#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="PGDynamicdatalistsConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
 

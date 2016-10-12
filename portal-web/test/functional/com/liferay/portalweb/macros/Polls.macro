@@ -8,6 +8,7 @@
 		<execute function="Type" locator1="PGPollsdisplayPollsquestion#POLLS_QUESTION_FIELD" value1="${pollsQuestion}" />
 		<execute function="Type" locator1="PGPollsdisplayPollsquestion#CHOICE_A_FIELD" value1="${pollsQuestionChoiceA}" />
 		<execute function="Type" locator1="PGPollsdisplayPollsquestion#CHOICE_B_FIELD" value1="${pollsQuestionChoiceB}" />
+
 		<execute function="AssertClick" locator1="PGPollsdisplayPollsquestion#SAVE_BUTTON" value1="Save" />
 
 		<execute function="SelectFrame" value1="relative=top" />

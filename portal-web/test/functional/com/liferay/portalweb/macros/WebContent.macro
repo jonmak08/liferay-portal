@@ -479,6 +479,7 @@
 		<execute function="Pause" locator1="5000" />
 
 		<execute function="SelectFrame" />
+
 		<execute function="AssertTextEquals" locator1="PGAssetpublisher#INFO_MESSAGE" value1="There are no results." />
 	</command>
 

@@ -1,13 +1,16 @@
 <definition>
 	<command name="addURL">
 		<execute function="SelectFrame" locator1="PGVimeoConfiguration#VIMEO_CONFIGURATION_IFRAME" />
+
 		<execute function="AssertTextEquals" locator1="PGVimeoConfiguration#URL_LABEL" value1="URL" />
 
 		<if>
 			<equals arg1="${enabledCheckbox}" arg2="true" />
 			<then>
 				<execute function="AssertClick" locator1="PGVimeoConfiguration#ADVANCED_OPTIONS" value1="Advanced Options" />
+
 				<execute function="Check" locator1="PGVimeoConfiguration#ENABLE_FULLSCREEN_OPTIONS_CHECKBOX" />
+
 				<execute function="AssertChecked" locator1="PGVimeoConfiguration#ENABLE_FULLSCREEN_OPTIONS_CHECKBOX" />
 			</then>
 			<else>
@@ -16,7 +19,9 @@
 		</if>
 
 		<execute function="AssertClick" locator1="PGVimeoConfiguration#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="PGVimeoConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 

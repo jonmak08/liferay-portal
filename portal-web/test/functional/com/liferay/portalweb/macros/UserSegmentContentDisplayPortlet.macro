@@ -63,6 +63,7 @@
 		</if>
 
 		<execute function="Click" locator1="PGUsersegmentcontentdisplay#RULE_PANEL_USER_SEGMENT_SELECT_USER_SEGMENT_CLOSE_BUTTON" />
+
 		<execute function="Click" locator1="PGUsersegmentcontentdisplay#RULE_PANEL_DISPLAY_CONTENT_DROPDOWN" />
 
 		<var name="key_contentType" value="${contentType}" />
@@ -70,6 +71,7 @@
 		<execute function="AssertClick" locator1="PGUsersegmentcontentdisplay#RULE_PANEL_DISPLAY_CONTENT_DROPDOWN_MENULIST" value1="${contentType}" />
 
 		<execute function="SelectFrame" value1="relative=top" />
+
 		<execute function="SelectFrame" locator1="PGUsersegmentcontentdisplay#SELECT_CONTENT_IFRAME" />
 
 		<var name="key_contentTitle" value="${contentTitle}" />
@@ -77,7 +79,9 @@
 		<execute function="AssertClickNoError" locator1="PGUsersegmentcontentdisplay#RULE_PANEL_DISPLAY_CONTENT_SELECT_CONTENT_CHOOSE_BUTTON" value1="Choose" />
 
 		<execute function="SelectFrame" value1="relative=top" />
+
 		<execute function="SelectFrame" locator1="PGUsersegmentcontentdisplay#USER_SEGMENT_CONTENT_DISPLAY_CONFIGURATION_IFRAME" />
+
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
@@ -88,6 +92,7 @@
 			<isset var="otherwiseContentType" />
 			<then>
 				<execute function="ClickNoError" locator1="PGUsersegmentcontentdisplay#OTHERWISE_PANEL" />
+
 				<execute function="Click" locator1="PGUsersegmentcontentdisplay#OTHERWISE_PANEL_DISPLAY_THIS_CONTENT_RADIO" />
 
 				<execute function="ClickNoError" locator1="PGUsersegmentcontentdisplay#OTHERWISE_PANEL_SELECT_CONTENT_BUTTON" />
@@ -97,6 +102,7 @@
 				<execute function="Click" locator1="PGUsersegmentcontentdisplay#OTHERWISE_PANEL_CONTENT_DROPDOWN_MENULIST" />
 
 				<execute function="SelectFrame" value1="relative=top" />
+
 				<execute function="SelectFrame" locator1="PGUsersegmentcontentdisplay#SELECT_CONTENT_IFRAME" />
 
 				<var name="key_contentTitle" value="${otherwiseContentTitle}" />
@@ -107,7 +113,9 @@
 			</then>
 			<else>
 				<execute function="ClickNoError" locator1="PGUsersegmentcontentdisplay#OTHERWISE_PANEL" />
+
 				<execute function="Click" locator1="PGUsersegmentcontentdisplay#OTHERWISE_PANEL_DONT_DISPLAY_ANYTHING_RADIO" />
+
 				<execute function="SelectFrame" value1="relative=top" />
 			</else>
 		</if>
@@ -117,6 +125,7 @@
 		<execute function="SelectFrame" locator1="PGUsersegmentcontentdisplay#USER_SEGMENT_CONTENT_DISPLAY_CONFIGURATION_IFRAME" />
 
 		<execute function="ClickNoError" locator1="PGUsersegmentcontentdisplay#SAVE_BUTTON" />
+
 		<execute function="AssertTextEquals" locator1="PGUsersegmentcontentdisplay#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 		<execute function="SelectFrame" value1="relative=top" />
@@ -175,6 +184,7 @@
 			<isset var="otherwiseContentType" />
 			<then>
 				<execute function="Click" locator1="PGUsersegmentcontentdisplay#OTHERWISE_PANEL" />
+
 				<execute function="AssertChecked" locator1="PGUsersegmentcontentdisplay#OTHERWISE_PANEL_DISPLAY_THIS_CONTENT_RADIO" />
 
 				<var name="key_contentType" value="${otherwiseContentType}" />
@@ -208,6 +218,7 @@
 			<isset var="preview1Text" />
 			<then>
 				<execute function="MouseOver" locator1="PGUsersegmentcontentdisplay#PREVIEW_1" />
+
 				<execute function="AssertTextEquals" locator1="PGUsersegmentcontentdisplay#PREVIEW_1" value1="${preview1Text}" />
 			</then>
 		</if>
@@ -218,6 +229,7 @@
 			<isset var="preview2Text" />
 			<then>
 				<execute function="MouseOver" locator1="PGUsersegmentcontentdisplay#PREVIEW_2" />
+
 				<execute function="AssertTextEquals" locator1="PGUsersegmentcontentdisplay#PREVIEW_2" value1="${preview2Text}" />
 			</then>
 		</if>
@@ -226,6 +238,7 @@
 			<isset var="viewDontDisplay" />
 			<then>
 				<execute function="MouseOverNoError" locator1="PGUsersegmentcontentdisplay#${viewDontDisplay}" />
+
 				<execute function="AssertTextEquals" locator1="PGUsersegmentcontentdisplay#INFO_MESSAGE" value1="There are no matching rules" />
 			</then>
 		</if>

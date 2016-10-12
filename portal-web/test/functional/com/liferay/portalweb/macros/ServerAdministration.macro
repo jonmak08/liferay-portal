@@ -5,7 +5,9 @@
 		<execute function="AssertClick" locator1="CPServeradministrationLogLevels#NAVIGATION_ADD_CATEGORY" value1="Add Category" />
 
 		<execute function="Type" locator1="CPServeradministrationLogLevelsAddCategory#CATEGORY_NAME_FIELD" value1="${catagoryName}" />
+
 		<execute function="Select" locator1="CPServeradministrationLogLevelsAddCategory#CATEGORY_PRIORITY_SELECT" value1="${categoryPriority}" />
+
 		<execute function="AssertClick" locator1="CPServeradministrationLogLevelsAddCategory#SAVE_BUTTON" value1="Save" />
 
 		<execute function="AssertTextEquals" locator1="CPServeradministrationLogLevelsAddCategory#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -24,6 +26,7 @@
 		<execute function="Check" locator1="CPServeradministrationMail#CONFIGURE_MAIL_SERVER_OUTGOING_SECURE_CONNECTION_CHECKBOX" />
 		<execute function="Type" locator1="CPServeradministrationMail#CONFIGURE_MAIL_SERVER_OUTGOING_USER_NAME" value1="${userName}" />
 		<execute function="Type" locator1="CPServeradministrationMail#CONFIGURE_MAIL_SERVER_OUTGOING_PASSWORD" value1="${userPassword}" />
+
 		<execute function="AssertClick" locator1="CPServeradministrationMail#SAVE_BUTTON" value1="Save" />
 
 		<execute function="AssertTextEquals" locator1="CPServeradministrationMail#SUCCESS_MESSAGE" value1="Your request completed successfully." />
@@ -33,16 +36,21 @@
 		<var name="key_actionsDescription" value="${actionsDescription}" />
 
 		<execute function="AssertClick" locator1="CPServeradministration#NAVIGATION_RESOURCES" value1="Resources" />
+
 		<execute function="AssertTextEquals" locator1="CPServeradministration#RESOURCES_ACTIONS_TABLE_DESCRIPTION" value1="${actionsDescription}" />
+
 		<execute function="AssertClick" locator1="CPServeradministration#RESOURCES_ACTIONS_TABLE_EXECUTE" value1="Execute" />
+
 		<execute function="AssertTextEquals" locator1="CPServeradministration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="searchPortalPropertiesCP">
 		<execute function="AssertClick" locator1="CPServeradministration#NAVIGATION_PROPERTIES" value1="Properties" />
+
 		<execute function="AssertClick" locator1="CPServeradministration#NAVIGATION_PORTAL_PROPERTIES" value1="Portal Properties" />
 
 		<execute function="Type" locator1="CPServeradministration#PROPERTIES_PORTAL_PROPERTIES_SEARCH_FIELD" value1="${propertyName}" />
+
 		<execute function="AssertClick" locator1="CPServeradministration#PROPERTIES_PORTAL_PROPERTIES_SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_propertyName" value="${propertyName}" />
@@ -53,10 +61,12 @@
 			<isset var="propertyOveridden" />
 			<then>
 				<execute function="MouseOver" locator1="CPServeradministration#SOURCE" />
+
 				<execute function="AssertTextEquals" locator1="CPServeradministration#PROPERTIES_PORTAL_PROPERTIES_TABLE_SOURCE" value1="The value of this property was overridden using the Control Panel and is stored in the database." />
 			</then>
 			<else>
 				<execute function="MouseOver" locator1="CPServeradministration#SOURCE" />
+
 				<execute function="AssertTextEquals" locator1="CPServeradministration#PROPERTIES_PORTAL_PROPERTIES_TABLE_SOURCE" value1="The value of this property is read from a portal.properties file or one of its extension files." />
 			</else>
 		</if>
@@ -79,6 +89,7 @@
 		<execute function="Uncheck" locator1="CPServeradministrationMail#CONFIGURE_MAIL_SERVER_OUTGOING_SECURE_CONNECTION_CHECKBOX" />
 		<execute function="Type" locator1="CPServeradministrationMail#CONFIGURE_MAIL_SERVER_OUTGOING_USER_NAME" value1="" />
 		<execute function="Type" locator1="CPServeradministrationMail#CONFIGURE_MAIL_SERVER_OUTGOING_PASSWORD" value1="" />
+
 		<execute function="AssertClick" locator1="CPServeradministrationMail#SAVE_BUTTON" value1="Save" />
 
 		<execute function="AssertTextEquals" locator1="CPServeradministrationMail#SUCCESS_MESSAGE" value1="Your request completed successfully." />

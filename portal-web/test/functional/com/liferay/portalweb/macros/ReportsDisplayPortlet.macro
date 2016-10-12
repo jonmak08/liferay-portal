@@ -3,8 +3,11 @@
 		<var name="key_reportsFileName" value="${reportsFileName}" />
 
 		<execute function="AssertTextEquals" locator1="PGReportsdisplayViewreportentry#ENTRY_FILE_TABLE_FILE" value1="${reportsFileName}" />
+
 		<execute function="AssertClick" locator1="PGReportsdisplayViewreportentry#ENTRY_FILE_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="PGReportsdisplayViewreportentry#ENTRY_FILE_MENULIST_DOWNLOAD" value1="Download" />
+
 		<execute function="Pause" locator1="2000" />
 
 		<if>

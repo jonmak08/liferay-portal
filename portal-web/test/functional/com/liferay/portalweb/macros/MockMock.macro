@@ -97,6 +97,7 @@
 				<var name="key_pageName" value="${pageName} - Liferay" />
 
 				<execute function="AssertClick" locator1="MockMock#MOCKMOCK_MESSAGE_BODY_KB_URL" value1="Article Link" />
+
 				<execute function="Pause" locator1="3000" />
 
 				<execute function="SelectWindow" locator1="PGKnowledgebasedisplay#PAGE_TITLE" />

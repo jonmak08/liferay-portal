@@ -3,31 +3,40 @@
 
 	<command name="addAdditionalEmailAddressesCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertClick" locator1="CPUsersandorganizationsOrganizationEdit#IDENTIFICATION_ADDITIONAL_EMAIL_ADDRESSES" value1="Additional Email Addresses" />
 
 		<execute function="Type" locator1="CPUsersandorganizationsOrganizationEdit#ADDITIONAL_EMAIL_ADDRESSES_EMAIL_ADDRESS_FIELD" value1="${orgAdditionalEmailAddress}" />
+
 		<execute function="Click" locator1="CPUsersandorganizationsOrganizationEdit#ADDITIONAL_EMAIL_ADDRESSES_PRIMARY_RADIO" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsOrganizationEdit#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#ADDITIONAL_EMAIL_ADDRESSES_EMAIL_ADDRESS_FIELD" value1="${orgAdditionalEmailAddress}" />
 	</command>
 
 	<command name="addAddressCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertClick" locator1="CPUsersandorganizationsOrganizationEdit#IDENTIFICATION_ADDRESSES" value1="Addresses" />
@@ -35,28 +44,39 @@
 		<execute function="Type" locator1="CPUsersandorganizationsOrganizationEdit#ADDRESSES_STREET_FIELD_1" value1="${orgAddressStreet}" />
 		<execute function="Type" locator1="CPUsersandorganizationsOrganizationEdit#ADDRESSES_CITY_FIELD" value1="${orgAddressCity}" />
 		<execute function="Type" locator1="CPUsersandorganizationsOrganizationEdit#ADDRESSES_POSTAL_CODE_FIELD" value1="${orgAddressPostal}" />
+
 		<execute function="Select" locator1="CPUsersandorganizationsOrganizationEdit#ADDRESSES_COUNTRY_SELECT" value1="${orgAddressCountry}" />
+
 		<execute function="Select" locator1="CPUsersandorganizationsOrganizationEdit#ADDRESSES_REGION_SELECT" value1="${orgAddressRegion}" />
+
 		<execute function="Select" locator1="CPUsersandorganizationsOrganizationEdit#ADDRESSES_TYPE_SELECT" value1="${orgAddressType}" />
+
 		<execute function="Check" locator1="CPUsersandorganizationsOrganizationEdit#ADDRESSES_MAILING_CHECKBOX" />
+
 		<execute function="Click" locator1="CPUsersandorganizationsOrganizationEdit#ADDRESSES_PRIMARY_RADIO" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsOrganizationEdit#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="addCategorizationCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertClick" locator1="CPUsersandorganizationsOrganizationEdit#ORGANIZATION_INFORMATION_CATEGORIZATION" value1="Categorization" />
 
 		<execute function="Type" locator1="CPUsersandorganizationsOrganizationEdit#CATEGORIZATION_TAGS_FIELD" value1="${tagName}" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsOrganizationEdit#SAVE_BUTTON" value1="Save" />
 
 		<var name="key_tagName" value="${tagName}" />
@@ -67,28 +87,36 @@
 
 	<command name="addCommentCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertClick" locator1="CPUsersandorganizationsOrganizationEdit#MISCELLANEOUS_COMMENTS" value1="Comments" />
 
 		<execute function="Type" locator1="CPUsersandorganizationsOrganizationEdit#COMMENTS_FIELD" value1="${orgComment}" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsOrganizationEdit#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#COMMENTS_FIELD" value1="${orgComment}" />
 	</command>
 
 	<command name="addCP">
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ADD" value1="Add" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ADD_REGULAR_ORGANIZATION" value1="Regular Organization" />
 
 		<execute function="Type" locator1="CPUsersandorganizationsAddorganization#DETAILS_NAME_FIELD" value1="${orgName}" />
+
 		<execute function="Select" locator1="CPUsersandorganizationsAddorganization#DETAILS_TYPE_SELECT" value1="${orgType}" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAddorganization#SAVE_BUTTON" value1="Save" />
 
 		<if>
@@ -109,25 +137,35 @@
 
 	<command name="addMemberCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_ASSIGN_USERS" value1="Assign Users" />
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAssignmembers#AVAILABLE" value1="Available" />
+
 		<execute function="Type" locator1="CPUsersandorganizationsAssignmembers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAssignmembers#BASIC_SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_userScreenName" value="${userScreenName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsAssignmembers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
+
 		<execute function="Check" locator1="CPUsersandorganizationsAssignmembers#USER_TABLE_CHECKBOX" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAssignmembers#UPDATE_ASSOCIATIONS_BUTTON" value1="Update Associations" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsAssignmembers#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAssignmembers#CURRENT" value1="Current" />
+
 		<execute function="AssertChecked" locator1="CPUsersandorganizationsAssignmembers#USER_TABLE_CHECKBOX" />
 
 		<if>
@@ -145,60 +183,81 @@
 
 	<command name="addPhoneNumbersCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertClick" locator1="CPUsersandorganizationsOrganizationEdit#IDENTIFICATION_PHONE_NUMBERS" value1="Phone Numbers" />
 
 		<execute function="Type" locator1="CPUsersandorganizationsOrganizationEdit#PHONE_NUMBERS_NUMBER_FIELD" value1="${orgPhoneNumber}" />
+
 		<execute function="Click" locator1="CPUsersandorganizationsOrganizationEdit#PHONE_NUMBERS_PRIMARY_RADIO" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsOrganizationEdit#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#PHONE_NUMBERS_NUMBER_FIELD" value1="${orgPhoneNumber}" />
 	</command>
 
 	<command name="addReminderQueriesCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertClick" locator1="CPUsersandorganizationsOrganizationEdit#MISCELLANEOUS_REMINDER_QUERIES" value1="Reminder Queries" />
 
 		<execute function="Type" locator1="CPUsersandorganizationsOrganizationEdit#REMINDER_QUERIES_DEFAULT_LANGUAGE_FIELD" value1="${orgReminderQueriesDefaultLanguage}" />
+
 		<execute function="Select" locator1="CPUsersandorganizationsOrganizationEdit#REMINDER_QUERIES_LOCALIZED_LANGUAGE_SELECT" value1="${orgLocalizedLanguage}" />
+
 		<execute function="Type" locator1="CPUsersandorganizationsOrganizationEdit#REMINDER_QUERIES_TEXT_FIELD" value1="${orgReminderQuery}" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsOrganizationEdit#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#REMINDER_QUERIES_DEFAULT_LANGUAGE_FIELD" value1="${orgReminderQueriesDefaultLanguage}" />
+
 		<execute function="Select" locator1="CPUsersandorganizationsOrganizationEdit#REMINDER_QUERIES_LOCALIZED_LANGUAGE_SELECT" value1="${orgLocalizedLanguage}" />
+
 		<execute function="AssertSelectedLabel" locator1="CPUsersandorganizationsOrganizationEdit#REMINDER_QUERIES_LOCALIZED_LANGUAGE_SELECT" value1="${orgLocalizedLanguage}" />
 	</command>
 
 	<command name="addServicesCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertClick" locator1="CPUsersandorganizationsOrganizationEdit#IDENTIFICATION_SERVICES" value1="Services" />
 
 		<execute function="Select" locator1="CPUsersandorganizationsOrganizationEdit#SERVICES_MONDAY_OPEN_SELECT" value1="${orgServicesOpen}" />
+
 		<execute function="Select" locator1="CPUsersandorganizationsOrganizationEdit#SERVICES_MONDAY_CLOSE_SELECT" value1="${orgServicesClosed}" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsOrganizationEdit#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="AssertSelectedLabel" locator1="CPUsersandorganizationsOrganizationEdit#SERVICES_MONDAY_OPEN_SELECT" value1="${orgServicesOpen}" />
 		<execute function="AssertSelectedLabel" locator1="CPUsersandorganizationsOrganizationEdit#SERVICES_MONDAY_CLOSE_SELECT" value1="${orgServicesClosed}" />
@@ -206,15 +265,19 @@
 
 	<command name="addSiteCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertClick#assertPartialTextClickAt" locator1="CPUsersandorganizationsOrganizationEdit#ORGANIZATION_INFORMATION_ORGANIZATION_SITE" value1="Organization Site" />
+
 		<execute function="Check" locator1="CPUsersandorganizationsOrganizationEdit#ORGANIZATION_SITE_CREATE_SITE_CHECKBOX" />
 
 		<if>
@@ -238,6 +301,7 @@
 		</if>
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsOrganizationEdit#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 		<if>
@@ -250,31 +314,39 @@
 
 	<command name="addWebsitesCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertClick" locator1="CPUsersandorganizationsOrganizationEdit#IDENTIFICATION_WEBSITES" value1="Websites" />
 
 		<execute function="Type" locator1="CPUsersandorganizationsOrganizationEdit#WEBSITES_URL_FIELD" value1="${orgWebsite}" />
+
 		<execute function="Click" locator1="CPUsersandorganizationsOrganizationEdit#WEBSITES_PRIMARY_RADIO" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsOrganizationEdit#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#WEBSITES_URL_FIELD" value1="${orgWebsite}" />
 	</command>
 
 	<command name="advancedSearchCP">
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_ALL_ORGANIZATIONS" value1="All Organizations" />
+
 		<execute function="Click" locator1="CPUsersandorganizationsVieworganizations#BASIC_SEARCH_ADVANCED" />
 
 		<if>
 			<equals arg1="${orgAdvancedSearch}" arg2="Name" />
 			<then>
 				<execute function="Type" locator1="CPUsersandorganizationsVieworganizations#ADVANCED_SEARCH_NAME_FIELD" value1="${orgName}" />
+
 				<execute function="AssertClick" locator1="CPUsersandorganizationsVieworganizations#BASIC_SEARCH_BUTTON" value1="Search" />
 
 				<var name="key_orgName" value="${orgName}" />
@@ -286,6 +358,7 @@
 				<equals arg1="${orgAdvancedSearch}" arg2="Street" />
 				<then>
 					<execute function="Type" locator1="CPUsersandorganizationsVieworganizations#ADVANCED_SEARCH_STREET_FIELD" value1="${orgAddressStreet}" />
+
 					<execute function="AssertClick" locator1="CPUsersandorganizationsVieworganizations#BASIC_SEARCH_BUTTON" value1="Search" />
 
 					<var name="key_orgName" value="${orgName}" />
@@ -301,6 +374,7 @@
 				<equals arg1="${orgAdvancedSearch}" arg2="City" />
 				<then>
 					<execute function="Type" locator1="CPUsersandorganizationsVieworganizations#ADVANCED_SEARCH_CITY_FIELD" value1="${orgAddressCity}" />
+
 					<execute function="AssertClick" locator1="CPUsersandorganizationsVieworganizations#BASIC_SEARCH_BUTTON" value1="Search" />
 
 					<var name="key_orgName" value="${orgName}" />
@@ -316,6 +390,7 @@
 				<equals arg1="${orgAdvancedSearch}" arg2="Postal" />
 				<then>
 					<execute function="Type" locator1="CPUsersandorganizationsVieworganizations#ADVANCED_SEARCH_POSTAL_CODE_FIELD" value1="${orgAddressPostal}" />
+
 					<execute function="AssertClick" locator1="CPUsersandorganizationsVieworganizations#BASIC_SEARCH_BUTTON" value1="Search" />
 
 					<var name="key_orgName" value="${orgName}" />
@@ -335,74 +410,99 @@
 
 	<command name="assignOrgRoleCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_ASSIGN_ORGANIZATION_ROLES" value1="Assign Organization Roles" />
 
 		<execute function="AssertTextEquals" locator1="//tr[contains(.,'${roleName}')]/td[1]/a" value1="${roleName}" />
+
 		<execute function="Click" locator1="//tr[contains(.,'${roleName}')]/td[1]/a" value1="${roleName}" />
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAssignuserrolesUser#AVAILABLE" value1="Available" />
+
 		<execute function="Type" locator1="CPUsersandorganizationsAssignuserrolesUser#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAssignuserrolesUser#BASIC_SEARCH_BUTTON" value1="Search" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsAssignuserrolesUser#USER_TABLE_SCREEN_NAME_1" value1="${userScreenName}" />
+
 		<execute function="Check" locator1="CPUsersandorganizationsAssignuserrolesUser#USER_TABLE_CHECKBOX_1" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAssignuserrolesUser#UPDATE_ASSOCIATIONS_BUTTON" value1="Update Associations" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsAssignuserrolesUser#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAssignuserrolesUser#CURRENT" value1="Current" />
+
 		<execute function="AssertChecked" locator1="CPUsersandorganizationsAssignuserrolesUser#USER_TABLE_CHECKBOX_1" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsAssignuserrolesUser#USER_TABLE_USER_NAME_1" value1="${userFirstName} ${userLastName}" />
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsAssignuserrolesUser#USER_TABLE_SCREEN_NAME_1" value1="${userScreenName}" />
 	</command>
 
 	<command name="deleteCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClickNoError" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_DELETE" value1="Delete" />
+
 		<execute function="Confirm" value1="Are you sure you want to delete this? It will be deleted immediately." />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="AssertTextNotPresent" value1="${orgName}" />
 	</command>
 
 	<command name="editSiteCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="Type" locator1="CPUsersandorganizationsOrganizationEdit#DETAILS_NAME_FIELD" value1="${orgNameEdit}" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsOrganizationEdit#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#DETAILS_NAME_FIELD" value1="${orgNameEdit}" />
 	</command>
 
 	<command name="manageMembershipOptionsInSites">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_MANAGE_SITE" value1="Manage Site" />
 
 		<if>
 			<equals arg1="${selectMembershipType}" arg2="true" />
 			<then>
 				<execute function="AssertTextEquals" locator1="CPSitesettings#MEMBERSHIP_OPTIONS_MEMBERSHIP_TYPE_LABEL" value1="Membership Type" />
+
 				<execute function="Select" locator1="CPSitesettings#MEMBERSHIP_OPTIONS_MEMBERSHIP_TYPE" value1="${membershipType}" />
 			</then>
 		</if>
@@ -415,27 +515,37 @@
 		</if>
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPSitesettings#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals#assertText" locator1="CPSitesettings#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="removeMemberCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_ASSIGN_USERS" value1="Assign Users" />
 
 		<var name="key_userScreenName" value="${userScreenName}" />
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAssignmembers#CURRENT" value1="Current" />
+
 		<execute function="Type" locator1="CPUsersandorganizationsAssignmembers#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAssignmembers#BASIC_SEARCH_BUTTON" value1="Search" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsAssignmembers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
+
 		<execute function="Uncheck" locator1="CPUsersandorganizationsAssignmembers#USER_TABLE_CHECKBOX" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAssignmembers#UPDATE_ASSOCIATIONS_BUTTON" value1="Update Associations" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsAssignmembers#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsAssignmembers#INFO_MESSAGE" value1="No users were found." />
 	</command>
@@ -444,7 +554,9 @@
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${searchTerm}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
 	</command>
 
@@ -452,24 +564,31 @@
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertClick" locator1="CPUsersandorganizationsOrganizationEdit#PARENT_ORGANIZATION_SELECT_BUTTON" value1="Select" />
 
 		<execute function="SelectFrame" locator1="CPUsersandorganizationsOrganizationEditSelectParentOrganization#SELECT_ORGANIZATION_IFRAME" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEditSelectParentOrganization#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
 
 		<var name="key_orgName" value="${parentOrgName}" />
 
 		<execute function="AssertClick" locator1="CPUsersandorganizationsOrganizationEditSelectParentOrganization#ORGANIZATION_TABLE_CHOOSE_BUTTON" value1="Choose" />
+
 		<execute function="SelectFrame" value1="relative=top" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#PARENT_ORGANIZATION_TABLE_NAME" value1="${parentOrgName}" />
+
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsOrganizationEdit#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -491,7 +610,9 @@
 					<condition function="IsElementPresent#isVisible" locator1="CPUsersandorganizationsAssignmembers#USER_TABLE_ALL_CHECKBOX" />
 					<then>
 						<execute function="Uncheck" locator1="CPUsersandorganizationsAssignmembers#USER_TABLE_ALL_CHECKBOX" />
+
 						<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPUsersandorganizationsAssignmembers#UPDATE_ASSOCIATIONS_BUTTON" value1="Update Associations" />
+
 						<execute function="AssertTextEquals" locator1="CPUsersandorganizationsAssignmembers#INFO_MESSAGE" value1="No users were found." />
 					</then>
 				</if>
@@ -499,6 +620,7 @@
 				<execute function="AssertClick#assertPartialTextClickAtAndWait" locator1="CPUsersandorganizationsAssignmembers#BACK" value1="Back" />
 
 				<execute function="AssertClickNoError" locator1="CPUsersandorganizationsOrganization#MENU_DELETE" value1="Delete" />
+
 				<execute function="Confirm" value1="Are you sure you want to delete this? It will be deleted immediately." />
 			</then>
 		</while>
@@ -506,12 +628,15 @@
 
 	<command name="viewAddressCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertClick" locator1="CPUsersandorganizationsOrganizationEdit#IDENTIFICATION_ADDRESSES" value1="Addresses" />
@@ -527,11 +652,13 @@
 
 	<command name="viewAssignMemberCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${searchToken}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganization#USER_TABLE_FIRST_NAME_1" value1="${userFirstName}" />
@@ -541,27 +668,34 @@
 
 	<command name="viewCommentCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertClick" locator1="CPUsersandorganizationsOrganizationEdit#MISCELLANEOUS_COMMENTS" value1="Comments" />
+
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizationsOrganizationEdit#COMMENTS_FIELD" value1="${orgComment}" />
 	</command>
 
 	<command name="viewCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_TYPE" value1="${orgType}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<var name="key_orgType" value="${orgType}" />
@@ -574,13 +708,16 @@
 
 	<command name="viewEditSiteCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgNameEdit}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgNameEdit}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgNameEdit}" />
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_TYPE" value1="${orgType}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<var name="key_orgType" value="${orgType}" />
@@ -598,7 +735,9 @@
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertClick" locator1="CPUsersandorganizationsOrganizationEdit#PARENT_ORGANIZATION_SELECT_BUTTON" value1="Select" />
@@ -627,12 +766,15 @@
 
 	<command name="viewRemoveMemberCP">
 		<execute function="Type" locator1="CPUsersandorganizations#SEARCH_FIELD" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertTextEquals" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertClick" locator1="CPUsersandorganizations#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
+
 		<execute function="AssertTextNotPresent" value1="${userFirstName}" />
 	</command>
 </definition>

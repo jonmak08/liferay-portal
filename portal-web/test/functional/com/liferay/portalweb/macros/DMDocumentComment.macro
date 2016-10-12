@@ -15,6 +15,7 @@
 		</if>
 
 		<execute function="Type" locator1="PGDocumentsandmediaDocument#COMMENTS_COMMENT_FIELD" value1="${commentBody}" />
+
 		<execute function="Pause" locator1="3000" />
 
 		<if>
@@ -28,6 +29,7 @@
 		</if>
 
 		<execute function="Pause" locator1="3000" />
+
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGDocumentsandmediaDocument#SUCCESS_MESSAGE" value1="Your request processed successfully." />
 	</command>
 

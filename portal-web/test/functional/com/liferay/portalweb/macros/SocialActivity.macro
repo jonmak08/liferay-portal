@@ -5,6 +5,7 @@
 		<var name="key_userAction" value="${userAction}" />
 
 		<execute function="AssertClick" locator1="CPSocialactivity#POSSIBLE_USER_ACTIONS_BUTTON" value1="${userAction}" />
+
 		<execute function="AssertClick" locator1="CPSocialactivity#SAVE_BUTTON" value1="Save" />
 	</command>
 
@@ -70,6 +71,7 @@
 
 	<command name="enableCP">
 		<execute function="Check" locator1="CPSocialactivity#BLOGS_ENTRY_CHECKBOX" />
+
 		<execute function="AssertClick" locator1="CPSocialactivity#SAVE_BUTTON" value1="Save" />
 	</command>
 
@@ -77,7 +79,9 @@
 		<var name="key_userAction" value="${userAction}" />
 
 		<execute function="Click" locator1="CPSocialactivity#CLOSE_ICON" />
+
 		<execute function="AssertTextEquals" locator1="CPSocialactivity#POSSIBLE_USER_ACTIONS_BUTTON" value1="${userAction}" />
+
 		<execute function="AssertClick" locator1="CPSocialactivity#SAVE_BUTTON" value1="Save" />
 	</command>
 

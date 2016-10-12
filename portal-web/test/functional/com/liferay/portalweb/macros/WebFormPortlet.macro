@@ -101,6 +101,7 @@
 	<command name="saveConfiguration">
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGWebformConfiguration#SAVE_BUTTON" value1="Save" />
 		<execute function="AssertTextEquals" locator1="PGWebformConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+
 		<execute function="SelectFrameTop" value1="relative=top" />
 	</command>
 

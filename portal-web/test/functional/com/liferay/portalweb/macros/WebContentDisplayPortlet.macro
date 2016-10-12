@@ -13,11 +13,13 @@
 		</execute>
 
 		<execute function="SelectFrame" locator1="PGWebcontentdisplayConfiguration#CONFIGURATION_IFRAME" />
+
 		<execute function="AssertClick" locator1="PGWebcontentdisplayConfiguration#NAVIGATION_SCOPE" value1="Scope" />
 
 		<var name="key_scopeSelection" value="${scopeSelection}" />
 
 		<execute function="Click#pauseClickAt" locator1="PGWebcontentdisplayConfigurationScope#SCOPE_MENULIST" />
+
 		<execute function="AssertClick#assertPartialTextClickAt" locator1="PGWebcontentdisplayConfigurationScope#SCOPE_MENULIST_SELECTION" value1="${scopeSelection}" />
 
 		<execute function="AssertTextEquals" locator1="PGWebcontentdisplayConfigurationScope#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
@@ -123,6 +125,7 @@
 		</if>
 
 		<execute function="AssertClick" locator1="PGWebcontentdisplayConfiguration#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="PGWebcontentdisplayConfigurationScope#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 
 		<if>
@@ -244,8 +247,11 @@
 			<equals arg1="${addSearchedContent}" arg2="true" />
 			<then>
 				<execute function="AssertClick" locator1="PGWebcontentdisplayConfiguration#WEB_CONTENT_TABLE_TITLE" value1="${webContentTitle}" />
+
 				<execute function="AssertTextEquals" locator1="PGWebcontentdisplayConfiguration#INFO_MESSAGE_ARTICLE" value1="${webContentTitle} (Modified)" />
+
 				<execute function="AssertClick" locator1="PGWebcontentdisplayConfiguration#SAVE_BUTTON" value1="Save" />
+
 				<execute function="AssertTextEquals" locator1="PGWebcontentdisplayConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 			</then>
 		</if>
@@ -261,11 +267,13 @@
 		<execute function="SelectFrame" locator1="PGWebcontentdisplayConfiguration#CONFIGURATION_IFRAME" />
 
 		<execute function="Type" locator1="PGWebcontentdisplayConfiguration#SEARCH_FIELD" value1="${webContentTitle}" />
+
 		<execute function="AssertClick" locator1="PGWebcontentdisplayConfiguration#SEARCH_BUTTON" value1="Search" />
 
 		<var name="key_webContentTitle" value="${webContentTitle}" />
 
 		<execute function="AssertElementNotPresent" locator1="PGWebcontentdisplayConfiguration#WEB_CONTENT_TABLE_TITLE" value1="${webContentTitle}" />
+
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
@@ -279,9 +287,13 @@
 		<var name="key_webContentTitle" value="${webContentTitle}" />
 
 		<execute function="AssertClick" locator1="PGWebcontentdisplayConfiguration#WEB_CONTENT_TABLE_TITLE" value1="${webContentTitle}" />
+
 		<execute function="AssertTextEquals" locator1="PGWebcontentdisplayConfiguration#INFO_MESSAGE_ARTICLE" value1="${webContentTitle} (Modified)" />
+
 		<execute function="AssertClick" locator1="PGWebcontentdisplayConfiguration#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="PGWebcontentdisplayConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
@@ -307,7 +319,9 @@
 		</execute>
 
 		<execute function="SelectFrame" locator1="PGWebcontentdisplayConfiguration#CONFIGURATION_IFRAME" />
+
 		<execute function="AssertClick" locator1="PGWebcontentdisplayConfiguration#NAVIGATION_SCOPE" value1="Scope" />
+
 		<execute function="AssertTextEquals" locator1="PGWebcontentdisplayConfigurationScope#SCOPE_MENULIST" value1="${scopeSelection}" />
 	</command>
 
