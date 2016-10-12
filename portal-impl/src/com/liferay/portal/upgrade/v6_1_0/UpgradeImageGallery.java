@@ -342,18 +342,18 @@ public class UpgradeImageGallery extends UpgradeProcess {
 				"and scope = ? and primKey = ? and roleId = ?";
 
 		Connection con = null;
-		PreparedStatement ps1 = null;
+		PreparedStatement ps = null;
 		PreparedStatement ps2 = null;
 		ResultSet rs = null;
 
 		try {
 			con = DataAccess.getUpgradeOptimizedConnection();
 
-			ps1 = con.prepareStatement(selectSQL);
+			ps = con.prepareStatement(selectSQL);
 
-			ps1.setString(1, igResourceName);
+			ps.setString(1, igResourceName);
 
-			rs = ps1.executeQuery();
+			rs = ps.executeQuery();
 
 			ps2 = AutoBatchPreparedStatementUtil.autoBatch(
 				con.prepareStatement(deleteSQL));
@@ -371,7 +371,7 @@ public class UpgradeImageGallery extends UpgradeProcess {
 			ps2.executeBatch();
 		}
 		finally {
-			DataAccess.cleanUp(ps1);
+			DataAccess.cleanUp(ps);
 			DataAccess.cleanUp(con, ps2, rs);
 		}
 	}
