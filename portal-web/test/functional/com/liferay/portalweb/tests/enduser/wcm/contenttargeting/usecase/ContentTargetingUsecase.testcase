@@ -3917,7 +3917,7 @@
 		</execute>
 
 		<execute macro="WebContent#addCP">
-			<var name="webContentContent" value="Web Content Visited Content." />
+			<var name="webContentContent" value="Web Content Visited Content" />
 			<var name="webContentTitle" value="Web Content Visited Title" />
 		</execute>
 
@@ -3984,7 +3984,7 @@
 
 		<execute macro="WebContent#addCP">
 			<var name="webContentContent" value="Web Content Content View in display page" />
-			<var name="webContentTitle" value="Web Content Dispay Title" />
+			<var name="webContentTitle" value="Web Content Display Title" />
 		</execute>
 
 		<execute macro="Page#gotoPagesCP">
@@ -4016,7 +4016,7 @@
 
 		<execute macro="UserSegmentContentDisplayPortlet#configureDisplayContent">
 			<var name="belongs" value="true" />
-			<var name="contentTitle" value="Web Content Dispay Title" />
+			<var name="contentTitle" value="Web Content Display Title" />
 			<var name="contentType" value="Web Content Article" />
 			<var name="rowNumber" value="1" />
 			<var name="toAll" value="true" />
@@ -4034,7 +4034,7 @@
 		</execute>
 
 		<execute macro="WebContent#viewPGViaAP">
-			<var name="webContentContent" value="Web Content Visited Content." />
+			<var name="webContentContent" value="Web Content Visited Content" />
 			<var name="webContentTitle" value="Web Content Visited Title" />
 		</execute>
 
