@@ -387,20 +387,6 @@
 		</execute>
 	</command>
 
-	<command name="AddUserSegmentBlankCP" priority="5">
-		<execute macro="Page#gotoConfigurationCP">
-			<var name="portletName" value="Audience Targeting" />
-			<var name="siteScopeName" value="Site Name" />
-		</execute>
-
-		<execute macro="ContentTargetingUserSegment#addCP">
-			<var name="userSegmentDescription" value="User Segment Description" />
-			<var name="userSegmentName" value="User Segment Name" />
-		</execute>
-
-		<execute macro="ContentTargetingUserSegment#saveCP" />
-	</command>
-
 	<command name="AddUserSegmentSocialFacebookAgeCP" priority="5">
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
