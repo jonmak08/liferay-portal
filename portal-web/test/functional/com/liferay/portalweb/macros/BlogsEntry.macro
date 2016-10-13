@@ -1178,7 +1178,7 @@
 	</command>
 
 	<command name="viewNoEntryViaAPPG">
-		<var name="key_assetTitle" value="${assetTitle}" />
+		<var name="key_assetTitle" value="${entryTitle}" />
 
 		<execute function="AssertTextNotPresent" locator1="PGAssetpublisher#ASSET_ABSTRACT_TITLE" value1="${entryTitle}" />
 		<execute function="AssertTextNotPresent" locator1="PGAssetpublisher#ASSET_ABSTRACT_SUMMARY" value1="${entryContent}" />

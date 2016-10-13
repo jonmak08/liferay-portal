@@ -102,7 +102,6 @@
 		</execute>
 
 		<execute macro="BlogsEntry#viewEntryViaAPPG">
-			<var name="assetTitle" value="${assetTitle}" />
 			<var name="entryContent" value="${entryContentEdit}" />
 			<var name="entryTitle" value="${entryTitle}" />
 		</execute>
