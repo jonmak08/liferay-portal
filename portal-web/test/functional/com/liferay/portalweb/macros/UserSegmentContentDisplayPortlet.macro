@@ -239,7 +239,7 @@
 			<then>
 				<execute function="MouseOverNoError" locator1="PGUsersegmentcontentdisplay#${viewDontDisplay}" />
 
-				<execute function="AssertTextEquals" locator1="PGUsersegmentcontentdisplay#INFO_MESSAGE" value1="There are no matching rules" />
+				<execute macro="UserSegmentContentDisplayPortlet#viewNoContentPG" />
 			</then>
 		</if>
 	</command>
