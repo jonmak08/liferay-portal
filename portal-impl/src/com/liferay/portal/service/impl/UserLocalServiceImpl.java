@@ -6113,14 +6113,14 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		}
 
 		for (String key : params.keySet()) {
-			if (!key.equals("inherit") &&
+			if (!key.equals("forceDatabase") &&
+				!key.equals("inherit") &&
 				!key.equals("usersGroups") &&
 				!key.equals("usersOrgs") &&
 				!key.equals("usersOrgsCount") &&
 				!key.equals("usersRoles") &&
 				!key.equals("usersTeams") &&
-				!key.equals("usersUserGroups") &&
-				!key.equals("forceDatabase")) {
+				!key.equals("usersUserGroups")) {
 
 				return true;
 			}
