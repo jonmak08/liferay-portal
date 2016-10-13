@@ -223,7 +223,7 @@
 		</execute>
 
 		<execute macro="WebContent#addCP">
-			<var name="webContentContent" value="Web Content visited Content" />
+			<var name="webContentContent" value="Web Content Content" />
 			<var name="webContentTitle" value="Web Content Title" />
 		</execute>
 
@@ -314,7 +314,7 @@
 		</execute>
 
 		<execute macro="WebContent#viewPGViaAP">
-			<var name="webContentContent" value="Web Content visited Content" />
+			<var name="webContentContent" value="Web Content Content" />
 			<var name="webContentTitle" value="Web Content Title" />
 		</execute>
 
@@ -325,7 +325,7 @@
 		</execute>
 
 		<execute macro="UserSegmentContentDisplayPortlet#viewEntryPG">
-			<var name="entryContentText" value="Web Content visited Content" />
+			<var name="entryContentText" value="Web Content Content" />
 		</execute>
 	</command>
 
