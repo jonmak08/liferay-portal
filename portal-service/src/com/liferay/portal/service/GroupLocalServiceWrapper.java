@@ -1875,6 +1875,11 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 		return _groupLocalService.hasUserGroup(userId, groupId, inherit);
 	}
 
+	@Override
+	public boolean isLiveGroupActive(com.liferay.portal.model.Group group) {
+		return _groupLocalService.isLiveGroupActive(group);
+	}
+
 	/**
 	* Returns the group with the matching group name by first searching the
 	* system groups and then using the finder cache.

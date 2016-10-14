@@ -1550,6 +1550,9 @@ public interface GroupLocalService extends BaseLocalService,
 	public boolean hasUserGroup(long userId, long groupId, boolean inherit)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public boolean isLiveGroupActive(com.liferay.portal.model.Group group);
+
 	/**
 	* Returns the group with the matching group name by first searching the
 	* system groups and then using the finder cache.

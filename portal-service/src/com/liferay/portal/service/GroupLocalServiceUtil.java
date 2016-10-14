@@ -1759,6 +1759,11 @@ public class GroupLocalServiceUtil {
 		return getService().hasUserGroup(userId, groupId, inherit);
 	}
 
+	public static boolean isLiveGroupActive(
+		com.liferay.portal.model.Group group) {
+		return getService().isLiveGroupActive(group);
+	}
+
 	/**
 	* Returns the group with the matching group name by first searching the
 	* system groups and then using the finder cache.
