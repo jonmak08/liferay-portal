@@ -428,9 +428,8 @@
 
 						if (el.parentNode.hasAttribute('onmouseover')) {
 							el.parentNode.setAttribute(
-									'onmouseover',
-									'Liferay.Portal.ToolTip.show('
-									+ el.getAttribute('id') + ', \'' + title + '\')');
+								'onmouseover',
+								'Liferay.Portal.ToolTip.show(' + el.getAttribute('id') + ', \'' + title + '\')');
 						}
 
 						var linkText = link.one('.taglib-text-icon');
