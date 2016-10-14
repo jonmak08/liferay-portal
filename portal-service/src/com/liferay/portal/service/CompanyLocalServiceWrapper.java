@@ -75,12 +75,14 @@ public class CompanyLocalServiceWrapper implements CompanyLocalService,
 	*
 	* @param company the company
 	* @return the company that was removed
+	* @throws PortalException
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	public com.liferay.portal.model.Company deleteCompany(
 		com.liferay.portal.model.Company company)
-		throws com.liferay.portal.kernel.exception.SystemException {
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
 		return _companyLocalService.deleteCompany(company);
 	}
 

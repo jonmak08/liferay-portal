@@ -183,11 +183,13 @@ public abstract class CompanyLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param company the company
 	 * @return the company that was removed
+	 * @throws PortalException
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Indexable(type = IndexableType.DELETE)
 	@Override
-	public Company deleteCompany(Company company) throws SystemException {
+	public Company deleteCompany(Company company)
+		throws PortalException, SystemException {
 		return companyPersistence.remove(company);
 	}
 

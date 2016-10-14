@@ -84,12 +84,14 @@ public interface CompanyLocalService extends BaseLocalService,
 	*
 	* @param company the company
 	* @return the company that was removed
+	* @throws PortalException
 	* @throws SystemException if a system exception occurred
 	*/
 	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
 	public com.liferay.portal.model.Company deleteCompany(
 		com.liferay.portal.model.Company company)
-		throws com.liferay.portal.kernel.exception.SystemException;
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
 
 	public com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery();
 
