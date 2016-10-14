@@ -438,7 +438,7 @@
 		</execute>
 
 		<execute macro="ContentTargetingUserSegment#addBehaviorScorePointsRuleCP">
-			<var name="scorePoints" value="100" />
+			<var name="scorePoints" value="3" />
 		</execute>
 
 		<execute macro="ContentTargetingUserSegment#saveCP" />
@@ -449,9 +449,105 @@
 		</execute>
 
 		<execute macro="ContentTargetingUserSegment#viewRulesCP">
-			<var name="scorePoints" value="100" />
+			<var name="scorePoints" value="3" />
 			<var name="userSegmentName" value="User Segment Name" />
 			<var name="viewUserSegmentRuleList" value="Score Points" />
+		</execute>
+
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Web Content" />
+			<var name="siteScopeName" value="Site Name" />
+		</execute>
+
+		<execute macro="WebContent#addWithCategoryCP">
+			<var name="categoryName" value="User Segment Name" />
+			<var name="vocabularyName" value="User Segment" />
+			<var name="webContentContent" value="Web Content Content" />
+			<var name="webContentTitle" value="Web Content Title" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Test Page Name" />
+			<var name="siteName" value="Site Name" />
+			<var name="siteURL" value="true" />
+		</execute>
+
+		<execute macro="Portlet#addPG">
+			<var name="portletName" value="Asset Publisher" />
+		</execute>
+
+		<execute macro="Page#gotoPagesCP">
+			<var name="portletName" value="Site Pages" />
+			<var name="siteScopeName" value="Site Name" />
+		</execute>
+
+		<execute macro="SitePage#addCP">
+			<var name="sitePageName" value="Display Page Name" />
+			<var name="sitePagePrivacy" value="Public" />
+			<var name="siteScopeSelected" value="true" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Display Page Name" />
+			<var name="siteName" value="Site Name" />
+			<var name="siteURL" value="true" />
+		</execute>
+
+		<execute macro="Portlet#addPG">
+			<var name="portletName" value="User Segment Content Display" />
+		</execute>
+
+		<execute function="Refresh" />
+
+		<execute macro="Portlet#gotoPortletOptions">
+			<var name="portletOption" value="Configuration" />
+		</execute>
+
+		<execute macro="UserSegmentContentDisplayPortlet#configureDisplayContent">
+			<var name="belongs" value="true" />
+			<var name="contentTitle" value="Web Content Title" />
+			<var name="contentType" value="Web Content Article" />
+			<var name="rowNumber" value="1" />
+			<var name="toAll" value="true" />
+			<var name="userSegmentName" value="User Segment Name" />
+		</execute>
+
+		<execute macro="UserSegmentContentDisplayPortlet#savePG" />
+
+		<execute function="Refresh" />
+
+		<execute macro="UserSegmentContentDisplayPortlet#viewNoContentPG" />
+
+		<var name="count" value="0" />
+
+		<while>
+			<not>
+				<equals arg1="${count}" arg2="3" />
+			</not>
+			<then>
+				<execute macro="Page#gotoPG">
+					<var name="pageName" value="Test Page Name" />
+					<var name="siteName" value="Site Name" />
+					<var name="siteURL" value="true" />
+				</execute>
+
+				<execute macro="WebContent#viewPGViaAP">
+					<var name="webContentContent" value="Web Content Content" />
+					<var name="webContentTitle" value="Web Content Title" />
+				</execute>
+
+				<var method="MathUtil#sum(${count}, '1')" name="count" />
+			</then>
+		</while>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Display Page Name" />
+			<var name="siteName" value="Site Name" />
+			<var name="siteURL" value="true" />
+		</execute>
+
+		<execute macro="UserSegmentContentDisplayPortlet#viewEntryPG">
+			<var name="entryContentText" value="Web Content Content" />
 		</execute>
 	</command>
 
