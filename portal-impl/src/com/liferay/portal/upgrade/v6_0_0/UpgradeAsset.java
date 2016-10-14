@@ -17,8 +17,12 @@ package com.liferay.portal.upgrade.v6_0_0;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 import com.liferay.portal.model.ResourceConstants;
+import com.liferay.portal.model.UserConstants;
+import com.liferay.portal.security.auth.FullNameGenerator;
+import com.liferay.portal.security.auth.FullNameGeneratorFactory;
 import com.liferay.portlet.asset.model.AssetCategory;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.model.AssetTag;
@@ -387,6 +391,51 @@ public class UpgradeAsset extends UpgradeProcess {
 		updateResources();
 	}
 
+	protected String generateShortenedFullName(long userId) throws Exception {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			con = DataAccess.getUpgradeOptimizedConnection();
+
+			ps = con.prepareStatement(
+				"select firstName, middleName, lastName from User_ where " +
+					"userId = ?");
+
+			ps.setLong(1, userId);
+
+			rs = ps.executeQuery();
+
+			rs.next();
+
+			String firstName = rs.getString("firstName");
+			String middleName = rs.getString("middleName");
+			String lastName = rs.getString("lastName");
+
+			if (firstName == null) {
+				firstName = StringPool.BLANK;
+			}
+
+			if (middleName == null) {
+				middleName = StringPool.BLANK;
+			}
+
+			if (lastName == null) {
+				lastName = StringPool.BLANK;
+			}
+
+			FullNameGenerator fullNameGenerator =
+				FullNameGeneratorFactory.getInstance();
+
+			return fullNameGenerator.getFullName(
+				firstName, middleName, lastName);
+		}
+		finally {
+			DataAccess.cleanUp(con, ps, rs);
+		}
+	}
+
 	protected void updateAssetCategories() throws Exception {
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -461,6 +510,10 @@ public class UpgradeAsset extends UpgradeProcess {
 				int width = rs.getInt("width");
 				double priority = rs.getDouble("priority");
 				int viewCount = rs.getInt("viewCount");
+
+				if (userName.length() > UserConstants.FULL_NAME_MAX_LENGTH) {
+					userName = generateShortenedFullName(userId);
+				}
 
 				addEntry(
 					assetId, groupId, companyId, userId, userName, createDate,
