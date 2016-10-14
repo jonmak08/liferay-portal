@@ -3599,7 +3599,7 @@
 		</execute>
 
 		<execute macro="ContentTargetingUserSegment#addBehaviorScorePointsRuleCP">
-			<var name="scorePoints" value="5" />
+			<var name="scorePoints" value="3" />
 		</execute>
 
 		<execute macro="ContentTargetingUserSegment#saveCP" />
@@ -3667,7 +3667,7 @@
 
 		<while>
 			<not>
-				<equals arg1="${count}" arg2="5" />
+				<equals arg1="${count}" arg2="3" />
 			</not>
 			<then>
 				<execute macro="BlogsEntry#viewEntryViaAPPG">
@@ -3741,7 +3741,7 @@
 
 		<while>
 			<not>
-				<equals arg1="${count}" arg2="5" />
+				<equals arg1="${count}" arg2="3" />
 			</not>
 			<then>
 				<execute macro="BlogsEntry#viewEntryViaAPPG">
@@ -3961,7 +3961,7 @@
 		</execute>
 
 		<execute macro="ContentTargetingUserSegment#addBehaviorScorePointsRuleCP">
-			<var name="scorePoints" value="5" />
+			<var name="scorePoints" value="3" />
 		</execute>
 
 		<execute macro="ContentTargetingUserSegment#saveCP" />
@@ -4042,7 +4042,7 @@
 
 		<while>
 			<not>
-				<equals arg1="${count}" arg2="5" />
+				<equals arg1="${count}" arg2="3" />
 			</not>
 			<then>
 				<execute macro="Page#gotoPG">
