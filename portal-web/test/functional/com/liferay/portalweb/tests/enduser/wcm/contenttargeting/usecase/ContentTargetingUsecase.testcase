@@ -4056,7 +4056,7 @@
 					<var name="entryTitle" value="Blogs Entry Title" />
 				</execute>
 
-				<var method="MathUtil#sum('${count}', '1'}" name="count" />
+				<var method="MathUtil#sum('${count}', '1')" name="count" />
 			</then>
 		</while>
 
