@@ -55,6 +55,8 @@ import java.io.OutputStream;
 
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -419,40 +421,49 @@ public class ImageToolImpl implements ImageTool {
 	public ImageBag read(byte[] bytes) throws IOException {
 		String formatName = null;
 		ImageInputStream imageInputStream = null;
+		Queue<ImageReader> imageReaders = new LinkedList<ImageReader>();
 		RenderedImage renderedImage = null;
 		String type = TYPE_NOT_AVAILABLE;
 
-		imageInputStream = ImageIO.createImageInputStream(
-			new ByteArrayInputStream(bytes));
+		try {
+			imageInputStream = ImageIO.createImageInputStream(
+				new ByteArrayInputStream(bytes));
 
-		Iterator<ImageReader> iterator = ImageIO.getImageReaders(
-			imageInputStream);
+			Iterator<ImageReader> iterator = ImageIO.getImageReaders(
+				imageInputStream);
 
-		while ((renderedImage == null) && iterator.hasNext()) {
-			ImageReader imageReader = iterator.next();
+			while ((renderedImage == null) && iterator.hasNext()) {
+				ImageReader imageReader = iterator.next();
 
-			try {
+				imageReaders.offer(imageReader);
+
 				try {
 					imageReader.setInput(imageInputStream);
 
 					renderedImage = imageReader.read(0);
 				}
 				catch (IOException ioe) {
-					_dispose(imageInputStream, imageReader);
-
 					continue;
 				}
 
 				formatName = StringUtil.toLowerCase(
 					imageReader.getFormatName());
 			}
-			finally {
-				_dispose(imageInputStream, imageReader);
+
+			if (renderedImage == null) {
+				throw new IOException("Unsupported image type");
 			}
 		}
+		finally {
+			while (!imageReaders.isEmpty()) {
+				ImageReader imageReader = imageReaders.poll();
 
-		if (renderedImage == null) {
-			throw new IOException("Unsupported image type");
+				imageReader.dispose();
+			}
+
+			if (imageInputStream != null) {
+				imageInputStream.close();
+			}
 		}
 
 		type = TYPE_JPEG;
@@ -479,19 +490,6 @@ public class ImageToolImpl implements ImageTool {
 		}
 
 		return new ImageBag(renderedImage, type);
-	}
-
-	private void _dispose(
-			ImageInputStream imageInputStream, ImageReader imageReader)
-		throws IOException {
-
-		if (imageReader != null) {
-			imageReader.dispose();
-		}
-
-		if (imageInputStream != null) {
-			imageInputStream.close();
-		}
 	}
 
 	@Override
