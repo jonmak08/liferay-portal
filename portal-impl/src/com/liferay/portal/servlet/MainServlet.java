@@ -105,7 +105,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.Set;
 
 import javax.portlet.PortletConfig;
@@ -237,9 +236,7 @@ public class MainServlet extends ActionServlet {
 
 			String userTimeZone = System.getProperty("user.timezone");
 
-			if (!Objects.equals("UTC", userTimeZone) &&
-				!Objects.equals("GMT", userTimeZone)) {
-
+			if (!"UTC".equals(userTimeZone) && !"GMT".equals(userTimeZone)) {
 				StringBundler sb = new StringBundler(4);
 
 				sb.append("The default JVM time zone \"");
