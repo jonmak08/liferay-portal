@@ -149,7 +149,8 @@ public class CompanyImpl extends CompanyBaseImpl {
 			catch (Exception e) {
 				_log.error(
 					"Unable to deserialize " + key +
-						". Possible java deserialization attack", e);
+						", possible Java deserialization attack",
+					e);
 			}
 		}
 
