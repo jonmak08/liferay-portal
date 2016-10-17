@@ -83,6 +83,7 @@ import com.liferay.portlet.messageboards.model.impl.MBCategoryImpl;
 import com.liferay.portlet.messageboards.model.impl.MBMessageDisplayImpl;
 import com.liferay.portlet.messageboards.service.base.MBMessageLocalServiceBaseImpl;
 import com.liferay.portlet.messageboards.social.MBActivityKeys;
+import com.liferay.portlet.messageboards.util.MBMessageDateDigesterUtil;
 import com.liferay.portlet.messageboards.util.MBSubscriptionSender;
 import com.liferay.portlet.messageboards.util.MBUtil;
 import com.liferay.portlet.messageboards.util.MailingListThreadLocal;
@@ -2041,7 +2042,8 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		subscriptionSender.setFrom(fromAddress, fromName);
 		subscriptionSender.setHtmlFormat(true);
 
-		Date modifiedDate = message.getModifiedDate();
+		Date modifiedDate = MBMessageDateDigesterUtil.digest(
+			message.getModifiedDate());
 
 		subscriptionSender.setMailId(
 			"mb_discussion", message.getCategoryId(), message.getMessageId(),
@@ -2211,7 +2213,8 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 			MBMessage parentMessage = mbMessageLocalService.getMessage(
 				message.getParentMessageId());
 
-			Date modifiedDate = parentMessage.getModifiedDate();
+			Date modifiedDate = MBMessageDateDigesterUtil.digest(
+				parentMessage.getModifiedDate());
 
 			inReplyTo = PortalUtil.getMailId(
 				company.getMx(), MBUtil.MESSAGE_POP_PORTLET_PREFIX,
@@ -2240,7 +2243,8 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		subscriptionSenderPrototype.setHtmlFormat(htmlFormat);
 		subscriptionSenderPrototype.setInReplyTo(inReplyTo);
 
-		Date modifiedDate = message.getModifiedDate();
+		Date modifiedDate = MBMessageDateDigesterUtil.digest(
+			message.getModifiedDate());
 
 		subscriptionSenderPrototype.setMailId(
 			MBUtil.MESSAGE_POP_PORTLET_PREFIX, message.getCategoryId(),
