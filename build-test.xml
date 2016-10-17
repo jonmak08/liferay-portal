@@ -85,6 +85,8 @@
 						tofile="${tstamp.value}/WEB-INF/classes/portal-ext.properties"
 					/>
 
+					<print-file file.name="${tstamp.value}/WEB-INF/classes/portal-ext.properties" />
+
 					<zip
 						basedir="${tstamp.value}"
 						destfile="${test.build.liferay.portal.zip.file.name}"
@@ -98,6 +100,8 @@
 						file="portal-impl/src/portal-ext.properties"
 						tofile="${app.server.classes.portal.dir}/portal-ext.properties"
 					/>
+
+					<print-file file.name="${app.server.classes.portal.dir}/portal-ext.properties" />
 				</else>
 			</if>
 		</sequential>
