@@ -858,6 +858,8 @@ public class PropsValues {
 
 	public static final boolean INDEX_ON_UPGRADE = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.INDEX_ON_UPGRADE));
 
+	public static final boolean INDEX_PORTAL_FIELD_ANALYZER_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.INDEX_PORTAL_FIELD_ANALYZER_ENABLED));
+
 	public static boolean INDEX_READ_ONLY = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.INDEX_READ_ONLY));
 
 	public static final boolean INDEX_SEARCH_COLLATED_SPELL_CHECK_RESULT_ENABLED = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.INDEX_SEARCH_COLLATED_SPELL_CHECK_RESULT_ENABLED));
