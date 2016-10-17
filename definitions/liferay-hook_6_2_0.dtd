@@ -58,6 +58,7 @@ field.enable.com.liferay.portal.model.Contact.birthday
 field.enable.com.liferay.portal.model.Contact.male
 field.enable.com.liferay.portal.model.Organization.status
 hot.deploy.listeners
+index.portal.field.analyzer.enabled
 javascript.fast.load
 journal.article.form.add
 journal.article.form.translate
