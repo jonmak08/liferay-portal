@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 import com.liferay.portal.model.ResourceConstants;
 import com.liferay.portal.model.UserConstants;
@@ -512,7 +513,14 @@ public class UpgradeAsset extends UpgradeProcess {
 				int viewCount = rs.getInt("viewCount");
 
 				if (userName.length() > UserConstants.FULL_NAME_MAX_LENGTH) {
-					userName = generateShortenedFullName(userId);
+					try {
+						userName = generateShortenedFullName(userId);
+					}
+					catch (Exception e) {
+						userName = StringUtil.shorten(
+							userName, UserConstants.FULL_NAME_MAX_LENGTH,
+							StringPool.BLANK);
+					}
 				}
 
 				addEntry(
