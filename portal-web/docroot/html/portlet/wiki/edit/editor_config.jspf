@@ -35,7 +35,12 @@ Map<String,String> fileBrowserParams = new HashMap();
 fileBrowserParams.put("attachmentURLPrefix", attachmentURLPrefix);
 
 if (format.equals("html")) {
-	fileBrowserParams.put("Types", "Document,Page,Attachment");
+	if (resourcePrimKey == 0) {
+		fileBrowserParams.put("Types", "Document,Page");
+	}
+	else {
+		fileBrowserParams.put("Types", "Document,Page,Attachment");
+	}
 }
 else {
 	fileBrowserParams.put("Type", "Attachment");
