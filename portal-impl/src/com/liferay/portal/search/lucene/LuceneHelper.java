@@ -104,8 +104,6 @@ public interface LuceneHelper {
 
 	public IndexSearcher getIndexSearcher(long companyId) throws IOException;
 
-	public Analyzer getKeywordAnalyzer();
-
 	public long getLastGeneration(long companyId);
 
 	public InputStream getLoadIndexesInputStreamFromCluster(

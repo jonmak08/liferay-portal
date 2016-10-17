@@ -457,11 +457,6 @@ public class LuceneHelperImpl implements LuceneHelper {
 	}
 
 	@Override
-	public Analyzer getKeywordAnalyzer() {
-		return _keywordAnalyzer;
-	}
-
-	@Override
 	public InputStream getLoadIndexesInputStreamFromCluster(
 			long companyId, Address bootupAddress)
 		throws SystemException {
@@ -628,12 +623,6 @@ public class LuceneHelperImpl implements LuceneHelper {
 		}
 
 		return false;
-	}
-
-	public boolean isLuceneSearchEngine() {
-		String vendor = SearchEngineUtil.getSearchEngine().getVendor();
-
-		return "Lucene".equals(vendor);
 	}
 
 	@Override

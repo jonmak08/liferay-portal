@@ -330,10 +330,6 @@ public class LuceneHelperUtil {
 		return getLuceneHelper().getLastGeneration(companyId);
 	}
 
-	public static Analyzer getKeywordAnalyzer() {
-		return getLuceneHelper().getKeywordAnalyzer();
-	}
-
 	public static InputStream getLoadIndexesInputStreamFromCluster(
 			long companyId, Address bootupAddress)
 		throws SystemException {
