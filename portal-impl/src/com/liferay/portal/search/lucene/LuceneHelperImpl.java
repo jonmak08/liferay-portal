@@ -376,8 +376,8 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 	@Override
 	public Analyzer getAnalyzer() {
-		if (!isLuceneSearchEngine()) {
-			return getKeywordAnalyzer();
+		if (!PropsValues.INDEX_PORTAL_FIELD_ANALYZER_ENABLED) {
+			return _keywordAnalyzer;
 		}
 
 		return _analyzer;
