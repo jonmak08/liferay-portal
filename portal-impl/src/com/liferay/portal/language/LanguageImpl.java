@@ -1033,19 +1033,20 @@ public class LanguageImpl implements Language, Serializable {
 	}
 
 	private void _resetAvailableLocales(long companyId) {
-		_portalCache.remove(companyId);
+		_companyLocalesPortalCache.remove(companyId);
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(LanguageImpl.class);
 
+	private static PortalCache<Long, Serializable> _companyLocalesPortalCache =
+			MultiVMPoolUtil.getCache(LanguageImpl.class.getName());
+
 	private static Map<Long, LanguageImpl> _instances =
 		new ConcurrentHashMap<Long, LanguageImpl>();
-	private static PortalCache<Long, Serializable> _portalCache =
-		MultiVMPoolUtil.getCache(LanguageImpl.class.getName());
 
 	static {
 		PortalCacheMapSynchronizeUtil.<Long, Serializable>synchronize(
-			_portalCache, _instances,
+			_companyLocalesPortalCache, _instances,
 			new Synchronizer<Long, Serializable>() {
 
 				@Override
