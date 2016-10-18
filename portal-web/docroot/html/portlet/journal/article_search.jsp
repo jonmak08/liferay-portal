@@ -82,7 +82,7 @@ ArticleDisplayTerms displayTerms = (ArticleDisplayTerms)searchContainer.getDispl
 
 					<%
 					for (Group mySiteGroup : mySiteGroups) {
-						if (mySiteGroup.getGroupId() == currentGroup.getGroupId()) {
+						if ((mySiteGroup.getGroupId() == themeDisplay.getCompanyGroupId()) || (mySiteGroup.getGroupId() == currentGroup.getGroupId())) {
 							continue;
 						}
 
