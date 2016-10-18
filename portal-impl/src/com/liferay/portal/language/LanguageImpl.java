@@ -839,6 +839,8 @@ public class LanguageImpl implements Language, Serializable {
 
 			_localesBetaSet.add(locale);
 		}
+
+		_synchronizeGroupLocalesPortalCache();
 	}
 
 	private String _escapePattern(String pattern) {
@@ -1036,13 +1038,63 @@ public class LanguageImpl implements Language, Serializable {
 		_companyLocalesPortalCache.remove(companyId);
 	}
 
+	private void _synchronizeGroupLocalesPortalCache() {
+		PortalCacheMapSynchronizeUtil.<Long, Serializable>synchronize(
+			_groupLocalesPortalCache, _groupLanguageCodeLocalesMap,
+			new Synchronizer<Long, Serializable>() {
+
+				@Override
+				public void onSynchronize(
+					Map<? extends Long, ? extends Serializable> map, Long key,
+					Serializable value) {
+
+					_groupLanguageCodeLocalesMap.remove(key);
+				}
+
+			});
+
+		PortalCacheMapSynchronizeUtil.<Long, Serializable>synchronize(
+			_groupLocalesPortalCache, _groupLocalesMap,
+			new Synchronizer<Long, Serializable>() {
+
+				@Override
+				public void onSynchronize(
+					Map<? extends Long, ? extends Serializable> map, Long key,
+					Serializable value) {
+
+					_groupLocalesMap.remove(key);
+				}
+
+			});
+
+		PortalCacheMapSynchronizeUtil.<Long, Serializable>synchronize(
+			_groupLocalesPortalCache, _groupLocalesSet,
+			new Synchronizer<Long, Serializable>() {
+
+				@Override
+				public void onSynchronize(
+					Map<? extends Long, ? extends Serializable> map, Long key,
+						Serializable value) {
+
+						_groupLocalesSet.remove(key);
+					}
+
+				});
+	}
+
 	private static final String _COMPANY_LOCALES_PORTAL_CACHE_NAME =
 		LanguageImpl.class + "._companyLocalesPortalCache";
+
+	private static final String _GROUP_LOCALES_PORTAL_CACHE_NAME =
+		LanguageImpl.class + "._groupLocalesPortalCache";
 
 	private static Log _log = LogFactoryUtil.getLog(LanguageImpl.class);
 
 	private static PortalCache<Long, Serializable> _companyLocalesPortalCache =
-			MultiVMPoolUtil.getCache(_COMPANY_LOCALES_PORTAL_CACHE_NAME);
+		MultiVMPoolUtil.getCache(_COMPANY_LOCALES_PORTAL_CACHE_NAME);
+
+	private static PortalCache<Long, Serializable> _groupLocalesPortalCache =
+		MultiVMPoolUtil.getCache(_GROUP_LOCALES_PORTAL_CACHE_NAME);
 
 	private static Map<Long, LanguageImpl> _instances =
 		new ConcurrentHashMap<Long, LanguageImpl>();
