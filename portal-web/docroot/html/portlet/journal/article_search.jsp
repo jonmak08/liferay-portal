@@ -65,6 +65,8 @@ ArticleDisplayTerms displayTerms = (ArticleDisplayTerms)searchContainer.getDispl
 			<c:if test="<%= !portletName.equals(PortletKeys.JOURNAL) || ((themeDisplay.getScopeGroupId() == themeDisplay.getCompanyGroupId()) && (Validator.isNotNull(displayTerms.getStructureId()) || Validator.isNotNull(displayTerms.getTemplateId()))) %>">
 
 				<%
+				Group currentGroup = themeDisplay.getScopeGroup();
+
 				List<Group> mySiteGroups = user.getMySiteGroups();
 
 				List<Layout> scopeLayouts = new ArrayList<Layout>();
@@ -76,8 +78,14 @@ ArticleDisplayTerms displayTerms = (ArticleDisplayTerms)searchContainer.getDispl
 				<aui:select label="my-sites" name="<%= displayTerms.GROUP_ID %>" showEmptyOption="<%= (themeDisplay.getScopeGroupId() == themeDisplay.getCompanyGroupId()) && (Validator.isNotNull(displayTerms.getStructureId()) || Validator.isNotNull(displayTerms.getTemplateId())) %>">
 					<aui:option label="global" selected="<%= displayTerms.getGroupId() == themeDisplay.getCompanyGroupId() %>" value="<%= themeDisplay.getCompanyGroupId() %>" />
 
+					<aui:option label="<%= HtmlUtil.escape(currentGroup.getDescriptiveName(locale)) %>" selected="<%= displayTerms.getGroupId() == currentGroup.getGroupId() %>" value="<%= currentGroup.getGroupId() %>" />
+
 					<%
 					for (Group mySiteGroup : mySiteGroups) {
+						if (mySiteGroup.getGroupId() == currentGroup.getGroupId()) {
+							continue;
+						}
+
 						if (mySiteGroup.hasStagingGroup() && !mySiteGroup.isStagedRemotely() && mySiteGroup.isStagedPortlet(PortletKeys.JOURNAL)) {
 							mySiteGroup = mySiteGroup.getStagingGroup();
 						}
