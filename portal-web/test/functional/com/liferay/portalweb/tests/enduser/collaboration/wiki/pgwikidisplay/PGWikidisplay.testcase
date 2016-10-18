@@ -143,8 +143,8 @@
 		<execute macro="WikiPage#addFrontPageChildPageInvalidTitleViaWD">
 			<var name="wikiChildPageContent" value="Wiki FrontPage Child Page Content" />
 			<var name="wikiChildPageTitle" value="Wiki\ Front\ Page\ Child\ Page\ Title\" />
-		<var name="wikiPageTitle" value="FrontPage" />
-</execute>
+			<var name="wikiPageTitle" value="FrontPage" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Wiki Display Test Page" />
@@ -153,8 +153,8 @@
 		<execute macro="WikiPage#addFrontPageChildPageInvalidTitleViaWD">
 			<var name="wikiChildPageContent" value="Wiki FrontPage Child Page Content" />
 			<var name="wikiChildPageTitle" value="Wiki] Front] Page] Child] Page] Title]" />
-		<var name="wikiPageTitle" value="FrontPage" />
-</execute>
+			<var name="wikiPageTitle" value="FrontPage" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Wiki Display Test Page" />
@@ -163,8 +163,8 @@
 		<execute macro="WikiPage#addFrontPageChildPageInvalidTitleViaWD">
 			<var name="wikiChildPageContent" value="Wiki FrontPage Child Page Content" />
 			<var name="wikiChildPageTitle" value="Wiki[ Front[ Page[ Child[ Page[ Title[" />
-		<var name="wikiPageTitle" value="FrontPage" />
-</execute>
+			<var name="wikiPageTitle" value="FrontPage" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Wiki Display Test Page" />
@@ -173,8 +173,8 @@
 		<execute macro="WikiPage#addFrontPageChildPageInvalidTitleViaWD">
 			<var name="wikiChildPageContent" value="Wiki FrontPage Child Page Content" />
 			<var name="wikiChildPageTitle" value="Wiki; Front; Page; Child; Page; Title;" />
-		<var name="wikiPageTitle" value="FrontPage" />
-</execute>
+			<var name="wikiPageTitle" value="FrontPage" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Wiki Display Test Page" />
@@ -183,8 +183,8 @@
 		<execute macro="WikiPage#addFrontPageChildPageInvalidTitleViaWD">
 			<var name="wikiChildPageContent" value="Wiki FrontPage Child Page Content" />
 			<var name="wikiChildPageTitle" value="Wiki: Front: Page: Child: Page: Title:" />
-		<var name="wikiPageTitle" value="FrontPage" />
-</execute>
+			<var name="wikiPageTitle" value="FrontPage" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Wiki Display Test Page" />
@@ -193,8 +193,8 @@
 		<execute macro="WikiPage#addFrontPageChildPageInvalidTitleViaWD">
 			<var name="wikiChildPageContent" value="Wiki FrontPage Child Page Content" />
 			<var name="wikiChildPageTitle" value="Wiki| Front| Page| Child| Page| Title|" />
-		<var name="wikiPageTitle" value="FrontPage" />
-</execute>
+			<var name="wikiPageTitle" value="FrontPage" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Wiki Display Test Page" />
@@ -203,8 +203,8 @@
 		<execute macro="WikiPage#addFrontPageChildPageInvalidTitleViaWD">
 			<var name="wikiChildPageContent" value="Wiki FrontPage Child Page Content" />
 			<var name="wikiChildPageTitle" value="Wiki&lt; Front&lt; Page&lt; Child&lt; Page&lt; Title&lt;" />
-		<var name="wikiPageTitle" value="FrontPage" />
-</execute>
+			<var name="wikiPageTitle" value="FrontPage" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Wiki Display Test Page" />
@@ -213,8 +213,8 @@
 		<execute macro="WikiPage#addFrontPageChildPageInvalidTitleViaWD">
 			<var name="wikiChildPageContent" value="Wiki FrontPage Child Page Content" />
 			<var name="wikiChildPageTitle" value="Wiki&gt; Front&gt; Page&gt; Child&gt; Page&gt; Title&gt;" />
-		<var name="wikiPageTitle" value="FrontPage" />
-</execute>
+			<var name="wikiPageTitle" value="FrontPage" />
+		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Wiki Display Test Page" />
@@ -260,7 +260,7 @@
 			<var name="wikiPageContent" value="Wiki FrontPage Content" />
 			<var name="wikiPageName" value="FrontPage" />
 			<var name="wikiPageTitle" value="FrontPage" />
-</execute>
+		</execute>
 	</command>
 
 	<command name="ViewConfigurationSetupPageFrontPage" priority="5">
