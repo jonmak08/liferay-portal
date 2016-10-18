@@ -1048,7 +1048,7 @@ public class LanguageImpl implements Language, Serializable {
 					Map<? extends Long, ? extends Serializable> map, Long key,
 					Serializable value) {
 
-					_groupLanguageCodeLocalesMap.remove(key);
+					map.remove(key);
 				}
 
 			});
@@ -1062,7 +1062,7 @@ public class LanguageImpl implements Language, Serializable {
 					Map<? extends Long, ? extends Serializable> map, Long key,
 					Serializable value) {
 
-					_groupLocalesMap.remove(key);
+					map.remove(key);
 				}
 
 			});
@@ -1076,7 +1076,7 @@ public class LanguageImpl implements Language, Serializable {
 					Map<? extends Long, ? extends Serializable> map, Long key,
 						Serializable value) {
 
-						_groupLocalesSet.remove(key);
+						map.remove(key);
 					}
 
 				});
@@ -1109,7 +1109,7 @@ public class LanguageImpl implements Language, Serializable {
 					Map<? extends Long, ? extends Serializable> map, Long key,
 					Serializable value) {
 
-					_instances.remove(key);
+					map.remove(key);
 				}
 
 			});
