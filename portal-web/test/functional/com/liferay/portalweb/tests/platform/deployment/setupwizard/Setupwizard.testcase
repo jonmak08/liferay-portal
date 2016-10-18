@@ -4,12 +4,9 @@
 	<property name="testray.main.component.name" value="Setup Wizard" />
 
 	<command name="SetupWizardDefaultConfigurationWithoutSampleData" priority="5">
-		<var name="administratorFirstName" value="Test" />
-		<var name="administratorLastName" value="Test" />
-
 		<execute macro="SetupWizard#configureDefaultPG">
-			<var name="administratorFirstName" value="${administratorFirstName}" />
-			<var name="administratorLastName" value="${administratorLastName}" />
+			<var name="administratorFirstName" value="Test" />
+			<var name="administratorLastName" value="Test" />
 			<var name="setupWizardAddSampleData" value="false" />
 		</execute>
 
@@ -17,7 +14,7 @@
 
 		<execute function="AssertTextEquals#assertText" locator1="PGSignin#PORTLET_TITLE" value1="Sign In" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGSignin#PORTLET_CONTENT" value1="You are signed in as" />
-		<execute function="AssertTextEquals" locator1="PGSignin#PORTLET_CONTENT_USER_NAME" value1="${administratorFirstName} ${administratorLastName}" />
+		<execute function="AssertTextEquals" locator1="PGSignin#PORTLET_CONTENT_USER_NAME" value1="Test Test" />
 
 		<execute function="AssertTextEquals#assertText" locator1="PGHelloworld#PORTLET_TITLE" value1="Hello World" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="PGHelloworld#PORTLET_CONTENT" value1="Welcome to Liferay Portal" />
@@ -26,9 +23,6 @@
 	</command>
 
 	<command name="SetupWizardDefaultConfigurationWithSampleData" priority="5">
-		<var name="administratorFirstName" value="Test" />
-		<var name="administratorLastName" value="Test" />
-
 		<execute macro="SetupWizard#configureDefaultPG" />
 
 		<execute function="AssertTextEquals" locator1="Home#BREADCRUMB_1" value1="Welcome" />

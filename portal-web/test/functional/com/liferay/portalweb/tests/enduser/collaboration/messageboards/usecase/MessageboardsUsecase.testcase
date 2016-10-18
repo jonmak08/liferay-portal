@@ -20,198 +20,181 @@
 	</tear-down>
 
 	<command name="SplitMBThread" priority="5">
-		<var name="threadBody" value="MB Thread Message Body" />
-		<var name="threadReplyBody" value="MB Thread Reply Body" />
-		<var name="threadSplitReplyBody" value="Split Reply Thread Body" />
-		<var name="threadSplitReplySubject" value="Split Reply Thread Subject" />
-		<var name="threadSplitSubject" value="MB Thread Split Subject" />
-		<var name="threadSubject" value="MB Thread Message Subject" />
-
 		<execute macro="Page#addPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
-			<var name="portletName" value="${portletName}" />
+			<var name="portletName" value="Message Boards" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute macro="MessageboardsThread#addPG">
-			<var name="threadBody" value="${threadBody}" />
-			<var name="threadSubject" value="${threadSubject}" />
+			<var name="threadBody" value="MB Thread Message Body" />
+			<var name="threadSubject" value="MB Thread Message Subject" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute macro="MessageboardsThread#replyPG">
-			<var name="threadBody" value="${threadBody}" />
-			<var name="threadReplyBody" value="${threadReplyBody}" />
-			<var name="threadSubject" value="${threadSubject}" />
+			<var name="threadBody" value="MB Thread Message Body" />
+			<var name="threadReplyBody" value="MB Thread Reply Body" />
+			<var name="threadSubject" value="MB Thread Message Subject" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute macro="MessageboardsThread#splitThreadPG">
-			<var name="threadBody" value="${threadBody}" />
-			<var name="threadReplyBody" value="${threadReplyBody}" />
-			<var name="threadReplySubject" value="${threadReplySubject}" />
-			<var name="threadSplitReplyBody" value="${threadSplitReplyBody}" />
-			<var name="threadSplitReplySubject" value="${threadSplitReplySubject}" />
-			<var name="threadSplitSubject" value="${threadSplitSubject}" />
-			<var name="threadSubject" value="${threadSubject}" />
+			<var name="threadBody" value="MB Thread Message Body" />
+			<var name="threadReplyBody" value="MB Thread Reply Body" />
+			<var name="threadReplySubject" value="MB Thread Reply Subject" />
+			<var name="threadSplitReplyBody" value="Split Reply Thread Body" />
+			<var name="threadSplitReplySubject" value="Split Reply Thread Subject" />
+			<var name="threadSplitSubject" value="MB Thread Split Subject" />
+			<var name="threadSubject" value="MB Thread Message Subject" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute macro="MessageboardsThread#viewSplitThreadPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="threadBody" value="${threadBody}" />
-			<var name="threadReplyBody" value="${threadReplyBody}" />
-			<var name="threadReplySubject" value="${threadReplySubject}" />
-			<var name="threadSplitReplyBody" value="${threadSplitReplyBody}" />
-			<var name="threadSplitReplySubject" value="${threadSplitReplySubject}" />
-			<var name="threadSplitSubject" value="${threadSplitSubject}" />
-			<var name="threadSubject" value="${threadSubject}" />
+			<var name="pageName" value="Message Boards Page" />
+			<var name="threadBody" value="MB Thread Message Body" />
+			<var name="threadReplyBody" value="MB Thread Reply Body" />
+			<var name="threadReplySubject" value="MB Thread Reply Subject" />
+			<var name="threadSplitReplyBody" value="Split Reply Thread Body" />
+			<var name="threadSplitReplySubject" value="Split Reply Thread Subject" />
+			<var name="threadSplitSubject" value="MB Thread Split Subject" />
+			<var name="threadSubject" value="MB Thread Message Subject" />
 		</execute>
 	</command>
 
 	<command name="ViewNoMBThreadXSS" priority="5">
-		<var name="source" value="true" />
-		<var name="threadBody" value="[img]asd[font= onerror=alert(/This is an XSS Message/.source)//]FF[/font][/img]" />
-		<var name="threadSubject" value="MB Thread Message Subject" />
-
 		<execute macro="Page#addPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
-			<var name="portletName" value="${portletName}" />
+			<var name="portletName" value="Message Boards" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute macro="MessageboardsThread#addPG">
-			<var name="source" value="${source}" />
-			<var name="threadBody" value="${threadBody}" />
-			<var name="threadSubject" value="${threadSubject}" />
+			<var name="source" value="true" />
+			<var name="threadBody" value="[img]asd[font= onerror=alert(/This is an XSS Message/.source)//]FF[/font][/img]" />
+			<var name="threadSubject" value="MB Thread Message Subject" />
 		</execute>
 
 		<execute macro="MessageboardsThread#viewNoXSSPG">
-			<var name="threadBody" value="${threadBody}" />
-			<var name="threadSubject" value="${threadSubject}" />
+			<var name="threadBody" value="[img]asd[font= onerror=alert(/This is an XSS Message/.source)//]FF[/font][/img]" />
+			<var name="threadSubject" value="MB Thread Message Subject" />
 		</execute>
 	</command>
 
 	<command name="ViewNoSubscribeLinksWithEmailNotificationsDisabled" priority="5">
-		<var name="categoryName" value="MB Category Name" />
-		<var name="messageAddedEmailEnabled" value="false" />
-		<var name="messageUpdatedEmailEnabled" value="false" />
-		<var name="threadBody" value="MB Thread Message Body" />
-		<var name="threadSubject" value="MB Thread Message Subject" />
-
 		<execute macro="Page#addPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
-			<var name="portletName" value="${portletName}" />
+			<var name="portletName" value="Message Boards" />
 		</execute>
 
 		<execute macro="MessageboardsCategory#addPG">
-			<var name="categoryName" value="${categoryName}" />
+			<var name="categoryName" value="MB Category Name" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute macro="MessageboardsThread#addPG">
-			<var name="threadBody" value="${threadBody}" />
-			<var name="threadSubject" value="${threadSubject}" />
+			<var name="threadBody" value="MB Thread Message Body" />
+			<var name="threadSubject" value="MB Thread Message Subject" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
-		<var name="key_categoryName" value="${categoryName}" />
-		<var name="key_threadSubject" value="${threadSubject}" />
+		<var name="key_categoryName" value="MB Category Name" />
+		<var name="key_threadSubject" value="MB Thread Message Subject" />
 
 		<execute function="AssertTextEquals" locator1="PGMessageboards#SUBSCRIBE_LINK" value1="Subscribe" />
 		<execute function="AssertClick" locator1="PGMessageboards#CATEGORY_TABLE_ACTIONS" value1="Actions" />
 		<execute function="AssertTextEquals" locator1="PGMessageboards#CATEGORY_MENULIST_SUBSCRIBE" value1="Subscribe" />
 		<execute function="AssertClick" locator1="PGMessageboards#CATEGORY_TABLE_ACTIONS" value1="Actions" />
-		<execute function="AssertClick" locator1="PGMessageboards#CATEGORY_TABLE_CATEGORY" value1="${categoryName}" />
+		<execute function="AssertClick" locator1="PGMessageboards#CATEGORY_TABLE_CATEGORY" value1="MB Category Name" />
 		<execute function="AssertTextEquals" locator1="PGMessageboardsCategory#SUBSCRIBE_LINK" value1="Subscribe" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute function="AssertClick#assertTextClickAt" locator1="PGMessageboards#THREAD_TABLE_ACTIONS" value1="Actions" />
 		<execute function="AssertTextEquals" locator1="PGMessageboards#THREAD_MENULIST_UNSUBSCRIBE" value1="Unsubscribe" />
 		<execute function="AssertClick#assertTextClickAt" locator1="PGMessageboards#THREAD_TABLE_ACTIONS" value1="Actions" />
-		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="MB Thread Message Subject" />
 		<execute function="AssertTextEquals" locator1="PGMessageboardsThread#THREAD_ACTIONS_UNSUBSCRIBE" value1="Unsubscribe" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute macro="MessageboardsPortlet#configureMessageAddedEmailPG">
-			<var name="messageAddedEmailEnabled" value="${messageAddedEmailEnabled}" />
+			<var name="messageAddedEmailEnabled" value="false" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute macro="MessageboardsPortlet#configureMessageUpdatedEmailPG">
-			<var name="messageUpdatedEmailEnabled" value="${messageUpdatedEmailEnabled}" />
+			<var name="messageUpdatedEmailEnabled" value="false" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute function="AssertElementNotPresent" locator1="PGMessageboards#SUBSCRIBE_LINK" />
 		<execute function="AssertClick" locator1="PGMessageboards#CATEGORY_TABLE_ACTIONS" value1="Actions" />
 		<execute function="AssertElementNotPresent" locator1="PGMessageboards#CATEGORY_MENULIST_SUBSCRIBE" />
 		<execute function="AssertClick" locator1="PGMessageboards#CATEGORY_TABLE_ACTIONS" value1="Actions" />
-		<execute function="AssertClick" locator1="PGMessageboards#CATEGORY_TABLE_CATEGORY" value1="${categoryName}" />
+		<execute function="AssertClick" locator1="PGMessageboards#CATEGORY_TABLE_CATEGORY" value1="MB Category Name" />
 		<execute function="AssertElementNotPresent" locator1="PGMessageboardsCategory#SUBSCRIBE_LINK" value1="Subscribe" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
 		<execute function="AssertClick#assertTextClickAt" locator1="PGMessageboards#THREAD_TABLE_ACTIONS" value1="Actions" />
 		<execute function="AssertElementNotPresent" locator1="PGMessageboards#THREAD_MENULIST_UNSUBSCRIBE" />
 		<execute function="AssertClick#assertTextClickAt" locator1="PGMessageboards#THREAD_TABLE_ACTIONS" value1="Actions" />
-		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="${threadSubject}" />
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGMessageboards#THREAD_TABLE_THREAD" value1="MB Thread Message Subject" />
 		<execute function="AssertElementNotPresent" locator1="PGMessageboardsThread#THREAD_ACTIONS_UNSUBSCRIBE" value1="Unsubscribe" />
 	</command>
 </definition>

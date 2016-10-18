@@ -17,11 +17,6 @@
 	</tear-down>
 
 	<command name="MultipleUsersandOrganizations" priority="4">
-		<var name="orgName" value="Organization Name 2" />
-		<var name="orgNameList" value="Suborganization Name 1,Suborganization Name 2,Suborganization Name 3,Suborganization Name 4" />
-		<var name="siteName" value="${orgName}" />
-		<var name="userScreenNameList" value="usersn1,usersn2,usersn3,usersn4,usersn5" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
 		</execute>
@@ -102,7 +97,7 @@
 			<var name="tagName" value="bravo" />
 		</execute>
 
-		<for list="${orgNameList}" param="orgName">
+		<for list="Suborganization Name 1,Suborganization Name 2,Suborganization Name 3,Suborganization Name 4" param="orgName">
 			<execute macro="Page#gotoCP">
 				<var name="portletName" value="Users and Organizations" />
 			</execute>
@@ -155,7 +150,7 @@
 			<var name="portletName" value="Users and Organizations" />
 		</execute>
 
-		<for list="${userScreenNameList}" param="userScreenName">
+		<for list="usersn1,usersn2,usersn3,usersn4,usersn5" param="userScreenName">
 			<var name="key_userScreenName" value="${userScreenName}" />
 
 			<execute function="AssertTextEquals" locator1="CPUsersandorganizations#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
@@ -216,9 +211,9 @@
 
 		<execute function="AssertTextNotPresent" value1="Organization Name 1" />
 
-		<var name="key_siteName" value="${siteName}" />
+		<var name="key_siteName" value="Organization Name 2" />
 
-		<execute function="AssertTextEquals" locator1="CPSites#SITE_TABLE_NAME" value1="${siteName}" />
+		<execute function="AssertTextEquals" locator1="CPSites#SITE_TABLE_NAME" value1="Organization Name 2" />
 
 		<execute macro="Page#gotoPagesCP">
 			<var name="portletName" value="Site Pages" />
@@ -230,9 +225,9 @@
 
 		<execute function="AssertTextNotPresent" locator1="Home#SCOPE_SELECTOR_MENULIST_ITEM" value1="${siteScopeName}" />
 
-		<var name="key_siteScopeName" value="${siteName}" />
+		<var name="key_siteScopeName" value="Organization Name 2" />
 
-		<execute function="AssertTextEquals" locator1="Home#SCOPE_SELECTOR_MENULIST_ITEM" value1="${siteName}" />
+		<execute function="AssertTextEquals" locator1="Home#SCOPE_SELECTOR_MENULIST_ITEM" value1="Organization Name 2" />
 
 		<execute macro="Page#openURL" />
 
@@ -255,10 +250,10 @@
 		<execute function="AssertTextNotPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 1" />
 		<execute function="AssertTextPresent" locator1="Dockbar#MY_SITES_SITE_NAME" value1="Organization Name 2" />
 
-		<var name="key_siteName" value="${siteName}" />
+		<var name="key_siteName" value="Organization Name 2" />
 
 		<execute function="Click#textClickAtClickDockbar" locator1="Dockbar#MY_SITES" value1="My Sites" />
-		<execute function="AssertClick" locator1="Dockbar#MY_SITES_PUBLIC_SITE" value1="${siteName}" />
+		<execute function="AssertClick" locator1="Dockbar#MY_SITES_PUBLIC_SITE" value1="Organization Name 2" />
 
 		<execute function="Click" locator1="Home#PAGE_NAVIGATION_BAR" />
 		<execute function="AssertTextEquals" locator1="Home#PAGE_TEMPLATE_1" value1="Home" />

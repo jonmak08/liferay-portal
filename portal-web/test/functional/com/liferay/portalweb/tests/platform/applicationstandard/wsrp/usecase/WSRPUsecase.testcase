@@ -14,15 +14,12 @@
 	</tear-down>
 
 	<command name="AddWSRPUnitConverter" priority="5">
-		<var name="consumerPortletName" value="WSRP Unit Converter" />
-		<var name="consumerPortletType" value="Unit Converter" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="WSRP" />
 		</execute>
 
 		<execute macro="WSRP#addProducerCP">
-			<var name="portletsAvailableSelect" value="${consumerPortletType}" />
+			<var name="portletsAvailableSelect" value="Unit Converter" />
 			<var name="producerName" value="Producer Demo" />
 		</execute>
 
@@ -41,14 +38,14 @@
 
 		<execute macro="WSRP#addConsumerPortletCP">
 			<var name="consumerName" value="Consumer Demo" />
-			<var name="consumerPortletName" value="${consumerPortletName}" />
-			<var name="consumerPortletType" value="${consumerPortletType}" />
+			<var name="consumerPortletName" value="WSRP Unit Converter" />
+			<var name="consumerPortletType" value="Unit Converter" />
 		</execute>
 
-		<var name="key_consumerPortletName" value="${consumerPortletName}" />
+		<var name="key_consumerPortletName" value="WSRP Unit Converter" />
 
-		<execute function="AssertTextEquals" locator1="CPWSRPManageportlets#PORTLET_TABLE_NAME" value1="${consumerPortletName}" />
-		<execute function="AssertTextEquals" locator1="CPWSRPManageportlets#PORTLET_TABLE_REMOTE_PORTLET" value1="${consumerPortletType}" />
+		<execute function="AssertTextEquals" locator1="CPWSRPManageportlets#PORTLET_TABLE_NAME" value1="WSRP Unit Converter" />
+		<execute function="AssertTextEquals" locator1="CPWSRPManageportlets#PORTLET_TABLE_REMOTE_PORTLET" value1="Unit Converter" />
 		<execute function="AssertElementPresent" locator1="CPWSRPManageportlets#PORTLET_TABLE_DELETE" value1="Delete" />
 
 		<execute macro="Page#addPG">
@@ -60,7 +57,7 @@
 		</execute>
 
 		<execute macro="Portlet#addPG">
-			<var name="portletName" value="${consumerPortletName}" />
+			<var name="portletName" value="WSRP Unit Converter" />
 		</execute>
 
 		<execute macro="WSRP#wsrpUnitConverterConvertPG">

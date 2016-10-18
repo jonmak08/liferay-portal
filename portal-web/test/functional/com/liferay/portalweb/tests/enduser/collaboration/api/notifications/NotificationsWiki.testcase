@@ -10,15 +10,15 @@
 		<execute macro="User#firstLoginPG" />
 
 		<execute macro="Page#addPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Test Page" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Test Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
-			<var name="portletName" value="${portletName}" />
+			<var name="portletName" value="Wiki" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -83,7 +83,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Test Page" />
 		</execute>
 
 		<execute macro="WikiPage#addPG">
@@ -99,7 +99,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Test Page" />
 		</execute>
 
 		<execute macro="Notifications#viewCountAlert">
@@ -143,7 +143,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Test Page" />
 		</execute>
 
 		<execute macro="WikiPage#addPG">
@@ -159,7 +159,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Test Page" />
 		</execute>
 
 		<execute macro="WikiPage#subscribeToPagePG">
@@ -174,7 +174,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Test Page" />
 		</execute>
 
 		<execute macro="WikiPage#editPagePG">
@@ -191,7 +191,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Test Page" />
 		</execute>
 
 		<execute macro="Notifications#viewCountAlert">
