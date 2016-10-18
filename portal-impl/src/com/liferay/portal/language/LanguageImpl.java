@@ -1036,10 +1036,13 @@ public class LanguageImpl implements Language, Serializable {
 		_companyLocalesPortalCache.remove(companyId);
 	}
 
+	private static final String _COMPANY_LOCALES_PORTAL_CACHE_NAME =
+		LanguageImpl.class + "._companyLocalesPortalCache";
+
 	private static Log _log = LogFactoryUtil.getLog(LanguageImpl.class);
 
 	private static PortalCache<Long, Serializable> _companyLocalesPortalCache =
-			MultiVMPoolUtil.getCache(LanguageImpl.class.getName());
+			MultiVMPoolUtil.getCache(_COMPANY_LOCALES_PORTAL_CACHE_NAME);
 
 	private static Map<Long, LanguageImpl> _instances =
 		new ConcurrentHashMap<Long, LanguageImpl>();
