@@ -34,7 +34,6 @@ import java.sql.Timestamp;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * @author Michael C. Han
@@ -136,10 +135,6 @@ public class VerifyAuditedModel extends VerifyProcess {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
-		Locale locale = LocaleUtil.getSiteDefault();
-		String anonymousUserName = LanguageUtil.format(
-			locale, "anonymous", new Object[]{});
-
 		try {
 			con = DataAccess.getUpgradeOptimizedConnection();
 
@@ -161,7 +156,10 @@ public class VerifyAuditedModel extends VerifyProcess {
 
 				if (allowAnonymousUser) {
 					userId = previousUserId;
-					userName = anonymousUserName;
+
+					userName = LanguageUtil.format(
+						LocaleUtil.getSiteDefault(), "anonymous",
+						new Object[]{});
 				}
 				else {
 					userId = rs.getLong("userId");
@@ -327,9 +325,9 @@ public class VerifyAuditedModel extends VerifyProcess {
 			while (rs.next()) {
 				long companyId = rs.getLong("companyId");
 				long primKey = rs.getLong(pkColumnName);
-				long previousUserId = rs.getLong("userId");
 
 				if (joinByColumnName != null) {
+					long previousUserId = rs.getLong("userId");
 					long relatedPrimKey = rs.getLong(joinByColumnName);
 
 					modelArray = getModelArray(
