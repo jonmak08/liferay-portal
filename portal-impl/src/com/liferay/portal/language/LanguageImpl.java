@@ -995,9 +995,9 @@ public class LanguageImpl implements Language, Serializable {
 		}
 
 		Locale[] locales = new Locale[languageIds.length];
-		Map<String, Locale> localesMap = new HashMap<String, Locale>(
+		HashMap<String, Locale> localesMap = new HashMap<String, Locale>(
 			languageIds.length);
-		Set<Locale> localesSet = new HashSet<Locale>(languageIds.length);
+		HashSet<Locale> localesSet = new HashSet<Locale>(languageIds.length);
 
 		for (int i = 0; i < languageIds.length; i++) {
 			String languageId = languageIds[i];
@@ -1065,12 +1065,13 @@ public class LanguageImpl implements Language, Serializable {
 
 	private Map<String, String> _charEncodings;
 	private Set<String> _duplicateLanguageCodes;
-	private final Map<Long, Map<String, Locale>> _groupLanguageCodeLocalesMap =
-		new HashMap<Long, Map<String, Locale>>();
+	private final Map<Long, HashMap<String, Locale>>
+		_groupLanguageCodeLocalesMap =
+		new HashMap<Long, HashMap<String, Locale>>();
 	private Map<Long, Locale[]> _groupLocalesMap =
 		new HashMap<Long, Locale[]>();
-	private Map<Long, Set<Locale>> _groupLocalesSet =
-		new HashMap<Long, Set<Locale>>();
+	private Map<Long, HashSet<Locale>> _groupLocalesSet =
+		new HashMap<Long, HashSet<Locale>>();
 	private Locale[] _locales;
 	private Set<Locale> _localesBetaSet;
 	private Map<String, Locale> _localesMap;
