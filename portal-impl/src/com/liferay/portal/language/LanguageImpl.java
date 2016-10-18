@@ -1041,45 +1041,13 @@ public class LanguageImpl implements Language, Serializable {
 	private void _synchronizeGroupLocalesPortalCache() {
 		PortalCacheMapSynchronizeUtil.<Long, Serializable>synchronize(
 			_groupLocalesPortalCache, _groupLanguageCodeLocalesMap,
-			new Synchronizer<Long, Serializable>() {
-
-				@Override
-				public void onSynchronize(
-					Map<? extends Long, ? extends Serializable> map, Long key,
-					Serializable value) {
-
-					map.remove(key);
-				}
-
-			});
+			_removeSynchronizer);
 
 		PortalCacheMapSynchronizeUtil.<Long, Serializable>synchronize(
-			_groupLocalesPortalCache, _groupLocalesMap,
-			new Synchronizer<Long, Serializable>() {
-
-				@Override
-				public void onSynchronize(
-					Map<? extends Long, ? extends Serializable> map, Long key,
-					Serializable value) {
-
-					map.remove(key);
-				}
-
-			});
+			_groupLocalesPortalCache, _groupLocalesMap, _removeSynchronizer);
 
 		PortalCacheMapSynchronizeUtil.<Long, Serializable>synchronize(
-			_groupLocalesPortalCache, _groupLocalesSet,
-			new Synchronizer<Long, Serializable>() {
-
-				@Override
-				public void onSynchronize(
-					Map<? extends Long, ? extends Serializable> map, Long key,
-						Serializable value) {
-
-						map.remove(key);
-					}
-
-				});
+			_groupLocalesPortalCache, _groupLocalesSet, _removeSynchronizer);
 	}
 
 	private static final String _COMPANY_LOCALES_PORTAL_CACHE_NAME =
@@ -1099,20 +1067,22 @@ public class LanguageImpl implements Language, Serializable {
 	private static Map<Long, LanguageImpl> _instances =
 		new ConcurrentHashMap<Long, LanguageImpl>();
 
-	static {
-		PortalCacheMapSynchronizeUtil.<Long, Serializable>synchronize(
-			_companyLocalesPortalCache, _instances,
+	private static final Synchronizer<Long, Serializable> _removeSynchronizer =
 			new Synchronizer<Long, Serializable>() {
 
-				@Override
-				public void onSynchronize(
-					Map<? extends Long, ? extends Serializable> map, Long key,
-					Serializable value) {
+			@Override
+			public void onSynchronize(
+				Map<? extends Long, ? extends Serializable> map, Long key,
+				Serializable value) {
 
-					map.remove(key);
-				}
+				map.remove(key);
+			}
 
-			});
+		};
+
+	static {
+		PortalCacheMapSynchronizeUtil.<Long, Serializable>synchronize(
+			_companyLocalesPortalCache, _instances, _removeSynchronizer);
 	}
 
 	private Map<String, String> _charEncodings;
