@@ -148,11 +148,9 @@ public class VerifyAuditedModel extends VerifyProcess {
 
 			if (rs.next()) {
 				long companyId = rs.getLong("companyId");
-				Timestamp createDate = rs.getTimestamp("createDate");
-				Timestamp modifiedDate = rs.getTimestamp("modifiedDate");
 
-				long userId;
-				String userName;
+				long userId = 0;
+				String userName = null;
 
 				if (allowAnonymousUser) {
 					userId = previousUserId;
@@ -165,6 +163,9 @@ public class VerifyAuditedModel extends VerifyProcess {
 					userId = rs.getLong("userId");
 					userName = getUserName(userId);
 				}
+
+				Timestamp createDate = rs.getTimestamp("createDate");
+				Timestamp modifiedDate = rs.getTimestamp("modifiedDate");
 
 				return new Object[] {
 					companyId, userId, userName, createDate, modifiedDate
@@ -298,12 +299,11 @@ public class VerifyAuditedModel extends VerifyProcess {
 		try {
 			con = DataAccess.getUpgradeOptimizedConnection();
 
-			StringBundler sb = new StringBundler(9);
+			StringBundler sb = new StringBundler(8);
 
 			sb.append("select ");
 			sb.append(pkColumnName);
-			sb.append(", companyId");
-			sb.append(", userId");
+			sb.append(", companyId, userId");
 
 			if (joinByColumnName != null) {
 				sb.append(StringPool.COMMA_AND_SPACE);
@@ -428,13 +428,13 @@ public class VerifyAuditedModel extends VerifyProcess {
 				_relatedPKColumnName, _updateDates, _allowAnonymousUser);
 		}
 
+		private final boolean _allowAnonymousUser;
 		private final String _joinByColumnName;
 		private final String _modelName;
 		private final String _pkColumnName;
 		private final String _relatedModelName;
 		private final String _relatedPKColumnName;
 		private final boolean _updateDates;
-		private final boolean _allowAnonymousUser;
 
 	}
 
