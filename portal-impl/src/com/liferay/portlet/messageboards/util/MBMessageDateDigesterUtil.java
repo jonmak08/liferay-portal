@@ -19,78 +19,74 @@ import com.liferay.portal.kernel.dao.db.DBFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
+
 import java.util.Date;
 
 /**
  * @author Eric Yan
  */
 public class MBMessageDateDigesterUtil {
-    public static Date digest(Date date) {
-        DB db = DBFactoryUtil.getDB();
 
-        //Special-Handling for DB that do not support milliseconds
-        if (!db.isSupportsDateMilliseconds()) {
-            String dbType = db.getType();
+	public static Date digest(Date date) {
+		DB db = DBFactoryUtil.getDB();
 
-            //MYSQL Date Handling
-            if (dbType.equals(DB.TYPE_MYSQL)) {
-                long modifiedDateTime = date.getTime();
+		if (db.isSupportsDateMilliseconds()) {
+			return date;
+		}
 
-                long milliseconds = modifiedDateTime % 1000;
+		String dbType = db.getType();
 
-                //Only need to handle if milliseconds != 0
-                if (milliseconds > 0) {
-                    Connection connection = null;
+		if (dbType.equals(DB.TYPE_MYSQL)) {
+			return _doDigestMySQLDate(date);
+		}
 
-                    int dbMajorVersion = -1;
-                    int dbMinorVersion = -1;
+		return date;
+	}
 
-                    try {
-                        connection = DataAccess.getConnection();
+	private static Date _doDigestMySQLDate(Date date) {
+		long modifiedDateTime = date.getTime();
 
-                        DatabaseMetaData databaseMetaData =
-                                connection.getMetaData();
+		long milliseconds = modifiedDateTime % 1000;
 
-                        dbMajorVersion =
-                                databaseMetaData.getDatabaseMajorVersion();
-                        dbMinorVersion =
-                                databaseMetaData.getDatabaseMinorVersion();
-                    }
-                    catch (SQLException e) {
-                        _log.error(
-                                "Error while retrieving database version.", e);
-                    }
-                    finally {
-                        DataAccess.cleanUp(connection);
-                    }
+		if (milliseconds > 0) {
+			Connection connection = null;
 
-                    if ((dbMajorVersion != -1) && (dbMinorVersion != -1)) {
-                        //Truncate if MYSQL version == 5.5
-                        if ((dbMajorVersion == 5) && (dbMinorVersion == 5)) {
-                            modifiedDateTime -= milliseconds;
-                        }
-                        //Round down milliseconds
-                        else if (Math.round((double)milliseconds/1000) == 0) {
-                            modifiedDateTime -= milliseconds;
-                        }
-                        //Round up milliseconds
-                        else {
-                            modifiedDateTime += (1000 - milliseconds);
-                        }
+			try {
+				connection = DataAccess.getConnection();
 
-                        return new Date(modifiedDateTime);
-                    }
-                }
-            }
-        }
+				DatabaseMetaData databaseMetaData = connection.getMetaData();
 
-        return date;
-    }
+				int dbMajorVersion = databaseMetaData.getDatabaseMajorVersion();
 
-    private static Log _log = LogFactoryUtil.getLog(
-        MBMessageDateDigesterUtil.class);
+				int dbMinorVersion = databaseMetaData.getDatabaseMinorVersion();
+
+				if (((dbMajorVersion == 5) && (dbMinorVersion == 5)) ||
+					(Math.round((double)milliseconds / 1000) == 0)) {
+
+					modifiedDateTime -= milliseconds;
+				}
+				else {
+					modifiedDateTime += (1000 - milliseconds);
+				}
+
+				return new Date(modifiedDateTime);
+			}
+			catch (SQLException se) {
+				_log.error("Error while retrieving database version.", se);
+			}
+			finally {
+				DataAccess.cleanUp(connection);
+			}
+		}
+
+		return date;
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(
+		MBMessageDateDigesterUtil.class);
 
 }
