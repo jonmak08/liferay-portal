@@ -52,9 +52,9 @@
 		</execute>
 
 		<execute macro="WebContentStructures#addCP">
-			<var name="structureDescription" value="${structureDescription}" />
-			<var name="structureFieldNames" value="${structureFieldNames}" />
-			<var name="structureName" value="${structureName}" />
+			<var name="structureDescription" value="WC Structure Descriptio" />
+			<var name="structureFieldNames" value="Text,Image" />
+			<var name="structureName" value="WC Structure Name" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -62,11 +62,11 @@
 		</execute>
 
 		<execute macro="WebContentTemplates#addCP">
-			<var name="structureName" value="${structureName}" />
-			<var name="templateDescription" value="${templateDescription}" />
-			<var name="templateFieldNames" value="${structureFieldNames}" />
+			<var name="structureName" value="WC Structure Name" />
+			<var name="templateDescription" value="WC Template Description" />
+			<var name="templateFieldNames" value="Text,Image" />
 			<var name="templateLanguage" value="ftl" />
-			<var name="templateName" value="${templateName}" />
+			<var name="templateName" value="WC Template Name" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -74,11 +74,11 @@
 		</execute>
 
 		<execute macro="WebContent#addWithStructureCP">
-			<var name="structureName" value="${structureName}" />
-			<var name="templateName" value="${templateName}" />
-			<var name="webContentImage" value="${webContentImage}" />
-			<var name="webContentText" value="${webContentText}" />
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="structureName" value="WC Structure Name" />
+			<var name="templateName" value="WC Template Name" />
+			<var name="webContentImage" value="Document_2.jpeg" />
+			<var name="webContentText" value="WC WebContent Text" />
+			<var name="webContentTitle" value="WC WebContent Title" />
 		</execute>
 
 		<execute macro="Page#addPG">
@@ -91,7 +91,7 @@
 		</execute>
 
 		<execute macro="WebContentDisplayPortlet#selectWebContent">
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentTitle" value="WC WebContent Title" />
 		</execute>
 
 		<execute macro="WebContent#addTagPGViaWCD">
@@ -179,7 +179,7 @@
 		</execute>
 
 		<execute macro="Drools#viewContentPG">
-			<var name="droolsContent" value="${webContentText}" />
+			<var name="droolsContent" value="WC WebContent Text" />
 			<var name="screenshotFileName" value="web_content_image_field.png" />
 			<var name="welcomeMessage" value="Welcome userfn userln!" />
 		</execute>

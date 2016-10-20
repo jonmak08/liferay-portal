@@ -13,18 +13,12 @@
 	</tear-down>
 
 	<command name="AddAutoAssertionTagViaBlogs" priority="5">
-		<var name="pageName" value="Page Name" />
-		<var name="siteName" value="Site Name" />
-		<var name="tagName1" value="tag name 1" />
-		<var name="tagName2" value="tag name 2" />
-		<var name="tagName3" value="tag name 3" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
 		<execute macro="Site#addBlankCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -32,26 +26,26 @@
 		</execute>
 
 		<execute macro="SitePage#addCP">
-			<var name="siteName" value="${siteName}" />
-			<var name="sitePageName" value="${pageName}" />
+			<var name="siteName" value="Site Name" />
+			<var name="sitePageName" value="Page Name" />
 			<var name="sitePagePrivacy" value="Public" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Tags" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Tag#addTagsCP">
-			<var name="tagName1" value="${tagName1}" />
-			<var name="tagName2" value="${tagName2}" />
-			<var name="tagName3" value="${tagName3}" />
+			<var name="tagName1" value="tag name 1" />
+			<var name="tagName2" value="tag name 2" />
+			<var name="tagName3" value="tag name 3" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -60,29 +54,26 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Tag#addAutoAssertionTagViaBlogsPG">
 			<var name="entryContent" value="Entry Content" />
 			<var name="entryTitle" value="Entry Title" />
-			<var name="tagName" value="${tagName3}" />
-			<var name="tagName3" value="${tagName3}" />
+			<var name="tagName" value="tag name 3" />
+			<var name="tagName3" value="tag name 3" />
 		</execute>
 	</command>
 
 	<command name="AddFrontPageTag" priority="5">
-		<var name="pageName" value="Page Name" />
-		<var name="siteName" value="Site Name" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
 		<execute macro="Site#addBlankCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -90,14 +81,14 @@
 		</execute>
 
 		<execute macro="SitePage#addCP">
-			<var name="siteName" value="${siteName}" />
-			<var name="sitePageName" value="${pageName}" />
+			<var name="siteName" value="Site Name" />
+			<var name="sitePageName" value="Page Name" />
 			<var name="sitePagePrivacy" value="Public" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -117,18 +108,12 @@
 	</command>
 
 	<command name="AddMultipleTagsViaBlogs" priority="5">
-		<var name="pageName" value="Page Name" />
-		<var name="siteName" value="Site Name" />
-		<var name="tagName1" value="tag name 1" />
-		<var name="tagName2" value="tag name 2" />
-		<var name="tagName3" value="tag name 3" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
 		<execute macro="Site#addBlankCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -136,14 +121,14 @@
 		</execute>
 
 		<execute macro="SitePage#addCP">
-			<var name="siteName" value="${siteName}" />
-			<var name="sitePageName" value="${pageName}" />
+			<var name="siteName" value="Site Name" />
+			<var name="sitePageName" value="Page Name" />
 			<var name="sitePagePrivacy" value="Public" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -154,35 +139,29 @@
 		<execute macro="Tag#addMultipleViaBlogsPG">
 			<var name="entryContent" value="Entry Content" />
 			<var name="entryTitle" value="Entry Title" />
-			<var name="tagNameList" value="${tagName1},${tagName2},${tagName3}" />
+			<var name="tagNameList" value="tag name 1,tag name 2,tag name 3" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Tag#viewMultipleViaBlogsPG">
 			<var name="entryContent" value="Entry Content" />
 			<var name="entryTitle" value="Entry Title" />
-			<var name="tagNameList" value="${tagName1},${tagName2},${tagName3}" />
+			<var name="tagNameList" value="tag name 1,tag name 2,tag name 3" />
 		</execute>
 	</command>
 
 	<command name="AddSelectTagViaBlogs" priority="5">
-		<var name="pageName" value="Page Name" />
-		<var name="siteName" value="Site Name" />
-		<var name="tagName1" value="tag name 1" />
-		<var name="tagName2" value="tag name 2" />
-		<var name="tagName3" value="tag name 3" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
 		<execute macro="Site#addBlankCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -190,26 +169,26 @@
 		</execute>
 
 		<execute macro="SitePage#addCP">
-			<var name="siteName" value="${siteName}" />
-			<var name="sitePageName" value="${pageName}" />
+			<var name="siteName" value="Site Name" />
+			<var name="sitePageName" value="Page Name" />
 			<var name="sitePagePrivacy" value="Public" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Tags" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Tag#addTagsCP">
-			<var name="tagName1" value="${tagName1}" />
-			<var name="tagName2" value="${tagName2}" />
-			<var name="tagName3" value="${tagName3}" />
+			<var name="tagName1" value="tag name 1" />
+			<var name="tagName2" value="tag name 2" />
+			<var name="tagName3" value="tag name 3" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -218,29 +197,26 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Tag#addSelectTagMultipleViaBlogsPG">
 			<var name="entryContent" value="Entry Content" />
 			<var name="entryTitle" value="Entry Title" />
-			<var name="tagName1" value="${tagName1}" />
-			<var name="tagName2" value="${tagName3}" />
+			<var name="tagName1" value="tag name 1" />
+			<var name="tagName2" value="tag name 3" />
 		</execute>
 	</command>
 
 	<command name="AddTagViaBlogs" priority="5">
-		<var name="pageName" value="Page Name" />
-		<var name="siteName" value="Site Name" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
 		<execute macro="Site#addBlankCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -248,14 +224,14 @@
 		</execute>
 
 		<execute macro="SitePage#addCP">
-			<var name="siteName" value="${siteName}" />
-			<var name="sitePageName" value="${pageName}" />
+			<var name="siteName" value="Site Name" />
+			<var name="sitePageName" value="Page Name" />
 			<var name="sitePagePrivacy" value="Public" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -271,15 +247,12 @@
 	</command>
 
 	<command name="AddUTFTagViaBlogs" priority="5">
-		<var name="pageName" value="Page Name" />
-		<var name="siteName" value="Site Name" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
 		<execute macro="Site#addBlankCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -287,14 +260,14 @@
 		</execute>
 
 		<execute macro="SitePage#addCP">
-			<var name="siteName" value="${siteName}" />
-			<var name="sitePageName" value="${pageName}" />
+			<var name="siteName" value="Site Name" />
+			<var name="sitePageName" value="Page Name" />
 			<var name="sitePagePrivacy" value="Public" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -310,18 +283,12 @@
 	</command>
 
 	<command name="RemoveSelectTagViaBlogs" priority="5">
-		<var name="pageName" value="Page Name" />
-		<var name="siteName" value="Site Name" />
-		<var name="tagName1" value="tag name 1" />
-		<var name="tagName2" value="tag name 2" />
-		<var name="tagName3" value="tag name 3" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
 		<execute macro="Site#addBlankCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -329,14 +296,14 @@
 		</execute>
 
 		<execute macro="SitePage#addCP">
-			<var name="siteName" value="${siteName}" />
-			<var name="sitePageName" value="${pageName}" />
+			<var name="siteName" value="Site Name" />
+			<var name="sitePageName" value="Page Name" />
 			<var name="sitePagePrivacy" value="Public" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -347,48 +314,42 @@
 		<execute macro="Tag#addMultipleViaBlogsPG">
 			<var name="entryContent" value="Entry Content" />
 			<var name="entryTitle" value="Entry Title" />
-			<var name="tagNameList" value="${tagName1},${tagName2},${tagName3}" />
+			<var name="tagNameList" value="tag name 1,tag name 2,tag name 3" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Tag#viewMultipleViaBlogsPG">
 			<var name="entryContent" value="Entry Content" />
 			<var name="entryTitle" value="Entry Title" />
-			<var name="tagNameList" value="${tagName1},${tagName2},${tagName3}" />
+			<var name="tagNameList" value="tag name 1,tag name 2,tag name 3" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Tag#removeSelectTagViaBlogsPG">
 			<var name="entryTitle" value="Entry Title" />
-			<var name="pageName" value="${pageName}" />
-			<var name="tagName1" value="${tagName1}" />
-			<var name="tagName3" value="${tagName3}" />
+			<var name="pageName" value="Page Name" />
+			<var name="tagName1" value="tag name 1" />
+			<var name="tagName3" value="tag name 3" />
 		</execute>
 	</command>
 
 	<command name="RemoveTagViaBlogs" priority="5">
-		<var name="pageName" value="Page Name" />
-		<var name="siteName" value="Site Name" />
-		<var name="tagName1" value="tag name 1" />
-		<var name="tagName2" value="tag name 2" />
-		<var name="tagName3" value="tag name 3" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
 		<execute macro="Site#addBlankCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -396,14 +357,14 @@
 		</execute>
 
 		<execute macro="SitePage#addCP">
-			<var name="siteName" value="${siteName}" />
-			<var name="sitePageName" value="${pageName}" />
+			<var name="siteName" value="Site Name" />
+			<var name="sitePageName" value="Page Name" />
 			<var name="sitePagePrivacy" value="Public" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -414,53 +375,41 @@
 		<execute macro="Tag#addMultipleViaBlogsPG">
 			<var name="entryContent" value="Entry Content" />
 			<var name="entryTitle" value="Entry Title" />
-			<var name="tagNameList" value="${tagName1},${tagName2},${tagName3}" />
+			<var name="tagNameList" value="tag name 1,tag name 2,tag name 3" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Tag#viewMultipleViaBlogsPG">
 			<var name="entryContent" value="Entry Content" />
 			<var name="entryTitle" value="Entry Title" />
-			<var name="tagNameList" value="${tagName1},${tagName2},${tagName3}" />
+			<var name="tagNameList" value="tag name 1,tag name 2,tag name 3" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Tag#removeTagViaBlogsPG">
 			<var name="entryTitle" value="Entry Title" />
-			<var name="pageName" value="${pageName}" />
-			<var name="tagName1" value="${tagName1}" />
+			<var name="pageName" value="Page Name" />
+			<var name="tagName1" value="tag name 1" />
 		</execute>
 	</command>
 
 	<command name="SearchMultipleTagsViaBlogs" priority="5">
-		<var name="entryContent1" value="Entry Content 1" />
-		<var name="entryContent2" value="Entry Content 2" />
-		<var name="entryContent3" value="Entry Content 3" />
-		<var name="entryTitle1" value="Entry Title 1" />
-		<var name="entryTitle2" value="Entry Title 2" />
-		<var name="entryTitle3" value="Entry Title 3" />
-		<var name="pageName" value="Page Name" />
-		<var name="siteName" value="Site Name" />
-		<var name="tagName1" value="blue" />
-		<var name="tagName2" value="blue green" />
-		<var name="tagName3" value="yellow" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
 		<execute macro="Site#addBlankCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -468,26 +417,26 @@
 		</execute>
 
 		<execute macro="SitePage#addCP">
-			<var name="siteName" value="${siteName}" />
-			<var name="sitePageName" value="${pageName}" />
+			<var name="siteName" value="Site Name" />
+			<var name="sitePageName" value="Page Name" />
 			<var name="sitePagePrivacy" value="Public" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Tags" />
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Tag#addTagsCP">
-			<var name="tagName1" value="${tagName1}" />
-			<var name="tagName2" value="${tagName2}" />
-			<var name="tagName3" value="${tagName3}" />
+			<var name="tagName1" value="blue" />
+			<var name="tagName2" value="blue green" />
+			<var name="tagName3" value="yellow" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
@@ -496,56 +445,56 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Tag#addViaBlogsPG">
-			<var name="entryContent" value="${entryContent1}" />
-			<var name="entryTitle" value="${entryTitle1}" />
-			<var name="tagName" value="${tagName1}" />
+			<var name="entryContent" value="Entry Content 1" />
+			<var name="entryTitle" value="Entry Title 1" />
+			<var name="tagName" value="blue" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Tag#addViaBlogsPG">
-			<var name="entryContent" value="${entryContent2}" />
-			<var name="entryTitle" value="${entryTitle2}" />
-			<var name="tagName" value="${tagName2}" />
+			<var name="entryContent" value="Entry Content 2" />
+			<var name="entryTitle" value="Entry Title 2" />
+			<var name="tagName" value="blue green" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Tag#addViaBlogsPG">
-			<var name="entryContent" value="${entryContent3}" />
-			<var name="entryTitle" value="${entryTitle3}" />
-			<var name="tagName" value="${tagName3}" />
+			<var name="entryContent" value="Entry Content 3" />
+			<var name="entryTitle" value="Entry Title 3" />
+			<var name="tagName" value="yellow" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="siteName" value="${siteName}" />
+			<var name="pageName" value="Page Name" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 
 		<execute macro="Tag#searchMultipleTagsViaBlogsPG">
-			<var name="entryContent1" value="${entryContent1}" />
-			<var name="entryContent2" value="${entryContent2}" />
-			<var name="entryContent3" value="${entryContent3}" />
-			<var name="entryTitle1" value="${entryTitle1}" />
-			<var name="entryTitle2" value="${entryTitle2}" />
-			<var name="entryTitle3" value="${entryTitle3}" />
-			<var name="tagName1" value="${tagName1}" />
-			<var name="tagName3" value="${tagName3}" />
+			<var name="entryContent1" value="Entry Content 1" />
+			<var name="entryContent2" value="Entry Content 2" />
+			<var name="entryContent3" value="Entry Content 3" />
+			<var name="entryTitle1" value="Entry Title 1" />
+			<var name="entryTitle2" value="Entry Title 2" />
+			<var name="entryTitle3" value="Entry Title 3" />
+			<var name="tagName1" value="blue" />
+			<var name="tagName3" value="yellow" />
 		</execute>
 	</command>
 </definition>

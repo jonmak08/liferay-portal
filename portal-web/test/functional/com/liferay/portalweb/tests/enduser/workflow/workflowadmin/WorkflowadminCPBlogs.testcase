@@ -75,7 +75,7 @@
 
 		<execute macro="Workflow#assignToMeTaskByActions">
 			<var name="workflowAssetTitle" value="Blogs Entry 1" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetType" value="Blogs Entry" />
 			<var name="workflowTask" value="task1" />
 		</execute>
 
@@ -94,7 +94,7 @@
 
 		<execute macro="Workflow#approveTaskByActions">
 			<var name="workflowAssetTitle" value="Blogs Entry 1" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetType" value="Blogs Entry" />
 			<var name="workflowDefinitionTitle" value="Join Xor" />
 			<var name="workflowTask" value="task1" />
 		</execute>
@@ -132,7 +132,7 @@
 
 		<execute macro="Workflow#assignToMeTaskByActions">
 			<var name="workflowAssetTitle" value="Blogs Entry 2" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetType" value="Blogs Entry" />
 			<var name="workflowTask" value="task2" />
 		</execute>
 
@@ -151,7 +151,7 @@
 
 		<execute macro="Workflow#approveTaskByActions">
 			<var name="workflowAssetTitle" value="Blogs Entry 2" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetType" value="Blogs Entry" />
 			<var name="workflowDefinitionTitle" value="Join Xor" />
 			<var name="workflowTask" value="task2" />
 		</execute>
@@ -189,7 +189,7 @@
 
 		<execute macro="Workflow#assignToMeTaskByActions">
 			<var name="workflowAssetTitle" value="Blogs Entry 3" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetType" value="Blogs Entry" />
 			<var name="workflowTask" value="task1" />
 		</execute>
 
@@ -199,7 +199,7 @@
 
 		<execute macro="Workflow#approveTaskByActions">
 			<var name="workflowAssetTitle" value="Blogs Entry 3" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetType" value="Blogs Entry" />
 			<var name="workflowDefinitionTitle" value="Join Xor" />
 			<var name="workflowTask" value="task1" />
 		</execute>
@@ -210,7 +210,7 @@
 
 		<execute macro="Workflow#assignToMeTaskByActions">
 			<var name="workflowAssetTitle" value="Blogs Entry 3" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetType" value="Blogs Entry" />
 			<var name="workflowTask" value="task2" />
 		</execute>
 
@@ -220,7 +220,7 @@
 
 		<execute macro="Workflow#approveTaskByActions">
 			<var name="workflowAssetTitle" value="Blogs Entry 3" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetType" value="Blogs Entry" />
 			<var name="workflowDefinitionTitle" value="Join Xor" />
 			<var name="workflowTask" value="task2" />
 		</execute>
@@ -236,16 +236,13 @@
 	</command>
 
 	<command name="ApproveBlogsEntryCP" priority="5">
-		<var name="entryContent" value="Blogs Entry Content" />
-		<var name="entryTitle" value="Blogs Entry Title" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Blogs" />
 		</execute>
 
 		<execute macro="BlogsEntry#addWithWorkflowCP">
-			<var name="entryContent" value="${entryContent}" />
-			<var name="entryTitle" value="${entryTitle}" />
+			<var name="entryContent" value="Blogs Entry Content" />
+			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -253,8 +250,8 @@
 		</execute>
 
 		<execute macro="BlogsEntry#viewWithWorkflowCP">
-			<var name="entryContent" value="${entryContent}" />
-			<var name="entryTitle" value="${entryTitle}" />
+			<var name="entryContent" value="Blogs Entry Content" />
+			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
 
 		<execute macro="Page#gotoMyAccount">
@@ -262,8 +259,8 @@
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
-			<var name="workflowAssetTitle" value="${entryTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="Blogs Entry Title" />
+			<var name="workflowAssetType" value="Blogs Entry" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
@@ -272,8 +269,8 @@
 		</execute>
 
 		<execute macro="BlogsEntry#viewWithWorkflowCP">
-			<var name="entryContent" value="${entryContent}" />
-			<var name="entryTitle" value="${entryTitle}" />
+			<var name="entryContent" value="Blogs Entry Content" />
+			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
 
 		<execute macro="Page#gotoMyAccount">
@@ -281,8 +278,8 @@
 		</execute>
 
 		<execute macro="Workflow#approveTaskByActions">
-			<var name="workflowAssetTitle" value="${entryTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="Blogs Entry Title" />
+			<var name="workflowAssetType" value="Blogs Entry" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
@@ -291,22 +288,19 @@
 		</execute>
 
 		<execute macro="BlogsEntry#viewCP">
-			<var name="entryContent" value="${entryContent}" />
-			<var name="entryTitle" value="${entryTitle}" />
+			<var name="entryContent" value="Blogs Entry Content" />
+			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
 	</command>
 
 	<command name="RejectBlogsEntryCP" priority="5">
-		<var name="entryContent" value="Blogs Entry Content" />
-		<var name="entryTitle" value="Blogs Entry Title" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Blogs" />
 		</execute>
 
 		<execute macro="BlogsEntry#addWithWorkflowCP">
-			<var name="entryContent" value="${entryContent}" />
-			<var name="entryTitle" value="${entryTitle}" />
+			<var name="entryContent" value="Blogs Entry Content" />
+			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
 
 		<execute macro="Page#gotoMyAccount">
@@ -314,8 +308,8 @@
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
-			<var name="workflowAssetTitle" value="${entryTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="Blogs Entry Title" />
+			<var name="workflowAssetType" value="Blogs Entry" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
@@ -324,8 +318,8 @@
 		</execute>
 
 		<execute macro="Workflow#rejectTaskByActions">
-			<var name="workflowAssetTitle" value="${entryTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="Blogs Entry Title" />
+			<var name="workflowAssetType" value="Blogs Entry" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
@@ -334,8 +328,8 @@
 		</execute>
 
 		<execute macro="Workflow#viewRejectedTask">
-			<var name="workflowAssetTitle" value="${entryTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="Blogs Entry Title" />
+			<var name="workflowAssetType" value="Blogs Entry" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -343,8 +337,8 @@
 		</execute>
 
 		<execute macro="BlogsEntry#viewWithWorkflowCP">
-			<var name="entryContent" value="${entryContent}" />
-			<var name="entryTitle" value="${entryTitle}" />
+			<var name="entryContent" value="Blogs Entry Content" />
+			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
 	</command>
 </definition>

@@ -27,21 +27,18 @@
 	</tear-down>
 
 	<command name="AddWebContentCP" priority="5">
-		<var name="webContentContent" value="WC WebContent Content" />
-		<var name="webContentTitle" value="WC WebContent Title" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
 		</execute>
 
 		<execute macro="WebContent#addWithWorkflowCP">
-			<var name="webContentContent" value="${webContentContent}" />
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentContent" value="WC WebContent Content" />
+			<var name="webContentTitle" value="WC WebContent Title" />
 		</execute>
 
 		<execute macro="WebContent#viewWithWorkflowCP">
-			<var name="webContentContent" value="${webContentContent}" />
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentContent" value="WC WebContent Content" />
+			<var name="webContentTitle" value="WC WebContent Title" />
 			<var name="workflowStatus" value="Pending" />
 		</execute>
 
@@ -50,8 +47,8 @@
 		</execute>
 
 		<execute macro="Workflow#viewTaskAssignedToMyRoles">
-			<var name="workflowAssetTitle" value="${webContentTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="WC WebContent Title" />
+			<var name="workflowAssetType" value="Web Content Article" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
@@ -60,24 +57,21 @@
 		</execute>
 
 		<execute macro="Workflow#viewMySubmissions">
-			<var name="workflowAssetTitle" value="${webContentTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="WC WebContent Title" />
+			<var name="workflowAssetType" value="Web Content Article" />
 			<var name="workflowDefinition" value="Single Approver" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 	</command>
 
 	<command name="AddWebContentDraftCP" priority="5">
-		<var name="webContentContent" value="WC WebContent Content" />
-		<var name="webContentTitle" value="WC WebContent Title" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
 		</execute>
 
 		<execute macro="WebContent#addDraftCP">
-			<var name="webContentContent" value="${webContentContent}" />
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentContent" value="WC WebContent Content" />
+			<var name="webContentTitle" value="WC WebContent Title" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -85,8 +79,8 @@
 		</execute>
 
 		<execute macro="WebContent#viewWithWorkflowCP">
-			<var name="webContentContent" value="${webContentContent}" />
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentContent" value="WC WebContent Content" />
+			<var name="webContentTitle" value="WC WebContent Title" />
 			<var name="workflowStatus" value="Draft" />
 		</execute>
 
@@ -104,9 +98,6 @@
 	</command>
 
 	<command name="AddWebContentNoWorkflowCP" priority="5">
-		<var name="webContentContent" value="WC WebContent Content" />
-		<var name="webContentTitle" value="WC WebContent Title" />
-
 		<execute macro="Workflow#tearDownSiteWorkflow" />
 
 		<execute macro="Page#gotoContentCP">
@@ -114,8 +105,8 @@
 		</execute>
 
 		<execute macro="WebContent#addCP">
-			<var name="webContentContent" value="${webContentContent}" />
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentContent" value="WC WebContent Content" />
+			<var name="webContentTitle" value="WC WebContent Title" />
 		</execute>
 
 		<execute macro="Page#gotoMyAccount">
@@ -132,16 +123,13 @@
 	</command>
 
 	<command name="ApproveWebContentCP" priority="5">
-		<var name="webContentContent" value="WC WebContent Content" />
-		<var name="webContentTitle" value="WC WebContent Title" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
 		</execute>
 
 		<execute macro="WebContent#addWithWorkflowCP">
-			<var name="webContentContent" value="${webContentContent}" />
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentContent" value="WC WebContent Content" />
+			<var name="webContentTitle" value="WC WebContent Title" />
 		</execute>
 
 		<execute macro="Page#gotoMyAccount">
@@ -149,8 +137,8 @@
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
-			<var name="workflowAssetTitle" value="${webContentTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="WC WebContent Title" />
+			<var name="workflowAssetType" value="Web Content Article" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
@@ -159,8 +147,8 @@
 		</execute>
 
 		<execute macro="WebContent#viewWithWorkflowCP">
-			<var name="webContentContent" value="${webContentContent}" />
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentContent" value="WC WebContent Content" />
+			<var name="webContentTitle" value="WC WebContent Title" />
 			<var name="workflowStatus" value="Pending" />
 		</execute>
 
@@ -169,8 +157,8 @@
 		</execute>
 
 		<execute macro="Workflow#approveTaskByActions">
-			<var name="workflowAssetTitle" value="${webContentTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="WC WebContent Title" />
+			<var name="workflowAssetType" value="Web Content Article" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
@@ -179,22 +167,19 @@
 		</execute>
 
 		<execute macro="WebContent#viewCP">
-			<var name="webContentContent" value="${webContentContent}" />
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentContent" value="WC WebContent Content" />
+			<var name="webContentTitle" value="WC WebContent Title" />
 		</execute>
 	</command>
 
 	<command name="RejectWebContentCP" priority="5">
-		<var name="webContentContent" value="WC WebContent Content" />
-		<var name="webContentTitle" value="WC WebContent Title" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
 		</execute>
 
 		<execute macro="WebContent#addWithWorkflowCP">
-			<var name="webContentContent" value="${webContentContent}" />
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentContent" value="WC WebContent Content" />
+			<var name="webContentTitle" value="WC WebContent Title" />
 		</execute>
 
 		<execute macro="Page#gotoMyAccount">
@@ -202,8 +187,8 @@
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
-			<var name="workflowAssetTitle" value="${webContentTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="WC WebContent Title" />
+			<var name="workflowAssetType" value="Web Content Article" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
@@ -212,8 +197,8 @@
 		</execute>
 
 		<execute macro="Workflow#rejectTaskByActions">
-			<var name="workflowAssetTitle" value="${webContentTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="WC WebContent Title" />
+			<var name="workflowAssetType" value="Web Content Article" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
@@ -222,8 +207,8 @@
 		</execute>
 
 		<execute macro="Workflow#viewRejectedTask">
-			<var name="workflowAssetTitle" value="${webContentTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="WC WebContent Title" />
+			<var name="workflowAssetType" value="Web Content Article" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -231,8 +216,8 @@
 		</execute>
 
 		<execute macro="WebContent#viewWithWorkflowCP">
-			<var name="webContentContent" value="${webContentContent}" />
-			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentContent" value="WC WebContent Content" />
+			<var name="webContentTitle" value="WC WebContent Title" />
 			<var name="workflowStatus" value="Pending" />
 		</execute>
 	</command>

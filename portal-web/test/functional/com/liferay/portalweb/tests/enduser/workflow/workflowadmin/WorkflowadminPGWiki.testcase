@@ -20,15 +20,15 @@
 		</execute>
 
 		<execute macro="Page#addPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Page" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
-			<var name="portletName" value="${portletName}" />
+			<var name="portletName" value="Wiki" />
 		</execute>
 	</set-up>
 
@@ -81,7 +81,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Page" />
 		</execute>
 
 		<execute macro="WikiPage#addFrontPageWithWorkflowPG">
@@ -126,7 +126,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Page" />
 		</execute>
 
 		<execute macro="WikiPage#viewFrontPagePG">
@@ -153,28 +153,24 @@
 	</command>
 
 	<command name="ApproveWikiPagePG" priority="5">
-		<var name="wikiPageContent" value="Wiki Page Content" />
-		<var name="wikiPageTitle" value="Wiki Page Title" />
-		<var name="wikiPageUsername" value="Test Test" />
-
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Page" />
 		</execute>
 
 		<execute macro="WikiPage#addPageWithWorkflowPG">
-			<var name="wikiPageContent" value="${wikiPageContent}" />
-			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-			<var name="wikiPageUsername" value="${wikiPageUsername}" />
+			<var name="wikiPageContent" value="Wiki Page Content" />
+			<var name="wikiPageTitle" value="Wiki Page Title" />
+			<var name="wikiPageUsername" value="Test Test" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Page" />
 		</execute>
 
 		<execute macro="WikiPage#viewPageWithWorkflowPG">
 			<var name="wikiPageStatus" value="Pending" />
-			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-			<var name="wikiPageUsername" value="${wikiPageUsername}" />
+			<var name="wikiPageTitle" value="Wiki Page Title" />
+			<var name="wikiPageUsername" value="Test Test" />
 		</execute>
 
 		<execute macro="Page#gotoMyAccount">
@@ -182,19 +178,19 @@
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
-			<var name="workflowAssetTitle" value="${wikiPageTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="Wiki Page Title" />
+			<var name="workflowAssetType" value="Wiki Page" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Page" />
 		</execute>
 
 		<execute macro="WikiPage#viewPageWithWorkflowPG">
 			<var name="wikiPageStatus" value="Pending" />
-			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-			<var name="wikiPageUsername" value="${wikiPageUsername}" />
+			<var name="wikiPageTitle" value="Wiki Page Title" />
+			<var name="wikiPageUsername" value="Test Test" />
 		</execute>
 
 		<execute macro="Page#gotoMyAccount">
@@ -202,20 +198,20 @@
 		</execute>
 
 		<execute macro="Workflow#approveTaskByActions">
-			<var name="workflowAssetTitle" value="${wikiPageTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="Wiki Page Title" />
+			<var name="workflowAssetType" value="Wiki Page" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Page" />
 		</execute>
 
 		<execute macro="WikiPage#viewPG">
-			<var name="wikiPageContent" value="${wikiPageContent}" />
+			<var name="wikiPageContent" value="Wiki Page Content" />
 			<var name="wikiPageRevision" value="1.0" />
-			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-			<var name="wikiPageUsername" value="${wikiPageUsername}" />
+			<var name="wikiPageTitle" value="Wiki Page Title" />
+			<var name="wikiPageUsername" value="Test Test" />
 		</execute>
 	</command>
 
@@ -256,7 +252,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Page" />
 		</execute>
 
 		<execute macro="WikiPage#addFrontPageWithWorkflowPG">
@@ -301,7 +297,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Page" />
 		</execute>
 
 		<execute macro="WikiPage#viewFrontPageDefaultPG">
@@ -327,28 +323,24 @@
 	</command>
 
 	<command name="RejectWikiPagePG" priority="5">
-		<var name="wikiPageContent" value="Wiki Page Content" />
-		<var name="wikiPageTitle" value="Wiki Page Title" />
-		<var name="wikiPageUsername" value="Test Test" />
-
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Page" />
 		</execute>
 
 		<execute macro="WikiPage#addPageWithWorkflowPG">
-			<var name="wikiPageContent" value="${wikiPageContent}" />
-			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-			<var name="wikiPageUsername" value="${wikiPageUsername}" />
+			<var name="wikiPageContent" value="Wiki Page Content" />
+			<var name="wikiPageTitle" value="Wiki Page Title" />
+			<var name="wikiPageUsername" value="Test Test" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Page" />
 		</execute>
 
 		<execute macro="WikiPage#viewPageWithWorkflowPG">
 			<var name="wikiPageStatus" value="Pending" />
-			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-			<var name="wikiPageUsername" value="${wikiPageUsername}" />
+			<var name="wikiPageTitle" value="Wiki Page Title" />
+			<var name="wikiPageUsername" value="Test Test" />
 		</execute>
 
 		<execute macro="Page#gotoMyAccount">
@@ -356,8 +348,8 @@
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
-			<var name="workflowAssetTitle" value="${wikiPageTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="Wiki Page Title" />
+			<var name="workflowAssetType" value="Wiki Page" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
@@ -366,8 +358,8 @@
 		</execute>
 
 		<execute macro="Workflow#rejectTaskByActions">
-			<var name="workflowAssetTitle" value="${wikiPageTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="Wiki Page Title" />
+			<var name="workflowAssetType" value="Wiki Page" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
@@ -376,18 +368,18 @@
 		</execute>
 
 		<execute macro="Workflow#viewRejectedTask">
-			<var name="workflowAssetTitle" value="${wikiPageTitle}" />
-			<var name="workflowAssetType" value="${workflowAssetType}" />
+			<var name="workflowAssetTitle" value="Wiki Page Title" />
+			<var name="workflowAssetType" value="Wiki Page" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Wiki Page" />
 		</execute>
 
 		<execute macro="WikiPage#viewPageWithWorkflowPG">
 			<var name="wikiPageStatus" value="Pending" />
-			<var name="wikiPageTitle" value="${wikiPageTitle}" />
-			<var name="wikiPageUsername" value="${wikiPageUsername}" />
+			<var name="wikiPageTitle" value="Wiki Page Title" />
+			<var name="wikiPageUsername" value="Test Test" />
 		</execute>
 	</command>
 </definition>

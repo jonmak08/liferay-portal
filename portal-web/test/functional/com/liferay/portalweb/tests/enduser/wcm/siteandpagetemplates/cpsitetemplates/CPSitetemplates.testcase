@@ -13,8 +13,6 @@
 	</tear-down>
 
 	<command name="AddSiteTemplate" priority="5">
-		<var name="siteTemplateActive" value="Yes" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Site Templates" />
 		</execute>

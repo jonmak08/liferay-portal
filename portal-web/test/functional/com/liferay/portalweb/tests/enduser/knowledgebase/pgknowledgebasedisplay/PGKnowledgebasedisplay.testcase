@@ -12,16 +12,16 @@
 		<!-- Change the layout to 70/30 to widen the portlet so to avoid "Element cannot be scrolled into view" error -->
 
 		<execute macro="Page#addPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Display Page" />
 			<var name="pageType" value="2 Columns (70/30)" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
-			<var name="portletName" value="${portletName}" />
+			<var name="portletName" value="Knowledge Base Display" />
 		</execute>
 	</set-up>
 
@@ -34,38 +34,32 @@
 	</tear-down>
 
 	<command name="AddChildArticle" priority="5">
-		<var name="kbArticleContent" value="Knowledge Base Article Content" />
-		<var name="kbArticleTitle" value="Knowledge Base Article Title" />
-		<var name="kbChildArticleContent" value="Child Article Content" />
-		<var name="kbChildArticleTitle" value="Child Article Title" />
-		<var name="pageName" value="Knowledge Base Display Page" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Knowledge Base" />
 		</execute>
 
 		<execute macro="KBArticle#addCP">
-			<var name="kbArticleContent" value="${kbArticleContent}" />
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
+			<var name="kbArticleContent" value="Knowledge Base Article Content" />
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
 
 		<execute macro="KBArticle#addChildPGViaKBDisplay">
-			<var name="kbArticleContent" value="${kbChildArticleContent}" />
-			<var name="kbArticleTitle" value="${kbChildArticleTitle}" />
+			<var name="kbArticleContent" value="Child Article Content" />
+			<var name="kbArticleTitle" value="Child Article Title" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
 
 		<execute macro="KBArticle#viewChildArticlePG">
-			<var name="kbArticleTitle" value="${kbArticleTitle}" />
-			<var name="kbChildArticleContent" value="${kbChildArticleContent}" />
-			<var name="kbChildArticleTitle" value="${kbChildArticleTitle}" />
+			<var name="kbArticleTitle" value="Knowledge Base Article Title" />
+			<var name="kbChildArticleContent" value="Child Article Content" />
+			<var name="kbChildArticleTitle" value="Child Article Title" />
 		</execute>
 	</command>
 
@@ -150,14 +144,11 @@
 	</command>
 
 	<command name="AddMultipleKBArticleSuggestions" priority="5">
-		<var name="kbArticleCounterList" value="1,2" />
-		<var name="kbSuggestionCounterList" value="1,2,3" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Knowledge Base" />
 		</execute>
 
-		<for list="${kbArticleCounterList}" param="articleCount" >
+		<for list="1,2" param="articleCount" >
 			<execute macro="KBArticle#addCP">
 				<var name="kbArticleContent" value="Knowledge Base Article${articleCount} Content" />
 				<var name="kbArticleTitle" value="Knowledge Base Article${articleCount} Title" />
@@ -172,7 +163,7 @@
 			<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
 		</execute>
 
-		<for list="${kbSuggestionCounterList}" param="suggestionCount" >
+		<for list="1,2,3" param="suggestionCount" >
 			<execute macro="KBArticleSuggestion#addPG">
 				<var name="kbArticleTitle" value="Knowledge Base Article1 Title" />
 				<var name="kbSuggestionBody" value="Knowledge Base Article1 Suggestion${suggestionCount}" />
@@ -189,7 +180,7 @@
 
 		<execute function="AssertTextEquals" locator1="PGKnowledgebasedisplay#ARTICLE_THERE_ARE_SUGGESTIONS_LINK" value1="There are 3 suggestions. (3 Pending)" />
 
-		<for list="${kbSuggestionCounterList}" param="suggestionCount" >
+		<for list="1,2,3" param="suggestionCount" >
 			<execute macro="KBArticle#gotoSuggestionsNavigationPG" />
 
 			<execute macro="KBArticleSuggestion#viewPG">
@@ -726,13 +717,11 @@
 	</command>
 
 	<command name="ViewKBArticleViaNavigationLinks" priority="5">
-		<var name="kbArticleCounterList" value="1,2,3" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Knowledge Base" />
 		</execute>
 
-		<for list="${kbArticleCounterList}" param="kbCount">
+		<for list="1,2,3" param="kbCount">
 			<execute macro="KBArticle#addCP">
 				<var name="kbArticleContent" value="Knowledge Base Article Content ${kbCount}" />
 				<var name="kbArticleTitle" value="Knowledge Base Article Title ${kbCount}" />
@@ -814,8 +803,6 @@
 	<command name="ViewKBArticleWithAllSocialBookmarkSites" priority="5">
 		<property name="hook.plugins.includes" value="social-bookmarks-hook" />
 
-		<var name="socialBookmarkSites" value="twitter,facebook,plusone,addthis,blinklist,buzz,delicious,digg,evernote,linkedin,newsvine,reddit,slashdot,stumbleupon,technorati,tuenti" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Knowledge Base" />
 		</execute>
@@ -835,14 +822,14 @@
 		</execute>
 
 		<execute macro="KBArticle#configureKBSocialBookmarkSites">
-			<var name="enableSocialBookmarkSites" value="${socialBookmarkSites}" />
+			<var name="enableSocialBookmarkSites" value="twitter,facebook,plusone,addthis,blinklist,buzz,delicious,digg,evernote,linkedin,newsvine,reddit,slashdot,stumbleupon,technorati,tuenti" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
 		</execute>
 
-		<for list="${socialBookmarkSites}" param="socialBookmarkSites" >
+		<for list="twitter,facebook,plusone,addthis,blinklist,buzz,delicious,digg,evernote,linkedin,newsvine,reddit,slashdot,stumbleupon,technorati,tuenti" param="socialBookmarkSites" >
 			<execute macro="KBArticle#viewEnabledKBSocialBookmarkSites">
 				<var name="socialBookmarkSite" value="${socialBookmarkSites}" />
 			</execute>
@@ -933,20 +920,18 @@
 	</command>
 
 	<command name="ViewKBArticleWithKBChildArticleHierarchyNavigation" priority="5">
-		<var name="kbArticleCounterList" value="1,2,3" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Knowledge Base" />
 		</execute>
 
-		<for list="${kbArticleCounterList}" param="articleCount" >
+		<for list="1,2,3" param="articleCount" >
 			<execute macro="KBArticle#addCP">
 				<var name="kbArticleContent" value="Knowledge Base Article Parent Content ${articleCount}" />
 				<var name="kbArticleTitle" value="Knowledge Base Article Parent Title ${articleCount} " />
 			</execute>
 		</for>
 
-		<for list="${kbArticleCounterList}" param="articleCount" >
+		<for list="1,2,3" param="articleCount" >
 			<execute macro="KBArticle#addChildPGViaKBAdmin">
 				<var name="kbArticleTitle" value="Knowledge Base Article Parent Title 1" />
 				<var name="kbChildArticleContent" value="Knowledge Base Article Parent Content 1 Child ${articleCount}" />

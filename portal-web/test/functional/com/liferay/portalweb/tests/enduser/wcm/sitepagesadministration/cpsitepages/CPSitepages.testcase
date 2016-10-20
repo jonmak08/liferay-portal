@@ -323,11 +323,6 @@
 	</command>
 
 	<command name="DeleteSitePages" priority="4">
-		<var name="portletName" value="Site Pages" />
-		<var name="siteName" value="Site Name" />
-		<var name="sitePageNameList" value="Site Page 1,Site Page 2,Site Page 3" />
-		<var name="sitePagePrivacy" value="Public" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>

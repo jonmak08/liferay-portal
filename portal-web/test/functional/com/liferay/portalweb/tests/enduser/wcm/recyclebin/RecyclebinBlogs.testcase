@@ -104,12 +104,6 @@
 	</command>
 
 	<command name="RestoreBlogsEntry" priority="5">
-		<var name="assetName" value="Blogs Entry Title" />
-		<var name="assetRestoreLocation" value="Blogs" />
-		<var name="assetType" value="Blogs Entry" />
-		<var name="entryContent" value="Blogs Entry Content" />
-		<var name="entryTitle" value="Blogs Entry Title" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Blogs" />
 		</execute>

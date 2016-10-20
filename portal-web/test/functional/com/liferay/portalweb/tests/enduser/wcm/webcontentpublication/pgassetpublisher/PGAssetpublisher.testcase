@@ -49,8 +49,6 @@
 	</command>
 
 	<command name="AddBookmarkViaAP" priority="4">
-		<var name="bookmarkURL" value="http://www.liferay.com" />
-
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Bookmarks Page" />
 		</execute>

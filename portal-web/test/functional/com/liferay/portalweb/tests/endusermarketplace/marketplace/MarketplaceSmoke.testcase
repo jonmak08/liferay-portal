@@ -31,15 +31,12 @@
 	</command>
 
 	<command name="MarketplaceSmoke620Sites" priority="5">
-		<var name="siteName" value="Site Name" />
-		<var name="sitePageName" value="Public Site Page" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Sites" />
 		</execute>
 
 		<execute macro="Site#addCP">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteType" value="Blank" />
 		</execute>
 
@@ -48,13 +45,13 @@
 		</execute>
 
 		<execute macro="SitePage#addCP">
-			<var name="siteName" value="${siteName}" />
-			<var name="sitePageName" value="${sitePageName}" />
+			<var name="siteName" value="Site Name" />
+			<var name="sitePageName" value="Public Site Page" />
 			<var name="sitePagePrivacy" value="Public" />
 		</execute>
 
 		<execute macro="Marketplace#smoke">
-			<var name="siteName" value="${siteName}" />
+			<var name="siteName" value="Site Name" />
 			<var name="siteURL" value="true" />
 		</execute>
 	</command>

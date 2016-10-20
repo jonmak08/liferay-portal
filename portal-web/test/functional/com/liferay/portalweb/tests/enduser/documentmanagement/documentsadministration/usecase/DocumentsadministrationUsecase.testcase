@@ -126,27 +126,15 @@
 	</command>
 
 	<command name="CheckoutAndCheckin" priority="5">
-		<var name="dmDocumentDescription" value="DM Document Description" />
-		<var name="dmDocumentFile" value="Document_1.doc" />
-		<var name="dmDocumentTitleEdit1" value="Document1" />
-		<var name="dmDocumentTitleEdit2" value="Document2" />
-		<var name="pageName" value="Documents and Media Page" />
-		<var name="portletName" value="Documents and Media" />
-		<var name="roleName" value="Administrator" />
-		<var name="userEmailAddress" value="userea@liferay.com" />
-		<var name="userFirstName" value="userfn" />
-		<var name="userLastName" value="userln" />
-		<var name="userScreenName" value="usersn" />
-
 		<execute macro="Page#gotoCP">
 			<var name="portletName" value="Users and Organizations" />
 		</execute>
 
 		<execute macro="User#addCP">
-			<var name="userEmailAddress" value="${userEmailAddress}" />
-			<var name="userFirstName" value="${userFirstName}" />
-			<var name="userLastName" value="${userLastName}" />
-			<var name="userScreenName" value="${userScreenName}" />
+			<var name="userEmailAddress" value="userea@liferay.com" />
+			<var name="userFirstName" value="userfn" />
+			<var name="userLastName" value="userln" />
+			<var name="userScreenName" value="usersn" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -154,8 +142,8 @@
 		</execute>
 
 		<execute macro="User#editPasswordCP">
-			<var name="userEmailAddress" value="${userEmailAddress}" />
-			<var name="userScreenName" value="${userScreenName}" />
+			<var name="userEmailAddress" value="userea@liferay.com" />
+			<var name="userScreenName" value="usersn" />
 		</execute>
 
 		<execute macro="Page#gotoCP">
@@ -163,8 +151,8 @@
 		</execute>
 
 		<execute macro="Role#assignRegRoleCP">
-			<var name="roleName" value="${roleName}" />
-			<var name="userScreenName" value="${userScreenName}" />
+			<var name="roleName" value="Administrator" />
+			<var name="userScreenName" value="usersn" />
 		</execute>
 
 		<execute macro="Page#gotoUsersCP">
@@ -172,67 +160,67 @@
 		</execute>
 
 		<execute macro="Site#addMemberCP">
-			<var name="userFirstName" value="${userFirstName}" />
-			<var name="userLastName" value="${userLastName}" />
-			<var name="userScreenName" value="${userScreenName}" />
+			<var name="userFirstName" value="userfn" />
+			<var name="userLastName" value="userln" />
+			<var name="userScreenName" value="usersn" />
 		</execute>
 
 		<execute macro="Page#addPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
-			<var name="pageName" value="${pageName}" />
-			<var name="portletName" value="${portletName}" />
+			<var name="pageName" value="Documents and Media Page" />
+			<var name="portletName" value="Documents and Media" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMDocument#addPG">
-			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-			<var name="dmDocumentFile" value="${dmDocumentFile}" />
-			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
+			<var name="dmDocumentDescription" value="DM Document Description" />
+			<var name="dmDocumentFile" value="Document_1.doc" />
+			<var name="dmDocumentTitle" value="Document_1.doc" />
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
-			<var name="userLoginEmailAddress" value="${userEmailAddress}" />
-			<var name="userLoginFullName" value="${userFirstName} ${userLastName}" />
+			<var name="userLoginEmailAddress" value="userea@liferay.com" />
+			<var name="userLoginFullName" value="userfn userln" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMDocument#checkoutPG">
-			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
+			<var name="dmDocumentTitle" value="Document_1.doc" />
 		</execute>
 
 		<execute function="AssertTextEquals" locator1="PGDocumentsandmediaDocument#DOCUMENT_INFO_VERSION" value1="Version PWC" />
 		<execute function="AssertTextEquals" locator1="PGDocumentsandmediaDocument#DOCUMENT_INFO_WORKFLOW_STATUS" value1="Status: Draft" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMDocument#editSavePG">
 			<var name="dmDocumentTagName" value="tag1" />
-			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
-			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit1}" />
+			<var name="dmDocumentTitle" value="Document_1.doc" />
+			<var name="dmDocumentTitleEdit" value="Document1" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMDocument#editSavePG">
 			<var name="dmDocumentTagName" value="tag2" />
-			<var name="dmDocumentTitle" value="${dmDocumentTitleEdit1}" />
+			<var name="dmDocumentTitle" value="Document1" />
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
@@ -241,59 +229,59 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMDocument#editSavePG">
 			<var name="checkedOut" value="true" />
-			<var name="dmDocumentTitle" value="${dmDocumentFile}" />
-			<var name="dmDocumentTitleEdit" value="${dmDocumentTitleEdit2}" />
-			<var name="userFirstName" value="${userFirstName}" />
-			<var name="userLastName" value="${userLastName}" />
-			<var name="userName" value="${userFirstName} ${userLastName}" />
+			<var name="dmDocumentTitle" value="Document_1.doc" />
+			<var name="dmDocumentTitleEdit" value="Document2" />
+			<var name="userFirstName" value="userfn" />
+			<var name="userLastName" value="userln" />
+			<var name="userName" value="userfn userln" />
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
-			<var name="userLoginEmailAddress" value="${userEmailAddress}" />
-			<var name="userLoginFullName" value="${userFirstName} ${userLastName}" />
+			<var name="userLoginEmailAddress" value="userea@liferay.com" />
+			<var name="userLoginFullName" value="userfn userln" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
-		<var name="key_dmDocumentTitle" value="${dmDocumentTitleEdit1}" />
+		<var name="key_dmDocumentTitle" value="Document1" />
 
-		<execute function="AssertClick" locator1="PGDocumentsandmedia#ENTRY_ICON_DOCUMENT_TITLE" value1="${dmDocumentTitleEdit1}" />
+		<execute function="AssertClick" locator1="PGDocumentsandmedia#ENTRY_ICON_DOCUMENT_TITLE" value1="Document1" />
 
 		<execute function="AssertTextEquals" locator1="PGDocumentsandmediaDocument#DOCUMENT_INFO_VERSION" value1="Version PWC" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMDocument#editSaveAndCheckinPG">
-			<var name="dmDocumentTitle" value="${dmDocumentTitleEdit1}" />
+			<var name="dmDocumentTitle" value="Document1" />
 		</execute>
 
 		<execute function="AssertTextEquals" locator1="PGDocumentsandmediaDocument#DOCUMENT_INFO_VERSION" value1="Version 1.1" />
 		<execute function="AssertTextEquals" locator1="PGDocumentsandmediaDocument#DOCUMENT_INFO_WORKFLOW_STATUS" value1="Status: Approved" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMDocument#checkoutPG">
-			<var name="dmDocumentTitle" value="${dmDocumentTitleEdit1}" />
+			<var name="dmDocumentTitle" value="Document1" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
-		<var name="key_dmDocumentTitle" value="${dmDocumentTitleEdit1}" />
+		<var name="key_dmDocumentTitle" value="Document1" />
 
-		<execute function="AssertClick" locator1="PGDocumentsandmedia#ENTRY_ICON_DOCUMENT_TITLE" value1="${dmDocumentTitleEdit1}" />
+		<execute function="AssertClick" locator1="PGDocumentsandmedia#ENTRY_ICON_DOCUMENT_TITLE" value1="Document1" />
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGDocumentsandmediaDocument#TOOLBAR_EDIT_BUTTON" value1="Edit" />
 
@@ -309,11 +297,11 @@
 		<execute function="AssertTextEquals" locator1="PGDocumentsandmediaDocument#DOCUMENT_INFO_VERSION" value1="Version PWC" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMDocument#checkinPG">
-			<var name="dmDocumentTitle" value="${dmDocumentTitleEdit1}" />
+			<var name="dmDocumentTitle" value="Document1" />
 		</execute>
 
 		<execute function="AssertTextEquals" locator1="PGDocumentsandmediaDocument#DOCUMENT_INFO_VERSION" value1="Version 1.1" />
@@ -321,8 +309,6 @@
 	</command>
 
 	<command name="Comments" priority="5">
-		<var name="pageName" value="Documents and Media Page" />
-
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Documents and Media" />
 		</execute>
@@ -356,11 +342,11 @@
 		</execute>
 
 		<execute macro="Page#addPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -368,7 +354,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -388,7 +374,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMFolder#gotoCP">
@@ -401,7 +387,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMFolder#gotoCP">
@@ -414,7 +400,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMFolder#gotoCP">
@@ -427,7 +413,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMFolder#gotoCP">
@@ -441,16 +427,8 @@
 	</command>
 
 	<command name="ViewFileCategoryAndTags" priority="4">
-		<var name="categoryDescription" value="Category Description" />
-		<var name="categoryName" value="Category Name" />
-		<var name="dmDocumentDescription" value="Document Description" />
-		<var name="dmDocumentFile" value="Document_1.doc" />
-		<var name="dmDocumentTitle" value="Document Title" />
-		<var name="pageName" value="Documents and Media Page" />
-		<var name="tagNameList" value="tag1,tag2" />
-
 		<execute macro="Page#addPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Page#gotoContentCP">
@@ -458,13 +436,13 @@
 		</execute>
 
 		<execute macro="Category#addCP">
-			<var name="categoryDescription" value="${categoryDescription}" />
+			<var name="categoryDescription" value="Category Description" />
 			<var name="categoryName" value="Category Name" />
 			<var name="vocabularyName" value="Topic" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -472,41 +450,41 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMDocument#addPG">
-			<var name="categoryName" value="${categoryName}" />
-			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-			<var name="dmDocumentFile" value="${dmDocumentFile}" />
-			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-			<var name="tagNameList" value="${tagNameList}" />
+			<var name="categoryName" value="Category Name" />
+			<var name="dmDocumentDescription" value="Document Description" />
+			<var name="dmDocumentFile" value="Document_1.doc" />
+			<var name="dmDocumentTitle" value="Document Title" />
+			<var name="tagNameList" value="tag1,tag2" />
 		</execute>
 
-		<var name="key_dmDocumentTitle" value="${dmDocumentTitle}" />
+		<var name="key_dmDocumentTitle" value="Document Title" />
 
-		<execute function="AssertClick" locator1="PGDocumentsandmedia#ENTRY_ICON_DOCUMENT_TITLE" value1="${dmDocumentTitle}" />
+		<execute function="AssertClick" locator1="PGDocumentsandmedia#ENTRY_ICON_DOCUMENT_TITLE" value1="Document Title" />
 
 		<execute function="AssertClick#assertTextClickAtAndWait" locator1="PGDocumentsandmediaDocument#TOOLBAR_EDIT_BUTTON" value1="Edit" />
 
-		<var name="key_categoryName" value="${categoryName}" />
+		<var name="key_categoryName" value="Category Name" />
 
-		<execute function="AssertTextEquals" locator1="PGDocumentsandmediaEditdocument#CATEGORIZATION_VOCABULARY_TAG" value1="${categoryName}" />
+		<execute function="AssertTextEquals" locator1="PGDocumentsandmediaEditdocument#CATEGORIZATION_VOCABULARY_TAG" value1="Category Name" />
 
-		<for list="${tagNameList}" param="tagName">
+		<for list="tag1,tag2" param="tagName">
 			<var name="key_categoryTag" value="${tagName}" />
 			<execute function="AssertTextEquals" locator1="PGDocumentsandmediaEditdocument#CATEGORIZATION_TAG" value1="${tagName}" />
 		</for>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMDocument#viewPG">
-			<var name="categoryName" value="${categoryName}" />
-			<var name="dmDocumentDescription" value="${dmDocumentDescription}" />
-			<var name="dmDocumentTitle" value="${dmDocumentTitle}" />
-			<var name="tagNameList" value="${tagNameList}" />
+			<var name="categoryName" value="Category Name" />
+			<var name="dmDocumentDescription" value="Document Description" />
+			<var name="dmDocumentTitle" value="Document Title" />
+			<var name="tagNameList" value="tag1,tag2" />
 		</execute>
 	</command>
 
@@ -523,7 +501,7 @@
 		</execute>
 
 		<execute macro="Category#addCP">
-			<var name="categoryDescription" value="${categoryDescription}" />
+			<var name="categoryDescription" value="Category Description" />
 			<var name="categoryName" value="Category Name" />
 			<var name="vocabularyName" value="Topic" />
 		</execute>
@@ -533,12 +511,12 @@
 		</execute>
 
 		<execute macro="Page#addPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 			<var name="pageType" value="1 Column" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -546,7 +524,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -554,7 +532,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -562,7 +540,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -572,26 +550,26 @@
 		<execute macro="DMDocument#addPGViaFlashUploader">
 			<var name="categoryName" value="Category Name" />
 			<var name="categoryTag" value="category tag" />
-			<var name="dmDocumentFileList" value="${dmDocumentFileList}" />
-			<var name="uploadCommonFile" value="${uploadCommonFile}" />
+			<var name="dmDocumentFileList" value="Document_1.doc,Document_2.doc,Document_1.txt,Document_2.docx,Document_1.xlsx,Document_1.jpg" />
+			<var name="uploadCommonFile" value="true" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMDocument#addPGViaFlashUploader">
-			<var name="dmDocumentFileList" value="${dmDocumentFileList2}" />
-			<var name="uploadCommonFile" value="${uploadCommonFile}" />
+			<var name="dmDocumentFileList" value="Document_1.docx,Document_1.jpeg,Document_1.mp3,Document_1.pptx,Document_1.xls" />
+			<var name="uploadCommonFile" value="true" />
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletName" value="Documents and Media" />
-			<var name="portletOption" value="${portletOption}" />
+			<var name="portletOption" value="Configuration" />
 		</execute>
 
 		<execute macro="DMPortlet#configureDisplaySettingsMaximumEntriesToDisplay">
@@ -599,12 +577,12 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletName" value="Documents and Media Display" />
-			<var name="portletOption" value="${portletOption}" />
+			<var name="portletOption" value="Configuration" />
 		</execute>
 
 		<execute macro="DMDisplayPortlet#configureDocumentListingsDocumentsPerPage">
@@ -612,7 +590,7 @@
 		</execute>
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="DMPortlet#viewPaginationControlsPG" />
@@ -620,7 +598,7 @@
 		<execute macro="DMDisplayPortlet#viewPaginationControlsPG" />
 
 		<execute macro="Page#gotoPG">
-			<var name="pageName" value="${pageName}" />
+			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
 		<execute macro="Category#gotoCategoryPG">
