@@ -132,13 +132,31 @@
 	<macrodef name="database-test-run-test">
 		<attribute default="tomcat" name="app.server.type" />
 		<attribute name="database.type" />
-		<attribute default="${database.@{database.type}.version}" name="database.version" />
+		<attribute default="" name="database.version" />
 		<attribute default="false" name="stop.app.server" />
 		<element name="test-action" />
 
 		<sequential>
-			<var name="database.type" value="@{database.type}" />
-			<var name="database.version" value="@{database.version}" />
+			<var name="database.type" unset="true" />
+
+			<property name="database.type" value="@{database.type}" />
+
+			<echo append="true" file="test.${env.HOSTNAME}.properties"><![CDATA[
+database.type=@{database.type}]]></echo>
+
+			<if>
+				<not>
+					<equals arg1="@{database.version}" arg2="" />
+				</not>
+				<then>
+					<var name="database.@{database.type}.version" unset="true" />
+
+					<property name="database.@{database.type}.version" value="@{database.version}" />
+
+					<echo append="true" file="test.${env.HOSTNAME}.properties"><![CDATA[
+database.@{database.type}.version=@{database.version}]]></echo>
+				</then>
+			</if>
 
 			<if>
 				<and>
@@ -148,7 +166,6 @@
 				<then>
 					<var name="database.mysql.service.cmd.start" unset="true" />
 					<var name="database.mysql.service.cmd.stop" unset="true" />
-					<var name="database.mysql.version" unset="true" />
 					<var name="mysql.executable" unset="true" />
 
 					<property name="database.mysql.service.cmd.start" value="mysql55 start" />
@@ -158,13 +175,14 @@
 
 					<echo append="true" file="test.${env.HOSTNAME}.properties"><![CDATA[
 database.mysql.service.cmd.start=${database.mysql.service.cmd.start}
-database.mysql.service.cmd.stop=${database.mysql.service.cmd.stop}
-database.mysql.version=${database.mysql.version}]]></echo>
+database.mysql.service.cmd.stop=${database.mysql.service.cmd.stop}]]></echo>
 
 					<echo append="true" file="sql/sql.${env.HOSTNAME}.properties"><![CDATA[
 mysql.executable=${mysql.executable}]]></echo>
 				</then>
 			</if>
+
+			<print-file file.name="test.${env.HOSTNAME}.properties" />
 
 			<if>
 				<equals arg1="@{database.type}" arg2="mariadb" />
@@ -177,6 +195,8 @@ mysql.executable=${mysql.executable}]]></echo>
 mariadb.executable=${mariadb.executable}]]></echo>
 				</then>
 			</if>
+
+			<print-file file.name="sql/sql.${env.HOSTNAME}.properties" />
 
 			<database-test-action app.server.type="@{app.server.type}" database.type="@{database.type}">
 				<action>
