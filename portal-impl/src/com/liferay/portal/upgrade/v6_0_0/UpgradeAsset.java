@@ -392,7 +392,9 @@ public class UpgradeAsset extends UpgradeProcess {
 		updateResources();
 	}
 
-	protected String generateShortenedFullName(long userId) throws Exception {
+	protected String generateShortenedFullName(long userId, String userName)
+		throws Exception {
+
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -408,7 +410,11 @@ public class UpgradeAsset extends UpgradeProcess {
 
 			rs = ps.executeQuery();
 
-			rs.next();
+			if (!rs.next()) {
+				StringUtil.shorten(
+					userName, UserConstants.FULL_NAME_MAX_LENGTH,
+					StringPool.BLANK);
+			}
 
 			String firstName = rs.getString("firstName");
 			String middleName = rs.getString("middleName");
@@ -513,14 +519,7 @@ public class UpgradeAsset extends UpgradeProcess {
 				int viewCount = rs.getInt("viewCount");
 
 				if (userName.length() > UserConstants.FULL_NAME_MAX_LENGTH) {
-					try {
-						userName = generateShortenedFullName(userId);
-					}
-					catch (Exception e) {
-						userName = StringUtil.shorten(
-							userName, UserConstants.FULL_NAME_MAX_LENGTH,
-							StringPool.BLANK);
-					}
+					userName = generateShortenedFullName(userId, userName);
 				}
 
 				addEntry(
