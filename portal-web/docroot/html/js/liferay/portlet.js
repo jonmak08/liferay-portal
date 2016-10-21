@@ -421,16 +421,12 @@
 					var link = A.one(el);
 
 					if (link) {
+						var parentNode = el.parentNode;
+
 						var title = (restore) ? Liferay.Language.get('minimize') : Liferay.Language.get('restore');
 
 						link.attr('alt', title);
 						link.attr('data-title', title);
-
-						if (el.parentNode.hasAttribute('onmouseover')) {
-							el.parentNode.setAttribute(
-								'onmouseover',
-								'Liferay.Portal.ToolTip.show(' + el.getAttribute('id') + ', \'' + title + '\')');
-						}
 
 						var linkText = link.one('.taglib-text-icon');
 
@@ -450,7 +446,12 @@
 								icon.addClass('icon-resize-vertical');
 							}
 						}
-						Liferay.Portal.ToolTip.show(el.parentNode, title);
+
+						if (parentNode && parentNode.onmouseover) {
+							parentNode.onmouseover = 'Liferay.Portal.ToolTip.show(' + el.getAttribute('id') + ', \'' + title + '\')';
+
+							Liferay.Portal.ToolTip.show(parentNode, title);
+						}
 					}
 
 					A.io.request(
