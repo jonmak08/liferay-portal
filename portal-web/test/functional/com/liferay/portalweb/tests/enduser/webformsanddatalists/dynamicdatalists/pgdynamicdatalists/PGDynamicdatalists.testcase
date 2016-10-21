@@ -638,8 +638,8 @@
 
 		<execute macro="DynamicDataMapping#addField">
 			<var name="field" value="Text" />
-			<var name="fieldFieldLabel" value="Text" />
-			<var name="fieldName" value="Text" />
+			<var name="fieldFieldLabel" value="Name" />
+			<var name="fieldName" value="Name" />
 		</execute>
 
 		<execute macro="DDLDataDefinition#saveCP" />
@@ -683,8 +683,8 @@
 		<execute macro="DDLRecord#populateField">
 			<var name="ddlRecordFieldData" value="Name1" />
 			<var name="field" value="Text" />
-			<var name="fieldFieldLabel" value="Text" />
-			<var name="fieldName" value="Text" />
+			<var name="fieldFieldLabel" value="Name" />
+			<var name="fieldName" value="Name" />
 		</execute>
 
 		<execute macro="DDLRecord#publishCP" />
@@ -701,8 +701,8 @@
 		<execute macro="DDLRecord#populateField">
 			<var name="ddlRecordFieldData" value="Name2" />
 			<var name="field" value="Text" />
-			<var name="fieldFieldLabel" value="Text" />
-			<var name="fieldName" value="Text" />
+			<var name="fieldFieldLabel" value="Name" />
+			<var name="fieldName" value="Name" />
 		</execute>
 
 		<execute macro="DDLRecord#publishCP" />

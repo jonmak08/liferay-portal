@@ -130,7 +130,7 @@
 		</execute>
 
 		<execute macro="Category#addCP">
-			<var name="categoryName" value="Category Nam" />
+			<var name="categoryName" value="Category Name" />
 			<var name="vocabularyName" value="Vocabulary Name" />
 		</execute>
 
@@ -156,7 +156,7 @@
 		</execute>
 
 		<execute macro="WebContent#addCategoryPGViaWCD">
-			<var name="categoryName" value="Category Nam" />
+			<var name="categoryName" value="Category Name" />
 			<var name="vocabularyName" value="Vocabulary Name" />
 		</execute>
 
@@ -167,7 +167,7 @@
 		<execute macro="WebContent#searchPGViaWCS">
 			<var name="webContentSearchResultsContent" value="WC WebContent Content" />
 			<var name="webContentSearchResultsName" value="WC WebContent Title" />
-			<var name="webContentSearchTerm" value="Category Nam" />
+			<var name="webContentSearchTerm" value="Category Name" />
 		</execute>
 
 		<execute macro="WebContent#searchPGViaWCS">
@@ -209,7 +209,7 @@
 		</execute>
 
 		<execute macro="Category#addCP">
-			<var name="categoryName" value="Category Nam" />
+			<var name="categoryName" value="Category Name" />
 			<var name="vocabularyName" value="Vocabulary Name" />
 		</execute>
 
@@ -235,7 +235,7 @@
 		</execute>
 
 		<execute macro="WebContent#addCategoryPGViaWCD">
-			<var name="categoryName" value="Category Nam" />
+			<var name="categoryName" value="Category Name" />
 			<var name="vocabularyName" value="Vocabulary Name" />
 		</execute>
 
