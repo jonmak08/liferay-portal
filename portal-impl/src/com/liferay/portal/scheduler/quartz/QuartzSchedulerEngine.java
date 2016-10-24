@@ -37,7 +37,6 @@ import com.liferay.portal.kernel.scheduler.SchedulerException;
 import com.liferay.portal.kernel.scheduler.StorageType;
 import com.liferay.portal.kernel.scheduler.TriggerFactoryUtil;
 import com.liferay.portal.kernel.scheduler.TriggerState;
-import com.liferay.portal.kernel.scheduler.TriggerType;
 import com.liferay.portal.kernel.scheduler.messaging.ReceiverKey;
 import com.liferay.portal.kernel.scheduler.messaging.SchedulerEventMessageListenerWrapper;
 import com.liferay.portal.kernel.scheduler.messaging.SchedulerResponse;
@@ -59,7 +58,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-import org.quartz.CronScheduleBuilder;
 import org.quartz.CronTrigger;
 import org.quartz.JobBuilder;
 import org.quartz.JobDataMap;
@@ -67,10 +65,8 @@ import org.quartz.JobDetail;
 import org.quartz.JobKey;
 import org.quartz.ObjectAlreadyExistsException;
 import org.quartz.Scheduler;
-import org.quartz.SimpleScheduleBuilder;
 import org.quartz.SimpleTrigger;
 import org.quartz.Trigger;
-import org.quartz.TriggerBuilder;
 import org.quartz.TriggerKey;
 import org.quartz.impl.StdSchedulerFactory;
 import org.quartz.impl.jdbcjobstore.UpdateLockRowSemaphore;
@@ -382,7 +378,8 @@ public class QuartzSchedulerEngine implements SchedulerEngine {
 				trigger.getStartDate(), trigger.getEndDate(),
 				trigger.getTriggerContent());
 
-			Trigger quartzTrigger = getQuartzTrigger(trigger);
+			Trigger quartzTrigger = QuartzTriggerHelperUtil.getQuartzTrigger(
+				trigger);
 
 			if (quartzTrigger == null) {
 				return;
@@ -615,85 +612,6 @@ public class QuartzSchedulerEngine implements SchedulerEngine {
 		int pos = groupName.indexOf(CharPool.POUND);
 
 		return groupName.substring(pos + 1);
-	}
-
-	protected Trigger getQuartzTrigger(
-			com.liferay.portal.kernel.scheduler.Trigger trigger)
-		throws SchedulerException {
-
-		if (trigger == null) {
-			return null;
-		}
-
-		Date endDate = trigger.getEndDate();
-		String jobName = fixMaxLength(
-			trigger.getJobName(), JOB_NAME_MAX_LENGTH);
-		String groupName = fixMaxLength(
-			trigger.getGroupName(), GROUP_NAME_MAX_LENGTH);
-
-		Date startDate = trigger.getStartDate();
-
-		if (startDate == null) {
-			startDate = new Date(System.currentTimeMillis());
-		}
-
-		Trigger quartzTrigger = null;
-
-		TriggerType triggerType = trigger.getTriggerType();
-
-		if (triggerType.equals(TriggerType.CRON)) {
-			TriggerBuilder<Trigger>triggerBuilder = TriggerBuilder.newTrigger();
-
-			triggerBuilder.endAt(endDate);
-			triggerBuilder.forJob(jobName, groupName);
-			triggerBuilder.startAt(startDate);
-			triggerBuilder.withIdentity(jobName, groupName);
-
-			CronScheduleBuilder cronScheduleBuilder =
-				CronScheduleBuilder.cronSchedule(
-					(String)trigger.getTriggerContent());
-
-			triggerBuilder.withSchedule(cronScheduleBuilder);
-
-			quartzTrigger = triggerBuilder.build();
-		}
-		else if (triggerType.equals(TriggerType.SIMPLE)) {
-			long interval = (Long)trigger.getTriggerContent();
-
-			if (interval <= 0) {
-				if (_log.isDebugEnabled()) {
-					_log.debug(
-						"Not scheduling " + trigger.getJobName() +
-							" because interval is less than or equal to 0");
-				}
-
-				return null;
-			}
-
-			TriggerBuilder<Trigger>triggerBuilder = TriggerBuilder.newTrigger();
-
-			triggerBuilder.endAt(endDate);
-			triggerBuilder.forJob(jobName, groupName);
-			triggerBuilder.startAt(startDate);
-			triggerBuilder.withIdentity(jobName, groupName);
-
-			SimpleScheduleBuilder simpleScheduleBuilder =
-				SimpleScheduleBuilder.simpleSchedule();
-
-			simpleScheduleBuilder.withIntervalInMilliseconds(interval);
-			simpleScheduleBuilder.withRepeatCount(
-				SimpleTrigger.REPEAT_INDEFINITELY);
-
-			triggerBuilder.withSchedule(simpleScheduleBuilder);
-
-			quartzTrigger = triggerBuilder.build();
-		}
-		else {
-			throw new SchedulerException(
-				"Unknown trigger type " + trigger.getTriggerType());
-		}
-
-		return quartzTrigger;
 	}
 
 	protected SchedulerResponse getScheduledJob(
@@ -1104,7 +1022,8 @@ public class QuartzSchedulerEngine implements SchedulerEngine {
 			com.liferay.portal.kernel.scheduler.Trigger trigger)
 		throws Exception {
 
-		Trigger quartzTrigger = getQuartzTrigger(trigger);
+		Trigger quartzTrigger = QuartzTriggerHelperUtil.getQuartzTrigger(
+			trigger);
 
 		if (quartzTrigger == null) {
 			return;
