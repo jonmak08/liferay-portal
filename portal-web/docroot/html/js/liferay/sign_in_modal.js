@@ -69,7 +69,7 @@ AUI.add(
 
 						event.preventDefault();
 
-						if (instance._signInPortletBody && instance._hasSignInForm) {
+						if (instance._hasSignInForm && instance._signInFormId && instance._signInPortletBody) {
 							instance._loadDOM();
 
 							Liferay.fire(instance._signInFormId + 'formReady');
