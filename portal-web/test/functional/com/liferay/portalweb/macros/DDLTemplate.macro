@@ -14,6 +14,8 @@
 
 		<execute function="AssertClick" locator1="CPDynamicdatalistsDatadefinitionsManagetemplates#TOOLBAR_ADD_DISPLAY_TEMPLATE" value1="Add Display Template" />
 
+		<execute function="Click" locator1="CPDynamicdatalistsDatadefinitionsManagetemplatesAdddisplay#NAME_FIELD" />
+
 		<execute function="Type" locator1="CPDynamicdatalistsDatadefinitionsManagetemplatesAdddisplay#NAME_FIELD" value1="${ddlDisplayTemplateName}" />
 
 		<execute macro="CPDynamicdatalistsDatadefinitionsManagetemplatesAdddisplay#showDetails" />
