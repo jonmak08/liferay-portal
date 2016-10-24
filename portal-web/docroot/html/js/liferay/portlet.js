@@ -426,7 +426,7 @@
 						link.attr('alt', title);
 						link.attr('title', title);
 
-						var linkText = link.one('.taglib-text-icon');
+						var linkText = link.one('.taglib-text, .taglib-text-icon');
 
 						if (linkText) {
 							linkText.html(title);
