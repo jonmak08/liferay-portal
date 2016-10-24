@@ -35,6 +35,15 @@ import org.quartz.TriggerBuilder;
  */
 public class QuartzTriggerHelperUtil {
 
+	public static Date getFireTimeAfter(
+			com.liferay.portal.kernel.scheduler.Trigger trigger, Date date)
+		throws SchedulerException {
+
+		Trigger quartzTrigger = getQuartzTrigger(trigger);
+
+		return quartzTrigger.getFireTimeAfter(date);
+	}
+
 	public static Trigger getQuartzTrigger(
 			com.liferay.portal.kernel.scheduler.Trigger trigger)
 		throws SchedulerException {

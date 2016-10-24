@@ -41,10 +41,12 @@ import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.kernel.util.ObjectValuePair;
 import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.scheduler.quartz.QuartzTriggerHelperUtil;
 import com.liferay.portal.util.PropsValues;
 
 import java.io.Serializable;
 
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -712,9 +714,19 @@ public class ClusterSchedulerEngine
 					SchedulerResponse schedulerResponse =
 						memoryClusteredJob.getKey();
 
+					Trigger oldTrigger = schedulerResponse.getTrigger();
+
+					Date startDate = QuartzTriggerHelperUtil.getFireTimeAfter(
+						oldTrigger, new Date());
+
+					Trigger newTrigger = TriggerFactoryUtil.buildTrigger(
+						oldTrigger.getTriggerType(), oldTrigger.getJobName(),
+						oldTrigger.getGroupName(), startDate,
+						oldTrigger.getEndDate(),
+						oldTrigger.getTriggerContent());
+
 					_schedulerEngine.schedule(
-						schedulerResponse.getTrigger(),
-						schedulerResponse.getDescription(),
+						newTrigger, schedulerResponse.getDescription(),
 						schedulerResponse.getDestinationName(),
 						schedulerResponse.getMessage());
 
