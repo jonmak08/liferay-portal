@@ -1066,17 +1066,17 @@ public class LanguageImpl implements Language, Serializable {
 		new ConcurrentHashMap<Long, LanguageImpl>();
 
 	private static final Synchronizer<Long, Serializable> _removeSynchronizer =
-			new Synchronizer<Long, Serializable>() {
+		new Synchronizer<Long, Serializable>() {
 
-			@Override
-			public void onSynchronize(
-				Map<? extends Long, ? extends Serializable> map, Long key,
-				Serializable value) {
+		@Override
+		public void onSynchronize(
+			Map<? extends Long, ? extends Serializable> map, Long key,
+			Serializable value) {
 
-				map.remove(key);
-			}
+			map.remove(key);
+		}
 
-		};
+	};
 
 	static {
 		PortalCacheMapSynchronizeUtil.<Long, Serializable>synchronize(
