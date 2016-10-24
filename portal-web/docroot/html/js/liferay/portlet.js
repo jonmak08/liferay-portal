@@ -421,12 +421,10 @@
 					var link = A.one(el);
 
 					if (link) {
-						var parentNode = el.parentNode;
-
 						var title = (restore) ? Liferay.Language.get('minimize') : Liferay.Language.get('restore');
 
 						link.attr('alt', title);
-						link.attr('data-title', title);
+						link.attr('title', title);
 
 						var linkText = link.one('.taglib-text-icon');
 
@@ -447,10 +445,17 @@
 							}
 						}
 
-						if (parentNode && parentNode.onmouseover) {
-							parentNode.onmouseover = 'Liferay.Portal.ToolTip.show(' + el.getAttribute('id') + ', \'' + title + '\')';
+						var parentNode = link.ancestor();
 
-							Liferay.Portal.ToolTip.show(parentNode, title);
+						if (parentNode) {
+							parentNode.on(
+								'mouseover',
+								function(event) {
+									var currentTarget = event.currentTarget;
+
+									Liferay.Portal.ToolTip.show(currentTarget, title);
+								}
+							);
 						}
 					}
 
