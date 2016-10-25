@@ -14,16 +14,18 @@
 
 package com.liferay.portal.kernel.util;
 
+import com.liferay.portal.model.Group;
+import com.liferay.portal.util.comparator.GroupNameComparator;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import org.mockito.Mock;
+
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.modules.junit4.PowerMockRunner;
-
-import com.liferay.portal.model.Group;
-import com.liferay.portal.util.comparator.GroupNameComparator;
 
 /**
  * @author Eduardo Garcia
