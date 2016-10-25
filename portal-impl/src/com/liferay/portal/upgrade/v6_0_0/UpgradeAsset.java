@@ -411,7 +411,7 @@ public class UpgradeAsset extends UpgradeProcess {
 			rs = ps.executeQuery();
 
 			if (!rs.next()) {
-				StringUtil.shorten(
+				return StringUtil.shorten(
 					userName, UserConstants.FULL_NAME_MAX_LENGTH,
 					StringPool.BLANK);
 			}
