@@ -231,7 +231,9 @@ public class LuceneHelperImpl implements LuceneHelper {
 
 		Analyzer analyzer = getAnalyzer();
 
-		like = like || isLikeField(field);
+		if (!like) {
+			like = isLikeField(field);
+		}
 
 		if (like) {
 			value = StringUtil.replace(
