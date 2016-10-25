@@ -71,8 +71,6 @@ AUI.add(
 
 						if (instance._hasSignInForm && instance._signInFormId && instance._signInPortletBody) {
 							instance._loadDOM();
-
-							Liferay.fire(instance._signInFormId + 'formReady');
 						}
 						else {
 							instance._loadIO();
@@ -90,7 +88,7 @@ AUI.add(
 
 						instance._setModalContent(signInPortletBody);
 
-						Liferay.Util.focusFormField('input:text');
+						Liferay.fire(instance._signInFormId + 'formReady');
 					},
 
 					_loadIO: function() {
