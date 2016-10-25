@@ -448,7 +448,7 @@
 						}
 
 						if (parentNode && parentNode.onmouseover) {
-							parentNode.onmouseover = 'Liferay.Portal.ToolTip.show(' + el.getAttribute('id') + ', \'' + title + '\')';
+							parentNode.setAttribute('onmouseover', 'Liferay.Portal.ToolTip.show(' + link.guid() + ', \'' + title + '\')');
 
 							Liferay.Portal.ToolTip.show(parentNode, title);
 						}
