@@ -261,6 +261,7 @@ public class WikiPortletDataHandler extends BasePortletDataHandler {
 			portletDataContext, portletId, node);
 	}
 
-	private static final Log _log = LogFactoryUtil.getLog(
+	private static Log _log = LogFactoryUtil.getLog(
 		WikiPortletDataHandler.class);
+
 }
