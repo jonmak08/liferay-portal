@@ -416,10 +416,17 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 		LayoutSetBranch layoutSetBranch = _getLayoutSetBranch(layoutSet);
 
 		if (layoutSetBranch == null) {
-			layoutSet.setColorSchemeId(colorSchemeId);
-			layoutSet.setCss(css);
+			if (wapTheme) {
+				layoutSet.setWapColorSchemeId(colorSchemeId);
+				layoutSet.setWapThemeId(themeId);
+			}
+			else {
+				layoutSet.setColorSchemeId(colorSchemeId);
+				layoutSet.setCss(css);
+				layoutSet.setThemeId(themeId);
+			}
+
 			layoutSet.setModifiedDate(new Date());
-			layoutSet.setThemeId(themeId);
 
 			layoutSetPersistence.update(layoutSet);
 
