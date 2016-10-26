@@ -88,6 +88,8 @@ AUI.add(
 
 						instance._setModalContent(signInPortletBody);
 
+						Liferay.Util.focusFormField('input:text');
+
 						Liferay.fire(instance._signInFormId + 'formReady');
 					},
 
