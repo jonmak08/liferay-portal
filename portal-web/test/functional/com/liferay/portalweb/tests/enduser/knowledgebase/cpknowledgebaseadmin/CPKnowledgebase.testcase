@@ -6,6 +6,8 @@
 
 	<set-up>
 		<execute macro="User#firstLoginPG" />
+
+		<execute function="Pause" locator1="30000" />
 	</set-up>
 
 	<tear-down>

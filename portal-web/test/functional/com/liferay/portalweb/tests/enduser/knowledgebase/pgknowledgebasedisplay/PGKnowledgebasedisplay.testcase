@@ -11,6 +11,8 @@
 
 		<!-- Change the layout to 70/30 to widen the portlet so to avoid "Element cannot be scrolled into view" error -->
 
+		<execute function="Pause" locator1="30000" />
+
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Knowledge Base Display Page" />
 			<var name="pageType" value="2 Columns (70/30)" />
