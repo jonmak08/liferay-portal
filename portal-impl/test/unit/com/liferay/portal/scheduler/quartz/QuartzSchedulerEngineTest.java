@@ -31,8 +31,6 @@ import com.liferay.portal.kernel.scheduler.StorageType;
 import com.liferay.portal.kernel.scheduler.Trigger;
 import com.liferay.portal.kernel.scheduler.TriggerState;
 import com.liferay.portal.kernel.scheduler.messaging.SchedulerResponse;
-import com.liferay.portal.kernel.test.CaptureHandler;
-import com.liferay.portal.kernel.test.JDKLoggerTestUtil;
 import com.liferay.portal.kernel.util.ClassLoaderPool;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
 import com.liferay.portal.kernel.util.PropsUtil;
@@ -57,8 +55,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -214,95 +210,6 @@ public class QuartzSchedulerEngineTest {
 
 		Assert.assertEquals(2 * _DEFAULT_JOB_NUMBER, schedulerResponses.size());
 		Assert.assertEquals(0, _testDestination.getMessageListenerCount());
-	}
-
-	@AdviseWith(adviceClasses = {EnableSchedulerAdvice.class})
-	@Test
-	public void testGetQuartzTrigger1() throws Exception {
-		Date startDate = new Date(System.currentTimeMillis() + 10000);
-
-		CronTrigger cronTrigger1 = new CronTrigger(
-			_TEST_JOB_NAME_0, _MEMORY_TEST_GROUP_NAME, null, "0/1 * * * * ?");
-		CronTrigger cronTrigger2 = new CronTrigger(
-			_TEST_JOB_NAME_0, _MEMORY_TEST_GROUP_NAME, startDate,
-			"0/1 * * * * ?");
-
-		org.quartz.Trigger trigger1 =  _quartzSchedulerEngine.getQuartzTrigger(
-			cronTrigger1);
-		org.quartz.Trigger trigger2 = _quartzSchedulerEngine.getQuartzTrigger(
-			cronTrigger2);
-
-		Date nextFireDate1 = trigger1.getStartTime();
-		Date nextFireDate2 = trigger2.getStartTime();
-
-		Assert.assertTrue(nextFireDate1.before(nextFireDate2));
-	}
-
-	@AdviseWith(adviceClasses = {EnableSchedulerAdvice.class})
-	@Test
-	public void testGetQuartzTrigger2() {
-		String wrongCronTriggerContent = "bad-cron-trigger-content";
-
-		Trigger cronTrigger = new CronTrigger(
-			_TEST_JOB_NAME_0, _MEMORY_TEST_GROUP_NAME, null,
-			wrongCronTriggerContent);
-
-		try {
-			_quartzSchedulerEngine.getQuartzTrigger(cronTrigger);
-
-			Assert.fail();
-		}
-		catch (Exception e) {
-		}
-	}
-
-	@AdviseWith(adviceClasses = {EnableSchedulerAdvice.class})
-	@Test
-	public void testGetQuartzTrigger3() throws Exception {
-		CaptureHandler captureHandler = JDKLoggerTestUtil.configureJDKLogger(
-			QuartzSchedulerEngine.class.getName(), Level.FINE);
-
-		try {
-			List<LogRecord> logRecords = captureHandler.getLogRecords();
-
-			IntervalTrigger intervalTrigger = new IntervalTrigger(
-				_TEST_JOB_NAME_0, _MEMORY_TEST_GROUP_NAME, 0);
-
-			org.quartz.Trigger trigger =
-				_quartzSchedulerEngine.getQuartzTrigger(intervalTrigger);
-
-			Assert.assertNull(trigger);
-
-			Assert.assertEquals(1, logRecords.size());
-
-			LogRecord logRecord = logRecords.get(0);
-
-			Assert.assertEquals(
-				"Not scheduling " + _TEST_JOB_NAME_0 + " because interval " +
-					"is less than or equal to 0",
-				logRecord.getMessage());
-		}
-		finally {
-			captureHandler.close();
-		}
-	}
-
-	@AdviseWith(adviceClasses = {EnableSchedulerAdvice.class})
-	@Test
-	public void testGetQuartzTrigger4() throws Exception {
-		String jobName = _TEST_JOB_NAME_0;
-
-		while (jobName.length() <= SchedulerEngine.JOB_NAME_MAX_LENGTH) {
-			jobName = jobName.concat(_TEST_JOB_NAME_0);
-		}
-
-		Trigger intervalTrigger = new IntervalTrigger(
-			jobName, _MEMORY_TEST_GROUP_NAME, _DEFAULT_INTERVAL);
-
-		org.quartz.Trigger trigger = _quartzSchedulerEngine.getQuartzTrigger(
-			intervalTrigger);
-
-		Assert.assertFalse(jobName.equals(trigger.getJobKey().getName()));
 	}
 
 	@AdviseWith(adviceClasses = {EnableSchedulerAdvice.class})
