@@ -172,8 +172,7 @@ public class SubscriptionPermissionImpl implements SubscriptionPermission {
 
 			return MBDiscussionPermission.contains(
 				permissionChecker, mbThread.getCompanyId(),
-				mbThread.getGroupId(), className, classPK, mbThread.getUserId(),
-				ActionKeys.VIEW);
+				mbThread.getGroupId(), className, classPK, ActionKeys.VIEW);
 		}
 
 		if (className.equals(BlogsEntry.class.getName())) {

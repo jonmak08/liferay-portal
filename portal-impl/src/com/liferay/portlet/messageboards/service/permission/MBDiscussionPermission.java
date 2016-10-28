@@ -23,8 +23,10 @@ import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.security.permission.ResourceActionsUtil;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portal.util.PropsValues;
+import com.liferay.portlet.messageboards.model.MBDiscussion;
 import com.liferay.portlet.messageboards.model.MBMessage;
 import com.liferay.portlet.messageboards.service.MBBanLocalServiceUtil;
+import com.liferay.portlet.messageboards.service.MBDiscussionLocalServiceUtil;
 import com.liferay.portlet.messageboards.service.MBMessageLocalServiceUtil;
 
 import java.util.List;
@@ -40,9 +42,19 @@ public class MBDiscussionPermission {
 			String actionId)
 		throws PortalException, SystemException {
 
+		check(
+			permissionChecker, companyId, groupId, className, classPK, actionId,
+			messageId);
+	}
+
+	public static void check(
+			PermissionChecker permissionChecker, long companyId, long groupId,
+			String className, long classPK, String actionId, long messageId)
+		throws PortalException, SystemException {
+
 		if (!contains(
 				permissionChecker, companyId, groupId, className, classPK,
-				messageId, ownerId, actionId)) {
+				actionId, messageId)) {
 
 			throw new PrincipalException();
 		}
@@ -53,9 +65,19 @@ public class MBDiscussionPermission {
 			String className, long classPK, long ownerId, String actionId)
 		throws PortalException, SystemException {
 
+		check(
+			permissionChecker, companyId, groupId, className, classPK,
+			actionId);
+	}
+
+	public static void check(
+			PermissionChecker permissionChecker, long companyId, long groupId,
+			String className, long classPK, String actionId)
+		throws PortalException, SystemException {
+
 		if (!contains(
 				permissionChecker, companyId, groupId, className, classPK,
-				ownerId, actionId)) {
+			actionId)) {
 
 			throw new PrincipalException();
 		}
@@ -65,6 +87,16 @@ public class MBDiscussionPermission {
 			PermissionChecker permissionChecker, long companyId, long groupId,
 			String className, long classPK, long messageId, long ownerId,
 			String actionId)
+		throws PortalException, SystemException {
+
+		return contains(
+			permissionChecker, companyId, groupId, className, classPK, actionId,
+			messageId);
+	}
+
+	public static boolean contains(
+			PermissionChecker permissionChecker, long companyId, long groupId,
+			String className, long classPK, String actionId, long messageId)
 		throws PortalException, SystemException {
 
 		MBMessage message = MBMessageLocalServiceUtil.getMessage(messageId);
@@ -87,7 +119,7 @@ public class MBDiscussionPermission {
 		}
 
 		return contains(
-			permissionChecker, companyId, groupId, className, classPK, ownerId,
+			permissionChecker, companyId, groupId, className, classPK,
 			actionId);
 	}
 
@@ -95,6 +127,23 @@ public class MBDiscussionPermission {
 			PermissionChecker permissionChecker, long companyId, long groupId,
 			String className, long classPK, long ownerId, String actionId)
 		throws SystemException {
+
+		return contains(
+			permissionChecker, companyId, groupId, className, classPK,
+			actionId);
+	}
+
+	public static boolean contains(
+			PermissionChecker permissionChecker, long companyId, long groupId,
+			String className, long classPK, String actionId)
+		throws SystemException {
+
+		MBDiscussion mbDiscussion =
+			MBDiscussionLocalServiceUtil.fetchDiscussion(className, classPK);
+
+		if (mbDiscussion == null) {
+			return false;
+		}
 
 		if (MBBanLocalServiceUtil.hasBan(
 				groupId, permissionChecker.getUserId())) {
@@ -117,9 +166,10 @@ public class MBDiscussionPermission {
 			return true;
 		}
 
-		if ((ownerId > 0) &&
+		if ((mbDiscussion.getUserId() > 0) &&
 			permissionChecker.hasOwnerPermission(
-				companyId, className, classPK, ownerId, actionId)) {
+				companyId, className, classPK, mbDiscussion.getUserId(),
+				actionId)) {
 
 			return true;
 		}

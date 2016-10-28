@@ -90,7 +90,7 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 		MBDiscussionPermission.check(
 			getPermissionChecker(), user.getCompanyId(),
 			serviceContext.getScopeGroupId(), className, classPK,
-			permissionOwnerId, ActionKeys.ADD_DISCUSSION);
+			ActionKeys.ADD_DISCUSSION);
 
 		checkDiscussion(className, classPK, threadId, parentMessageId);
 
@@ -269,8 +269,7 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 
 		MBDiscussionPermission.check(
 			getPermissionChecker(), user.getCompanyId(), groupId, className,
-			classPK, messageId, permissionOwnerId,
-			ActionKeys.DELETE_DISCUSSION);
+			classPK, messageId, ActionKeys.DELETE_DISCUSSION);
 
 		checkDiscussion(className, classPK, 0, messageId);
 
@@ -717,7 +716,7 @@ public class MBMessageServiceImpl extends MBMessageServiceBaseImpl {
 		MBDiscussionPermission.check(
 			getPermissionChecker(), user.getCompanyId(),
 			serviceContext.getScopeGroupId(), className, classPK, messageId,
-			permissionOwnerId, ActionKeys.UPDATE_DISCUSSION);
+			ActionKeys.UPDATE_DISCUSSION);
 
 		checkDiscussion(className, classPK, 0, messageId);
 
