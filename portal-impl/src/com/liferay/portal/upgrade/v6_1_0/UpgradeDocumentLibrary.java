@@ -208,9 +208,16 @@ public class UpgradeDocumentLibrary extends UpgradeProcess {
 
 				long fileEntryId = getFileEntryId(groupId, folderId, name);
 
-				runSQL(
-					"update DLFileRank set fileEntryId = " + fileEntryId +
-						" where fileRankId = " + fileRankId);
+				if (fileEntryId != 0) {
+					runSQL(
+						"update DLFileRank set fileEntryId = " + fileEntryId +
+							" where fileRankId = " + fileRankId);
+				}
+				else {
+					runSQL(
+						"delete from DLFileRank where fileRankId = " +
+							fileRankId);
+				}
 			}
 		}
 		finally {
