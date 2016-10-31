@@ -37,5 +37,7 @@
 
 	<aui:fieldset>
 		<aui:input label="use-a-secure-network-connection" name="secureConnection" type="checkbox" value='<%= liveGroupTypeSettings.getProperty("secureConnection") %>' />
+
+		<aui:input helpMessage="delete-portlet-data-help" id="remoteDeletePortletData" label="delete-portlet-data-before-importing" name="<%= PortletDataHandlerKeys.DELETE_PORTLET_DATA %>" type="checkbox" />
 	</aui:fieldset>
 </div>

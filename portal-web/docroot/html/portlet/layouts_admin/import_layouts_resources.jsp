@@ -301,6 +301,39 @@ ManifestSummary manifestSummary = ExportImportHelperUtil.getManifestSummary(user
 					<ul class="lfr-tree unstyled">
 						<li class="tree-item">
 							<aui:input checked="<%= true %>" helpMessage="all-content-import-help" id="allContent" label="all-content" name="<%= PortletDataHandlerKeys.PORTLET_DATA_ALL %>" type="radio" value="<%= true %>" />
+
+							<ul id="<portlet:namespace />showChangeGlobalContent">
+								<li>
+									<span class="selected-labels" id="<portlet:namespace />selectedGlobalContent"></span>
+
+									<aui:a cssClass="modify-link" href="javascript:;" id="globalContentLink" label="change" method="get" />
+								</li>
+							</ul>
+
+							<aui:script>
+								Liferay.Util.toggleBoxes('<portlet:namespace /><%= PortletDataHandlerKeys.PORTLET_DATA_ALL %>Checkbox', '<portlet:namespace />showChangeGlobalContent');
+							</aui:script>
+
+							<div class="hide" id="<portlet:namespace />globalContent">
+								<aui:fieldset cssClass="portlet-data-section" label="all-content">
+									<aui:input label="delete-portlet-data-before-importing" name="<%= PortletDataHandlerKeys.DELETE_PORTLET_DATA %>" type="checkbox" />
+
+									<ul class="unstyled" id="<portlet:namespace />showDeleteContentWarning">
+										<li>
+											<div class="alert alert-block">
+												<liferay-ui:message key="delete-content-before-importing-warning" />
+
+												<liferay-ui:message key="delete-content-before-importing-suggestion" />
+											</div>
+										</li>
+									</ul>
+								</aui:fieldset>
+
+								<aui:script>
+									Liferay.Util.toggleBoxes('<portlet:namespace /><%= PortletDataHandlerKeys.DELETE_PORTLET_DATA %>Checkbox', '<portlet:namespace />showDeleteContentWarning');
+								</aui:script>
+							</div>
+
 							<aui:input id="chooseContent" label="choose-content" name="<%= PortletDataHandlerKeys.PORTLET_DATA_ALL %>" type="radio" value="<%= false %>" />
 
 							<ul class="hide select-options" id="<portlet:namespace />selectContents">
@@ -450,6 +483,19 @@ ManifestSummary manifestSummary = ExportImportHelperUtil.getManifestSummary(user
 													<aui:input label="comments" name="<%= PortletDataHandlerKeys.COMMENTS %>" type="checkbox" value="<%= true %>" />
 
 													<aui:input label="ratings" name="<%= PortletDataHandlerKeys.RATINGS %>" type="checkbox" value="<%= true %>" />
+
+													<%
+													long modelDeletionCount = manifestSummary.getModelDeletionCount();
+													%>
+
+													<c:if test="<%= modelDeletionCount != 0 %>">
+
+														<%
+														String deletionsLabel = LanguageUtil.get(pageContext, "deletions") + (modelDeletionCount > 0 ? " (" + modelDeletionCount + ")" : StringPool.BLANK);
+														%>
+
+														<aui:input data-name="<%= deletionsLabel %>" helpMessage="deletions-help" label="<%= deletionsLabel %>" name="<%= PortletDataHandlerKeys.DELETIONS %>" type="checkbox" />
+													</c:if>
 												</li>
 											</ul>
 										</div>
@@ -549,6 +595,7 @@ ManifestSummary manifestSummary = ExportImportHelperUtil.getManifestSummary(user
 			archivedSetupsNode: '#<%= PortletDataHandlerKeys.PORTLET_ARCHIVED_SETUPS_ALL %>Checkbox',
 			commentsNode: '#<%= PortletDataHandlerKeys.COMMENTS %>Checkbox',
 			deleteMissingLayoutsNode: '#<%= PortletDataHandlerKeys.DELETE_MISSING_LAYOUTS %>Checkbox',
+			deletePortletDataNode: '#<%= PortletDataHandlerKeys.DELETE_PORTLET_DATA %>Checkbox',
 			deletionsNode: '#<%= PortletDataHandlerKeys.DELETIONS %>Checkbox',
 			form: document.<portlet:namespace />fm1,
 			layoutSetSettingsNode: '#<%= PortletDataHandlerKeys.LAYOUT_SET_SETTINGS %>Checkbox',
