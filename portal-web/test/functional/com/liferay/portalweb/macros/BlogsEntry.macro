@@ -634,6 +634,31 @@
 		</if>
 	</command>
 
+	<command name="editDraftPG">
+		<var name="key_entryTitle" value="${entryTitle}" />
+
+		<execute macro="BlogsEntry#gotoDraftEditPG">
+			<var name="entryTitle" value="${entryTitle}" />
+		</execute>
+
+		<execute function="Type" locator1="PGBlogsEdit#TITLE_FIELD" value1="${entryTitleEdit}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="PGBlogsEdit#CONTENT_FIELD" value1="${entryContentEdit}" />
+
+		<if>
+			<equals arg1="${saveAsDraft}" arg2="true" />
+			<then>
+				<execute function="AssertClick" locator1="PGBlogsEdit#SAVE_AS_DRAFT_BUTTON" value1="Save as Draft" />
+
+				<execute function="AssertTextEquals" locator1="PGBlogsEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+			</then>
+			<else>
+				<execute function="AssertClick#assertTextClickAtAndWaitCKEditor" locator1="PGBlogsEdit#PUBLISH_BUTTON" value1="Publish" />
+
+				<execute function="AssertTextEquals" locator1="PGBlogs#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+			</else>
+		</if>
+	</command>
+
 	<command name="editNoPermissionPG">
 		<var name="key_entryTitle" value="${entryTitle}" />
 
