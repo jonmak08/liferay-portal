@@ -17,8 +17,6 @@
 <%@ include file="/html/portlet/layouts_admin/init.jsp" %>
 
 <%
-String cmd = ParamUtil.getString(request, Constants.CMD, Constants.IMPORT);
-
 long groupId = ParamUtil.getLong(request, "groupId");
 
 Group group = null;
@@ -462,10 +460,6 @@ ManifestSummary manifestSummary = ExportImportHelperUtil.getManifestSummary(user
 					</ul>
 				</aui:fieldset>
 			</c:if>
-
-			<aui:fieldset cssClass="options-group" label="deletions">
-				<%@ include file="/html/portlet/layouts_admin/deletions.jspf" %>
-			</aui:fieldset>
 
 			<aui:fieldset cssClass="options-group" label="permissions">
 				<ul class="lfr-tree unstyled">

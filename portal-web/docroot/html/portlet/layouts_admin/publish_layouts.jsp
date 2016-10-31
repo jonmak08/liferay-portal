@@ -348,10 +348,6 @@ else {
 							</aui:fieldset>
 						</c:if>
 
-						<aui:fieldset cssClass="options-group" label="deletions">
-							<%@ include file="/html/portlet/layouts_admin/deletions.jspf" %>
-						</aui:fieldset>
-
 						<aui:fieldset cssClass="options-group" label="permissions">
 							<%@ include file="/html/portlet/layouts_admin/publish_layouts_permissions.jspf" %>
 						</aui:fieldset>
