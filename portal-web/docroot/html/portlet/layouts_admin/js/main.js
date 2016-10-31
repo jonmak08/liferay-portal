@@ -210,26 +210,15 @@ AUI.add(
 							);
 						}
 
-						var deletionsNode = instance.get('deletionsNode');
 
-						if (deletionsNode) {
-							deletionsNode.on(
-								'change',
-								function() {
-									instance._refreshDeletions();
 								}
 							);
 						}
 
-						var globalConfigurationLink = instance.byId('globalConfigurationLink');
 
-						if (globalConfigurationLink) {
-							globalConfigurationLink.on(
 								STR_CLICK,
 								function(event) {
-									var globalConfigurationDialog = instance._getGlobalConfigurationDialog();
 
-									globalConfigurationDialog.show();
 								}
 							);
 						}
@@ -806,7 +795,6 @@ AUI.add(
 							}
 						);
 
-						instance._refreshDeletions();
 						instance._setContentOptionsLabels();
 						instance._setGlobalConfigurationLabels();
 						instance._setPageLabels();
@@ -855,27 +843,6 @@ AUI.add(
 							cmdNode.val(STR_EMPTY);
 
 							submitForm(instance.get('form'));
-						}
-					},
-
-					_refreshDeletions: function() {
-						var instance = this;
-
-						if (instance._isChecked('deletionsNode')) {
-							var deletionsNode = instance.get('deletionsNode');
-
-							instance.all('.deletions').each(
-									function(item, index, collection) {
-										item.show();
-									}
-							);
-						}
-						else {
-							instance.all('.deletions').each(
-									function(item, index, collection) {
-										item.hide();
-									}
-							);
 						}
 					},
 
