@@ -865,16 +865,16 @@ AUI.add(
 							var deletionsNode = instance.get('deletionsNode');
 
 							instance.all('.deletions').each(
-								function(item, index, collection) {
-									item.show();
-								}
+									function(item, index, collection) {
+										item.show();
+									}
 							);
 						}
 						else {
 							instance.all('.deletions').each(
-								function(item, index, collection) {
-									item.hide();
-								}
+									function(item, index, collection) {
+										item.hide();
+									}
 							);
 						}
 					},
