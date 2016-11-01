@@ -1,4 +1,20 @@
 <definition>
+	<command name="_saveOrPublish">
+		<if>
+			<equals arg1="${saveAsDraft}" arg2="true" />
+			<then>
+				<execute function="AssertClick" locator1="PGBlogsEdit#SAVE_AS_DRAFT_BUTTON" value1="Save as Draft" />
+
+				<execute function="AssertTextEquals" locator1="PGBlogsEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+			</then>
+			<else>
+				<execute function="AssertClick#assertTextClickAtAndWaitCKEditor" locator1="PGBlogsEdit#PUBLISH_BUTTON" value1="Publish" />
+
+				<execute function="AssertTextEquals" locator1="PGBlogs#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+			</else>
+		</if>
+	</command>
+
 	<command name="addAbstractDescriptionPG">
 		<if>
 			<condition function="IsElementPresent" locator1="PGBlogsAdd#ABSTRACT_DROPDOWN_COLLAPSED" />
@@ -619,19 +635,9 @@
 		<execute function="Type" locator1="PGBlogsEdit#TITLE_FIELD" value1="${entryTitle}" />
 		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="PGBlogsEdit#CONTENT_FIELD" value1="${entryContentEdit}" />
 
-		<if>
-			<equals arg1="${saveAsDraft}" arg2="true" />
-			<then>
-				<execute function="AssertClick" locator1="PGBlogsEdit#SAVE_AS_DRAFT_BUTTON" value1="Save as Draft" />
-
-				<execute function="AssertTextEquals" locator1="PGBlogsEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
-			</then>
-			<else>
-				<execute function="AssertClick#assertTextClickAtAndWaitCKEditor" locator1="PGBlogsEdit#PUBLISH_BUTTON" value1="Publish" />
-
-				<execute function="AssertTextEquals" locator1="PGBlogs#SUCCESS_MESSAGE" value1="Your request completed successfully." />
-			</else>
-		</if>
+		<execute macro="BlogsEntry#_saveOrPublish">
+			<var name="saveAsDraft" value="${saveAsDraft}" />
+		</execute>
 	</command>
 
 	<command name="editDraftPG">
@@ -644,19 +650,9 @@
 		<execute function="Type" locator1="PGBlogsEdit#TITLE_FIELD" value1="${entryTitleEdit}" />
 		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="PGBlogsEdit#CONTENT_FIELD" value1="${entryContentEdit}" />
 
-		<if>
-			<equals arg1="${saveAsDraft}" arg2="true" />
-			<then>
-				<execute function="AssertClick" locator1="PGBlogsEdit#SAVE_AS_DRAFT_BUTTON" value1="Save as Draft" />
-
-				<execute function="AssertTextEquals" locator1="PGBlogsEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
-			</then>
-			<else>
-				<execute function="AssertClick#assertTextClickAtAndWaitCKEditor" locator1="PGBlogsEdit#PUBLISH_BUTTON" value1="Publish" />
-
-				<execute function="AssertTextEquals" locator1="PGBlogs#SUCCESS_MESSAGE" value1="Your request completed successfully." />
-			</else>
-		</if>
+		<execute macro="BlogsEntry#_saveOrPublish">
+			<var name="saveAsDraft" value="${saveAsDraft}" />
+		</execute>
 	</command>
 
 	<command name="editNoPermissionPG">
@@ -678,19 +674,9 @@
 		<execute function="Type" locator1="PGBlogsEdit#TITLE_FIELD" value1="${entryTitleEdit}" />
 		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="PGBlogsEdit#CONTENT_FIELD" value1="${entryContentEdit}" />
 
-		<if>
-			<equals arg1="${saveAsDraft}" arg2="true" />
-			<then>
-				<execute function="AssertClick" locator1="PGBlogsEdit#SAVE_AS_DRAFT_BUTTON" value1="Save as Draft" />
-
-				<execute function="AssertTextEquals" locator1="PGBlogsEdit#SUCCESS_MESSAGE" value1="Your request completed successfully." />
-			</then>
-			<else>
-				<execute function="AssertClick#assertTextClickAtAndWaitCKEditor" locator1="PGBlogsEdit#PUBLISH_BUTTON" value1="Publish" />
-
-				<execute function="AssertTextEquals" locator1="PGBlogs#SUCCESS_MESSAGE" value1="Your request completed successfully." />
-			</else>
-		</if>
+		<execute macro="BlogsEntry#_saveOrPublish">
+			<var name="saveAsDraft" value="${saveAsDraft}" />
+		</execute>
 	</command>
 
 	<command name="editTitleCP">
