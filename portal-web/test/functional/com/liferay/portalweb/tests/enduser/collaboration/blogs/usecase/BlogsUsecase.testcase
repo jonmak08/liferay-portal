@@ -267,6 +267,96 @@
 		</execute>
 	</command>
 
+	<command name="ViewNoBlogsDraftDisplaysInAP" priority="4">
+		<execute macro="Page#addPG">
+			<var name="pageName" value="Asset Publisher Page" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Asset Publisher Page" />
+		</execute>
+
+		<execute macro="Portlet#addPG">
+			<var name="portletName" value="Asset Publisher" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Blogs Page" />
+		</execute>
+
+		<execute macro="BlogsEntry#addPG">
+			<var name="entryContent" value="Blogs Entry Content 1" />
+			<var name="entryTitle" value="Blogs Entry Title 1" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Asset Publisher Page" />
+		</execute>
+
+		<execute macro="BlogsEntry#viewEntryViaAPPG">
+			<var name="entryContent" value="Blogs Entry Content 1" />
+			<var name="entryTitle" value="Blogs Entry Title 1" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Blogs Page" />
+		</execute>
+
+		<execute macro="BlogsEntry#editPG">
+			<var name="entryContent" value="Blogs Entry Content 1" />
+			<var name="entryContentEdit" value="Blogs Entry Content 1" />
+			<var name="entryTitle" value="Blogs Entry Title 1" />
+			<var name="entryTitleEdit" value="Blogs Entry Title 2" />
+			<var name="saveAsDraft" value="true" />
+		</execute>
+
+		<execute function="AssertTextEquals" locator1="PGBlogsEdit#DRAFT_STATUS" value1="Draft" />
+		<execute function="AssertTextEquals" locator1="PGBlogsEdit#TITLE_FIELD" value1="Blogs Entry Title 2" />
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Blogs Page" />
+		</execute>
+
+		<execute macro="BlogsEntry#viewDraftPG">
+			<var name="entryContent" value="Blogs Entry Content 1" />
+			<var name="entryTitle" value="Blogs Entry Title 2" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Asset Publisher Page" />
+		</execute>
+
+		<execute macro="BlogsEntry#viewNoEntryViaAPPG">
+			<var name="entryContent" value="Blogs Entry Content 1" />
+			<var name="entryTitle" value="Blogs Entry Title 2" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Blogs Page" />
+		</execute>
+
+		<execute macro="BlogsEntry#editDraftPG">
+			<var name="entryContent" value="Blogs Entry Content 1" />
+			<var name="entryContentEdit" value="Blogs Entry Content 2" />
+			<var name="entryTitle" value="Blogs Entry Title 2" />
+			<var name="entryTitleEdit" value="Blogs Entry Title 2" />
+		</execute>
+
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Asset Publisher Page" />
+		</execute>
+
+		<execute macro="BlogsEntry#viewNoEntryViaAPPG">
+			<var name="entryContent" value="Blogs Entry Content 1" />
+			<var name="entryTitle" value="Blogs Entry Title 1" />
+		</execute>
+
+		<execute macro="BlogsEntry#viewEntryViaAPPG">
+			<var name="entryContent" value="Blogs Entry Content 2" />
+			<var name="entryTitle" value="Blogs Entry Title 2" />
+		</execute>
+	</command>
+
 	<command name="ViewParentOrganizationViaSelectOrganizationInBlogsConfiguration" priority="4">
 		<execute macro="Page#addPG">
 			<var name="pageName" value="Blogs Page" />
