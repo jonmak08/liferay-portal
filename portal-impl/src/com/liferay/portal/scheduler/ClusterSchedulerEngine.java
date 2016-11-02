@@ -655,9 +655,8 @@ public class ClusterSchedulerEngine
 		ClusterSchedulerEngine.class);
 
 	private static final MethodKey _getScheduledJobMethodKey = new MethodKey(
-			SchedulerEngineHelperUtil.class, "getScheduledJob", String.class,
-			String.class, StorageType.class);
-
+		SchedulerEngineHelperUtil.class, "getScheduledJob", String.class,
+		String.class, StorageType.class);
 	private static final MethodKey _getScheduledJobsMethodKey = new MethodKey(
 		SchedulerEngineHelperUtil.class, "getScheduledJobs", StorageType.class);
 
