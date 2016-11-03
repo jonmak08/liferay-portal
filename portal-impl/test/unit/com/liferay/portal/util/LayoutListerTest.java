@@ -58,7 +58,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 	}
 )
 @RunWith(PowerMockRunner.class)
-public class LayoutListUtilTest extends PowerMockito {
+public class LayoutListerTest extends PowerMockito {
 
 	@Before
 	public void setUp() throws Exception {
@@ -133,8 +133,10 @@ public class LayoutListUtilTest extends PowerMockito {
 			stopWatch.start();
 		}
 
+		LayoutLister layoutLister = new LayoutLister();
+
 		List<LayoutDescription> layoutDescriptions =
-			LayoutListUtil.getLayoutDescriptions(0, false, "ROOT", null);
+			layoutLister.getLayoutDescriptions(0, false, "ROOT", null);
 
 		if (_log.isDebugEnabled()) {
 			stopWatch.stop();
@@ -208,7 +210,7 @@ public class LayoutListUtilTest extends PowerMockito {
 
 	private static final int _NODES = 10;
 
-	private static Log _log = LogFactoryUtil.getLog(LayoutListUtilTest.class);
+	private static Log _log = LogFactoryUtil.getLog(LayoutListerTest.class);
 
 	private String[] _layoutListUtilStrings;
 	private List<Layout> _layouts = new ArrayList<Layout>();
