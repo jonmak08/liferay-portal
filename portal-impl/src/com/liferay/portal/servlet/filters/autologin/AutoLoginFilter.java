@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.servlet.ProtectedServletRequest;
 import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.InstancePool;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -137,8 +138,10 @@ public class AutoLoginFilter extends BasePortalFilter {
 					redirect = redirect.concat(autoLoginRedirect);
 				}
 				else {
-					redirect = redirect.concat(
+					String currentURL = HttpUtil.encodeURL(
 						PortalUtil.getCurrentCompleteURL(request));
+
+					redirect = redirect.concat(currentURL);
 				}
 			}
 
