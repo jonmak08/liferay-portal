@@ -82,7 +82,7 @@
 
 					<copy
 						file="portal-impl/src/portal-ext.properties"
-						override="true"
+						overwrite="true"
 						tofile="${tstamp.value}/WEB-INF/classes/portal-ext.properties"
 					/>
 
@@ -99,7 +99,7 @@
 				<else>
 					<copy
 						file="portal-impl/src/portal-ext.properties"
-						override="true"
+						overwrite="true"
 						tofile="${app.server.classes.portal.dir}/portal-ext.properties"
 					/>
 
