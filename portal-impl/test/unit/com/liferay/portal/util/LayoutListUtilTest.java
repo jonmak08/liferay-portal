@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -37,9 +37,9 @@ import java.util.Locale;
 
 import org.apache.commons.lang.time.StopWatch;
 
-import org.junit.AfterClass;
+import org.junit.After;
 import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -52,15 +52,17 @@ import org.powermock.modules.junit4.PowerMockRunner;
 /**
  * @author László Csontos
  */
-@PrepareForTest( {
-	ConfigurationSerializer.class, LayoutLocalServiceUtil.class,
-	LocalizationUtil.class, PropsUtil.class
-})
+@PrepareForTest(
+	{
+		ConfigurationSerializer.class, LayoutLocalServiceUtil.class,
+		LocalizationUtil.class, PropsUtil.class
+	}
+)
 @RunWith(PowerMockRunner.class)
 public class LayoutListUtilTest extends PowerMockito {
 
-	@BeforeClass
-	public static void setUpClass() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		mockStatic(ConfigurationSerializer.class);
 
 		when(
@@ -112,13 +114,15 @@ public class LayoutListUtilTest extends PowerMockito {
 			_expectedLayoutViewArray, 1, _expectedLayoutViewArray.length);
 	}
 
-	@AfterClass
-	public static void tearDownClass() {
+	@After
+	public void tearDownClass() {
 		_layouts.clear();
 	}
 
 	@Test
-	public void testGetLayoutView() throws PortalException, SystemException {
+	public void testGetLayoutDescriptions()
+		throws PortalException, SystemException {
+
 		StopWatch stopWatch = null;
 
 		if (_log.isDebugEnabled()) {
