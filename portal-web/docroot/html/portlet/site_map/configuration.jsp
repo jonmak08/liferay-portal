@@ -20,6 +20,7 @@
 LayoutLister layoutLister = new LayoutLister();
 
 String rootNodeName = StringPool.BLANK;
+
 List<LayoutDescription> layoutDescriptions = layoutLister.getLayoutDescriptions(layout.getGroupId(), layout.isPrivateLayout(), rootNodeName, locale);
 %>
 
@@ -37,12 +38,12 @@ List<LayoutDescription> layoutDescriptions = layoutLister.getLayoutDescriptions(
 
 			<%
 			for (LayoutDescription layoutDescription : layoutDescriptions) {
-				Layout curRootLayout = LayoutLocalServiceUtil.fetchLayout(layoutDescription.getPlid());
+				Layout layoutDescriptionLayout = LayoutLocalServiceUtil.fetchLayout(layoutDescription.getPlid());
 
-				if (curRootLayout != null) {
+				if (layoutDescriptionLayout != null) {
 			%>
 
-				<aui:option label="<%= layoutDescription.getDisplayName() %>" selected="<%= curRootLayout.getUuid().equals(rootLayoutUuid) %>" value="<%= curRootLayout.getUuid() %>" />
+				<aui:option label="<%= layoutDescription.getDisplayName() %>" selected="<%= layoutDescriptionLayout.getUuid().equals(rootLayoutUuid) %>" value="<%= layoutDescriptionLayout.getUuid() %>" />
 
 			<%
 				}
