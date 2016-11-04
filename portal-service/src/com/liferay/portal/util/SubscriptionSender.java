@@ -26,7 +26,9 @@ import com.liferay.portal.kernel.messaging.MessageBusUtil;
 import com.liferay.portal.kernel.transaction.TransactionCommitCallbackRegistryUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ClassLoaderPool;
+import com.liferay.portal.kernel.util.EscapableLocalizableFunction;
 import com.liferay.portal.kernel.util.EscapableObject;
+import com.liferay.portal.kernel.util.Function;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlEscapableObject;
 import com.liferay.portal.kernel.util.HtmlUtil;
@@ -70,6 +72,7 @@ import javax.mail.internet.InternetAddress;
  * @author Brian Wing Shun Chan
  * @author Mate Thurzo
  * @author Raymond Augé
+ * @author Roberto Díaz
  */
 public class SubscriptionSender implements Serializable {
 
@@ -575,6 +578,24 @@ public class SubscriptionSender implements Serializable {
 			String content, Locale locale, boolean escape)
 		throws Exception {
 
+		for (Map.Entry<String, EscapableLocalizableFunction> entry :
+				_localizedContext.entrySet()) {
+
+			String key = entry.getKey();
+			EscapableLocalizableFunction value = entry.getValue();
+
+			String valueString = null;
+
+			if (escape) {
+				valueString = value.getEscapedValue(locale);
+			}
+			else {
+				valueString = value.getOriginalValue(locale);
+			}
+
+			content = StringUtil.replace(content, key, valueString);
+		}
+
 		for (Map.Entry<String, EscapableObject<String>> entry :
 				_context.entrySet()) {
 
@@ -747,7 +768,31 @@ public class SubscriptionSender implements Serializable {
 		objectOutputStream.writeUTF(servletContextName);
 	}
 
+	public void setLocalizedContextAttribute(
+		String key, EscapableLocalizableFunction value) {
+
+		_localizedContext.put(key, value);
+	}
+
+	public <T extends Serializable & Function<Locale, String>>
+		void setLocalizedContextAttribute(
+			String key, T function) {
+
+		setLocalizedContextAttribute(key, function, true);
+	}
+
+	public <T extends Serializable & Function<Locale, String>>
+		void setLocalizedContextAttribute(
+			String key, T function, boolean escape) {
+
+		setLocalizedContextAttribute(
+			key, new EscapableLocalizableFunction(function, escape));
+	}
+
 	private static Log _log = LogFactoryUtil.getLog(SubscriptionSender.class);
+
+	private final Map<String, EscapableLocalizableFunction>
+		_localizedContext = new HashMap<String, EscapableLocalizableFunction>();
 
 	private List<InternetAddress> _bulkAddresses;
 	private transient ClassLoader _classLoader;
