@@ -49,6 +49,7 @@ import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.FileUtil;
+import com.liferay.portal.kernel.util.Function;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -6588,7 +6589,7 @@ public class JournalArticleLocalServiceImpl
 	}
 
 	protected void notifySubscribers(
-			JournalArticle article, ServiceContext serviceContext)
+			final JournalArticle article, ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
 		if (!article.isApproved()) {
@@ -6670,14 +6671,20 @@ public class JournalArticleLocalServiceImpl
 		subscriptionSender.setBody(body);
 		subscriptionSender.setCompanyId(article.getCompanyId());
 		subscriptionSender.setContextAttributes(
-			"[$ARTICLE_ID$]", article.getArticleId(), "[$ARTICLE_TITLE$]",
-			article.getTitle(serviceContext.getLanguageId()), "[$ARTICLE_URL$]",
+			"[$ARTICLE_ID$]", article.getArticleId(), "[$ARTICLE_URL$]",
 			articleURL, "[$ARTICLE_VERSION$]", article.getVersion());
 		subscriptionSender.setContextAttribute(
 			"[$ARTICLE_CONTENT$]", articleContent, false);
 		subscriptionSender.setContextUserPrefix("ARTICLE");
 		subscriptionSender.setFrom(fromAddress, fromName);
 		subscriptionSender.setHtmlFormat(true);
+
+		ArticleTitleSerializableFunction articleTitleSerializableFunction =
+			new ArticleTitleSerializableFunction(article);
+
+		subscriptionSender.setLocalizedContextAttribute(
+			"[$ARTICLE_TITLE$]", articleTitleSerializableFunction);
+
 		subscriptionSender.setMailId("journal_article", article.getId());
 		subscriptionSender.setPortletId(PortletKeys.JOURNAL);
 		subscriptionSender.setReplyToAddress(fromAddress);
@@ -6806,13 +6813,19 @@ public class JournalArticleLocalServiceImpl
 		subscriptionSender.setBody(body);
 		subscriptionSender.setCompanyId(company.getCompanyId());
 		subscriptionSender.setContextAttributes(
-			"[$ARTICLE_ID$]", article.getArticleId(), "[$ARTICLE_TITLE$]",
-			article.getTitle(serviceContext.getLanguageId()), "[$ARTICLE_URL$]",
+			"[$ARTICLE_ID$]", article.getArticleId(), "[$ARTICLE_URL$]",
 			articleURL, "[$ARTICLE_USER_NAME$]", article.getUserName(),
 			"[$ARTICLE_VERSION$]", article.getVersion());
 		subscriptionSender.setContextUserPrefix("ARTICLE");
 		subscriptionSender.setFrom(fromAddress, fromName);
 		subscriptionSender.setHtmlFormat(true);
+
+		ArticleTitleSerializableFunction articleTitleSerializableFunction =
+			new ArticleTitleSerializableFunction(article);
+
+		subscriptionSender.setLocalizedContextAttribute(
+			"[$ARTICLE_TITLE$]", articleTitleSerializableFunction);
+
 		subscriptionSender.setMailId("journal_article", article.getId());
 		subscriptionSender.setPortletId(PortletKeys.JOURNAL);
 		subscriptionSender.setScopeGroupId(article.getGroupId());
@@ -7207,5 +7220,20 @@ public class JournalArticleLocalServiceImpl
 		JournalArticleLocalServiceImpl.class);
 
 	private Date _previousCheckDate;
+
+	private static class ArticleTitleSerializableFunction
+		implements Function<Locale, String>, Serializable {
+
+		private final JournalArticle _article;
+
+		public ArticleTitleSerializableFunction(JournalArticle article) {
+			_article = article;
+		}
+
+		@Override
+		public String apply(Locale locale) {
+			return _article.getTitle(locale);
+		}
+	}
 
 }

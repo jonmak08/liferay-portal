@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.parsers.bbcode.BBCodeTranslatorUtil;
@@ -31,6 +32,7 @@ import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistryUtil;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ContentTypes;
+import com.liferay.portal.kernel.util.Function;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.ObjectValuePair;
@@ -51,6 +53,7 @@ import com.liferay.portal.model.ResourceConstants;
 import com.liferay.portal.model.User;
 import com.liferay.portal.portletfilerepository.PortletFileRepositoryUtil;
 import com.liferay.portal.security.auth.PrincipalException;
+import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.ServiceContextUtil;
 import com.liferay.portal.theme.ThemeDisplay;
@@ -99,12 +102,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.io.Serializable;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
@@ -2104,8 +2109,6 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		Company company = companyPersistence.findByPrimaryKey(
 			message.getCompanyId());
 
-		Group group = groupPersistence.findByPrimaryKey(message.getGroupId());
-
 		String emailAddress = PortalUtil.getUserEmailAddress(
 			message.getUserId());
 		String fullName = PortalUtil.getUserName(
@@ -2117,16 +2120,6 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		}
 
 		MBCategory category = message.getCategory();
-
-		String categoryName = category.getName();
-
-		if (category.getCategoryId() ==
-				MBCategoryConstants.DEFAULT_PARENT_CATEGORY_ID) {
-
-			categoryName = serviceContext.translate("message-boards-home");
-
-			categoryName += " - " + group.getDescriptiveName();
-		}
 
 		List<Long> categoryIds = new ArrayList<Long>();
 
@@ -2200,8 +2193,8 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 			}
 			catch (Exception e) {
 				_log.error(
-					"Could not parse message " + message.getMessageId() +
-						" " + e.getMessage());
+					"Unable to parse message " + message.getMessageId() + ": " +
+						e.getMessage());
 			}
 		}
 
@@ -2245,13 +2238,32 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		subscriptionSenderPrototype.setCompanyId(message.getCompanyId());
 		subscriptionSenderPrototype.setContextAttribute(
 			"[$MESSAGE_BODY$]", messageBody, false);
+
+		final long groupId = message.getGroupId();
+
+		if (category.getCategoryId() !=
+				MBCategoryConstants.DEFAULT_PARENT_CATEGORY_ID) {
+
+			subscriptionSenderPrototype.setContextAttribute(
+				"[$CATEGORY_NAME$]", category.getName(), true);
+		}
+		else {
+			MessageBoardsHomeCategoryTitleSerializableFunction
+				messageBoardsHomeCategoryTitleSerializableFunction =
+					new MessageBoardsHomeCategoryTitleSerializableFunction(
+						groupId);
+
+			subscriptionSenderPrototype.setLocalizedContextAttribute(
+				"[$CATEGORY_NAME$]",
+				messageBoardsHomeCategoryTitleSerializableFunction);
+		}
+
 		subscriptionSenderPrototype.setContextAttributes(
-			"[$CATEGORY_NAME$]", categoryName, "[$MAILING_LIST_ADDRESS$]",
-			replyToAddress, "[$MESSAGE_ID$]", message.getMessageId(),
-			"[$MESSAGE_SUBJECT$]", messageSubject, "[$MESSAGE_SUBJECT_PREFIX$]",
-			messageSubjectPrefix, "[$MESSAGE_URL$]", entryURL,
-			"[$MESSAGE_USER_ADDRESS$]", emailAddress, "[$MESSAGE_USER_NAME$]",
-			fullName);
+			"[$MAILING_LIST_ADDRESS$]", replyToAddress, "[$MESSAGE_ID$]",
+			message.getMessageId(), "[$MESSAGE_SUBJECT$]", messageSubject,
+			"[$MESSAGE_SUBJECT_PREFIX$]",messageSubjectPrefix,
+			"[$MESSAGE_URL$]", entryURL, "[$MESSAGE_USER_ADDRESS$]",
+			emailAddress, "[$MESSAGE_USER_NAME$]", fullName);
 		subscriptionSenderPrototype.setFrom(fromAddress, fromName);
 		subscriptionSenderPrototype.setHtmlFormat(htmlFormat);
 		subscriptionSenderPrototype.setInReplyTo(inReplyTo);
@@ -2264,7 +2276,7 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 			message.getMessageId(), modifiedDate.getTime());
 		subscriptionSenderPrototype.setPortletId(PortletKeys.MESSAGE_BOARDS);
 		subscriptionSenderPrototype.setReplyToAddress(replyToAddress);
-		subscriptionSenderPrototype.setScopeGroupId(message.getGroupId());
+		subscriptionSenderPrototype.setScopeGroupId(groupId);
 		subscriptionSenderPrototype.setServiceContext(serviceContext);
 		subscriptionSenderPrototype.setSubject(subject);
 		subscriptionSenderPrototype.setUniqueMailId(false);
@@ -2481,5 +2493,33 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 
 	private static Log _log = LogFactoryUtil.getLog(
 		MBMessageLocalServiceImpl.class);
+
+	private static class MessageBoardsHomeCategoryTitleSerializableFunction
+		implements Function<Locale, String>, Serializable {
+
+		private final long _groupId;
+
+		public MessageBoardsHomeCategoryTitleSerializableFunction(
+				long groupId) {
+
+			_groupId = groupId;
+		}
+
+		@Override
+		public String apply(Locale locale) {
+			try {
+				Group group = GroupLocalServiceUtil.fetchGroup(_groupId);
+
+				return LanguageUtil.get(locale, "message-boards-home") + " - " +
+					group.getDescriptiveName(locale);
+			}
+			catch (Exception e) {
+				_log.error(
+					"Unable to get descriptive name for group " + _groupId, e);
+
+				return LanguageUtil.get(locale, "message-boards-home");
+			}
+		}
+	}
 
 }

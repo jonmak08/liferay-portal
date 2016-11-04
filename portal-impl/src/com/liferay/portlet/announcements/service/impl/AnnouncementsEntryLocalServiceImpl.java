@@ -20,6 +20,7 @@ import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.Indexer;
+import com.liferay.portal.kernel.util.Function;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -48,6 +49,8 @@ import com.liferay.portlet.announcements.model.AnnouncementsDelivery;
 import com.liferay.portlet.announcements.model.AnnouncementsEntry;
 import com.liferay.portlet.announcements.service.base.AnnouncementsEntryLocalServiceBaseImpl;
 import com.liferay.util.ContentUtil;
+
+import java.io.Serializable;
 
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -480,8 +483,7 @@ public class AnnouncementsEntryLocalServiceImpl
 
 			notifyUsers(
 				ListUtil.fromArray(new User[] {user}), entry,
-				company.getLocale(), user.getEmailAddress(),
-				user.getFullName());
+				user.getEmailAddress(), user.getFullName());
 		}
 		else {
 			int count = 0;
@@ -513,15 +515,14 @@ public class AnnouncementsEntryLocalServiceImpl
 						(OrderByComparator)null);
 				}
 
-				notifyUsers(
-					users, entry, company.getLocale(), toAddress, toName);
+				notifyUsers(users, entry, toAddress, toName);
 			}
 		}
 	}
 
 	protected void notifyUsers(
-			List<User> users, AnnouncementsEntry entry, Locale locale,
-			String toAddress, String toName)
+			List<User> users, final AnnouncementsEntry entry, String toAddress,
+			String toName)
 		throws PortalException, SystemException {
 
 		if (_log.isDebugEnabled()) {
@@ -574,13 +575,22 @@ public class AnnouncementsEntryLocalServiceImpl
 			"[$ENTRY_CONTENT$]", entry.getContent(), false);
 		subscriptionSender.setContextAttributes(
 			"[$ENTRY_ID$]", entry.getEntryId(), "[$ENTRY_TITLE$]",
-			entry.getTitle(), "[$ENTRY_TYPE$]",
-			LanguageUtil.get(locale, entry.getType()), "[$ENTRY_URL$]",
-			entry.getUrl(), "[$PORTLET_NAME$]",
-			LanguageUtil.get(
-				locale, (entry.isAlert() ? "alert" : "announcement")));
+			entry.getTitle(), "[$ENTRY_URL$]", entry.getUrl());
 		subscriptionSender.setFrom(fromAddress, fromName);
 		subscriptionSender.setHtmlFormat(true);
+
+		EntryTypeSerializableFunction entryTypeSerializableFunction =
+			new EntryTypeSerializableFunction(entry);
+
+		subscriptionSender.setLocalizedContextAttribute(
+			"[$ENTRY_TYPE$]", entryTypeSerializableFunction);
+
+		PortletNameSerializableFunction portletNameSerializableFunction =
+			new PortletNameSerializableFunction(entry);
+
+		subscriptionSender.setLocalizedContextAttribute(
+			"[$PORTLET_NAME$]", portletNameSerializableFunction);
+
 		subscriptionSender.setMailId("announcements_entry", entry.getEntryId());
 		subscriptionSender.setPortletId(PortletKeys.ANNOUNCEMENTS);
 		subscriptionSender.setScopeGroupId(entry.getGroupId());
@@ -625,5 +635,36 @@ public class AnnouncementsEntryLocalServiceImpl
 		AnnouncementsEntryLocalServiceImpl.class);
 
 	private Date _previousCheckDate;
+
+	private static class EntryTypeSerializableFunction
+		implements Function<Locale, String>, Serializable {
+
+		private final AnnouncementsEntry _entry;
+
+		public EntryTypeSerializableFunction(AnnouncementsEntry entry) {
+			_entry = entry;
+		}
+
+		@Override
+		public String apply(Locale locale) {
+			return LanguageUtil.get(locale, _entry.getType());
+		}
+	}
+
+	private static class PortletNameSerializableFunction
+		implements Function<Locale, String>, Serializable {
+
+		private final AnnouncementsEntry _entry;
+
+		public PortletNameSerializableFunction(AnnouncementsEntry entry) {
+			_entry = entry;
+		}
+
+		@Override
+		public String apply(Locale locale) {
+			return LanguageUtil.get(
+				locale, _entry.isAlert() ? "alert" : "announcement");
+		}
+	}
 
 }

@@ -18,6 +18,7 @@ import com.liferay.portal.MembershipRequestCommentsException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.util.Function;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.UniqueList;
@@ -39,9 +40,12 @@ import com.liferay.portal.util.PrefsPropsUtil;
 import com.liferay.portal.util.ResourcePermissionUtil;
 import com.liferay.portal.util.SubscriptionSender;
 
+import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * @author Jorge Ferrer
@@ -308,7 +312,7 @@ public class MembershipRequestLocalServiceImpl
 		String body = PrefsPropsUtil.getContent(
 			membershipRequest.getCompanyId(), bodyProperty);
 
-		String statusKey = null;
+		final String statusKey;
 
 		if (membershipRequest.getStatusId() ==
 				MembershipRequestConstants.STATUS_APPROVED) {
@@ -332,11 +336,18 @@ public class MembershipRequestLocalServiceImpl
 			"[$COMMENTS$]", membershipRequest.getComments(),
 			"[$REPLY_COMMENTS$]", membershipRequest.getReplyComments(),
 			"[$REQUEST_USER_ADDRESS$]", requestUser.getEmailAddress(),
-			"[$REQUEST_USER_NAME$]", requestUser.getFullName(), "[$STATUS$]",
-			LanguageUtil.get(user.getLocale(), statusKey), "[$USER_ADDRESS$]",
-			user.getEmailAddress(), "[$USER_NAME$]", user.getFullName());
+			"[$REQUEST_USER_NAME$]", requestUser.getFullName(),
+			"[$USER_ADDRESS$]", user.getEmailAddress(), "[$USER_NAME$]",
+			user.getFullName());
 		subscriptionSender.setFrom(fromAddress, fromName);
 		subscriptionSender.setHtmlFormat(true);
+
+		StatusKeySerializableFunction statusKeySerializableFunction =
+			new StatusKeySerializableFunction(statusKey);
+
+		subscriptionSender.setLocalizedContextAttribute(
+			"[$STATUS$]", statusKeySerializableFunction);
+
 		subscriptionSender.setMailId(
 			"membership_request", membershipRequest.getMembershipRequestId());
 		subscriptionSender.setScopeGroupId(membershipRequest.getGroupId());
@@ -367,6 +378,21 @@ public class MembershipRequestLocalServiceImpl
 	protected void validate(String comments) throws PortalException {
 		if (Validator.isNull(comments) || Validator.isNumber(comments)) {
 			throw new MembershipRequestCommentsException();
+		}
+	}
+
+	private static class StatusKeySerializableFunction
+		implements Function<Locale, String>, Serializable {
+
+		private final String _statusKey;
+
+		public StatusKeySerializableFunction(String statusKey) {
+			_statusKey = statusKey;
+		}
+
+		@Override
+		public String apply(Locale locale) {
+			return LanguageUtil.get(locale, _statusKey);
 		}
 	}
 

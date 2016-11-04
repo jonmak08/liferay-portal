@@ -30,6 +30,7 @@ import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistryUtil;
 import com.liferay.portal.kernel.systemevent.SystemEventHierarchyEntryThreadLocal;
 import com.liferay.portal.kernel.transaction.TransactionCommitCallbackRegistryUtil;
+import com.liferay.portal.kernel.util.Function;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.ObjectValuePair;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -2074,32 +2075,42 @@ public class DLAppHelperLocalServiceImpl
 			folder = dlAppLocalService.getFolder(folderId);
 		}
 
-		String folderName = LanguageUtil.get(
-			serviceContext.getLocale(), "home");
-
-		if (folder != null) {
-			folderName = folder.getName();
-		}
-
 		SubscriptionSender subscriptionSender = new SubscriptionSender();
 
 		DLFileEntry dlFileEntry = (DLFileEntry)fileEntry.getModel();
 
-		DLFileEntryType dlFileEntryType =
+		final DLFileEntryType dlFileEntryType =
 			dlFileEntryTypeLocalService.getDLFileEntryType(
 				dlFileEntry.getFileEntryTypeId());
 
 		subscriptionSender.setCompanyId(fileVersion.getCompanyId());
+
+		if (folder != null) {
+			subscriptionSender.setContextAttribute(
+				"[$FOLDER_NAME$]", folder.getName(), true);
+		}
+		else {
+			subscriptionSender.setLocalizedContextAttribute(
+				"[$FOLDER_NAME$]", new HomeTitleSerializableFunction());
+		}
+
 		subscriptionSender.setContextAttributes(
 			"[$DOCUMENT_STATUS_BY_USER_NAME$]",
 			fileVersion.getStatusByUserName(), "[$DOCUMENT_TITLE$]",
-			fileVersion.getTitle(), "[$DOCUMENT_TYPE$]",
-			dlFileEntryType.getName(serviceContext.getLocale()),
-			"[$FOLDER_NAME$]", folderName);
+			fileVersion.getTitle());
+
 		subscriptionSender.setContextUserPrefix("DOCUMENT");
 		subscriptionSender.setFrom(fromAddress, fromName);
 		subscriptionSender.setHtmlFormat(true);
 		subscriptionSender.setLocalizedBodyMap(localizedBodyMap);
+
+		DLFileEntryTypeTitleSerializableFunction
+			dlFileEntryTypeTitleSerializableFunction =
+				new DLFileEntryTypeTitleSerializableFunction(dlFileEntryType);
+
+		subscriptionSender.setLocalizedContextAttribute(
+			"[$DOCUMENT_TYPE$]", dlFileEntryTypeTitleSerializableFunction);
+
 		subscriptionSender.setLocalizedSubjectMap(localizedSubjectMap);
 		subscriptionSender.setMailId(
 			"file_entry", fileVersion.getFileEntryId());
@@ -2194,6 +2205,32 @@ public class DLAppHelperLocalServiceImpl
 
 			}
 		);
+	}
+
+	private static class HomeTitleSerializableFunction
+		implements Function<Locale, String>, Serializable {
+
+		@Override
+		public String apply(Locale locale) {
+			return LanguageUtil.get(locale, "home");
+		}
+	}
+
+	private static class DLFileEntryTypeTitleSerializableFunction
+		implements Function<Locale, String>, Serializable {
+
+		private DLFileEntryType _dlFileEntryType;
+
+		public DLFileEntryTypeTitleSerializableFunction(
+			DLFileEntryType dlFileEntryType) {
+
+			_dlFileEntryType = dlFileEntryType;
+		}
+
+		@Override
+		public String apply(Locale locale) {
+			return _dlFileEntryType.getName(locale);
+		}
 	}
 
 }
