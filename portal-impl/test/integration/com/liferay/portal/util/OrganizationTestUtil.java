@@ -135,7 +135,7 @@ public class OrganizationTestUtil {
 			organization.getParentOrganizationId(), organization.getName(),
 			organization.getType(), organization.getRegionId(),
 			organization.getCountryId(), organization.getStatusId(),
-			organization.getComments(), false, null, true, null);
+			organization.getComments(), true, null);
 	}
 
 	public static Website addWebsite(Organization organization)

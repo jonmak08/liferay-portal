@@ -165,9 +165,6 @@ public class OrganizationLocalServiceTest {
 		Organization organizationB = OrganizationTestUtil.addOrganization(
 			organizationA.getOrganizationId(), "Organization B", false);
 
-		_organizations.add(organizationB);
-		_organizations.add(organizationA);
-
 		organizationA = OrganizationTestUtil.addSite(organizationA);
 
 		Group groupB = organizationB.getGroup();
@@ -186,9 +183,6 @@ public class OrganizationLocalServiceTest {
 
 		Organization organizationB = OrganizationTestUtil.addOrganization(
 			organizationA.getOrganizationId(), "Organization B", true);
-
-		_organizations.add(organizationB);
-		_organizations.add(organizationA);
 
 		organizationA = OrganizationTestUtil.addSite(organizationA);
 
@@ -209,9 +203,6 @@ public class OrganizationLocalServiceTest {
 		Organization organizationB = OrganizationTestUtil.addOrganization(
 			organizationA.getOrganizationId(), "Organization B", false);
 
-		_organizations.add(organizationB);
-		_organizations.add(organizationA);
-
 		organizationB = OrganizationTestUtil.addSite(organizationB);
 
 		Group groupB = organizationB.getGroup();
@@ -230,9 +221,6 @@ public class OrganizationLocalServiceTest {
 
 		Organization organizationB = OrganizationTestUtil.addOrganization(
 			organizationA.getOrganizationId(), "Organization B", false);
-
-		_organizations.add(organizationB);
-		_organizations.add(organizationA);
 
 		organizationB = OrganizationTestUtil.addSite(organizationB);
 
