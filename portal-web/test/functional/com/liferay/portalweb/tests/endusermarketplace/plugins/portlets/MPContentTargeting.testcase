@@ -7,7 +7,7 @@
 	</set-up>
 
 	<command name="MarketplacePortletContentTargetingSmoke" priority="4">
-		<property name="extraapps.plugins.includes" value="audience-targeting" />
+		<property name="extraapps.plugins.includes" value="content-targeting" />
 
 		<execute macro="Page#gotoConfigurationCP">
 			<var name="portletName" value="Audience Targeting" />
