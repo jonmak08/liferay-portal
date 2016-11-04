@@ -367,7 +367,7 @@ AUI.add(
 							folderId: selectedFolder.id,
 							keywords: instance._keywordsNode.get('value'),
 							repositoryId: selectedFolder.repositoryId,
-							searchFolderId: selectedFolder.id,
+							searchFolderId: instance._folderId,
 							searchRepositoryId: selectedFolder.repositoryId,
 							showRepositoryTabs: showTabs,
 							showSearchInfo: true
