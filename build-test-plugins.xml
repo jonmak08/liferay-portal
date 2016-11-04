@@ -6,19 +6,37 @@
 	<target name="deploy-extra-apps">
 		<for list="${plugins.includes}" param="plugin">
 			<sequential>
-				<pathconvert pathsep="," property="extraapps.zip" setonempty="false">
-					<path>
-						<fileset
-							dir="extraapps"
-							includes="@{plugin}*"
-						/>
-					</path>
-				</pathconvert>
+				<if>
+					<available file="extraapps" />
+					<then>
+						<pathconvert pathsep="," property="extraapps.zip" setonempty="false">
+							<path>
+								<fileset
+									dir="extraapps"
+									includes="@{plugin}*"
+								/>
+							</path>
+						</pathconvert>
 
-				<unzip
-					dest="${liferay.home}/deploy"
-					src="${extraapps.zip}"
-				/>
+						<unzip
+							dest="${liferay.home}/deploy"
+							src="${extraapps.zip}"
+						/>
+					</then>
+					<elseif>
+						<and>
+							<available file="plugins" />
+							<isset property="marketplace.app[@{plugin}]" />
+						</and>
+						<then>
+							<local name="marketplace.app" />
+
+							<propertycopy from="marketplace.app[@{plugin}]" name="marketplace.app" />
+
+							<copy file="plugins/${marketplace.app}" todir="${liferay.home}/deploy" />
+						</then>
+					</elseif>
+				</if>
 			</sequential>
 		</for>
 	</target>
