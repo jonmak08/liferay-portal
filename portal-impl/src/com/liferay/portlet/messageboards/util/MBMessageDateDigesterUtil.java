@@ -41,16 +41,16 @@ public class MBMessageDateDigesterUtil {
 		String dbType = db.getType();
 
 		if (dbType.equals(DB.TYPE_MYSQL)) {
-			return _doDigestMySQLDate(date);
+			return _digestMySQLDate(date);
 		}
 
 		return date;
 	}
 
-	private static Date _doDigestMySQLDate(Date date) {
-		long modifiedDateTime = date.getTime();
+	private static Date _digestMySQLDate(Date date) {
+		long time = date.getTime();
 
-		long milliseconds = modifiedDateTime % 1000;
+		long milliseconds = time % 1000;
 
 		if (milliseconds > 0) {
 			Connection connection = null;
@@ -61,22 +61,21 @@ public class MBMessageDateDigesterUtil {
 				DatabaseMetaData databaseMetaData = connection.getMetaData();
 
 				int dbMajorVersion = databaseMetaData.getDatabaseMajorVersion();
-
 				int dbMinorVersion = databaseMetaData.getDatabaseMinorVersion();
 
 				if (((dbMajorVersion == 5) && (dbMinorVersion == 5)) ||
 					(Math.round((double)milliseconds / 1000) == 0)) {
 
-					modifiedDateTime -= milliseconds;
+					time -= milliseconds;
 				}
 				else {
-					modifiedDateTime += (1000 - milliseconds);
+					time += (1000 - milliseconds);
 				}
 
-				return new Date(modifiedDateTime);
+				return new Date(time);
 			}
 			catch (SQLException se) {
-				_log.error("Error while retrieving database version.", se);
+				_log.error("Unable to to get database version", se);
 			}
 			finally {
 				DataAccess.cleanUp(connection);
