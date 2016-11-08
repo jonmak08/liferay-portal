@@ -65,7 +65,7 @@ ArticleDisplayTerms displayTerms = (ArticleDisplayTerms)searchContainer.getDispl
 			<c:if test="<%= !portletName.equals(PortletKeys.JOURNAL) || ((themeDisplay.getScopeGroupId() == themeDisplay.getCompanyGroupId()) && (Validator.isNotNull(displayTerms.getStructureId()) || Validator.isNotNull(displayTerms.getTemplateId()))) %>">
 
 				<%
-				Group currentGroup = themeDisplay.getScopeGroup();
+				Group scopeGroup = themeDisplay.getScopeGroup();
 
 				List<Group> mySiteGroups = user.getMySiteGroups();
 
@@ -78,11 +78,11 @@ ArticleDisplayTerms displayTerms = (ArticleDisplayTerms)searchContainer.getDispl
 				<aui:select label="my-sites" name="<%= displayTerms.GROUP_ID %>" showEmptyOption="<%= (themeDisplay.getScopeGroupId() == themeDisplay.getCompanyGroupId()) && (Validator.isNotNull(displayTerms.getStructureId()) || Validator.isNotNull(displayTerms.getTemplateId())) %>">
 					<aui:option label="global" selected="<%= displayTerms.getGroupId() == themeDisplay.getCompanyGroupId() %>" value="<%= themeDisplay.getCompanyGroupId() %>" />
 
-					<aui:option label="<%= HtmlUtil.escape(currentGroup.getDescriptiveName(locale)) %>" selected="<%= displayTerms.getGroupId() == currentGroup.getGroupId() %>" value="<%= currentGroup.getGroupId() %>" />
+					<aui:option label="<%= HtmlUtil.escape(scopeGroup.getDescriptiveName(locale)) %>" selected="<%= displayTerms.getGroupId() == scopeGroup.getGroupId() %>" value="<%= scopeGroup.getGroupId() %>" />
 
 					<%
 					for (Group mySiteGroup : mySiteGroups) {
-						if ((mySiteGroup.getGroupId() == themeDisplay.getCompanyGroupId()) || (mySiteGroup.getGroupId() == currentGroup.getGroupId())) {
+						if ((mySiteGroup.getGroupId() == themeDisplay.getCompanyGroupId()) || (mySiteGroup.getGroupId() == scopeGroup.getGroupId())) {
 							continue;
 						}
 
@@ -97,17 +97,17 @@ ArticleDisplayTerms displayTerms = (ArticleDisplayTerms)searchContainer.getDispl
 					}
 
 					if (!scopeLayouts.isEmpty()) {
-						for (Layout curScopeLayout : scopeLayouts) {
-							Group scopeGroup = curScopeLayout.getScopeGroup();
+						for (Layout scopeLayout : scopeLayouts) {
+							Group scopeLayoutScopeGroup = scopeLayout.getScopeGroup();
 
-							String label = HtmlUtil.escape(curScopeLayout.getName(locale));
+							String label = HtmlUtil.escape(scopeLayout.getName(locale));
 
-							if (curScopeLayout.equals(layout)) {
+							if (scopeLayout.equals(layout)) {
 								label = LanguageUtil.get(pageContext, "current-page") + " (" + label + ")";
 							}
 							%>
 
-							<aui:option label="<%= label %>" selected="<%= displayTerms.getGroupId() == scopeGroup.getGroupId() %>" value="<%= scopeGroup.getGroupId() %>" />
+							<aui:option label="<%= label %>" selected="<%= displayTerms.getGroupId() == scopeLayoutScopeGroup.getGroupId() %>" value="<%= scopeLayoutScopeGroup.getGroupId() %>" />
 
 					<%
 						}
