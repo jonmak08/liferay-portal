@@ -44,13 +44,16 @@ public class ProcessOutputStream extends UnsyncByteArrayOutputStream {
 	@Override
 	public void flush() throws IOException {
 		if (index > 0) {
-			byte[] bytes = toByteArray();
+			byte[] logData = toByteArray();
 
-			byte[] logData = new byte[_logPrefix.length + bytes.length];
+			if (_logPrefix != null) {
+				byte[] bytes = logData;
+				logData = new byte[_logPrefix.length + bytes.length];
 
-			System.arraycopy(_logPrefix, 0, logData, 0, _logPrefix.length);
-			System.arraycopy(
-				bytes, 0, logData, _logPrefix.length, bytes.length);
+				System.arraycopy(_logPrefix, 0, logData, 0, _logPrefix.length);
+				System.arraycopy(
+					bytes, 0, logData, _logPrefix.length, bytes.length);
+			}
 
 			LoggingProcessCallable loggingProcessCallable =
 				new LoggingProcessCallable(logData, _error);
