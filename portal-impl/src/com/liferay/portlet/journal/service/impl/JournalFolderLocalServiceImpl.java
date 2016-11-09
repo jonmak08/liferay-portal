@@ -47,6 +47,7 @@ import com.liferay.portlet.journal.model.JournalArticle;
 import com.liferay.portlet.journal.model.JournalFolder;
 import com.liferay.portlet.journal.model.JournalFolderConstants;
 import com.liferay.portlet.journal.service.base.JournalFolderLocalServiceBaseImpl;
+import com.liferay.portlet.journal.util.JournalValidatorUtil;
 import com.liferay.portlet.journal.util.comparator.FolderIdComparator;
 import com.liferay.portlet.social.model.SocialActivityConstants;
 import com.liferay.portlet.trash.model.TrashEntry;
@@ -1107,7 +1108,7 @@ public class JournalFolderLocalServiceImpl
 			long folderId, long groupId, long parentFolderId, String name)
 		throws PortalException, SystemException {
 
-		validateFolderName(name);
+		JournalValidatorUtil.validateFolderName(name);
 
 		JournalFolder folder = journalFolderPersistence.fetchByG_P_N(
 			groupId, parentFolderId, name);
@@ -1116,15 +1117,4 @@ public class JournalFolderLocalServiceImpl
 			throw new DuplicateFolderNameException(name);
 		}
 	}
-
-	protected void validateFolderName(String name) throws PortalException {
-		if (!AssetUtil.isValidWord(name)) {
-			throw new FolderNameException();
-		}
-
-		if (name.contains("\\\\") || name.contains("//")) {
-			throw new FolderNameException();
-		}
-	}
-
 }
