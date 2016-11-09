@@ -14,7 +14,6 @@
 
 package com.liferay.portlet.wiki.social;
 
-import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.test.ExecutionTestListeners;
 import com.liferay.portal.service.ServiceTestUtil;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
@@ -89,10 +88,9 @@ public class WikiActivityInterpreterTest
 
 	@Override
 	protected void moveModelsToTrash() throws Exception {
-		FileEntry fileEntry =
-			WikiPageLocalServiceUtil.movePageAttachmentToTrash(
-				TestPropsValues.getUserId(), _page.getNodeId(),
-				_page.getTitle(), _attachmentFileName);
+		WikiPageLocalServiceUtil.movePageAttachmentToTrash(
+			TestPropsValues.getUserId(), _page.getNodeId(), _page.getTitle(),
+			_attachmentFileName);
 
 		WikiPageLocalServiceUtil.movePageToTrash(
 			TestPropsValues.getUserId(), _page);
