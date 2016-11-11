@@ -167,7 +167,7 @@
 	&.smartphone, &.tablet {
 		padding: 0;
 
-		&:after, &:before {
+		&:after, &:before {
 			display: none;
 		}
 	}
