@@ -18,8 +18,11 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.journal.FolderNameException;
 
-public final class JournalValidatorImpl implements JournalValidator{
-	
+/**
+ * @author David Zhang
+ */
+public final class JournalValidatorImpl implements JournalValidator {
+
 	@Override
 	public boolean isValidName(String name) {
 		if (Validator.isNull(name)) {
@@ -43,4 +46,5 @@ public final class JournalValidatorImpl implements JournalValidator{
 			throw new FolderNameException(folderName);
 		}
 	}
+
 }
