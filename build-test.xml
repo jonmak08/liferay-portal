@@ -85,7 +85,7 @@
 
 					<zip basedir="${tstamp.value}" destfile="${test.build.liferay.portal.zip.file.name}" update="true">
 						<patternset>
-							<include name="WEB-INF/classes/portal-ext.properties"/>
+							<include name="WEB-INF/classes/portal-ext.properties" />
 						</patternset>
 					</zip>
 
@@ -101,7 +101,7 @@
 
 					<unzip src="${test.build.liferay.portal.zip.file.name}" dest="${tstamp.value}">
 						<patternset>
-							<include name="WEB-INF/classes/portal-ext.properties"/>
+							<include name="WEB-INF/classes/portal-ext.properties" />
 						</patternset>
 					</unzip>
 
