@@ -230,7 +230,6 @@ AUI.add(
 						var showReorderToolbar = sideColumn.all('option').size() > 1;
 
 						sideReorderToolbar.toggle(showReorderToolbar);
-
 					},
 
 					_toggleReorderToolbars: function() {
