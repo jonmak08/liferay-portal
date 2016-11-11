@@ -39,6 +39,7 @@ import com.liferay.portal.kernel.upload.UploadException;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.FileUtil;
+import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
@@ -809,7 +810,8 @@ public class EditLayoutsAction extends PortletAction {
 					StringPool.DOUBLE_DASH;
 
 			String value = ParamUtil.getString(
-				actionRequest, property, themeSetting.getValue());
+				actionRequest, HtmlUtil.escapeAttribute(property),
+				themeSetting.getValue());
 
 			if (!Validator.equals(
 					value,
