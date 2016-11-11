@@ -116,7 +116,7 @@ AUI.add(
 						}
 
 						instance._moveItem(from, to, sort);
-						instance._toggleReorders();
+						instance._toggleReorderToolbars();
 					},
 
 					_afterOrderClick: function(event, box) {
@@ -222,40 +222,35 @@ AUI.add(
 
 							instance._rightReorderToolbar = new A.Toolbar(CONFIG_REORDER).render(rightColumn);
 						}
-						
-						instance._toggleReorders();
+
+						instance._toggleReorderToolbars();
 					},
-					
-					_toggleReorder: function(sideReorderToolbar, sideColumn) {
-						 
- 						if (!sideReorderToolbar || !sideColumn) {
- 							return;
- 						}
- 
- 						if (sideColumn.all('option').size() < 2) {
- 							sideReorderToolbar.hide();
- 						}
- 						else {
- 							sideReorderToolbar.show();
- 						}
- 
- 					},
- 					
- 					_toggleReorders: function() {
- 						var instance = this;
- 
- 						var contentBox = instance.get('contentBox');
- 
- 						var leftReorderToolbar = instance._leftReorderToolbar;
- 						var rightReorderToolbar = instance._rightReorderToolbar;
- 
- 						var leftColumn = contentBox.one('.left-selector-column');
- 						var rightColumn = contentBox.one('.right-selector-column');
- 
- 						instance._toggleReorder(leftReorderToolbar, leftColumn);
- 						instance._toggleReorder(rightReorderToolbar, rightColumn);
- 					}
- 				}
+
+					_toggleReorderToolbar: function(sideReorderToolbar, sideColumn) {
+						var showReorderToolbar = sideColumn.all('option').size() > 1;
+
+						sideReorderToolbar.toggle(showReorderToolbar);
+
+					},
+
+					_toggleReorderToolbars: function() {
+						var instance = this;
+
+						var contentBox = instance.get('contentBox');
+
+						if (instance.get('leftReorder')) {
+							var leftColumn = contentBox.one('.left-selector-column');
+
+							instance._toggleReorderToolbar(instance._leftReorderToolbar, leftColumn);
+						}
+
+						if (instance.get('rightReorder')) {
+							var rightColumn = contentBox.one('.right-selector-column');
+
+							instance._toggleReorderToolbar(instance._rightReorderToolbar, rightColumn);
+						}
+					}
+				}
 			}
 		);
 
