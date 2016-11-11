@@ -17,7 +17,12 @@
 								/>
 							</path>
 						</pathconvert>
+					</then>
+				</if>
 
+				<if>
+					<isset property="extraapps.zip" />
+					<then>
 						<unzip
 							dest="${liferay.home}/deploy"
 							src="${extraapps.zip}"
