@@ -99,7 +99,7 @@
 
 					<mkdir dir="${tstamp.value}" />
 
-					<unzip src="${test.build.liferay.portal.zip.file.name}" dest="${tstamp.value}">
+					<unzip dest="${tstamp.value}" src="${test.build.liferay.portal.zip.file.name}">
 						<patternset>
 							<include name="WEB-INF/classes/portal-ext.properties" />
 						</patternset>
