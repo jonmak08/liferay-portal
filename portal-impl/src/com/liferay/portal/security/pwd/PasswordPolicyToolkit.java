@@ -41,24 +41,24 @@ import java.util.Random;
 public class PasswordPolicyToolkit extends BasicToolkit {
 
 	public PasswordPolicyToolkit() {
-		_lowerCaseCharsetArray = getSortedCharArray(
+		_validatorLowerCaseCharsetArray = getSortedCharArray(
 			PropsValues.
 				PASSWORDS_PASSWORDPOLICYTOOLKIT_VALIDATOR_CHARSET_LOWERCASE);
-		_numbersCharsetArray = getSortedCharArray(
+		_validatorNumbersCharsetArray = getSortedCharArray(
 			PropsValues.
 				PASSWORDS_PASSWORDPOLICYTOOLKIT_VALIDATOR_CHARSET_NUMBERS);
-		_symbolsCharsetArray = getSortedCharArray(
+		_validatorSymbolsCharsetArray = getSortedCharArray(
 			PropsValues.
 				PASSWORDS_PASSWORDPOLICYTOOLKIT_VALIDATOR_CHARSET_SYMBOLS);
-		_upperCaseCharsetArray = getSortedCharArray(
+		_validatorUpperCaseCharsetArray = getSortedCharArray(
 			PropsValues.
 				PASSWORDS_PASSWORDPOLICYTOOLKIT_VALIDATOR_CHARSET_UPPERCASE);
 
-		_alphanumericCharsetArray = ArrayUtil.append(
-			_lowerCaseCharsetArray, _upperCaseCharsetArray,
-			_numbersCharsetArray);
+		_validatorAlphanumericCharsetArray = ArrayUtil.append(
+			_validatorLowerCaseCharsetArray, _validatorUpperCaseCharsetArray,
+			_validatorNumbersCharsetArray);
 
-		Arrays.sort(_alphanumericCharsetArray);
+		Arrays.sort(_validatorAlphanumericCharsetArray);
 
 		_generatorLowerCaseCharsetArray = getSortedCharArray(
 			PropsValues.
@@ -128,15 +128,15 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 					UserPasswordException.PASSWORD_LENGTH);
 			}
 
-			if ((getUsageCount(password1, _alphanumericCharsetArray) <
+			if ((getUsageCount(password1, _validatorAlphanumericCharsetArray) <
 					passwordPolicy.getMinAlphanumeric()) ||
-				(getUsageCount(password1, _lowerCaseCharsetArray) <
+				(getUsageCount(password1, _validatorLowerCaseCharsetArray) <
 					passwordPolicy.getMinLowerCase()) ||
-				(getUsageCount(password1, _numbersCharsetArray) <
+				(getUsageCount(password1, _validatorNumbersCharsetArray) <
 					passwordPolicy.getMinNumbers()) ||
-				(getUsageCount(password1, _symbolsCharsetArray) <
+				(getUsageCount(password1, _validatorSymbolsCharsetArray) <
 					passwordPolicy.getMinSymbols()) ||
-				(getUsageCount(password1, _upperCaseCharsetArray) <
+				(getUsageCount(password1, _validatorUpperCaseCharsetArray) <
 					passwordPolicy.getMinUpperCase())) {
 
 				throw new UserPasswordException(
@@ -301,7 +301,7 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 		return count;
 	}
 
-	private char[] _alphanumericCharsetArray;
+	private char[] _validatorAlphanumericCharsetArray;
 	private char[] _generatorAlphanumericCharsetArray;
 	//private String _completeCharset;
 	private String _generatorCompleteCharset;
@@ -309,9 +309,9 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 	private char[] _generatorNumbersCharsetArray;
 	private char[] _generatorSymbolsCharsetArray;
 	private char[] _generatorUpperCaseCharsetArray;
-	private char[] _lowerCaseCharsetArray;
-	private char[] _numbersCharsetArray;
-	private char[] _symbolsCharsetArray;
-	private char[] _upperCaseCharsetArray;
+	private char[] _validatorLowerCaseCharsetArray;
+	private char[] _validatorNumbersCharsetArray;
+	private char[] _validatorSymbolsCharsetArray;
+	private char[] _validatorUpperCaseCharsetArray;
 
 }
