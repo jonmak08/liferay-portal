@@ -305,13 +305,13 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 	private char[] _generatorAlphanumericCharsetArray;
 	//private String _completeCharset;
 	private String _generatorCompleteCharset;
-	private char[] _lowerCaseCharsetArray;
 	private char[] _generatorLowerCaseCharsetArray;
-	private char[] _numbersCharsetArray;
 	private char[] _generatorNumbersCharsetArray;
-	private char[] _symbolsCharsetArray;
 	private char[] _generatorSymbolsCharsetArray;
-	private char[] _upperCaseCharsetArray;
 	private char[] _generatorUpperCaseCharsetArray;
+	private char[] _lowerCaseCharsetArray;
+	private char[] _numbersCharsetArray;
+	private char[] _symbolsCharsetArray;
+	private char[] _upperCaseCharsetArray;
 
 }
