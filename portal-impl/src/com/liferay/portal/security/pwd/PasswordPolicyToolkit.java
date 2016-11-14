@@ -95,7 +95,6 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 			_validatorNumbersCharsetArray);
 
 		Arrays.sort(_validatorAlphanumericCharsetArray);
-
 	}
 
 	@Override
@@ -302,7 +301,6 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 		return count;
 	}
 
-	private char[] _validatorAlphanumericCharsetArray;
 	private char[] _generatorAlphanumericCharsetArray;
 	//private String _completeCharset;
 	private String _generatorCompleteCharset;
@@ -310,6 +308,7 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 	private char[] _generatorNumbersCharsetArray;
 	private char[] _generatorSymbolsCharsetArray;
 	private char[] _generatorUpperCaseCharsetArray;
+	private char[] _validatorAlphanumericCharsetArray;
 	private char[] _validatorLowerCaseCharsetArray;
 	private char[] _validatorNumbersCharsetArray;
 	private char[] _validatorSymbolsCharsetArray;
