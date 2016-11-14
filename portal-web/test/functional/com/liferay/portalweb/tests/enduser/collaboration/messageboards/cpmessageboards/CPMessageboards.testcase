@@ -66,6 +66,49 @@
 		</execute>
 	</command>
 
+	<command name="DeleteMBThreadWithAttachment" priority="3">
+		<property name="custom.properties" value="trash.entry.check.interval=1${line.separator}trash.entries.max.age=1" />
+
+		<execute macro="Page#gotoCP">
+			<var name="portletName" value="Sites" />
+		</execute>
+
+		<execute macro="Site#addBlankCP">
+			<var name="siteName" value="Site Name" />
+		</execute>
+
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Message Boards" />
+			<var name="siteName" value="Site Name" />
+		</execute>
+
+		<execute macro="MessageboardsThread#addCPWithAttachment">
+			<var name="mbThreadAttachment" value="Document_1.doc" />
+			<var name="threadBody" value="MB Thread Message Body" />
+			<var name="threadSubject" value="MB Thread Message Subject" />
+		</execute>
+
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Message Boards" />
+			<var name="siteName" value="Site Name" />
+		</execute>
+
+		<execute macro="MessageboardsThread#moveToRecycleBinCP">
+			<var name="threadSubject" value="MB Thread Message Subject" />
+		</execute>
+
+		<execute function="Pause" locator1="120000" />
+
+		<execute function="AssertConsoleTextNotPresent" value1="MessageListenerException" />
+		<execute function="AssertConsoleTextNotPresent" value1="com.liferay.portlet.documentlibrary.NoSuchFileEntryException" />
+
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Recycle Bin" />
+		</execute>
+
+		<execute function="AssertTextEquals" locator1="CPRecyclebin#INFO_MESSAGE" value1="The Recycle Bin is empty." />
+	</command>
+
 	<command name="EditMBThread" priority="5">
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Message Boards" />

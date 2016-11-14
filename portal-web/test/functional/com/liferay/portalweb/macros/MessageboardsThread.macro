@@ -14,6 +14,27 @@
 		<execute function="AssertTextEquals#assertText" locator1="CPMessageboardsThread#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
+	<command name="addCPWithAttachment">
+		<execute function="AssertClick" locator1="CPMessageboards#POST_NEW_THREAD_BUTTON" value1="Post New Thread" />
+
+		<execute function="Type" locator1="CPMessageboardsPostthread#SUBJECT_FIELD" value1="${threadSubject}" />
+
+		<execute function="Type#typeCKEditor" locator1="CPMessageboardsPostthread#BODY_FIELD" value1="${threadBody}" />
+
+		<if>
+			<condition function="IsElementPresent" locator1="PGMessageboardsPostthread#ATTACHMENTS_DROPDOWN_COLLAPSED" />
+			<then>
+				<execute function="AssertClick" locator1="PGMessageboardsPostthread#ATTACHMENTS_DROPDOWN" value1="Attachments" />
+			</then>
+		</if>
+
+		<execute function="UploadCommonFile" locator1="PGMessageboardsPostthread#ATTACHMENTS_FILE_FIELD_1" value1="${mbThreadAttachment}" />
+
+		<execute function="AssertClick" locator1="CPMessageboardsPostthread#PUBLISH_BUTTON" value1="Publish" />
+
+		<execute function="AssertTextEquals#assertText" locator1="CPMessageboardsThread#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+	</command>
+
 	<command name="addInvalidAttachmentPG">
 		<execute function="Click" locator1="PGMessageboards#POST_NEW_THREAD_BUTTON" />
 
