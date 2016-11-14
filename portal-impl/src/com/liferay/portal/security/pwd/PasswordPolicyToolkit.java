@@ -302,7 +302,6 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 	}
 
 	private char[] _generatorAlphanumericCharsetArray;
-	//private String _completeCharset;
 	private String _generatorCompleteCharset;
 	private char[] _generatorLowerCaseCharsetArray;
 	private char[] _generatorNumbersCharsetArray;
