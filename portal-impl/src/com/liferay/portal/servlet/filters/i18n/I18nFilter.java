@@ -15,10 +15,10 @@
 package com.liferay.portal.servlet.filters.i18n;
 
 import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.servlet.HttpMethods;
 import com.liferay.portal.kernel.util.CookieKeys;
 import com.liferay.portal.kernel.util.LocaleUtil;
@@ -28,6 +28,7 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.LayoutSet;
 import com.liferay.portal.model.User;
+import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.servlet.filters.BasePortalFilter;
 import com.liferay.portal.util.PortalUtil;
 import com.liferay.portal.util.PropsValues;
@@ -235,6 +236,13 @@ public class I18nFilter extends BasePortalFilter {
 		catch (PortalException pe) {
 			if (_log.isDebugEnabled()) {
 				pe.printStackTrace();
+			}
+
+			return StringPool.BLANK;
+		}
+		catch (SystemException se) {
+			if (_log.isDebugEnabled()) {
+				se.printStackTrace();
 			}
 
 			return StringPool.BLANK;
