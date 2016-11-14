@@ -530,6 +530,22 @@ public class VerifyProperties extends VerifyProcess {
 			"velocity.engine.restricted.variables"
 		},
 		new String[] {
+			"passwords.passwordpolicytoolkit.charset.lowercase",
+			"passwords.passwordpolicytoolkit.validator.charset.lowercase"
+		},
+		new String[] {
+			"passwords.passwordpolicytoolkit.charset.numbers",
+			"passwords.passwordpolicytoolkit.validator.charset.numbers"
+		},
+		new String[] {
+			"passwords.passwordpolicytoolkit.charset.symbols",
+			"passwords.passwordpolicytoolkit.validator.charset.symbols"
+		},
+		new String[] {
+			"passwords.passwordpolicytoolkit.charset.uppercase",
+			"passwords.passwordpolicytoolkit.validator.charset.uppercase"
+		},
+		new String[] {
 			"referer.url.domains.allowed", "redirect.url.domains.allowed"
 		},
 		new String[] {

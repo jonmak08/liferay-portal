@@ -42,13 +42,17 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 
 	public PasswordPolicyToolkit() {
 		_lowerCaseCharsetArray = getSortedCharArray(
-			PropsValues.PASSWORDS_PASSWORDPOLICYTOOLKIT_CHARSET_LOWERCASE);
+			PropsValues.
+				PASSWORDS_PASSWORDPOLICYTOOLKIT_VALIDATOR_CHARSET_LOWERCASE);
 		_numbersCharsetArray = getSortedCharArray(
-			PropsValues.PASSWORDS_PASSWORDPOLICYTOOLKIT_CHARSET_NUMBERS);
+			PropsValues.
+				PASSWORDS_PASSWORDPOLICYTOOLKIT_VALIDATOR_CHARSET_NUMBERS);
 		_symbolsCharsetArray = getSortedCharArray(
-			PropsValues.PASSWORDS_PASSWORDPOLICYTOOLKIT_CHARSET_SYMBOLS);
+			PropsValues.
+				PASSWORDS_PASSWORDPOLICYTOOLKIT_VALIDATOR_CHARSET_SYMBOLS);
 		_upperCaseCharsetArray = getSortedCharArray(
-			PropsValues.PASSWORDS_PASSWORDPOLICYTOOLKIT_CHARSET_UPPERCASE);
+			PropsValues.
+				PASSWORDS_PASSWORDPOLICYTOOLKIT_VALIDATOR_CHARSET_UPPERCASE);
 
 		_alphanumericCharsetArray = ArrayUtil.append(
 			_lowerCaseCharsetArray, _upperCaseCharsetArray,
@@ -56,39 +60,28 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 
 		Arrays.sort(_alphanumericCharsetArray);
 
+		_generatorLowerCaseCharsetArray = getSortedCharArray(
+			PropsValues.
+				PASSWORDS_PASSWORDPOLICYTOOLKIT_GENERATOR_CHARSET_LOWERCASE);
+		_generatorNumbersCharsetArray = getSortedCharArray(
+			PropsValues.
+				PASSWORDS_PASSWORDPOLICYTOOLKIT_GENERATOR_CHARSET_NUMBERS);
+		_generatorSymbolsCharsetArray = getSortedCharArray(
+			PropsValues.
+				PASSWORDS_PASSWORDPOLICYTOOLKIT_GENERATOR_CHARSET_SYMBOLS);
+		_generatorUpperCaseCharsetArray = getSortedCharArray(
+			PropsValues.
+				PASSWORDS_PASSWORDPOLICYTOOLKIT_GENERATOR_CHARSET_UPPERCASE);
+
+		_generatorAlphanumericCharsetArray = ArrayUtil.append(
+			_generatorLowerCaseCharsetArray, _generatorUpperCaseCharsetArray,
+			_generatorNumbersCharsetArray);
+
+		Arrays.sort(_generatorAlphanumericCharsetArray);
+
 		StringBundler sb = new StringBundler(4);
 
 		sb.append(
-			PropsValues.PASSWORDS_PASSWORDPOLICYTOOLKIT_CHARSET_LOWERCASE);
-		sb.append(PropsValues.PASSWORDS_PASSWORDPOLICYTOOLKIT_CHARSET_NUMBERS);
-		sb.append(PropsValues.PASSWORDS_PASSWORDPOLICYTOOLKIT_CHARSET_SYMBOLS);
-		sb.append(
-			PropsValues.PASSWORDS_PASSWORDPOLICYTOOLKIT_CHARSET_UPPERCASE);
-
-		_completeCharset = sb.toString();
-
-		_lowerCaseGeneratorCharsetArray = getSortedCharArray(
-			PropsValues.
-				PASSWORDS_PASSWORDPOLICYTOOLKIT_GENERATOR_CHARSET_LOWERCASE);
-		_numbersGeneratorCharsetArray = getSortedCharArray(
-			PropsValues.
-				PASSWORDS_PASSWORDPOLICYTOOLKIT_GENERATOR_CHARSET_NUMBERS);
-		_symbolsGeneratorCharsetArray = getSortedCharArray(
-			PropsValues.
-				PASSWORDS_PASSWORDPOLICYTOOLKIT_GENERATOR_CHARSET_SYMBOLS);
-		_upperCaseGeneratorCharsetArray = getSortedCharArray(
-			PropsValues.
-				PASSWORDS_PASSWORDPOLICYTOOLKIT_GENERATOR_CHARSET_UPPERCASE);
-
-		_alphanumericGeneratorCharsetArray = ArrayUtil.append(
-			_lowerCaseGeneratorCharsetArray, _upperCaseGeneratorCharsetArray,
-			_numbersGeneratorCharsetArray);
-
-		Arrays.sort(_alphanumericGeneratorCharsetArray);
-
-		sb = new StringBundler(4);
-
-		sb.append(
 			PropsValues.
 				PASSWORDS_PASSWORDPOLICYTOOLKIT_GENERATOR_CHARSET_LOWERCASE);
 		sb.append(
@@ -101,7 +94,7 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 			PropsValues.
 				PASSWORDS_PASSWORDPOLICYTOOLKIT_GENERATOR_CHARSET_UPPERCASE);
 
-		_completeGeneratorCharset = sb.toString();
+		_generatorCompleteCharset = sb.toString();
 	}
 
 	@Override
@@ -218,35 +211,35 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 			sb.append(
 				getRandomString(
 					passwordPolicy.getMinLowerCase(),
-					_lowerCaseGeneratorCharsetArray));
+					_generatorLowerCaseCharsetArray));
 		}
 
 		if (passwordPolicy.getMinNumbers() > 0) {
 			sb.append(
 				getRandomString(
 					passwordPolicy.getMinNumbers(),
-					_numbersGeneratorCharsetArray));
+					_generatorNumbersCharsetArray));
 		}
 
 		if (passwordPolicy.getMinSymbols() > 0) {
 			sb.append(
 				getRandomString(
 					passwordPolicy.getMinSymbols(),
-					_symbolsGeneratorCharsetArray));
+					_generatorSymbolsCharsetArray));
 		}
 
 		if (passwordPolicy.getMinUpperCase() > 0) {
 			sb.append(
 				getRandomString(
 					passwordPolicy.getMinUpperCase(),
-					_upperCaseGeneratorCharsetArray));
+					_generatorUpperCaseCharsetArray));
 		}
 
 		if (alphanumericMinLength > alphanumericActualMinLength) {
 			int count = alphanumericMinLength - alphanumericActualMinLength;
 
 			sb.append(
-				getRandomString(count, _alphanumericGeneratorCharsetArray));
+				getRandomString(count, _generatorAlphanumericCharsetArray));
 		}
 
 		if (passwordMinLength >
@@ -257,13 +250,13 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 					(alphanumericMinLength + passwordPolicy.getMinSymbols());
 
 			sb.append(
-				PwdGenerator.getPassword(_completeGeneratorCharset, count));
+				PwdGenerator.getPassword(_generatorCompleteCharset, count));
 		}
 
 		if (sb.index() == 0) {
 			sb.append(
 				PwdGenerator.getPassword(
-					_completeGeneratorCharset,
+					_generatorCompleteCharset,
 					PropsValues.PASSWORDS_DEFAULT_POLICY_MIN_LENGTH));
 		}
 
@@ -309,16 +302,16 @@ public class PasswordPolicyToolkit extends BasicToolkit {
 	}
 
 	private char[] _alphanumericCharsetArray;
-	private char[] _alphanumericGeneratorCharsetArray;
-	private String _completeCharset;	
-	private String _completeGeneratorCharset;	
+	private char[] _generatorAlphanumericCharsetArray;
+	//private String _completeCharset;
+	private String _generatorCompleteCharset;
 	private char[] _lowerCaseCharsetArray;
-	private char[] _lowerCaseGeneratorCharsetArray;
+	private char[] _generatorLowerCaseCharsetArray;
 	private char[] _numbersCharsetArray;
-	private char[] _numbersGeneratorCharsetArray;
+	private char[] _generatorNumbersCharsetArray;
 	private char[] _symbolsCharsetArray;
-	private char[] _symbolsGeneratorCharsetArray;
+	private char[] _generatorSymbolsCharsetArray;
 	private char[] _upperCaseCharsetArray;
-	private char[] _upperCaseGeneratorCharsetArray;
+	private char[] _generatorUpperCaseCharsetArray;
 
 }
