@@ -20,7 +20,9 @@
 		</if>
 
 		<execute function="SelectFrame" locator1="PGBlogsConfiguration#CONFIGURATION_IFRAME" />
+
 		<execute function="Select" locator1="PGBlogsConfiguration#DISPLAY_SETTINGS_DISPLAY_TEMPLATE_MENULIST" value1="${displaySelection}" />
+
 		<execute function="AssertClick" locator1="PGBlogsConfiguration#SAVE_BUTTON" value1="Save" />
 
 		<execute function="AssertElementPresent" locator1="PGBlogsConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
@@ -43,8 +45,11 @@
 		</if>
 
 		<execute function="SelectFrame" locator1="PGBlogsConfiguration#CONFIGURATION_IFRAME" />
+
 		<execute function="Select" locator1="PGBlogsConfiguration#DISPLAY_SETTINGS_MAXIMUM_ITEMS_TO_DISPLAY_SELECT" value1="${maximumItemsToDisplay}" />
+
 		<execute function="AssertClick" locator1="PGBlogsConfiguration#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertElementPresent" locator1="PGBlogsConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
 	</command>
 
@@ -56,7 +61,9 @@
 		<var name="key_contentScopeName" value="${contentScopeName}" />
 
 		<execute function="Click" locator1="Home#CONTENT_SCOPE_SELECTOR" />
+
 		<execute function="AssertClick" locator1="Home#CONTENT_SCOPE_SELECTOR_MENULIST_ITEM" value1="${contentScopeName}" />
+
 		<execute function="AssertTextEquals" locator1="Home#CONTENT_SCOPE_SELECTOR" value1="${contentScopeName}" />
 	</command>
 
@@ -83,6 +90,7 @@
 		<var name="key_scopeSelection" value="${scopeSelection}" />
 
 		<execute function="Click#pauseClickAt" locator1="PGBlogsConfigurationScope#SCOPE_MENULIST" />
+
 		<execute function="AssertClick#assertPartialTextClickAt" locator1="PGBlogsConfigurationScope#SCOPE_MENULIST_SELECTION" value1="${scopeSelection}" />
 
 		<execute function="AssertTextEquals" locator1="PGBlogsConfigurationScope#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
@@ -157,6 +165,7 @@
 
 	<command name="subscribePG">
 		<execute function="AssertClick" locator1="PGBlogs#SUBSCRIBE_LINK" value1="Subscribe" />
+
 		<execute function="AssertTextEquals" locator1="PGBlogs#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -185,7 +194,9 @@
 		</if>
 
 		<execute function="SelectFrame" locator1="PGBlogsConfiguration#CONFIGURATION_IFRAME" />
+
 		<execute function="Select" locator1="PGBlogsConfiguration#DISPLAY_SETTINGS_DISPLAY_TEMPLATE_MENULIST" value1="Full Content" />
+
 		<execute function="AssertClick" locator1="PGBlogsConfiguration#SAVE_BUTTON" value1="Save" />
 
 		<execute function="AssertElementPresent" locator1="PGBlogsConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
@@ -216,6 +227,7 @@
 		</execute>
 
 		<execute function="AssertClick" locator1="PGBlogs#UNSUBSCRIBE_LINK" value1="Unsubscribe" />
+
 		<execute function="AssertTextEquals" locator1="PGBlogs#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
@@ -285,6 +297,7 @@
 		<execute function="SelectFrame" locator1="BasePortletConfiguration#CONFIGURATION_IFRAME" />
 
 		<execute function="AssertClick" locator1="PGBlogsConfigurationScope#NAVIGATION_SCOPE" value1="Scope" />
+
 		<execute function="AssertTextEquals" locator1="PGBlogsConfigurationScope#SCOPE_MENULIST" value1="${scopeSelection}" />
 	</command>
 

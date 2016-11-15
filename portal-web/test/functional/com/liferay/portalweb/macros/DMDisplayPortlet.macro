@@ -3,9 +3,13 @@
 		<var name="key_documentsPerPage" value="${documentsPerPage}" />
 
 		<execute function="SelectFrame" locator1="PGDocumentlibrarydisplayConfiguration#DOCUMENTS_AND_MEDIA_DISPLAY_IFRAME" />
+
 		<execute function="Type" locator1="PGDocumentlibrarydisplayConfiguration#SETUP_DOCUMENTS_LISTING_DOCUMENTS_PER_PAGE_FIELD" value1="${documentsPerPage}" />
+
 		<execute function="AssertClick" locator1="PGDocumentlibrarydisplayConfiguration#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="PGDocumentlibrarydisplayConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 

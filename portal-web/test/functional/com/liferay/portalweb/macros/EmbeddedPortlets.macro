@@ -9,6 +9,7 @@
 		</execute>
 
 		<execute function="Check" locator1="Dockbar#EMBEDDED_PORTLETS_CHECKBOX_1" />
+
 		<execute function="AssertClick" locator1="Dockbar#EDIT_SAVE_BUTTON" value1="Save" />
 	</command>
 

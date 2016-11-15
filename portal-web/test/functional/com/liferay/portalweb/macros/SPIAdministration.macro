@@ -13,7 +13,9 @@
 					<var name="key_portletName" value="${portletName}" />
 
 					<execute function="Select" locator1="SPIAdministrationAdd#SPI_CONFIGURATIONS_SPI_APPLICATIONS_AVAILABLE_SELECT" value1="${portletName}" />
+
 					<execute function="Click" locator1="SPIAdministrationAdd#SPI_CONFIGURATIONS_SPI_APPLICATIONS_MOVE_SELECTED_ITEMS_FROM_AVAILABLE_TO_CURRENT_BUTTON" />
+
 					<execute function="AssertTextEquals#assertValue" locator1="SPIAdministrationAdd#SPI_CONFIGURATIONS_SPI_APPLICATIONS_CURRENT_SELECT" value1="${portletName}" />
 				</for>
 			</then>
@@ -35,26 +37,33 @@
 					<var name="key_portletName" value="${portletName}" />
 
 					<execute function="Select" locator1="SPIAdministrationAdd#ADVANCED_CONFIGURATIONS_SPI_CORE_APPLICATIONS_AVAILABLE_SELECT" value1="${portletName}" />
+
 					<execute function="Click" locator1="SPIAdministrationAdd#ADVANCED_CONFIGURATIONS_SPI_CORE_APPLICATIONS_MOVE_SELECTED_ITEMS_FROM_AVAILABLE_TO_CURRENT_BUTTON" />
+
 					<execute function="AssertTextEquals" locator1="SPIAdministrationAdd#ADVANCED_CONFIGURATIONS_SPI_CORE_APPLICATIONS_CURRENT_SELECT" value1="${portletName}" />
 				</for>
 			</then>
 		</if>
 
 		<execute function="AssertClick" locator1="SPIAdministrationAdd#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="SPIAdministration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
 	<command name="configureEmailNotificationsCP">
 		<execute function="AssertClick" locator1="SPIAdministration#OPTIONS_WRENCH_ICON" value1="Options" />
+
 		<execute function="AssertClick" locator1="SPIAdministration#OPTIONS_MENULIST_CONFIGURATION" value1="Configuration" />
 
 		<execute function="SelectFrame" locator1="SPIAdministrationConfiguration#CONFIGURATION_IFRAME" />
 
 		<execute function="Type" locator1="SPIAdministrationConfiguration#RECOVERY_OPTIONS_NOTIFICATION_OPTIONS_NOTIFICATION_RECIPIENTS_FIELD" value1="${notificationRecipients}" />
 		<execute function="Type" locator1="SPIAdministrationConfiguration#RECOVERY_OPTIONS_RESTART_OPTIONS_MAX_RESTART_ATTEMPTS_FIELD" value1="${maxRestartAttempts}" />
+
 		<execute function="AssertClick" locator1="SPIAdministrationConfiguration#SAVE_BUTTON" value1="Save" />
+
 		<execute function="AssertTextEquals" locator1="SPIAdministrationConfiguration#SUCCESS_MESSAGE" value1="You have successfully updated the setup." />
+
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
@@ -65,7 +74,9 @@
 		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="${spiStatus}" />
 
 		<execute function="AssertClick" locator1="SPIAdministration#SPI_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="SPIAdministration#ACTION_MENULIST_START" value1="Start" />
+
 		<execute function="AssertTextEquals" locator1="SPIAdministration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 		<execute function="Pause" locator1="90000" />
@@ -80,7 +91,9 @@
 		<execute function="AssertTextEquals" locator1="SPIAdministration#SPI_TABLE_STATUS" value1="${spiStatus}" />
 
 		<execute function="AssertClick" locator1="SPIAdministration#SPI_TABLE_ACTIONS" value1="Actions" />
+
 		<execute function="AssertClick" locator1="SPIAdministration#ACTION_MENULIST_STOP" value1="Stop" />
+
 		<execute function="AssertTextEquals" locator1="SPIAdministration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 
 		<execute function="Pause" locator1="90000" />
@@ -99,8 +112,11 @@
 			<condition function="IsElementPresent" locator1="SPIAdministration#SPI_TABLE_ACTIONS_1" />
 			<then>
 				<execute function="AssertClick" locator1="SPIAdministration#SPI_TABLE_ACTIONS_1" value1="Actions" />
+
 				<execute function="AssertClickNoError" locator1="SPIAdministration#ACTION_MENULIST_DELETE" value1="Delete" />
+
 				<execute function="Confirm" value1="Are you sure you want to delete this? It will be deleted immediately." />
+
 				<execute function="AssertTextEquals" locator1="SPIAdministration#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 			</then>
 		</while>

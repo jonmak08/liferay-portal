@@ -3,6 +3,7 @@
 		<execute function="Click" locator1="PGAnnouncements#NAVIGATION_MANAGE_ENTRIES" />
 
 		<execute function="Select#selectAndWait" locator1="PGAnnouncementsManageentries#DISTRIBUTION_SCOPE_SELECT" value1="${distributionScope}" />
+
 		<execute function="AssertClick" locator1="PGAnnouncementsManageentries#ADD_ENTRY_BUTTON" value1="Add Entry" />
 
 		<execute function="Type" locator1="PGAnnouncementsAddentry#TITLE_FIELD" value1="${entryTitle}" />
@@ -20,7 +21,9 @@
 			<isset var="expirationDate" />
 			<then>
 				<execute function="Pause" locator1="3000" />
+
 				<execute function="Type#clickAtSendKeys" locator1="PGAnnouncementsAddentry#EXPIRATION_DATE_DATE_INPUT" value1="${expirationDate}" />
+
 				<execute function="Pause" locator1="3000" />
 			</then>
 		</if>
@@ -33,7 +36,9 @@
 
 		<execute function="AssertTextEquals" locator1="PGAnnouncements#ENTRY_TITLE" value1="${entryTitle}" />
 		<execute function="AssertTextEquals" locator1="PGAnnouncements#ENTRY_CONTENT" value1="${distributionScope} ${entryContent}" />
+
 		<execute function="AssertClickNoError" locator1="PGAnnouncements#ENTRY_DELETE" value1="Delete" />
+
 		<execute function="Confirm" value1="Are you sure you want to delete this? It will be deleted immediately." />
 
 		<execute function="AssertTextNotPresent" value1="{entryTitle}" />
@@ -45,11 +50,13 @@
 
 		<execute function="AssertTextEquals" locator1="PGAnnouncements#ENTRY_TITLE" value1="${entryTitle}" />
 		<execute function="AssertTextEquals" locator1="PGAnnouncements#ENTRY_CONTENT" value1="${distributionScope} ${entryContent}" />
+
 		<execute function="Click" locator1="PGAnnouncements#ENTRY_EDIT" />
 
 		<execute function="Type" locator1="PGAnnouncementsAddentry#TITLE_FIELD" value1="${entryTitleEdit}" />
 		<execute function="Type" locator1="PGAnnouncementsAddentry#URL_FIELD" value1="${entryURLEdit}" />
 		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="PGAnnouncementsAddentry#CONTENT_FIELD" value1="${entryContentEdit}" />
+
 		<execute function="AssertClick" locator1="PGAnnouncementsAddentry#SAVE_BUTTON" value1="Save" />
 	</command>
 
@@ -63,6 +70,7 @@
 		<var name="key_entryTitle" value="${entryTitle}" />
 
 		<execute function="AssertClick" locator1="PGAnnouncements#ENTRY_MARK_AS_READ" value1="Mark as Read" />
+
 		<execute function="Refresh" />
 	</command>
 
@@ -89,7 +97,9 @@
 			<condition function="IsElementPresent" locator1="PGAnnouncementsManageentries#ENTRY_TABLE_ACTIONS_GENERIC" />
 			<then>
 				<execute function="AssertClick" locator1="PGAnnouncementsManageentries#ENTRY_TABLE_ACTIONS_GENERIC" value1="Actions" />
+
 				<execute function="AssertClickNoError" locator1="PGAnnouncementsManageentries#ACTIONS_MENULIST_DELETE" value1="Delete" />
+
 				<execute function="Confirm" value1="Are you sure you want to delete this? It will be deleted immediately." />
 			</then>
 		</while>
@@ -106,9 +116,11 @@
 		<execute function="AssertTextEquals" locator1="PGAnnouncements#ENTRY_TITLE" value1="${entryTitleEdit}" />
 		<execute function="AssertTextEquals" locator1="PGAnnouncements#ENTRY_SCOPE" value1="${distributionScope}" />
 		<execute function="AssertTextEquals" locator1="PGAnnouncements#ENTRY_CONTENT" value1="${distributionScope} ${entryContentEdit}" />
+
 		<execute function="Click" locator1="PGAnnouncements#NAVIGATION_MANAGE_ENTRIES" />
 
 		<execute function="Select#selectAndWait" locator1="PGAnnouncementsManageentries#DISTRIBUTION_SCOPE_SELECT" value1="${distributionScope}" />
+
 		<execute function="AssertTextEquals" locator1="PGAnnouncementsManageentries#ENTRY_TABLE_TITLE" value1="${entryTitleEdit}" />
 		<execute function="AssertTextEquals" locator1="PGAnnouncementsManageentries#ENTRY_TABLE_TYPE" value1="${distributionScope}" />
 	</command>
@@ -133,9 +145,11 @@
 		<execute function="AssertTextEquals" locator1="PGAnnouncements#ENTRY_TITLE" value1="${entryTitle}" />
 		<execute function="AssertTextEquals" locator1="PGAnnouncements#ENTRY_SCOPE" value1="${distributionScope}" />
 		<execute function="AssertTextEquals" locator1="PGAnnouncements#ENTRY_CONTENT" value1="${distributionScope} ${entryContent}" />
+
 		<execute function="Click" locator1="PGAnnouncements#NAVIGATION_MANAGE_ENTRIES" />
 
 		<execute function="Select#selectAndWait" locator1="PGAnnouncementsManageentries#DISTRIBUTION_SCOPE_SELECT" value1="${distributionScope}" />
+
 		<execute function="AssertTextEquals" locator1="PGAnnouncementsManageentries#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
 		<execute function="AssertTextEquals" locator1="PGAnnouncementsManageentries#ENTRY_TABLE_TYPE" value1="${announcementType}" />
 	</command>
