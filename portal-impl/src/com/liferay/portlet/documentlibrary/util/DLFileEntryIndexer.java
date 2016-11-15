@@ -627,7 +627,8 @@ public class DLFileEntryIndexer extends BaseIndexer {
 
 		actionableDynamicQuery.setCompanyId(companyId);
 		actionableDynamicQuery.setGroupId(groupId);
-		actionableDynamicQuery.setInterval(_DEFAULT_REINDEX_INTERVAL);
+		actionableDynamicQuery.setInterval(
+			PropsValues.DL_FILE_INDEXING_INTERVAL);
 		actionableDynamicQuery.setSearchEngineId(getSearchEngineId());
 
 		actionableDynamicQuery.performActions();
@@ -690,8 +691,6 @@ public class DLFileEntryIndexer extends BaseIndexer {
 
 		actionableDynamicQuery.performActions();
 	}
-
-	private static final int _DEFAULT_REINDEX_INTERVAL = 500;
 
 	private static Log _log = LogFactoryUtil.getLog(DLFileEntryIndexer.class);
 
