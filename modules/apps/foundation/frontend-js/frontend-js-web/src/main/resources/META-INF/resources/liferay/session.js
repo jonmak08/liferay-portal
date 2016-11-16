@@ -627,17 +627,19 @@ AUI.add(
 
 						var banner = instance._getBanner();
 
+						remainingTime = instance._formatTime(remainingTime);
+
 						banner.set(
 							'message',
 							Lang.sub(
 								instance._warningText,
 								[
-									instance._formatTime(remainingTime)
+									remainingTime
 								]
 							)
 						);
 
-						DOC.title = 'Session expires in ' + instance._formatTime(remainingTime) + " | " + instance.get('pageTitle');
+						DOC.title = 'Session expires in ' + remainingTime + " | " + instance.get('pageTitle');
 					}
 				}
 			}
