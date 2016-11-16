@@ -636,7 +636,8 @@ AUI.add(
 								]
 							)
 						);
-						DOC.title = (DOC.title === instance.get('pageTitle')) ? banner.get('title') + ' ' + instance._formatTime(remainingTime) : instance.get('pageTitle');
+
+						DOC.title = 'Session expires in ' + instance._formatTime(remainingTime) + " | " + instance.get('pageTitle');
 					}
 				}
 			}
