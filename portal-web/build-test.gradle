@@ -54,7 +54,9 @@ runPoshi {
 	jvmArgs "-Dfile.encoding=UTF-8"
 }
 
-updateGradleCache << {
-	configurations.poshiRunner.resolve()
-	configurations.sikuliComplete.resolve()
+updateGradleCache {
+	doLast {
+		configurations.poshiRunner.resolve()
+		configurations.sikuliComplete.resolve()
+	}
 }
