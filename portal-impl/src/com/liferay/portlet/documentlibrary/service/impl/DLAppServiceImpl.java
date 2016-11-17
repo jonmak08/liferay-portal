@@ -2939,7 +2939,7 @@ public class DLAppServiceImpl extends DLAppServiceBaseImpl {
 		DLProcessorRegistryUtil.cleanUp(fileEntry.getLatestFileVersion());
 
 		dlAppHelperLocalService.updateFileEntry(
-			getUserId(), fileEntry, null, fileEntry.getFileVersion(),
+			getUserId(), fileEntry, null, fileEntry.getLatestFileVersion(),
 			serviceContext);
 
 		return fileEntry;
@@ -3035,8 +3035,8 @@ public class DLAppServiceImpl extends DLAppServiceBaseImpl {
 		}
 
 		dlAppHelperLocalService.updateFileEntry(
-			getUserId(), fileEntry, oldFileVersion, fileEntry.getFileVersion(),
-			serviceContext);
+			getUserId(), fileEntry, oldFileVersion,
+			fileEntry.getLatestFileVersion(), serviceContext);
 
 		return fileEntry;
 	}
