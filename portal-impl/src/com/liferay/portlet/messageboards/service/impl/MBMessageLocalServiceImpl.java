@@ -2207,6 +2207,9 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 
 		String inReplyTo = null;
 
+		String messageSubject = message.getSubject();
+		String messageSubjectPrefix = StringPool.BLANK;
+
 		if (message.getParentMessageId() !=
 				MBMessageConstants.DEFAULT_PARENT_MESSAGE_ID) {
 
@@ -2220,6 +2223,16 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 				company.getMx(), MBUtil.MESSAGE_POP_PORTLET_PREFIX,
 				message.getCategoryId(), parentMessage.getMessageId(),
 				modifiedDate.getTime());
+
+			if (messageSubject.startsWith(
+					MBMessageConstants.MESSAGE_SUBJECT_PREFIX_RE)) {
+
+				messageSubjectPrefix =
+					MBMessageConstants.MESSAGE_SUBJECT_PREFIX_RE;
+
+				messageSubject = messageSubject.substring(
+					messageSubjectPrefix.length());
+			}
 		}
 
 		String entryURL = getMessageURL(message, serviceContext);
@@ -2236,9 +2249,10 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 		subscriptionSenderPrototype.setContextAttributes(
 			"[$CATEGORY_NAME$]", categoryName, "[$MAILING_LIST_ADDRESS$]",
 			replyToAddress, "[$MESSAGE_ID$]", message.getMessageId(),
-			"[$MESSAGE_SUBJECT$]", message.getSubject(), "[$MESSAGE_URL$]",
-			entryURL, "[$MESSAGE_USER_ADDRESS$]", emailAddress,
-			"[$MESSAGE_USER_NAME$]", fullName);
+			"[$MESSAGE_SUBJECT$]", messageSubject, "[$MESSAGE_SUBJECT_PREFIX]",
+			messageSubjectPrefix, "[$MESSAGE_URL$]", entryURL,
+			"[$MESSAGE_USER_ADDRESS$]", emailAddress, "[$MESSAGE_USER_NAME$]",
+			fullName);
 		subscriptionSenderPrototype.setFrom(fromAddress, fromName);
 		subscriptionSenderPrototype.setHtmlFormat(htmlFormat);
 		subscriptionSenderPrototype.setInReplyTo(inReplyTo);
