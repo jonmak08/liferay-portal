@@ -597,7 +597,7 @@ public class PDFProcessorImpl
 
 		try {
 			pdDocument = PDDocument.load(file);
-			
+
 			if (pdDocument.isEncrypted()) {
 				_log.error(
 					"PDF document is encrypted for file version " +
