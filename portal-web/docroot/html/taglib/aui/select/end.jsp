@@ -38,3 +38,15 @@
 		</label>
 	</c:if>
 </div>
+
+<aui:script>
+	if (Liferay.Browser.isIe() && Liferay.Browser.getMajorVersion() == 11.0) {
+		var select = AUI.$('#<%= namespace + id %>');
+
+		select.mousedown(
+			function() {
+				this.focus();
+			}
+		);
+	}
+</aui:script>
