@@ -179,6 +179,21 @@ public class AssetPublisherPortletDataHandler
 			anyAssetTypeString = portletPreferences.getValue(
 				"anyAssetType", null);
 		}
+		else if (Validator.isNotNull(anyAssetTypeString) &&
+				 anyAssetTypeString.equals("false")) {
+
+			String[] classNameIds = portletPreferences.getValues(
+				"classNameIds", StringPool.EMPTY_ARRAY);
+
+			if (classNameIds.length == 1) {
+				portletPreferences.setValue("anyAssetType", classNameIds[0]);
+
+				anyAssetTypeString = portletPreferences.getValue(
+					"anyAssetType", null);
+
+				portletPreferences.reset("classNameIds");
+			}
+		}
 
 		String anyAssetTypeClassName = StringPool.BLANK;
 
