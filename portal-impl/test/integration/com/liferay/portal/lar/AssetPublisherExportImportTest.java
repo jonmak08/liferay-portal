@@ -423,6 +423,13 @@ public class AssetPublisherExportImportTest
 
 		Map<String, String[]> preferenceMap = new HashMap<String, String[]>();
 
+		long dlFileEntryClassNameId = PortalUtil.getClassNameId(
+			DLFileEntry.class);
+
+		preferenceMap.put(
+			"anyAssetType",
+			new String[] {String.valueOf(dlFileEntryClassNameId)});
+
 		preferenceMap.put(
 			"anyClassTypeDLFileEntryAssetRendererFactory",
 			new String[] {
