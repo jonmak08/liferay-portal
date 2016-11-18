@@ -478,6 +478,13 @@ public class AssetPublisherExportImportTest
 
 		Map<String, String[]> preferenceMap = new HashMap<String, String[]>();
 
+		long journalArticleClassNameId = PortalUtil.getClassNameId(
+			JournalArticle.class);
+
+		preferenceMap.put(
+			"anyAssetType",
+			new String[] {String.valueOf(journalArticleClassNameId)});
+
 		preferenceMap.put(
 			"anyClassTypeJournalArticleAssetRendererFactory",
 			new String[] {
