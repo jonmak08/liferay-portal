@@ -48,6 +48,7 @@ public class ProcessOutputStream extends UnsyncByteArrayOutputStream {
 
 			if (_logPrefix != null) {
 				byte[] bytes = logData;
+
 				logData = new byte[_logPrefix.length + bytes.length];
 
 				System.arraycopy(_logPrefix, 0, logData, 0, _logPrefix.length);
