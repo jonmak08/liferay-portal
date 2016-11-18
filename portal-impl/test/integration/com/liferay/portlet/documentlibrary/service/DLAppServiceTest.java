@@ -17,6 +17,7 @@ package com.liferay.portlet.documentlibrary.service;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
+import com.liferay.portal.kernel.repository.model.FileVersion;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.Hits;
@@ -32,6 +33,7 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StackTraceUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.model.User;
 import com.liferay.portal.security.permission.DoAsUserThread;
 import com.liferay.portal.service.ServiceContext;
@@ -41,6 +43,8 @@ import com.liferay.portal.test.EnvironmentExecutionTestListener;
 import com.liferay.portal.test.LiferayIntegrationJUnitTestRunner;
 import com.liferay.portal.test.Sync;
 import com.liferay.portal.test.SynchronousDestinationExecutionTestListener;
+import com.liferay.portal.util.RandomTestUtil;
+import com.liferay.portal.util.ServiceContextTestUtil;
 import com.liferay.portal.util.UserTestUtil;
 import com.liferay.portlet.asset.model.AssetEntry;
 import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
@@ -350,6 +354,103 @@ public class DLAppServiceTest extends BaseDLAppTestCase {
 				"Unable to pass null InputStream " +
 					StackTraceUtil.getStackTrace(e));
 		}
+	}
+
+	@Test
+	public void assetEntryShouldBeAddedWhenDraft() throws Exception {
+		String fileName = RandomTestUtil.randomString();
+		byte[] bytes = CONTENT.getBytes();
+		String[] assetTagNames = new String[] {
+			"hello"
+		};
+
+		FileEntry fileEntry = addFileEntry(
+			group.getGroupId(), parentFolder.getFolderId(), fileName, fileName,
+			assetTagNames);
+
+		assetTagNames = new String[] {
+			"hello", "world"
+		};
+
+		ServiceContext serviceContext =
+			ServiceContextTestUtil.getServiceContext(group.getGroupId());
+
+		serviceContext.setAssetTagNames(assetTagNames);
+		serviceContext.setWorkflowAction(WorkflowConstants.ACTION_SAVE_DRAFT);
+
+		fileEntry = DLAppServiceUtil.updateFileEntry(
+			fileEntry.getFileEntryId(), fileName, ContentTypes.TEXT_PLAIN,
+			fileName, StringPool.BLANK, StringPool.BLANK, false, bytes,
+			serviceContext);
+
+		FileVersion fileVersion = fileEntry.getLatestFileVersion();
+
+		AssetEntry latestAssetEntry = AssetEntryLocalServiceUtil.fetchEntry(
+			DLFileEntryConstants.getClassName(),
+			fileVersion.getFileVersionId());
+
+		Assert.assertNotNull(latestAssetEntry);
+
+		AssertUtils.assertEqualsSorted(
+			assetTagNames, latestAssetEntry.getTagNames());
+
+		AssetEntry assetEntry = AssetEntryLocalServiceUtil.fetchEntry(
+			DLFileEntryConstants.getClassName(), fileEntry.getFileEntryId());
+
+		Assert.assertNotNull(assetEntry);
+
+		assetTagNames = assetEntry.getTagNames();
+
+		Assert.assertEquals(1, assetTagNames.length);
+	}
+
+	@Test
+	public void assetEntryShouldBeAddedWithNullBytesWhenDraft()
+		throws Exception {
+
+		String fileName = RandomTestUtil.randomString();
+		String[] assetTagNames = new String[] {
+			"hello"
+		};
+
+		FileEntry fileEntry = addFileEntry(
+			group.getGroupId(), parentFolder.getFolderId(), fileName, fileName,
+			assetTagNames);
+
+		assetTagNames = new String[] {
+			"hello", "world"
+		};
+
+		ServiceContext serviceContext =
+			ServiceContextTestUtil.getServiceContext(group.getGroupId());
+
+		serviceContext.setAssetTagNames(assetTagNames);
+		serviceContext.setWorkflowAction(WorkflowConstants.ACTION_SAVE_DRAFT);
+
+		fileEntry = DLAppServiceUtil.updateFileEntry(
+			fileEntry.getFileEntryId(), fileName, ContentTypes.TEXT_PLAIN,
+			fileName, StringPool.BLANK, StringPool.BLANK, false, null, 0,
+			serviceContext);
+
+		FileVersion fileVersion = fileEntry.getLatestFileVersion();
+
+		AssetEntry latestAssetEntry = AssetEntryLocalServiceUtil.fetchEntry(
+			DLFileEntryConstants.getClassName(),
+			fileVersion.getFileVersionId());
+
+		Assert.assertNotNull(latestAssetEntry);
+
+		AssertUtils.assertEqualsSorted(
+			assetTagNames, latestAssetEntry.getTagNames());
+
+		AssetEntry assetEntry = AssetEntryLocalServiceUtil.fetchEntry(
+			DLFileEntryConstants.getClassName(), fileEntry.getFileEntryId());
+
+		Assert.assertNotNull(assetEntry);
+
+		assetTagNames = assetEntry.getTagNames();
+
+		Assert.assertEquals(1, assetTagNames.length);
 	}
 
 	@Test
