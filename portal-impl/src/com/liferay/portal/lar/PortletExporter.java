@@ -404,6 +404,8 @@ public class PortletExporter {
 
 		Element rootElement = document.addElement("root");
 
+		portletDataContext.setExportDataRootElement(rootElement);
+
 		Element headerElement = rootElement.addElement("header");
 
 		headerElement.addAttribute(
