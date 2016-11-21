@@ -339,7 +339,7 @@ name = HtmlUtil.escapeJS(name);
 		sb.append(String.valueOf(doAsGroupId));
 		sb.append(fileBrowserParams);
 
-		String connectorURL = HtmlUtil.escapeURL(sb.toString());
+		String connectorURL = HtmlUtil.escapeJS(HtmlUtil.escapeURL(sb.toString()));
 		%>
 
 		<c:choose>
