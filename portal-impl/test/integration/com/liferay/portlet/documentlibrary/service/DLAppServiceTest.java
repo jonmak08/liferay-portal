@@ -357,7 +357,7 @@ public class DLAppServiceTest extends BaseDLAppTestCase {
 	}
 
 	@Test
-	public void assetEntryShouldBeAddedWhenDraft() throws Exception {
+	public void testAssetEntryShouldBeAddedWhenDraft() throws Exception {
 		String fileName = RandomTestUtil.randomString();
 		byte[] bytes = CONTENT.getBytes();
 		String[] assetTagNames = new String[] {
@@ -405,7 +405,7 @@ public class DLAppServiceTest extends BaseDLAppTestCase {
 	}
 
 	@Test
-	public void assetEntryShouldBeAddedWithNullBytesWhenDraft()
+	public void testAssetEntryShouldBeAddedWithNullBytesWhenDraft()
 		throws Exception {
 
 		String fileName = RandomTestUtil.randomString();
@@ -563,6 +563,21 @@ public class DLAppServiceTest extends BaseDLAppTestCase {
 
 		return DLAppTestUtil.addFileEntry(
 			group.getGroupId(), folderId, fileName, title);
+	}
+
+	protected FileEntry addFileEntry(
+		long groupId, long folderId, String fileName, String title,
+		String[] assetTagNames) throws Exception {
+
+		ServiceContext serviceContext =
+			ServiceContextTestUtil.getServiceContext(groupId);
+
+		serviceContext.setAssetTagNames(assetTagNames);
+
+		return DLAppServiceUtil.addFileEntry(
+			groupId, folderId, fileName, ContentTypes.TEXT_PLAIN, title,
+			StringPool.BLANK, StringPool.BLANK, CONTENT.getBytes(),
+			serviceContext);
 	}
 
 	protected void search(
