@@ -3671,6 +3671,24 @@ go]]></replacevalue>
 					/>
 				</then>
 			</elseif>
+			<elseif>
+				<and>
+					<equals arg1="${database.type}" arg2="sybase" />
+				</and>
+				<then>
+					<delete failonerror="false" includeemptydirs="true">
+						<fileset
+							dir="${app.server.lib.global.dir}"
+							includes="${jdbc.sybase.driver}"
+						/>
+					</delete>
+
+					<mirrors-get
+						dest="${todir}"
+						src="${test.jdbc.drivers.url}/sybase/${database.version}/${jdbc.sybase.driver}"
+					/>
+				</then>
+			</elseif>
 		</if>
 	</target>
 
