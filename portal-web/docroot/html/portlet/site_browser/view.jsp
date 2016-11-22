@@ -182,6 +182,14 @@ portletURL.setParameter("target", target);
 			}
 			else {
 				groups = GroupLocalServiceUtil.search(company.getCompanyId(), null, searchTerms.getKeywords(), groupParams, start, end, searchContainer.getOrderByComparator());
+
+				_filterGroups(groups, permissionChecker);
+
+				total = groups.size();
+
+				total += additionalSites;
+
+				searchContainer.setTotal(total);
 			}
 
 			results.addAll(groups);
@@ -239,6 +247,16 @@ private List<Group> _filterGroups(List<Group> groups, String filter) throws Exce
 	}
 
 	return filteredGroups;
+}
+
+private void _filterGroups(List<Group> groups, PermissionChecker permissionChecker) throws Exception {
+	Iterator<Group> groupsIterator = groups.iterator();
+	while (groupsIterator.hasNext()) {
+		Group g = groupsIterator.next();
+		if (!permissionChecker.isGroupAdmin(g.getGroupId())) {
+			groupsIterator.remove();
+		}
+	}
 }
 %>
 
