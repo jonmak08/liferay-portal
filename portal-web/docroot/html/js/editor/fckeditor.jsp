@@ -61,6 +61,10 @@ if (Validator.isNotNull(onChangeMethod)) {
 boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("liferay-ui:input-editor:skipEditorLoading"));
 String toolbarSet = (String)request.getAttribute("liferay-ui:input-editor:toolbarSet");
 
+String textareaName = HtmlUtil.escapeAttribute(name);
+
+name = HtmlUtil.escapeJS(name);
+
 // To upgrade FCKEditor, download the latest version and unzip it to fckeditor.
 // Add custom configuration to fckeditor/fckconfig.jsp. Copy
 // fckeditor/editor/filemanager/browser/default to
@@ -219,5 +223,5 @@ String toolbarSet = (String)request.getAttribute("liferay-ui:input-editor:toolba
 </aui:script>
 
 <div class="<%= HtmlUtil.escapeAttribute(cssClass) %>">
-	<textarea id="<%= name %>" name="<%= name %>" style="display: none;"></textarea>
+	<textarea id="<%= textareaName %>" name="<%= textareaName %>" style="display: none;"></textarea>
 </div>

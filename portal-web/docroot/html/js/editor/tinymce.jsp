@@ -47,9 +47,13 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
 	</liferay-util:html-top>
 </c:if>
 
-<div class="<%= cssClass %>">
-	<textarea id="<%= name %>" name="<%= name %>" style="height: 100%; width: 100%;"></textarea>
+<div class="<%= HtmlUtil.escapeAttribute(cssClass) %>">
+	<textarea id="<%= HtmlUtil.escapeAttribute(name) %>" name="<%= HtmlUtil.escapeAttribute(name) %>" style="height: 100%; width: 100%;"></textarea>
 </div>
+
+<%
+name = HtmlUtil.escapeJS(name);
+%>
 
 <aui:script use="aui-node-base">
 	window['<%= name %>'] = {
@@ -69,8 +73,8 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
 		getHTML: function() {
 			var data;
 
-			if (!window['<%= name %>'].instanceReady && window['<%= HtmlUtil.escape(namespace + initMethod) %>']) {
-				data = <%= HtmlUtil.escape(namespace + initMethod) %>();
+			if (!window['<%= name %>'].instanceReady && window['<%= HtmlUtil.escapeJS(namespace + initMethod) %>']) {
+				data = <%= HtmlUtil.escapeJS(namespace + initMethod) %>();
 			}
 			else {
 				data = tinyMCE.editors['<%= name %>'].getContent();
@@ -89,7 +93,7 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
 
 		initInstanceCallback: function() {
 			<c:if test="<%= Validator.isNotNull(initMethod) %>">
-				window['<%= name %>'].init(<%= HtmlUtil.escape(namespace + initMethod) %>());
+				window['<%= name %>'].init(<%= HtmlUtil.escapeJS(namespace + initMethod) %>());
 			</c:if>
 
 			var iframe = A.one('#<%= name %>_ifr');
