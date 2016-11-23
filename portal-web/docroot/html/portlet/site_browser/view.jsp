@@ -250,11 +250,11 @@ private List<Group> _filterGroups(List<Group> groups, String filter) throws Exce
 }
 
 private void _filterGroups(List<Group> groups, PermissionChecker permissionChecker) throws Exception {
-	Iterator<Group> groupsIterator = groups.iterator();
-	while (groupsIterator.hasNext()) {
-		Group g = groupsIterator.next();
-		if (!permissionChecker.isGroupAdmin(g.getGroupId())) {
-			groupsIterator.remove();
+	Iterator<Group> filteredGroups = groups.iterator();
+
+	for (Group group : groups) {
+		if (!permissionChecker.isGroupAdmin(group.getGroupId())) {
+			filteredGroups.remove();
 		}
 	}
 }
