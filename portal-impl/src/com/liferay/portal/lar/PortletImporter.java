@@ -688,9 +688,7 @@ public class PortletImporter {
 			Element assetCategoryElement, AssetCategory assetCategory)
 		throws Exception {
 
-		long companyGroupId = portletDataContext.getCompanyGroupId();
 		long groupId = portletDataContext.getGroupId();
-		long sourceGroupId = portletDataContext.getSourceGroupId();
 		long userId = portletDataContext.getUserId(assetCategory.getUserUuid());
 		long assetVocabularyId = MapUtil.getLong(
 			assetVocabularyPKs, assetCategory.getVocabularyId(),
@@ -766,15 +764,16 @@ public class PortletImporter {
 		AssetCategory existingAssetCategory = AssetCategoryUtil.fetchByUUID_G(
 			assetCategory.getUuid(), groupId);
 
-		if (existingAssetCategory == null) {
+		if ((existingAssetCategory == null) &&
+			(portletDataContext.getSourceGroupId() !=
+				portletDataContext.getCompanyGroupId())) {
+
 			existingAssetCategory = AssetCategoryUtil.fetchByUUID_G(
 				assetCategory.getUuid(),
 				portletDataContext.getCompanyGroupId());
 		}
 
-		if ((existingAssetCategory == null) ||
-			(sourceGroupId == companyGroupId)) {
-
+		if (existingAssetCategory == null){
 			existingAssetCategory = AssetCategoryUtil.fetchByG_P_N_V_First(
 				groupId, parentAssetCategoryId, assetCategory.getName(),
 				assetVocabularyId, null);
@@ -934,9 +933,7 @@ public class PortletImporter {
 			AssetVocabulary assetVocabulary)
 		throws Exception {
 
-		long companyGroupId = portletDataContext.getCompanyGroupId();
 		long groupId = portletDataContext.getScopeGroupId();
-		long sourceGroupId = portletDataContext.getSourceGroupId();
 		long userId = portletDataContext.getUserId(
 			assetVocabulary.getUserUuid());
 
@@ -954,15 +951,16 @@ public class PortletImporter {
 			AssetVocabularyUtil.fetchByUUID_G(
 				assetVocabulary.getUuid(), groupId);
 
-		if (existingAssetVocabulary == null) {
+		if ((existingAssetVocabulary == null) &&
+			(portletDataContext.getSourceGroupId() !=
+				portletDataContext.getCompanyGroupId())) {
+
 			existingAssetVocabulary = AssetVocabularyUtil.fetchByUUID_G(
 				assetVocabulary.getUuid(),
 				portletDataContext.getCompanyGroupId());
 		}
 
-		if ((existingAssetVocabulary == null) ||
-			(sourceGroupId == companyGroupId)) {
-
+		if (existingAssetVocabulary == null) {
 			existingAssetVocabulary = AssetVocabularyUtil.fetchByG_N(
 				groupId, assetVocabulary.getName());
 		}
