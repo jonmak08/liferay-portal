@@ -107,7 +107,10 @@ public class ServerDetector {
 	}
 
 	public static boolean isJBoss() {
-		if (_serverType == ServerType.JBOSS) {
+		if ((_serverType == ServerType.JBOSS) ||
+			(_serverType == ServerType.JBOSS5) ||
+			(_serverType == ServerType.JBOSS7)) {
+
 			return true;
 		}
 
@@ -250,12 +253,15 @@ public class ServerDetector {
 		}
 
 		if (_hasSystemProperty("jboss.home.dir")) {
-			if (_isJBoss5()) {
+			if (_isJBossVersion("5")) {
 				return ServerType.JBOSS5;
 			}
-			else {
+
+			if (_isJBossVersion("7")) {
 				return ServerType.JBOSS7;
 			}
+
+			return ServerType.JBOSS;
 		}
 
 		if (_hasSystemProperty("jonas.base")) {
@@ -308,7 +314,7 @@ public class ServerDetector {
 		}
 	}
 
-	private static boolean _isJBoss5() {
+	private static boolean _isJBossVersion(String versionPrefix) {
 		try {
 			for (MBeanServer mBeanServer :
 					MBeanServerFactory.findMBeanServer(null)) {
@@ -323,7 +329,7 @@ public class ServerDetector {
 					String version = (String)mBeanServer.getAttribute(
 						objectName, "VersionNumber");
 
-					if (version.startsWith("5")) {
+					if (version.startsWith(versionPrefix)) {
 						return true;
 					}
 
