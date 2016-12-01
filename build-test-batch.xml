@@ -715,7 +715,7 @@ app.server.type=@{app.server.type}]]></echo>
 		<prepare-test-build-dist app.server.type="${axis.variable}" />
 	</target>
 
-	<target name="functional-glassfish3-postgresql94-jdk7">
+	<target name="functional-glassfish31-postgresql94-jdk7">
 		<run-functional-test app.server.type="glassfish" database.type="postgresql" />
 	</target>
 
@@ -797,11 +797,11 @@ app.server.type=@{app.server.type}]]></echo>
 		<run-functional-test app.server.type="tomcat" database.type="hypersonic" />
 	</target>
 
-	<target name="functional-tomcat7-mysql55-jdk7">
+	<target name="functional-tomcat70-mysql55-jdk7">
 		<run-functional-test app.server.type="tomcat" database.type="mysql" database.version="5.5" />
 	</target>
 
-	<target name="functional-tomcat7-mysql56-jdk7">
+	<target name="functional-tomcat70-mysql56-jdk7">
 		<run-functional-test app.server.type="tomcat" database.type="mysql" />
 	</target>
 
@@ -877,7 +877,7 @@ app.server.type=@{app.server.type}]]></echo>
 		/>
 	</target>
 
-	<target name="plugins-functional-tomcat7-mysql55-jdk7">
+	<target name="plugins-functional-tomcat70-mysql55-jdk7">
 		<run-functional-test app.server.type="tomcat" database.type="mysql" database.version="5.5" />
 	</target>
 
@@ -1019,7 +1019,7 @@ app.server.type=@{app.server.type}]]></echo>
 		</run-batch-test>
 	</target>
 
-	<target name="upstream-functional-tomcat7-mysql55-jdk7">
+	<target name="upstream-functional-tomcat70-mysql55-jdk7">
 		<run-functional-test app.server.type="tomcat" database.type="mysql" database.version="5.5" />
 	</target>
 </project>
