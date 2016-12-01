@@ -773,7 +773,7 @@ public class PortletImporter {
 				portletDataContext.getCompanyGroupId());
 		}
 
-		if (existingAssetCategory == null){
+		if (existingAssetCategory == null) {
 			existingAssetCategory = AssetCategoryUtil.fetchByG_P_N_V_First(
 				groupId, parentAssetCategoryId, assetCategory.getName(),
 				assetVocabularyId, null);
