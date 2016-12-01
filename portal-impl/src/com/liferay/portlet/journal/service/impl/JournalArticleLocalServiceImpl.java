@@ -5093,10 +5093,12 @@ public class JournalArticleLocalServiceImpl
 
 		// Asset
 
-		updateAsset(
-			userId, article, serviceContext.getAssetCategoryIds(),
-			serviceContext.getAssetTagNames(),
-			serviceContext.getAssetLinkEntryIds());
+		if (hasModifiedLatestApprovedVersion(groupId, articleId, version)) {
+			updateAsset(
+				userId, article, serviceContext.getAssetCategoryIds(),
+				serviceContext.getAssetTagNames(),
+				serviceContext.getAssetLinkEntryIds());
+		}
 
 		// Dynamic data mapping
 
