@@ -77,7 +77,7 @@ public class MBDiscussionPermission {
 
 		if (!contains(
 				permissionChecker, companyId, groupId, className, classPK,
-			actionId)) {
+				actionId)) {
 
 			throw new PrincipalException();
 		}
