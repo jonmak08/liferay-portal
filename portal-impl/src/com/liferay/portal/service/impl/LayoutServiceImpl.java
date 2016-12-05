@@ -1427,20 +1427,17 @@ public class LayoutServiceImpl extends LayoutServiceBaseImpl {
 		LayoutPermissionUtil.check(
 			getPermissionChecker(), layout, ActionKeys.UPDATE);
 
-		boolean wasLayoutTypePortlet =
-			layout.getLayoutType() instanceof LayoutTypePortlet;
-
-		Layout result = layoutLocalService.updateLayout(
+		Layout updatedLayout = layoutLocalService.updateLayout(
 			groupId, privateLayout, layoutId, parentLayoutId, localeNamesMap,
 			localeTitlesMap, descriptionMap, keywordsMap, robotsMap, type,
 			hidden, friendlyURLMap, iconImage, iconBytes, serviceContext);
 
-		if (!wasLayoutTypePortlet) {
+		if (!(layout.getLayoutType() instanceof LayoutTypePortlet)) {
 			checkLayoutTypeSettings(
-				layout, StringPool.BLANK, result.getTypeSettings());
+				layout, StringPool.BLANK, updatedLayout.getTypeSettings());
 		}
 
-		return result;
+		return updatedLayout;
 	}
 
 	/**
@@ -1864,7 +1861,6 @@ public class LayoutServiceImpl extends LayoutServiceBaseImpl {
 		Layout container = (Layout)originalLayout.clone();
 
 		container.setType(LayoutConstants.TYPE_PORTLET);
-
 		container.setTypeSettings(typeSettings);
 
 		LayoutTypePortlet layoutTypePortlet =
