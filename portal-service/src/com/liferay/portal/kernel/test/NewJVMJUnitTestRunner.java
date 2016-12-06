@@ -289,8 +289,8 @@ public class NewJVMJUnitTestRunner extends BlockJUnit4ClassRunner {
 				Throwable cause = ee.getCause();
 
 				while ((cause.getCause() != null) &&
-					   ((cause instanceof ProcessException) ||
-						(cause instanceof InvocationTargetException))) {
+					   ((cause instanceof InvocationTargetException) ||
+						(cause instanceof ProcessException))) {
 
 					cause = cause.getCause();
 				}
