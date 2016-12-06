@@ -166,10 +166,11 @@ public class MBDiscussionPermission {
 			return true;
 		}
 
-		if ((mbDiscussion.getUserId() > 0) &&
+		long userId = mbDiscussion.getUserId();
+
+		if ((userId > 0) &&
 			permissionChecker.hasOwnerPermission(
-				companyId, className, classPK, mbDiscussion.getUserId(),
-				actionId)) {
+				companyId, className, classPK, userId, actionId)) {
 
 			return true;
 		}
