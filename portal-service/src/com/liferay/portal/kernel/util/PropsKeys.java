@@ -801,6 +801,14 @@ public interface PropsKeys {
 
 	public static final String DL_STORE_CMIS_SYSTEM_ROOT_DIR = "dl.store.cmis.system.root.dir";
 
+	public static final String DL_STORE_FILE_IMPL_SAFE_FILE_NAME_2_AMPERSAND = "dl.store.file.impl.safe.file.name.2.ampersand";
+
+	public static final String DL_STORE_FILE_IMPL_SAFE_FILE_NAME_2_CLOSE_PARENTHESIS = "dl.store.file.impl.safe.file.name.2.close.parenthesis";
+
+	public static final String DL_STORE_FILE_IMPL_SAFE_FILE_NAME_2_OPEN_PARENTHESIS = "dl.store.file.impl.safe.file.name.2.open.parenthesis";
+
+	public static final String DL_STORE_FILE_IMPL_SAFE_FILE_NAME_2_SEMICOLON = "dl.store.file.impl.safe.file.name.2.semicolon";
+
 	public static final String DL_STORE_FILE_SYSTEM_ROOT_DIR = "dl.store.file.system.root.dir";
 
 	public static final String DL_STORE_IMPL = "dl.store.impl";
