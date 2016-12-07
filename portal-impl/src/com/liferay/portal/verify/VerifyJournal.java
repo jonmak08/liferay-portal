@@ -235,23 +235,26 @@ public class VerifyJournal extends VerifyProcess {
 	protected void updateImageElement(Element element, String name, int index)
 		throws SystemException {
 
-		Element dynamicContentElement = element.element("dynamic-content");
+		List<Element> dynamicContentElements = element.elements(
+			"dynamic-content");
 
-		long articleImageId = GetterUtil.getLong(
-			dynamicContentElement.attributeValue("id"));
+		for (Element dynamicContentElement : dynamicContentElements) {
+			long articleImageId = GetterUtil.getLong(
+				dynamicContentElement.attributeValue("id"));
 
-		JournalArticleImage articleImage =
-			JournalArticleImageLocalServiceUtil.fetchJournalArticleImage(
-				articleImageId);
+			JournalArticleImage articleImage =
+				JournalArticleImageLocalServiceUtil.fetchJournalArticleImage(
+					articleImageId);
 
-		if (articleImage == null) {
-			return;
+			if (articleImage == null) {
+				return;
+			}
+
+			articleImage.setElName(name + StringPool.UNDERLINE + index);
+
+			JournalArticleImageLocalServiceUtil.updateJournalArticleImage(
+				articleImage);
 		}
-
-		articleImage.setElName(name + StringPool.UNDERLINE + index);
-
-		JournalArticleImageLocalServiceUtil.updateJournalArticleImage(
-			articleImage);
 	}
 
 	protected void updateLinkToLayoutElements(long groupId, Element element) {
