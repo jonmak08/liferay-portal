@@ -18,8 +18,11 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.service.DDMStructureLocalServiceUtil;
@@ -215,6 +218,14 @@ public class Field implements Serializable {
 	public boolean isPrivate() {
 		try {
 			DDMStructure ddmStructure = getDDMStructure();
+
+			if (ddmStructure == null) {
+				String[] privateFieldNames = PropsUtil.getArray(
+					PropsKeys.
+						DYNAMIC_DATA_MAPPING_STRUCTURE_PRIVATE_FIELD_NAMES);
+
+				return ArrayUtil.contains(privateFieldNames, _name);
+			}
 
 			return ddmStructure.isFieldPrivate(_name);
 		}
