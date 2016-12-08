@@ -28,6 +28,7 @@ import com.liferay.portal.kernel.util.ReleaseInfo;
 import com.liferay.portal.kernel.util.StreamUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.SystemProperties;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.kernel.util.Validator;
@@ -48,6 +49,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Properties;
 
 import org.jets3t.service.Jets3tProperties;
@@ -593,7 +595,16 @@ public class S3Store extends BaseStore {
 	protected Jets3tProperties getJets3tProperties() {
 		Jets3tProperties jets3tProperties = new Jets3tProperties();
 
-		jets3tProperties.loadAndReplaceProperties(_jets3tProperties, "liferay");
+		Properties properties = new Properties();
+
+		for (Entry<Object, Object> entry : _jets3tProperties.entrySet()) {
+			String key = (String)entry.getKey();
+			String value = (String)entry.getValue();
+
+			properties.put(StringUtil.strip(key, _BRACKETS), value);
+		}
+
+		jets3tProperties.loadAndReplaceProperties(properties, "liferay");
 
 		if (_log.isInfoEnabled()) {
 			_log.info("Jets3t properties: " + jets3tProperties.getProperties());
@@ -749,6 +760,9 @@ public class S3Store extends BaseStore {
 
 	private static final String _ACCESS_KEY = PropsUtil.get(
 		PropsKeys.DL_STORE_S3_ACCESS_KEY);
+
+	private static char[] _BRACKETS =
+		{CharPool.OPEN_BRACKET, CharPool.CLOSE_BRACKET};
 
 	private static final String _BUCKET_NAME = PropsUtil.get(
 		PropsKeys.DL_STORE_S3_BUCKET_NAME);
