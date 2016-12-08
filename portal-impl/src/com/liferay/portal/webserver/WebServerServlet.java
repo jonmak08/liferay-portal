@@ -14,6 +14,7 @@
 
 package com.liferay.portal.webserver;
 
+import com.liferay.portal.LayoutPermissionException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.flash.FlashMagicBytesUtil;
@@ -56,6 +57,8 @@ import com.liferay.portal.model.Company;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Image;
 import com.liferay.portal.model.ImageConstants;
+import com.liferay.portal.model.Layout;
+import com.liferay.portal.model.LayoutSet;
 import com.liferay.portal.model.User;
 import com.liferay.portal.model.impl.ImageImpl;
 import com.liferay.portal.portletfilerepository.PortletFileRepositoryUtil;
@@ -71,7 +74,11 @@ import com.liferay.portal.service.CompanyLocalServiceUtil;
 import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.service.ImageLocalServiceUtil;
 import com.liferay.portal.service.ImageServiceUtil;
+import com.liferay.portal.service.LayoutLocalServiceUtil;
+import com.liferay.portal.service.LayoutSetLocalServiceUtil;
 import com.liferay.portal.service.UserLocalServiceUtil;
+import com.liferay.portal.service.permission.GroupPermissionUtil;
+import com.liferay.portal.service.permission.LayoutPermissionUtil;
 import com.liferay.portal.service.permission.PortletPermissionUtil;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.util.PortalUtil;
@@ -440,7 +447,7 @@ public class WebServerServlet extends HttpServlet {
 	}
 
 	protected Image getImage(HttpServletRequest request, boolean getDefault)
-		throws PortalException, SystemException {
+		throws Exception {
 
 		Image image = null;
 
@@ -462,9 +469,57 @@ public class WebServerServlet extends HttpServlet {
 
 			String path = GetterUtil.getString(request.getPathInfo());
 
-			if (path.startsWith("/user_female_portrait") ||
-				path.startsWith("/user_male_portrait") ||
-				path.startsWith("/user_portrait")) {
+			if (path.startsWith("/layout_icon") || path.startsWith("/logo")) {
+				Layout layout = LayoutLocalServiceUtil.fetchLayoutByIconImageId(
+					true, imageId);
+
+				if (layout != null) {
+					User user = PortalUtil.getUser(request);
+
+					if (user == null) {
+						long companyId = PortalUtil.getCompanyId(request);
+
+						user = UserLocalServiceUtil.getDefaultUser(companyId);
+					}
+
+					PermissionChecker permissionChecker =
+						PermissionCheckerFactoryUtil.create(user);
+
+					if (!LayoutPermissionUtil.contains(
+							permissionChecker, layout, ActionKeys.VIEW)) {
+
+						throw new PrincipalException();
+					}
+				}
+			}
+			else if (path.startsWith("/layout_set_logo")) {
+				LayoutSet layoutSet =
+					LayoutSetLocalServiceUtil.fetchLayoutSetByLogoId(
+						true, imageId);
+
+				if (layoutSet != null) {
+					User user = PortalUtil.getUser(request);
+
+					if (user == null) {
+						long companyId = PortalUtil.getCompanyId(request);
+
+						user = UserLocalServiceUtil.getDefaultUser(companyId);
+					}
+
+					PermissionChecker permissionChecker =
+						PermissionCheckerFactoryUtil.create(user);
+
+					if (!GroupPermissionUtil.contains(
+							permissionChecker, layoutSet.getGroupId(),
+							ActionKeys.VIEW)) {
+
+						throw new LayoutPermissionException();
+					}
+				}
+			}
+			else if (path.startsWith("/user_female_portrait") ||
+					 path.startsWith("/user_male_portrait") ||
+					 path.startsWith("/user_portrait")) {
 
 				image = getUserPortraitImageResized(image, imageId);
 			}
