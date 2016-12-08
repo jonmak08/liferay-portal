@@ -220,8 +220,8 @@ public class Field implements Serializable {
 			DDMStructure ddmStructure = getDDMStructure();
 
 			if (ddmStructure == null) {
-				String[] privateFieldNames = PropsUtil.getArray(
-					PropsKeys.
+				String[] privateFieldNames =
+					PropsUtil.getArray(PropsKeys.
 						DYNAMIC_DATA_MAPPING_STRUCTURE_PRIVATE_FIELD_NAMES);
 
 				return ArrayUtil.contains(privateFieldNames, _name);
