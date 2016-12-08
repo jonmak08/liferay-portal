@@ -361,6 +361,11 @@ public class LayoutSetPersistenceTest {
 			existingLayoutSetModelImpl.getOriginalGroupId());
 		Assert.assertEquals(existingLayoutSetModelImpl.getPrivateLayout(),
 			existingLayoutSetModelImpl.getOriginalPrivateLayout());
+
+		Assert.assertEquals(existingLayoutSetModelImpl.getPrivateLayout(),
+			existingLayoutSetModelImpl.getOriginalPrivateLayout());
+		Assert.assertEquals(existingLayoutSetModelImpl.getLogoId(),
+			existingLayoutSetModelImpl.getOriginalLogoId());
 	}
 
 	protected LayoutSet addLayoutSet() throws Exception {

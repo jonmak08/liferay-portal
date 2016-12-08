@@ -524,6 +524,80 @@ public class LayoutSetUtil {
 	}
 
 	/**
+	* Returns the layout set where privateLayout = &#63; and logoId = &#63; or throws a {@link com.liferay.portal.NoSuchLayoutSetException} if it could not be found.
+	*
+	* @param privateLayout the private layout
+	* @param logoId the logo ID
+	* @return the matching layout set
+	* @throws com.liferay.portal.NoSuchLayoutSetException if a matching layout set could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.liferay.portal.model.LayoutSet findByP_L(
+		boolean privateLayout, long logoId)
+		throws com.liferay.portal.NoSuchLayoutSetException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findByP_L(privateLayout, logoId);
+	}
+
+	/**
+	* Returns the layout set where privateLayout = &#63; and logoId = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+	*
+	* @param privateLayout the private layout
+	* @param logoId the logo ID
+	* @return the matching layout set, or <code>null</code> if a matching layout set could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.liferay.portal.model.LayoutSet fetchByP_L(
+		boolean privateLayout, long logoId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().fetchByP_L(privateLayout, logoId);
+	}
+
+	/**
+	* Returns the layout set where privateLayout = &#63; and logoId = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+	*
+	* @param privateLayout the private layout
+	* @param logoId the logo ID
+	* @param retrieveFromCache whether to use the finder cache
+	* @return the matching layout set, or <code>null</code> if a matching layout set could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.liferay.portal.model.LayoutSet fetchByP_L(
+		boolean privateLayout, long logoId, boolean retrieveFromCache)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .fetchByP_L(privateLayout, logoId, retrieveFromCache);
+	}
+
+	/**
+	* Removes the layout set where privateLayout = &#63; and logoId = &#63; from the database.
+	*
+	* @param privateLayout the private layout
+	* @param logoId the logo ID
+	* @return the layout set that was removed
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.liferay.portal.model.LayoutSet removeByP_L(
+		boolean privateLayout, long logoId)
+		throws com.liferay.portal.NoSuchLayoutSetException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().removeByP_L(privateLayout, logoId);
+	}
+
+	/**
+	* Returns the number of layout sets where privateLayout = &#63; and logoId = &#63;.
+	*
+	* @param privateLayout the private layout
+	* @param logoId the logo ID
+	* @return the number of matching layout sets
+	* @throws SystemException if a system exception occurred
+	*/
+	public static int countByP_L(boolean privateLayout, long logoId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().countByP_L(privateLayout, logoId);
+	}
+
+	/**
 	* Caches the layout set in the entity cache if it is enabled.
 	*
 	* @param layoutSet the layout set

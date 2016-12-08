@@ -291,6 +291,12 @@ public class LayoutSetLocalServiceUtil {
 		return getService().fetchLayoutSet(virtualHostname);
 	}
 
+	public static com.liferay.portal.model.LayoutSet fetchLayoutSetByLogoId(
+		boolean privateLayout, long logoId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().fetchLayoutSetByLogoId(privateLayout, logoId);
+	}
+
 	public static com.liferay.portal.model.LayoutSet getLayoutSet(
 		long groupId, boolean privateLayout)
 		throws com.liferay.portal.kernel.exception.PortalException,

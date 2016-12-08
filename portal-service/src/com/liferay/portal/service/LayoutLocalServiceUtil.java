@@ -845,6 +845,12 @@ public class LayoutLocalServiceUtil {
 				   .fetchLayoutByFriendlyURL(groupId, privateLayout, friendlyURL);
 	}
 
+	public static com.liferay.portal.model.Layout fetchLayoutByIconImageId(
+		boolean privateLayout, long iconImageId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().fetchLayoutByIconImageId(privateLayout, iconImageId);
+	}
+
 	/**
 	* Returns the primary key of the default layout for the group
 	*

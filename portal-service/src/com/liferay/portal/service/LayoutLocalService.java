@@ -749,6 +749,11 @@ public interface LayoutLocalService extends BaseLocalService,
 		long groupId, boolean privateLayout, java.lang.String friendlyURL)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public com.liferay.portal.model.Layout fetchLayoutByIconImageId(
+		boolean privateLayout, long iconImageId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
 	/**
 	* Returns the primary key of the default layout for the group
 	*
