@@ -1339,7 +1339,7 @@
 				el = A.one(el);
 
 				if (el) {
-					var form = el.ancestor('form',true);
+					form = el.ancestor('form', true);
 
 					if (form) {
 						form = form.getDOM();
