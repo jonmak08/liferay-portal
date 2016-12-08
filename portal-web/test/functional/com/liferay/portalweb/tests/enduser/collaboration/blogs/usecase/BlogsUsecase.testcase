@@ -240,7 +240,7 @@
 			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
 
-		<execute function="Pause" locator1="135000" />
+		<execute function="Pause" locator1="195000" />
 
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Blogs Aggregator Page" />
