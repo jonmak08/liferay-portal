@@ -932,7 +932,9 @@
 		</execute>
 	</command>
 
-	<command name="DeleteDMDocument" priority="4">
+	<command name="DeleteDMDocument" priority="5">
+		<property name="portal.acceptance" value="true" />
+
 		<execute macro="Page#gotoPG">
 			<var name="pageName" value="Staging Test Page" />
 			<var name="siteName" value="Site Name" />
