@@ -793,6 +793,10 @@ app.server.type=@{app.server.type}]]></echo>
 		/>
 	</target>
 
+	<target name="functional-smoke-bundle-tomcat-mysql55-jdk7">
+		<antcall target="functional-bundle-tomcat-mysql55-jdk7" />
+	</target>
+
 	<target name="functional-tomcat-hypersonic20-jdk7">
 		<run-functional-test app.server.type="tomcat" database.type="hypersonic" />
 	</target>
