@@ -1343,7 +1343,7 @@
 
 					focusable = !el.disabled && !el.hidden;
 
-					form = (A.one(el).ancestor('form',true)).getDOM();
+					form = A.one(el).ancestor('form',true).getDOM();
 				}
 
 				try {
