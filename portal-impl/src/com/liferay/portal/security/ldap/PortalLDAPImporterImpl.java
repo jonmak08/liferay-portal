@@ -1202,6 +1202,9 @@ public class PortalLDAPImporterImpl implements PortalLDAPImporter {
 
 		boolean passwordReset = ldapUser.isPasswordReset();
 
+		boolean importUserPasswordEnabled =
+			PropsValues.LDAP_IMPORT_USER_PASSWORD_ENABLED;
+
 		if (PrefsPropsUtil.getBoolean(
 				companyId, PropsKeys.LDAP_EXPORT_ENABLED,
 				PropsValues.LDAP_EXPORT_ENABLED)) {
@@ -1214,15 +1217,19 @@ public class PortalLDAPImporterImpl implements PortalLDAPImporter {
 				modifiedDate = LDAPUtil.parseDate(modifyTimestamp);
 
 				if (modifiedDate.equals(user.getModifiedDate())) {
-					updateUserPassword(
-						user.getUserId(), ldapUser.getScreenName(), password,
-						passwordReset);
+					if (ldapUser.isUpdatePassword() ||
+						!importUserPasswordEnabled) {
 
-					if (_log.isDebugEnabled()) {
-						_log.debug(
-							"User " + user.getEmailAddress() +
-								" is already synchronized, but updated " +
+						updateUserPassword(
+							user.getUserId(), ldapUser.getScreenName(),
+							password, passwordReset);
+
+						if (_log.isDebugEnabled()) {
+							_log.debug(
+								"User " + user.getEmailAddress() +
+									" is already synchronized, but updated " +
 									"password to avoid a blank value");
+						}
 					}
 
 					return user;
@@ -1252,7 +1259,7 @@ public class PortalLDAPImporterImpl implements PortalLDAPImporter {
 			ldapUser.setScreenName(user.getScreenName());
 		}
 
-		if (ldapUser.isUpdatePassword()) {
+		if (ldapUser.isUpdatePassword() || !importUserPasswordEnabled) {
 			password = updateUserPassword(
 				user.getUserId(), ldapUser.getScreenName(), password,
 				passwordReset);
