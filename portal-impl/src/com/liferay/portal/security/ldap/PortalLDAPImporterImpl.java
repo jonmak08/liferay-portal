@@ -319,8 +319,7 @@ public class PortalLDAPImporterImpl implements PortalLDAPImporter {
 						ldapServerId, companyId, binding));
 
 				return importLDAPUser(
-					ldapServerId, companyId, ldapContext, attributes,
-					StringPool.BLANK);
+					ldapServerId, companyId, ldapContext, attributes, null);
 			}
 			else {
 				return null;
@@ -429,7 +428,7 @@ public class PortalLDAPImporterImpl implements PortalLDAPImporter {
 			ldapServerId, companyId, ldapContext, fullUserDN);
 
 		User user = importLDAPUser(
-			ldapServerId, companyId, ldapContext, attributes, StringPool.BLANK);
+			ldapServerId, companyId, ldapContext, attributes, null);
 
 		ldapContext.close();
 
@@ -715,7 +714,7 @@ public class PortalLDAPImporterImpl implements PortalLDAPImporter {
 					User user = importUser(
 						ldapServerId, companyId, userAttributes, userMappings,
 						userExpandoMappings, contactMappings,
-						contactExpandoMappings, StringPool.BLANK);
+						contactExpandoMappings, null);
 
 					importGroups(
 						ldapServerId, companyId, ldapContext, userAttributes,
@@ -1058,7 +1057,7 @@ public class PortalLDAPImporterImpl implements PortalLDAPImporter {
 				User user = importUser(
 					ldapServerId, companyId, userAttributes, userMappings,
 					userExpandoMappings, contactMappings,
-					contactExpandoMappings, StringPool.BLANK);
+					contactExpandoMappings, null);
 
 				if (user != null) {
 					if (_log.isDebugEnabled()) {
