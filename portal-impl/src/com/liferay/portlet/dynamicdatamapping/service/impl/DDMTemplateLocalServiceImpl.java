@@ -32,6 +32,7 @@ import com.liferay.portal.model.Image;
 import com.liferay.portal.model.ResourceConstants;
 import com.liferay.portal.model.SystemEventConstants;
 import com.liferay.portal.model.User;
+import com.liferay.portal.security.auth.CompanyThreadLocal;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.persistence.ImageUtil;
 import com.liferay.portal.util.PortalUtil;
@@ -395,8 +396,9 @@ public class DDMTemplateLocalServiceImpl
 
 		// Template
 
-		if (template.getClassNameId() ==
-				PortalUtil.getClassNameId(DDMStructure.class.getName())) {
+		if (!CompanyThreadLocal.isDeleteInProcess() &&
+			(template.getClassNameId() ==
+				PortalUtil.getClassNameId(DDMStructure.class.getName()))) {
 
 			DDMStructure structure = ddmStructureLocalService.fetchDDMStructure(
 				template.getClassPK());
