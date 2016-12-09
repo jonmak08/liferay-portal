@@ -93,7 +93,7 @@ public class MicrosoftTranslatorAuthenticator {
 				_accessToken = content;
 			}
 
-			if (_accessToken != null) {
+			if (_log.isInfoEnabled() && (_accessToken != null)) {
 				_log.info("Access token " + _accessToken);
 			}
 
