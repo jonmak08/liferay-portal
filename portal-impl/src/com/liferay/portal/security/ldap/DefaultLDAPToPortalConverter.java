@@ -144,7 +144,7 @@ public class DefaultLDAPToPortalConverter implements LDAPToPortalConverter {
 
 		LDAPUser ldapUser = new LDAPUser();
 
-		ldapUser.setAutoPassword(password.equals(StringPool.BLANK));
+		ldapUser.setAutoPassword(password == null);
 		ldapUser.setAutoScreenName(autoScreenName);
 
 		Contact contact = ContactUtil.create(0);
@@ -259,7 +259,7 @@ public class DefaultLDAPToPortalConverter implements LDAPToPortalConverter {
 
 		ldapUser.setServiceContext(serviceContext);
 
-		ldapUser.setUpdatePassword(!password.equals(StringPool.BLANK));
+		ldapUser.setUpdatePassword(password != null);
 
 		User user = UserUtil.create(0);
 
