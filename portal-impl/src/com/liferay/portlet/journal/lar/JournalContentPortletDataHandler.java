@@ -19,9 +19,11 @@ import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.lar.PortletDataHandlerBoolean;
 import com.liferay.portal.kernel.lar.PortletDataHandlerChoice;
 import com.liferay.portal.kernel.lar.PortletDataHandlerControl;
+import com.liferay.portal.kernel.lar.PortletDataHandlerKeys;
 import com.liferay.portal.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.staging.MergeLayoutPrototypesThreadLocal;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.StringPool;
@@ -165,6 +167,16 @@ public class JournalContentPortletDataHandler
 					"Portlet " + portletId +
 						" refers to an invalid article ID " + articleId);
 			}
+
+			portletDataContext.setScopeGroupId(previousScopeGroupId);
+
+			return portletPreferences;
+		}
+
+		if (!MapUtil.getBoolean(
+				portletDataContext.getParameterMap(),
+			PortletDataHandlerKeys.PORTLET_DATA) &&
+			MergeLayoutPrototypesThreadLocal.isInProgress()) {
 
 			portletDataContext.setScopeGroupId(previousScopeGroupId);
 
