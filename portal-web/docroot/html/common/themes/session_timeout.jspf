@@ -27,9 +27,8 @@
 					autoExtend: <%= !themeDisplay.isSignedIn() || PropsValues.SESSION_TIMEOUT_AUTO_EXTEND %>,
 					redirectOnExpire: <%= SSOUtil.isSessionRedirectOnExpire(themeDisplay.getCompanyId()) %>,
 					redirectUrl: '<%= HtmlUtil.escapeJS(SSOUtil.getSessionExpirationRedirectURL(themeDisplay.getCompanyId(), themeDisplay.getURLHome())) %>',
-					sessionExtendOffset: <%= PropsValues.SESSION_TIMEOUT_AUTO_EXTEND_OFFSET %>,
-					sessionLength: <%= PropsValues.SESSION_TIMEOUT %>,
-					warningLength: <%= PropsValues.SESSION_TIMEOUT_WARNING %>
+					sessionLength: <%= PropsValues.SESSION_TIMEOUT * 60 - PropsValues.SESSION_TIMEOUT_AUTO_EXTEND_OFFSET %>,
+					warningLength: <%= PropsValues.SESSION_TIMEOUT_WARNING * 60 - PropsValues.SESSION_TIMEOUT_AUTO_EXTEND_OFFSET %>
 				}
 			);
 
