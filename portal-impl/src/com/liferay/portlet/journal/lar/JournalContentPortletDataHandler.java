@@ -175,7 +175,7 @@ public class JournalContentPortletDataHandler
 
 		if (!MapUtil.getBoolean(
 				portletDataContext.getParameterMap(),
-			PortletDataHandlerKeys.PORTLET_DATA) &&
+				PortletDataHandlerKeys.PORTLET_DATA) &&
 			MergeLayoutPrototypesThreadLocal.isInProgress()) {
 
 			portletDataContext.setScopeGroupId(previousScopeGroupId);
