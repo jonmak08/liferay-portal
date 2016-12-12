@@ -22,7 +22,7 @@
 
 	<c:if test="<%= !themeDisplay.isSignedIn() || Validator.isNull(autoRememberMe) %>">
 
-		<% 
+		<%
 		boolean autoExtend = !themeDisplay.isSignedIn() || PropsValues.SESSION_TIMEOUT_AUTO_EXTEND;
 		%>
 
