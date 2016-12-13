@@ -34,6 +34,23 @@
 		<execute macro="Site#tearDownCP" />
 	</tear-down>
 
+	<command name="AssertGuestRefreshNoConsoleErrors" priority="4">
+		<execute macro="Page#gotoPG">
+			<var name="pageName" value="Asset Publisher Page" />
+		</execute>
+
+		<execute macro="WebContent#addPGViaAP">
+			<var name="webContentContent" value="WC WebContent Content" />
+			<var name="webContentTitle" value="WC Webcontent Title" />
+		</execute>
+
+		<execute macro="User#logoutPG" />
+
+		<execute function="Refresh" />
+
+		<execute function="AssertConsoleTextNotPresent" value1="NoSuchResourceActionException" />
+	</command>
+
 	<command name="AssetPublisherCategoriesLocalization" priority="3">
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Categories" />
