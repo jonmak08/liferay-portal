@@ -41,6 +41,8 @@ import javax.servlet.jsp.JspException;
 
 /**
  * @author Brian Wing Shun Chan
+ * @deprecated As of 7.0.0, replaced by {@link
+ *             com.liferay.expando.taglib.servlet.taglib.CustomAttributesAvailableTag}
  */
 public class CustomAttributesAvailableTag extends TagSupport {
 
