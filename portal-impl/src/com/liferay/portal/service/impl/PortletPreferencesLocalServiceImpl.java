@@ -537,7 +537,7 @@ public class PortletPreferencesLocalServiceImpl
 				layoutRevision.getPlid());
 		}
 		catch (PortalException pe) {
-			return ReflectionUtil.throwException(pe);
+			return ReflectionUtil.<Long>throwException(pe);
 		}
 	}
 
