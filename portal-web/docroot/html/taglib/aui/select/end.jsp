@@ -43,14 +43,14 @@
 	var select = $('#<%= namespace + id %>');
 
 	<c:if test="<%= BrowserSnifferUtil.isIe(request) || BrowserSnifferUtil.isEdge(request) %>">
-			select.on(
-				'keydown',
-				function(event) {
-					if (event.which == 27) {
-						event.stopPropagation();
-					}
+		select.on(
+			'keydown',
+			function(event) {
+				if (event.which == 27) {
+					event.stopPropagation();
 				}
-			);
+			}
+		);
 	</c:if>
 
 	<c:if test="<%= BrowserSnifferUtil.isIe(request) && (BrowserSnifferUtil.getMajorVersion(request) == 11.0) %>">
