@@ -14,6 +14,7 @@
 
 package com.liferay.portal.service.persistence;
 
+import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.orm.CustomSQLParam;
 import com.liferay.portal.kernel.dao.orm.QueryPos;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
@@ -321,7 +322,7 @@ public class UserFinderImpl
 
 			boolean sybase = false;
 
-			if (db.getDBType() == DBType.SYBASE) {
+			if (db.getType() == DB.TYPE_SYBASE) {
 				sybase = true;
 
 				sb = new StringBundler(paramsList.size() * 7 + 1);
@@ -357,7 +358,7 @@ public class UserFinderImpl
 
 			sql = CustomSQLUtil.replaceAndOperator(sql, andOperator);
 
-			SQLQuery q = session.createSynchronizedSQLQuery(sql);
+			SQLQuery q = session.createSQLQuery(sql);
 
 			q.addScalar(COUNT_COLUMN_NAME, Type.LONG);
 
@@ -1021,7 +1022,8 @@ public class UserFinderImpl
 			}
 		}
 
-		List<LinkedHashMap<String, Object>> paramsList = new ArrayList<>();
+		List<LinkedHashMap<String, Object>> paramsList =
+				new ArrayList<LinkedHashMap<String, Object>>();
 
 		paramsList.add(params1);
 
