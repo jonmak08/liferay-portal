@@ -2214,12 +2214,11 @@ public class DLAppHelperLocalServiceImpl
 		public String apply(Locale locale) {
 			return LanguageUtil.get(locale, "home");
 		}
+
 	}
 
 	private static class DLFileEntryTypeTitleSerializableFunction
 		implements Function<Locale, String>, Serializable {
-
-		private DLFileEntryType _dlFileEntryType;
 
 		public DLFileEntryTypeTitleSerializableFunction(
 			DLFileEntryType dlFileEntryType) {
@@ -2231,6 +2230,9 @@ public class DLAppHelperLocalServiceImpl
 		public String apply(Locale locale) {
 			return _dlFileEntryType.getName(locale);
 		}
+
+		private DLFileEntryType _dlFileEntryType;
+
 	}
 
 }

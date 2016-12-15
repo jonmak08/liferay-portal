@@ -2497,10 +2497,8 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 	private static class MessageBoardsHomeCategoryTitleSerializableFunction
 		implements Function<Locale, String>, Serializable {
 
-		private final long _groupId;
-
 		public MessageBoardsHomeCategoryTitleSerializableFunction(
-				long groupId) {
+			long groupId) {
 
 			_groupId = groupId;
 		}
@@ -2520,6 +2518,9 @@ public class MBMessageLocalServiceImpl extends MBMessageLocalServiceBaseImpl {
 				return LanguageUtil.get(locale, "message-boards-home");
 			}
 		}
+
+		private final long _groupId;
+
 	}
 
 }

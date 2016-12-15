@@ -7224,8 +7224,6 @@ public class JournalArticleLocalServiceImpl
 	private static class ArticleTitleSerializableFunction
 		implements Function<Locale, String>, Serializable {
 
-		private final JournalArticle _article;
-
 		public ArticleTitleSerializableFunction(JournalArticle article) {
 			_article = article;
 		}
@@ -7234,6 +7232,9 @@ public class JournalArticleLocalServiceImpl
 		public String apply(Locale locale) {
 			return _article.getTitle(locale);
 		}
+
+		private final JournalArticle _article;
+
 	}
 
 }

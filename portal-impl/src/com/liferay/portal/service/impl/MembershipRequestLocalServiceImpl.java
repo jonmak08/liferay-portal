@@ -384,8 +384,6 @@ public class MembershipRequestLocalServiceImpl
 	private static class StatusKeySerializableFunction
 		implements Function<Locale, String>, Serializable {
 
-		private final String _statusKey;
-
 		public StatusKeySerializableFunction(String statusKey) {
 			_statusKey = statusKey;
 		}
@@ -394,6 +392,9 @@ public class MembershipRequestLocalServiceImpl
 		public String apply(Locale locale) {
 			return LanguageUtil.get(locale, _statusKey);
 		}
+
+		private final String _statusKey;
+
 	}
 
 }

@@ -639,8 +639,6 @@ public class AnnouncementsEntryLocalServiceImpl
 	private static class EntryTypeSerializableFunction
 		implements Function<Locale, String>, Serializable {
 
-		private final AnnouncementsEntry _entry;
-
 		public EntryTypeSerializableFunction(AnnouncementsEntry entry) {
 			_entry = entry;
 		}
@@ -649,12 +647,13 @@ public class AnnouncementsEntryLocalServiceImpl
 		public String apply(Locale locale) {
 			return LanguageUtil.get(locale, _entry.getType());
 		}
+
+		private final AnnouncementsEntry _entry;
+
 	}
 
 	private static class PortletNameSerializableFunction
 		implements Function<Locale, String>, Serializable {
-
-		private final AnnouncementsEntry _entry;
 
 		public PortletNameSerializableFunction(AnnouncementsEntry entry) {
 			_entry = entry;
@@ -665,6 +664,9 @@ public class AnnouncementsEntryLocalServiceImpl
 			return LanguageUtil.get(
 				locale, _entry.isAlert() ? "alert" : "announcement");
 		}
+
+		private final AnnouncementsEntry _entry;
+
 	}
 
 }

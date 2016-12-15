@@ -263,8 +263,6 @@ public class FlagsRequestMessageListener extends BaseMessageListener {
 	private static class GroupDescriptiveNameSerializableFunction
 		implements Function<Locale, String>, Serializable {
 
-		private final Group _group;
-
 		public GroupDescriptiveNameSerializableFunction(Group group) {
 			_group = group;
 		}
@@ -283,6 +281,9 @@ public class FlagsRequestMessageListener extends BaseMessageListener {
 
 			return StringPool.BLANK;
 		}
+
+		private final Group _group;
+
 	}
 
 }
