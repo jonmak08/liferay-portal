@@ -449,10 +449,10 @@ boolean hasUnlinkLayoutSetPrototypePermission = PortalPermissionUtil.contains(pe
 
 	if (parentGroupId <= 0) {
 		parentGroupId = GroupConstants.DEFAULT_PARENT_GROUP_ID;
+	}
 
-		if (group != null) {
-			parentGroupId = liveGroup.getParentGroupId();
-		}
+	if (group != null) {
+		parentGroupId = liveGroup.getParentGroupId();
 	}
 
 	Group parentGroup = null;
