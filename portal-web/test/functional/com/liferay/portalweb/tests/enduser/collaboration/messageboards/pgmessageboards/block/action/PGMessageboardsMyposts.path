@@ -92,7 +92,7 @@
 </tr>
 <tr>
 	<td>THREAD_TABLE_STATUS</td>
-	<td>//span[@class='taglib-workflow-status']/span[contains(@class,'workflow-status')]</td>
+	<td>//tr[contains(.,'${key_threadSubject}')]//span[@class='taglib-workflow-status']/span[contains(@class,'workflow-status')]</td>
 	<td></td>
 </tr>
 <tr>
