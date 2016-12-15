@@ -795,7 +795,8 @@ public class UserFinderImpl
 	}
 
 	protected List<LinkedHashMap<String, Object>> getParamsList(
-		LinkedHashMap<String, Object> params) {
+			LinkedHashMap<String, Object> params)
+		throws SystemException {
 
 		if (params == null) {
 			params = _emptyLinkedHashMap;
