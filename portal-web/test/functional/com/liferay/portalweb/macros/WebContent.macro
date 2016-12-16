@@ -248,6 +248,24 @@
 			</then>
 		</if>
 
+		<if>
+			<isset var="localizedText" />
+			<then>
+				<var name="key_fieldName" value="Text" />
+
+				<execute function="Type" locator1="CPWebcontentEditwebcontentAddtranslation#TEXT_FIELD" value1="${localizedText}" />
+			</then>
+		</if>
+
+		<if>
+			<isset var="unlocalizableTextBox" />
+			<then>
+				<var name="key_fieldName" value="Text Box" />
+
+				<execute function="AssertElementNotPresent" locator1="CPWebcontentEditwebcontentAddtranslation#TEXT_BOX_FIELD" />
+			</then>
+		</if>
+
 		<execute function="AssertClick" locator1="CPWebcontentEditwebcontentAddtranslation#SAVE_BUTTON" value1="Save" />
 
 		<execute function="SelectFrame" value1="relative=top" />
