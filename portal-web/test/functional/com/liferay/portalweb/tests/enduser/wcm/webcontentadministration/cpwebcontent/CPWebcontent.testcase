@@ -431,6 +431,58 @@
 		</execute>
 	</command>
 
+	<command name="AddWebContentWithUnlocalizableField" priority="5">
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Web Content" />
+		</execute>
+
+		<execute macro="WebContentStructures#addCP">
+			<var name="structureDescription" value="WC Structure Description" />
+			<var name="structureFieldNames" value="Text,Text Box" />
+			<var name="structureName" value="WC Structure Name" />
+		</execute>
+
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Web Content" />
+		</execute>
+
+		<execute macro="WebContentStructures#editFieldLocalizableCP">
+			<var name="structureFieldNames" value="Text Box" />
+			<var name="structureName" value="WC Structure Name" />
+		</execute>
+
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Web Content" />
+		</execute>
+
+		<execute macro="WebContentTemplates#addCP">
+			<var name="structureName" value="WC Structure Name" />
+			<var name="templateDescription" value="WC Template Description" />
+			<var name="templateFieldNames" value="Text" />
+			<var name="templateName" value="WC Template Name" />
+		</execute>
+
+		<execute macro="Page#gotoContentCP">
+			<var name="portletName" value="Web Content" />
+		</execute>
+
+		<execute macro="WebContent#addWithStructureCP">
+			<var name="structureName" value="WC Structure Name" />
+			<var name="templateName" value="WC Template Name" />
+			<var name="webContentText" value="WC WebContent Text" />
+			<var name="webContentTextBox" value="WC WebContent Text Box" />
+			<var name="webContentTitle" value="WC WebContent Title" />
+		</execute>
+
+		<execute macro="WebContent#addTranslationCP">
+			<var name="localizedContent" value="WC Contenido de la web Contenido" />
+			<var name="localizedLanguage" value="Spanish (Spain)" />
+			<var name="localizedText" value="WC Text de la web Contenido" />
+			<var name="unlocalizableTextBox" value="true" />
+			<var name="webContentTitle" value="WC WebContent Title" />
+		</execute>
+	</command>
+
 	<command name="AdvancedSearchStructure" priority="4">
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
