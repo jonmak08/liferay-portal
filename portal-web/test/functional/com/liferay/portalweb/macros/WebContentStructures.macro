@@ -151,6 +151,36 @@
 		<execute function="AssertTextEquals#assertText" locator1="CPWebcontentStructures#SUCCESS_MESSAGE" value1="Your request completed successfully." />
 	</command>
 
+	<command name="editFieldLocalizableCP">
+		<execute function="AssertClick" locator1="CPWebcontent#TOOLBAR_MANAGE" value1="Manage" />
+
+		<execute function="AssertClick" locator1="CPWebcontent#MANAGE_MENULIST_STRUCTURES" value1="Structures" />
+
+		<var name="key_structureName" value="${structureName}" />
+
+		<execute function="SelectFrame" locator1="CPWebcontentStructures#STRUCTURES_IFRAME" />
+
+		<execute function="AssertClick" locator1="CPWebcontentStructures#STRUCTURE_TABLE_NAME" value1="${structureName}" />
+
+		<execute function="SelectFrame" value1="relative=top" />
+
+		<for list="${structureFieldNames}" param="structureFieldName">
+			<execute macro="DynamicDataMapping#editFieldLocalizable">
+				<var name="fieldFieldLabel" value="${structureFieldName}" />
+			</execute>
+		</for>
+
+		<execute function="SelectFrame" locator1="CPWebcontentStructures#STRUCTURES_IFRAME" />
+
+		<execute function="AssertClick#assertTextClickAtAndWait" locator1="CPWebcontentStructuresAddstructure#SAVE_BUTTON" value1="Save" />
+
+		<execute function="SelectFrame" value1="relative=top" />
+
+		<execute function="SelectFrame" locator1="CPWebcontentStructuresAddstructure#STRUCTURES_IFRAME" />
+
+		<execute function="AssertTextEquals#assertText" locator1="CPWebcontentStructures#SUCCESS_MESSAGE" value1="Your request completed successfully." />
+	</command>
+
 	<command name="tearDownCP">
 		<execute macro="Page#gotoContentCP">
 			<var name="portletName" value="Web Content" />
