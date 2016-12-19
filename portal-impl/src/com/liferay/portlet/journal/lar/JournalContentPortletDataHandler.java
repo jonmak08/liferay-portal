@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.journal.lar;
 
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.lar.DataLevel;
 import com.liferay.portal.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.lar.PortletDataHandlerBoolean;
@@ -153,15 +154,7 @@ public class JournalContentPortletDataHandler
 			portletDataContext.setScopeGroupId(articleGroupId);
 		}
 
-		JournalArticle article = null;
-
-		article = JournalArticleLocalServiceUtil.fetchLatestArticle(
-			articleGroupId, articleId, WorkflowConstants.STATUS_APPROVED);
-
-		if (article == null) {
-			article = JournalArticleLocalServiceUtil.fetchLatestArticle(
-				articleGroupId, articleId, WorkflowConstants.STATUS_EXPIRED);
-		}
+		JournalArticle article = fetchLatestArticle(articleGroupId, articleId);
 
 		if (article == null) {
 			if (_log.isWarnEnabled()) {
@@ -320,13 +313,28 @@ public class JournalContentPortletDataHandler
 		return portletPreferences;
 	}
 
+	private JournalArticle fetchLatestArticle(
+			long articleGroupId, String articleId)
+		throws SystemException {
+
+		JournalArticle article;
+
+		article = JournalArticleLocalServiceUtil.fetchLatestArticle(
+			articleGroupId, articleId, WorkflowConstants.STATUS_APPROVED);
+
+		if (article == null) {
+			article = JournalArticleLocalServiceUtil.fetchLatestArticle(
+				articleGroupId, articleId, WorkflowConstants.STATUS_EXPIRED);
+		}
+
+		return article;
+	}
+
 	private JournalArticle fetchParentSiteArticle(
 			long groupId, String articleId)
 		throws Exception {
 
-		JournalArticle article =
-			JournalArticleLocalServiceUtil.fetchLatestArticle(
-				groupId, articleId, WorkflowConstants.STATUS_ANY);
+		JournalArticle article = fetchLatestArticle(groupId, articleId);
 
 		if (article == null) {
 			Group group = GroupLocalServiceUtil.getGroup(groupId);
