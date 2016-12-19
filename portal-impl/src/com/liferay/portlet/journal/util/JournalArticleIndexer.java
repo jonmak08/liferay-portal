@@ -507,7 +507,16 @@ public class JournalArticleIndexer extends BaseIndexer {
 				Field.TITLE);
 		}
 
-		String content = getBasicContentSummary(document, snippetLocale);
+		String ddmStructureKey = document.get("ddmStructureKey");
+
+		String content = StringPool.BLANK;
+
+		if (Validator.isNull(ddmStructureKey)) {
+			content = getBasicContentSummary(document, snippetLocale);
+		}
+		else {
+			content = getDDMContentSummary(document, snippetLocale);
+		}
 
 		if (Validator.isNull(content) && !snippetLocale.equals(defaultLocale)) {
 			content = getDDMContentSummary(document, defaultLocale);
