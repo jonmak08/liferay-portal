@@ -26,6 +26,7 @@
 		margin: 10px 4px;
 		padding: 5px 15px 0;
 		text-align: center;
+		width: 160px;
 
 		&:hover, &.hover {
 			background-color: #D3E8F1;
@@ -83,8 +84,10 @@
 	.image-title {
 		clear: both;
 		display: block;
+		overflow: hidden;
 		padding: 0 10px;
-		word-wrap: break-word;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 }
 
