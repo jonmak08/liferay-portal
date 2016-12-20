@@ -1023,7 +1023,7 @@ public class UserFinderImpl
 		}
 
 		List<LinkedHashMap<String, Object>> paramsList =
-				new ArrayList<LinkedHashMap<String, Object>>();
+			new ArrayList<LinkedHashMap<String, Object>>();
 
 		paramsList.add(params1);
 
