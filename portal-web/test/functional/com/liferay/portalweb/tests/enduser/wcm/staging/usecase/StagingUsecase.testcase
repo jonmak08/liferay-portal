@@ -1,5 +1,6 @@
 <definition component-name="portal-staging" extends="PGStaging" ignore-command-names="ActivateDeactivateRemoteStaging,ActivateDeactivateStagingLocalLiveDM,ActivateRemoteStaging,ActivateStaging,AddDMDocumentStagingLocalLive,AddEventRepeatDaily,AddPageVariation,AddPageWithPageVersioningEnabled,AddSitePagesVariation,AssertEditWebContentStaging,AssertNoEditLink,BlogsOrganizationWorkflowStaging,DeactivateStaging,DeleteDMDocument,LayoutScope,PublishWCViaRemoteStaging,PublishWCWithPagesVariationViaRemoteStaging,StagingPublishPortlet">
 	<property name="portal.release" value="true" />
+	<property name="portal.upstream" value="true" />
 	<property name="testray.main.component.name" value="Staging" />
 
 	<var name="siteName" value="Site Name" />

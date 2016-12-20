@@ -2,6 +2,7 @@
 	<property name="custom.properties" value="dl.store.impl=com.liferay.portlet.documentlibrary.store.DBStore${line.separator}session.tracker.persistence.enabled=true${line.separator}live.users.enabled=true" />
 	<property name="data.archive.type" value="data-archive-portal" />
 	<property name="portal.release" value="true" />
+	<property name="portal.upstream" value="true" />
 	<property name="portal.version" value="6.1.2" />
 	<property name="testray.main.component.name" value="Upgrades" />
 
