@@ -22,11 +22,10 @@ String attachmentURLPrefix = StringPool.BLANK;
 if (wikiPage != null) {
 	resourcePrimKey = wikiPage.getResourcePrimKey();
 
-	if (format.equals("html")) {
-		attachmentURLPrefix = themeDisplay.getPathMain() + "/wiki/get_page_attachment?p_l_id=" + themeDisplay.getPlid() + "&nodeId=" + wikiPage.getNodeId() + "&title=" + HttpUtil.encodeURL(wikiPage.getTitle()) + "&fileName=";
-	}
-	else {
-		attachmentURLPrefix = themeDisplay.getPortalURL() + themeDisplay.getPathMain() + "/wiki/get_page_attachment?p_l_id=" + themeDisplay.getPlid() + "&nodeId=" + wikiPage.getNodeId() + "&title=" + HttpUtil.encodeURL(wikiPage.getTitle()) + "&fileName=";
+	attachmentURLPrefix = themeDisplay.getPathMain() + "/wiki/get_page_attachment?p_l_id=" + themeDisplay.getPlid() + "&nodeId=" + wikiPage.getNodeId() + "&title=" + HttpUtil.encodeURL(wikiPage.getTitle()) + "&fileName=";
+
+	if (!format.equals("html")) {
+		attachmentURLPrefix = themeDisplay.getPortalURL() + attachmentURLPrefix;
 	}
 }
 
