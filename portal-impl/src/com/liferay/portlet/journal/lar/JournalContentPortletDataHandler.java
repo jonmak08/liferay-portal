@@ -271,11 +271,15 @@ public class JournalContentPortletDataHandler
 
 			portletPreferences.setValue("articleId", articleId);
 
+			String importedArticleGroupId = String.valueOf(
+				portletDataContext.getScopeGroupId());
+
 			JournalArticle article = fetchParentSiteArticle(
 				portletDataContext.getScopeGroupId(), articleId);
 
-			String importedArticleGroupId = String.valueOf(
-				article.getGroupId());
+			if (article != null) {
+				importedArticleGroupId = String.valueOf(article.getGroupId());
+			}
 
 			portletPreferences.setValue("groupId", importedArticleGroupId);
 
