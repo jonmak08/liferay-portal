@@ -91,6 +91,10 @@
 	}
 }
 
+.image-viewer-caption {
+	word-wrap: break-word;
+}
+
 .firefox {
 	.portlet-image-gallery-display {
 		.audio-node {
