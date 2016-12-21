@@ -446,7 +446,14 @@ public class VerifyDynamicDataMapping extends VerifyProcess {
 			String fieldName = dynamicElementElement.attributeValue("name");
 
 			if (fieldName.equals(DDMImpl.FIELDS_DISPLAY_NAME)) {
-				return true;
+				if (dynamicElementElement.hasContent()) {
+					return true;
+				}
+				else {
+					rootElement.remove(dynamicElementElement);
+
+					return false;
+				}
 			}
 		}
 
