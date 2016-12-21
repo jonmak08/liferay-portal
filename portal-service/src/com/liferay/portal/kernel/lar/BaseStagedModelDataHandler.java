@@ -26,9 +26,11 @@ import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.xml.Element;
+import com.liferay.portal.model.Group;
 import com.liferay.portal.model.StagedModel;
 import com.liferay.portal.model.TrashedModel;
 import com.liferay.portal.model.WorkflowedModel;
+import com.liferay.portal.service.GroupLocalServiceUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -128,6 +130,29 @@ public abstract class BaseStagedModelDataHandler<T extends StagedModel>
 
 		try {
 			doImportCompanyStagedModel(portletDataContext, uuid, classPK);
+		}
+		catch (PortletDataException pde) {
+			throw pde;
+		}
+		catch (Exception e) {
+			throw new PortletDataException(e);
+		}
+	}
+
+	@Override
+	public void importParentSiteStagedModel(
+			PortletDataContext portletDataContext, Element element,
+			long groupId)
+		throws PortletDataException {
+
+		try {
+			doImportGroupStagedModel(portletDataContext, element, groupId);
+			Group group = GroupLocalServiceUtil.getGroup(groupId);
+
+			for (Group parentGroup : group.getAncestors()) {
+				importParentSiteStagedModel(
+					portletDataContext, element, parentGroup.getGroupId());
+			}
 		}
 		catch (PortletDataException pde) {
 			throw pde;
@@ -246,6 +271,14 @@ public abstract class BaseStagedModelDataHandler<T extends StagedModel>
 
 	protected void doImportCompanyStagedModel(
 			PortletDataContext portletDataContext, String uuid, long classPK)
+		throws Exception {
+
+		throw new UnsupportedOperationException();
+	}
+
+	protected void doImportGroupStagedModel(
+			PortletDataContext portletDataContext, Element element,
+			long groupId)
 		throws Exception {
 
 		throw new UnsupportedOperationException();

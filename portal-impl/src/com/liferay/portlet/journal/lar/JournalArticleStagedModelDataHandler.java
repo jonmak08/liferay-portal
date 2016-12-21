@@ -368,6 +368,42 @@ public class JournalArticleStagedModelDataHandler
 	}
 
 	@Override
+	protected void doImportGroupStagedModel(
+			PortletDataContext portletDataContext, Element referenceElement,
+			long groupId)
+		throws Exception {
+
+		String articleResourceUuid = referenceElement.attributeValue(
+			"article-resource-uuid");
+		String articleArticleId = referenceElement.attributeValue("article-id");
+		boolean preloaded = GetterUtil.getBoolean(
+			referenceElement.attributeValue("preloaded"));
+
+		JournalArticle existingArticle = fetchExistingArticle(
+				articleResourceUuid, groupId, articleArticleId, null, 0.0,
+				preloaded);
+
+		if (existingArticle == null) {
+			return;
+		}
+
+		Map<Long, Long> articleIds =
+			(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
+				JournalArticle.class);
+
+		long articleId = GetterUtil.getLong(
+			referenceElement.attributeValue("class-pk"));
+
+		articleIds.put(articleId, existingArticle.getId());
+
+		Map<String, String> articleArticleIds =
+			(Map<String, String>)portletDataContext.getNewPrimaryKeysMap(
+				JournalArticle.class + ".articleId");
+
+		articleArticleIds.put(articleArticleId, existingArticle.getArticleId());
+}
+
+	@Override
 	protected void doImportStagedModel(
 			PortletDataContext portletDataContext, JournalArticle article)
 		throws Exception {

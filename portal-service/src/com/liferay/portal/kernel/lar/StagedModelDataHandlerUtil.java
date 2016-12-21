@@ -21,10 +21,12 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Attribute;
 import com.liferay.portal.kernel.xml.Element;
+import com.liferay.portal.model.Group;
 import com.liferay.portal.model.Portlet;
 import com.liferay.portal.model.StagedGroupedModel;
 import com.liferay.portal.model.StagedModel;
 import com.liferay.portal.model.TypedModel;
+import com.liferay.portal.service.GroupLocalServiceUtil;
 import com.liferay.portal.service.PortletLocalServiceUtil;
 import com.liferay.portal.util.PortalUtil;
 
@@ -211,7 +213,36 @@ public class StagedModelDataHandlerUtil {
 		boolean missing = portletDataContext.isMissingReference(
 			referenceElement);
 
+		long groupId = GetterUtil.getLong(
+			referenceElement.attributeValue("group-id"),
+			portletDataContext.getSourceGroupId());
+
 		if (missing) {
+			Group group = null;
+			boolean hasAncestors = false;
+
+			try {
+				group = GroupLocalServiceUtil.getGroup(
+					portletDataContext.getScopeGroupId());
+				hasAncestors = (group.getAncestors().size() > 0);
+			}
+			catch (Exception e) {
+			}
+
+			if ((portletDataContext.getSourceGroupId() != groupId) &&
+				hasAncestors) {
+
+				StagedModelDataHandler<?> stagedModelDataHandler =
+					StagedModelDataHandlerRegistryUtil.
+					getStagedModelDataHandler(stagedModelClass.getName());
+
+				stagedModelDataHandler.importParentSiteStagedModel(
+					portletDataContext, referenceElement,
+					portletDataContext.getScopeGroupId());
+
+				return;
+			}
+
 			StagedModelDataHandler<?> stagedModelDataHandler =
 				StagedModelDataHandlerRegistryUtil.getStagedModelDataHandler(
 					stagedModelClass.getName());
@@ -231,10 +262,6 @@ public class StagedModelDataHandlerUtil {
 
 			return;
 		}
-
-		long groupId = GetterUtil.getLong(
-			referenceElement.attributeValue("group-id"),
-			portletDataContext.getSourceGroupId());
 
 		String stagedModelPath = ExportImportPathUtil.getModelPath(
 			groupId, stagedModelClass.getName(), classPK);
@@ -275,6 +302,36 @@ public class StagedModelDataHandlerUtil {
 				referenceElement);
 
 			if (missing) {
+				Group group = null;
+				boolean hasAncestors = false;
+
+				try {
+					group = GroupLocalServiceUtil.getGroup(
+						portletDataContext.getScopeGroupId());
+					hasAncestors = (group.getAncestors().size() > 0);
+				}
+				catch (Exception e) {
+				}
+
+				long groupId = GetterUtil.getLong(
+					referenceElement.attributeValue("group-id"),
+					portletDataContext.getSourceGroupId());
+
+				if ((portletDataContext.getSourceGroupId() != groupId) &&
+					hasAncestors) {
+
+					StagedModelDataHandler<?> stagedModelDataHandler =
+						StagedModelDataHandlerRegistryUtil.
+							getStagedModelDataHandler(
+								stagedModelClass.getName());
+
+					stagedModelDataHandler.importParentSiteStagedModel(
+						portletDataContext, referenceElement,
+						portletDataContext.getScopeGroupId());
+
+					continue;
+				}
+
 				StagedModelDataHandler<?> stagedModelDataHandler =
 					StagedModelDataHandlerRegistryUtil.
 						getStagedModelDataHandler(stagedModelClass.getName());
