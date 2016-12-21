@@ -513,13 +513,21 @@ public class JournalArticleIndexer extends BaseIndexer {
 
 		if (Validator.isNull(ddmStructureKey)) {
 			content = getBasicContentSummary(document, snippetLocale);
+
+			if (Validator.isNull(content) &&
+				!snippetLocale.equals(defaultLocale)) {
+
+				content = getBasicContentSummary(document, defaultLocale);
+			}
 		}
 		else {
 			content = getDDMContentSummary(document, snippetLocale);
-		}
 
-		if (Validator.isNull(content) && !snippetLocale.equals(defaultLocale)) {
-			content = getDDMContentSummary(document, defaultLocale);
+			if (Validator.isNull(content) &&
+				!snippetLocale.equals(defaultLocale)) {
+
+				content = getDDMContentSummary(document, defaultLocale);
+			}
 		}
 
 		String groupId = document.get(Field.GROUP_ID);
