@@ -17,6 +17,7 @@ package com.liferay.portal.kernel.lar;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Attribute;
@@ -222,11 +223,17 @@ public class StagedModelDataHandlerUtil {
 			boolean hasAncestors = false;
 
 			try {
-				group = GroupLocalServiceUtil.getGroup(
+				group = GroupLocalServiceUtil.fetchGroup(
 					portletDataContext.getScopeGroupId());
-				hasAncestors = (group.getAncestors().size() > 0);
+
+				if ((group != null) &&
+					!ListUtil.isEmpty(group.getAncestors())) {
+
+					hasAncestors = true;
+				}
 			}
 			catch (Exception e) {
+				throw new PortletDataException(e);
 			}
 
 			if ((portletDataContext.getSourceGroupId() != groupId) &&
@@ -306,11 +313,17 @@ public class StagedModelDataHandlerUtil {
 				boolean hasAncestors = false;
 
 				try {
-					group = GroupLocalServiceUtil.getGroup(
+					group = GroupLocalServiceUtil.fetchGroup(
 						portletDataContext.getScopeGroupId());
-					hasAncestors = (group.getAncestors().size() > 0);
+
+					if ((group != null) &&
+						!ListUtil.isEmpty(group.getAncestors())) {
+
+						hasAncestors = true;
+					}
 				}
 				catch (Exception e) {
+					throw new PortletDataException(e);
 				}
 
 				long groupId = GetterUtil.getLong(
