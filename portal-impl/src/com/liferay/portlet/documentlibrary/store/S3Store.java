@@ -762,7 +762,7 @@ public class S3Store extends BaseStore {
 		PropsKeys.DL_STORE_S3_ACCESS_KEY);
 
 	private static char[] _BRACKETS =
-		{CharPool.OPEN_BRACKET, CharPool.CLOSE_BRACKET};
+		{CharPool.CLOSE_BRACKET, CharPool.OPEN_BRACKET};
 
 	private static final String _BUCKET_NAME = PropsUtil.get(
 		PropsKeys.DL_STORE_S3_BUCKET_NAME);
