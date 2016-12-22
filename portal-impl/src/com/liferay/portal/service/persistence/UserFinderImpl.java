@@ -308,6 +308,9 @@ public class UserFinderImpl
 
 			String sql = CustomSQLUtil.get(FIND_BY_C_FN_MN_LN_SN_EA_S);
 
+			sql = StringUtil.replace(
+				sql, "[$ATTRIBUTES$]", "User_.userId AS userId");
+
 			sql = replaceKeywords(
 				sql, firstNames, middleNames, lastNames, screenNames,
 				emailAddresses);
@@ -635,6 +638,12 @@ public class UserFinderImpl
 			session = openSession();
 
 			String sql = CustomSQLUtil.get(FIND_BY_C_FN_MN_LN_SN_EA_S);
+
+			sql = StringUtil.replace(
+				sql, "[$ATTRIBUTES$]",
+				"User_.userId AS userId, User_.screenName AS screenName, " +
+				"User_.firstName AS firstName, User_.middleName AS middleName" +
+				", User_.lastName AS lastName, User_.loginDate as loginDate");
 
 			sql = replaceKeywords(
 				sql, firstNames, middleNames, lastNames, screenNames,
