@@ -643,7 +643,8 @@ public class UserFinderImpl
 
 			if (obc != null) {
 				for (String conditionField : obc.getOrderByConditionFields()) {
-					attributes += ", " + conditionField;
+					attributes += ", User_." + conditionField + " AS " +
+						conditionField;
 				}
 			}
 
