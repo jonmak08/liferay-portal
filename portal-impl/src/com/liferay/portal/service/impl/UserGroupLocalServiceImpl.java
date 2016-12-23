@@ -355,7 +355,8 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 	public UserGroup deleteUserGroup(UserGroup userGroup)
 		throws PortalException, SystemException {
 
-		LinkedHashMap<String, Object> params = new LinkedHashMap<>();
+		LinkedHashMap<String, Object> params =
+			new LinkedHashMap<String, Object>();
 
 		params.put("usersUserGroups", Long.valueOf(userGroup.getUserGroupId()));
 

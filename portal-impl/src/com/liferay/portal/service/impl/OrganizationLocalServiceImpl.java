@@ -452,7 +452,8 @@ public class OrganizationLocalServiceImpl
 	public Organization deleteOrganization(Organization organization)
 		throws PortalException, SystemException {
 
-		LinkedHashMap<String, Object> params = new LinkedHashMap<>();
+		LinkedHashMap<String, Object> params =
+			new LinkedHashMap<String, Object>();
 
 		params.put("usersOrgs", Long.valueOf(organization.getOrganizationId()));
 
