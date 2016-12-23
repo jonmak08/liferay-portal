@@ -35,6 +35,13 @@
 	overflow: hidden;
 }
 
+@media only screen and (max-device-width: 1024px) {
+	.modal-open {
+		overflow: visible !important;
+		position: fixed;
+	}
+}
+
 .portal-popup {
 	.columns-max > .portlet-layout.row {
 		margin-left: 0;
