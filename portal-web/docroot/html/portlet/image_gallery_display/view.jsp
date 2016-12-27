@@ -138,13 +138,14 @@ long portletDisplayDDMTemplateId = PortletDisplayTemplateUtil.getPortletDisplayT
 				<liferay-util:include page="/html/portlet/image_gallery_display/view_images.jsp" />
 			</c:when>
 			<c:when test='<%= topLink.equals("home") %>'>
+				<c:if test="<%= folder != null %>">
+					<liferay-ui:header
+						localizeTitle="<%= false %>"
+						title="<%= folder.getName() %>"
+					/>
+				</c:if>
+
 				<aui:row>
-					<c:if test="<%= folder != null %>">
-						<liferay-ui:header
-							localizeTitle="<%= false %>"
-							title="<%= folder.getName() %>"
-						/>
-					</c:if>
 
 					<%
 					SearchContainer searchContainer = new SearchContainer(renderRequest, null, null, "cur2", SearchContainer.DEFAULT_DELTA, portletURL, null, null);
