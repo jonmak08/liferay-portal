@@ -17,10 +17,12 @@ package com.liferay.portal.struts;
 import com.liferay.portal.kernel.struts.StrutsAction;
 import com.liferay.portal.kernel.struts.StrutsPortletAction;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.struts.action.Action;
+import org.apache.struts.util.WildcardHelper;
 
 /**
  * @author Mika Koivisto
@@ -36,8 +38,14 @@ public class StrutsActionRegistryImpl implements StrutsActionRegistry {
 			return action;
 		}
 
+		WildcardHelper wildcardHelper = new WildcardHelper();
+
+		Map<String, String> matchesMap = new HashMap<String, String>();
+
 		for (Map.Entry<String, Action> entry : _actions.entrySet()) {
-			if (path.startsWith(entry.getKey())) {
+			int[] pattern = wildcardHelper.compilePattern(entry.getKey());
+
+			if (wildcardHelper.match(matchesMap, path, pattern)) {
 				return entry.getValue();
 			}
 		}
