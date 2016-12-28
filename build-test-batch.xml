@@ -749,15 +749,15 @@ app.server.type=@{app.server.type}]]></echo>
 		/>
 	</target>
 
-	<target name="functional-bundle-markerplaceapp-smoke-glassfish-mysql55-jdk7">
+	<target name="functional-bundle-marketplaceapp-smoke-glassfish-mysql55-jdk7">
 		<antcall target="functional-bundle-glassfish-mysql55-jdk7" />
 	</target>
 
-	<target name="functional-bundle-markerplaceapp-smoke-tomcat-mysql55-jdk7">
+	<target name="functional-bundle-marketplaceapp-smoke-tomcat-mysql55-jdk7">
 		<antcall target="functional-bundle-tomcat-mysql55-jdk7" />
 	</target>
 
-	<target name="functional-bundle-markerplaceapp-smoke-wildfly-mysql55-jdk7">
+	<target name="functional-bundle-marketplaceapp-smoke-wildfly-mysql55-jdk7">
 		<antcall target="functional-bundle-wildfly-mysql55-jdk7" />
 	</target>
 
