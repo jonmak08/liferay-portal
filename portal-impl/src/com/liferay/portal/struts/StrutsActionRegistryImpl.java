@@ -38,14 +38,12 @@ public class StrutsActionRegistryImpl implements StrutsActionRegistry {
 			return action;
 		}
 
-		WildcardHelper wildcardHelper = new WildcardHelper();
-
 		Map<String, String> matchesMap = new HashMap<String, String>();
 
 		for (Map.Entry<String, Action> entry : _actions.entrySet()) {
-			int[] pattern = wildcardHelper.compilePattern(entry.getKey());
+			int[] pattern = _patterns.get(entry.getKey());
 
-			if (wildcardHelper.match(matchesMap, path, pattern)) {
+			if (_wildcardHelper.match(matchesMap, path, pattern)) {
 				return entry.getValue();
 			}
 		}
@@ -63,6 +61,8 @@ public class StrutsActionRegistryImpl implements StrutsActionRegistry {
 		Action action = new ActionAdapter(strutsAction);
 
 		_actions.put(path, action);
+
+		_patterns.put(path, _wildcardHelper.compilePattern(path));
 	}
 
 	@Override
@@ -70,14 +70,23 @@ public class StrutsActionRegistryImpl implements StrutsActionRegistry {
 		Action action = new PortletActionAdapter(strutsPortletAction);
 
 		_actions.put(path, action);
+
+		_patterns.put(path, _wildcardHelper.compilePattern(path));
 	}
 
 	@Override
 	public void unregister(String path) {
 		_actions.remove(path);
+
+		_patterns.remove(path);
 	}
 
 	private static Map<String, Action> _actions =
 		new ConcurrentHashMap<String, Action>();
+
+	private static Map<String, int[]> _patterns =
+		new ConcurrentHashMap<String, int[]>();
+
+	private static WildcardHelper _wildcardHelper = new WildcardHelper();
 
 }
