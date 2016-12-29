@@ -143,6 +143,7 @@
 				<equals arg1="${portletName}" arg2="Documents and Media" />
 				<equals arg1="${portletName}" arg2="Knowledge Base Display" />
 				<equals arg1="${portletName}" arg2="Media Gallery" />
+				<equals arg1="${portletName}" arg2="RSS" />
 				<equals arg1="${portletName}" arg2="WSRP Unit Converter" />
 			</or>
 			<then>
