@@ -83,10 +83,8 @@ public class StrutsActionRegistryImpl implements StrutsActionRegistry {
 
 	private static Map<String, Action> _actions =
 		new ConcurrentHashMap<String, Action>();
-
 	private static Map<String, int[]> _patterns =
 		new ConcurrentHashMap<String, int[]>();
-
 	private static WildcardHelper _wildcardHelper = new WildcardHelper();
 
 }
