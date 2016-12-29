@@ -45,11 +45,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>SUBSCRIBE_TO_PAGE_LINK</td>
 	<td>//tr[contains(.,'You are not subscribed to this page.')]/td/span/a[contains(.,'Subscribe')]</td>
 	<td></td>

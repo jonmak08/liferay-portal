@@ -25,11 +25,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>TITLE_FIELD</td>
 	<td>//input[@id='_15_title_en_US']</td>
 	<td></td>

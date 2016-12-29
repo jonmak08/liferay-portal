@@ -14,11 +14,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>INFO_MESSAGE_1</td>
 	<td>xPath=(//div[@class='alert alert-info'])[1]</td>
 	<td></td>

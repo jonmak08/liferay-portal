@@ -24,11 +24,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>DISPLAY_TEMPLATE_SELECT</td>
 	<td>//select[@id='_86_displayStyle']</td>
 	<td></td>
@@ -51,11 +46,6 @@
 <tr>
 	<td>PAGINATION_TYPE_SELECT</td>
 	<td>//select[@id='_86_paginationType']</td>
-	<td></td>
-</tr>
-<tr>
-	<td></td>
-	<td></td>
 	<td></td>
 </tr>
 <tr>

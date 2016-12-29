@@ -14,11 +14,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>ANNOUNCEMENTS_PORTLET_TITLE</td>
 	<td>//h1[@class='portlet-title'][contains(.,'Announcement')]</td>
 	<td></td>

@@ -19,11 +19,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>TOOLBAR_ADD</td>
 	<td>//a[@title='Add']/span</td>
 	<td></td>

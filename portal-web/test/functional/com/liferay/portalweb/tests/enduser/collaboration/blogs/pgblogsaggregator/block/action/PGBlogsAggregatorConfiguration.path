@@ -24,11 +24,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>SELECTION_METHOD_SELECT</td>
 	<td>//select[@id='_86_selectionMethod']</td>
 	<td></td>

@@ -19,11 +19,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>FILE_FIELD</td>
 	<td>//input[@id='_20_file']</td>
 	<td></td>

@@ -44,11 +44,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>SHOW_AVAILABLE_LOCALES_CHECKBOX</td>
 	<td>//input[@id='_86_showAvailableLocalesCheckbox']</td>
 	<td></td>
@@ -81,11 +76,6 @@
 <tr>
 	<td>ENABLE_VIEW_COUNT_INCREMENT_CHECKBOX</td>
 	<td>//input[@id='_86_enableViewCountIncrementCheckbox']</td>
-	<td></td>
-</tr>
-<tr>
-	<td></td>
-	<td></td>
 	<td></td>
 </tr>
 <tr>

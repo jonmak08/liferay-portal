@@ -78,11 +78,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>DOCKBAR_LIFERAY_BANNER</td>
 	<td>//div[@class='banner-content']//img[@alt='Liferay']</td>
 	<td></td>

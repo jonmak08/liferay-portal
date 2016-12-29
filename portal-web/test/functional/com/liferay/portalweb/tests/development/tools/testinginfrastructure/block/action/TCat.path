@@ -44,11 +44,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>UNREGISTERED</td>
 	<td>//span[contains(@class,'x-tree3-node-text') and contains(.,'Unregistered (1)')]</td>
 	<td></td>
@@ -61,11 +56,6 @@
 <tr>
 	<td>REGISTER_BUTTON</td>
 	<td>//button[contains(@class,'toolbar-btn-text') and contains(.,'Register')]</td>
-	<td></td>
-</tr>
-<tr>
-	<td></td>
-	<td></td>
 	<td></td>
 </tr>
 <tr>

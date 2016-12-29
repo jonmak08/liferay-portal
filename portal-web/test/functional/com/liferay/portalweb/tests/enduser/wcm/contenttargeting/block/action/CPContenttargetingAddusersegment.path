@@ -106,11 +106,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>USER_SEGMENT_RULES_RULE</td>
 	<td>//li[@title='${key_userSegmentRule}']//div[@class='field-title']</td>
 	<td></td>

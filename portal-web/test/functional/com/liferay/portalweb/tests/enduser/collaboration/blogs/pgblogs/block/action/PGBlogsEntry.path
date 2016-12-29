@@ -298,11 +298,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>PREVIOUS</td>
 	<td>//div[@class='entry-navigation']/span[contains(.,'Previous')]</td>
 	<td></td>

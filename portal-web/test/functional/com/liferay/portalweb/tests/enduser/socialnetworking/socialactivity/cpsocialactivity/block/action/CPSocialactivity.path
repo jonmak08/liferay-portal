@@ -34,11 +34,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
-<tr>
 	<td>POSSIBLE_USER_ACTIONS_BUTTON</td>
 	<td>//div[contains(.,'Possible User Actions')]/ul/li/div/span[contains(.,'${key_userAction}')]</td>
 	<td></td>
