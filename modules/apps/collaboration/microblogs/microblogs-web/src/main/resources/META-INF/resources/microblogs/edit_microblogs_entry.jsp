@@ -299,10 +299,12 @@ if (comment) {
 
 			var inputValue = '<%= ((microblogsEntry != null) && (edit)) ? StringUtil.replace(HtmlUtil.escapeJS(microblogsEntry.getContent()), "\'", "\\'") : StringPool.BLANK %>';
 
-			if ((autocomplete.height() < 45) || (highlighterContent.height() < 45)) {
-				autocomplete.height(45);
+			var initialHeight = calculateInitialHeight(inputValue);
 
-				highlighterContent.height(45);
+			if ((autocomplete.height() < initialHeight) || (highlighterContent.height() < initialHeight)) {
+				autocomplete.height(initialHeight);
+
+				highlighterContent.height(initialHeight);
 			}
 
 			var textarea = new A.Textarea(
@@ -353,6 +355,23 @@ if (comment) {
 			contentTextarea.val(inputValue);
 
 			return contentTextarea;
+		};
+
+		var calculateInitialHeight = function(inputValue) {
+			var autocomplete = A.one('#<portlet:namespace />autocomplete<%= formId %>');
+			var highlighterContent = A.one('#<portlet:namespace />highlighterContent<%= formId %>');
+
+			var fontSize = parseInt(highlighterContent.getStyle('font-size'), 10);
+			var lineHeight = parseInt(highlighterContent.getStyle('line-height'), 10);
+
+			var lineBreaks = inputValue.split('\n').length;
+			var linePadding = lineHeight - fontSize;
+
+			var lines = (inputValue.length * linePadding / autocomplete.width()) + lineBreaks;
+
+			var initialHeight = lines * lineHeight;
+
+			return initialHeight;
 		};
 
 		var replaceName = function(inputText, returnType) {
