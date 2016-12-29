@@ -38,11 +38,6 @@
 	<td>//button[@class='btn btn-cancel' and contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>

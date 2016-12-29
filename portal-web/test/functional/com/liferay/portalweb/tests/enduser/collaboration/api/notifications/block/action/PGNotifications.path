@@ -141,11 +141,6 @@
 	<td>xpath=(//div[@class='content']/div[@class='read'])[3]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>

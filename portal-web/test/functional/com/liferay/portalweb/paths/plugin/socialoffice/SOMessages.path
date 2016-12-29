@@ -94,11 +94,6 @@
 	<td>xpath=(//tr[contains(@class,'unread')])[contains(.,'${key_messageBody}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>

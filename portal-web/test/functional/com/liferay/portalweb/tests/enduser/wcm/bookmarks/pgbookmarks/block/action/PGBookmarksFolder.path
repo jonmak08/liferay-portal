@@ -80,11 +80,6 @@
 	<td>//ul[contains(@id,'_menu')]/li/a[contains(.,'Add Subfolder')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>

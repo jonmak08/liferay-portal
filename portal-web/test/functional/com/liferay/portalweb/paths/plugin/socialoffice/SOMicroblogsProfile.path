@@ -186,11 +186,6 @@
 	<td>//ul[contains(@class,'nav nav-tabs')]/li[contains(.,'${key_microblogsEntryTagValue}')]/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>

@@ -89,11 +89,6 @@
 	<td>//div[contains(@id,'ratingsType')]/label[contains(.,'Use Thumbs Up/Thumbs Down')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>

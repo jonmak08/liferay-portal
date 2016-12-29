@@ -84,11 +84,6 @@
 	<td>//button[contains(@id,'kaleoformsportlet_removeParentStructureButton')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>

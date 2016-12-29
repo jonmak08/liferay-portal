@@ -88,11 +88,6 @@
 	<td>//section[@id='portlet_1_WAR_eventsdisplayportlet']//a[contains(.,'Previous')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>

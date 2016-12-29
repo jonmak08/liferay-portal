@@ -101,11 +101,6 @@
 	<td>//ul[@class='dropdown-menu lfr-menu-list direction-left']/li[contains(.,'Delete')]/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>

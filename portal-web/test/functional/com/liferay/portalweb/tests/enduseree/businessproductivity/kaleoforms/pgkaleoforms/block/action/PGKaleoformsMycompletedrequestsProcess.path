@@ -71,11 +71,6 @@
 	<td>//div[@class='task-activity-comment' and contains(.,'${key_comment}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
 </tbody>
 </table>
 </body>
