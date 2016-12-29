@@ -151,7 +151,6 @@
 	<td>//ul[contains(@class,'lfr-menu-expanded') and contains(@class,'lfr-menu-list')]/li/a/span[contains(.,'Delete')]</td>
 	<td></td>
 </tr>
-
 </tbody>
 </table>
 </body>

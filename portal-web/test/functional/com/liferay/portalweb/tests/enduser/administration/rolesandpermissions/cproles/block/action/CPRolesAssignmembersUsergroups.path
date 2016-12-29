@@ -71,7 +71,6 @@
 	<td>//div[contains(@id,'userGroupsSearchContainerSearchContainer')]//tr[contains(.,'${key_userGroupName}')]/td[3]</td>
 	<td></td>
 </tr>
-
 </tbody>
 </table>
 </body>
