@@ -38,11 +38,7 @@
 	<td>//ul[@class='visit-links']/li/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_PUBLIC_PAGES</td>
@@ -64,11 +60,7 @@
 	<td>//li[contains(@id,'_156_tabs')]/a[contains(.,'My Dashboard')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_ADD_PAGE</td>
@@ -110,11 +102,7 @@
 	<td>//ul[@id='_156_layoutsNav']/li/a[contains(.,'Copy Portlets from Page')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGE_TREE-->
 <tr>
 	<td>PAGE_TREE_ROOT_ARROW</td>
@@ -191,11 +179,7 @@
 	<td>xpath=(//a[contains(@id,'layoutsTree_layout_')])[8]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DETAILS-->
 <tr>
 	<td>DETAILS_NAME_FIELD</td>
@@ -227,11 +211,7 @@
 	<td>//select[@id='_156_type']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DETAILS_PAGE_TYPE_PANEL-->
 <tr>
 	<td>DETAILS_PAGE_TYPE_PANEL_DESCRIPTION_FIELD</td>
@@ -248,11 +228,7 @@
 	<td>//li[contains(@id,'detailsselectPortletsRootNode')]//span[contains(.,'${key_componentOrPortletName}')]/../i[contains(@class,'tree-node-checkbox')]/input</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--STAGING-->
 <tr>
 	<td>STAGING_SITE_PAGES_VARIATION_BUTTON</td>
@@ -279,11 +255,7 @@
 	<td>//li[@class='publish-link-container']/a[contains(.,'Manage Site Pages Variation')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--INCOMPLETE_STAGING_PAGE_VARIATION-->
 <tr>
 	<td>INCOMPLETE_STAGING_PAGE_VARIATION_INFO_MESSAGE</td>
@@ -300,11 +272,7 @@
 	<td>//button[@id='_156_deleteLayout']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SEO-->
 <!--LOOK_AND_FEEL-->
 <!--LOGO-->

@@ -13,11 +13,7 @@
 	<td>PGWiki</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_CONTENT</td>
@@ -49,11 +45,7 @@
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Attachments')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WIKI_PAGE_TABLE-->
 <tr>
 	<td>WIKI_PAGE_TABLE_PAGE</td>

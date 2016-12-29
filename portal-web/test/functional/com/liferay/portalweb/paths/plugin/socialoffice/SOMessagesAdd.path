@@ -43,11 +43,7 @@
 	<td>//button[contains(.,'Send')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TO_FIELD_DROPDOWN_LIST-->
 <tr>
 	<td>TO_FIELD_DROPDOWN_LIST</td>

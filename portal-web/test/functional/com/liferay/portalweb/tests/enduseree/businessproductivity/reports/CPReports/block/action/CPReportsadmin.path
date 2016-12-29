@@ -38,22 +38,14 @@
 	<td>//a[@title='Options']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--OPTIONS_MENULIST-->
 <tr>
 	<td>OPTIONS_MENULIST_CONFIGURATION</td>
 	<td>//a[contains(@id,'_menu_configuration')] | //a[@role='menuitem' and contains(.,'Configuration')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_REPORTS</td>
@@ -70,22 +62,14 @@
 	<td>//li[contains(@id,'reportsportlet_tabs')]/a[contains(text(),'Sources')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--INFO_MESSAGE-->
 <tr>
 	<td>INFO_MESSAGE</td>
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-info')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--REPORTS_ENTRY_TABLE-->
 <tr>
 	<td>REPORTS_ENTRY_TABLE_DEFINITION_NAME</td>
@@ -102,33 +86,21 @@
 	<td>xpath=(//tr/td[4]/div/a[@title='Actions'])[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--REPORTS_ENTRY_MENULIST-->
 <tr>
 	<td>REPORTS_ENTRY_MENULIST_DELETE</td>
 	<td>//a[@role='menuitem' and contains(.,'Delete')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DEFINITIONS-->
 <tr>
 	<td>DEFINITIONS_ADD_REPORT_DEFINITION_BUTTON</td>
 	<td>//button[contains(.,'Add Report Definition')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DEFINITIONS_DEFINITION_TABLE-->
 <tr>
 	<td>DEFINITIONS_DEFINITION_TABLE_DEFINITION_NAME</td>
@@ -145,11 +117,7 @@
 	<td>xpath=(//tr/td[4]/div/a[@title='Actions'])[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DEFINITIONS_DEFINITION_MENULIST-->
 <tr>
 	<td>DEFINITIONS_DEFINITION_MENULIST_EDIT</td>
@@ -171,11 +139,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Delete')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DEFINITIONS_PAGINATION-->
 <tr>
 	<td>DEFINITIONS_PAGINATION_PAGE_NUMBER_DROPDOWN_BUTTON</td>
@@ -202,33 +166,21 @@
 	<td>//ul[contains(@class,'pagination-buttons')]/li/a[contains(.,'Next')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SOURCES-->
 <tr>
 	<td>SOURCES_ADD_SOURCE_BUTTON</td>
 	<td>//button[contains(.,'Add Source')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SOURCES_SOURCE-->
 <tr>
 	<td>SOURCES_SOURCE_TABLE_ACTIONS_1</td>
 	<td>xpath=(//tr/td[4]/div/a[@title='Actions'])[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SOURCES_SOURCE_MENULIST-->
 <tr>
 	<td>SOURCES_SOURCE_MENULIST_DELETE</td>

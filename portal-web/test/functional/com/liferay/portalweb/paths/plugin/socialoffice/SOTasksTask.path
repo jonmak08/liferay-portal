@@ -88,11 +88,7 @@
 	<td>//button[contains(.,'Delete')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMMENT-->
 <tr>
 	<td>COMMENT_BE_THE_FIRST_LINK</td>

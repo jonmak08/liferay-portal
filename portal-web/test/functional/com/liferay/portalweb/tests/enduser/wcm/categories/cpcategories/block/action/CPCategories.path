@@ -48,22 +48,14 @@
 	<td>//div[@id='vocabularyCategoryMessages']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIONS_MENULIST-->
 <tr>
 	<td>ACTIONS_MENULIST_DELETE</td>
 	<td>//ul[contains(@class,'dropdown-menu')]/li/a[contains(.,'Delete')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORY_DETAILS-->
 <tr>
 	<td>CATEGORY_DETAILS_HEADER</td>
@@ -115,11 +107,7 @@
 	<td>//div[@class='category-field']/span[contains(.,'${key_propertiesKeyField} ${i} Value')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SUBCATEGORY_DETAILS-->
 <tr>
 	<td>SUBCATEGORY_DETAILS_HEADER</td>
@@ -141,11 +129,7 @@
 	<td>//button[@id='addSubCategoryButton']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VOCABULARY_ENTRY-->
 <tr>
 	<td>VOCABULARY_ENTRY_GENERIC</td>
@@ -162,11 +146,7 @@
 	<td>//li[contains(.,'${key_vocabularyName}')]/a/span[contains(@class,'vocabulary-item-actions-trigger')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VOCABULARY_CATEGORY-->
 <tr>
 	<td>VOCABULARY_CATEGORY_LABEL</td>

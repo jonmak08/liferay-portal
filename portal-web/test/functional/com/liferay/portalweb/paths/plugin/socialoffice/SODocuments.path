@@ -19,22 +19,14 @@
 	<td>//div[contains(@class,'breadcrumb')]//li[@class='first']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENT_INFO-->
 <tr>
 	<td>DOCUMENT_INFO_DESCRIPTION</td>
 	<td>//div[@class='document-header']/span[@class='document-description' and contains(.,'${key_dmDocumentDescription}')]</td>
 	<td>Description</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VERSION_HISTORY-->
 <tr>
 	<td>VERSION_HISTORY_TITLE</td>
@@ -91,11 +83,7 @@
 	<td>//div[@class='version' and contains(.,'Version ${key_dmDocumentVersionNumber}')]//span[@class='size']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VERSION_HISTORY_COMMENT-->
 <tr>
 	<td>VERSION_HISTORY_COMMENT_NO_COMMENTS</td>
@@ -117,11 +105,7 @@
 	<td>//div[contains(@id,'documentLibraryCommentsPanel')][${key_commentRow}]//div[@class='lfr-discussion first']//div[@class='lfr-discussion-message']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCREENSHOTS-->
 <tr>
 	<td>SCREENSHOTS_DOCUMENTS_DISPLAY_STYLE_LIST_ALL_DOCUMENTS_SELECTED_PNG</td>

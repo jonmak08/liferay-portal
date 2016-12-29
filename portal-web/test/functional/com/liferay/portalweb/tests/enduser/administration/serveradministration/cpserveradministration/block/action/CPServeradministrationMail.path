@@ -13,11 +13,7 @@
 	<td>CPServeradministration</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONFIGURE_MAIL_SERVER-->
 <tr>
 	<td>CONFIGURE_MAIL_SERVER_INCOMING_POP_SERVER</td>

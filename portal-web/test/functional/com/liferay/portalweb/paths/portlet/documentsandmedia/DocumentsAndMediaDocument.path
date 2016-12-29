@@ -13,11 +13,7 @@
 	<td>//div[@class='view']//div[contains(@class,'alert') and contains(@class,'alert-success')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_DOWNLOAD_BUTTON</td>
@@ -59,11 +55,7 @@
 	<td>//div[contains(@id,'fileEntryToolbar')]/div/button[contains(.,'Move to the Recycle Bin')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENT_INFO-->
 <tr>
 	<td>DOCUMENT_INFO_TITLE</td>
@@ -150,11 +142,7 @@
 	<td>//div[@id='documentLibraryAssetMetadataPanel']/div/div</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENT_DETAILS-->
 <tr>
 	<td>DOCUMENT_DETAILS_VERSION</td>
@@ -201,22 +189,14 @@
 	<td>//div[contains(@class,'preview-file-image-container')]/img</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENT_EXTRACTED_METADATA-->
 <tr>
 	<td>DOCUMENT_EXTRACTED_METADATA_FIELD</td>
 	<td>//div[@id='documentLibraryAssetMetadataPanelContent']/div/div/div/label[contains(.,'${key_metadataLabel}')]/../../div[contains(.,'${key_metadataData}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--METADATA_PANEL-->
 <tr>
 	<td>METADATA_PANEL_BOOLEAN</td>
@@ -288,11 +268,7 @@
 	<td>//div[@class='lfr-ddm-container']/div[contains(.,'Text Box') and contains(.,'${key_textBoxContent}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VERSION_HISTORY_TABLE-->
 <tr>
 	<td>VERSION_HISTORY_TABLE_CHECKBOX</td>

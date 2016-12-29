@@ -28,11 +28,7 @@
 	<td>//button[contains(@class,'close-content')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SETUP_FORM_INFORMATION-->
 <tr>
 	<td>SETUP_FORM_INFORMATION_TITLE_FIELD</td>
@@ -44,11 +40,7 @@
 	<td>//textarea[@name='_86_description']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SETUP_FORM_FIELDS-->
 <tr>
 	<td>SETUP_FORM_FIELDS_INFO_MESSAGE</td>
@@ -105,11 +97,7 @@
 	<td>//div[@class='field-title' and contains(.,'New Item')]/..//input[contains(@id,'_86_fieldLabel') and @type='text']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SETUP_FORM_DEFAULT_FIELDS-->
 <tr>
 	<td>SETUP_FORM_DEFAULT_FIELDS_NAME_NAME_FIELD</td>
@@ -126,11 +114,7 @@
 	<td>//input[@id='_86_fieldLabel3']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SETUP_FORM_POPULATED_FIELDS-->
 <tr>
 	<td>SETUP_FORM_POPULATED_FIELDS_FIELD_TITLE</td>

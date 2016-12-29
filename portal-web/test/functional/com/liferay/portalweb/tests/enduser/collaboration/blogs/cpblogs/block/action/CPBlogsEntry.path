@@ -58,11 +58,7 @@
 	<td>//span[@class='entry-tags']/span/a[contains(.,'${key_tagName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--YOUR_RATING-->
 <tr>
 	<td>YOUR_RATING</td>
@@ -124,11 +120,7 @@
 	<td>xPath=(//div[contains(@id,'_ratingStar')]//a[@class='rating-element icon-star-empty'])[5]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--AVERAGE-->
 <tr>
 	<td>AVERAGE</td>
@@ -185,11 +177,7 @@
 	<td>xPath=(//div[contains(@id,'_ratingScore')]//a[@class='rating-element icon-star-empty'])[5]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMMENTS-->
 <tr>
 	<td>COMMENTS_SUCCESS</td>
@@ -221,11 +209,7 @@
 	<td>//button[contains(@id,'postReplyButton0')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMMENT-->
 <tr>
 	<td>COMMENT</td>
@@ -262,11 +246,7 @@
 	<td>xpath=(//ul[@class='lfr-discussion-actions']/li/span/a[contains(.,'Delete')])[3]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMMENT_EDIT_COMMENT-->
 <tr>
 	<td>COMMENT_EDIT_SUCCESS</td>

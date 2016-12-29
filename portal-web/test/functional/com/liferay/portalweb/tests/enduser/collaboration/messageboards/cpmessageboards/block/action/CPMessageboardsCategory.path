@@ -58,22 +58,14 @@
 	<td>//div[@id='messageBoardsThreadsPanelContent']/div/form/div[contains(@class,'alert') and contains(@class,'alert-info')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIES-->
 <tr>
 	<td>CATEGORIES_RECYCLE_BIN_BUTTON</td>
 	<td>//div[contains(@id,'messageBoardsCategoriesPanel')]//button[contains(.,'Move to the Recycle Bin')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORY_TABLE-->
 <tr>
 	<td>CATEGORY_TABLE_ALL_CHECKBOX</td>
@@ -110,11 +102,7 @@
 	<td>//div[contains(@id,'mbCategoriesSearchContainer')]//tr[contains(.,'${key_subCategoryName}')]/td[6]/div/a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORY_MENULIST-->
 <tr>
 	<td>CATEGORY_MENULIST_EDIT</td>
@@ -136,22 +124,14 @@
 	<td>//a[@role='menuitem' and contains(.,'Move to the Recycle Bin')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--THREADS-->
 <tr>
 	<td>THREADS_RECYCLE_BIN_BUTTON</td>
 	<td>//div[contains(@id,'messageBoardsThreadsPanel')]//button[contains(.,'Move to the Recycle Bin')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--THREAD_TABLE-->
 <tr>
 	<td>THREAD_TABLE_ALL_CHECKBOX</td>
@@ -198,11 +178,7 @@
 	<td>//div[contains(@id,'mbThreadsSearchContainer')]//tr[contains(.,'${key_threadSubject}')]/td/div/a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--THREAD_MENULIST-->
 <tr>
 	<td>THREAD_MENULIST_EDIT</td>

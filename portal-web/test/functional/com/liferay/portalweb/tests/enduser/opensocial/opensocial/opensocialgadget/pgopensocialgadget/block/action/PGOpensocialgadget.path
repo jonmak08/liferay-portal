@@ -13,11 +13,7 @@
 	<td>BasePortlet</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>PORTLET_TITLE</td>
 	<td>//h1/span[contains(@class,'portlet-title-text')]</td>

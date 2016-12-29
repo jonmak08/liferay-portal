@@ -18,22 +18,14 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SOCIAL_OFFICE_ROLE-->
 <tr>
 	<td>SOCIAL_OFFICE_ROLE_ADD_SITE_PERMISSION_CHECKBOX</td>
 	<td>//input[contains(@id,'addSitePermissionCheckbox')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SOCIAL_OFFICE_SITE-->
 <tr>
 	<td>SOCIAL_OFFICE_SITE_ENABLE_SITE_TYPE_CHECKBOX</td>

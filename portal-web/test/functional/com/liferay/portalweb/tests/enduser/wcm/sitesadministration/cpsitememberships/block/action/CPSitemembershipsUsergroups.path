@@ -28,11 +28,7 @@
 	<td>//button[contains(.,'Update Associations')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SEARCH-->
 <tr>
 	<td>SEARCH_FIELD</td>
@@ -44,11 +40,7 @@
 	<td>//button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_GROUP_TABLE-->
 <tr>
 	<td>USER_GROUP_TABLE_NAME</td>
@@ -70,11 +62,7 @@
 	<td>//tr[contains(.,'${key_userGroupName}')]/td[4]/div/a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_GROUP_MENULIST-->
 <tr>
 	<td>USER_GROUP_MENULIST_ASSIGN_SITE_ROLES</td>

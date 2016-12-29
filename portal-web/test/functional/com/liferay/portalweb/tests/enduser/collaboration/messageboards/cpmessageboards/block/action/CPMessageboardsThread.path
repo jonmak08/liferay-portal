@@ -18,22 +18,14 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-success')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--THREAD_CONTROLS-->
 <tr>
 	<td>THREAD_CONTROLS_MOVE_TO_THE_RECYCLE_BIN</td>
 	<td>//div[@class='thread-actions']/ul/li/a[contains(.,'Move to the Recycle Bin')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MESSAGE-->
 <tr>
 	<td>MESSAGE_SUBJECT_1</td>

@@ -13,11 +13,7 @@
 	<td>BasePortlet</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>BOOKMARK_HEADER</td>
 	<td>//h3[@class='header-title']</td>

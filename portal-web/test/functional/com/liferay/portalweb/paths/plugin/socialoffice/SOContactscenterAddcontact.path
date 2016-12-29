@@ -33,11 +33,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCREENSHOTS-->
 <tr>
 	<td>SCREENSHOTS_ADD_CONTACT_INVALID_EMAIL_ADDRESS_ERROR_PNG</td>

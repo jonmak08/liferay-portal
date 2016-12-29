@@ -63,11 +63,7 @@
 	<td>//ul[@class='error-list-items']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FILE-->
 <tr>
 	<td>FILE_NAME</td>
@@ -94,11 +90,7 @@
 	<td>//span[@class='file-title']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGES-->
 <tr>
 	<td>PAGES_CHANGE_LINK</td>
@@ -140,11 +132,7 @@
 	<td>//button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--APPLICATION-->
 <tr>
 	<td>APPLICATION_ALL_APPLICATIONS_RADIO</td>
@@ -171,11 +159,7 @@
 	<td>//ul[@id='_156_selectApplications']//label[contains(.,'${key_applicationName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTENT-->
 <tr>
 	<td>CONTENT_ALL_CONTENT_RADIO</td>
@@ -192,11 +176,7 @@
 	<td>//ul[@class='portlet-list']/li/label[contains(.,'${key_contentName}')]/input[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CURRENT_AND_PREVIOUS-->
 <tr>
 	<td>CURRENT_AND_PREVIOUS_INFO_MESSAGE</td>

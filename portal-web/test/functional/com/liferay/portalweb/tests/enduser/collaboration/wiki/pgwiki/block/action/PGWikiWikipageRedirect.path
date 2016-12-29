@@ -13,11 +13,7 @@
 	<td>PGWiki</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>REMOVE_REDIRECT_BUTTON</td>
 	<td>//button[contains(.,'Remove Redirect')]</td>

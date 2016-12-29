@@ -28,11 +28,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTROL_PANEL_GENERAL_PERMISSIONS-->
 <tr>
 	<td>CONTROL_PANEL_GENERAL_PERMISSIONS_ADD_ORGANIZATION</td>
@@ -74,11 +70,7 @@
 	<td>//input[@value='90VIEW_CONTROL_PANEL']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTROL_PANEL_USERS_USERS_AND_ORGANIZATIONS-->
 <tr>
 	<td>CONTROL_PANEL_USERS_ROLES_ACCESS_IN_CONTROL_PANEL</td>
@@ -90,11 +82,7 @@
 	<td>//input[@value='125ACCESS_IN_CONTROL_PANEL']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTROL_PANEL_USERS_USER_GROUPS-->
 <tr>
 	<td>CONTROL_PANEL_USERS_USER_GROUPS_ACCESS_IN_CONTROL_PANEL</td>
@@ -106,11 +94,7 @@
 	<td>//input[@value='com.liferay.portal.model.UserGroupVIEW']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTROL_PANEL_USERS_ROLES-->
 <tr>
 	<td>CONTROL_PANEL_USERS_ROLES_ACCESS_IN_CONTROL_PANEL</td>
@@ -122,11 +106,7 @@
 	<td>//input[@value='com.liferay.portal.model.RoleVIEW']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTROL_PANEL_SITES_SITES-->
 <tr>
 	<td>CONTROL_PANEL_SITES_SITES_ACCESS_IN_CONTROL_PANEL</td>
@@ -148,22 +128,14 @@
 	<td>//input[@value='com.liferay.portal.model.GroupVIEW_STAGING']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_PAGES_SITE_PAGES_GENERAL-->
 <tr>
 	<td>SITE_ADMIN_PAGES_SITE_PAGES_GENERAL_ACCESS_IN_SITE_ADMINISTRATION</td>
 	<td>//input[@value='156ACCESS_IN_CONTROL_PANEL']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_PAGES_SITE_PAGES_SITE-->
 <tr>
 	<td>SITE_ADMIN_PAGES_SITE_PAGES_SITE_GENERAL_PERMISSIONS_ACTION</td>
@@ -220,11 +192,7 @@
 	<td>//input[@value='com.liferay.portal.model.GroupVIEW_SITE_ADMINISTRATION']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_WEB_CONTENT_GENERAL-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_WEB_CONTENT_GENERAL_PERMISSIONS_ACTION_CHECKBOX</td>
@@ -266,11 +234,7 @@
 	<td>//input[@value='15ACCESS_IN_CONTROL_PANEL']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_WEB_CONTENT_WEB_CONTENT-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_WEB_CONTENT_WEB_CONTENT_ALL_CHECKBOX</td>
@@ -297,11 +261,7 @@
 	<td>//input[@value='com.liferay.portlet.journalADD_ARTICLE']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_DOCUMENTS_AND_MEDIA_GENERAL-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_DOCUMENTS_AND_MEDIA_GENERAL_ALL_CHECKBOX</td>
@@ -313,11 +273,7 @@
 	<td>//input[@value='20ACCESS_IN_CONTROL_PANEL']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_DOCUMENTS_AND_MEDIA_DOCUMENTS-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_DOCUMENTS_AND_MEDIA_DOCUMENTS_ALL_CHECKBOX</td>
@@ -334,22 +290,14 @@
 	<td>//input[@value='com.liferay.portlet.documentlibraryADD_REPOSITORY']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_DOCUMENTS_AND_MEDIA_DOCUMENT-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_DOCUMENTS_AND_MEDIA_DOCUMENT_ACTION_CHECKBOX</td>
 	<td>xpath=(//input[@name='_128_allRowIds'])[4]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_BLOGS_GENERAL-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_BLOGS_GENERAL_ALL_CHECKBOX</td>
@@ -361,11 +309,7 @@
 	<td>//input[@value='161ACCESS_IN_CONTROL_PANEL']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_BLOGS_BLOGS_ENTRIES-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_BLOGS_BLOGS_ENTRIES_ALL_CHECKBOX</td>
@@ -397,11 +341,7 @@
 	<td>//input[@value='com.liferay.portlet.blogsSUBSCRIBE']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_BLOGS_BLOGS_ENTRY-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_BLOGS_BLOGS_ENTRY_ALL_CHECKBOX</td>
@@ -443,11 +383,7 @@
 	<td>//input[@value='com.liferay.portlet.blogs.model.BlogsEntryVIEW']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_BOOKMARKS_GENERAL-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_BOOKMARKS_GENERAL_ALL_CHECKBOX</td>
@@ -459,11 +395,7 @@
 	<td>//input[@value='28ACCESS_IN_CONTROL_PANEL']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_KALEO_FORMS_ADMIN_GENERAL-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_KALEO_FORMS_ADMIN_GENERAL_ALL_CHECKBOX</td>
@@ -475,11 +407,7 @@
 	<td>xpath=(//input[@name='_128_allRowIds'])[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_MESSAGE_BOARDS_GENERAL-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_MESSAGE_BOARDS_GENERAL_ALL_CHECKBOX</td>
@@ -491,11 +419,7 @@
 	<td>//input[@value='162ACCESS_IN_CONTROL_PANEL']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_WIKI_GENERAL-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_WIKI_GENERAL_ALL_CHECKBOX</td>
@@ -507,22 +431,14 @@
 	<td>//input[@value='154ACCESS_IN_CONTROL_PANEL']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_CATEGORIES_GENERAL-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_CATEGORIES_GENERAL_ACCESS_IN_SITE_ADMINISTRATION_CHECKBOX</td>
 	<td>//input[@value='147ACCESS_IN_CONTROL_PANEL']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_CATEGORIES_ASSET_ENTRIES-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_CATEGORIES_ASSET_ENTRIES_ADD_CATEGORY_CHECKBOX</td>
@@ -534,33 +450,21 @@
 	<td>//input[@value='com.liferay.portlet.assetADD_VOCABULARY']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_CATEGORIES_CATEGORY_VOCABULARY-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_CATEGORIES_CATEGORY_VOCABULARY_VIEW_CHECKBOX</td>
 	<td>//input[@value='com.liferay.portlet.asset.model.AssetVocabularyVIEW']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT_CATEGORIES_CATEGORY-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_CATEGORIES_CATEGORY_ADD_CATEGORY_CHECKBOX</td>
 	<td>//input[@value='com.liferay.portlet.asset.model.AssetCategoryADD_CATEGORY']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_APPLICATIONS_KALEO_FORMS-->
 <tr>
 	<td>SITE_ADMIN_APPLICATIONS_KALEO_FORMS_APPLICATION_PERMISSIONS_ALL_CHECKBOX</td>
@@ -597,11 +501,7 @@
 	<td>//input[@value='com.liferay.portal.workflow.kaleo.forms.model.KaleoProcessVIEW']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_APPLICATIONS_SOCIAL_OFFICE_ANNOUNCEMENTS-->
 <tr>
 	<td>SITE_ADMIN_APPLICATIONS_SOCIAL_OFFICE_ANNOUNCEMENTS_APPLICATIONS_PERMISSIONS_ACTION</td>
@@ -618,11 +518,7 @@
 	<td>//input[@value='1_WAR_soannouncementsportletVIEW']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_APPLICATIONS_WEB_CONTENT_DISPLAY-->
 <tr>
 	<td>SITE_ADMIN_APPLICATIONS_WEB_CONTENT_DISPLAY_APPLICATIONS_PERMISSIONS_ACTION</td>

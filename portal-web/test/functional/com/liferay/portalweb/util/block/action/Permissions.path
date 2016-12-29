@@ -33,11 +33,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONFIGURATION_PERMISSIONS-->
 <tr>
 	<td>CONFIGURATION_PERMISSIONS_ADD_DISPLAY_TEMPLATE_CHECKBOX</td>
@@ -74,11 +70,7 @@
 	<td>//input[contains(@id,'${key_roleName}') and contains (@id,'ACCESS_IN_CONTROL_PANEL')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--INLINE_PERMISSIONS-->
 <tr>
 	<td>INLINE_PERMISSIONS_ADD_DOCUMENT_CHECKBOX</td>
@@ -110,11 +102,7 @@
 	<td>//input[@id='${key_roleName}_ACTION_VIEW']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTENT_PERMISSIONS-->
 <tr>
 	<td>CONTENT_PERMISSIONS_ACCESS_CHECKBOX</td>
@@ -171,11 +159,7 @@
 	<td>//input[@id='${key_roleName}_ACTION_VIEW']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--EVENT_PERMISSIONS-->
 <tr>
 	<td>EVENT_PERMISSIONS_VIEW_CHECKBOX</td>

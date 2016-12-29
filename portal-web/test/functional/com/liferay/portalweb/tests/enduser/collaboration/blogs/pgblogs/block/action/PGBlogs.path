@@ -13,11 +13,7 @@
 	<td>BasePortlet</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>PORTLET_TITLE</td>
 	<td>//h1[@class='portlet-title']/span[contains(@class,'portlet-title-text')]</td>
@@ -98,11 +94,7 @@
 	<td>//h2[contains(@class,'taglib-categorization-filter') and contains (.,'${key_tagName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGINATION-->
 <tr>
 	<td>PAGINATION_ITEMS_PER_PAGE</td>
@@ -134,11 +126,7 @@
 	<td>//div[contains(@class,'lfr-pagination')]//a[contains(.,'Last')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--OPTIONS_MENULIST-->
 <tr>
 	<td>OPTIONS_MENULIST_LOOKANDFEEL</td>
@@ -155,11 +143,7 @@
 	<td>//div/ul/li[3]/a[contains(/.,' Export / Import ')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ENTRY-->
 <tr>
 	<td>ENTRY_TITLE</td>
@@ -341,11 +325,7 @@
 	<td>//div[contains(@class,'entry') and contains(@class,'approved') and contains(.,'${key_entryTitle}')]//div[contains(@class,'liferay-rating-score')]//div[@class='rating-label']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DRAFT_ENTRY-->
 <tr>
 	<td>DRAFT_ENTRY_STATUS</td>
@@ -367,11 +347,7 @@
 	<td>//div[contains(@class,'entry') and contains(@class,'draft') and contains(.,'${key_entryTitle}')]//span/a/span[.='Edit']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCHEDULED_ENTRY-->
 <tr>
 	<td>SCHEDULED_ENTRY_STATUS</td>
@@ -393,11 +369,7 @@
 	<td>//div[contains(@class,'entry') and contains(@class,'scheduled') and contains(.,'${key_entryTitle}')]//span/a/span[.='Edit']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--REPORT_INAPPROPRIATE_CONTENT-->
 <tr>
 	<td>REPORT_INAPPROPRIATE_CONTENT_HEADER</td>

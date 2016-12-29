@@ -28,11 +28,7 @@
 	<td>//a[contains(.,'Permissions')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TEMPLATE_TABLE-->
 <tr>
 	<td>TEMPLATE_TABLE_CHECKBOX_ALL</td>
@@ -59,11 +55,7 @@
 	<td>//tr[contains(.,'${key_kbTemplateTitle}')]/td[6]//a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIONS_MENULIST-->
 <tr>
 	<td>ACTIONS_MENULIST_VIEW</td>

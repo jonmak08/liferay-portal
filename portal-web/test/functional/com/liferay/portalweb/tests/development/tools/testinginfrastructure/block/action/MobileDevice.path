@@ -38,11 +38,7 @@
 	<td>//tr[contains(.,'${key_deviceFamilyName}')]/td[3]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_DEVICE_FAMILY-->
 <tr>
 	<td>ADD_DEVICE_FAMILY_NAME_FIELD</td>
@@ -54,11 +50,7 @@
 	<td>//textarea[@id='_178_description']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_CLASSIFICATION_RULE-->
 <tr>
 	<td>ADD_CLASSIFICATION_RULE_BUTTON</td>

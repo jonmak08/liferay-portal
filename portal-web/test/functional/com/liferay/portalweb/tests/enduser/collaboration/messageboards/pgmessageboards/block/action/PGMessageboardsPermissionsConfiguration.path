@@ -28,11 +28,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--GUEST_USER-->
 <tr>
 	<td>GUEST_REPLY_TO_MESSAGE_CHECKBOX</td>

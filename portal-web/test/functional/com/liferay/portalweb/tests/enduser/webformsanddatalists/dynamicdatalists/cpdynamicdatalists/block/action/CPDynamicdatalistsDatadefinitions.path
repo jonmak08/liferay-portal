@@ -38,11 +38,7 @@
 	<td>//button[contains(.,'Delete')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_VIEW_ALL</td>
@@ -64,11 +60,7 @@
 	<td>//div[@class='navbar ']//button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DATA_DEFINITION_TABLE-->
 <tr>
 	<td>DATA_DEFINITION_TABLE_ALL_CHECKBOX</td>
@@ -110,11 +102,7 @@
 	<td>xpath=(//div[@id='_166_ddmStructuresSearchContainer']//tr[contains(.,'${key_ddlDataDefinitionName}')]/td[6]/div/a[@title='Actions'])[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DATA_DEFINITION_MENULIST-->
 <tr>
 	<td>DATA_DEFINITION_MENULIST_EDIT</td>

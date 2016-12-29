@@ -48,11 +48,7 @@
 	<td>//iframe[contains(@id,'tasksportlet_Dialog_iframe')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FILTER-->
 <tr>
 	<td>FILTER_TAG_HEADER</td>
@@ -74,11 +70,7 @@
 	<td>//div[@class='filter-container group-filter']/select</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TASK-->
 <tr>
 	<td>TASK_DESCRIPTION</td>

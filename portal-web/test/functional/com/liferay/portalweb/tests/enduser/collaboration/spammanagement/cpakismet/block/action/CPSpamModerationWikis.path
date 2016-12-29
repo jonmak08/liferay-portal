@@ -29,11 +29,7 @@
 	<td>//div[@class='button-holder ']/button[contains(.,'Spam')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_MESSAGE_BOARDS</td>
@@ -50,11 +46,7 @@
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Wikis')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WIKI_PAGE_TABLE-->
 <tr>
 	<td>WIKI_PAGE_TABLE_CHECKBOX</td>

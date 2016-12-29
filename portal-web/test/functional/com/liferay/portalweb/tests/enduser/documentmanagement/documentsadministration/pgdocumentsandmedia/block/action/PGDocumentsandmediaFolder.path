@@ -13,11 +13,7 @@
 	<td>//div[contains(@class,'alert-success')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_SEARCH_FIELD</td>
@@ -59,11 +55,7 @@
 	<td>//div[@id='_20_displayStyleButtons']/div/a/i</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VIEW_MENULIST-->
 <tr>
 	<td>VIEW_MENULIST_DISPLAY_ICON</td>
@@ -80,11 +72,7 @@
 	<td>//a[@data-displaystyle='list']</td>
 	<td>List Display</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIONS_MENULIST-->
 <tr>
 	<td>ACTIONS_MENULIST_CANCEL_CHECKOUT</td>
@@ -111,11 +99,7 @@
 	<td>//li[@id='_20_actionsButtonContainer']/ul/li[5]/a[contains(.,'Move to the Recycle Bin')]</td>
 	<td>Move to the Recycle Bin</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_MENULIST-->
 <tr>
 	<td>ADD_MENULIST_SUBFOLDER</td>
@@ -157,11 +141,7 @@
 	<td>//li[@id='_20_addButtonContainer']/ul/li[8]/a[contains(.,'Sales Presentation')]</td>
 	<td>Sales Presentation</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SORT_BY_MENULIST-->
 <tr>
 	<td>SORT_BY_MENULIST_TITLE</td>
@@ -188,11 +168,7 @@
 	<td>//li[@id='_20_sortButtonContainer']/ul/li[5]/a[contains(.,'Size')]</td>
 	<td>Size</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MANAGE_MENULIST-->
 <tr>
 	<td>MANAGE_MENULIST_DOCUMENT_TYPES</td>
@@ -204,11 +180,7 @@
 	<td>//li[contains(@class,'dropdown') and contains(@class,'open')]/ul/li[2]/a[contains(.,'Metadata Sets')]</td>
 	<td>Metadata Sets</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BREADCRUMB-->
 <tr>
 	<td>BREADCRUMB_HOME</td>
@@ -220,33 +192,21 @@
 	<td>//div[@id='_20_breadcrumbContainer']/ul/li[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--LIFERAY_SYNC-->
 <tr>
 	<td>LIFERAY_SYNC_LINK</td>
 	<td>link=Access these files offline using Liferay Sync.</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SUBSCRIBE-->
 <tr>
 	<td>SUBSCRIBE_LINK</td>
 	<td>//div[@class='subscribe-action']/span/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER_ENTRIES-->
 <tr>
 	<td>FOLDER_ENTRIES_DOCUMENT_TITLE</td>
@@ -268,11 +228,7 @@
 	<td>//div[@class='entry-thumbnail']/img[@alt='Locked']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER_MENULIST-->
 <tr>
 	<td>FOLDER_MENULIST_EDIT</td>
@@ -304,11 +260,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Access from Desktop')]</td>
 	<td>Access from Desktop</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENT_MENULIST-->
 <tr>
 	<td>DOCUMENT_MENULIST_DOWNLOAD</td>
@@ -340,11 +292,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Move to the Recycle Bin')]</td>
 	<td>Move to the Recycle Bin</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGINATION-->
 <tr>
 	<td>PAGINATION_PREVIOUS</td>

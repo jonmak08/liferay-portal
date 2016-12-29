@@ -13,11 +13,7 @@
 	<td>Dynamicdatamapping</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>DATA_DEFINTIONS_IFRAME</td>
 	<td>//iframe[contains(@src,'dynamicdatalists')]</td>
@@ -48,11 +44,7 @@
 	<td>//div[@class='button-holder ']/button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DETAILS-->
 <tr>
 	<td>DETAILS_DESCRIPTION_FIELD</td>
@@ -136,11 +128,7 @@
 	<td>//div[@class='tab-content']/div/ul/li[@title='Text Box']/div</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FORM-->
 <tr>
 	<td>FORM_BUILDER</td>
@@ -232,11 +220,7 @@
 	<td>xpath=(//button/i[@class='icon-trash'])[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SETTINGS_CELL_EDITOR-->
 <tr>
 	<td>SETTINGS_CELL_EDITOR_FIELD</td>

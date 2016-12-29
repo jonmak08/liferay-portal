@@ -33,17 +33,9 @@
 	<td>//h2[@class='welcome-title']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--Note: Current reason for using href attributes for links is because currently there is no way to store an href attribute. This means that the link values are hardcoded. This way there a way to verify in case the links change.-->
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WELCOME_CONTENT-->
 <tr>
 	<td>WELCOME_CONTENT_START</td>
@@ -125,11 +117,7 @@
 	<td>//a[@class='pdf']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WELCOME_QUICK_START_GUIDE-->
 <tr>
 	<td>WELCOME_QUICK_START_GUIDE_HEADING_IMAGE</td>
@@ -141,11 +129,7 @@
  	<td>//img[@class='main-heading-img']/following-sibling::span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WELCOME_LIFERAY_USER_GUIDE-->
 <tr>
 	<td>WELCOME_LIFERAY_USER_GUIDE_HEADER</td>
@@ -157,11 +141,7 @@
 	<td>//img[@alt='Liferay Developer Network']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WELCOME_LIFERAY_COMMUNITY-->
 <tr>
 	<td>WELCOME_LIFERAY_COMMUNITY_HEADER</td>
@@ -173,22 +153,14 @@
 	<td>//div[@class='page-heading']/p</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WELCOME_DEVELOPER_RESOURCES-->
 <tr>
 	<td>WELCOME_DEVELOPER_RESOURCES_HEADER</td>
 	<td>//div[@class='float-container kb-entity-header']/h1</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WELCOME_ENTERPRISE_LEVEL_OPTIONS-->
 <tr>
 	<td>WELCOME_ENTERPRISE_LEVEL_OPTIONS_HEADER</td>

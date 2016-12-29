@@ -28,11 +28,7 @@
 	<td>//button[contains(@class,'close-content')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FEEDS-->
 <tr>
 	<td>FEEDS_ADD_ROW_BUTTON</td>
@@ -84,11 +80,7 @@
 	<td>xpath=(//input[contains(@id,'_86_url')])[3]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DISPLAY_SETTINGS-->
 <tr>
 	<td>DISPLAY_SETTINGS_SHOW_FEED_TITLE_CHECKBOX</td>

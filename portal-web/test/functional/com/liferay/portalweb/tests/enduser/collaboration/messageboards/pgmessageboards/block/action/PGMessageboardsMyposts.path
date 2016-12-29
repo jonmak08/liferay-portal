@@ -13,11 +13,7 @@
 	<td>//div[@class='portlet-msg-success']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_MESSAGE_BOARDS_HOME</td>
@@ -49,11 +45,7 @@
 	<td>//section[@id='portlet_19']//ul/li/a[contains(.,'Banned Users')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--THREAD_TABLE-->
 <tr>
 	<td>THREAD_TABLE_THREAD</td>
@@ -105,11 +97,7 @@
 	<td>//tr[1]//a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--THREAD_MENULIST-->
 <tr>
 	<td>THREAD_MENULIST_EDIT</td>

@@ -13,11 +13,7 @@
 	<td>//div[@class='alert alert-success']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_DEFINITIONS</td>
@@ -34,11 +30,7 @@
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Submissions')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_VIEW_ALL</td>
@@ -55,11 +47,7 @@
 	<td>//ul[contains(@class,'nav')]//a/span[contains(.,'Upload Definition')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DEFINITION_TABLE-->
 <tr>
 	<td>DEFINITION_TABLE_NAME</td>
@@ -96,11 +84,7 @@
 	<td>//div[@id='_151_workflowDefinitionsSearchContainer']//tr/td[(4 and contains(.,'No'))]/following-sibling::td/div/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DEFINITION_MENULIST-->
 <tr>
 	<td>DEFINITION_MENULIST_ADD_NEW_FILE</td>

@@ -13,11 +13,7 @@
 	<td>PGKnowledgebasesectionArticle</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>SEARCH_BACK_BUTTON</td>
 	<td>//a[@id='_5_WAR_knowledgebaseportlet_TabsBack']</td>

@@ -43,11 +43,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DETAILS-->
 <tr>
 	<td>DETAILS_SCREEN_NAME_FIELD</td>
@@ -84,11 +80,7 @@
 	<td>//div[contains(.,'Gender')]/select</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ORGANIZATION-->
 <!--PERSONAL_SITE-->
 </tbody>

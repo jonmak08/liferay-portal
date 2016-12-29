@@ -23,11 +23,7 @@
 	<td>//button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU-->
 <tr>
 	<td>MENU_CONTENT</td>
@@ -64,11 +60,7 @@
 	<td>//a[@id='_15_customFieldsLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIZATION-->
 <tr>
 	<td>CATEGORIZATION_SELECT_BUTTON</td>
@@ -95,11 +87,7 @@
 	<td>//button[@title='Add Tags']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIES-->
 <tr>
 	<td>CATEGORIES_CATEGORY_UNSELECTED</td>

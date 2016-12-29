@@ -13,44 +13,28 @@
 	<td>//a[@title='Options']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--OPTIONS_MENULIST-->
 <tr>
 	<td>OPTIONS_MENULIST_EXPORT_IMPORT</td>
 	<td>//a[@role='menuitem' and contains(.,'Export / Import')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_ADD</td>
 	<td>//div[@class='navbar ' or contains(@class,'navbar-default')]//li/a[contains(.,'Add')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--INFO_MESSAGE-->
 <tr>
 	<td>INFO_MESSAGE</td>
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-info')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PROCESS_TABLE-->
 <tr>
 	<td>PROCESS_TABLE_NAME</td>
@@ -67,11 +51,7 @@
 	<td>xpath=(//div[contains(@id,'kaleoformsportlet_kaleoProcesses')]//tr/td[2]/div/a[@title='Actions'])[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PROCESS_MENULIST-->
 <tr>
 	<td>PROCESS_MENULIST_VIEW</td>

@@ -28,11 +28,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--IMAGE_CROPPER-->
 <tr>
 	<td>IMAGE_CROPPER_RIGHT_HANDLE</td>

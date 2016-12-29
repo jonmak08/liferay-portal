@@ -28,11 +28,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-info')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_VIEW_ALL</td>
@@ -59,11 +55,7 @@
 	<td>//div[@id='toggle_id_ddm_template_searchsimple']//button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TEMPLATE_TABLE-->
 <tr>
 	<td>TEMPLATE_TABLE_ALL_CHECKBOX</td>
@@ -120,11 +112,7 @@
 	<td>xpath=(//div[@id='_166_ddmTemplatesSearchContainer']//tr/td[8]/div/a[@title='Actions'])[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TEMPLATE_MENULIST-->
 <tr>
 	<td>TEMPLATE_MENULIST_EDIT</td>

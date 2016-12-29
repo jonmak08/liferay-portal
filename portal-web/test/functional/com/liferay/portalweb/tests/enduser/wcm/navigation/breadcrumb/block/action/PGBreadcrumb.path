@@ -13,11 +13,7 @@
 	<td>BasePortlet</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>BREADCRUMB_ENTRY</td>
 	<td>//div[@class='portlet-content']//ul[contains(@class,'breadcrumb')]</td>

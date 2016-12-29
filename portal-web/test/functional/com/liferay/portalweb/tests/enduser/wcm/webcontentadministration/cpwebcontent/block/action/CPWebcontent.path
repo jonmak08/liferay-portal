@@ -39,11 +39,7 @@
 	<td>//a[@title='Options']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--OPTIONS_MENULIST-->
 <tr>
 	<td>OPTIONS_MENULIST_CONFIGURATION</td>
@@ -55,11 +51,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Export / Import')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_SELECT_ALL_CHECKBOX</td>
@@ -101,11 +93,7 @@
 	<td>//button[@id='_15_toggleAdvanced']/i</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTION_MENULIST-->
 <tr>
 	<td>ACTION_MENULIST_DELETE</td>
@@ -127,11 +115,7 @@
 	<td>//ul[contains(@class,'dropdown-menu')]/li/a[contains(.,'Move')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_MENULIST-->
 <tr>
 	<td>ADD_MENULIST_FOLDER</td>
@@ -153,11 +137,7 @@
 	<td>//li[@id='_15_addButtonContainer']/ul/li/a[contains(.,'${key_structureName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MANAGE_MENULIST-->
 <tr>
 	<td>MANAGE_MENULIST_STRUCTURES</td>
@@ -174,11 +154,7 @@
 	<td>//ul[contains(@class,'dropdown-menu')]/li/a[contains(.,'Feeds')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DISPLAY_STYLE_MENULIST-->
 <tr>
 	<td>DISPLAY_STYLE_MENULIST_ICON</td>
@@ -195,11 +171,7 @@
 	<td>//ul[contains(@class,'dropdown-menu')]/li/a[contains(.,'List')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FILTER-->
 <tr>
 	<td>FILTER_HOME_ARROW</td>
@@ -211,11 +183,7 @@
 	<td>//li[contains(@class,'app-view-navigation-entry') and contains(@class,'folder') and contains(@class,'active')]/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--HOME_MENULIST-->
 <tr>
 	<td>HOME_MENULIST_ADD_FOLDER</td>
@@ -232,11 +200,7 @@
 	<td>//ul[contains(@class,'dropdown-menu lfr-menu-list')]/li/a[contains(.,'Permissions')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ENTRY_ICON-->
 <tr>
 	<td>ENTRY_ICON_THUMBNAIL</td>
@@ -268,11 +232,7 @@
 	<td>//div[@data-title='${key_webContentTitle}']//span[@class='workflow-status']/strong</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ENTRY_DESCRIPTIVE-->
 <tr>
 	<td>ENTRY_DESCRIPTIVE_THUMBNAIL</td>
@@ -334,22 +294,14 @@
 	<td>//div[@data-title='${key_webContentTitle}']//span[@class='workflow-status']/strong</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ENTRY_LIST-->
 <tr>
 	<td>ENTRY_LIST_TITLE</td>
 	<td>//td[@class='table-cell ']//span[contains(.,'${key_webContentTitle}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ENTRY_MENULIST-->
 <tr>
 	<td>ENTRY_MENULIST_EDIT</td>
@@ -386,11 +338,7 @@
 	<td>//ul[contains(@class,'dropdown-menu') and contains(@class,'lfr-menu-list') and contains(@class,'direction-down')]/li/a[contains(.,'Move to the Recycle Bin')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGINATION-->
 <tr>
 	<td>PAGINATION_FIRST</td>
@@ -422,11 +370,7 @@
 	<td>//div[contains(@class,'article-entries-paginator')]/select[@class='aui-paginator-rows-per-page']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BROWSE_BY_STRUCTURE-->
 <tr>
 	<td>BROWSE_BY_STRUCTURE</td>
@@ -443,11 +387,7 @@
 	<td>//li[contains(@class,'app-view-navigation-entry') and contains(@class,'folder') and contains(@class,'structure')]/a[contains(.,'${key_structureName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGINATION_BROWSE_BY_STRUCTURE_-->
 <tr>
 	<td>PAGINATION_BROWSE_BY_STRUCTURE_PER_PAGE_SELECTOR_BUTTON</td>

@@ -13,11 +13,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-success')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_VIEW_ALL</td>
@@ -44,11 +40,7 @@
 	<td>//div[@class='navbar ']//button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--LIST_TABLE-->
 <tr>
 	<td>LIST_TABLE_NAME</td>
@@ -80,11 +72,7 @@
 	<td>xpath=(//div[@id='_167_ddlRecordSetsSearchContainer']//tr/td[5]/div/a[@title='Actions'])[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--LIST_MENULIST-->
 <tr>
 	<td>LIST_MENULIST_VIEW</td>

@@ -23,11 +23,7 @@
 	<td>//span[contains(@class,'user-notifications-count') and contains(@class,'alert')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NOTIFICATIONS-->
 <tr>
 	<td>NOTIFICATIONS_CONTENT_GENERIC</td>
@@ -79,11 +75,7 @@
 	<td>//div[@class='user-notifications']/div[@class='message']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--REQUESTS-->
 <tr>
 	<td>REQUESTS_LINK</td>

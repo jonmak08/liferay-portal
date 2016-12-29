@@ -23,11 +23,7 @@
 	<td>//button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU_CONFIGURATION-->
 <tr>
 	<td>MENU_CONFIGURATION_GENERAL</td>
@@ -64,11 +60,7 @@
 	<td>//a[@id='_130_mentionsLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU_MISCELLANEOUS-->
 <tr>
 	<td>MENU_MISCELLANEOUS_AUDIENCE_TARGETING_ANALYTICS</td>
@@ -85,11 +77,7 @@
 	<td>//a[@id='_130_googleDocsLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MAIN_CONFIGURATION-->
 <tr>
 	<td>MAIN_CONFIGURATION_NAME_FIELD</td>
@@ -121,11 +109,7 @@
 	<td>//input[@id='_130_cdn.dynamic.resources.enabledCheckbox']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_HOME_URL_FIELD</td>
@@ -142,11 +126,7 @@
 	<td>//input[@name='_130_settings--default.logout.page.path--']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADDITIONAL_INFORMATION-->
 <tr>
 	<td>ADDITIONAL_INFORMATION_LEGAL_NAME_FIELD</td>

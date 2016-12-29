@@ -28,11 +28,7 @@
 	<td>//button[contains(@class,'close-content')]</td>
 	<td>Close</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DISPLAY_SETTINGS-->
 <tr>
 	<td>DISPLAY_SETTINGS_SHOW_ACTIONS_CHECKBOX</td>
@@ -54,11 +50,7 @@
 	<td>//input[@id='_86_showFoldersSearchCheckbox']</td>
 	<td>Show Search</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DISPLAY_TEMPLATE-->
 <tr>
 	<td>DISPLAY_TEMPLATE_SELECT</td>
@@ -70,11 +62,7 @@
 	<td>//span/a[@id='_86_selectDDMTemplate']/span</td>
 	<td>Manage Display Templates for Liferay</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDERS_LISTING-->
 <tr>
 	<td>FOLDERS_LISTING_ROOT_FOLDER_SELECT_BUTTON</td>
@@ -86,11 +74,7 @@
 	<td>//button[@id='_86_removeFolderButton']</td>
 	<td>Remove Root Folder</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RATINGS-->
 <tr>
 	<td>RATINGS_ENABLE_RATINGS_CHECKBOX</td>

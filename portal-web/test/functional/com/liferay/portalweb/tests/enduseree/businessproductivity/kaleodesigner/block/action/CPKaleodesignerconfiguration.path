@@ -23,11 +23,7 @@
 	<td>//div[@class='alert alert-info']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DEFINITION_TABLE-->
 <tr>
 	<td>DEFINITION_TABLE_NAME</td>
@@ -69,11 +65,7 @@
 	<td>xpath=(//div[contains(@id,'kaleodesignerportlet_kaleoDraftDefinitionsSearchContainerSearchContainer')]//td[6]/div/a[contains(.,'Actions')])[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DEFINITION_MENULIST-->
 <tr>
 	<td>DEFINITION_MENULIST_EDIT</td>

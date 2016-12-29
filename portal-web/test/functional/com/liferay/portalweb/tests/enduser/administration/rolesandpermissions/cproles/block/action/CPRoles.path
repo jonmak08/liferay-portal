@@ -28,11 +28,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-success')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_MENULIST-->
 <tr>
 	<td>ADD_MENULIST_REGULAR_ROLE</td>
@@ -49,11 +45,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Organization Role')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ROLE_TABLE-->
 <tr>
 	<td>ROLE_TABLE_TITLE</td>
@@ -80,11 +72,7 @@
 	<td>//tr[contains(.,'${key_roleName}')]/td[4]/div/a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ROLE_MENULIST-->
 <tr>
 	<td>ROLE_MENULIST_EDIT</td>
@@ -106,11 +94,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Delete')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGINATION-->
 <tr>
 	<td>PAGINATION_FIRST_BUTTON</td>

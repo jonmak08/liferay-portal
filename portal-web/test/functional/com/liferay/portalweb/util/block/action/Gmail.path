@@ -18,11 +18,7 @@
 	<td>//div[@role='banner']//a[@id='gmail-sign-in']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--LOGIN-->
 <tr>
 	<td>LOGIN_EMAIL_FIELD</td>
@@ -89,22 +85,14 @@
 	<td>//div[contains(@class,'action-card')]//a[contains(@id,'add-account')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--GMAIL_NORMAL_MODE-->
 <tr>
 	<td>GMAIL_NORMAL_MODE_USER_SCREENNAME</td>
 	<td>//div/a[contains(@title,'${key_userEmailAddress}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--GMAIL_HTML_MODE-->
 <tr>
 	<td>GMAIL_HTML_MODE_CONFIRMATION</td>
@@ -141,11 +129,7 @@
 	<td>//a[contains(.,'Back to Inbox')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--GMAIL_HTML_MODE_MAIL_TABLE-->
 <tr>
 	<td>GMAIL_HTML_MODE_MAIL_TABLE_DELETE_BUTTON</td>
@@ -192,11 +176,7 @@
 	<td>//form[@method='POST']//table[2]/tbody/tr[contains(.,'sent you a message')]/td[3]/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--GMAIL_HTML_MODE_MESSAGE-->
 <tr>
 	<td>GMAIL_HTML_MODE_MESSAGE_FROM</td>

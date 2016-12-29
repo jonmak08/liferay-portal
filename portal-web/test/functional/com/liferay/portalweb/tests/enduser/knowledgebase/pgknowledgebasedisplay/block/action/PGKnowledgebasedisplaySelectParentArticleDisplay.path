@@ -13,11 +13,7 @@
 	<td>PGKnowledgebasedisplaySelectParentArticle</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>SELECT_PARENT_DISPLAY_IFRAME</td>
 	<td>//iframe[contains(@id,'selectConfigurationKBObject') and contains(@id,'iframe')]</td>

@@ -13,11 +13,7 @@
 	<td>//iframe[@class='dialog-iframe-node ']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_SETUP</td>
@@ -34,11 +30,7 @@
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-pills')]/li/a[contains(.,'Sharing')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SETUP-->
 <tr>
 	<td>MAXIMUM_ITEMS_TO_DISPLAY_SELECT</td>

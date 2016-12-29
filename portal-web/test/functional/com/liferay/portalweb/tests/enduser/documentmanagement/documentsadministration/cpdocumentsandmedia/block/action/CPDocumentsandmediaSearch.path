@@ -13,11 +13,7 @@
 	<td>//div[contains(@class,'search-info')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SEARCH-->
 <tr>
 	<td>SEARCH_FIELD</td>
@@ -29,11 +25,7 @@
 	<td>//button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_LOCAL</td>
@@ -45,11 +37,7 @@
 	<td>//ul[contains(@class,'nav-tabs')]/li/a[contains(.,'${key_dmRepositoryName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SEARCH_RESULTS-->
 <tr>
 	<td>SEARCH_RESULTS_TITLE</td>
@@ -61,11 +49,7 @@
 	<td>//a[@class='entry-link' and contains(.,'${key_dmDocumentTitle}')]//dd</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER_MENULIST-->
 <tr>
 	<td>FOLDER_MENULIST_EDIT</td>
@@ -97,11 +81,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Access from Desktop')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENT_MENULIST-->
 <tr>
 	<td>DOCUMENT_MENULIST_DOWNLOAD</td>

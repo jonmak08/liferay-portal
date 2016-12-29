@@ -33,11 +33,7 @@
 	<td>//img[@title='Move to the Recycle Bin']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ENTRY-->
 <tr>
 	<td>ENTRY_DOWNLOAD_ICON</td>

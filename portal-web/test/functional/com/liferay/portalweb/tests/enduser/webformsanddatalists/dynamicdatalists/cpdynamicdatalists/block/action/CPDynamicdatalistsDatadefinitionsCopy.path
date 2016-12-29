@@ -13,11 +13,7 @@
 	<td>CPDynamicdatalistsDatadefinitions</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>COPY_STRUCTURE_IFRAME</td>
 	<td>//iframe[@id='_166_copyStructure_iframe_']</td>

@@ -18,11 +18,7 @@
 	<td>xpath=(//div[contains(@class,'alert') and contains(@class,'alert-success')])[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VIEW_MEMBERSHIP_NAVIGATION-->
 <tr>
 	<td>VIEW_MEMBERSHIP_NAVIGATION_PENDING</td>
@@ -39,11 +35,7 @@
 	<td>//ul/li/a[contains(.,'Denied')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--REQUESTS_TABLE-->
 <tr>
 	<td>REQUESTS_TABLE_REPLY</td>

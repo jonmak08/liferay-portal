@@ -13,21 +13,13 @@
 	<td>PGMessageboards</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>INFO_MESSAGE</td>
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-info')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--GENERAL-->
 <tr>
 	<td>GENERAL_DROPDOWN</td>
@@ -54,11 +46,7 @@
 	<td>//div[contains(@id,'messageBoardsGeneralStatistics')]/div/dl/dd[3]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOP_POSTERS-->
 <tr>
 	<td>TOP_POSTERS_DROPDOWN</td>

@@ -8,11 +8,7 @@
 <tr><td rowspan="1" colspan="3">CPWSRPManageportletsAddportlet</td></tr>
 </thead>
 <tbody>
-	<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+	<!---->
 <tr>
 	<td>SUCCESS_MESSAGE</td>
 	<td>//div[@class='alert alert-success']</td>

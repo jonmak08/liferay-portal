@@ -28,33 +28,21 @@
 	<td>//div[contains(@class,'control-group') and contains(@class,'field-wrapper')]/input | //input[@id='_165_siteId']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MEMBERSHIP_OPTIONS-->
 <tr>
 	<td>MEMBERSHIP_OPTIONS_MEMBERSHIP_MANAGEMENT_CHECKBOX</td>
 	<td>//input[@id='_165_manualMembershipCheckbox']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PARENT_SITE-->
 <tr>
 	<td>PARENT_SITE_LIMIT_MEMBERSHIP_CHECKBOX</td>
 	<td>//input[@id='_165_membershipRestrictionCheckbox']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU-->
 <tr>
 	<td>MENU_SAVE</td>
@@ -66,11 +54,7 @@
 	<td>//a[@id='_165_stagingLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--STAGING-->
 <tr>
 	<td>STAGING_NONE</td>
@@ -102,11 +86,7 @@
 	<td>//label[contains(.,'${key_contentName}')]/input[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--REMOTE_STAGING-->
 <tr>
 	<td>REMOTE_STAGING_IP</td>

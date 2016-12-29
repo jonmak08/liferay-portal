@@ -13,11 +13,7 @@
 	<td>BasePortlet</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>SECTIONS_TITLE</td>
 	<td>//div[@class='kb-articles-sections-title']</td>

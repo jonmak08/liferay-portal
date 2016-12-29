@@ -13,22 +13,14 @@
 	<td>//h3[@class='header-title']/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BLOGS_ENTRY-->
 <tr>
 	<td>BLOGS_ENTRY_CONTENT</td>
 	<td>//div[@class='asset-content']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MESSAGE_BOARDS_THREAD-->
 <tr>
 	<td>MESSAGE_BOARDS_THREAD_TITLE</td>
@@ -40,11 +32,7 @@
 	<td>//div[@class='thread-body']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RELATED_ASSETS-->
 <tr>
 	<td>RELATED_ASSETS_HEADER</td>

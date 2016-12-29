@@ -13,11 +13,7 @@
 	<td>//iframe[contains(@id,'configurationIframeDialog')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_EXPORT</td>

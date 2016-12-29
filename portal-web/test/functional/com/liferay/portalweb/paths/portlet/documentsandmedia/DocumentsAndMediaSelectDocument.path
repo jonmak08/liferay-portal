@@ -23,11 +23,7 @@
 	<td>//a[@title='Add']/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_MENULIST-->
 <tr>
 	<td>ADD_MENULIST_FOLDER</td>
@@ -59,11 +55,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Sales Presentation')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER_TABLE-->
 <tr>
 	<td>FOLDER_TABLE_FOLDER</td>
@@ -85,11 +77,7 @@
 	<td>//tr[contains(.,'${key_dmFolderName}')]/td[4]/button[contains(.,'Choose')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENTS_TABLE-->
 <tr>
 	<td>DOCUMENTS_TABLE_DOCUMENT</td>

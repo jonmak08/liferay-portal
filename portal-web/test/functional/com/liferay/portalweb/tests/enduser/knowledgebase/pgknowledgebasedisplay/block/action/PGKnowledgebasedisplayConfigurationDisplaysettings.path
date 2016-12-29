@@ -73,11 +73,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RATINGS-->
 <tr>
 	<td>USE_STAR_RATINGS_RADIO</td>

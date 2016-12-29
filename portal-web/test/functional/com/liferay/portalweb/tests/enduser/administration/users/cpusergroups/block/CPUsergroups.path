@@ -43,11 +43,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-info')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BASIC_SEARCH-->
 <tr>
 	<td>BASIC_SEARCH_FIELD</td>
@@ -64,11 +60,7 @@
 	<td>//a[@id='toggle_id_users_groups_admin_group_searchtoggleAdvanced'] | //button[@id='toggle_id_users_groups_admin_group_searchtoggleAdvanced'] | //span[@id='toggle_id_users_groups_admin_group_searchtoggleAdvanced']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADVANCED_SEARCH-->
 <tr>
 	<td>ADVANCED_SEARCH_MATCH</td>
@@ -85,11 +77,7 @@
 	<td>//input[@id='_127_description']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_GROUP_TABLE-->
 <tr>
 	<td>USER_GROUP_TABLE_ALL_CHECKBOX</td>
@@ -121,11 +109,7 @@
 	<td>//tr[contains(.,'${key_userGroupName}')]/td[4]/div/a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_GROUP_MENULIST-->
 <tr>
 	<td>USER_GROUP_MENULIST_EDIT</td>

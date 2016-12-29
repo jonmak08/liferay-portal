@@ -33,33 +33,21 @@
 	<td>//div[contains(@class,'alert alert-info')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BREADCRUMB-->
 <tr>
 	<td>BREADCRUMB</td>
 	<td>//nav[@id='breadcrumbs']/ul</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DESCRIPTIVE-->
 <tr>
 	<td>DESCRIPTIVE_SITE_ENTRY</td>
 	<td>//div[@class='entry-metadata']/span/span[contains(.,'${key_siteName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--LIST_HIERARCHY-->
 <tr>
 	<td>LIST_HIERARCHY_PARENT_SITE_AVAILABLE</td>

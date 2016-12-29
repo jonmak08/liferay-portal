@@ -23,11 +23,7 @@
 	<td>//input[@value='Login']</td>
 	<td>Log In Button</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>DEPLOYMENT_TAB</td>
 	<td>//span[contains(@class,'x-tab-strip-text') and contains(.,'Deployments')]</td>
@@ -78,11 +74,7 @@
 	<td>tcat/buttons/new_workspace_add_button.png</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>NEW_ARTIFACT_BUTTON</td>
 	<td>//button[contains(@class,'toolbar-btn-text') and contains(.,'New Artifact')]</td>
@@ -118,11 +110,7 @@
 	<td>os/icons/file_dialog_box_type_file_name_icon_linux.png</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>NEW_DEPLOYMENT_BUTTON</td>
 	<td>//button[contains(@class,'toolbar-btn-text') and contains(.,'New Deployment')]</td>
@@ -153,11 +141,7 @@
 	<td>tcat/buttons/select_web_application_button.png</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>SELECT_SERVER_DROPDOWN</td>
 	<td>tcat/dropdowns/select_server_dropdown.png</td>

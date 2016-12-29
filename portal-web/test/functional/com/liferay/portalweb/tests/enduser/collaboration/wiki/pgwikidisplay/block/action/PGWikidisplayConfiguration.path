@@ -33,11 +33,7 @@
 	<td>//div[@class='alert alert-success']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION_TAB-->
 <tr>
 	<td>NAVIGATION_TAB_SETUP</td>

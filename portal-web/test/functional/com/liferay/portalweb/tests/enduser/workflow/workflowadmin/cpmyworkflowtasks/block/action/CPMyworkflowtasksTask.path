@@ -53,11 +53,7 @@
 	<td>//div[@class='lfr-asset-due-date']/div/span[contains(@class,'task-due-date-link')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU-->
 <tr>
 	<td>MENU_ASSIGN_TO_ME</td>
@@ -84,11 +80,7 @@
 	<td>//a[@id='_153_taskDueDateLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DIALOG_BOX-->
 <tr>
 	<td>DIALOG_BOX_FIELD</td>
@@ -105,11 +97,7 @@
 	<td>//button[.='Cancel']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PREVIEW-->
 <tr>
 	<td>PREVIEW</td>
@@ -126,11 +114,7 @@
 	<td>xpath=(//div[@class='accordion-inner'])</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIVITIES-->
 <tr>
 	<td>ACTIVITIES</td>
@@ -152,11 +136,7 @@
 	<td>xpath=(//div[@class='task-activity task-type-1']/div[3])[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMMENTS-->
 <tr>
 	<td>COMMENTS</td>

@@ -13,11 +13,7 @@
 	<td>CPPortalsettings</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>DEFAULT_LANGUAGE_SELECT</td>
 	<td>//select[@id='_130_languageId']</td>

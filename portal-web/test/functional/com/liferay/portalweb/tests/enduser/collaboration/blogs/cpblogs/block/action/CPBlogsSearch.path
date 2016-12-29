@@ -28,11 +28,7 @@
 	<td>//button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SEARCH_RESULTS-->
 <tr>
 	<td>SEARCH_RESULTS_ENTRY_TITLE</td>

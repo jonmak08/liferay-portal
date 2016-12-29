@@ -23,22 +23,14 @@
 	<td>//div[@class='lfr-asset-summary']//div</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CURRENT_ENTRY-->
 <tr>
 	<td>CURRENT_ENTRY_FIELD</td>
 	<td>//label[contains(.,'${key_fieldName}')]/../../div[contains(.,'${key_fieldName}') and contains(.,'${key_kfProcessFieldData}')] | //span[contains(.,'${key_fieldName}')]/../../div[contains(.,'${key_fieldName}') and contains(.,'${key_kfProcessFieldData}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TASKS_TABLE_REVIEW-->
 <tr>
 	<td>TASKS_TABLE_REVIEW_TASK</td>
@@ -50,11 +42,7 @@
 	<td>//div[contains(@id,'workflowTasksSearchContainer')]//tr[contains(.,'Review')]/td[3]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIVITIES-->
 <tr>
 	<td>ACTIVITIES_PANEL_COLLAPSED</td>

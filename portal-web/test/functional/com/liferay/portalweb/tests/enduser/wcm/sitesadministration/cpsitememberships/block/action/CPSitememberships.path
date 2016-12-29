@@ -23,11 +23,7 @@
 	<td>//div[@class='site-membership-type']/span[3]/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_ADD_MEMBERS</td>
@@ -44,11 +40,7 @@
 	<td>//div[@class='navbar ']//a[contains(.,'View Members')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_MEMBERS_MENULIST-->
 <tr>
 	<td>ADD_MEMBERS_MENULIST_USER</td>
@@ -65,11 +57,7 @@
 	<td>//ul[contains(@class,'dropdown-menu')]/li/a[contains(.,'User Group')]/span[@class='nav-item-label']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_SITE_ROLES_TO_MENULIST-->
 <tr>
 	<td>ADD_SITE_ROLES_TO_MENULIST_USERS</td>
@@ -81,11 +69,7 @@
 	<td>//ul[contains(@class,'dropdown-menu')]/li/a[contains(.,'User Groups')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_SUMMARY</td>
@@ -107,11 +91,7 @@
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'User Groups')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_SEARCH-->
 <tr>
 	<td>USER_SEARCH_FIELD</td>
@@ -123,11 +103,7 @@
 	<td>//input[contains(@name,'_174_keywords')]/../button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_TABLE-->
 <tr>
 	<td>USER_TABLE_LABEL</td>
@@ -154,11 +130,7 @@
 	<td>//div[contains(@id,'usersSearchContainerSearchContainer')]//tr[contains(.,'${key_userScreenName}')]//a[contains(@title,'Actions')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_MENULIST-->
 <tr>
 	<td>USER_MENULIST_ASSIGN_SITE_ROLES</td>
@@ -170,11 +142,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Remove Membership')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_PAGE_NAVIGATION-->
 <tr>
 	<td>USER_PAGE_NAVIGATION_PAGE_NUMBER</td>
@@ -206,22 +174,14 @@
 	<td>//a[contains(.,'Last')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_ITEMS_PER_PAGE_MENULIST-->
 <tr>
 	<td>USER_ITEMS_PER_PAGE_MENULIST_FIVE_ITEMS_PER_PAGE</td>
 	<td>//a[contains(@id,'5')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ORGANIZATION_SEARCH-->
 <tr>
 	<td>ORGANIZATION_SEARCH_FIELD</td>
@@ -233,11 +193,7 @@
 	<td>//input[contains(@name,'_174_keywords')]/../button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ORGANIZATION_TABLE-->
 <tr>
 	<td>ORGANIZATION_TABLE_NAME</td>
@@ -249,11 +205,7 @@
 	<td>//div[contains(@id,'organizationsSearchContainerSearchContainer')]//tr[contains(.,'${key_orgName}')]/td[1]//span[contains(@class,'tooltip-text')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_GROUP_SEARCH-->
 <tr>
 	<td>USER_GROUP_SEARCH_FIELD</td>

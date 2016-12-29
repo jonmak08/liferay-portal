@@ -128,11 +128,7 @@
 	<td>xPath=(//input[@aria-label='Search'])[1]</td>
 	<td>Liferay</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCREENSHOTS-->
 <tr>
 	<td>SCREENSHOTS_ANNOUNCEMENTS_ENTRY_IMPORTANT_PNG</td>

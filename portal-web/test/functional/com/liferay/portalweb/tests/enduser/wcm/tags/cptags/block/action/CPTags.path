@@ -38,11 +38,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-info') and contains(@class,'lfr-message-response')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIONS_MENULIST-->
 <tr>
 	<td>ACTIONS_MENULIST_DELETE</td>
@@ -54,11 +50,7 @@
 	<td>//li[@id='_99_tagsActionsButton']/ul/li[contains(.,'Merge')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TAG_DETAILS-->
 <tr>
 	<td>TAG_DETAILS_HEADER</td>
@@ -80,11 +72,7 @@
 	<td>//div[@class='view-tag']/div[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TAG_ENTRY-->
 <tr>
 	<td>TAG_ENTRY_NAME</td>
@@ -101,11 +89,7 @@
 	<td>//span[@class='tag-item-actions-trigger']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SELECTED_TAG-->
 <tr>
 	<td>SELECTED_TAG_NAME</td>

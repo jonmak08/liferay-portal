@@ -13,11 +13,7 @@
 	<td>BasePortlet</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>SUCCESS_MESSAGE_RECYCLE_BIN</td>
 	<td>//form[@id='_19_undoForm']</td>
@@ -58,11 +54,7 @@
 	<td>//div[contains(@class,'category-subscription-types')]/span/a/span[contains(.,'Subscribe')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_MESSAGE_BOARDS_HOME</td>
@@ -104,11 +96,7 @@
 	<td>//button[@type='submit']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORY_TABLE-->
 <tr>
 	<td>CATEGORY_TABLE_PANEL</td>
@@ -165,11 +153,7 @@
 	<td>//div[contains(@id,'mbCategoriesSearchContainer')]//tr[1]//a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORY_MENULIST-->
 <tr>
 	<td>CATEGORY_MENULIST_EDIT</td>
@@ -206,11 +190,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Move to the Recycle Bin')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--THREAD_TABLE-->
 <tr>
 	<td>THREAD_TABLE_PANEL</td>
@@ -272,11 +252,7 @@
 	<td>//div[contains(@id,'mbThreadsSearchContainer')]//tr[contains(.,'${key_threadSubject}')]//a[contains(.,'RSS')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--THREAD_MENULIST-->
 <tr>
 	<td>THREAD_MENULIST_EDIT</td>

@@ -13,11 +13,7 @@
 	<td>//iframe[contains(@id,'selectAsset')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ASSET_TABLE-->
 <tr>
 	<td>ASSET_TABLE_TITLE</td>

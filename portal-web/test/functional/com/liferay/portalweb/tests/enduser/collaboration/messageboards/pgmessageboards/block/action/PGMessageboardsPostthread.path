@@ -113,22 +113,14 @@
 	<td>xpath=(//div[contains(@class,'alert') and contains(@class,'alert-error')])[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PERMISSIONS-->
 <tr>
 	<td>PERMISSIONS_VIEWABLE_BY_DROPDOWN</td>
 	<td>//select[contains(@id,'inputPermissionsViewRole')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ATTACHMENTS-->
 <tr>
 	<td>ATTACHMENTS_DROPDOWN</td>
@@ -165,22 +157,14 @@
 	<td>//input[contains(@id,'_msgFile5')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIZATION-->
 <tr>
 	<td>CATEGORIZATION_TOGGLE</td>
 	<td>//div[@class='accordion-toggle' and contains(.,'Categorization')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIZATION_TAG-->
 <tr>
 	<td>CATEGORIZATION_TAG</td>

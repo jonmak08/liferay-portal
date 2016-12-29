@@ -44,11 +44,7 @@
 	<td>//tr[contains(.,'${key_calendarName}')]/td[5]/div/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIONS_MENULIST-->
 <tr>
 	<td>ACTIONS_MENULIST_EDIT</td>

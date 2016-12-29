@@ -13,11 +13,7 @@
 	<td>//div[@class='alert alert-info']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MICROBLOGS_ENTRY-->
 <tr>
 	<td>MICROBLOGS_ENTRY_AUTHOR</td>
@@ -109,11 +105,7 @@
 	<td>//button[contains(.,'Post')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MICROBLOGS_ENTRY_COMMENT-->
 <tr>
 	<td>MICROBLOGS_ENTRY_COMMENT_CONTENT_FIELD</td>
@@ -165,11 +157,7 @@
 	<td>//div[@class='microblogs-entry' and contains(.,'${key_microblogsEntryCommentContent}')]//span[@class='action delete']/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TAB-->
 <tr>
 	<td>TAB_TIMELINE</td>

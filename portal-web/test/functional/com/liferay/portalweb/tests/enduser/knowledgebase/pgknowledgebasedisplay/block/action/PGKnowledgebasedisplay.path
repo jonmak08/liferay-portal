@@ -28,11 +28,7 @@
 	<td>//div[@class='kbarticle-navigation']/ul[contains(.,'${key_kbArticleTitle}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ARTICLE-->
 <tr>
 	<td>ARTICLE_TITLE</td>
@@ -139,11 +135,7 @@
 	<td>//div[@class='kb-article-suggestion-actions']/a[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ARTICLE_NAVIGATION-->
 <tr>
 	<td>ARTICLE_NAVIGATION</td>
@@ -170,11 +162,7 @@
 	<td>//div[@class='kbarticle-navigation']//a[contains(.,'${key_kbGrandchildArticleTitle}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER-->
 <tr>
 	<td>FOLDER_SELECT_DROPDOWN</td>
@@ -186,11 +174,7 @@
 	<td>//select[contains(@id,'rootKBFolderId')]//option[contains(.,'${key_kbFolderName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RELATED_ASSETS-->
 <tr>
 	<td>RELATED_ASSETS_HEADER</td>
@@ -202,11 +186,7 @@
 	<td>//ul[@class='asset-links-list']/li/span/a[contains(.,'${key_kbArticleRelatedAssetTitle}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIONS_MENULIST-->
 <tr>
 	<td>ACTIONS_MENULIST_ADD_CHILD_ARTICLE</td>
@@ -233,22 +213,14 @@
 	<td>//ul[contains(@class,'dropdown-menu')]//a[contains(.,'Delete')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER_NAVIGATION-->
 <tr>
 	<td>FOLDER_NAVIGATION_MENULIST</td>
 	<td>//div[contains(@class,'control-group')]/select[contains(@id,'rootKBFolder')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SUGGESTION-->
 <tr>
 	<td>SUGGESTION_TITLE</td>
@@ -310,11 +282,7 @@
 	<td>//tr[contains(.,'${key_kbSuggestionBody}')]//button[contains(.,'Delete')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SUGGESTION_NAVIGATION-->
 <tr>
 	<td>SUGGESTION_NAVIGATION_BAR</td>

@@ -78,11 +78,7 @@
 	<td>//input[@id='_156_exportFileName']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD-->
 <tr>
 	<td>ADD_BLANK_SITE</td>
@@ -109,11 +105,7 @@
 	<td>//ul[contains(@class,'dropdown-menu')]/li/a[contains(.,'${key_siteTemplateName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BASIC_SEARCH-->
 <tr>
 	<td>BASIC_SEARCH_FIELD</td>
@@ -125,22 +117,14 @@
 	<td>//button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_BUTTON-->
 <tr>
 	<td>SITE_BUTTON_DELETE</td>
 	<td>//button[contains(.,'Delete')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_TABLE-->
 <tr>
 	<td>SITE_TABLE_ALL_CHECKBOX</td>
@@ -212,11 +196,7 @@
 	<td>//table[@data-searchcontainerid='_134_groupsSearchContainer']//tr[contains(.,'${key_siteName}')]/td[2]/div/a[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_MENULIST-->
 <tr>
 	<td>SITE_MENULIST_SITE_ADMINISTRATION</td>

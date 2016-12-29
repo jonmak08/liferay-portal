@@ -28,11 +28,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_USER_SETTINGS</td>
@@ -44,11 +40,7 @@
 	<td>//ul[contains(@class,'nav-tabs')]/li/a[contains(.,'RSS')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_SETTINGS-->
 <tr>
 	<td>USER_SETTINGS_TIME_FORMAT_SELECT</td>
@@ -85,11 +77,7 @@
 	<td>//input[contains(@id,'usePortalTimeZoneCheckbox')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RSS-->
 <tr>
 	<td>RSS_ENABLE_RSS_SUBSCRIPTION_CHECKBOX</td>

@@ -53,22 +53,14 @@
 	<td>//div[@class='button-holder ']/button[contains(.,'Delete')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_MENULIST-->
 <tr>
 	<td>ADD_MENULIST_ADT_TEMPLATE</td>
 	<td>//ul/li/a/span[contains(.,'${key_adtType} Template')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADT_TABLE-->
 <tr>
 	<td>ADT_TABLE_ALL_CHECKBOX</td>
@@ -105,11 +97,7 @@
 	<td>//div[@id='_166_ddmTemplatesSearchContainer']//tr/td[6]/div/a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADT_MENULIST-->
 <tr>
 	<td>ADT_MENULIST_EDIT</td>

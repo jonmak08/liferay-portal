@@ -18,11 +18,7 @@
 	<td>//button[contains(@class,'close-content')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MEDIA_TABLE-->
 <tr>
 	<td>MEDIA_TABLE_BASIC_DOCUMENT</td>

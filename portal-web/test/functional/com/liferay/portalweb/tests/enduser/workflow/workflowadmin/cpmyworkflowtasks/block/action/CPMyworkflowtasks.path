@@ -48,11 +48,7 @@
 	<td>//div[@class='accordion-heading toggler-header toggler-header-expanded']//span[contains(.,'Assigned to My Roles')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_PENDING</td>
@@ -64,11 +60,7 @@
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Completed')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BASIC_SEARCH-->
 <tr>
 	<td>BASIC_SEARCH_FIELD</td>
@@ -80,28 +72,16 @@
 	<td>//button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADVANCED_SEARCH-->
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TABLE_GENERIC-->
 <tr>
 	<td>TABLE_GENERIC_ASSET_TITLE</td>
 	<td>//tr[contains(.,'${key_workflowAssetTitle}')]/td[2]/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ASSIGNED_TO_ME_TABLE-->
 <tr>
 	<td>ASSIGNED_TO_ME_TABLE_TASK</td>
@@ -133,11 +113,7 @@
 	<td>//div[@id='workflowMyTasksPanelContent']//tr[contains(.,'${key_workflowTask}') and contains (.,'${key_workflowAssetTitle}')]/td[6]/div/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ASSIGNED_TO_ME_MENULIST-->
 <tr>
 	<td>ASSIGNED_TO_ME_MENULIST_APPROVE</td>
@@ -164,11 +140,7 @@
 	<td>//a[@role='menuitem' and contains(.,'${key_menuListOption}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ASSIGNED_TO_MY_ROLES_TABLE-->
 <tr>
 	<td>ASSIGNED_TO_MY_ROLES_TABLE_TASK</td>
@@ -200,11 +172,7 @@
 	<td>//div[@id='workflowMyRolesTasksPanelContent']//tr[contains(.,'${key_workflowTask}') and contains (.,'${key_workflowAssetTitle}')]/td[6]/div/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ASSIGNED_TO_MY_ROLES_MENULIST-->
 <tr>
 	<td>ASSIGNED_TO_MY_ROLES_MENULIST_ASSIGN_TO_ME</td>
@@ -216,11 +184,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Update Due Date')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DIALOG_BOX-->
 <tr>
 	<td>DIALOG_BOX_DUE_DATE</td>
@@ -247,11 +211,7 @@
 	<td>//button[.='Cancel']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMPLETED_TABLE-->
 <tr>
 	<td>COMPLETED_TABLE_TASK</td>

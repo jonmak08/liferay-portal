@@ -83,11 +83,7 @@
 	<td>//div[@class='alert alert-info']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--OPTIONS_MENULIST-->
 <tr>
 	<td>OPTIONS_MENULIST_LOOK_AND_FEEL</td>
@@ -104,11 +100,7 @@
 	<td>//ul[contains(@class,'dropdown-menu') and contains(@class,'lfr-menu-list') and contains(@class,'direction-down')]/li/a[contains(.,'Export / Import')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VIEW_ENTRY-->
 <tr>
 	<td>VIEW_ENTRY_TITLE</td>

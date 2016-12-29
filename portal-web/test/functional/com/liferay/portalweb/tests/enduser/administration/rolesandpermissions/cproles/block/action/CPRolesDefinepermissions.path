@@ -33,11 +33,7 @@
 	<td>//div[contains(@class,'permission-navigation-item-header') and contains(@class,'toggler-header-collapsed')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_EDIT</td>
@@ -54,11 +50,7 @@
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Assign Members')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PERMISSION_TABLE-->
 <tr>
 	<td>PERMISSION_TABLE_PERMISSIONS</td>
@@ -70,22 +62,14 @@
 	<td>//tr[contains(.,'${key_permissionNavigationValue}') and contains(.,'${key_permissionDefinitionValue}')]/td//a[contains(.,'Remove')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTROL_PANEL-->
 <tr>
 	<td>CONTROL_PANEL_GENERAL_PERMISSIONS</td>
 	<td>//div[contains(.,'Control Panel') and contains(@class,'permission-navigation-item-header')]/following-sibling::div//span[contains(@class,'permission-navigation-item')]/a[contains(.,'General Permissions')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTROL_PANEL_USERS-->
 <tr>
 	<td>CONTROL_PANEL_USERS_USERS_AND_ORGANIZATIONS</td>
@@ -102,33 +86,21 @@
 	<td>//div[contains(.,'Users') and contains(@class,'permission-navigation-item-header')]/following-sibling::*//span[contains(@class,'permission-navigation-item')]/a[contains(.,'Roles')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTROL_PANEL_SITES-->
 <tr>
 	<td>CONTROL_PANEL_SITES_SITES</td>
 	<td>//div[contains(.,'Sites') and contains(@class,'permission-navigation-item-header')]/following-sibling::div//span[contains(@class,'permission-navigation-item')]/a[contains(.,'Sites')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_PAGES-->
 <tr>
 	<td>SITE_ADMIN_PAGES_SITE_PAGES</td>
 	<td>//div[contains(.,'Pages') and contains(@class,'permission-navigation-item-header')]/following-sibling::div//span[contains(@class,'permission-navigation-item')]/a[contains(.,'Site Pages')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_CONTENT-->
 <tr>
 	<td>SITE_ADMIN_CONTENT_WEB_CONTENT</td>
@@ -170,11 +142,7 @@
 	<td>//div[contains(.,'Content') and contains(@class,'permission-navigation-item-header')]/following-sibling::div//span[contains(@class,'permission-navigation-item')]/a[contains(.,'Wiki')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMIN_USERS-->
 <!--SITE_ADMIN_CONFIGURATION-->
 <!--SITE_ADMIN_APPLICATIONS-->

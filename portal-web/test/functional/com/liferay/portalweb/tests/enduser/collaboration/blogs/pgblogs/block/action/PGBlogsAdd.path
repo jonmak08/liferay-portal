@@ -123,11 +123,7 @@
 	<td>//button[@id='_33_publishButton' and contains(.,'Submit for Publication')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PERMISSIONS-->
 <tr>
 	<td>PERMISSIONS_VIEWABLE_BY_DROPDOWN</td>
@@ -149,11 +145,7 @@
 	<td>//tr[contains(.,'${key_roleName}')]//input[@value='${key_permissionDefinitionKey}']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIZATION-->
 <tr>
 	<td>CATEGORIZATION_TOGGLE</td>
@@ -170,11 +162,7 @@
 	<td>//div[contains(@class,'categoriesselector-content')]//span[contains(.,'${key_categoryName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIZATION_TAG-->
 <tr>
 	<td>CATEGORIZATION_TAG</td>
@@ -211,11 +199,7 @@
 	<td>//button[@title='Suggestions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SELECT_CATEGORIES-->
 <tr>
 	<td>SELECT_CATEGORIES_CATEGORY</td>
@@ -232,11 +216,7 @@
 	<td>//button[contains(@class,'btn close')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ABSTRACT-->
 <tr>
 	<td>ABSTRACT_DESCRIPTION_FIELD</td>

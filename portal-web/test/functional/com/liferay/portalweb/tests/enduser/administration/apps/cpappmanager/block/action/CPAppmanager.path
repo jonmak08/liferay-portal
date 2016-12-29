@@ -19,11 +19,7 @@
 	<td>//div[@class='title' and contains(.,'${key_appName}')]/../../div[@class='app-actions']/div/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--APP_ACTIONS_MENULIST-->
 <tr>
 	<td>APP_ACTIONS_MENULIST_ACTIVATE</td>

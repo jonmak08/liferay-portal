@@ -40,11 +40,7 @@
 	<td>//div[@class='no-activities']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIVITIES-->
 <tr>
 	<td>ACTIVITIES_PORTLET_TITLE</td>
@@ -201,11 +197,7 @@
 	<td>//div[@class='social-activities']/div</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIVITIES_COMMENT-->
 <tr>
 	<td>ACTIVITIES_COMMENT_USER_PICTURE</td>
@@ -232,11 +224,7 @@
 	<td>//div[contains(@class,'activity-item')][${key_row}]//div[@class='comment-entry' and contains(.,'${key_commentContent}')]//span[contains(@class,'delete-comment')]/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCREENSHOTS-->
 <tr>
 	<td>SCREENSHOTS_ACTIVITIES_DOCUMENT_IMAGE_THUMBNAIL_PNG</td>

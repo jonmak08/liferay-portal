@@ -28,11 +28,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-info')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_HOME</td>
@@ -49,11 +45,7 @@
 	<td>//ul[@role='menubar']/li[contains(.,'Mine')]/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--OPTIONS_MENULIST-->
 <tr>
 	<td>OPTIONS_MENULIST_LOOK_AND_FEEL</td>
@@ -85,11 +77,7 @@
 	<td>//ul[contains(@class,'lfr-menu-list')]/li/a[contains(.,'Remove')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SEARCH-->
 <tr>
 	<td>SEARCH_FIELD</td>
@@ -101,11 +89,7 @@
 	<td>//button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ENTRY-->
 <tr>
 	<td>ENTRY_THUMBNAIL</td>
@@ -122,11 +106,7 @@
 	<td>//span[@class='image-thumbnail']/img</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER-->
 <tr>
 	<td>FOLDER_THUMBNAIL</td>
@@ -138,11 +118,7 @@
 	<td>//span[@class='image-title' and contains(.,'${key_mgFolderName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER_MENU-->
 <tr>
 	<td>FOLDER_MENU_PERMISSIONS</td>
@@ -189,11 +165,7 @@
 	<td>//ul[contains(@class,'lfr-menu-expanded') and contains(@class,'lfr-menu-list')]/li[contains(.,'Access from Desktop')]/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADT_CAROUSEL-->
 <tr>
 	<td>ADT_CAROUSEL_ITEM</td>

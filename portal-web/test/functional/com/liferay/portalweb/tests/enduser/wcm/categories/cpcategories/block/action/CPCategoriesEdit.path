@@ -23,11 +23,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PROPERTIES-->
 <tr>
 	<td>PROPERTIES_BAR</td>

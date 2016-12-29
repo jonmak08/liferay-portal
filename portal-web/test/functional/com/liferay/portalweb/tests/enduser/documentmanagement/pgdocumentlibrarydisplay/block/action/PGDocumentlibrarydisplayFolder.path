@@ -18,11 +18,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-info')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SEARCH-->
 <tr>
 	<td>SEARCH_FIELD</td>
@@ -34,11 +30,7 @@
 	<td>//button[contains(.,'Search')]</td>
 	<td>Search Button</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SUBFOLDERS_TABLE-->
 <tr>
 	<td>SUBFOLDERS_TABLE_NAME</td>
@@ -55,11 +47,7 @@
 	<td>//div[contains(@id,'foldersSearchContainer')]/table/tbody/tr/td[3]/a</td>
 	<td># of Documents</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER_MENU-->
 <tr>
 	<td>FOLDER_MENU_EDIT</td>
@@ -106,22 +94,14 @@
 	<td>//ul[contains(@class,'lfr-menu-expanded') and contains(@class,'lfr-menu-list')]/li/a[contains(.,'Access from Desktop')]</td>
 	<td>Access from Desktop</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENTS-->
 <tr>
 	<td>DOCUMENTS_RECYCLE_BIN_BUTTON</td>
 	<td>//button[contains(.,'Move to the Recycle Bin')]</td>
 	<td>Move to the Recycle Bin</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENTS_TABLE-->
 <tr>
 	<td>DOCUMENTS_TABLE_ALL_CHECKBOX</td>

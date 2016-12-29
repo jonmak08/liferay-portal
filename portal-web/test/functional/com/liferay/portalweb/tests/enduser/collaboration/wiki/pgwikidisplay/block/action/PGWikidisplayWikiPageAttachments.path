@@ -18,11 +18,7 @@
 	<td>//div[@class='alert alert-info']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_FRONTPAGE</td>
@@ -59,11 +55,7 @@
 	<td>//div[@class='form-search']//div/button[@type='submit']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION_TABS-->
 <tr>
 	<td>NAVIGATION_TABS_CONTENT</td>

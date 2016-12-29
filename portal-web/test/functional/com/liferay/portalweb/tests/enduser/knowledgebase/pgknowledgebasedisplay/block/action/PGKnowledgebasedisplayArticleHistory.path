@@ -38,11 +38,7 @@
 	<td>//div[@class='kn-entity-body']/div/span[contains(@class,'diff-html-removed')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VERSION_TABLE-->
 <tr>
 	<td>VERSION_TABLE_TARGET</td>

@@ -14,11 +14,7 @@
 	<td>PGBookmarks</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>FOLDER_NAME</td>
 	<td>//h3[@class='header-title']/span[contains(.,'${key_folderName}')]</td>
@@ -59,11 +55,7 @@
 	<td>//button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER_MENU-->
 <tr>
 	<td>FOLDER_MENU_EDIT</td>

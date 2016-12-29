@@ -78,11 +78,7 @@
 	<td>//ul[contains(@class,'nav-tabs')]/li/a[contains(.,'Source (Kaleo XML)')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!-- DRAFT_HISTORY -->
 <tr>
 	<td>DRAFT_HISTORY_UNDO_BUTTON</td>
@@ -99,11 +95,7 @@
 	<td>//button[contains(@id,'latestButton')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NODES-->
 <tr>
 	<td>NODES_TAB</td>
@@ -130,11 +122,7 @@
 	<td>portal/screenshots/kaleodesigner/node_${key_nodeType}_corner.png</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SETTINGS-->
 <tr>
 	<td>SETTINGS_TAB</td>
@@ -196,11 +184,7 @@
 	<td>//td[contains(@class,'table-col-name') and contains(.,'Assignments')]/following-sibling::td[contains(@class,'table-col-value')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SETTINGS_CELL_EDITOR-->
 <tr>
 	<td>SETTINGS_CELL_EDITOR_SAVE_BUTTON</td>
@@ -287,11 +271,7 @@
 	<td>portal/screenshots/kaleodesigner/settings_cell_editor_edit_recipients.png</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SETTINGS_CELL_EDITOR_NOTIFICATIONS_RECIPIENT_EDITOR-->
 <tr>
 	<td>SETTINGS_CELL_EDITOR_NOTIFICATIONS_RECIPIENT_EDITOR_TYPE_SELECT</td>
@@ -338,11 +318,7 @@
 	<td>portal/screenshots/kaleodesigner/settings_cell_editor_notifications_recipient_role_name.png</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VIEW_FORM-->
 <tr>
 	<td>VIEW_FORM_BUILDER</td>
@@ -370,11 +346,7 @@
 	<td>//div[@class='diagram-node-label' and contains(.,'${key_nodeNodeLabel}')]/../div[3]/div/button</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VIEW_FORM_CONNECTOR-->
 <tr>
 	<td>VIEW_FORM_CONNECTOR_DEFAULT</td>
@@ -386,22 +358,14 @@
 	<td>//span[@class='diagram-builder-connector-name unselectable' and contains(.,'${key_connectorLabel}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VIEW_FORM_ADD_NEW-->
 <tr>
 	<td>VIEW_FORM_ADD_NEW_NODE</td>
 	<td>//div[contains(@class,'diagram-node-suggest-connector')]//div[@class='diagram-builder-field-label' and contains(.,'${key_newNode}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SOURCE_KALEO_XML-->
 <tr>
 	<td>SOURCE_KALEO_XML_CONTENT</td>

@@ -23,11 +23,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU_USER_INFORMATION-->
 <tr>
 	<td>MENU_USER_INFORMATION_DETAILS</td>
@@ -69,11 +65,7 @@
 	<td>//a[@id='_125_categorizationLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU_MISCELLANEOUS-->
 <tr>
 	<td>MENU_MISCELLANEOUS_ANNOUNCEMENTS</td>
@@ -100,11 +92,7 @@
 	<td>//a[@id='_125_displaySettingsLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DETAILS-->
 <tr>
 	<td>DETAILS_SCREEN_NAME_FIELD</td>
@@ -131,11 +119,7 @@
 	<td>//input[@id='_125_lastName']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PASSWORD-->
 <tr>
 	<td>PASSWORD_NEW_PASSWORD_FIELD</td>
@@ -147,11 +131,7 @@
 	<td>//input[@id='_125_password2']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ORGANIZATIONS-->
 <tr>
 	<td>ORGANIZATIONS_TABLE_NAME</td>
@@ -178,11 +158,7 @@
 	<td>//a[@id='_125_selectOrganizationLink']/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITES-->
 <tr>
 	<td>SITES_TABLE_NAME</td>
@@ -204,11 +180,7 @@
 	<td>//a[@id='_125_selectSiteLink']/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITES_SELECT-->
 <tr>
 	<td>SITES_SELECT_IFRAME</td>
@@ -235,11 +207,7 @@
 	<td>//tr[contains(.,'${key_siteName}')]/td[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_GROUPS-->
 <tr>
 	<td>USER_GROUPS_TABLE_NAME</td>
@@ -256,11 +224,7 @@
 	<td>//a[@id='_125_openUserGroupsLink']/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ROLES_REGULAR_ROLES-->
 <tr>
 	<td>ROLES_REGULAR_ROLES_TABLE_TITLE</td>
@@ -282,11 +246,7 @@
 	<td>//a[@id='_125_selectRegularRoleLink']/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ROLES_SITE_ROLES-->
 <tr>
 	<td>ROLES_SITE_ROLES_TABLE_TITLE</td>
@@ -318,11 +278,7 @@
 	<td>//a[@id='_125_selectSiteRoleLink']/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ROLES_REGULAR_SELECT-->
 <tr>
 	<td>ROLES_REGULAR_SELECT_IFRAME</td>
@@ -344,11 +300,7 @@
 	<td>//tr[contains(@class,'lfr-role-regular')]/td[contains(.,'${key_roleName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PERSONAL_SITE-->
 <tr>
 	<td>PERSONAL_SITE_LABEL</td>
@@ -375,11 +327,7 @@
 	<td>//div[contains(@id,'personalSite')]//select[contains(@id,'privateLayoutSetPrototypeId')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIZATION-->
 <!--ADDRESSES-->
 <!--PHONE_NUMBERS-->
@@ -390,11 +338,7 @@
 <!--SMS-->
 <!--OPENID-->
 <!--ANNOUNCEMENTS-->
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DISPLAY_SETTINGS-->
 <tr>
 	<td>DISPLAY_SETTINGS_LANGUAGE_SELECT</td>
@@ -416,17 +360,9 @@
 	<td>//input[@name='_125_greeting']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMMENTS-->
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CUSTOM_FIELDS-->
 <tr>
 	<td>CUSTOM_FIELDS_LABEL</td>

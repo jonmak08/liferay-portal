@@ -23,11 +23,7 @@
 	<td>//button[contains(.,'Add Page Variation')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGE_VARIATION_TABLE-->
 <tr>
 	<td>PAGE_VARIATION_TABLE_NAME</td>
@@ -39,11 +35,7 @@
 	<td>//tr[contains(.,'${key_pageVariationName}')]/td[3]/div/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGE_VARIATIONS_TABLE_ACTIONS_MENULIST-->
 <tr>
 	<td>PAGE_VARIATIONS_TABLE_ACTIONS_MENULIST_EDIT</td>
@@ -55,11 +47,7 @@
 	<td>//a[@id='_170_layoutRevisionsSearchContainer_2_menu_delete']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_PAGE_VARIATION-->
 <tr>
 	<td>ADD_PAGE_VARIATION_NAME_FIELD</td>

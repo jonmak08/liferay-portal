@@ -73,11 +73,7 @@
 	<td>//iframe[contains(@id,'_iframe_')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU-->
 <tr>
 	<td>MENU_CONTENT</td>
@@ -114,11 +110,7 @@
 	<td>//a[@id='_15_customFieldsLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_BASIC_PREVIEW</td>
@@ -135,22 +127,14 @@
 	<td>//div[@id='_15_articleToolbar']//div/button[contains(.,'View History')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_TRANSLATION_MENULIST-->
 <tr>
 	<td>ADD_TRANSLATION_MENULIST_LANGUAGE</td>
 	<td>//ul[contains(@class,'lfr-menu-list')]/li/a[contains(.,'${key_webContentTranslationLanguage}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WEB_CONTENT_TRANSLATION_IFRAME-->
 <tr>
 	<td>WEB_CONTENT_TRANSLATION_IFRAME_TITLE_FIELD</td>

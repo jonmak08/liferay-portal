@@ -93,11 +93,7 @@
 	<td>//button[contains(.,'Submit for Publication')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ATTACHMENTS-->
 <tr>
 	<td>ATTACHMENTS_HEADER_COLLAPSED</td>
@@ -124,11 +120,7 @@
 	<td>//div[contains(@id,'AttachmentsContainer')]//a[contains(@id,'WAR_knowledgebaseportlet')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIZATION-->
 <tr>
 	<td>CATEGORIZATION_HEADER_COLLAPSED</td>
@@ -155,11 +147,7 @@
 	<td>//button[@title='Select ${key_vocabularyName}']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIES-->
 <tr>
 	<td>CATEGORIES_CATEGORY_UNSELECTED</td>
@@ -176,11 +164,7 @@
 	<td>//button[contains(@class,'btn close')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RELATED_ASSETS-->
 <tr>
 	<td>RELATED_ASSETS_HEADER_COLLAPSED</td>
@@ -197,11 +181,7 @@
 	<td>//a[@title='Select']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RELATED_ASSETS_SELECT_MENULIST-->
 <tr>
 	<td>RELATED_ASSETS_SELECT_MENULIST</td>

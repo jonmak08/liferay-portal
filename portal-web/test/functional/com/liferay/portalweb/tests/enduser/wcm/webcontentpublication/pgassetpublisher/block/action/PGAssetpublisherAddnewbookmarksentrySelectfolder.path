@@ -24,11 +24,7 @@
 	<td>//button[contains(.,'Choose This Folder')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SELECT_FOLDER_TABLE-->
 <tr>
 	<td>SELECT_FOLDER_TABLE_FOLDER_NAME</td>

@@ -18,11 +18,7 @@
 	<td>//a[contains(@id,'_menu')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_SETUP</td>
@@ -49,11 +45,7 @@
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Scope')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCOPE_MENULIST-->
 <tr>
 	<td>SCOPE_MENULIST_SELECTION</td>

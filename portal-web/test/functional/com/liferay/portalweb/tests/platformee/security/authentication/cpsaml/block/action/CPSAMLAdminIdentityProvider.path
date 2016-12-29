@@ -18,11 +18,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--IDENTITY_PROVIDER-->
 <tr>
 	<td>IDENTITY_PROVIDER_SIGN_METADATA_CHECKBOX</td>

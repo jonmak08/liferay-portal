@@ -13,11 +13,7 @@
 	<td>PGWiki</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>SUCCESS_MESSAGE_RECYCLE_BIN</td>
 	<td>//form[@id='_36_undoForm']</td>
@@ -28,11 +24,7 @@
 	<td>//button[@id='_36_addPageButton']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WIKI_PAGE_TABLE-->
 <tr>
 	<td>WIKI_PAGE_TABLE_PAGE</td>
@@ -79,11 +71,7 @@
 	<td>xpath=(//tr/td[6]/div/a[@title='Actions'])[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WIKI_PAGE_MENULIST-->
 <tr>
 	<td>WIKI_PAGE_MENULIST_EDIT</td>

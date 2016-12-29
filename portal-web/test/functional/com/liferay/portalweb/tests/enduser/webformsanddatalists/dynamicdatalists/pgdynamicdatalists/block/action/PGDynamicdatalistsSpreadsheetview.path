@@ -28,11 +28,7 @@
 	<td>//button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RECORD_TABLE-->
 <tr>
 	<td>RECORD_TABLE_FIELD_ENTRY</td>

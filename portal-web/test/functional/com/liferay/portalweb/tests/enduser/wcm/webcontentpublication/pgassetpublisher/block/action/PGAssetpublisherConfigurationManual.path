@@ -13,11 +13,7 @@
 	<td>PGAssetpublisherConfiguration</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ASSET_SELECTION-->
 <tr>
 	<td>ASSET_SELECTION_DYNAMIC</td>
@@ -29,11 +25,7 @@
 	<td>//input[@id='_86_selectionStyleManual']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ASSET_ENTRIES-->
 <tr>
 	<td>INFO_MESSAGE</td>

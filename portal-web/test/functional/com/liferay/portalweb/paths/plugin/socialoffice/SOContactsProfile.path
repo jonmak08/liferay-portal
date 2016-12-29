@@ -33,11 +33,7 @@
 	<td>//button[contains(@id,'addContact')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTACTS_LIST-->
 <tr>
 	<td>CONTACTS_LIST_SEARCH</td>
@@ -59,11 +55,7 @@
 	<td>//div[@class='empty']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_DETAILS-->
 <tr>
 	<td>USER_DETAILS_NAME</td>

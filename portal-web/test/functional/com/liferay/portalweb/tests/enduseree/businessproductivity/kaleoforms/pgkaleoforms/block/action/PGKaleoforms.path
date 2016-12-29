@@ -13,11 +13,7 @@
 	<td>BasePortlet</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>SUCCESS_MESSAGE</td>
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-success')]</td>
@@ -73,33 +69,21 @@
 	<td>//div[@class='accordion-heading toggler-header toggler-header-expanded']//span[contains(.,'Assigned to My Roles')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SUBMIT_NEW_MENULIST-->
 <tr>
 	<td>SUBMIT_NEW_MENULIST_PROCESS</td>
 	<td>//li/a[contains(.,'${key_kfProcessName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TABLE_GENERIC-->
 <tr>
 	<td>TABLE_GENERIC_PROCESS_NAME</td>
 	<td>//tr[contains(.,'${key_kfProcessName}')]/td[2]/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ASSIGNED_TO_ME_TABLE-->
 <tr>
 	<td>ASSIGNED_TO_ME_TABLE_TASK_1</td>
@@ -141,11 +125,7 @@
 	<td>xpath=(//div[@id='workflowMyTasksPanelContent']//tr[contains(.,'${key_kfProcessName}')]/td[4]/div/a)[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ASSIGNED_TO_ME_MENULIST-->
 <tr>
 	<td>ASSIGNED_TO_ME_MENULIST_COMPLETE_FORM</td>
@@ -172,11 +152,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Update Due Date')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ASSIGNED_TO_MY_ROLES_TABLE-->
 <tr>
 	<td>ASSIGNED_TO_MY_ROLES_TABLE_TASK</td>
@@ -198,11 +174,7 @@
 	<td>//div[@id='workflowMyRolesTasksPanelContent']//tr[contains(.,'${key_kfProcessName}')]/td[4]/div/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ASSIGNED_TO_MY_ROLES_MENULIST-->
 <tr>
 	<td>ASSIGNED_TO_MY_ROLES_MENULIST_ASSIGN_TO_ME</td>
@@ -219,11 +191,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Update Due Date')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DIALOG_BOX-->
 <tr>
 	<td>DIALOG_BOX_TITLE</td>
@@ -260,11 +228,7 @@
 	<td>//button[.='Cancel']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MY_PENDING_REQUESTS_TABLE-->
 <tr>
 	<td>MY_PENDING_REQUESTS_INFO_MESSAGE</td>
@@ -296,22 +260,14 @@
 	<td>//tr[contains(.,'${key_kfProcessName}')]/td[5]//a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MY_PENDING_REQUESTS_MENULIST-->
 <tr>
 	<td>MY_PENDING_REQUESTS_MENULIST_WITHDRAW_SUBMISSION</td>
 	<td>//a[@role='menuitem' and contains(.,'Withdraw Submission')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MY_COMPLETED_REQUESTS_TABLE-->
 <tr>
 	<td>MY_COMPLETED_REQUESTS_INFO_MESSAGE</td>

@@ -68,11 +68,7 @@
 	<td>//button[contains(@class,'btn close close-content')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ASSET_SELECTION-->
 <tr>
 	<td>ASSET_SELECTION_DYNAMIC</td>
@@ -84,11 +80,7 @@
 	<td>//input[@id='_86_selectionStyleManual']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SOURCE_SCOPE-->
 <tr>
 	<td>SOURCE_CURRENT_SCOPE_NAME</td>
@@ -140,11 +132,7 @@
 	<td>//div[@class='asset-subtype']//span[contains(@id,'AssetRendererFactoryOptions') and @class='asset-subtypefields']/span/button</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SOURCE_SCOPE_SELECT-->
 <tr>
 	<td>SOURCE_SCOPE_SELECT_GLOBAL</td>
@@ -156,11 +144,7 @@
 	<td>//a[contains(@id,'_86_selectManageableGroup') and contains(.,'Other Site...')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SELECT_MORE_THAN_ONE_ASSET_TYPE-->
 <tr>
 	<td>SELECT_MORE_THAN_ONE_ASSET_TYPE_CONTENT</td>
@@ -177,11 +161,7 @@
 	<td>//button[contains(@class,'move-right') and contains(@title,'Move selected items from Available to Selected.')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SOURCE_SCOPE_MENULIST-->
 <tr>
 	<td>SOURCE_SCOPE_MENULIST_GLOBAL</td>
@@ -193,11 +173,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Other Site...')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FILTER-->
 <tr>
 	<td>FILTER_TAGS_FIELD</td>
@@ -224,17 +200,9 @@
 	<td>//input[@id='_86_mergeLayoutTagsCheckbox']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CUSTOM_USER_ATTRIBUTES-->
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ORDERING_AND_GROUPING-->
 <tr>
 	<td>ORDERING_AND_GROUPING_SECTION_COLLAPSED</td>

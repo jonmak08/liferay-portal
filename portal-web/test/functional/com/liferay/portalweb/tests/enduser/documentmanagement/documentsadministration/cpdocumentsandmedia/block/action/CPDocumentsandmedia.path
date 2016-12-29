@@ -88,11 +88,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-success') and contains(@class,'taglib-trash-undo')]/form</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONFIGURATION_OPTIONS_MENULIST-->
 <tr>
 	<td>CONFIGURATION_OPTIONS_MENULIST_EXPORT_IMPORT</td>
@@ -104,11 +100,7 @@
 	<td>//a[contains(@id,'menu_configuration')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIONS_MENULIST-->
 <tr>
 	<td>ACTIONS_MENULIST_CANCEL_CHECKOUT</td>
@@ -140,11 +132,7 @@
 	<td>//li[contains(@id,'actionsButtonContainer')]/ul/li/a[contains(.,'Delete')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_MENULIST-->
 <tr>
 	<td>ADD_MENULIST_FOLDER</td>
@@ -191,11 +179,7 @@
 	<td>//li[@id='_20_addButtonContainer']/ul/li/a[contains(.,'Sales Presentation')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SORT_BY_MENULIST-->
 <tr>
 	<td>SORT_BY_MENULIST_TITLE</td>
@@ -234,33 +218,21 @@
 	<td>//ul[@class='dropdown-menu ']/li/a[contains(.,'Metadata Sets')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BREADCRUMB-->
 <tr>
 	<td>BREADCRUMB_HOME</td>
 	<td>//div[@id='_20_breadcrumbContainer']/ul/li[contains(.,'Home')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--LIFERAY_SYNC-->
 <tr>
 	<td>LIFERAY_SYNC_LINK</td>
 	<td>//div[@id='_20_syncNotificationContent']/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FILTER-->
 <tr>
 	<td>FILTER_HOME</td>
@@ -307,11 +279,7 @@
 	<td>xpath=(//span[contains(@class,'entry-action') and contains(@class,'overlay')]/div/a)[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FILTER_MENULIST-->
 <tr>
 	<td>FOLDER_MENULIST_DOWNLOAD</td>
@@ -333,11 +301,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Delete')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BREADCRUMB-->
 <tr>
 	<td>BREADCRUMB_HOME</td>
@@ -349,11 +313,7 @@
 	<td>//div[@id='_20_breadcrumbContainer']//li[contains(.,'${key_dmFolderName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENT_CONTAINER_DOCUMENT-->
 <tr>
 	<td>DOCUMENT_CONTAINER_DOCUMENT_GENERIC</td>
@@ -390,11 +350,7 @@
 	<td>//div[contains(@id,'entriesContainer')]//div[contains(.,'${key_dmDocumentTitle}')]/a/span/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENT_CONTAINER_FOLDER-->
 <tr>
 	<td>DOCUMENT_CONTAINER_FOLDER</td>
@@ -416,11 +372,7 @@
 	<td>//div[@id='_20_entriesContainer']//div[contains(.,'${key_dmFolderName}')]/a/span/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER_VIEW-->
 <tr>
 	<td>FOLDER_VIEW_FOLDER</td>
@@ -442,11 +394,7 @@
 	<td>//div[@id='_20_entriesContainer']//div[contains(.,'${key_dmDocumentTitle}')]/a/span/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER_MENULIST-->
 <tr>
 	<td>FOLDER_MENULIST_EDIT</td>
@@ -483,11 +431,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Access from Desktop')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENT_MENULIST-->
 <tr>
 	<td>DOCUMENT_MENULIST_DELETE</td>
@@ -524,11 +468,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Move to the Recycle Bin')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGINATION-->
 <tr>
 	<td>PAGINATION_FIRST</td>

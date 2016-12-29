@@ -18,11 +18,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-info')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SEARCH-->
 <tr>
 	<td>SEARCH_FIELD</td>
@@ -34,11 +30,7 @@
 	<td>//button[contains(.,'Search')]</td>
 	<td>Search Button</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SEARCH_RESULTS-->
 <tr>
 	<td>SEARCH_RESULTS_TITLE</td>
@@ -50,11 +42,7 @@
 	<td>//a[@class='entry-link']/span[@class='entry-description']</td>
 	<td>Search Result Description</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER_MENULIST-->
 <tr>
 	<td>FOLDER_MENULIST_EDIT</td>
@@ -101,11 +89,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Access from Desktop')]</td>
 	<td>Access from Desktop</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENT_MENULIST-->
 <tr>
 	<td>DOCUMENT_MENULIST_DOWNLOAD</td>

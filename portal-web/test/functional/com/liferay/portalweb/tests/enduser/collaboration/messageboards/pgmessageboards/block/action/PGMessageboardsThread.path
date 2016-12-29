@@ -18,11 +18,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-success')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--THREAD_CONTROLS-->
 <tr>
 	<td>THREAD_CONTROLS_BACK</td>
@@ -34,11 +30,7 @@
 	<td>//div[@class='thread-navigation']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--THREAD_ACTIONS-->
 <tr>
 	<td>THREAD_ACTIONS_SUBSCRIBE</td>
@@ -60,11 +52,7 @@
 	<td>//div[@class='thread-actions']/ul/li/a/span[contains(.,'Unlock Thread')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--THREAD_TABLE-->
 <tr>
 	<td>THREAD_TABLE_SUBJECT_1</td>
@@ -101,11 +89,7 @@
 	<td>xpath=(//div[@id='toggle_id_message_boards_view_message_thread']/table/tbody/tr/td[2]/a)[3]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MESSAGE-->
 <tr>
 	<td>MESSAGE_USER_DETAILS</td>
@@ -412,11 +396,7 @@
 	<td>//table[contains(.,'${key_threadBody}')]/tbody/tr/td[@class='thread-bottom']/ul//a[contains(.,'Split Thread')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--QUICK_REPLY-->
 <tr>
 	<td>QUICK_REPLY_BODY_FIELD</td>
@@ -433,11 +413,7 @@
 	<td>//button[@type='button' and contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--REPORT_INAPPROPRIATE_CONTENT-->
 <tr>
 	<td>REPORT_INAPPROPRIATE_CONTENT_HEADER</td>

@@ -13,11 +13,7 @@
 	<td>BasePortlet</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>VIMEO_CONFIGURATION_IFRAME</td>
 	<td>//iframe[contains(@id,'configurationIframeDialog')]</td>

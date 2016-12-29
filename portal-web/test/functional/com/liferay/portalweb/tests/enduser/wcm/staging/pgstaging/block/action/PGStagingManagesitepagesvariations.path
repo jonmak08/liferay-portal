@@ -23,11 +23,7 @@
 	<td>//button[@id='_170_addBranchButton']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_PAGES_VARIATIONS_TABLE-->
 <tr>
 	<td>SITE_PAGES_VARIATIONS_TABLE_NAME</td>
@@ -44,11 +40,7 @@
 	<td>//tr[contains(.,'${key_sitePagesVariationName}')]/td[3]/div/a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_PAGES_VARIATIONS_TABLE_ACTIONS_MENULIST-->
 <tr>
 	<td>SITE_PAGES_VARIATIONS_TABLE_ACTIONS_MENULIST_EDIT</td>
@@ -65,11 +57,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Merge')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_SITE_PAGES_VARIATION-->
 <tr>
 	<td>ADD_SITE_PAGES_VARIATION_NAME_FIELD</td>
@@ -86,11 +74,7 @@
 	<td>//button[contains(.,'Add')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--EDIT_SITE_PAGES_VARIATION-->
 <tr>
 	<td>EDIT_SITE_PAGES_VARIATION_NAME_FIELD</td>
@@ -107,11 +91,7 @@
 	<td>//button[contains(.,'Update')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MERGE_SITE_PAGES_VARIATION_TABLE-->
 <tr>
 	<td>MERGE_SITE_PAGES_VARIATION_TABLE_BRANCH</td>

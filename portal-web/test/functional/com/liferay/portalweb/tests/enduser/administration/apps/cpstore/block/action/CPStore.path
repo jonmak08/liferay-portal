@@ -53,11 +53,7 @@
 	<td>//div[@class='purchase']/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PURCHASE-->
 <tr>
 	<td>PURCHASE_SELECT_BUTTON</td>
@@ -74,11 +70,7 @@
 	<td>//input[@value='Purchase']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RECEIPT-->
 <tr>
 	<td>RECEIPT_TITLE</td>
@@ -95,11 +87,7 @@
 	<td>//a[contains(.,'See Purchased')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PURCHASED-->
 <tr>
 	<td>PURCHASED_SEARCH_TITLE_FIELD</td>

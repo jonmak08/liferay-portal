@@ -18,11 +18,7 @@
 	<td>//a[contains(@id,'TabsBack')]/span[contains(.,'Back')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_DOWNLOAD_BUTTON</td>
@@ -64,11 +60,7 @@
 	<td>//div[contains(@id,'fileEntryToolbar')]/div/button[contains(.,'Move to the Recycle Bin')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENT_INFO-->
 <tr>
 	<td>DOCUMENT_INFO_TITLE</td>
@@ -145,11 +137,7 @@
 	<td>//div[@id='documentLibraryAssetMetadataPanel']/div/div</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMMENTS-->
 <tr>
 	<td>COMMENTS_BE_THE_FIRST</td>
@@ -186,11 +174,7 @@
 	<td>//div[@class='taglib-discussion']/form/fieldset/div/div[2]/div[2]/button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VERSION_HISTORY_TABLE-->
 <tr>
 	<td>VERSION_HISTORY_TABLE_VERSION</td>
@@ -217,11 +201,7 @@
 	<td>//tr[contains(.,'${key_dmDocumentVersionNumber}')]/td[5]/div/a/i[@class='caret']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VERSION_HISTORY_MENULIST-->
 <tr>
 	<td>VERSION_HISTORY_MENULIST_DOWNLOAD</td>

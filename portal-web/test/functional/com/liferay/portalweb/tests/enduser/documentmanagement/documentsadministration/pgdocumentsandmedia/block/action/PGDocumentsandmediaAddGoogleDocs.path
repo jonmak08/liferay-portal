@@ -38,11 +38,7 @@
 	<td>//span[contains(@id,'pickButtonName')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIZATION-->
 <tr>
 	<td>CATEGORIZATION_PANEL_COLLAPSED</td>
@@ -79,11 +75,7 @@
 	<td>//span[contains(@class,'textboxlistentry-content')]//span[contains(.,'${key_categoryName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RELATED_ASSETS-->
 <tr>
 	<td>RELATED_ASSETS_PANEL_COLLAPSED</td>
@@ -145,11 +137,7 @@
 	<td>//button[contains(@data-assettype,'${key_relatedAssetType}') and contains(@data-assettitle,'${key_relatedAssetTitle')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PERMISSIONS-->
 <tr>
 	<td>PERMISSIONS_CHECKBOX</td>

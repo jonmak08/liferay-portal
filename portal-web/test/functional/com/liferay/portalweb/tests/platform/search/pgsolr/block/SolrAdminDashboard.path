@@ -13,11 +13,7 @@
 	<td>//div[@id='header']/a[@id='solr']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VERSIONS-->
 <tr>
 	<td>VERSIONS_SOLR_SPEC</td>

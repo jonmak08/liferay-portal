@@ -108,11 +108,7 @@
 	<td>//div[contains(@class,'lfr-title-scope-selector')]/div/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>ERROR_MESSAGE_ALERT_INFO</td>
 	<td>//tr[contains(.,'This site is inactive. Please contact the administrator.')]/td[@align='center']</td>
@@ -123,33 +119,21 @@
 	<td>//div[@id='content']/div[contains(.,'${key_nodePort}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCOPE_SELECTOR_MENULIST-->
 <tr>
 	<td>SCOPE_SELECTOR_MENULIST_ITEM</td>
 	<td>//ul[contains(@aria-labelledby,'controlPanelSiteSelector')]/li/a[contains(.,'${key_siteScopeName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTENT_SCOPE_SELECTOR_MENULIST-->
 <tr>
 	<td>CONTENT_SCOPE_SELECTOR_MENULIST_ITEM</td>
 	<td>//ul[contains(@class,'lfr-menu-list')]/li/a[contains(.,'${key_contentScopeName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGE-->
 <tr>
 	<td>PAGE</td>
@@ -251,11 +235,7 @@
 	<td>//nav[@id='navigation']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BREADCRUMB-->
 <tr>
 	<td>BREADCRUMB_1</td>
@@ -272,11 +252,7 @@
 	<td>xpath=(//nav[@id='breadcrumbs']/ul/li/a)[3]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGE_COLUMN-->
 <tr>
 	<td>PAGE_COLUMN_1</td>
@@ -288,11 +264,7 @@
 	<td>//div[@id='content']//div[@id='column-2']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGE_COLUMN_PORTLET-->
 <tr>
 	<td>PAGE_COLUMN_PORTLET_COLUMN_1_PORTLET_TITLE</td>
@@ -304,11 +276,7 @@
 	<td>//div[@id='column-2']//h1[@class='portlet-title']//span[contains(@class,'portlet-title-text') and contains(.,'${key_portletTitleName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NEW_PAGE-->
 <tr>
 	<td>NEW_PAGE_FIELD</td>
@@ -325,11 +293,7 @@
 	<td>//button/i[@class='icon-ok']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PORTLET-->
 <tr>
 	<td>PORTLET_LOADING_ANIMATION</td>
@@ -376,11 +340,7 @@
 	<td>//div[@id='column-2']//section/header/h1[contains(.,'Sign In')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTROL_PANEL-->
 <tr>
 	<td>CONTROL_PANEL_INFO_MESSAGE</td>
@@ -392,11 +352,7 @@
 	<td>//a[contains(.,'${key_portletName}') and contains(@id,'_190_controlPanelPortletLink')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_ADMINISTRATION-->
 <tr>
 	<td>SITE_ADMINISTRATION_CATEGORY_COLLAPSED</td>
@@ -428,11 +384,7 @@
 	<td>//ul[@class='category-portlets']/li[contains(.,'Site Memberships')]/a | //ul[@class='category-portlets']/li/span[contains(.,'Site Memberships')]/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_LOCALIZATION-->
 <tr>
 	<td>PORTAL_LOCALIZATION_INFO_MESSAGE</td>

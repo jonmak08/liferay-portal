@@ -13,11 +13,7 @@
 	<td>//iframe[contains(@id,'selectVersion')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SELECT_VERSION_TABLE-->
 <tr>
 	<td>SELECT_VERSION_VERSION_NEW</td>

@@ -43,11 +43,7 @@
 	<td>//img[@data-languageid='${key_localizationName}']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PROPERTIES-->
 <tr>
 	<td>PROPERTIES_BAR</td>

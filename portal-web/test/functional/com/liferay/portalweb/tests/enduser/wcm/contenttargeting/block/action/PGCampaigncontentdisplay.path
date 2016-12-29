@@ -53,11 +53,7 @@
 	<td>//div[contains(@class,'campaigncontentdisplay')]/section//div[@class='alert alert-info']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RULE_PANEL-->
 <tr>
 	<td>RULE_PANEL_CAMPAIGN_SELECT</td>
@@ -84,22 +80,14 @@
 	<td>xpath=(//button[contains(@class,'delete-row')])[${key_rowNumber}]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RULE_PANEL_DISPLAY_CONTENT_SELECT-->
 <tr>
 	<td>RULE_PANEL_DISPLAY_CONTENT_SELECT_CONTENT_CHOOSE_BUTTON</td>
 	<td>//tr[contains(.,'${key_contentTitle}')]//button[contains(.,'Choose')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--OTHERWISE_PANEL-->
 <tr>
 	<td>OTHERWISE_PANEL</td>
@@ -126,11 +114,7 @@
 	<td>//li/a[@data-type='${key_contentType}']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PREVIEW-->
 <tr>
 	<td>PREVIEW_CAMPAIGN_SELECTED</td>

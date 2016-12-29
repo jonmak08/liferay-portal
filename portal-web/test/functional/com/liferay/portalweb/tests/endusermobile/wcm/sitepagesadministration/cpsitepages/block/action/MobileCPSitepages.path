@@ -13,11 +13,7 @@
 	<td>CPSitepages</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>REORDER_ICON</td>
 	<td>//div[@class='navbar-inner']//a[contains(@class,'btn-navbar') and contains(@id,'_156_')]</td>

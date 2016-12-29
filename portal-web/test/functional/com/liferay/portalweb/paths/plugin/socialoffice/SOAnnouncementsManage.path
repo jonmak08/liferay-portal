@@ -28,11 +28,7 @@
 	<td>//button[contains(.,'Add Entry')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ANNOUNCEMENTS_ENTRY-->
 <tr>
 	<td>ANNOUNCEMENTS_ENTRY_TITLE</td>

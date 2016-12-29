@@ -68,33 +68,21 @@
 	<td>//a[@id='_170_manageLayoutSetBranches']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_PAGES_VARIATION_MENULIST-->
 <tr>
 	<td>SITE_PAGES_VARIATION_MENULIST_NAME</td>
 	<td>//ul//a[contains(.,'${key_sitePagesVariationName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGE_VARIATION_MENULIST-->
 <tr>
 	<td>PAGE_VARIATION_MENULIST_NAME</td>
 	<td>//ul//a[contains(.,'${key_pageVariationName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--LIVE_MENU-->
 <tr>
 	<td>LIVE_MENU_SITE</td>
@@ -111,11 +99,7 @@
 	<td>//div[@class='staging-details']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--STAGING_MENU-->
 <tr>
 	<td>STAGING_MENU_DESCRIPTION</td>
@@ -192,11 +176,7 @@
 	<td>//a[@id='_170_submitLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--STAGING_MENULIST-->
 <tr>
 	<td>STAGING_MENULIST_PUBLISH_TO_LIVE_NOW</td>

@@ -28,11 +28,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-info')]/span/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>SEARCH_FIELD</td>
 	<td>//input[@id='_86_keywords']</td>
@@ -83,11 +79,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_SETUP</td>
@@ -114,11 +106,7 @@
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Scope')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WEB_CONTENT_TABLE-->
 <tr>
 	<td>WEB_CONTENT_TABLE_ID</td>

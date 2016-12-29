@@ -113,11 +113,7 @@
 	<td>//div[@class='alert alert-info']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NOTIFICATION_MENU-->
 <tr>
 	<td>NOTIFICATION_MENU_COUNT</td>
@@ -214,11 +210,7 @@
 	<td>//div[@class='actionable']//a[contains(.,'Requests')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--GO_TO-->
 <tr>
 	<td>GO_TO_SEARCH_FIELD</td>
@@ -280,11 +272,7 @@
 	<td>//button[contains(.,'Sites Directory')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCREENSHOTS-->
 <tr>
 	<td>SCREENSHOTS_USERBAR_NOTIFICATION_MENU_CONNECTION_REQUEST_PNG</td>

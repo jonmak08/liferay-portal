@@ -38,11 +38,7 @@
 	<td>//a[@id='_182_empty']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RECYCLE_BIN_TABLE-->
 <tr>
 	<td>RECYCLE_BIN_TABLE_NAME</td>
@@ -69,11 +65,7 @@
 	<td>//div[@id='_182_trashEntriesSearchContainerSearchContainer']//tr[contains(.,'${key_assetName}')]/td[5]/div/a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RECYCLE_BIN_MENULIST-->
 <tr>
 	<td>RECYCLE_BIN_MENULIST_RESTORE</td>

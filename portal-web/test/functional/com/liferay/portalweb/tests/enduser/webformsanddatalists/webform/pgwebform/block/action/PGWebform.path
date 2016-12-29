@@ -13,11 +13,7 @@
 	<td>BasePortlet</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>SEND_BUTTON</td>
 	<td>//button[contains(.,'Send')]</td>
@@ -28,11 +24,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-success')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FORM_INFORMATION-->
 <tr>
 	<td>FORM_INFORMATION_TITLE</td>
@@ -44,11 +36,7 @@
 	<td>//div[@class='portlet-body']/form/fieldset/div/p</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FORM_FIELDS-->
 <tr>
 	<td>FORM_FIELDS_FIELD_MANDATORY_MESSAGE</td>

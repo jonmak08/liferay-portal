@@ -38,11 +38,7 @@
 	<td>//button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TITLE_FIELD_LOCALIZATION-->
 <tr>
 	<td>TITLE_FIELD_LOCALIZATION_FLAG_ENGLISH</td>
@@ -99,11 +95,7 @@
 	<td>//div[@id='_128_titleContentBox']//img[@data-languageid='es_ES']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DESCRIPTION_FIELD_LOCALIZATION-->
 <tr>
 	<td>DESCRIPTION_FIELD_LOCALIZATION_FLAG_ENGLISH</td>
@@ -160,11 +152,7 @@
 	<td>//div[@id='_128_descriptionContentBox']//img[@data-languageid='es_ES']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 </tbody>
 </table>

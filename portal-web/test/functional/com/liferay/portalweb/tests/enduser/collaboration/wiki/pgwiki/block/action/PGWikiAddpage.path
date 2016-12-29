@@ -13,11 +13,7 @@
 	<td>PGWiki</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>PORTLET_ERROR_MESSAGE</td>
 	<td>//div[@class='alert alert-error' and contains(.,'Your request failed to complete')]</td>
@@ -118,11 +114,7 @@
 	<td>//button[@id='_36_publishButton' and contains(.,'Submit for Publication')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PERMISSIONS-->
 <tr>
 	<td>PERMISSIONS_VIEWABLE_BY_DROPDOWN</td>
@@ -144,11 +136,7 @@
 	<td>//tr[contains(.,'${key_roleName}')]//input[@value='${key_permissionsDefinitionKey}']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIZATION-->
 <tr>
 	<td>CATEGORIZATION_TOGGLE</td>
@@ -165,11 +153,7 @@
 	<td>//div[contains(@class,'categoriesselector-content')]//span[contains(.,'${key_categoryName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIZATION_TAG-->
 <tr>
 	<td>CATEGORIZATION_TAG</td>
@@ -206,11 +190,7 @@
 	<td>//button[@title='Suggestions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SELECT_CATEGORIES-->
 <tr>
 	<td>SELECT_CATEGORIES_CATEGORY</td>

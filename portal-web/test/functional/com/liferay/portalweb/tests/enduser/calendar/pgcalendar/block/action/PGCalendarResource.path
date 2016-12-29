@@ -33,11 +33,7 @@
 	<td>//div[@class='alert alert-info']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_CALENDAR</td>
@@ -49,11 +45,7 @@
 	<td>//ul[@class='nav nav-tabs']/li/a[contains(.,'Resources')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RESOURCE_TABLE-->
 <tr>
 	<td>RESOURCE_TABLE_NAME</td>
@@ -80,11 +72,7 @@
 	<td>//tr//a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RESOURCE_MENULIST-->
 <tr>
 	<td>RESOURCE_MENULIST_EDIT</td>

@@ -23,11 +23,7 @@
 	<td>//span[contains(@onmouseover,'ToolTip')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_RESOURCES</td>
@@ -89,11 +85,7 @@
 	<td>//ul[contains(@class,'nav-tabs')]/li/a[contains(.,'Portal Properties')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RESOURCES_ACTIONS_TABLE-->
 <tr>
 	<td>RESOURCES_ACTIONS_TABLE_DESCRIPTION</td>
@@ -105,11 +97,7 @@
 	<td>//div[@id='adminServerAdministrationActionsPanelContainer']//tr[contains(.,'${key_actionsDescription}')]/td/button[contains(.,'Execute')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PROPERTIES_PORTAL_PROPERTIES-->
 <tr>
 	<td>PROPERTIES_PORTAL_PROPERTIES_SEARCH_FIELD</td>
@@ -136,11 +124,7 @@
 	<td>//div[contains(@class,'tooltip-content')]/div</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FILE_UPLOADS-->
 <tr>
 	<td>FILE_UPLOADS_GENERAL_OVERALL_MAX_FILE_SIZE_FIELD</td>

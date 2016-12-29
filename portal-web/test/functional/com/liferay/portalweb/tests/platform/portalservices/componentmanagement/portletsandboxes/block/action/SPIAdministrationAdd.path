@@ -28,11 +28,7 @@
 	<td>//button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--OPTIONS_MENULIST-->
 <tr>
 	<td>OPTIONS_MENULIST_CONFIGURATION</td>
@@ -44,11 +40,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Export / Import')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--GENERAL-->
 <tr>
 	<td>GENERAL_NAME_FIELD</td>
@@ -60,11 +52,7 @@
 	<td>//textarea[@id='_1_WAR_spiadminportlet_description']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SPI_CONFIGURATIONS_SPI_RUNTIME-->
 <tr>
 	<td>SPI_CONFIGURATIONS_SPI_RUNTIME_MAX_WORKER_THREADS_FIELD</td>
@@ -76,11 +64,7 @@
 	<td>//input[@id='_1_WAR_spiadminportlet_connectorPort']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SPI_CONFIGURATIONS_SPI_APPLICATIONS-->
 <tr>
 	<td>SPI_CONFIGURATIONS_SPI_APPLICATIONS_CURRENT_SELECT</td>
@@ -102,11 +86,7 @@
 	<td>xpath=(//button[@title='Move selected items from Available to Current.'])[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADVANCED_CONFIGURATIONS_SPI_CORE_APPLICATIONS-->
 <tr>
 	<td>ADVANCED_CONFIGURATIONS_SPI_CORE_APPLICATIONS_CURRENT_SELECT</td>
@@ -128,11 +108,7 @@
 	<td>xpath=(//button[@title='Move selected items from Available to Current.'])[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADVANCED_CONFIGURATIONS-->
 <tr>
 	<td>ADVANCED_CONFIGURATIONS_EXPANDED</td>

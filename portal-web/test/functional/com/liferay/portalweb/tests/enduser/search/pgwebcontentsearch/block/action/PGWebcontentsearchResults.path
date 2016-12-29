@@ -28,11 +28,7 @@
 	<td>//div[@class='search-results']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RESULTS_TABLE-->
 <tr>
 	<td>RESULTS_TABLE_NUMBER</td>

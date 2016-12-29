@@ -153,22 +153,14 @@
 	<td>//label[contains(.,'${key_userSegmentDetailTitle}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_TRANSLATION_MENULIST-->
 <tr>
 	<td>ADD_TRANSLATION_MENULIST_LANGUAGE</td>
 	<td>//li[@role='presentation']/a/span[contains(.,'${key_localizedLanguage')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU-->
 <tr>
 	<td>MENU_CONTENT</td>

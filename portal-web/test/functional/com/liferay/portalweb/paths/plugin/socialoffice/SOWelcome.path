@@ -13,11 +13,7 @@
 	<td>//div[@class='alert alert-success']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WELCOME-->
 <tr>
 	<td>WELCOME_PORTLET_TITLE</td>

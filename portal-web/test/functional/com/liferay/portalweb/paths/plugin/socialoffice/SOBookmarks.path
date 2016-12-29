@@ -44,11 +44,7 @@
 	<td>//div[@class='portlet-body']/form[contains(.,'There are no entries')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BOOKMARKS_ACTIONS_MENULIST-->
 <tr>
 	<td>BOOKMARKS_ACTIONS_MENULIST_EDIT</td>
@@ -70,11 +66,7 @@
 	<td>//ul[contains(@class,'dropdown-menu')]/li[4]/a[contains(.,'Move to the Recycle Bin')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BOOKMARKS_POP_UP-->
 <tr>
 	<td>BOOKMARKS_POP_UP_GOOGLE</td>

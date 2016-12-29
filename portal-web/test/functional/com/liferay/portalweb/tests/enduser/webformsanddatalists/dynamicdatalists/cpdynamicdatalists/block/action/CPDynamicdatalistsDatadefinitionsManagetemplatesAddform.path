@@ -38,11 +38,7 @@
 	<td>//div[@class='button-holder ']/button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DETAILS-->
 <tr>
 	<td>DETAILS_LANGUAGE_SELECT</td>

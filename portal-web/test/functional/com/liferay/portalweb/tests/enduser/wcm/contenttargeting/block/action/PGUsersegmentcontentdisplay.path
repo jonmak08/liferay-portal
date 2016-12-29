@@ -58,11 +58,7 @@
 	<td>xpath=(//div[contains(@class,'lfr-form-row')]//button[contains(@class,'add-row')])[${key_indexNumber}]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PREVIEW-->
 <tr>
 	<td>PREVIEW_USER_SEGMENT_SELECTED</td>
@@ -94,11 +90,7 @@
 	<td>//div[@class='content-preview selected']//div[contains(.,'${key_viewUserSegmentSelected}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RULE_PANEL-->
 <tr>
 	<td>RULE_PANEL_BELONGS_RADIO</td>
@@ -150,11 +142,7 @@
 	<td>//li/a[@data-type='${key_contentType}']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RULE_PANEL_USER_SEGMENT_SELECT_USER_SEGMENT-->
 <tr>
 	<td>RULE_PANEL_USER_SEGMENT_SELECT_USER_SEGMENT_CHECKBOX</td>
@@ -176,22 +164,14 @@
 	<td>//div[contains(@class,'selector-popup')]//button[contains(@class,'btn close')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RULE_PANEL_DISPLAY_CONTENT_SELECT-->
 <tr>
 	<td>RULE_PANEL_DISPLAY_CONTENT_SELECT_CONTENT_CHOOSE_BUTTON</td>
 	<td>//tr[contains(.,'${key_contentTitle}')]//button[contains(.,'Choose')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--OTHERWISE_PANEL-->
 <tr>
 	<td>OTHERWISE_PANEL</td>

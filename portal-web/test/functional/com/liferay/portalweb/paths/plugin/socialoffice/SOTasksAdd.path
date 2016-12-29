@@ -58,11 +58,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DUE_DATE-->
 <tr>
 	<td>DUE_DATE_FIELD</td>
@@ -89,11 +85,7 @@
 	<td>//input[@id='_1_WAR_tasksportlet_dueDateTime']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCREENSHOTS-->
 <tr>
 	<td>SCREENSHOTS_ADD_TAG_LABEL</td>

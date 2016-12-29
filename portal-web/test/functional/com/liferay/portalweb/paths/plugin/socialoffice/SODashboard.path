@@ -18,11 +18,7 @@
 	<td>//h1[@class='portlet-title'][contains(.,'${key_portletName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_DASHBOARD</td>

@@ -23,11 +23,7 @@
 	<td>xpath=(//div[@class='alert alert-info'])[3]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_FRONTPAGE</td>
@@ -64,22 +60,14 @@
 	<td>//div[@class='form-search']//div/button[@type='submit']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DRAFT_PAGES-->
 <tr>
 	<td>DRAFT_PAGES</td>
 	<td>//h3[@class='header-title']/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DRAFT_PAGES_TABLE-->
 <tr>
 	<td>DRAFT_PAGES_TABLE_PAGE</td>
@@ -111,11 +99,7 @@
 	<td>//div[@class='searchcontainer-content']//tr[contains(.,'${key_wikiPageTitle}')]/td[6]/div/a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DRAFT_PAGES_MENULIST-->
 <tr>
 	<td>DRAFT_PAGES_MENULIST_EDIT</td>
@@ -147,22 +131,14 @@
 	<td>//a[@role='menuitem' and contains(.,'Discard Draft')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PENDING_APPROVAL-->
 <tr>
 	<td>PENDING_APPROVAL</td>
 	<td>//div[@class='portlet-body']/h2</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PENDING_APPROVAL_TABLE-->
 <tr>
 	<td>PENDING_APPROVAL_TABLE_PAGE</td>

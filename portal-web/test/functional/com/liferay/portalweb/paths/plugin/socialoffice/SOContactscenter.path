@@ -103,11 +103,7 @@
 	<td>//div[contains(@class,'contacts-count contacts')]/div/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTACTS_LIST-->
 <tr>
 	<td>CONTACTS_LIST_ALL_CHECKBOX</td>
@@ -149,11 +145,7 @@
 	<td>//a[contains(.,'View More')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SELECTED_USERS_LIST-->
 <tr>
 	<td>SELECTED_USERS_LIST_THUMB</td>
@@ -190,11 +182,7 @@
 	<td>//div[contains(@id,'selectedUsersView') and contains(.,'${key_userListName}')]//div[contains(@class,'social-relations')]//span[contains(.,'Blocked')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_DETAILS-->
 <tr>
 	<td>USER_DETAILS_PROFILE_PICTURE</td>
@@ -341,11 +329,7 @@
 	<td>//div[@class='project-description property-list']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTACT_DETAILS-->
 <tr>
 	<td>CONTACT_DETAILS_NAME</td>
@@ -362,11 +346,7 @@
 	<td>//div[contains(@class,'external-contact')]/div[2]/div</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTACTS_LINK-->
 <tr>
 	<td>CONTACTS_LINK_TITLE</td>
@@ -393,11 +373,7 @@
 	<td>//div[contains(@class,'contacts-count contacts')]/div/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCREENSHOTS-->
 <tr>
 	<td>SCREENSHOTS_CONTACTS_CENTER_VIEW_CONTACT_PNG</td>

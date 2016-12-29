@@ -13,11 +13,7 @@
 	<td>//div[contains(@class,'portlet-msg-success')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--INFO_BAR-->
 <tr>
 	<td>VERSION</td>
@@ -34,11 +30,7 @@
 	<td>//span[@class='header-back-to']/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--REVISION-->
 <tr>
 	<td>MAJOR_REVISION</td>
@@ -55,11 +47,7 @@
 	<td>//input[@id='_20_changeLog']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BOTTOM_BUTTONS-->
 <tr>
 	<td>SAVE_AS_DRAFT_BUTTON</td>

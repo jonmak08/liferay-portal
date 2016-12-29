@@ -34,22 +34,14 @@
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Attachments')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIVITIES_TABLE-->
 <tr>
 	<td>ACTIVITIES_TABLE_COMPARE_TO</td>
 	<td>//tr[contains(.,'${key_wikiPageVersionNew}')]//span[@class='compare-to-link']/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMPARE_VERSIONS-->
 <tr>
 	<td>COMPARE_VERSIONS_DIFF</td>

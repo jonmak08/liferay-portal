@@ -33,11 +33,7 @@
 	<td>//div[contains(@id,'Navbar')]/ul[@aria-label='Dynamic Data Mapping']/li/a/span[contains(.,'Add')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BASIC_SEARCH-->
 <tr>
 	<td>BASIC_SEARCH_BUTTON</td>
@@ -49,11 +45,7 @@
 	<td>//input[@name='_166_keywords']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--METADATA_SETS_TABLE-->
 <tr>
 	<td>METADATA_SETS_TABLE_CHECKBOX</td>
@@ -80,11 +72,7 @@
 	<td>//tr[contains(.,'${key_metadataSetName}')]/td[5]/button[contains(.,'Choose')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIONS_MENULIST-->
 <tr>
 	<td>ACTIONS_MENULIST_EDIT</td>

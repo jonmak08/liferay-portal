@@ -33,22 +33,14 @@
 	<td>//div[@id='apiServiceWikiPageServiceImplPanelContent']/div</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADDRESS-->
 <tr>
 	<td>ADDRESS_ADD_ADDRESS</td>
 	<td>//div[@id='apiServiceAddressServiceImplPanelContent']/div/ul/li/a[contains(.,'add-address')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WIKI_PAGE-->
 <tr>
 	<td>WIKI_PAGE_ADD_PAGE</td>

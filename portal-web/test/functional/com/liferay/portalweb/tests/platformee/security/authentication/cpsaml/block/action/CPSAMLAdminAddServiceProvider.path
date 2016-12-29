@@ -18,11 +18,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SERVICE_PROVIDER-->
 <tr>
 	<td>SERVICE_PROVIDER_NAME_FIELD</td>

@@ -54,11 +54,7 @@
 	<td>//div[@class='button-holder ']/button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONFIGURATION_OPTIONS_MENULIST-->
 <tr>
 	<td>CONFIGURATION_OPTIONS_MENULIST_CONFIGURATION</td>
@@ -70,11 +66,7 @@
 	<td>//a[contains(@id,'menu_export-import')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER_WINDOW-->
 <tr>
 	<td>FOLDER_WINDOW_ID</td>

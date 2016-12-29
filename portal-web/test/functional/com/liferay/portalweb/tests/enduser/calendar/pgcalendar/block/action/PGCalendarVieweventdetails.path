@@ -58,11 +58,7 @@
 	<td>//button[@type='button' and contains(.,'Decline')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--YOUR_RATING-->
 <tr>
 	<td>YOUR_RATING</td>
@@ -144,11 +140,7 @@
 	<td>xPath=(//div[contains(@id,'_ratingStar')]//a[@class='rating-element icon-star-empty'])[5]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--AVERAGE-->
 <tr>
 	<td>AVERAGE</td>
@@ -205,11 +197,7 @@
 	<td>xPath=(//div[contains(@id,'_ratingScore')]//a[@class='rating-element icon-star-empty'])[5]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMMENTS-->
 <tr>
 	<td>COMMENTS_SUCCESS</td>
@@ -286,11 +274,7 @@
 	<td>//div[@class='lfr-discussion-message' and contains(.,'${key_eventComment}')]//..//..//..//button[contains(@class,'btn') and contains(@class,'btn-cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TAGS-->
 <tr>
 	<td>TAGS_LABEL</td>

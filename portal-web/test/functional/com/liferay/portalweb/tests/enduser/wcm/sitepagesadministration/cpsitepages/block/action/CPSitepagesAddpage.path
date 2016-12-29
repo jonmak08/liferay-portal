@@ -23,11 +23,7 @@
 	<td>//div[contains(@id,'addLayout')]//button[contains(.,'Add Page')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGE_TYPE-->
 <tr>
 	<td>PAGE_TYPE_LABEL</td>
@@ -39,11 +35,7 @@
 	<td>//li[contains(@data-search,'${key_pageType}')]//input[contains(@id,'addLayoutSelectedPageTemplate')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGE_TEMPLATE-->
 <tr>
 	<td>PAGE_TYPE_TEMPLATE_AUTOMATICALLY_APPLY_CHANGES_LABEL</td>
@@ -55,11 +47,7 @@
 	<td>//li[contains(@data-search,'${key_pageType}')]//input[contains(@name,'layoutPrototypeLinkEnabledCheckbox')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGE_TYPE_PANEL-->
 <tr>
 	<td>PAGE_TYPE_PANEL_DESCRIPTION_FIELD</td>
@@ -81,11 +69,7 @@
 	<td>//span[contains(.,'${key_componentOrPortletName}')]/../i[contains(@class,'tree-node-checkbox')]/input</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGE_TYPE_EMBEDDED-->
 <tr>
 	<td>PAGE_TYPE_EMBEDDED_URL_FIELD</td>
@@ -97,11 +81,7 @@
 	<td>//textarea[@id='_156_descriptionEmbedded']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGE_TYPE_LINK_TO_URL-->
 <tr>
 	<td>PAGE_TYPE_LINK_TO_URL_URL_FIELD</td>

@@ -33,11 +33,7 @@
 	<td>//div[contains(@id,'overrideParentSettings')]/span/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WORKFLOW -->
 <tr>
   <td>WORKFLOW_PARENT_FOLDER_RADIO</td>
@@ -69,11 +65,7 @@
   <td>//select[contains(@id,'workflowDefinition-1')]</td>
   <td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PERMISSIONS-->
 <tr>
 	<td>PERMISSIONS_SELECT</td>

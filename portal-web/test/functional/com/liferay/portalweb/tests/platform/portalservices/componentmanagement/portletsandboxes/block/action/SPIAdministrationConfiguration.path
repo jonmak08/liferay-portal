@@ -24,11 +24,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RECOVERY_OPTIONS_NOTIFICATION_OPTIONS-->
 <tr>
 	<td>RECOVERY_OPTIONS_NOTIFICATION_OPTIONS_NOTIFICATION_EMAIL_FROM_ADDRESS_FIELD</td>
@@ -55,11 +51,7 @@
 	<td>//textarea[@id='_86_notificationEmailBody']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RECOVERY_OPTIONS_RESTART_OPTIONS-->
 <tr>
 	<td>RECOVERY_OPTIONS_RESTART_OPTIONS_MAX_RESTART_ATTEMPTS_FIELD</td>

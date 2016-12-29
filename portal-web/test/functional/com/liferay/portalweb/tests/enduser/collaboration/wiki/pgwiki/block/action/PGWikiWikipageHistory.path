@@ -13,11 +13,7 @@
 	<td>PGWiki</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_CONTENT</td>
@@ -44,22 +40,14 @@
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Attachments')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIVITIES_TABLE-->
 <tr>
 	<td>ACTIVITIES_TABLE_COMPARE_TO</td>
 	<td>//tr[contains(.,'${key_wikiPageVersionNew}')]//span[@class='compare-to-link']/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMPARE_ACTIVITIES_NAVIGATION-->
 <tr>
 	<td>COMPARE_ACTIVITIES_NAVIGATION_HTML_MODE_LINK</td>
@@ -71,11 +59,7 @@
 	<td>//div[@class='central-info']//a[contains(.,'Text Mode')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMPARE_VERSIONS-->
 <tr>
 	<td>COMPARE_VERSIONS_DIFF</td>
@@ -97,11 +81,7 @@
 	<td>//div[contains(@class,'portlet-wiki')]//p[contains(.,'${key_wikiPageContentCompareFull}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMPARE_VERSIONS_TEXT_MODE_TABLE-->
 <tr>
 	<td>COMPARE_VERSIONS_TEXT_MODE_TABLE_TITLE_VERSION_OLD</td>
@@ -133,11 +113,7 @@
 	<td>//table[@id='taglib-diff-results']//tr[3]/td[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--VERSIONS-->
 <tr>
 	<td>VERSIONS_TAB_LINK</td>

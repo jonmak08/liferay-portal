@@ -28,11 +28,7 @@
 	<td>//span[@class='subscribe-link']/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_COMMENT-->
 <tr>
 	<td>COMMENT_FIELD</td>
@@ -54,11 +50,7 @@
 	<td>//button[contains(.,'Submit for Publication')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMMENT-->
 <tr>
 	<td>COMMENT_WORKFLOW_STATUS</td>

@@ -93,11 +93,7 @@
 	<td>title=Members - Liferay</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SELECTED_USERS_LIST-->
 <tr>
 	<td>SELECTED_USERS_LIST_THUMB</td>
@@ -134,11 +130,7 @@
 	<td>//div[contains(@id,'selectedUsersView') and contains(.,'${key_userListName}')]//div[contains(@class,'social-relations')]//span[contains(.,'Blocked')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MEMBERS_LIST-->
 <tr>
 	<td>MEMBERS_LIST_FILTER</td>
@@ -170,11 +162,7 @@
 	<td>//div[@class='empty']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_DETAILS-->
 <tr>
 	<td>USER_DETAILS_NAME</td>
@@ -186,11 +174,7 @@
 	<td>//div[contains(@class,'contacts-profile')]/div/div[2]/div[3]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MEMBERS_LINK-->
 <tr>
 	<td>MEMBERS_LINK_CONNECTIONS</td>

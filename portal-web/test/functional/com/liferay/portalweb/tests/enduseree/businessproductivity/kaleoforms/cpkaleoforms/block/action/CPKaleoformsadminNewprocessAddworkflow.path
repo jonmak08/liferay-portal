@@ -13,11 +13,7 @@
 	<td>Kaleodesigner</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>NAME_FIELD</td>
 	<td>//input[contains(@id,'kaleoformsportlet_name')]</td>

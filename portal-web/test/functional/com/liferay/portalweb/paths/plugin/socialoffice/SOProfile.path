@@ -108,11 +108,7 @@
 	<td>//button[contains(@class,'edit-logo')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_PROFILE</td>
@@ -134,11 +130,7 @@
 	<td>//div[@id='navigation']/ul/li[contains(.,'${key_pageName}')]/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTACTS-->
 <tr>
 	<td>CONTACTS_INFO_MESSAGE</td>
@@ -150,11 +142,7 @@
 	<td>//div[contains(@id,'contactsportlet')]//div[@class='lfr-contact-name']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD-->
 <tr>
 	<td>ADD_ADDRESSES</td>
@@ -206,11 +194,7 @@
 	<td>//li[@data-title='Websites']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PROFILE_INFO-->
 <tr>
 	<td>PROFILE_INFO_ADDRESS_TITLE</td>
@@ -372,11 +356,7 @@
 	<td>//div[@data-title='Websites']/ul</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MY_CONTACTS-->
 <tr>
 	<td>MY_CONTACTS_CONTACT_NAME</td>
@@ -388,11 +368,7 @@
 	<td>//a[contains(.,'View all ${key_userName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCREENSHOTS-->
 <tr>
 	<td>SCREENSHOTS_PROFILE_PICTURE_PNG</td>

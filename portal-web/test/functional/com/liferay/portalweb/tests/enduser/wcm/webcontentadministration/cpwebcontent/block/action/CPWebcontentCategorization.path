@@ -23,11 +23,7 @@
 	<td>//div[contains(@class,'categoriesselector')]/ul/li/span[contains(.,'${key_categoryName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIES_WINDOW-->
 <tr>
 	<td>CATEGORIES_WINDOW_CATEGORY_CHECKBOX</td>

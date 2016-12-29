@@ -48,11 +48,7 @@
 	<td>//div[@class='alert alert-success']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CAMPAIGN_TABLE-->
 <tr>
 	<td>CAMPAIGN_TABLE_CHECKBOX_ALL</td>
@@ -89,11 +85,7 @@
 	<td>//tr[contains(.,'${key_campaignName}')]/td[8]/div/a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CAMPAIGN_TABLE_ACTIONS_MENULIST-->
 <tr>
 	<td>CAMPAIGN_TABLE_ACTIONS_MENULIST_REPORTS</td>
@@ -115,11 +107,7 @@
 	<td>//ul/li/a[contains(.,'Permissions')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_SEGMENT_TABLE-->
 <tr>
 	<td>USER_SEGMENT_TABLE_CHECKBOX_ALL</td>
@@ -146,11 +134,7 @@
 	<td>//tr[contains(.,'${key_userSegmentName}')]/td[4]/div/a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_SEGMENT_TABLE_ACTIONS_MENULIST-->
 <tr>
 	<td>USER_SEGMENT_TABLE_ACTIONS_MENULIST_REPORTS</td>

@@ -18,11 +18,7 @@
 	<td>//div[@class='btn-group lfr-icon-menu']/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCOPE_MENULIST-->
 <tr>
 	<td>SCOPE_MENULIST_SITE</td>

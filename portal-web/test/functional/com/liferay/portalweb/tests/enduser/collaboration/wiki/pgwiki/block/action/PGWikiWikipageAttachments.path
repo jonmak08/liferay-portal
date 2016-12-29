@@ -33,11 +33,7 @@
 	<td>//div[@class='selected']/button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_CONTENT</td>
@@ -64,11 +60,7 @@
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Outgoing Links')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ALL_FILES_READY_TO_BE_SAVED-->
 <tr>
 	<td>ALL_FILES_READY_TO_BE_SAVED_TITLE</td>
@@ -85,11 +77,7 @@
 	<td>//div[@class='upload-list']//li[contains(@data-title,'${key_attachmentFileName}')]/span[contains(@class,'success-message')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ATTACHMENT_TABLE-->
 <tr>
 	<td>ATTACHMENT_TABLE_FILE_NAME</td>

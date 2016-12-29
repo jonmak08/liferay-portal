@@ -48,11 +48,7 @@
 	<td>//label[contains(.,'Enable propagation')]/input[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SELECT_ORGANIZATION_TABLE-->
 <tr>
 	<td>SELECT_ORGANIZATION_TABLE_NAME</td>
@@ -89,11 +85,7 @@
 	<td>//tr[contains(.,'${key_organizationName}')]//button[contains(.,'Choose')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ORGANIZATION_INFORMATION-->
 <tr>
 	<td>ORGANIZATION_INFORMATION_DETAILS</td>
@@ -110,11 +102,7 @@
 	<td>//a[@id='_125_categorizationLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DETAILS-->
 <tr>
 	<td>DETAILS_NAME_FIELD</td>
@@ -126,22 +114,14 @@
 	<td>//input[@value='${key_orgType}' and @type='text']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PARENT_ORGANIZATION-->
 <tr>
 	<td>PARENT_ORGANIZATION_SELECT_BUTTON</td>
 	<td>//span[@class='modify-link']/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PARENT_ORGANIZATION_TABLE-->
 <tr>
 	<td>PARENT_ORGANIZATION_TABLE_NAME</td>
@@ -158,11 +138,7 @@
 	<td>//div[@id='_125_parentOrganizationSearchContainer']//tr/td[3]/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ORGANIZATION_SITE-->
 <tr>
 	<td>ORGANIZATION_SITE_CREATE_SITE_CHECKBOX</td>
@@ -179,11 +155,7 @@
 	<td>//select[@id='_125_privateLayoutSetPrototypeId']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--IDENTIFICATION-->
 <tr>
 	<td>IDENTIFICATION_ADDRESSES</td>
@@ -210,11 +182,7 @@
 	<td>//a[@id='_125_servicesLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADDRESSES-->
 <tr>
 	<td>ADDRESSES_STREET_FIELD_1</td>
@@ -266,11 +234,7 @@
 	<td>//select[@id='_125_addressRegionId0']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PHONE_NUMBERS-->
 <tr>
 	<td>PHONE_NUMBERS_NUMBER_FIELD</td>
@@ -292,11 +256,7 @@
 	<td>//input[@id='_125_phonePrimary0']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADDITIONAL_EMAIL_ADDRESSES-->
 <tr>
 	<td>ADDITIONAL_EMAIL_ADDRESSES_EMAIL_ADDRESS_FIELD</td>
@@ -313,11 +273,7 @@
 	<td>//input[@id='_125_emailAddressPrimary0']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WEBSITES-->
 <tr>
 	<td>WEBSITES_URL_FIELD</td>
@@ -334,11 +290,7 @@
 	<td>//input[@id='_125_websitePrimary0']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SERVICES-->
 <tr>
 	<td>SERVICES_TYPE_SELECT</td>
@@ -355,11 +307,7 @@
 	<td>//select[@id='_125_monClose0']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MISCELLANEOUS-->
 <tr>
 	<td>MISCELLANEOUS_COMMENTS</td>
@@ -376,22 +324,14 @@
 	<td>//a[@id='_125_customFieldsLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMMENTS-->
 <tr>
 	<td>COMMENTS_FIELD</td>
 	<td>//textarea[@id='_125_comments']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--REMINDER_QUERIES-->
 <tr>
 	<td>REMINDER_QUERIES_DEFAULT_LANGUAGE_FIELD</td>
@@ -408,11 +348,7 @@
 	<td>//textarea[@id='_125_reminderQueries_temp']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIZATION-->
 <tr>
 	<td>CATEGORIZATION_TAG</td>

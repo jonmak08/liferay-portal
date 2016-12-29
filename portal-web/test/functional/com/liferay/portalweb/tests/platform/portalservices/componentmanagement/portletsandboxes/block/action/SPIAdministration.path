@@ -24,11 +24,7 @@
 	<td>//a[@title='Options']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--OPTIONS_MENULIST-->
 <tr>
 	<td>OPTIONS_MENULIST_CONFIGURATION</td>
@@ -40,22 +36,14 @@
 	<td>//a[@role='menuitem' and contains(.,'Export / Import')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_ADD</td>
 	<td>//a[@id='_1_WAR_spiadminportlet_controlPanelSubNav1_WAR_spiadminportletLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTION_MENULIST-->
 <tr>
 	<td>ACTION_MENULIST_EDIT</td>
@@ -77,11 +65,7 @@
 	<td>//ul[contains(@class,'dropdown-menu')]/li/a[contains(.,'Delete')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SPI_TABLE-->
 <tr>
 	<td>SPI_TABLE_STATUS</td>

@@ -18,11 +18,7 @@
 	<td>//button[contains(.,'Reset Changes')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD-->
 <tr>
 	<td>ADD</td>
@@ -34,11 +30,7 @@
 	<td>//a[@id='_145_addPanel']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_CONTENT-->
 <tr>
 	<td>ADD_CONTENT_LINK</td>
@@ -70,22 +62,14 @@
 	<td>//div[@class='add-content-details span8']/div[contains(.,'${key_assetTitle}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_CONTENT_ADD_NEW_MENULIST-->
 <tr>
 	<td>ADD_CONTENT_ADD_NEW_MENULIST</td>
 	<td>//ul[contains(@class,'dropdown-menu')]/li/a[contains(.,'${key_assetType}')]/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_APPLICATION-->
 <tr>
 	<td>ADD_APPLICATION_LINK</td>
@@ -102,11 +86,7 @@
 	<td>//div[contains(@class,'toggler-header-collapsed')]/div</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_PAGE-->
 <tr>
 	<td>ADD_PAGE_LINK</td>
@@ -123,22 +103,14 @@
 	<td>//button[contains(.,'Add Page')]</td>
 	<td>Add Page Button</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_PAGE_TYPE-->
 <tr>
 	<td>ADD_PAGE_TYPE_RADIO</td>
 	<td>//div[contains(@class,'radio')]/label[contains(.,'${key_pageType}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_PAGE_TYPE_PANEL-->
 <tr>
 	<td>ADD_PAGE_TYPE_PANEL_DESCRIPTION_FIELD</td>
@@ -160,11 +132,7 @@
 	<td>//span[contains(.,'${key_componentOrPortletName}')]/../i[contains(@class,'tree-node-checkbox')]/input</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PREVIEW-->
 <tr>
 	<td>PREVIEW</td>
@@ -211,11 +179,7 @@
 	<td>//div[@id='_145_devicePreviewContainer']/div[@class='alert']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--EDIT-->
 <tr>
 	<td>EDIT</td>
@@ -292,11 +256,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--EDIT_CONTROLS-->
 <tr>
 	<td>EDIT_CONTROLS</td>
@@ -308,11 +268,7 @@
 	<td>//li/a[@role='menuitem']/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--EDIT_DETAILS-->
 <tr>
 	<td>EDIT_DETAILS_AUTOMATICALLY_APPLY_CHANGES_TO_PAGE_TEMPLATE_LABEL</td>
@@ -324,22 +280,14 @@
 	<td>//label[contains(@for,'layoutPrototypeLinkEnabledCheckbox')]/input[contains(@id,'layoutPrototypeLinkEnabledCheckbox')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--EDIT_DETAILS_COLUMN-->
 <tr>
 	<td>EDIT_DETAILS_COLUMN_RADIO</td>
 	<td>//input[@value='${key_columnName}']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--EMBEDDED_PORTLETS-->
 <tr>
 	<td>EMBEDDED_PORTLETS_CHECKBOX_1</td>
@@ -381,11 +329,7 @@
 	<td>//div[@id='_145_embeddedPortlets']//tbody/tr[2]/td[4]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADMIN-->
 <tr>
 	<td>ADMIN</td>
@@ -437,11 +381,7 @@
 	<td>//li[@id='_145_adminLinks']/ul/li/a[contains(.,'Control Panel')]</td>
 	<td>Control Panel Navigation</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MY_SITES-->
 <tr>
 	<td>MY_SITES</td>
@@ -463,11 +403,7 @@
 	<td>//span[@class='site-name']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--GO_TO-->
 <tr>
 	<td>GO_TO</td>
@@ -494,11 +430,7 @@
 	<td>//span[@class='site-name' and contains(.,'My Private Pages')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER-->
 <tr>
 	<td>USER_NAME</td>

@@ -23,11 +23,7 @@
 	<td>//button[contains(.,'Stop Simulation')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SIMULATOR-->
 <tr>
 	<td>SIMULATOR_USER_SEGMENTS_NAVIGATION</td>
@@ -39,11 +35,7 @@
 	<td>//ul[contains(@class,'nav-pills')]/li/a[contains(.,'Campaigns')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_SEGMENTS_MATCHED-->
 <tr>
 	<td>USER_SEGMENTS_MATCHED_LABEL</td>
@@ -67,11 +59,7 @@
 	<td>//label[contains(.,'${key_userSegmentOther}')]/input[@class='field element not-matched']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CAMPAIGNS_MATCHED-->
 <tr>
 	<td>CAMPAIGNS_MATCHED_LABEL</td>

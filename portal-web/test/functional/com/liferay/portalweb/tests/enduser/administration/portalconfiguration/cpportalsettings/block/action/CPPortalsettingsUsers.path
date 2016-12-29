@@ -43,11 +43,7 @@
 	<td>//button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FIELDS-->
 <tr>
 	<td>FIELDS_TERMS_OF_USE_REQUIRED_CHECKBOX</td>
@@ -74,11 +70,7 @@
 	<td>//input[@id='_130_field.enable.com.liferay.portal.model.Contact.maleCheckbox']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RESERVED_CREDENTIALS-->
 <tr>
 	<td>RESERVED_CREDENTIALS_SCREEN_NAMES_HEADER</td>
@@ -100,11 +92,7 @@
 	<td>//textarea[@id='_130_admin.reserved.email.addresses']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DEFAULT_USER_ASSOCIATIONS-->
 <tr>
 	<td>DEFAULT_USER_ASSOCIATIONS_SITES_HEADER</td>

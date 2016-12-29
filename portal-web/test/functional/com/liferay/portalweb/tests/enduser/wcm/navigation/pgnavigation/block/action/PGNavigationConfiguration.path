@@ -13,21 +13,13 @@
 	<td>BasePortlet</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>NAVIGATION_CONFIGURATION_IFRAME</td>
 	<td>//div[contains(@class,'dialog-iframe-bd')]/iframe[contains(@src,'portlet_configuration')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PREVIEW-->
 <tr>
 	<td>PREVIEW_BREADCRUMB_ENTRY</td>
@@ -39,11 +31,7 @@
 	<td>//div[contains(@class,'nav-menu')]/h2/a[contains(.,'${key_pageName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SETUP-->
 <tr>
 	<td>SETUP_DISPLAY_STYLE_SELECT</td>

@@ -13,11 +13,7 @@
 	<td>PGBlogsConfiguration</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>SCOPE_MENULIST</td>
 	<td>//a[contains(@id,'_menu')]</td>

@@ -13,11 +13,7 @@
 	<td>Dockbar</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>REORDER_ICON</td>
 	<td>//i[contains(@class,'icon-reorder')]</td>
@@ -33,11 +29,7 @@
 	<td>//i[contains(@class,'icon-cog')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--REORDER_MENULIST-->
 <tr>
 	<td>REORDER_MENULIST_PAGE_NAME</td>

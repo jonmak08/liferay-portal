@@ -43,11 +43,7 @@
 	<td>//button[contains(.,'${key_saveButton}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU_USER_INFORMATION-->
 <tr>
 	<td>MENU_USER_INFORMATION_DETAILS</td>
@@ -84,11 +80,7 @@
 	<td>//a[@id='_2_categorizationLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU_IDENTIFICATION-->
 <tr>
 	<td>MENU_IDENTIFICATION_ADDRESSES</td>
@@ -130,11 +122,7 @@
 	<td>//a[@id='_2_projectsLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU_MISCELLANEOUS-->
 <tr>
 	<td>MENU_MISCELLANEOUS_ANNOUNCEMENTS</td>
@@ -151,11 +139,7 @@
 	<td>//a[@id='_2_displaySettingsLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DETAILS-->
 <tr>
 	<td>DETAILS_SCREEN_NAME_FIELD</td>
@@ -187,11 +171,7 @@
 	<td>//button[contains(@class,'delete-logo')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PASSWORD-->
 <tr>
 	<td>PASSWORD_CURRENT_PASSWORD_FIELD</td>
@@ -208,11 +188,7 @@
 	<td>//input[@id='_2_password2']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ORGANIZATIONS-->
 <tr>
 	<td>ORGANIZATIONS_TABLE_NAME</td>
@@ -229,11 +205,7 @@
 	<td>//tr[contains(.,'${key_orgName}')]/td[3]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITES-->
 <tr>
 	<td>SITES_TABLE_NAME</td>
@@ -250,33 +222,21 @@
 	<td>//tr[contains(.,'${key_siteName}')]/td[3]/a/span[contains(.,'Remove')]/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_GROUPS-->
 <tr>
 	<td>USER_GROUPS_TABLE_NAME</td>
 	<td>//tr[contains(.,'${key_userGroupName}')]/td[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ROLES_REGULAR_ROLES-->
 <tr>
 	<td>ROLES_REGULAR_ROLES_TABLE_TITLE</td>
 	<td>//tr[contains(.,'${key_roleName}')]/td[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PERSONAL_SITE-->
 <!--CATEGORIZATION-->
 <tr>
@@ -294,11 +254,7 @@
 	<td>//span[contains(.,'${key_userTag}')]//i[contains(@class,'remove')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADDRESSES-->
 <tr>
 	<td>ADDRESSES_STREET_1_FIELD</td>
@@ -340,11 +296,7 @@
 	<td>//input[contains(@id,'addressMailing0Checkbox')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PHONE_NUMBERS-->
 <tr>
 	<td>PHONE_NUMBERS_NUMBER_FIELD</td>
@@ -366,11 +318,7 @@
 	<td>//input[contains(@id,'phonePrimary')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADDITIONAL_EMAIL_ADDRESSES-->
 <tr>
 	<td>ADDITIONAL_EMAIL_ADDRESSES_EMAIL_ADDRESS_FIELD</td>
@@ -387,11 +335,7 @@
 	<td>//input[@id='_2_emailAddressPrimary0']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WEBSITES-->
 <tr>
 	<td>WEBSITES_URL_FIELD</td>
@@ -408,11 +352,7 @@
 	<td>//input[contains(@id,'websitePrimary')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--INSTANT_MESSENGER-->
 <tr>
 	<td>INSTANT_MESSENGER_AIM_FIELD</td>
@@ -444,11 +384,7 @@
 	<td>//input[@id='_2_ymSn']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SOCIAL_NETWORK-->
 <tr>
 	<td>SOCIAL_NETWORK_FACEBOOK_FIELD</td>
@@ -465,22 +401,14 @@
 	<td>//input[@id='_2_twitterSn']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SMS-->
 <tr>
 	<td>SMS_SMS_FIELD</td>
 	<td>//input[@id='_2_smsSn']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--OPENID-->
 <!--PROJECTS-->
 <tr>
@@ -518,22 +446,14 @@
 	<td>//textarea[@id='_2_projectsEntryDescription0']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ANNOUNCEMENTS-->
 <tr>
 	<td>ANNOUNCEMENTS_NOTIFICATION_CHECKBOX</td>
 	<td>//input[contains(@title,'${key_announcementType}') and contains(@id,'${key_notificationType}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DISPLAY_SETTINGS-->
 <tr>
 	<td>LANGUAGE_SELECT</td>
@@ -546,11 +466,7 @@
 	<td>//textarea[contains(@id,'comments')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CUSTOM_FIELDS-->
 </tbody>
 </table>

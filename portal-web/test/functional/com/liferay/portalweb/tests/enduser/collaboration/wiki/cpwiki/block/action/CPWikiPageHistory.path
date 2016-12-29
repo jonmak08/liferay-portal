@@ -15,11 +15,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-success')]</td>
 	<td>Success Message</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MAIN_NAVIGATION-->
 <tr>
 	<td>NAVIGATION_FRONTPAGE</td>
@@ -46,11 +42,7 @@
 	<td>//div[@class='navbar-inner']/div/ul/li/a[contains(.,'Draft Pages')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WIKI_PAGE_NAVIGATION-->
 <tr>
 	<td>WIKI_PAGE_CONTENT</td>
@@ -82,11 +74,7 @@
 	<td>//div[@class='portlet-body']/ul/li/a[contains(.,'Attachments')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WIKI_PAGE_HISTORY-->
 <tr>
 	<td>WIKI_PAGE_HISTORY_ACTIVITY</td>

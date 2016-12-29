@@ -30,11 +30,7 @@
 	<td>//button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NEW_PROCESS_FIELDS-->
 <tr>
 	<td>NEW_PROCESS_FIELDS_BOOLEAN</td>

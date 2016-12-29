@@ -24,11 +24,7 @@
 	<td>//span[@class='aui-tab-content']/a[contains(.,'Submissions')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_PENDING</td>
@@ -40,11 +36,7 @@
 	<td>//span[@class='aui-tab-content']/a[contains(.,'Completed')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMPLETED_TABLE-->
 <tr>
 	<td>COMPLETED_TABLE_TASK_1</td>

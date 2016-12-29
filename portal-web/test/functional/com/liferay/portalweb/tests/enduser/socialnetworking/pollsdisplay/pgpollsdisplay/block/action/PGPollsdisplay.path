@@ -13,11 +13,7 @@
 	<td>BasePortlet</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>PORTLET_TITLE</td>
 	<td>//h1[@class='portlet-title']/span[contains(@class,'portlet-title-text') and contains(.,'${key_portletName}')]</td>
@@ -53,11 +49,7 @@
 	<td>//span[contains(@class,'lfr-icon-action-add')]/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--POLLS_RESULTS_TABLE-->
 <tr>
 	<td>POLLS_RESULTS_TABLE_TITLE</td>

@@ -48,11 +48,7 @@
 	<td>//div[@class='alert alert-success']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--REPORT_ACTIONS_MENULIST-->
 <tr>
 	<td>REPORT_ACTIONS_MENULIST_VIEW_REPORT</td>
@@ -64,22 +60,14 @@
 	<td>//ul/li/a[contains(.,'Update Report')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTENT_GRAPH-->
 <tr>
 	<td>CONTENT_GRAPH_CONTENT_TITLE</td>
 	<td>//div[@id='campaignContentChart']//span[contains(.,'${key_contentTitle}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTENT_REPORT_TABLE-->
 <tr>
 	<td>CONTENT_REPORT_TABLE_TITLE</td>
@@ -101,22 +89,14 @@
 	<td>//tr[contains(.,'${key_contentTitle}')]/td[4]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TRACKING_GRAPH-->
 <tr>
 	<td>TRACKING_GRAPH_ALIAS_USER_SEGMENT</td>
 	<td>//div[@id='campaignTrackingActionChart']//span[contains(.,'${key_trackingAlias}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TRACKING_REPORT_TABLE-->
 <tr>
 	<td>TRACKING_REPORT_TABLE_ALIAS</td>

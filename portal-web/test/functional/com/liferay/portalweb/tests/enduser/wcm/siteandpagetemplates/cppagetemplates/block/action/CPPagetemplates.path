@@ -18,11 +18,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-success')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGE_TEMPLATE_TABLE-->
 <tr>
 	<td>PAGE_TEMPLATE_TABLE_NAME</td>
@@ -64,11 +60,7 @@
 	<td>xpath=(//tr/td[3]/div/a)[4]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGE_TEMPLATE_MENULIST-->
 <tr>
 	<td>PAGE_TEMPLATE_MENULIST_EDIT</td>

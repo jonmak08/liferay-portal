@@ -53,11 +53,7 @@
 	<td>//div[@class='alert alert-info']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MICROBLOGS_ENTRY-->
 <tr>
 	<td>MICROBLOGS_ENTRY_CONTENT_GENERAL</td>
@@ -144,11 +140,7 @@
 	<td>xPath=(//button[contains(.,'Post')])[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MICROBLOGS_ENTRY_COMMENT-->
 <tr>
 	<td>MICROBLOGS_ENTRY_COMMENT_CONTENT_FIELD</td>
@@ -195,11 +187,7 @@
 	<td>//div[@class='microblogs-entry' and contains(.,'${key_microblogsEntryCommentContent}')]//span[@class='action delete']/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TAB-->
 <tr>
 	<td>TAB_TIMELINE</td>
@@ -216,11 +204,7 @@
 	<td>//ul[contains(@class,'nav nav-tabs')]/li[contains(.,'${key_microblogsEntryTagValue}')]/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCREENSHOTS-->
 <tr>
 	<td>SCREENSHOTS_MICROBLOGS_ENTRY_COMMENT_THREADING_PNG</td>

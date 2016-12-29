@@ -39,11 +39,7 @@
 	<td>//div[contains(@class,'pending-member-request')]/span[contains(.,'${key_userName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MEMBERS_INVITE-->
 <tr>
 	<td>MEMBERS_INVITE_LIST</td>
@@ -55,11 +51,7 @@
 	<td>//div[@class='more-results']/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--INVITE_BY_EMAIL-->
 <tr>
 	<td>INVITE_BY_EMAIL_FIELD</td>
@@ -76,11 +68,7 @@
 	<td>//div[@data-emailaddress='${key_userEmailAddress}']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--INVITE_TO_ROLE-->
 <tr>
 	<td>INVITE_TO_ROLE_SELECT</td>

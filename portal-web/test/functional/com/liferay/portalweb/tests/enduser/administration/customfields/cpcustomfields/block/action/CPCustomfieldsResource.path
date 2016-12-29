@@ -28,11 +28,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-info')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CUSTOM_FIELDS_TABLE-->
 <tr>
 	<td>CUSTOM_FIELDS_TABLE_NAME</td>
@@ -44,11 +40,7 @@
 	<td>//tr/td[5]//a[@title='Actions']/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CUSTOM_FIELDS_MENULIST-->
 <tr>
 	<td>CUSTOM_FIELDS_MENULIST_EDIT</td>

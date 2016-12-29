@@ -43,11 +43,7 @@
 	<td>//div[@class='button-holder ']/button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DETAILS-->
 <tr>
 	<td>DETAILS_DESCRIPTION_FIELD</td>
@@ -146,11 +142,7 @@
 	<td>//div[@class='tab-content']/div/ul/li[@title='Text Box']/div</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SETTINGS-->
 <tr>
 	<td>SETTINGS_LINK</td>
@@ -217,11 +209,7 @@
 	<td>//td[contains(@class,'table-col-name') and contains(.,'Style')]/following-sibling::td[contains(@class,'table-col-value')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FORM-->
 <tr>
 	<td>FORM_BUILDER</td>
@@ -353,11 +341,7 @@
 	<td>//select[@name='${key_fieldName}']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SETTINGS_CELL_EDITOR-->
 <tr>
 	<td>SETTINGS_CELL_EDITOR_FIELD</td>

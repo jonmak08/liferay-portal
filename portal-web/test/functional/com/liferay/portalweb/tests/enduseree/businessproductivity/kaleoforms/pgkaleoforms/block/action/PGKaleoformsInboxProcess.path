@@ -33,11 +33,7 @@
 	<td>//a/span[contains(.,'Update Due Date')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ASSIGNED_TO-->
 <tr>
 	<td>ASSIGNED_TO</td>
@@ -54,11 +50,7 @@
 	<td>//div[@class='lfr-asset-assigned']//a[.='Assign to Me']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--STATE-->
 <tr>
 	<td>STATE_LABEL</td>
@@ -70,11 +62,7 @@
 	<td>//div[@class='lfr-asset-status']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CREATE_DATE-->
 <tr>
 	<td>CREATE_DATE_LABEL</td>
@@ -86,11 +74,7 @@
 	<td>//div[@class='lfr-asset-date']/div</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DUE_DATE-->
 <tr>
 	<td>DUE_DATE_LABEL</td>
@@ -102,11 +86,7 @@
 	<td>//div[@class='lfr-asset-due-date']/div</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CURRENT_ENTRY-->
 <tr>
 	<td>CURRENT_ENTRY_FIELD</td>

@@ -58,11 +58,7 @@
 	<td>//button[contains(.,'Move to the Recycle Bin')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ENTRY_TABLE-->
 <tr>
 	<td>ENTRY_TABLE_ALL_CHECKBOX</td>
@@ -99,11 +95,7 @@
 	<td>//tr[contains(.,'${key_entryTitle}')]/td/div/a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ENTRY_MENULIST-->
 <tr>
 	<td>ENTRY_MENULIST_VIEW</td>
@@ -125,11 +117,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Move to the Recycle Bin')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--OPTIONS_MENULIST-->
 <tr>
 	<td>OPTIONS_MENULIST_EXPORT_IMPORT</td>

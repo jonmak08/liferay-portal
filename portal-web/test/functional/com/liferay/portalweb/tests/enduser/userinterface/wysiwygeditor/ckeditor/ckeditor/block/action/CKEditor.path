@@ -58,17 +58,9 @@
 	<td>//input[contains(@id,'sourceURL')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CKEDITOR_TOOLBOX-->
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CKEDITOR_TOOLBAR-->
 <tr>
 	<td>CKEDITOR_TOOLBAR_FONT_BUTTON</td>
@@ -155,33 +147,21 @@
 	<td>//iframe[@title='Paragraph Format']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CKEDITOR_TOOLBAR_FONT_MENULIST-->
 <tr>
 	<td>CKEDITOR_TOOLBAR_FONT_MENULIST</td>
 	<td>//div[@class='cke_panel_block' and contains(.,'Font Name')]//li/a[contains(.,'${key_font}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CKEDITOR_TOOLBAR_SIZE_MENULIST-->
 <tr>
 	<td>CKEDITOR_TOOLBAR_SIZE_MENULIST</td>
 	<td>//div[@class='cke_panel_block' and contains(.,'Font Size')]//li/a[contains(.,'${key_size}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CKEDITOR_TOOLBAR_FORMAT_MENULIST-->
 <tr>
 	<td>CKEDITOR_TOOLBAR_FORMAT_MENULIST</td>

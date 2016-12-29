@@ -53,11 +53,7 @@
 	<td>//button[@id='_161_publishButton']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIZATION-->
 <tr>
 	<td>CATEGORIZATION_TOGGLE</td>
@@ -89,11 +85,7 @@
 	<td>//button[@title='Add Tags']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIES-->
 <tr>
 	<td>CATEGORIES_CATEGORY_UNSELECTED</td>

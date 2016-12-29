@@ -73,11 +73,7 @@
 	<td>//small[@class='search-results']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PRIVATE_MESSAGE-->
 <tr>
 	<td>PRIVATE_MESSAGE_SUBJECT</td>
@@ -149,11 +145,7 @@
 	<td>//button[contains(.,'Send')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PRIVATE_MESSAGE_REPLY-->
 <tr>
 	<td>PRIVATE_MESSAGE_REPLY_SENDER</td>

@@ -63,11 +63,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CAMPAIGN_TRACKING_ACTIONS-->
 <tr>
 	<td>CAMPAIGN_TRACKING_ACTIONS_SEARCH_FIELD</td>
@@ -84,11 +80,7 @@
 	<td>//div[contains(@class,'form-builder-drop-container')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CAMPAIGN_TRACKING_ACTIONS_PAGE-->
 <tr>
 	<td>CAMPAIGN_TRACKING_ACTIONS_PAGE_ALIAS_FIELD</td>
@@ -105,11 +97,7 @@
 	<td>//div[contains(@class,'pagetrackingaction')]//input[@value='View']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CAMPAIGN_TRACKING_ACTIONS_FORM-->
 <tr>
 	<td>CAMPAIGN_TRACKING_ACTIONS_FORM_ALIAS_FIELD</td>
@@ -126,11 +114,7 @@
 	<td>//div[contains(@class,'formtrackingaction')]//select[contains(@id,'eventType')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CAMPAIGN_TRACKING_ACTIONS_YOUTUBE_VIDEOS-->
 <tr>
 	<td>CAMPAIGN_TRACKING_ACTIONS_YOUTUBE_VIDEOS_ALIAS_FIELD</td>
@@ -147,11 +131,7 @@
 	<td>//div[contains(@class,'youtubetrackingaction')]//select[contains(@id,'eventType')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CAMPAIGN_TRACKING_ACTIONS_CONTENT-->
 <tr>
 	<td>CAMPAIGN_TRACKING_ACTIONS_CONTENT_ALIAS_FIELD</td>
@@ -183,11 +163,7 @@
 	<td>//div[contains(@class,'contenttrackingaction')]//input[contains(@value,'view')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CAMPAIGN_TRACKING_ACTIONS_LINK-->
 <tr>
 	<td>CAMPAIGN_TRACKING_ACTIONS_LINK_ALIAS_FIELD</td>

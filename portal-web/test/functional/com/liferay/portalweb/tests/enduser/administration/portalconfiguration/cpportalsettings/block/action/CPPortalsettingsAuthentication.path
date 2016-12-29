@@ -23,11 +23,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-success')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_GENERAL</td>
@@ -74,11 +70,7 @@
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'SiteMinder')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--AUTHENTICATION_GENERAL-->
 <tr>
 	<td>AUTHENTICATION_GENERAL_ALLOW_USERS_TO_AUTOMATICALLY_LOGIN_CHECKBOX</td>
@@ -115,11 +107,7 @@
 	<td>//select[@id='_130_company.security.auth.type']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--AUTHENTICATION_LDAP-->
 <tr>
 	<td>AUTHENTICATION_LDAP_ENABLED_CHECKBOX</td>
@@ -156,22 +144,14 @@
 	<td>//button[contains(.,'Add')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--AUTHENTICATION_LDAP_BODY-->
 <tr>
 	<td>TEST_LDAP_SUCCESS_BODY</td>
 	<td>//div[contains(@class,'modal-focused')]//div[contains(@class,'modal-body')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--LDAP_SERVER-->
 <tr>
 	<td>LDAP_SERVER_SERVER_NAME</td>
@@ -248,22 +228,14 @@
 	<td>//button[contains(.,'Test LDAP Groups')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--LDAP_SERVERS_TABLE-->
 <tr>
 	<td>LDAP_SERVERS_TABLE_EDIT</td>
 	<td>//tr[contains(.,'${key_LDAPServerName}')]/td[3]//img[@title='Edit']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--AUTHENTICATION_CAS-->
 <tr>
 	<td>AUTHENTICATION_CAS_ENABLED_CHECKBOX</td>
@@ -340,11 +312,7 @@
 	<td>//button[contains(.,'Test CAS Configuration')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--AUTHENTICATION_NTLM-->
 <tr>
 	<td>AUTHENTICATION_NTLM_ENABLED_CHECKBOX</td>
@@ -401,22 +369,14 @@
 	<td>//input[@id='_130_ntlm.auth.service.password']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--AUTHENTICATION_OPEN_ID-->
 <tr>
 	<td>AUTHENTICATION_OPEN_ID_ENABLED_CHECKBOX</td>
 	<td>//input[@id='_130_open.id.auth.enabledCheckbox']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--AUTHENTICATION_OPEN_SSO-->
 <tr>
 	<td>AUTHENTICATION_OPEN_SSO_ENABLED_CHECKBOX</td>
@@ -503,11 +463,7 @@
 	<td>//button[contains(.,'Test OpenSSO Configuration')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--AUTHENTICATION_SITE_MINDER-->
 <tr>
 	<td>AUTHENTICATION_SITE_MINDER_ENABLED_CHECKBOX</td>

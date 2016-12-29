@@ -38,11 +38,7 @@
 	<td>//h1[@class='portlet-title'][contains(.,'${key_portletName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_HOME</td>
@@ -84,11 +80,7 @@
 	<td>//div[@id='navigation']/ul/li[contains(.,'${key_pageName}')]/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_HOME_SITE_NAVIGATION-->
 <tr>
 	<td>USER_HOME_SITE_NAVIGATION_DASHBOARD</td>
@@ -120,11 +112,7 @@
 	<td>//div[@id='navigation']/ul/li[contains(.,'Tasks')]/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--USER_PROFILE_SITE_NAVIGATION-->
 <tr>
 	<td>USER_PROFILE_SITE_NAVIGATION_PROFILE</td>

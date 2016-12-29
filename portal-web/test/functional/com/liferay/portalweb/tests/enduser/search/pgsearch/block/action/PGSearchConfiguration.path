@@ -13,21 +13,13 @@
 	<td>BasePortletConfiguration</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>SAVE_BUTTON</td>
 	<td>//button[@type='submit']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DISPLAY_SETTING-->
 <tr>
 	<td>DISPLAY_SETTING_BASIC_RADIO</td>
@@ -39,11 +31,7 @@
 	<td>//input[contains(@id,'advanced') and @type='radio']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DISPLAY_SETTING_ADVANCED-->
 <tr>
 	<td>DISPLAY_SETTING_ADVANCED_SEARCH_CONFIGURATION</td>

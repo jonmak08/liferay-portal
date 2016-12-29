@@ -33,11 +33,7 @@
 	<td>//p[@class='caption']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CHILD_ARTICLE-->
 <tr>
 	<td>CHILD_ARTICLE_TITLE</td>
@@ -49,11 +45,7 @@
 	<td>//div[@class='kb-article-child']//div[@class='kb-element-body']/p</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORY-->
 <tr>
 	<td>CATEGORY_HEADER</td>
@@ -65,11 +57,7 @@
 	<td>//div[@class='kb-article-assets']/span/a[contains(.,'${key_categoryName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RELATED_ASSETS-->
 <tr>
 	<td>RELATED_ASSETS_HEADER</td>

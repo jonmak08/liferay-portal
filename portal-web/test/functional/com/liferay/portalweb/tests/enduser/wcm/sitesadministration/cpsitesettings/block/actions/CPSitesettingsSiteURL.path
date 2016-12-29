@@ -33,11 +33,7 @@
 	<td>//div[contains(@id,'siteUrl')]/h3</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_URL-->
 <tr>
 	<td>SITE_URL_FRIENDLY_URL_LABEL</td>

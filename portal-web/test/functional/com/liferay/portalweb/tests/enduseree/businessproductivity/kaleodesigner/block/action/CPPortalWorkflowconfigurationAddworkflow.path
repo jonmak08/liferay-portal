@@ -13,11 +13,7 @@
 	<td>Kaleodesigner</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>IFRAME</td>
 	<td>//iframe[@class='dialog-iframe-node ']</td>

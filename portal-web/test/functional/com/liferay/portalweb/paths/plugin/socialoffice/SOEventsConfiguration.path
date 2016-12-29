@@ -23,11 +23,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td>Save</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DISPLAY_SETTINGS-->
 <tr>
 	<td>DISPLAY_SETTINGS_MAX_DAYS_DISPLAYED_SELECT</td>

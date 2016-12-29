@@ -38,11 +38,7 @@
 	<td>//div[@class='kb-entity-body']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TEMPLATE_COMMENTS-->
 <tr>
 	<td>TEMPLATE_COMMENTS_DROPDOWN_COLLAPSED</td>

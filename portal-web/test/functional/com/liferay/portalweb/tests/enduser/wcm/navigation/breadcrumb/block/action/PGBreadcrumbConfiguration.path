@@ -13,11 +13,7 @@
 	<td>BasePortlet</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>PORTLET_PREVIEW</td>
 	<td>//div[contains(@class,'portlet-preview')]</td>

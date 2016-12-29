@@ -28,11 +28,7 @@
 	<td>//button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_PUBLIC_PAGES</td>
@@ -44,11 +40,7 @@
 	<td>//li[contains(@id,'_127_tabs')]/a[contains(.,'Private Pages')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_ADD_PAGE</td>
@@ -90,11 +82,7 @@
 	<td>//ul[@id='_127_layoutsNav']/li/a[contains(.,'Copy Portlets from Page')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_PAGE-->
 <tr>
 	<td>ADD_PAGE_NAME_FIELD</td>
@@ -126,11 +114,7 @@
 	<td>//div[contains(@id,'addLayout')]//button[contains(.,'Add Page')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGE_TREE-->
 <tr>
 	<td>PAGE_TREE_ROOT_ARROW</td>
@@ -172,11 +156,7 @@
 	<td>xpath=(//a[contains(@id,'layoutsTree_layout_')])[3]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DETAILS-->
 <tr>
 	<td>DETAILS_NAME_FIELD</td>
@@ -203,11 +183,7 @@
 	<td>//select[@id='_127_type']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SEO-->
 <!--LOOK_AND_FEEL-->
 <!--LOGO-->

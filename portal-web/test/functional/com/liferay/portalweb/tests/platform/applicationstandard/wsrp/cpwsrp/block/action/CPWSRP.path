@@ -33,11 +33,7 @@
 	<td>//button[@type='button']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONSUMER_TABLE-->
 <tr>
 	<td>CONSUMER_TABLE_NAME</td>
@@ -54,11 +50,7 @@
 	<td>//div/a[@id='_1_WAR_wsrpportlet_wsrpConsumersSearchContainer_1_menu']/span</td>
 	<td>Actions</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONSUMER_MENULIST-->
 <tr>
 	<td>CONSUMER_MENULIST_EDIT</td>

@@ -58,11 +58,7 @@
 	<td>//button[@id='_33_publishButton']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIZATION-->
 <tr>
 	<td>CATEGORIZATION_TOGGLE</td>
@@ -79,11 +75,7 @@
 	<td>//div[contains(@class,'categoriesselector-content')]//span[contains(.,'${key_categoryName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIZATION_TAG-->
 <tr>
 	<td>CATEGORIZATION_TAG</td>
@@ -120,11 +112,7 @@
 	<td>//button[@title='Suggestions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SELECT_CATEGORIES-->
 <tr>
 	<td>SELECT_CATEGORIES_CATEGORY</td>

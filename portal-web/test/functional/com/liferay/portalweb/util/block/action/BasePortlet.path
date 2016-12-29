@@ -118,11 +118,7 @@
 	<td>//div[@class='portlet-content']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--OPTIONS_MENULIST-->
 <tr>
 	<td>OPTIONS_MENULIST_LOOK_AND_FEEL</td>
@@ -144,11 +140,7 @@
 	<td>//a[contains(@id,'_menu_remove')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION_LOOK_AND_FEEL-->
 <tr>
 	<td>NAVIGATION_LOOK_AND_FEEL_PORTLET_CONFIGURATION</td>
@@ -180,11 +172,7 @@
 	<td>//ul[contains(@class,'nav-tabs')]/li/a[contains(.,'Advanced Styling')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PORTLET_CONFIGURATION-->
 <tr>
 	<td>PORTLET_CONFIGURATION_SUCCESS_MESSAGE</td>

@@ -28,11 +28,7 @@
 	<td>//a[contains(.,'Categories')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORY_TABLE-->
 <tr>
 	<td>CATEGORY_TABLE_CATEGORY</td>

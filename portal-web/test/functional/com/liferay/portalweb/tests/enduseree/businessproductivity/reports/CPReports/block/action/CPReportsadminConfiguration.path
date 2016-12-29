@@ -23,11 +23,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_EMAIL_FROM</td>
@@ -44,11 +40,7 @@
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Notifications Email')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--EMAIL_FROM-->
 <tr>
 	<td>EMAIL_FROM_NAME_FIELD</td>
@@ -60,11 +52,7 @@
 	<td>//input[contains(@id,'emailFromAddress')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DELIVERY_EMAIL-->
 <tr>
 	<td>DELIVERY_EMAIL_SUBJECT_FIELD</td>
@@ -76,11 +64,7 @@
 	<td>//textarea[contains(@id,'emailDeliveryBody')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NOTIFICATIONS_EMAIL-->
 <tr>
 	<td>NOTIFICATIONS_EMAIL_SUBJECT_FIELD</td>

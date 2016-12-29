@@ -23,11 +23,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td>Save</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SETUP-->
 <tr>
 	<td>SETUP_SELECTION_METHOD_SELECT</td>

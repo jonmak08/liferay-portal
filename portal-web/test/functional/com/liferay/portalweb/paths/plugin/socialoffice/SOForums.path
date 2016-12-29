@@ -43,11 +43,7 @@
 	<td>xpath=(//ul[contains(@class,'breadcrumb')]/li)[5]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCREENSHOTS-->
 <tr>
 	<td>SCREENSHOTS_FORUMS_THREAD_BODY_CODE_PNG</td>

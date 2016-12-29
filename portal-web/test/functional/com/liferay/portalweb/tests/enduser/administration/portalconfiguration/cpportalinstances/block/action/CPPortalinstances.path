@@ -18,11 +18,7 @@
 	<td>//div[@class='btn-toolbar']/button[contains(.,'Add')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--INSTANCE_TABLE-->
 <tr>
 	<td>INSTANCE_TABLE_INSTANCE_ID</td>
@@ -79,11 +75,7 @@
 	<td>//tr[contains(.,'${key_virtualHost}')]/td[8]/span/a/span[contains(.,'Edit')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--INSTANCE_MENULIST-->
 <tr>
 	<td>INSTANCE_MENULIST_EDIT</td>

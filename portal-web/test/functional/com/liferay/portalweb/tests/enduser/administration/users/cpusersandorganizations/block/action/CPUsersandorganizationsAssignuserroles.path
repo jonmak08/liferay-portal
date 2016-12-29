@@ -19,11 +19,7 @@
 	<td>//button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ROLE_TABLE-->
 <tr>
 	<td>ROLE_TABLE_TITLE_1</td>

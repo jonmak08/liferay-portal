@@ -38,11 +38,7 @@
 	<td>//div[@id='toggle_id_users_admin_group_searchsimple']/button</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_TABLE-->
 <tr>
 	<td>SITE_TABLE_SITE_NAME</td>

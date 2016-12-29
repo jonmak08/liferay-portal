@@ -13,33 +13,21 @@
 	<td>Dockbar</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCKBAR-->
 <tr>
 	<td>DOCKBAR_EDIT</td>
 	<td>//a[@id='_145_editLayoutPanel']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_COPY_APPLICATIONS</td>
 	<td>//li[@data-value='copy-applications']/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COPY_APPLICATIONS-->
 <tr>
 	<td>COPY_APPLICATIONS_MESSAGE_INFO</td>
@@ -61,11 +49,7 @@
 	<td>//div[@id='_145_copyPortletsFromPage']//button[@id='_145_copySubmitButton']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DETAILS-->
 <tr>
 	<td>DETAILS_TYPE_PAGE_OPTIONS</td>

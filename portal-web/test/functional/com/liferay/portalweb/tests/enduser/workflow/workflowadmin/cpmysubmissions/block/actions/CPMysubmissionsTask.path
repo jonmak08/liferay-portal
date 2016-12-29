@@ -28,11 +28,7 @@
 	<td>//div[@class='lfr-asset-date']/div/div</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU-->
 <tr>
 	<td>MENU_WORKFLOW_NAME</td>
@@ -44,11 +40,7 @@
 	<td>//a[contains(@id,'_menu_withdraw-submission_1')] | //a[@role='menuitem' and contains(.,'Withdraw Submission')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PREVIEW-->
 <tr>
 	<td>PREVIEW</td>
@@ -75,22 +67,14 @@
 	<td>//span[contains(@class,'metadata-author')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TASKS-->
 <tr>
 	<td>TASKS</td>
 	<td>//div[@class='accordion-toggle' and contains(.,'Tasks')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TASKS_TABLE-->
 <tr>
 	<td>TASKS_TABLE_TASK</td>
@@ -117,11 +101,7 @@
 	<td>//div[@id='_158_workflowTasksSearchContainerSearchContainer']/table/tbody/tr/td[4]/div/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TASKS_MENULIST-->
 <tr>
 	<td>TASKS_MENULIST_APPROVE</td>
@@ -133,11 +113,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Reject')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DIALOG_BOX-->
 <tr>
 	<td>DIALOG_BOX_COMMENT_FIELD</td>
@@ -154,11 +130,7 @@
 	<td>//button[.='Cancel']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIVITIES-->
 <tr>
 	<td>ACTIVITIES</td>
@@ -180,11 +152,7 @@
 	<td>xpath=(//div[@class='task-activity task-type-1']/div[3])[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--COMMENTS-->
 <tr>
 	<td>COMMENTS</td>

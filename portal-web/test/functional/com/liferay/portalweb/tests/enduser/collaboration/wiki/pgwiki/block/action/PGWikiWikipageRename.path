@@ -13,11 +13,7 @@
 	<td>PGWiki</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_RENAME</td>
@@ -59,11 +55,7 @@
 	<td>//button[@class='btn btn-cancel' and contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CHANGE_PARENT-->
 <tr>
 	<td>CHANGE_PARENT_INFO_MESSAGE</td>

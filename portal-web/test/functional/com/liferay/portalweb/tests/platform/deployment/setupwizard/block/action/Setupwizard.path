@@ -13,11 +13,7 @@
 	<td>//button[contains(@id,'finishButton')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PORTAL-->
 <tr>
 	<td>PORTAL_PORTAL_NAME_FIELD</td>
@@ -39,11 +35,7 @@
 	<td>//input[@id='addSampleDataCheckbox']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADMINISTRATOR_USER-->
 <tr>
 	<td>ADMINISTRATOR_USER_FIRST_NAME_FIELD</td>
@@ -60,11 +52,7 @@
 	<td>//input[@id='adminEmailAddress']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DATABASE-->
 <tr>
 	<td>DATABASE_CONFIGURED_JDBC_DRIVER_CLASS_NAME_LABEL</td>
@@ -86,11 +74,7 @@
 	<td>//a[@id='customDatabaseOptionsLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DATABASE_CHANGE-->
 <tr>
 	<td>DATABASE_CHANGE_USE_CONFIGURED_DATABASE_LINK</td>

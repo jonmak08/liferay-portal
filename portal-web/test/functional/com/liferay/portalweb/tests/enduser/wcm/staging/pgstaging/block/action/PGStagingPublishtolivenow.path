@@ -28,11 +28,7 @@
 	<td>//button[@id='_88_addButton']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DATE-->
 <tr>
 	<td>DATE_NOW_RADIO</td>
@@ -64,11 +60,7 @@
 	<td>//input[@id='_88_recurrenceTypeDaily']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGES-->
 <tr>
 	<td>PAGES_CHANGE_LINK</td>
@@ -105,11 +97,7 @@
 	<td>//button[contains(.,'Cancel')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--APPLICATION_CONFIGURATION-->
 <tr>
 	<td>APPLICATION_CONFIGURATION_ALL_APPLICATIONS_RADIO</td>
@@ -141,11 +129,7 @@
 	<td>//div[contains(@class,'widget-content-expanded') and contains(.,'${key_applicationName}')]//button[contains(.,'OK')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONTENT-->
 <tr>
 	<td>CONTENT_ALL_CONTENT_RADIO</td>
@@ -187,11 +171,7 @@
 	<td>//button[contains(.,'OK')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CHOOSE_CONTENT_DATE_RANGE-->
 <tr>
 	<td>CHOOSE_CONTENT_DATE_RANGE_STATUS</td>
@@ -203,11 +183,7 @@
 	<td>//a[@id='_88_rangeLink']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DATE_RANGE_POPUP-->
 <tr>
 	<td>DATE_RANGE_POPUP_RANGE_RADIO</td>
@@ -219,11 +195,7 @@
 	<td>//div[contains(@class,'modal-content') and contains (.,'Date Range')]//button[contains(.,'OK')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DATE_RANGE-->
 <tr>
 	<td>DATE_RANGE_START_DATE</td>
@@ -235,22 +207,14 @@
 	<td>//input[@id='_88_endDate']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PERMISSIONS-->
 <tr>
 	<td>PERMISSIONS_CHECKBOX</td>
 	<td>//input[@id='_88_PERMISSIONSCheckbox']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CURRENT_AND_PREVIOUS_TABLE-->
 <tr>
 	<td>CURRENT_AND_PREVIOUS_LINK</td>
@@ -277,11 +241,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'publish-error')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCHEDULED_TABLE-->
 <tr>
 	<td>SCHEDULED_TABLE_TITLE</td>

@@ -23,11 +23,7 @@
 	<td>//a[@id='_134_TabsBack']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_TABLE-->
 <tr>
 	<td>SITE_TABLE_ALL_CHECKBOX</td>
@@ -89,11 +85,7 @@
 	<td>//table[@data-searchcontainerid='_134_groupsSearchContainer']//tr[contains(.,'${key_childChildSiteName}')]/td[2]/div/a[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_MENULIST-->
 <tr>
 	<td>SITE_MENULIST_SITE_ADMINISTRATION</td>
@@ -120,11 +112,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Delete')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SITE_SUMMARY-->
 <tr>
 	<td>SITE_SUMMARY_SITE_ADMINISTRATION</td>

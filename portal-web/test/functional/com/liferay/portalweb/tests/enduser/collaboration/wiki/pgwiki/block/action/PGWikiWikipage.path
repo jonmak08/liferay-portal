@@ -13,11 +13,7 @@
 	<td>PGWiki</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WIKI_PAGE-->
 <tr>
 	<td>WIKI_PAGE_BACK_TO_BUTTON</td>
@@ -59,11 +55,7 @@
 	<td>//div[@class='page-actions']/div[@class='stats']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--WIKI_PAGE_ACTIONS-->
 <tr>
 	<td>WIKI_PAGE_ACTIONS_MARK_AS_SPAM</td>
@@ -85,11 +77,7 @@
 	<td>//div[contains(@class,'page-actions') and contains(@class,'top-actions')]/span/a[contains(.,'Print')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SCREENSHOTS-->
 <tr>
 	<td>SCREENSHOTS_SOCIAL_OFFICE_WIKI_WIKI_PAGE_TABLE_OF_CONTENTS_PNG</td>

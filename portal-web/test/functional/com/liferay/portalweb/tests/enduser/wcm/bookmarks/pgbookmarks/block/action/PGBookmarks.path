@@ -13,11 +13,7 @@
 	<td>BasePortlet</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>NAVBAR_CONTAINER</td>
 	<td>//div[@class='navbar ']//div[@class='container']</td>
@@ -53,22 +49,14 @@
 	<td>//button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--OPTIONS_MENULIST-->
 <tr>
 	<td>OPTIONS_MENULIST_EXPORT_IMPORT</td>
 	<td>//a[@role='menuitem' and contains(.,'Export / Import')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_HOME</td>
@@ -85,11 +73,7 @@
 	<td>//div[@class='navbar-inner']//li/a[contains(.,'Mine')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDERS_TABLE-->
 <tr>
 	<td>FOLDERS_TABLE_FOLDER_NAME</td>
@@ -111,11 +95,7 @@
 	<td>//div[@id='_28_bookmarksFoldersSearchContainer']//tr/td[4]/div/a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BOOKMARKS_TABLE-->
 <tr>
 	<td>BOOKMARKS_TABLE_NAME</td>
@@ -137,11 +117,7 @@
 	<td>//div[@id='bookmarksEntriesListingPanelContent']//tr/td[5]/div/a[@title='Actions']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER_ACTION_MENULIST-->
 <tr>
 	<td>FOLDER_ACTION_MENULIST_EDIT</td>
@@ -173,11 +149,7 @@
 	<td>//ul[contains(@class,'dropdown-menu')]/li/a[contains(.,'Add Bookmark')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BOOKMARK_ACTION_MENULIST-->
 <tr>
 	<td>BOOKMARK_ACTION_MENULIST_EDIT</td>
@@ -199,11 +171,7 @@
 	<td>//ul[contains(@class,'dropdown-menu')]/li/a[contains(.,'Move to the Recycle Bin')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER_MENU-->
 <tr>
 	<td>FOLDER_MENU_PERMISSIONS</td>
@@ -225,11 +193,7 @@
 	<td>//ul[contains(@id,'_menu')]/li/a[contains(.,'Add Bookmark')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SEARCH_TABLE-->
 <tr>
 	<td>SEARCH_TABLE_ENTRY_NAME</td>

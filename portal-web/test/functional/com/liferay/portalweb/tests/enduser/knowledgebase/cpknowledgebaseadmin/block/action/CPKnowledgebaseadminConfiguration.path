@@ -23,11 +23,7 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_EMAIL_FROM_TAB</td>
@@ -49,11 +45,7 @@
 	<td>//a[contains(.,'Suggestion Resolved')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--EMAIL_FROM-->
 <tr>
 	<td>EMAIL_FROM_NAME_FIELD</td>
@@ -65,33 +57,21 @@
 	<td>//input[contains(@id,'emailFromAddress')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SUGGESTION_RECEIVED_EMAIL-->
 <tr>
 	<td>SUGGESTION_RECEIVED_EMAIL_BODY_FIELD</td>
 	<td>//div/textarea[contains(@id,'emailKBArticleSuggestionReceivedBody')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SUGGESTION_IN_PROGRESS_EMAIL-->
 <tr>
 	<td>SUGGESTION_IN_PROGRESS_EMAIL_BODY_FIELD</td>
 	<td>//div/textarea[contains(@id,'emailKBArticleSuggestionInProgress')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SUGGESTION_RESOLVED_EMAIL-->
 <tr>
 	<td>SUGGESTION_RESOLVED_EMAIL_BODY_FIELD</td>

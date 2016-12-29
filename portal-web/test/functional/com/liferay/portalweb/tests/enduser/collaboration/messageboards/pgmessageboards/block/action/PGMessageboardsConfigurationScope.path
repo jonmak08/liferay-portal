@@ -13,11 +13,7 @@
 	<td>PGMessageboardsConfiguration</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <tr>
 	<td>SCOPE_DROPDOWN</td>
 	<td>//div[contains(@class,'btn-group') and contains(@class,'lfr-icon-menu')]/a</td>

@@ -48,11 +48,7 @@
 	<td>//div[@class='portlet-msg-info']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--START_DATE-->
 <tr>
 	<td>START_DATE</td>
@@ -69,11 +65,7 @@
 	<td>//input[contains(@id,'calendarportlet_startTime') and @placeholder='h:mm']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--END_DATE-->
 <tr>
 	<td>END_DATE</td>
@@ -95,11 +87,7 @@
 	<td>//input[@id='_8_allDayCheckbox']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--REPEAT-->
 <tr>
 	<td>REPEAT_NEVER_CHECKBOX</td>
@@ -126,11 +114,7 @@
 	<td>//input[@id='_8_recurrenceTypeYearly']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DETAILS-->
 <tr>
 	<td>DETAILS_PANEL_COLLAPSED</td>
@@ -147,11 +131,7 @@
 	<td>//select[contains(@id,'calendarId')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--REMINDERS-->
 <tr>
 	<td>REMINDERS_PANEL_COLLAPSED</td>
@@ -163,11 +143,7 @@
 	<td>//div[contains(@class,'toggler-header-expanded') and @data-persist-id='calendarBookingReminderPanel']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CATEGORIZATION-->
 <tr>
 	<td>CATEGORIZATION_PANEL_COLLAPSED</td>
@@ -184,11 +160,7 @@
 	<td>//input[contains(@id,'assetTagNames')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--RELATED_ASSETS-->
 <tr>
 	<td>RELATED_ASSETS_PANEL_COLLAPSED</td>
@@ -200,11 +172,7 @@
 	<td>//div[contains(@class,'toggler-header-expanded') and @data-persist-id='calendarBookingAssetLinksPanel']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--INVITATIONS-->
 <tr>
 	<td>INVITATIONS_PANEL_COLLAPSED</td>

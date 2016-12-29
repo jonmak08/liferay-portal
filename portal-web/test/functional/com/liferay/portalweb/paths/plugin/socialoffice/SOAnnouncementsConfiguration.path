@@ -23,22 +23,14 @@
 	<td>//button[contains(.,'Save')]</td>
 	<td>Save</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DISPLAY_SETTINGS-->
 <tr>
 	<td>DISPLAY_SETTINGS_ENTRIES_TO_DISPLAY_PER_PAGE_SELECT</td>
 	<td>//select[@id='_86_pageDelta']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ANNOUNCEMENTS_DISPLAYED-->
 <tr>
 	<td>ANNOUNCEMENTS_DISPLAYED_CUSTOMIZE_ANNOUNCEMENTS_DISPLAYED_CHECKBOX</td>

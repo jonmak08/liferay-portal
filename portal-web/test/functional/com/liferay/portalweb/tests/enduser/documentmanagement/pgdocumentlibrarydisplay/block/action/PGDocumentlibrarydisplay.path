@@ -23,11 +23,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-info')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SEARCH-->
 <tr>
 	<td>SEARCH_FIELD</td>
@@ -39,11 +35,7 @@
 	<td>//button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDERS_TABLE-->
 <tr>
 	<td>FOLDERS_TABLE_NAME</td>
@@ -60,22 +52,14 @@
 	<td>//div[contains(@id,'foldersSearchContainer')]/table/tbody/tr/td[3]/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENTS-->
 <tr>
 	<td>DOCUMENTS_MOVE_TO_RECYCLE_BIN_BUTTON</td>
 	<td>//button[contains(.,'Move to the Recycle Bin')]</td>
 	<td>Move to the Recycle Bin</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENTS_TABLE-->
 <tr>
 	<td>DOCUMENTS_TABLE_ALL_CHECKBOX</td>
@@ -97,11 +81,7 @@
 	<td>//div[contains(@id,'objectsSearchContainerSearchContainer')]/table/tbody/tr/td[3]/a</td>
 	<td>Size</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--HOME_FOLDER_MENU-->
 <tr>
 	<td>HOME_FOLDER_MENU_PERMISSIONS</td>
@@ -138,11 +118,7 @@
 	<td>//ul[contains(@class,'lfr-menu-expanded') and contains(@class,'lfr-menu-list')]/li/a[contains(.,'Access from Desktop')]</td>
 	<td>Access from Desktop</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGINATION-->
 <tr>
 	<td>PAGINATION_NEXT</td>

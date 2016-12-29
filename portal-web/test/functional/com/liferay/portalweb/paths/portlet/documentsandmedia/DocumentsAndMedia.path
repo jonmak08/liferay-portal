@@ -43,11 +43,7 @@
 	<td>//span[contains(@class,'portlet-title-text')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ICON_DOCUMENT-->
 <tr>
 	<td>ICON_DOCUMENT_GENERIC</td>
@@ -109,11 +105,7 @@
 	<td>//div[contains(.,'${key_dmDocumentTitle}') and @class='card-dm-details']//div[@class='status']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ICON_FOLDER-->
 <tr>
 	<td>ICON_FOLDER_THUMBNAIL</td>
@@ -140,11 +132,7 @@
 	<td>//div[contains(@class,'selectable') and contains(.,'${key_dmFolderName}')]//h4/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DESCRIPTIVE_LIST_DOCUMENT-->
 <tr>
 	<td>DESCRIPTIVE_LIST_DOCUMENT_CHECKBOX</td>
@@ -171,11 +159,7 @@
 	<td>//li[@data-title='${key_dmDocumentTitle}']//div[@class='entry-thumbnail']/img[@alt='Locked']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DESCRIPTIVE_LIST_FOLDER-->
 <tr>
 	<td>DESCRIPTIVE_LIST_FOLDER_CHECKBOX</td>
@@ -192,11 +176,7 @@
 	<td>//li[@data-title='${key_dmFolderName}']//a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--LIST_DOCUMENT-->
 <tr>
 	<td>LIST_DOCUMENT</td>
@@ -223,11 +203,7 @@
 	<td>//table[@class='table table-list']//tr[contains(.,'${key_dmDocumentTitle}')]//span[@class='workflow-status']/strong</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FILTER-->
 <tr>
 	<td>FILTER_HOME</td>
@@ -269,22 +245,14 @@
 	<td>xpath=(//div[contains(@id,'folderContainer')]/ul/li/a/../span[contains(@class,'entry-action')]/div/a)[2]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--LIFERAY_SYNC-->
 <tr>
 	<td>LIFERAY_SYNC_LINK</td>
 	<td>//div[contains(@id,'syncNotificationContent')]/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_ACTIONS</td>

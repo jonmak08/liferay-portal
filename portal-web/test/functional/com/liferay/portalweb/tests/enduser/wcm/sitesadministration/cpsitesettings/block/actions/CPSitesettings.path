@@ -39,22 +39,14 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-success')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PARENT_SITE_TABLE-->
 <tr>
 	<td>PARENT_SITE_TABLE_NAME</td>
 	<td>//div[@id='_134_parentGroupSearchContainerSearchContainer']/table/tbody/tr[contains(.,'${key_parentSiteName}')]/td/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU_BASIC_INFORMATION-->
 <tr>
 	<td>MENU_BASIC_INFORMATION_DETAILS</td>
@@ -76,11 +68,7 @@
 	<td>//ul[contains(@class,'nav-list')]/li/a[contains(.,'Site Template')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU_SEARCH_ENGINE_OPTIMIZATION-->
 <tr>
 	<td>MENU_SEARCH_ENGINE_OPTIMIZATION_SITEMAP</td>
@@ -123,11 +111,7 @@
 	<td>//ul[contains(@class,'nav-list')]/li/a[contains(.,'Mentions')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MENU_MISCELLANEOUS-->
 <tr>
 	<td>MENU_MISCELLANEOUS_CUSTOM_FIELDS</td>
@@ -139,11 +123,7 @@
 	<td>//ul[contains(@class,'nav-list')]/li/a[contains(.,'Display Settings')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MEMBERSHIP_OPTIONS-->
 <tr>
 	<td>MEMBERSHIP_OPTIONS_MEMBERSHIP_TYPE_LABEL</td>

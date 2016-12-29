@@ -58,11 +58,7 @@
 	<td>//div[contains(@class,'alert') and contains(@class,'alert-block')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FILTER-->
 <tr>
 	<td>FILTER_HOME</td>
@@ -119,11 +115,7 @@
 	<td>//div[@id='_20_folderContainer']/ul/li[contains(.,'Sales Presentation')]/a/span</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--HOME_MENULIST-->
 <tr>
 	<td>HOME_MENULIST_PERMISSIONS</td>
@@ -145,11 +137,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Access from Desktop')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--TOOLBAR-->
 <tr>
 	<td>TOOLBAR_SELECT_ALL_CHECKBOX</td>
@@ -181,11 +169,7 @@
 	<td>//div[@id='_20_displayStyleButtons']/div/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DISPLAY_STYLE_MENULIST-->
 <tr>
 	<td>DISPLAY_STYLE_MENULIST_ICON</td>
@@ -202,11 +186,7 @@
 	<td>//a[@role='menuitem' and contains(.,'List')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BASIC_SEARCH-->
 <tr>
 	<td>BASIC_SEARCH_FIELD</td>
@@ -218,11 +198,7 @@
 	<td>//button[contains(.,'Search')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIONS_MENULIST-->
 <tr>
 	<td>ACTIONS_MENULIST_CANCEL_CHECKOUT</td>
@@ -249,11 +225,7 @@
 	<td>//ul[contains(@class,'dropdown-menu')]/li[@id='_20_moveToTrashAction']/a[contains(.,'Move to the Recycle Bin')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_MENULIST-->
 <tr>
 	<td>ADD_MENULIST_FOLDER</td>
@@ -310,11 +282,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Google Docs')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SORT_BY_MENULIST-->
 <tr>
 	<td>SORT_BY_MENULIST_TITLE</td>
@@ -341,11 +309,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Size')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--MANAGE_MENULIST-->
 <tr>
 	<td>MANAGE_MENULIST_DOCUMENT_TYPES</td>
@@ -357,11 +321,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Metadata Sets')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BREADCRUMB-->
 <tr>
 	<td>BREADCRUMB_HOME</td>
@@ -373,22 +333,14 @@
 	<td>//div[@id='_20_breadcrumbContainer']/ul/li[contains(.,'${key_dmFolderName}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--LIFERAY_SYNC-->
 <tr>
 	<td>LIFERAY_SYNC_LINK</td>
 	<td>//div[@id='_20_syncNotificationContent']/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ENTRY_ICON_DOCUMENT-->
 <tr>
 	<td>ENTRY_ICON_DOCUMENT_THUMBNAIL</td>
@@ -430,11 +382,7 @@
 	<td>//div[contains(.,'${key_dmDocumentTitle}') and a/div/img[@class='shortcut-icon img-polaroid']]//span/div/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ENTRY_ICON_FOLDER-->
 <tr>
 	<td>ENTRY_ICON_FOLDER_THUMBNAIL</td>
@@ -461,11 +409,7 @@
 	<td>//div[contains(.,'${key_dmFolderName}') and a[@data-folder='true']]//span[contains(@class,'entry-action') and contains(@class,'overlay')]/div/a/i</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ENTRY_LIST_DOCUMENT-->
 <tr>
 	<td>ENTRY_LIST_DOCUMENT_CHECKBOX</td>
@@ -507,11 +451,7 @@
 	<td>//tr[@data-title='${key_dmDocumentTitle}']//a[@id='_20_ocerSearchContainer_1_menu']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--FOLDER_MENULIST-->
 <tr>
 	<td>FOLDER_MENULIST_EDIT</td>
@@ -543,11 +483,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Access from Desktop')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENT_MENULIST-->
 <tr>
 	<td>DOCUMENT_MENULIST_EDIT</td>
@@ -584,11 +520,7 @@
 	<td>//a[@role='menuitem' and contains(.,'Move to the Recycle Bin')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--PAGINATION-->
 <tr>
 	<td>PAGINATION_PREVIOUS</td>
@@ -600,11 +532,7 @@
 	<td>//div[contains(@class,'document-entries-pagination')]/ul/li[contains(.,'Next')]/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--OPTIONS_MENULIST-->
 <tr>
 	<td>OPTIONS_MENULIST_LOOK_AND_FEEL</td>

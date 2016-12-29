@@ -33,11 +33,7 @@
 	<td>//button[@type='submit']</td>
 	<td>Search</td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--REPORTS_TABLE -->
 <tr>
 	<td>REPORTS_TABLE_USER_ID</td>
@@ -89,11 +85,7 @@
 	<td>xpath=(//tr/td[5])[1]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADVANCED_SEARCH -->
 <tr>
 	<td>ADVANCED_SEARCH_MATCH_SELECT</td>

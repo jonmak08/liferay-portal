@@ -13,11 +13,7 @@
 	<td>//h1[contains(.,'${key_siteTemplateName}')]/div/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--CONFIGURATION-->
 <tr>
 	<td>CONFIGURATION</td>

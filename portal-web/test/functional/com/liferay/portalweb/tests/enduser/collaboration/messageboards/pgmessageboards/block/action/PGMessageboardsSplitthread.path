@@ -33,11 +33,7 @@
 	<td>//button[@class='btn btn-cancel' and @type='button']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--THREAD_TABLE-->
 <tr>
 	<td>THREAD_TABLE_SUBJECT</td>
@@ -49,11 +45,7 @@
 	<td>//table[contains(@id,'message_boards_view_message_thread')]//td[contains(.,'${key_user}')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ADD_EXPLANATION_POST-->
 <tr>
 	<td>ADD_EXPLANATION_POST_CHECKBOX</td>

@@ -23,11 +23,7 @@
 	<td>//div[contains(@id,'Navbar')]/ul[@aria-label='Documents and Media']/li/a/span[contains(.,'Add')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--BASIC_SEARCH-->
 <tr>
 	<td>BASIC_SEARCH_BUTTON</td>
@@ -39,11 +35,7 @@
 	<td>//input[contains(@id,'keywords') and contains(@class,'search-query')]</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--DOCUMENT_TYPES_TABLE-->
 <tr>
 	<td>DOCUMENT_TYPES_TABLE_NAME</td>
@@ -65,11 +57,7 @@
 	<td>//tr[1]//div[contains(@class,'lfr-icon-menu')]/a</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--ACTIONS_MENULIST-->
 <tr>
 	<td>ACTIONS_MENULIST_EDIT</td>

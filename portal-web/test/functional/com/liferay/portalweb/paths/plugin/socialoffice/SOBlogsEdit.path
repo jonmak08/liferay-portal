@@ -39,11 +39,7 @@
 	<td>//button[@title='Add Tags']</td>
 	<td></td>
 </tr>
-<tr>
-	<td></td>
-	<td></td>
-	<td></td>
-</tr>
+<!---->
 <!--SELECT_CATEGORIES-->
 <tr>
 	<td>SELECT_CATEGORIES_CATEGORY</td>
