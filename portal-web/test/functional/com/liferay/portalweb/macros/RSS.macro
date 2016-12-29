@@ -1,0 +1,27 @@
+<definition>
+	<command name="addFeed">
+		<execute function="SelectFrame" locator1="RSSFeed#CONFIGURATION_IFRAME" />
+
+		<if>
+			<isset var="newFeed" />
+			<then>
+				<execute function="Click" locator1="RSSFeed#FEEDS_DELETE_ROW_BUTTON" />
+				<execute function="Click" locator1="RSSFeed#FEEDS_DELETE_ROW_2_BUTTON" />
+				<execute function="Click" locator1="RSSFeed#FEEDS_DELETE_ROW_3_BUTTON" />
+
+				<execute function="AssertClick" locator1="RSSFeed#FEEDS_CLEAR_HISTORY" value1="Clear History" />
+			</then>
+		</if>
+
+		<execute function="Type" locator1="RSSFeed#FEEDS_TITLE_NAME_FIELD" value1="${feedTitle}" />
+		<execute function="Type" locator1="RSSFeed#FEEDS_URL_NAME_FIELD" value1="${feedUrlLink}" />
+
+		<execute function="AssertClick" locator1="Button#SAVE" value1="Save" />
+	</command>
+
+	<command name="viewDisplayFeedTitle">
+		<var name="key_feedTitle" value="${feedTitle}" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="RSSFeed#FEEDS_TITLE" value1="${feedTitle}" />
+	</command>
+</definition>
