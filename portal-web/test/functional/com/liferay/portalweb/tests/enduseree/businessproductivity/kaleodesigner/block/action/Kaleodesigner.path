@@ -325,6 +325,7 @@
 	<td>//div[@class='diagram-builder-canvas']/div[2]</td>
 	<td></td>
 </tr>
+<!---->
 <!--VIEW_FORM_NODE-->
 <tr>
 	<td>VIEW_FORM_NODE_DEFAULT</td>

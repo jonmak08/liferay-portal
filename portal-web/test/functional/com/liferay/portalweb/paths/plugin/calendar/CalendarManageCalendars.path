@@ -18,6 +18,7 @@
 	<td>//a[contains(@class,'btn') and contains (.,'Add Calendar')]</td>
 	<td></td>
 </tr>
+<!---->
 <!--CALENDAR_TABLE-->
 <tr>
 	<td>CALENDAR_TABLE_NAME</td>

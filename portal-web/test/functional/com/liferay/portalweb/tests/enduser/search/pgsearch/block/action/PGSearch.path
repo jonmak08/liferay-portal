@@ -23,7 +23,6 @@
 	<td>//div[@class='yui3-aclist-content']//li[contains(@data-text,"${key_kbArticleTitle}")]</td>
 	<td></td>
 </tr>
-<!--The title attribute for the search comment changes depending on language.-->
 <tr>
 	<td>SEARCH_ICON</td>
 	<td>//input[@type='image' and @title='${key_searchIDName}']</td>

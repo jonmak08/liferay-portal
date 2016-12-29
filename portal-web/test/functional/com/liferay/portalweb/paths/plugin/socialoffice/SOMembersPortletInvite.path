@@ -18,6 +18,7 @@
 	<td>//div[@class='portlet-msg-success']</td>
 	<td></td>
 </tr>
+<!---->
 <!--FIND_MEMBERS-->
 <tr>
 	<td>FIND_MEMBERS_SEARCH_FIELD</td>

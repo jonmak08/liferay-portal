@@ -34,6 +34,7 @@
 	<td>//ul[@class='nav nav-tabs']//a[contains(.,'Me')]</td>
 	<td></td>
 </tr>
+<!---->
 <!--NO_ACTIVITIES-->
 <tr>
 	<td>NO_ACTIVITIES</td>

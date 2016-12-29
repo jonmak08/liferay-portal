@@ -58,6 +58,7 @@
 	<td>//button[@class='btn btn-cancel']</td>
 	<td></td>
 </tr>
+<!---->
 <!--NAVIGATION-->
 <tr>
 	<td>NAVIGATION_CALENDAR</td>

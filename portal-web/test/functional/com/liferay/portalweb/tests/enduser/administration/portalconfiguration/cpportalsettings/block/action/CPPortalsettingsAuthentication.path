@@ -485,6 +485,7 @@
 	<td>//input[@id='_130_siteminder.user.header']</td>
 	<td></td>
 </tr>
+<!---->
 <!--AUTHENTICATION_GOOGLE-->
 <tr>
 	<td>AUTHENTICATION_GOOGLE_ENABLED_CHECKBOX</td>
