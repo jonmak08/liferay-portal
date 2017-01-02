@@ -484,7 +484,7 @@ public class PortletPreferencesLocalServiceImpl
 			return layoutRevision;
 		}
 
-		Layout layout = LayoutLocalServiceUtil.fetchLayout(plid);
+		Layout layout = layoutLocalService.fetchLayout(plid);
 
 		if (layout == null) {
 			return null;
