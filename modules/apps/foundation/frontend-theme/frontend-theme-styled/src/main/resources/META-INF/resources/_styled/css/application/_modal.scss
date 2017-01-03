@@ -37,8 +37,9 @@
 	}
 
 	@include media-query(null, 1366px) {
-		overflow: visible !important;
+		height: 100%;
 		position: fixed;
+		width: 100%;
 	}
 }
 
