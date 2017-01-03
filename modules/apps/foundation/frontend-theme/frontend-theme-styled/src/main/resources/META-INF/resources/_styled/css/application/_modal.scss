@@ -31,12 +31,12 @@
 	display: none;
 }
 
-.modal-open .modal {
-	overflow: hidden;
-}
+.modal-open {
+	.modal {
+		overflow: hidden;
+	}
 
-@media only screen and (max-device-width: 1024px) {
-	.modal-open {
+	@media only screen and (max-device-width: 1024px) {
 		overflow: visible !important;
 		position: fixed;
 	}
