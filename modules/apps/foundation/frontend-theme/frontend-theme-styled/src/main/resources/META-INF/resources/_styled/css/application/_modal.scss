@@ -36,7 +36,7 @@
 		overflow: hidden;
 	}
 
-	@include media-query(null, 1024px) {
+	@include media-query(null, 1366px) {
 		overflow: visible !important;
 		position: fixed;
 	}
