@@ -321,10 +321,9 @@ public class JournalContentPortletDataHandler
 			long articleGroupId, String articleId)
 		throws SystemException {
 
-		JournalArticle article;
-
-		article = JournalArticleLocalServiceUtil.fetchLatestArticle(
-			articleGroupId, articleId, WorkflowConstants.STATUS_APPROVED);
+		JournalArticle article =
+			JournalArticleLocalServiceUtil.fetchLatestArticle(
+				articleGroupId, articleId, WorkflowConstants.STATUS_APPROVED);
 
 		if (article == null) {
 			article = JournalArticleLocalServiceUtil.fetchLatestArticle(
