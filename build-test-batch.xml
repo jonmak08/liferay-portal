@@ -862,6 +862,43 @@ app.server.type=@{app.server.type}]]></echo>
 		<run-integration-test database.type="postgresql" />
 	</target>
 
+	<target name="oracle-service-start">
+		<exec executable="service" failonerror="true">
+			<arg line="oracledb start" />
+		</exec>
+
+		<retry retrycount="60">
+			<sequential>
+				<local name="output.content" />
+				<local name="return.code" />
+
+				<exec executable="${oracle.lsnrctl.executable}" outputproperty="output.content">
+					<arg value="services" />
+				</exec>
+
+				<echo>Output:
+${output.content}</echo>
+
+				<if>
+					<or>
+						<contains string="${output.content}" substring="The listener supports no services" />
+					</or>
+					<then>
+						<sleep seconds="5" />
+
+						<fail message="Output: ${output.content}" />
+					</then>
+				</if>
+			</sequential>
+		</retry>
+	</target>
+
+	<target name="oracle-service-stop">
+		<exec executable="service">
+			<arg line="oracledb stop" />
+		</exec>
+	</target>
+
 	<target name="plugins-compile-jdk7">
 		<run-batch-test>
 			<test-action>
