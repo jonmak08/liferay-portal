@@ -739,6 +739,20 @@ app.server.type=@{app.server.type}]]></echo>
 		/>
 	</target>
 
+	<target name="functional-bundle-glassfish-postgresql94-jdk7">
+		<run-functional-test
+			app.server.type="glassfish"
+			database.type="postgresql"
+			test.build.fix.pack.zip.url="${test.build.fix.pack.zip.url}"
+			test.fix.pack.base.url="${test.fix.pack.base.url}"
+			test.license.xml.url="${test.license.xml.url}"
+			test.plugin.zip.url="${test.plugin.zip.url}"
+			test.plugins.war.zip.url="${test.plugins.war.zip.url}"
+			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
+			test.sql.zip.url="${test.sql.zip.url}"
+		/>
+	</target>
+
 	<target name="functional-bundle-jboss-mysql55-jdk7">
 		<run-functional-test
 			app.server.type="jboss"
@@ -798,6 +812,20 @@ app.server.type=@{app.server.type}]]></echo>
 		/>
 	</target>
 
+	<target name="functional-bundle-wildfly-oracle121-jdk7">
+		<run-functional-test
+			app.server.type="wildfly"
+			database.type="oracle"
+			test.build.fix.pack.zip.url="${test.build.fix.pack.zip.url}"
+			test.fix.pack.base.url="${test.fix.pack.base.url}"
+			test.license.xml.url="${test.license.xml.url}"
+			test.plugin.zip.url="${test.plugin.zip.url}"
+			test.plugins.war.zip.url="${test.plugins.war.zip.url}"
+			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
+			test.sql.zip.url="${test.sql.zip.url}"
+		/>
+	</target>
+
 	<target name="functional-smoke-bundle-tomcat-mysql55-jdk7">
 		<antcall target="functional-bundle-tomcat-mysql55-jdk7" />
 	</target>
@@ -816,6 +844,10 @@ app.server.type=@{app.server.type}]]></echo>
 
 	<target name="functional-tomcat8-mysql56-jdk7-quarantine">
 		<antcall target="functional-tomcat8-mysql56-jdk7" />
+	</target>
+
+	<target name="functional-wildfly71-oracle121-jdk7">
+		<run-functional-test app.server.type="wildfly" database.type="oracle" />
 	</target>
 
 	<target name="integration-mysql55-jdk7">
