@@ -3690,6 +3690,40 @@ go]]></replacevalue>
 				</then>
 			</elseif>
 		</if>
+
+		<if>
+			<or>
+				<equals arg1="${app.server.type}" arg2="jboss" />
+				<equals arg1="${app.server.type}" arg2="wildfly" />
+			</or>
+			<then>
+				<if>
+					<equals arg1="${database.type}" arg2="oracle" />
+					<then>
+						<replace file="${app.server.lib.global.dir}/module.xml">
+							<replacetoken><![CDATA[<resource-root path="jtds.jar" />]]></replacetoken>
+							<replacevalue>
+								<![CDATA[
+									<resource-root path="jtds.jar" />
+									<resource-root path="ojdbc6.jar" />
+								]]>
+							</replacevalue>
+						</replace>
+					</then>
+					<else>
+						<replace file="${app.server.lib.global.dir}/module.xml">
+							<replacetoken><![CDATA[<resource-root path="jtds.jar" />]]></replacetoken>
+							<replacevalue>
+								<![CDATA[
+									<resource-root path="jtds.jar" />
+									<resource-root path="mysql.jar" />
+								]]>
+							</replacevalue>
+						</replace>
+					</else>
+				</if>
+			</then>
+		</if>
 	</target>
 
 	<target name="curl-execute">
@@ -6498,40 +6532,6 @@ ANT_OPTS=${env.ANT_OPTS}</echo>
 						<include name="*.sh" />
 					</fileset>
 				</chmod>
-
-				<if>
-					<or>
-						<equals arg1="${app.server.type}" arg2="jboss" />
-						<equals arg1="${app.server.type}" arg2="wildfly" />
-					</or>
-					<then>
-						<if>
-							<equals arg1="${database.type}" arg2="oracle" />
-							<then>
-								<replace file="${app.server.lib.global.dir}/module.xml">
-									<replacetoken><![CDATA[<resource-root path="jtds.jar" />]]></replacetoken>
-									<replacevalue>
-										<![CDATA[
-											<resource-root path="jtds.jar" />
-											<resource-root path="ojdbc6.jar" />
-										]]>
-									</replacevalue>
-								</replace>
-							</then>
-							<else>
-								<replace file="${app.server.lib.global.dir}/module.xml">
-									<replacetoken><![CDATA[<resource-root path="jtds.jar" />]]></replacetoken>
-									<replacevalue>
-										<![CDATA[
-											<resource-root path="jtds.jar" />
-											<resource-root path="mysql.jar" />
-										]]>
-									</replacevalue>
-								</replace>
-							</else>
-						</if>
-					</then>
-				</if>
 
 				<prepare-fix-pack-bundle />
 			</then>
