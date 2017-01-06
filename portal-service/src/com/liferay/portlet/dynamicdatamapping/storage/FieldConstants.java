@@ -22,6 +22,7 @@ import com.liferay.portal.kernel.util.Validator;
 
 import java.io.Serializable;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -92,6 +93,8 @@ public class FieldConstants {
 			return values.toArray(new Boolean[values.size()]);
 		}
 		else if (type.equals(FieldConstants.DATE)) {
+			values.removeAll(Collections.singleton(StringPool.BLANK));
+
 			return values.toArray(new Date[values.size()]);
 		}
 		else if (type.equals(FieldConstants.DOUBLE)) {
