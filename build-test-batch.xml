@@ -720,10 +720,6 @@ app.server.type=@{app.server.type}]]></echo>
 		<prepare-test-build-dist app.server.type="${axis.variable}" />
 	</target>
 
-	<target name="functional-glassfish31-postgresql94-jdk7">
-		<run-functional-test app.server.type="glassfish" database.type="postgresql" />
-	</target>
-
 	<target name="functional-bundle-glassfish-mysql55-jdk7">
 		<run-functional-test
 			app.server.type="glassfish"
@@ -824,6 +820,10 @@ app.server.type=@{app.server.type}]]></echo>
 			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
 			test.sql.zip.url="${test.sql.zip.url}"
 		/>
+	</target>
+
+	<target name="functional-glassfish31-postgresql94-jdk7">
+		<run-functional-test app.server.type="glassfish" database.type="postgresql" />
 	</target>
 
 	<target name="functional-smoke-bundle-tomcat-mysql55-jdk7">
