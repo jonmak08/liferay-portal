@@ -50,6 +50,7 @@
 			className="<%= model.getName() %>"
 			classPK="<%= _getClassPK(bean, classPK) %>"
 			contentCallback='<%= portletResponse.getNamespace() + "getSuggestionsContent" %>'
+			curCategoryIds="<%= (String) value %>"
 		/>
 	</c:when>
 	<c:when test='<%= (model != null) && type.equals("assetTags") %>'>
@@ -58,6 +59,7 @@
 			classPK="<%= _getClassPK(bean, classPK) %>"
 			contentCallback='<%= portletResponse.getNamespace() + "getSuggestionsContent" %>'
 			id="<%= namespace + id %>"
+			curTags="<%= (String) value %>"
 		/>
 	</c:when>
 	<c:when test="<%= (model != null) && Validator.isNull(type) %>">
