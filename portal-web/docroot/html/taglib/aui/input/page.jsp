@@ -64,6 +64,7 @@ boolean choiceField = checkboxField || radioField;
 			className="<%= model.getName() %>"
 			classPK="<%= _getClassPK(bean, classPK) %>"
 			contentCallback='<%= portletResponse.getNamespace() + "getSuggestionsContent" %>'
+			curCategoryIds="<%= (String) value %>"
 			ignoreRequestValue="<%= ignoreRequestValue %>"
 		/>
 	</c:when>
@@ -73,6 +74,7 @@ boolean choiceField = checkboxField || radioField;
 			className="<%= model.getName() %>"
 			classPK="<%= _getClassPK(bean, classPK) %>"
 			contentCallback='<%= portletResponse.getNamespace() + "getSuggestionsContent" %>'
+			curTags="<%= (String) value %>"
 			id="<%= namespace + id %>"
 			ignoreRequestValue="<%= ignoreRequestValue %>"
 		/>
