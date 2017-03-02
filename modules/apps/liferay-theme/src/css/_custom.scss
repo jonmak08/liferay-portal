@@ -1,0 +1,111 @@
+
+body {
+	  font-family:helvetica;
+	  margin:0;
+	}
+
+.signin {
+	border:2px solid black;
+	border-radius:200px;
+	color:black;
+	display:block;
+	float:right;
+	margin: 10px 10px;
+	padding:5px;
+	text-transform:uppercase;
+}
+
+.header-banner {
+	margin-bottom:20px;
+	padding-top:90px;
+}
+
+.logo-image img {
+	display:block;
+	height:5%;
+	margin:0 auto;
+	margin-bottom:20px;
+	width:5%;
+}
+
+ h1 {
+	font-family: helvetica;
+	font-size: 2.5em;
+	letter-spacing: 10px;
+	text-align: center;
+	text-transform:uppercase;
+} 
+
+.beginning {
+	padding: 10px;
+	text-align:center;
+}
+
+.navigationbar {
+    align-items:center;
+	display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    height:40px;
+    justify-content: center;
+    margin-top:90px;
+    z-index:1;
+}
+
+.navigationbar ul {
+	display:flex;
+	position: absolute;
+	text-align: center;
+} 
+
+.navigationbar li {
+	background-color:black;
+	border-radius:200px 200px;
+	height:auto;
+	list-style: none;
+	margin:20px;
+	padding: 5px;
+	text-transform:uppercase;
+	width: 120px;
+}
+
+.navigationbar a {
+	color: white;
+	text-decoration:none;
+ } 
+
+.navigationbar a:hover, a:hover {
+	color: gray;
+	text-decoration:none;
+}
+
+.navigationbar li ul {
+	display: none;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	z-index:3;  
+}
+
+.navigationbar li:hover ul {
+	display: block;
+}
+
+.childbar li{
+	background: rgba(48, 48, 48, .4);
+	margin:10px;
+ }
+
+ .home-breadcrumbs {
+	display:none;
+} 
+
+#footer {
+	background:#efefef;
+	font-family: helvetica;
+	font-size: 12px;
+	height:40px;
+	padding-top: 10px;
+	text-align: center;
+	width: 100%;
+}
