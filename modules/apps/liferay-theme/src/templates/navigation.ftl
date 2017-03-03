@@ -1,6 +1,7 @@
 
-<nav class="navigationbar ${nav_css_class}" id="navigation" role="navigation">
+<nav class="navigation-bar ${nav_css_class}" id="navigation" role="navigation">
 	<h1 class="hide-accessible"><@liferay.language key="navigation" /></h1>
+
 	<ul aria-label="<@liferay.language key="site-pages" />" role="menubar">
 		<#list nav_items as nav_item>
 			<#assign
@@ -22,7 +23,7 @@
 				<a aria-labelledby="layout_${nav_item.getLayoutId()}" ${nav_item_attr_has_popup} href="${nav_item.getURL()}" ${nav_item.getTarget()} role="menuitem"><span><@liferay_theme["layout-icon"] layout=nav_item_layout /> ${nav_item.getName()}</span></a>
 
 				<#if nav_item.hasChildren()>
-					<ul class="childbar child-menu" role="menu">
+					<ul class="child-bar child-menu" role="menu">
 						<#list nav_item.getChildren() as nav_child>
 							<#assign
 								nav_child_attr_selected = ""
@@ -46,3 +47,4 @@
 		</#list>
 	</ul>
 </nav>
+

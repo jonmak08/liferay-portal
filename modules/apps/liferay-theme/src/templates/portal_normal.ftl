@@ -22,7 +22,7 @@
 
 <div class="container-fluid" id="wrapper">
 	<#if !is_signed_in>
-		<a class="signin" data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
+		<a class="sign-in" data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
 	</#if>
 
 	<header class="header-banner" id="banner" role="banner">
@@ -66,7 +66,7 @@
 		</#if>
 	</section>
 
-	<footer id="footer" role="contentinfo">
+	<footer class="bottom-footer" id="footer" role="contentinfo">
 		<p class="powered-by">
 			<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay.</a>
 		</p>
