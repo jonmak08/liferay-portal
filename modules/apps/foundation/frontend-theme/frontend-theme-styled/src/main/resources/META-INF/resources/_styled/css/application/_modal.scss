@@ -31,8 +31,16 @@
 	display: none;
 }
 
-.modal-open .modal {
-	overflow: hidden;
+.modal-open {
+	.modal {
+		overflow: hidden;
+	}
+
+	@include media-query(null, 1366px) {
+		height: 100%;
+		position: fixed;
+		width: 100%;
+	}
 }
 
 .portal-popup {
