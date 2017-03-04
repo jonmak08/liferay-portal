@@ -2,7 +2,7 @@
 body {
 	font-family: Helvetica, Arial, sans-serif;
 	margin: 0;
-	}
+}
 
 .sign-in {
 	border: 2px solid #000;
@@ -11,7 +11,7 @@ body {
 	display: block;
 	float: right;
 	margin-right: 15px;
-	padding: 5px;
+	padding: 6px;
 	text-transform: uppercase;
 }
 
@@ -45,18 +45,17 @@ h1 {
 }
 
 .navigation-bar {
-    align-items: center;
+	align-items: center;
 	display: flex;
-    flex-direction: row;
-    height: 40px;
-    justify-content: center;
-    margin-top: 100px;
-    z-index: 1;
+	flex-direction: row;
+	height: 40px;
+	justify-content: center;
+	margin-top: 100px;
+	z-index: 1;
 
 	ul {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
 		position: absolute;
 		text-align: center;
 	} 
@@ -66,8 +65,7 @@ h1 {
 		border-radius: 200px;
 		height: auto;
 		list-style: none;
-		margin: 20px;
-		padding: 5px;
+		margin-right: 20px;
 		text-transform: uppercase;
 		width: 120px;
 
@@ -86,7 +84,8 @@ h1 {
 
 	a {
 		color: #FFF;
-		text-decoration: none;
+		padding: 5px;
+		display: block;
 	}
 }
 
@@ -97,7 +96,7 @@ a:hover, .navigation-bar a:hover {
 
 .child-bar li {
 	background: rgba(48, 48, 48, 0.5);
-	margin: 10px;
+	margin-top: 3px;
 }
 
 .home-breadcrumbs {
@@ -106,7 +105,6 @@ a:hover, .navigation-bar a:hover {
 
 .bottom-footer {
 	background: #E8ECF0;
-	font-family: Helvetica, Arial, sans-serif;
 	font-size: 12px;
 	height: 36px;
 	padding-top: 10px;
