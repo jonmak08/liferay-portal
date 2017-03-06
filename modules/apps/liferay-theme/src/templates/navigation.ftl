@@ -1,4 +1,3 @@
-
 <nav class="navigation-bar ${nav_css_class}" id="navigation" role="navigation">
 	<h1 class="hide-accessible"><@liferay.language key="navigation" /></h1>
 
@@ -47,4 +46,5 @@
 		</#list>
 	</ul>
 </nav>
+
 

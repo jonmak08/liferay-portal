@@ -86,11 +86,13 @@ h1 {
 		color: #FFF;
 		padding: 5px;
 		display: block;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 }
 
 a:hover, .navigation-bar a:hover {
-	color: #2F4F4F;
+	color: #D3D3D3;
 	text-decoration: none;
 }
 
