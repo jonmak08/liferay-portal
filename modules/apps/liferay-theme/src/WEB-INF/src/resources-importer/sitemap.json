@@ -1,0 +1,68 @@
+{
+	"layoutTemplateId": "1_column",
+	"publicPages": [
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_document_library_web_portlet_IGDisplayPortlet"
+					}
+				]
+			],
+			"friendlyURL": "/liferay",
+			"name": "Liferay"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Architecture Image.xml"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "About Architecture.xml"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Second Architecture Image.xml"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Third_Fourth Architecture Image.xml"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Quote.xml"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/Architecture",
+			"name": "Architecture"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Team.xml"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/team",
+			"name": "Team"
+		}
+	]
+}

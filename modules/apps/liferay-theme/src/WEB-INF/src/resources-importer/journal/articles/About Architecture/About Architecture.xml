@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Architecture" type="text_box" index-type="text" instance-id="uexh">
+		<dynamic-content language-id="en_US"><![CDATA[At Liferay Architecture, we are an environmentally-friendly company who believes in being resourceful in order to protect the environment. Therefore we claim the materials we use and buildings we make provide minimal or no harm upon ecosystems or the environment while building the best buildings that appeal to our customers. We are able to fulfill our values by incorporating <b>biomimicry</b>, " an approach to innovation that seeks sustainable solutions to human challenges by emulating nature's time-tested patterns and strategies", in our designs.]]></dynamic-content>
+	</dynamic-element>
+</root>

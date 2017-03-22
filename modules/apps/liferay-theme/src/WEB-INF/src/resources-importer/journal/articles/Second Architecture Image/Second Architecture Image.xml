@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="ArchitectureImage2" type="image" index-type="keyword" instance-id="splj">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"biomimicry.jpg","alt":"","title":"biomimicry.jpg","type":"journal","uuid":"016dd872-7ad9-28ff-756f-0498e987d6e8","resourcePrimKey":"52642"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Separator" type="selection_break" index-type="keyword" instance-id="hoqi"/>
+	<dynamic-element name="ArchitectureImage2Text" type="text_box" index-type="text" instance-id="yqqf">
+		<dynamic-content language-id="en_US"><![CDATA[We mostly use recyclable resources available and the environment around us to incorporate into our designs. We used the natural free flowing character of moss in the design of our tunnel. Finalizing the tunnel with exposure to natural light. Such as how moss is seen attached to rocks in the ocean.]]></dynamic-content>
+	</dynamic-element>
+</root>

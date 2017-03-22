@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Member1" type="image" index-type="keyword" instance-id="cbku">
+		<dynamic-element name="Member1Text" instance-id="ixxs" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate erat quis dui aliquet, bibendum lacinia urna maximus. Quisque cursus faucibus lacinia. Pellentesque enim nibh, porta sit amet convallis a, ultricies eu velit. Fusce vel lacinia massa, id iaculis arcu. Morbi sit amet sapien consectetur, cursus urna sit amet, suscipit odio. Morbi ac libero id ante cursus malesuada. Donec ut mollis tortor. Sed iaculis fringilla ante sed sagittis. Vivamus ut odio blandit, sollicitudin sapien vitae, facilisis felis.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Garfield.jpg","alt":"","title":"Garfield.jpg","type":"journal","uuid":"5e1294dd-2ab9-e6c2-43c0-d9dc401a71c8","resourcePrimKey":"55742"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Member2" type="image" index-type="keyword" instance-id="htgu">
+		<dynamic-element name="Member2Text" instance-id="nqgi" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate erat quis dui aliquet, bibendum lacinia urna maximus. Quisque cursus faucibus lacinia. Pellentesque enim nibh, porta sit amet convallis a, ultricies eu velit. Fusce vel lacinia massa, id iaculis arcu. Morbi sit amet sapien consectetur, cursus urna sit amet, suscipit odio. Morbi ac libero id ante cursus malesuada. Donec ut mollis tortor. Sed iaculis fringilla ante sed sagittis. Vivamus ut odio blandit, sollicitudin sapien vitae, facilisis felis.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Ironman.png","alt":"","title":"Ironman.png","type":"journal","uuid":"3ec125fd-b81e-2275-91db-daf890736a50","resourcePrimKey":"55742"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Member3" type="image" index-type="keyword" instance-id="wpty">
+		<dynamic-element name="Member3Text" instance-id="jtcu" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate erat quis dui aliquet, bibendum lacinia urna maximus. Quisque cursus faucibus lacinia. Pellentesque enim nibh, porta sit amet convallis a, ultricies eu velit. Fusce vel lacinia massa, id iaculis arcu. Morbi sit amet sapien consectetur, cursus urna sit amet, suscipit odio. Morbi ac libero id ante cursus malesuada. Donec ut mollis tortor. Sed iaculis fringilla ante sed sagittis. Vivamus ut odio blandit, sollicitudin sapien vitae, facilisis felis.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Bowser.jpg","alt":"","title":"Bowser.jpg","type":"journal","uuid":"7d9379df-061a-e353-56ee-cb4e322ee8d0","resourcePrimKey":"55742"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Member4" type="image" index-type="keyword" instance-id="cmth">
+		<dynamic-element name="Member4Text" instance-id="zjjm" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate erat quis dui aliquet, bibendum lacinia urna maximus. Quisque cursus faucibus lacinia. Pellentesque enim nibh, porta sit amet convallis a, ultricies eu velit. Fusce vel lacinia massa, id iaculis arcu. Morbi sit amet sapien consectetur, cursus urna sit amet, suscipit odio. Morbi ac libero id ante cursus malesuada. Donec ut mollis tortor. Sed iaculis fringilla ante sed sagittis. Vivamus ut odio blandit, sollicitudin sapien vitae, facilisis felis.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Pikachu.jpg","alt":"","title":"Pikachu.jpg","type":"journal","uuid":"9e58f951-de18-b9b4-cf79-baa6c4d4af4f","resourcePrimKey":"55742"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Member5" type="image" index-type="keyword" instance-id="ikqg">
+		<dynamic-element name="Member5Text" instance-id="outo" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate erat quis dui aliquet, bibendum lacinia urna maximus. Quisque cursus faucibus lacinia. Pellentesque enim nibh, porta sit amet convallis a, ultricies eu velit. Fusce vel lacinia massa, id iaculis arcu. Morbi sit amet sapien consectetur, cursus urna sit amet, suscipit odio. Morbi ac libero id ante cursus malesuada. Donec ut mollis tortor. Sed iaculis fringilla ante sed sagittis. Vivamus ut odio blandit, sollicitudin sapien vitae, facilisis felis.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Batman.jpg","alt":"","title":"Batman.jpg","type":"journal","uuid":"aef2994d-6348-5ab7-3ec6-89c40886b019","resourcePrimKey":"55742"}]]></dynamic-content>
+	</dynamic-element>
+</root>
