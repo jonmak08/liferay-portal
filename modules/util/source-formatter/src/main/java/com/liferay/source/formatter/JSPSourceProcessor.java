@@ -39,6 +39,7 @@ import com.thoughtworks.qdox.model.DefaultDocletTagFactory;
 import com.thoughtworks.qdox.model.JavaClass;
 import com.thoughtworks.qdox.model.JavaMethod;
 import com.thoughtworks.qdox.model.Type;
+import com.thoughtworks.qdox.parser.ParseException;
 
 import java.io.File;
 import java.io.IOException;
@@ -322,12 +323,6 @@ public class JSPSourceProcessor extends BaseSourceProcessor {
 
 		newContent = fixCompatClassImports(absolutePath, newContent);
 
-		newContent = fixEmptyLinesInMultiLineTags(newContent);
-
-		newContent = fixEmptyLinesInNestedTags(newContent);
-
-		newContent = fixEmptyLinesBetweenTags(newContent);
-
 		newContent = fixIncorrectClosingTag(newContent);
 
 		newContent = fixEmptyJavaSourceTag(newContent);
@@ -335,26 +330,6 @@ public class JSPSourceProcessor extends BaseSourceProcessor {
 		newContent = formatMultilineTagAttributes(fileName, newContent);
 
 		newContent = fixUnparameterizedClassType(newContent);
-
-		Matcher matcher = _directiveLinePattern.matcher(newContent);
-
-		while (matcher.find()) {
-			String directiveLine = matcher.group();
-
-			String newDirectiveLine = formatIncorrectSyntax(
-				directiveLine, " =", "=", false);
-
-			newDirectiveLine = formatIncorrectSyntax(
-				newDirectiveLine, "= ", "=", false);
-
-			if (!directiveLine.equals(newDirectiveLine)) {
-				newContent = StringUtil.replace(
-					newContent, directiveLine, newDirectiveLine);
-			}
-		}
-
-		newContent = newContent.replaceAll(
-			"(\\s(page|taglib))\\s+((import|uri)=)", "$1 $3");
 
 		if (_stripJSPImports && !_jspContents.isEmpty()) {
 			try {
@@ -397,12 +372,6 @@ public class JSPSourceProcessor extends BaseSourceProcessor {
 				"confirm('<%= UnicodeLanguageUtil.",
 				"confirm(\"<%= UnicodeLanguageUtil."
 			});
-
-		if (newContent.contains(StringPool.FOUR_SPACES)) {
-			if (!fileName.matches(".*template.*\\.vm$")) {
-				processMessage(fileName, "Use tabs instead of spaces");
-			}
-		}
 
 		newContent = compressImportsOrTaglibs(
 			fileName, newContent, "<%@ page import=");
@@ -485,7 +454,7 @@ public class JSPSourceProcessor extends BaseSourceProcessor {
 
 		checkDefineObjectsVariables(fileName, newContent, absolutePath);
 
-		matcher = _javaClassPattern.matcher(newContent);
+		Matcher matcher = _javaClassPattern.matcher(newContent);
 
 		if (matcher.find()) {
 			String javaClassContent = matcher.group();
@@ -728,28 +697,6 @@ public class JSPSourceProcessor extends BaseSourceProcessor {
 					}
 				}
 
-				if (!trimmedLine.startsWith(StringPool.DOUBLE_SLASH) &&
-					!trimmedLine.startsWith(StringPool.STAR)) {
-
-					line = formatIncorrectSyntax(line, "\t ", "\t", false);
-
-					line = formatWhitespace(line, javaSource);
-
-					if (line.endsWith(">")) {
-						if (line.endsWith("/>")) {
-							if (!trimmedLine.equals("/>") &&
-								!line.endsWith(" />")) {
-
-								line = StringUtil.replaceLast(
-									line, "/>", " />");
-							}
-						}
-						else if (line.endsWith(" >")) {
-							line = StringUtil.replaceLast(line, " >", ">");
-						}
-					}
-				}
-
 				// LPS-47179
 
 				if (line.contains(".sendRedirect(") &&
@@ -792,16 +739,6 @@ public class JSPSourceProcessor extends BaseSourceProcessor {
 
 					processMessage(
 						fileName, "Do not call 'System.out.print'", lineCount);
-				}
-
-				if (!trimmedLine.equals("%>") && line.contains("%>") &&
-					!line.contains("--%>") && !line.contains(" %>")) {
-
-					line = StringUtil.replace(line, "%>", " %>");
-				}
-
-				if (line.contains("<%=") && !line.contains("<%= ")) {
-					line = StringUtil.replace(line, "<%=", "<%= ");
 				}
 
 				if (trimmedLine.matches("^\\} ?(catch|else|finally) .*")) {
@@ -847,31 +784,6 @@ public class JSPSourceProcessor extends BaseSourceProcessor {
 					if (!hasUnsortedExceptions) {
 						previousException = currentException;
 						currentException = null;
-					}
-				}
-
-				if (!trimmedLine.contains(StringPool.DOUBLE_SLASH) &&
-					!trimmedLine.startsWith(StringPool.STAR)) {
-
-					while (trimmedLine.contains(StringPool.TAB)) {
-						line = StringUtil.replaceLast(
-							line, StringPool.TAB, StringPool.SPACE);
-
-						trimmedLine = StringUtil.replaceLast(
-							trimmedLine, StringPool.TAB, StringPool.SPACE);
-					}
-
-					while (trimmedLine.contains(StringPool.DOUBLE_SPACE) &&
-						   !trimmedLine.contains(
-							   StringPool.QUOTE + StringPool.DOUBLE_SPACE) &&
-						   !fileName.endsWith(".vm")) {
-
-						line = StringUtil.replaceLast(
-							line, StringPool.DOUBLE_SPACE, StringPool.SPACE);
-
-						trimmedLine = StringUtil.replaceLast(
-							trimmedLine, StringPool.DOUBLE_SPACE,
-							StringPool.SPACE);
 					}
 				}
 
@@ -1923,7 +1835,12 @@ public class JSPSourceProcessor extends BaseSourceProcessor {
 					new DefaultDocletTagFactory(),
 					new ThreadSafeClassLibrary());
 
-				javaDocBuilder.addSource(tagJavaFile);
+				try {
+					javaDocBuilder.addSource(tagJavaFile);
+				}
+				catch (ParseException pe) {
+					continue;
+				}
 
 				JavaClass tagJavaClass = javaDocBuilder.getClassByName(
 					tagClassName);
@@ -2086,7 +2003,6 @@ public class JSPSourceProcessor extends BaseSourceProcessor {
 		"(<.*\n*taglib uri=\".*>\n*)+", Pattern.MULTILINE);
 	private final Pattern _defineObjectsPattern = Pattern.compile(
 		"\n\t*(<.*:defineObjects />)(\n|$)");
-	private final Pattern _directiveLinePattern = Pattern.compile("<%@\n?.*%>");
 	private final List<String> _duplicateImportClassNames = new ArrayList<>();
 	private final Pattern _emptyJavaSourceTagPattern = Pattern.compile(
 		"\n\t*<%\n+\t*%>\n");

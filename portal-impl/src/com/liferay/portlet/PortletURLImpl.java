@@ -90,14 +90,29 @@ public class PortletURLImpl
 	implements LiferayPortletURL, PortletURL, ResourceURL, Serializable {
 
 	public PortletURLImpl(
+		HttpServletRequest request, Portlet portlet, Layout layout,
+		String lifecycle) {
+
+		this(request, portlet, null, layout, lifecycle);
+	}
+
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             #PortletURLImpl(HttpServletRequest, Portlet, Layout, String)}
+	 */
+	@Deprecated
+	public PortletURLImpl(
 		HttpServletRequest request, String portletId, Layout layout,
 		String lifecycle) {
 
-		this(request, portletId, null, layout.getPlid(), lifecycle);
-
-		_layout = layout;
+		this(request, portletId, null, layout, lifecycle);
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             #PortletURLImpl(HttpServletRequest, String, Layout, String)}
+	 */
+	@Deprecated
 	public PortletURLImpl(
 		HttpServletRequest request, String portletId, long plid,
 		String lifecycle) {
@@ -106,16 +121,33 @@ public class PortletURLImpl
 	}
 
 	public PortletURLImpl(
+		PortletRequest portletRequest, Portlet portlet, Layout layout,
+		String lifecycle) {
+
+		this(
+			PortalUtil.getHttpServletRequest(portletRequest), portlet,
+			portletRequest, layout, lifecycle);
+	}
+
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             #PortletURLImpl(PortletRequest, Portlet, Layout, String)}
+	 */
+	@Deprecated
+	public PortletURLImpl(
 		PortletRequest portletRequest, String portletId, Layout layout,
 		String lifecycle) {
 
 		this(
 			PortalUtil.getHttpServletRequest(portletRequest), portletId,
-			portletRequest, layout.getPlid(), lifecycle);
-
-		_layout = layout;
+			portletRequest, layout, lifecycle);
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             #PortletURLImpl(PortletRequest, String, Layout, String)}
+	 */
+	@Deprecated
 	public PortletURLImpl(
 		PortletRequest portletRequest, String portletId, long plid,
 		String lifecycle) {
@@ -719,50 +751,22 @@ public class PortletURLImpl
 		writer.write(toString);
 	}
 
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link
+	 *             #PortletURLImpl(PortletRequest, String, PortletRequest, Layout, String)}
+	 */
+	@Deprecated
 	protected PortletURLImpl(
 		HttpServletRequest request, String portletId,
 		PortletRequest portletRequest, long plid, String lifecycle) {
 
-		_request = request;
-		_portletId = portletId;
-		_portletRequest = portletRequest;
+		this(request, portletId, portletRequest, null, lifecycle);
+
 		_plid = plid;
-		_lifecycle = lifecycle;
-		_parametersIncludedInPath = Collections.emptySet();
-		_params = new LinkedHashMap<>();
-		_removePublicRenderParameters = new LinkedHashMap<>();
-		_secure = PortalUtil.isSecure(request);
-		_wsrp = ParamUtil.getBoolean(request, "wsrp");
-
-		Portlet portlet = getPortlet();
-
-		if (portlet != null) {
-			Set<String> autopropagatedParameters =
-				portlet.getAutopropagatedParameters();
-
-			for (String autopropagatedParameter : autopropagatedParameters) {
-				if (PortalUtil.isReservedParameter(autopropagatedParameter)) {
-					continue;
-				}
-
-				String value = request.getParameter(autopropagatedParameter);
-
-				if (value != null) {
-					setParameter(autopropagatedParameter, value);
-				}
-			}
-
-			PortletApp portletApp = portlet.getPortletApp();
-
-			_escapeXml = MapUtil.getBoolean(
-				portletApp.getContainerRuntimeOptions(),
-				LiferayPortletConfig.RUNTIME_OPTION_ESCAPE_XML,
-				PropsValues.PORTLET_URL_ESCAPE_XML);
-		}
 
 		Layout layout = (Layout)request.getAttribute(WebKeys.LAYOUT);
 
-		if ((layout != null) && (layout.getPlid() == _plid) &&
+		if ((layout != null) && (layout.getPlid() == plid) &&
 			(layout instanceof VirtualLayout)) {
 
 			_layout = layout;
@@ -1270,6 +1274,63 @@ public class PortletURLImpl
 		if (_params.containsKey(name)) {
 			_params.remove(name);
 		}
+	}
+
+	private PortletURLImpl(
+		HttpServletRequest request, Portlet portlet,
+		PortletRequest portletRequest, Layout layout, String lifecycle) {
+
+		_request = request;
+		_portlet = portlet;
+		_portletRequest = portletRequest;
+		_layout = layout;
+		_lifecycle = lifecycle;
+		_parametersIncludedInPath = Collections.emptySet();
+		_params = new LinkedHashMap<>();
+		_removePublicRenderParameters = new LinkedHashMap<>();
+		_secure = PortalUtil.isSecure(request);
+		_wsrp = ParamUtil.getBoolean(request, "wsrp");
+
+		if (portlet != null) {
+			_portletId = portlet.getPortletId();
+
+			Set<String> autopropagatedParameters =
+				portlet.getAutopropagatedParameters();
+
+			for (String autopropagatedParameter : autopropagatedParameters) {
+				if (PortalUtil.isReservedParameter(autopropagatedParameter)) {
+					continue;
+				}
+
+				String value = request.getParameter(autopropagatedParameter);
+
+				if (value != null) {
+					setParameter(autopropagatedParameter, value);
+				}
+			}
+
+			PortletApp portletApp = portlet.getPortletApp();
+
+			_escapeXml = MapUtil.getBoolean(
+				portletApp.getContainerRuntimeOptions(),
+				LiferayPortletConfig.RUNTIME_OPTION_ESCAPE_XML,
+				PropsValues.PORTLET_URL_ESCAPE_XML);
+		}
+
+		if (layout != null) {
+			_plid = layout.getPlid();
+		}
+	}
+
+	private PortletURLImpl(
+		HttpServletRequest request, String portletId,
+		PortletRequest portletRequest, Layout layout, String lifecycle) {
+
+		this(
+			request,
+			PortletLocalServiceUtil.fetchPortletById(
+				PortalUtil.getCompanyId(request), portletId),
+			portletRequest, layout, lifecycle);
 	}
 
 	private Map<String, String[]> _mergeWithRenderParameters(

@@ -74,6 +74,7 @@ public class LinkToPageLayoutTypeControllerDisplayContext {
 			new LayoutItemSelectorCriterion();
 
 		layoutItemSelectorCriterion.setCheckDisplayPage(false);
+		layoutItemSelectorCriterion.setEnableCurrentPage(false);
 
 		List<ItemSelectorReturnType> desiredItemSelectorReturnTypes =
 			new ArrayList<>();
@@ -88,6 +89,10 @@ public class LinkToPageLayoutTypeControllerDisplayContext {
 			getEventName(), layoutItemSelectorCriterion);
 
 		itemSelectorURL.setParameter("layoutUuid", getLinkToLayoutUuid());
+
+		long selPlid = ParamUtil.getLong(_liferayPortletRequest, "selPlid");
+
+		itemSelectorURL.setParameter("selPlid", String.valueOf(selPlid));
 
 		return itemSelectorURL.toString();
 	}
