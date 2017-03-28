@@ -20,51 +20,20 @@
 
 <@liferay.control_menu />
 
+<#if has_navigation && is_setup_complete>
+	<#include "${full_templates_path}/navigation.ftl" />
+</#if>
+
 <div class="container-fluid" id="wrapper">
 	<header id="banner" role="banner">
+		<div class="header-portlet-wrapper">
 
-		<#if has_navigation && is_setup_complete>
-			<#include "${full_templates_path}/navigation.ftl" />
-		</#if>
+			<@liferay_portlet["runtime"]
+				instanceId="${the_page_title}_HEADER"
+				portletProviderAction=portletProviderAction.ADD
+				portletProviderClassName="com.liferay.journal.model.JournalArticle"
+			/>
 
-		<div class="carousel slide" id="carousel-header" data-ride="carousel">
-			<div class="carousel-inner" role="listbox">
-				<div class="active item">
-
-					<#if !show_custom_header_image>
-						<div class="page-header header-filter" style="background-image: url('${default_header_image}');">
-					</#if>
-
-					<#if show_custom_header_image>
-						<div class="page-header header-filter" style="background-image: url('${custom_header_image}');">
-					</#if>
-							<div class="container">
-								<div class="row">
-									<div class="col-md-8 col-md-offset-2 text-center">
-										<h1 class="site-title">
-
-											<#if show_page_headline>
-												${page_headline}
-											</#if>
-
-											<#if !show_page_headline>
-												${the_title}
-											</#if>
-
-										</h1>
-										<h2>
-
-											<#if show_page_tagline>
-												${page_tagline}
-											</#if>
-
-										</h2>
-									</div>
-								</div>
-							</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</header>
 
