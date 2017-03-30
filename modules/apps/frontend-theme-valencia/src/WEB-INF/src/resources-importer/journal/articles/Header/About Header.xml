@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Imagezngk" type="image" index-type="keyword" instance-id="yfwn">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"33755","name":"ambitious-creative-co-rick-barrett-131110","alt":"","title":"ambitious-creative-co-rick-barrett-131110","type":"document","uuid":"7105a488-c665-43f7-8687-f2652fcd26b9","resourcePrimKey":"56489"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="PageHeadline" type="text" index-type="keyword" instance-id="wezo">
+		<dynamic-content language-id="en_US"><![CDATA[About Travelogue]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="PageTagline" type="text" index-type="keyword" instance-id="rsfd">
+		<dynamic-content language-id="en_US"><![CDATA[Your #1 source for adventure!]]></dynamic-content>
+	</dynamic-element>
+</root>

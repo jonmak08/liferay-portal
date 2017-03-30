@@ -40,10 +40,10 @@
 
 					<#if nav_item.hasChildren()>
 						<#assign
-							nav_item_attr_data_toggle = "data-toggle='dropdown'"
+							nav_item_attr_data_toggle = ""
 							nav_item_attr_has_popup = "aria-haspopup='true'"
 							nav_item_css_class = "dropdown"
-							nav_item_link_css_class = "dropdown-toggle"
+							nav_item_link_css_class = ""
 						/>
 					</#if>
 
@@ -83,8 +83,8 @@
 				</#list>
 
 				<#if !is_signed_in>
-					<li class="btn btn-round btn-theme">
-						<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow" >${sign_in_text}</a>
+					<li>
+						<button class="btn btn-round btn-theme" data-target="#signInModal" data-toggle="modal" type="button">${sign_in_text}</button>
 					</li>
 				</#if>
 

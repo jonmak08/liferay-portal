@@ -1,0 +1,47 @@
+.login-container .control-label {
+	color: $color-theme-main;
+}
+
+.yui3-skin-sam .calendar-portlet .yui3-calendar-weekday {
+	color: $color-theme-main;
+}
+
+.scheduler-today-hd {
+	border-bottom: 3px solid $color-theme-main;
+
+	.scheduler-view-day-header-day & {
+		color: $color-theme-main;
+
+		&:focus, &:hover {
+			color: $color-theme-secondary;
+		}
+	}
+}
+
+.scheduler-base-hd .scheduler-base-views button:nth-child(4) {
+	border-right: none;
+}
+
+#signInModal {
+	display: none;
+
+	.modal-header {
+		min-height: 0;
+		border-bottom-width: 0;
+		padding-bottom: 0;
+	}
+
+	.modal-body {
+		padding-top: 0;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.portlet .portlet-content {
+		font: 400 14px $font-sans;
+
+		.btn {
+			padding: 6px 12px;
+		}
+	}
+}

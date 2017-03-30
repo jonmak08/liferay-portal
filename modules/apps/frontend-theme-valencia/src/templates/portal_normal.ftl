@@ -24,7 +24,7 @@
 	<#include "${full_templates_path}/navigation.ftl" />
 </#if>
 
-<div class="container-fluid" id="wrapper">
+<div class="container-fluid" id="wrapper" style="background: #FFF url('${images_folder}/bgpat.png') repeat top left;">
 	<header id="banner" role="banner">
 		<div class="header-portlet-wrapper">
 
@@ -59,6 +59,25 @@
 				<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
 			</p>
 		</footer>
+	</div>
+</div>
+
+<div aria-labelledby="signInModal" class="modal fade signInModal" id="signInModal" role="dialog" tabindex="-1">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body">
+
+				<@liferay_portlet["runtime"]
+					instanceId="${the_page_title}_sign_in"
+					defaultPreferences=default_preferences
+					portletName="com_liferay_login_web_portlet_LoginPortlet"
+				/>
+
+			</div>
+		</div>
 	</div>
 </div>
 

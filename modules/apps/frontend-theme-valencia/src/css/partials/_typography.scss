@@ -1,0 +1,122 @@
+h1, h3 {
+	color: $color-font-header;
+	font-family: $font-serif;
+	font-weight: 700;
+}
+
+h2, h4, h6 {
+	color: $color-font-header;
+	font-family: $font-sans;
+	font-weight: 700;
+}
+
+h1 {
+	font-size: 3em;
+	line-height: 1.15em;
+}
+
+h2 {
+	font-size: 1.8em;
+	line-height: 1.5em;
+}
+
+h3 {
+	font-size: 1.25em;
+	line-height: 1.5em;
+}
+
+h4 {
+	font-size: 1em;
+	line-height: 1.55em;
+}
+
+h5 {
+	color: #777;
+	font: 300 1em $font-sans;
+	line-height: 1.55em;
+}
+
+h6 {
+	font-size: 0.75em;
+	font-weight: 500;
+	line-height: 1.5em;
+	text-transform: uppercase;
+}
+
+p {
+	color: $color-font-body;
+	font-size: 1em;
+	margin-bottom: 0;
+}
+
+.page-headline {
+	color: #FFF;
+	font: 700 3em $font-sans;
+	line-height: 1.15em
+}
+
+#banner h2.page-tagline {
+	color: #FFF;
+	font: 300 1.3em $font-serif;
+	line-height: 1.4em;
+	margin-bottom: 30px;
+}
+
+@include md {
+	h1 {
+		font-size: 3.8em;
+		line-height: 1.15em;
+	}
+
+	h2 {
+		font-size: 2.6em;
+		line-height: 1.5em;
+	}
+
+	h3 {
+		font-size: 1.825em;
+		line-height: 1.5em;
+	}
+
+	h4 {
+		font-size: 1.25em;
+		line-height: 1.55em;
+	}
+
+	h5 {
+		color: #777;
+		font: 300 1.25em $font-sans;
+		line-height: 1.55em;
+	}
+
+	h6 {
+		font-size: 0.9em;
+		font-weight: 500;
+		line-height: 1.5em;
+		text-transform: uppercase;
+	}
+
+	p {
+		color: $color-font-body;
+		font-size: 1.142em;
+		margin-bottom: 10px;
+	}
+
+	.page-headline {
+		font-size: 3em;
+	}
+
+	.page-tagline {
+		font-size: 1.75em;
+		margin-bottom: 60px;
+	}
+}
+
+@include lg {
+	.page-headline {
+		font-size: 4.8em;
+	}
+	.page-tagline {
+		font-size: 2.2em;
+	}
+}

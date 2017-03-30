@@ -1,0 +1,22 @@
+body {
+	background-color: $color-bg;
+	color: $color-font-body;
+	font: 400 1.5em $font-sans;
+}
+
+blockquote p {
+	font-style: italic;
+}
+
+button, embed, iframe, img, input, object, select, textarea, video {
+	max-width: 100%;
+}
+
+img {
+	height: auto;
+}
+
+ul {
+	line-height: 1.5em;
+	margin-bottom: 30px;
+}

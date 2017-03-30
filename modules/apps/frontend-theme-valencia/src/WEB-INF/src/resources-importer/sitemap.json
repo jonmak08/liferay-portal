@@ -3,7 +3,7 @@
 	"publicPages": [
 		{
 			"columns": [
-                [
+				[
 					{
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences": {
@@ -42,45 +42,42 @@
 		},
 		{
 			"friendlyURL": "/about",
-			"layouts": [
-				{
-					"friendlyURL": "/adventuretime",
-					"name": "Who is Adventure Time?",
-					"title": "Who is Adventure Time?"
-				},
-				{
-					"friendlyURL": "/contact",
-					"name": "Contact",
-					"title": "Contact"
-				}
-			],
 			"name": "About",
 			"title": "About"
 		},
 		{
-			"friendlyURL": "/england",
-			"name": "England",
-			"title": "England"
+			"friendlyURL": "/blog",
+			"layoutTemplateId": "1_1_columns",
+			"name": "Blog",
+			"title": "Blog"
 		},
 		{
-			"friendlyURL": "/ireland",
-			"name": "Ireland",
-			"title": "Ireland"
+
+			"friendlyURL": "/media",
+			"layouts": [
+				{
+					"friendlyURL": "/images",
+					"name": "Image Gallery",
+					"title": "Image Gallery"
+				},
+				{
+					"friendlyURL": "/videos",
+					"name": "Video Journal",
+					"title": "Video Journal"
+				}
+			],
+			"name": "Media",
+			"title": "Media"
 		},
 		{
-			"friendlyURL": "/scotland",
-			"name": "Scotland",
-			"title": "Scotland"
+			"friendlyURL": "/resources",
+			"name": "Resources",
+			"title": "Resources"
 		},
 		{
-			"friendlyURL": "/wales",
-			"name": "Wales",
-			"title": "Wales"
-		},
-		{
-			"friendlyURL": "/book-now",
-			"name": "Book Now!",
-			"title": "Book Now!"
+			"friendlyURL": "/contact",
+			"name": "Contact",
+			"title": "Contact"
 		}
 	]
 }
