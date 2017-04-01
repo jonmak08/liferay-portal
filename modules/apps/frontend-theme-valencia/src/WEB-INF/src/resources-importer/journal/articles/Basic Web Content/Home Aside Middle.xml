@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="content" type="text_area" index-type="keyword" instance-id="hyij">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<div class="container-card">
+					<div class="card text-center card-middle">
+						<i class="icon-user card-icon"></i>
+						<h1>Inspiring Community</h1>
+						<p>Share your "must-see" spots across the globe or get inspiried by reading the stories of your fellow travelers.</p>
+					</div>
+				</div>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

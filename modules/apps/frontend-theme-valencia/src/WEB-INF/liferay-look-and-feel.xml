@@ -8,8 +8,8 @@
 	<theme id="valencia-theme" name="Valencia">
 		<template-extension>ftl</template-extension>
 		<settings>
-			<setting configurable="true" key="show-site-logo" type="checkbox" value="true" />
-			<setting configurable="true" key="show-site-name" type="checkbox" value="true" />
+			<setting configurable="true" key="show-logo-in-navigation" type="checkbox" value="true" />
+			<setting configurable="true" key="show-site-name-in-navigation" type="checkbox" value="true" />
 		</settings>
 		<portlet-decorator id="barebone" name="Barebone">
 			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>

@@ -1,5 +1,5 @@
-<#assign show_site_logo = getterUtil.getBoolean(themeDisplay.getThemeSetting("show-site-logo")) />
-<#assign show_site_name = getterUtil.getBoolean(themeDisplay.getThemeSetting("show-site-name")) />
+<#assign show_logo_in_navigation = getterUtil.getBoolean(themeDisplay.getThemeSetting("show-logo-in-navigation")) />
+<#assign show_site_name_in_navigation = getterUtil.getBoolean(themeDisplay.getThemeSetting("show-site-name-in-navigation")) />
 <#assign the_page_title = "" />
 
 <#if layout.getHTMLTitle(locale)??>

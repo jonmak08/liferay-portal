@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="content" type="text_area" index-type="keyword" instance-id="ffsi">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<div class="container-card">
+					<div class="card text-center card-left">
+						<i class="icon-camera card-icon"></i>
+						<h1>Image Focused</h1>
+						<p>Large landscapes for you to showcase your latest travels.</p>
+					</div>
+				</div>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

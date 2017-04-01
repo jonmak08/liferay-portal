@@ -3,9 +3,9 @@
 <root available-locales="en_US" default-locale="en_US">
 	<dynamic-element index="0" index-type="keyword" name="content" type="text_area">
 		<dynamic-content language-id="en_US"><![CDATA[
-			
+			<div class="text-center">
 				<h1>Your Adventure Starts Today!</h1>
-			
+			</div>
 		]]></dynamic-content>
 	</dynamic-element>
 </root>

@@ -40,7 +40,7 @@ AUI().ready(
 							$('.navbar-color-on-scroll').addClass('navbar-transparent');
 						}
 
-						if ($(document).scrollTop() > 100 && transparent) {
+						if ($(document).scrollTop() > 180 && transparent) {
 							transparent = false;
 
 							$('.navbar-color-on-scroll').removeClass('navbar-transparent');

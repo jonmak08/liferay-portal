@@ -9,15 +9,15 @@
 				<span class="icon-bar"></span>
 			</button>
 
-			<#if show_site_name?? || show_site_logo??>
+			<#if show_site_name_in_navigation?? || show_logo_in_navigation??>
 				<div class="title-logo-wrapper">
 					<a class="navbar-brand" href=${site_default_url} title=${site_name}>
 
-					<#if show_site_logo>
+					<#if show_logo_in_navigation>
 						<img alt="${site_name}" class="${logo_css_class}" src="${site_logo}"/>
 					</#if>
 
-					<#if show_site_name>
+					<#if show_site_name_in_navigation>
 						<h1 class="site-name">${site_name}</h1>
 					</#if>
 

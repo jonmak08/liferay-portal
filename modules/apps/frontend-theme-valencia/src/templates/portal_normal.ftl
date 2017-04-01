@@ -25,41 +25,27 @@
 </#if>
 
 <div class="container-fluid" id="wrapper" style="background: #FFF url('${images_folder}/bgpat.png') repeat top left;">
-	<header id="banner" role="banner">
-		<div class="header-portlet-wrapper">
+	<section id="content">
+		<h1 class="hide-accessible">${the_title}</h1>
 
-			<@liferay_portlet["runtime"]
-				instanceId="${the_page_title}_HEADER"
-				portletProviderAction=portletProviderAction.ADD
-				portletProviderClassName="com.liferay.journal.model.JournalArticle"
-			/>
+		<#if selectable>
+			<@liferay_util["include"] page=content_include />
+		<#else>
+			${portletDisplay.recycle()}
 
-		</div>
-	</header>
+			${portletDisplay.setTitle(the_title)}
 
-	<div class="content-wrapper">
-		<section id="content">
-			<h1 class="hide-accessible">${the_title}</h1>
-
-			<#if selectable>
+			<@liferay_theme["wrap-portlet"] page="portlet.ftl">
 				<@liferay_util["include"] page=content_include />
-			<#else>
-				${portletDisplay.recycle()}
+			</@>
+		</#if>
+	</section>
 
-				${portletDisplay.setTitle(the_title)}
-
-				<@liferay_theme["wrap-portlet"] page="portlet.ftl">
-					<@liferay_util["include"] page=content_include />
-				</@>
-			</#if>
-		</section>
-
-		<footer id="footer" role="contentinfo">
-			<p class="powered-by">
-				<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
-			</p>
-		</footer>
-	</div>
+	<footer id="footer" role="contentinfo">
+		<p class="powered-by">
+			<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
+		</p>
+	</footer>
 </div>
 
 <div aria-labelledby="signInModal" class="modal fade signInModal" id="signInModal" role="dialog" tabindex="-1">

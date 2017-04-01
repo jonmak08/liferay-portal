@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="content" type="text_area" index-type="keyword" instance-id="xltm">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<div class="container-card">
+					<div class="card text-center card-right">
+						<i class="icon-mobile card-icon"></i>
+						<h1>Mobile Responsive</h1>
+						<p>Want to document your experiences on the go? No problem! Our website will adapt to whatever device you use.</p>
+					</div>
+				</div>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

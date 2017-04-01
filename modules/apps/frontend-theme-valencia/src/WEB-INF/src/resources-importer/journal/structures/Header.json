@@ -1,78 +1,124 @@
 {
-    "availableLanguageIds": [
-        "en_US"
-    ],
-    "defaultLanguageId": "en_US",
-    "fields": [
-        {
-            "label": {
-                "en_US": "Image"
-            },
-            "predefinedValue": {
-                "en_US": ""
-            },
-            "style": {
-                "en_US": ""
-            },
-            "tip": {
-                "en_US": ""
-            },
-            "dataType": "image",
-            "fieldNamespace": "ddm",
-            "indexType": "keyword",
-            "localizable": true,
-            "name": "Imagezngk",
-            "readOnly": false,
-            "repeatable": false,
-            "required": false,
-            "showLabel": true,
-            "type": "ddm-image"
-        },
-        {
-            "label": {
-                "en_US": "Page Headline"
-            },
-            "predefinedValue": {
-                "en_US": ""
-            },
-            "style": {
-                "en_US": ""
-            },
-            "tip": {
-                "en_US": ""
-            },
-            "dataType": "string",
-            "indexType": "keyword",
-            "localizable": true,
-            "name": "PageHeadline",
-            "readOnly": false,
-            "repeatable": false,
-            "required": false,
-            "showLabel": true,
-            "type": "text"
-        },
-        {
-            "label": {
-                "en_US": "Page Tagline"
-            },
-            "predefinedValue": {
-                "en_US": ""
-            },
-            "style": {
-                "en_US": ""
-            },
-            "tip": {
-                "en_US": ""
-            },
-            "dataType": "string",
-            "indexType": "keyword",
-            "localizable": true,
-            "name": "PageTagline",
-            "readOnly": false,
-            "repeatable": false,
-            "required": false,
-            "showLabel": true,
-            "type": "text"
-        }
-    ]
+	"availableLanguageIds": [
+		"en_US"
+	],
+	"defaultLanguageId": "en_US",
+	"fields": [
+		{
+			"label": {
+				"en_US": "Select"
+			},
+			"options": [
+				{
+					"value": "home",
+					"label": {
+						"en_US": "home"
+					}
+				},
+				{
+					"value": "about",
+					"label": {
+						"en_US": "about"
+					}
+				},
+				{
+					"value": "blogs",
+					"label": {
+						"en_US": "blogs"
+					}
+				},
+				{
+					"value": "media",
+					"label": {
+						"en_US": "media"
+					}
+				},
+				{
+					"value": "images",
+					"label": {
+						"en_US": "images"
+					}
+				},
+				{
+					"value": "videos",
+					"label": {
+						"en_US": "videos"
+					}
+				},
+				{
+					"value": "contact",
+					"label": {
+						"en_US": "contact"
+					}
+				}
+			],
+			"predefinedValue": {
+				"en_US": [
+					"home"
+				]
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"multiple": false,
+			"name": "Selectj0q7",
+			"readOnly": false,
+			"repeatable": false,
+			"required": true,
+			"showLabel": true,
+			"type": "select"
+		},
+		{
+			"label": {
+				"en_US": "Page Headline"
+			},
+			"predefinedValue": {
+				"en_US": ""
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "PageHeadline",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "text"
+		},
+		{
+			"label": {
+				"en_US": "Page Tagline"
+			},
+			"predefinedValue": {
+				"en_US": ""
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "PageTagline",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "text"
+		}
+	]
 }
