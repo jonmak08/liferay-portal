@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="ImageURL" type="text" index-type="keyword" instance-id="lllo">
+		<dynamic-element name="Alt" instance-id="rink" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Beautiful Shot]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[gal1.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ImageURL" type="text" index-type="keyword" instance-id="oqeg">
+		<dynamic-element name="Alt" instance-id="eihq" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Travelling]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[gal2.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ImageURL" type="text" index-type="keyword" instance-id="mcru">
+		<dynamic-element name="Alt" instance-id="uvff" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[gal3.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ImageURL" type="text" index-type="keyword" instance-id="jtoc">
+		<dynamic-element name="Alt" instance-id="hidq" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[gal4.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ImageURL" type="text" index-type="keyword" instance-id="ifnb">
+		<dynamic-element name="Alt" instance-id="awjh" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[gal5.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ImageURL" type="text" index-type="keyword" instance-id="lryl">
+		<dynamic-element name="Alt" instance-id="rvsz" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[gal6.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ImageURL" type="text" index-type="keyword" instance-id="vhat">
+		<dynamic-element name="Alt" instance-id="ytnv" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[gal7.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ImageURL" type="text" index-type="keyword" instance-id="apvn">
+		<dynamic-element name="Alt" instance-id="tqfx" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[gal8.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ImageURL" type="text" index-type="keyword" instance-id="akxs">
+		<dynamic-element name="Alt" instance-id="maza" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[gal9.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ImageURL" type="text" index-type="keyword" instance-id="mjfb">
+		<dynamic-element name="Alt" instance-id="cebr" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[gal10.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ImageURL" type="text" index-type="keyword" instance-id="comk">
+		<dynamic-element name="Alt" instance-id="usgc" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[gal11.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ImageURL" type="text" index-type="keyword" instance-id="ruan">
+		<dynamic-element name="Alt" instance-id="yrdj" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[gal12.jpg]]></dynamic-content>
+	</dynamic-element>
+</root>

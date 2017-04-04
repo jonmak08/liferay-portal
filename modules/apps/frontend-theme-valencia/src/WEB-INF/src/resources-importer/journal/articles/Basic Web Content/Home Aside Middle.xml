@@ -5,8 +5,8 @@
 		<dynamic-content language-id="en_US">
 			<![CDATA[
 				<div class="container-card">
-					<div class="card text-center card-middle">
-						<i class="icon-user card-icon"></i>
+					<div class="card card-middle text-center">
+						<i class="card-icon icon-user"></i>
 						<h1>Inspiring Community</h1>
 						<p>Share your "must-see" spots across the globe or get inspiried by reading the stories of your fellow travelers.</p>
 					</div>

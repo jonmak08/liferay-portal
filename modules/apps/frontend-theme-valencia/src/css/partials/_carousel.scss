@@ -1,0 +1,27 @@
+.thumbnail-list {
+	list-style: none;
+	margin-left: -40px;
+	margin-top: 20px;
+}
+
+a.thumbnail {
+	border-width:0;
+
+	&:hover, &:focus, &.active {
+		border-width:0;
+	}
+}
+
+.thumbnail {
+	padding: 0;
+
+	img {
+		border-radius: 6px;
+	}
+}
+
+.carousel-inner >.item {
+	> a > img, > img {
+		width: 100%;
+	}
+}

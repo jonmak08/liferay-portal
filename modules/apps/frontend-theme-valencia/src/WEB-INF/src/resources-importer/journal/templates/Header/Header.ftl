@@ -5,8 +5,6 @@
 	<#assign selectedImage = "about.jpg" />
 <#elseif (Selectj0q7.getData()) == "blogs">
 	<#assign selectedImage = "blogs.jpg" />
-<#elseif (Selectj0q7.getData()) == "media">
-	<#assign selectedImage = "media.jpg" />
 <#elseif (Selectj0q7.getData()) == "images">
 	<#assign selectedImage = "images.jpg" />
 <#elseif (Selectj0q7.getData()) == "videos">

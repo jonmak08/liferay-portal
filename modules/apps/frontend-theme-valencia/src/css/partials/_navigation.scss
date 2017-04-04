@@ -38,7 +38,7 @@
 		}
 
 		button.active.btn a {
-				color: #FFF;
+			color: #FFF;
 		}
 
 		&:not(.navbar-transparent) .navbar-brand h1:hover {
@@ -63,8 +63,8 @@
 	}
 
 	&.navbar-default {
-		color: #555;
 		background-color: #FFF;
+		color: #555;
 		transition: all 150ms ease 0s;
 	}
 

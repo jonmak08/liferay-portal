@@ -5,8 +5,8 @@
 		<dynamic-content language-id="en_US">
 			<![CDATA[
 				<div class="container-card">
-					<div class="card text-center card-left">
-						<i class="icon-camera card-icon"></i>
+					<div class="card card-left text-center">
+						<i class="card-icon icon-camera"></i>
 						<h1>Image Focused</h1>
 						<p>Large landscapes for you to showcase your latest travels.</p>
 					</div>

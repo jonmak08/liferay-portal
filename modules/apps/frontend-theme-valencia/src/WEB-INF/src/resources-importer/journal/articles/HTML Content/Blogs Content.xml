@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="HTMLidsr" type="text_area" index-type="text" instance-id="dyve">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<div class="blog-post">
+					<div class="container blog-container">
+						<div class="row">
+							<div class="col-md-5">
+								<img class="img-responsive" src="/o/valencia-theme/images/gal1.jpg"></img>
+							</div>
+							<div class="col-md-7">
+								<h3>Quoth the Raven</h3>
+								<h4 class="blog-one">Poetry</h4>
+								<p>Once upon a midnight dreary, while I pondered, weak and weary, Over many a quaint and curious volume of forgotten lore— While I nodded, nearly napping, suddenly there came a tapping <a href="#">Read More...</a>
+								</p>
+								<p>By <a href="#">Alex</a>, 10 days ago
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="blog-post">
+					<div class="container blog-container">
+						<div class="row">
+							<div class="col-md-5">
+								<img class="img-responsive" src="/o/valencia-theme/images/gal2.jpg">
+							</div>
+							<div class="col-md-7">
+								<h3>Mad as a Hatter</h3>
+								<h4 class="blog-two">Literature</h4>
+								<p>'What for?' said the one who had spoken first. 'That's none of YOUR business, Two!' said Seven. 'Yes, it IS his business!' said Five, 'and I'll tell him&mdash;it was for  bringing the cook tulip-roots instead of onions.' <a href="#">Read More...</a>
+								</p>
+								<p>By <a href="#">Alex</a>, 10 days ago</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="blog-post">
+					<div class="container blog-container">
+						<div class="row">
+							<div class="col-md-5">
+								<img class="img-responsive" src="/o/valencia-theme/images/gal3.jpg">
+							</div>
+							<div class="col-md-7">
+								<h3>Where to Find Bacon</h3>
+								<h4 class="blog-three">Article</h4>
+								<p>We made our entry into the great central plaza early in the afternoon. There were no enthusiastic friendly greetings for the returned expedition.  Those who chanced to be in sight spoke the names of warriors or women with whom they came in direct contact <a href="#">Read More...</a>
+								</p>
+								<p>By <a href="#">Alex</a>, 10 days ago</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

@@ -61,5 +61,13 @@ AUI().ready(
 			$('#navigation').addClass('navbar-control-helper');
 		}
 
+		$('.carousel-selector').click(
+			function (event) {
+				var element = event.currentTarget;
+				var id = $(element).data('id')
+				$('#imageGalleryCarousel').carousel(parseInt(id));
+			}
+		);
+
 	}
 );

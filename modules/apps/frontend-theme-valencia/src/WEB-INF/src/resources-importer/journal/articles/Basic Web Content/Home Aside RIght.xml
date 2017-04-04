@@ -5,8 +5,8 @@
 		<dynamic-content language-id="en_US">
 			<![CDATA[
 				<div class="container-card">
-					<div class="card text-center card-right">
-						<i class="icon-mobile card-icon"></i>
+					<div class="card card-right text-center">
+						<i class="card-icon icon-mobile"></i>
 						<h1>Mobile Responsive</h1>
 						<p>Want to document your experiences on the go? No problem! Our website will adapt to whatever device you use.</p>
 					</div>

@@ -5,9 +5,9 @@
 		<dynamic-content language-id="en_US"><![CDATA[blogs]]></dynamic-content>
 	</dynamic-element>
 	<dynamic-element name="PageHeadline" type="text" index-type="keyword" instance-id="gxot">
-		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		<dynamic-content language-id="en_US"><![CDATA[Your Memories Live Here]]></dynamic-content>
 	</dynamic-element>
 	<dynamic-element name="PageTagline" type="text" index-type="keyword" instance-id="rfce">
-		<dynamic-content language-id="en_US"><![CDATA[Your Memories Live Here]]></dynamic-content>
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
 	</dynamic-element>
 </root>

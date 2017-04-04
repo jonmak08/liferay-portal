@@ -28,12 +28,6 @@
 					}
 				},
 				{
-					"value": "media",
-					"label": {
-						"en_US": "media"
-					}
-				},
-				{
 					"value": "images",
 					"label": {
 						"en_US": "images"

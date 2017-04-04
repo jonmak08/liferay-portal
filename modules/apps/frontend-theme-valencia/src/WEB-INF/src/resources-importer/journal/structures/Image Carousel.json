@@ -6,7 +6,7 @@
     "fields": [
         {
             "label": {
-                "en_US": "Image"
+                "en_US": "Image URL"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -17,16 +17,40 @@
             "tip": {
                 "en_US": ""
             },
-            "dataType": "image",
-            "fieldNamespace": "ddm",
+            "dataType": "string",
             "indexType": "keyword",
             "localizable": true,
-            "name": "Imagefaa2",
+            "name": "ImageURL",
             "readOnly": false,
             "repeatable": true,
             "required": false,
             "showLabel": true,
-            "type": "ddm-image"
+            "type": "text",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "Alt"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "Alt",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
+                }
+            ]
         }
     ]
 }
