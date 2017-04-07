@@ -56,7 +56,7 @@
 }
 
 .header-filter {
-	&:after, &:before, {
+	&:after, &:before {
 		content: '';
 		display: block;
 		height: inherit;

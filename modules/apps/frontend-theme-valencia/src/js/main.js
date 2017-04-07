@@ -18,8 +18,9 @@ AUI().ready(
 						if (!immediate) {
 							func.apply(instance, args);
 						}
-					}, wait)
-				;
+					},
+					wait
+				);
 
 				if (immediate && !timeout) {
 					func.apply(instance, args);
@@ -33,7 +34,7 @@ AUI().ready(
 			$(window).on(
 				'scroll',
 				debounce(
-					function () {
+					function() {
 						if (!transparent) {
 							transparent = true;
 
@@ -53,7 +54,7 @@ AUI().ready(
 
 		$('#navigation .dropdown').hover(
 			function() {
-				$(this).toggleClass('open')
+				$(this).toggleClass('open');
 			}
 		);
 
@@ -62,9 +63,10 @@ AUI().ready(
 		}
 
 		$('.carousel-selector').click(
-			function (event) {
+			function(event) {
 				var element = event.currentTarget;
-				var id = $(element).data('id')
+				var id = $(element).data('id');
+
 				$('#imageGalleryCarousel').carousel(parseInt(id));
 			}
 		);

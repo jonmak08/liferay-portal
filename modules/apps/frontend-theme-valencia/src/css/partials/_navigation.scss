@@ -1,7 +1,7 @@
 .navbar {
 	background-color: #FFF;
 	border-width: 0;
-	box-shadow:	0 10px 20px -12px rgba(0, 0, 0, 0.42),	0 3px 20px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.42), 0 3px 20px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 	color: #555;
 	padding: 0 0 10px;
 	transition: all 150ms ease 0s;
@@ -28,7 +28,7 @@
 	}
 
 	.navbar-collapse {
-		border-top: none;
+		border-top-width: 0;
 		box-shadow: none;
 	}
 
@@ -122,8 +122,8 @@
 
 	.navbar-nav {
 		> li {
-			margin-right: 10px;
 			margin-left: 10px;
+			margin-right: 10px;
 			padding: 0 10px;
 
 			> a {
@@ -131,8 +131,8 @@
 				color: inherit;
 				font-size: 12px;
 				font-weight: 400;
-				padding-top: 15px;
 				padding-bottom: 15px;
+				padding-top: 15px;
 				text-transform: uppercase;
 			}
 
@@ -220,7 +220,6 @@
 }
 
 @media screen and (max-width: 767px) {
-
 	#navigation .dropdown-menu {
 		float: none;
 		position: static;
@@ -306,7 +305,7 @@
 		}
 
 		.navbar-right {
-			 .dropdown .dropdown-menu {
+			.dropdown .dropdown-menu {
 				border-radius: 6px;
 				display: block;
 				left: 50%;

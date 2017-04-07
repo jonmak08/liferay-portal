@@ -48,11 +48,11 @@
 	</footer>
 </div>
 
-<div aria-labelledby="signInModal" class="modal fade signInModal" id="signInModal" role="dialog" tabindex="-1">
+<div aria-labelledby="signInModal" class="fade modal signInModal" id="signInModal" role="dialog" tabindex="-1">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
 			</div>
 			<div class="modal-body">
 

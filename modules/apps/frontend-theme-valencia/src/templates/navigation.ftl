@@ -2,7 +2,7 @@
 	<div class="container">
 		<h1 class="hide-accessible"><@liferay.language key="navigation" /></h1>
 		<div class="navbar-header">
-			<button aria-expanded="false" class="navbar-toggle collapsed" data-target="#main-site-navigation" data-toggle="collapse" type="button">
+			<button aria-expanded="false" class="collapsed navbar-toggle" data-target="#main-site-navigation" data-toggle="collapse" type="button">
 				<span class="sr-only"><@liferay.language key="menu" /></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>

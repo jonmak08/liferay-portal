@@ -55,7 +55,7 @@
 		<#if !stringUtil.equals(portlet_display.getPortletDecoratorId(), "barebone")>
 			<h2 class="portlet-title-text">${portlet_title}</h2>
 		</#if>
-		
+
 		${portlet_display.writeContent(writer)}
 	</div>
 </section>

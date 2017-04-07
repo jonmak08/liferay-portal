@@ -5,10 +5,10 @@
 }
 
 a.thumbnail {
-	border-width:0;
+	border-width: 0;
 
 	&:hover, &:focus, &.active {
-		border-width:0;
+		border-width: 0;
 	}
 }
 
@@ -20,7 +20,7 @@ a.thumbnail {
 	}
 }
 
-.carousel-inner >.item {
+.carousel-inner > .item {
 	> a > img, > img {
 		width: 100%;
 	}
