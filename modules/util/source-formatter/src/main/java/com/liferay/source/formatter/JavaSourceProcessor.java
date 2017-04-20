@@ -118,14 +118,6 @@ import java.util.regex.Pattern;
 public class JavaSourceProcessor extends BaseSourceProcessor {
 
 	@Override
-	protected String doFormat(
-			File file, String fileName, String absolutePath, String content)
-		throws Exception {
-
-		return content;
-	}
-
-	@Override
 	protected List<String> doGetFileNames() throws Exception {
 		String[] includes = getIncludes();
 
@@ -176,7 +168,9 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 		_moduleSourceChecks.add(new JavaModuleServiceProxyFactoryCheck());
 		_moduleSourceChecks.add(new JavaModuleTestCheck());
 		_moduleSourceChecks.add(
-			new JavaOSGiReferenceCheck(_getModuleFileNamesMap()));
+			new JavaOSGiReferenceCheck(
+				_getModuleFileNamesMap(),
+				getPropertyList("service.reference.util.class.names")));
 	}
 
 	@Override
@@ -249,7 +243,7 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 				fileNames = getFileNames(
 					sourceFormatterArgs.getBaseDirName() +
 						moduleRootDirLocation,
-					null, new String[0], getIncludes());
+					new String[0], getIncludes());
 
 				break;
 			}
@@ -434,8 +428,7 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 		// Find suppressions files in any child directory
 
 		List<String> moduleSuppressionsFileNames = getFileNames(
-			sourceFormatterArgs.getBaseDirName(), null, new String[0],
-			new String[] {"**/modules/**/" + fileName});
+			new String[0], new String[] {"**/modules/**/" + fileName}, true);
 
 		for (String moduleSuppressionsFileName : moduleSuppressionsFileNames) {
 			moduleSuppressionsFileName = StringUtil.replace(
@@ -623,9 +616,7 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 				sourceFormatterMessages) {
 
 			processMessage(
-				sourceFormatterMessage.getFileName(),
-				sourceFormatterMessage.getMessage(),
-				sourceFormatterMessage.getLineCount());
+				sourceFormatterMessage.getFileName(), sourceFormatterMessage);
 
 			printError(
 				sourceFormatterMessage.getFileName(),

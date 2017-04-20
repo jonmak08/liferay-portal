@@ -309,6 +309,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>DDL_RECORD_NAME</td>
+	<td>//a[@role='menuitem' and contains(.,'${key_ddlListName}')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>DEACTIVATE</td>
 	<td>//div[contains(@class,'open')]//a[@role='menuitem' and contains(.,'Deactivate')]</td>
 	<td></td>
@@ -451,6 +456,11 @@
 <tr>
 	<td>GOOGLE_DOCS</td>
 	<td>//li[contains(@class,'open')]//a[contains(.,'Google Docs')] | //div[contains(@class,'open')]//a[contains(.,'Google Docs')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>KNOWLEDGE_BASE_ARTICLE</td>
+	<td>//a[@role='menuitem' and contains(.,'Knowledge Base Article')]</td>
 	<td></td>
 </tr>
 <tr>

@@ -1479,9 +1479,45 @@ to version 1.0.36.
 - [LPS-71686]: Update the [Liferay Portal Tools Service Builder] dependency to
 version 1.0.152.
 
+## 3.3.0 - 2017-04-18
+
+### Changed
+- [LPS-67573]: Update the [Liferay Gradle Plugins Alloy Taglib] dependency to
+version 2.0.0.
+- [LPS-69139]: Update the [Liferay Gradle Plugins Soy] dependency to version
+3.1.1.
+- [LPS-70451]: Update the [Liferay Alloy Taglib] dependency to version 1.1.10.
+- [LPS-71164]: Update the [Liferay Gradle Plugins Source Formatter] dependency
+to version 1.0.119.
+- [LPS-71164]: Update the [Liferay Source Formatter] dependency to version
+1.0.386.
+- [LPS-71925]: Update the [Liferay Gradle Plugins Service Builder] dependency
+to version 1.0.37.
+- [LPS-71925]: Update the [Liferay Portal Tools Service Builder] dependency to
+version 1.0.153.
+
+## 3.3.1 - 2017-04-19
+
+### Changed
+- [LPS-72030]: Update the [Liferay Gradle Plugins Source Formatter] dependency
+to version 1.0.120.
+- [LPS-72030]: Update the [Liferay Source Formatter] dependency to version
+1.0.387.
+- [LPS-72039]: Update the [Liferay Jasper JSPC] dependency to version 1.0.10.
+
+## 3.3.2 - 2017-04-20
+
+### Changed
+- [LPS-72030]: Update the [Liferay Gradle Plugins Source Formatter] dependency
+to version 1.0.121.
+- [LPS-72030]: Update the [Liferay Source Formatter] dependency to version
+1.0.388.
+
 [Gradle Bundle Plugin]: https://github.com/TomDmitriev/gradle-bundle-plugin
+[Liferay Alloy Taglib]: https://github.com/liferay/alloy-taglibs
 [Liferay Ant BND]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/ant-bnd
 [Liferay CSS Builder]: https://github.com/liferay/liferay-portal/tree/master/modules/util/css-builder
+[Liferay Gradle Plugins Alloy Taglib]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-alloy-taglib
 [Liferay Gradle Plugins CSS Builder]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-css-builder
 [Liferay Gradle Plugins DB Support]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-db-support
 [Liferay Gradle Plugins Gulp]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-gulp
@@ -1611,4 +1647,7 @@ version 1.0.152.
 [LPS-71686]: https://issues.liferay.com/browse/LPS-71686
 [LPS-71722]: https://issues.liferay.com/browse/LPS-71722
 [LPS-71826]: https://issues.liferay.com/browse/LPS-71826
+[LPS-71925]: https://issues.liferay.com/browse/LPS-71925
+[LPS-72030]: https://issues.liferay.com/browse/LPS-72030
+[LPS-72039]: https://issues.liferay.com/browse/LPS-72039
 [LRDOCS-3023]: https://issues.liferay.com/browse/LRDOCS-3023

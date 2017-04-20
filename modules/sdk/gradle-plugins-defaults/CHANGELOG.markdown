@@ -1348,9 +1348,9 @@ OSGi project snapshot with the `install` and `uploadArchives` tasks.
 - [LPS-64098]: Update the [Liferay Gradle Plugins] dependency to version 3.2.37.
 
 ### Fixed
-- [LPS-71795]: Fix [Gradle issue](https://github.com/gradle/gradle/issues/1094)
-when executing the `findbugsMain` task on OSGi modules that include resource
-files.
+- [LPS-71795]: Fix the [Gradle issue](https://github.com/gradle/gradle/issues/1094)
+that occurs when executing the `findbugsMain` task on OSGi modules that include
+resource files.
 
 ## 3.5.17 - 2017-04-11
 
@@ -1358,7 +1358,7 @@ files.
 - [LPS-71826]: Update the [Liferay Gradle Plugins] dependency to version 3.2.38.
 
 ### Fixed
-- [LPS-71795]: Generalize [Gradle issue](https://github.com/gradle/gradle/issues/1094)
+- [LPS-71795]: Generalize the [Gradle issue](https://github.com/gradle/gradle/issues/1094)
 fix for all tasks of type `FindBugs` related to source sets.
 
 ## 3.5.18 - 2017-04-12
@@ -1379,6 +1379,24 @@ version in external files to the latest snapshot.
 
 ### Changed
 - [LPS-71686]: Update the [Liferay Gradle Plugins] dependency to version 3.2.41.
+
+## 3.6.2 - 2017-04-18
+
+### Changed
+- [LPS-70451]: Update the [Liferay Gradle Plugins] dependency to version 3.3.0.
+
+### Fixed
+- [LPS-71901]: Fix wrong caching logic in `ReplaceRegexTask`.
+
+## 3.6.3 - 2017-04-19
+
+### Changed
+- [LPS-72039]: Update the [Liferay Gradle Plugins] dependency to version 3.3.1.
+
+## 3.6.4 - 2017-04-20
+
+### Changed
+- [LPS-72030]: Update the [Liferay Gradle Plugins] dependency to version 3.3.2.
 
 [Liferay CDN]: https://cdn.lfrs.sl/repository.liferay.com/nexus/content/groups/public
 [Liferay Gradle Plugins]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins
@@ -1521,6 +1539,8 @@ version in external files to the latest snapshot.
 [LPS-71795]: https://issues.liferay.com/browse/LPS-71795
 [LPS-71826]: https://issues.liferay.com/browse/LPS-71826
 [LPS-71901]: https://issues.liferay.com/browse/LPS-71901
+[LPS-72030]: https://issues.liferay.com/browse/LPS-72030
+[LPS-72039]: https://issues.liferay.com/browse/LPS-72039
 [LRDOCS-2594]: https://issues.liferay.com/browse/LRDOCS-2594
 [LRDOCS-2841]: https://issues.liferay.com/browse/LRDOCS-2841
 [LRDOCS-2981]: https://issues.liferay.com/browse/LRDOCS-2981
