@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.vulcan.provider.pagination;
+package com.liferay.vulcan.provider.internal.pagination;
 
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.MapUtil;
@@ -27,11 +27,14 @@ import javax.ws.rs.ext.Provider;
 import org.apache.cxf.jaxrs.ext.ContextProvider;
 import org.apache.cxf.message.Message;
 
+import org.osgi.service.component.annotations.Component;
+
 /**
  * @author Alejandro Hernández
  * @author Carlos Sierra Andrés
  * @author Jorge Ferrer
  */
+@Component(immediate = true, property = "liferay-vulcan-context-provider=true")
 @Provider
 public class PaginationContextProvider implements ContextProvider<Pagination> {
 
@@ -44,9 +47,9 @@ public class PaginationContextProvider implements ContextProvider<Pagination> {
 			queryString);
 
 		int itemsPerPage = MapUtil.getInteger(
-			parameterMap, "itemsPerPage", _ITEMS_PER_PAGE_DEFAULT);
+			parameterMap, "per_page", _ITEMS_PER_PAGE_DEFAULT);
 		int pageNumber = MapUtil.getInteger(
-			parameterMap, "pageNumber", _PAGE_NUMBER_DEFAULT);
+			parameterMap, "page", _PAGE_NUMBER_DEFAULT);
 
 		return new DefaultPagination(itemsPerPage, pageNumber);
 	}

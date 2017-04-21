@@ -22,7 +22,7 @@ import com.liferay.portal.kernel.util.GroupThreadLocal;
 import com.liferay.vulcan.contributor.APIContributor;
 import com.liferay.vulcan.contributor.PathProvider;
 import com.liferay.vulcan.endpoint.RootEndpoint;
-import com.liferay.vulcan.resource.GroupResource;
+import com.liferay.vulcan.liferay.scope.GroupScoped;
 import com.liferay.vulcan.resource.Resource;
 
 import javax.ws.rs.NotFoundException;
@@ -74,7 +74,7 @@ public class LiferayRootEndpoint implements RootEndpoint {
 			LiferayDispatcherResource liferayDispatcherResource =
 				new LiferayDispatcherResource((PathProvider)apiContributor);
 
-			_resourceContext.initResource(liferayDispatcherResource);
+			resourceContext.initResource(liferayDispatcherResource);
 
 			return liferayDispatcherResource;
 		}
@@ -82,13 +82,13 @@ public class LiferayRootEndpoint implements RootEndpoint {
 		if (apiContributor instanceof Resource) {
 			Resource resource = (Resource)apiContributor;
 
-			if (resource instanceof GroupResource) {
-				GroupResource groupResource = (GroupResource)resource;
+			if (resource instanceof GroupScoped) {
+				GroupScoped groupScoped = (GroupScoped)resource;
 
-				groupResource.setGroupId(GroupThreadLocal.getGroupId());
+				groupScoped.setGroupId(GroupThreadLocal.getGroupId());
 			}
 
-			_resourceContext.initResource(resource);
+			resourceContext.initResource(resource);
 
 			return resource;
 		}
@@ -106,11 +106,8 @@ public class LiferayRootEndpoint implements RootEndpoint {
 	}
 
 	@Context
-	protected void setResourceContext(ResourceContext resourceContext) {
-		_resourceContext = resourceContext;
-	}
+	protected ResourceContext resourceContext;
 
-	private ResourceContext _resourceContext;
 	private ServiceTrackerMap<String, APIContributor> _serviceTrackerMap;
 
 }

@@ -16,7 +16,7 @@ package com.liferay.vulcan.application.internal.endpoint.liferay;
 
 import com.liferay.portal.kernel.util.GroupThreadLocal;
 import com.liferay.vulcan.contributor.PathProvider;
-import com.liferay.vulcan.resource.GroupResource;
+import com.liferay.vulcan.liferay.scope.GroupScoped;
 import com.liferay.vulcan.resource.Resource;
 
 import java.util.HashMap;
@@ -49,24 +49,21 @@ public class LiferayDispatcherResource implements Resource {
 
 		Resource resource = _resources.get(path);
 
-		_resourceContext.initResource(resource);
+		resourceContext.initResource(resource);
 
-		if (resource instanceof GroupResource) {
-			GroupResource groupResource = (GroupResource)resource;
+		if (resource instanceof GroupScoped) {
+			GroupScoped groupScoped = (GroupScoped)resource;
 
-			groupResource.setGroupId(GroupThreadLocal.getGroupId());
+			groupScoped.setGroupId(GroupThreadLocal.getGroupId());
 		}
 
 		return resource;
 	}
 
 	@Context
-	protected void setResourceContext(ResourceContext resourceContext) {
-		_resourceContext = resourceContext;
-	}
+	protected ResourceContext resourceContext;
 
 	private final PathProvider _pathProvider;
-	private ResourceContext _resourceContext;
 	private final Map<String, Resource> _resources = new HashMap<>();
 
 }
