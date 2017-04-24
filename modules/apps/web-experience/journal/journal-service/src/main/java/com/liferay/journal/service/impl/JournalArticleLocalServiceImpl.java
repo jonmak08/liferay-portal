@@ -2138,7 +2138,7 @@ public class JournalArticleLocalServiceImpl
 
 		Date displayDate = article.getDisplayDate();
 
-		if (displayDate.after(now)) {
+		if ((displayDate != null) && displayDate.after(now)) {
 			return null;
 		}
 
@@ -5796,15 +5796,15 @@ public class JournalArticleLocalServiceImpl
 				article.getLayoutUuid(), 0, 0, priority);
 		}
 		else {
+			JournalArticleResource journalArticleResource =
+				journalArticleResourceLocalService.getArticleResource(
+					article.getResourcePrimKey());
+
 			Date publishDate = null;
 
 			if (article.isApproved()) {
 				publishDate = article.getDisplayDate();
 			}
-
-			JournalArticleResource journalArticleResource =
-				journalArticleResourceLocalService.getArticleResource(
-					article.getResourcePrimKey());
 
 			assetEntry = assetEntryLocalService.updateEntry(
 				userId, article.getGroupId(), article.getCreateDate(),

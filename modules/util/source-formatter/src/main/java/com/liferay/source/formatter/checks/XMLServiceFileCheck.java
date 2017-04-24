@@ -39,13 +39,9 @@ import org.dom4j.Element;
 public class XMLServiceFileCheck extends BaseFileCheck {
 
 	public XMLServiceFileCheck(
-		List<String> excludes, boolean portalSource, boolean subrepository,
 		String portalTablesContent,
 		List<String> pluginsInsideModulesDirectoryNames) {
 
-		_excludes = excludes;
-		_portalSource = portalSource;
-		_subrepository = subrepository;
 		_portalTablesContent = portalTablesContent;
 		_pluginsInsideModulesDirectoryNames =
 			pluginsInsideModulesDirectoryNames;
@@ -86,7 +82,10 @@ public class XMLServiceFileCheck extends BaseFileCheck {
 				serviceFinderColumnElementComparator =
 					new ServiceFinderColumnElementComparator(columnNames);
 
-			if (!isExcludedPath(_excludes, absolutePath, entityName)) {
+			if (!isExcludedPath(
+					_SERVICE_FINDER_COLUMN_SORT_EXCLUDES, absolutePath,
+					entityName)) {
+
 				for (Element finderElement :
 						(List<Element>)entityElement.elements("finder")) {
 
@@ -159,10 +158,8 @@ public class XMLServiceFileCheck extends BaseFileCheck {
 	private String _getTablesContent(String fileName, String absolutePath)
 		throws Exception {
 
-		if (_portalSource &&
-			!isModulesFile(
-				absolutePath, _subrepository,
-				_pluginsInsideModulesDirectoryNames)) {
+		if (isPortalSource() &&
+			!isModulesFile(absolutePath, _pluginsInsideModulesDirectoryNames)) {
 
 			return _portalTablesContent;
 		}
@@ -190,11 +187,11 @@ public class XMLServiceFileCheck extends BaseFileCheck {
 		return tablesContent;
 	}
 
-	private final List<String> _excludes;
+	private static final String _SERVICE_FINDER_COLUMN_SORT_EXCLUDES =
+		"service.finder.column.sort.excludes";
+
 	private final List<String> _pluginsInsideModulesDirectoryNames;
-	private final boolean _portalSource;
 	private final String _portalTablesContent;
-	private final boolean _subrepository;
 
 	private class ServiceExceptionElementComparator extends ElementComparator {
 

@@ -190,6 +190,16 @@
 			<var name="portlet" value="Adaptive Media" />
 		</execute>
 
+		<execute macro="AdaptiveMedia#optimizeRemainingImages">
+			<var name="imageName" value="Small Image Variant" />
+			<var name="percentOptimized" value="100" />
+		</execute>
+
+		<execute macro="AdaptiveMedia#optimizeRemainingImages">
+			<var name="imageName" value="Large Image Variant" />
+			<var name="percentOptimized" value="100" />
+		</execute>
+
 		<execute macro="AdaptiveMedia#viewImageResolutionTableEntry">
 			<var name="imageName" value="Small Image Variant" />
 			<var name="maxHeight" value="100" />
@@ -223,13 +233,7 @@
 		<execute function="Pause" locator1="2000" />
 
 		<execute macro="AdaptiveMedia#viewImageVariantURL">
-			<var name="dmDocumentTitle" value="high_resolution_photo.jpg" />
-			<var name="imageName" value="large-image-variant" />
-		</execute>
-
-		<execute macro="AdaptiveMedia#viewImageVariantURL">
-			<var name="dmDocumentTitle" value="high_resolution_photo.jpg" />
-			<var name="imageName" value="small-image-variant" />
+			<var name="imageName" value="high_resolution_photo.jpg" />
 		</execute>
 
 		<execute macro="Button#clickPublish" />

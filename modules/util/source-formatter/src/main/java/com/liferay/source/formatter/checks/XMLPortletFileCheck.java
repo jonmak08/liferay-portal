@@ -30,23 +30,15 @@ import org.dom4j.Element;
  */
 public class XMLPortletFileCheck extends BaseFileCheck {
 
-	public XMLPortletFileCheck(
-		List<String> excludes, boolean portalSource, boolean subrepository) {
-
-		_excludes = excludes;
-		_portalSource = portalSource;
-		_subrepository = subrepository;
-	}
-
 	@Override
 	protected String doProcess(
 			String fileName, String absolutePath, String content)
 		throws Exception {
 
 		if (fileName.endsWith("/liferay-portlet.xml") ||
-			((_portalSource || _subrepository) &&
+			((isPortalSource() || isSubrepository()) &&
 			 fileName.endsWith("/portlet-custom.xml")) ||
-			(!_portalSource && !_subrepository &&
+			(!isPortalSource() && !isSubrepository() &&
 			 fileName.endsWith("/portlet.xml"))) {
 
 			content = _formatPortletXML(fileName, absolutePath, content);
@@ -64,7 +56,7 @@ public class XMLPortletFileCheck extends BaseFileCheck {
 		Element rootElement = document.getRootElement();
 
 		boolean checkNumericalPortletNameElement = !isExcludedPath(
-			_excludes, absolutePath);
+			_NUMERICAL_PORTLET_NAME_ELEMENT_EXCLUDES, absolutePath);
 
 		List<Element> portletElements = rootElement.elements("portlet");
 
@@ -103,8 +95,7 @@ public class XMLPortletFileCheck extends BaseFileCheck {
 			Dom4jUtil.toString(document), "\"/>\n", "\" />\n");
 	}
 
-	private final List<String> _excludes;
-	private final boolean _portalSource;
-	private final boolean _subrepository;
+	private static final String _NUMERICAL_PORTLET_NAME_ELEMENT_EXCLUDES =
+		"numerical.portlet.name.element.excludes";
 
 }

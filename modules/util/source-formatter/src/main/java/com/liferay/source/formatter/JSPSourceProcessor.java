@@ -42,6 +42,7 @@ import com.liferay.source.formatter.checks.JSPModuleIllegalImportsCheck;
 import com.liferay.source.formatter.checks.JSPRedirectBackURLCheck;
 import com.liferay.source.formatter.checks.JSPSendRedirectCheck;
 import com.liferay.source.formatter.checks.JSPSessionKeysCheck;
+import com.liferay.source.formatter.checks.JSPStringBundlerCheck;
 import com.liferay.source.formatter.checks.JSPStringMethodsCheck;
 import com.liferay.source.formatter.checks.JSPStylingCheck;
 import com.liferay.source.formatter.checks.JSPSubnameCheck;
@@ -57,7 +58,6 @@ import com.liferay.source.formatter.checks.PrimitiveWrapperInstantiationCheck;
 import com.liferay.source.formatter.checks.PrincipalExceptionCheck;
 import com.liferay.source.formatter.checks.ResourceBundleCheck;
 import com.liferay.source.formatter.checks.SourceCheck;
-import com.liferay.source.formatter.checks.StringBundlerCheck;
 import com.liferay.source.formatter.checks.StringUtilCheck;
 import com.liferay.source.formatter.checks.UnparameterizedClassCheck;
 import com.liferay.source.formatter.checks.ValidatorEqualsCheck;
@@ -150,49 +150,39 @@ public class JSPSourceProcessor extends BaseSourceProcessor {
 		_sourceChecks.add(new GetterUtilCheck());
 		_sourceChecks.add(new JSPButtonTagCheck());
 		_sourceChecks.add(
-			new JSPDefineObjectsCheck(
-				portalSource, subrepository,
-				getPluginsInsideModulesDirectoryNames()));
+			new JSPDefineObjectsCheck(getPluginsInsideModulesDirectoryNames()));
 		_sourceChecks.add(new JSPEmptyLinesCheck());
 		_sourceChecks.add(new JSPExceptionOrderCheck());
 		_sourceChecks.add(new JSPIfStatementCheck());
-		_sourceChecks.add(new JSPImportsCheck(portalSource, subrepository));
+		_sourceChecks.add(new JSPImportsCheck());
 		_sourceChecks.add(new JSPIncludeCheck());
 		_sourceChecks.add(new JSPIndentationCheck());
 		_sourceChecks.add(new JSPLanguageUtilCheck());
-		_sourceChecks.add(new JSPLogFileNameCheck(subrepository));
+		_sourceChecks.add(new JSPLogFileNameCheck());
 		_sourceChecks.add(new JSPRedirectBackURLCheck());
 		_sourceChecks.add(new JSPSendRedirectCheck());
 		_sourceChecks.add(new JSPSessionKeysCheck());
+		_sourceChecks.add(new JSPStringBundlerCheck());
 		_sourceChecks.add(new JSPStylingCheck());
 		_sourceChecks.add(new JSPSubnameCheck());
 		_sourceChecks.add(
 			new JSPTagAttributesCheck(
-				portalSource, subrepository,
 				_getPrimitiveTagAttributeDataTypes(), _getTagJavaClassesMap()));
 		_sourceChecks.add(new JSPTaglibVariableCheck());
 		_sourceChecks.add(new JSPUnusedImportCheck(_contentsMap));
 		_sourceChecks.add(new JSPXSSVulnerabilitiesCheck());
-		_sourceChecks.add(
-			new MethodCallsOrderCheck(getExcludes(METHOD_CALL_SORT_EXCLUDES)));
+		_sourceChecks.add(new MethodCallsOrderCheck());
 		_sourceChecks.add(new PrimitiveWrapperInstantiationCheck());
 		_sourceChecks.add(new PrincipalExceptionCheck());
-		_sourceChecks.add(new StringBundlerCheck(-1));
 		_sourceChecks.add(new StringUtilCheck());
 		_sourceChecks.add(new UnparameterizedClassCheck());
 		_sourceChecks.add(new ValidatorEqualsCheck());
 
 		if (portalSource || subrepository) {
-			_sourceChecks.add(
-				new JSPStringMethodsCheck(
-					getExcludes(RUN_OUTSIDE_PORTAL_EXCLUDES)));
+			_sourceChecks.add(new JSPStringMethodsCheck());
 			_sourceChecks.add(new JSPUnusedTaglibCheck(_contentsMap));
-			_sourceChecks.add(
-				new JSPUnusedVariableCheck(
-					getExcludes(_UNUSED_VARIABLES_EXCLUDES), _contentsMap));
-			_sourceChecks.add(
-				new ResourceBundleCheck(
-					getExcludes(RUN_OUTSIDE_PORTAL_EXCLUDES)));
+			_sourceChecks.add(new JSPUnusedVariableCheck(_contentsMap));
+			_sourceChecks.add(new ResourceBundleCheck());
 		}
 		else {
 			if (GetterUtil.getBoolean(
@@ -205,9 +195,7 @@ public class JSPSourceProcessor extends BaseSourceProcessor {
 
 		if (portalSource) {
 			_sourceChecks.add(
-				new JSPLanguageKeysCheck(
-					getExcludes(LANGUAGE_KEYS_CHECK_EXCLUDES),
-					getPortalLanguageProperties()));
+				new JSPLanguageKeysCheck(getPortalLanguageProperties()));
 		}
 	}
 
@@ -372,9 +360,6 @@ public class JSPSourceProcessor extends BaseSourceProcessor {
 
 	private static final String[] _INCLUDES =
 		new String[] {"**/*.jsp", "**/*.jspf", "**/*.tpl", "**/*.vm"};
-
-	private static final String _UNUSED_VARIABLES_EXCLUDES =
-		"jsp.unused.variables.excludes";
 
 	private Map<String, String> _contentsMap;
 	private final Pattern _includeFilePattern = Pattern.compile(

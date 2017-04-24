@@ -30,13 +30,7 @@ import java.util.List;
  */
 public class JavaTermOrderCheck extends BaseJavaTermCheck {
 
-	public JavaTermOrderCheck(
-		List<String> excludes, boolean portalSource, boolean subrepository,
-		String portalCustomSQLContent) {
-
-		_excludes = excludes;
-		_portalSource = portalSource;
-		_subrepository = subrepository;
+	public JavaTermOrderCheck(String portalCustomSQLContent) {
 		_portalCustomSQLContent = portalCustomSQLContent;
 	}
 
@@ -73,7 +67,7 @@ public class JavaTermOrderCheck extends BaseJavaTermCheck {
 	private String _getCustomSQLContent(String fileName, String absolutePath)
 		throws Exception {
 
-		if (_portalSource && !isModulesFile(absolutePath, _subrepository)) {
+		if (isPortalSource() && !isModulesFile(absolutePath)) {
 			return _portalCustomSQLContent;
 		}
 
@@ -138,9 +132,11 @@ public class JavaTermOrderCheck extends BaseJavaTermCheck {
 				addMessage(fileName, "Duplicate " + javaTerm.getName());
 			}
 			else if (!isExcludedPath(
-						_excludes, absolutePath, previousJavaTerm.getName()) &&
+						JAVATERM_SORT_EXCLUDES, absolutePath,
+						previousJavaTerm.getName()) &&
 					 !isExcludedPath(
-						 _excludes, absolutePath, javaTerm.getName()) &&
+						 JAVATERM_SORT_EXCLUDES, absolutePath,
+						 javaTerm.getName()) &&
 					 (compare > 0)) {
 
 				String classContent = javaClass.getContent();
@@ -162,9 +158,6 @@ public class JavaTermOrderCheck extends BaseJavaTermCheck {
 		return javaClass.getContent();
 	}
 
-	private final List<String> _excludes;
 	private final String _portalCustomSQLContent;
-	private final boolean _portalSource;
-	private final boolean _subrepository;
 
 }

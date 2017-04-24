@@ -14,7 +14,6 @@
 
 package com.liferay.source.formatter.checks;
 
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,15 +22,11 @@ import java.util.regex.Pattern;
  */
 public class StringMethodsCheck extends BaseFileCheck {
 
-	public StringMethodsCheck(List<String> excludes) {
-		_excludes = excludes;
-	}
-
 	@Override
 	protected String doProcess(
 		String fileName, String absolutePath, String content) {
 
-		if (isExcludedPath(_excludes, absolutePath)) {
+		if (isExcludedPath(RUN_OUTSIDE_PORTAL_EXCLUDES, absolutePath)) {
 			return content;
 		}
 
@@ -65,7 +60,5 @@ public class StringMethodsCheck extends BaseFileCheck {
 			}
 		}
 	}
-
-	private final List<String> _excludes;
 
 }
