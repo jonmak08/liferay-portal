@@ -11,6 +11,14 @@
 
 	<@liferay_util["include"] page=top_head_include />
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+	
+	<#if font_awesome_url!="">
+	<script src="${font_awesome_url}"></script>
+	</#if>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1,0"/>
+
 </head>
 
 <body class="${css_class}">
@@ -55,26 +63,8 @@
 	//-->
 
 	<header id="banner" role="banner">
-		<div class="parallaximagespacer">
-			<!--
-			<div style="background-image: url('${theme.getSetting("bannerimage")}'); background-size: cover; background-repeat: no-repeat; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit; z-index: 0; position: absolute; left: 0; top: 0; border: 4px solid magenta;">
-			//-->
-			<!--
-			<div style="background-image: url('${banner_img}'); background-size: cover; background-repeat: no-repeat; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit; z-index: 0; position: absolute; left: 0; top: 0; border: 4px solid magenta;">
-			//-->
-			<div style="background-image: url('${theme_settings["bannerimage"]}'); background-size: cover; background-repeat: no-repeat; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit; z-index: 0; position: absolute; left: 0; top: 0;">
-<!--	
-			<h1>theme.getSetting("bannerimage")=${theme.getSetting("bannerimage")}</h1>
-			<h1>themeDisplay.getThemeSetting("bannerimage")=${themeDisplay.getThemeSetting("bannerimage")}</h1>
-			<h1>theme_settings["bannerimage"]=${theme_settings["bannerimage"]}</h1>
-			<h1>dummy, from database: ${theme.getSetting("dummy")}</h1>
-			<h1>dummy, more current: ${themeDisplay.getThemeSetting("dummy")}</h1>
-			<h1>associative array: ${theme_settings["dummy"]}</h1>
-//-->
-		<!--
-		<h1>lorem ipsum or whatever</h1>
-		//-->
-				
+		<div class="parallaximagespacer" align="center" width="100%">
+			<div style="background-image: url('${theme_settings["bannerimage"]}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit; z-index: 0; position: absolute; left: 0; top: 0;">
 			</div>
 		</div>
 	</header>
@@ -107,10 +97,7 @@
 //-->
 
 	<section id="content">
-<!--
-		<div class="parallaximagespacer">
-		</div>
-//-->
+<!-- Take out to match the original site
 		<div>
 			<h1 class="site-title">
 				<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
@@ -124,13 +111,13 @@
 				</#if>
 			</h1>
 		</div>
-
+//-->
 		<#if !is_signed_in>
 			<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
 		</#if>
 
 		<#if has_navigation && is_setup_complete>
-			<#include "${full_templates_path}/navigation.ftl" />
+			<div class="nav-text" align="center"><#include "${full_templates_path}/navigation.ftl" /></div>
 		</#if>
 
 
@@ -154,9 +141,13 @@
 	</section>
 
 	<footer id="footer" role="contentinfo">
+		<p>${social_media}</p>
+		<p>${copyright} • ${physical_address} • ${telephone}</p>
+		<#if show_powered_by > 
 		<p class="powered-by">
 			<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
 		</p>
+		</#if>
 	</footer>
 </div>
 
