@@ -16,6 +16,8 @@ package com.liferay.source.formatter.checks;
 
 import com.liferay.source.formatter.SourceFormatterMessage;
 
+import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 
 /**
@@ -23,7 +25,26 @@ import java.util.Set;
  */
 public interface SourceCheck {
 
-	public Set<SourceFormatterMessage> getSourceFormatterMessage(
+	public Set<SourceFormatterMessage> getSourceFormatterMessages(
 		String fileName);
+
+	public void init() throws Exception;
+
+	public void setAllFileNames(List<String> allFileNames);
+
+	public void setBaseDirName(String baseDirName);
+
+	public void setExcludes(String[] excludes);
+
+	public void setMaxLineLength(int maxLineLength);
+
+	public void setPluginsInsideModulesDirectoryNames(
+		List<String> pluginsInsideModulesDirectoryNames);
+
+	public void setPortalSource(boolean portalSource);
+
+	public void setProperties(Properties properties);
+
+	public void setSubrepository(boolean subrepository);
 
 }

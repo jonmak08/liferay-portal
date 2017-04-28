@@ -1,12 +1,4 @@
 <definition>
-	<command name="_gotoAddPGViaAP">
-		<execute function="Click#makeVisibleClickAt" locator1="AP#ADD_ASSET_PLUS_ICON" />
-
-		<execute function="AssertClick" locator1="MenuItem#BASIC_WEB_CONTENT" value1="Basic Web Content" />
-
-		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
-	</command>
-
 	<command name="_gotoAddPGViaWCD">
 		<execute function="Click#makeVisibleClickAt" locator1="WCD#ADD_WEB_CONTENT" />
 
@@ -53,7 +45,9 @@
 	</command>
 
 	<command name="addDraftPGViaAP">
-		<execute macro="WebContent#_gotoAddPGViaAP" />
+		<execute macro="AssetPublisherPortlet#addAsset">
+			<var name="assetType" value="Basic Web Content" />
+		</execute>
 
 		<execute macro="WebContent#addCP">
 			<var name="webContentContent" value="${webContentContent}" />
@@ -172,8 +166,8 @@
 			<var name="panelHeading" value="Presentation Settings" />
 		</execute>
 
-		<execute function="Select#select" locator1="Select#FEED_ITEM_CONTENT" value1="${feedContent}" />
-		<execute function="Select#select" locator1="Select#FEED_TYPE" value1="${feedType}" />
+		<execute function="Select" locator1="Select#FEED_ITEM_CONTENT" value1="${feedContent}" />
+		<execute function="Select" locator1="Select#FEED_TYPE" value1="${feedType}" />
 
 		<execute macro="PortletEntry#save" />
 	</command>
@@ -228,7 +222,9 @@
 	</command>
 
 	<command name="addPGViaAP">
-		<execute macro="WebContent#_gotoAddPGViaAP" />
+		<execute macro="AssetPublisherPortlet#addAsset">
+			<var name="assetType" value="Basic Web Content" />
+		</execute>
 
 		<execute macro="WebContent#addCP">
 			<var name="webContentContent" value="${webContentContent}" />
@@ -383,7 +379,15 @@
 
 		<execute function="AssertClickNoError" locator1="DDMSelectStructure#DDM_STRUCTURE_TABLE_NAME_LINK" value1="${structureName}" />
 
-		<execute function="Confirm#assertConfirmationNoWait" value1="Selecting a new structure changes the available input fields and available templates. Do you want to proceed?" />
+		<toggle name="LPS-70946">
+			<off>
+				<execute function="Confirm#assertConfirmationNoWait" value1="Selecting a new structure changes the available input fields and available templates. Do you want to proceed?" />
+			</off>
+
+			<on>
+				<execute function="Confirm#assertConfirmationNoWait" value1="Selecting a new structure deletes all unsaved content. Do you want to proceed?" />
+			</on>
+		</toggle>
 
 		<execute function="SelectFrame" value1="relative=top" />
 
@@ -727,7 +731,7 @@
 			<var name="rowEntry" value="${webContentTitle}" />
 		</execute>
 
-		<execute macro="PortletEntry#publish" />
+		<execute macro="Alert#viewSuccessMessage" />
 	</command>
 
 	<command name="deleteCP">

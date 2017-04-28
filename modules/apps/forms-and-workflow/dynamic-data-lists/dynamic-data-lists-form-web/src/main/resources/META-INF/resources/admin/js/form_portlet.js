@@ -68,6 +68,10 @@ AUI.add(
 						value: ''
 					},
 
+					getFunctionsURL: {
+						value: ''
+					},
+
 					getRolesURL: {
 						value: ''
 					},
@@ -429,12 +433,10 @@ AUI.add(
 					_afterAutosave: function(event) {
 						var instance = this;
 
-						var modifiedDate = new Date(event.modifiedDate);
-
 						var autosaveMessage = A.Lang.sub(
 							Liferay.Language.get('draft-saved-on-x'),
 							[
-								modifiedDate
+								event.modifiedDate
 							]
 						);
 
@@ -771,6 +773,8 @@ AUI.add(
 								functionsMetadata: instance.get('functionsMetadata'),
 								getDataProviderInstancesURL: instance.get('getDataProviderInstancesURL'),
 								getDataProviderParametersSettingsURL: instance.get('getDataProviderParametersSettingsURL'),
+								getFunctionsURL: instance.get('getFunctionsURL'),
+								getRolesURL: instance.get('getRolesURL'),
 								portletNamespace: instance.get('namespace'),
 								rules: instance.get('rules'),
 								visible: false

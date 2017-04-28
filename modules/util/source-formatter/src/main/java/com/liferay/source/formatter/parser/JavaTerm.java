@@ -19,6 +19,17 @@ package com.liferay.source.formatter.parser;
  */
 public interface JavaTerm {
 
+	public static final String ACCESS_MODIFIER_PRIVATE = "private";
+
+	public static final String ACCESS_MODIFIER_PROTECTED = "protected";
+
+	public static final String ACCESS_MODIFIER_PUBLIC = "public";
+
+	public static final String[] ACCESS_MODIFIERS = {
+		ACCESS_MODIFIER_PRIVATE, ACCESS_MODIFIER_PROTECTED,
+		ACCESS_MODIFIER_PUBLIC
+	};
+
 	public String getAccessModifier();
 
 	public String getContent();
@@ -26,6 +37,10 @@ public interface JavaTerm {
 	public String getName();
 
 	public JavaClass getParentJavaClass();
+
+	public JavaSignature getSignature();
+
+	public boolean hasAnnotation(String annotation);
 
 	public boolean isStatic();
 

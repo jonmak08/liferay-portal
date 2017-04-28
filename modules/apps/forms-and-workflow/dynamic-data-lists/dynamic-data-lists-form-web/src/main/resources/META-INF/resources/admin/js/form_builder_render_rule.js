@@ -20,6 +20,14 @@ AUI.add(
 						value: []
 					},
 
+					getFunctionsURL: {
+						value: ''
+					},
+
+					getRoles: {
+						value: []
+					},
+
 					logicOperator: {
 						setter: function(val) {
 							return val.toUpperCase();
@@ -43,6 +51,7 @@ AUI.add(
 							calculate: Liferay.Language.get('calculate'),
 							cancel: Liferay.Language.get('cancel'),
 							description: Liferay.Language.get('define-condition-and-action-to-change-fields-and-elements-on-the-form'),
+							do: Liferay.Language.get('do'),
 							enable: Liferay.Language.get('enable'),
 							if: Liferay.Language.get('if'),
 							jumpToPage: Liferay.Language.get('jump-to-page'),
@@ -78,6 +87,7 @@ AUI.add(
 								fields: instance.get('fields'),
 								getDataProviderParametersSettingsURL: instance.get('getDataProviderParametersSettingsURL'),
 								getDataProviders: instance.get('getDataProviders'),
+								getFunctionsURL: instance.get('getFunctionsURL'),
 								pages: instance.get('pages'),
 								portletNamespace: instance.get('portletNamespace')
 							}
@@ -288,7 +298,7 @@ AUI.add(
 							if (!!conditionKey.match('-condition-second-operand-select') || !!conditionKey.match('-condition-first-operand')) {
 								var fieldName = instance._conditions[conditionKey].getValue();
 
-								if (fieldName) {
+								if (fieldName && fieldName != 'user') {
 									fields.push(instance._getFieldPageIndex(fieldName));
 								}
 							}
@@ -306,7 +316,11 @@ AUI.add(
 							}
 						);
 
-						return field.dataType;
+						if (field) {
+							return field.dataType;
+						}
+
+						return fieldName.toLowerCase();
 					},
 
 					_getFieldPageIndex: function(fieldName) {
@@ -395,10 +409,13 @@ AUI.add(
 
 						var actionTemplateRenderer = SoyTemplateUtil.getTemplateRenderer('ddl.rule.action');
 
+						var strings = instance.get('strings');
+
 						actionListNode.append(
 							actionTemplateRenderer(
 								{
 									deleteIcon: Liferay.Util.getLexiconIconTpl('trash', 'icon-monospaced'),
+									do: strings.do,
 									index: index
 								}
 							)

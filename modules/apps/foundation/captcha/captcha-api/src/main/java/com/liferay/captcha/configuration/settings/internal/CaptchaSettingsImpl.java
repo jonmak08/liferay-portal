@@ -49,8 +49,8 @@ public class CaptchaSettingsImpl implements CaptchaSettings {
 	}
 
 	@Override
-	public String getReCaptchaNoScriptUrl() {
-		return _captchaConfiguration.reCaptchaNoScriptUrl();
+	public String getReCaptchaNoScriptURL() {
+		return _captchaConfiguration.reCaptchaNoScriptURL();
 	}
 
 	@Override
@@ -64,13 +64,13 @@ public class CaptchaSettingsImpl implements CaptchaSettings {
 	}
 
 	@Override
-	public String getReCaptchaScriptUrl() {
-		return _captchaConfiguration.reCaptchaScriptUrl();
+	public String getReCaptchaScriptURL() {
+		return _captchaConfiguration.reCaptchaScriptURL();
 	}
 
 	@Override
-	public String getReCaptchaVerifyUrl() {
-		return _captchaConfiguration.reCaptchaVerifyUrl();
+	public String getReCaptchaVerifyURL() {
+		return _captchaConfiguration.reCaptchaVerifyURL();
 	}
 
 	@Override
@@ -133,7 +133,11 @@ public class CaptchaSettingsImpl implements CaptchaSettings {
 		Configuration configuration = _configurationAdmin.getConfiguration(
 			"com.liferay.captcha.configuration.CaptchaConfiguration");
 
-		Dictionary<String, Object> properties = new Hashtable<>();
+		Dictionary<String, Object> properties = configuration.getProperties();
+
+		if (properties == null) {
+			properties = new Hashtable<>();
+		}
 
 		properties.put("captchaEngine", className);
 

@@ -55,7 +55,6 @@ import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.MathUtil;
@@ -70,6 +69,7 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.SubscriptionSender;
 import com.liferay.portal.kernel.util.TempFileEntryUtil;
+import com.liferay.portal.kernel.util.URLCodec;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -596,12 +596,11 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 
 		// Resource
 
-		WikiPageResource pageResource =
-			wikiPageResourceLocalService.fetchPageResource(
-				page.getNodeId(), page.getTitle());
+		WikiPageResource pageResource = wikiPageResourcePersistence.fetchByN_T(
+			page.getNodeId(), page.getTitle());
 
 		if (pageResource != null) {
-			wikiPageResourceLocalService.deleteWikiPageResource(pageResource);
+			wikiPageResourcePersistence.remove(pageResource);
 		}
 
 		// Attachments
@@ -878,7 +877,7 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 	@Override
 	public WikiPage fetchPage(long resourcePrimKey) {
 		WikiPageResource pageResource =
-			wikiPageResourceLocalService.fetchWikiPageResource(resourcePrimKey);
+			wikiPageResourcePersistence.fetchByPrimaryKey(resourcePrimKey);
 
 		if (pageResource == null) {
 			return null;
@@ -1164,7 +1163,7 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 		throws PortalException {
 
 		WikiPageResource pageResource =
-			wikiPageResourceLocalService.getPageResource(resourcePrimKey);
+			wikiPageResourcePersistence.findByPrimaryKey(resourcePrimKey);
 
 		return getPage(pageResource.getNodeId(), pageResource.getTitle(), head);
 	}
@@ -2021,7 +2020,7 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 		throws PortalException {
 
 		WikiPageResource pageResource =
-			wikiPageResourceLocalService.getPageResource(resourcePrimKey);
+			wikiPageResourcePersistence.findByPrimaryKey(resourcePrimKey);
 
 		List<WikiPage> pages = wikiPagePersistence.findByN_T(
 			pageResource.getNodeId(), pageResource.getTitle(), 0, 1,
@@ -2427,7 +2426,7 @@ public class WikiPageLocalServiceImpl extends WikiPageLocalServiceBaseImpl {
 		if (Validator.isNotNull(layoutFullURL)) {
 			return layoutFullURL + Portal.FRIENDLY_URL_SEPARATOR + "wiki/" +
 				page.getNodeId() + StringPool.SLASH +
-					HttpUtil.encodeURL(
+					URLCodec.encodeURL(
 						WikiEscapeUtil.escapeName(page.getTitle()));
 		}
 		else {

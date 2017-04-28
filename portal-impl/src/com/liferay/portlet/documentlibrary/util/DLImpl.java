@@ -73,6 +73,7 @@ import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.URLCodec;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -81,6 +82,7 @@ import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.documentlibrary.webdav.DLWebDAVUtil;
 import com.liferay.registry.collections.ServiceTrackerCollections;
 import com.liferay.registry.collections.ServiceTrackerList;
+import com.liferay.sites.kernel.util.SitesFriendlyURLAdapterUtil;
 import com.liferay.trash.kernel.util.TrashUtil;
 
 import java.io.Serializable;
@@ -571,10 +573,10 @@ public class DLImpl implements DL {
 			fileName = TrashUtil.getOriginalTitle(fileEntry.getFileName());
 		}
 
-		sb.append(HttpUtil.encodeURL(HtmlUtil.unescape(fileName)));
+		sb.append(URLCodec.encodeURL(HtmlUtil.unescape(fileName)));
 
 		sb.append(StringPool.SLASH);
-		sb.append(HttpUtil.encodeURL(fileEntry.getUuid()));
+		sb.append(URLCodec.encodeURL(fileEntry.getUuid()));
 
 		if (appendVersion) {
 			sb.append("?version=");
@@ -906,7 +908,9 @@ public class DLImpl implements DL {
 			group = themeDisplay.getScopeGroup();
 		}
 
-		webDavURL.append(group.getFriendlyURL());
+		webDavURL.append(
+			SitesFriendlyURLAdapterUtil.getSiteFriendlyURL(
+				group.getGroupId(), themeDisplay.getLocale()));
 		webDavURL.append("/document_library");
 
 		StringBuilder sb = new StringBuilder();
@@ -918,7 +922,7 @@ public class DLImpl implements DL {
 			Folder curFolder = folder;
 
 			while (true) {
-				sb.insert(0, HttpUtil.encodeURL(curFolder.getName(), true));
+				sb.insert(0, URLCodec.encodeURL(curFolder.getName(), true));
 				sb.insert(0, StringPool.SLASH);
 
 				if (curFolder.getParentFolderId() ==

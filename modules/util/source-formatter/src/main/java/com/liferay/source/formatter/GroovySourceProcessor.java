@@ -23,13 +23,7 @@ import java.util.List;
 /**
  * @author Hugo Huijser
  */
-public class GroovySourceProcessor extends JavaSourceProcessor {
-
-	@Override
-	protected void checkInefficientStringMethods(
-		String line, String fileName, String absolutePath, int lineCount,
-		boolean javaSource) {
-	}
+public class GroovySourceProcessor extends BaseSourceProcessor {
 
 	@Override
 	protected List<String> doGetFileNames() throws Exception {
@@ -47,20 +41,13 @@ public class GroovySourceProcessor extends JavaSourceProcessor {
 
 	@Override
 	protected List<SourceCheck> getSourceChecks() {
-		return _sourceChecks;
-	}
+		List<SourceCheck> sourceChecks = new ArrayList<>();
 
-	@Override
-	protected void populateSourceChecks() {
-		_sourceChecks.add(new WhitespaceCheck());
-	}
+		sourceChecks.add(new WhitespaceCheck());
 
-	@Override
-	protected void postFormat() throws Exception {
+		return sourceChecks;
 	}
 
 	private static final String[] _INCLUDES = new String[] {"**/*.groovy"};
-
-	private final List<SourceCheck> _sourceChecks = new ArrayList<>();
 
 }

@@ -35,4 +35,8 @@ public class DateUtil {
 		return simpleDateFormat.format(date);
 	}
 
+	public static String getNanoseconds() {
+		return String.valueOf(System.nanoTime());
+	}
+
 }
