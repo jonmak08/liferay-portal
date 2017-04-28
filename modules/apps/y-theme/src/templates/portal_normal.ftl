@@ -82,9 +82,10 @@
 	        	}
 		    });
 	    }
-/*
 	    $w.resize(function() {
+		var winW = $(window).width();
 		var nv2 = $('.nav-side');
+		console.log("does nv2 exist?  "+nv2.length);
 		if (winW < 875){
 			$nv2.css({width: '375px',height: '100%',left: '0'});
 		}
@@ -92,9 +93,7 @@
 	        	console.log("IN HERE winW <= 875");
 			$nv2.css({width: '100%',height: '',right: '0'});
 		}
-
 	    });
-*/
 	    
 	    
 		});
@@ -183,6 +182,7 @@
 			<div class="top-menu-text">${site_name}</div>
 			<div style="float: right; padding: 20px; font-size: 20px;"><a href="javascript:openNav()"><i class="fa fa-bars" aria-hidden="true" style="color: black;"></i></a></div>
 		</div>
+<!--
 		<#if has_navigation && is_setup_complete>
 
 			<div style="display: block; border: 0px solid cyan;" class="nav-side" id="nav-side">
@@ -204,7 +204,7 @@
 				</div>
 			</div>
 		</#if>
-
+//-->
 
 
 		<div class="parallaximagespacer" align="center" width="100%">
