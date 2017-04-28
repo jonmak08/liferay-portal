@@ -182,30 +182,6 @@
 			<div class="top-menu-text">${site_name}</div>
 			<div style="float: right; padding: 20px; font-size: 20px;"><a href="javascript:openNav()"><i class="fa fa-bars" aria-hidden="true" style="color: black;"></i></a></div>
 		</div>
-<!--
-		<#if has_navigation && is_setup_complete>
-
-			<div style="display: block; border: 0px solid cyan;" class="nav-side" id="nav-side">
-				<div class="closebuttoncontainer">
-					<div class="closebutton"> 
-						<a href="javascript:closeNav()">
-						<div style="width: 100%; height: 100%; color: white; background-color: #304ffe; font-size: 18px; display: flex; justify-content: center; align-items: center;">
-							<i class="fa fa-times" aria-hidden="True"></i>
-						</div>
-						</a>
-					</div>
-				</div>
-				<div style="width: 100%; border: 0px solid yellow; position: relative; display: block;">
-					<div class="nav-align-container">
-						<p class="nav-side-text-title">${site_name}</p>
-						<#include "${full_templates_path}/navigation.ftl" />
-						<p class="nav-side-text">Keep Connected</p>
-					</div>
-				</div>
-			</div>
-		</#if>
-//-->
-
 
 		<div class="parallaximagespacer" align="center" width="100%">
 			<div style="background-image: url('${theme_settings["bannerimage"]}');" class="parallaximage">
