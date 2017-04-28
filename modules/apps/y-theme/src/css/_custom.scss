@@ -51,7 +51,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #navigation ul li{
-	float: center;
 	text-transform: uppercase; 
 	display: inline;
 }
@@ -231,7 +230,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Parent div element for the top-of page giant banner 
-   TODO: add parallax scrolling
 */
 .parallaximagespacer {
 	float: left;
@@ -244,8 +242,28 @@ h1, h2, h3, h4, h5, h6 {
 	bottom: 0;
 	width: 100%;
 	height: 1259px; 
-	margin-top: -29px;
+	margin-top: -30px;
 	margin-bottom: 50px;
+}
+
+.parallaximage {
+	background-attachment: fixed; 
+	background-size: cover; 
+	background-repeat: no-repeat; 
+	background-position: center center; 
+	width: 100%; 
+	height: 100%; 
+	opacity: 1; 
+	visibility: inherit; 
+	z-index: 0; 
+	position: absolute; 
+	left: 0; 
+	top: 0;
+}
+
+/* Container for those square pics.*/
+.squarePic {
+	width: 375px;
 }
 
 /* Causes mouse overed pics to have a growing square */
@@ -309,6 +327,7 @@ h1, h2, h3, h4, h5, h6 {
 	box-shadow: 0 0 1px transparent;
 }
 
+/*Removed post 2017-04-21 meeting.  Rationale: Looks weird to have some images have mouseOver shadow and some to not have that. 
 .mouseOverShadowPic:nth-of-type(odd):hover, mouseOverShadowPic:nth-of-type(odd):focus, mouseOverShadowPic:nth-of-type(odd):active {
 	box-shadow: 0 15px 30px #d9d9d9;
 }
@@ -316,6 +335,13 @@ h1, h2, h3, h4, h5, h6 {
 .mouseOverShadowPic:nth-of-type(even) {
 	box-shadow: 0 15px 30px #d9d9d9;
 }
+*/
+
+.mouseOverShadowPic:hover, mouseOverShadowPic:focus, mouseOverShadowPic:active {
+	/*box-shadow: 15px 15px 30px #d9d9d9;*/
+	box-shadow: 0 0 45px #d9d9d9;
+}
+
 
 .mouseOverShadowContainer {
 	max-width: 350px;
@@ -330,9 +356,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Flexbox stuff for the square link thingies */
 .flexbox-container {
 	display: flex;
-	flex-direction: row;
+	/*flex-direction: row;*/
 	flex-wrap: wrap;
-	float: center;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	padding: 10px;
@@ -355,43 +380,20 @@ h1, h2, h3, h4, h5, h6 {
 	justify-content: center !important;
 }
 
+.bluebutton a{
+	display: block;
+}
+
 
 .mouseOverCirclePic > a/*,a:hover,a:focus,a:active,a:visited,a:link*/ {
 	color: white;
-}
-
-/* Circle animation */
-/*Broken.
-.mouseOverCirclePic {
-	position: relative;
-	overflow: hidden;
-}
-
-.mouseOverCirclePic ::before {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	z-index: 2;
 	display: block;
-	content: '';
-	width: 0;
-	height: 0;
-	background: rgba(0,0,0,.2);
-	border-radius: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	transform: scale(2);
-	-webkit-transform: scale(2);
-	opacity: 0;
-	overflow: hidden;
 }
 
-.mouseOverCirclePic :hover::before,:focus::before,:active::before {
-	-webkit-animation: rect .75s forwards;
-	animation: rect .75s forwards;
-	overflow: hidden;
+.mouseOverDarkenPic > a {
+	color: white;
+	display: block;
 }
-*/
 
 /* Radial out (Circle animation) from hover.css */
 .mouseOverCirclePic {
@@ -435,6 +437,23 @@ h1, h2, h3, h4, h5, h6 {
 	transform: scale(2);
 }
 
+/* Darken */
+a.mouseOverDarkenPic {
+	display: inline-block;
+	background: black;
+	padding: 0;
+}
+
+a.mouseOverDarkenPic .bluebutton{
+	display: block;
+	transition: all 0.3s linear;
+	-webkit-transition: all 0.3s linear;
+}
+
+a.mouseOverDarkenPic:hover .bluebutton{
+	opacity: 0.8;
+}
+
 /* Footer stuff */
 #footer {
 	font-size: 12px;
@@ -442,23 +461,23 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: 50px;
 }
 
-#footer a{
+#footer a .fa{
 	color: black;
 }
 
-#footer a:hover {
+#footer a:hover .fa {
 	color: black;
 }
 
-#footer a:active {
+#footer a:active .fa {
 	color: black;
 }
 
-#footer a:link {
+#footer a:link .fa {
 	color: black;
 }
 
-#footer a:visited {
+#footer a:visited .fa {
 	color: black;
 }
 
@@ -469,9 +488,294 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 30px;
 }
 
+/* Top menu bar thingy */
+.top-menu {
+	width: 100%;
+	height: 100px;
+	display: block;
+	opacity: 0;
+}
+
+.top-menu-text {
+	float: left;
+	font-size: 24px;
+	color: black;
+	padding: 20px;
+	font-weight: bold;
+	font-family: 'Playfair Display SC', serif;
+}
+
+/* Side nav bar */
+.nav-side {
+	height: 100%;
+	z-index: 500;
+	width: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #2f353b;
+	overflow-x: hidden;
+	transition: 0.3s;
+}
+
+.nav-side #navigation ul {
+	position: relative !important;
+	display: block;
+	color: white;
+}
+
+.nav-side #navigation ul li a {
+        position: relative !important;
+	display: block;
+	color: white;
+}
+
+.nav-side #navigation ul li {
+	position: relative !important;
+	display: block;
+	color: white;
+}
+
+.nav-side #navigation ul li a:hover {
+	color: #c3c3c3;	
+}
+
+.nav-side #navigation ul li a:before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 0px;
+	width: 0;
+}
+
+.nav-side #navigation ul li a:after {
+	content: "";
+	display: block;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	height: 0px;
+	width: 0;
+	background: transparent;
+}
+
+/* These are for child menus within the hardcoded navbar, but they also apply to the navbar portlet */
+.nav-side .child-menu {
+	display: none;
+	position: relative;
+	z-index: 1;
+	border: 1px white solid;
+	left: 0;
+	width: 100%;
+	background-color: transparent;
+}
+
+.nav-side .child-menu li {
+	width: 100%;
+	left: 0;
+	text-align: center;
+}
+
+.nav-side #navigation ul li[aria-selected="true"] .child-menu a:before {
+	content: "";
+	/*display: block;*/
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 0px;
+	width: 0;
+	background: transparent;
+}
+
+.nav-side #navigation ul li[aria-selected="true"] .child-menu a:after {
+	content: "";
+	/*display: block;*/
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	height: 4px;
+	width: 0;
+	background: transparent;
+}
+
+.nav-side #navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:hover:before {
+	width: 100%;
+	background: transparent;
+}
+
+.nav-side #navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:hover:after {
+	width: 100%;
+	background: transparent;
+}
+
+.nav-side #navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:before {
+	width: 100%;
+	background: transparent;
+}
+
+.nav-side #navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:after {
+	width: 100%;
+	background: transparent;
+}
+
+
+
+.nav-side #navigation ul li[aria-selected="true"] .child-menu a:hover:before {
+	width: 100%;
+	background: transparent;
+}
+
+.nav-side #navigation ul li[aria-selected="true"] .child-menu a:hover:after {
+	background: transparent;
+}
+
+.nav-side #navigation ul[aria-label="Site Pages"] li .child-menu{
+	display: none;
+}
+
+.nav-side #navigation ul[aria-label="Site Pages"] li:hover .child-menu{
+	display: block; 
+}
+
+.nav-side-text-title {
+	font-size: 24px;
+	color: white;
+	text-align: center;	
+	font-weight: bold;
+	font-family: 'Playfair Display SC', serif;
+}
+
+.nav-side-text {
+	color: white;
+	font-family: 'Inconsolata', sans-serif;
+	text-transform: uppercase;
+	font-size: 15px;
+}
+
+
+/*Header text*/
+.header-title {
+	position: relative;
+	font-size: 80px;
+	font-weight: bold;	
+	font-family: 'Playfair Display SC', serif;
+	color: black;
+	z-index: 2;
+	padding-bottom: 40px;
+} 
+
+.header-subtitle {
+	font-size: 28px;
+	color: #686868;
+	z-index: 1;
+	position: relative;	
+	padding-bottom: 30px;
+}
+
+/* Floating navbar */
+.horizontal-nav {
+	height: 70px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+}
+
+.control-menu + .container-fluid .horizontal-nav {
+	top: 65px;
+}
+
 /* Responsive stuff */
+
 @media only screen and (max-width: 481px) {
-	.nav-text {
-		display: none;
+	/* Single link per line for mobile */
+	#navigation ul li {
+		display: list-item;
+	}
+
+	/* Navbar child menu improvement for phone */
+	.child-menu {
+		position: relative;
+		background-color: unset;
+		border: 0;		
+	}
+
+}
+
+
+/*Grow square icon size as screensize decreases */
+@media only screen and (max-width: 1150px) {
+	.squarePic {
+		width: 460px;
+	}
+	
+	.header-title {
+		font-size: 48px;
 	}
 }
+
+@media only screen and (max-width: 1425px) {
+	.squarePic {
+		width: 562px;
+	}
+
+	.header-title {
+		font-size: 64px;
+	}
+
+}
+
+/*Vertical navbar swap */
+@media only screen and (max-width: 875px) {
+	.nav-side {
+		position: absolute;
+		background-color: white;
+		color: black;
+		text-transform: uppercase;
+		height: unset;
+	}
+
+	.nav-side #navigation ul {
+		color: black;
+		text-align: left;
+	}
+
+	.nav-side #navigation ul li a {
+		color: black;
+		text-align: left;
+	}
+	.nav-side #navigation ul li {
+		color: black;
+		text-align: left;
+	}
+	
+	.nav-side #navigation ul li a:hover {
+		padding-left: 10%;	
+	}
+
+	.nav-side-text-title {
+		display: none;
+	}
+
+	.nav-side-text {
+		display: none;
+	}
+	
+	.parallaximage {
+		background-attachment: unset;
+	}
+
+	.horizontal-nav {
+		position: absolute;
+		background-color: white;		
+		top: 0px;
+	}
+	
+	.nav-side .child-menu {
+		border: 0px;
+	}
+
+}
+
