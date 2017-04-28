@@ -25,10 +25,11 @@
 	$(function() {
 	    var winW = $(window).width();
 	    console.log("*** width: "+winW);
+	    var nav = $('.horizontal-nav');
+	    var nv2 = $('.nav-side');
+	    var $w = $(window);
 	    if (winW > 875) {
 		    // Stick the .horizontal-nav to the top of the window
-		    var nav = $('.horizontal-nav');
-		    var nv2 = $('.nav-side');
 		    var navHomeY = nav.offset().top;
 		    console.log("navHomeY starts at " + navHomeY);
 		    var isFixed = false;
@@ -80,7 +81,22 @@
 		            isFixed = false;
 	        	}
 		    });
-	}
+	    }
+/*
+	    $w.resize(function() {
+		var nv2 = $('.nav-side');
+		if (winW < 875){
+			$nv2.css({width: '375px',height: '100%',left: '0'});
+		}
+	    	else {
+	        	console.log("IN HERE winW <= 875");
+			$nv2.css({width: '100%',height: '',right: '0'});
+		}
+
+	    });
+*/
+	    
+	    
 		});
 
 	function openNav() {
