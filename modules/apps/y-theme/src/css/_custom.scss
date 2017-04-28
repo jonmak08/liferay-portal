@@ -506,7 +506,12 @@ a.mouseOverDarkenPic:hover .bluebutton{
 }
 
 /* Side nav bar */
+#banner .nav-side {
+	display: none;
+}
+
 .nav-side {
+	display: none;
 	height: 100%;
 	z-index: 500;
 	width: 0;
@@ -517,6 +522,7 @@ a.mouseOverDarkenPic:hover .bluebutton{
 	overflow-x: hidden;
 	transition: 0.3s;
 }
+
 
 .nav-side #navigation ul {
 	position: relative !important;
@@ -561,7 +567,6 @@ a.mouseOverDarkenPic:hover .bluebutton{
 	background: transparent;
 }
 
-/* These are for child menus within the hardcoded navbar, but they also apply to the navbar portlet */
 .nav-side .child-menu {
 	display: none;
 	position: relative;
@@ -654,6 +659,30 @@ a.mouseOverDarkenPic:hover .bluebutton{
 	font-size: 15px;
 }
 
+.nav-align-container {
+	width: 100%;
+	height: 100%;
+	display: block;
+	text-align:  center;
+}
+
+.closebuttoncontainer{
+	position: relative; 
+	top: 0; 
+	right: 0; 
+	height: 65px; 
+	width: 100%; 
+	border: 0px solid green;
+}
+
+.closebutton {
+	position: absolute; 
+	top: 0; 
+	right: 0; 
+	height: 100%; 
+	width: 65px; 
+	border: 0px solid magenta;
+}
 
 /*Header text*/
 .header-title {
@@ -730,11 +759,12 @@ a.mouseOverDarkenPic:hover .bluebutton{
 /*Vertical navbar swap */
 @media only screen and (max-width: 875px) {
 	.nav-side {
-		position: absolute;
+		position: relative;
 		background-color: white;
 		color: black;
 		text-transform: uppercase;
-		height: unset;
+		text-align: left;
+		display: none;
 	}
 
 	.nav-side #navigation ul {
@@ -765,17 +795,30 @@ a.mouseOverDarkenPic:hover .bluebutton{
 	
 	.parallaximage {
 		background-attachment: unset;
+		position: relative;
 	}
 
 	.horizontal-nav {
-		position: absolute;
+		position: relative;
 		background-color: white;		
+		top: 0;
+	}
+
+	.control-menu + .container-fluid .horizontal-nav {
 		top: 0px;
 	}
+
 	
 	.nav-side .child-menu {
 		border: 0px;
 	}
 
+	.closebuttoncontainer {
+		display: none;
+	}
+
+	.nav-align-container {
+		text-align: left;
+	}
 }
 

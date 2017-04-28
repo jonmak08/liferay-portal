@@ -24,6 +24,7 @@
 	<script type="text/javascript">
 	$(function() {
 	    var winW = $(window).width();
+	    console.log("*** width: "+winW);
 	    if (winW > 875) {
 		    // Stick the .horizontal-nav to the top of the window
 		    var nav = $('.horizontal-nav');
@@ -45,6 +46,7 @@
 	        	    });
 			    if ($('.control-menu').length) {
 				nav.css({top: 65});
+				console.log("*** ,controlmenu.length, so horizontal-nav top = 65");
 			    }
 			    else {
 				nav.css({top: 0});
@@ -56,6 +58,7 @@
 		            });
 			    if ($('.control-menu').length) {
 				nv2.css({top: 65});
+				console.log("*** .controlmenu.length, so nav-side .controlmenu top = 65");
 			    }
 			    else {
 				nv2.css({top: 0});
@@ -85,17 +88,32 @@
 //		console.log("screen.width="+screen.width);
 //		console.log("window.screen.availWidth="+window.screen.availWidth);
 		console.log("window.innerWidth="+window.innerWidth);
-		if (window.innerWidth > 875) {
-			document.getElementById("nav-side").style.width = "375px";
+		var myWidth = parseInt(window.getComputedStyle(document.getElementById("nav-side")).getPropertyValue("width"));
+		console.log("my width is " + myWidth);
+		if (myWidth == 0) {
+			console.log("in here!! time to set width, which was (" + myWidth);
+			if (window.innerWidth > 875) {
+				document.getElementById("nav-side").style.width = "375px";
+				document.getElementById("nav-side").style.display = "block";
+
+			}
+			else{
+				document.getElementById("nav-side").style.width = "100%";
+				document.getElementById("nav-side").style.position = "relative";
+				document.getElementById("nav-side").style.display = "block";
+			}
 		}
-		else{
-			document.getElementById("nav-side").style.width = "100%";
+		else {
+			console.log("instead here!  time to close nav, which had width of " + myWidth);
+			closeNav();
 		}
 		
 	}
 
 	function closeNav() {
 		document.getElementById("nav-side").style.width = "0";
+		document.getElementById("nav-side").style.display = "none";
+	
 	}
 
 	</script>
@@ -149,9 +167,34 @@
 			<div class="top-menu-text">${site_name}</div>
 			<div style="float: right; padding: 20px; font-size: 20px;"><a href="javascript:openNav()"><i class="fa fa-bars" aria-hidden="true" style="color: black;"></i></a></div>
 		</div>
+		<#if has_navigation && is_setup_complete>
+
+			<div style="display: block; border: 0px solid cyan;" class="nav-side" id="nav-side">
+				<div class="closebuttoncontainer">
+					<div class="closebutton"> 
+						<a href="javascript:closeNav()">
+						<div style="width: 100%; height: 100%; color: white; background-color: #304ffe; font-size: 18px; display: flex; justify-content: center; align-items: center;">
+							<i class="fa fa-times" aria-hidden="True"></i>
+						</div>
+						</a>
+					</div>
+				</div>
+				<div style="width: 100%; border: 0px solid yellow; position: relative; display: block;">
+					<div class="nav-align-container">
+						<p class="nav-side-text-title">${site_name}</p>
+						<#include "${full_templates_path}/navigation.ftl" />
+						<p class="nav-side-text">Keep Connected</p>
+					</div>
+				</div>
+			</div>
+		</#if>
+
+
+
 		<div class="parallaximagespacer" align="center" width="100%">
 			<div style="background-image: url('${theme_settings["bannerimage"]}');" class="parallaximage">
 				<div style="display: block; width: 100%; height: 100%; left: 0; top: 0; justify-content: center; align-items: center;">
+					<div style="height: 10%;"></div>
 					<div class="header-title">${header_title}</div>
 					<div class="header-subtitle">${header_subtitle}</div>
 					<div><a href="#myContent" class="mouseOverDarkenPic"><div class="bluebutton" style="width: 136px; height: 50px;">Continue</div></a></div>
@@ -211,24 +254,6 @@
 		<#if has_navigation && is_setup_complete>
 			<div class="nav-text" align="center">
 				<#include "${full_templates_path}/navigation.ftl" />
-			</div>
-			<div style="display: block; border: 0px solid cyan;" class="nav-side" id="nav-side">
-				<div style="position: relative; top: 0; right: 0; height: 65px; width: 100%; border: 0px solid green;">
-					<div style="position: absolute; top: 0; right: 0; height: 100%; width: 65px; border: 0px solid magenta;">
-						<a href="javascript:closeNav()">
-						<div style="width: 100%; height: 100%; color: white; background-color: #304ffe; font-size: 18px; display: flex; justify-content: center; align-items: center;">
-							<i class="fa fa-times" aria-hidden="True"></i>
-						</div>
-						</a>
-					</div>
-				</div>
-				<div style="width: 100%; border: 0px solid yellow; position: relative; display: block;">
-					<div width="100%" height="100%" style="display: block; text-align: center;">
-						<p class="nav-side-text-title">${site_name}</p>
-						<#include "${full_templates_path}/navigation.ftl" />
-						<p class="nav-side-text">Keep Connected</p>
-					</div>
-				</div>
 			</div>
 		</#if>
 
