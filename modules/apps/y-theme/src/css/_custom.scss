@@ -537,6 +537,20 @@ a.mouseOverDarkenPic:hover .bluebutton{
 	top: 65px;
 }
 
+.disguised-submit-button {
+	background: none;
+	border: none;
+	color: #2a59de;
+	text-decoration: underline;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.disguised-submit-button:hover {
+	color: black;
+}
+
+
 /* Responsive stuff */
 
 @media only screen and (max-width: 481px) {

@@ -26,7 +26,7 @@
 	    var winW = $(window).width();
 	    console.log("*** width: "+winW);
 	    var nav = $('.horizontal-nav');
-	    var nv2 = $('.nav-side');
+//	    var nv2 = $('.nav-side');
 	    var $w = $(window);
 	    if (winW > 875) {
 		    // Stick the .horizontal-nav to the top of the window
@@ -52,6 +52,7 @@
 			    else {
 				nav.css({top: 0});
 			    }
+/*
 		            nv2.css({
 		                position: 'fixed',
 	        	        left: nv2.offset().left,
@@ -64,7 +65,7 @@
 			    else {
 				nv2.css({top: 0});
 			    }
-
+*/
         		    isFixed = true;
 		        }
         		else if (!shouldBeFixed && isFixed)
@@ -74,14 +75,17 @@
 				'background-color': 'transparent',
 				top: 0
         		    });
+/*
         		    nv2.css({
 		                position: 'absolute',
 				top: 0
 	        	    });
+*/
 		            isFixed = false;
 	        	}
 		    });
 	    }
+/*
 	    $w.resize(function() {
 		var winW = $(window).width();
 		var nv2 = $('.nav-side');
@@ -94,7 +98,7 @@
 			$nv2.css({width: '100%',height: '',right: '0'});
 		}
 	    });
-	    
+*/	    
 	    
 		});
 
