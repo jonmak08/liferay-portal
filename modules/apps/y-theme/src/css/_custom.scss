@@ -11,6 +11,8 @@ body {
 	color: #737373;
 	font-family: 'Inconsolata', sans-serif;
 	font-size: 15px;
+	letter-spacing: 1px;
+	line-height: 24px;
 }
 
 #navigation a {
@@ -548,6 +550,17 @@ a.mouseOverDarkenPic:hover .bluebutton{
 
 .disguised-submit-button:hover {
 	color: black;
+}
+
+.centered-mini-content {
+	width: 525px;
+	text-align: center;
+}
+
+.centered-mini-content-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 
