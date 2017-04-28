@@ -125,8 +125,12 @@ public class FormatSourceTask extends JavaExec {
 		return _sourceFormatterArgs.isThrowException();
 	}
 
+	/**
+	 * @deprecated As of 1.0.0, with no direct replacement
+	 */
+	@Deprecated
 	public boolean isUseProperties() {
-		return _sourceFormatterArgs.isUseProperties();
+		return false;
 	}
 
 	public void setAutoFix(boolean autoFix) {
@@ -190,8 +194,11 @@ public class FormatSourceTask extends JavaExec {
 		_sourceFormatterArgs.setThrowException(throwException);
 	}
 
+	/**
+	 * @deprecated As of 1.0.0, with no direct replacement
+	 */
+	@Deprecated
 	public void setUseProperties(boolean useProperties) {
-		_sourceFormatterArgs.setUseProperties(useProperties);
 	}
 
 	protected List<String> getCompleteArgs() {
@@ -211,7 +218,6 @@ public class FormatSourceTask extends JavaExec {
 				FileUtil.relativize(getCopyrightFile(), getWorkingDir()));
 		args.add("source.print.errors=" + isPrintErrors());
 		args.add("source.throw.exception=" + isThrowException());
-		args.add("source.use.properties=" + isUseProperties());
 
 		FileCollection fileCollection = getFiles();
 
