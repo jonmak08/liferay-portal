@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="yumd">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"multifunc.png","alt":"Multifunctional","title":"multifunc.png","type":"journal","uuid":"d57c45fc-7c19-1e55-8837-930067be33d1","resourcePrimKey":"34727"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="jqge">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"lovegoodthings.png","alt":"Love Good Things","title":"lovegoodthings.png","type":"journal","uuid":"70833d20-d5ae-7a0a-dc0f-1ea105ec54e4","resourcePrimKey":"34727"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="lbhn">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"sayhello.png","alt":"Say Hello","title":"sayhello.png","type":"journal","uuid":"a61ed0fe-3125-5749-42b2-d4c954fc3d8f","resourcePrimKey":"34727"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="oele">
+		<dynamic-content language-id="en_US"><![CDATA[1@public@20140]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="lbcu">
+		<dynamic-content language-id="en_US"><![CDATA[1@public@20140]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="shoy">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+</root>
