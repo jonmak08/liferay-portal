@@ -5,3 +5,6 @@ liferay-theme.json
 .web_bundle_build
 .yo-rc.json
 *.swp
+../../../.gradle/*
+../../../tools/servers/tomcat/bin/setenv.sh
+../test-theme
