@@ -557,7 +557,7 @@ a.mouseOverDarkenPic:hover .bluebutton{
 	text-align: center;
 }
 
-.centered-mini-content-container {
+.centered-content-container {
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -567,6 +567,31 @@ a.mouseOverDarkenPic:hover .bluebutton{
 	padding: 15px;
 }
 
+.paragraph-div {
+	padding-bottom: 20px;
+}
+
+.multi-column-container-left {
+	padding-right: 5px;
+}
+
+.multi-column-container-right {
+	padding-left: 5px;
+}
+
+.contact-flexbox-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.contact-page-left {
+	max-width: 356px;
+}
+
+.contact-page-right {
+	max-width: 754px;
+}
 
 /* Responsive stuff */
 
@@ -595,6 +620,11 @@ a.mouseOverDarkenPic:hover .bluebutton{
 	.header-title {
 		font-size: 48px;
 	}
+
+	.contact-flexbox-container {
+		justify-content: left;
+	}
+
 }
 
 @media only screen and (max-width: 1425px) {

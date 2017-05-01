@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="addressline1" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[Upper Level, Overseas Passenger Terminal,]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="addressline2" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[The Rocks, Sydney 2000]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="email" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[test@liferay.com]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="phone" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[+62 500 800 123]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="fax" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+</root>
