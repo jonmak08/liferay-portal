@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="image" type="image" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Access.png","alt":"","title":"Access.png","type":"journal","uuid":"b96bed5f-79ae-6ea0-207a-4506632e1518","resourcePrimKey":"36128"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Excel.png","alt":"","title":"Excel.png","type":"journal","uuid":"1f0d5ce6-8ea8-ef6c-74b0-9ce3e24f0342","resourcePrimKey":"36128"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Lync.png","alt":"","title":"Lync.png","type":"journal","uuid":"cae2d48c-367c-3dea-819c-b0e0130038eb","resourcePrimKey":"36128"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"OneNote.png","alt":"","title":"OneNote.png","type":"journal","uuid":"70d9b1c7-6049-8ca2-6400-34d524dcd254","resourcePrimKey":"36128"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Outlook.png","alt":"","title":"Outlook.png","type":"journal","uuid":"d8739913-84f2-3df1-c291-473df4d8d92c","resourcePrimKey":"36128"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"PowerPoint.png","alt":"","title":"PowerPoint.png","type":"journal","uuid":"67590b73-4055-7590-abea-0b0fcf3dde5a","resourcePrimKey":"36128"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Publisher.png","alt":"","title":"Publisher.png","type":"journal","uuid":"4132838b-8482-c034-0b50-42e3c54bfeb1","resourcePrimKey":"36128"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Word.png","alt":"","title":"Word.png","type":"journal","uuid":"f094e71b-39a7-08ff-062e-e5349b0d2922","resourcePrimKey":"36128"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[1@public@20140]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[1@public@20140]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[1@public@20140]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[1@public@20140]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[1@public@20140]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[1@public@20140]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[1@public@20140]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[1@public@20140]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="text" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[text-for-access]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="text" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[Excel-text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="text" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[the-lync-text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="text" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[onenote text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="text" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[outlook text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="text" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[powerpoint text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="text" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[publisher text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="text" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[word text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Texthlkf" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[blue-access]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Texthlkf" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[blue-excel]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Texthlkf" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[blue-skype]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Texthlkf" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[blue-onenote]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Texthlkf" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[blue-outlook]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Texthlkf" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[blue-powerpoint]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Texthlkf" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[blue-publisher]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Texthlkf" type="text" index-type="keyword">
+		<dynamic-content language-id="en_US"><![CDATA[blue-word]]></dynamic-content>
+	</dynamic-element>
+</root>
