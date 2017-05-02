@@ -5,8 +5,8 @@ content structure.
 Please use the left panel to quickly add commonly used variables.
 Autocomplete is also available and can be invoked by typing "${".
 -->
-<div class="centered-content-container" style="width: 100%;">
-    <div class="flexbox-container" style="max-width: 1175px;">
+<div class="centered-content-container">
+    <div class="fancy-image-links-container">
         <#list image.getSiblings() as cur_image>
             <#assign link_all = link.getSiblings() />
             <#assign cur_link = link_all[cur_image?index] />
