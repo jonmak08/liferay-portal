@@ -326,6 +326,11 @@ a:hover .info-container {
 	text-decoration: none;
 }
 
+.info-container-text {
+	text-transform: uppercase;
+	font-weight: 600; /* to make more visible */
+}
+
 @-webkit-keyframes rect {
 	0% {
 		opacity: 1;

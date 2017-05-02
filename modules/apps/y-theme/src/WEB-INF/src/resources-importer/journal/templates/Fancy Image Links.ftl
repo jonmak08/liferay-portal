@@ -17,7 +17,7 @@ Autocomplete is also available and can be invoked by typing "${".
             <div class="mouseOverSquarePic squarePic">
                 <a href="${cur_link.getFriendlyUrl()}">
                     <div class="info-container">
-                        <div class="paragraph-div">${cur_text.getData()}</div>
+                        <div class="paragraph-div info-container-text">${cur_text.getData()}</div>
                         <div class="bluebutton">${cur_blue.getData()}</div>
                     </div>
                     <img class="container-content" src="${cur_image.getData()}"/>
