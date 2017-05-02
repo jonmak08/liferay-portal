@@ -33,7 +33,7 @@
 		    var navHomeY = nav.offset().top;
 		    console.log("navHomeY starts at " + navHomeY);
 		    var isFixed = false;
-		    var $w = $(window);
+		    //var $w = $(window);
 		    $w.scroll(function() {
 	        	var scrollTop = $w.scrollTop();
 			console.log("scrollTop = " + scrollTop);
