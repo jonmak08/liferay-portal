@@ -390,6 +390,8 @@ a:hover .info-container {
 	justify-content: center;
 }
 
+/* 
+
 /* Debug */
 .debug {
 	border: 1px solid black !important;
@@ -487,23 +489,23 @@ a.mouseOverDarkenPic:hover .bluebutton{
 	margin-top: 50px;
 }
 
-#footer a .fa{
+a .fa{
 	color: black;
 }
 
-#footer a:hover .fa {
+a:hover .fa {
 	color: black;
 }
 
-#footer a:active .fa {
+a:active .fa {
 	color: black;
 }
 
-#footer a:link .fa {
+a:link .fa {
 	color: black;
 }
 
-#footer a:visited .fa {
+a:visited .fa {
 	color: black;
 }
 
@@ -563,19 +565,7 @@ a.mouseOverDarkenPic:hover .bluebutton{
 	top: 65px;
 }
 
-.disguised-submit-button {
-	background: none;
-	border: none;
-	color: #2a59de;
-	text-decoration: underline;
-	cursor: pointer;
-	text-transform: uppercase;
-}
-
-.disguised-submit-button:hover {
-	color: black;
-}
-
+/* Centered Mini-Content */
 .centered-mini-content {
 	width: 525px;
 	text-align: center;
@@ -587,8 +577,23 @@ a.mouseOverDarkenPic:hover .bluebutton{
 	justify-content: center;
 }
 
+/* Image content */
 .image-container {
 	padding: 15px;
+}
+
+/* Contact page styles*/
+.disguised-submit-button {
+	background: none;
+	border: none;
+	color: #2a59de;
+	text-decoration: underline;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.disguised-submit-button:hover {
+	color: black;
 }
 
 .paragraph-div {
@@ -603,6 +608,7 @@ a.mouseOverDarkenPic:hover .bluebutton{
 	padding-left: 5px;
 }
 
+
 .contact-flexbox-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -615,6 +621,19 @@ a.mouseOverDarkenPic:hover .bluebutton{
 
 .contact-page-right {
 	max-width: 754px;
+}
+
+/* Full-width container to hold stuff*/
+.full-width-container {
+	width: 100%;
+	display: block;
+}
+
+/* Metamorphic container for profile page */
+.metamorphic-container {
+	
+	max-width: 100%;
+	display: block;	
 }
 
 /* Responsive stuff */
