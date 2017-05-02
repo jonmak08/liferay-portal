@@ -16,11 +16,12 @@ Autocomplete is also available and can be invoked by typing "${".
             <#assign cur_blue = blue_all[cur_image?index] />
             <div class="mouseOverSquarePic squarePic">
                 <a href="${cur_link.getFriendlyUrl()}">
-                    <img class="container-content" src="${cur_image.getData()}"/>
                     <div class="info-container">
-                    <p>${cur_text.getData()}</p>
-                    <p>${cur_blue.getData()}</p>
+                        <div class="paragraph-div">${cur_text.getData()}</div>
+                        <div class="bluebutton">${cur_blue.getData()}</div>
                     </div>
+                    <img class="container-content" src="${cur_image.getData()}"/>
+                    
                 </a>
 
             </div>
