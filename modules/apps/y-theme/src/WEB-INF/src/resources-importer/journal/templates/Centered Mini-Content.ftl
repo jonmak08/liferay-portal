@@ -9,7 +9,7 @@ Autocomplete is also available and can be invoked by typing "${".
     <div class="centered-content-container">
         <div class="centered-mini-content"><h4>${title.getData()}</h4></div>
     </div>
-    <div class="centered-content-container">
+    <div class="centered-content-container paragraph-div">
         <div class="centered-mini-content">${content.getData()}</div>
     </div>
 </div>

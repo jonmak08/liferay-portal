@@ -11,12 +11,12 @@
 		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"sayhello.png","alt":"Say Hello","title":"sayhello.png","type":"journal","uuid":"a61ed0fe-3125-5749-42b2-d4c954fc3d8f","resourcePrimKey":"34727"}]]></dynamic-content>
 	</dynamic-element>
 	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="oele">
-		<dynamic-content language-id="en_US"><![CDATA[1@public@20140]]></dynamic-content>
+		<dynamic-content language-id="en_US"><![CDATA[5@public@20140]]></dynamic-content>
 	</dynamic-element>
 	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="lbcu">
-		<dynamic-content language-id="en_US"><![CDATA[1@public@20140]]></dynamic-content>
+		<dynamic-content language-id="en_US"><![CDATA[3@public@20140]]></dynamic-content>
 	</dynamic-element>
 	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="shoy">
-		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		<dynamic-content language-id="en_US"><![CDATA[4@public@20140]]></dynamic-content>
 	</dynamic-element>
 </root>

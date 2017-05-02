@@ -1,91 +1,91 @@
 <?xml version="1.0"?>
 
 <root available-locales="en_US" default-locale="en_US">
-	<dynamic-element name="title" type="text" index-type="keyword">
+	<dynamic-element name="title" type="text" index-type="keyword" instance-id="pyrb">
 		<dynamic-content language-id="en_US"><![CDATA[Our Team]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="intro" type="text_area" index-type="text">
+	<dynamic-element name="intro" type="text_area" index-type="text" instance-id="mgbq">
 		<dynamic-content language-id="en_US"><![CDATA[<p>Graphics is a huge passion of mine. &nbsp;It enables me to stay spontaneous and gives me an opportunity for creative fulfillment. &nbsp;I put in a lot of commitment.</p>]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="image" type="image" index-type="keyword">
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="sdbw">
 		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"profile-1.jpg","alt":"","title":"profile-1.jpg","type":"document","uuid":"2e03ba29-c9c9-d2fe-f49e-9af4a81c41da","resourcePrimKey":"37736"}]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="image" type="image" index-type="keyword">
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="sfol">
 		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"awful.jpg","alt":"","title":"awful.jpg","type":"journal","uuid":"8f0dd41c-34a5-5219-28af-c458596f0501","resourcePrimKey":"37736"}]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="image" type="image" index-type="keyword">
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="ycmc">
 		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"20170422_152934.jpg","alt":"","title":"20170422_152934.jpg","type":"journal","uuid":"cf453b24-6502-87e1-4f58-02b08cd32ce3","resourcePrimKey":"37736"}]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="name" type="text" index-type="keyword">
+	<dynamic-element name="name" type="text" index-type="keyword" instance-id="rsbt">
 		<dynamic-content language-id="en_US"><![CDATA[Jeffrey Sung]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="name" type="text" index-type="keyword">
+	<dynamic-element name="name" type="text" index-type="keyword" instance-id="saoo">
 		<dynamic-content language-id="en_US"><![CDATA[Old Timey Jeff Sung]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="name" type="text" index-type="keyword">
+	<dynamic-element name="name" type="text" index-type="keyword" instance-id="xxqe">
 		<dynamic-content language-id="en_US"><![CDATA[The Man and Dog]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="biography" type="text_box" index-type="text">
+	<dynamic-element name="biography" type="text_box" index-type="text" instance-id="ppka">
 		<dynamic-content language-id="en_US"><![CDATA[Hello, my name is Gabriele Guerra, I'm a Finance Manager at Petal. You can write me anytime: gabrieleguerra@info.com]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="biography" type="text_box" index-type="text">
+	<dynamic-element name="biography" type="text_box" index-type="text" instance-id="dmfs">
 		<dynamic-content language-id="en_US"><![CDATA[Hello, my name is Gabriele Guerra, I'm a Finance Manager at Petal. You can write me anytime: gabrieleguerra@info.com]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="biography" type="text_box" index-type="text">
+	<dynamic-element name="biography" type="text_box" index-type="text" instance-id="kjtb">
 		<dynamic-content language-id="en_US"><![CDATA[Hello, my name is Gabriele Guerra, I'm a Finance Manager at Petal. You can write me anytime: gabrieleguerra@info.com]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmedianame1" type="text" index-type="keyword">
+	<dynamic-element name="socialmedianame1" type="text" index-type="keyword" instance-id="nsrs">
 		<dynamic-content language-id="en_US"><![CDATA[fa-facebook]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmedianame1" type="text" index-type="keyword">
+	<dynamic-element name="socialmedianame1" type="text" index-type="keyword" instance-id="kgym">
 		<dynamic-content language-id="en_US"><![CDATA[fa-linkedin]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmedianame1" type="text" index-type="keyword">
+	<dynamic-element name="socialmedianame1" type="text" index-type="keyword" instance-id="tmpc">
 		<dynamic-content language-id="en_US"><![CDATA[fa-bandcamp]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmediaurl1" type="text" index-type="keyword">
+	<dynamic-element name="socialmediaurl1" type="text" index-type="keyword" instance-id="dfjw">
 		<dynamic-content language-id="en_US"><![CDATA[https://facebook.com/liferay]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmediaurl1" type="text" index-type="keyword">
+	<dynamic-element name="socialmediaurl1" type="text" index-type="keyword" instance-id="cbvm">
 		<dynamic-content language-id="en_US"><![CDATA[https://linkedin.com/]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmediaurl1" type="text" index-type="keyword">
+	<dynamic-element name="socialmediaurl1" type="text" index-type="keyword" instance-id="euda">
 		<dynamic-content language-id="en_US"><![CDATA[https://bandcamp.com/]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmedianame2" type="text" index-type="keyword">
+	<dynamic-element name="socialmedianame2" type="text" index-type="keyword" instance-id="bfmv">
 		<dynamic-content language-id="en_US"><![CDATA[fa-twitter]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmedianame2" type="text" index-type="keyword">
+	<dynamic-element name="socialmedianame2" type="text" index-type="keyword" instance-id="ehcv">
 		<dynamic-content language-id="en_US"><![CDATA[fa-github]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmedianame2" type="text" index-type="keyword">
+	<dynamic-element name="socialmedianame2" type="text" index-type="keyword" instance-id="gcto">
 		<dynamic-content language-id="en_US"><![CDATA[fa-bitbucket]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmediaurl2" type="text" index-type="keyword">
+	<dynamic-element name="socialmediaurl2" type="text" index-type="keyword" instance-id="xfqd">
 		<dynamic-content language-id="en_US"><![CDATA[https://twitter.com/liferay]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmediaurl2" type="text" index-type="keyword">
+	<dynamic-element name="socialmediaurl2" type="text" index-type="keyword" instance-id="tqmn">
 		<dynamic-content language-id="en_US"><![CDATA[https://github.com/liferay]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmediaurl2" type="text" index-type="keyword">
+	<dynamic-element name="socialmediaurl2" type="text" index-type="keyword" instance-id="wjiq">
 		<dynamic-content language-id="en_US"><![CDATA[https://bitbucket.org/]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmedianame3" type="text" index-type="keyword">
+	<dynamic-element name="socialmedianame3" type="text" index-type="keyword" instance-id="lllb">
 		<dynamic-content language-id="en_US"><![CDATA[fa-pinterest]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmedianame3" type="text" index-type="keyword">
+	<dynamic-element name="socialmedianame3" type="text" index-type="keyword" instance-id="hnnc">
 		<dynamic-content language-id="en_US"><![CDATA[fa-google-plus]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmedianame3" type="text" index-type="keyword">
+	<dynamic-element name="socialmedianame3" type="text" index-type="keyword" instance-id="egpi">
 		<dynamic-content language-id="en_US"><![CDATA[fa-dropbox]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmediaurl3" type="text" index-type="keyword">
+	<dynamic-element name="socialmediaurl3" type="text" index-type="keyword" instance-id="pjwz">
 		<dynamic-content language-id="en_US"><![CDATA[https://www.pinterest.com/semaphoreit/liferay/]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmediaurl3" type="text" index-type="keyword">
+	<dynamic-element name="socialmediaurl3" type="text" index-type="keyword" instance-id="zlfx">
 		<dynamic-content language-id="en_US"><![CDATA[http://www.liferay.com/]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="socialmediaurl3" type="text" index-type="keyword">
+	<dynamic-element name="socialmediaurl3" type="text" index-type="keyword" instance-id="ztsk">
 		<dynamic-content language-id="en_US"><![CDATA[https://www.dropbox.com/]]></dynamic-content>
 	</dynamic-element>
 </root>

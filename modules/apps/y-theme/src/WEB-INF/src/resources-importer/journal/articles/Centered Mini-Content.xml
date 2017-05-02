@@ -1,7 +1,15 @@
 <?xml version="1.0"?>
 
 <root available-locales="en_US" default-locale="en_US">
-	<dynamic-element name="content" type="text_area" index-type="text">
-		<dynamic-content language-id="en_US"><![CDATA[<p>We are a multi functional agency, we love good things and great design. Very pleased with Workspace. Say hello to us <a href="mailto:test@liferay.com">test@liferay.com</a></p>]]></dynamic-content>
+	<dynamic-element name="title" type="text" index-type="keyword" instance-id="vplt">
+		<dynamic-content language-id="en_US"><![CDATA[Who we are]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="content" type="text_area" index-type="text" instance-id="uyvk">
+		<dynamic-content language-id="en_US"><![CDATA[<div class="paragraph-div">We are a multi functional agency, we love good things and great design. Very pleased with Workspace. Say hello to us <a href="/web/guest/contact">test@liferay.com</a></div>
+<div class="centered-content-container">
+    <a href="/web/guest/our-team">
+        <div class="bluebutton large-button mouseOverCirclePic">Check who we are</div>
+    </a>
+</div>]]></dynamic-content>
 	</dynamic-element>
 </root>

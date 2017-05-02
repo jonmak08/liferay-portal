@@ -619,6 +619,7 @@ a:visited .fa {
 
 .justified-multi-input-row {
 	display: flex;
+	flex-wrap: wrap;	
 	justify-content: space-between;
 }
 
@@ -643,6 +644,18 @@ a:visited .fa {
 
 .contact-page-right {
 	max-width: 754px;
+}
+
+.input-in-line {
+	width: 100%;
+}
+
+.input-in-line-container {
+	max-width: 300px;
+}
+
+.contact-text {
+	width: 100%;
 }
 
 /* Full-width container to hold stuff*/

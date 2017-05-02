@@ -1,19 +1,25 @@
 <?xml version="1.0"?>
 
 <root available-locales="en_US" default-locale="en_US">
-	<dynamic-element name="addressline1" type="text" index-type="keyword">
+	<dynamic-element name="addressline1" type="text" index-type="keyword" instance-id="nemz">
 		<dynamic-content language-id="en_US"><![CDATA[Upper Level, Overseas Passenger Terminal,]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="addressline2" type="text" index-type="keyword">
+	<dynamic-element name="addressline2" type="text" index-type="keyword" instance-id="tdqf">
 		<dynamic-content language-id="en_US"><![CDATA[The Rocks, Sydney 2000]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="email" type="text" index-type="keyword">
+	<dynamic-element name="email" type="text" index-type="keyword" instance-id="ujrz">
 		<dynamic-content language-id="en_US"><![CDATA[test@liferay.com]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="phone" type="text" index-type="keyword">
+	<dynamic-element name="phone" type="text" index-type="keyword" instance-id="kiin">
 		<dynamic-content language-id="en_US"><![CDATA[+62 500 800 123]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="fax" type="text" index-type="keyword">
-		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	<dynamic-element name="fax" type="text" index-type="keyword" instance-id="jtcw">
+		<dynamic-content language-id="en_US"><![CDATA[+62 500 800 112]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="contactsidetitle" type="text" index-type="keyword" instance-id="pbex">
+		<dynamic-content language-id="en_US"><![CDATA[have you a question?]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="contactsideparagraph" type="text_area" index-type="text" instance-id="omps">
+		<dynamic-content language-id="en_US"><![CDATA[<p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Nam libero tempore</p>]]></dynamic-content>
 	</dynamic-element>
 </root>

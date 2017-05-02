@@ -34,22 +34,28 @@ Autocomplete is also available and can be invoked by typing "${".
         </div>
     </div>
     <div class="contact-page-right multi-column-container-right">
-    <div class="paragraph-div">
-        <h4>Have you a question?</h4>
-    </div>
-    <div class="paragraph-div">
-        Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Nam libero tempore
-    </div>
+        <#if contactsidetitle.getData()?? && contactsidetitle.getData() != "">
+            <div class="paragraph-div">
+                <h4>Have you a question?</h4>
+            </div>
+        </#if>
+        <#if contactsideparagraph.getData()?? && contactsideparagraph.getData() != "">
+            <div class="paragraph-div">
+                Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Nam libero tempore
+            </div>
+        </#if>
+    <form action="mailto:${email.getData()}">
     <div class="paragraph-div justified-multi-input-row">
-        <div><input size="30" type="text" name="yourName" value="Your name"/></div>
-        <div><input size="30" type="text" name="yourEmail" value="Your email"/></div>
-        <div><input size="30" type="text" name="yourSubject" value="Your subject"/></div>
+        <div size="30" class="input-in-line-container"><input class="input-in-line" type="text" name="yourName" value="Your name"/></div>
+        <div size="30" class="input-in-line-container"><input class="input-in-line" type="text" name="yourEmail" value="Your email"/></div>
+        <div size="30" class="input-in-line-container"><input class="input-in-line" type="text" name="yourSubject" value="Your subject"/></div>
     </div>
-    <div class="paragraph-div">
-        <textarea rows="9" cols="100">Your message</textarea>
+    <div class="paragraph-div full-width-container">
+        <textarea class="contact-text" rows="9">Your message</textarea>
     </div>
     <div>
         <input class="disguised-submit-button" type="submit" value="Send Message"/>
     </div>
+    </form>
     </div>
 </div>
