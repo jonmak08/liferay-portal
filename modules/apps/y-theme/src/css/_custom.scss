@@ -592,14 +592,16 @@ a:visited .fa {
 .disguised-submit-button {
 	background: none;
 	border: none;
+	border-bottom: 4px solid #2a59de;
 	color: #2a59de;
-	text-decoration: underline;
+	text-decoration: none; 
 	cursor: pointer;
 	text-transform: uppercase;
 }
 
 .disguised-submit-button:hover {
 	color: black;
+	border-bottom: 4px solid black;
 }
 
 .paragraph-div {
