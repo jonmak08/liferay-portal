@@ -254,7 +254,7 @@
             "localizable": true,
             "name": "socialmediaurl3",
             "readOnly": false,
-            "repeatable": false,
+            "repeatable": true,
             "required": true,
             "showLabel": true,
             "type": "text"

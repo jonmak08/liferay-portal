@@ -629,11 +629,39 @@ a:visited .fa {
 	display: block;
 }
 
-/* Metamorphic container for profile page */
+/* Profile page */
+.center-text-block-container {
+	display: block;
+	text-align: center;
+}
+
+.full-width-flex-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.vertical-content-container {
+	display: flex;
+	float: left;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.profile-picture-container {
+	max-height: 357px;
+	max-width: 357px;
+}
+
+.profile-biography-container {
+	max-height: 357px;
+	max-width: 357px;
+}
+
 .metamorphic-container {
-	
-	max-width: 100%;
 	display: block;	
+	text-align: center;
+	margin-bottom: 20px;
 }
 
 /* Responsive stuff */
@@ -702,4 +730,16 @@ a:visited .fa {
 
 }
 
-
+/* Metamorphose metamorphic container */
+@media only screen and (max-width: 1260px) {
+	.metamorphic-container {
+		display: flex;
+		flex-direction: column;	
+		width: 100%;
+		justify-content: center;
+	}
+	.profile-biography-container {
+		max-width: unset;
+		max-height: unset;
+	}
+}
