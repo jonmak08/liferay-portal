@@ -26,7 +26,6 @@
 	    var winW = $(window).width();
 	    console.log("*** width: "+winW);
 	    var nav = $('.horizontal-nav');
-//	    var nv2 = $('.nav-side');
 	    var $w = $(window);
 	    if (winW > 875) {
 		    // Stick the .horizontal-nav to the top of the window
@@ -51,21 +50,8 @@
 			    }
 			    else {
 				nav.css({top: 0});
+				console.log("*** ,!controlmenu.length, so horizontal-nav top = 0");
 			    }
-/*
-		            nv2.css({
-		                position: 'fixed',
-	        	        left: nv2.offset().left,
-	        	        width: nv2.width()
-		            });
-			    if ($('.control-menu').length) {
-				nv2.css({top: 65});
-				console.log("*** .controlmenu.length, so nav-side .controlmenu top = 65");
-			    }
-			    else {
-				nv2.css({top: 0});
-			    }
-*/
         		    isFixed = true;
 		        }
         		else if (!shouldBeFixed && isFixed)
@@ -75,64 +61,18 @@
 				'background-color': 'transparent',
 				top: 0
         		    });
-/*
-        		    nv2.css({
-		                position: 'absolute',
-				top: 0
-	        	    });
-*/
 		            isFixed = false;
 	        	}
 		    });
 	    }
-/*
-	    $w.resize(function() {
-		var winW = $(window).width();
-		var nv2 = $('.nav-side');
-		console.log("does nv2 exist?  "+nv2.length);
-		if (winW < 875){
-			$nv2.css({width: '375px',height: '100%',left: '0'});
-		}
-	    	else {
-	        	console.log("IN HERE winW <= 875");
-			$nv2.css({width: '100%',height: '',right: '0'});
-		}
-	    });
-*/	    
-	    
-		});
+	});
 
 	function openNav() {
-//		console.log("hello world");
-//		console.log("screen.width="+screen.width);
-//		console.log("window.screen.availWidth="+window.screen.availWidth);
-		console.log("window.innerWidth="+window.innerWidth);
-		var myWidth = parseInt(window.getComputedStyle(document.getElementById("nav-side")).getPropertyValue("width"));
-		console.log("my width is " + myWidth);
-		if (myWidth == 0) {
-			console.log("in here!! time to set width, which was (" + myWidth);
-			if (window.innerWidth > 875) {
-				document.getElementById("nav-side").style.width = "375px";
-				document.getElementById("nav-side").style.display = "block";
-
-			}
-			else{
-				document.getElementById("nav-side").style.width = "100%";
-				document.getElementById("nav-side").style.position = "relative";
-				document.getElementById("nav-side").style.display = "block";
-			}
-		}
-		else {
-			console.log("instead here!  time to close nav, which had width of " + myWidth);
-			closeNav();
-		}
-		
+		console.log("nope");		
 	}
 
 	function closeNav() {
-		document.getElementById("nav-side").style.width = "0";
-		document.getElementById("nav-side").style.display = "none";
-	
+		console.log("nope");	
 	}
 
 	</script>
