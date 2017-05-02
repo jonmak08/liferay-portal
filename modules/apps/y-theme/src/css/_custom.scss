@@ -566,6 +566,7 @@ a:visited .fa {
 	color: black;
 	z-index: 2;
 	padding-bottom: 40px;
+	padding-top: 40px;
 } 
 
 .header-subtitle {
@@ -573,6 +574,7 @@ a:visited .fa {
 	color: #686868;
 	z-index: 1;
 	position: relative;	
+	padding-top: 30px;
 	padding-bottom: 30px;
 }
 
@@ -710,38 +712,7 @@ a:visited .fa {
 
 /* Responsive stuff */
 
-@media only screen and (max-width: 481px) {
-	/* Single link per line for mobile */
-	#navigation ul li {
-		display: list-item;
-	}
-
-	/* Navbar child menu improvement for phone */
-	.child-menu {
-		position: relative;
-		background-color: unset;
-		border: 0;		
-	}
-
-}
-
-
 /*Grow square icon size as screensize decreases */
-@media only screen and (max-width: 1150px) {
-	.squarePic {
-		width: 460px;
-	}
-	
-	.header-title {
-		font-size: 48px;
-	}
-
-	.contact-flexbox-container {
-		justify-content: left;
-	}
-
-}
-
 @media only screen and (max-width: 1425px) {
 	.squarePic {
 		width: 562px;
@@ -753,11 +724,34 @@ a:visited .fa {
 
 }
 
-@media only screen and (max-width: 460px) {
-	.squarePic {
-		width: unset;
-		max-width: 460px;
+/* Metamorphose metamorphic container */
+@media only screen and (max-width: 1260px) {
+	.metamorphic-container {
+		display: flex;
+		flex-direction: column;	
+		width: 100%;
+		justify-content: center;
 	}
+	.profile-biography-container {
+		max-width: unset;
+		max-height: unset;
+	}
+}
+
+/*Grow square icon size as screensize decreases */
+@media only screen and (max-width: 1150px) {
+	.squarePic {
+		width: 460px;
+	}
+	
+	.header-title {
+		font-size: 36px;
+	}
+
+	.contact-flexbox-container {
+		justify-content: left;
+	}
+
 }
 
 /*Horizontal navbar swap */
@@ -774,16 +768,30 @@ a:visited .fa {
 
 }
 
-/* Metamorphose metamorphic container */
-@media only screen and (max-width: 1260px) {
-	.metamorphic-container {
-		display: flex;
-		flex-direction: column;	
+@media only screen and (max-width: 520px) {
+	.input-in-line-container {
 		width: 100%;
-		justify-content: center;
 	}
-	.profile-biography-container {
-		max-width: unset;
-		max-height: unset;
+}
+
+@media only screen and (max-width: 481px) {
+	/* Single link per line for mobile */
+	#navigation ul li {
+		display: list-item;
+	}
+
+	/* Navbar child menu improvement for phone */
+	.child-menu {
+		position: relative;
+		background-color: unset;
+		border: 0;		
+	}
+
+}
+
+@media only screen and (max-width: 460px) {
+	.squarePic {
+		width: unset;
+		max-width: 460px;
 	}
 }
