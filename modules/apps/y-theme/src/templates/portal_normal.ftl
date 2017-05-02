@@ -193,7 +193,7 @@
 					<div style="height: 10%;"></div>
 					<div class="header-title">${header_title}</div>
 					<div class="header-subtitle">${header_subtitle}</div>
-					<div><a href="#myContent" class="mouseOverDarkenPic"><div class="bluebutton" style="width: 136px; height: 50px;">Continue</div></a></div>
+					<div><a href="#myContent" class="mouseOverDarkenPic"><div class="bluebutton large-button">Continue</div></a></div>
 				</div>
 			</div>
 		</div>

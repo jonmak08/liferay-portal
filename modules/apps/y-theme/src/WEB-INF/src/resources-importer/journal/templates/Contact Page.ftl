@@ -40,7 +40,7 @@ Autocomplete is also available and can be invoked by typing "${".
     <div class="paragraph-div">
         Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Nam libero tempore
     </div>
-    <div style="display: flex; justify-content: space-between;" class="paragraph-div">
+    <div class="paragraph-div justified-multi-input-row">
         <div><input size="30" type="text" name="yourName" value="Your name"/></div>
         <div><input size="30" type="text" name="yourEmail" value="Your email"/></div>
         <div><input size="30" type="text" name="yourSubject" value="Your subject"/></div>

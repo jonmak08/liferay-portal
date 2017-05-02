@@ -16,7 +16,7 @@ Autocomplete is also available and can be invoked by typing "${".
             <#assign cur_blue = blue_all[cur_image?index] />
             <div class="mouseOverSquarePic squarePic">
                 <a href="${cur_link.getFriendlyUrl()}">
-                    <img style="width: 100%;" src="${cur_image.getData()}"/>
+                    <img class="container-content" src="${cur_image.getData()}"/>
                     <div class="info-container">
                     <p>${cur_text.getData()}</p>
                     <p>${cur_blue.getData()}</p>

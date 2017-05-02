@@ -5,7 +5,7 @@ content structure.
 Please use the left panel to quickly add commonly used variables.
 Autocomplete is also available and can be invoked by typing "${".
 -->
-<div style="width: 100%; display: flex; justify-content: center;">
+<div class="centered-content-container">
 <#if image.getSiblings()?has_content>
 	<#list image.getSiblings() as cur_image>
 		<#if cur_image.getData()?? && cur_image.getData() != "">

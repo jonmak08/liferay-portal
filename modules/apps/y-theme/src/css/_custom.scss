@@ -268,6 +268,10 @@ h1, h2, h3, h4, h5, h6 {
 	width: 375px;
 }
 
+.container-content {
+	width: 100%;
+}
+
 .fancy-image-links-container {
  	display: flex;
  	flex-wrap: wrap;
@@ -416,6 +420,11 @@ a:hover .info-container {
 
 .bluebutton a{
 	display: block;
+}
+
+.large-button {
+	padding: 19px 60px 19px 60px;
+	border: 2px 2px 2px 2px;
 }
 
 
@@ -606,6 +615,11 @@ a:visited .fa {
 
 .paragraph-div {
 	padding-bottom: 20px;
+}
+
+.justified-multi-input-row {
+	display: flex;
+	justify-content: space-between;
 }
 
 .multi-column-container-left {
