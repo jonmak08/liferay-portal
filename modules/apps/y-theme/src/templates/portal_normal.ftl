@@ -14,12 +14,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
 	
-	<#if font_awesome_url!="">
 	<script src="${font_awesome_url}"></script>
-	</#if>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1,0"/>
-
 
 	<script type="text/javascript">
 	$(function() {
@@ -42,7 +37,8 @@
 	        	        position: 'fixed',
 				'background-color': 'white',
 		                left: nav.offset().left,
-        		        width: nav.width()
+        		        width: nav.width(),
+				'border-bottom': '1px black solid'
 	        	    });
 			    if ($('.control-menu').length) {
 				nav.css({top: 65});
@@ -56,10 +52,12 @@
 		        }
         		else if (!shouldBeFixed && isFixed)
 	        	{
+				console.log("*** in here");
 	        	    nav.css({
 		                position: 'absolute',
 				'background-color': 'transparent',
-				top: 0
+				top: 0,
+				'border-style': 'none'
         		    });
 		            isFixed = false;
 	        	}
@@ -67,15 +65,21 @@
 	    }
 	});
 
-	function openNav() {
-		console.log("nope");		
-	}
-
-	function closeNav() {
-		console.log("nope");	
-	}
-
 	</script>
+
+	<style>
+		.header-title-color {
+			color: ${header_title_color};	
+		}
+
+		.header-subtitle-color {
+			color: ${header_subtitle_color};
+		}
+
+		.parallax-image {
+			background-image: url('${theme_settings["bannerimage"]}');
+		}
+	</style>
 
 
 </head>
@@ -88,100 +92,25 @@
 
 <@liferay.control_menu />
 
-<!--
-<div class="container-fluid parallaximage">
-<h1>hi</h1>
-</div>
-//-->
-
 <div class="container-fluid" id="wrapper" style="padding-left: 0; padding-right: 0;">
-	<!-- Original for backup
-	<header id="banner" role="banner">
-		<div id="heading">
-			<h1 class="site-title">
-				<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-					<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" />
-				</a>
-
-				<#if show_site_name>
-					<span class="site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-						${site_name}
-					</span>
-				</#if>
-			</h1>
-		</div>
-
-		<#if !is_signed_in>
-			<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
-		</#if>
-
-		<#if has_navigation && is_setup_complete>
-			<#include "${full_templates_path}/navigation.ftl" />
-		</#if>
-	</header>
-	//-->
-
 	<header id="banner" role="banner">
 		<div class="horizontal-nav flexbox">
 			<div class="top-menu-text">${site_name}</div>
-			<div style="float: right; padding: 20px; font-size: 20px;"><a href="javascript:openNav()"><i class="fa fa-bars" aria-hidden="true" style="color: black;"></i></a></div>
 		</div>
 
-		<div class="parallaximagespacer" align="center" width="100%">
-			<div style="background-image: url('${theme_settings["bannerimage"]}');" class="parallaximage">
-				<div style="display: block; width: 100%; height: 100%; left: 0; top: 0; justify-content: center; align-items: center;">
+		<div class="parallax-image-spacer">
+			<div class="parallax-image">
+				<div class="header-container">
 					<div style="height: 10%;"></div>
-					<div class="header-title">${header_title}</div>
-					<div class="header-subtitle">${header_subtitle}</div>
+					<div class="header-title header-title-color">${header_title}</div>
+					<div class="header-subtitle header-subtitle-color">${header_subtitle}</div>
 					<div><a href="#myContent" class="mouseOverDarkenPic"><div class="bluebutton large-button">Continue</div></a></div>
 				</div>
 			</div>
 		</div>
 	</header>
-<!--
-	<section id="oldheader">
-		<div class="parallaximagespacer">
-		</div>
-		<div>
-			<h1 class="site-title">
-				<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-					<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" />
-				</a>
-
-				<#if show_site_name>
-					<span class="site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-						${site_name}
-					</span>
-				</#if>
-			</h1>
-		</div>
-
-		<#if !is_signed_in>
-			<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
-		</#if>
-
-		<#if has_navigation && is_setup_complete>
-			<#include "${full_templates_path}/navigation.ftl" />
-		</#if>
-	</section>
-//-->
 
 	<section id="content">
-<!-- Take out to match the original site
-		<div>
-			<h1 class="site-title">
-				<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-					<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" />
-				</a>
-
-				<#if show_site_name>
-					<span class="site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-						${site_name}
-					</span>
-				</#if>
-			</h1>
-		</div>
-//-->
 		<a name="myContent">&nbsp;</a>
 		<#if !is_signed_in>
 			<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
@@ -195,11 +124,6 @@
 
 
 		<h1 class="hide-accessible">${the_title}</h1>
-		<!--
-		<nav id="breadcrumbs">
-			<@liferay.breadcrumbs />
-		</nav>
-		//-->
 		<#if selectable>
 			<@liferay_util["include"] page=content_include />
 		<#else>

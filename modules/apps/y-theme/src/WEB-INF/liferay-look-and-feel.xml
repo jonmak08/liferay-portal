@@ -19,9 +19,11 @@
 		</portlet-decorator>
 
 		<settings>
-			<setting configurable="true" key="bannerimage" type="text" value="WHY" />
-			<setting configurable="true" key="header-title" type="text" value="Chemistry Simulation Services" />
-			<setting configurable="true" key="header-subtitle" type="text"  value="Walter White as a Service" />
+			<setting configurable="true" key="bannerimage" type="text" value="http://vm.local:8080/o/y-theme/images/sean-afnan-217427.jpg" />
+			<setting configurable="true" key="header-title" type="text" value="Microsoft Office Fanpage" />
+			<setting configurable="true" key="header-title-color" type="text" value="#FFF" />
+			<setting configurable="true" key="header-subtitle" type="text"  value="Most Excellent, Ted!" />
+			<setting configurable="true" key="header-subtitle-color" type="text" value="#FAEBD7" />
 			
 			<setting configurable="true" key="font-awesome-url" type="text" value="https://use.fontawesome.com/a2d65d4dec.js" />
 			<setting configurable="true" key="social-media-0-url" type="text" value="" />
