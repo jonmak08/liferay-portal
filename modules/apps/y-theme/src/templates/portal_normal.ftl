@@ -10,62 +10,12 @@
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 
 	<@liferay_util["include"] page=top_head_include />
+
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
 	
 	<script src="${font_awesome_url}"></script>
-
-	<script type="text/javascript">
-	$(function() {
-	    var winW = $(window).width();
-	    console.log("*** width: "+winW);
-	    var nav = $('.horizontal-nav');
-	    var $w = $(window);
-	    if (winW > 875) {
-		    // Stick the .horizontal-nav to the top of the window
-		    var navHomeY = nav.offset().top;
-		    console.log("navHomeY starts at " + navHomeY);
-		    var isFixed = false;
-		    //var $w = $(window);
-		    $w.scroll(function() {
-	        	var scrollTop = $w.scrollTop();
-			console.log("scrollTop = " + scrollTop);
-	        	var shouldBeFixed = scrollTop > 0; //navHomeY;
-	        	if (shouldBeFixed && !isFixed) {
-		            nav.css({
-	        	        position: 'fixed',
-				'background-color': 'white',
-		                left: nav.offset().left,
-        		        width: nav.width(),
-				'border-bottom': '1px black solid'
-	        	    });
-			    if ($('.control-menu').length) {
-				nav.css({top: 65});
-				console.log("*** ,controlmenu.length, so horizontal-nav top = 65");
-			    }
-			    else {
-				nav.css({top: 0});
-				console.log("*** ,!controlmenu.length, so horizontal-nav top = 0");
-			    }
-        		    isFixed = true;
-		        }
-        		else if (!shouldBeFixed && isFixed)
-	        	{
-				console.log("*** in here");
-	        	    nav.css({
-		                position: 'absolute',
-				'background-color': 'transparent',
-				top: 0,
-				'border-style': 'none'
-        		    });
-		            isFixed = false;
-	        	}
-		    });
-	    }
-	});
-
-	</script>
 
 	<style>
 		.header-title-color {
@@ -94,7 +44,7 @@
 
 <div class="container-fluid" id="wrapper" style="padding-left: 0; padding-right: 0;">
 	<header id="banner" role="banner">
-		<div class="horizontal-nav flexbox">
+		<div class="horizontal-nav flexbox horizontal-nav-should-not-be-fixed horizontal-nav-offset-off">
 			<div class="top-menu-text">${site_name}</div>
 		</div>
 

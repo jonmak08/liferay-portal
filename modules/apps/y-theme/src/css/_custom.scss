@@ -582,6 +582,43 @@ a:visited .fa {
 }
 
 /* Floating navbar */
+.horizontal-nav-fixed-top {
+	height: 70px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	background-color: white;
+	border-bottom: 1px black solid;
+	z-index: 100
+}
+
+.horizontal-nav-should-be-fixed {
+	position: fixed;
+	background-color: white;
+	border-bottom: 1px black solid;
+}
+
+.horizontal-nav-should-not-be-fixed {
+	position: absolute;
+	background-color: transparent;
+	border-style: none;
+}
+
+.horizontal-nav {
+	height: 70px;
+	width: 100%;
+	z-index: 100;
+}
+
+.horizontal-nav-offset-off {
+	top: 0;
+}
+
+.horizontal-nav-offset-on {
+	top: 65px;
+}
+
+/*
 .horizontal-nav {
 	height: 70px;
 	width: 100%;
@@ -593,6 +630,7 @@ a:visited .fa {
 .control-menu + .container-fluid .horizontal-nav {
 	top: 65px;
 }
+*/
 
 /* Centered Mini-Content */
 .centered-mini-content {
