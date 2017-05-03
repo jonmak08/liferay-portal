@@ -48,10 +48,17 @@
 			<div class="top-menu-text">${site_name}</div>
 		</div>
 
-		<div class="parallax-image-spacer">
+		<#if layout.layoutId == 1>
+			<#assign parallax_image_spacer_size = 1000>	
+		<#else>
+			<#assign parallax_image_spacer_size = 500>
+		</#if>
+
+
+		<div class="parallax-image-spacer" style="height: ${parallax_image_spacer_size}px;">
 			<div class="parallax-image">
 				<div class="header-container">
-					<div style="height: 10%;"></div>
+					<div class="vertical-spacer"></div>
 					<div class="header-title header-title-color">${header_title}</div>
 					<div class="header-subtitle header-subtitle-color">${header_subtitle}</div>
 					<div><a href="#myContent" class="mouseOverDarkenPic"><div class="bluebutton large-button">Continue</div></a></div>

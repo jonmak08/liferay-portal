@@ -238,7 +238,6 @@ h1, h2, h3, h4, h5, h6 {
 	top: 0;
 	bottom: 0;
 	width: 100%;
-	height: 1259px; 
 	margin-top: -30px;
 	margin-bottom: 50px;
 }
@@ -256,6 +255,10 @@ h1, h2, h3, h4, h5, h6 {
 	position: absolute; 
 	left: 0; 
 	top: 0;
+}
+
+.vertical-spacer {
+	height: 10%;
 }
 
 /* Container for those square pics.*/
