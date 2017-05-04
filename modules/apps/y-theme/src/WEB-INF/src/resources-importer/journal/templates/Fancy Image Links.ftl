@@ -8,22 +8,14 @@ Autocomplete is also available and can be invoked by typing "${".
 <div class="centered-content-container">
     <div class="fancy-image-links-container">
         <#list image.getSiblings() as cur_image>
-            <#assign link_all = link.getSiblings() />
-            <#assign cur_link = link_all[cur_image?index] />
-            <#assign text_all = text.getSiblings() />
-            <#assign cur_text = text_all[cur_image?index] />
-            <#assign blue_all = Texthlkf.getSiblings() />
-            <#assign cur_blue = blue_all[cur_image?index] />
             <div class="mouseOverSquarePic squarePic">
-                <a href="${cur_link.getFriendlyUrl()}">
+                <a href="${cur_image.link.getFriendlyUrl()}">
                     <div class="info-container">
-                        <div class="paragraph-div info-container-text">${cur_text.getData()}</div>
-                        <div class="bluebutton">${cur_blue.getData()}</div>
+                        <div class="paragraph-div info-container-text">${cur_image.text.getData()}</div>
+                        <div class="bluebutton small-button">${cur_image.bluebuttontext.getData()}</div>
                     </div>
                     <img class="container-content" src="${cur_image.getData()}"/>
-                    
                 </a>
-
             </div>
         </#list>
     </div>

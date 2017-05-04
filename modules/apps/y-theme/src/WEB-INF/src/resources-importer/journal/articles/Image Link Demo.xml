@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 
 <root available-locales="en_US" default-locale="en_US">
-	<dynamic-element name="image" type="image" index-type="keyword" instance-id="yumd">
-		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"multifunc.png","alt":"Multifunctional","title":"multifunc.png","type":"journal","uuid":"d57c45fc-7c19-1e55-8837-930067be33d1","resourcePrimKey":"34727"}]]></dynamic-content>
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="gzpn">
+		<dynamic-element name="link" instance-id="hhca" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[3@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"multifunc.png","alt":"Multifunctional","title":"multifunc.png","type":"document","uuid":"699bafc8-80bc-5c80-54b6-97884f32d6bd","resourcePrimKey":"34727"}]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="image" type="image" index-type="keyword" instance-id="jqge">
-		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"lovegoodthings.png","alt":"Love Good Things","title":"lovegoodthings.png","type":"journal","uuid":"70833d20-d5ae-7a0a-dc0f-1ea105ec54e4","resourcePrimKey":"34727"}]]></dynamic-content>
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="zuna">
+		<dynamic-element name="link" instance-id="cvhu" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"lovegoodthings.png","alt":"Love Good Things","title":"lovegoodthings.png","type":"journal","uuid":"c82e4b6d-5497-9337-444c-c6bf144eed3b","resourcePrimKey":"34727"}]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="image" type="image" index-type="keyword" instance-id="lbhn">
-		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"sayhello.png","alt":"Say Hello","title":"sayhello.png","type":"journal","uuid":"a61ed0fe-3125-5749-42b2-d4c954fc3d8f","resourcePrimKey":"34727"}]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="oele">
-		<dynamic-content language-id="en_US"><![CDATA[5@public@20140]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="lbcu">
-		<dynamic-content language-id="en_US"><![CDATA[3@public@20140]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="shoy">
-		<dynamic-content language-id="en_US"><![CDATA[4@public@20140]]></dynamic-content>
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="qygh">
+		<dynamic-element name="link" instance-id="bxdi" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[4@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"sayhello.png","alt":"Say Hello","title":"sayhello.png","type":"journal","uuid":"48879d89-f2da-13a7-afc0-60a19640c89a","resourcePrimKey":"34727"}]]></dynamic-content>
 	</dynamic-element>
 </root>

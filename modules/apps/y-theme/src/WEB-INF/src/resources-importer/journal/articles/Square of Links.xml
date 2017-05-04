@@ -1,100 +1,100 @@
 <?xml version="1.0"?>
 
 <root available-locales="en_US" default-locale="en_US">
-	<dynamic-element name="image" type="image" index-type="keyword" instance-id="ltnu">
-		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Access.png","alt":"","title":"Access.png","type":"journal","uuid":"b96bed5f-79ae-6ea0-207a-4506632e1518","resourcePrimKey":"36128"}]]></dynamic-content>
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="cfwr">
+		<dynamic-element name="link" instance-id="rwef" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[9@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="hbrm" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Access-ible Data]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="cevp" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Database]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Access.png","alt":"","title":"Access.png","type":"journal","uuid":"d0afb5c9-fbfd-59b0-3a5f-ce6766488def","resourcePrimKey":"36128"}]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="image" type="image" index-type="keyword" instance-id="twch">
-		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Excel.png","alt":"","title":"Excel.png","type":"journal","uuid":"1f0d5ce6-8ea8-ef6c-74b0-9ce3e24f0342","resourcePrimKey":"36128"}]]></dynamic-content>
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="ebuu">
+		<dynamic-element name="link" instance-id="xcny" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[10@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="plin" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Excel-lence]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="jyri" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Spreadsheet]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Excel.png","alt":"","title":"Excel.png","type":"journal","uuid":"9ce95c5b-1e61-5ade-d86f-6c948860abe8","resourcePrimKey":"36128"}]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="image" type="image" index-type="keyword" instance-id="akzr">
-		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Lync.png","alt":"","title":"Lync.png","type":"journal","uuid":"cae2d48c-367c-3dea-819c-b0e0130038eb","resourcePrimKey":"36128"}]]></dynamic-content>
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="fkqr">
+		<dynamic-element name="link" instance-id="brrc" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[11@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="jyfz" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Lyncing people]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="lflt" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[VOIP]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Lync.png","alt":"","title":"Lync.png","type":"journal","uuid":"8c61cac5-0adb-e1b6-5089-9f9f77dc940f","resourcePrimKey":"36128"}]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="image" type="image" index-type="keyword" instance-id="rhnq">
-		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"OneNote.png","alt":"","title":"OneNote.png","type":"journal","uuid":"70d9b1c7-6049-8ca2-6400-34d524dcd254","resourcePrimKey":"36128"}]]></dynamic-content>
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="hypo">
+		<dynamic-element name="link" instance-id="yxlk" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[12@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="xufj" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[One note to rule them all]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="kvkl" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Tablet]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"OneNote.png","alt":"","title":"OneNote.png","type":"journal","uuid":"f0b4d04a-acdd-d6ed-4b49-2e565f569486","resourcePrimKey":"36128"}]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="image" type="image" index-type="keyword" instance-id="tqjp">
-		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Outlook.png","alt":"","title":"Outlook.png","type":"journal","uuid":"d8739913-84f2-3df1-c291-473df4d8d92c","resourcePrimKey":"36128"}]]></dynamic-content>
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="dibh">
+		<dynamic-element name="link" instance-id="bnaw" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[13@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="zolr" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Outlook good]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="uzlv" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Email]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Outlook.png","alt":"","title":"Outlook.png","type":"journal","uuid":"2c076c1a-4cca-f34d-d549-8a1f6c1ac35a","resourcePrimKey":"36128"}]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="image" type="image" index-type="keyword" instance-id="tiqn">
-		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"PowerPoint.png","alt":"","title":"PowerPoint.png","type":"journal","uuid":"67590b73-4055-7590-abea-0b0fcf3dde5a","resourcePrimKey":"36128"}]]></dynamic-content>
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="zucw">
+		<dynamic-element name="link" instance-id="udfn" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[14@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="vqrp" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Point Powerfully]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="ouoa" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Presentation]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"PowerPoint.png","alt":"","title":"PowerPoint.png","type":"journal","uuid":"7614f382-c3fc-2ba0-8627-ae8ef39da765","resourcePrimKey":"36128"}]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="image" type="image" index-type="keyword" instance-id="wqea">
-		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Publisher.png","alt":"","title":"Publisher.png","type":"journal","uuid":"4132838b-8482-c034-0b50-42e3c54bfeb1","resourcePrimKey":"36128"}]]></dynamic-content>
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="rbiw">
+		<dynamic-element name="link" instance-id="apjj" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[15@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="nrqn" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Don't Perish]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="urpm" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Publishing]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Publisher.png","alt":"","title":"Publisher.png","type":"journal","uuid":"33a87cfe-6a89-32f2-7166-f9089eb38095","resourcePrimKey":"36128"}]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="image" type="image" index-type="keyword" instance-id="qptx">
-		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Word.png","alt":"","title":"Word.png","type":"journal","uuid":"f094e71b-39a7-08ff-062e-e5349b0d2922","resourcePrimKey":"36128"}]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="yxco">
-		<dynamic-content language-id="en_US"><![CDATA[9@public@20140]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="ojsh">
-		<dynamic-content language-id="en_US"><![CDATA[10@public@20140]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="czcg">
-		<dynamic-content language-id="en_US"><![CDATA[11@public@20140]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="khex">
-		<dynamic-content language-id="en_US"><![CDATA[12@public@20140]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="ruoz">
-		<dynamic-content language-id="en_US"><![CDATA[13@public@20140]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="znvi">
-		<dynamic-content language-id="en_US"><![CDATA[14@public@20140]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="cbge">
-		<dynamic-content language-id="en_US"><![CDATA[15@public@20140]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="qhhh">
-		<dynamic-content language-id="en_US"><![CDATA[16@public@20140]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="text" type="text" index-type="keyword" instance-id="teen">
-		<dynamic-content language-id="en_US"><![CDATA[text-for-access]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="text" type="text" index-type="keyword" instance-id="mdik">
-		<dynamic-content language-id="en_US"><![CDATA[Excel-text]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="text" type="text" index-type="keyword" instance-id="pxmh">
-		<dynamic-content language-id="en_US"><![CDATA[the-lync-text]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="text" type="text" index-type="keyword" instance-id="epcb">
-		<dynamic-content language-id="en_US"><![CDATA[onenote text]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="text" type="text" index-type="keyword" instance-id="xqbz">
-		<dynamic-content language-id="en_US"><![CDATA[outlook text]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="text" type="text" index-type="keyword" instance-id="sdtm">
-		<dynamic-content language-id="en_US"><![CDATA[powerpoint text]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="text" type="text" index-type="keyword" instance-id="insz">
-		<dynamic-content language-id="en_US"><![CDATA[publisher text]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="text" type="text" index-type="keyword" instance-id="shii">
-		<dynamic-content language-id="en_US"><![CDATA[word text]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="Texthlkf" type="text" index-type="keyword" instance-id="udsp">
-		<dynamic-content language-id="en_US"><![CDATA[blue-access]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="Texthlkf" type="text" index-type="keyword" instance-id="extw">
-		<dynamic-content language-id="en_US"><![CDATA[blue-excel]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="Texthlkf" type="text" index-type="keyword" instance-id="rtwr">
-		<dynamic-content language-id="en_US"><![CDATA[blue-skype]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="Texthlkf" type="text" index-type="keyword" instance-id="yhjk">
-		<dynamic-content language-id="en_US"><![CDATA[blue-onenote]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="Texthlkf" type="text" index-type="keyword" instance-id="pebl">
-		<dynamic-content language-id="en_US"><![CDATA[blue-outlook]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="Texthlkf" type="text" index-type="keyword" instance-id="eopa">
-		<dynamic-content language-id="en_US"><![CDATA[blue-powerpoint]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="Texthlkf" type="text" index-type="keyword" instance-id="lvrq">
-		<dynamic-content language-id="en_US"><![CDATA[blue-publisher]]></dynamic-content>
-	</dynamic-element>
-	<dynamic-element name="Texthlkf" type="text" index-type="keyword" instance-id="brxu">
-		<dynamic-content language-id="en_US"><![CDATA[blue-word]]></dynamic-content>
+	<dynamic-element name="image" type="image" index-type="keyword" instance-id="nawk">
+		<dynamic-element name="link" instance-id="uyat" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[16@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="jaeb" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[The Written Word]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="qqdj" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Word Processing]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Word.png","alt":"","title":"Word.png","type":"journal","uuid":"f6112f67-e620-c8b6-d3ae-867ff1cddba2","resourcePrimKey":"36128"}]]></dynamic-content>
 	</dynamic-element>
 </root>

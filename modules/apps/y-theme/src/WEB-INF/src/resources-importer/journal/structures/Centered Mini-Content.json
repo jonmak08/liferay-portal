@@ -9,7 +9,7 @@
                 "en_US": "title"
             },
             "predefinedValue": {
-                "en_US": ""
+                "en_US": "Who We Are"
             },
             "style": {
                 "en_US": ""
@@ -32,7 +32,7 @@
                 "en_US": "content"
             },
             "predefinedValue": {
-                "en_US": ""
+                "en_US": "<p>We are a multi functional agency, we love good things and great design. Very pleased with Workspace. Say hello to us at <a href=\"mailto:test@liferay.com\">test@liferay.com</a></p>"
             },
             "style": {
                 "en_US": ""

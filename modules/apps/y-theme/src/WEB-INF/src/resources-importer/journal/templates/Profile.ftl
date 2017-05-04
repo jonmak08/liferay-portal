@@ -17,49 +17,40 @@ Autocomplete is also available and can be invoked by typing "${".
 		</div>
 	</div>
 </div>
-
 <div class="centered-content-container">
 	<div class="metamorphic-container">
-		<#list image.getSiblings() as cur_image>
-			<#assign 
-				name_cur = name.getSiblings() 
-				cur_name = name_cur[cur_image?index] 
-				bio_cur = biography.getSiblings() 
-				cur_bio = bio_cur[cur_image?index] 
+		<#list name.getSiblings() as cur_name>
+			<#assign
+				cur_image = cur_name.image
+				cur_bio   = cur_name.biography
 			/>
 			<#assign social_media = "" />
 			<#assign
-				soc_cur = socialmedianame1.getSiblings()
-				cur_smn = soc_cur[cur_image?index]
-				soc_cur = socialmediaurl1.getSiblings()
-				cur_smu = soc_cur[cur_image?index]
-			/>            
-			<#if cur_smn != "" && cur_smu != "" >
-				<#assign 
-					social_media = social_media + "<div class=\"image-container\"><a href=\"" +cur_smu.getData()+"\" target=\"_blank\"><i class=\"fa " + cur_smn.getData() + "\"></i></a></div>"
+				cur_smn = cur_name.socialmedia1
+				cur_smu = cur_name.socialmedia1.url1
 			/>
-			</#if>            
+			<#if cur_smn?? && cur_smu?? && cur_smn != "" && cur_smu != "">
 			<#assign
-				soc_cur = socialmedianame2.getSiblings()
-				cur_smn = soc_cur[cur_image?index]
-				soc_cur = socialmediaurl2.getSiblings()
-				cur_smu = soc_cur[cur_image?index]
-			/>            
-			<#if cur_smn != "" && cur_smu != "" >
-				<#assign 
-					social_media = social_media + "<div class=\"image-container\"><a href=\"" +cur_smu.getData()+"\" target=\"_blank\"><i class=\"fa " + cur_smn.getData() + "\"></i></a></div>"
-				/>
-			</#if>            
+				social_media = social_media + "<div class=\"image-container\"><a href=\"" +cur_smu.getData()+"\" target=\"_blank\"><i class=\"fa " + cur_smn.getData() + "\"></i></a></div>"
+			/>
+			</#if>
 			<#assign
-				soc_cur = socialmedianame3.getSiblings()
-				cur_smn = soc_cur[cur_image?index]
-				soc_cur = socialmediaurl3.getSiblings()
-				cur_smu = soc_cur[cur_image?index]
-			/>            
-			<#if cur_smn != "" && cur_smu != "" >
-				<#assign 
-					social_media = social_media + "<div class=\"image-container\"><a href=\"" +cur_smu.getData()+"\" target=\"_blank\"><i class=\"fa " + cur_smn.getData() + "\"></i></a></div>"
-				/>
+				cur_smn = cur_name.socialmedia2
+				cur_smu = cur_name.socialmedia2.url2
+			/>
+			<#if cur_smn?? && cur_smu?? && cur_smn != "" && cur_smu != "">
+			<#assign
+				social_media = social_media + "<div class=\"image-container\"><a href=\"" +cur_smu.getData()+"\" target=\"_blank\"><i class=\"fa " + cur_smn.getData() + "\"></i></a></div>"
+			/>
+			</#if>
+			<#assign
+				cur_smn = cur_name.socialmedia3
+				cur_smu = cur_name.socialmedia3.url3
+			/>
+			<#if cur_smn?? && cur_smu?? && cur_smn != "" && cur_smu != "">
+			<#assign
+				social_media = social_media + "<div class=\"image-container\"><a href=\"" +cur_smu.getData()+"\" target=\"_blank\"><i class=\"fa " + cur_smn.getData() + "\"></i></a></div>"
+			/>
 			</#if>
 			<div class="vertical-content-container image-container">
 				<div class="flexbox-container">
