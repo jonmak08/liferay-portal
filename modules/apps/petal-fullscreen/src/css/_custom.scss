@@ -217,7 +217,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Need to have the hover over the li, and not the a, so that the dropdown doesn't disappear immediately */
-#navigation ul[aria-label="Site Pages"] li:hover /*a:hover ul li a:hover +*/ .child-menu{
+#navigation ul[aria-label="Site Pages"] li:hover .child-menu{
 	display: block;
 }
 
@@ -226,8 +226,7 @@ h1, h2, h3, h4, h5, h6 {
 	display: inline-block;
 }
 
-/* Parent div element for the top-of page giant banner 
-*/
+/* Parent div element for the top-of page giant banner */
 .parallax-image-spacer {
 	float: left;
 	display: inline-block;
@@ -366,16 +365,6 @@ a:hover .info-container {
 	box-shadow: 0 0 1px transparent;
 }
 
-/*Removed post 2017-04-21 meeting.  Rationale: Looks weird to have some images have mouseOver shadow and some to not have that. 
-.mouseOverShadowPic:nth-of-type(odd):hover, mouseOverShadowPic:nth-of-type(odd):focus, mouseOverShadowPic:nth-of-type(odd):active {
-	box-shadow: 0 15px 30px #d9d9d9;
-}
-
-.mouseOverShadowPic:nth-of-type(even) {
-	box-shadow: 0 15px 30px #d9d9d9;
-}
-*/
-
 .mouseOverShadowPic:hover, mouseOverShadowPic:focus, mouseOverShadowPic:active {
 	/*box-shadow: 15px 15px 30px #d9d9d9;*/
 	box-shadow: 0 0 45px #d9d9d9;
@@ -403,13 +392,6 @@ a:hover .info-container {
 	justify-content: center;
 }
 
-/* 
-
-/* Debug */
-.debug {
-	border: 1px solid black !important;
-}
-
 /* Blue button thingies */
 .bluebutton {
 	color: white;
@@ -435,7 +417,7 @@ a:hover .info-container {
 	font-size: 14px;
 }
 
-.mouseOverCirclePic > a/*,a:hover,a:focus,a:active,a:visited,a:link*/ {
+.mouseOverCirclePic > a {
 	color: white;
 	display: block;
 }
@@ -620,20 +602,6 @@ a:visited .fa {
 .horizontal-nav-offset-on {
 	top: 65px;
 }
-
-/*
-.horizontal-nav {
-	height: 70px;
-	width: 100%;
-	position: fixed;
-	top: 0;
-	z-index: 100;
-}
-
-.control-menu + .container-fluid .horizontal-nav {
-	top: 65px;
-}
-*/
 
 /* Centered Mini-Content */
 .centered-mini-content {
