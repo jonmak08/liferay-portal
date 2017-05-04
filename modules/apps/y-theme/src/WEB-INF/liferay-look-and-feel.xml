@@ -24,7 +24,6 @@
 			<setting configurable="true" key="header-title-color" type="text" value="#FFF" />
 			<setting configurable="true" key="header-subtitle" type="text"  value="Most Excellent, Ted!" />
 			<setting configurable="true" key="header-subtitle-color" type="text" value="#FAEBD7" />
-			
 			<setting configurable="true" key="font-awesome-url" type="text" value="https://use.fontawesome.com/a2d65d4dec.js" />
 			<setting configurable="true" key="social-media-0-url" type="text" value="" />
 			<setting configurable="true" key="social-media-0-icon" type="text" value="fa-facebook-f" />
@@ -36,9 +35,6 @@
 			<setting configurable="true" key="social-media-3-icon" type="text" value="fa-linkedin" />
 			<setting configurable="true" key="social-media-4-url" type="text" value="https://www.pinterest.com/semaphoreit/liferay/" />
 			<setting configurable="true" key="social-media-4-icon" type="text" value="fa-pinterest" />
-
-
-
 			<setting configurable="true" key="copyright" type="text" value="&copy; 2017 Liferay Inc." />
 			<setting configurable="true" key="physical-address" type="text" value="123 ABC Lane, Diamond Bar" />
 			<setting configurable="true" key="telephone" type="text" value="(909) 867-5309" />
