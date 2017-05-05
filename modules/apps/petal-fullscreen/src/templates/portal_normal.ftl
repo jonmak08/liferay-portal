@@ -48,14 +48,16 @@
 
 		<#if layout.isFirstParent() >
 			<#assign parallax_image_spacer_size = 500>	
+			<#assign parallax_image_header_display = "block">
 		<#else>
 			<#assign parallax_image_spacer_size = 300>
+			<#assign parallax_image_header_display = "none">
 		</#if>
 
 
 		<div class="parallax-image-spacer" style="height: ${parallax_image_spacer_size}px;">
 			<div class="parallax-image">
-				<div class="header-container">
+				<div class="header-container" style="display: ${parallax_image_header_display};">
 					<div class="vertical-spacer"></div>
 					<div class="header-title header-title-color">${header_title}</div>
 					<div class="header-subtitle header-subtitle-color">${header_subtitle}</div>

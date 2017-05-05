@@ -285,9 +285,9 @@ body {
 
 .parallax-image {
 	background-attachment: fixed; 
-	background-size: cover; 
+	background-size: contain;
 	background-repeat: no-repeat; 
-	background-position: center center; 
+/*	background-position: center center; */
 	width: 100%; 
 	height: 100%; 
 	opacity: 1; 
@@ -584,7 +584,6 @@ a.mouseOverDarkenPic:hover .bluebutton {
 
 /*Header text*/
 .header-container {
-	display: block;
 	width: 100%;
 	height: 100%;
 	left: 0;
