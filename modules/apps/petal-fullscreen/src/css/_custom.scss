@@ -362,7 +362,8 @@ body {
 a:hover .info-container {
 	display: flex;
 	color: black;
-	text-decoration: none;
+	animation: fade 0.5s linear;
+	-webkit-animation: fade 0.5s linear;
 }
 
 .info-container-text {
@@ -398,7 +399,29 @@ a:hover .info-container {
 	}
 }
 
+@-webkit-keyframes fade {
+	0% { 
+		opacity: 0;
+	}
+	30% {
+		opacity: 0;
+	}
+	60% {
+		opacity: 1;
+	}
+}
 
+@keyframes fade {
+	0% { 
+		opacity: 0;
+	}
+	30% {
+		opacity: 0;
+	}
+	60% {
+		opacity: 1;
+	}
+}
 
 /* Causes mouse over"d pics to have drop shadow appear */
 .mouseOverShadowPic {
