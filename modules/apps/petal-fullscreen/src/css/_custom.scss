@@ -86,9 +86,6 @@ body {
 }
 
 /* For the hardcoded navbar on the main page */
-#navigation ul {
-	list-style-type: none !important;
-}
 
 #navigation ul li {
 	text-transform: uppercase; 
@@ -458,9 +455,9 @@ a:hover .info-container {
 	background-color: #2a59de;
 	font-weight: bold;
 	text-transform: uppercase;
-	display: flex !important;
+	display: flex; 
 	align-items: center;	
-	justify-content: center !important;
+	justify-content: center;
 }
 
 .bluebutton a {
