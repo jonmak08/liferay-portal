@@ -46,17 +46,17 @@
 			<div class="top-menu-text">${site_name}</div>
 		</div>
 
-		<#if layout.layoutId == 1>
-			<#assign parallax_image_spacer_size = 1000>	
+		<#if layout.isFirstParent() >
+			<#assign parallax_image_spacer_size = 500>	
 		<#else>
-			<#assign parallax_image_spacer_size = 500>
+			<#assign parallax_image_spacer_size = 300>
 		</#if>
 
 
 		<div class="parallax-image-spacer" style="height: ${parallax_image_spacer_size}px;">
 			<div class="parallax-image">
 				<div class="header-container">
-					<div class="vertical-spacer">${getterUtil.getString(layout.isFirstChild())}</div>
+					<div class="vertical-spacer"></div>
 					<div class="header-title header-title-color">${header_title}</div>
 					<div class="header-subtitle header-subtitle-color">${header_subtitle}</div>
 					<div><a href="#myContent" class="mouseOverDarkenPic"><div class="bluebutton large-button">Continue</div></a></div>
