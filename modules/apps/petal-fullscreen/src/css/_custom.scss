@@ -786,6 +786,11 @@ a.mouseOverDarkenPic:hover .bluebutton {
 	margin-bottom: 20px;
 }
 
+/* My styles got rid of this behavior in the calendar portlet.  I'm reimplementing it here. */
+.scheduler-view-day-header-day a:hover {
+	text-decoration: underline;
+}
+
 /* Responsive stuff */
 
 /*Grow square icon size as screensize decreases */
