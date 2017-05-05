@@ -1,0 +1,144 @@
+{
+"layoutTemplateId": "1_column",
+"publicPages": [
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_login_web_internal_portlet_LoginPortlet"
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_internal_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Image Link Demo.xml",
+							"groupId": "${groupId}"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/home",
+			"nameMap": {
+			"en_US": "Welcome"
+			},
+			"title": "Welcome"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_login_web_internal_portlet_LoginPortlet"
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_internal_portlet_JournalContentPortlet"
+					}
+				]
+			],
+			"friendlyURL": "/about-us",
+			"layouts": [
+				{
+					"friendlyURL": "/our-team",
+					"name": "Team",
+					"title": "Team"
+				},
+				{
+					"friendlyURL": "/who",
+					"name": "Who",
+					"title": "Who"
+				}
+			],
+			"name": "About Us",
+			"title": "About Us"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_login_web_internal_portlet_LoginPortlet"
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_site_navigation_menu_web_portlet_SiteNavigationMenuPortlet",
+						"portletPreferences": {
+							"articleId": "Square of Links.xml",
+							"groupId": "${groupId}"	
+						}                                                                                                                                      	
+					}                                                                                             	
+				]                                                                                                     	
+			],
+			"friendlyURL": "/microsoft-office",
+			"layouts": [
+				{
+					"friendlyURL": "/access",
+					"name": "Access",
+					"title": "Access"
+				},
+				{
+					"friendlyURL": "/excel",
+					"name": "Excel",
+					"title": "Excel"
+				},
+				{
+					"friendlyURL": "/lync",
+					"name": "Lync",
+					"title": "Lync"
+				},
+				{
+					"friendlyURL": "/onenote",
+					"name": "Onenote",
+					"title": "Onenote"
+				},
+				{
+					"friendlyURL": "/outlook",
+					"name": "Outlook",
+					"title": "Outlook"
+				},
+				{
+					"friendlyURL": "/powerpoint",
+					"name": "Powerpoint",
+					"title": "Powerpoint"
+				},
+				{
+					"friendlyURL": "/publisher",
+					"name": "Publisher",
+					"title": "Publisher"
+				},
+				{
+					"friendlyURL": "/word",
+					"name": "Word",
+					"title": "Word"
+				}
+			],
+			"name": "Microsoft Office",
+			"title": "Microsoft Office"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_login_web_internal_portlet_LoginPortlet"
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_internal_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Contact Page.xml",
+							"groupId": "${groupId}"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/home",
+			"nameMap": {
+			"en_US": "Welcome"
+			},
+			"title": "Welcome"
+		}
+	]
+}
+
