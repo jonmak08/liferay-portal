@@ -7,9 +7,6 @@
 	</compatibility>
 	<theme id="y" name="Petal Fullscreen">
 		<template-extension>ftl</template-extension>
-		<portlet-decorator id="barebone" name="Barebone">
-			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
-		</portlet-decorator>
 		<portlet-decorator id="borderless" name="Borderless">
 			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
 		</portlet-decorator>

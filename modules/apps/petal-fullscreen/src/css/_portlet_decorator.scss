@@ -1,0 +1,22 @@
+.portlet-decorate {
+
+	background: #FFF;
+	border: 1px solid #DEEEEE;
+
+	.portlet {
+		
+	}
+
+	.portlet-content {
+	}
+}
+
+.portlet-borderless {
+	.portlet-content {
+		border-style: none;	
+	}
+
+	.portlet-content-editable {
+		border-radius: 0;
+	}
+}

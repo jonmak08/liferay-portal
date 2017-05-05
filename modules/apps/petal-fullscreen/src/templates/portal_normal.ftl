@@ -36,13 +36,11 @@
 
 <body class="${css_class}">
 
-<@liferay_ui["quick-access"] contentId="#main-content" />
-
 <@liferay_util["include"] page=body_top_include />
 
 <@liferay.control_menu />
 
-<div class="container-fluid" id="wrapper" style="padding-left: 0; padding-right: 0;">
+<div class="container-fluid unpadded" id="wrapper">  
 	<header id="banner" role="banner">
 		<div class="horizontal-nav flexbox horizontal-nav-should-not-be-fixed horizontal-nav-offset-off">
 			<div class="top-menu-text">${site_name}</div>
@@ -58,7 +56,7 @@
 		<div class="parallax-image-spacer" style="height: ${parallax_image_spacer_size}px;">
 			<div class="parallax-image">
 				<div class="header-container">
-					<div class="vertical-spacer"></div>
+					<div class="vertical-spacer">${getterUtil.getString(layout.isFirstChild())}</div>
 					<div class="header-title header-title-color">${header_title}</div>
 					<div class="header-subtitle header-subtitle-color">${header_subtitle}</div>
 					<div><a href="#myContent" class="mouseOverDarkenPic"><div class="bluebutton large-button">Continue</div></a></div>
@@ -68,6 +66,7 @@
 	</header>
 
 	<section id="content">
+		<@liferay_ui["quick-access"] contentId="#main-content" />
 		<a name="myContent">&nbsp;</a>
 		<#if !is_signed_in>
 			<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
