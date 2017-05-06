@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="title" type="text" index-type="keyword" instance-id="tpwz">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="content" type="text_area" index-type="text" instance-id="ajco">
+		<dynamic-content language-id="en_US"><![CDATA[<p>The dominant word processing software since the&nbsp;mid-90s, Word lacks the power of LaTeX, but is more user-friendly. &nbsp;It also is far more powerful than its cheaper no-longer-freely-bundled sibling Microsoft Works and free alternatives such as LibreOffice Writer. &nbsp;</p>]]></dynamic-content>
+	</dynamic-element>
+</root>

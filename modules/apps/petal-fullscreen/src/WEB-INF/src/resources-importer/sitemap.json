@@ -5,46 +5,58 @@
 			"columns": [
 				[
 					{
-						"portletId": "com_liferay_login_web_internal_portlet_LoginPortlet"
-					}
-				],
-				[
-					{
-						"portletId": "com_liferay_journal_content_web_internal_portlet_JournalContentPortlet",
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences": {
-							"articleId": "Image Link Demo.xml",
+							"articleId": "ImageLink.xml",
 							"groupId": "${groupId}"
 						}
 					}
 				]
 			],
 			"friendlyURL": "/home",
-			"nameMap": {
-			"en_US": "Welcome"
-			},
+			"name": "Welcome",
 			"title": "Welcome"
 		},
 		{
 			"columns": [
 				[
 					{
-						"portletId": "com_liferay_login_web_internal_portlet_LoginPortlet"
-					}
-				],
-				[
-					{
-						"portletId": "com_liferay_journal_content_web_internal_portlet_JournalContentPortlet"
+						"portletId": "com_liferay_site_navigation_menu_web_portlet_SiteNavigationMenuPortlet"
 					}
 				]
 			],
 			"friendlyURL": "/about-us",
 			"layouts": [
 				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "Profile.xml",
+									"groupId": "${groupId}"
+								}
+
+							}
+						]
+					],
 					"friendlyURL": "/our-team",
 					"name": "Team",
 					"title": "Team"
 				},
 				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "Who.xml",
+									"groupId": "${groupId}"
+								}
+
+							}
+						]
+					],
 					"friendlyURL": "/who",
 					"name": "Who",
 					"title": "Who"
@@ -57,14 +69,9 @@
 			"columns": [
 				[
 					{
-						"portletId": "com_liferay_login_web_internal_portlet_LoginPortlet"
-					}
-				],
-				[
-					{
-						"portletId": "com_liferay_site_navigation_menu_web_portlet_SiteNavigationMenuPortlet",
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet", 
 						"portletPreferences": {
-							"articleId": "Square of Links.xml",
+							"articleId": "FancyImageLink.xml",
 							"groupId": "${groupId}"	
 						}                                                                                                                                      	
 					}                                                                                             	
@@ -73,41 +80,129 @@
 			"friendlyURL": "/microsoft-office",
 			"layouts": [
 				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "access.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
 					"friendlyURL": "/access",
 					"name": "Access",
 					"title": "Access"
 				},
 				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "excel.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
 					"friendlyURL": "/excel",
 					"name": "Excel",
 					"title": "Excel"
 				},
 				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "lync.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
 					"friendlyURL": "/lync",
 					"name": "Lync",
 					"title": "Lync"
 				},
 				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "onenote.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
 					"friendlyURL": "/onenote",
 					"name": "Onenote",
 					"title": "Onenote"
 				},
 				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "outlook.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
 					"friendlyURL": "/outlook",
 					"name": "Outlook",
 					"title": "Outlook"
 				},
 				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "powerpoint.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
 					"friendlyURL": "/powerpoint",
 					"name": "Powerpoint",
 					"title": "Powerpoint"
 				},
 				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "publisher.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
 					"friendlyURL": "/publisher",
 					"name": "Publisher",
 					"title": "Publisher"
 				},
 				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "word.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
 					"friendlyURL": "/word",
 					"name": "Word",
 					"title": "Word"
@@ -120,24 +215,17 @@
 			"columns": [
 				[
 					{
-						"portletId": "com_liferay_login_web_internal_portlet_LoginPortlet"
-					}
-				],
-				[
-					{
-						"portletId": "com_liferay_journal_content_web_internal_portlet_JournalContentPortlet",
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet", 
 						"portletPreferences": {
-							"articleId": "Contact Page.xml",
+							"articleId": "Contact.xml",
 							"groupId": "${groupId}"
 						}
 					}
 				]
 			],
-			"friendlyURL": "/home",
-			"nameMap": {
-			"en_US": "Welcome"
-			},
-			"title": "Welcome"
+			"friendlyURL": "/contact",
+			"name": "Contact",
+			"title": "Contact"
 		}
 	]
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="title" type="text" index-type="keyword" instance-id="bkxb">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="content" type="text_area" index-type="text" instance-id="lxrj">
+		<dynamic-content language-id="en_US"><![CDATA[<p>Lync was replaced by Skype after their acquisition by Microsoft. &nbsp;Then the peer-to-peer nature of Skype was removed.</p>]]></dynamic-content>
+	</dynamic-element>
+</root>

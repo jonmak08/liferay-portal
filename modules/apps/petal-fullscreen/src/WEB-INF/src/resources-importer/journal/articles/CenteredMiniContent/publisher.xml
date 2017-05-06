@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="title" type="text" index-type="keyword" instance-id="nbqv">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="content" type="text_area" index-type="text" instance-id="qhwn">
+		<dynamic-content language-id="en_US"><![CDATA[<p>Okay, this one is just padding. &nbsp;I haven&#39;t used this since the 90s.  But this was good for making newsletters in the 90s, before the social media revolution made it possible to bring content to the masses.</p>]]></dynamic-content>
+	</dynamic-element>
+</root>

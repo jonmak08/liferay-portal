@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="title" type="text" index-type="keyword" instance-id="zrmd">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="content" type="text_area" index-type="text" instance-id="hqgz">
+		<dynamic-content language-id="en_US"><![CDATA[<p>PowerPoint is Microsoft&#39;s Presentation Software. &nbsp;Fortunately these days the garish transitions that plagued nineties to mid-aughts presentations are no longer in vogue. &nbsp;While I find the templates of Keynote far more elegant, and the sheer awfulness of Office for Mac only worsens its issues, PowerPoint is by far more common and easier to create presentations collaboratively. &nbsp;</p>]]></dynamic-content>
+	</dynamic-element>
+</root>
