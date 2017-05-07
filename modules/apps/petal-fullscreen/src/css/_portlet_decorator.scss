@@ -8,12 +8,16 @@
 	}
 
 	.portlet-content {
+		padding-left: 15px;
+		padding-right: 15px;
 	}
 }
 
 .portlet-borderless {
 	.portlet-content {
-		border-style: none;	
+		border-style: none;
+		padding-left: 15px;
+		padding-right: 15px;	
 	}
 
 	.portlet-content-editable {
