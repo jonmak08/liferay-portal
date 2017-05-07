@@ -112,7 +112,7 @@ body {
 	bottom: 0;
 	height: 4px;
 	width: 0;
-	transition: width 0s ease, background 0.3s ease;
+	transition: width 0 ease, background 0.3s ease;
 }
 
 #navigation ul li a:after {
@@ -136,7 +136,7 @@ body {
 #navigation ul li a:hover:after {
 	width: 100%;
 	background: transparent;
-	transition: all 0s ease;
+	transition: all 0 ease;
 }
 
 /* So that the current page doens"t have the underline animation */
@@ -180,7 +180,7 @@ body {
 	bottom: 0;
 	height: 4px;
 	width: 0;
-	transition: width 0s ease, background 0.3s ease;
+	transition: width 0 ease, background 0.3s ease;
 }
 
 #navigation ul li[aria-selected="true"] .child-menu a:after {
@@ -204,7 +204,7 @@ body {
 #navigation ul li[aria-selected="true"] .child-menu a:hover:after {
 	width: 100%;
 	background: transparent;
-	transition: all 0s ease;
+	transition: all 0 ease;
 }
 
 /* Don"t animate for selected child pages */
@@ -868,7 +868,7 @@ a.mouseOverDarkenPic:hover .bluebutton {
 	}
 
 	.control-menu + .container-fluid .horizontal-nav {
-		top: 0px;
+		top: 0;
 	}
 
 }
