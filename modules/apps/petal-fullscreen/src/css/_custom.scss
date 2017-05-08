@@ -42,7 +42,7 @@ body {
 
 .container-fluid  a:active {
 	text-decoration: none;
-}  
+}
 
 .container-fluid a:visited {
 	text-decoration: none;
@@ -88,7 +88,7 @@ body {
 /* For the hardcoded navbar on the main page */
 
 #navigation ul li {
-	text-transform: uppercase; 
+	text-transform: uppercase;
 	display: inline;
 }
 
@@ -96,8 +96,8 @@ body {
 	display: inline-block;
 	position: relative;
 	text-decoration: none;
-	padding-left: 0; 
-	padding-right: 0; 
+	padding-left: 0;
+	padding-right: 0;
 	border-style: solid solid solid solid;
 	border-width: 15px;
 	border-color: transparent;
@@ -140,7 +140,7 @@ body {
 }
 
 /* So that the current page doens"t have the underline animation */
-#navigation ul li[aria-selected="true"] a:before { 
+#navigation ul li[aria-selected="true"] a:before {
 	content: "";
 	display: block;
 	position: absolute;
@@ -208,7 +208,7 @@ body {
 }
 
 /* Don"t animate for selected child pages */
-#navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:before { 
+#navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:before {
 	content: "";
 	display: block;
 	position: absolute;
@@ -252,7 +252,7 @@ body {
 
 .child-menu li {
 	width: 100%;
-	text-align: center;	
+	text-align: center;
 }
 
 /* Need to have the hover over the li, and not the a, so that the dropdown doesn"t disappear immediately */
@@ -281,17 +281,17 @@ body {
 }
 
 .parallax-image {
-	background-attachment: fixed; 
+	background-attachment: fixed;
 	background-size: contain;
-	background-repeat: no-repeat; 
+	background-repeat: no-repeat;
 /*	background-position: center center; */
-	width: 100%; 
-	height: 100%; 
-	opacity: 1; 
-	visibility: inherit; 
-	z-index: 0; 
-	position: absolute; 
-	left: 0; 
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	visibility: inherit;
+	z-index: 0;
+	position: absolute;
+	left: 0;
 	top: 0;
 }
 
@@ -353,7 +353,7 @@ body {
 	align-items: center;
 	z-index: 500;
 	position: absolute;
-	flex-direction: column;	
+	flex-direction: column;
 }
 
 a:hover .info-container {
@@ -397,7 +397,7 @@ a:hover .info-container {
 }
 
 @-webkit-keyframes fade {
-	0% { 
+	0% {
 		opacity: 0;
 	}
 	30% {
@@ -409,7 +409,7 @@ a:hover .info-container {
 }
 
 @keyframes fade {
-	0% { 
+	0% {
 		opacity: 0;
 	}
 	30% {
@@ -431,7 +431,7 @@ a:hover .info-container {
 	box-shadow: 0 0 45px #D9D9D9;
 }
 
-.mouseOverShadowPic:focus { 
+.mouseOverShadowPic:focus {
 	box-shadow: 0 0 45px #D9D9D9;
 }
 
@@ -461,8 +461,8 @@ a:hover .info-container {
 	background-color: #2A59DE;
 	font-weight: bold;
 	text-transform: uppercase;
-	display: flex; 
-	align-items: center;	
+	display: flex;
+	align-items: center;
 	justify-content: center;
 }
 
@@ -526,7 +526,7 @@ a:hover .info-container {
 }
 .mouseOverCirclePic:hover {
 	color: white;
-}	
+}
 
 .mouseOverCirclePic:focus {
 	color: white;
@@ -631,25 +631,25 @@ a.mouseOverDarkenPic:hover .bluebutton {
 	width: 100%;
 	height: 100%;
 	left: 0;
-	top: 0;	
+	top: 0;
 	text-align: center;
 }
 .header-title {
 	position: relative;
 	font-size: 80px;
-	font-weight: bold;	
+	font-weight: bold;
 	font-family: "Playfair Display SC", serif;
 	color: black;
 	z-index: 2;
 	padding-bottom: 40px;
 	padding-top: 40px;
-} 
+}
 
 .header-subtitle {
 	font-size: 28px;
 	color: #686868;
 	z-index: 1;
-	position: relative;	
+	position: relative;
 	padding-top: 30px;
 	padding-bottom: 30px;
 }
@@ -714,7 +714,7 @@ a.mouseOverDarkenPic:hover .bluebutton {
 	border: none;
 	border-bottom: 4px solid #2A59DE;
 	color: #2A59DE;
-	text-decoration: none; 
+	text-decoration: none;
 	cursor: pointer;
 	text-transform: uppercase;
 }
@@ -730,7 +730,7 @@ a.mouseOverDarkenPic:hover .bluebutton {
 
 .justified-multi-input-row {
 	display: flex;
-	flex-wrap: wrap;	
+	flex-wrap: wrap;
 	justify-content: space-between;
 }
 
@@ -805,7 +805,7 @@ a.mouseOverDarkenPic:hover .bluebutton {
 }
 
 .metamorphic-container {
-	display: block;	
+	display: block;
 	text-align: center;
 	margin-bottom: 20px;
 }
@@ -833,7 +833,7 @@ a.mouseOverDarkenPic:hover .bluebutton {
 @media only screen and (max-width: 1260px) {
 	.metamorphic-container {
 		display: flex;
-		flex-direction: column;	
+		flex-direction: column;
 		width: 100%;
 		justify-content: center;
 	}
@@ -848,7 +848,7 @@ a.mouseOverDarkenPic:hover .bluebutton {
 	.squarePic {
 		width: 460px;
 	}
-	
+
 	.header-title {
 		font-size: 36px;
 	}
@@ -863,7 +863,7 @@ a.mouseOverDarkenPic:hover .bluebutton {
 @media only screen and (max-width: 875px) {
 	.horizontal-nav {
 		position: relative;
-		background-color: white;		
+		background-color: white;
 		top: 0;
 	}
 
@@ -889,7 +889,7 @@ a.mouseOverDarkenPic:hover .bluebutton {
 	.child-menu {
 		position: relative;
 		background-color: unset;
-		border: 0;		
+		border: 0;
 	}
 
 }

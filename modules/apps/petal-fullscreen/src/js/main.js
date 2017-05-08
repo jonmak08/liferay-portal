@@ -43,13 +43,13 @@ $(function() {
 		var isFixed = false;
 		$w.scroll(function() {
 			var scrollTop = $w.scrollTop();
-			var shouldBeFixed = scrollTop > 0; 
+			var shouldBeFixed = scrollTop > 0;
 			//Set the horizontal-nav style
 			if (shouldBeFixed && !isFixed) {
 				//User has scrolled down
 				//Navbar should be fixed, not absolute
 				nav.addClass('horizontal-nav-should-be-fixed');
-				nav.removeClass('horizontal-nav-should-not-be-fixed');			
+				nav.removeClass('horizontal-nav-should-not-be-fixed');
 				//Set the horizontal-nav top based on login status
 				if (controlMenu.length) {
 					//Logged in, so need to include fixed offset
@@ -69,7 +69,7 @@ $(function() {
 				nav.addClass('horizontal-nav-should-not-be-fixed');
 				nav.removeClass('horizontal-nav-should-be-fixed');
 				//It'll take care of itself so no offset necessary
-				nav.addClass('horizontal-nav-offset-off');	
+				nav.addClass('horizontal-nav-offset-off');
 				nav.removeClass('horizontal-nav-offset-on');
 				isFixed = false;
 			}

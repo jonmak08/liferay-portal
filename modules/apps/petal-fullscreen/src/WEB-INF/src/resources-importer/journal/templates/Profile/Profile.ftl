@@ -10,7 +10,7 @@ Autocomplete is also available and can be invoked by typing "${".
 		<div class="centered-mini-content">
 			<h3>${title.getData()}</h3>
 		</div>
-	</div>    
+	</div>
 	<div class="centered-content-container">
 		<div class="centered-mini-content">
 			${intro.getData()}

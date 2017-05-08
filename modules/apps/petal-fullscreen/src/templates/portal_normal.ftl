@@ -14,12 +14,12 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
-	
+
 	<script src="${font_awesome_url}"></script>
 
 	<style>
 		.header-title-color {
-			color: ${header_title_color};	
+			color: ${header_title_color};
 		}
 
 		.header-subtitle-color {
@@ -40,14 +40,14 @@
 
 <@liferay.control_menu />
 
-<div class="container-fluid unpadded" id="wrapper">  
+<div class="container-fluid unpadded" id="wrapper">
 	<header id="banner" role="banner">
 		<div class="horizontal-nav flexbox horizontal-nav-should-not-be-fixed horizontal-nav-offset-off">
 			<div class="top-menu-text">${site_name}</div>
 		</div>
 
 		<#if layout.isFirstParent() >
-			<#assign parallax_image_spacer_size = 500>	
+			<#assign parallax_image_spacer_size = 500>
 			<#assign parallax_image_header_display = "block">
 		<#else>
 			<#assign parallax_image_spacer_size = 300>
@@ -98,7 +98,7 @@
 	<footer id="footer" role="contentinfo">
 		<p>${social_media}</p>
 		<p>${copyright} • ${physical_address} • ${telephone}</p>
-		<#if show_powered_by > 
+		<#if show_powered_by >
 		<p class="powered-by">
 			<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
 		</p>

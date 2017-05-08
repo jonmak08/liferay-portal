@@ -69,13 +69,13 @@
 			"columns": [
 				[
 					{
-						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet", 
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences": {
 							"articleId": "FancyImageLink.xml",
-							"groupId": "${groupId}"	
-						}                                                                                                                                      	
-					}                                                                                             	
-				]                                                                                                     	
+							"groupId": "${groupId}"
+						}
+					}
+				]
 			],
 			"friendlyURL": "/microsoft-office",
 			"layouts": [
@@ -215,7 +215,7 @@
 			"columns": [
 				[
 					{
-						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet", 
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences": {
 							"articleId": "Contact.xml",
 							"groupId": "${groupId}"
