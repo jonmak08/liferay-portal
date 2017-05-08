@@ -12,7 +12,7 @@ Autocomplete is also available and can be invoked by typing "${".
                 <a href="${cur_image.link.getFriendlyUrl()}">
                     <div class="info-container">
                         <div class="paragraph-div info-container-text">${cur_image.text.getData()}</div>
-                        <div class="bluebutton small-button">${cur_image.bluebuttontext.getData()}</div>
+                        <div class="blue-button small-button">${cur_image.bluebuttontext.getData()}</div>
                     </div>
                     <img class="container-content" src="${cur_image.getData()}"/>
                 </a>
