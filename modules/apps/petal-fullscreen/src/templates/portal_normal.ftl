@@ -60,7 +60,7 @@
 					<div class="vertical-spacer"></div>
 					<div class="header-title header-title-color">${header_title}</div>
 					<div class="header-subtitle header-subtitle-color">${header_subtitle}</div>
-					<div><a href="#myContent" class="mouseOverDarkenPic"><div class="bluebutton large-button">Continue</div></a></div>
+					<div><a href="#myContent" class="mouse-over-darken-pic"><div class="blue-button large-button">Continue</div></a></div>
 				</div>
 			</div>
 		</div>

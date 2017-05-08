@@ -10,7 +10,7 @@ Autocomplete is also available and can be invoked by typing "${".
         <#if image.getSiblings()?has_content>
 	        <#list image.getSiblings() as cur_image>
 	            <div class="image-container">
-	                <div class="mouseOverShadowPic">
+	                <div class="mouse-over-shadow-pic">
 	                    <#if cur_image.link.getFriendlyUrl()?? && cur_image.link.getFriendlyUrl() != "">
 	                        <a href="${cur_image.link.getFriendlyUrl()}">
 	                    </#if>

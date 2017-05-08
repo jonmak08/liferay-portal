@@ -8,7 +8,7 @@ Autocomplete is also available and can be invoked by typing "${".
 <div class="centered-content-container">
     <div class="fancy-image-links-container">
         <#list image.getSiblings() as cur_image>
-            <div class="mouseOverSquarePic squarePic">
+            <div class="mouse-over-square-pic square-pic">
                 <a href="${cur_image.link.getFriendlyUrl()}">
                     <div class="info-container">
                         <div class="paragraph-div info-container-text">${cur_image.text.getData()}</div>
