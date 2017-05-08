@@ -244,7 +244,7 @@ body {
 	border: 1px black solid;
 	display: none;
 	position: absolute;
-	z-index: 1;
+	z-index: 20;
 	left: 0;
 	width: 100%;
 }
@@ -276,7 +276,7 @@ body {
 	position: relative;
 	top: 0;
 	width: 100%;
-	z-index: 20;
+	z-index: 1;
 }
 
 .parallax-image {
@@ -350,7 +350,7 @@ body {
 	justify-content: center;
 	position: absolute;
 	width: 100%;
-	z-index: 500;
+	z-index: 50;
 }
 
 a:hover .info-container {
@@ -657,7 +657,7 @@ a.mouseOverDarkenPic:hover .bluebutton {
 	position: fixed;
 	top: 0;
 	width: 100%;
-	z-index: 100
+	z-index: 100;
 }
 
 .horizontal-nav-should-be-fixed {
