@@ -7,7 +7,8 @@
 
 @import "portlet_decorator";
 
-/* General stuff */
+// ---------- General Styles ---------- //
+// Text Look and Feel
 body {
 	color: #737373;
 	font-family: "Inconsolata", sans-serif;
@@ -16,39 +17,6 @@ body {
 	line-height: 24px;
 }
 
-#navigation a {
-	color: #737373;
-}
-
-#navigation a:hover {
-	color: #737373;
-}
-
-#navigation a:visited {
-	color: #737373;
-}
-
-#navigation a:active {
-	color: #737373;
-}
-
-.container-fluid a:link {
-	text-decoration: none;
-}
-
-.container-fluid a:hover {
-	text-decoration: none;
-}
-
-.container-fluid  a:active {
-	text-decoration: none;
-}
-
-.container-fluid a:visited {
-	text-decoration: none;
-}
-
-/* All headers will be caps lock"d and black */
 .container-fluid h1 {
 	color: black;
 	font-weight: bold;
@@ -85,7 +53,83 @@ body {
 	text-transform: uppercase;
 }
 
-/* For the hardcoded navbar on the main page */
+// Links
+.container-fluid a:link {
+	text-decoration: none;
+}
+
+.container-fluid a:hover {
+	text-decoration: none;
+}
+
+.container-fluid  a:active {
+	text-decoration: none;
+}
+
+.container-fluid a:visited {
+	text-decoration: none;
+}
+
+// Containers
+.flexbox-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	padding: 10px;
+}
+
+.centered-content-container {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.image-container {
+	padding: 15px;
+}
+
+.full-width-container {
+	display: block;
+	width: 100%;
+}
+
+// Misc
+.unpadded {
+	overflow-x: hidden;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.paragraph-div {
+	padding-bottom: 20px;
+}
+
+
+// ----------   Navigation        ----- //
+// Link Styles
+#navigation {
+	display: inline-block;
+	position: relative;
+}
+
+#navigation a {
+	color: #737373;
+}
+
+#navigation a:hover {
+	color: #737373;
+}
+
+#navigation a:visited {
+	color: #737373;
+}
+
+#navigation a:active {
+	color: #737373;
+}
+
 #navigation ul li {
 	display: inline;
 	text-transform: uppercase;
@@ -102,7 +146,7 @@ body {
 	text-decoration: none;
 }
 
-/*These handle the underline animation */
+// Underline animation for nav links
 #navigation ul li a::before {
 	bottom: 0;
 	content: "";
@@ -138,7 +182,7 @@ body {
 	width: 100%;
 }
 
-/* So that the current page doens"t have the underline animation */
+// Prevents current page from underlining itself
 #navigation ul li[aria-selected="true"] a::before {
 	bottom: 0;
 	content: "";
@@ -170,7 +214,7 @@ body {
 	width: 100%;
 }
 
-/* Gotta repeat these for the child-menu"s, for consistent behavior */
+// Handle child link animations
 #navigation ul li[aria-selected="true"] .child-menu a::before {
 	content: "";
 	display: block;
@@ -206,7 +250,7 @@ body {
 	width: 100%;
 }
 
-/* Don"t animate for selected child pages */
+// Prevents current child page from underlining itself
 #navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a::before {
 	bottom: 0;
 	content: "";
@@ -238,7 +282,11 @@ body {
 	width: 100%;
 }
 
-/* These are for child menus within the hardcoded navbar, but they also apply to the navbar portlet */
+// Child menu styles
+#navigation ul[aria-label="Site Pages"] li:hover .child-menu {
+	display: block;
+}
+
 .child-menu {
 	background-color: #F9F9F9;
 	border: 1px black solid;
@@ -254,17 +302,8 @@ body {
 	width: 100%;
 }
 
-/* Need to have the hover over the li, and not the a, so that the dropdown doesn"t disappear immediately */
-#navigation ul[aria-label="Site Pages"] li:hover .child-menu {
-	display: block;
-}
-
-#navigation {
-	display: inline-block;
-	position: relative;
-}
-
-/* Parent div element for the top-of page giant banner */
+// ----------       Header        ----- //
+// Parent container
 .parallax-image-spacer {
 	bottom: 0;
 	display: inline-block;
@@ -298,7 +337,34 @@ body {
 	height: 10%;
 }
 
-/* Container for those square pics.*/
+.header-container {
+	height: 100%;
+	left: 0;
+	text-align: center;
+	top: 0;
+	width: 100%;
+}
+.header-title {
+	color: black;
+	font-family: "Playfair Display SC", serif;
+	font-size: 80px;
+	font-weight: bold;
+	padding-bottom: 40px;
+	padding-top: 40px;
+	position: relative;
+	z-index: 2;
+}
+
+.header-subtitle {
+	color: #686868;
+	font-size: 28px;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	position: relative;
+	z-index: 1;
+}
+
+// ----------   Fancy Image Link  ----- //
 .square-pic {
 	width: 375px;
 }
@@ -317,7 +383,7 @@ body {
 	max-width: 1175px;
 }
 
-/* Causes mouse overed pics to have a growing square */
+// Causes hovered pics to have a growing square
 .mouse-over-square-pic {
 	position: relative;
 }
@@ -361,7 +427,7 @@ a:hover .info-container {
 }
 
 .info-container-text {
-	font-weight: 600; /* to make more visible */
+	font-weight: 600; 
 	text-transform: uppercase;
 }
 
@@ -417,7 +483,7 @@ a:hover .info-container {
 	}
 }
 
-/* Causes mouse over"d pics to have drop shadow appear */
+// ----------     Image Link      ----- //
 .mouse-over-shadow-pic {
 	box-shadow: 0 0 1px transparent;
 	display: inline-block;
@@ -441,17 +507,7 @@ a:hover .info-container {
 	max-width: 350px;
 }
 
-/* Flexbox stuff for the square link thingies */
-.flexbox-container {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	margin-bottom: 20px;
-	margin-top: 20px;
-	padding: 10px;
-}
-
-/* Blue button thingies */
+// ----------   Blue Buttons   -------- //
 .blue-button {
 	align-items: center;
 	background-color: #2A59DE;
@@ -486,7 +542,7 @@ a:hover .info-container {
 	display: block;
 }
 
-/* Radial out (Circle animation) from hover.css */
+// Radial out circle animation from hover.css
 .mouse-over-circle-pic {
 	-webkit-transform: perspective(1px) translateZ(0);
 	-webkit-transition-duration: 0.3s;
@@ -546,7 +602,7 @@ a:hover .info-container {
 	transform: scale(2);
 }
 
-/* Darken */
+// Darken animation
 a.mouse-over-darken-pic {
 	background: black;
 	display: inline-block;
@@ -563,7 +619,7 @@ a.mouse-over-darken-pic:hover .blue-button {
 	opacity: 0.8;
 }
 
-/* Footer stuff */
+// ----------  Footer Styles   -------- //
 #footer {
 	font-size: 12px;
 	margin-top: 50px;
@@ -590,14 +646,13 @@ a.mouse-over-darken-pic:hover .blue-button {
 	color: black;
 }
 
-/* Nav text stuff */
+// ----------  Horizontal Nav  -------- //
 .nav-text {
 	margin-bottom: 30px;
 	margin-top: 30px;
 	width: 100%;
 }
 
-/* Top menu bar thingy */
 .top-menu {
 	display: block;
 	height: 100px;
@@ -614,42 +669,6 @@ a.mouse-over-darken-pic:hover .blue-button {
 	padding: 20px;
 }
 
-/* fixing container-fluid to not have horiz scrollbar */
-.unpadded {
-	overflow-x: hidden;
-	padding-left: 0;
-	padding-right: 0;
-}
-
-/*Header text*/
-.header-container {
-	height: 100%;
-	left: 0;
-	text-align: center;
-	top: 0;
-	width: 100%;
-}
-.header-title {
-	color: black;
-	font-family: "Playfair Display SC", serif;
-	font-size: 80px;
-	font-weight: bold;
-	padding-bottom: 40px;
-	padding-top: 40px;
-	position: relative;
-	z-index: 2;
-}
-
-.header-subtitle {
-	color: #686868;
-	font-size: 28px;
-	padding-bottom: 30px;
-	padding-top: 30px;
-	position: relative;
-	z-index: 1;
-}
-
-/* Floating navbar */
 .horizontal-nav-fixed-top {
 	background-color: white;
 	border-bottom: 1px black solid;
@@ -686,24 +705,13 @@ a.mouse-over-darken-pic:hover .blue-button {
 	top: 65px;
 }
 
-/* Centered Mini-Content */
+// -------- Centered Mini-Content ----- //
 .centered-mini-content {
 	text-align: center;
 	width: 525px;
 }
 
-.centered-content-container {
-	display: flex;
-	justify-content: center;
-	width: 100%;
-}
-
-/* Image content */
-.image-container {
-	padding: 15px;
-}
-
-/* Contact page styles*/
+// ----------   Contact Page   -------- //
 .disguised-submit-button {
 	background: none;
 	border-bottom: 4px solid #2A59DE;
@@ -717,10 +725,6 @@ a.mouse-over-darken-pic:hover .blue-button {
 .disguised-submit-button:hover {
 	border-bottom: 4px solid black;
 	color: black;
-}
-
-.paragraph-div {
-	padding-bottom: 20px;
 }
 
 .justified-multi-input-row {
@@ -763,13 +767,7 @@ a.mouse-over-darken-pic:hover .blue-button {
 	width: 100%;
 }
 
-/* Full-width container to hold stuff*/
-.full-width-container {
-	display: block;
-	width: 100%;
-}
-
-/* Profile page */
+// ----------   Profile Page   -------- //
 .center-text-block-container {
 	display: block;
 	text-align: center;
@@ -804,13 +802,15 @@ a.mouse-over-darken-pic:hover .blue-button {
 	text-align: center;
 }
 
-/* My styles got rid of this behavior in the calendar portlet.  I'm reimplementing it here. */
+// ---------- Calendar Portlet -------- //
+// My styles remove the hover underline from the "Weekly" view of the calendar
+// This style reimplements that
 .scheduler-view-day-header-day a:hover {
 	text-decoration: underline;
 }
 
-/* Responsive stuff */
-/*Grow square icon size as screensize decreases */
+
+// ---------- RESPONSIVE       -------- //
 @media only screen and (max-width: 1425px) {
 	.square-pic {
 		width: 562px;
@@ -822,7 +822,6 @@ a.mouse-over-darken-pic:hover .blue-button {
 
 }
 
-/* Metamorphose metamorphic container */
 @media only screen and (max-width: 1260px) {
 	.metamorphic-container {
 		display: flex;
@@ -837,7 +836,6 @@ a.mouse-over-darken-pic:hover .blue-button {
 	}
 }
 
-/*Grow square icon size as screensize decreases */
 @media only screen and (max-width: 1150px) {
 	.square-pic {
 		width: 460px;
@@ -852,7 +850,6 @@ a.mouse-over-darken-pic:hover .blue-button {
 	}
 }
 
-/*Horizontal navbar swap */
 @media only screen and (max-width: 875px) {
 	.horizontal-nav {
 		background-color: white;
@@ -872,12 +869,10 @@ a.mouse-over-darken-pic:hover .blue-button {
 }
 
 @media only screen and (max-width: 481px) {
-	/* Single link per line for mobile */
 	#navigation ul li {
 		display: list-item;
 	}
 
-	/* Navbar child menu improvement for phone */
 	.child-menu {
 		background-color: unset;
 		border: 0;
