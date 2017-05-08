@@ -104,7 +104,7 @@ body {
 }
 
 /*These handle the underline animation */
-#navigation ul li a:before {
+#navigation ul li a::before {
 	content: "";
 	display: block;
 	position: absolute;
@@ -115,7 +115,7 @@ body {
 	transition: width 0 ease, background 0.3s ease;
 }
 
-#navigation ul li a:after {
+#navigation ul li a::after {
 	content: "";
 	display: block;
 	position: absolute;
@@ -127,20 +127,20 @@ body {
 	transition: width 0.3s ease;
 }
 
-#navigation ul li a:hover:before {
+#navigation ul li a:hover::before {
 	width: 100%;
 	background: blue;
 	transition: width 0.3s ease;
 }
 
-#navigation ul li a:hover:after {
+#navigation ul li a:hover::after {
 	width: 100%;
 	background: transparent;
 	transition: all 0 ease;
 }
 
 /* So that the current page doens"t have the underline animation */
-#navigation ul li[aria-selected="true"] a:before {
+#navigation ul li[aria-selected="true"] a::before {
 	content: "";
 	display: block;
 	position: absolute;
@@ -150,7 +150,7 @@ body {
 	width: 100%;
 }
 
-#navigation ul li[aria-selected="true"] a:after {
+#navigation ul li[aria-selected="true"] a::after {
 	content: "";
 	display: block;
 	position: absolute;
@@ -161,18 +161,18 @@ body {
 	background: blue;
 }
 
-#navigation ul li[aria-selected="true"] a:hover:before {
+#navigation ul li[aria-selected="true"] a:hover::before {
 	width: 100%;
 	background: blue;
 }
 
-#navigation ul li[aria-selected="true"] a:hover:after {
+#navigation ul li[aria-selected="true"] a:hover::after {
 	width: 100%;
 	background: transparent;
 }
 
 /* Gotta repeat these for the child-menu"s, for consistent behavior */
-#navigation ul li[aria-selected="true"] .child-menu a:before {
+#navigation ul li[aria-selected="true"] .child-menu a::before {
 	content: "";
 	display: block;
 	position: absolute;
@@ -183,7 +183,7 @@ body {
 	transition: width 0 ease, background 0.3s ease;
 }
 
-#navigation ul li[aria-selected="true"] .child-menu a:after {
+#navigation ul li[aria-selected="true"] .child-menu a::after {
 	content: "";
 	display: block;
 	position: absolute;
@@ -195,20 +195,20 @@ body {
 	transition: width 0.5s ease;
 }
 
-#navigation ul li[aria-selected="true"] .child-menu a:hover:before {
+#navigation ul li[aria-selected="true"] .child-menu a:hover::before {
 	width: 100%;
 	background: blue;
 	transition: width 0.3s ease;
 }
 
-#navigation ul li[aria-selected="true"] .child-menu a:hover:after {
+#navigation ul li[aria-selected="true"] .child-menu a:hover::after {
 	width: 100%;
 	background: transparent;
 	transition: all 0 ease;
 }
 
 /* Don"t animate for selected child pages */
-#navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:before {
+#navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a::before {
 	content: "";
 	display: block;
 	position: absolute;
@@ -218,7 +218,7 @@ body {
 	width: 100%;
 }
 
-#navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:after {
+#navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a::after {
 	content: "";
 	display: block;
 	position: absolute;
@@ -229,12 +229,12 @@ body {
 	background: blue;
 }
 
-#navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:hover:before {
+#navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:hover::before {
 	width: 100%;
 	background: blue;
 }
 
-#navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:hover:after {
+#navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:hover::after {
 	width: 100%;
 	background: transparent;
 }
@@ -324,7 +324,7 @@ body {
 	position: relative;
 }
 
-.mouseOverSquarePic ::before {
+.mouseOverSquarePic::before {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -340,7 +340,7 @@ body {
 	opacity: 0;
 }
 
-.mouseOverSquarePic :hover::before {
+.mouseOverSquarePic:hover::before {
 	-webkit-animation: rect 0.75s forwards;
 	animation: rect 0.75s forwards;
 }
@@ -504,7 +504,7 @@ a:hover .info-container {
 	-webkit-transition-duration: 0.3s;
 	transition-duration: 0.3s;
 }
-.mouseOverCirclePic:before {
+.mouseOverCirclePic::before {
 	content: "";
 	position: absolute;
 	z-index: -1;
@@ -535,17 +535,17 @@ a:hover .info-container {
 .mouseOverCirclePic:active {
 	color: white;
 }
-.mouseOverCirclePic:hover:before {
+.mouseOverCirclePic:hover::before {
 	-webkit-transform: scale(2);
 	transform: scale(2);
 }
 
-.mouseOverCirclePic:focus:before {
+.mouseOverCirclePic:focus::before {
  	-webkit-transform: scale(2);
 	transform: scale(2);
 }
 
-.mouseOverCirclePic:active:before {
+.mouseOverCirclePic:active::before {
 	-webkit-transform: scale(2);
 	transform: scale(2);
 }
