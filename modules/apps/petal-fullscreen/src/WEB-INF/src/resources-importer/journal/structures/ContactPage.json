@@ -6,7 +6,7 @@
     "fields": [
         {
             "label": {
-                "en_US": "address-line-1-contact"
+                "en_US": "Address Line 1 (Street Address + P.O. Box/Apt Number)"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -29,7 +29,7 @@
         },
         {
             "label": {
-                "en_US": "address-line-2-contact"
+                "en_US": "Address Line 2 (City, State ZIP Code, Country)" 
             },
             "predefinedValue": {
                 "en_US": ""
@@ -52,7 +52,7 @@
         },
         {
             "label": {
-                "en_US": "email-contact"
+                "en_US": "Contact Email (Form will send to this address)"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -75,7 +75,7 @@
         },
         {
             "label": {
-                "en_US": "phone-contact"
+                "en_US": "Phone Number"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -98,7 +98,7 @@
         },
         {
             "label": {
-                "en_US": "fax-contact"
+                "en_US": "FAX Number (Leave blank if N/A)"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -121,7 +121,7 @@
         },
         {
             "label": {
-                "en_US": "side-title-contact"
+                "en_US": "Contact Form Title"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -144,7 +144,7 @@
         },
         {
             "label": {
-                "en_US": "side-paragraph-contact"
+                "en_US": "Contact Form Text"
             },
             "predefinedValue": {
                 "en_US": ""

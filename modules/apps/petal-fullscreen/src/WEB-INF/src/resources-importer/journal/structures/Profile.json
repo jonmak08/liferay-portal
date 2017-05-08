@@ -6,7 +6,7 @@
     "fields": [
         {
             "label": {
-                "en_US": "image-profile"
+                "en_US": "Profile Page Title"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -17,20 +17,66 @@
             "tip": {
                 "en_US": ""
             },
-            "dataType": "image",
-            "fieldNamespace": "ddm",
+            "dataType": "string",
             "indexType": "keyword",
             "localizable": true,
-            "name": "image",
+            "name": "title",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "en_US": "Profile Page Introductory Text"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "html",
+            "fieldNamespace": "ddm",
+            "indexType": "text",
+            "localizable": true,
+            "name": "intro",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "ddm-text-html"
+        },
+        {
+            "label": {
+                "en_US": "Name"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "name",
             "readOnly": false,
             "repeatable": true,
             "required": true,
             "showLabel": true,
-            "type": "ddm-image",
+            "type": "text",
             "nestedFields": [
                 {
                     "label": {
-                        "en_US": "link-url-profile"
+                        "en_US": "File Name of Profile Picture"
                     },
                     "predefinedValue": {
                         "en_US": ""
@@ -41,20 +87,43 @@
                     "tip": {
                         "en_US": ""
                     },
-                    "dataType": "link-to-page",
+                    "dataType": "image",
                     "fieldNamespace": "ddm",
                     "indexType": "keyword",
                     "localizable": true,
-                    "name": "link",
+                    "name": "image",
                     "readOnly": false,
                     "repeatable": false,
                     "required": true,
                     "showLabel": true,
-                    "type": "ddm-link-to-page"
+                    "type": "ddm-image"
                 },
                 {
                     "label": {
-                        "en_US": "text-profile"
+                        "en_US": "Biography"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "text",
+                    "localizable": true,
+                    "name": "biography",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": true,
+                    "showLabel": true,
+                    "type": "textarea"
+                },
+                {
+                    "label": {
+                        "en_US": "Font Awesome Icon Class for Social Media Platform Link #1 for Profile of Contributor (leave blank if N/A)"
                     },
                     "predefinedValue": {
                         "en_US": ""
@@ -68,16 +137,41 @@
                     "dataType": "string",
                     "indexType": "keyword",
                     "localizable": true,
-                    "name": "text",
+                    "name": "socialmedia1",
                     "readOnly": false,
                     "repeatable": false,
-                    "required": true,
+                    "required": false,
                     "showLabel": true,
-                    "type": "text"
+                    "type": "text",
+                    "nestedFields": [
+                        {
+                            "label": {
+                                "en_US": "URL for Social Media Platform Link #1 for Profile of Contributor (leave blank if N/A)"
+                            },
+                            "predefinedValue": {
+                                "en_US": ""
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "string",
+                            "indexType": "keyword",
+                            "localizable": true,
+                            "name": "url1",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": false,
+                            "showLabel": true,
+                            "type": "text"
+                        }
+                    ]
                 },
                 {
                     "label": {
-                        "en_US": "blue-button-text-profile"
+                        "en_US": "Font Awesome Icon Class for Social Media Platform Link #2 for Profile of Contributor (leave blank if N/A)"
                     },
                     "predefinedValue": {
                         "en_US": ""
@@ -91,12 +185,85 @@
                     "dataType": "string",
                     "indexType": "keyword",
                     "localizable": true,
-                    "name": "bluebuttontext",
+                    "name": "socialmedia2",
                     "readOnly": false,
                     "repeatable": false,
-                    "required": true,
+                    "required": false,
                     "showLabel": true,
-                    "type": "text"
+                    "type": "text",
+                    "nestedFields": [
+                        {
+                            "label": {
+                                "en_US": "URL for Social Media Platform Link #2 for Profile of Contributor (leave blank if N/A)"
+                            },
+                            "predefinedValue": {
+                                "en_US": ""
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "string",
+                            "indexType": "keyword",
+                            "localizable": true,
+                            "name": "url2",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": false,
+                            "showLabel": true,
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "label": {
+                        "en_US": "Font Awesome Icon Class for Social Media Platform Link #3 for Profile of Contributor (leave blank if N/A)"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "socialmedia3",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text",
+                    "nestedFields": [
+                        {
+                            "label": {
+                                "en_US": "URL for Social Media Platform Link #3 for Profile of Contributor (leave blank if N/A)"
+                            },
+                            "predefinedValue": {
+                                "en_US": ""
+                            },
+                            "style": {
+                                "en_US": ""
+                            },
+                            "tip": {
+                                "en_US": ""
+                            },
+                            "dataType": "string",
+                            "indexType": "keyword",
+                            "localizable": true,
+                            "name": "url3",
+                            "readOnly": false,
+                            "repeatable": false,
+                            "required": false,
+                            "showLabel": true,
+                            "type": "text"
+                        }
+                    ]
                 }
             ]
         }
