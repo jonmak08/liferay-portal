@@ -54,7 +54,6 @@
 			<#assign parallax_image_header_display = "none">
 		</#if>
 
-
 		<div class="parallax-image-spacer" style="height: ${parallax_image_spacer_size}px;">
 			<div class="parallax-image">
 				<div class="header-container" style="display: ${parallax_image_header_display};">
@@ -80,8 +79,8 @@
 			</div>
 		</#if>
 
-
 		<h1 class="hide-accessible">${the_title}</h1>
+		
 		<#if selectable>
 			<@liferay_util["include"] page=content_include />
 		<#else>
@@ -99,9 +98,9 @@
 		<p>${social_media}</p>
 		<p>${copyright} • ${physical_address} • ${telephone}</p>
 		<#if show_powered_by >
-		<p class="powered-by">
-			<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
-		</p>
+			<p class="powered-by">
+				<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
+			</p>
 		</#if>
 	</footer>
 </div>

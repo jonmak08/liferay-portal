@@ -16,7 +16,6 @@ This file allows you to override and define new FreeMarker variables.
 <#assign copyright = getterUtil.getString(theme_settings["copyright"]) />
 <#assign physical_address = getterUtil.getString(theme_settings["physical-address"]) />
 <#assign telephone = getterUtil.getString(theme_settings["telephone"]) />
-
 <#assign social_media = "" />
 <#if theme_settings["social-media-0-url"] != "" && theme_settings["social-media-0-icon"] != "">
 	<#assign
@@ -43,4 +42,3 @@ This file allows you to override and define new FreeMarker variables.
 		social_media = social_media + "<a href=\"" + theme_settings["social-media-4-url"] + "\" target=\"_blank\"><span style=\"padding: 10px;\" class=\"fa " + theme_settings["social-media-4-icon"] + "\"></span></a> "
 	/>
 </#if>
-

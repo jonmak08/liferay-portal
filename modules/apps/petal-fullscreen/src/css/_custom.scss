@@ -86,7 +86,6 @@ body {
 }
 
 /* For the hardcoded navbar on the main page */
-
 #navigation ul li {
 	text-transform: uppercase;
 	display: inline;
@@ -311,9 +310,9 @@ body {
 .fancy-image-links-container {
  	display: flex;
  	flex-wrap: wrap;
-	 margin-top: 20px;
-	 margin-bottom: 20px;
-	 padding: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 10px;
 	justify-content: left;
 	max-width: 1175px;
 }
@@ -812,7 +811,6 @@ a.mouseOverDarkenPic:hover .bluebutton {
 }
 
 /* Responsive stuff */
-
 /*Grow square icon size as screensize decreases */
 @media only screen and (max-width: 1425px) {
 	.squarePic {
@@ -833,6 +831,7 @@ a.mouseOverDarkenPic:hover .bluebutton {
 		width: 100%;
 		justify-content: center;
 	}
+
 	.profile-biography-container {
 		max-width: unset;
 		max-height: unset;
@@ -852,7 +851,6 @@ a.mouseOverDarkenPic:hover .bluebutton {
 	.contact-flexbox-container {
 		justify-content: left;
 	}
-
 }
 
 /*Horizontal navbar swap */
@@ -866,7 +864,6 @@ a.mouseOverDarkenPic:hover .bluebutton {
 	.control-menu + .container-fluid .horizontal-nav {
 		top: 0;
 	}
-
 }
 
 @media only screen and (max-width: 520px) {
@@ -887,7 +884,6 @@ a.mouseOverDarkenPic:hover .bluebutton {
 		background-color: unset;
 		border: 0;
 	}
-
 }
 
 @media only screen and (max-width: 460px) {
