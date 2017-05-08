@@ -334,7 +334,6 @@ body {
 	width: 0;
 	height: 0;
 	background: rgba(255, 255, 255, 0.2);
-	/*border-radius: 100%;*/
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	opacity: 0;
@@ -674,7 +673,7 @@ a.mouseOverDarkenPic:hover .bluebutton {
 .horizontal-nav-should-not-be-fixed {
 	position: absolute;
 	background-color: transparent;
-	border-style: none;
+	border: 0; 
 }
 
 .horizontal-nav {
@@ -711,7 +710,7 @@ a.mouseOverDarkenPic:hover .bluebutton {
 /* Contact page styles*/
 .disguised-submit-button {
 	background: none;
-	border: none;
+	border: 0;
 	border-bottom: 4px solid #2A59DE;
 	color: #2A59DE;
 	text-decoration: none;
