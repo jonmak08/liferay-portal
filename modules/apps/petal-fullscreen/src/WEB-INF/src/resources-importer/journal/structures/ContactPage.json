@@ -6,7 +6,7 @@
     "fields": [
         {
             "label": {
-                "en_US": "address-line-1"
+                "en_US": "address-line-1-contact"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -29,7 +29,7 @@
         },
         {
             "label": {
-                "en_US": "address-line-2"
+                "en_US": "address-line-2-contact"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -52,7 +52,7 @@
         },
         {
             "label": {
-                "en_US": "email"
+                "en_US": "email-contact"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -75,7 +75,7 @@
         },
         {
             "label": {
-                "en_US": "phone"
+                "en_US": "phone-contact"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -98,7 +98,7 @@
         },
         {
             "label": {
-                "en_US": "fax"
+                "en_US": "fax-contact"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -121,7 +121,7 @@
         },
         {
             "label": {
-                "en_US": "contact-side-title"
+                "en_US": "side-title-contact"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -144,7 +144,7 @@
         },
         {
             "label": {
-                "en_US": "contact-side-paragraph"
+                "en_US": "side-paragraph-contact"
             },
             "predefinedValue": {
                 "en_US": ""

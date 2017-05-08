@@ -6,7 +6,7 @@
     "fields": [
         {
             "label": {
-                "en_US": "image"
+                "en_US": "image-image-link"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -30,7 +30,7 @@
             "nestedFields": [
                 {
                     "label": {
-                        "en_US": "link-url"
+                        "en_US": "link-url-image-link"
                     },
                     "predefinedValue": {
                         "en_US": ""

@@ -6,7 +6,7 @@
     "fields": [
         {
             "label": {
-                "en_US": "title"
+                "en_US": "title-centered-mini-content"
             },
             "predefinedValue": {
                 "en_US": "Who We Are"
@@ -29,7 +29,7 @@
         },
         {
             "label": {
-                "en_US": "content"
+                "en_US": "content-centered-mini-content"
             },
             "predefinedValue": {
                 "en_US": "<p>We are a multi functional agency, we love good things and great design. Very pleased with Workspace. Say hello to us at <a href=\"mailto:test@liferay.com\">test@liferay.com</a></p>"

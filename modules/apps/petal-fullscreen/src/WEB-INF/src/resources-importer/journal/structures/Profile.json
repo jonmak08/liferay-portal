@@ -6,7 +6,7 @@
     "fields": [
         {
             "label": {
-                "en_US": "image"
+                "en_US": "image-profile"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -30,7 +30,7 @@
             "nestedFields": [
                 {
                     "label": {
-                        "en_US": "link-url"
+                        "en_US": "link-url-profile"
                     },
                     "predefinedValue": {
                         "en_US": ""
@@ -54,7 +54,7 @@
                 },
                 {
                     "label": {
-                        "en_US": "text"
+                        "en_US": "text-profile"
                     },
                     "predefinedValue": {
                         "en_US": ""
@@ -77,7 +77,7 @@
                 },
                 {
                     "label": {
-                        "en_US": "blue-button-text"
+                        "en_US": "blue-button-text-profile"
                     },
                     "predefinedValue": {
                         "en_US": ""
