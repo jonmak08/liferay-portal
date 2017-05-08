@@ -51,123 +51,123 @@ body {
 /* All headers will be caps lock"d and black */
 .container-fluid h1 {
 	color: black;
-	text-transform: uppercase;
 	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .container-fluid h2 {
 	color: black;
-	text-transform: uppercase;
 	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .container-fluid h3 {
 	color: black;
-	text-transform: uppercase;
 	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .container-fluid h4 {
 	color: black;
-	text-transform: uppercase;
 	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .container-fluid h5 {
 	color: black;
-	text-transform: uppercase;
 	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .container-fluid h6 {
 	color: black;
-	text-transform: uppercase;
 	font-weight: bold;
+	text-transform: uppercase;
 }
 
 /* For the hardcoded navbar on the main page */
 #navigation ul li {
-	text-transform: uppercase;
 	display: inline;
+	text-transform: uppercase;
 }
 
 #navigation ul li a {
-	display: inline-block;
-	position: relative;
-	text-decoration: none;
-	padding-left: 0;
-	padding-right: 0;
+	border-color: transparent;
 	border-style: solid solid solid solid;
 	border-width: 15px;
-	border-color: transparent;
+	display: inline-block;
+	padding-left: 0;
+	padding-right: 0;
+	position: relative;
+	text-decoration: none;
 }
 
 /*These handle the underline animation */
 #navigation ul li a::before {
+	bottom: 0;
 	content: "";
 	display: block;
-	position: absolute;
-	left: 0;
-	bottom: 0;
 	height: 4px;
-	width: 0;
+	left: 0;
+	position: absolute;
 	transition: width 0 ease, background 0.3s ease;
+	width: 0;
 }
 
 #navigation ul li a::after {
+	background: blue;
+	bottom: 0;
 	content: "";
 	display: block;
+	height: 4px;
 	position: absolute;
 	right: 0;
-	bottom: 0;
-	height: 4px;
-	width: 0;
-	background: blue;
 	transition: width 0.3s ease;
+	width: 0;
 }
 
 #navigation ul li a:hover::before {
-	width: 100%;
 	background: blue;
 	transition: width 0.3s ease;
+	width: 100%;
 }
 
 #navigation ul li a:hover::after {
-	width: 100%;
 	background: transparent;
 	transition: all 0 ease;
+	width: 100%;
 }
 
 /* So that the current page doens"t have the underline animation */
 #navigation ul li[aria-selected="true"] a::before {
+	bottom: 0;
 	content: "";
 	display: block;
-	position: absolute;
-	left: 0;
-	bottom: 0;
 	height: 4px;
+	left: 0;
+	position: absolute;
 	width: 100%;
 }
 
 #navigation ul li[aria-selected="true"] a::after {
+	background: blue;
+	bottom: 0;
 	content: "";
 	display: block;
+	height: 4px;
 	position: absolute;
 	right: 0;
-	bottom: 0;
-	height: 4px;
 	width: 100%;
-	background: blue;
 }
 
 #navigation ul li[aria-selected="true"] a:hover::before {
-	width: 100%;
 	background: blue;
+	width: 100%;
 }
 
 #navigation ul li[aria-selected="true"] a:hover::after {
-	width: 100%;
 	background: transparent;
+	width: 100%;
 }
 
 /* Gotta repeat these for the child-menu"s, for consistent behavior */
@@ -183,75 +183,75 @@ body {
 }
 
 #navigation ul li[aria-selected="true"] .child-menu a::after {
+	background: blue;
+	bottom: 0;
 	content: "";
 	display: block;
+	height: 4px;
 	position: absolute;
 	right: 0;
-	bottom: 0;
-	height: 4px;
-	width: 0;
-	background: blue;
 	transition: width 0.5s ease;
+	width: 0;
 }
 
 #navigation ul li[aria-selected="true"] .child-menu a:hover::before {
-	width: 100%;
 	background: blue;
 	transition: width 0.3s ease;
+	width: 100%;
 }
 
 #navigation ul li[aria-selected="true"] .child-menu a:hover::after {
-	width: 100%;
 	background: transparent;
 	transition: all 0 ease;
+	width: 100%;
 }
 
 /* Don"t animate for selected child pages */
 #navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a::before {
+	bottom: 0;
 	content: "";
 	display: block;
-	position: absolute;
-	left: 0;
-	bottom: 0;
 	height: 4px;
+	left: 0;
+	position: absolute;
 	width: 100%;
 }
 
 #navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a::after {
+	background: blue;
+	bottom: 0;
 	content: "";
 	display: block;
+	height: 4px;
 	position: absolute;
 	right: 0;
-	bottom: 0;
-	height: 4px;
 	width: 100%;
-	background: blue;
 }
 
 #navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:hover::before {
-	width: 100%;
 	background: blue;
+	width: 100%;
 }
 
 #navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:hover::after {
-	width: 100%;
 	background: transparent;
+	width: 100%;
 }
 
 /* These are for child menus within the hardcoded navbar, but they also apply to the navbar portlet */
 .child-menu {
+	background-color: #F9F9F9;
+	border: 1px black solid;
 	display: none;
 	position: absolute;
-	background-color: #F9F9F9;
 	z-index: 1;
-	border: 1px black solid;
 	left: 0;
 	width: 100%;
 }
 
 .child-menu li {
-	width: 100%;
 	text-align: center;
+	width: 100%;
 }
 
 /* Need to have the hover over the li, and not the a, so that the dropdown doesn"t disappear immediately */
@@ -260,38 +260,38 @@ body {
 }
 
 #navigation {
-	position: relative;
 	display: inline-block;
+	position: relative;
 }
 
 /* Parent div element for the top-of page giant banner */
 .parallax-image-spacer {
-	float: left;
+	bottom: 0;
 	display: inline-block;
+	float: left;
+	left: 0;
+	margin-bottom: 50px;
+	margin-top: -30px;
 	opacity: 1;
 	position: relative;
-	z-index: 20;
-	left: 0;
 	top: 0;
-	bottom: 0;
 	width: 100%;
-	margin-top: -30px;
-	margin-bottom: 50px;
+	z-index: 20;
 }
 
 .parallax-image {
 	background-attachment: fixed;
-	background-size: contain;
-	background-repeat: no-repeat;
 /*	background-position: center center; */
-	width: 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
 	height: 100%;
-	opacity: 1;
-	visibility: inherit;
-	z-index: 0;
-	position: absolute;
 	left: 0;
+	opacity: 1;
+	position: absolute;
 	top: 0;
+	visibility: inherit;
+	width: 100%;
+	z-index: 0;
 }
 
 .vertical-spacer {
@@ -323,18 +323,18 @@ body {
 }
 
 .mouseOverSquarePic::before {
+	-webkit-transform: translate(-50%, -50%);
+	background: rgba(255, 255, 255, 0.2);
+	content: "";
+	display: block;
+	height: 0;
+	left: 50%;
+	opacity: 0;
 	position: absolute;
 	top: 50%;
-	left: 50%;
-	z-index: 2;
-	display: block;
-	content: "";
-	width: 0;
-	height: 0;
-	background: rgba(255, 255, 255, 0.2);
-	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
-	opacity: 0;
+	width: 0;
+	z-index: 2;
 }
 
 .mouseOverSquarePic:hover::before {
@@ -343,26 +343,26 @@ body {
 }
 
 .info-container {
+	align-items: center;
 	display: none;
-	width: 100%;
+	flex-direction: column;
 	height: 100%;
 	justify-content: center;
-	align-items: center;
-	z-index: 500;
 	position: absolute;
-	flex-direction: column;
+	width: 100%;
+	z-index: 500;
 }
 
 a:hover .info-container {
-	display: flex;
-	color: black;
-	animation: fade 0.5s linear;
 	-webkit-animation: fade 0.5s linear;
+	animation: fade 0.5s linear;
+	color: black;
+	display: flex;
 }
 
 .info-container-text {
-	text-transform: uppercase;
 	font-weight: 600; /* to make more visible */
+	text-transform: uppercase;
 }
 
 @-webkit-keyframes rect {
@@ -373,9 +373,9 @@ a:hover .info-container {
 		opacity: 1;
 	}
 	100% {
-		width: 100%;
 		height: 100%;
 		opacity: 1;
+		width: 100%;
 	}
 }
 
@@ -387,9 +387,9 @@ a:hover .info-container {
 		opacity: 1;
 	}
 	100% {
-		width: 100%;
 		height: 100%;
 		opacity: 1;
+		width: 100%;
 	}
 }
 
@@ -419,9 +419,9 @@ a:hover .info-container {
 
 /* Causes mouse over"d pics to have drop shadow appear */
 .mouseOverShadowPic {
+	box-shadow: 0 0 1px transparent;
 	display: inline-block;
 	vertical-align: middle;
-	box-shadow: 0 0 1px transparent;
 }
 
 .mouseOverShadowPic:hover {
@@ -437,30 +437,29 @@ a:hover .info-container {
 }
 
 .mouseOverShadowContainer {
-	max-width: 350px;
 	margin: 30px;
+	max-width: 350px;
 }
 
 /* Flexbox stuff for the square link thingies */
 .flexbox-container {
 	display: flex;
-	/*flex-direction: row;*/
 	flex-wrap: wrap;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	padding: 10px;
 	justify-content: center;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	padding: 10px;
 }
 
 /* Blue button thingies */
 .bluebutton {
-	color: white;
-	background-color: #2A59DE;
-	font-weight: bold;
-	text-transform: uppercase;
-	display: flex;
 	align-items: center;
+	background-color: #2A59DE;
+	color: white;
+	display: flex;
+	font-weight: bold;
 	justify-content: center;
+	text-transform: uppercase;
 }
 
 .bluebutton a {
@@ -468,13 +467,13 @@ a:hover .info-container {
 }
 
 .large-button {
-	padding: 19px 60px 19px 60px;
 	border: 2px 2px 2px 2px;
+	padding: 19px 60px 19px 60px;
 }
 
 .small-button {
-	padding: 1px 10px 1px 10px;
 	font-size: 14px;
+	padding: 1px 10px 1px 10px;
 }
 
 .mouseOverCirclePic > a {
@@ -489,37 +488,37 @@ a:hover .info-container {
 
 /* Radial out (Circle animation) from hover.css */
 .mouseOverCirclePic {
-	display: inline-block;
-	vertical-align: middle;
 	-webkit-transform: perspective(1px) translateZ(0);
-	transform: perspective(1px) translateZ(0);
-	box-shadow: 0 0 1px transparent;
-	position: relative;
-	overflow: hidden;
-	-webkit-transition-property: color;
-	transition-property: color;
 	-webkit-transition-duration: 0.3s;
+	-webkit-transition-property: color;
+	box-shadow: 0 0 1px transparent;
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+	transform: perspective(1px) translateZ(0);
 	transition-duration: 0.3s;
+	transition-property: color;
+	vertical-align: middle;
 }
 .mouseOverCirclePic::before {
-	content: "";
-	position: absolute;
-	z-index: -1;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: black;
-	opacity: 0.1;
-	border-radius: 100%;
 	-webkit-transform: scale(0);
-	transform: scale(0);
-	-webkit-transition-property: transform;
-	transition-property: transform;
 	-webkit-transition-duration: 0.3s;
-	transition-duration: 0.3s;
+	-webkit-transition-property: transform;
 	-webkit-transition-timing-function: ease-out;
+	background: black;
+	border-radius: 100%;
+	bottom: 0;
+	content: "";
+	left: 0;
+	opacity: 0.1;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transform: scale(0);
+	transition-duration: 0.3s;
+	transition-property: transform;
 	transition-timing-function: ease-out;
+	z-index: -1;
 }
 .mouseOverCirclePic:hover {
 	color: white;
@@ -549,15 +548,15 @@ a:hover .info-container {
 
 /* Darken */
 a.mouseOverDarkenPic {
-	display: inline-block;
 	background: black;
+	display: inline-block;
 	padding: 0;
 }
 
 a.mouseOverDarkenPic .bluebutton {
+	-webkit-transition: all 0.3s linear;
 	display: block;
 	transition: all 0.3s linear;
-	-webkit-transition: all 0.3s linear;
 }
 
 a.mouseOverDarkenPic:hover .bluebutton {
@@ -567,8 +566,8 @@ a.mouseOverDarkenPic:hover .bluebutton {
 /* Footer stuff */
 #footer {
 	font-size: 12px;
-	text-align: center;
 	margin-top: 50px;
+	text-align: center;
 }
 
 .container-fluid a .fa {
@@ -593,84 +592,84 @@ a.mouseOverDarkenPic:hover .bluebutton {
 
 /* Nav text stuff */
 .nav-text {
-	width: 100%;
-	margin-top: 30px;
 	margin-bottom: 30px;
+	margin-top: 30px;
+	width: 100%;
 }
 
 /* Top menu bar thingy */
 .top-menu {
-	width: 100%;
-	height: 100px;
 	display: block;
+	height: 100px;
 	opacity: 0;
+	width: 100%;
 }
 
 .top-menu-text {
-	float: left;
-	font-size: 24px;
 	color: black;
-	padding: 20px;
-	font-weight: bold;
+	float: left;
 	font-family: "Playfair Display SC", serif;
+	font-size: 24px;
+	font-weight: bold;
+	padding: 20px;
 }
 
 /* fixing container-fluid to not have horiz scrollbar */
 .unpadded {
+	overflow-x: hidden;
 	padding-left: 0;
 	padding-right: 0;
-	overflow-x: hidden;
 }
 
 /*Header text*/
 .header-container {
-	width: 100%;
 	height: 100%;
 	left: 0;
-	top: 0;
 	text-align: center;
+	top: 0;
+	width: 100%;
 }
 .header-title {
-	position: relative;
+	color: black;
+	font-family: "Playfair Display SC", serif;
 	font-size: 80px;
 	font-weight: bold;
-	font-family: "Playfair Display SC", serif;
-	color: black;
-	z-index: 2;
 	padding-bottom: 40px;
 	padding-top: 40px;
+	position: relative;
+	z-index: 2;
 }
 
 .header-subtitle {
-	font-size: 28px;
 	color: #686868;
-	z-index: 1;
-	position: relative;
-	padding-top: 30px;
+	font-size: 28px;
 	padding-bottom: 30px;
+	padding-top: 30px;
+	position: relative;
+	z-index: 1;
 }
 
 /* Floating navbar */
 .horizontal-nav-fixed-top {
-	height: 70px;
-	width: 100%;
-	position: fixed;
-	top: 0;
 	background-color: white;
 	border-bottom: 1px black solid;
+	height: 70px;
+	position: fixed;
+	top: 0;
+	width: 100%;
 	z-index: 100
 }
 
 .horizontal-nav-should-be-fixed {
-	position: fixed;
 	background-color: white;
 	border-bottom: 1px black solid;
+	position: fixed;
 }
 
 .horizontal-nav-should-not-be-fixed {
-	position: absolute;
 	background-color: transparent;
 	border: 0; 
+	position: absolute;
 }
 
 .horizontal-nav {
@@ -689,14 +688,14 @@ a.mouseOverDarkenPic:hover .bluebutton {
 
 /* Centered Mini-Content */
 .centered-mini-content {
-	width: 525px;
 	text-align: center;
+	width: 525px;
 }
 
 .centered-content-container {
-	width: 100%;
 	display: flex;
 	justify-content: center;
+	width: 100%;
 }
 
 /* Image content */
@@ -707,17 +706,17 @@ a.mouseOverDarkenPic:hover .bluebutton {
 /* Contact page styles*/
 .disguised-submit-button {
 	background: none;
-	border: 0;
 	border-bottom: 4px solid #2A59DE;
+	border: 0;
 	color: #2A59DE;
-	text-decoration: none;
 	cursor: pointer;
+	text-decoration: none;
 	text-transform: uppercase;
 }
 
 .disguised-submit-button:hover {
-	color: black;
 	border-bottom: 4px solid black;
+	color: black;
 }
 
 .paragraph-div {
@@ -766,8 +765,8 @@ a.mouseOverDarkenPic:hover .bluebutton {
 
 /* Full-width container to hold stuff*/
 .full-width-container {
-	width: 100%;
 	display: block;
+	width: 100%;
 }
 
 /* Profile page */
@@ -777,16 +776,16 @@ a.mouseOverDarkenPic:hover .bluebutton {
 }
 
 .full-width-flex-container {
-	width: 100%;
 	display: flex;
 	justify-content: center;
+	width: 100%;
 }
 
 .vertical-content-container {
 	display: flex;
+	flex-direction: column;
 	float: left;
 	justify-content: center;
-	flex-direction: column;
 }
 
 .profile-picture-container {
@@ -801,8 +800,8 @@ a.mouseOverDarkenPic:hover .bluebutton {
 
 .metamorphic-container {
 	display: block;
-	text-align: center;
 	margin-bottom: 20px;
+	text-align: center;
 }
 
 /* My styles got rid of this behavior in the calendar portlet.  I'm reimplementing it here. */
@@ -828,13 +827,13 @@ a.mouseOverDarkenPic:hover .bluebutton {
 	.metamorphic-container {
 		display: flex;
 		flex-direction: column;
-		width: 100%;
 		justify-content: center;
+		width: 100%;
 	}
 
 	.profile-biography-container {
-		max-width: unset;
 		max-height: unset;
+		max-width: unset;
 	}
 }
 
@@ -856,8 +855,8 @@ a.mouseOverDarkenPic:hover .bluebutton {
 /*Horizontal navbar swap */
 @media only screen and (max-width: 875px) {
 	.horizontal-nav {
-		position: relative;
 		background-color: white;
+		position: relative;
 		top: 0;
 	}
 
@@ -880,15 +879,15 @@ a.mouseOverDarkenPic:hover .bluebutton {
 
 	/* Navbar child menu improvement for phone */
 	.child-menu {
-		position: relative;
 		background-color: unset;
 		border: 0;
+		position: relative;
 	}
 }
 
 @media only screen and (max-width: 460px) {
 	.squarePic {
-		width: unset;
 		max-width: 460px;
+		width: unset;
 	}
 }
