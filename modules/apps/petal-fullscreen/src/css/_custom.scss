@@ -427,7 +427,7 @@ a:hover .info-container {
 }
 
 .info-container-text {
-	font-weight: 600; 
+	font-weight: 600;
 	text-transform: uppercase;
 }
 
@@ -803,8 +803,6 @@ a.mouse-over-darken-pic:hover .blue-button {
 }
 
 // ---------- Calendar Portlet -------- //
-// My styles remove the hover underline from the "Weekly" view of the calendar
-// This style reimplements that
 .scheduler-view-day-header-day a:hover {
 	text-decoration: underline;
 }
