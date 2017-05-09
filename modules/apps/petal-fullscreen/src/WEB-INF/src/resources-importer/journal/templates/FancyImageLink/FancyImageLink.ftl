@@ -11,7 +11,7 @@ Autocomplete is also available and can be invoked by typing "${".
             <div class="mouse-over-square-pic square-pic">
                 <a href="${cur_image.link.getFriendlyUrl()}">
                     <div class="info-container">
-                        <div class="paragraph-div info-container-text">${cur_image.text.getData()}</div>
+                        <div class="info-container-text paragraph-div">${cur_image.text.getData()}</div>
                         <div class="blue-button small-button">${cur_image.bluebuttontext.getData()}</div>
                     </div>
                     <#assign themePath = getterUtil.getString(request['theme-display']['path-theme-images']) />

@@ -46,11 +46,11 @@ Autocomplete is also available and can be invoked by typing "${".
         </#if>
     <form action="mailto:${email.getData()}">
     <div class="justified-multi-input-row">
-        <div size="30" class="input-in-line-container paragraph-div"><input class="input-in-line" type="text" name="yourName" value="Your name"/></div>
-        <div size="30" class="input-in-line-container paragraph-div"><input class="input-in-line" type="text" name="yourEmail" value="Your email"/></div>
-        <div size="30" class="input-in-line-container paragraph-div"><input class="input-in-line" type="text" name="yourSubject" value="Your subject"/></div>
+        <div class="input-in-line-container paragraph-div" size="30"><input class="input-in-line" name="yourName" type="text" value="Your name"/></div>
+        <div class="input-in-line-container paragraph-div" size="30"><input class="input-in-line" name="yourEmail" type="text" value="Your email"/></div>
+        <div class="input-in-line-container paragraph-div" size="30"><input class="input-in-line" name="yourSubject" type="text" value="Your subject"/></div>
     </div>
-    <div class="paragraph-div full-width-container">
+    <div class="full-width-container paragraph-div">
         <textarea class="contact-text" rows="9">Your message</textarea>
     </div>
     <div>
