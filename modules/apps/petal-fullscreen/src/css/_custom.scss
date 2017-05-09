@@ -759,6 +759,12 @@ a.mouse-over-darken-pic {
 	}
 }
 
+@media (max-width: 1192px) {
+	.square-pic {
+		width: 500px;
+	}
+}
+
 @media (max-width: 1150px) {
 	.square-pic {
 		width: 460px;
@@ -770,6 +776,12 @@ a.mouse-over-darken-pic {
 
 	.contact-flexbox-container {
 		justify-content: left;
+	}
+}
+
+@media (max-width: 990px) {
+	.square-pic {
+		width: 400px;
 	}
 }
 
