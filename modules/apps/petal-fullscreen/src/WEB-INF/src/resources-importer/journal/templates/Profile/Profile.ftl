@@ -52,7 +52,7 @@ Autocomplete is also available and can be invoked by typing "${".
 				social_media = social_media + "<div class=\"image-container\"><a href=\"" +cur_smu.getData()+"\" target=\"_blank\"><i class=\"fa " + cur_smn.getData() + "\"></i></a></div>"
 			/>
 			</#if>
-			<div class="vertical-content-container image-container">
+			<div class="image-container vertical-content-container">
 				<div class="flexbox-container">
 					<div class="profile-picture-container">
 						<#assign themePath = getterUtil.getString(request['theme-display']['path-theme-images']) />
