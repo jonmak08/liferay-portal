@@ -8,8 +8,8 @@
 		<dynamic-content language-id="en_US"><![CDATA[<p>Graphics is a huge passion of mine. &nbsp;It enables me to stay spontaneous and gives me an opportunity for creative fulfillment. &nbsp;I put in a lot of commitment.</p>]]></dynamic-content>
 	</dynamic-element>
 	<dynamic-element name="name" type="text" index-type="keyword" instance-id="kjpk">
-		<dynamic-element name="image" instance-id="clqs" type="image" index-type="keyword">
-			<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"profile-1.jpg","alt":"","title":"profile-1.jpg","type":"journal","uuid":"0eaa2a68-2379-0192-a86f-a22f9dd13521","resourcePrimKey":"37736"}]]></dynamic-content>
+		<dynamic-element name="image" instance-id="clqs" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[profile-1.jpg]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-element name="biography" instance-id="iqkj" type="text_box" index-type="text">
 			<dynamic-content language-id="en_US"><![CDATA[Hello, my name is Gabriele Guerra, I'm a Finance Manager at Petal. You can write me anytime: gabrieleguerra@info.com]]></dynamic-content>
@@ -35,8 +35,8 @@
 		<dynamic-content language-id="en_US"><![CDATA[Jeff in Technicolor]]></dynamic-content>
 	</dynamic-element>
 	<dynamic-element name="name" type="text" index-type="keyword" instance-id="wgos">
-		<dynamic-element name="image" instance-id="msur" type="image" index-type="keyword">
-			<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"awful.jpg","alt":"","title":"awful.jpg","type":"journal","uuid":"a22547e0-70fd-6088-9bcf-c0bb8d993d85","resourcePrimKey":"37736"}]]></dynamic-content>
+		<dynamic-element name="image" instance-id="msur" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[awful.jpg]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-element name="biography" instance-id="kwik" type="text_box" index-type="text">
 			<dynamic-content language-id="en_US"><![CDATA[Hello, my name is Gabriele Guerra, see?  Now listen here, I'm a Finance Manager at Petal. You can write me anytime: gabrieleguerra@info.com]]></dynamic-content>
@@ -62,8 +62,8 @@
 		<dynamic-content language-id="en_US"><![CDATA[Silent Era Jeff]]></dynamic-content>
 	</dynamic-element>
 	<dynamic-element name="name" type="text" index-type="keyword" instance-id="ysvy">
-		<dynamic-element name="image" instance-id="pusj" type="image" index-type="keyword">
-			<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"20170422_152934.jpg","alt":"","title":"20170422_152934.jpg","type":"journal","uuid":"b68d732c-ecd2-d5c0-e9ef-32c545ea82df","resourcePrimKey":"37736"}]]></dynamic-content>
+		<dynamic-element name="image" instance-id="pusj" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[20170422_152934.jpg]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-element name="biography" instance-id="pawl" type="text_box" index-type="text">
 			<dynamic-content language-id="en_US"><![CDATA[Hello, my name is Gabriele Guerra, I'm a Finance Manager at Petal. You can write me anytime: gabrieleguerra@info.com]]></dynamic-content>

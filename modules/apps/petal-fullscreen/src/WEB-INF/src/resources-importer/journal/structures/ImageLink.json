@@ -17,8 +17,7 @@
             "tip": {
                 "en_US": ""
             },
-            "dataType": "image",
-            "fieldNamespace": "ddm",
+            "dataType": "string",
             "indexType": "keyword",
             "localizable": true,
             "name": "image",
@@ -26,7 +25,7 @@
             "repeatable": true,
             "required": true,
             "showLabel": true,
-            "type": "ddm-image",
+            "type": "text",
             "nestedFields": [
                 {
                     "label": {

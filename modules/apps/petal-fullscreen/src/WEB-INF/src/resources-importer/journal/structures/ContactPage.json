@@ -29,7 +29,7 @@
         },
         {
             "label": {
-                "en_US": "Address Line 2 (City, State ZIP Code, Country)" 
+                "en_US": "Address Line 2 (City, State ZIP Code, Country)"
             },
             "predefinedValue": {
                 "en_US": ""

@@ -14,7 +14,8 @@ Autocomplete is also available and can be invoked by typing "${".
 	                    <#if cur_image.link.getFriendlyUrl()?? && cur_image.link.getFriendlyUrl() != "">
 	                        <a href="${cur_image.link.getFriendlyUrl()}">
 	                    </#if>
-		                <img alt="${cur_image.getAttribute("alt")}" src="${cur_image.getData()}" />
+		                <#assign themePath = getterUtil.getString(request['theme-display']['path-theme-images']) />
+		                <img src="${themePath}/${cur_image.getData()}" />
 		                <#if cur_image.link.getFriendlyUrl()?? && cur_image.link.getFriendlyUrl() != "">
 	                        </a>
 	                    </#if>

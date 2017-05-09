@@ -55,7 +55,8 @@ Autocomplete is also available and can be invoked by typing "${".
 			<div class="vertical-content-container image-container">
 				<div class="flexbox-container">
 					<div class="profile-picture-container">
-						<img alt="${cur_image.getAttribute("alt")}" src="${cur_image.getData()}" />
+						<#assign themePath = getterUtil.getString(request['theme-display']['path-theme-images']) />
+						<img src="${themePath}/${cur_image.getData()}" />
 					</div>
 				</div>
 				<div class="full-width-container paragraph-div">

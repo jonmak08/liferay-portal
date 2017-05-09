@@ -14,7 +14,8 @@ Autocomplete is also available and can be invoked by typing "${".
                         <div class="paragraph-div info-container-text">${cur_image.text.getData()}</div>
                         <div class="blue-button small-button">${cur_image.bluebuttontext.getData()}</div>
                     </div>
-                    <img class="container-content" src="${cur_image.getData()}"/>
+                    <#assign themePath = getterUtil.getString(request['theme-display']['path-theme-images']) />
+                    <img class="container-content" src="${themePath}/${cur_image.getData()}"/>
                 </a>
             </div>
         </#list>
