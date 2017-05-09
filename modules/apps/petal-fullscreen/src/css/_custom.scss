@@ -5,69 +5,66 @@
 
 /* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
 
+$gray: #737373;
+$bluish: #2A59DE;
+
 @import "portlet_decorator";
+
+@mixin fake-underline-default {
+	bottom: 0;
+	content: "";
+	display: block;
+	height: 4px;
+	position: absolute;
+}
 
 // ---------- General Styles ---------- //
 // Text Look and Feel
 body {
-	color: #737373;
+	color: $gray;
 	font-family: "Inconsolata", sans-serif;
 	font-size: 15px;
 	letter-spacing: 1px;
 	line-height: 24px;
 }
 
-.container-fluid h1 {
-	color: black;
-	font-weight: bold;
-	text-transform: uppercase;
-}
+.container-fluid {
+	overflow-y: hidden;
 
-.container-fluid h2 {
-	color: black;
-	font-weight: bold;
-	text-transform: uppercase;
-}
+	// Headings
+	@for $i from 1 through 6 {
+		h#{$i} {
+			color: black;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+	}
+	
+	// Links
+	a {
+		&:active, &:link, &:visited {
+			text-decoration: none;
+		}
 
-.container-fluid h3 {
-	color: black;
-	font-weight: bold;
-	text-transform: uppercase;
-}
+		&:hover {
+			text-decoration: none;
 
-.container-fluid h4 {
-	color: black;
-	font-weight: bold;
-	text-transform: uppercase;
-}
+			//This is for fancy image links but was put here
+			.info-container {
+				animation: fade 1.5s linear;
+				color: black;
+				display: flex;
+				-webkit-animation: fade 1.5s linear;
+			}
+		}
 
-.container-fluid h5 {
-	color: black;
-	font-weight: bold;
-	text-transform: uppercase;
-}
-
-.container-fluid h6 {
-	color: black;
-	font-weight: bold;
-	text-transform: uppercase;
-}
-
-// Links
-.container-fluid a:link {
-	text-decoration: none;
-}
-
-.container-fluid a:hover {
-	text-decoration: none;
-}
-
-.container-fluid  a:active {
-	text-decoration: none;
-}
-
-.container-fluid a:visited {
-	text-decoration: none;
+		// Social media icons
+		&, &:active, &:hover, &:link, &:visited {
+			.fa {
+				color: black;
+			}
+		}
+	}
 }
 
 // Containers
@@ -109,201 +106,180 @@ body {
 
 // ----------   Navigation        ----- //
 // Link Styles
-#navigation {
+#navigation{
 	display: inline-block;
 	position: relative;
-}
+	a {
+		color: $gray;
 
-#navigation a {
-	color: #737373;
-}
+		&:hover, &:visited, &:active {
+			color: $gray;
+		} 
+	}
 
-#navigation a:hover {
-	color: #737373;
-}
+	ul {
+		li {
+			display: inline;
+			text-transform: uppercase;
 
-#navigation a:visited {
-	color: #737373;
-}
+			a {
+				border-color: transparent;
+				border-style: solid;
+				border-width: 15px;
+				display: inline-block;
+				padding-left: 0;
+				padding-right: 0;
+				position: relative;
+				text-decoration: none;
 
-#navigation a:active {
-	color: #737373;
-}
+				// Underline animation for any nav links
+				&::before {
+					@include fake-underline-default;
+					left: 0;
+					transition: width 0 ease, background 0.3s ease;
+					width: 0;
 
-#navigation ul li {
-	display: inline;
-	text-transform: uppercase;
-}
+				}
 
-#navigation ul li a {
-	border-color: transparent;
-	border-style: solid;
-	border-width: 15px;
-	display: inline-block;
-	padding-left: 0;
-	padding-right: 0;
-	position: relative;
-	text-decoration: none;
-}
+				&::after {
+					@include fake-underline-default;
+					background: blue;
+					right: 0;
+					transition: width 0.3s ease;
+					width: 0;
 
-// Underline animation for nav links
-#navigation ul li a::before {
-	bottom: 0;
-	content: "";
-	display: block;
-	height: 4px;
-	left: 0;
-	position: absolute;
-	transition: width 0 ease, background 0.3s ease;
-	width: 0;
-}
+				}
 
-#navigation ul li a::after {
-	background: blue;
-	bottom: 0;
-	content: "";
-	display: block;
-	height: 4px;
-	position: absolute;
-	right: 0;
-	transition: width 0.3s ease;
-	width: 0;
-}
+				&:hover{
+					&::before {
+						background: blue;
+						transition: width 0.3s ease;
+						width: 100%;
+					}
 
-#navigation ul li a:hover::before {
-	background: blue;
-	transition: width 0.3s ease;
-	width: 100%;
-}
+					&::after {
+						background: transparent;
+						transition: all 0 ease;
+						width: 100%;
+					}
+				}
+			}
 
-#navigation ul li a:hover::after {
-	background: transparent;
-	transition: all 0 ease;
-	width: 100%;
-}
+			// Don't re-animate already-underlined menu item
+			&[aria-selected="true"] {
+				a {
+					&::before {
+						@include fake-underline-default;
+						left: 0;
+						width: 100%;
+					}
+                        
+					&::after {
+						@include fake-underline-default;
+						background: blue;
+						right: 0;
+						width: 100%;
+					}
+                        
+					&:hover {
+						&::before {
+							background: blue;
+							width: 100%;
+						}
+                        
+						&::after {
+							background: transparent;
+							width: 100%;
+						}
+					}
+				}
 
-// Prevents current page from underlining itself
-#navigation ul li[aria-selected="true"] a::before {
-	bottom: 0;
-	content: "";
-	display: block;
-	height: 4px;
-	left: 0;
-	position: absolute;
-	width: 100%;
-}
+				// Handle child link animations
+				.child-menu {
+					a {
+						&::before {
+							@include fake-underline-default;
+							left: 0;
+							width: 0;
+							transition: width 0 ease, background 0.3s ease;
+						}
 
-#navigation ul li[aria-selected="true"] a::after {
-	background: blue;
-	bottom: 0;
-	content: "";
-	display: block;
-	height: 4px;
-	position: absolute;
-	right: 0;
-	width: 100%;
-}
+						&::after {
+							@include fake-underline-default;
+							background: blue;
+							right: 0;
+							transition: width 0.5s ease;
+							width: 0;
+						}
 
-#navigation ul li[aria-selected="true"] a:hover::before {
-	background: blue;
-	width: 100%;
-}
+						&:hover {
+							&::before {
+								background: blue;
+								transition: width 0.3s ease;
+								width: 100%;
+							}
 
-#navigation ul li[aria-selected="true"] a:hover::after {
-	background: transparent;
-	width: 100%;
-}
+							&::after {
+								background: transparent;
+								transition: all 0 ease;
+								width: 100%;
+							}
+						}
+					}
 
-// Handle child link animations
-#navigation ul li[aria-selected="true"] .child-menu a::before {
-	content: "";
-	display: block;
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	height: 4px;
-	width: 0;
-	transition: width 0 ease, background 0.3s ease;
-}
+					// Don't re-animate already-underlined child menu item
+					li[aria-selected="true"] a {
+						&::before {
+							@include fake-underline-default;
+							left: 0;
+							width: 100%;
+						}
 
-#navigation ul li[aria-selected="true"] .child-menu a::after {
-	background: blue;
-	bottom: 0;
-	content: "";
-	display: block;
-	height: 4px;
-	position: absolute;
-	right: 0;
-	transition: width 0.5s ease;
-	width: 0;
-}
+						&::after {
+							@include fake-underline-default;
+							background: blue;
+							right: 0;
+							width: 1005;
+						}
 
-#navigation ul li[aria-selected="true"] .child-menu a:hover::before {
-	background: blue;
-	transition: width 0.3s ease;
-	width: 100%;
-}
+						&:hover {
+							&::before {
+								background: blue;
+								width: 100%;
+							}
 
-#navigation ul li[aria-selected="true"] .child-menu a:hover::after {
-	background: transparent;
-	transition: all 0 ease;
-	width: 100%;
-}
+							&::after {
+								background: transparent;
+								width: 100%;
+							}
+						}
+					}
+				}
+			}
+		}
 
-// Prevents current child page from underlining itself
-#navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a::before {
-	bottom: 0;
-	content: "";
-	display: block;
-	height: 4px;
-	left: 0;
-	position: absolute;
-	width: 100%;
-}
+		&[aria-label="Site Pages"] li:hover .child-menu {
+			display: block;
+		}
+	}
 
-#navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a::after {
-	background: blue;
-	bottom: 0;
-	content: "";
-	display: block;
-	height: 4px;
-	position: absolute;
-	right: 0;
-	width: 100%;
-}
-
-#navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:hover::before {
-	background: blue;
-	width: 100%;
-}
-
-#navigation ul li[aria-selected="true"] .child-menu li[aria-selected="true"] a:hover::after {
-	background: transparent;
-	width: 100%;
-}
-
-// Child menu styles
-#navigation ul[aria-label="Site Pages"] li:hover .child-menu {
-	display: block;
 }
 
 .child-menu {
 	background-color: #F9F9F9;
 	border: 1px black solid;
 	display: none;
-	position: absolute;
-	z-index: 20;
 	left: 0;
+	position: absolute;
 	width: 100%;
-}
+	z-index: 20;
 
-.child-menu li {
-	text-align: center;
-	width: 100%;
+	li {
+		text-align: center;
+	}
 }
 
 // ----------       Header        ----- //
-// Parent container
 .parallax-image-spacer {
 	bottom: 0;
 	display: inline-block;
@@ -320,9 +296,9 @@ body {
 
 .parallax-image {
 	background-attachment: fixed;
-/*	background-position: center center; */
+	background-position: center center; 
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: cover;
 	height: 100%;
 	left: 0;
 	opacity: 1;
@@ -345,7 +321,6 @@ body {
 	width: 100%;
 }
 .header-title {
-	color: black;
 	font-family: "Playfair Display SC", serif;
 	font-size: 80px;
 	font-weight: bold;
@@ -356,7 +331,6 @@ body {
 }
 
 .header-subtitle {
-	color: #686868;
 	font-size: 28px;
 	padding-bottom: 30px;
 	padding-top: 30px;
@@ -365,47 +339,47 @@ body {
 }
 
 // ----------   Fancy Image Link  ----- //
-.square-pic {
-	width: 375px;
-}
-
 .container-content {
 	width: 100%;
 }
 
 .fancy-image-links-container {
+	justify-content: left;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	max-width: 1175px;
+	padding: 10px;
  	display: flex;
  	flex-wrap: wrap;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	padding: 10px;
-	justify-content: left;
-	max-width: 1175px;
 }
 
 // Causes hovered pics to have a growing square
 .mouse-over-square-pic {
 	position: relative;
+
+	&::before {
+		-webkit-transform: translate(-50%, -50%);
+		background: rgba(255, 255, 255, 0.2);
+		content: "";
+		display: block;
+		height: 0;
+		left: 50%;
+		opacity: 0;
+		position: absolute;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 0;
+		z-index: 2;
+	}
+
+	&:hover::before {
+		animation: rect 0.75s forwards;
+		-webkit-animation: rect 0.75s forwards;
+	}
 }
 
-.mouse-over-square-pic::before {
-	-webkit-transform: translate(-50%, -50%);
-	background: rgba(255, 255, 255, 0.2);
-	content: "";
-	display: block;
-	height: 0;
-	left: 50%;
-	opacity: 0;
-	position: absolute;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	width: 0;
-	z-index: 2;
-}
-
-.mouse-over-square-pic:hover::before {
-	-webkit-animation: rect 0.75s forwards;
-	animation: rect 0.75s forwards;
+.square-pic {
+	width: 375px;
 }
 
 .info-container {
@@ -417,13 +391,6 @@ body {
 	position: absolute;
 	width: 100%;
 	z-index: 50;
-}
-
-a:hover .info-container {
-	-webkit-animation: fade 0.5s linear;
-	animation: fade 0.5s linear;
-	color: black;
-	display: flex;
 }
 
 .info-container-text {
@@ -467,7 +434,7 @@ a:hover .info-container {
 		opacity: 0;
 	}
 	60% {
-		opacity: 1;
+		opacity: 0.5;
 	}
 }
 
@@ -479,7 +446,7 @@ a:hover .info-container {
 		opacity: 0;
 	}
 	60% {
-		opacity: 1;
+		opacity: 0.5;
 	}
 }
 
@@ -488,21 +455,13 @@ a:hover .info-container {
 	box-shadow: 0 0 1px transparent;
 	display: inline-block;
 	vertical-align: middle;
+
+	&:hover, &:focus, &:active {
+		box-shadow: 0 0 45px #D9D9D9;
+	}
 }
 
-.mouse-over-shadow-pic:hover {
-	box-shadow: 0 0 45px #D9D9D9;
-}
-
-.mouse-over-shadow-pic:focus {
-	box-shadow: 0 0 45px #D9D9D9;
-}
-
-.mouse-over-shadow-pic:active {
-	box-shadow: 0 0 45px #D9D9D9;
-}
-
-.mouse-overShadowContainer {
+.mouse-over-shadow-container {
 	margin: 30px;
 	max-width: 350px;
 }
@@ -510,16 +469,16 @@ a:hover .info-container {
 // ----------   Blue Buttons   -------- //
 .blue-button {
 	align-items: center;
-	background-color: #2A59DE;
+	background-color: $bluish;
 	color: white;
 	display: flex;
 	font-weight: bold;
 	justify-content: center;
 	text-transform: uppercase;
-}
 
-.blue-button a {
-	display: block;
+	a {
+		display: block;
+	}
 }
 
 .large-button {
@@ -555,51 +514,36 @@ a:hover .info-container {
 	transition-duration: 0.3s;
 	transition-property: color;
 	vertical-align: middle;
-}
-.mouse-over-circle-pic::before {
-	-webkit-transform: scale(0);
-	-webkit-transition-duration: 0.3s;
-	-webkit-transition-property: transform;
-	-webkit-transition-timing-function: ease-out;
-	background: black;
-	border-radius: 100%;
-	bottom: 0;
-	content: "";
-	left: 0;
-	opacity: 0.1;
-	position: absolute;
-	right: 0;
-	top: 0;
-	transform: scale(0);
-	transition-duration: 0.3s;
-	transition-property: transform;
-	transition-timing-function: ease-out;
-	z-index: -1;
-}
-.mouse-over-circle-pic:hover {
-	color: white;
-}
+	
+	&::before {
+		-webkit-transform: scale(0);
+		-webkit-transition-duration: 0.3s;
+		-webkit-transition-property: transform;
+		-webkit-transition-timing-function: ease-out;
+		background: black;
+		border-radius: 100%;
+		bottom: 0;
+		content: "";
+		left: 0;
+		opacity: 0.1;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: scale(0);
+		transition-duration: 0.3s;
+		transition-property: transform;
+		transition-timing-function: ease-out;
+		z-index: -1;
+	}
 
-.mouse-over-circle-pic:focus {
-	color: white;
-}
+	&:active, &:focus, &:hover {
+		color: white;
 
-.mouse-over-circle-pic:active {
-	color: white;
-}
-.mouse-over-circle-pic:hover::before {
-	-webkit-transform: scale(2);
-	transform: scale(2);
-}
-
-.mouse-over-circle-pic:focus::before {
- 	-webkit-transform: scale(2);
-	transform: scale(2);
-}
-
-.mouse-over-circle-pic:active::before {
-	-webkit-transform: scale(2);
-	transform: scale(2);
+		&::before {
+			-webkit-transform: scale(2);
+			transform: scale(2);
+		}
+	}
 }
 
 // Darken animation
@@ -607,16 +551,16 @@ a.mouse-over-darken-pic {
 	background: black;
 	display: inline-block;
 	padding: 0;
-}
 
-a.mouse-over-darken-pic .blue-button {
-	-webkit-transition: all 0.3s linear;
-	display: block;
-	transition: all 0.3s linear;
-}
+	.blue-button {
+		-webkit-transition: all 0.3s linear;
+		display: block;
+		transition: all 0.3s linear;
+	}
 
-a.mouse-over-darken-pic:hover .blue-button {
-	opacity: 0.8;
+	&:hover .blue-button {
+		opacity: 0.8;
+	}
 }
 
 // ----------  Footer Styles   -------- //
@@ -624,26 +568,6 @@ a.mouse-over-darken-pic:hover .blue-button {
 	font-size: 12px;
 	margin-top: 50px;
 	text-align: center;
-}
-
-.container-fluid a .fa {
-	color: black;
-}
-
-.container-fluid a:hover .fa {
-	color: black;
-}
-
-.container-fluid a:active .fa {
-	color: black;
-}
-
-.container-fluid a:link .fa {
-	color: black;
-}
-
-.container-fluid a:visited .fa {
-	color: black;
 }
 
 // ----------  Horizontal Nav  -------- //
@@ -714,17 +638,18 @@ a.mouse-over-darken-pic:hover .blue-button {
 // ----------   Contact Page   -------- //
 .disguised-submit-button {
 	background: none;
-	border-bottom: 4px solid #2A59DE;
 	border: 0;
-	color: #2A59DE;
+	border-bottom: 4px solid $bluish;
+	color: $bluish;
 	cursor: pointer;
 	text-decoration: none;
 	text-transform: uppercase;
-}
-
-.disguised-submit-button:hover {
-	border-bottom: 4px solid black;
-	color: black;
+	font-weight: bold;
+	
+	&:hover {
+		border-bottom: 4px solid black;
+		color: black;
+	}
 }
 
 .justified-multi-input-row {
@@ -809,7 +734,7 @@ a.mouse-over-darken-pic:hover .blue-button {
 
 
 // ---------- RESPONSIVE       -------- //
-@media only screen and (max-width: 1425px) {
+@media (max-width: 1425px) {
 	.square-pic {
 		width: 562px;
 	}
@@ -820,7 +745,7 @@ a.mouse-over-darken-pic:hover .blue-button {
 
 }
 
-@media only screen and (max-width: 1260px) {
+@media (max-width: 1260px) {
 	.metamorphic-container {
 		display: flex;
 		flex-direction: column;
@@ -834,7 +759,7 @@ a.mouse-over-darken-pic:hover .blue-button {
 	}
 }
 
-@media only screen and (max-width: 1150px) {
+@media (max-width: 1150px) {
 	.square-pic {
 		width: 460px;
 	}
@@ -848,7 +773,7 @@ a.mouse-over-darken-pic:hover .blue-button {
 	}
 }
 
-@media only screen and (max-width: 875px) {
+@media (max-width: 875px) {
 	.horizontal-nav {
 		background-color: white;
 		position: relative;
@@ -860,15 +785,16 @@ a.mouse-over-darken-pic:hover .blue-button {
 	}
 }
 
-@media only screen and (max-width: 520px) {
+@media (max-width: 520px) {
 	.input-in-line-container {
 		width: 100%;
 	}
 }
 
-@media only screen and (max-width: 481px) {
+@media (max-width: 481px) {
 	#navigation ul li {
 		display: list-item;
+		list-style: none;
 	}
 
 	.child-menu {
@@ -878,7 +804,7 @@ a.mouse-over-darken-pic:hover .blue-button {
 	}
 }
 
-@media only screen and (max-width: 460px) {
+@media (max-width: 460px) {
 	.square-pic {
 		max-width: 460px;
 		width: unset;
