@@ -30,8 +30,6 @@
 			background-image: url('${theme_settings["bannerimage"]}');
 		}
 	</style>
-
-
 </head>
 
 <body class="${css_class}">
@@ -42,7 +40,7 @@
 
 <div class="container-fluid unpadded" id="wrapper">
 	<header id="banner" role="banner">
-		<div class="horizontal-nav flexbox horizontal-nav-should-not-be-fixed horizontal-nav-offset-off">
+		<div class="flexbox horizontal-nav horizontal-nav-offset-off horizontal-nav-should-not-be-fixed">
 			<div class="top-menu-text">${site_name}</div>
 		</div>
 
@@ -74,13 +72,13 @@
 		</#if>
 
 		<#if has_navigation && is_setup_complete>
-			<div class="nav-text" align="center">
+			<div class="nav-text">
 				<#include "${full_templates_path}/navigation.ftl" />
 			</div>
 		</#if>
 
 		<h1 class="hide-accessible">${the_title}</h1>
-		
+
 		<#if selectable>
 			<@liferay_util["include"] page=content_include />
 		<#else>
