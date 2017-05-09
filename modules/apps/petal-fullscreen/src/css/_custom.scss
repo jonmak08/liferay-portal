@@ -5,8 +5,8 @@
 
 /* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
 
-$gray: #737373;
 $bluish: #2A59DE;
+$gray: #737373;
 
 @import "portlet_decorator";
 
@@ -19,7 +19,9 @@ $bluish: #2A59DE;
 }
 
 // ---------- General Styles ---------- //
+
 // Text Look and Feel
+
 body {
 	color: $gray;
 	font-family: "Inconsolata", sans-serif;
@@ -32,6 +34,7 @@ body {
 	overflow-y: hidden;
 
 	// Headings
+
 	@for $i from 1 through 6 {
 		h#{$i} {
 			color: black;
@@ -39,8 +42,9 @@ body {
 			text-transform: uppercase;
 		}
 	}
-	
+
 	// Links
+
 	a {
 		&:active, &:link, &:visited {
 			text-decoration: none;
@@ -50,15 +54,17 @@ body {
 			text-decoration: none;
 
 			//This is for fancy image links but was put here
+
 			.info-container {
+				-webkit-animation: fade 1.5s linear;
 				animation: fade 1.5s linear;
 				color: black;
 				display: flex;
-				-webkit-animation: fade 1.5s linear;
 			}
 		}
 
 		// Social media icons
+
 		&, &:active, &:hover, &:link, &:visited {
 			.fa {
 				color: black;
@@ -68,6 +74,7 @@ body {
 }
 
 // Containers
+
 .flexbox-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -93,6 +100,7 @@ body {
 }
 
 // Misc
+
 .unpadded {
 	overflow-x: hidden;
 	padding-left: 0;
@@ -103,18 +111,20 @@ body {
 	padding-bottom: 20px;
 }
 
-
 // ----------   Navigation        ----- //
+
 // Link Styles
-#navigation{
+
+#navigation {
 	display: inline-block;
 	position: relative;
+
 	a {
 		color: $gray;
 
 		&:hover, &:visited, &:active {
 			color: $gray;
-		} 
+		}
 	}
 
 	ul {
@@ -133,24 +143,23 @@ body {
 				text-decoration: none;
 
 				// Underline animation for any nav links
+
 				&::before {
 					@include fake-underline-default;
 					left: 0;
 					transition: width 0 ease, background 0.3s ease;
 					width: 0;
-
 				}
 
 				&::after {
-					@include fake-underline-default;
 					background: blue;
+					@include fake-underline-default;
 					right: 0;
 					transition: width 0.3s ease;
 					width: 0;
-
 				}
 
-				&:hover{
+				&:hover {
 					&::before {
 						background: blue;
 						transition: width 0.3s ease;
@@ -166,6 +175,7 @@ body {
 			}
 
 			// Don't re-animate already-underlined menu item
+
 			&[aria-selected="true"] {
 				a {
 					&::before {
@@ -173,20 +183,20 @@ body {
 						left: 0;
 						width: 100%;
 					}
-                        
+
 					&::after {
-						@include fake-underline-default;
 						background: blue;
+						@include fake-underline-default;
 						right: 0;
 						width: 100%;
 					}
-                        
+
 					&:hover {
 						&::before {
 							background: blue;
 							width: 100%;
 						}
-                        
+
 						&::after {
 							background: transparent;
 							width: 100%;
@@ -195,18 +205,19 @@ body {
 				}
 
 				// Handle child link animations
+
 				.child-menu {
 					a {
 						&::before {
 							@include fake-underline-default;
 							left: 0;
-							width: 0;
 							transition: width 0 ease, background 0.3s ease;
+							width: 0;
 						}
 
 						&::after {
-							@include fake-underline-default;
 							background: blue;
+							@include fake-underline-default;
 							right: 0;
 							transition: width 0.5s ease;
 							width: 0;
@@ -228,6 +239,7 @@ body {
 					}
 
 					// Don't re-animate already-underlined child menu item
+
 					li[aria-selected="true"] a {
 						&::before {
 							@include fake-underline-default;
@@ -236,8 +248,8 @@ body {
 						}
 
 						&::after {
-							@include fake-underline-default;
 							background: blue;
+							@include fake-underline-default;
 							right: 0;
 							width: 1005;
 						}
@@ -262,7 +274,6 @@ body {
 			display: block;
 		}
 	}
-
 }
 
 .child-menu {
@@ -280,6 +291,7 @@ body {
 }
 
 // ----------       Header        ----- //
+
 .parallax-image-spacer {
 	bottom: 0;
 	display: inline-block;
@@ -296,7 +308,7 @@ body {
 
 .parallax-image {
 	background-attachment: fixed;
-	background-position: center center; 
+	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100%;
@@ -320,6 +332,7 @@ body {
 	top: 0;
 	width: 100%;
 }
+
 .header-title {
 	font-family: "Playfair Display SC", serif;
 	font-size: 80px;
@@ -339,21 +352,23 @@ body {
 }
 
 // ----------   Fancy Image Link  ----- //
+
 .container-content {
 	width: 100%;
 }
 
 .fancy-image-links-container {
+	display: flex;
+	flex-wrap: wrap;
 	justify-content: left;
 	margin-bottom: 20px;
 	margin-top: 20px;
 	max-width: 1175px;
 	padding: 10px;
- 	display: flex;
- 	flex-wrap: wrap;
 }
 
 // Causes hovered pics to have a growing square
+
 .mouse-over-square-pic {
 	position: relative;
 
@@ -373,8 +388,8 @@ body {
 	}
 
 	&:hover::before {
-		animation: rect 0.75s forwards;
 		-webkit-animation: rect 0.75s forwards;
+		animation: rect 0.75s forwards;
 	}
 }
 
@@ -402,9 +417,11 @@ body {
 	0% {
 		opacity: 1;
 	}
+
 	40% {
 		opacity: 1;
 	}
+
 	100% {
 		height: 100%;
 		opacity: 1;
@@ -416,9 +433,11 @@ body {
 	0% {
 		opacity: 1;
 	}
+
 	40% {
 		opacity: 1;
 	}
+
 	100% {
 		height: 100%;
 		opacity: 1;
@@ -430,9 +449,11 @@ body {
 	0% {
 		opacity: 0;
 	}
+
 	30% {
 		opacity: 0;
 	}
+
 	60% {
 		opacity: 0.5;
 	}
@@ -442,15 +463,18 @@ body {
 	0% {
 		opacity: 0;
 	}
+
 	30% {
 		opacity: 0;
 	}
+
 	60% {
 		opacity: 0.5;
 	}
 }
 
 // ----------     Image Link      ----- //
+
 .mouse-over-shadow-pic {
 	box-shadow: 0 0 1px transparent;
 	display: inline-block;
@@ -467,6 +491,7 @@ body {
 }
 
 // ----------   Blue Buttons   -------- //
+
 .blue-button {
 	align-items: center;
 	background-color: $bluish;
@@ -502,6 +527,7 @@ body {
 }
 
 // Radial out circle animation from hover.css
+
 .mouse-over-circle-pic {
 	-webkit-transform: perspective(1px) translateZ(0);
 	-webkit-transition-duration: 0.3s;
@@ -514,7 +540,7 @@ body {
 	transition-duration: 0.3s;
 	transition-property: color;
 	vertical-align: middle;
-	
+
 	&::before {
 		-webkit-transform: scale(0);
 		-webkit-transition-duration: 0.3s;
@@ -547,6 +573,7 @@ body {
 }
 
 // Darken animation
+
 a.mouse-over-darken-pic {
 	background: black;
 	display: inline-block;
@@ -564,6 +591,7 @@ a.mouse-over-darken-pic {
 }
 
 // ----------  Footer Styles   -------- //
+
 #footer {
 	font-size: 12px;
 	margin-top: 50px;
@@ -571,6 +599,7 @@ a.mouse-over-darken-pic {
 }
 
 // ----------  Horizontal Nav  -------- //
+
 .nav-text {
 	margin-bottom: 30px;
 	margin-top: 30px;
@@ -611,7 +640,7 @@ a.mouse-over-darken-pic {
 
 .horizontal-nav-should-not-be-fixed {
 	background-color: transparent;
-	border: 0;
+	border-width: 0;
 	position: absolute;
 }
 
@@ -630,22 +659,24 @@ a.mouse-over-darken-pic {
 }
 
 // -------- Centered Mini-Content ----- //
+
 .centered-mini-content {
 	text-align: center;
 	width: 525px;
 }
 
 // ----------   Contact Page   -------- //
+
 .disguised-submit-button {
 	background: none;
-	border: 0;
+	border-width: 0;
 	border-bottom: 4px solid $bluish;
 	color: $bluish;
 	cursor: pointer;
+	font-weight: bold;
 	text-decoration: none;
 	text-transform: uppercase;
-	font-weight: bold;
-	
+
 	&:hover {
 		border-bottom: 4px solid black;
 		color: black;
@@ -693,6 +724,7 @@ a.mouse-over-darken-pic {
 }
 
 // ----------   Profile Page   -------- //
+
 .center-text-block-container {
 	display: block;
 	text-align: center;
@@ -728,12 +760,13 @@ a.mouse-over-darken-pic {
 }
 
 // ---------- Calendar Portlet -------- //
+
 .scheduler-view-day-header-day a:hover {
 	text-decoration: underline;
 }
 
-
 // ---------- RESPONSIVE       -------- //
+
 @media (max-width: 1425px) {
 	.square-pic {
 		width: 562px;
@@ -742,7 +775,6 @@ a.mouse-over-darken-pic {
 	.header-title {
 		font-size: 64px;
 	}
-
 }
 
 @media (max-width: 1260px) {
@@ -811,7 +843,7 @@ a.mouse-over-darken-pic {
 
 	.child-menu {
 		background-color: unset;
-		border: 0;
+		border-width: 0;
 		position: relative;
 	}
 }
