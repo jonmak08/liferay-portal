@@ -17,7 +17,7 @@
 		</portlet-decorator>
 
 		<settings>
-			<setting configurable="true" key="bannerimage" type="text" value="http://vm.local:8080/o/y-theme/images/sean-afnan-217427.jpg" />
+			<setting configurable="true" key="bannerimage" type="text" value="sean-afnan-217427.jpg" />
 			<setting configurable="true" key="header-title" type="text" value="Microsoft Office Fanpage" />
 			<setting configurable="true" key="header-title-color" type="text" value="#FFF" />
 			<setting configurable="true" key="header-subtitle" type="text"  value="Productivity" />

@@ -27,7 +27,8 @@
 		}
 
 		.parallax-image {
-			background-image: url('${theme_settings["bannerimage"]}');
+			<#assign themePath = getterUtil.getString(request['theme-display']['path-theme-images']) />
+			background-image: url('${themePath}/${theme_settings["bannerimage"]}');
 		}
 	</style>
 
