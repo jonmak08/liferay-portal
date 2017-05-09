@@ -35,45 +35,47 @@ Liferay.on(
 );
 
 $(function() {
-	var winW = $(window).width();
+	var controlMenu = $('.control-menu');
 	var nav = $('.horizontal-nav');
 	var $w = $(window);
-	var controlMenu = $('.control-menu');
+	var winW = $(window).width();
+
 	if (winW > 875) {
-		var isFixed = false;
+		var windowIsFixed = false;
+
 		$w.scroll(function() {
 			var scrollTop = $w.scrollTop();
 			var shouldBeFixed = scrollTop > 0;
-			//Set the horizontal-nav style
-			if (shouldBeFixed && !isFixed) {
-				//User has scrolled down
-				//Navbar should be fixed, not absolute
+
+			// Set the horizontal-nav style
+			if (shouldBeFixed && !windowIsFixed) {
+				// User has scrolled down
+				// Navbar should be fixed, not absolute
 				nav.addClass('horizontal-nav-should-be-fixed');
 				nav.removeClass('horizontal-nav-should-not-be-fixed');
-				//Set the horizontal-nav top based on login status
+				// Set the horizontal-nav top based on login status
 				if (controlMenu.length) {
-					//Logged in, so need to include fixed offset
+					// Logged in, so need to include fixed offset
 					nav.addClass('horizontal-nav-offset-on');
 					nav.removeClass('horizontal-nav-offset-off');
 				}
 				else {
-					//Not logged in, so do not include offset
+					// Not logged in, so do not include offset
 					nav.addClass('horizontal-nav-offset-off');
 					nav.removeClass('horizintal-nav-offset-on');
 				}
-				isFixed = true;
+				windowIsFixed = true;
 			}
-			else if (!shouldBeFixed && isFixed) {
-				//User is at top of page
-				//Navbar should be absolute, not fixed
+			else if (!shouldBeFixed && windowIsFixed) {
+				// User is at top of page
+				// Navbar should be absolute, not fixed
 				nav.addClass('horizontal-nav-should-not-be-fixed');
 				nav.removeClass('horizontal-nav-should-be-fixed');
-				//It'll take care of itself so no offset necessary
+				// It'll take care of itself so no offset necessary
 				nav.addClass('horizontal-nav-offset-off');
 				nav.removeClass('horizontal-nav-offset-on');
-				isFixed = false;
+				windowIsFixed = false;
 			}
 		});
 	}
 });
-
