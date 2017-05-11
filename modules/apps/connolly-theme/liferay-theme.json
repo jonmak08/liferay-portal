@@ -1,0 +1,10 @@
+{
+  "LiferayTheme": {
+    "appServerPath": "/Users/ryanconnolly/liferay/bundles/tomcat-8.0.32",
+    "deployPath": "/Users/ryanconnolly/liferay/bundles/deploy",
+    "url": "http://localhost:8080",
+    "appServerPathPlugin": "/Users/ryanconnolly/liferay/liferay-portal/modules/apps/connolly-theme/.web_bundle_build",
+    "deployed": true,
+    "pluginName": "y-theme"
+  }
+}
