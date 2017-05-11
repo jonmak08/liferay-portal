@@ -1,0 +1,591 @@
+/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+
+/* inject:imports */
+/* endinject */
+
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+/* Common Site Variables */
+
+$p-text-color: #777;
+$theme-base: #DAB485;
+$theme-base-light: #ECD8C0;
+$theme-bg-dark: #131E26;
+$theme-bg-dark-transparent: rgba(19, 30, 38, 0.75);
+$theme-bg-dropdown: #313A41;
+$theme-bg-light-1: #EAEAEA;
+$theme-bg-light-2: #F6F6F6;
+$theme-title-text: #000;
+
+/* Entire Page Styles */
+
+@font-face {
+	font-family: "gotham_boldregular";
+	src: url(fonts/GothamBoldRegular.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "gotham_lightregular";
+	src: url(fonts/GothamLightRegular.otf) format("truetype");
+}
+
+@font-face {
+	font-family: "gotham_bookregular";
+	src: url(fonts/GothamBookRegular.otf) format("truetype");
+}
+
+html {
+	font-family: "gotham_lightregular", sans-serif;
+}
+
+::selection {
+	background: $theme-base;
+	color: #FFF;
+}
+
+body {
+	font-family: "gotham_bookregular";
+	font-size: 15px;
+	line-height: 1.4;
+	margin: 0;
+}
+
+button {
+	background: none;
+	border-width: 0;
+}
+
+.block {
+	display: block;
+}
+
+.float-right {
+	float: right;
+}
+
+.row {
+	margin: 1em 0;
+	width: 100% !important;
+}
+
+.text-caps {
+	text-transform: uppercase;
+}
+
+a:active, a:hover {
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	-webkit-transition: all 0.3s ease-out;
+	outline: 0;
+	text-decoration: none;
+	transition: all 0.3s ease-out;
+}
+
+p {
+	position: relative;
+}
+
+li, ul {
+	display: block;
+	list-style: none;
+}
+
+.bg-dark {
+		background-color: $theme-bg-dark;
+		margin: 0;
+	}
+
+.control-menu {
+	height: 64px;
+}
+
+.text-center {
+	align-text: center;
+}
+
+#wrapper {
+	margin: 0;
+	margin-top: -30px;
+	padding: 0;
+	top: 0;
+}
+
+p {
+	color: $p-text-color;
+}
+
+.portlet-title-text {
+	display: hidden;
+}
+
+section {
+	left: 0;
+	position: static;
+	right: 0;
+	width: 100%;
+}
+
+/* End Entire Page Styles */
+
+/* Styles for Header */
+
+#banner {
+	background-color: $theme-bg-dark-transparent; /* Will be transparent and not transparent upon scroll later */
+	font-family: "gotham_boldregular";
+	height: 110px;
+	left: 0;
+	position: fixed;
+	right: 0;
+	z-index: 99;
+
+	a {
+		color: #FFF;
+		font-size: 0.8em;
+		text-align: center;
+		text-transform: uppercase;
+
+	}
+
+	a:hover {
+		color: $theme-base;
+	}
+
+	.site-name {
+		font-size: 1.5em;
+	}
+}
+
+#jw-banner {
+	margin: 0 auto;
+	max-width: 992px;
+	padding: 60px 2% 0 2%;
+}
+
+#navigation > ul {
+	float: right;
+}
+
+#navigation > ul > li {
+	display: inline-block;
+	float: left;
+	margin: 0 10px;
+	position: relative;
+
+	ul {
+		display: none;
+	}
+
+	.child-menu {
+		background: $theme-bg-dropdown;
+		left: 0;
+		margin-left: 0;
+		padding: 0 15px 10px 15px;
+		position: absolute;
+		top: 20px;
+		width: 220px;
+		z-index: 200;
+
+		li {
+			padding-top: 10px;
+		}
+	}
+}
+
+#sign-in div {
+	display: inherit;
+	white-space: nowrap;
+}
+
+
+.theme-container {
+	margin: 0 5%;
+}
+
+#company-branding {
+	display: inline-block;
+}
+
+#header .site-name a {
+	color: #FFF;
+	font-size: 1.33em;
+	text-transform: uppercase;
+}
+
+#header .block-menu {
+	display: inline-block;
+	float: right;
+	width: auto;
+}
+
+#header ul.menu {
+	display: block;
+	float: right;
+	position: relative;
+}
+
+.link-fade {
+	color: $theme-base;
+}
+
+.link-fade:hover {
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	-webkit-transition: all 0.3s ease-out;
+	color: $theme-base-light;
+	cursor: pointer;
+	transition: all 0.3s ease-out;
+}
+
+.link-button {
+	background-color: $theme-base;
+	border-radius: 30px;
+	color: #313432 !important;
+	font-family: "gotham_boldregular";
+	padding: 7px 15px;
+}
+
+.link-button:hover {
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	-webkit-transition: all 0.3s ease-out;
+	background-color: $theme-base-light;
+	transition: all 0.3s ease-out;
+}
+
+.jumbotron-picture {
+	background-color: transparent;
+	background-image: url(../images/mountains2.jpg);
+	background-position-x: center;;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: auto;
+	position: relative;
+	top: 0;
+	width: 100%;
+}
+
+.background-box {
+	background-color: $theme-bg-dark-transparent;
+	height: 700px;
+	width: 100%;
+	z-index: 0;
+}
+
+#content {
+	position: static;
+	top: 100px;
+}
+
+#highlights {
+	color: #FFF;
+	display: block;
+
+	.content-desc {
+		line-height: 2em;
+		padding-bottom: 2em;
+		padding-top: 2em;
+	}
+
+	.gallery {
+		margin: auto;
+		padding-top: 2em;
+
+		ul {
+			margin: 0 auto;
+			padding: 0;
+		}
+
+		li {
+			display: inline-block;
+			padding: 1em 15px;
+		}
+
+		img {
+			border-radius: 10px;
+			height: auto;
+			max-width: 200px;
+		}
+
+		a {
+			color: #FFF;
+			font-family: "gotham_boldregular";
+			font-size: 1em;
+			height: auto;
+			margin-top: 5%;
+			position: absolute;
+			text-align: center;
+			text-transform: uppercase;
+			width: 200px;
+		}
+	}
+}
+
+#breadcrumbs .portlet-content {
+	background: transparent;
+	border-width: 0;
+	color: $theme-base;
+	margin: 20% 10%;
+	position: absolute;
+	width: 450px;
+
+	h2 {
+		content: "";
+		display: none;
+	}
+
+	.breadcrumb {
+		background: transparent;
+		list-style: none;
+	}
+
+	.breadcrumb li a {
+		color: $theme-base;
+		font-size: 1.5em;
+	}
+
+	.breadcrumb > .active {
+		color: $theme-base;
+		font-size: 1.5em;
+	}
+}
+
+#portlet_com_liferay_login_web_portlet_LoginPortlet {
+
+}
+
+@media screen and (min-width: 400px) {
+	.link-button {
+		padding: 8px 20px;
+	}
+}
+
+@media screen and (min-width: 650px) {
+	.link-button {
+		padding: 10px 25px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	h1 {
+		font-size: 1.4em;
+	}
+
+	h2 {
+		font-size: 1.3em;
+	}
+
+	h3, h4, h5, h6 {
+		font-size: 1.2em;
+	}
+
+	p {
+		font-size: 1em;
+		line-height: 1.2;
+	}
+
+	.background-box {
+		height: 300px;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	#banner a.jw-nav-bar-toggle {
+		background-color: transparent;
+		border-radius: 0;
+		border-width: 0;
+		color: $theme-base;
+		cursor: pointer;
+		display: block;
+		font-size: 3em;
+		line-height: 0.4;
+		margin: 0 15px 5% 15px;
+		padding: 0;
+		text-align: left;
+
+		&:hover {
+			color: $theme-base-light
+		}
+	}
+
+	#jw-nav-bar {
+		-moz-transition: all 0.5s ease-in-out;
+		-o-transition: all 0.5s ease-in-out;
+		-webkit-transition: all 0.5s ease-in-out;
+		background: $theme-bg-light-2;
+		bottom: 0;
+		box-sizing: border-box;
+		display: block !important;
+		height: 100%;
+		overflow-y: auto !important;
+		padding: 20px 0;
+		position: fixed;
+		right: -250px;
+		top: 0;
+		transition: all 0.5s ease-in-out;
+		width: 250px;
+		z-index: 200;
+
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+
+		li {
+			border-bottom: 1px solid $p-text-color;
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+			padding: 10px 0;
+			width: 100%;
+		}
+
+		li:hover {
+			background: $theme-bg-light-1;
+		}
+
+		a {
+			color: $p-text-color;
+			padding: 0 10px;
+		}
+
+		.selected {
+			background: $theme-base-light;
+		}
+
+		.jw-nav-bar-toggle-close {
+			font-size: 3em;
+			line-height: 0;
+		}
+
+		li ul.child-menu {
+			background: $theme-bg-light-2;
+			display: none;
+			position: relative;
+			padding-left: 0;
+			padding-right: 0;
+
+		 	ul {
+		 		display: hidden;
+		 	}
+		}
+
+		li > ul {
+			position: relative;
+		}
+
+		li button.child-menu-toggle {
+			cursor: pointer;
+			font-size: inherit;
+			line-height: 1.3;
+			margin: 0 5%;
+			padding: 0 5%;
+			color: inherit;
+		}
+
+		ul.child-menu-open {
+			display: block !important;
+			position: relative !important;
+			background: inherit;
+			margin: 0;
+			padding: 0;
+		}
+
+		button.child-menu-toggle-open {
+			transform: rotate(90deg);
+
+		}
+
+	}
+
+	#navigation > ul > li.selected .child-menu {
+		background-color: $theme-bg-light-2;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	#navigation ul li:hover .child-menu {
+		background-color: $theme-bg-dropdown;
+		display: block;
+	}
+
+	#navigation ul li:hover > a:before {
+		width: 100%;
+	}
+
+	#navigation > ul > li > a:before {
+		background-color: $theme-base;
+		bottom: 0;
+		content: "";
+		height: 4px;
+		left: 50%;
+		margin: 0 auto;
+		position: absolute;
+		top: auto;
+		transform: translate(-50%, -47px);
+		transition: width 0.3s ease 0s;
+		width: 0;
+	}
+
+	#banner #navigation > ul > li:hover > ul {
+		display: block;
+		width: auto;
+	}
+
+	#banner #navigation > ul ul > li:hover > ul {
+		display: block;
+		margin-left: 100%;
+		top: 0;
+		width: auto;
+		z-index: 200;
+	}
+
+	#banner #navigation > ul > li .child-menu li {
+		white-space: nowrap;
+	}
+
+	#banner #navigation > ul > li > ul .child-menu {
+		margin-left: 50%;
+	}
+
+	#navigation ul li.selected a:before {
+		width: 100%;
+	}
+
+	#navigation li button.child-menu-toggle {
+		display: none;
+	}
+
+	.grid-left {
+		text-align: right;
+	}
+
+	.grid-right {
+		text-align: left;
+	}
+
+	.jw-nav-bar-toggle {
+		display: none;
+	}
+
+	.link-button {
+		padding: 15px 35px;
+	}
+
+	.theme-container {
+		margin: 0 18%;
+	}
+
+	a.jw-nav-bar-toggle-close {
+		display: none;
+		visibility: hidden;
+	}
+
+	.portlet-content .theme-container {
+		margin: 0 2%;
+	}
+}
+
+/*	selector + sibling {
+		style top or left side
+	}
+
+*/

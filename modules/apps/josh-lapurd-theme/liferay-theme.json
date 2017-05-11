@@ -1,0 +1,10 @@
+{
+  "LiferayTheme": {
+    "appServerPath": "/home/joshua/liferay/bundles/tomcat-8.0.32/",
+    "deployPath": "/home/joshua/liferay/bundles/deploy",
+    "url": "http://localhost:8080",
+    "appServerPathPlugin": "/home/joshua/liferay/bundles/tomcat-8.0.32/webapps/josh-lapurd-theme",
+    "deployed": false,
+    "pluginName": "josh-lapurd-theme"
+  }
+}
