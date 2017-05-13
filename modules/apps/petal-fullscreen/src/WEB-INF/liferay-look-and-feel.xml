@@ -17,22 +17,22 @@
 		</portlet-decorator>
 
 		<settings>
-			<setting configurable="true" key="bannerimage" type="text" value="/o/petal-fullscreen/images/sean-afnan-217427.jpg" />
+			<setting configurable="true" key="banner-image" type="text" value="/o/petal-fullscreen/images/sean-afnan-217427.jpg" />
 			<setting configurable="true" key="header-title" type="text" value="Microsoft Office Fanpage" />
 			<setting configurable="true" key="header-title-color" type="text" value="#FFF" />
 			<setting configurable="true" key="header-subtitle" type="text"  value="Productivity" />
 			<setting configurable="true" key="header-subtitle-color" type="text" value="#FAEBD7" />
 			<setting configurable="true" key="font-awesome-url" type="text" value="https://use.fontawesome.com/a2d65d4dec.js" />
-			<setting configurable="true" key="social-media-0-url" type="text" value="" />
-			<setting configurable="true" key="social-media-0-icon" type="text" value="fa-facebook-f" />
-			<setting configurable="true" key="social-media-1-url" type="text" value="https://twitter.com/liferay" />
-			<setting configurable="true" key="social-media-1-icon" type="text" value="fa-twitter" />
-			<setting configurable="true" key="social-media-2-url" type="text" value="https://github.com/liferay" />
-			<setting configurable="true" key="social-media-2-icon" type="text" value="fa-github" />
-			<setting configurable="true" key="social-media-3-url" type="text" value="https://www.linkedin.com/company/liferay-inc-" />
-			<setting configurable="true" key="social-media-3-icon" type="text" value="fa-linkedin" />
-			<setting configurable="true" key="social-media-4-url" type="text" value="https://www.pinterest.com/semaphoreit/liferay/" />
-			<setting configurable="true" key="social-media-4-icon" type="text" value="fa-pinterest" />
+			<setting configurable="true" key="social-media-url-0" type="text" value="" />
+			<setting configurable="true" key="social-media-icon-0" type="text" value="fa-facebook-f" />
+			<setting configurable="true" key="social-media-url-1" type="text" value="https://twitter.com/liferay" />
+			<setting configurable="true" key="social-media-icon-1" type="text" value="fa-twitter" />
+			<setting configurable="true" key="social-media-url-2" type="text" value="https://github.com/liferay" />
+			<setting configurable="true" key="social-media-icon-2" type="text" value="fa-github" />
+			<setting configurable="true" key="social-media-url-3" type="text" value="https://www.linkedin.com/company/liferay-inc-" />
+			<setting configurable="true" key="social-media-icon-3" type="text" value="fa-linkedin" />
+			<setting configurable="true" key="social-media-url-4" type="text" value="https://www.pinterest.com/semaphoreit/liferay/" />
+			<setting configurable="true" key="social-media-icon-4" type="text" value="fa-pinterest" />
 			<setting configurable="true" key="copyright" type="text" value="&copy; 2017 Liferay Inc." />
 			<setting configurable="true" key="physical-address" type="text" value="123 ABC Lane, Diamond Bar" />
 			<setting configurable="true" key="telephone" type="text" value="(909) 867-5309" />

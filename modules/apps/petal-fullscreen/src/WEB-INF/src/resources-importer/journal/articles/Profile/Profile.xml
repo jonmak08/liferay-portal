@@ -9,25 +9,25 @@
 	</dynamic-element>
 	<dynamic-element name="name" type="text" index-type="keyword" instance-id="kjpk">
 		<dynamic-element name="image" instance-id="clqs" type="text" index-type="keyword">
-			<dynamic-content language-id="en_US"><![CDATA[profile-1.jpg]]></dynamic-content>
+			<dynamic-content language-id="en_US"><![CDATA[jeff_in_technicolor.jpg]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-element name="biography" instance-id="iqkj" type="text_box" index-type="text">
 			<dynamic-content language-id="en_US"><![CDATA[Hello, my name is Gabriele Guerra, I'm a Finance Manager at Petal. You can write me anytime: gabrieleguerra@info.com]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="socialmedia1" instance-id="onpk" type="text" index-type="keyword">
-			<dynamic-element name="url1" instance-id="pvcx" type="text" index-type="keyword">
+		<dynamic-element name="social_media_1" instance-id="onpk" type="text" index-type="keyword">
+			<dynamic-element name="url_1" instance-id="pvcx" type="text" index-type="keyword">
 				<dynamic-content language-id="en_US"><![CDATA[https://www.facebook.com/]]></dynamic-content>
 			</dynamic-element>
 			<dynamic-content language-id="en_US"><![CDATA[fa-facebook]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="socialmedia2" instance-id="mhtl" type="text" index-type="keyword">
-			<dynamic-element name="url2" instance-id="jiuf" type="text" index-type="keyword">
+		<dynamic-element name="social_media_2" instance-id="mhtl" type="text" index-type="keyword">
+			<dynamic-element name="url_2" instance-id="jiuf" type="text" index-type="keyword">
 				<dynamic-content language-id="en_US"><![CDATA[https://twitter.com/liferay]]></dynamic-content>
 			</dynamic-element>
 			<dynamic-content language-id="en_US"><![CDATA[fa-twitter]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="socialmedia3" instance-id="genv" type="text" index-type="keyword">
-			<dynamic-element name="url3" instance-id="ipzc" type="text" index-type="keyword">
+		<dynamic-element name="social_media_3" instance-id="genv" type="text" index-type="keyword">
+			<dynamic-element name="url_3" instance-id="ipzc" type="text" index-type="keyword">
 				<dynamic-content language-id="en_US"><![CDATA[https://www.google.com/]]></dynamic-content>
 			</dynamic-element>
 			<dynamic-content language-id="en_US"><![CDATA[fa-google-plus]]></dynamic-content>
@@ -36,25 +36,25 @@
 	</dynamic-element>
 	<dynamic-element name="name" type="text" index-type="keyword" instance-id="wgos">
 		<dynamic-element name="image" instance-id="msur" type="text" index-type="keyword">
-			<dynamic-content language-id="en_US"><![CDATA[awful.jpg]]></dynamic-content>
+			<dynamic-content language-id="en_US"><![CDATA[silent_era_jeff.jpg]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-element name="biography" instance-id="kwik" type="text_box" index-type="text">
 			<dynamic-content language-id="en_US"><![CDATA[Hello, my name is Gabriele Guerra, see?  Now listen here, I'm a Finance Manager at Petal. You can write me anytime: gabrieleguerra@info.com]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="socialmedia1" instance-id="giii" type="text" index-type="keyword">
-			<dynamic-element name="url1" instance-id="krxo" type="text" index-type="keyword">
+		<dynamic-element name="social_media_1" instance-id="giii" type="text" index-type="keyword">
+			<dynamic-element name="url_1" instance-id="krxo" type="text" index-type="keyword">
 				<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
 			</dynamic-element>
 			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="socialmedia2" instance-id="iszy" type="text" index-type="keyword">
-			<dynamic-element name="url2" instance-id="plcp" type="text" index-type="keyword">
+		<dynamic-element name="social_media_2" instance-id="iszy" type="text" index-type="keyword">
+			<dynamic-element name="url_2" instance-id="plcp" type="text" index-type="keyword">
 				<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
 			</dynamic-element>
 			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="socialmedia3" instance-id="achz" type="text" index-type="keyword">
-			<dynamic-element name="url3" instance-id="crrk" type="text" index-type="keyword">
+		<dynamic-element name="social_media_3" instance-id="achz" type="text" index-type="keyword">
+			<dynamic-element name="url_3" instance-id="crrk" type="text" index-type="keyword">
 				<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
 			</dynamic-element>
 			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
@@ -63,25 +63,25 @@
 	</dynamic-element>
 	<dynamic-element name="name" type="text" index-type="keyword" instance-id="ysvy">
 		<dynamic-element name="image" instance-id="pusj" type="text" index-type="keyword">
-			<dynamic-content language-id="en_US"><![CDATA[20170422_152934.jpg]]></dynamic-content>
+			<dynamic-content language-id="en_US"><![CDATA[man_and_dog.jpg]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-element name="biography" instance-id="pawl" type="text_box" index-type="text">
 			<dynamic-content language-id="en_US"><![CDATA[Hello, my name is Gabriele Guerra, I'm a Finance Manager at Petal. You can write me anytime: gabrieleguerra@info.com]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="socialmedia1" instance-id="klmv" type="text" index-type="keyword">
-			<dynamic-element name="url1" instance-id="uyrn" type="text" index-type="keyword">
+		<dynamic-element name="social_media_1" instance-id="klmv" type="text" index-type="keyword">
+			<dynamic-element name="url_1" instance-id="uyrn" type="text" index-type="keyword">
 				<dynamic-content language-id="en_US"><![CDATA[https://www.github.com/liferay]]></dynamic-content>
 			</dynamic-element>
 			<dynamic-content language-id="en_US"><![CDATA[fa-github]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="socialmedia2" instance-id="rxfa" type="text" index-type="keyword">
-			<dynamic-element name="url2" instance-id="uozt" type="text" index-type="keyword">
+		<dynamic-element name="social_media_2" instance-id="rxfa" type="text" index-type="keyword">
+			<dynamic-element name="url_2" instance-id="uozt" type="text" index-type="keyword">
 				<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
 			</dynamic-element>
 			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="socialmedia3" instance-id="zgdr" type="text" index-type="keyword">
-			<dynamic-element name="url3" instance-id="azjl" type="text" index-type="keyword">
+		<dynamic-element name="social_media_3" instance-id="zgdr" type="text" index-type="keyword">
+			<dynamic-element name="url_3" instance-id="azjl" type="text" index-type="keyword">
 				<dynamic-content language-id="en_US"><![CDATA[https://www.bitbucket.org/]]></dynamic-content>
 			</dynamic-element>
 			<dynamic-content language-id="en_US"><![CDATA[fa-bitbucket]]></dynamic-content>

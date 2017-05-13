@@ -492,7 +492,7 @@ body {
 
 // ----------   Blue Buttons   -------- //
 
-.blue-button {
+.colored-button {
 	align-items: center;
 	background-color: $bluish;
 	color: white;
@@ -579,13 +579,13 @@ a.mouse-over-darken-pic {
 	display: inline-block;
 	padding: 0;
 
-	.blue-button {
+	.colored-button {
 		-webkit-transition: all 0.3s linear;
 		display: block;
 		transition: all 0.3s linear;
 	}
 
-	&:hover .blue-button {
+	&:hover .colored-button {
 		opacity: 0.8;
 	}
 }
@@ -598,7 +598,15 @@ a.mouse-over-darken-pic {
 	text-align: center;
 }
 
+.spaced {
+	padding: 10px;
+}
+
 // ----------  Horizontal Nav  -------- //
+
+#wrapper {
+	padding-top: 0;
+}
 
 .nav-text {
 	margin-bottom: 30px;
@@ -622,40 +630,30 @@ a.mouse-over-darken-pic {
 	padding: 20px;
 }
 
-.horizontal-nav-fixed-top {
-	background-color: white;
-	border-bottom: 1px black solid;
-	height: 70px;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 100;
-}
-
-.horizontal-nav-should-be-fixed {
-	background-color: white;
-	border-bottom: 1px black solid;
-	position: fixed;
-}
-
-.horizontal-nav-should-not-be-fixed {
-	background-color: transparent;
-	border-width: 0;
-	position: absolute;
-}
-
 .horizontal-nav {
 	height: 70px;
 	width: 100%;
 	z-index: 100;
-}
 
-.horizontal-nav-offset-off {
-	top: 0;
-}
+	&.fixed {
+		background-color: white;
+		border-bottom: 1px black solid;
+		position: fixed;
+	}
 
-.horizontal-nav-offset-on {
-	top: 65px;
+	&.absolute {
+		background-color: transparent;
+		border-width: 0;
+		position: absolute;
+	}
+
+	&.without-offset {
+		top: 0;
+	}
+
+	&.with-offset {
+		top: 65px;
+	}
 }
 
 // -------- Centered Mini-Content ----- //

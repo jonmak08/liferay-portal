@@ -27,7 +27,7 @@
 		}
 
 		.parallax-image {
-			background-image: url('${theme_settings["bannerimage"]}');
+			background-image: url('${theme_settings["banner-image"]}');
 		}
 	</style>
 </head>
@@ -40,25 +40,35 @@
 
 <div class="container-fluid unpadded" id="wrapper">
 	<header id="banner" role="banner">
-		<div class="flexbox horizontal-nav horizontal-nav-offset-off horizontal-nav-should-not-be-fixed">
+		<div class="absolute flexbox horizontal-nav without-offset">
 			<div class="top-menu-text">${site_name}</div>
 		</div>
 
+		<#assign
+			parallax_image_spacer_size = 300
+			parallax_image_header_display = "none"
+		/>
 		<#if layout.isFirstParent() >
 			<#assign parallax_image_spacer_size = 500>
 			<#assign parallax_image_header_display = "block">
-		<#else>
-			<#assign parallax_image_spacer_size = 300>
-			<#assign parallax_image_header_display = "none">
 		</#if>
 
 		<div class="parallax-image-spacer" style="height: ${parallax_image_spacer_size}px;">
 			<div class="parallax-image">
 				<div class="header-container" style="display: ${parallax_image_header_display};">
 					<div class="vertical-spacer"></div>
+
 					<div class="header-title header-title-color">${header_title}</div>
+
 					<div class="header-subtitle header-subtitle-color">${header_subtitle}</div>
-					<div><a href="#myContent" class="mouse-over-darken-pic"><div class="blue-button large-button">Continue</div></a></div>
+
+					<div class="full-width-container">
+						<a class="mouse-over-darken-pic" href="#myContent">
+							<div class="colored-button large-button">
+								<@liferay.language key="continue-button" />
+							</div>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -66,7 +76,8 @@
 
 	<section id="content">
 		<@liferay_ui["quick-access"] contentId="#main-content" />
-		<a name="myContent">&nbsp;</a>
+		<a name="myContent"></a>
+
 		<#if !is_signed_in>
 			<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
 		</#if>
@@ -93,8 +104,38 @@
 	</section>
 
 	<footer id="footer" role="contentinfo">
-		<p>${social_media}</p>
+		<p>
+			<#if theme_settings["social-media-url-0"] != "" && theme_settings["social-media-icon-0"] != "">
+					<a href="${theme_settings['social-media-url-0']}" target="_blank"><span class="fa ${theme_settings['social-media-icon-0']} spaced"></span></a>
+			</#if>
+
+			<#if theme_settings["social-media-url-1"] != "" && theme_settings["social-media-icon-1"] != "">
+					&nbsp;
+
+					<a href="${theme_settings['social-media-url-1']}" target="_blank"><span class="fa ${theme_settings['social-media-icon-1']} spaced"></span></a>
+			</#if>
+
+			<#if theme_settings["social-media-url-2"] != "" && theme_settings["social-media-icon-2"] != "">
+					&nbsp;
+
+					<a href="${theme_settings['social-media-url-2']}" target="_blank"><span class="fa ${theme_settings['social-media-icon-2']} spaced"></span></a>
+			</#if>
+
+			<#if theme_settings["social-media-url-3"] != "" && theme_settings["social-media-icon-3"] != "">
+					&nbsp;
+
+					<a href="${theme_settings['social-media-url-3']}" target="_blank"><span class="fa ${theme_settings['social-media-icon-3']} spaced"></span></a>
+			</#if>
+
+			<#if theme_settings["social-media-url-4"] != "" && theme_settings["social-media-icon-4"] != "">
+					&nbsp;
+
+					<a href="${theme_settings['social-media-url-4']}" target="_blank"><span class="fa ${theme_settings['social-media-icon-4']} spaced"></span></a>
+			</#if>
+		</p>
+
 		<p>${copyright} • ${physical_address} • ${telephone}</p>
+
 		<#if show_powered_by >
 			<p class="powered-by">
 				<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
