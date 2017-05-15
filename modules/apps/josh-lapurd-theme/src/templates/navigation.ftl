@@ -22,7 +22,7 @@
 				<a aria-labelledby="layout_${nav_item.getLayoutId()}" ${nav_item_attr_has_popup} href="${nav_item.getURL()}" ${nav_item.getTarget()} role="menuitem"><span><@liferay_theme["layout-icon"] layout=nav_item_layout /> ${nav_item.getName()}</span></a>
 
 				<#if nav_item.hasChildren()>
-					<button class="child-menu-toggle float-right">&#8250;</button>
+					<button class="child-menu-toggle float-right" id="child-menu-dropdown-1">&#8250;</button>
 					<ul class="child-menu" role="menu">
 						<#list nav_item.getChildren() as nav_child>
 							<#assign
@@ -40,7 +40,7 @@
 							<li ${nav_child_attr_selected} class="${nav_child_css_class}" id="layout_${nav_child.getLayoutId()}" role="presentation">
 								<a aria-labelledby="layout_${nav_child.getLayoutId()}" href="${nav_child.getURL()}" ${nav_child.getTarget()} role="menuitem">${nav_child.getName()}</a>
 								<#if nav_child.hasChildren()>
-									<button class="child-menu-toggle float-right">&#8250;</button>
+									<button class="child-menu-toggle float-right" id="child-menu-dropdown-2">&#8250;</button>
 									<ul class="child-menu" role="menu">
 										<#list nav_child.getChildren() as nav_grandchild>
 											<#assign

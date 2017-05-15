@@ -43,6 +43,10 @@ html {
 	color: #FFF;
 }
 
+.color-base-theme {
+	color: $theme-base;
+}
+
 body {
 	font-family: "gotham_bookregular";
 	font-size: 15px;
@@ -115,7 +119,7 @@ p {
 }
 
 .portlet-title-text {
-	display: hidden;
+	display: none;
 }
 
 section {
@@ -130,7 +134,6 @@ section {
 /* Styles for Header */
 
 #banner {
-	background-color: $theme-bg-dark-transparent; /* Will be transparent and not transparent upon scroll later */
 	font-family: "gotham_boldregular";
 	height: 110px;
 	left: 0;
@@ -143,7 +146,6 @@ section {
 		font-size: 0.8em;
 		text-align: center;
 		text-transform: uppercase;
-
 	}
 
 	a:hover {
@@ -152,7 +154,24 @@ section {
 
 	.site-name {
 		font-size: 1.5em;
+		line-height: 1;
 	}
+}
+
+.banner-unscrolled {
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	-webkit-transition: all 0.3s ease-out;
+	background-color: transparent;
+	transition: all 0.3s ease-out;
+}
+
+.banner-scrolled {
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	-webkit-transition: all 0.3s ease-out;
+	background-color: $theme-bg-dark-transparent;
+	transition: all 0.3s ease-out;
 }
 
 #jw-banner {
@@ -163,6 +182,10 @@ section {
 
 #navigation > ul {
 	float: right;
+
+	.delete-tab {
+		margin-top: -20px;
+	}
 }
 
 #navigation > ul > li {
@@ -195,7 +218,6 @@ section {
 	display: inherit;
 	white-space: nowrap;
 }
-
 
 .theme-container {
 	margin: 0 5%;
@@ -260,7 +282,7 @@ section {
 	background-size: cover;
 	height: auto;
 	position: relative;
-	top: 0;
+	top: -15px;
 	width: 100%;
 }
 
@@ -350,7 +372,41 @@ section {
 }
 
 #portlet_com_liferay_login_web_portlet_LoginPortlet {
+}
 
+a.btn-btt {
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	background: $theme-base;
+	border-radius: 50%;
+	bottom: 30px;
+	color: #FFF;
+	display: none;
+	font-size: 0;
+	height: 50px;
+	line-height: 50px;
+	position: fixed;
+	right: 30px;
+	text-align: center;
+	width: 50px;
+	z-index: 200;
+
+	&:after {
+		content: "\25B2";
+		display: inline-block;
+		font-size: 28px;
+		height: 50px;
+		position: absolute;
+		text-align: center;
+		top: 0;
+		right: 0;
+		width: 50px;
+	}
+
+	&:hover, &:focus {
+		background: $theme-bg-dark;
+		color: #FFF;
+	}
 }
 
 @media screen and (min-width: 400px) {
@@ -407,6 +463,18 @@ section {
 		}
 	}
 
+	#banner.nav-bar-adjustment {
+			height: 80px;
+
+			#jw-banner {
+				padding: 30px 2% 0 2%;
+			}
+
+			#jw-nav-bar {
+				padding-top: 75px;
+			}
+	}
+
 	#jw-nav-bar {
 		-moz-transition: all 0.5s ease-in-out;
 		-o-transition: all 0.5s ease-in-out;
@@ -414,9 +482,9 @@ section {
 		background: $theme-bg-light-2;
 		bottom: 0;
 		box-sizing: border-box;
-		display: block !important;
+		display: block;
 		height: 100%;
-		overflow-y: auto !important;
+		overflow-y: auto;
 		padding: 20px 0;
 		position: fixed;
 		right: -250px;
@@ -436,6 +504,10 @@ section {
 			margin-right: 0 !important;
 			padding: 10px 0;
 			width: 100%;
+
+			li {
+				border-left: 1px solid $p-text-color;
+			}
 		}
 
 		li:hover {
@@ -459,13 +531,15 @@ section {
 		li ul.child-menu {
 			background: $theme-bg-light-2;
 			display: none;
-			position: relative;
-			padding-left: 0;
+			margin: 0;
+			padding-left: 5%;
 			padding-right: 0;
+			position: relative;
+			width: 100%;
 
-		 	ul {
-		 		display: hidden;
-		 	}
+			& ~ ul {
+				display: none;
+			}
 		}
 
 		li > ul {
@@ -473,27 +547,29 @@ section {
 		}
 
 		li button.child-menu-toggle {
+			color: inherit;
 			cursor: pointer;
 			font-size: inherit;
+			height: 25px;
 			line-height: 1.3;
-			margin: 0 5%;
-			padding: 0 5%;
-			color: inherit;
+			width: 25px;
 		}
 
 		ul.child-menu-open {
-			display: block !important;
-			position: relative !important;
 			background: inherit;
+			display: block !important;
 			margin: 0;
 			padding: 0;
+			position: relative !important;
 		}
 
 		button.child-menu-toggle-open {
 			transform: rotate(90deg);
-
 		}
 
+		&.menuOpen {
+			right: 0;
+		}
 	}
 
 	#navigation > ul > li.selected .child-menu {
@@ -502,7 +578,11 @@ section {
 }
 
 @media screen and (min-width: 992px) {
-	#navigation ul li:hover .child-menu {
+	#banner.nav-bar-adjustment {
+			top: 35px;
+	}
+
+	#navigation ul li:hover > .child-menu {
 		background-color: $theme-bg-dropdown;
 		display: block;
 	}
@@ -520,7 +600,7 @@ section {
 		margin: 0 auto;
 		position: absolute;
 		top: auto;
-		transform: translate(-50%, -47px);
+		transform: translate(-50%, -48px);
 		transition: width 0.3s ease 0s;
 		width: 0;
 	}
