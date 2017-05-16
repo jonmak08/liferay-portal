@@ -71,7 +71,7 @@
 		</div>
 	</header>
 
-	<section id="hero">
+	<section id="background">
 		<div class="row">
 			<div class="jumbotron-picture">
 				<div class="background-box">
@@ -81,10 +81,14 @@
 			</div>
 		</div>
 	</section>
-
+<!--
 	<section id="content">
 		<div class="theme-container">
 			<h1 class="hide-accessible">${the_title}</h1>
+			<div class="row">
+				<div class="hero"><img src="http://demo.weebpal.com/drupal8/lapurd/sites/default/files/banner/mac.png"/></div>
+			</div>
+
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<h1>This is my <span class="color-base-theme">Lapurd</span> theme</h1>
@@ -127,8 +131,31 @@
 			</div>
 		</div>
 	</section>
+-->
+	
 
-	<section class="bg-dark" id="highlights">
+	<section id="portletSect">
+
+		<#if selectable>
+
+			<@liferay_util["include"] page=content_include />
+
+		<#else>
+
+			${portletDisplay.recycle()}
+
+			${portletDisplay.setTitle(the_title)}
+
+			<@liferay_theme["wrap-portlet"] page="portlet.ftl">
+
+				<@liferay_util["include"] page=content_include />
+
+			</@>
+
+		</#if>
+
+	</section>
+	<!--<section class="bg-dark" id="highlights">
 		<div class="row">
 			<div class="theme-container">
 				<div class="row">
@@ -162,36 +189,13 @@
 				</div>
 			</div>
 		</div>
-	</section>
-
-	<section id="portletSect">
-
-		<#if selectable>
-
-			<@liferay_util["include"] page=content_include />
-
-		<#else>
-
-			${portletDisplay.recycle()}
-
-			${portletDisplay.setTitle(the_title)}
-
-			<@liferay_theme["wrap-portlet"] page="portlet.ftl">
-
-				<@liferay_util["include"] page=content_include />
-
-			</@>
-
-		</#if>
-
-	</section>
-
+	</section>-->
 	<!--======================================================== footer ========================================================-->
 	<hr/>
 	<footer id="footer" role="contentinfo">
 		<p class="powered-by text-center">
 
-			<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
+			<@liferay.language key="powered-by" /> <a href="#" rel="external">${company_name}</a>
 
 		</p>
 	</footer>
