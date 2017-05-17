@@ -17,25 +17,30 @@ $theme-bg-light-1: #EAEAEA;
 $theme-bg-light-2: #F6F6F6;
 $theme-title-text: #000;
 
-/* Entire Page Styles */
-
 @font-face {
-	font-family: "gotham_boldregular";
-	src: url(fonts/GothamBoldRegular.ttf) format("truetype");
+	font-family: 'gotham_boldregular';
+	src: url(fonts/GothamBoldRegular.ttf) format('truetype');
 }
 
 @font-face {
-	font-family: "gotham_lightregular";
-	src: url(fonts/GothamLightRegular.otf) format("truetype");
+	font-family: 'gotham_lightregular';
+	src: url(fonts/GothamLightRegular.otf) format('truetype');
 }
 
 @font-face {
-	font-family: "gotham_bookregular";
-	src: url(fonts/GothamBookRegular.otf) format("truetype");
+	font-family: 'gotham_bookregular';
+	src: url(fonts/GothamBookRegular.otf) format('truetype');
+}
+
+@mixin fadeTransition($value) {
+	-moz-transition: $value;
+	-o-transition: $value;
+	-webkit-transition: $value;
+	transition: $value;
 }
 
 html {
-	font-family: "gotham_lightregular", sans-serif;
+	font-family: 'gotham_lightregular', sans-serif;
 }
 
 ::selection {
@@ -48,7 +53,7 @@ html {
 }
 
 body {
-	font-family: "gotham_bookregular";
+	font-family: 'gotham_bookregular';
 	font-size: 15px;
 	line-height: 1.4;
 	margin: 0;
@@ -78,12 +83,9 @@ button {
 }
 
 a:active, a:hover {
-	-moz-transition: all 0.3s ease-out;
-	-o-transition: all 0.3s ease-out;
-	-webkit-transition: all 0.3s ease-out;
+	@include fadeTransition(all 0.3s ease-out);
 	outline: 0;
 	text-decoration: none;
-	transition: all 0.3s ease-out;
 }
 
 p {
@@ -97,16 +99,16 @@ li, ul {
 
 .bg-white {
 	background-color: #FFF;
-	padding: 20px 10px 30px 10px;
 	margin-left: -10px;
 	margin-right: -10px;
+	padding: 20px 10px 30px 10px;
 }
 
 .bg-dark {
 	background-color: $theme-bg-dark;
-	padding: 20px 10px 30px 10px;
 	margin-left: -10px;
 	margin-right: -10px;
+	padding: 20px 10px 30px 10px;
 
 	h1 {
 		color: #FFF;
@@ -115,16 +117,16 @@ li, ul {
 
 .bg-light {
 	background-color: $theme-bg-light-1;
-	padding: 20px 10px 30px 10px;
 	margin-left: -10px;
 	margin-right: -10px;
+	padding: 20px 10px 30px 10px;
 }
 
 .bg-light-2 {
 	background-color: $theme-bg-light-2;
-	padding: 20px 10px 30px 10px;
 	margin-left: -10px;
 	margin-right: -10px;
+	padding: 20px 10px 30px 10px;
 }
 
 .control-menu {
@@ -141,7 +143,7 @@ li, ul {
 	padding: 0;
 	top: 0;
 
-	#jw-banner {
+	#theme-banner {
 		margin: 0 auto;
 		max-width: 992px;
 		padding: 60px 2% 0 2%;
@@ -168,9 +170,9 @@ div.portlet-column {
 	padding-right: 0;
 
 	.portlet-body {
-		padding: 0px 10px 10px 10px;
+		padding: 0 10px 10px 10px;
 	}
-	
+
 	div.portlet-boundary {
 		margin-left: 0;
 		margin-right: 0;
@@ -183,15 +185,11 @@ div.portlet-column {
 			padding-left: 0;
 			padding-right: 0;
 		}
-	}	
+	}
 }
 
-/* End Entire Page Styles */
-
-/* Styles for Header */
-
 #banner {
-	font-family: "gotham_boldregular";
+	font-family: 'gotham_boldregular';
 	height: 110px;
 	left: 0;
 	position: fixed;
@@ -216,19 +214,13 @@ div.portlet-column {
 }
 
 .banner-unscrolled {
-	-moz-transition: all 0.3s ease-out;
-	-o-transition: all 0.3s ease-out;
-	-webkit-transition: all 0.3s ease-out;
+	@include fadeTransition(all 0.3s ease-out);
 	background-color: transparent;
-	transition: all 0.3s ease-out;
 }
 
 .banner-scrolled {
-	-moz-transition: all 0.3s ease-out;
-	-o-transition: all 0.3s ease-out;
-	-webkit-transition: all 0.3s ease-out;
+	@include fadeTransition(all 0.3s ease-out);
 	background-color: $theme-bg-dark-transparent;
-	transition: all 0.3s ease-out;
 }
 
 #navigation > ul {
@@ -297,11 +289,11 @@ div.portlet-column {
 }
 
 .hero {
+	margin: -250px auto 0 auto;
+	max-width: 440px;
+	position: relative;
 	text-align: center;
 	z-index: 10;
-	position: relative;
-	max-width: 440px;
-	margin: -250px auto 0 auto;
 
 	img {
 		max-width: 440px;
@@ -313,28 +305,22 @@ div.portlet-column {
 }
 
 .link-fade:hover {
-	-moz-transition: all 0.3s ease-out;
-	-o-transition: all 0.3s ease-out;
-	-webkit-transition: all 0.3s ease-out;
+	@include fadeTransition(all 0.3s ease-out);
 	color: $theme-base-light;
 	cursor: pointer;
-	transition: all 0.3s ease-out;
 }
 
 .link-button {
 	background-color: $theme-base;
 	border-radius: 30px;
 	color: #313432 !important;
-	font-family: "gotham_boldregular";
+	font-family: 'gotham_boldregular';
 	padding: 7px 15px;
 }
 
 .link-button:hover {
-	-moz-transition: all 0.3s ease-out;
-	-o-transition: all 0.3s ease-out;
-	-webkit-transition: all 0.3s ease-out;
+	@include fadeTransition(all 0.3s ease-out);
 	background-color: $theme-base-light;
-	transition: all 0.3s ease-out;
 }
 
 #background {
@@ -342,8 +328,8 @@ div.portlet-column {
 
 	.jumbotron-picture {
 		background-color: transparent;
-		background-image: url(../images/mountains2.jpg);
-		background-position-x: center;;
+		background-image: url(../images/mountains_2.jpg);
+		background-position-x: center;
 		background-repeat: no-repeat;
 		background-size: cover;
 		height: auto;
@@ -357,7 +343,7 @@ div.portlet-column {
 		height: 470px;
 		width: 100%;
 		z-index: 0;
-	}	
+	}
 }
 
 #highlights {
@@ -366,10 +352,10 @@ div.portlet-column {
 
 	.content-desc {
 		line-height: 2em;
+		margin: 0 auto;
+		max-width: 990px;
 		padding-bottom: 2em;
 		padding-top: 2em;
-		max-width: 900px;
-		margin: 0 auto;
 	}
 
 	.gallery {
@@ -388,18 +374,19 @@ div.portlet-column {
 
 		img {
 			border-radius: 10px;
-			height: auto;
+			height: 150px;
 			max-width: 200px;
 		}
 
 		a {
 			color: #FFF;
-			font-family: "gotham_boldregular";
+			font-family: 'gotham_boldregular';
 			font-size: 1em;
 			height: auto;
 			margin-top: 5%;
 			position: absolute;
 			text-align: center;
+			text-shadow: 2px 2px $theme-bg-dark;
 			text-transform: uppercase;
 			width: 200px;
 		}
@@ -415,7 +402,7 @@ div.portlet-column {
 	width: 450px;
 
 	h2 {
-		content: "";
+		content: '';
 		display: none;
 	}
 
@@ -433,9 +420,6 @@ div.portlet-column {
 		color: $theme-base;
 		font-size: 1.5em;
 	}
-}
-
-#portlet_com_liferay_login_web_portlet_LoginPortlet {
 }
 
 a.btn-btt {
@@ -456,14 +440,14 @@ a.btn-btt {
 	z-index: 200;
 
 	&:after {
-		content: "\25B2";
+		content: '\25B2';
 		display: inline-block;
 		font-size: 28px;
 		height: 50px;
 		position: absolute;
+		right: 0;
 		text-align: center;
 		top: 0;
-		right: 0;
 		width: 50px;
 	}
 
@@ -473,19 +457,19 @@ a.btn-btt {
 	}
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 320px) {
 	.link-button {
 		padding: 8px 20px;
 	}
 }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 768px) {
 	.link-button {
 		padding: 10px 25px;
 	}
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 480px) {
 	h1 {
 		font-size: 1.4em;
 	}
@@ -510,8 +494,7 @@ a.btn-btt {
 
 @media screen and (max-width: 991px) {
 	#banner {
-	
-		a.jw-nav-bar-toggle {
+		a.theme-nav-bar-toggle {
 			background-color: transparent;
 			border-radius: 0;
 			border-width: 0;
@@ -532,17 +515,17 @@ a.btn-btt {
 		&.nav-bar-adjustment {
 				height: 80px;
 
-				#jw-banner {
+				#theme-banner {
 					padding: 30px 2% 0 2%;
 				}
 
-				#jw-nav-bar {
+				#theme-nav-bar {
 					padding-top: 75px;
 				}
 		}
 	}
 
-	#jw-nav-bar {
+	#theme-nav-bar {
 		-moz-transition: all 0.5s ease-in-out;
 		-o-transition: all 0.5s ease-in-out;
 		-webkit-transition: all 0.5s ease-in-out;
@@ -600,7 +583,7 @@ a.btn-btt {
 
 				& ~ ul {
 					display: none;
-				}	
+				}
 			}
 
 			& > ul {
@@ -617,7 +600,7 @@ a.btn-btt {
 			background: $theme-base-light;
 		}
 
-		.jw-nav-bar-toggle-close {
+		.theme-nav-bar-toggle-close {
 			font-size: 3em;
 			line-height: 0;
 		}
@@ -634,7 +617,7 @@ a.btn-btt {
 			transform: rotate(90deg);
 		}
 
-		&.menuOpen {
+		&.menu-open {
 			right: 0;
 		}
 	}
@@ -650,7 +633,6 @@ a.btn-btt {
 	}
 
 	#navigation ul li:hover {
-
 		& > .child-menu {
 			background-color: $theme-bg-dropdown;
 			display: block;
@@ -665,7 +647,7 @@ a.btn-btt {
 		& > li > a:before {
 			background-color: $theme-base;
 			bottom: 0;
-			content: "";
+			content: '';
 			height: 4px;
 			left: 50%;
 			margin: 0 auto;
@@ -697,7 +679,6 @@ a.btn-btt {
 			margin-left: 50%;
 		}
 	}
-	
 
 	#navigation ul li.selected a:before {
 		width: 100%;
@@ -715,7 +696,7 @@ a.btn-btt {
 		text-align: left;
 	}
 
-	.jw-nav-bar-toggle {
+	.theme-nav-bar-toggle {
 		display: none;
 	}
 
@@ -727,7 +708,7 @@ a.btn-btt {
 		margin: 0 18%;
 	}
 
-	a.jw-nav-bar-toggle-close {
+	a.theme-nav-bar-toggle-close {
 		display: none;
 		visibility: hidden;
 	}
@@ -736,9 +717,3 @@ a.btn-btt {
 		margin: 0 2%;
 	}
 }
-
-/*	selector + sibling {
-		style top or left side
-	}
-
-*/
