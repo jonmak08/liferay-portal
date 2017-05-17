@@ -9,9 +9,9 @@ AUI().ready(
     }
 );
 
-AUI.$( 'a.jw-nav-bar-toggle' ).click(
+AUI.$( 'a.theme-nav-bar-toggle' ).click(
     function() {
-        AUI.$( '#jw-nav-bar' ).toggleClass( 'menuOpen' );
+        AUI.$( '#theme-nav-bar' ).toggleClass( 'menu-open' );
     }
 );
 
