@@ -1,0 +1,390 @@
+/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+
+/* inject:imports */
+/* endinject */
+
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+a {
+	color: #000;
+	font-family: "Helvetica Neue";
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 1.71px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+a:hover, #color-777:hover, .info-footer-container ul li a h3:hover, .new-arrivals-link:hover {
+	color: #BE9A79;
+	text-decoration: none;
+}
+
+a:visited {
+	border-bottom: 5px solid black;
+	text-decoration: underline;
+}
+
+a#sign-in {
+	margin: 27px 20px;
+}
+
+body {
+	background-color: #FFF1E4;
+}
+
+.card {
+	border-radius: 0;
+	border-width: none;
+	box-shadow: 0px 2px 4px #000;
+	display: flex;
+	flex: 1 1 0;
+	flex-direction: column;
+	height: auto;
+	margin: 20px;
+	min-width: 189px;
+}
+
+.card-container {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin: 20px;
+}
+
+#card-description {
+	display: flex;
+	flex-direction: column;
+	margin: 10px 10px 20px 10px;
+}
+
+#card-description h6 {
+	/* margin-bottom: 0px; */
+	margin-top: auto;
+}
+
+#card-description p {
+	margin: 10px 0px 20px 0px;
+}
+
+#colombia {
+	color: #FFF;
+	font-family: "Phosphate";
+	font-size: 60px;
+	letter-spacing: 4.8px;
+	/* margin: 0px; */
+	padding: 20px 40px 0px 40px;
+	text-align: center;
+}
+
+#colombia-region {
+	color: #FFF;
+	margin: 0px;
+	text-align: center;
+}
+
+#color-777 {
+	color: #777;
+}
+
+.container-fluid {
+	padding: 0px;
+}
+
+div#heading {
+	align-items: flex-start;
+	flex: 0 0 auto;
+}
+
+.email-subscription-container {
+	align-items: center;
+	background-color: #FFF;
+	display: flex;
+}
+
+#email-subscription-links {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.email-subscription-text {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	padding: 20px 0px 40px 0px;
+}
+
+.email-text-field {
+	border-color: #000;
+	display: block;
+	width: 70%;
+}
+
+footer#footer {
+	margin: 10px 20px;
+	padding: 0px 20px;
+}
+
+h1.site-title {
+	color: #000;
+	font-family: Utopia Std;
+	font-size: 30px;
+	letter-spacing: 2px;
+	margin: 0px 30px 0px 20px;
+	padding: 20px;
+}
+
+h2 {
+	font-family: Utopia Std;
+	font-size: 30px;
+	letter-spacing: 2px
+}
+
+h3 {
+	font-family: Helvetica Neue;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 1.71px;
+	text-transform: uppercase;
+}
+
+h4 {
+	font-family: Utopia Std;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 2.28px;
+	text-transform: uppercase;
+}
+
+h5 {
+	font-family: Utopia Std;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 1.71px;
+	text-transform: uppercase;
+}
+
+h6 {
+	font-family: Helvetica Neue;
+	font-size: 10px;
+	font-weight: bold;
+	letter-spacing: 1.43px;
+	text-transform: uppercase;
+}
+
+header#banner {
+	background: url(../images/isaac-benhesed-249427_crop.jpg) no-repeat;
+	background-position: bottom right;
+	background-size: cover;
+	display: flex;
+	height: 700px;
+	width: 100%;
+}
+
+.heading {
+	background-color: #FFF1E4;
+	display: inline-block;
+}
+
+header nav ul {
+	margin: 0px 20px 0px 0px;
+	padding: 27px 0px;
+
+	li {
+		display: inline-block;
+		font-weight: bold;
+		list-style-type: none;
+		margin: 0px 10px;
+		padding: 0px 10px;
+	}
+}
+
+hr.new-arrivals-break {
+	border-top: 1px solid #FFF;
+	width: 50%;
+}
+
+hr.newsletter-break {
+	border-top: 1px solid #777;
+	margin-bottom: 40px;
+	margin-top: auto;
+	width: 100%;
+}
+
+#hrefFm {
+	display: none;
+}
+
+#image-about {
+	background: url(../images/Card-Image-About-Full.jpg) no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 215px;
+	width: 100%;
+}
+
+#image-blog {
+	background: url(../images/Card-Image-Blog-Full.jpg) no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 215px;
+	width: 100%;
+}
+
+#image-event {
+	background: url(../images/Card-Image-Event-Full.jpg) no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 215px;
+	width: 100%;
+}
+
+#image-learn {
+	background: url(../images/Card-Image-Learn-Full.jpg) no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 215px;
+	width: 100%;
+}
+
+#info-column-1 {
+	min-width: 95px;
+}
+
+#info-column-2 {
+	min-width: 195px;
+}
+
+#info-column-3 {
+	margin-left: auto;
+	min-width: 210px;
+	padding-right: 40px;
+}
+
+.info-footer-container {
+	background-color: #686059;
+	display: flex;
+	flex-wrap: wrap;
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 60px;
+		margin-top: 40px;
+	}
+}
+
+li {
+	height: 45px;
+	list-style-type: none;
+	margin: 0px;
+}
+
+.info-footer-container ul li h3 {
+	color: #FFF;
+}
+
+.landing-description {
+	left: 25%;
+	position: absolute;
+	top: 200px;
+	width: 50%;
+}
+
+#layout_6 {
+	margin-left: auto;
+}
+
+#list-body-font {
+	font-weight: normal;
+}
+
+#main-content {
+	display: visible;
+}
+
+nav#breadcrumbs, #p_p_id_1_WAR_chatportlet_, #p_p_id_com_liferay_chat_web_portlet_ChatPortlet_, #p_p_id_1_WAR_chatvideoportlet_,
+#p_p_id_com_liferay_chat_web_portlet_ChatPortlet_, #portlet_com_liferay_hello_world_web_portlet_HelloWorldPortlet {
+	display: none;
+}
+
+nav#navigation.sort-pages.modify-pages {
+	align-items: flex-start;
+	display: flex;
+	flex: 1 1 auto;
+}
+
+nav ul {
+	display: flex;
+	flex: 1 1 auto;
+}
+
+.new-arrivals {
+	background: url(../images/Colombia-BG.png) no-repeat;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	height: 450px;
+	width: 100%;
+}
+
+.new-arrivals-break {
+	border-color: #FFF;
+	display: block;
+	width: 70%;
+}
+
+.new-arrivals-content {
+	background-color: #214E67;
+	background-position: center;
+	display: flex;
+	flex-direction: column;
+	height: 213px;
+	margin: auto;
+	min-width: 375px;
+}
+
+.new-arrivals-link {
+	color: #FFF;
+	margin-bottom: 30px;
+	margin-top: auto;
+	text-align: center;
+}
+
+#newsletter {
+	margin-top: 20px
+}
+
+#newsletter-description {
+	align-items: center;
+	margin: 10px 0px 40px 0px;
+	max-width: 280px;
+}
+
+p {
+	font-family: "Utopia Std";
+	font-size: 16px;
+}
+
+.powered-by {
+	font-size: 12px;
+}
+
+.statement {
+	align-self: center;
+	position: absolute;
+	text-align: left;
+}
+
+#wrapper {
+	padding: 0px;
+}
