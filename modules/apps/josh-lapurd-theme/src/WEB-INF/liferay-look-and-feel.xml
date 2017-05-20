@@ -19,7 +19,7 @@
 		</portlet-decorator>
 
 		<settings>
-			<setting configurable="true" key="imagesPath" type="text" value=""/>
+
 		</settings>
 
 
