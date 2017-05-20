@@ -40,7 +40,7 @@ $theme-title-text: #000;
 }
 
 html {
-	font-family: 'gotham_lightregular', sans-serif;
+	font-family: 'gotham_lightregular', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 }
 
 ::selection {
@@ -53,10 +53,22 @@ html {
 }
 
 body {
-	font-family: 'gotham_bookregular';
+	font-family: 'gotham_bookregular', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 	font-size: 15px;
 	line-height: 1.4;
 	margin: 0;
+
+	.btn-primary {
+		background-color: $theme-base;
+		border-color: $theme-base-light;
+		color: #FFF;
+
+		&:hover {
+			background-color: $theme-base-light;
+			border-color: $theme-base;
+			color: $p-text-color;
+		}
+	}
 }
 
 button {
@@ -84,6 +96,7 @@ button {
 
 a:active, a:hover {
 	@include fadeTransition(all 0.3s ease-out);
+
 	outline: 0;
 	text-decoration: none;
 }
@@ -97,7 +110,7 @@ li, ul {
 	list-style: none;
 }
 
-.bg-white {
+.bg-portlet-dropdown-default  {
 	background-color: #FFF;
 	margin-left: -10px;
 	margin-right: -10px;
@@ -133,17 +146,13 @@ li, ul {
 	height: 64px;
 }
 
-.text-center {
-	align-text: center;
-}
-
 #wrapper {
 	margin: 0;
 	margin-top: -30px;
 	padding: 0;
 	top: 0;
 
-	#theme-banner {
+	#themeBanner {
 		margin: 0 auto;
 		max-width: 992px;
 		padding: 60px 2% 0 2%;
@@ -160,6 +169,31 @@ p {
 
 .portlet-content {
 	background: transparent;
+
+	.scheduler-view-agenda-info-container .scheduler-view-agenda-info {
+		color: $theme-base;
+	}
+
+	a {
+		color: $theme-base;
+
+		&.link-button {
+			color: #FFF;
+		}
+
+		&::after {
+			background-color: $theme-base;
+		}
+	}
+}
+
+.yui3-skin-sam .calendar-portlet .yui3-calendar-weekday {
+	color: $theme-base;
+}
+
+.scheduler-view-day-header-day .scheduler-today-hd, .scheduler-view-table-colgrid-today, .scheduler-view-table-data-col-title-today {
+	border-color: $theme-base;
+	color: $theme-base;
 }
 
 section {
@@ -205,10 +239,10 @@ div.portlet-column {
 		font-size: 0.8em;
 		text-align: center;
 		text-transform: uppercase;
-	}
 
-	a:hover {
-		color: $theme-base;
+		&::hover {
+			color: $theme-base;
+		}
 	}
 
 	.site-name {
@@ -218,13 +252,15 @@ div.portlet-column {
 }
 
 .banner-unscrolled {
-	@include fadeTransition(all 0.3s ease-out);
 	background-color: transparent;
+
+	@include fadeTransition(all 0.3s ease-out);
 }
 
 .banner-scrolled {
-	@include fadeTransition(all 0.3s ease-out);
 	background-color: $theme-bg-dark-transparent;
+
+	@include fadeTransition(all 0.3s ease-out);
 }
 
 #navigation > ul {
@@ -233,35 +269,35 @@ div.portlet-column {
 	.delete-tab {
 		margin-top: -20px;
 	}
-}
 
-#navigation > ul > li {
-	display: inline-block;
-	float: left;
-	margin: 0 10px;
-	position: relative;
+	& > li {
+		display: inline-block;
+		float: left;
+		margin: 0;
+		position: relative;
 
-	ul {
-		display: none;
-	}
+		ul {
+			display: none;
+		}
 
-	.child-menu {
-		background: $theme-bg-dropdown;
-		left: 0;
-		margin-left: 0;
-		padding: 0 15px 10px 15px;
-		position: absolute;
-		top: 20px;
-		width: 220px;
-		z-index: 200;
+		.child-menu {
+			background: $theme-bg-dropdown;
+			left: 0;
+			margin-left: 0;
+			padding: 0 15px 10px 15px;
+			position: absolute;
+			top: 20px;
+			width: 220px;
+			z-index: 200;
 
-		li {
-			padding-top: 10px;
+			li {
+				padding-top: 10px;
+			}
 		}
 	}
 }
 
-#sign-in div {
+#signIn div {
 	display: inherit;
 	white-space: nowrap;
 }
@@ -270,26 +306,28 @@ div.portlet-column {
 	margin: 0 5%;
 }
 
-#company-branding {
+#companyBranding {
 	display: inline-block;
 }
 
-#header .site-name a {
-	color: #FFF;
-	font-size: 1.33em;
-	text-transform: uppercase;
-}
+#header {
+	.site-name a {
+		color: #FFF;
+		font-size: 1.33em;
+		text-transform: uppercase;
+	}
 
-#header .block-menu {
-	display: inline-block;
-	float: right;
-	width: auto;
-}
+	.block-menu {
+		display: inline-block;
+		float: right;
+		width: auto;
+	}
 
-#header ul.menu {
-	display: block;
-	float: right;
-	position: relative;
+	ul.menu {
+		display: block;
+		float: right;
+		position: relative;
+	}
 }
 
 .hero {
@@ -306,25 +344,27 @@ div.portlet-column {
 
 .link-fade {
 	color: $theme-base;
-}
 
-.link-fade:hover {
-	@include fadeTransition(all 0.3s ease-out);
-	color: $theme-base-light;
-	cursor: pointer;
+	&:hover {
+		color: $theme-base-light;
+		cursor: pointer;
+
+		@include fadeTransition(all 0.3s ease-out);
+	}
 }
 
 .link-button {
 	background-color: $theme-base;
 	border-radius: 30px;
-	color: #313432 !important;
-	font-family: 'gotham_boldregular';
+	color: #313432;
+	font-family: 'gotham_boldregular', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 	padding: 7px 15px;
-}
 
-.link-button:hover {
-	@include fadeTransition(all 0.3s ease-out);
-	background-color: $theme-base-light;
+	&:hover {
+		background-color: $theme-base-light;
+
+		@include fadeTransition(all 0.3s ease-out);
+	}
 }
 
 #background {
@@ -338,7 +378,7 @@ div.portlet-column {
 		background-size: cover;
 		height: auto;
 		position: relative;
-		top: -15px;
+		top: -20px;
 		width: 100%;
 	}
 
@@ -384,7 +424,7 @@ div.portlet-column {
 
 		a {
 			color: #FFF;
-			font-family: 'gotham_boldregular';
+			font-family: 'gotham_boldregular', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 			font-size: 1em;
 			height: auto;
 			margin-top: 5%;
@@ -397,15 +437,14 @@ div.portlet-column {
 	}
 }
 
-
 #breadcrumbs .portlet-content {
 	background: transparent;
 	border-width: 0;
 	color: $theme-base;
-	position: absolute;
-	width: 450px;
 	font-size: 16px;
 	padding-top: 425px;
+	position: absolute;
+	width: 450px;
 	z-index: 5;
 
 	.portlet-topper {
@@ -423,7 +462,7 @@ div.portlet-column {
 
 		li a {
 			color: $theme-base;
-			font-size: 1em;			
+			font-size: 1em;
 		}
 	}
 
@@ -474,7 +513,7 @@ a.btn-btt {
 	}
 }
 
-@media screen and (min-width: 768px) {
+@include media-query($screen-sm, null) {
 	.link-button {
 		padding: 10px 25px;
 	}
@@ -503,7 +542,7 @@ a.btn-btt {
 	}
 }
 
-@media screen and (max-width: 991px) {
+@include media-query(null, $screen-sm-max) {
 	#banner {
 		a.theme-nav-bar-toggle {
 			background-color: transparent;
@@ -526,17 +565,17 @@ a.btn-btt {
 		&.nav-bar-adjustment {
 				height: 80px;
 
-				#theme-banner {
+				#themeBanner {
 					padding: 30px 2% 0 2%;
 				}
 
-				#theme-nav-bar {
+				#themeNavBar {
 					padding-top: 75px;
 				}
 		}
 	}
 
-	#theme-nav-bar {
+	#themeNavBar {
 		-moz-transition: all 0.5s ease-in-out;
 		-o-transition: all 0.5s ease-in-out;
 		-webkit-transition: all 0.5s ease-in-out;
@@ -561,8 +600,8 @@ a.btn-btt {
 
 		li {
 			border-bottom: 1px solid $p-text-color;
-			margin-left: 0 !important;
-			margin-right: 0 !important;
+			margin-left: 0;
+			margin-right: 0;
 			padding: 10px 0;
 			width: 100%;
 
@@ -638,35 +677,47 @@ a.btn-btt {
 	}
 }
 
-@media screen and (min-width: 992px) {
+@include media-query($screen-md, null) {
 	#banner.nav-bar-adjustment {
 			top: 35px;
 	}
 
-	#navigation ul li:hover {
-		& > .child-menu {
-			background-color: $theme-bg-dropdown;
-			display: block;
+	#navigation ul {
+		li.selected a:before {
+			width: 100%;
 		}
 
-		& > a:before {
-			width: 100%;
+		li:hover {
+			& > {
+				.child-menu {
+					background-color: $theme-bg-dropdown;
+					display: block;
+				}
+
+				a:before {
+					width: 100%;
+				}
+			}
 		}
 	}
 
 	#navigation > ul {
-		& > li > a:before {
-			background-color: $theme-base;
-			bottom: 0;
-			content: '';
-			height: 4px;
-			left: 50%;
-			margin: 0 auto;
-			position: absolute;
-			top: auto;
-			transform: translate(-50%, -48px);
-			transition: width 0.3s ease 0s;
-			width: 0;
+		& > li {
+			margin: 0 10px;
+
+			& a:before {
+				background-color: $theme-base;
+				bottom: 0;
+				content: '';
+				height: 4px;
+				left: 50%;
+				margin: 0 auto;
+				position: absolute;
+				top: auto;
+				transform: translate(-50%, -48px);
+				transition: width 0.3s ease 0s;
+				width: 0;
+			}
 		}
 
 		& > li:hover > ul {
@@ -691,19 +742,15 @@ a.btn-btt {
 		}
 	}
 
-	#navigation ul li.selected a:before {
-		width: 100%;
-	}
-
 	#navigation li button.child-menu-toggle {
 		display: none;
 	}
 
-	.grid-left {
+	.grid-column-1 {
 		text-align: right;
 	}
 
-	.grid-right {
+	.grid-column-2 {
 		text-align: left;
 	}
 
