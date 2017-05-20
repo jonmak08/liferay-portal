@@ -1,7 +1,7 @@
 AUI().ready(
     'liferay-sign-in-modal',
     function( A ) {
-        var signIn = A.one( '#sign-in' );
+        var signIn = A.one( '#signIn' );
 
         if ( signIn && signIn.getData( 'redirect' ) !== 'true' ) {
             signIn.plug( Liferay.SignInModal );
@@ -11,11 +11,11 @@ AUI().ready(
 
 AUI.$( 'a.theme-nav-bar-toggle' ).click(
     function() {
-        AUI.$( '#theme-nav-bar' ).toggleClass( 'menu-open' );
+        AUI.$( '#themeNavBar' ).toggleClass( 'menu-open' );
     }
 );
 
-AUI.$( '#child-menu-dropdown-1' ).click(
+AUI.$( '#childMenuDropdown_1' ).click(
     function() {
         var currTarget = AUI.$( this );
         var currTarSib = currTarget.siblings( 'ul.child-menu' );
@@ -27,7 +27,7 @@ AUI.$( '#child-menu-dropdown-1' ).click(
     }
 );
 
-AUI.$( '#child-menu-dropdown-2' ).click(
+AUI.$( '#childMenuDropdown_2' ).click(
     function() {
         var currTarget = AUI.$( this );
         var currTarSib = currTarget.siblings( 'ul.child-menu' );
