@@ -35,8 +35,8 @@
 
 <div class="container-fluid" id="wrapper">
 	<header class="${navBarAdjustments} banner-unscrolled" id="banner" role="banner">
-		<div class="row" id="theme-banner">
-			<div class="col-md-2 col-sm-2 col-xs-2 theme-nav-bar theme-nav-left" id="company-branding">
+		<div class="row" id="themeBanner">
+			<div class="col-md-2 col-sm-2 col-xs-2 theme-nav-bar theme-nav-left" id="companyBranding">
 				<div class="site-name">
 					<a href="localhost:8080/" rel="home" title="Home">${site_name}</a>
 				</div>
@@ -46,14 +46,14 @@
 
 					<#if !is_signed_in>
 
-						<a class="link-button" data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow"><div id="sign_in_text">${sign_in_text}</div></a>
+						<a class="link-button" data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="signIn" rel="nofollow"><div id="sign_in_text">${sign_in_text}</div></a>
 
 					</#if>
 
 					<a class="float-right theme-nav-bar-toggle" id="menu-dropdown-toggle">&#x2261;</a>
 				</div>
 
-				<div class="float-right" id="theme-nav-bar" id="menu-dropdown-toggle">
+				<div class="float-right" id="themeNavBar">
 
 					<#if has_navigation && is_setup_complete>
 
