@@ -36,11 +36,12 @@
 <div class="container-fluid" id="wrapper">
 	<header class="${navBarAdjustments} banner-unscrolled" id="banner" role="banner">
 		<div class="row" id="themeBanner">
-			<div class="col-md-2 col-sm-2 col-xs-2 theme-nav-bar theme-nav-left" id="companyBranding">
+			<div class="col-md-2 col-sm-2 col-xs-2" id="companyBranding">
 				<div class="site-name">
 					<a href="localhost:8080/" rel="home" title="Home">${site_name}</a>
 				</div>
 			</div>
+			
 			<nav id="login">
 				<div class="float-right sign-in">
 
@@ -73,7 +74,9 @@
 			<div class="jumbotron-picture">
 				<div class="background-box">
 					<nav id="breadcrumbs">
+
 						<@liferay.breadcrumbs />
+
 					</nav>
 				</div>
 			</div>
@@ -101,8 +104,8 @@
 		</#if>
 
 	</section>
-	
-	<hr/>
+
+	<hr />
 
 	<footer id="footer" role="contentinfo">
 		<p class="powered-by text-center">
@@ -111,7 +114,8 @@
 
 		</p>
 	</footer>
-	<a class="btn-btt" href="#">Back to top</a>
+
+	<a class="btn-back-to-top" href="#">Back to top</a>
 </div>
 
 <@liferay_util["include"] page=body_bottom_include />
