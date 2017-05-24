@@ -7,7 +7,7 @@
 
 /* Common Site Variables */
 
-$p-text-color: #777;
+$default-color: #777;
 $theme-base: #DAB485;
 $theme-base-light: #ECD8C0;
 $theme-bg-dark: #131E26;
@@ -30,13 +30,6 @@ $theme-title-text: #000;
 @font-face {
 	font-family: 'gotham_bookregular';
 	src: url(fonts/GothamBookRegular.otf) format('truetype');
-}
-
-@mixin fadeTransition($value) {
-	-moz-transition: $value;
-	-o-transition: $value;
-	-webkit-transition: $value;
-	transition: $value;
 }
 
 html {
@@ -66,7 +59,7 @@ body {
 		&:hover {
 			background-color: $theme-base-light;
 			border-color: $theme-base;
-			color: $p-text-color;
+			color: $default-color;
 		}
 	}
 }
@@ -94,11 +87,13 @@ button {
 	text-transform: uppercase;
 }
 
-a:active, a:hover {
-	@include fadeTransition(all 0.3s ease-out);
+a {
+	&:active, &:hover {
+		outline: 0;
+		text-decoration: none;
 
-	outline: 0;
-	text-decoration: none;
+		@include transition(all 0.3s ease-out);
+	}
 }
 
 p {
@@ -160,7 +155,7 @@ li, ul {
 }
 
 p {
-	color: $p-text-color;
+	color: $default-color;
 }
 
 .portlet-title-text {
@@ -227,7 +222,7 @@ div.portlet-column {
 }
 
 #banner {
-	font-family: 'gotham_boldregular';
+	font-family: 'gotham_boldregular', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 	height: 110px;
 	left: 0;
 	position: fixed;
@@ -240,7 +235,7 @@ div.portlet-column {
 		text-align: center;
 		text-transform: uppercase;
 
-		&::hover {
+		&:hover {
 			color: $theme-base;
 		}
 	}
@@ -254,13 +249,13 @@ div.portlet-column {
 .banner-unscrolled {
 	background-color: transparent;
 
-	@include fadeTransition(all 0.3s ease-out);
+	@include transition(all 0.3s ease-out);
 }
 
 .banner-scrolled {
 	background-color: $theme-bg-dark-transparent;
 
-	@include fadeTransition(all 0.3s ease-out);
+	@include transition(all 0.3s ease-out);
 }
 
 #navigation > ul {
@@ -308,6 +303,7 @@ div.portlet-column {
 
 #companyBranding {
 	display: inline-block;
+	width: auto;
 }
 
 #header {
@@ -349,7 +345,7 @@ div.portlet-column {
 		color: $theme-base-light;
 		cursor: pointer;
 
-		@include fadeTransition(all 0.3s ease-out);
+		@include transition(all 0.3s ease-out);
 	}
 }
 
@@ -363,7 +359,7 @@ div.portlet-column {
 	&:hover {
 		background-color: $theme-base-light;
 
-		@include fadeTransition(all 0.3s ease-out);
+		@include transition(all 0.3s ease-out);
 	}
 }
 
@@ -406,22 +402,6 @@ div.portlet-column {
 		margin: auto;
 		padding-top: 2em;
 
-		ul {
-			margin: 0 auto;
-			padding: 0;
-		}
-
-		li {
-			display: inline-block;
-			padding: 1em 15px;
-		}
-
-		img {
-			border-radius: 10px;
-			height: 150px;
-			max-width: 200px;
-		}
-
 		a {
 			color: #FFF;
 			font-family: 'gotham_boldregular', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
@@ -434,6 +414,22 @@ div.portlet-column {
 			text-transform: uppercase;
 			width: 200px;
 		}
+
+		img {
+			border-radius: 10px;
+			height: 150px;
+			max-width: 200px;
+		}
+
+		li {
+			display: inline-block;
+			padding: 1em 15px;
+		}
+
+		ul {
+			margin: 0 auto;
+			padding: 0;
+		}
 	}
 }
 
@@ -444,7 +440,7 @@ div.portlet-column {
 	font-size: 16px;
 	padding-top: 425px;
 	position: absolute;
-	width: 450px;
+	width: auto;
 	z-index: 5;
 
 	.portlet-topper {
@@ -460,21 +456,18 @@ div.portlet-column {
 		background: transparent;
 		list-style: none;
 
+		& > .active {
+			color: $theme-base;
+			font-size: 1em;
+		}
 		li a {
 			color: $theme-base;
 			font-size: 1em;
 		}
 	}
-
-	.breadcrumb > .active {
-		color: $theme-base;
-		font-size: 1em;
-	}
 }
 
-a.btn-btt {
-	-moz-border-radius: 50%;
-	-webkit-border-radius: 50%;
+a.btn-back-to-top {
 	background: $theme-base;
 	border-radius: 50%;
 	bottom: 30px;
@@ -576,9 +569,6 @@ a.btn-btt {
 	}
 
 	#themeNavBar {
-		-moz-transition: all 0.5s ease-in-out;
-		-o-transition: all 0.5s ease-in-out;
-		-webkit-transition: all 0.5s ease-in-out;
 		background: $theme-bg-light-2;
 		bottom: 0;
 		box-sizing: border-box;
@@ -589,7 +579,9 @@ a.btn-btt {
 		position: fixed;
 		right: -250px;
 		top: 0;
-		transition: all 0.5s ease-in-out;
+
+		@include transition(all 0.5s ease-in-out);
+
 		width: 250px;
 		z-index: 200;
 
@@ -599,13 +591,13 @@ a.btn-btt {
 		}
 
 		li {
-			border-bottom: 1px solid $p-text-color;
+			border-bottom: 1px solid $default-color;
 			margin-left: 0;
 			margin-right: 0;
 			padding: 10px 0;
 			width: 100%;
 
-			button.child-menu-toggle {
+			.child-menu-toggle {
 				color: inherit;
 				cursor: pointer;
 				font-size: inherit;
@@ -615,7 +607,7 @@ a.btn-btt {
 			}
 
 			li {
-				border-left: 1px solid $p-text-color;
+				border-left: 1px solid $default-color;
 			}
 
 			&:hover {
@@ -642,7 +634,7 @@ a.btn-btt {
 		}
 
 		a {
-			color: $p-text-color;
+			color: $default-color;
 			padding: 0 10px;
 		}
 
@@ -705,7 +697,7 @@ a.btn-btt {
 		& > li {
 			margin: 0 10px;
 
-			& a:before {
+			& > a:before {
 				background-color: $theme-base;
 				bottom: 0;
 				content: '';
@@ -746,6 +738,17 @@ a.btn-btt {
 		display: none;
 	}
 
+	.grid-text {
+		h3 {
+			font-size: 24px;
+		}
+
+		p {
+			font-size: 15px;
+			color: $default-color
+		}
+	}
+
 	.grid-column-1 {
 		text-align: right;
 	}
@@ -764,11 +767,6 @@ a.btn-btt {
 
 	.theme-container {
 		margin: 0 18%;
-	}
-
-	a.theme-nav-bar-toggle-close {
-		display: none;
-		visibility: hidden;
 	}
 
 	.portlet-content .theme-container {
