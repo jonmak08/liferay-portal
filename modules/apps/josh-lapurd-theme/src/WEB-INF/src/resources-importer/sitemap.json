@@ -7,7 +7,7 @@
 					{
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences" : {
-							"articleId": "imgHero.xml",
+							"articleId": "img_Hero.xml",
 							"groupId": "${groupId}",
 							"portletSetupPortletDecoratorId": "barebone"
 						}
@@ -15,7 +15,7 @@
 					{
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences" : {
-							"articleId": "homePageSiteIntro.xml",
+							"articleId": "home_Page_Site_Intro.xml",
 							"groupId": "${groupId}",
 							"portletSetupPortletDecoratorId": "barebone"
 						}
@@ -25,7 +25,7 @@
 					{
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences": {
-							"articleId": "HomePageGridLeft_1.xml",
+							"articleId": "Home_Page_Grid_Left_1.xml",
 							"groupId": "${groupId}",
 							"portletSetupPortletDecoratorId": "barebone"
 						}
@@ -33,7 +33,7 @@
 					{
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences": {
-							"articleId": "HomePageGridLeft_2.xml",
+							"articleId": "Home_Page_Grid_Left_2.xml",
 							"groupId": "${groupId}",
 							"portletSetupPortletDecoratorId": "barebone"
 						}
@@ -43,7 +43,7 @@
 					{
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences": {
-							"articleId": "HomePageGridRight_1.xml",
+							"articleId": "Home_Page_Grid_Right_1.xml",
 							"groupId": "${groupId}",
 							"portletSetupPortletDecoratorId": "barebone"
 						}
@@ -51,7 +51,7 @@
 					{
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences": {
-							"articleId": "HomePageGridRight_2.xml",
+							"articleId": "Home_Page_Grid_Right_2.xml",
 							"groupId": "${groupId}",
 							"portletSetupPortletDecoratorId": "barebone"
 						}
@@ -78,7 +78,7 @@
 					{
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences": {
-							"articleId": "AboutUs.xml",
+							"articleId": "About_Us.xml",
 							"groupId": "${groupId}",
 							"portletSetupPortletDecoratorId": "barebone"
 						}
