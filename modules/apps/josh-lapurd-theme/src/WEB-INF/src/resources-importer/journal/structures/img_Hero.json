@@ -6,7 +6,7 @@
     "fields": [
         {
             "label": {
-                "en_US": "imgHero"
+                "en_US": "img_Hero"
             },
             "predefinedValue": {
                 "en_US": ""
@@ -21,7 +21,7 @@
             "fieldNamespace": "ddm",
             "indexType": "keyword",
             "localizable": true,
-            "name": "imgHero",
+            "name": "img_Hero",
             "readOnly": false,
             "repeatable": false,
             "required": false,

@@ -4,7 +4,7 @@
 	<dynamic-element name="bg_Color" type="list" index-type="keyword" instance-id="smzu">
 		<dynamic-content language-id="en_US"><![CDATA[dark]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="Header" type="text" index-type="keyword" instance-id="zvmb">
+	<dynamic-element name="Gallery_Header" type="text" index-type="keyword" instance-id="zvmb">
 		<dynamic-content language-id="en_US"><![CDATA[Gallery Header]]></dynamic-content>
 	</dynamic-element>
 	<dynamic-element name="Description" type="text" index-type="keyword" instance-id="scoe">

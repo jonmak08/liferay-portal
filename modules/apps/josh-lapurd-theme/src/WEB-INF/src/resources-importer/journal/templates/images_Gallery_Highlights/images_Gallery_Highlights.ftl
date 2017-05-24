@@ -4,9 +4,9 @@
 			<div class="content-desc">
 				<div class="row">
 
-					<#if Header.getData()?? Header.getData() !== "">
+					<#if Gallery_Header.getData()?? Gallery_Header.getData() !== "">
 
-						<a class="link-fade text-caps">${Header.getData()}</a>
+						<a class="link-fade text-caps">${Gallery_Header.getData()}</a>
 
 					</#if>
 					
