@@ -1,8 +1,8 @@
 <section>
-    <div class="text-center bg-${bgColor.getData()}">
+    <div class="text-center bg-${bg_Color.getData()}">
         <h1>${header.getData()}</h1>
         <p>
-        ${paragraphText.getData()}
+        ${paragraph_Text.getData()}
         </p>
     </div>
     <div class="theme-container">
