@@ -1,0 +1,362 @@
+/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+
+/* inject:imports */
+/* endinject */
+
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+@media (min-width: 768px) and (max-width: 991px) {
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+    .navbar-collapse.collapse.in {
+        display: block !important;
+    }
+    .navbar-header .collapse, .navbar-toggle {
+        display: block !important;
+    }
+    .navbar-header {
+        float:none;
+    }
+}
+@media(min-width: 768px) {
+  .news .content-container {
+    margin-bottom: 40px;
+  }
+  .article-separator.centered {
+    margin: 0px auto 20px auto;
+  }
+}
+@media(max-width: 767px) {
+  .profile, .news {
+    text-align: left;
+  }
+}
+html body {
+  margin: 0px;
+  padding: 0px;
+}
+ul {
+  padding-left: 0px;
+}
+.theme-container {
+  margin-top: 65px;
+}
+/*-------------------------------------
+NAVBAR
+-------------------------------------*/
+.navbar-custom {
+  transition : 0.2s ease-in;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+.adjust-for-control-menu {
+  top: 65px;
+}
+.navbar-custom ul {
+  margin-top: 10px;
+}
+.navbar-white {
+  transition : 0.2s ease-in;
+  background-color : rgba(255, 255, 255, 0.95);
+  padding-top : 3px;
+  padding-bottom : 3px;
+}
+.brand-name-inverse {
+  font-size: 25px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 1) !important;
+}
+.brand-name {
+  font-size: 25px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 1) !important;
+}
+.nav-links-inverse ul li a {
+  color: rgba(0, 0, 0, 1) !important;
+  text-decoration: none;
+  font-size: 14px;
+  float: left;
+  list-style: none;
+  padding: 5px 14px 5px 14px;
+  margin: 0px 3px 0px 3px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  transition: 0.2s ease-out;
+  text-transform: uppercase;
+}
+.nav-links ul li a {
+  color: rgba(255, 255, 255, 1) !important;
+  text-decoration: none;
+  font-size: 14px;
+  float: left;
+  list-style: none;
+  padding: 5px 14px 5px 14px;
+  margin: 0px 3px 0px 3px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  transition: 0.2s ease-out;
+  text-transform: uppercase;
+}
+.nav-links-inverse ul li a:hover {
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 20px;
+  transition: 0.2s ease-in;
+}
+.nav-links ul li a:hover {
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  transition: 0.2s ease-in;
+}
+.icon-bar-inverse {
+  background-color: rgba(0, 0, 0, 1) !important;
+}
+#search-icon:hover {
+  border: 1px solid transparent;
+}
+button {
+  border: none !important;
+}
+/*--------------------------------
+WELCOME WIDGET
+----------------------------------*/
+.welcome-background-one {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://appetitedemo.files.wordpress.com/2015/07/smachno_18.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+.welcome-background-two {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://appetitedemo.files.wordpress.com/2015/07/smachno_22.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+.welcome-background-three {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://appetitedemo.files.wordpress.com/2015/07/smachno_21.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+.welcome-header h2 {
+  padding-top: 60px;
+  padding-bottom: 20px;
+  font-size: 45px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.welcome-content {
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  padding-bottom: 100px;
+}
+.welcome-more-info {
+  padding-top: 20px;
+}
+.welcome-more-info a {
+  font-weight: bold;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  padding: 10px;
+  border: 2px solid rgba(255, 255, 255, 1);
+  text-transform: uppercase;
+}
+#pager-item-one, #pager-item-two, #pager-item-three {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-radius: 200px;
+  margin: 5px;
+  transition: 0.4s ease-out;
+}
+.pager-item-selected {
+  transition: 0.4s ease-in;
+  background-color: rgba(255, 255, 255, 1);
+}
+/*------------------------------
+SECTIONS 1, 2, 3, 4, 5
+------------------------------*/
+.section-white {
+  line-height: 26px;
+  padding: 80px 0px 80px 0px;
+}
+.section-tan {
+  background-color: rgb(244, 242, 230);
+  line-height: 26px;
+  padding: 80px 0px 80px 0px;
+}
+#article-two .image-container {
+  float: right;
+}
+.image-container img {
+  width: 100%;
+  height: 100%;
+}
+.article-title {
+  margin-top: 5px;
+  margin-bottom: 8px;
+}
+.article-title  a {
+  font-size: 25px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 800;
+  transition: 0.2s ease-out;
+}
+.article-title a:hover {
+  color: rgba(199, 168, 78, 1);
+  transition: 0.2s ease-in;
+}
+.article-subtitle {
+  font-style: italic;
+  font-size: 16px;
+  color: rgba(150, 150, 150, 0.9);
+}
+.article-separator {
+  width: 115px;
+  height: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  margin-bottom: 20px;
+}
+.article-entry {
+  font-size: 16px;
+}
+.more-info {
+  padding-top: 8px;
+}
+.more-info a {
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 1);
+  padding: 9px 11px 9px 11px;
+  border: 1.7px solid rgba(0, 0, 0, 1);
+  transition: 0.2s ease-out;
+}
+.more-info a:hover {
+  color: rgba(199, 168, 78, 1);
+  border: 1.7px solid rgba(199, 168, 78, 1);
+  transition: 0.2s ease-in;
+}
+.section-title {
+  text-align: center;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.profile, .news {
+  text-align: center;
+  margin: 60px 0px 60px 0px;
+}
+.profile-name a, .news-title a {
+  font-size: 18px;
+  font-weight: 800;
+}
+.testimonial-entry {
+  text-align: center;
+  font-style: italic;
+  font-size: 16px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.testimonial-author {
+  color: rgba(150, 150, 150, 0.9);
+  font-size: 15px;
+}
+.testimonial-list li {
+  list-style: none;
+  display: inline-block;
+}
+.testimonial-thumb {
+  height: 60px;
+  width: 60px;
+  border-radius: 200px;
+  transition: 0.4s ease-out;
+  opacity: 0.3;
+}
+.testimonial-thumb:hover {
+  transition: 0.4s ease-in;
+  opacity: 1;
+}
+.thumb-selected {
+  opacity: 1;
+}
+/*------------------------------------
+FOOTER
+------------------------------------*/
+.site-footer {
+  background-color: rgba(56, 58, 59, 1);
+  line-height: 26px;
+  padding: 80px 0px 80px 0px;
+}
+.footer-content {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.footer-section {
+  color: rgba(150, 150, 150, 1);
+  margin: 30px 0px 30px 0px;
+}
+.footer-section-title h4 {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.opening-hours, .recent-posts, .footer-text  {
+  font-size: 15px;
+  list-style: none;
+}
+.recent-posts a {
+  text-decoration: none;
+  color: rgba(199, 168, 78, 1);
+  transition: 0.3s ease-out;
+}
+.recent-posts a:hover {
+  color: rgba(150, 150, 150, 1);
+  transition: 0.3s ease-in;
+}
+hr {
+  border-top: dotted 1px;
+  margin: 6px 0px 6px 0px;
+}
+.social-media {
+  margin: 40px 0px 30px 0px;
+}
+.social-media-list li {
+  list-style: none;
+  display: inline-block;
+}
+.social-media-icon {
+  font-size: 25px;
+  padding: 10px;
+  margin: 5px;
+  color: rgba(150, 150, 150, 1);
+  border: 1px solid rgba(150, 150, 150, 1);
+  border-radius: 200px;
+}
+.social-media-icon:hover {
+  background-color: rgba(199, 168, 78, 1);
+  border: 1px solid rgba(199, 168, 78, 1);
+  color: rgba(255, 255, 255, 1);
+}
+.contact-info {
+  color: rgba(150, 150, 150, 1);
+  margin-bottom: 50px;
+}
+.site-info a, .site-info a:hover {
+  text-decoration: none;
+  color: rgba(199, 168, 78, .5);
+}
