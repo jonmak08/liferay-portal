@@ -76,6 +76,7 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 			{ "createDate", Types.TIMESTAMP },
 			{ "modifiedDate", Types.TIMESTAMP },
 			{ "name", Types.VARCHAR },
+			{ "redirectURI", Types.VARCHAR },
 			{ "clientId", Types.VARCHAR },
 			{ "clientSecret", Types.VARCHAR }
 		};
@@ -89,11 +90,12 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 		TABLE_COLUMNS_MAP.put("createDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("name", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("redirectURI", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("clientId", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("clientSecret", Types.VARCHAR);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table WeDeployAuth_WeDeployAuthApp (weDeployAuthAppId LONG not null primary key,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,name VARCHAR(75) null,clientId VARCHAR(75) null,clientSecret VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table WeDeployAuth_WeDeployAuthApp (weDeployAuthAppId LONG not null primary key,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,name VARCHAR(75) null,redirectURI VARCHAR(75) null,clientId VARCHAR(75) null,clientSecret VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table WeDeployAuth_WeDeployAuthApp";
 	public static final String ORDER_BY_JPQL = " ORDER BY weDeployAuthApp.weDeployAuthAppId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY WeDeployAuth_WeDeployAuthApp.weDeployAuthAppId ASC";
@@ -106,7 +108,13 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.portal.security.wedeploy.auth.service.util.ServiceProps.get(
 				"value.object.finder.cache.enabled.com.liferay.portal.security.wedeploy.auth.model.WeDeployAuthApp"),
 			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = false;
+	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.portal.security.wedeploy.auth.service.util.ServiceProps.get(
+				"value.object.column.bitmask.enabled.com.liferay.portal.security.wedeploy.auth.model.WeDeployAuthApp"),
+			true);
+	public static final long CLIENTID_COLUMN_BITMASK = 1L;
+	public static final long CLIENTSECRET_COLUMN_BITMASK = 2L;
+	public static final long REDIRECTURI_COLUMN_BITMASK = 4L;
+	public static final long WEDEPLOYAUTHAPPID_COLUMN_BITMASK = 8L;
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -128,6 +136,7 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 		model.setCreateDate(soapModel.getCreateDate());
 		model.setModifiedDate(soapModel.getModifiedDate());
 		model.setName(soapModel.getName());
+		model.setRedirectURI(soapModel.getRedirectURI());
 		model.setClientId(soapModel.getClientId());
 		model.setClientSecret(soapModel.getClientSecret());
 
@@ -202,6 +211,7 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("name", getName());
+		attributes.put("redirectURI", getRedirectURI());
 		attributes.put("clientId", getClientId());
 		attributes.put("clientSecret", getClientSecret());
 
@@ -253,6 +263,12 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 
 		if (name != null) {
 			setName(name);
+		}
+
+		String redirectURI = (String)attributes.get("redirectURI");
+
+		if (redirectURI != null) {
+			setRedirectURI(redirectURI);
 		}
 
 		String clientId = (String)attributes.get("clientId");
@@ -379,6 +395,32 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 
 	@JSON
 	@Override
+	public String getRedirectURI() {
+		if (_redirectURI == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _redirectURI;
+		}
+	}
+
+	@Override
+	public void setRedirectURI(String redirectURI) {
+		_columnBitmask |= REDIRECTURI_COLUMN_BITMASK;
+
+		if (_originalRedirectURI == null) {
+			_originalRedirectURI = _redirectURI;
+		}
+
+		_redirectURI = redirectURI;
+	}
+
+	public String getOriginalRedirectURI() {
+		return GetterUtil.getString(_originalRedirectURI);
+	}
+
+	@JSON
+	@Override
 	public String getClientId() {
 		if (_clientId == null) {
 			return StringPool.BLANK;
@@ -390,7 +432,17 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 
 	@Override
 	public void setClientId(String clientId) {
+		_columnBitmask |= CLIENTID_COLUMN_BITMASK;
+
+		if (_originalClientId == null) {
+			_originalClientId = _clientId;
+		}
+
 		_clientId = clientId;
+	}
+
+	public String getOriginalClientId() {
+		return GetterUtil.getString(_originalClientId);
 	}
 
 	@JSON
@@ -406,7 +458,21 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 
 	@Override
 	public void setClientSecret(String clientSecret) {
+		_columnBitmask |= CLIENTSECRET_COLUMN_BITMASK;
+
+		if (_originalClientSecret == null) {
+			_originalClientSecret = _clientSecret;
+		}
+
 		_clientSecret = clientSecret;
+	}
+
+	public String getOriginalClientSecret() {
+		return GetterUtil.getString(_originalClientSecret);
+	}
+
+	public long getColumnBitmask() {
+		return _columnBitmask;
 	}
 
 	@Override
@@ -443,6 +509,7 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 		weDeployAuthAppImpl.setCreateDate(getCreateDate());
 		weDeployAuthAppImpl.setModifiedDate(getModifiedDate());
 		weDeployAuthAppImpl.setName(getName());
+		weDeployAuthAppImpl.setRedirectURI(getRedirectURI());
 		weDeployAuthAppImpl.setClientId(getClientId());
 		weDeployAuthAppImpl.setClientSecret(getClientSecret());
 
@@ -508,6 +575,14 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 		WeDeployAuthAppModelImpl weDeployAuthAppModelImpl = this;
 
 		weDeployAuthAppModelImpl._setModifiedDate = false;
+
+		weDeployAuthAppModelImpl._originalRedirectURI = weDeployAuthAppModelImpl._redirectURI;
+
+		weDeployAuthAppModelImpl._originalClientId = weDeployAuthAppModelImpl._clientId;
+
+		weDeployAuthAppModelImpl._originalClientSecret = weDeployAuthAppModelImpl._clientSecret;
+
+		weDeployAuthAppModelImpl._columnBitmask = 0;
 	}
 
 	@Override
@@ -554,6 +629,14 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 			weDeployAuthAppCacheModel.name = null;
 		}
 
+		weDeployAuthAppCacheModel.redirectURI = getRedirectURI();
+
+		String redirectURI = weDeployAuthAppCacheModel.redirectURI;
+
+		if ((redirectURI != null) && (redirectURI.length() == 0)) {
+			weDeployAuthAppCacheModel.redirectURI = null;
+		}
+
 		weDeployAuthAppCacheModel.clientId = getClientId();
 
 		String clientId = weDeployAuthAppCacheModel.clientId;
@@ -575,7 +658,7 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(19);
+		StringBundler sb = new StringBundler(21);
 
 		sb.append("{weDeployAuthAppId=");
 		sb.append(getWeDeployAuthAppId());
@@ -591,6 +674,8 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 		sb.append(getModifiedDate());
 		sb.append(", name=");
 		sb.append(getName());
+		sb.append(", redirectURI=");
+		sb.append(getRedirectURI());
 		sb.append(", clientId=");
 		sb.append(getClientId());
 		sb.append(", clientSecret=");
@@ -602,7 +687,7 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(31);
+		StringBundler sb = new StringBundler(34);
 
 		sb.append("<model><model-name>");
 		sb.append(
@@ -638,6 +723,10 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 		sb.append(getName());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>redirectURI</column-name><column-value><![CDATA[");
+		sb.append(getRedirectURI());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>clientId</column-name><column-value><![CDATA[");
 		sb.append(getClientId());
 		sb.append("]]></column-value></column>");
@@ -663,7 +752,12 @@ public class WeDeployAuthAppModelImpl extends BaseModelImpl<WeDeployAuthApp>
 	private Date _modifiedDate;
 	private boolean _setModifiedDate;
 	private String _name;
+	private String _redirectURI;
+	private String _originalRedirectURI;
 	private String _clientId;
+	private String _originalClientId;
 	private String _clientSecret;
+	private String _originalClientSecret;
+	private long _columnBitmask;
 	private WeDeployAuthApp _escapedModel;
 }

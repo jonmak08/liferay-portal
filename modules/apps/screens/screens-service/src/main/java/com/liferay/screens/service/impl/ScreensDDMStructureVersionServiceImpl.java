@@ -14,8 +14,6 @@
 
 package com.liferay.screens.service.impl;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.dynamic.data.mapping.model.DDMFormLayout;
 import com.liferay.dynamic.data.mapping.model.DDMStructureVersion;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -26,10 +24,10 @@ import com.liferay.screens.service.base.ScreensDDMStructureVersionServiceBaseImp
 /**
  * @author Javier Gamarra
  */
-@ProviderType
 public class ScreensDDMStructureVersionServiceImpl
 	extends ScreensDDMStructureVersionServiceBaseImpl {
 
+	@Override
 	public JSONObject getDDMStructureVersion(long structureId)
 		throws PortalException {
 

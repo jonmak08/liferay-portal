@@ -10,7 +10,7 @@
 <tbody>
 <tr>
 	<td>SAVE_NOTIFICATION</td>
-	<td>//div[contains(@class,'autosave-bar')]/span</td>
+	<td>//div[contains(@class,'autosave-bar')]//span</td>
 	<td></td>
 </tr>
 <tr>
@@ -187,6 +187,16 @@
 <tr>
 	<td>PUBLISH_URL_FORM_PAGE</td>
 	<td>//div[contains(@class,'form-builder-app')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PUBLISH_ICON</td>
+	<td>//button[contains(@id,'publishIcon')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PUBLISH_UNPUBLISH_ICON_CLOSE</td>
+	<td>//div[contains(@class,'alert-dismissable')]//div[contains(.,'${key_alertMessage}')]/preceding-sibling::button[@class='close']</td>
 	<td></td>
 </tr>
 <tr>

@@ -379,11 +379,6 @@ app.server.type=@{app.server.type}]]></echo>
 				<equals arg1="@{app.server.type}" arg2="tomcat" />
 				<then>
 					<setup-testable-tomcat />
-
-					<replace file="${app.server.tomcat.bin.dir}/setenv${file.suffix.bat}">
-						<replacetoken><![CDATA[-Xmx1024m -XX:MaxPermSize=256m]]></replacetoken>
-						<replacevalue><![CDATA[-verbose:gc -Xloggc:/tmp/tomcat-gc.log -Xms512m -Xmx512m -XX:MaxNewSize=32m -XX:MaxPermSize=200m -XX:MaxTenuringThreshold=0 -XX:NewSize=32m -XX:ParallelGCThreads=2 -XX:PermSize=200m -XX:+PrintGCCause -XX:+PrintGCDetails -XX:SurvivorRatio=65536 -XX:TargetSurvivorRatio=0 -XX:+UseParNewGC]]></replacevalue>
-					</replace>
 				</then>
 			</if>
 
@@ -434,7 +429,7 @@ app.server.type=@{app.server.type}]]></echo>
 						<![CDATA[
 							git add -A
 
-							git diff --cached --name-only | grep -v -E '^\.gitignore|bundles/|^modules/\.gitignore' | xargs -n 1000 zip -v liferay-portal-source.zip
+							git diff --cached --name-only -z | grep -E -v -z '^\.gitignore|bundles/|^modules/\.gitignore' | xargs -0 -n 1000 zip -v liferay-portal-source.zip
 						]]>
 					</execute>
 				</then>
@@ -622,6 +617,8 @@ app.server.type=@{app.server.type}]]></echo>
 				</test-action>
 
 				<test-set-up>
+					<antcall target="record-test-generated-properties" />
+
 					<if>
 						<and>
 							<or>
@@ -641,6 +638,7 @@ app.server.type=@{app.server.type}]]></echo>
 								<param name="test.build.portal.dependencies.zip.url" value="@{test.portal.bundle.dependencies.zip.url}" />
 								<param name="test.build.portal.osgi.zip.url" value="@{test.portal.bundle.osgi.zip.url}" />
 								<param name="test.build.portal.war.url" value="@{test.portal.bundle.war.url}" />
+								<param name="test.class" value="${test.class}" />
 								<param name="test.fix.pack.base.url" value="@{test.fix.pack.base.url}" />
 							</antcall>
 
@@ -687,6 +685,13 @@ app.server.type=@{app.server.type}]]></echo>
 							</antcall>
 
 							<antcall inheritAll="false" target="setup-sdk" />
+
+							<if>
+								<equals arg1="${app.server.type}" arg2="tomcat" />
+								<then>
+									<setup-testable-tomcat />
+								</then>
+							</if>
 						</then>
 						<elseif>
 							<and>
@@ -716,7 +721,7 @@ app.server.type=@{app.server.type}]]></echo>
 							<if>
 								<equals arg1="${app.server.type}" arg2="tomcat" />
 								<then>
-									<prepare-tomcat-setenv />
+									<setup-testable-tomcat />
 								</then>
 							</if>
 						</else>
@@ -733,8 +738,6 @@ app.server.type=@{app.server.type}]]></echo>
 							/>
 						</then>
 					</if>
-
-					<antcall target="record-test-generated-properties" />
 
 					<echo if:set="env.JENKINS_HOME">ANT_OPTS=${env.ANT_OPTS}</echo>
 				</test-set-up>
@@ -1236,42 +1239,25 @@ app.server.type=@{app.server.type}]]></echo>
 
 							<antcall inheritAll="false" target="prepare-system-ext-properties" />
 
+							<print-test-class-group test.class.group.index="${axis.variable}" />
+
+							<gradle-execute dir="modules" task="testIntegration">
+								<arg value="-Ddatabase.type=@{database.type}" />
+								<arg value="-Dbuild.exclude.ant.plugin=true" />
+								<arg value="-Dtest.class.group.index=${axis.variable}" />
+							</gradle-execute>
+
 							<if>
-								<equals arg1="@{subrepository.name}" arg2="" />
+								<and>
+									<available file="${app.server.parent.dir}/logs" />
+									<available file="${app.server.parent.dir}/osgi/state" />
+								</and>
 								<then>
-									<print-test-class-group test.class.group.index="${axis.variable}" />
-
-									<gradle-execute dir="modules" task="testIntegration">
-										<arg value="-Ddatabase.type=@{database.type}" />
-										<arg value="-Dbuild.exclude.ant.plugin=true" />
-										<arg value="-Dtest.class.group.index=${axis.variable}" />
-									</gradle-execute>
+									<ant dir="portal-kernel" inheritAll="false" target="test-class">
+										<property name="test.class" value="PortalLogAssertorTest" />
+									</ant>
 								</then>
-								<else>
-									<get-module-base-dir-from-subrepository-name subrepository.name="@{subrepository.name}" />
-
-									<trycatch property="failure.property">
-										<try>
-											<move file="${module.base.dir}/settings.gradle" tofile="${module.base.dir}/settings.gradle.temp" />
-
-											<gradle-execute dir="${module.base.dir}" task="testIntegration">
-												<arg value="-Ddatabase.type=@{database.type}" />
-												<arg value="-Dbuild.exclude.ant.plugin=true" />
-											</gradle-execute>
-										</try>
-										<catch>
-											<fail message="${failure.property}" />
-										</catch>
-										<finally>
-											<move file="${module.base.dir}/settings.gradle.temp" tofile="${module.base.dir}/settings.gradle" />
-										</finally>
-									</trycatch>
-								</else>
 							</if>
-
-							<ant dir="portal-kernel" inheritAll="false" target="test-class">
-								<property name="test.class" value="PortalLogAssertorTest" />
-							</ant>
 						</test-action>
 					</database-test-run-test>
 				</test-action>
@@ -1281,13 +1267,26 @@ app.server.type=@{app.server.type}]]></echo>
 						<isset property="env.DIST_PATH" />
 						<then>
 							<prepare-test-environment />
+						</then>
+						<else>
+							<prepare-test-build />
+						</else>
+					</if>
 
+					<if>
+						<equals arg1="@{subrepository.name}" arg2="" />
+						<then>
 							<antcall inheritAll="false" target="record-test-class-file-names">
 								<param name="test.class.groups.size" value="${test.batch.size}" />
 							</antcall>
 						</then>
 						<else>
-							<prepare-test-build />
+							<get-module-base-dir-from-subrepository-name subrepository.name="@{subrepository.name}" />
+
+							<antcall inheritAll="false" target="record-test-class-file-names">
+								<param name="test.class.modules.base.dir" value="${module.base.dir}" />
+								<param name="test.class.groups.size" value="${test.batch.size}" />
+							</antcall>
 						</else>
 					</if>
 				</test-set-up>
@@ -1321,6 +1320,45 @@ app.server.type=@{app.server.type}]]></echo>
 			</ant>
 		</sequential>
 	</macrodef>
+
+	<target name="central-requirements-jdk8">
+		<fail message="Please set the property ${central.requirements.tests}." unless="central.requirements.tests" />
+
+		<run-batch-test>
+			<test-action>
+				<propertyfile file="${project.dir}/test.class.file.names.properties">
+					<entry key="TEST_CLASS_GROUP_0" value="${central.requirements.tests}" />
+				</propertyfile>
+
+				<ant dir="portal-kernel" inheritAll="false" target="test-class-group">
+					<property name="test.class.group.index" value="0" />
+				</ant>
+
+				<ant dir="portal-impl" inheritAll="false" target="test-class-group">
+					<property name="test.class.group.index" value="0" />
+					<property name="test.type" value="unit" />
+				</ant>
+
+				<ant dir="util-java" inheritAll="false" target="test-class-group">
+					<property name="test.class.group.index" value="0" />
+				</ant>
+			</test-action>
+
+			<test-set-up>
+				<if>
+					<isset property="env.DIST_PATH" />
+					<then>
+						<prepare-test-environment />
+					</then>
+					<else>
+						<ant target="compile" />
+
+						<ant target="install-portal-snapshots" />
+					</else>
+				</if>
+			</test-set-up>
+		</run-batch-test>
+	</target>
 
 	<target name="compile-jsp-jdk8">
 		<run-batch-test>
@@ -2390,19 +2428,7 @@ information. Make sure to commit in all build services results.
 			<try>
 				<move file="${module.base.dir}/settings.gradle" tofile="${module.base.dir}/settings.gradle.temp" />
 
-				<local name="tasks.output" />
-
-				<gradle-execute dir="${module.base.dir}" outputproperty="tasks.output" task="tasks" />
-
-				<if>
-					<contains string="${tasks.output}" substring="assemble" />
-					<then>
-						<gradle-execute dir="${module.base.dir}" task="assemble" />
-					</then>
-					<else>
-						<gradle-execute dir="${module.base.dir}" task="jar" />
-					</else>
-				</if>
+				<gradle-execute checktask="true" dir="${module.base.dir}" task="assemble" />
 			</try>
 			<catch>
 				<fail message="${failure.property}" />
@@ -2432,7 +2458,7 @@ information. Make sure to commit in all build services results.
 			<try>
 				<move file="${module.base.dir}/settings.gradle" tofile="${module.base.dir}/settings.gradle.temp" />
 
-				<gradle-execute dir="${module.base.dir}" task="pmdMain">
+				<gradle-execute checktask="true" dir="${module.base.dir}" task="pmdMain">
 					<arg value="pmdTest" />
 					<arg value="pmdTestIntegration" />
 				</gradle-execute>
@@ -2463,11 +2489,12 @@ information. Make sure to commit in all build services results.
 		<echo file="build.${user.name}.properties">baseline.jar.report.level=persist</echo>
 
 		<echo>Executing baseline on ${module.base.dir}.</echo>
+
 		<trycatch property="failure.property">
 			<try>
 				<move file="${module.base.dir}/settings.gradle" tofile="${module.base.dir}/settings.gradle.temp" />
 
-				<gradle-execute dir="${module.base.dir}" forcedcacheenabled="false" task="baseline" />
+				<gradle-execute checktask="true" dir="${module.base.dir}" forcedcacheenabled="false" task="baseline" />
 			</try>
 			<catch>
 				<fail message="${failure.property}" />
@@ -2537,7 +2564,7 @@ information. Make sure to commit in all build services results.
 			<try>
 				<move file="${module.base.dir}/settings.gradle" tofile="${module.base.dir}/settings.gradle.temp" />
 
-				<gradle-execute dir="${module.base.dir}" task="test" />
+				<gradle-execute checktask="true" dir="${module.base.dir}" forcedcacheenabled="false" task="test" />
 			</try>
 			<catch>
 				<fail message="${failure.property}" />

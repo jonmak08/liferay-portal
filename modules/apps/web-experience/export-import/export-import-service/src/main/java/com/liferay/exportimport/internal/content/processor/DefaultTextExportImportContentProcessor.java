@@ -45,7 +45,7 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.HttpUtil;
+import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.Portal;
@@ -146,7 +146,7 @@ public class DefaultTextExportImportContentProcessor
 
 		String urlParams = sb.substring(beginPos + 1, endPos);
 
-		urlParams = HttpUtil.removeParameter(urlParams, "t");
+		urlParams = _http.removeParameter(urlParams, "t");
 
 		sb.replace(beginPos + 1, endPos, urlParams);
 	}
@@ -191,8 +191,7 @@ public class DefaultTextExportImportContentProcessor
 			}
 			else if (pathArray.length == 5) {
 				map.put("folderId", new String[] {pathArray[3]});
-				map.put(
-					"title", new String[] {HttpUtil.decodeURL(pathArray[4])});
+				map.put("title", new String[] {_http.decodeURL(pathArray[4])});
 			}
 			else if (pathArray.length > 5) {
 				map.put("uuid", new String[] {pathArray[5]});
@@ -202,7 +201,7 @@ public class DefaultTextExportImportContentProcessor
 			dlReference = dlReference.substring(
 				dlReference.indexOf(CharPool.QUESTION) + 1);
 
-			map = HttpUtil.parameterMapFromString(dlReference);
+			map = _http.parameterMapFromString(dlReference);
 
 			String[] imageIds = null;
 
@@ -395,11 +394,11 @@ public class DefaultTextExportImportContentProcessor
 			long groupId, String url, StringBundler urlSB)
 		throws PortalException {
 
-		if (!HttpUtil.hasProtocol(url)) {
+		if (!_http.hasProtocol(url)) {
 			return url;
 		}
 
-		boolean secure = HttpUtil.isSecure(url);
+		boolean secure = _http.isSecure(url);
 
 		int serverPort = _portal.getPortalServerPort(secure);
 
@@ -1146,7 +1145,15 @@ public class DefaultTextExportImportContentProcessor
 				FileEntry fileEntry = getFileEntry(dlReferenceParameters);
 
 				if (fileEntry == null) {
-					throw new NoSuchFileEntryException();
+					StringBundler sb = new StringBundler(4);
+
+					sb.append("Validation failed for a referenced file entry ");
+					sb.append(
+						"because a file entry could not be found with the ");
+					sb.append("following parameters: ");
+					sb.append(dlReferenceParameters);
+
+					throw new NoSuchFileEntryException(sb.toString());
 				}
 
 				endPos = beginPos - 1;
@@ -1319,7 +1326,9 @@ public class DefaultTextExportImportContentProcessor
 				group.getCompanyId(), groupFriendlyURL);
 
 			if (urlGroup == null) {
-				throw new NoSuchLayoutException();
+				throw new NoSuchLayoutException(
+					"Unable validate referenced page because it cannot be " +
+						"found with url: " + url);
 			}
 
 			if (pos == -1) {
@@ -1332,7 +1341,9 @@ public class DefaultTextExportImportContentProcessor
 				urlGroup.getGroupId(), privateLayout, url);
 
 			if (layout == null) {
-				throw new NoSuchLayoutException();
+				throw new NoSuchLayoutException(
+					"Unable to validate referenced page because the page " +
+						"group cannot be found: " + groupId);
 			}
 		}
 	}
@@ -1355,7 +1366,17 @@ public class DefaultTextExportImportContentProcessor
 				groupId, privateLayout, layoutId);
 
 			if (layout == null) {
-				throw new NoSuchLayoutException();
+				StringBundler exceptionMessage = new StringBundler(5);
+
+				exceptionMessage.append(
+					"Unable to validate referenced page because it cannot be");
+				exceptionMessage.append(
+					"found with the following parameters: ");
+				exceptionMessage.append("groupId " + groupId);
+				exceptionMessage.append(", layoutId " + layoutId);
+				exceptionMessage.append(", privateLayout " + privateLayout);
+
+				throw new NoSuchLayoutException(exceptionMessage.toString());
 			}
 		}
 	}
@@ -1445,6 +1466,9 @@ public class DefaultTextExportImportContentProcessor
 
 	@Reference
 	private GroupLocalService _groupLocalService;
+
+	@Reference
+	private Http _http;
 
 	@Reference
 	private LayoutFriendlyURLLocalService _layoutFriendlyURLLocalService;

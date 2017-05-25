@@ -7,13 +7,13 @@ AUI.add(
 			value: 'user'
 		};
 
+		var CSS_CAN_REMOVE_ITEM = A.getClassName('can', 'remove', 'item');
+
+		var Settings = Liferay.DDL.Settings;
+
 		var FormBuilderRenderRuleCondition = function(config) {};
 
 		FormBuilderRenderRuleCondition.ATTRS = {
-			functionsMetadata: {
-				value: []
-			},
-
 			if: {
 				value: Liferay.Language.get('if')
 			},
@@ -37,11 +37,13 @@ AUI.add(
 				boundingBox.delegate('click', A.bind(instance._handleDeleteConditionClick, instance), '.condition-card-delete');
 				boundingBox.delegate('click', A.bind(instance._handleAddConditionClick, instance), '.form-builder-rule-add-condition');
 
-				instance.after(instance._toggleShowRemoveButton, instance, '_addCondition');
+				instance.after(instance._toggleDeleteConditionButton, instance, '_addCondition');
 
 				instance.on('logicOperatorChange', A.bind(instance._onLogicOperatorChange, instance));
 
 				instance.after('*:valueChange', A.bind(instance._handleConditionFieldsChange, instance));
+
+				instance._validator = new Liferay.DDL.FormBuilderRuleValidator();
 			},
 
 			_addCondition: function(index, condition) {
@@ -169,13 +171,19 @@ AUI.add(
 
 				var option;
 
+				var dataType;
+
 				for (var i = 0; i < options.length; i++) {
 					option = options[i];
 
 					if (option.value === value) {
-						return option.dataType;
+						dataType = option.dataType;
+
+						break;
 					}
 				}
+
+				return dataType;
 			},
 
 			_getFieldLabel: function(fieldValue) {
@@ -290,6 +298,8 @@ AUI.add(
 				);
 
 				instance._addCondition(index);
+
+				instance._updateLogicOperatorEnableState();
 			},
 
 			_handleConditionFieldsChange: function(event) {
@@ -328,7 +338,9 @@ AUI.add(
 					instance._deleteCondition(index);
 				}
 
-				instance._toggleShowRemoveButton();
+				instance._toggleDeleteConditionButton();
+
+				instance._updateLogicOperatorEnableState();
 			},
 
 			_handleLogicOperatorChange: function(event) {
@@ -358,7 +370,7 @@ AUI.add(
 
 				var value = instance._getOperatorValue(index);
 
-				return value === 'equals-to' || value === 'not-equals-to' || value === 'contains' || value === 'not-contains' || value === 'belongs-to';
+				return value === 'equals-to' || value === 'not-equals-to' || value === 'contains' || value === 'not-contains' || value === 'belongs-to' || value === 'greater-than' || value === 'greater-than-equals' || value === 'less-than' || value === 'less-than-equals';
 			},
 
 			_isFieldList: function(field) {
@@ -426,22 +438,21 @@ AUI.add(
 			_renderFirstOperand: function(index, condition, container) {
 				var instance = this;
 
-				var value;
+				var value = [];
 
 				if (condition) {
 					value = condition.operands[0].value;
 				}
 
-				var options = instance.get('fields').slice();
+				var fields = instance.get('fields').slice();
 
-				options.unshift(currentUser);
+				fields.unshift(currentUser);
 
-				var field = new Liferay.DDM.Field.Select(
+				var field = instance.createSelectField(
 					{
-						bubbleTargets: [instance],
 						fieldName: index + '-condition-first-operand',
 						label: instance.get('strings').if,
-						options: options,
+						options: fields,
 						showLabel: false,
 						value: value,
 						visible: true
@@ -456,30 +467,34 @@ AUI.add(
 			_renderOperator: function(index, condition, container) {
 				var instance = this;
 
-				var field = new Liferay.DDM.Field.Select(
+				var value = [];
+
+				if (condition) {
+					value = condition.operator;
+				}
+
+				var field = instance.createSelectField(
 					{
-						bubbleTargets: [instance],
 						fieldName: index + '-condition-operator',
+						options: [],
 						showLabel: false,
+						value: value,
 						visible: true
 					}
 				);
+				instance._conditions[index + '-condition-operator'] = field;
 
 				field.render(container);
 
-				instance._conditions[index + '-condition-operator'] = field;
-
 				if (condition) {
 					instance._updateOperatorList(instance._getFieldDataType(condition.operands[0].value), index);
-
-					field.setValue(condition.operator);
 				}
 			},
 
 			_renderSecondOperandInput: function(index, condition, container) {
 				var instance = this;
 
-				var value;
+				var value = '';
 
 				var firstOperand = instance._getFirstOperand(index);
 
@@ -491,11 +506,11 @@ AUI.add(
 					value = condition.operands[1].value;
 				}
 
-				var field = new Liferay.DDM.Field.Text(
+				var field = instance.createTextField(
 					{
-						bubbleTargets: [instance],
 						fieldName: index + '-condition-second-operand-input',
 						options: [],
+						placeholder: '',
 						showLabel: false,
 						strings: {},
 						value: value,
@@ -511,7 +526,7 @@ AUI.add(
 			_renderSecondOperandSelectField: function(index, condition, container) {
 				var instance = this;
 
-				var value;
+				var value = [];
 
 				var visible = instance._getSecondOperandTypeValue(index) === 'field';
 
@@ -519,9 +534,8 @@ AUI.add(
 					value = condition.operands[1].value;
 				}
 
-				var field = new Liferay.DDM.Field.Select(
+				var field = instance.createSelectField(
 					{
-						bubbleTargets: [instance],
 						fieldName: index + '-condition-second-operand-select',
 						label: 'Put this label after',
 						options: instance.get('fields'),
@@ -539,8 +553,7 @@ AUI.add(
 			_renderSecondOperandSelectOptions: function(index, condition, container) {
 				var instance = this;
 
-				var value;
-
+				var value = [];
 				var options = [];
 
 				var visible = instance._getSecondOperandTypeValue(index) === 'constant' &&
@@ -551,11 +564,9 @@ AUI.add(
 					value = condition.operands[1].value;
 				}
 
-				var field = new Liferay.DDM.Field.Select(
+				var field = instance.createSelectField(
 					{
-						bubbleTargets: [instance],
 						fieldName: index + '-condition-second-operand-options-select',
-						label: 'Put this label after',
 						options: options,
 						showLabel: false,
 						value: value,
@@ -571,12 +582,28 @@ AUI.add(
 			_renderSecondOperandType: function(index, condition, container) {
 				var instance = this;
 
-				var field = new Liferay.DDM.Field.Select(
+				var value = [];
+
+				if (condition && instance._isBinaryCondition(index)) {
+					value = condition.operands[1].type;
+				}
+
+				var field = instance.createSelectField(
 					{
-						bubbleTargets: [instance],
 						fieldName: index + '-condition-second-operand-type',
 						label: instance.get('strings').the,
+						options: [
+							{
+								label: instance.get('strings').value,
+								value: 'constant'
+							},
+							{
+								label: instance.get('strings').otherField,
+								value: 'field'
+							}
+						],
 						showLabel: false,
+						value: value,
 						visible: instance._isBinaryCondition(index)
 					}
 				);
@@ -589,10 +616,10 @@ AUI.add(
 					instance._updateSecondOperandType(condition.operator, index);
 
 					if (condition.operands[0].type === 'user') {
-						field.setValue(condition.operands[1].value);
+						field.set('value', condition.operands[1].value);
 					}
 					else {
-						field.setValue(condition.operands[1].type);
+						field.set('value', condition.operands[1].type);
 					}
 				}
 			},
@@ -603,12 +630,37 @@ AUI.add(
 				}
 			},
 
+			_toggleDeleteConditionButton: function() {
+				var instance = this;
+
+				var contentBox = instance.get('contentBox');
+
+				var conditionList = contentBox.one('.liferay-ddl-form-builder-rule-condition-list');
+
+				var conditionItems = conditionList.all('.timeline-item');
+
+				conditionList.toggleClass(CSS_CAN_REMOVE_ITEM, conditionItems.size() > 2);
+			},
+
+			_updateLogicOperatorEnableState: function() {
+				var instance = this;
+
+				var logicOperatorNode = instance.get('boundingBox').one('.liferay-ddl-form-builder-rule-condition-list').one('.dropdown button');
+
+				if (instance._conditionsIndexes.length > 1) {
+					logicOperatorNode.removeAttribute('disabled');
+				}
+				else {
+					logicOperatorNode.setAttribute('disabled', '');
+				}
+			},
+
 			_updateOperatorList: function(dataType, conditionIndex) {
 				var instance = this;
 
 				var operator = instance._getOperator(conditionIndex);
 
-				var operatorTypes = instance.get('functionsMetadata');
+				var operatorTypes = Settings.functionsMetadata;
 
 				var options = [];
 
@@ -624,7 +676,7 @@ AUI.add(
 						);
 					}
 				}
-				else if (dataType === 'number') {
+				else if (dataType === 'integer') {
 					for (var j = 0; j < operatorTypes.number.length; j++) {
 						options.push(
 							A.merge(
@@ -701,7 +753,7 @@ AUI.add(
 
 				if (secondOperandType) {
 					if (operator === 'belongs-to') {
-						options = instance.get('getRoles');
+						options = instance.get('roles');
 					}
 					else {
 						options = [

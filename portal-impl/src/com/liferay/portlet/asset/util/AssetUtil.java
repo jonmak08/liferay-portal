@@ -47,6 +47,7 @@ import com.liferay.portal.kernel.search.DocumentImpl;
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.search.Indexer;
+import com.liferay.portal.kernel.search.QueryConfig;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchContextFactory;
 import com.liferay.portal.kernel.search.Sort;
@@ -218,7 +219,7 @@ public class AssetUtil {
 
 			if ((category != null) &&
 				AssetCategoryPermission.contains(
-					permissionChecker, categoryId, ActionKeys.VIEW)) {
+					permissionChecker, category, ActionKeys.VIEW)) {
 
 				viewableCategoryIds.add(categoryId);
 			}
@@ -841,7 +842,12 @@ public class AssetUtil {
 		searchContext.setEnd(end);
 		searchContext.setGroupIds(assetEntryQuery.getGroupIds());
 
-		if (Validator.isNotNull(assetEntryQuery.getKeywords())) {
+		if (Validator.isNull(assetEntryQuery.getKeywords())) {
+			QueryConfig queryConfig = searchContext.getQueryConfig();
+
+			queryConfig.setScoreEnabled(false);
+		}
+		else {
 			searchContext.setLike(true);
 		}
 
@@ -945,15 +951,12 @@ public class AssetUtil {
 			sortType = Sort.LONG_TYPE;
 		}
 		else if (fieldType.equals(Field.PRIORITY) ||
-				 fieldType.equals(Field.RATINGS) ||
 				 fieldType.equals("ddm-decimal") ||
 				 fieldType.equals("ddm-number")) {
 
 			sortType = Sort.DOUBLE_TYPE;
 		}
-		else if (fieldType.equals(Field.VIEW_COUNT) ||
-				 fieldType.equals("ddm-integer")) {
-
+		else if (fieldType.equals("ddm-integer")) {
 			sortType = Sort.INT_TYPE;
 		}
 

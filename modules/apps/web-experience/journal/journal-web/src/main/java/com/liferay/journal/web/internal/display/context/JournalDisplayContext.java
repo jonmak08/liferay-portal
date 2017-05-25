@@ -88,6 +88,7 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.trash.kernel.util.TrashUtil;
 
 import java.io.Serializable;
 
@@ -404,7 +405,7 @@ public class JournalDisplayContext {
 		return _folderId;
 	}
 
-	public String getFoldersJSON() throws Exception {
+	public JSONArray getFoldersJSONArray() throws Exception {
 		ThemeDisplay themeDisplay = (ThemeDisplay)_request.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
@@ -420,7 +421,11 @@ public class JournalDisplayContext {
 		jsonObject.put(
 			"name", LanguageUtil.get(themeDisplay.getLocale(), "home"));
 
-		return jsonObject.toString();
+		JSONArray rootJSONArray = JSONFactoryUtil.createJSONArray();
+
+		rootJSONArray.put(jsonObject);
+
+		return rootJSONArray;
 	}
 
 	public String getFolderTitle() throws PortalException {
@@ -736,7 +741,7 @@ public class JournalDisplayContext {
 		articleSearchContainer.setRowChecker(entriesChecker);
 
 		EntriesMover entriesMover = new EntriesMover(
-			themeDisplay.getScopeGroupId());
+			TrashUtil.isTrashEnabled(themeDisplay.getScopeGroupId()));
 
 		articleSearchContainer.setRowMover(entriesMover);
 
@@ -852,7 +857,15 @@ public class JournalDisplayContext {
 
 				params.put("expandoAttributes", getKeywords());
 
-				Indexer indexer = JournalSearcher.getInstance();
+				Indexer indexer = null;
+
+				if (!showVersions) {
+					indexer = JournalSearcher.getInstance();
+				}
+				else {
+					indexer = IndexerRegistryUtil.getIndexer(
+						JournalArticle.class);
+				}
 
 				SearchContext searchContext = buildSearchContext(
 					themeDisplay.getCompanyId(), themeDisplay.getScopeGroupId(),

@@ -22,6 +22,7 @@ import java.io.File;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -73,10 +74,6 @@ public class FormatSourceTask extends Task {
 
 	public void setBaseDir(String baseDir) {
 		_sourceFormatterArgs.setBaseDirName(baseDir);
-	}
-
-	public void setCopyright(String copyright) {
-		_sourceFormatterArgs.setCopyrightFileName(copyright);
 	}
 
 	public void setFileNames(String fileNames) {
@@ -141,7 +138,7 @@ public class FormatSourceTask extends Task {
 				includedFiles[i] = file.getAbsolutePath();
 			}
 
-			fileNames.addAll(Arrays.asList(includedFiles));
+			Collections.addAll(fileNames, includedFiles);
 		}
 
 		_sourceFormatterArgs.setFileNames(fileNames);

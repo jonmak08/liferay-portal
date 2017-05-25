@@ -63,6 +63,16 @@ public abstract class BaseSourceCheck implements SourceCheck {
 	}
 
 	@Override
+	public boolean isModulesCheck() {
+		return false;
+	}
+
+	@Override
+	public boolean isPortalCheck() {
+		return false;
+	}
+
+	@Override
 	public void setAllFileNames(List<String> allFileNames) {
 	}
 
@@ -324,6 +334,10 @@ public abstract class BaseSourceCheck implements SourceCheck {
 		properties.load(new FileInputStream(file));
 
 		return properties.getProperty("project.path.prefix");
+	}
+
+	protected String getProperty(String key) {
+		return GetterUtil.getString(_properties.getProperty(key));
 	}
 
 	protected List<String> getPropertyList(String key) {

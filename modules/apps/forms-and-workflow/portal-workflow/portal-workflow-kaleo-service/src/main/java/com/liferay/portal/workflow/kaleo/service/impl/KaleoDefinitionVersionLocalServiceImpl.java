@@ -14,8 +14,6 @@
 
 package com.liferay.portal.workflow.kaleo.service.impl;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.exportimport.kernel.staging.StagingUtil;
 import com.liferay.portal.dao.orm.custom.sql.CustomSQLUtil;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
@@ -45,7 +43,6 @@ import java.util.List;
 /**
  * @author Inácio Nery
  */
-@ProviderType
 public class KaleoDefinitionVersionLocalServiceImpl
 	extends KaleoDefinitionVersionLocalServiceBaseImpl {
 
@@ -56,8 +53,9 @@ public class KaleoDefinitionVersionLocalServiceImpl
 
 		// Kaleo definition version
 
+		Date createDate = serviceContext.getCreateDate(new Date());
+		Date modifiedDate = serviceContext.getModifiedDate(new Date());
 		User user = userLocalService.getUser(serviceContext.getGuestOrUserId());
-		Date now = new Date();
 
 		long kaleoDefinitionVersionId = counterLocalService.increment();
 
@@ -72,8 +70,8 @@ public class KaleoDefinitionVersionLocalServiceImpl
 		kaleoDefinitionVersion.setCompanyId(user.getCompanyId());
 		kaleoDefinitionVersion.setUserId(user.getUserId());
 		kaleoDefinitionVersion.setUserName(user.getFullName());
-		kaleoDefinitionVersion.setCreateDate(now);
-		kaleoDefinitionVersion.setModifiedDate(now);
+		kaleoDefinitionVersion.setCreateDate(createDate);
+		kaleoDefinitionVersion.setModifiedDate(modifiedDate);
 		kaleoDefinitionVersion.setName(name);
 		kaleoDefinitionVersion.setTitle(title);
 		kaleoDefinitionVersion.setDescription(description);
@@ -88,7 +86,7 @@ public class KaleoDefinitionVersionLocalServiceImpl
 
 		kaleoDefinitionVersion.setStatusByUserId(user.getUserId());
 		kaleoDefinitionVersion.setStatusByUserName(user.getFullName());
-		kaleoDefinitionVersion.setStatusDate(now);
+		kaleoDefinitionVersion.setStatusDate(modifiedDate);
 
 		kaleoDefinitionVersionPersistence.update(kaleoDefinitionVersion);
 
@@ -187,11 +185,11 @@ public class KaleoDefinitionVersionLocalServiceImpl
 
 	@Override
 	public List<KaleoDefinitionVersion> getLatestKaleoDefinitionVersions(
-		long companyId, String keywords, int start, int end,
+		long companyId, String keywords, int status, int start, int end,
 		OrderByComparator<KaleoDefinitionVersion> orderByComparator) {
 
 		List<Long> kaleoDefinitionVersionIds = getKaleoDefinitionVersionIds(
-			companyId, keywords);
+			companyId, keywords, status);
 
 		if (kaleoDefinitionVersionIds.isEmpty()) {
 			return Collections.emptyList();
@@ -210,10 +208,10 @@ public class KaleoDefinitionVersionLocalServiceImpl
 
 	@Override
 	public int getLatestKaleoDefinitionVersionsCount(
-		long companyId, String keywords) {
+		long companyId, String keywords, int status) {
 
 		List<Long> kaleoDefinitionVersionIds = getKaleoDefinitionVersionIds(
-			companyId, keywords);
+			companyId, keywords, status);
 
 		return kaleoDefinitionVersionIds.size();
 	}
@@ -249,8 +247,18 @@ public class KaleoDefinitionVersionLocalServiceImpl
 		dynamicQuery.add(junction);
 	}
 
+	protected void addStatusCriterion(DynamicQuery dynamicQuery, int status) {
+		if (status != WorkflowConstants.STATUS_ANY) {
+			Junction junction = RestrictionsFactoryUtil.disjunction();
+
+			junction.add(RestrictionsFactoryUtil.eq("status", status));
+
+			dynamicQuery.add(junction);
+		}
+	}
+
 	protected List<Long> getKaleoDefinitionVersionIds(
-		long companyId, String keywords) {
+		long companyId, String keywords, int status) {
 
 		List<Long> kaleoDefinitionVersionIds = new ArrayList<>();
 
@@ -262,6 +270,8 @@ public class KaleoDefinitionVersionLocalServiceImpl
 		dynamicQuery.add(companyIdProperty.eq(companyId));
 
 		addKeywordsCriterion(dynamicQuery, keywords);
+
+		addStatusCriterion(dynamicQuery, status);
 
 		ProjectionList projectionList = ProjectionFactoryUtil.projectionList();
 

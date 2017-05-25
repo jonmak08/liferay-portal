@@ -23,11 +23,16 @@ import com.liferay.project.templates.internal.util.WorkspaceUtil;
 import com.liferay.project.templates.util.FileTestUtil;
 import com.liferay.project.templates.util.StringTestUtil;
 
+import difflib.Delta;
+import difflib.DiffUtils;
+import difflib.Patch;
+
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintStream;
 
 import java.net.URI;
@@ -56,6 +61,7 @@ import net.diibadaaba.zipdiff.DifferenceCalculator;
 import net.diibadaaba.zipdiff.Differences;
 
 import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
+import org.apache.commons.compress.archivers.zip.ZipFile;
 
 import org.gradle.testkit.runner.BuildResult;
 import org.gradle.testkit.runner.BuildTask;
@@ -351,6 +357,56 @@ public class ProjectTemplatesTest {
 	}
 
 	@Test
+	public void testBuildTemplateFreeMarkerPortlet() throws Exception {
+		File gradleProjectDir = _testBuildTemplatePortlet(
+			"freemarker-portlet", "FreeMarkerPortlet", "templates/init.ftl",
+			"templates/view.ftl");
+
+		_testStartsWith(
+			gradleProjectDir, "src/main/resources/templates/view.ftl",
+			_FREEMARKER_PORTLET_VIEW_FTL_PREFIX);
+	}
+
+	@Test
+	public void testBuildTemplateFreeMarkerPortletWithPackage()
+		throws Exception {
+
+		File gradleProjectDir = _testBuildTemplatePortletWithPackage(
+			"freemarker-portlet", "FreeMarkerPortlet", "templates/init.ftl",
+			"templates/view.ftl");
+
+		_testStartsWith(
+			gradleProjectDir, "src/main/resources/templates/view.ftl",
+			_FREEMARKER_PORTLET_VIEW_FTL_PREFIX);
+	}
+
+	@Test
+	public void testBuildTemplateFreeMarkerPortletWithPortletName()
+		throws Exception {
+
+		File gradleProjectDir = _testBuildTemplatePortletWithPortletName(
+			"freemarker-portlet", "FreeMarkerPortlet", "templates/init.ftl",
+			"templates/view.ftl");
+
+		_testStartsWith(
+			gradleProjectDir, "src/main/resources/templates/view.ftl",
+			_FREEMARKER_PORTLET_VIEW_FTL_PREFIX);
+	}
+
+	@Test
+	public void testBuildTemplateFreeMarkerPortletWithPortletSuffix()
+		throws Exception {
+
+		File gradleProjectDir = _testBuildTemplatePortletWithPortletSuffix(
+			"freemarker-portlet", "FreeMarkerPortlet", "templates/init.ftl",
+			"templates/view.ftl");
+
+		_testStartsWith(
+			gradleProjectDir, "src/main/resources/templates/view.ftl",
+			_FREEMARKER_PORTLET_VIEW_FTL_PREFIX);
+	}
+
+	@Test
 	public void testBuildTemplateLayoutTemplate() throws Exception {
 		File gradleProjectDir = _buildTemplateWithGradle(
 			"layout-template", "foo");
@@ -384,119 +440,32 @@ public class ProjectTemplatesTest {
 
 	@Test
 	public void testBuildTemplateMVCPortlet() throws Exception {
-		File gradleProjectDir = _buildTemplateWithGradle("mvc-portlet", "foo");
-
-		_testExists(
-			gradleProjectDir, "src/main/resources/META-INF/resources/init.jsp");
-		_testExists(
-			gradleProjectDir, "src/main/resources/META-INF/resources/view.jsp");
-
-		_testContains(
-			gradleProjectDir, "bnd.bnd", "Export-Package: foo.constants");
-		_testContains(
-			gradleProjectDir, "build.gradle",
-			"apply plugin: \"com.liferay.plugin\"");
-		_testContains(
-			gradleProjectDir, "src/main/java/foo/constants/FooPortletKeys.java",
-			"public class FooPortletKeys");
-		_testContains(
-			gradleProjectDir, "src/main/java/foo/portlet/FooPortlet.java",
-			"javax.portlet.name=\" + FooPortletKeys.Foo",
-			"public class FooPortlet extends MVCPortlet {");
-
-		File mavenProjectDir = _buildTemplateWithMaven(
-			"mvc-portlet", "foo", "-DclassName=Foo", "-Dpackage=foo");
-
-		_buildProjects(
-			gradleProjectDir, mavenProjectDir, "build/libs/foo-1.0.0.jar",
-			"target/foo-1.0.0.jar");
+		_testBuildTemplatePortlet(
+			"mvc-portlet", "MVCPortlet", "META-INF/resources/init.jsp",
+			"META-INF/resources/view.jsp");
 	}
 
 	@Test
 	public void testBuildTemplateMVCPortletWithPackage() throws Exception {
-		File gradleProjectDir = _buildTemplateWithGradle(
-			"mvc-portlet", "foo", "--package-name", "com.liferay.test");
-
-		_testExists(gradleProjectDir, "bnd.bnd");
-		_testExists(
-			gradleProjectDir, "src/main/resources/META-INF/resources/init.jsp");
-		_testExists(
-			gradleProjectDir, "src/main/resources/META-INF/resources/view.jsp");
-
-		_testContains(
-			gradleProjectDir, "build.gradle",
-			"apply plugin: \"com.liferay.plugin\"");
-		_testContains(
-			gradleProjectDir,
-			"src/main/java/com/liferay/test/portlet/FooPortlet.java",
-			"public class FooPortlet extends MVCPortlet {");
-
-		File mavenProjectDir = _buildTemplateWithMaven(
-			"mvc-portlet", "foo", "-DclassName=Foo",
-			"-Dpackage=com.liferay.test");
-
-		_buildProjects(
-			gradleProjectDir, mavenProjectDir,
-			"build/libs/com.liferay.test-1.0.0.jar", "target/foo-1.0.0.jar");
+		_testBuildTemplatePortletWithPackage(
+			"mvc-portlet", "MVCPortlet", "META-INF/resources/init.jsp",
+			"META-INF/resources/view.jsp");
 	}
 
 	@Test
 	public void testBuildTemplateMVCPortletWithPortletName() throws Exception {
-		File gradleProjectDir = _buildTemplateWithGradle(
-			"mvc-portlet", "portlet");
-
-		_testExists(gradleProjectDir, "bnd.bnd");
-		_testExists(
-			gradleProjectDir, "src/main/resources/META-INF/resources/init.jsp");
-		_testExists(
-			gradleProjectDir, "src/main/resources/META-INF/resources/view.jsp");
-
-		_testContains(
-			gradleProjectDir, "build.gradle",
-			"apply plugin: \"com.liferay.plugin\"");
-		_testContains(
-			gradleProjectDir,
-			"src/main/java/portlet/portlet/PortletPortlet.java",
-			"public class PortletPortlet extends MVCPortlet {");
-
-		File mavenProjectDir = _buildTemplateWithMaven(
-			"mvc-portlet", "portlet", "-DclassName=Portlet",
-			"-Dpackage=portlet");
-
-		_buildProjects(
-			gradleProjectDir, mavenProjectDir, "build/libs/portlet-1.0.0.jar",
-			"target/portlet-1.0.0.jar");
+		_testBuildTemplatePortletWithPortletName(
+			"mvc-portlet", "MVCPortlet", "META-INF/resources/init.jsp",
+			"META-INF/resources/view.jsp");
 	}
 
 	@Test
 	public void testBuildTemplateMVCPortletWithPortletSuffix()
 		throws Exception {
 
-		File gradleProjectDir = _buildTemplateWithGradle(
-			"mvc-portlet", "portlet-portlet");
-
-		_testExists(gradleProjectDir, "bnd.bnd");
-		_testExists(
-			gradleProjectDir, "src/main/resources/META-INF/resources/init.jsp");
-		_testExists(
-			gradleProjectDir, "src/main/resources/META-INF/resources/view.jsp");
-
-		_testContains(
-			gradleProjectDir, "build.gradle",
-			"apply plugin: \"com.liferay.plugin\"");
-		_testContains(
-			gradleProjectDir,
-			"src/main/java/portlet/portlet/portlet/PortletPortlet.java",
-			"public class PortletPortlet extends MVCPortlet {");
-
-		File mavenProjectDir = _buildTemplateWithMaven(
-			"mvc-portlet", "portlet-portlet", "-DclassName=Portlet",
-			"-Dpackage=portlet.portlet");
-
-		_buildProjects(
-			gradleProjectDir, mavenProjectDir,
-			"build/libs/portlet.portlet-1.0.0.jar",
-			"target/portlet-portlet-1.0.0.jar");
+		_testBuildTemplatePortletWithPortletSuffix(
+			"mvc-portlet", "MVCPortlet", "META-INF/resources/init.jsp",
+			"META-INF/resources/view.jsp");
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -1647,6 +1616,21 @@ public class ProjectTemplatesTest {
 		return file;
 	}
 
+	private static File _testStartsWith(
+			File dir, String fileName, String prefix)
+		throws IOException {
+
+		File file = _testExists(dir, fileName);
+
+		String content = FileUtil.read(file.toPath());
+
+		Assert.assertTrue(
+			fileName + " must start with \"" + prefix + "\"",
+			content.startsWith(prefix));
+
+		return file;
+	}
+
 	private static void _testWarsDiff(File warFile1, File warFile2)
 		throws IOException {
 
@@ -1663,6 +1647,15 @@ public class ProjectTemplatesTest {
 			return;
 		}
 
+		StringBuilder message = new StringBuilder();
+
+		message.append("WAR ");
+		message.append(warFile1);
+		message.append(" and ");
+		message.append(warFile2);
+		message.append(" do not match:");
+		message.append(System.lineSeparator());
+
 		boolean realChange;
 
 		Map<String, ZipArchiveEntry> added = differences.getAdded();
@@ -1672,37 +1665,79 @@ public class ProjectTemplatesTest {
 		if (added.isEmpty() && !changed.isEmpty() && removed.isEmpty()) {
 			realChange = false;
 
-			for (String change : changed.keySet()) {
-				ZipArchiveEntry[] zipArchiveEntries = changed.get(change);
+			ZipFile zipFile1 = null;
+			ZipFile zipFile2 = null;
 
-				ZipArchiveEntry zipArchiveEntry1 = zipArchiveEntries[0];
-				ZipArchiveEntry zipArchiveEntry2 = zipArchiveEntries[0];
+			try {
+				zipFile1 = new ZipFile(warFile1);
+				zipFile2 = new ZipFile(warFile2);
 
-				if (zipArchiveEntry1.isDirectory() &&
-					zipArchiveEntry2.isDirectory() &&
-					(zipArchiveEntry1.getSize() ==
-						zipArchiveEntry2.getSize()) &&
-					(zipArchiveEntry1.getCompressedSize() <= 2) &&
-					(zipArchiveEntry2.getCompressedSize() <= 2)) {
+				for (String change : changed.keySet()) {
+					ZipArchiveEntry[] zipArchiveEntries = changed.get(change);
 
-					// Skip zipdiff bug
+					ZipArchiveEntry zipArchiveEntry1 = zipArchiveEntries[0];
+					ZipArchiveEntry zipArchiveEntry2 = zipArchiveEntries[0];
 
-					continue;
+					if (zipArchiveEntry1.isDirectory() &&
+						zipArchiveEntry2.isDirectory() &&
+						(zipArchiveEntry1.getSize() ==
+							zipArchiveEntry2.getSize()) &&
+						(zipArchiveEntry1.getCompressedSize() <= 2) &&
+						(zipArchiveEntry2.getCompressedSize() <= 2)) {
+
+						// Skip zipdiff bug
+
+						continue;
+					}
+
+					try (InputStream inputStream1 = zipFile1.getInputStream(
+							zipFile1.getEntry(zipArchiveEntry1.getName()));
+						InputStream inputStream2 = zipFile2.getInputStream(
+							zipFile2.getEntry(zipArchiveEntry2.getName()))) {
+
+						List<String> lines1 = StringTestUtil.readLines(
+							inputStream1);
+						List<String> lines2 = StringTestUtil.readLines(
+							inputStream2);
+
+						message.append(System.lineSeparator());
+
+						message.append("--- ");
+						message.append(zipArchiveEntry1.getName());
+						message.append(System.lineSeparator());
+
+						message.append("+++ ");
+						message.append(zipArchiveEntry2.getName());
+						message.append(System.lineSeparator());
+
+						Patch<String> diff = DiffUtils.diff(lines1, lines2);
+
+						for (Delta<String> delta : diff.getDeltas()) {
+							message.append('\t');
+							message.append(delta.getOriginal());
+							message.append(System.lineSeparator());
+
+							message.append('\t');
+							message.append(delta.getRevised());
+							message.append(System.lineSeparator());
+						}
+					}
+
+					realChange = true;
+
+					break;
 				}
-
-				realChange = true;
-
-				break;
+			}
+			finally {
+				ZipFile.closeQuietly(zipFile1);
+				ZipFile.closeQuietly(zipFile2);
 			}
 		}
 		else {
 			realChange = true;
 		}
 
-		Assert.assertFalse(
-			"WAR " + warFile1 + " and " + warFile2 + " do not match:\n" +
-				differences,
-			realChange);
+		Assert.assertFalse(message.toString(), realChange);
 	}
 
 	private static void _writeServiceClass(File projectDir) throws IOException {
@@ -1763,6 +1798,141 @@ public class ProjectTemplatesTest {
 		File destinationDir = temporaryFolder.newFolder("maven");
 
 		return _buildTemplateWithMaven(destinationDir, template, name, args);
+	}
+
+	private File _testBuildTemplatePortlet(
+			String template, String portletClassName,
+			String... resourceFileNames)
+		throws Exception {
+
+		File gradleProjectDir = _buildTemplateWithGradle(template, "foo");
+
+		for (String resourceFileName : resourceFileNames) {
+			_testExists(
+				gradleProjectDir, "src/main/resources/" + resourceFileName);
+		}
+
+		_testContains(
+			gradleProjectDir, "bnd.bnd", "Export-Package: foo.constants");
+		_testContains(
+			gradleProjectDir, "build.gradle",
+			"apply plugin: \"com.liferay.plugin\"");
+		_testContains(
+			gradleProjectDir, "src/main/java/foo/constants/FooPortletKeys.java",
+			"public class FooPortletKeys");
+		_testContains(
+			gradleProjectDir, "src/main/java/foo/portlet/FooPortlet.java",
+			"javax.portlet.name=\" + FooPortletKeys.Foo",
+			"public class FooPortlet extends " + portletClassName + " {");
+
+		File mavenProjectDir = _buildTemplateWithMaven(
+			template, "foo", "-DclassName=Foo", "-Dpackage=foo");
+
+		_buildProjects(
+			gradleProjectDir, mavenProjectDir, "build/libs/foo-1.0.0.jar",
+			"target/foo-1.0.0.jar");
+
+		return gradleProjectDir;
+	}
+
+	private File _testBuildTemplatePortletWithPackage(
+			String template, String portletClassName,
+			String... resourceFileNames)
+		throws Exception, IOException {
+
+		File gradleProjectDir = _buildTemplateWithGradle(
+			template, "foo", "--package-name", "com.liferay.test");
+
+		_testExists(gradleProjectDir, "bnd.bnd");
+
+		for (String resourceFileName : resourceFileNames) {
+			_testExists(
+				gradleProjectDir, "src/main/resources/" + resourceFileName);
+		}
+
+		_testContains(
+			gradleProjectDir, "build.gradle",
+			"apply plugin: \"com.liferay.plugin\"");
+		_testContains(
+			gradleProjectDir,
+			"src/main/java/com/liferay/test/portlet/FooPortlet.java",
+			"public class FooPortlet extends " + portletClassName + " {");
+
+		File mavenProjectDir = _buildTemplateWithMaven(
+			template, "foo", "-DclassName=Foo", "-Dpackage=com.liferay.test");
+
+		_buildProjects(
+			gradleProjectDir, mavenProjectDir,
+			"build/libs/com.liferay.test-1.0.0.jar", "target/foo-1.0.0.jar");
+
+		return gradleProjectDir;
+	}
+
+	private File _testBuildTemplatePortletWithPortletName(
+			String template, String portletClassName,
+			String... resourceFileNames)
+		throws Exception {
+
+		File gradleProjectDir = _buildTemplateWithGradle(template, "portlet");
+
+		_testExists(gradleProjectDir, "bnd.bnd");
+
+		for (String resourceFileName : resourceFileNames) {
+			_testExists(
+				gradleProjectDir, "src/main/resources/" + resourceFileName);
+		}
+
+		_testContains(
+			gradleProjectDir, "build.gradle",
+			"apply plugin: \"com.liferay.plugin\"");
+		_testContains(
+			gradleProjectDir,
+			"src/main/java/portlet/portlet/PortletPortlet.java",
+			"public class PortletPortlet extends " + portletClassName + " {");
+
+		File mavenProjectDir = _buildTemplateWithMaven(
+			template, "portlet", "-DclassName=Portlet", "-Dpackage=portlet");
+
+		_buildProjects(
+			gradleProjectDir, mavenProjectDir, "build/libs/portlet-1.0.0.jar",
+			"target/portlet-1.0.0.jar");
+
+		return gradleProjectDir;
+	}
+
+	private File _testBuildTemplatePortletWithPortletSuffix(
+			String template, String portletClassName,
+			String... resourceFileNames)
+		throws Exception {
+
+		File gradleProjectDir = _buildTemplateWithGradle(
+			template, "portlet-portlet");
+
+		_testExists(gradleProjectDir, "bnd.bnd");
+
+		for (String resourceFileName : resourceFileNames) {
+			_testExists(
+				gradleProjectDir, "src/main/resources/" + resourceFileName);
+		}
+
+		_testContains(
+			gradleProjectDir, "build.gradle",
+			"apply plugin: \"com.liferay.plugin\"");
+		_testContains(
+			gradleProjectDir,
+			"src/main/java/portlet/portlet/portlet/PortletPortlet.java",
+			"public class PortletPortlet extends " + portletClassName + " {");
+
+		File mavenProjectDir = _buildTemplateWithMaven(
+			template, "portlet-portlet", "-DclassName=Portlet",
+			"-Dpackage=portlet.portlet");
+
+		_buildProjects(
+			gradleProjectDir, mavenProjectDir,
+			"build/libs/portlet.portlet-1.0.0.jar",
+			"target/portlet-portlet-1.0.0.jar");
+
+		return gradleProjectDir;
 	}
 
 	private void _testBuildTemplateServiceBuilder(
@@ -1877,6 +2047,9 @@ public class ProjectTemplatesTest {
 			"Javac-Encoding"),
 		',');
 
+	private static final String _FREEMARKER_PORTLET_VIEW_FTL_PREFIX =
+		"<#include \"init.ftl\">";
+
 	private static final String _GRADLE_TASK_PATH_BUILD = ":build";
 
 	private static final String _GRADLE_TASK_PATH_BUILD_SERVICE =
@@ -1893,7 +2066,7 @@ public class ProjectTemplatesTest {
 	};
 
 	private static final String _MAVEN_GOAL_BUILD_SERVICE =
-		"liferay:build-service";
+		"service-builder:build";
 
 	private static final String _MAVEN_GOAL_PACKAGE = "package";
 

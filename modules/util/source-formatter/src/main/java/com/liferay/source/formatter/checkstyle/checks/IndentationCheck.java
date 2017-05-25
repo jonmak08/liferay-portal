@@ -17,6 +17,7 @@ package com.liferay.source.formatter.checkstyle.checks;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.source.formatter.checkstyle.util.DetailASTUtil;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
@@ -35,6 +36,9 @@ public class IndentationCheck extends AbstractCheck {
 
 	public static final String MSG_INCORRECT_INDENTATION =
 		"indentation.incorrect";
+
+	public static final String MSG_INCORRECT_INDENTATION_INSIDE_CHAIN =
+		"indentation.inside.chain.incorrect";
 
 	@Override
 	public int[] getDefaultTokens() {
@@ -99,9 +103,16 @@ public class IndentationCheck extends AbstractCheck {
 		int leadingTabCount = _getLeadingTabCount(detailAST);
 
 		if (expectedTabCount != leadingTabCount) {
-			log(
-				detailAST.getLineNo(), MSG_INCORRECT_INDENTATION,
-				leadingTabCount, expectedTabCount);
+			if (_isInsideChain(detailAST)) {
+				log(
+					detailAST.getLineNo(),
+					MSG_INCORRECT_INDENTATION_INSIDE_CHAIN);
+			}
+			else {
+				log(
+					detailAST.getLineNo(), MSG_INCORRECT_INDENTATION,
+					leadingTabCount, expectedTabCount);
+			}
 		}
 	}
 
@@ -385,6 +396,54 @@ public class IndentationCheck extends AbstractCheck {
 		return lineNumbers;
 	}
 
+	private int _adjustTabCountForChains(
+		int expectedTabCount, DetailAST detailAST) {
+
+		boolean checkChaining = false;
+		int methodCallLineCount = -1;
+
+		DetailAST parentAST = detailAST;
+
+		while (true) {
+			if ((parentAST == null) ||
+				(parentAST.getType() == TokenTypes.LABELED_STAT) ||
+				(parentAST.getType() == TokenTypes.OBJBLOCK) ||
+				(parentAST.getType() == TokenTypes.SLIST)) {
+
+				return expectedTabCount;
+			}
+
+			if (checkChaining) {
+				FileContents fileContents = getFileContents();
+
+				String line = StringUtil.trim(
+					fileContents.getLine(parentAST.getLineNo() - 1));
+
+				if (line.endsWith("(") &&
+					(parentAST.getLineNo() < methodCallLineCount)) {
+
+					return expectedTabCount - 1;
+				}
+			}
+
+			if (parentAST.getType() == TokenTypes.METHOD_CALL) {
+				FileContents fileContents = getFileContents();
+
+				String line = StringUtil.trim(
+					fileContents.getLine(parentAST.getLineNo() - 1));
+
+				if (line.startsWith(").") &&
+					(parentAST.getLineNo() < detailAST.getLineNo())) {
+
+					checkChaining = true;
+					methodCallLineCount = parentAST.getLineNo();
+				}
+			}
+
+			parentAST = parentAST.getParent();
+		}
+	}
+
 	private DetailAST _findParent(DetailAST detailAST, int type) {
 		DetailAST match = null;
 
@@ -406,6 +465,34 @@ public class IndentationCheck extends AbstractCheck {
 		}
 	}
 
+	private int _getChainLevel(DetailAST detailAST) {
+		int level = 1;
+
+		while (true) {
+			DetailAST firstChildAST = detailAST.getFirstChild();
+
+			if ((detailAST.getType() == TokenTypes.METHOD_CALL) &&
+				(firstChildAST.getType() == TokenTypes.DOT)) {
+
+				detailAST = firstChildAST;
+
+				continue;
+			}
+
+			if ((detailAST.getType() == TokenTypes.DOT) &&
+				(firstChildAST.getType() == TokenTypes.METHOD_CALL)) {
+
+				level++;
+
+				detailAST = firstChildAST;
+
+				continue;
+			}
+
+			return level;
+		}
+	}
+
 	private int _getExpectedTabCount(DetailAST detailAST) {
 		int expectedTabCount =
 			_getLevel(detailAST) + _getLineBreakTabs(detailAST);
@@ -421,6 +508,8 @@ public class IndentationCheck extends AbstractCheck {
 			expectedTabCount, detailAST);
 		expectedTabCount = _addExtraTabForSwitch(expectedTabCount, detailAST);
 		expectedTabCount = _addExtraTabForTryStatement(
+			expectedTabCount, detailAST);
+		expectedTabCount = _adjustTabCountForChains(
 			expectedTabCount, detailAST);
 
 		if ((detailAST.getType() == TokenTypes.BLOCK_COMMENT_END) ||
@@ -716,6 +805,26 @@ public class IndentationCheck extends AbstractCheck {
 		}
 
 		return false;
+	}
+
+	private boolean _isInsideChain(DetailAST detailAST) {
+		DetailAST parentAST = detailAST.getParent();
+
+		while (true) {
+			if ((parentAST == null) ||
+				(parentAST.getType() == TokenTypes.SLIST)) {
+
+				return false;
+			}
+
+			if (parentAST.getType() == TokenTypes.METHOD_CALL) {
+				if (_getChainLevel(parentAST) > 2) {
+					return true;
+				}
+			}
+
+			parentAST = parentAST.getParent();
+		}
 	}
 
 	private boolean _isInsideChainedConcatMethod(DetailAST detailAST) {

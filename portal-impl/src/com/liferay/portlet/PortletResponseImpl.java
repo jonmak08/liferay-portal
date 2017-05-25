@@ -666,14 +666,20 @@ public abstract class PortletResponseImpl implements LiferayPortletResponse {
 						new Object[] {this, plid, lifecycle});
 				}
 				catch (Exception e) {
-					_log.error(e);
+					_log.error("Unable to create portlet URL", e);
 				}
 			}
 		}
 
 		if (portletURL == null) {
-			portletURL = PortletURLFactoryUtil.create(
-				portletRequestImpl, portletName, plid, lifecycle);
+			if (portletName.equals(portlet.getPortletId())) {
+				portletURL = PortletURLFactoryUtil.create(
+					portletRequestImpl, portlet, plid, lifecycle);
+			}
+			else {
+				portletURL = PortletURLFactoryUtil.create(
+					portletRequestImpl, portletName, plid, lifecycle);
+			}
 		}
 
 		PortletApp portletApp = portlet.getPortletApp();

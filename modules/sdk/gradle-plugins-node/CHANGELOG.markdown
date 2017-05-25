@@ -105,12 +105,18 @@ executing the `PublishNodeModuleTask`.
 
 ### Added
 - [LPS-72152]: Add property `npmUrl` to all tasks that extend
-`DownloadNodeTask`. If set, it allows to download a specific version of NPM in
-order to override the one that comes with the Node.js installation.
+`DownloadNodeTask`. If set, it downloads a specific version of NPM to override
+the one that comes with the Node.js installation.
 - [LPS-72152]: Add properties `npmUrl` and `npmVersion` to the `node` extension
 object. By default, `npmUrl` is equal to
 `https://registry.npmjs.org/npm/-/npm-${node.npmVersion}.tgz`. These properties
-allow to set a specific version of NPM to download with the `downloadNode` task.
+let you set a specific version of NPM to download with the `downloadNode` task.
+
+## 2.2.1 - 2017-05-03
+
+### Fixed
+- [LPS-72340]: Skip task `npmShrinkwrap` if project does not contain a
+`package.json` file.
 
 [LPS-66906]: https://issues.liferay.com/browse/LPS-66906
 [LPS-67023]: https://issues.liferay.com/browse/LPS-67023
@@ -126,3 +132,4 @@ allow to set a specific version of NPM to download with the `downloadNode` task.
 [LPS-71222]: https://issues.liferay.com/browse/LPS-71222
 [LPS-71826]: https://issues.liferay.com/browse/LPS-71826
 [LPS-72152]: https://issues.liferay.com/browse/LPS-72152
+[LPS-72340]: https://issues.liferay.com/browse/LPS-72340

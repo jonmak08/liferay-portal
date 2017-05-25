@@ -46,6 +46,11 @@ public class JavaVariableTypeCheck extends BaseJavaTermCheck {
 	}
 
 	@Override
+	public boolean isPortalCheck() {
+		return true;
+	}
+
+	@Override
 	protected String doProcess(
 		String fileName, String absolutePath, JavaTerm javaTerm,
 		String fileContent) {
@@ -69,6 +74,7 @@ public class JavaVariableTypeCheck extends BaseJavaTermCheck {
 		return classContent;
 	}
 
+	@Override
 	protected String[] getCheckableJavaTermNames() {
 		return new String[] {JAVA_CLASS};
 	}

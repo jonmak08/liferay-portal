@@ -86,6 +86,8 @@ public class JavaLineBreakCheck extends BaseFileCheck {
 			}
 		}
 
+		_checkIncorrectLineBreaksInsideChains(content, fileName);
+
 		content = _fixIncorrectLineBreaks(content, fileName);
 
 		content = _fixLineStartingWithCloseParenthesis(content, fileName);
@@ -99,6 +101,83 @@ public class JavaLineBreakCheck extends BaseFileCheck {
 		return content;
 	}
 
+	private void _checkIncorrectLineBreaksInsideChains(
+		String content, String fileName) {
+
+		Matcher matcher = _incorrectLineBreakInsideChainPattern.matcher(
+			content);
+
+		while (matcher.find()) {
+			int x = matcher.end();
+
+			while (true) {
+				x = content.indexOf(StringPool.CLOSE_PARENTHESIS, x + 1);
+
+				if (x == -1) {
+					return;
+				}
+
+				if (ToolsUtil.isInsideQuotes(content, x)) {
+					continue;
+				}
+
+				String s = content.substring(matcher.end(), x);
+
+				if (getLevel(s) != 0) {
+					continue;
+				}
+
+				char c = content.charAt(x - 1);
+
+				if (c == CharPool.TAB) {
+					break;
+				}
+
+				int y = content.lastIndexOf(StringPool.TAB, x);
+
+				s = content.substring(y + 1, x);
+
+				addMessage(
+					fileName, "There should be a line break after '" + s + "'",
+					getLineCount(content, x));
+
+				break;
+			}
+		}
+	}
+
+	private void _checkLambdaLineBreaks(
+		String line, String fileName, int lineCount) {
+
+		if (!line.endsWith(StringPool.OPEN_CURLY_BRACE) ||
+			(getLevel(line) <= 0)) {
+
+			return;
+		}
+
+		int pos = line.indexOf("->");
+
+		if ((pos == -1) || ToolsUtil.isInsideQuotes(line, pos)) {
+			return;
+		}
+
+		int x = 1;
+
+		while (true) {
+			String s = line.substring(0, x);
+
+			if (getLevel(s) > 0) {
+				addMessage(
+					fileName, "There should be a line break after '" + s + "'",
+					lineCount);
+
+				return;
+			}
+
+			x++;
+		}
+	}
+
 	private void _checkLineBreaks(
 		String line, String previousLine, String fileName, int lineCount) {
 
@@ -109,6 +188,8 @@ public class JavaLineBreakCheck extends BaseFileCheck {
 
 			return;
 		}
+
+		_checkLambdaLineBreaks(trimmedLine, fileName, lineCount);
 
 		if (trimmedLine.startsWith("},") && !trimmedLine.equals("},")) {
 			addMessage(
@@ -662,6 +743,8 @@ public class JavaLineBreakCheck extends BaseFileCheck {
 	private final Pattern _classPattern = Pattern.compile(
 		"(\n(\t*)(private|protected|public) ((abstract|static) )*" +
 			"(class|enum|interface) ([\\s\\S]*?) \\{)\n(\\s*)(\\S)");
+	private final Pattern _incorrectLineBreakInsideChainPattern =
+		Pattern.compile("\t\\)\\..*\\(\n");
 	private final Pattern _incorrectLineBreakPattern1 = Pattern.compile(
 		"\n(\t*)(.*\\) \\{)([\t ]*\\}\n)");
 	private final Pattern _incorrectLineBreakPattern2 = Pattern.compile(

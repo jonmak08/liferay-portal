@@ -21,7 +21,6 @@ import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.Portlet;
 import com.liferay.portal.kernel.model.PortletApp;
 import com.liferay.portal.kernel.model.PublicRenderParameter;
-import com.liferay.portal.kernel.model.impl.VirtualLayout;
 import com.liferay.portal.kernel.portlet.FriendlyURLMapper;
 import com.liferay.portal.kernel.portlet.LiferayPortletConfig;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
@@ -188,9 +187,7 @@ public class PortletURLImpl
 			try {
 				Layout layout = (Layout)_request.getAttribute(WebKeys.LAYOUT);
 
-				if ((layout != null) && (layout.getPlid() == _plid) &&
-					(layout instanceof VirtualLayout)) {
-
+				if ((layout != null) && (layout.getPlid() == _plid)) {
 					_layout = layout;
 				}
 				else if (_plid > 0) {
@@ -843,14 +840,15 @@ public class PortletURLImpl
 		addPortalAuthToken(sb, key);
 		addPortletAuthToken(sb, key);
 
-		visitReservedParameters((name, value) -> {
-			if (!isParameterIncludedInPath(name)) {
-				sb.append(name);
-				sb.append(StringPool.EQUAL);
-				sb.append(processValue(key, value));
-				sb.append(StringPool.AMPERSAND);
-			}
-		});
+		visitReservedParameters(
+			(name, value) -> {
+				if (!isParameterIncludedInPath(name)) {
+					sb.append(name);
+					sb.append(StringPool.EQUAL);
+					sb.append(processValue(key, value));
+					sb.append(StringPool.AMPERSAND);
+				}
+			});
 
 		if (_doAsUserId > 0) {
 			try {
@@ -861,7 +859,7 @@ public class PortletURLImpl
 				sb.append(StringPool.AMPERSAND);
 			}
 			catch (Exception e) {
-				_log.error(e);
+				_log.error("Unable to get company", e);
 			}
 		}
 		else {
@@ -1324,7 +1322,7 @@ public class PortletURLImpl
 			}
 		}
 		catch (Exception e) {
-			_log.error(e);
+			_log.error("Unable to get company key", e);
 		}
 
 		return null;

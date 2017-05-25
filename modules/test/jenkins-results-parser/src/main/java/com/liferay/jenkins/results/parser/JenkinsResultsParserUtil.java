@@ -52,6 +52,8 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.codec.binary.Base64;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -214,7 +216,8 @@ public class JenkinsResultsParserUtil {
 	}
 
 	public static Process executeBashCommands(
-			boolean exitOnFirstFail, File basedir, String... commands)
+			boolean exitOnFirstFail, File basedir, long timeout,
+			String... commands)
 		throws InterruptedException, IOException {
 
 		System.out.print("Executing commands: ");
@@ -252,6 +255,34 @@ public class JenkinsResultsParserUtil {
 
 		Process process = processBuilder.start();
 
+		long duration = 0;
+		long start = System.currentTimeMillis();
+		int returnCode = -1;
+
+		sleep(25);
+
+		while ((returnCode == -1) && (duration < timeout)) {
+			duration = System.currentTimeMillis() - start;
+
+			try {
+				returnCode = process.exitValue();
+			}
+			catch (IllegalThreadStateException itse) {
+				returnCode = -1;
+			}
+
+			sleep(100);
+		}
+
+		if (returnCode == -1) {
+			process.destroy();
+
+			throw new RuntimeException(
+				combine(
+					"Timeout occurred while executing bash commands: ",
+					bashCommands[2]));
+		}
+
 		if (debug) {
 			InputStream inputStream = process.getInputStream();
 
@@ -262,8 +293,6 @@ public class JenkinsResultsParserUtil {
 
 			inputStream.reset();
 		}
-
-		int returnCode = process.waitFor();
 
 		if (debug && (returnCode != 0)) {
 			InputStream inputStream = process.getErrorStream();
@@ -282,13 +311,16 @@ public class JenkinsResultsParserUtil {
 			boolean exitOnFirstFail, String... commands)
 		throws InterruptedException, IOException {
 
-		return executeBashCommands(exitOnFirstFail, new File("."), commands);
+		return executeBashCommands(
+			exitOnFirstFail, new File("."), _BASH_COMMAND_TIMEOUT_DEFAULT,
+			commands);
 	}
 
 	public static Process executeBashCommands(String... commands)
 		throws InterruptedException, IOException {
 
-		return executeBashCommands(true, new File("."), commands);
+		return executeBashCommands(
+			true, new File("."), _BASH_COMMAND_TIMEOUT_DEFAULT, commands);
 	}
 
 	public static String expandSlaveRange(String value) {
@@ -709,6 +741,20 @@ public class JenkinsResultsParserUtil {
 		return getSlaves(getBuildProperties(), masterPatternString);
 	}
 
+	public static String merge(String... strings) {
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < strings.length; i++) {
+			sb.append(strings[i]);
+
+			if (i < (strings.length - 1)) {
+				sb.append(",");
+			}
+		}
+
+		return sb.toString();
+	}
+
 	public static String read(File file) throws IOException {
 		return new String(Files.readAllBytes(Paths.get(file.toURI())));
 	}
@@ -732,35 +778,40 @@ public class JenkinsResultsParserUtil {
 	}
 
 	public static String redact(String string) {
-		Set<String> redactTokens = new HashSet<>();
+		if (_redactTokens == null) {
+			_redactTokens = new HashSet<>();
 
-		Properties properties = null;
+			Properties properties = null;
 
-		try {
-			properties = getBuildProperties();
-		}
-		catch (IOException ioe) {
-			throw new RuntimeException("Unable to get build properties", ioe);
-		}
-
-		for (int i = 1; properties.containsKey(_getRedactTokenKey(i)); i++) {
-			String key = properties.getProperty(_getRedactTokenKey(i));
-
-			String redactToken = key;
-
-			if (key.startsWith("${") && key.endsWith("}")) {
-				redactToken = properties.getProperty(
-					key.substring(2, key.length() - 1));
+			try {
+				properties = getBuildProperties();
+			}
+			catch (IOException ioe) {
+				throw new RuntimeException(
+					"Unable to get build properties", ioe);
 			}
 
-			if ((redactToken != null) && !redactToken.isEmpty()) {
-				redactTokens.add(redactToken);
+			for (int i =
+				1; properties.containsKey(_getRedactTokenKey(i)); i++) {
+
+				String key = properties.getProperty(_getRedactTokenKey(i));
+
+				String redactToken = key;
+
+				if (key.startsWith("${") && key.endsWith("}")) {
+					redactToken = properties.getProperty(
+						key.substring(2, key.length() - 1));
+				}
+
+				if ((redactToken != null) && !redactToken.isEmpty()) {
+					_redactTokens.add(redactToken);
+				}
 			}
+
+			_redactTokens.remove("test");
 		}
 
-		redactTokens.remove("test");
-
-		for (String redactToken : redactTokens) {
+		for (String redactToken : _redactTokens) {
 			string = string.replace(redactToken, "[REDACTED]");
 		}
 
@@ -1108,6 +1159,14 @@ public class JenkinsResultsParserUtil {
 			_RETRY_PERIOD_DEFAULT, _TIMEOUT_DEFAULT);
 	}
 
+	public static void turnSlavesOff(String master, String... slaves) {
+		_setSlaveStatus(master, true, slaves);
+	}
+
+	public static void turnSlavesOn(String master, String... slaves) {
+		_setSlaveStatus(master, false, slaves);
+	}
+
 	public static void write(File file, String content) throws IOException {
 		if (debug) {
 			System.out.println(
@@ -1182,9 +1241,80 @@ public class JenkinsResultsParserUtil {
 		return duration;
 	}
 
+	private static void _executeJenkinsScript(String master, String script) {
+		try {
+			URL urlObject = new URL(
+				fixURL(getLocalURL("http://" + master + "/script")));
+
+			HttpURLConnection httpURLConnection =
+				(HttpURLConnection)urlObject.openConnection();
+
+			httpURLConnection.setDoOutput(true);
+			httpURLConnection.setRequestMethod("POST");
+
+			Properties buildProperties = getBuildProperties();
+
+			String authorizationString =
+				buildProperties.getProperty("jenkins.admin.user.name") + ":" +
+					buildProperties.getProperty("jenkins.admin.user.token");
+
+			String encodedAuthorizationString = Base64.encodeBase64String(
+				authorizationString.getBytes());
+
+			httpURLConnection.setRequestProperty(
+				"Authorization", "Basic " + encodedAuthorizationString);
+
+			try (OutputStream outputStream =
+					httpURLConnection.getOutputStream()) {
+
+				outputStream.write(script.getBytes("UTF-8"));
+
+				outputStream.flush();
+			}
+
+			httpURLConnection.connect();
+
+			System.out.println(
+				"Response from " + urlObject + ": " +
+					httpURLConnection.getResponseCode() + " " +
+						httpURLConnection.getResponseMessage());
+		}
+		catch (IOException ioe) {
+			System.out.println("Unable to execute Jenkins script");
+		}
+	}
+
 	private static String _getRedactTokenKey(int index) {
 		return "github.message.redact.token[" + index + "]";
 	}
+
+	private static void _setSlaveStatus(
+		String master, boolean offlineStatus, String... slaves) {
+
+		try {
+			String script = "script=";
+
+			Class<?> clazz = JenkinsResultsParserUtil.class;
+
+			script += readInputStream(
+				clazz.getResourceAsStream(
+					"dependencies/set-slave-status.groovy"));
+
+			script = script.replace("${slaves}", merge(slaves));
+			script = script.replace(
+				"${offline.status}", String.valueOf(offlineStatus));
+
+			_executeJenkinsScript(master, script);
+		}
+		catch (IOException ioe) {
+			System.out.println(
+				"Unable to set the status for slaves: " + slaves);
+
+			ioe.printStackTrace();
+		}
+	}
+
+	private static final long _BASH_COMMAND_TIMEOUT_DEFAULT = 1000 * 60 * 60;
 
 	private static final int _MAX_RETRIES_DEFAULT = 3;
 
@@ -1202,6 +1332,7 @@ public class JenkinsResultsParserUtil {
 
 	private static Hashtable<?, ?> _buildProperties;
 	private static String[] _buildPropertiesURLs;
+	private static Set<String> _redactTokens;
 	private static final Pattern _remoteURLAuthorityPattern1 = Pattern.compile(
 		"https://test.liferay.com/([0-9]+)/");
 	private static final Pattern _remoteURLAuthorityPattern2 = Pattern.compile(
@@ -1220,5 +1351,12 @@ public class JenkinsResultsParserUtil {
 			}
 
 		};
+
+	static {
+		System.out.println("Securing standard error and out");
+
+		System.setErr(SecurePrintStream.getInstance());
+		System.setOut(SecurePrintStream.getInstance());
+	}
 
 }

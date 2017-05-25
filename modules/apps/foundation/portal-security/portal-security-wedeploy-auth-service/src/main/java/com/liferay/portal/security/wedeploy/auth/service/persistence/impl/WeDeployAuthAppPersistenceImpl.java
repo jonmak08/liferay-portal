@@ -20,6 +20,7 @@ import com.liferay.portal.kernel.dao.orm.EntityCache;
 import com.liferay.portal.kernel.dao.orm.FinderCache;
 import com.liferay.portal.kernel.dao.orm.FinderPath;
 import com.liferay.portal.kernel.dao.orm.Query;
+import com.liferay.portal.kernel.dao.orm.QueryPos;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.log.Log;
@@ -32,6 +33,7 @@ import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.security.wedeploy.auth.exception.NoSuchAppException;
 import com.liferay.portal.security.wedeploy.auth.model.WeDeployAuthApp;
 import com.liferay.portal.security.wedeploy.auth.model.impl.WeDeployAuthAppImpl;
@@ -48,6 +50,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -86,6 +89,602 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 	public static final FinderPath FINDER_PATH_COUNT_ALL = new FinderPath(WeDeployAuthAppModelImpl.ENTITY_CACHE_ENABLED,
 			WeDeployAuthAppModelImpl.FINDER_CACHE_ENABLED, Long.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countAll", new String[0]);
+	public static final FinderPath FINDER_PATH_FETCH_BY_RU_CI = new FinderPath(WeDeployAuthAppModelImpl.ENTITY_CACHE_ENABLED,
+			WeDeployAuthAppModelImpl.FINDER_CACHE_ENABLED,
+			WeDeployAuthAppImpl.class, FINDER_CLASS_NAME_ENTITY,
+			"fetchByRU_CI",
+			new String[] { String.class.getName(), String.class.getName() },
+			WeDeployAuthAppModelImpl.REDIRECTURI_COLUMN_BITMASK |
+			WeDeployAuthAppModelImpl.CLIENTID_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_RU_CI = new FinderPath(WeDeployAuthAppModelImpl.ENTITY_CACHE_ENABLED,
+			WeDeployAuthAppModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByRU_CI",
+			new String[] { String.class.getName(), String.class.getName() });
+
+	/**
+	 * Returns the we deploy auth app where redirectURI = &#63; and clientId = &#63; or throws a {@link NoSuchAppException} if it could not be found.
+	 *
+	 * @param redirectURI the redirect uri
+	 * @param clientId the client ID
+	 * @return the matching we deploy auth app
+	 * @throws NoSuchAppException if a matching we deploy auth app could not be found
+	 */
+	@Override
+	public WeDeployAuthApp findByRU_CI(String redirectURI, String clientId)
+		throws NoSuchAppException {
+		WeDeployAuthApp weDeployAuthApp = fetchByRU_CI(redirectURI, clientId);
+
+		if (weDeployAuthApp == null) {
+			StringBundler msg = new StringBundler(6);
+
+			msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+			msg.append("redirectURI=");
+			msg.append(redirectURI);
+
+			msg.append(", clientId=");
+			msg.append(clientId);
+
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+			if (_log.isDebugEnabled()) {
+				_log.debug(msg.toString());
+			}
+
+			throw new NoSuchAppException(msg.toString());
+		}
+
+		return weDeployAuthApp;
+	}
+
+	/**
+	 * Returns the we deploy auth app where redirectURI = &#63; and clientId = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+	 *
+	 * @param redirectURI the redirect uri
+	 * @param clientId the client ID
+	 * @return the matching we deploy auth app, or <code>null</code> if a matching we deploy auth app could not be found
+	 */
+	@Override
+	public WeDeployAuthApp fetchByRU_CI(String redirectURI, String clientId) {
+		return fetchByRU_CI(redirectURI, clientId, true);
+	}
+
+	/**
+	 * Returns the we deploy auth app where redirectURI = &#63; and clientId = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+	 *
+	 * @param redirectURI the redirect uri
+	 * @param clientId the client ID
+	 * @param retrieveFromCache whether to retrieve from the finder cache
+	 * @return the matching we deploy auth app, or <code>null</code> if a matching we deploy auth app could not be found
+	 */
+	@Override
+	public WeDeployAuthApp fetchByRU_CI(String redirectURI, String clientId,
+		boolean retrieveFromCache) {
+		Object[] finderArgs = new Object[] { redirectURI, clientId };
+
+		Object result = null;
+
+		if (retrieveFromCache) {
+			result = finderCache.getResult(FINDER_PATH_FETCH_BY_RU_CI,
+					finderArgs, this);
+		}
+
+		if (result instanceof WeDeployAuthApp) {
+			WeDeployAuthApp weDeployAuthApp = (WeDeployAuthApp)result;
+
+			if (!Objects.equals(redirectURI, weDeployAuthApp.getRedirectURI()) ||
+					!Objects.equals(clientId, weDeployAuthApp.getClientId())) {
+				result = null;
+			}
+		}
+
+		if (result == null) {
+			StringBundler query = new StringBundler(4);
+
+			query.append(_SQL_SELECT_WEDEPLOYAUTHAPP_WHERE);
+
+			boolean bindRedirectURI = false;
+
+			if (redirectURI == null) {
+				query.append(_FINDER_COLUMN_RU_CI_REDIRECTURI_1);
+			}
+			else if (redirectURI.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_RU_CI_REDIRECTURI_3);
+			}
+			else {
+				bindRedirectURI = true;
+
+				query.append(_FINDER_COLUMN_RU_CI_REDIRECTURI_2);
+			}
+
+			boolean bindClientId = false;
+
+			if (clientId == null) {
+				query.append(_FINDER_COLUMN_RU_CI_CLIENTID_1);
+			}
+			else if (clientId.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_RU_CI_CLIENTID_3);
+			}
+			else {
+				bindClientId = true;
+
+				query.append(_FINDER_COLUMN_RU_CI_CLIENTID_2);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				if (bindRedirectURI) {
+					qPos.add(redirectURI);
+				}
+
+				if (bindClientId) {
+					qPos.add(clientId);
+				}
+
+				List<WeDeployAuthApp> list = q.list();
+
+				if (list.isEmpty()) {
+					finderCache.putResult(FINDER_PATH_FETCH_BY_RU_CI,
+						finderArgs, list);
+				}
+				else {
+					if (list.size() > 1) {
+						Collections.sort(list, Collections.reverseOrder());
+
+						if (_log.isWarnEnabled()) {
+							_log.warn(
+								"WeDeployAuthAppPersistenceImpl.fetchByRU_CI(String, String, boolean) with parameters (" +
+								StringUtil.merge(finderArgs) +
+								") yields a result set with more than 1 result. This violates the logical unique restriction. There is no order guarantee on which result is returned by this finder.");
+						}
+					}
+
+					WeDeployAuthApp weDeployAuthApp = list.get(0);
+
+					result = weDeployAuthApp;
+
+					cacheResult(weDeployAuthApp);
+
+					if ((weDeployAuthApp.getRedirectURI() == null) ||
+							!weDeployAuthApp.getRedirectURI().equals(redirectURI) ||
+							(weDeployAuthApp.getClientId() == null) ||
+							!weDeployAuthApp.getClientId().equals(clientId)) {
+						finderCache.putResult(FINDER_PATH_FETCH_BY_RU_CI,
+							finderArgs, weDeployAuthApp);
+					}
+				}
+			}
+			catch (Exception e) {
+				finderCache.removeResult(FINDER_PATH_FETCH_BY_RU_CI, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		if (result instanceof List<?>) {
+			return null;
+		}
+		else {
+			return (WeDeployAuthApp)result;
+		}
+	}
+
+	/**
+	 * Removes the we deploy auth app where redirectURI = &#63; and clientId = &#63; from the database.
+	 *
+	 * @param redirectURI the redirect uri
+	 * @param clientId the client ID
+	 * @return the we deploy auth app that was removed
+	 */
+	@Override
+	public WeDeployAuthApp removeByRU_CI(String redirectURI, String clientId)
+		throws NoSuchAppException {
+		WeDeployAuthApp weDeployAuthApp = findByRU_CI(redirectURI, clientId);
+
+		return remove(weDeployAuthApp);
+	}
+
+	/**
+	 * Returns the number of we deploy auth apps where redirectURI = &#63; and clientId = &#63;.
+	 *
+	 * @param redirectURI the redirect uri
+	 * @param clientId the client ID
+	 * @return the number of matching we deploy auth apps
+	 */
+	@Override
+	public int countByRU_CI(String redirectURI, String clientId) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_RU_CI;
+
+		Object[] finderArgs = new Object[] { redirectURI, clientId };
+
+		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(3);
+
+			query.append(_SQL_COUNT_WEDEPLOYAUTHAPP_WHERE);
+
+			boolean bindRedirectURI = false;
+
+			if (redirectURI == null) {
+				query.append(_FINDER_COLUMN_RU_CI_REDIRECTURI_1);
+			}
+			else if (redirectURI.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_RU_CI_REDIRECTURI_3);
+			}
+			else {
+				bindRedirectURI = true;
+
+				query.append(_FINDER_COLUMN_RU_CI_REDIRECTURI_2);
+			}
+
+			boolean bindClientId = false;
+
+			if (clientId == null) {
+				query.append(_FINDER_COLUMN_RU_CI_CLIENTID_1);
+			}
+			else if (clientId.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_RU_CI_CLIENTID_3);
+			}
+			else {
+				bindClientId = true;
+
+				query.append(_FINDER_COLUMN_RU_CI_CLIENTID_2);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				if (bindRedirectURI) {
+					qPos.add(redirectURI);
+				}
+
+				if (bindClientId) {
+					qPos.add(clientId);
+				}
+
+				count = (Long)q.uniqueResult();
+
+				finderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_RU_CI_REDIRECTURI_1 = "weDeployAuthApp.redirectURI IS NULL AND ";
+	private static final String _FINDER_COLUMN_RU_CI_REDIRECTURI_2 = "weDeployAuthApp.redirectURI = ? AND ";
+	private static final String _FINDER_COLUMN_RU_CI_REDIRECTURI_3 = "(weDeployAuthApp.redirectURI IS NULL OR weDeployAuthApp.redirectURI = '') AND ";
+	private static final String _FINDER_COLUMN_RU_CI_CLIENTID_1 = "weDeployAuthApp.clientId IS NULL";
+	private static final String _FINDER_COLUMN_RU_CI_CLIENTID_2 = "weDeployAuthApp.clientId = ?";
+	private static final String _FINDER_COLUMN_RU_CI_CLIENTID_3 = "(weDeployAuthApp.clientId IS NULL OR weDeployAuthApp.clientId = '')";
+	public static final FinderPath FINDER_PATH_FETCH_BY_CI_CS = new FinderPath(WeDeployAuthAppModelImpl.ENTITY_CACHE_ENABLED,
+			WeDeployAuthAppModelImpl.FINDER_CACHE_ENABLED,
+			WeDeployAuthAppImpl.class, FINDER_CLASS_NAME_ENTITY,
+			"fetchByCI_CS",
+			new String[] { String.class.getName(), String.class.getName() },
+			WeDeployAuthAppModelImpl.CLIENTID_COLUMN_BITMASK |
+			WeDeployAuthAppModelImpl.CLIENTSECRET_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_CI_CS = new FinderPath(WeDeployAuthAppModelImpl.ENTITY_CACHE_ENABLED,
+			WeDeployAuthAppModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByCI_CS",
+			new String[] { String.class.getName(), String.class.getName() });
+
+	/**
+	 * Returns the we deploy auth app where clientId = &#63; and clientSecret = &#63; or throws a {@link NoSuchAppException} if it could not be found.
+	 *
+	 * @param clientId the client ID
+	 * @param clientSecret the client secret
+	 * @return the matching we deploy auth app
+	 * @throws NoSuchAppException if a matching we deploy auth app could not be found
+	 */
+	@Override
+	public WeDeployAuthApp findByCI_CS(String clientId, String clientSecret)
+		throws NoSuchAppException {
+		WeDeployAuthApp weDeployAuthApp = fetchByCI_CS(clientId, clientSecret);
+
+		if (weDeployAuthApp == null) {
+			StringBundler msg = new StringBundler(6);
+
+			msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+			msg.append("clientId=");
+			msg.append(clientId);
+
+			msg.append(", clientSecret=");
+			msg.append(clientSecret);
+
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+			if (_log.isDebugEnabled()) {
+				_log.debug(msg.toString());
+			}
+
+			throw new NoSuchAppException(msg.toString());
+		}
+
+		return weDeployAuthApp;
+	}
+
+	/**
+	 * Returns the we deploy auth app where clientId = &#63; and clientSecret = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+	 *
+	 * @param clientId the client ID
+	 * @param clientSecret the client secret
+	 * @return the matching we deploy auth app, or <code>null</code> if a matching we deploy auth app could not be found
+	 */
+	@Override
+	public WeDeployAuthApp fetchByCI_CS(String clientId, String clientSecret) {
+		return fetchByCI_CS(clientId, clientSecret, true);
+	}
+
+	/**
+	 * Returns the we deploy auth app where clientId = &#63; and clientSecret = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+	 *
+	 * @param clientId the client ID
+	 * @param clientSecret the client secret
+	 * @param retrieveFromCache whether to retrieve from the finder cache
+	 * @return the matching we deploy auth app, or <code>null</code> if a matching we deploy auth app could not be found
+	 */
+	@Override
+	public WeDeployAuthApp fetchByCI_CS(String clientId, String clientSecret,
+		boolean retrieveFromCache) {
+		Object[] finderArgs = new Object[] { clientId, clientSecret };
+
+		Object result = null;
+
+		if (retrieveFromCache) {
+			result = finderCache.getResult(FINDER_PATH_FETCH_BY_CI_CS,
+					finderArgs, this);
+		}
+
+		if (result instanceof WeDeployAuthApp) {
+			WeDeployAuthApp weDeployAuthApp = (WeDeployAuthApp)result;
+
+			if (!Objects.equals(clientId, weDeployAuthApp.getClientId()) ||
+					!Objects.equals(clientSecret,
+						weDeployAuthApp.getClientSecret())) {
+				result = null;
+			}
+		}
+
+		if (result == null) {
+			StringBundler query = new StringBundler(4);
+
+			query.append(_SQL_SELECT_WEDEPLOYAUTHAPP_WHERE);
+
+			boolean bindClientId = false;
+
+			if (clientId == null) {
+				query.append(_FINDER_COLUMN_CI_CS_CLIENTID_1);
+			}
+			else if (clientId.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_CI_CS_CLIENTID_3);
+			}
+			else {
+				bindClientId = true;
+
+				query.append(_FINDER_COLUMN_CI_CS_CLIENTID_2);
+			}
+
+			boolean bindClientSecret = false;
+
+			if (clientSecret == null) {
+				query.append(_FINDER_COLUMN_CI_CS_CLIENTSECRET_1);
+			}
+			else if (clientSecret.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_CI_CS_CLIENTSECRET_3);
+			}
+			else {
+				bindClientSecret = true;
+
+				query.append(_FINDER_COLUMN_CI_CS_CLIENTSECRET_2);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				if (bindClientId) {
+					qPos.add(clientId);
+				}
+
+				if (bindClientSecret) {
+					qPos.add(clientSecret);
+				}
+
+				List<WeDeployAuthApp> list = q.list();
+
+				if (list.isEmpty()) {
+					finderCache.putResult(FINDER_PATH_FETCH_BY_CI_CS,
+						finderArgs, list);
+				}
+				else {
+					if (list.size() > 1) {
+						Collections.sort(list, Collections.reverseOrder());
+
+						if (_log.isWarnEnabled()) {
+							_log.warn(
+								"WeDeployAuthAppPersistenceImpl.fetchByCI_CS(String, String, boolean) with parameters (" +
+								StringUtil.merge(finderArgs) +
+								") yields a result set with more than 1 result. This violates the logical unique restriction. There is no order guarantee on which result is returned by this finder.");
+						}
+					}
+
+					WeDeployAuthApp weDeployAuthApp = list.get(0);
+
+					result = weDeployAuthApp;
+
+					cacheResult(weDeployAuthApp);
+
+					if ((weDeployAuthApp.getClientId() == null) ||
+							!weDeployAuthApp.getClientId().equals(clientId) ||
+							(weDeployAuthApp.getClientSecret() == null) ||
+							!weDeployAuthApp.getClientSecret()
+												.equals(clientSecret)) {
+						finderCache.putResult(FINDER_PATH_FETCH_BY_CI_CS,
+							finderArgs, weDeployAuthApp);
+					}
+				}
+			}
+			catch (Exception e) {
+				finderCache.removeResult(FINDER_PATH_FETCH_BY_CI_CS, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		if (result instanceof List<?>) {
+			return null;
+		}
+		else {
+			return (WeDeployAuthApp)result;
+		}
+	}
+
+	/**
+	 * Removes the we deploy auth app where clientId = &#63; and clientSecret = &#63; from the database.
+	 *
+	 * @param clientId the client ID
+	 * @param clientSecret the client secret
+	 * @return the we deploy auth app that was removed
+	 */
+	@Override
+	public WeDeployAuthApp removeByCI_CS(String clientId, String clientSecret)
+		throws NoSuchAppException {
+		WeDeployAuthApp weDeployAuthApp = findByCI_CS(clientId, clientSecret);
+
+		return remove(weDeployAuthApp);
+	}
+
+	/**
+	 * Returns the number of we deploy auth apps where clientId = &#63; and clientSecret = &#63;.
+	 *
+	 * @param clientId the client ID
+	 * @param clientSecret the client secret
+	 * @return the number of matching we deploy auth apps
+	 */
+	@Override
+	public int countByCI_CS(String clientId, String clientSecret) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_CI_CS;
+
+		Object[] finderArgs = new Object[] { clientId, clientSecret };
+
+		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(3);
+
+			query.append(_SQL_COUNT_WEDEPLOYAUTHAPP_WHERE);
+
+			boolean bindClientId = false;
+
+			if (clientId == null) {
+				query.append(_FINDER_COLUMN_CI_CS_CLIENTID_1);
+			}
+			else if (clientId.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_CI_CS_CLIENTID_3);
+			}
+			else {
+				bindClientId = true;
+
+				query.append(_FINDER_COLUMN_CI_CS_CLIENTID_2);
+			}
+
+			boolean bindClientSecret = false;
+
+			if (clientSecret == null) {
+				query.append(_FINDER_COLUMN_CI_CS_CLIENTSECRET_1);
+			}
+			else if (clientSecret.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_CI_CS_CLIENTSECRET_3);
+			}
+			else {
+				bindClientSecret = true;
+
+				query.append(_FINDER_COLUMN_CI_CS_CLIENTSECRET_2);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				if (bindClientId) {
+					qPos.add(clientId);
+				}
+
+				if (bindClientSecret) {
+					qPos.add(clientSecret);
+				}
+
+				count = (Long)q.uniqueResult();
+
+				finderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_CI_CS_CLIENTID_1 = "weDeployAuthApp.clientId IS NULL AND ";
+	private static final String _FINDER_COLUMN_CI_CS_CLIENTID_2 = "weDeployAuthApp.clientId = ? AND ";
+	private static final String _FINDER_COLUMN_CI_CS_CLIENTID_3 = "(weDeployAuthApp.clientId IS NULL OR weDeployAuthApp.clientId = '') AND ";
+	private static final String _FINDER_COLUMN_CI_CS_CLIENTSECRET_1 = "weDeployAuthApp.clientSecret IS NULL";
+	private static final String _FINDER_COLUMN_CI_CS_CLIENTSECRET_2 = "weDeployAuthApp.clientSecret = ?";
+	private static final String _FINDER_COLUMN_CI_CS_CLIENTSECRET_3 = "(weDeployAuthApp.clientSecret IS NULL OR weDeployAuthApp.clientSecret = '')";
 
 	public WeDeployAuthAppPersistenceImpl() {
 		setModelClass(WeDeployAuthApp.class);
@@ -101,6 +700,16 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 		entityCache.putResult(WeDeployAuthAppModelImpl.ENTITY_CACHE_ENABLED,
 			WeDeployAuthAppImpl.class, weDeployAuthApp.getPrimaryKey(),
 			weDeployAuthApp);
+
+		finderCache.putResult(FINDER_PATH_FETCH_BY_RU_CI,
+			new Object[] {
+				weDeployAuthApp.getRedirectURI(), weDeployAuthApp.getClientId()
+			}, weDeployAuthApp);
+
+		finderCache.putResult(FINDER_PATH_FETCH_BY_CI_CS,
+			new Object[] {
+				weDeployAuthApp.getClientId(), weDeployAuthApp.getClientSecret()
+			}, weDeployAuthApp);
 
 		weDeployAuthApp.resetOriginalValues();
 	}
@@ -155,6 +764,8 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 
 		finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITH_PAGINATION);
 		finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
+
+		clearUniqueFindersCache((WeDeployAuthAppModelImpl)weDeployAuthApp, true);
 	}
 
 	@Override
@@ -165,6 +776,77 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 		for (WeDeployAuthApp weDeployAuthApp : weDeployAuthApps) {
 			entityCache.removeResult(WeDeployAuthAppModelImpl.ENTITY_CACHE_ENABLED,
 				WeDeployAuthAppImpl.class, weDeployAuthApp.getPrimaryKey());
+
+			clearUniqueFindersCache((WeDeployAuthAppModelImpl)weDeployAuthApp,
+				true);
+		}
+	}
+
+	protected void cacheUniqueFindersCache(
+		WeDeployAuthAppModelImpl weDeployAuthAppModelImpl) {
+		Object[] args = new Object[] {
+				weDeployAuthAppModelImpl.getRedirectURI(),
+				weDeployAuthAppModelImpl.getClientId()
+			};
+
+		finderCache.putResult(FINDER_PATH_COUNT_BY_RU_CI, args,
+			Long.valueOf(1), false);
+		finderCache.putResult(FINDER_PATH_FETCH_BY_RU_CI, args,
+			weDeployAuthAppModelImpl, false);
+
+		args = new Object[] {
+				weDeployAuthAppModelImpl.getClientId(),
+				weDeployAuthAppModelImpl.getClientSecret()
+			};
+
+		finderCache.putResult(FINDER_PATH_COUNT_BY_CI_CS, args,
+			Long.valueOf(1), false);
+		finderCache.putResult(FINDER_PATH_FETCH_BY_CI_CS, args,
+			weDeployAuthAppModelImpl, false);
+	}
+
+	protected void clearUniqueFindersCache(
+		WeDeployAuthAppModelImpl weDeployAuthAppModelImpl, boolean clearCurrent) {
+		if (clearCurrent) {
+			Object[] args = new Object[] {
+					weDeployAuthAppModelImpl.getRedirectURI(),
+					weDeployAuthAppModelImpl.getClientId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_RU_CI, args);
+			finderCache.removeResult(FINDER_PATH_FETCH_BY_RU_CI, args);
+		}
+
+		if ((weDeployAuthAppModelImpl.getColumnBitmask() &
+				FINDER_PATH_FETCH_BY_RU_CI.getColumnBitmask()) != 0) {
+			Object[] args = new Object[] {
+					weDeployAuthAppModelImpl.getOriginalRedirectURI(),
+					weDeployAuthAppModelImpl.getOriginalClientId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_RU_CI, args);
+			finderCache.removeResult(FINDER_PATH_FETCH_BY_RU_CI, args);
+		}
+
+		if (clearCurrent) {
+			Object[] args = new Object[] {
+					weDeployAuthAppModelImpl.getClientId(),
+					weDeployAuthAppModelImpl.getClientSecret()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_CI_CS, args);
+			finderCache.removeResult(FINDER_PATH_FETCH_BY_CI_CS, args);
+		}
+
+		if ((weDeployAuthAppModelImpl.getColumnBitmask() &
+				FINDER_PATH_FETCH_BY_CI_CS.getColumnBitmask()) != 0) {
+			Object[] args = new Object[] {
+					weDeployAuthAppModelImpl.getOriginalClientId(),
+					weDeployAuthAppModelImpl.getOriginalClientSecret()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_CI_CS, args);
+			finderCache.removeResult(FINDER_PATH_FETCH_BY_CI_CS, args);
 		}
 	}
 
@@ -325,7 +1007,11 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 
 		finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITH_PAGINATION);
 
-		if (isNew) {
+		if (!WeDeployAuthAppModelImpl.COLUMN_BITMASK_ENABLED) {
+			finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
+		}
+		else
+		 if (isNew) {
 			finderCache.removeResult(FINDER_PATH_COUNT_ALL, FINDER_ARGS_EMPTY);
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_ALL,
 				FINDER_ARGS_EMPTY);
@@ -334,6 +1020,9 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 		entityCache.putResult(WeDeployAuthAppModelImpl.ENTITY_CACHE_ENABLED,
 			WeDeployAuthAppImpl.class, weDeployAuthApp.getPrimaryKey(),
 			weDeployAuthApp, false);
+
+		clearUniqueFindersCache(weDeployAuthAppModelImpl, false);
+		cacheUniqueFindersCache(weDeployAuthAppModelImpl);
 
 		weDeployAuthApp.resetOriginalValues();
 
@@ -357,6 +1046,7 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 		weDeployAuthAppImpl.setCreateDate(weDeployAuthApp.getCreateDate());
 		weDeployAuthAppImpl.setModifiedDate(weDeployAuthApp.getModifiedDate());
 		weDeployAuthAppImpl.setName(weDeployAuthApp.getName());
+		weDeployAuthAppImpl.setRedirectURI(weDeployAuthApp.getRedirectURI());
 		weDeployAuthAppImpl.setClientId(weDeployAuthApp.getClientId());
 		weDeployAuthAppImpl.setClientSecret(weDeployAuthApp.getClientSecret());
 
@@ -770,8 +1460,11 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 	protected FinderCache finderCache;
 	private static final String _SQL_SELECT_WEDEPLOYAUTHAPP = "SELECT weDeployAuthApp FROM WeDeployAuthApp weDeployAuthApp";
 	private static final String _SQL_SELECT_WEDEPLOYAUTHAPP_WHERE_PKS_IN = "SELECT weDeployAuthApp FROM WeDeployAuthApp weDeployAuthApp WHERE weDeployAuthAppId IN (";
+	private static final String _SQL_SELECT_WEDEPLOYAUTHAPP_WHERE = "SELECT weDeployAuthApp FROM WeDeployAuthApp weDeployAuthApp WHERE ";
 	private static final String _SQL_COUNT_WEDEPLOYAUTHAPP = "SELECT COUNT(weDeployAuthApp) FROM WeDeployAuthApp weDeployAuthApp";
+	private static final String _SQL_COUNT_WEDEPLOYAUTHAPP_WHERE = "SELECT COUNT(weDeployAuthApp) FROM WeDeployAuthApp weDeployAuthApp WHERE ";
 	private static final String _ORDER_BY_ENTITY_ALIAS = "weDeployAuthApp.";
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No WeDeployAuthApp exists with the primary key ";
+	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No WeDeployAuthApp exists with the key {";
 	private static final Log _log = LogFactoryUtil.getLog(WeDeployAuthAppPersistenceImpl.class);
 }

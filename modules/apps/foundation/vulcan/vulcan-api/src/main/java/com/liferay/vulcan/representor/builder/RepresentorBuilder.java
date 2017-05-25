@@ -24,16 +24,22 @@ import java.util.function.Function;
  */
 public interface RepresentorBuilder<T> {
 
-	public FirstStep<T> identifier(Function<T, String> identifierFunction);
+	public FirstStep<T> getFirstStep(Function<T, String> identifierFunction);
 
 	public interface FirstStep<T> {
 
-		public <S> FirstStep<T> addEmbedded(
-			String key, Class<S> clazz,
-			Function<T, Optional<S>> objectFunction);
+		public <S> FirstStep<T> addEmbeddedModel(
+			String key, Class<S> modelClass,
+			Function<T, Optional<S>> modelFunction);
 
 		public FirstStep<T> addField(
-			String key, Function<T, Object> valueFunction);
+			String key, Function<T, Object> fieldFunction);
+
+		public FirstStep<T> addLink(String key, String url);
+
+		public <S> FirstStep<T> addLinkedModel(
+			String key, Class<S> modelClass,
+			Function<T, Optional<S>> modelFunction);
 
 		public FirstStep<T> addType(String type);
 

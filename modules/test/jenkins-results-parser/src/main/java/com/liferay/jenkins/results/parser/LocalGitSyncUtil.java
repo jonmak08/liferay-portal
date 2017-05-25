@@ -58,7 +58,12 @@ public class LocalGitSyncUtil {
 		}
 		finally {
 			if (localGitRemoteConfigs != null) {
-				gitWorkingDirectory.removeRemotes(localGitRemoteConfigs);
+				try {
+					gitWorkingDirectory.removeRemotes(localGitRemoteConfigs);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
@@ -445,7 +450,6 @@ public class LocalGitSyncUtil {
 					"Deleted ", remoteBranchName, " from ",
 					GitWorkingDirectory.getRemoteURL(remoteConfig)));
 		}
-
 		else {
 			System.out.println(
 				JenkinsResultsParserUtil.combine(
@@ -776,7 +780,13 @@ public class LocalGitSyncUtil {
 			}
 			finally {
 				if (localGitRemoteConfigs != null) {
-					gitWorkingDirectory.removeRemotes(localGitRemoteConfigs);
+					try {
+						gitWorkingDirectory.removeRemotes(
+							localGitRemoteConfigs);
+					}
+					catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 
 				if (gitWorkingDirectory.branchExists(
@@ -793,7 +803,12 @@ public class LocalGitSyncUtil {
 		}
 		finally {
 			if (senderRemoteConfig != null) {
-				gitWorkingDirectory.removeRemote(senderRemoteConfig);
+				try {
+					gitWorkingDirectory.removeRemote(senderRemoteConfig);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 
 			System.out.println(

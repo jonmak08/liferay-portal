@@ -15,12 +15,10 @@
 package com.liferay.vulcan.wiring.osgi.internal;
 
 import com.liferay.vulcan.representor.builder.RepresentorBuilder;
-import com.liferay.vulcan.wiring.osgi.RelationTuple;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 
 /**
@@ -32,39 +30,61 @@ public class RepresentorBuilderImpl<T> implements RepresentorBuilder<T> {
 
 	public RepresentorBuilderImpl(
 		Class<T> modelClass,
-		ConcurrentHashMap<String, Function<?, String>> identifierFunctions,
+		Map<String, Function<?, String>> identifierFunctions,
 		Map<String, Function<?, Object>> fieldFunctions,
-		List<RelationTuple<?, ?>> relationTypes, List<String> types) {
+		List<RelatedModel<?, ?>> embeddedRelatedModels,
+		List<RelatedModel<?, ?>> linkedRelatedModels, Map<String, String> links,
+		List<String> types) {
 
 		_modelClass = modelClass;
 		_identifierFunctions = identifierFunctions;
 		_fieldFunctions = fieldFunctions;
-		_relationTypes = relationTypes;
+		_embeddedRelatedModels = embeddedRelatedModels;
+		_linkedRelatedModels = linkedRelatedModels;
+		_links = links;
 		_types = types;
 	}
 
 	@Override
-	public FirstStep<T> identifier(Function<T, String> identifierFunction) {
+	public FirstStep<T> getFirstStep(Function<T, String> identifierFunction) {
 		_identifierFunctions.put(_modelClass.getName(), identifierFunction);
 
 		return new FirstStep<T>() {
 
 			@Override
-			public <S> FirstStep<T> addEmbedded(
-				String key, Class<S> clazz,
-				Function<T, Optional<S>> objectFunction) {
+			public <S> FirstStep<T> addEmbeddedModel(
+				String key, Class<S> modelClass,
+				Function<T, Optional<S>> modelFunction) {
 
-				_relationTypes.add(
-					new RelationTuple<>(key, clazz, objectFunction));
+				_embeddedRelatedModels.add(
+					new RelatedModel<>(key, modelClass, modelFunction));
 
 				return this;
 			}
 
 			@Override
 			public FirstStep<T> addField(
-				String key, Function<T, Object> valueFunction) {
+				String key, Function<T, Object> fieldFunction) {
 
-				_fieldFunctions.put(key, valueFunction);
+				_fieldFunctions.put(key, fieldFunction);
+
+				return this;
+			}
+
+			@Override
+			public FirstStep<T> addLink(String key, String url) {
+				_links.put(key, url);
+
+				return this;
+			}
+
+			@Override
+			public <S> FirstStep<T> addLinkedModel(
+				String key, Class<S> modelClass,
+				Function<T, Optional<S>> modelFunction) {
+
+				_linkedRelatedModels.add(
+					new RelatedModel<>(key, modelClass, modelFunction));
 
 				return this;
 			}
@@ -79,11 +99,12 @@ public class RepresentorBuilderImpl<T> implements RepresentorBuilder<T> {
 		};
 	}
 
+	private final List<RelatedModel<?, ?>> _embeddedRelatedModels;
 	private final Map<String, Function<?, Object>> _fieldFunctions;
-	private final ConcurrentHashMap<String, Function<?, String>>
-		_identifierFunctions;
+	private final Map<String, Function<?, String>> _identifierFunctions;
+	private final List<RelatedModel<?, ?>> _linkedRelatedModels;
+	private final Map<String, String> _links;
 	private final Class<T> _modelClass;
-	private final List<RelationTuple<?, ?>> _relationTypes;
 	private final List<String> _types;
 
 }

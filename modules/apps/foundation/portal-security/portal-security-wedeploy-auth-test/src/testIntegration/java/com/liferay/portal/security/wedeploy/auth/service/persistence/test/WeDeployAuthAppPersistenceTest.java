@@ -22,12 +22,14 @@ import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
+import com.liferay.portal.kernel.test.ReflectionTestUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.security.wedeploy.auth.exception.NoSuchAppException;
 import com.liferay.portal.security.wedeploy.auth.model.WeDeployAuthApp;
@@ -54,6 +56,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -133,6 +136,8 @@ public class WeDeployAuthAppPersistenceTest {
 
 		newWeDeployAuthApp.setName(RandomTestUtil.randomString());
 
+		newWeDeployAuthApp.setRedirectURI(RandomTestUtil.randomString());
+
 		newWeDeployAuthApp.setClientId(RandomTestUtil.randomString());
 
 		newWeDeployAuthApp.setClientSecret(RandomTestUtil.randomString());
@@ -157,10 +162,30 @@ public class WeDeployAuthAppPersistenceTest {
 			Time.getShortTimestamp(newWeDeployAuthApp.getModifiedDate()));
 		Assert.assertEquals(existingWeDeployAuthApp.getName(),
 			newWeDeployAuthApp.getName());
+		Assert.assertEquals(existingWeDeployAuthApp.getRedirectURI(),
+			newWeDeployAuthApp.getRedirectURI());
 		Assert.assertEquals(existingWeDeployAuthApp.getClientId(),
 			newWeDeployAuthApp.getClientId());
 		Assert.assertEquals(existingWeDeployAuthApp.getClientSecret(),
 			newWeDeployAuthApp.getClientSecret());
+	}
+
+	@Test
+	public void testCountByRU_CI() throws Exception {
+		_persistence.countByRU_CI(StringPool.BLANK, StringPool.BLANK);
+
+		_persistence.countByRU_CI(StringPool.NULL, StringPool.NULL);
+
+		_persistence.countByRU_CI((String)null, (String)null);
+	}
+
+	@Test
+	public void testCountByCI_CS() throws Exception {
+		_persistence.countByCI_CS(StringPool.BLANK, StringPool.BLANK);
+
+		_persistence.countByCI_CS(StringPool.NULL, StringPool.NULL);
+
+		_persistence.countByCI_CS((String)null, (String)null);
 	}
 
 	@Test
@@ -189,7 +214,7 @@ public class WeDeployAuthAppPersistenceTest {
 		return OrderByComparatorFactoryUtil.create("WeDeployAuth_WeDeployAuthApp",
 			"weDeployAuthAppId", true, "companyId", true, "userId", true,
 			"userName", true, "createDate", true, "modifiedDate", true, "name",
-			true, "clientId", true, "clientSecret", true);
+			true, "redirectURI", true, "clientId", true, "clientSecret", true);
 	}
 
 	@Test
@@ -386,6 +411,33 @@ public class WeDeployAuthAppPersistenceTest {
 		Assert.assertEquals(0, result.size());
 	}
 
+	@Test
+	public void testResetOriginalValues() throws Exception {
+		WeDeployAuthApp newWeDeployAuthApp = addWeDeployAuthApp();
+
+		_persistence.clearCache();
+
+		WeDeployAuthApp existingWeDeployAuthApp = _persistence.findByPrimaryKey(newWeDeployAuthApp.getPrimaryKey());
+
+		Assert.assertTrue(Objects.equals(
+				existingWeDeployAuthApp.getRedirectURI(),
+				ReflectionTestUtil.invoke(existingWeDeployAuthApp,
+					"getOriginalRedirectURI", new Class<?>[0])));
+		Assert.assertTrue(Objects.equals(
+				existingWeDeployAuthApp.getClientId(),
+				ReflectionTestUtil.invoke(existingWeDeployAuthApp,
+					"getOriginalClientId", new Class<?>[0])));
+
+		Assert.assertTrue(Objects.equals(
+				existingWeDeployAuthApp.getClientId(),
+				ReflectionTestUtil.invoke(existingWeDeployAuthApp,
+					"getOriginalClientId", new Class<?>[0])));
+		Assert.assertTrue(Objects.equals(
+				existingWeDeployAuthApp.getClientSecret(),
+				ReflectionTestUtil.invoke(existingWeDeployAuthApp,
+					"getOriginalClientSecret", new Class<?>[0])));
+	}
+
 	protected WeDeployAuthApp addWeDeployAuthApp() throws Exception {
 		long pk = RandomTestUtil.nextLong();
 
@@ -402,6 +454,8 @@ public class WeDeployAuthAppPersistenceTest {
 		weDeployAuthApp.setModifiedDate(RandomTestUtil.nextDate());
 
 		weDeployAuthApp.setName(RandomTestUtil.randomString());
+
+		weDeployAuthApp.setRedirectURI(RandomTestUtil.randomString());
 
 		weDeployAuthApp.setClientId(RandomTestUtil.randomString());
 

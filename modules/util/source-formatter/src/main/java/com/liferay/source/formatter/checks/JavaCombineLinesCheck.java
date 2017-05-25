@@ -449,7 +449,9 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 					previousLine, null, false, true, 0);
 			}
 
-			if (previousLine.endsWith(StringPool.EQUAL)) {
+			if (previousLine.endsWith(StringPool.EQUAL) ||
+				previousLine.endsWith("->")) {
+
 				if (line.endsWith(StringPool.OPEN_CURLY_BRACE)) {
 					addMessage(
 						fileName,
@@ -460,7 +462,8 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 					return null;
 				}
 
-				if (previousLine.endsWith(" =") &&
+				if ((previousLine.endsWith(" =") ||
+					 previousLine.endsWith(" ->")) &&
 					line.endsWith(StringPool.OPEN_PARENTHESIS)) {
 
 					for (int i = 0;; i++) {
@@ -525,6 +528,7 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 				 !line.endsWith(StringPool.OPEN_PARENTHESIS)) ||
 				((previousLine.endsWith(StringPool.OPEN_BRACKET) ||
 				  previousLine.endsWith(StringPool.OPEN_PARENTHESIS)) &&
+				 !trimmedPreviousLine.startsWith(").") &&
 				 line.endsWith(StringPool.SEMICOLON))) {
 
 				return _getCombinedLinesContent(
@@ -533,7 +537,8 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 			}
 		}
 
-		if (previousLine.endsWith(StringPool.EQUAL) &&
+		if ((previousLine.endsWith(StringPool.EQUAL) ||
+			 previousLine.endsWith("->")) &&
 			line.endsWith(StringPool.SEMICOLON)) {
 
 			String tempLine = trimmedLine;

@@ -924,7 +924,80 @@ public class StagingImpl implements Staging {
 			String modelResource = ResourceActionsUtil.getModelResource(
 				locale, referrerClassName);
 
-			if (pde.getType() == PortletDataException.INVALID_GROUP) {
+			if (pde.getType() == PortletDataException.DELETE_PORTLET_DATA) {
+				if (Validator.isNotNull(pde.getLocalizedMessage())) {
+					errorMessage = LanguageUtil.format(
+						locale,
+						"the-following-error-in-x-while-deleting-its-data-" +
+							"has-stopped-the-process-x",
+						new String[] {
+							_portal.getPortletTitle(pde.getPortletId(), locale),
+							pde.getLocalizedMessage()
+						},
+						false);
+				}
+				else {
+					errorMessage = LanguageUtil.format(
+						locale,
+						"an-unexpected-error-in-x-while-deleting-its-data-" +
+							"has-stopped-the-process",
+						new String[] {
+							_portal.getPortletTitle(pde.getPortletId(), locale)
+						},
+						false);
+				}
+			}
+			else if (pde.getType() ==
+						PortletDataException.EXPORT_PORTLET_DATA) {
+
+				if (Validator.isNotNull(pde.getLocalizedMessage())) {
+					errorMessage = LanguageUtil.format(
+						locale,
+						"the-following-error-in-x-while-exporting-its-data-" +
+							"has-stopped-the-process-x",
+						new String[] {
+							_portal.getPortletTitle(pde.getPortletId(), locale),
+							pde.getLocalizedMessage()
+						},
+						false);
+				}
+				else {
+					errorMessage = LanguageUtil.format(
+						locale,
+						"an-unexpected-error-in-x-while-exporting-its-data-" +
+							"has-stopped-the-process",
+						new String[] {
+							_portal.getPortletTitle(pde.getPortletId(), locale)
+						},
+						false);
+				}
+			}
+			else if (pde.getType() ==
+						PortletDataException.IMPORT_PORTLET_DATA) {
+
+				if (Validator.isNotNull(pde.getLocalizedMessage())) {
+					errorMessage = LanguageUtil.format(
+						locale,
+						"the-following-error-in-x-while-importing-its-data-" +
+							"has-stopped-the-process-x",
+						new String[] {
+							_portal.getPortletTitle(pde.getPortletId(), locale),
+							pde.getLocalizedMessage()
+						},
+						false);
+				}
+				else {
+					errorMessage = LanguageUtil.format(
+						locale,
+						"an-unexpected-error-in-x-while-importing-its-data-" +
+							"has-stopped-the-process",
+						new String[] {
+							_portal.getPortletTitle(pde.getPortletId(), locale)
+						},
+						false);
+				}
+			}
+			else if (pde.getType() == PortletDataException.INVALID_GROUP) {
 				errorMessage = LanguageUtil.format(
 					locale,
 					"the-x-x-could-not-be-exported-because-it-is-not-in-the-" +
@@ -937,6 +1010,31 @@ public class StagingImpl implements Staging {
 					"the-x-x-has-missing-references-that-could-not-be-found-" +
 						"during-the-process",
 					new String[] {modelResource, referrerDisplayName}, false);
+			}
+			else if (pde.getType() ==
+						PortletDataException.PREPARE_MANIFEST_SUMMARY) {
+
+				if (Validator.isNotNull(pde.getLocalizedMessage())) {
+					errorMessage = LanguageUtil.format(
+						locale,
+						"the-following-error-in-x-while-preparing-its-" +
+							"manifest-has-stopped-the-process-x",
+						new String[] {
+							_portal.getPortletTitle(pde.getPortletId(), locale),
+							pde.getLocalizedMessage()
+						},
+						false);
+				}
+				else {
+					errorMessage = LanguageUtil.format(
+						locale,
+						"an-unexpected-error-in-x-while-preparing-its-" +
+							"manifest-has-stopped-the-process",
+						new String[] {
+							_portal.getPortletTitle(pde.getPortletId(), locale)
+						},
+						false);
+				}
 			}
 			else if (pde.getType() == PortletDataException.STATUS_IN_TRASH) {
 				errorMessage = LanguageUtil.format(
@@ -2231,13 +2329,15 @@ public class StagingImpl implements Staging {
 	public void unschedulePublishToRemote(PortletRequest portletRequest)
 		throws PortalException {
 
-		long groupId = ParamUtil.getLong(portletRequest, "groupId");
+		long stagingGroupId = ParamUtil.getLong(
+			portletRequest, "stagingGroupId");
 
 		String jobName = ParamUtil.getString(portletRequest, "jobName");
 		String groupName = getSchedulerGroupName(
-			DestinationNames.LAYOUTS_REMOTE_PUBLISHER, groupId);
+			DestinationNames.LAYOUTS_REMOTE_PUBLISHER, stagingGroupId);
 
-		_layoutService.unschedulePublishToRemote(groupId, jobName, groupName);
+		_layoutService.unschedulePublishToRemote(
+			stagingGroupId, jobName, groupName);
 	}
 
 	@Override
