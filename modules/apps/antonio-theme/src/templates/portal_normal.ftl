@@ -50,14 +50,14 @@
 	<nav class="navbar-custom navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<button id="hamburger-menu" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<!-- <span>MENU</span> -->
 				</button>
-				<a class="navbar-brand" href="#">appetite</a>
+				<a class="navbar-brand brand-name" href="#">appetite</a>
 			</div>
 
 			<div class="nav-links collapse navbar-collapse" id="bs-example-navbar-collapse-1">

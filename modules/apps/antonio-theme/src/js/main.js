@@ -1,46 +1,34 @@
 $(document).ready(function() {
   var navbarStartingPosition = 0;
-  var currentPosition = $('.navbar-custom').offset().top;
+  var navbarCurrentPosition = $('.navbar-custom').offset().top;
   var navbar = $('.navbar-custom');
-  var brand = $('.navbar-brand');
-  var navbarLinks = $('.navbar-collapse');
-  var hamburgerMenu = $('.icon-bar');
 
+  // check if page loads with liferay-portal's control menu:
   if ($('.control-menu')) {
     $('#antonio-theme').addClass('theme-container');
     $('.navbar-custom').addClass('adjust-for-control-menu');
 
-    var navbarStartingPosition = 65;
-  }
-
-  function makeNavbarWhite() {
-    navbar.addClass('navbar-white');
-    brand.removeClass('brand-name').addClass('brand-name-inverse');
-    navbarLinks.removeClass('nav-links').addClass('nav-links-inverse');
-    hamburgerMenu.addClass('icon-bar-inverse');
-  }
-
-  function makeNavbarTransparent()  {
-    navbar.removeClass('navbar-white');
-    brand.addClass('brand-name');
-    navbarLinks.addClass('nav-links');
-    hamburgerMenu.removeClass('icon-bar-inverse');
+    var navbarStartingPosition = $('.control-menu').outerHeight();
   }
 
   // things to do on page load:
-  if (currentPosition !== navbarStartingPosition) {
-    makeNavbarTransparent();
+  if (navbarCurrentPosition > navbarStartingPosition) {
+    navbar.addClass('navbar-white');
   } else {
-    makeNavbarWhite();
+    navbar.removeClass('navbar-white');
   }
   $('#pager-item-one').addClass('pager-item-selected');
   $('#testimonial-one').addClass('thumb-selected');
 
   $(document).scroll(function() {
-    var currentPosition = $('.navbar-custom').offset().top;
-    (currentPosition !== navbarStartingPosition) ? makeNavbarWhite() : makeNavbarTransparent();
+    // will adjust navbarCurrentPosition when scrolling
+    var navbarCurrentPosition = $('.navbar-custom').offset().top;
+    if (navbarCurrentPosition > navbarStartingPosition) {
+      navbar.addClass('navbar-white');
+    } else {
+      navbar.removeClass('navbar-white');
+    }
   });
-
 
   $('#pager-item-one').click(function() {
     $('.welcome-container').removeClass('welcome-background-two welcome-background-three').addClass('welcome-background-one');
