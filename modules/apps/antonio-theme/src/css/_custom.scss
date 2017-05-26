@@ -144,8 +144,8 @@ NAVBAR
 }
 
 #hamburger-menu {
-  border-width: 0;
   background-color: transparent;
+  border-width: 0;
 
   &:hover {
     background-color: transparent;
@@ -193,6 +193,17 @@ WELCOME WIDGET
   padding-bottom: 20px;
   padding-top: 60px;
   text-transform: uppercase;
+}
+
+#carousel-slide-one {
+}
+
+#carousel-slide-two {
+  display: none;
+}
+
+#carousel-slide-three {
+  display: none;
 }
 
 .welcome-content {
