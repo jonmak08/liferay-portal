@@ -1,7 +1,7 @@
 <div class="row">
-    <div class="hero">
-        <#if img_Hero.getData()?? && img_Hero.getData() != "">
-            <img alt="${img_Hero.getAttribute("alt")}" src="${img_Hero.getData()}" />
-        </#if>
-    </div>
+	<#if img_hero.getData()?? && img_hero.getData() != "">
+		<div class="hero">
+			<img alt="${img_hero.getAttribute("alt")}" src="${img_hero.getData()}" />
+		</div>
+	</#if>
 </div>

@@ -1,24 +1,24 @@
 <section id="highlights">
-	<div class="bg-${bg_Color.getData()}">
+	<div class="bg-${bg_color.getData()}">
 		<div class="theme-container">
 			<div class="content-desc">
 				<div class="row">
 
-					<#if Gallery_Header.getData()?? Gallery_Header.getData() !== "">
+					<#if gallery_header.getData()?? && gallery_header.getData() != "">
 
-						<a class="link-fade text-caps" href="#">${Gallery_Header.getData()}</a>
-
-					</#if>
-					
-					<#if Description.getData()?? Description.getData() !== "">
-
-						<p>${Description.getData()}</p>
+						<a class="link-fade text-caps" href="#">${gallery_header.getData()}</a>
 
 					</#if>
 					
-					<#if Link.getData()?? Link.getData() !=="">
+					<#if description.getData()?? && description.getData() != "">
 
-						<a class="link-button" href="#">${Link.getData()}</a>
+						<p>${description.getData()}</p>
+
+					</#if>
+					
+					<#if link.getData()?? && link.getData() != "">
+
+						<a class="link-button" href="#">${link.getData()}</a>
 
 					</#if>
 
@@ -28,42 +28,42 @@
 					<div class="gallery">
 						<ul>
 
-							<#if img_Gallery_1.getData()?? && img_Gallery_1.getData() != "">
+							<#if img_gallery_1.getData()?? && img_gallery_1.getData() != "">
 								
 								<li>
-									<a href="#">${img_Gallery_1.getAttribute("alt")}</a>
+									<a href="#">${img_gallery_1.getAttribute("alt")}</a>
 									
-									<img alt="${img_Gallery_1.getAttribute("alt")}" src="${img_Gallery_1.getData()}" />
+									<img alt="${img_gallery_1.getAttribute("alt")}" src="${img_gallery_1.getData()}" />
 								</li>
 
 							</#if>
 							
-							<#if img_Gallery_2.getData()?? && img_Gallery_2.getData() != "">
+							<#if img_gallery_2.getData()?? && img_gallery_2.getData() != "">
 								
 								<li>
-									<a href="#">${img_Gallery_2.getAttribute("alt")}</a>
+									<a href="#">${img_gallery_2.getAttribute("alt")}</a>
 									
-									<img alt="${img_Gallery_2.getAttribute("alt")}" src="${img_Gallery_2.getData()}" />
+									<img alt="${img_gallery_2.getAttribute("alt")}" src="${img_gallery_2.getData()}" />
 								</li>
 
 							</#if>
 							
-							<#if img_Gallery_3.getData()?? && img_Gallery_3.getData() != "">
+							<#if img_gallery_3.getData()?? && img_gallery_3.getData() != "">
 								
 								<li>
-									<a href="#">${img_Gallery_3.getAttribute("alt")}</a>
+									<a href="#">${img_gallery_3.getAttribute("alt")}</a>
 									
-									<img alt="${img_Gallery_3.getAttribute("alt")}" src="${img_Gallery_3.getData()}" />
+									<img alt="${img_gallery_3.getAttribute("alt")}" src="${img_gallery_3.getData()}" />
 								</li>
 
 							</#if>
 							
-							<#if img_Gallery_4.getData()?? && img_Gallery_4.getData() != "">
+							<#if img_gallery_4.getData()?? && img_gallery_4.getData() != "">
 								
 								<li>
-									<a href="#">${img_Gallery_4.getAttribute("alt")}</a>
+									<a href="#">${img_gallery_4.getAttribute("alt")}</a>
 									
-									<img alt="${img_Gallery_4.getAttribute("alt")}" src="${img_Gallery_4.getData()}" />
+									<img alt="${img_gallery_4.getAttribute("alt")}" src="${img_gallery_4.getData()}" />
 								</li>
 
 							</#if>
