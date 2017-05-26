@@ -76,7 +76,7 @@
 		<!-- .container-fluid -->
 	</nav>
 
-	<div class="welcome-container welcome-background-one">
+	<div id="carousel-slide-one" class="welcome-container welcome-background-one">
     <div class="welcome-content container">
       <div class="welcome-header">
         <h2>welcome to our restaurant</h2>
@@ -96,7 +96,8 @@
 	    </div>
 	    <!-- .row -->
 		</div>
-		<!-- .welcome-description col-md-6 col-md-offset-3 -->
+		<!-- .welcome-content .container -->
+
 		<div class="col-md-6 col-md-offset-3 text-center">
 			<div class="pagination">
 				<div id="pager-item-one">
@@ -115,8 +116,92 @@
 			<!-- .pagination -->
 		</div>
 		<!-- .col-md-6 .col-md-offset-3 -->
-  </div>
-  <!-- .welcome-container .welcome-background-one -->
+	</div>
+	<!-- #carousel-slide-one .welcome-container .welcome-background-one -->
+
+	<div id="carousel-slide-two" class="welcome-container welcome-background-two">
+    <div class="welcome-content container">
+			<div class="welcome-header">
+				<h2>we serve delicious dishes</h2>
+			</div>
+			<div class="row">
+				<div class="welcome-description col-md-6 col-md-offset-3">
+					<p>
+						Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum.
+					</p>
+					<div class="welcome-more-info">
+						<a href="#">read more</a>
+					</div>
+					<!-- .more-info -->
+				</div>
+			<!-- .welcome-description .col-md-6 .col-md-offset-3 -->
+			</div>
+			<!-- .row -->
+		</div>
+		<!-- .welcome-content .container -->
+
+		<div class="col-md-6 col-md-offset-3 text-center">
+			<div class="pagination">
+				<div id="pager-item-one">
+					<a href="#"></a>
+				</div>
+				<!-- .pager-item -->
+				<div id="pager-item-two">
+					<a href="#"></a>
+				</div>
+				<!-- .pager-item -->
+				<div id="pager-item-three">
+					<a href="#"></a>
+				</div>
+				<!-- .pager-item -->
+			</div>
+			<!-- .pagination -->
+		</div>
+		<!-- .col-md-6 .col-md-offset-3 -->
+	</div>
+	<!-- #carousel-slide-two .welcome-container .welcome-background-two -->
+
+	<div id="carousel-slide-three" class="welcome-container welcome-background-three">
+    <div class="welcome-content container">
+			<div class="welcome-header">
+        <h2>enjoy the best live music</h2>
+      </div>
+			<div class="row">
+				<div class="welcome-description col-md-6 col-md-offset-3">
+					<p>
+						Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis.
+					</p>
+					<div class="welcome-more-info">
+						<a href="#">view schedule</a>
+					</div>
+					<!-- .more-info -->
+				</div>
+			<!-- .welcome-description .col-md-6 .col-md-offset-3 -->
+	    </div>
+	    <!-- .row -->
+		</div>
+		<!-- #carousel-slide-one .welcome-content .container -->
+
+		<div class="col-md-6 col-md-offset-3 text-center">
+			<div class="pagination">
+				<div id="pager-item-one">
+					<a href="#"></a>
+				</div>
+				<!-- .pager-item -->
+				<div id="pager-item-two">
+					<a href="#"></a>
+				</div>
+				<!-- .pager-item -->
+				<div id="pager-item-three">
+					<a href="#"></a>
+				</div>
+				<!-- .pager-item -->
+			</div>
+			<!-- .pagination -->
+		</div>
+		<!-- .col-md-6 .col-md-offset-3 -->
+	</div>
+	<!-- #carousel-slide-three .welcome-container .welcome-background-three -->
 
 	<div class="widgets">
     <section id="section-one" class="section-white">
