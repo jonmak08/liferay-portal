@@ -36,7 +36,7 @@
 <div class="container-fluid" id="wrapper">
 	<header class="${navBarAdjustments} banner-unscrolled" id="banner" role="banner">
 		<div class="row" id="themeBanner">
-			<div class="col-md-2 col-sm-2 col-xs-2" id="companyBranding">
+			<div class="col-md-2 col-sm-2 col-xs-2 company-title-block">
 				<div class="site-name">
 					<a href="localhost:8080/" rel="home" title="Home">${site_name}</a>
 				</div>
@@ -54,7 +54,7 @@
 					<a class="float-right theme-nav-bar-toggle" id="menu-dropdown-toggle">&#x2261;</a>
 				</div>
 
-				<div class="float-right" id="themeNavBar">
+				<div class="float-right navigation-bar">
 
 					<#if has_navigation && is_setup_complete>
 
@@ -115,7 +115,7 @@
 		</p>
 	</footer>
 
-	<a class="btn-back-to-top" href="#">Back to top</a>
+	<a class="btn-scroll-top" href="#">Back to top</a>
 </div>
 
 <@liferay_util["include"] page=body_bottom_include />
