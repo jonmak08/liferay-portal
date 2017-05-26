@@ -24,7 +24,7 @@
 
 				<#if nav_item.hasChildren()>
 
-					<button class="child-menu-toggle float-right" id="childMenuDropdown_1">&#8250;</button>
+					<button class="child-menu-toggle child-menu-dropdown-2 float-right">&#8250;</button>
 
 					<ul class="child-menu" role="menu">
 
@@ -46,7 +46,7 @@
 
 								<#if nav_child.hasChildren()>
 
-									<button class="child-menu-toggle float-right" id="childMenuDropdown_2">&#8250;</button>
+									<button class="child-menu-dropdown-2 child-menu-toggle float-right">&#8250;</button>
 
 									<ul class="child-menu" role="menu">
 

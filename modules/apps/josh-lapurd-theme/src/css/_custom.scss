@@ -1,12 +1,3 @@
-/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
-
-/* inject:imports */
-/* endinject */
-
-/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
-
-/* Common Site Variables */
-
 $default-color: #777;
 $theme-base: #DAB485;
 $theme-base-light: #ECD8C0;
@@ -301,7 +292,7 @@ div.portlet-column {
 	margin: 0 5%;
 }
 
-#companyBranding {
+.company-title-block {
 	display: inline-block;
 	width: auto;
 }
@@ -460,6 +451,7 @@ div.portlet-column {
 			color: $theme-base;
 			font-size: 1em;
 		}
+
 		li a {
 			color: $theme-base;
 			font-size: 1em;
@@ -467,7 +459,7 @@ div.portlet-column {
 	}
 }
 
-a.btn-back-to-top {
+.btn-scroll-top {
 	background: $theme-base;
 	border-radius: 50%;
 	bottom: 30px;
@@ -499,6 +491,13 @@ a.btn-back-to-top {
 		color: #FFF;
 	}
 }
+
+.intro-text {
+	font-size: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
 
 @media screen and (min-width: 320px) {
 	.link-button {
@@ -568,7 +567,7 @@ a.btn-back-to-top {
 		}
 	}
 
-	#themeNavBar {
+	.navigation-bar {
 		background: $theme-bg-light-2;
 		bottom: 0;
 		box-sizing: border-box;
@@ -736,17 +735,6 @@ a.btn-back-to-top {
 
 	#navigation li button.child-menu-toggle {
 		display: none;
-	}
-
-	.grid-text {
-		h3 {
-			font-size: 24px;
-		}
-
-		p {
-			font-size: 15px;
-			color: $default-color
-		}
 	}
 
 	.grid-column-1 {
