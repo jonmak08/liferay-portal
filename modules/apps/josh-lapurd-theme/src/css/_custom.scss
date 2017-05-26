@@ -167,7 +167,7 @@ p {
 			color: #FFF;
 		}
 
-		&::after {
+		&:after {
 			background-color: $theme-base;
 		}
 	}
