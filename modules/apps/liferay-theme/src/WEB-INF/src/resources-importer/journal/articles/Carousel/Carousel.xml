@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="CarouselImages" type="image" index-type="keyword" instance-id="jkxr">
+		<dynamic-element name="text" instance-id="jior" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA["Architecture is an expression of values" -Norman Foster]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Image1.jpg","alt":"","title":"Image1.jpg","type":"journal","uuid":"1a3e838a-d4d6-ba82-8145-ad428f81fe37","resourcePrimKey":"39047"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="CarouselImages" type="image" index-type="keyword" instance-id="xiyo">
+		<dynamic-element name="text" instance-id="ijde" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA["Even a brick wants to be something" -Louis Kahn]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Image2.jpg","alt":"","title":"Image2.jpg","type":"journal","uuid":"91b23873-77ce-58dd-af7c-c95d60130c85","resourcePrimKey":"39047"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="CarouselImages" type="image" index-type="keyword" instance-id="uzut">
+		<dynamic-element name="text" instance-id="ongd" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA["Whatever good things we build, end up building us" -Jim Rohn]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"Image3.jpg","alt":"","title":"Image3.jpg","type":"journal","uuid":"3a682713-cc30-6aad-5d0e-1f030143a28f","resourcePrimKey":"39047"}]]></dynamic-content>
+	</dynamic-element>
+</root>

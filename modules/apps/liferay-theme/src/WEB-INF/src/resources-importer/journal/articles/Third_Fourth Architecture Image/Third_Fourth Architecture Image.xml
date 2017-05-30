@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Image3" type="image" index-type="keyword" instance-id="dviu">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"biomimicry5.jpg","alt":"","title":"biomimicry5.jpg","type":"journal","uuid":"d67d62f5-7660-d99a-5d9e-fa66beb694c1","resourcePrimKey":"54645"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Separatordxvx" type="selection_break" index-type="keyword" instance-id="atvx"/>
+	<dynamic-element name="Image4" type="image" index-type="keyword" instance-id="wkgd">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"biomimicry2.jpg","alt":"","title":"biomimicry2.jpg","type":"journal","uuid":"9143b6df-0c94-0a8f-9b9c-3513c5174b49","resourcePrimKey":"54645"}]]></dynamic-content>
+	</dynamic-element>
+</root>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Quote" type="text_box" index-type="text" instance-id="pgqn">
+		<dynamic-content language-id="en_US"><![CDATA[<b style="font-size:250%; color:gray; opacity: 0.5;">“</b>Finding design inspiration from nature to solve human problems.<b style="font-size:250%; color:gray; opacity: 0.5;">”</b>]]></dynamic-content>
+	</dynamic-element>
+</root>

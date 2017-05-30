@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="ArchitectureImage" type="image" index-type="keyword" instance-id="tiie">
+		<dynamic-element name="ArchitectureText" instance-id="npsi" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[Architecture]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"interior.jpg","alt":"","title":"interior.jpg","type":"journal","uuid":"064c6ad7-a505-9353-300e-4c1cc0d18be1","resourcePrimKey":"51936"}]]></dynamic-content>
+	</dynamic-element>
+</root>
