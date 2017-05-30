@@ -4,21 +4,19 @@ $(document).ready(function() {
   var navbar = $('.navbar-custom');
 
   // check if page loads with liferay-portal's control menu:
-  if ($('.control-menu')) {
-    $('#antonio-theme').addClass('theme-container');
-    $('.navbar-custom').addClass('adjust-for-control-menu');
+  if ($('#controlMenu')) {
+    $('.antonio-theme').addClass('adjust-theme-for-control-menu');
+    $('.navbar-custom').addClass('adjust-navbar-for-control-menu');
 
     var navbarStartingPosition = $('.control-menu').outerHeight();
-  }
+  } 
 
-  // things to do on page load:
+  // on page load:
   if (navbarCurrentPosition > navbarStartingPosition) {
     navbar.addClass('navbar-white');
   } else {
     navbar.removeClass('navbar-white');
   }
-  $('#pager-item-one').addClass('pager-item-selected');
-  $('#testimonial-one').addClass('thumb-selected');
 
   $(document).scroll(function() {
     // will adjust navbarCurrentPosition when scrolling
@@ -30,70 +28,30 @@ $(document).ready(function() {
     }
   });
 
-  $('#pager-item-one').click(function() {
-    $('.welcome-container').removeClass('welcome-background-two welcome-background-three').addClass('welcome-background-one');
-    $('#pager-item-one').addClass('pager-item-selected');
-    $('#pager-item-two').removeClass('pager-item-selected');
-    $('#pager-item-three').removeClass('pager-item-selected');
+  $('.pager-item-one').click(function() {
+    $('#carouselSlideOne').fadeIn(500);
+    $('#carouselSlideTwo').hide();
+    $('#carouselSlideThree').hide();
   });
-  $('#pager-item-two').click(function() {
-    $('.welcome-container').removeClass('welcome-background-one welcome-background-three').addClass('welcome-background-two');
-    $('#pager-item-two').addClass('pager-item-selected');
-    $('#pager-item-one').removeClass('pager-item-selected');
-    $('#pager-item-three').removeClass('pager-item-selected');
+  $('.pager-item-two').click(function() {
+    $('#carouselSlideTwo').fadeIn(500);
+    $('#carouselSlideOne').hide();
+    $('#carouselSlideThree').hide();
   });
-  $('#pager-item-three').click(function() {
-    $('.welcome-container').removeClass('welcome-background-one welcome-background-two').addClass('welcome-background-three');
-    $('#pager-item-three').addClass('pager-item-selected');
-    $('#pager-item-one').removeClass('pager-item-selected');
-    $('#pager-item-two').removeClass('pager-item-selected');
+  $('.pager-item-three').click(function() {
+    $('#carouselSlideThree').fadeIn(500);
+    $('#carouselSlideOne').hide();
+    $('#carouselSlideTwo').hide();
   });
 
-  var testimonials = {
-    one: {
-      entry: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a elit massa. Proin vel consequat mi. Integer viverra enim a vulputate porttitor.',
-      author: 'Antonio'
-    },
-    two: {
-      entry: 'Vivamus eu facilisis nisi. Phasellus convallis, odio eu vehicula fermentum, ligula arcu aliquet lacus, vitae tristique diam purus eu sem.',
-      author: 'Ryan'
-    },
-    three: {
-      entry: 'Vestibulum volutpat consequat venenatis. Phasellus ullamcorper ex nibh, in sodales augue elementum in.',
-      author: 'Josh'
-    },
-    four: {
-      entry: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam vitae arcu et ligula porttitor dapibus.',
-      author: 'Jeff'
-    },
-    five: {
-      entry: 'Nulla vehicula viverra nisl in bibendum. Curabitur et nibh at enim interdum efficitur sed vel augue. Suspendisse sagittis lacinia molestie.',
-      author: 'Alex'
+  AUI().ready(
+   'liferay-sign-in-modal',
+    function(A) {
+    var signIn = A.one('#signIn');
+
+    if (signIn && signIn.getData('redirect') !== 'true') {
+     signIn.plug(Liferay.SignInModal);
     }
-  }
-
-  $('#testimonial-one').click(function(event) {
-    event.preventDefault();
-    $('.testimonial-entry').html(testimonials.one.entry + '<br><br><span class="testimonial-author">' + testimonials.one.author + '</span>');
-  });
-
-  $('#testimonial-two').click(function(event) {
-    event.preventDefault();
-    $('.testimonial-entry').html(testimonials.two.entry + '<br><br><span class="testimonial-author">' + testimonials.two.author + '</span>');
-  });
-
-  $('#testimonial-three').click(function(event) {
-    event.preventDefault();
-    $('.testimonial-entry').html(testimonials.three.entry + '<br><br><span class="testimonial-author">' + testimonials.three.author + '</span>');
-  });
-
-  $('#testimonial-four').click(function(event) {
-    event.preventDefault();
-    $('.testimonial-entry').html(testimonials.four.entry + '<br><br><span class="testimonial-author">' + testimonials.four.author + '</span>');
-  });
-
-  $('#testimonial-five').click(function(event) {
-    event.preventDefault();
-    $('.testimonial-entry').html(testimonials.five.entry + '<br><br><span class="testimonial-author">' + testimonials.five.author + '</span>');
-  });
+   }
+  );
 });
