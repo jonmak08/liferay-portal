@@ -32,7 +32,7 @@ $(document).ready(function() {
   });
 
   searchIcon.click(function(event) {
-    event.preventDefault();
+    // event.preventDefault();
     console.log('search clicked!');
   });
 
