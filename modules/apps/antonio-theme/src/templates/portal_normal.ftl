@@ -20,7 +20,7 @@
 
 <@liferay.control_menu />
 
-<div class="antonio-theme">
+<div class="page-content">
 	<header id="banner" role="banner">
 
 		<#if has_navigation && is_setup_complete>
@@ -186,7 +186,7 @@
 	<#include "${full_templates_path}/footer.ftl" />
 
 </div>
-<!-- #antonio-theme -->
+<!-- .page-content -->
 
 <@liferay_util["include"] page=body_bottom_include />
 
