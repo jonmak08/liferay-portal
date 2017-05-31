@@ -31,9 +31,16 @@ $(document).ready(function() {
     }
   });
 
+  $('li.dropdown').hover(function() {
+    $(this).find('.child-menu').fadeIn(200);
+  }, function() {
+    $(this).find('.child-menu').fadeOut(200);
+  });
+
   searchIcon.click(function(event) {
-    // event.preventDefault();
-    console.log('search clicked!');
+    event.preventDefault();
+    console.log('opening Google search!');
+    window.open('https://www.google.com');
   });
 
   $('.pager-item-one').click(function() {

@@ -93,7 +93,7 @@ NAVBAR
       li {
         display: inline-block;
 
-        a {
+        > a {
           border: 1px solid transparent;
           border-radius: 20px;
           color: rgba(255, 255, 255, 1);
@@ -110,6 +110,22 @@ NAVBAR
             transition: 0.2s ease-in;
           }
         }
+      }
+    }
+  }
+
+  .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    text-transform: uppercase;
+
+    a {
+      color: rgba(255, 255, 255, 1);
+      font-size: 10px;
+
+      &:hover {
+        text-decoration: none;
+        color: rgba(150, 150, 150, 1);
       }
     }
   }
@@ -141,7 +157,7 @@ NAVBAR
       li {
         display: inline-block;
 
-        a {
+        > a {
           border: 1px solid transparent;
           border-radius: 20px;
           color: rgba(0, 0, 0, 1);
@@ -158,7 +174,27 @@ NAVBAR
             color: rgba(0, 0, 0, 1);
             transition: 0.2s ease-in;
           }
+
+          &:focus {
+            color: rgba(0, 0, 0, 1);
+          }
         }
+      }
+    }
+  }
+
+  .dropdown-menu {
+    background-color : rgba(255, 255, 255, 0.95);
+    text-align: center;
+    text-transform: uppercase;
+
+    a {
+      color: rgba(0, 0, 0, 1);
+      font-size: 10px;
+
+      &:hover {
+        text-decoration: none;
+        color: rgba(150, 150, 150, 1);
       }
     }
   }
@@ -180,6 +216,10 @@ NAVBAR
   &:hover {
     background-color: transparent;
   }
+}
+
+.navbar-collapse.in {
+  overflow-y: visible;
 }
 
 /*--------------------------------
