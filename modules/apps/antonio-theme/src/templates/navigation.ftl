@@ -62,7 +62,7 @@
 				</#list>
 
 				<li>
-					<a id="searchIcon" href="#"><span class="icon-search"></span></a>
+					<button id="searchIcon" href="#"><span class="icon-search"></span></button>
 				</li>
 
 				<#if !is_signed_in>
