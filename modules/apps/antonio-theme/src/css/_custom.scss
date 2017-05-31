@@ -159,6 +159,10 @@ NAVBAR
             transition: 0.2s ease-in;
           }
         }
+
+        button:hover {
+          border: 1px solid transparent;
+        }
       }
     }
   }
@@ -168,9 +172,9 @@ NAVBAR
   }
 }
 
-#searchIcon:hover {
-  border: 1px solid transparent;
-}
+// #searchIcon:hover {
+//   border: 1px solid transparent;
+// }
 
 #hamburgerMenu {
   background-color: transparent;
