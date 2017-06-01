@@ -57,15 +57,15 @@
 	        <div class="pager-item-one pager-item-selected">
 	          <a href="#"></a>
 	        </div>
-	        <!-- .pager-item -->
+	        <!-- .pager-item-one .page-item-selected -->
 	        <div class="pager-item-two">
 	          <a href="#"></a>
 	        </div>
-	        <!-- .pager-item -->
+	        <!-- .pager-item-two -->
 	        <div class="pager-item-three">
 	          <a href="#"></a>
 	        </div>
-	        <!-- .pager-item -->
+	        <!-- .pager-item-three -->
 	      </div>
 	      <!-- .pagination -->
 	    </div>
@@ -102,15 +102,15 @@
 	        <div class="pager-item-one">
 	          <a href="#"></a>
 	        </div>
-	        <!-- .pager-item -->
+	        <!-- .pager-item-one -->
 	        <div class="pager-item-two pager-item-selected">
 	          <a href="#"></a>
 	        </div>
-	        <!-- .pager-item -->
+	        <!-- .pager-item-two .pager-item-selected -->
 	        <div class="pager-item-three">
 	          <a href="#"></a>
 	        </div>
-	        <!-- .pager-item -->
+	        <!-- .pager-item-three -->
 	      </div>
 	      <!-- .pagination -->
 	    </div>
@@ -147,15 +147,15 @@
 	        <div class="pager-item-one">
 	          <a href="#"></a>
 	        </div>
-	        <!-- .pager-item -->
+	        <!-- .pager-item-one -->
 	        <div class="pager-item-two">
 	          <a href="#"></a>
 	        </div>
-	        <!-- .pager-item -->
+	        <!-- .pager-item-two -->
 	        <div class="pager-item-three pager-item-selected">
 	          <a href="#"></a>
 	        </div>
-	        <!-- .pager-item -->
+	        <!-- .pager-item-three pager-item-selected -->
 	      </div>
 	      <!-- .pagination -->
 	    </div>
@@ -165,7 +165,7 @@
 	</div>
 	<!-- .welcome-container -->
 
-	<main id="content" role="main">
+	<section class="portlets-section">
 		<div class="container">
 			<h1 class="hide-accessible">${the_title}</h1>
 
@@ -180,8 +180,10 @@
 				<@liferay_util["include"] page=content_include />
 				</@>
 			</#if>
+
 		</div>
-	</main>
+		<!-- .container -->
+	</section>
 
 	<#include "${full_templates_path}/footer.ftl" />
 

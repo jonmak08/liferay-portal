@@ -19,23 +19,28 @@
 		</portlet-decorator>
 
 		<settings>
-			<setting configurable="true" key="Contact Information" value="text" />
-			<setting configurable="true" key="Site Information" value="text" />
+			<setting configurable="true" key="Add Footer Section" type="checkbox" value="false" />
+			<setting configurable="true" key="Footer Section Title" type="text" value="" />
+			<setting configurable="true" key="Footer Section Entry" type="text" value="" />
 
-			<setting configurable="true" key="Social Media One" value="text" />
-			<setting configurable="true" key="Social Media One Link" value="text" />
+			<setting configurable="true" key="Footer Contact Information" type="text" value="" />
 
-			<setting configurable="true" key="Social Media Two" value="text" />
-			<setting configurable="true" key="Social Media Two Link" value="text" />
+			<setting configurable="true" key="Footer Site Information" type="text" value="" />
 
-			<setting configurable="true" key="Social Media Three" value="text" />
-			<setting configurable="true" key="Social Media Three Link" value="text" />
+			<setting configurable="true" key="Social Media One Font Awesome Class" type="text" value="" />
+			<setting configurable="true" key="Social Media One Link" type="text" value="" />
 
-			<setting configurable="true" key="Social Media Four" value="text" />
-			<setting configurable="true" key="Social Media Four Link" value="text" />
+			<setting configurable="true" key="Social Media Two Font Awesome Class" type="text" value="" />
+			<setting configurable="true" key="Social Media Two Link" type="text" value="" />
 
-			<setting configurable="true" key="Social Media Five" value="text" />
-			<setting configurable="true" key="Social Media Five Link" value="text" />
+			<setting configurable="true" key="Social Media Three Font Awesome Class" type="text" value="" />
+			<setting configurable="true" key="Social Media Three Link" type="text" value="" />
+
+			<setting configurable="true" key="Social Media Four Font Awesome Class" type="text" value="" />
+			<setting configurable="true" key="Social Media Four Link" type="text" value="" />
+
+			<setting configurable="true" key="Social Media Five Font Awesome Class" type="text" value="" />
+			<setting configurable="true" key="Social Media Five Link" type="text" value="" />
 		</settings>
 	</theme>
 </look-and-feel>

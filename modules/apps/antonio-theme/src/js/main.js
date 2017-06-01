@@ -7,7 +7,7 @@ $(document).ready(function() {
   var searchIcon = $('#searchIcon');
 
   // check if page loads with liferay-portal's control menu:
-  if (controlMenu) {
+  if (controlMenu.length > 0) {
     pageContent.addClass('adjust-theme-for-control-menu');
     navbar.addClass('adjust-navbar-for-control-menu');
 
