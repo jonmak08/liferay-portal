@@ -16,8 +16,8 @@
 			</#if>
 		</div>
 
-		<div class="nav-links collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav" aria-label="<@liferay.language key="site-pages" />" role="menubar">
+		<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav nav-links" aria-label="<@liferay.language key="site-pages" />" role="menubar">
 				<#list nav_items as nav_item>
 				<#assign
 				nav_item_attr_has_popup = ""

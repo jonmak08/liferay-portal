@@ -78,6 +78,10 @@ NAVBAR
     margin-top: 10px;
   }
 
+  .navbar-collapse {
+    border: none;
+  }
+
   .brand-name {
     color: rgba(255, 255, 255, 1);
     font-size: 25px;
@@ -85,30 +89,26 @@ NAVBAR
   }
 
   .nav-links {
-    border-color: rgba(255, 255, 255, 1);
+    float: right;
 
-    ul {
-      float: right;
+    li {
+      display: inline-block;
 
-      li {
-        display: inline-block;
+      > a {
+        border: 1px solid transparent;
+        border-radius: 20px;
+        color: rgba(255, 255, 255, 1);
+        font-size: 14px;
+        margin: 0 3px 0 3px;
+        padding: 5px 14px 5px 14px;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: 0.2s ease-out;
 
-        > a {
-          border: 1px solid transparent;
+        &:hover {
+          border: 1px solid rgba(255, 255, 255, 1);
           border-radius: 20px;
-          color: rgba(255, 255, 255, 1);
-          font-size: 14px;
-          margin: 0 3px 0 3px;
-          padding: 5px 14px 5px 14px;
-          text-decoration: none;
-          text-transform: uppercase;
-          transition: 0.2s ease-out;
-
-          &:hover {
-            border: 1px solid rgba(255, 255, 255, 1);
-            border-radius: 20px;
-            transition: 0.2s ease-in;
-          }
+          transition: 0.2s ease-in;
         }
       }
     }
@@ -119,13 +119,17 @@ NAVBAR
     text-align: center;
     text-transform: uppercase;
 
-    a {
-      color: rgba(255, 255, 255, 1);
-      font-size: 10px;
+    li {
+      display: block;
 
-      &:hover {
-        text-decoration: none;
-        color: rgba(150, 150, 150, 1);
+      a {
+        color: rgba(255, 255, 255, 1);
+        font-size: 10px;
+
+        &:hover {
+          text-decoration: none;
+          color: rgba(150, 150, 150, 1);
+        }
       }
     }
   }
@@ -149,35 +153,31 @@ NAVBAR
   }
 
   .nav-links {
-    border-color: rgba(0, 0, 0, 1);
+    float: right;
 
-    ul {
-      float: right;
+    li {
+      display: inline-block;
 
-      li {
-        display: inline-block;
+      > a {
+        border: 1px solid transparent;
+        border-radius: 20px;
+        color: rgba(0, 0, 0, 1);
+        font-size: 14px;
+        margin: 0 3px 0 3px;
+        padding: 5px 14px 5px 14px;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: 0.2s ease-out;
 
-        > a {
-          border: 1px solid transparent;
+        &:hover {
+          border: 1px solid rgba(0, 0, 0, 1);
           border-radius: 20px;
           color: rgba(0, 0, 0, 1);
-          font-size: 14px;
-          margin: 0 3px 0 3px;
-          padding: 5px 14px 5px 14px;
-          text-decoration: none;
-          text-transform: uppercase;
-          transition: 0.2s ease-out;
+          transition: 0.2s ease-in;
+        }
 
-          &:hover {
-            border: 1px solid rgba(0, 0, 0, 1);
-            border-radius: 20px;
-            color: rgba(0, 0, 0, 1);
-            transition: 0.2s ease-in;
-          }
-
-          &:focus {
-            color: rgba(0, 0, 0, 1);
-          }
+        &:focus {
+          color: rgba(0, 0, 0, 1);
         }
       }
     }
@@ -188,13 +188,17 @@ NAVBAR
     text-align: center;
     text-transform: uppercase;
 
-    a {
-      color: rgba(0, 0, 0, 1);
-      font-size: 10px;
+    li {
+      display: block;
 
-      &:hover {
-        text-decoration: none;
-        color: rgba(150, 150, 150, 1);
+      a {
+        color: rgba(0, 0, 0, 1);
+        font-size: 10px;
+
+        &:hover {
+          text-decoration: none;
+          color: rgba(150, 150, 150, 1);
+        }
       }
     }
   }
