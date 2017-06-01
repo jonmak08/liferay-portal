@@ -17,5 +17,10 @@
 			<default-portlet-decorator>true</default-portlet-decorator>
 			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
 		</portlet-decorator>
+
+		<settings>
+			<setting configurable="true" key="Contact Information" value="text" />
+			<setting configurable="true" key="Site Information" value="text" />
+		</settings>
 	</theme>
 </look-and-feel>

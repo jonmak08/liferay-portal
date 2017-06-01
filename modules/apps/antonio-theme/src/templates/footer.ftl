@@ -70,12 +70,12 @@
      <!-- .col-md-12 .text-center -->
 
      <div class="col-md-12 text-center contact-info">
-       <span class="contact-info">Put your contact info here</span>
+       <span class="contact-info">${contactInfo}</span>
      </div>
      <!-- .col-md-12 .text-center .contact-info -->
 
      <div class="col-md-12 text-center site-info">
-       <a href="#"><span>Site info goes here</span></a>
+       <a href="#"><span>${siteInfo}</span></a>
      </div>
      <!-- .col-md-12 .text-center .site-info -->
   </div>
