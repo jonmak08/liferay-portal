@@ -45,25 +45,19 @@
      <div class="col-md-12 text-center social-media">
        <ul class="social-media-list">
          <li>
-           <a href="#"><span class="glyphicon glyphicon-camera social-media-icon" aria-hidden="true"></span></a>
+           <a href="${socialMediaLink}"><span class="${socialMediaOne} social-media-icon" aria-hidden="true"></span></a>
          </li>
          <li>
-           <a href="#"><span class="glyphicon glyphicon-camera social-media-icon" aria-hidden="true"></span></a>
+           <a href="${socialMediaTwoLink}"><span class="${socialMediaTwo} social-media-icon" aria-hidden="true"></span></a>
          </li>
          <li>
-           <a href="#"><span class="glyphicon glyphicon-camera social-media-icon" aria-hidden="true"></span></a>
+           <a href="${socialMediaThreeLink}"><span class="${socialMediaThree} social-media-icon" aria-hidden="true"></span></a>
          </li>
          <li>
-           <a href="#"><span class="glyphicon glyphicon-camera social-media-icon" aria-hidden="true"></span></a>
+           <a href="${socialMediaFourLink}"><span class="${socialMediaFour} social-media-icon" aria-hidden="true"></span></a>
          </li>
          <li>
-           <a href="#"><span class="glyphicon glyphicon-camera social-media-icon" aria-hidden="true"></span></a>
-         </li>
-         <li>
-           <a href="#"><span class="glyphicon glyphicon-camera social-media-icon" aria-hidden="true"></span></a>
-         </li>
-         <li>
-           <a href="#"><span class="glyphicon glyphicon-camera social-media-icon" aria-hidden="true"></span></a>
+           <a href="${socialMediaFiveLink}"><span class="${socialMediaFive} social-media-icon" aria-hidden="true"></span></a>
          </li>
        </ul>
      </div>
