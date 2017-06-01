@@ -10,7 +10,7 @@
 			</button>
 
 			<#if show_site_name>
-				<a class="site-name navbar-brand brand-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
+				<a href="#" class="site-name navbar-brand brand-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
 					${site_name}
 				</a>
 			</#if>

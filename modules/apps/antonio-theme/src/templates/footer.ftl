@@ -1,40 +1,53 @@
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-content col-md-12">
 
-    </div>
-    <!-- .footer-content .col-md-10 .col-md-offset-1 -->
+    <#if addFooterSection>
+    <section class="footer-content col-md-12">
+      <div class="footer-section text-center">
+        <div class="footer-section-title">
+          <h4>${footerSectionTitle}</h4>
+        </div>
+        <!-- .footer-section-title -->
+        <p class="footer-section-entry">
+          ${footerSectionEntry}
+        </p>
+        <!-- .footer-section-entry -->
+      </div>
+      <!-- .footer-section -->
+    </section>
+    <!-- .footer-content .col-md-12 -->
+    </#if>
 
     <div class="col-md-12 text-center social-media">
       <ul class="social-media-list">
 
-        <#if ${socialMediaOne}>
+        <#if socialMediaOne != "">
         <li>
-          <a href="${socialMediaOneLink}"><span class="${socialMediaOne} social-media-icon" aria-hidden="true"></span></a>
+          <a href="${socialMediaOneLink}" target="_blank"><span class="${socialMediaOne} social-media-icon" aria-hidden="true"></span></a>
         </li>
         </#if>
 
-        <#if ${socialMediaTwo}
+        <#if socialMediaTwo !="">
         <li>
-          <a href="${socialMediaTwoLink}"><span class="${socialMediaTwo} social-media-icon" aria-hidden="true"></span></a>
+          <a href="${socialMediaTwoLink}" target="_blank"><span class="${socialMediaTwo} social-media-icon" aria-hidden="true"></span></a>
         </li>
         </#if>
 
-        <#if ${socialMediaThree}
+        <#if socialMediaThree !="">
         <li>
-          <a href="${socialMediaThreeLink}"><span class="${socialMediaThree} social-media-icon" aria-hidden="true"></span></a>
+          <a href="${socialMediaThreeLink}" target="_blank"><span class="${socialMediaThree} social-media-icon" aria-hidden="true"></span></a>
         </li>
         </#if>
 
-        <#if ${socialMediaFour}
+        <#if socialMediaFour !="">
         <li>
-          <a href="${socialMediaFourLink}"><span class="${socialMediaFour} social-media-icon" aria-hidden="true"></span></a>
+          <a href="${socialMediaFourLink}" target="_blank"><span class="${socialMediaFour} social-media-icon" aria-hidden="true"></span></a>
         </li>
         </#if>
 
-        <#if ${socialMediaFive}
+        <#if socialMediaFive !="">
         <li>
-          <a href="${socialMediaFiveLink}"><span class="${socialMediaFive} social-media-icon" aria-hidden="true"></span></a>
+          <a href="${socialMediaFiveLink}" target="_blank"><span class="${socialMediaFive} social-media-icon" aria-hidden="true"></span></a>
         </li>
         </#if>
 
