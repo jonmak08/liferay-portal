@@ -55,10 +55,10 @@
   }
 }
 
-html body {
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  font-style: italic;
 }
 
 ul {
@@ -99,7 +99,7 @@ NAVBAR
         border: 1px solid transparent;
         border-radius: 20px;
         color: rgba(255, 255, 255, 1);
-        font-size: 14px;
+        font-size: 12px;
         margin: 0 3px 0 3px;
         padding: 5px 14px 5px 14px;
         text-decoration: none;
@@ -163,7 +163,7 @@ NAVBAR
         border: 1px solid transparent;
         border-radius: 20px;
         color: rgba(0, 0, 0, 1);
-        font-size: 14px;
+        font-size: 12px;
         margin: 0 3px 0 3px;
         padding: 5px 14px 5px 14px;
         text-decoration: none;
@@ -499,26 +499,26 @@ hr {
   margin: 6px 0 6px 0;
 }
 
-.social-media {
-  margin: 40px 0 30px 0;
+.social-media-list {
+  margin: 40px auto;
 
   li {
     display: inline-block;
+    font-size: 25px;
+    padding: 10px;
+
+    a:hover {
+      text-decoration: none;
+    }
   }
 }
 
 .social-media-icon {
-  border: 1px solid rgba(150, 150, 150, 1);
-  border-radius: 200px;
   color: rgba(150, 150, 150, 1);
-  font-size: 25px;
-  margin: 5px;
-  padding: 10px;
 
   &:hover {
-    background-color: rgba(199, 168, 78, 1);
-    border: 1px solid rgba(199, 168, 78, 1);
-    color: rgba(255, 255, 255, 1);
+    color: rgba(199, 168, 78, 1);
+    text-decoration: none;
   }
 }
 

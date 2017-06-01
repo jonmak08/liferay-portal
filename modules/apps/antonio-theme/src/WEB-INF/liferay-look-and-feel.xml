@@ -21,6 +21,21 @@
 		<settings>
 			<setting configurable="true" key="Contact Information" value="text" />
 			<setting configurable="true" key="Site Information" value="text" />
+
+			<setting configurable="true" key="Social Media One" value="text" />
+			<setting configurable="true" key="Social Media One Link" value="text" />
+
+			<setting configurable="true" key="Social Media Two" value="text" />
+			<setting configurable="true" key="Social Media Two Link" value="text" />
+
+			<setting configurable="true" key="Social Media Three" value="text" />
+			<setting configurable="true" key="Social Media Three Link" value="text" />
+
+			<setting configurable="true" key="Social Media Four" value="text" />
+			<setting configurable="true" key="Social Media Four Link" value="text" />
+
+			<setting configurable="true" key="Social Media Five" value="text" />
+			<setting configurable="true" key="Social Media Five Link" value="text" />
 		</settings>
 	</theme>
 </look-and-feel>
