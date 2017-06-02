@@ -1,7 +1,7 @@
 <#if entries?has_content>
 	<@liferay_util["html-top"]>
 		<style>
-			.breadcrumb-arrows li {
+			.breadcrumb-arrows li > a {
 				background: #efefef;
 				border-right: 4px solid #fff;
 				display: inline-block;
@@ -10,7 +10,7 @@
 				position: relative;
 			}
 
-			.breadcrumb-arrows li:after {
+			.breadcrumb-arrows a:after {
 				border-bottom: 20px inset transparent;
 				border-left: 20px solid #efefef;
 				border-top: 20px inset transparent;
@@ -23,7 +23,7 @@
 				z-index: 1;
 			}
 
-			.breadcrumb-arrows li:nth-child(n+2):before {
+			.breadcrumb-arrows li:nth-child(n+2):before > a {
 				border-bottom: 20px inset transparent;
 				border-left: 20px solid #fff;
 				border-top: 20px inset transparent;
@@ -35,7 +35,7 @@
 				width: 0;
 			}
 
-			.breadcrumb-arrows li:first-child {
+			.breadcrumb-arrows li:first-child > a {
 				-moz-border-radius: 4px 0 0 4px;
 				-webkit-border-radius: 4px 0 0 4px;
 				border-radius: 4px 0 0 4px;
@@ -48,9 +48,16 @@
 				border-radius: 0 4px 4px 0;
 				border-right: none;
 				color: #fff;
+				display: inline-block;
+				padding: 12px 30px;
+				position: relative;
 			}
 
-			.breadcrumb-arrows li:first-child:before, li:last-child:after {
+			.breadcrumb-arrows li:first-child:before > a {
+				border: none;
+			}
+
+			.breadcrumb-arrows li:last-child:after > a {
 				border: none;
 			}
 		</style>
