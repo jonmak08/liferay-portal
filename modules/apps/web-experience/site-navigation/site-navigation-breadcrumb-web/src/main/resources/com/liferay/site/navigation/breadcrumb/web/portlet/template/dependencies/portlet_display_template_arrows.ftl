@@ -16,7 +16,7 @@
 				border-top: 20px inset transparent;
 				content: " ";
 				height: 0;
-				position: absolute;	
+				position: absolute;
 				right: -20px;
 				top: 0;
 				width: 0;
