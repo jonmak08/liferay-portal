@@ -1,0 +1,73 @@
+
+.carousel {
+  height: 100%;
+
+  .carousel-cell {
+    align-items: center;
+    display:  flex;
+    height: 100vh;
+    justify-content: center;
+    width: 102%;
+  }
+
+  #carousel1 {
+    @include image-generator('/o/photography-theme/images/alps.jpg');
+  }
+
+  #carousel2 {
+    @include image-generator('/o/photography-theme/images/party.jpg');
+  }
+
+  #carousel3 {
+    @include image-generator('/o/photography-theme/images/white.jpg');
+  }
+
+  #carousel4 {
+    @include image-generator('/o/photography-theme/images/shoes.jpg');
+  }
+
+  // Flickity css adjustments
+  .flickity-prev-next-button {
+    background: $transparent;
+    height: 60px;
+    margin: 0 15px;
+    opacity: 6;
+    width: 60px;
+
+    .previous {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+    }
+
+    .arrow {
+      fill: $white;
+      transition: fill .5s;
+    }
+
+    &:hover {
+      background: $transparent;
+      opacity: 1;
+    }
+
+    &:disabled {
+      display: none;
+    }
+  }
+
+  .icon-angle-down {
+    cursor: pointer;
+    left: 51.5%;
+    padding: 15px;
+    position: absolute;
+    top: 90%;
+    transform: translate(-90%, -50%);
+
+    @media screen and (max-width: $break-point) {
+      display: none;
+    }
+  }
+
+}

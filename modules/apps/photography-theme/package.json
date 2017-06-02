@@ -1,0 +1,31 @@
+{
+  "name": "photography-theme",
+  "version": "1.0.0",
+  "main": "package.json",
+  "keywords": [
+    "liferay-theme"
+  ],
+  "liferayTheme": {
+    "baseTheme": "styled",
+    "screenshot": "",
+    "rubySass": false,
+    "templateLanguage": "ftl",
+    "version": "7.0"
+  },
+  "devDependencies": {
+    "axios": "^0.16.1",
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "gulp": "^3.8.10",
+    "liferay-theme-deps-7.0": "~1.0.0",
+    "liferay-theme-tasks": "*",
+    "mstranslator": "^3.0.0"
+  },
+  "publishConfig": {
+    "tag": "7_0_x"
+  }
+}

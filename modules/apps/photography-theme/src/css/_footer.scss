@@ -1,0 +1,98 @@
+footer {
+  background-color: $black;
+  color: $white;
+  padding: 50px 0;
+
+  .list-inline {
+    li {
+      display: block;
+    }
+  }
+
+  .bottom-ctn > a {
+    text-decoration: none;
+  }
+
+  .icon-ctn {
+    position: relative;
+
+    .tooltip {
+      color: $white;
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      transform: translateX(0);
+      transition:
+        left .3s ease-in .3s,
+        opacity .3s ease-in .3s,
+        top .3s ease-in .3s,
+        transform .3s ease-in .3s,
+        visibility .3s linear .3s;
+      visibility: hidden;
+    }
+  }
+
+  .icon-ctn:hover .tooltip {
+    display: inline;
+    left: 50%;
+    opacity: 1;
+    top: -50px;
+    transform: translateX(-50%);
+    transition:
+      left .3s ease-in .3s,
+      opacity .3s ease-in .3s,
+      top .3s ease-in .3s,
+      transform .3s ease-in .3s,
+      visibility .3s linear .3s;
+    visibility: visible;
+
+  }
+
+  .social-media-icon {
+    border: 1px solid transparent;
+    border-radius: 50%;
+    color: $white;
+    display: inline-block;
+    font-size: 20px !important;
+    height: $icon-height;
+    margin: 25px 10px;
+    padding: 10px;
+    transition: border .5s, background .5s;
+    width: $icon-height;
+
+    &:hover {
+      background: transparent;
+      border: 1px solid $white;
+      transition: border .5s, background .5s;
+    }
+
+    $icons: (
+      twitter:  #55acee,
+      youtube:   #c4302b,
+      facebook: #3b5998,
+      instagram: #c32aa3,
+      github:   #231f20,
+      linkedin: #0977b5,
+      dribbble: #ea4c89,
+    );
+
+    @each $theme, $color in $icons {
+      &--#{$theme} {
+        background-color: $color;
+      }
+    }
+  }
+
+  .link-ctn {
+    cursor: default;
+  }
+
+  .link {
+    color: $white;
+  }
+
+  #contact {
+    margin-top: 20px;
+  }
+}

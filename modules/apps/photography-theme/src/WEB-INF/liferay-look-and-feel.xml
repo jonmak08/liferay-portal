@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.0.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_0_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.0.0+</version>
+	</compatibility>
+	<theme id="photography" name="photography">
+		<template-extension>ftl</template-extension>
+		<settings>
+			<setting configurable="true" key="phone" type="text" value="1-877-LIFERAY" />
+			<setting configurable="true" key="email" type="text" value="pr@liferay.com" />
+
+			<setting configurable="true" key="full-screen-navigation" type="checkbox" value="false" />
+			<setting configurable="true" key="site-logo-retina" type="checkbox" value="true" />
+
+			<setting configurable="true" key="facebook" type="checkbox" value="true" />
+			<setting configurable="true" key="facebook-url"  type="text" value="https://www.facebook.com/liferay/" />
+
+			<setting configurable="true" key="twitter" type="checkbox" value="true" />
+			<setting configurable="true" key="twitter-url" type="text" value="https://twitter.com/liferay" />
+
+			<setting configurable="true" key="instagram" type="checkbox" value="true" />
+			<setting configurable="true" key="instagram-url" type="text" value="https://www.instagram.com/liferayinc/" />
+
+			<setting configurable="true" key="youtube" type="checkbox" value="true" />
+			<setting configurable="true" key="youtube-url" type="text" value="https://www.youtube.com/user/liferayinc" />
+
+			<setting configurable="true" key="github" type="checkbox" value="true" />
+			<setting configurable="true" key="github-url" type="text" value="https://github.com/liferay" />
+
+			<setting configurable="true" key="linkedin" type="checkbox" value="true" />
+			<setting configurable="true" key="linkedin-url" type="text" value="https://www.linkedin.com/company/83609?trk=NUS_CMPY_TWIT" />
+
+			<setting configurable="true" key="dribbble" type="checkbox" value="true" />
+			<setting configurable="true" key="dribbble-url" type="text" value="https://dribbble.com/liferay" />
+		</settings>
+		<portlet-decorator id="barebone" name="Barebone">
+			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="borderless" name="Borderless">
+			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="decorate" name="Decorate">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
+	</theme>
+</look-and-feel>
