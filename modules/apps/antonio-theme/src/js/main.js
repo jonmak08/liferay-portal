@@ -4,6 +4,7 @@ $(document).ready(function() {
   var navbar = $('.navbar-custom');
   var controlMenu = $('.control-menu');
   var pageContent = $('.page-content');
+  var navItemDropdown = $('li.dropdown');
 
   // check if page loads with liferay-portal's control menu:
   if (controlMenu.length > 0) {
@@ -30,11 +31,13 @@ $(document).ready(function() {
     }
   });
 
-  $('li.dropdown').hover(function() {
-    $(this).find('.child-menu').fadeIn(200);
-  }, function() {
-    $(this).find('.child-menu').fadeOut(200);
-  });
+  navItemDropdown.hover(
+    function() {
+      $(this).children('.child-menu').show();
+    }, function() {
+      $(this).children('.child-menu').hide();
+    }
+  );
 
   AUI().ready(
    'liferay-sign-in-modal',
