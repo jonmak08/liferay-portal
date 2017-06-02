@@ -19,13 +19,11 @@
 		</portlet-decorator>
 
 		<settings>
+			<setting configurable="true" key="Site Name" type="text" value="Liferay"/>
+
 			<setting configurable="true" key="Add Footer Section" type="checkbox" value="false" />
 			<setting configurable="true" key="Footer Section Title" type="text" value="" />
 			<setting configurable="true" key="Footer Section Entry" type="text" value="" />
-
-			<setting configurable="true" key="Footer Contact Information" type="text" value="" />
-
-			<setting configurable="true" key="Footer Site Information" type="text" value="" />
 
 			<setting configurable="true" key="Social Media One Font Awesome Class" type="text" value="" />
 			<setting configurable="true" key="Social Media One Link" type="text" value="" />
@@ -41,6 +39,10 @@
 
 			<setting configurable="true" key="Social Media Five Font Awesome Class" type="text" value="" />
 			<setting configurable="true" key="Social Media Five Link" type="text" value="" />
+
+			<setting configurable="true" key="Footer Contact Information" type="text" value="" />
+
+			<setting configurable="true" key="Footer Site Information" type="text" value="" />
 		</settings>
 	</theme>
 </look-and-feel>

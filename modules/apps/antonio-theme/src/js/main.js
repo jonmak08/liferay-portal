@@ -4,7 +4,6 @@ $(document).ready(function() {
   var navbar = $('.navbar-custom');
   var controlMenu = $('.control-menu');
   var pageContent = $('.page-content');
-  var searchIcon = $('#searchIcon');
 
   // check if page loads with liferay-portal's control menu:
   if (controlMenu.length > 0) {
@@ -35,28 +34,6 @@ $(document).ready(function() {
     $(this).find('.child-menu').fadeIn(200);
   }, function() {
     $(this).find('.child-menu').fadeOut(200);
-  });
-
-  searchIcon.click(function(event) {
-    event.preventDefault();
-    console.log('opening Google search!');
-    window.open('https://www.google.com');
-  });
-
-  $('.pager-item-one').click(function() {
-    $('#carouselSlideOne').fadeIn(500);
-    $('#carouselSlideTwo').hide();
-    $('#carouselSlideThree').hide();
-  });
-  $('.pager-item-two').click(function() {
-    $('#carouselSlideTwo').fadeIn(500);
-    $('#carouselSlideOne').hide();
-    $('#carouselSlideThree').hide();
-  });
-  $('.pager-item-three').click(function() {
-    $('#carouselSlideThree').fadeIn(500);
-    $('#carouselSlideOne').hide();
-    $('#carouselSlideTwo').hide();
   });
 
   AUI().ready(

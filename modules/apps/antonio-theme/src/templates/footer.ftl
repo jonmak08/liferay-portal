@@ -5,7 +5,7 @@
     <section class="footer-content col-md-12">
       <div class="footer-section text-center">
         <div class="footer-section-title">
-          <h4>${footerSectionTitle}</h4>
+          <span>${footerSectionTitle}</span>
         </div>
         <!-- .footer-section-title -->
         <p class="footer-section-entry">

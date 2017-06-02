@@ -28,14 +28,6 @@
     background-color: rgba(0, 0, 0, 0);
   }
 
-  .news .content-container {
-    margin-bottom: 40px;
-  }
-
-  .article-separator.centered {
-    margin: 0 auto 20px auto;
-  }
-
   .adjust-theme-for-control-menu {
     margin-top: 65px;
   }
@@ -46,10 +38,6 @@
 }
 
 @media(max-width: 767px) {
-  .profile, .news {
-    text-align: left;
-  }
-
   .adjust-navbar-for-control-menu {
     top: 49px;
   }
@@ -66,6 +54,10 @@ ul {
   padding-left: 0;
 }
 
+#panel-manage-site_administration_navigation .tree-node .tree-node .tree-node a.layout-tree-add {
+  display: none;
+}
+
 /*-------------------------------------
 NAVBAR
 -------------------------------------*/
@@ -74,10 +66,6 @@ NAVBAR
   border-width: 0;
   padding: 15px;
   transition : 0.2s ease-in;
-
-  ul {
-    margin-top: 10px;
-  }
 
   .navbar-collapse {
     border: none;
@@ -92,10 +80,12 @@ NAVBAR
   .nav-links {
     float: right;
 
-    li {
-      display: inline-block;
+    li > a {
+      text-align: right;
+      padding-left: 0;
+      padding-right: 0;
 
-      > a {
+      span {
         border: 1px solid transparent;
         border-radius: 20px;
         color: rgba(255, 255, 255, 1);
@@ -156,10 +146,12 @@ NAVBAR
   .nav-links {
     float: right;
 
-    li {
-      display: inline-block;
+    li > a {
+      text-align: right;
+      padding-left: 0;
+      padding-right: 0;
 
-      > a {
+      span {
         border: 1px solid transparent;
         border-radius: 20px;
         color: rgba(0, 0, 0, 1);
@@ -209,10 +201,6 @@ NAVBAR
   }
 }
 
-#searchIcon:hover {
-  border: 1px solid transparent;
-}
-
 #hamburgerMenu {
   background-color: transparent;
   border-width: 0;
@@ -231,114 +219,29 @@ NAVBAR
 WELCOME WIDGET
 ----------------------------------*/
 
-.welcome-background-one {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://appetitedemo.files.wordpress.com/2015/07/smachno_18.jpg);
+.welcome-background {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/default_background.jpg);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 60px;
-  padding-top: 120px;
-}
-
-.welcome-background-two {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://appetitedemo.files.wordpress.com/2015/07/smachno_22.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-bottom: 60px;
-  padding-top: 120px;
-}
-
-.welcome-background-three {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://appetitedemo.files.wordpress.com/2015/07/smachno_21.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-bottom: 60px;
-  padding-top: 120px;
-}
-
-.welcome-header h2 {
-  color: rgba(255, 255, 255, 1);
-  font-size: 45px;
-  font-weight: 800;
-  padding-bottom: 20px;
-  padding-top: 60px;
-  text-transform: uppercase;
-}
-
-#carouselSlideOne {
-}
-
-#carouselSlideTwo {
-  display: none;
-}
-
-#carouselSlideThree {
-  display: none;
-}
-
-.welcome-container {
-  background-color: rgba(56, 58, 59, 1);
-}
-
-.welcome-content {
-  color: rgba(255, 255, 255, 1);
-  padding-bottom: 100px;
-  text-align: center;
-}
-
-.welcome-more-info {
-  padding-top: 20px;
-
-  a {
-    border: 2px solid rgba(255, 255, 255, 1);
-    color: rgba(255, 255, 255, 1);
-    font-size: 13px;
-    font-weight: bold;
-    padding: 10px;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-}
-
-.pager-item-one, .pager-item-two, .pager-item-three {
-  border: 1px solid rgba(255, 255, 255, 1);
-  border-radius: 200px;
-  display: inline-block;
-  height: 15px;
-  margin: 5px;
-  transition: 0.4s ease-out;
-  width: 15px;
-}
-
-.pager-item-selected {
-  background-color: rgba(255, 255, 255, 1);
-  transition: 0.4s ease-in;
+  min-height: 600px;
+  margin-bottom: 40px;
 }
 
 /*------------------------------
-SECTIONS
+PORTLETS
 ------------------------------*/
 
 .portlets-section {
-  margin: 40px 0 40px 0;
+  h2 {
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0 auto;
+  }
 }
 
-.section-white {
-  background-color: rgba(255, 255, 255, 1);
-  line-height: 26px;
-  padding: 80px 0 80px 0;
-}
-
-.section-tan {
-  background-color: rgba(244, 230, 220, 1);
-  line-height: 26px;
-  padding: 80px 0 80px 0;
-}
 
 /*------------------------------------
 FOOTER
@@ -347,6 +250,7 @@ FOOTER
 .site-footer {
   background-color: rgba(56, 58, 59, 1);
   line-height: 26px;
+  margin-top: 40px;
   padding: 40px 0 40px 0;
 }
 
@@ -360,8 +264,8 @@ FOOTER
   padding-bottom: 40px;
 }
 
-.footer-section-title h4 {
-  font-size: 15px;
+.footer-section-title {
+  font-size: 20px;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -375,7 +279,7 @@ FOOTER
 
   li {
     display: inline-block;
-    font-size: 25px;
+    font-size: 30px;
     padding: 10px;
 
     a:hover {

@@ -63,10 +63,6 @@
 				</li>
 				</#list>
 
-				<li>
-					<a id="searchIcon" href="#"><span class="icon-search"></span></a>
-				</li>
-
 				<#if !is_signed_in>
 				<li>
 					<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="signIn" rel="nofollow">${sign_in_text}</a>
