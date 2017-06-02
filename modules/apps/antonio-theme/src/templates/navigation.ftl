@@ -65,7 +65,7 @@
 
 				<#if !is_signed_in>
 				<li>
-					<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="signIn" rel="nofollow">${sign_in_text}</a>
+					<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="signIn" rel="nofollow"><span>${sign_in_text}</span></a>
 				</li>
 				</#if>
 			</ul>

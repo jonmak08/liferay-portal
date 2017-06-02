@@ -80,7 +80,7 @@ NAVBAR
   transition : 0.2s ease-in;
 
   .navbar-collapse {
-    border: none;
+    border-width: 0;
   }
 
   .brand-name {
@@ -93,9 +93,9 @@ NAVBAR
     float: right;
 
     li > a {
-      text-align: right;
       padding-left: 0;
       padding-right: 0;
+      text-align: right;
 
       span {
         border: 1px solid transparent;
@@ -129,8 +129,8 @@ NAVBAR
       font-size: 10px;
 
       &:hover {
-        text-decoration: none;
         color: rgba(150, 150, 150, 1);
+        text-decoration: none;
       }
     }
   }
@@ -157,9 +157,9 @@ NAVBAR
     float: right;
 
     li > a {
-      text-align: right;
       padding-left: 0;
       padding-right: 0;
+      text-align: right;
 
       span {
         border: 1px solid transparent;
@@ -193,7 +193,6 @@ NAVBAR
     text-transform: uppercase;
     width: 150px;
 
-
     li {
       display: block;
 
@@ -202,8 +201,8 @@ NAVBAR
         font-size: 10px;
 
         &:hover {
-          text-decoration: none;
           color: rgba(150, 150, 150, 1);
+          text-decoration: none;
         }
       }
     }
@@ -224,13 +223,9 @@ NAVBAR
   }
 }
 
-.navbar-collapse.in {
-  overflow-y: visible;
-}
-
-/*--------------------------------
+/*-----------------------------------
 WELCOME WIDGET
-----------------------------------*/
+-----------------------------------*/
 
 .welcome-background {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/default_background.jpg);
@@ -238,27 +233,26 @@ WELCOME WIDGET
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 600px;
   margin-bottom: 40px;
+  min-height: 500px;
 }
 
-/*------------------------------
+/*------------------------------------
 PORTLETS
-------------------------------*/
+------------------------------------*/
 
 .portlets-section {
   h2 {
     font-size: 20px;
     font-weight: 800;
-    text-transform: uppercase;
     margin: 0 auto;
+    text-transform: uppercase;
   }
 }
 
-
-/*------------------------------------
+/*-------------------------------------
 FOOTER
-------------------------------------*/
+-------------------------------------*/
 
 .site-footer {
   background-color: rgba(56, 58, 59, 1);
@@ -273,8 +267,8 @@ FOOTER
 
 .footer-section {
   color: rgba(150, 150, 150, 1);
-  padding-top: 40px;
   padding-bottom: 40px;
+  padding-top: 40px;
 }
 
 .footer-section-title {
