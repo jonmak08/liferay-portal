@@ -231,7 +231,7 @@ NAVBAR
 WELCOME WIDGET
 -----------------------------------*/
 
-.welcome-background {
+.welcome-banner {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/default_background.jpg);
   background-attachment: fixed;
   background-position: center;
@@ -242,17 +242,84 @@ WELCOME WIDGET
 }
 
 /*------------------------------------
-PORTLETS
+WEB CONTENT
 ------------------------------------*/
 
-.portlets-section {
-  h2 {
-    font-size: 20px;
-    font-weight: 800;
-    margin: 0 auto;
-    text-transform: uppercase;
+.section-white {
+  background-color: rgba(255, 255, 255, 1);
+  line-height: 26px;
+}
+
+.section-tan {
+  background-color: rgba(244, 230, 220, 1);
+  line-height: 26px;
+}
+
+.blog-image {
+  float: left;
+
+  img {
+    height: 100%;
+    width: 100%;
   }
 }
+
+.blog-title {
+  margin-bottom: 8px;
+  margin-top: 5px;
+
+  a {
+    color: rgba(0, 0, 0, 1);
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.2s ease-out;
+  }
+
+  a:hover {
+    color: rgba(199, 168, 78, 1);
+    transition: 0.2s ease-in;
+  }
+}
+
+.blog-subtitle {
+  color: rgba(150, 150, 150, 0.9);
+  font-size: 16px;
+  font-style: italic;
+}
+
+.blog-separator {
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  height: 20px;
+  margin-bottom: 20px;
+  width: 115px;
+}
+
+.blog-entry {
+  font-size: 16px;
+}
+
+// .more-info {
+//   padding-top: 8px;
+// }
+
+// .more-info a {
+//   border: 1.7px solid rgba(0, 0, 0, 1);
+//   color: rgba(0, 0, 0, 1);
+//   font-size: 12px;
+//   font-weight: 600;
+//   padding: 9px 11px 9px 11px;
+//   text-decoration: none;
+//   text-transform: uppercase;
+//   transition: 0.2s ease-out;
+// }
+//
+// .more-info a:hover {
+//   border: 1.7px solid rgba(199, 168, 78, 1);
+//   color: rgba(199, 168, 78, 1);
+//   transition: 0.2s ease-in;
+// }
 
 /*-------------------------------------
 FOOTER
