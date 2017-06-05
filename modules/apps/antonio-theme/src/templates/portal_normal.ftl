@@ -24,7 +24,7 @@
 	<header id="banner" role="banner">
 
 		<#if has_navigation && is_setup_complete>
-		<#include "${full_templates_path}/navigation.ftl" />
+			<#include "${full_templates_path}/navigation.ftl" />
 		</#if>
 
 	</header>
@@ -32,10 +32,9 @@
 	<section class="portlets-section">
 
 		<!-- ftl if (name of image portlet; if absent use default image)> -->
-		<div class="welcome-background"></div>
+		<div class="welcome-banner"></div>
 		<!-- ftl -->
 
-		<div class="container">
 			<h1 class="hide-accessible">${the_title}</h1>
 
 			<#if selectable>
@@ -50,8 +49,6 @@
 				</@>
 			</#if>
 
-		</div>
-		<!-- .container -->
 	</section>
 
 	<#include "${full_templates_path}/footer.ftl" />
