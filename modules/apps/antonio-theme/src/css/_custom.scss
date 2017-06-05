@@ -237,7 +237,6 @@ WELCOME WIDGET
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-bottom: 40px;
   min-height: 500px;
 }
 
@@ -248,11 +247,13 @@ WEB CONTENT
 .section-white {
   background-color: rgba(255, 255, 255, 1);
   line-height: 26px;
+  padding: 40px 0 40px 0;
 }
 
 .section-tan {
   background-color: rgba(244, 230, 220, 1);
   line-height: 26px;
+  padding: 40px 0 40px 0;
 }
 
 .blog-image {
@@ -266,7 +267,6 @@ WEB CONTENT
 
 .blog-title {
   margin-bottom: 8px;
-  margin-top: 5px;
 
   a {
     color: rgba(0, 0, 0, 1);
