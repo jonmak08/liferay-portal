@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container blog">
 
     <#if Imagecnm6.getData()?? && Imagecnm6.getData() != "">
         <div class="blog-image col-md-6">

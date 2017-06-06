@@ -31,10 +31,6 @@
 
 	<section class="portlets-section">
 
-		<!-- ftl if (name of image portlet; if absent use default image)> -->
-		<div class="welcome-banner"></div>
-		<!-- ftl -->
-
 			<h1 class="hide-accessible">${the_title}</h1>
 
 			<#if selectable>

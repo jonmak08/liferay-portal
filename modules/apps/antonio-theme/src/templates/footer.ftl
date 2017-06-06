@@ -8,7 +8,7 @@
             <span>${footerSectionTitle}</span>
           </div>
           <!-- .footer-section-title -->
-          <p class="footer-section-entry">
+          <p class="footer-section-entry col-md-6 col-md-offset-3">
             ${footerSectionEntry}
           </p>
           <!-- .footer-section-entry -->
@@ -55,13 +55,10 @@
      </div>
      <!-- .col-md-12 .text-center -->
 
-    <div class="col-md-12 text-center contact-info">
-      <span class="contact-info">${contactInfo}</span>
-    </div>
-    <!-- .col-md-12 .text-center .contact-info -->
-
-    <div class="col-md-12 text-center site-info">
-      <a href="#"><span>${siteInfo}</span></a>
+    <div class="col-md-12 text-center">
+      <span class="contact-info">
+        <@liferay.language key="powered-by" /> <a href="http://www.liferay.com" target="_blank" rel="external">Liferay</a>
+      </span>
     </div>
     <!-- .col-md-12 .text-center .site-info -->
   </div>

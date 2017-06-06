@@ -1,4 +1,15 @@
 $(document).ready(function() {
+  AUI().ready(
+    'liferay-sign-in-modal',
+    function(A) {
+      var signIn = A.one('#signIn');
+
+      if (signIn && signIn.getData('redirect') !== 'true') {
+        signIn.plug(Liferay.SignInModal);
+      }
+    }
+  );
+
   var navbarStartingPosition = 0;
   var navbarCurrentPosition = $('.navbar-custom').offset().top;
   var navbar = $('.navbar-custom');
@@ -37,16 +48,5 @@ $(document).ready(function() {
     }, function() {
       $(this).children('.child-menu').hide();
     }
-  );
-
-  AUI().ready(
-   'liferay-sign-in-modal',
-    function(A) {
-    var signIn = A.one('#signIn');
-
-    if (signIn && signIn.getData('redirect') !== 'true') {
-     signIn.plug(Liferay.SignInModal);
-    }
-   }
   );
 });

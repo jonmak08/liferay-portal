@@ -23,8 +23,4 @@ This file allows you to override and define new FreeMarker variables.
 
   socialMediaFive = getterUtil.getString(themeDisplay.getThemeSetting('Social Media Five Font Awesome Class'))
   socialMediaFiveLink = getterUtil.getString(themeDisplay.getThemeSetting('Social Media Five Link'))
-
-  contactInfo = getterUtil.getString(themeDisplay.getThemeSetting('Footer Contact Information'))
-
-  siteInfo = getterUtil.getString(themeDisplay.getThemeSetting('Footer Site Information'))
 />

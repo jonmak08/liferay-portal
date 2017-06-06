@@ -39,10 +39,6 @@
 
 			<setting configurable="true" key="Social Media Five Font Awesome Class" type="text" value="" />
 			<setting configurable="true" key="Social Media Five Link" type="text" value="" />
-
-			<setting configurable="true" key="Footer Contact Information" type="text" value="" />
-
-			<setting configurable="true" key="Footer Site Information" type="text" value="" />
 		</settings>
 	</theme>
 </look-and-feel>
