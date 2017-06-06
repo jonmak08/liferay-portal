@@ -31,6 +31,8 @@
 
 	<section class="portlets-section">
 
+		<div class="whitespace"></div>
+
 			<h1 class="hide-accessible">${the_title}</h1>
 
 			<#if selectable>

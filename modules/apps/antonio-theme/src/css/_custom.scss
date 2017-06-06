@@ -231,25 +231,13 @@ NAVBAR
 WELCOME WIDGET
 -----------------------------------*/
 
-.welcome-banner {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/default_background.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 500px;
+.whitespace {
+  min-height: 120px;
 }
 
 .banner {
+  margin-top: -120px;
   background-color: rgba(56, 58, 59, 1);
-  //
-  // .banner-image {
-  //   background-attachment: fixed;
-  //   background-position: center;
-  //   background-repeat: no-repeat;
-  //   background-size: cover;
-  //   min-height: 600px;
-  // }
 
   .banner-title {
     color: rgba(255, 255, 255, 1);
