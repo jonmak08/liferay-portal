@@ -16,6 +16,12 @@ $(document).ready(function() {
   var controlMenu = $('.control-menu');
   var pageContent = $('.page-content');
   var navItemDropdown = $('li.dropdown');
+  var pagerOne = $('.pager-one');
+  var pagerTwo = $('.pager-two');
+  var pagerThree = $('.pager-three');
+  var carouselSlideOne = $('.slide-one');
+  var carouselSlideTwo = $('.slide-two');
+  var carouselSlideThree = $('.slide-three');
 
   // check if page loads with liferay-portal's control menu:
   if (controlMenu.length > 0) {
@@ -25,7 +31,7 @@ $(document).ready(function() {
     var navbarStartingPosition = controlMenu.outerHeight();
   }
 
-  // on page load:
+  // when page refreshes:
   if (navbarCurrentPosition > navbarStartingPosition) {
     navbar.addClass('navbar-white');
   } else {
@@ -49,4 +55,21 @@ $(document).ready(function() {
       $(this).children('.child-menu').hide();
     }
   );
+
+  // for carousel web content will change pics on click
+  pagerOne.click(function() {
+    carouselSlideOne.fadeIn(500);
+    carouselSlideTwo.hide();
+    carouselSlideThree.hide();
+  });
+  pagerTwo.click(function() {
+    carouselSlideTwo.fadeIn(500);
+    carouselSlideOne.hide();
+    carouselSlideThree.hide();
+  });
+  pagerThree.click(function() {
+    carouselSlideThree.fadeIn(500);
+    carouselSlideOne.hide();
+    carouselSlideTwo.hide();
+  });
 });
