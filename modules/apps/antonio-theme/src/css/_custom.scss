@@ -5,27 +5,27 @@
 
 /* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
 
-@media (min-width: 768px) and (max-width: 991px) {
-  .navbar-collapse.collapse {
-      display: none !important;
-  }
-
-  .navbar-collapse.collapse.in {
-      display: block !important;
-  }
-
-  .navbar-header .collapse, .navbar-toggle {
-      display: block !important;
-  }
-
-  .navbar-header {
-      float: none;
-  }
-
-  .child-menu {
-    position: absolute;
-  }
-}
+// @media (min-width: 768px) and (max-width: 991px) {
+//   .navbar-collapse.collapse {
+//       display: none !important;
+//   }
+//
+//   .navbar-collapse.collapse.in {
+//       display: block !important;
+//   }
+//
+//   .navbar-header .collapse, .navbar-toggle {
+//       display: block !important;
+//   }
+//
+//   .navbar-header {
+//       float: none;
+//   }
+//
+//   .child-menu {
+//     position: absolute;
+//   }
+// }
 
 @media(min-width: 768px) {
   .navbar-custom {
@@ -55,7 +55,7 @@
   }
 }
 
-body {
+html body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -102,8 +102,8 @@ NAVBAR
         border-radius: 20px;
         color: rgba(255, 255, 255, 1);
         font-size: 12px;
-        margin: 0 3px 0 3px;
-        padding: 5px 14px 5px 14px;
+        margin: 0 3px;
+        padding: 5px 14px;
         text-decoration: none;
         text-transform: uppercase;
         transition: 0.2s ease-out;
@@ -167,7 +167,7 @@ NAVBAR
         color: rgba(0, 0, 0, 1);
         font-size: 12px;
         margin: 0 3px 0 3px;
-        padding: 5px 14px 5px 14px;
+        padding: 5px 14px;
         text-decoration: none;
         text-transform: uppercase;
         transition: 0.2s ease-out;
@@ -228,11 +228,46 @@ NAVBAR
 }
 
 /*-----------------------------------
-WELCOME WIDGET
+BANNER
 -----------------------------------*/
 
 .whitespace {
   min-height: 120px;
+}
+
+.slide-one, .slide-two, .slide-three {
+  margin-top: -120px;
+}
+
+.slide-two, .slide-three {
+  display: none;
+}
+
+.carousel-image-title {
+  color: rgba(255, 255, 255, 1);
+  font-size: 50px;
+  font-weight: 800;
+  padding-top: 180px;
+  text-transform: uppercase;
+}
+
+.pager-container {
+  padding-top: 60px;
+}
+
+.pager-one, .pager-two, .pager-three {
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-radius: 200px;
+  display: inline-block;
+  height: 15px;
+  margin: 5px;
+  transition: 0.4s ease-out;
+  width: 15px;
+}
+
+.pager-selected {
+  background-color: rgba(255, 255, 255, 1);
+  transition: 0.4s ease-in;
 }
 
 .banner {
@@ -243,7 +278,7 @@ WELCOME WIDGET
     color: rgba(255, 255, 255, 1);
     font-size: 50px;
     font-weight: 800;
-    padding-top: 250px;
+    padding-top: 180px;
     text-transform: uppercase;
   }
 }
@@ -253,11 +288,15 @@ WEB CONTENT
 ------------------------------------*/
 
 .portlet {
-  margin: 0px;
+  margin: 0;
+}
+
+.portlet-column {
+  padding: 0;
 }
 
 .blog {
-  padding: 40px 0 40px 0;
+  padding: 40px 0;
 
   .blog-image {
     float: left;
@@ -304,28 +343,6 @@ WEB CONTENT
   }
 }
 
-
-// .more-info {
-//   padding-top: 8px;
-// }
-
-// .more-info a {
-//   border: 1.7px solid rgba(0, 0, 0, 1);
-//   color: rgba(0, 0, 0, 1);
-//   font-size: 12px;
-//   font-weight: 600;
-//   padding: 9px 11px 9px 11px;
-//   text-decoration: none;
-//   text-transform: uppercase;
-//   transition: 0.2s ease-out;
-// }
-//
-// .more-info a:hover {
-//   border: 1.7px solid rgba(199, 168, 78, 1);
-//   color: rgba(199, 168, 78, 1);
-//   transition: 0.2s ease-in;
-// }
-
 /*-------------------------------------
 FOOTER
 -------------------------------------*/
@@ -333,7 +350,7 @@ FOOTER
 .site-footer {
   background-color: rgba(56, 58, 59, 1);
   line-height: 26px;
-  padding: 40px 0 40px 0;
+  padding: 40px 0;
 }
 
 .footer-content {
@@ -354,7 +371,7 @@ FOOTER
 
 .footer-section-entry  {
   font-size: 15px;
-  padding: 10px 0 10px 0;
+  padding: 10px 0;
 }
 
 .social-media-list {
