@@ -5,27 +5,24 @@
 
 /* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
 
-// @media (min-width: 768px) and (max-width: 991px) {
-//   .navbar-collapse.collapse {
-//       display: none !important;
-//   }
-//
-//   .navbar-collapse.collapse.in {
-//       display: block !important;
-//   }
-//
-//   .navbar-header .collapse, .navbar-toggle {
-//       display: block !important;
-//   }
-//
-//   .navbar-header {
-//       float: none;
-//   }
-//
-//   .child-menu {
-//     position: absolute;
-//   }
-// }
+html body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#panel-manage-site_administration_navigation .tree-node .tree-node .tree-node a.layout-tree-add {
+  display: none;
+}
+
+/*-------------------------------------
+NAVBAR
+-------------------------------------*/
 
 @media(min-width: 768px) {
   .navbar-custom {
@@ -54,25 +51,6 @@
     position: relative;
   }
 }
-
-html body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-#panel-manage-site_administration_navigation .tree-node .tree-node .tree-node a.layout-tree-add {
-  display: none;
-}
-
-/*-------------------------------------
-NAVBAR
--------------------------------------*/
 
 .navbar-custom {
   border-width: 0;
@@ -227,16 +205,28 @@ NAVBAR
   box-shadow: none;
 }
 
-/*-----------------------------------
-BANNER
------------------------------------*/
+/*------------------------------------
+PORTLETS
+------------------------------------*/
 
 .whitespace {
   min-height: 120px;
 }
 
+.portlet {
+  margin: 0;
+}
+
+.portlet-column {
+  padding: 0;
+}
+
+/*------------------------------------
+CAROUSEL BANNER
+------------------------------------*/
+
 .slide-one, .slide-two, .slide-three {
-  margin-top: -120px;
+  margin-top: -145px
 }
 
 .slide-two, .slide-three {
@@ -245,7 +235,6 @@ BANNER
 
 .carousel-image-title {
   color: rgba(255, 255, 255, 1);
-  font-size: 50px;
   font-weight: 800;
   padding-top: 180px;
   text-transform: uppercase;
@@ -270,13 +259,17 @@ BANNER
   transition: 0.4s ease-in;
 }
 
+/*------------------------------------
+BANNER WITH TITLE
+------------------------------------*/
+
 .banner {
   margin-top: -120px;
   background-color: rgba(56, 58, 59, 1);
 
   .banner-title {
     color: rgba(255, 255, 255, 1);
-    font-size: 50px;
+    // font-size: 50px;
     font-weight: 800;
     padding-top: 180px;
     text-transform: uppercase;
@@ -284,19 +277,11 @@ BANNER
 }
 
 /*------------------------------------
-WEB CONTENT
+BLOG POST PREVIEW
 ------------------------------------*/
 
-.portlet {
-  margin: 0;
-}
-
-.portlet-column {
-  padding: 0;
-}
-
 .blog {
-  padding: 40px 0;
+  padding: 40px;
 
   .blog-image {
     float: left;
@@ -312,7 +297,6 @@ WEB CONTENT
 
     a {
       color: rgba(0, 0, 0, 1);
-      font-size: 25px;
       font-weight: 800;
       text-decoration: none;
       text-transform: uppercase;
@@ -343,6 +327,71 @@ WEB CONTENT
   }
 }
 
+/*------------------------------------
+MENU SECTION
+------------------------------------*/
+
+@media(max-width: 991px) {
+  .menu-item-name {
+    font-size: 15px;
+    text-align: right;
+  }
+
+  .menu-item-price {
+    font-size: 15px;
+  }
+
+  .menu-item-description {
+    text-align: right;
+  }
+}
+
+.menu-header {
+  padding-bottom: 20px;
+  padding-left: 15px;
+
+  .menu-section-title {
+    color: rgba(199, 168, 78, 1);
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .menu-section-subtitle {
+    color: rgba(150, 150, 150, 0.9);
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+}
+
+.menu-section {
+  padding: 40px;
+}
+
+.menu-item {
+  padding-bottom: 20px;
+}
+
+.menu-item-image {
+  float: left;
+  height: 70px;
+  padding: 20px;
+  width: 70px;
+}
+
+.menu-item-name {
+  text-transform: uppercase;
+}
+
+.menu-item-price {
+  font-weight: 600;
+  text-align: right;
+}
+
+.menu-item-description {
+  text-transform: lowercase;
+  font-size: 12px;
+}
+
 /*-------------------------------------
 FOOTER
 -------------------------------------*/
@@ -360,17 +409,15 @@ FOOTER
 .footer-section {
   color: rgba(150, 150, 150, 1);
   padding-bottom: 40px;
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 .footer-section-title {
-  font-size: 20px;
   font-weight: 800;
   text-transform: uppercase;
 }
 
 .footer-section-entry  {
-  font-size: 15px;
   padding: 10px 0;
 }
 
