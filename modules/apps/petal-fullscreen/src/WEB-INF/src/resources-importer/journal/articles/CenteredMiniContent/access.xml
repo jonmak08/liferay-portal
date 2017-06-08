@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="title" type="text" index-type="keyword" instance-id="pnkx">
+		<dynamic-content language-id="en_US"><![CDATA[Microsoft Access]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="content" type="text_area" index-type="text" instance-id="onld">
+		<dynamic-content language-id="en_US"><![CDATA[<p>Microsoft Access is a database. &nbsp;It&#39;s very outdated.</p>]]></dynamic-content>
+	</dynamic-element>
+</root>

@@ -1,0 +1,856 @@
+/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+
+/* inject:imports */
+/* endinject */
+
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+$bluish: #2A59DE;
+$gray: #737373;
+
+@import "portlet_decorator";
+
+@mixin fake-underline-default {
+	bottom: 0;
+	content: "";
+	display: block;
+	height: 4px;
+	position: absolute;
+}
+
+// ---------- General Styles ---------- //
+
+// Text Look and Feel
+
+body {
+	color: $gray;
+	font-family: "Inconsolata", sans-serif;
+	font-size: 15px;
+	letter-spacing: 1px;
+	line-height: 24px;
+}
+
+.container-fluid {
+	overflow-y: hidden;
+
+	// Headings
+
+	@for $i from 1 through 6 {
+		h#{$i} {
+			color: black;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+	}
+
+	// Links
+
+	a {
+		&:active, &:link, &:visited {
+			text-decoration: none;
+		}
+
+		&:hover {
+			text-decoration: none;
+
+			//This is for fancy image links but was put here
+
+			.info-container {
+				-webkit-animation: fade 1.5s linear;
+				animation: fade 1.5s linear;
+				color: black;
+				display: flex;
+			}
+		}
+
+		// Social media icons
+
+		&, &:active, &:hover, &:link, &:visited {
+			.fa {
+				color: black;
+			}
+		}
+	}
+}
+
+// Containers
+
+.flexbox-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	padding: 10px;
+}
+
+.centered-content-container {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.image-container {
+	padding: 15px;
+}
+
+.full-width-container {
+	display: block;
+	width: 100%;
+}
+
+// Misc
+
+.unpadded {
+	overflow-x: hidden;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.paragraph-div {
+	padding-bottom: 20px;
+}
+
+// ----------   Navigation        ----- //
+
+// Link Styles
+
+#navigation {
+	display: inline-block;
+	position: relative;
+
+	a {
+		color: $gray;
+
+		&:hover, &:visited, &:active {
+			color: $gray;
+		}
+	}
+
+	ul {
+		li {
+			display: inline;
+			text-transform: uppercase;
+
+			a {
+				border-color: transparent;
+				border-style: solid;
+				border-width: 15px;
+				display: inline-block;
+				padding-left: 0;
+				padding-right: 0;
+				position: relative;
+				text-decoration: none;
+
+				// Underline animation for any nav links
+
+				&::before {
+					@include fake-underline-default;
+					left: 0;
+					transition: width 0 ease, background 0.3s ease;
+					width: 0;
+				}
+
+				&::after {
+					background: blue;
+					@include fake-underline-default;
+					right: 0;
+					transition: width 0.3s ease;
+					width: 0;
+				}
+
+				&:hover {
+					&::before {
+						background: blue;
+						transition: width 0.3s ease;
+						width: 100%;
+					}
+
+					&::after {
+						background: transparent;
+						transition: all 0 ease;
+						width: 100%;
+					}
+				}
+			}
+
+			// Don't re-animate already-underlined menu item
+
+			&[aria-selected="true"] {
+				a {
+					&::before {
+						@include fake-underline-default;
+						left: 0;
+						width: 100%;
+					}
+
+					&::after {
+						background: blue;
+						@include fake-underline-default;
+						right: 0;
+						width: 100%;
+					}
+
+					&:hover {
+						&::before {
+							background: blue;
+							width: 100%;
+						}
+
+						&::after {
+							background: transparent;
+							width: 100%;
+						}
+					}
+				}
+
+				// Handle child link animations
+
+				.child-menu {
+					a {
+						&::before {
+							@include fake-underline-default;
+							left: 0;
+							transition: width 0 ease, background 0.3s ease;
+							width: 0;
+						}
+
+						&::after {
+							background: blue;
+							@include fake-underline-default;
+							right: 0;
+							transition: width 0.5s ease;
+							width: 0;
+						}
+
+						&:hover {
+							&::before {
+								background: blue;
+								transition: width 0.3s ease;
+								width: 100%;
+							}
+
+							&::after {
+								background: transparent;
+								transition: all 0 ease;
+								width: 100%;
+							}
+						}
+					}
+
+					// Don't re-animate already-underlined child menu item
+
+					li[aria-selected="true"] a {
+						&::before {
+							@include fake-underline-default;
+							left: 0;
+							width: 100%;
+						}
+
+						&::after {
+							background: blue;
+							@include fake-underline-default;
+							right: 0;
+							width: 1005;
+						}
+
+						&:hover {
+							&::before {
+								background: blue;
+								width: 100%;
+							}
+
+							&::after {
+								background: transparent;
+								width: 100%;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&[aria-label="Site Pages"] li:hover .child-menu {
+			display: block;
+		}
+	}
+}
+
+.child-menu {
+	background-color: #F9F9F9;
+	border: 1px black solid;
+	display: none;
+	left: 0;
+	position: absolute;
+	width: 100%;
+	z-index: 20;
+
+	li {
+		text-align: center;
+	}
+}
+
+// ----------       Header        ----- //
+
+.parallax-image-spacer {
+	bottom: 0;
+	display: inline-block;
+	float: left;
+	left: 0;
+	margin-bottom: 50px;
+	margin-top: -30px;
+	opacity: 1;
+	position: relative;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.parallax-image {
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	left: 0;
+	opacity: 1;
+	position: absolute;
+	top: 0;
+	visibility: inherit;
+	width: 100%;
+	z-index: 0;
+}
+
+.vertical-spacer {
+	height: 10%;
+}
+
+.header-container {
+	height: 100%;
+	left: 0;
+	text-align: center;
+	top: 0;
+	width: 100%;
+}
+
+.header-title {
+	font-family: "Playfair Display SC", serif;
+	font-size: 80px;
+	font-weight: bold;
+	padding-bottom: 40px;
+	padding-top: 40px;
+	position: relative;
+	z-index: 2;
+}
+
+.header-subtitle {
+	font-size: 28px;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	position: relative;
+	z-index: 1;
+}
+
+// ----------   Fancy Image Link  ----- //
+
+.container-content {
+	width: 100%;
+}
+
+.fancy-image-links-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: left;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	max-width: 1175px;
+	padding: 10px;
+}
+
+// Causes hovered pics to have a growing square
+
+.mouse-over-square-pic {
+	position: relative;
+
+	&::before {
+		-webkit-transform: translate(-50%, -50%);
+		background: rgba(255, 255, 255, 0.2);
+		content: "";
+		display: block;
+		height: 0;
+		left: 50%;
+		opacity: 0;
+		position: absolute;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 0;
+		z-index: 2;
+	}
+
+	&:hover::before {
+		-webkit-animation: rect 0.75s forwards;
+		animation: rect 0.75s forwards;
+	}
+}
+
+.square-pic {
+	width: 375px;
+}
+
+.info-container {
+	align-items: center;
+	display: none;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+	position: absolute;
+	width: 100%;
+	z-index: 50;
+}
+
+.info-container-text {
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+@-webkit-keyframes rect {
+	0% {
+		opacity: 1;
+	}
+
+	40% {
+		opacity: 1;
+	}
+
+	100% {
+		height: 100%;
+		opacity: 1;
+		width: 100%;
+	}
+}
+
+@keyframes rect {
+	0% {
+		opacity: 1;
+	}
+
+	40% {
+		opacity: 1;
+	}
+
+	100% {
+		height: 100%;
+		opacity: 1;
+		width: 100%;
+	}
+}
+
+@-webkit-keyframes fade {
+	0% {
+		opacity: 0;
+	}
+
+	30% {
+		opacity: 0;
+	}
+
+	60% {
+		opacity: 0.5;
+	}
+}
+
+@keyframes fade {
+	0% {
+		opacity: 0;
+	}
+
+	30% {
+		opacity: 0;
+	}
+
+	60% {
+		opacity: 0.5;
+	}
+}
+
+// ----------     Image Link      ----- //
+
+.mouse-over-shadow-pic {
+	box-shadow: 0 0 1px transparent;
+	display: inline-block;
+	vertical-align: middle;
+
+	&:hover, &:focus, &:active {
+		box-shadow: 0 0 45px #D9D9D9;
+	}
+}
+
+.mouse-over-shadow-container {
+	margin: 30px;
+	max-width: 350px;
+}
+
+// ----------   Blue Buttons   -------- //
+
+.blue-button {
+	align-items: center;
+	background-color: $bluish;
+	color: white;
+	display: flex;
+	font-weight: bold;
+	justify-content: center;
+	text-transform: uppercase;
+
+	a {
+		display: block;
+	}
+}
+
+.large-button {
+	border: 2px 2px 2px 2px;
+	padding: 19px 60px 19px 60px;
+}
+
+.small-button {
+	font-size: 14px;
+	padding: 1px 10px 1px 10px;
+}
+
+.mouse-over-circle-pic > a {
+	color: white;
+	display: block;
+}
+
+.mouse-over-darken-pic > a {
+	color: white;
+	display: block;
+}
+
+// Radial out circle animation from hover.css
+
+.mouse-over-circle-pic {
+	-webkit-transform: perspective(1px) translateZ(0);
+	-webkit-transition-duration: 0.3s;
+	-webkit-transition-property: color;
+	box-shadow: 0 0 1px transparent;
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+	transform: perspective(1px) translateZ(0);
+	transition-duration: 0.3s;
+	transition-property: color;
+	vertical-align: middle;
+
+	&::before {
+		-webkit-transform: scale(0);
+		-webkit-transition-duration: 0.3s;
+		-webkit-transition-property: transform;
+		-webkit-transition-timing-function: ease-out;
+		background: black;
+		border-radius: 100%;
+		bottom: 0;
+		content: "";
+		left: 0;
+		opacity: 0.1;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: scale(0);
+		transition-duration: 0.3s;
+		transition-property: transform;
+		transition-timing-function: ease-out;
+		z-index: -1;
+	}
+
+	&:active, &:focus, &:hover {
+		color: white;
+
+		&::before {
+			-webkit-transform: scale(2);
+			transform: scale(2);
+		}
+	}
+}
+
+// Darken animation
+
+a.mouse-over-darken-pic {
+	background: black;
+	display: inline-block;
+	padding: 0;
+
+	.blue-button {
+		-webkit-transition: all 0.3s linear;
+		display: block;
+		transition: all 0.3s linear;
+	}
+
+	&:hover .blue-button {
+		opacity: 0.8;
+	}
+}
+
+// ----------  Footer Styles   -------- //
+
+#footer {
+	font-size: 12px;
+	margin-top: 50px;
+	text-align: center;
+}
+
+// ----------  Horizontal Nav  -------- //
+
+.nav-text {
+	margin-bottom: 30px;
+	margin-top: 30px;
+	width: 100%;
+}
+
+.top-menu {
+	display: block;
+	height: 100px;
+	opacity: 0;
+	width: 100%;
+}
+
+.top-menu-text {
+	color: black;
+	float: left;
+	font-family: "Playfair Display SC", serif;
+	font-size: 24px;
+	font-weight: bold;
+	padding: 20px;
+}
+
+.horizontal-nav-fixed-top {
+	background-color: white;
+	border-bottom: 1px black solid;
+	height: 70px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+}
+
+.horizontal-nav-should-be-fixed {
+	background-color: white;
+	border-bottom: 1px black solid;
+	position: fixed;
+}
+
+.horizontal-nav-should-not-be-fixed {
+	background-color: transparent;
+	border-width: 0;
+	position: absolute;
+}
+
+.horizontal-nav {
+	height: 70px;
+	width: 100%;
+	z-index: 100;
+}
+
+.horizontal-nav-offset-off {
+	top: 0;
+}
+
+.horizontal-nav-offset-on {
+	top: 65px;
+}
+
+// -------- Centered Mini-Content ----- //
+
+.centered-mini-content {
+	text-align: center;
+	width: 525px;
+}
+
+// ----------   Contact Page   -------- //
+
+.disguised-submit-button {
+	background: none;
+	border-width: 0;
+	border-bottom: 4px solid $bluish;
+	color: $bluish;
+	cursor: pointer;
+	font-weight: bold;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	&:hover {
+		border-bottom: 4px solid black;
+		color: black;
+	}
+}
+
+.justified-multi-input-row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.multi-column-container-left {
+	padding-right: 5px;
+}
+
+.multi-column-container-right {
+	padding-left: 5px;
+}
+
+.contact-flexbox-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.contact-page-left {
+	max-width: 356px;
+}
+
+.contact-page-right {
+	max-width: 754px;
+}
+
+.input-in-line {
+	width: 100%;
+}
+
+.input-in-line-container {
+	max-width: 300px;
+}
+
+.contact-text {
+	width: 100%;
+}
+
+// ----------   Profile Page   -------- //
+
+.center-text-block-container {
+	display: block;
+	text-align: center;
+}
+
+.full-width-flex-container {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.vertical-content-container {
+	display: flex;
+	flex-direction: column;
+	float: left;
+	justify-content: center;
+}
+
+.profile-picture-container {
+	max-height: 357px;
+	max-width: 357px;
+}
+
+.profile-biography-container {
+	max-height: 357px;
+	max-width: 357px;
+}
+
+.metamorphic-container {
+	display: block;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+// ---------- Calendar Portlet -------- //
+
+.scheduler-view-day-header-day a:hover {
+	text-decoration: underline;
+}
+
+// ---------- RESPONSIVE       -------- //
+
+@media (max-width: 1425px) {
+	.square-pic {
+		width: 562px;
+	}
+
+	.header-title {
+		font-size: 64px;
+	}
+}
+
+@media (max-width: 1260px) {
+	.metamorphic-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.profile-biography-container {
+		max-height: unset;
+		max-width: unset;
+	}
+}
+
+@media (max-width: 1192px) {
+	.square-pic {
+		width: 500px;
+	}
+}
+
+@media (max-width: 1150px) {
+	.square-pic {
+		width: 460px;
+	}
+
+	.header-title {
+		font-size: 36px;
+	}
+
+	.contact-flexbox-container {
+		justify-content: left;
+	}
+}
+
+@media (max-width: 990px) {
+	.square-pic {
+		width: 400px;
+	}
+}
+
+@media (max-width: 875px) {
+	.horizontal-nav {
+		background-color: white;
+		position: relative;
+		top: 0;
+	}
+
+	.control-menu + .container-fluid .horizontal-nav {
+		top: 0;
+	}
+}
+
+@media (max-width: 520px) {
+	.input-in-line-container {
+		width: 100%;
+	}
+}
+
+@media (max-width: 481px) {
+	#navigation ul li {
+		display: list-item;
+		list-style: none;
+	}
+
+	.child-menu {
+		background-color: unset;
+		border-width: 0;
+		position: relative;
+	}
+}
+
+@media (max-width: 460px) {
+	.square-pic {
+		max-width: 460px;
+		width: unset;
+	}
+}
