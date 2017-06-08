@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="bg_Color" type="list" index-type="keyword" instance-id="smzu">
+		<dynamic-content language-id="en_US"><![CDATA[dark]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Gallery_Header" type="text" index-type="keyword" instance-id="zvmb">
+		<dynamic-content language-id="en_US"><![CDATA[Gallery Header]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Description" type="text" index-type="keyword" instance-id="scoe">
+		<dynamic-content language-id="en_US"><![CDATA[Description of Gallery]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link" type="text" index-type="keyword" instance-id="bsfo">
+		<dynamic-content language-id="en_US"><![CDATA[Click me to see more]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="img_Gallery_1" type="image" index-type="keyword" instance-id="tkpi">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"georg-nietsch-41669.jpg","alt":"Mountains","title":"georg-nietsch-41669.jpg","type":"journal","uuid":"1cb5d8f0-74f1-1e7e-364d-218186842343","resourcePrimKey":"36416"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="img_Gallery_2" type="image" index-type="keyword" instance-id="odpv">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"gallery1.jpg","alt":"Zion national Park","title":"gallery1.jpg","type":"journal","uuid":"c04bc092-5a64-5f77-f8cc-5d70b165f54b","resourcePrimKey":"36416"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="img_Gallery_3" type="image" index-type="keyword" instance-id="thoj">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"gallery3.jpg","alt":"Snowboarding","title":"gallery3.jpg","type":"journal","uuid":"fefee993-1d91-8b4f-2530-cb25addf5433","resourcePrimKey":"36416"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="img_Gallery_4" type="image" index-type="keyword" instance-id="jfiz">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"gallery4.jpg","alt":"Rock Climbing","title":"gallery4.jpg","type":"journal","uuid":"861ee000-16fa-8d9c-232b-f03b2611ded9","resourcePrimKey":"36416"}]]></dynamic-content>
+	</dynamic-element>
+</root>

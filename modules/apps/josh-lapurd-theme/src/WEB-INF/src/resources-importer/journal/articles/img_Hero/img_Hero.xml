@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="img_Hero" type="image" index-type="keyword" instance-id="mkxl">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20140","name":"mac.png","alt":"","title":"mac.png","type":"journal","uuid":"821e5a9c-23b1-3ada-26e1-b0ef7bfeffbf","resourcePrimKey":"35530"}]]></dynamic-content>
+	</dynamic-element>
+</root>

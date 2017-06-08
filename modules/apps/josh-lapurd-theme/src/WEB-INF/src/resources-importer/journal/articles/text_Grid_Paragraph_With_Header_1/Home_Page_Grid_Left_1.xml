@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="grid_Header" type="text" index-type="keyword" instance-id="owfj">
+		<dynamic-content language-id="en_US"><![CDATA[Sample header text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="grid_Text" type="text" index-type="keyword" instance-id="yfet">
+		<dynamic-content language-id="en_US"><![CDATA[Description Text]]></dynamic-content>
+	</dynamic-element>
+</root>

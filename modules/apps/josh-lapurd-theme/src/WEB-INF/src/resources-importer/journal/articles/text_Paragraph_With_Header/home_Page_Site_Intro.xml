@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="bg_Color" type="list" index-type="keyword" instance-id="tzct">
+		<dynamic-content language-id="en_US"><![CDATA[white]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="header" type="text" index-type="keyword" instance-id="cebb">
+		<dynamic-content language-id="en_US"><![CDATA[Welcome to this theme page.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="paragraph_Text" type="text_box" index-type="text" instance-id="olns">
+		<dynamic-content language-id="en_US"><![CDATA[This page was styled after the Lapurd theme. This theme was made for you by me. Welcome.]]></dynamic-content>
+	</dynamic-element>
+</root>

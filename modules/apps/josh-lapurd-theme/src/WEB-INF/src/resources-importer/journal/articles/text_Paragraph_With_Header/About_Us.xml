@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="bg_Color" type="list" index-type="keyword" instance-id="xccu">
+		<dynamic-content language-id="en_US"><![CDATA[white]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="header" type="text" index-type="keyword" instance-id="gere">
+		<dynamic-content language-id="en_US"><![CDATA[Who we are]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="paragraph_Text" type="text_box" index-type="text" instance-id="jkuw">
+		<dynamic-content language-id="en_US"><![CDATA[We are a collection of files including some of the following: HTML, FTL, CSS, SCSS, JS, JSON, and even XML. Collectively, we form the site that you see now! You can reach us at email@domain.com or check out our <a href="./contact">Contact Us</a> page.]]></dynamic-content>
+	</dynamic-element>
+</root>
