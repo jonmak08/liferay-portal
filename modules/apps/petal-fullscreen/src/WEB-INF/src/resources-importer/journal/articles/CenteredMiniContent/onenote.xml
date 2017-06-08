@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="title" type="text" index-type="keyword" instance-id="rniy">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="content" type="text_area" index-type="text" instance-id="knpo">
+		<dynamic-content language-id="en_US"><![CDATA[<p>OneNote is actually amazing. &nbsp;Evernote just doesn&#39;t quite fill the same niche. &nbsp;In fact, nothing really does.</p>]]></dynamic-content>
+	</dynamic-element>
+</root>

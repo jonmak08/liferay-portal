@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="image" type="text" index-type="keyword" instance-id="cfwr">
+		<dynamic-element name="link" instance-id="rwef" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[9@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="hbrm" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Access-ible Data]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="cevp" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Database]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Access.png]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="text" index-type="keyword" instance-id="ebuu">
+		<dynamic-element name="link" instance-id="xcny" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[10@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="plin" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Excel-lence]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="jyri" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Spreadsheet]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Excel.png]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="text" index-type="keyword" instance-id="fkqr">
+		<dynamic-element name="link" instance-id="brrc" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[11@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="jyfz" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Lyncing people]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="lflt" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[VOIP]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Lync.png]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="text" index-type="keyword" instance-id="hypo">
+		<dynamic-element name="link" instance-id="yxlk" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[12@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="xufj" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[One note to rule them all]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="kvkl" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Tablet]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[OneNote.png]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="text" index-type="keyword" instance-id="dibh">
+		<dynamic-element name="link" instance-id="bnaw" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[13@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="zolr" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Outlook good]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="uzlv" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Email]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Outlook.png]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="text" index-type="keyword" instance-id="zucw">
+		<dynamic-element name="link" instance-id="udfn" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[14@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="vqrp" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Point Powerfully]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="ouoa" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Presentation]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[PowerPoint.png]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="text" index-type="keyword" instance-id="rbiw">
+		<dynamic-element name="link" instance-id="apjj" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[15@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="nrqn" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Don't Perish]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="urpm" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Publishing]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Publisher.png]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="text" index-type="keyword" instance-id="nawk">
+		<dynamic-element name="link" instance-id="uyat" type="link_to_layout" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[16@public@20140]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text" instance-id="jaeb" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[The Written Word]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="bluebuttontext" instance-id="qqdj" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Word Processing]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Word.png]]></dynamic-content>
+	</dynamic-element>
+</root>

@@ -1,0 +1,232 @@
+{
+"layoutTemplateId": "1_column",
+"publicPages": [
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "ImageLink.xml",
+							"groupId": "${groupId}"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/home",
+			"name": "Welcome",
+			"title": "Welcome"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_site_navigation_menu_web_portlet_SiteNavigationMenuPortlet"
+					}
+				]
+			],
+			"friendlyURL": "/about-us",
+			"layouts": [
+				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "Profile.xml",
+									"groupId": "${groupId}"
+								}
+
+							}
+						]
+					],
+					"friendlyURL": "/our-team",
+					"name": "Team",
+					"title": "Team"
+				},
+				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "Who.xml",
+									"groupId": "${groupId}"
+								}
+
+							}
+						]
+					],
+					"friendlyURL": "/who",
+					"name": "Who",
+					"title": "Who"
+				}
+			],
+			"name": "About Us",
+			"title": "About Us"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "FancyImageLink.xml",
+							"groupId": "${groupId}"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/microsoft-office",
+			"layouts": [
+				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "access.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
+					"friendlyURL": "/access",
+					"name": "Access",
+					"title": "Access"
+				},
+				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "excel.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
+					"friendlyURL": "/excel",
+					"name": "Excel",
+					"title": "Excel"
+				},
+				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "lync.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
+					"friendlyURL": "/lync",
+					"name": "Lync",
+					"title": "Lync"
+				},
+				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "onenote.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
+					"friendlyURL": "/onenote",
+					"name": "Onenote",
+					"title": "Onenote"
+				},
+				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "outlook.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
+					"friendlyURL": "/outlook",
+					"name": "Outlook",
+					"title": "Outlook"
+				},
+				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "powerpoint.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
+					"friendlyURL": "/powerpoint",
+					"name": "Powerpoint",
+					"title": "Powerpoint"
+				},
+				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "publisher.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
+					"friendlyURL": "/publisher",
+					"name": "Publisher",
+					"title": "Publisher"
+				},
+				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "word.xml",
+									"groupId": "${groupId}"
+								}
+							}
+						]
+					],
+					"friendlyURL": "/word",
+					"name": "Word",
+					"title": "Word"
+				}
+			],
+			"name": "Microsoft Office",
+			"title": "Microsoft Office"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Contact.xml",
+							"groupId": "${groupId}"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/contact",
+			"name": "Contact",
+			"title": "Contact"
+		}
+	]
+}
+
