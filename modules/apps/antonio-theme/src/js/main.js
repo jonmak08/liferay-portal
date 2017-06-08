@@ -28,7 +28,7 @@ $(document).ready(function() {
     pageContent.addClass('adjust-theme-for-control-menu');
     navbar.addClass('adjust-navbar-for-control-menu');
 
-    var navbarStartingPosition = controlMenu.outerHeight();
+    var navbarStartingPosition = controlMenu.outerHeight() + 1;
   }
 
   // when page refreshes:
