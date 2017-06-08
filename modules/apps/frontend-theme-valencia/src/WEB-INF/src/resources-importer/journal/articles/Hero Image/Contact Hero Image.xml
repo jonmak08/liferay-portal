@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Select10rv" type="list" index-type="keyword" instance-id="ccje">
+		<dynamic-content language-id="en_US"><![CDATA[contact]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Alt" type="text" index-type="keyword" instance-id="uhen">
+		<dynamic-content language-id="en_US"><![CDATA[Contact Travelogue]]></dynamic-content>
+	</dynamic-element>
+</root>

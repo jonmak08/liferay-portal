@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="HTMLidsr" type="text_area" index-type="text" instance-id="ojph">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<div class="container-fluid">
+					<div class="embed-responsive embed-responsive-16by9">
+						<h1>Video Journaling Encouraged!</h1>
+						<iframe allowfullscreen class="embed-responsive-item" frameborder="0" src="https://www.youtube.com/embed/bYpsf5cbQAE" ></iframe>
+					</div>
+				</div>
+			]]></dynamic-content>
+	</dynamic-element>
+</root>

@@ -1,0 +1,36 @@
+/* inject:imports */
+
+/* endinject */
+
+/* ---------- Fonts ---------- */
+@import "partials/fonts";
+
+/* ---------- Sass Variables ---------- */
+@import "partials/variables";
+
+/* ---------- Generic Styles ---------- */
+@import "partials/generic";
+
+/* ---------- Page Styles ---------- */
+@import "partials/pageStyles";
+
+/* ---------- Navigation ---------- */
+@import "partials/navigation";
+
+/* ---------- Typography ---------- */
+@import "partials/typography";
+
+/* ---------- Links & Buttons ---------- */
+@import "partials/linksAndButtons";
+
+/* ---------- Cards ---------- */
+@import "partials/cards";
+
+/* ---------- Portlet Styling ---------- */
+@import "partials/portlet";
+
+/* ---------- Carousel Styles ---------- */
+@import "partials/carousel";
+
+/* ---------- Blog Styles ---------- */
+@import "partials/blog";
