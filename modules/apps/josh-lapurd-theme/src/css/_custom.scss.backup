@@ -1,0 +1,273 @@
+/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+
+/* inject:imports */
+/* endinject */
+
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+* {
+
+	/*background-color: rgba(19,30,38,0.1)*/;
+}
+
+#banner {
+	width: 100%;
+
+}
+#top-menu {
+	background-color: rgba(19,30,38,0.70);
+	left: 0;
+	width: 100%;
+	height: 90px;
+	position: fixed;
+	margin-top: -25px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Start nav bar styling */
+.header-bar {	
+	color: white;
+	width: 60%;
+	text-decoration: none;
+	text-transform: uppercase;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.header-bar a:hover {
+	color: #DAB485;
+	text-decoration: none;
+
+}
+
+.header-bar a {
+	color: white;
+}
+
+.navbar {
+	height: 50px;
+}
+
+#company-title {
+	display: inline-block;
+	color: white;
+	padding: 5px;
+}
+
+.company-title-item {
+
+}
+
+#login {
+	color: white;
+	display: inline-block;
+}
+
+.login-item div {
+	display: inline-block;
+
+}
+
+#menu {
+	color: white;
+	display: inline-block;
+
+}
+
+#menu li {
+    display: inline-block;
+    margin: 0 13px;
+    padding-top: 0;
+    position: relative;
+    list-style: none;
+    float: left;;
+}
+
+.menu-right { /* block to group menu nav bar and log in */
+	float: right;
+	margin: auto;
+}
+
+.background-box {
+	width: 100%;
+	height: 700px;
+}
+
+.menu-item {
+	/*transition: all 0.3s ease-out;*/
+    display: inline-block;
+}
+
+@media (min-width: 992px) {
+	#top-menu .menu-right {
+        display:inline-block;
+        padding-top: 10px;
+    }
+
+    #top-menu .menu-right > ul.navbar {
+        margin: 0;
+    }
+
+    #top-menu .menu-right > ul.navbar li.menu-item--active-trail a {
+        color: #dab485;
+    }
+
+    #top-menu .menu-right > ul.navbar li.menu-item--active-trail a:before {
+        width: 100%;
+    }
+
+    #top-menu .menu-right > ul.navbar > li {
+        list-style: none;
+        float: left;
+        margin: 0 13px;
+        padding-top: 0;
+        position: relative;
+    }
+
+    #top-menu .menu-right > ul.navbar > li > a {
+        position: relative;
+    }
+
+    #top-menu .menu-right > ul.navbar > li > a:before {
+        background-color: #dab485;
+        bottom: 0;
+        content: "";
+        height: 4px;
+        left: 50%;
+        margin: 0 auto;
+        position: absolute;
+        top: auto;
+        transform: translate(-50%,-50px);
+        transition: width 0.3s ease 0s;
+        width: 0;
+    }
+
+    #top-menu .menu-right > ul.navbar > li a.is-active {
+        color: #eb1511;
+    }
+
+    #top-menu .menu-right > ul.navbar > li a.is-active:before {
+        width: 100%;
+    }
+
+    #top-menu .menu-right > ul.navbar > li ul.navbar {
+        display: none;
+        position: absolute;
+        top: 25px;
+        left: 0;
+        background: #313a41;
+        padding: 0 15px 10px 15px;
+        margin-left: 0;
+        width: 220px;
+        z-index: 200;
+    }
+
+    #top-menu .menu-right > ul.navbar > li ul.navbar:before {
+        content: "";
+        border-right: 7px solid transparent;
+        border-left: 7px solid transparent;
+        border-bottom: 7px solid #313a41;
+        position: absolute;
+        top: -7px;
+        left: 0;
+    }
+
+    #top-menu .menu-right > ul.navbar > li ul.navbar li a:hover {
+        color: #dab485;
+    }
+
+    #top-menu .menu-right > ul.navbar > li ul.navbar li a {
+        color: #fff;
+        font-size: 0.667em;
+    }
+
+    #top-menu .menu-right > ul.navbar > li ul.navbar li.menu-item--active-trail a.is-active {
+        color: #dab485 !important;
+    }
+
+    #top-menu .menu-right > ul.navbar > li:hover ul.navbar {
+        display: block;
+    }
+
+    #top-menu .menu-right > ul.navbar > li:hover a {
+        color: #dab485;
+    }
+
+    #top-menu .menu-right > ul.navbar > li:hover a:before {
+        width: 100%;
+    }
+
+    #top-menu .menu-right > ul.navbar li.menu-item--expanded {
+        padding-bottom: 9px;
+    }
+	.menu-right > ul.navbar > li > a:before {
+		background-color: #dab485;
+	    bottom: 0;
+	    content: "";
+	    height: 4px;
+	    left: 50%;
+	    margin: 0 auto;
+	    position: absolute;
+	    top: auto;
+	    transform: translate(-50%,-50px);
+	    transition: width 0.3s ease 0s;
+	    width: 0;
+	}
+}
+/* animate and shift top border for menu item hover
+
+    background-color: #dab485;
+    bottom: 0;
+    content: "";
+    height: 4px;
+    left: 50%;
+    margin: 0 auto;
+    position: absolute;
+    top: auto;
+    transform: translate(-50%,-50px);
+    transition: width 0.3s ease 0s;
+    width: 0;*/
+
+.menu-item:hover {
+	-moz-animation: all 0.3s ease-out;
+	animation: all 0.3s ease-out;
+	-webkit-animation: all 0.3s ease-out;
+	border-top-style: solid;
+	border-top-width: 5px;
+	border-color: #DAB485;
+	margin-top: -5px;
+}
+/* end nav bar styling */
+
+/* Jumbo tron backgroudn image */
+.jumbotron-picture {
+	background-color: blue;
+	background-image: url("images/mountains2.jpg");
+	background-attachment: relative;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	top: 0;
+	margin: -30px -15px 0px -15px;
+}
+
+/* end backgroudn image */
+
+/*{
+    background-color: #dab485;
+    bottom: 0;
+    content: "";
+    height: 4px;
+    left: 50%;
+    margin: 0 auto;
+    position: absolute;
+    top: auto;
+    transform: translate(-50%,-50px);
+    transition: width 0.3s ease 0s;
+    width: 0;
+}*/
