@@ -1,0 +1,42 @@
+
+#media-tiles {
+  .tile-ctn {
+    display: flex;
+    flex-direction: row;
+
+    @media screen and (max-width: $break-point) {
+      flex-direction: column;
+    }
+  }
+
+  figure {
+    position: relative;
+
+    figcaption {
+      color: $white;
+      left: 6%;
+      position: absolute;
+      top: 88%;
+
+      h3 {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  #tile1 {
+    @include tile-generator('/o/photography-theme/images/kiss.jpg');
+  }
+
+  #tile2 {
+    @include tile-generator('/o/photography-theme/images/car.jpg');
+  }
+
+  #tile3 {
+    @include tile-generator('/o/photography-theme/images/rose.jpg');
+  }
+
+  #tile4 {
+    @include tile-generator('/o/photography-theme/images/rings.jpg');
+  }
+}

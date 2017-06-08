@@ -1,0 +1,73 @@
+
+
+.carousel {
+  height: 100%;
+
+  .carousel-cell {
+    display:  flex;
+    justify-content: center;
+    align-items: center;
+    width: 102%;
+    height: 100vh;
+  }
+
+
+    #carousel1 {
+      @include image-generator('/o/photography-theme/images/alps.jpg');
+    }
+
+    #carousel2 {
+      @include image-generator('/o/photography-theme/images/glasses.jpg');
+    }
+
+    #carousel3 {
+      @include image-generator('/o/photography-theme/images/white.jpg');
+    }
+
+    #carousel4 {
+      @include image-generator('/o/photography-theme/images/shoes.jpg');
+    }
+
+
+  /* buttons, no circle */
+  .flickity-prev-next-button {
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    opacity: 0.6;
+  }
+  .flickity-prev-next-button:hover {
+    background: transparent;
+    opacity: 1;
+  }
+  /* arrow color */
+  .flickity-prev-next-button .arrow {
+    fill: $white;
+    transition: fill .5s;
+  }
+
+  /* closer to edge */
+  .flickity-slider {
+    width: 100%;
+  }
+  .flickity-prev-next-button.previous { left: 0; }
+  .flickity-prev-next-button.next { right: 0; }
+  /* hide disabled button */
+  .flickity-prev-next-button:disabled {
+    display: none;
+  }
+
+  .icon-angle-down {
+    position: absolute;
+    top: 90%;
+    left: 51.5%;
+    transform: translate(-90%, -50%);
+    cursor: pointer;
+    padding: 15px;
+
+    @media screen and (max-width: $break-point) {
+      display: none;
+    }
+  }
+
+}

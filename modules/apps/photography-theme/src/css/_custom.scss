@@ -1,0 +1,222 @@
+// These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file.
+
+// inject:imports
+// endinject
+
+// This file allows you to override default styles in one central location for easier upgrade and maintenance.
+
+
+
+@import 'utils/variables';
+@import 'utils/mixins';
+@import 'utils/fonts';
+@import 'utils/reset';
+@import 'navbar';
+@import 'carousel';
+// @import 'imageTiles';
+// @import 'footer';
+
+html {
+  font-size: 1.15vw !important;
+  height: 100% !important;
+  width: 100% !important;
+
+  @media screen and (max-width: $break-point) {
+    font-size: 100% !important;
+  }
+}
+
+#wrapper {
+  padding: 0;
+}
+
+#photography-theme-ctn, main, section, #tile-ctn, figure {
+  width: 100% !important;
+}
+
+#photography-theme-ctn {
+
+  header {
+    height: 100vh;
+    margin-top: -17px;
+  }
+
+  h1 {
+    @include font-generator('h1');
+  }
+
+  h2 {
+    @include font-generator('h2');
+  }
+
+  h3 {
+    @include font-generator('h3');
+  }
+
+  h4 {
+    @include font-generator('h4');
+  }
+
+  h5 {
+    @include font-generator('h5');
+    font-style: italic;
+  }
+
+  li, a {
+    @include font-generator('link');
+    color: $white;
+    cursor: pointer;
+    list-style: none;
+    text-decoration: none;
+  }
+
+  .logo {
+    @include font-generator('logo');
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  p {
+    @include font-generator('p');
+  }
+
+}
+//   #about {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-around;
+//     margin-bottom: 100px;
+
+//     .info-ctn {
+//       margin-top: 100px;
+
+//       h2 {
+//         letter-spacing: 6px;
+//         margin-bottom: 50px;
+//         text-transform: uppercase;
+//       }
+
+//       li {
+//         padding: 10px 0;
+//         white-space: nowrap;
+//       }
+
+//       a {
+//         color: $black;
+//       }
+
+//       @media screen and (max-width: $break-point) {
+//         margin: 70px 20px 0 20px;
+//       }
+//     }
+
+//     .info {
+//       max-width: 19rem;
+//       @media screen and(max-width: $break-point) {
+//         max-width: 100%;
+//       }
+//     }
+
+//     #read-more-link {
+//       margin: 200px 0;
+//     }
+
+//     #client-list {
+//       margin-bottom: 150px;
+//       @media screen and(max-width: $break-point) {
+//         margin-bottom: 50px;
+//       }
+//     }
+
+//     .no-wrap {
+//       white-space: nowrap;
+//     }
+
+//     .projects {
+//       padding-top: 10px;
+//       a {
+//         font-size: .75rem;
+//       }
+//       @media screen and (max-width: $break-point) {
+//         margin-top: 30px;
+//       }
+//     }
+
+//     @media screen and (max-width: $break-point) {
+//       flex-direction: column;
+//       width: 100%;
+//     }
+//   }
+
+//   #media-stacked {
+
+//     .media-ctn {
+//       align-items: center;
+//       display: flex;
+//       flex-direction: row;
+
+//       .text-ctn {
+//         h1, h2, h3 {
+//           margin: 50px auto 50px 70px;
+//           @media screen and (max-width: $break-point) {
+//             margin-left: 20px;
+//           }
+//         }
+//         h2 {
+//           font-style: italic;
+//         }
+
+//       }
+
+//       @media screen and (max-width: $break-point) {
+//         align-items: flex-start;
+//         flex-direction: column;
+//       }
+//     }
+
+//     #img1 {
+//       @include wide-image-generator('/o/photography-theme/images/lights.jpg');
+//       @media screen and (max-width: $break-point) {
+//         width: 100%;
+//       }
+//     }
+//     #img2 {
+//       @include wide-image-generator('/o/photography-theme/images/party.jpg');
+//       @media screen and (max-width: $break-point) {
+//         width: 100%;
+//         order: 4;
+//       }
+//     }
+//   }
+
+//   #photo-mini-tiles {
+//     display: flex;
+//     flex-direction: row;
+
+//     #mini-img1 {
+//        @include mini-image-generator('/o/photography-theme/images/photographer.jpg');
+//     }
+//     #mini-img2 {
+//        @include mini-image-generator('/o/photography-theme/images/student.jpg');
+//     }
+//     #mini-img3 {
+//        @include mini-image-generator('/o/photography-theme/images/guitar.jpg');
+//     }
+//     #mini-img4 {
+//        @include mini-image-generator('/o/photography-theme/images/ladybug.jpg');
+//     }
+//     #mini-img5 {
+//        @include mini-image-generator('/o/photography-theme/images/laptop.jpg');
+//     }
+//     #mini-img6 {
+//        @include mini-image-generator('/o/photography-theme/images/lily.jpg');
+//     }
+//     @media screen and (max-width: $break-point) {
+//       flex-wrap: wrap;
+//       #mini-img1, #mini-img2, #mini-img3, #mini-img4, #mini-img5, #mini-img6 {
+//         flex-grow: 1;
+//         width: 50%;
+//       }
+//     }
+//   }
+// }

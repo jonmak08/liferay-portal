@@ -1,0 +1,56 @@
+@mixin font-generator($type) {
+  font-family: map-get($families, $type);
+  font-size: map-get($sizes, $type);
+  font-weight: map-get($weights, $type);
+  letter-spacing: map-get($spacing, $type);
+  line-height: map-get($line-height, $type);
+  text-transform: map-get($capitalization, $type);
+}
+
+@mixin image-generator($url) {
+  background: url($url);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 103vh;
+}
+
+@mixin tile-generator($url) {
+  @include image-generator($url);
+  height: 100%;
+  opacity: 1;
+  transition: opacity 1s;
+  width: 100%;
+
+  &:hover {
+    cursor: pointer;
+    opacity: .6;
+    transition: opacity 1s;
+  }
+
+  @media screen and (max-width: $break-point) {
+    width: 100%;
+  }
+}
+
+@mixin wide-image-generator($url) {
+  @include image-generator($url);
+  width: 66%;
+  height: 70%;
+}
+
+@mixin mini-image-generator($url) {
+  @include image-generator($url);
+  width: 100%;
+  height: 20%;
+}
+
+@mixin break-point-hide() {
+  @media screen and (max-width: $break-point) {
+    display: none;
+  }
+}
+
+#hello {
+  display: block;
+}

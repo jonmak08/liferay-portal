@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700|Playfair+Display:400,400i,700i|Quicksand');
+
+
+$families: (
+  h1: Lato,
+  h2: Playfair Display,
+  h3: Lato,
+  h4: Lato,
+  h5: Playfair Display,
+  link: Lato,
+  p: Playfair Display,
+  logo: Lato
+);
+
+$sizes: (
+  h1: 2.9rem,
+  h2: 1.875rem,
+  h3: .75rem,
+  h4: .6rem,
+  h5: .875rem,
+  link: .8rem,
+  p: .9rem,
+  logo: 1.875rem
+);
+
+$weights: (
+  h1: 300,
+  h2: 400,
+  h3: bold,
+  h4: bold,
+  h5: 700,
+  link: bold,
+  p: 400,
+  logo: 300
+);
+
+$spacing: (
+  h1: 10px,
+  h2: normal,
+  h3: 3px,
+  h4: 3px,
+  h5: normal,
+  link: 2px,
+  p: none,
+  logo: 6px
+);
+
+$line-height: (
+  h1: 62px,
+  h2: 40px,
+  h3: 20px,
+  h4: 33px,
+  h5: 24px,
+  link: 10px,
+  p: 39px,
+  logo: 36px
+);
+
+$capitalization: (
+  h1: uppercase,
+  h2: capitalize,
+  h3: uppercase,
+  h4: uppercase,
+  h5: lowercase,
+  link: uppercase,
+  p: none,
+  logo: uppercase
+);
