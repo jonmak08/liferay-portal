@@ -4,9 +4,7 @@
     <#if addFooterSection>
       <section class="footer-content col-md-12">
         <div class="footer-section text-center">
-          <div class="footer-section-title">
-            <span>${footerSectionTitle}</span>
-          </div>
+          <h3 class="footer-section-title">${footerSectionTitle}</h3>
           <!-- .footer-section-title -->
           <p class="footer-section-entry col-md-6 col-md-offset-3">
             ${footerSectionEntry}
