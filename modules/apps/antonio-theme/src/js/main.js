@@ -39,7 +39,6 @@ $(document).ready(function() {
   }
 
   $(document).scroll(function() {
-    // will adjust navbarCurrentPosition when scrolling
     var navbarCurrentPosition = navbar.offset().top;
     if (navbarCurrentPosition > navbarStartingPosition) {
       navbar.addClass('navbar-white');
