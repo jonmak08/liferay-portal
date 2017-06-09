@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="BlogImageUrl" type="text" index-type="keyword" instance-id="yoqo">
+		<dynamic-content language-id="en_US"><![CDATA[https://appetitedemo.files.wordpress.com/2015/07/smachno_37.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="LinkToBlog" type="link_to_layout" index-type="keyword" instance-id="xaai">
+		<dynamic-content language-id="en_US"><![CDATA[34@public@20140]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Title" type="text" index-type="keyword" instance-id="wric">
+		<dynamic-content language-id="en_US"><![CDATA[IMPORTING RESOURCES WITH A THEME]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Subittle" type="text" index-type="keyword" instance-id="kjjy">
+		<dynamic-content language-id="en_US"><![CDATA[A theme without content is like an empty house.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="BlogEntry" type="text_box" index-type="text" instance-id="huph">
+		<dynamic-content language-id="en_US"><![CDATA[Usually, the resources are imported into a site template but they can also be imported directly into a site. Liferay Administrators can use the site or site template created by the resources importer to showcase the theme. This is a great way for theme developers to provide a sample context that optimizes the design of their theme. In fact, all standalone themes that are uploaded to Liferay Marketplace must use the resources importer.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Author" type="text" index-type="keyword" instance-id="ukjb">
+		<dynamic-content language-id="en_US"><![CDATA[Jane Doe]]></dynamic-content>
+	</dynamic-element>
+</root>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Image1Url" type="text" index-type="keyword" instance-id="gbyd">
+		<dynamic-content language-id="en_US"><![CDATA[http://fixedpricephoto.com/wp-content/uploads/2013/10/20130426-1304_untitled005.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Image1Title" type="text" index-type="keyword" instance-id="ygbz">
+		<dynamic-content language-id="en_US"><![CDATA[welcome to our restaurant]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Image2Url" type="text" index-type="keyword" instance-id="gxwb">
+		<dynamic-content language-id="en_US"><![CDATA[https://appetitedemo.files.wordpress.com/2015/07/smachno_16.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Image2Title" type="text" index-type="keyword" instance-id="sfnw">
+		<dynamic-content language-id="en_US"><![CDATA[we serve delicious dishes]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Image3Url" type="text" index-type="keyword" instance-id="yavb">
+		<dynamic-content language-id="en_US"><![CDATA[http://www.beachcamera.com/blog/wp-content/uploads/2015/11/14-1.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Image3Title" type="text" index-type="keyword" instance-id="vbwf">
+		<dynamic-content language-id="en_US"><![CDATA[the best food in town]]></dynamic-content>
+	</dynamic-element>
+</root>
