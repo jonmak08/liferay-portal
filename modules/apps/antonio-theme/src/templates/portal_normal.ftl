@@ -6,7 +6,7 @@
 
 <head>
 	<title>${the_title} - ${company_name}</title>
-	<link rel="stylesheet" href="../css/_custom.css">
+	<link href="../css/_custom.css" rel="stylesheet">
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 
 	<@liferay_util["include"] page=top_head_include />
@@ -62,5 +62,5 @@
 <!-- endinject -->
 
 </body>
-<script src="../js/main.js" charset="utf-8"></script>
+<script charset="utf-8" src="../js/main.js"></script>
 </html>

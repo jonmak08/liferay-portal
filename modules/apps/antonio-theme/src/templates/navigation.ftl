@@ -1,23 +1,23 @@
-<nav class="${nav_css_class} navbar-custom navbar navbar-inverse navbar-fixed-top" id="navigation" role="navigation">
+<nav class="${nav_css_class} navbar navbar-custom navbar-fixed-top navbar-inverse" id="navigation" role="navigation">
 	<h1 class="hide-accessible"><@liferay.language key="navigation" /></h1>
 
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<button id="hamburgerMenu" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			<button aria-expanded="false" class="collapsed navbar-toggle" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" id="hamburgerMenu" type="button">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-reorder"></span>
 				<span class="sidebar-menu">Menu</span>
 			</button>
 
 			<#if show_site_name>
-				<a href="#" class="site-name navbar-brand brand-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
+				<a class="brand-name navbar-brand site-name" href="/" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
 					${site_name}
 				</a>
 			</#if>
 		</div>
 
 		<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav nav-links" aria-label="<@liferay.language key="site-pages" />" role="menubar">
+			<ul aria-label="<@liferay.language key="site-pages" />" class="nav nav-links navbar-nav" role="menubar">
 				<#list nav_items as nav_item>
 				<#assign
 				nav_item_attr_has_popup = ""
@@ -54,7 +54,7 @@
 
 							<li ${nav_child_attr_selected} class="${nav_child_css_class}" id="layout_${nav_child.getLayoutId()}" role="presentation">
 								<span>
-									<a class="child-link" aria-labelledby="layout_${nav_child.getLayoutId()}" href="${nav_child.getURL()}" ${nav_child.getTarget()} role="menuitem">${nav_child.getName()}</a>
+									<a aria-labelledby="layout_${nav_child.getLayoutId()}" class="child-link" href="${nav_child.getURL()}" ${nav_child.getTarget()} role="menuitem">${nav_child.getName()}</a>
 								</span>
 							</li>
 							</#list>
