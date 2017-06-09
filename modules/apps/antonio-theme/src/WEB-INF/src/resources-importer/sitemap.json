@@ -1,1 +1,191 @@
-
+{
+  "layoutTemplateId": "1_column",
+  "publicPages": [
+    {
+      "columns": [
+        [
+          {
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences" : {
+							"articleId": "Caoursel Banner.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+        ],
+        [
+          {
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences" : {
+							"articleId": "Blog Post Preview 1.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+          {
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences" : {
+							"articleId": "Blog Post Preview 2.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+        ],
+        [
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences" : {
+              "articleId": "Menu Appetizers Section.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          },
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences" : {
+              "articleId": "Menu Drinks Section.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          }
+        ],
+        []
+      ],
+      "friendlyUrl": "/home",
+      "name": "Home",
+      "title": "Home",
+      "layoutTemplateId": "1_2_1_columns"
+    },
+    {
+      "columns": [
+        [
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences" : {
+              "articleId": "Features Banner.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          }
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences" : {
+              "articleId": "Full Blog Post.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          }
+        ]
+      ],
+      "friendlyUrl": "/features",
+      "layouts": [
+        {
+          "columns": [
+            [
+              {
+                "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                "portletPreferences" : {
+                  "articleId": "Blog Post Banner.xml",
+                  "groupId": "${groupId}",
+                  "portletSetupPortletDecoratorId": "barebone"
+                }
+              }
+              {
+                "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                "portletPreferences" : {
+                  "articleId": "Full Blog Post.xml",
+                  "groupId": "${groupId}",
+                  "portletSetupPortletDecoratorId": "barebone"
+                }
+              }
+            ]
+          ],
+          "friendlyUrl": "/full-blog-example",
+          "name": "Full Blog Example",
+          "title": "Full Blog Example"
+        },
+        {
+          "columns": [
+            [
+              {
+                "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                "portletPreferences" : {
+                  "articleId": "Menu Banner.xml",
+                  "groupId": "${groupId}",
+                  "portletSetupPortletDecoratorId": "barebone"
+                }
+              }
+            ],
+            [
+              {
+                "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                "portletPreferences" : {
+                  "articleId": "Menu Appetizers Section.xml",
+                  "groupId": "${groupId}",
+                  "portletSetupPortletDecoratorId": "barebone"
+                }
+              },
+              {
+                "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                "portletPreferences" : {
+                  "articleId": "Menu Drinks Section.xml",
+                  "groupId": "${groupId}",
+                  "portletSetupPortletDecoratorId": "barebone"
+                }
+              },
+              {
+                "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                "portletPreferences" : {
+                  "articleId": "Menu Entrees Section.xml",
+                  "groupId": "${groupId}",
+                  "portletSetupPortletDecoratorId": "barebone"
+                }
+              }
+            ],
+            [
+              {
+                "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                "portletPreferences" : {
+                  "articleId": "Blog Post Preview 3.xml",
+                  "groupId": "${groupId}",
+                  "portletSetupPortletDecoratorId": "barebone"
+                }
+              }
+            ]
+          ],
+          "friendlyUrl": "/menu",
+          "name": "Menu",
+          "title": "Menu",
+          "layoutTemplateId": "1_2_columns_ii"
+        },
+        {
+          "columns": [
+            [
+              {
+                "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                "portletPreferences" : {
+                  "articleId": "Contact Banner.xml",
+                  "groupId": "${groupId}",
+                  "portletSetupPortletDecoratorId": "barebone"
+                }
+              },
+              {
+                "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                "portletPreferences" : {
+                  "articleId": "Contact Us.xml",
+                  "groupId": "${groupId}",
+                  "portletSetupPortletDecoratorId": "barebone"
+                }
+              }
+            ]
+          ],
+          "friendlyUrl": "/contact-us",
+          "name": "Contact Us",
+          "title": "Contact Us",
+        }
+      ],
+      "name": "Features",
+      "title": "Features"
+    }
+  ]
+}
