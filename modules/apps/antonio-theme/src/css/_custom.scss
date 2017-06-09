@@ -282,11 +282,11 @@ BLOG POST PREVIEW
 .blog {
   padding: 40px;
 
-  .blog-image {
+  .blog-preview-image {
     height: 400px;
   }
 
-  .blog-title {
+  .blog-preview-title {
     margin-bottom: 8px;
 
     a {
@@ -303,7 +303,7 @@ BLOG POST PREVIEW
     }
   }
 
-  .blog-subtitle {
+  .blog-preview-subtitle {
     color: rgba(150, 150, 150, 0.9);
     font-size: 16px;
     font-style: italic;
@@ -316,12 +316,30 @@ BLOG POST PREVIEW
     width: 115px;
   }
 
-  .blog-entry {
+  .blog-preview-entry {
     font-size: 16px;
   }
 
-  .blog-author span {
+  .blog-preview-author span {
     font-weight: 600;
+  }
+
+  .blog-subtitle {
+    color: rgba(150, 150, 150, 0.9);
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .blog-author {
+    border-bottom: 1px solid rgba(150, 150, 150, 0.9);
+    font-weight: 600;
+    padding-bottom: 30px;
+    margin: 20px;
+  }
+
+  .blog-entry {
+    font-size: 17px;
+    padding-top: 20px;
   }
 }
 
