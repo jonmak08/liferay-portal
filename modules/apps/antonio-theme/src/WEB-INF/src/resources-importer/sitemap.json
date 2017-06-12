@@ -7,9 +7,8 @@
           {
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences": {
-							"articleId": "Caoursel Banner.xml",
-							"groupId": "${groupId}",
-							"portletSetupPortletDecoratorId": "barebone"
+							"articleId": "Carousel Banner.xml",
+							"groupId": "${groupId}"
 						}
 					}
         ],
@@ -18,16 +17,14 @@
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences": {
 							"articleId": "Blog Post Preview 1.xml",
-							"groupId": "${groupId}",
-							"portletSetupPortletDecoratorId": "barebone"
+							"groupId": "${groupId}"
 						}
 					},
           {
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences": {
 							"articleId": "Blog Post Preview 2.xml",
-							"groupId": "${groupId}",
-							"portletSetupPortletDecoratorId": "barebone"
+							"groupId": "${groupId}"
 						}
 					}
         ],
@@ -36,16 +33,14 @@
             "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
             "portletPreferences": {
               "articleId": "Menu Appetizers Section.xml",
-              "groupId": "${groupId}",
-              "portletSetupPortletDecoratorId": "barebone"
+              "groupId": "${groupId}"
             }
           },
           {
             "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
             "portletPreferences": {
               "articleId": "Menu Drinks Section.xml",
-              "groupId": "${groupId}",
-              "portletSetupPortletDecoratorId": "barebone"
+              "groupId": "${groupId}"
             }
           }
         ],
@@ -63,16 +58,14 @@
             "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
             "portletPreferences": {
               "articleId": "Features Banner.xml",
-              "groupId": "${groupId}",
-              "portletSetupPortletDecoratorId": "barebone"
+              "groupId": "${groupId}"
             }
           },
           {
             "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
             "portletPreferences": {
               "articleId": "Full Blog Post.xml",
-              "groupId": "${groupId}",
-              "portletSetupPortletDecoratorId": "barebone"
+              "groupId": "${groupId}"
             }
           }
         ]
@@ -86,16 +79,14 @@
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
                 "portletPreferences": {
                   "articleId": "Blog Post Banner.xml",
-                  "groupId": "${groupId}",
-                  "portletSetupPortletDecoratorId": "barebone"
+                  "groupId": "${groupId}"
                 }
               },
               {
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
                 "portletPreferences": {
                   "articleId": "Full Blog Post.xml",
-                  "groupId": "${groupId}",
-                  "portletSetupPortletDecoratorId": "barebone"
+                  "groupId": "${groupId}"
                 }
               }
             ]
@@ -111,8 +102,7 @@
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
                 "portletPreferences": {
                   "articleId": "Menu Banner.xml",
-                  "groupId": "${groupId}",
-                  "portletSetupPortletDecoratorId": "barebone"
+                  "groupId": "${groupId}"
                 }
               }
             ],
@@ -121,24 +111,21 @@
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
                 "portletPreferences": {
                   "articleId": "Menu Appetizers Section.xml",
-                  "groupId": "${groupId}",
-                  "portletSetupPortletDecoratorId": "barebone"
+                  "groupId": "${groupId}"
                 }
               },
               {
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
                 "portletPreferences": {
                   "articleId": "Menu Drinks Section.xml",
-                  "groupId": "${groupId}",
-                  "portletSetupPortletDecoratorId": "barebone"
+                  "groupId": "${groupId}"
                 }
               },
               {
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
                 "portletPreferences": {
                   "articleId": "Menu Entrees Section.xml",
-                  "groupId": "${groupId}",
-                  "portletSetupPortletDecoratorId": "barebone"
+                  "groupId": "${groupId}"
                 }
               }
             ],
@@ -147,8 +134,7 @@
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
                 "portletPreferences": {
                   "articleId": "Blog Post Preview 3.xml",
-                  "groupId": "${groupId}",
-                  "portletSetupPortletDecoratorId": "barebone"
+                  "groupId": "${groupId}"
                 }
               }
             ]
@@ -165,16 +151,14 @@
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
                 "portletPreferences": {
                   "articleId": "Contact Banner.xml",
-                  "groupId": "${groupId}",
-                  "portletSetupPortletDecoratorId": "barebone"
+                  "groupId": "${groupId}"
                 }
               },
               {
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
                 "portletPreferences": {
                   "articleId": "Contact Us.xml",
-                  "groupId": "${groupId}",
-                  "portletSetupPortletDecoratorId": "barebone"
+                  "groupId": "${groupId}"
                 }
               }
             ]
