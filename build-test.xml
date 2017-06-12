@@ -212,6 +212,7 @@ jdbc.default.password=${database.password}
 
 // HikariCP
 
+jdbc.default.connectionTimeout=600000
 jdbc.default.maximumPoolSize=20
 jdbc.default.minimumIdle=0
 
@@ -1396,6 +1397,8 @@ war.path=${app.server.weblogic.portal.dir}/</echo>
 		<attribute name="task" />
 
 		<sequential>
+			<update-gradle-properties />
+
 			<if>
 				<equals arg1="${test.poshi.runner.local.release}" arg2="true" />
 				<then>
@@ -2252,6 +2255,29 @@ tell application "Safari" to quit
 		</sequential>
 	</macrodef>
 
+	<macrodef name="prepare-test-ext-properties">
+		<sequential>
+			<if>
+				<equals arg1="${app.server.type}" arg2="tcserver" />
+				<then>
+					<replace file="${app.server.tcserver.dir}/liferay/conf/catalina.properties">
+						<replacetoken><![CDATA[common.loader=${catalina.base}/lib,${catalina.base}/lib/*.jar,${catalina.home}/lib,${catalina.home}/lib/*.jar]]></replacetoken>
+						<replacevalue><![CDATA[common.loader=${catalina.base}/lib,${catalina.base}/lib/*.jar,${catalina.home}/lib,${catalina.home}/lib/*.jar,${catalina.home}/lib/ext/global,${catalina.home}/lib/ext/global/*.jar,${catalina.home}/lib/ext,${catalina.home}/lib/ext/*.jar]]></replacevalue>
+					</replace>
+				</then>
+				<elseif>
+					<equals arg1="${app.server.type}" arg2="tomcat" />
+					<then>
+						<replace file="${app.server.tomcat.dir}/conf/catalina.properties">
+							<replacetoken><![CDATA[common.loader="${catalina.base}/lib","${catalina.base}/lib/*.jar","${catalina.home}/lib","${catalina.home}/lib/*.jar"]]></replacetoken>
+							<replacevalue><![CDATA[common.loader="${catalina.base}/lib","${catalina.base}/lib/*.jar","${catalina.home}/lib","${catalina.home}/lib/*.jar","${catalina.home}/lib/ext/global","${catalina.home}/lib/ext/global/*.jar","${catalina.home}/lib/ext","${catalina.home}/lib/ext/*.jar"]]></replacevalue>
+						</replace>
+					</then>
+				</elseif>
+			</if>
+		</sequential>
+	</macrodef>
+
 	<macrodef name="print-file">
 		<attribute name="file.name" />
 
@@ -2683,7 +2709,7 @@ ${tomcat-gc-log}
 									<unzip dest="${tstamp.value}" src="${war.path}">
 										<flattenmapper />
 										<patternset>
-											<include name="WEB-INF/src/dfc.properties" />
+											<include name="WEB-INF/classes/dfc.properties" />
 										</patternset>
 									</unzip>
 
@@ -2692,7 +2718,7 @@ ${tomcat-gc-log}
 									</propertyfile>
 
 									<war destfile="${war.path}" update="true">
-										<zipfileset file="${tstamp.value}/dfc.properties" fullpath="WEB-INF/src/dfc.properties" />
+										<zipfileset file="${tstamp.value}/dfc.properties" fullpath="WEB-INF/classes/dfc.properties" />
 									</war>
 
 									<delete file="${tstamp.value}/dfc.properties" />
@@ -2929,9 +2955,11 @@ go</echo>
 				</elseif>
 				<elseif>
 					<or>
+						<equals arg1="@{liferay.portal.bundle}" arg2="6.2.0" />
 						<equals arg1="@{liferay.portal.bundle}" arg2="6.2.1" />
 						<equals arg1="@{liferay.portal.bundle}" arg2="6.2.2" />
 						<equals arg1="@{liferay.portal.bundle}" arg2="6.2.3" />
+						<equals arg1="@{liferay.portal.bundle}" arg2="6.2.4" />
 						<equals arg1="@{liferay.portal.bundle}" arg2="6.2.10.1" />
 						<equals arg1="@{liferay.portal.bundle}" arg2="6.2.10.2" />
 						<equals arg1="@{liferay.portal.bundle}" arg2="6.2.10.3" />
@@ -5219,6 +5247,23 @@ go]]></replacevalue>
 									<else>
 										<echo>Deploying all relevant modules that make up ${Liferay-Releng-App-Title}.lpkg.</echo>
 
+										<for param="module.dir.path">
+											<path>
+												<dirset dir="@{app.dir}">
+													<include name="*" />
+												</dirset>
+											</path>
+											<sequential>
+												<basename file="@{module.dir.path}" property="module.war.name" />
+
+												<delete failonerror="false" verbose="true">
+													<fileset dir="${liferay.home}/deploy">
+														<include name="${module.war.name}*" />
+													</fileset>
+												</delete>
+											</sequential>
+										</for>
+
 										<gradle-execute dir="@{app.dir}" task="deploy">
 											<arg value="clean" />
 										</gradle-execute>
@@ -5970,6 +6015,9 @@ go]]></replacevalue>
 				<fileset dir="util-java/test-results" erroronmissingdir="false">
 					<include name="**/TEST-*.xml" />
 				</fileset>
+				<fileset dir="${blade.samples.dir}/liferay-workspace/tests" erroronmissingdir="false">
+					<include name="**/TEST-*.xml" />
+				</fileset>
 				<report format="frames" todir="test-results/html" />
 			</junitreport>
 		</parallel>
@@ -6283,6 +6331,7 @@ jdbc.default.password=${database.password}
 
 // HikariCP
 
+jdbc.default.connectionTimeout=600000
 jdbc.default.maximumPoolSize=20
 jdbc.default.minimumIdle=0
 
@@ -9507,6 +9556,15 @@ jdbc.default.password=${database.mysql.password}</echo>
 			<equals arg1="${cluster.enabled}" arg2="true" />
 			<then>
 				<prepare-test-cluster-properties />
+			</then>
+		</if>
+
+		<get-testcase-property property.name="ext.plugins.includes" />
+
+		<if>
+			<isset property="ext.plugins.includes" />
+			<then>
+				<prepare-test-ext-properties />
 			</then>
 		</if>
 

@@ -49,8 +49,8 @@ public class LiferayRootEndpoint implements RootEndpoint {
 	public void activate(BundleContext bundleContext) {
 		ServiceReferenceMapper<String, APIContributor> serviceReferenceMapper =
 			ServiceReferenceMapperFactory.create(
-				bundleContext, (service, emitter) ->
-					emitter.emit(service.getPath()));
+				bundleContext,
+				(service, emitter) -> emitter.emit(service.getPath()));
 
 		_serviceTrackerMap = ServiceTrackerMapFactory.openSingleValueMap(
 			bundleContext, APIContributor.class, null, serviceReferenceMapper);
@@ -71,8 +71,7 @@ public class LiferayRootEndpoint implements RootEndpoint {
 	}
 
 	@Override
-	@Path("/{path}")
-	public Resource getResource(@PathParam("path") String path) {
+	public Resource getResource(String path) {
 		if (!_serviceTrackerMap.containsKey(path)) {
 			throw new NotFoundException();
 		}
@@ -88,7 +87,7 @@ public class LiferayRootEndpoint implements RootEndpoint {
 				groupScoped.setGroupId(GroupThreadLocal.getGroupId());
 			}
 
-			resourceContext.initResource(resource);
+			_resourceContext.initResource(resource);
 
 			return resource;
 		}
@@ -96,7 +95,7 @@ public class LiferayRootEndpoint implements RootEndpoint {
 			LiferayDispatcherResource liferayDispatcherResource =
 				new LiferayDispatcherResource((ResourceMapper)apiContributor);
 
-			resourceContext.initResource(liferayDispatcherResource);
+			_resourceContext.initResource(liferayDispatcherResource);
 
 			return liferayDispatcherResource;
 		}
@@ -105,7 +104,7 @@ public class LiferayRootEndpoint implements RootEndpoint {
 	}
 
 	@Context
-	protected ResourceContext resourceContext;
+	private ResourceContext _resourceContext;
 
 	private ServiceTrackerMap<String, APIContributor> _serviceTrackerMap;
 

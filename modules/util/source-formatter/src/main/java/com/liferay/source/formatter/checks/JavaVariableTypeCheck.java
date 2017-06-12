@@ -55,10 +55,6 @@ public class JavaVariableTypeCheck extends BaseJavaTermCheck {
 		String fileName, String absolutePath, JavaTerm javaTerm,
 		String fileContent) {
 
-		if (isExcludedPath(_CHECK_JAVA_FIELD_TYPES_EXCLUDES, absolutePath)) {
-			return javaTerm.getContent();
-		}
-
 		JavaClass javaClass = (JavaClass)javaTerm;
 
 		String classContent = javaClass.getContent();
@@ -249,8 +245,8 @@ public class JavaVariableTypeCheck extends BaseJavaTermCheck {
 		return ListUtil.fromArray(
 			new String[] {
 				"ArquillianResource", "Autowired", "BeanReference", "Captor",
-				"Inject", "Mock", "Parameter", "Reference", "ServiceReference",
-				"SuppressWarnings", "Value"
+				"Context", "Inject", "Mock", "Parameter", "Reference",
+				"ServiceReference", "SuppressWarnings", "Value"
 			});
 	}
 
@@ -328,9 +324,6 @@ public class JavaVariableTypeCheck extends BaseJavaTermCheck {
 
 		return true;
 	}
-
-	private static final String _CHECK_JAVA_FIELD_TYPES_EXCLUDES =
-		"check.java.field.types.excludes";
 
 	private static final String _STATIC_LOG_EXCLUDES = "static.log.excludes";
 

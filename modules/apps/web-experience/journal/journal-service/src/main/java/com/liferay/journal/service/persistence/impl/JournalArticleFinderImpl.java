@@ -1038,7 +1038,7 @@ public class JournalArticleFinderImpl
 			}
 
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "lower(JournalArticleLocalization.title)", StringPool.LIKE,
+				sql, "LOWER(JournalArticleLocalization.title)", StringPool.LIKE,
 				false, titles);
 			sql = CustomSQLUtil.replaceKeywords(
 				sql, "JournalArticleLocalization.description", StringPool.LIKE,
@@ -1379,14 +1379,24 @@ public class JournalArticleFinderImpl
 			}
 
 			sql = CustomSQLUtil.replaceKeywords(
-				sql, "JournalArticleLocalization.title", StringPool.LIKE, false,
-				titles);
+				sql, "LOWER(JournalArticleLocalization.title)", StringPool.LIKE,
+				false, titles);
+
 			sql = CustomSQLUtil.replaceKeywords(
 				sql, "JournalArticleLocalization.description", StringPool.LIKE,
 				true, descriptions);
+
 			sql = CustomSQLUtil.replaceKeywords(
 				sql, "JournalArticle.content", StringPool.LIKE, false,
 				contents);
+
+			sql = CustomSQLUtil.replaceKeywords(
+				sql, "LOWER(tempJournalArticleLocalization.title)",
+				StringPool.LIKE, false, titles);
+
+			sql = CustomSQLUtil.replaceKeywords(
+				sql, "tempJournalArticleLocalization.description",
+				StringPool.LIKE, false, descriptions);
 
 			sql = replaceStructureTemplate(
 				sql, ddmStructureKeys, ddmTemplateKeys);
@@ -1454,6 +1464,8 @@ public class JournalArticleFinderImpl
 			}
 
 			qPos.add(contents, 2);
+			qPos.add(titles, 2);
+			qPos.add(descriptions, 2);
 			qPos.add(displayDateGT_TS);
 			qPos.add(displayDateGT_TS);
 			qPos.add(displayDateLT_TS);
@@ -1616,10 +1628,19 @@ public class JournalArticleFinderImpl
 				sql, "([$STRUCTURE_TEMPLATE$]) AND", StringPool.BLANK);
 		}
 
-		StringBundler sb = new StringBundler(3);
+		StringBundler sb = new StringBundler();
 
 		if (!isNullArray(ddmStructureKeys)) {
-			sb.append(_DDM_STRUCTURE_KEY_SQL);
+			sb.append("(");
+
+			for (int i = 0; i < ddmStructureKeys.length; i++) {
+				sb.append(_DDM_STRUCTURE_KEY_SQL);
+				sb.append("OR ");
+			}
+
+			sb.setIndex(sb.index() - 1);
+
+			sb.append(")");
 		}
 
 		if (!isNullArray(ddmTemplateKeys)) {
@@ -1627,7 +1648,16 @@ public class JournalArticleFinderImpl
 				sb.append(_AND_OR_CONNECTOR);
 			}
 
-			sb.append(_DDM_TEMPLATE_KEY_SQL);
+			sb.append("(");
+
+			for (int i = 0; i < ddmTemplateKeys.length; i++) {
+				sb.append(_DDM_TEMPLATE_KEY_SQL);
+				sb.append("OR ");
+			}
+
+			sb.setIndex(sb.index() - 1);
+
+			sb.append(")");
 		}
 
 		return StringUtil.replace(sql, "[$STRUCTURE_TEMPLATE$]", sb.toString());

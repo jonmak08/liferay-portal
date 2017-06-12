@@ -18,6 +18,7 @@ import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.SecureRandomUtil;
+import com.liferay.portal.kernel.util.File;
 import com.liferay.portal.kernel.util.PortalRunMode;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -47,9 +48,10 @@ import org.elasticsearch.node.Node;
 import org.elasticsearch.node.NodeBuilder;
 import org.elasticsearch.search.SearchService;
 import org.elasticsearch.search.action.SearchServiceTransportAction;
-import org.elasticsearch.search.fetch.QueryFetchSearchResult;
 import org.elasticsearch.search.internal.ShardSearchTransportRequest;
 import org.elasticsearch.threadpool.ThreadPool;
+import org.elasticsearch.transport.TransportChannel;
+import org.elasticsearch.transport.TransportRequestHandler;
 import org.elasticsearch.transport.TransportService;
 
 import org.jboss.netty.util.internal.ByteBufferUtil;
@@ -98,6 +100,8 @@ public class EmbeddedElasticsearchConnection
 		_node.close();
 
 		_node = null;
+
+		_file.deltree(_JNA_TMP_DIR);
 	}
 
 	public Node getNode() {
@@ -309,6 +313,10 @@ public class EmbeddedElasticsearchConnection
 
 		thread.setContextClassLoader(clazz.getClassLoader());
 
+		String jnaTmpDir = System.getProperty("jna.tmpdir");
+
+		System.setProperty("jna.tmpdir", _JNA_TMP_DIR);
+
 		try {
 			NodeBuilder nodeBuilder = new NodeBuilder();
 
@@ -321,30 +329,22 @@ public class EmbeddedElasticsearchConnection
 			if (elasticsearchConfiguration.syncSearch()) {
 				Injector injector = node.injector();
 
-				TransportService transportService = injector.getInstance(
-					TransportService.class);
-
-				transportService.removeHandler(
-					SearchServiceTransportAction.QUERY_FETCH_ACTION_NAME);
-
-				SearchService searchService = injector.getInstance(
-					SearchService.class);
-
-				transportService.registerRequestHandler(
-					SearchServiceTransportAction.QUERY_FETCH_ACTION_NAME,
-					ShardSearchTransportRequest.class, ThreadPool.Names.SAME,
-					(request, channel) -> {
-						QueryFetchSearchResult queryFetchSearchResult =
-							searchService.executeFetchPhase(request);
-
-						channel.sendResponse(queryFetchSearchResult);
-					});
+				_replaceTransportRequestHandler(
+					injector.getInstance(TransportService.class),
+					injector.getInstance(SearchService.class));
 			}
 
 			return node;
 		}
 		finally {
 			thread.setContextClassLoader(contextClassLoader);
+
+			if (jnaTmpDir == null) {
+				System.clearProperty("jna.tmpdir");
+			}
+			else {
+				System.setProperty("jna.tmpdir", jnaTmpDir);
+			}
 		}
 	}
 
@@ -399,8 +399,40 @@ public class EmbeddedElasticsearchConnection
 	@Reference
 	protected Props props;
 
+	private void _replaceTransportRequestHandler(
+		TransportService transportService, SearchService searchService) {
+
+		String action = SearchServiceTransportAction.QUERY_FETCH_ACTION_NAME;
+
+		transportService.removeHandler(action);
+
+		transportService.registerRequestHandler(
+			action, ShardSearchTransportRequest.class, ThreadPool.Names.SAME,
+			new TransportRequestHandler<ShardSearchTransportRequest>() {
+
+				@Override
+				public void messageReceived(
+						ShardSearchTransportRequest shardSearchTransportRequest,
+						TransportChannel transportChannel)
+					throws Exception {
+
+					transportChannel.sendResponse(
+						searchService.executeFetchPhase(
+							shardSearchTransportRequest));
+				}
+
+			});
+	}
+
+	private static final String _JNA_TMP_DIR =
+		SystemProperties.get(SystemProperties.TMP_DIR) +
+			"/elasticSearch-tmpDir";
+
 	private static final Log _log = LogFactoryUtil.getLog(
 		EmbeddedElasticsearchConnection.class);
+
+	@Reference
+	private File _file;
 
 	private Node _node;
 

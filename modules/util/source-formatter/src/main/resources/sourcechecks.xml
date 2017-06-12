@@ -17,7 +17,7 @@
 
 		<!-- Module checks -->
 
-		<check name="BNDBundleNameCheck" />
+		<check name="BNDBundleInformationCheck" />
 		<check name="BNDDirectoryNameCheck" />
 		<check name="BNDExportsCheck" />
 		<check name="BNDIncludeResourceCheck" />
@@ -37,6 +37,7 @@
 	</source-processor>
 	<source-processor name="GradleSourceProcessor">
 		<check name="GradleDependenciesCheck" />
+		<check name="GradleImportsCheck" />
 		<check name="GradleVersionCheck" />
 		<check name="WhitespaceCheck" />
 	</source-processor>
@@ -47,7 +48,7 @@
 		<check name="CopyrightCheck">
 			<property name="copyrightFileName" value="copyright.txt" />
 		</check>
-		<check name="EmptyArrayCheck" />
+		<check name="ArrayCheck" />
 		<check name="EmptyCollectionCheck" />
 		<check name="GetterUtilCheck" />
 		<check name="Java2HTMLCheck" />
@@ -78,6 +79,7 @@
 		<check name="JavaLongLinesCheck" />
 		<check name="JavaPackagePathCheck" />
 		<check name="JavaProcessCallableCheck" />
+		<check name="JavaProviderTypeAnnotationCheck" />
 		<check name="JavaRedundantConstructorCheck" />
 		<check name="JavaResultSetCheck" />
 		<check name="JavaReturnStatementCheck" />
@@ -109,8 +111,11 @@
 		</check>
 		<check name="JavaModuleInternalImportsCheck" />
 		<check name="JavaModuleServiceProxyFactoryCheck" />
+		<check name="JavaModuleServiceReferenceCheck" />
 		<check name="JavaModuleTestCheck" />
-		<check name="JavaOSGiReferenceCheck" />
+		<check name="JavaOSGiReferenceCheck">
+			<property name="serviceReferenceUtilClassNames" value="com.liferay.portal.kernel.util.HttpUtil,com.liferay.portal.kernel.util.PortalUtil" />
+		</check>
 
 		<!-- Plugins checks -->
 
@@ -142,7 +147,7 @@
 		<check name="CopyrightCheck">
 			<property name="copyrightFileName" value="copyright.txt" />
 		</check>
-		<check name="EmptyArrayCheck" />
+		<check name="ArrayCheck" />
 		<check name="EmptyCollectionCheck" />
 		<check name="GetterUtilCheck" />
 		<check name="JSPButtonTagCheck" />
@@ -196,6 +201,8 @@
 		<check name="LanguageKeysCheck" />
 	</source-processor>
 	<source-processor name="MarkdownSourceProcessor">
+		<check name="MarkdownFileExtensionCheck" />
+		<check name="MarkdownStylingCheck" />
 		<check name="WhitespaceCheck">
 			<property name="allowLeadingSpaces" value="true" />
 		</check>
@@ -230,6 +237,7 @@
 		<check name="XMLCustomSQLFileCheck" />
 		<check name="XMLDDLStructuresFileCheck" />
 		<check name="XMLFriendlyURLRoutesFileCheck" />
+		<check name="XMLFSBExcludeFileCheck" />
 		<check name="XMLHBMFileCheck" />
 		<check name="XMLLog4jFileCheck" />
 		<check name="XMLLookAndFeelFileCheck" />
@@ -252,5 +260,11 @@
 		<check name="XMLTestIgnorableErrorLinesFileCheck" />
 		<check name="XMLTilesDefsFileCheck" />
 		<check name="XMLWebFileCheck" />
+	</source-processor>
+	<source-processor name="YMLSourceProcessor">
+		<check name="WhitespaceCheck">
+			<property name="allowLeadingSpaces" value="true" />
+		</check>
+		<check name="YMLDefintionOrderCheck" />
 	</source-processor>
 </source-formatter>

@@ -539,6 +539,7 @@ app.server.type=@{app.server.type}]]></echo>
 		<attribute default="${app.server.@{app.server.type}.version}" name="app.server.version" />
 		<attribute name="database.type" />
 		<attribute default="${database.@{database.type}.version}" name="database.version" />
+		<attribute default="true" name="setup.testable.tomcat" />
 		<attribute default="" name="test.build.fix.pack.zip.url" />
 		<attribute default="" name="test.fix.pack.base.url" />
 		<attribute default="" name="test.legacy.database.dump" />
@@ -687,7 +688,10 @@ app.server.type=@{app.server.type}]]></echo>
 							<antcall inheritAll="false" target="setup-sdk" />
 
 							<if>
-								<equals arg1="${app.server.type}" arg2="tomcat" />
+								<and>
+									<equals arg1="${app.server.type}" arg2="tomcat" />
+									<equals arg1="@{setup.testable.tomcat}" arg2="true" />
+								</and>
 								<then>
 									<setup-testable-tomcat />
 								</then>
@@ -719,7 +723,10 @@ app.server.type=@{app.server.type}]]></echo>
 							</if>
 
 							<if>
-								<equals arg1="${app.server.type}" arg2="tomcat" />
+								<and>
+									<equals arg1="${app.server.type}" arg2="tomcat" />
+									<equals arg1="@{setup.testable.tomcat}" arg2="true" />
+								</and>
 								<then>
 									<setup-testable-tomcat />
 								</then>
@@ -806,6 +813,7 @@ app.server.type=@{app.server.type}]]></echo>
 				app.server.type="tomcat"
 				database.type="@{database.type}"
 				database.version="@{database.version}"
+				setup.testable.tomcat="false"
 				test.build.fix.pack.zip.url="${test.build.fix.pack.zip.url}"
 				test.fix.pack.base.url="${test.fix.pack.base.url}"
 				test.legacy.database.dump="true"
@@ -1321,6 +1329,74 @@ app.server.type=@{app.server.type}]]></echo>
 		</sequential>
 	</macrodef>
 
+	<target name="blade-samples-jdk8">
+		<run-batch-test>
+			<test-action>
+				<execute dir="${blade.samples.dir}">
+					<![CDATA[
+						/bin/bash build.sh
+					]]>
+				</execute>
+			</test-action>
+
+			<test-set-up>
+				<if>
+					<and>
+						<matches pattern="https?://" string="${test.build.fix.pack.zip.url}" />
+						<matches pattern="https?://" string="${test.portal.bundle.zip.url}" />
+					</and>
+					<then>
+						<antcall target="prepare-test-bundle">
+							<param name="test.app.server.bin.dir" value="${app.server.bin.dir}" />
+							<param name="test.build.bundle.zip.url" value="${test.portal.bundle.zip.url}" />
+							<param name="test.build.fix.pack.zip.url" value="${test.build.fix.pack.zip.url}" />
+						</antcall>
+					</then>
+					<elseif>
+						<matches pattern="https?://" string="${test.portal.bundle.zip.url}" />
+						<then>
+							<antcall target="prepare-test-bundle">
+								<param name="test.app.server.bin.dir" value="${app.server.bin.dir}" />
+								<param name="test.build.bundle.zip.url" value="${test.portal.bundle.zip.url}" />
+							</antcall>
+						</then>
+					</elseif>
+					<elseif>
+						<isset property="env.DIST_PATH" />
+						<then>
+							<prepare-test-environment />
+						</then>
+					</elseif>
+					<else>
+						<antcall target="compile" />
+
+						<ant antfile="build-dist.xml" target="build-dist-tomcat" />
+					</else>
+				</if>
+
+				<remake-dir dir="tools/zip_tmpl/license" />
+
+				<ant antfile="build-dist.xml" target="zip-tomcat" />
+
+				<propertyfile file="${blade.samples.dir}/liferay-workspace/gradle.properties">
+					<entry key="liferay.workspace.bundle.url" value="file:///${project.dir}/dist/liferay-portal-tomcat-${lp.version}.zip" />
+				</propertyfile>
+
+				<print-file file.name="${blade.samples.dir}/liferay-workspace/gradle.properties" />
+
+				<if>
+					<matches pattern="https?://" string="${test.license.xml.url}" />
+					<then>
+						<mirrors-get
+							dest="${blade.samples.dir}/liferay-workspace/configs/common/deploy/license.xml"
+							src="${test.license.xml.url}"
+						/>
+					</then>
+				</if>
+			</test-set-up>
+		</run-batch-test>
+	</target>
+
 	<target name="central-requirements-jdk8">
 		<fail message="Please set the property ${central.requirements.tests}." unless="central.requirements.tests" />
 
@@ -1620,7 +1696,7 @@ app.server.type=@{app.server.type}]]></echo>
 		<run-functional-test app.server.type="resin" database.type="mysql" test.portal.log.assert="true" />
 	</target>
 
-	<target name="functional-smoke-tcserver31-mysql56-jdk8">
+	<target name="functional-smoke-tcserver32-mysql56-jdk8">
 		<run-functional-test app.server.type="tcserver" database.type="mysql" test.portal.log.assert="true" />
 	</target>
 
@@ -1630,6 +1706,10 @@ app.server.type=@{app.server.type}]]></echo>
 
 	<target name="functional-smoke-tomcat80-mariadb100-jdk8">
 		<run-functional-test app.server.type="tomcat" database.type="mariadb" test.portal.log.assert="true" />
+	</target>
+
+	<target name="functional-smoke-tomcat80-mysql55-jdk8">
+		<run-functional-test app.server.type="tomcat" database.type="mysql" test.portal.log.assert="true" />
 	</target>
 
 	<target name="functional-smoke-tomcat80-mysql56-jdk8">
@@ -1688,7 +1768,7 @@ app.server.type=@{app.server.type}]]></echo>
 		<run-functional-test app.server.type="jboss" database.type="mysql" />
 	</target>
 
-	<target name="functional-upgrade-tcserver31-mysql56-jdk8">
+	<target name="functional-upgrade-tcserver32-mysql56-jdk8">
 		<run-functional-test app.server.type="tcserver" database.type="mysql" />
 	</target>
 
@@ -2428,19 +2508,7 @@ information. Make sure to commit in all build services results.
 			<try>
 				<move file="${module.base.dir}/settings.gradle" tofile="${module.base.dir}/settings.gradle.temp" />
 
-				<local name="tasks.output" />
-
-				<gradle-execute dir="${module.base.dir}" outputproperty="tasks.output" task="tasks" />
-
-				<if>
-					<contains string="${tasks.output}" substring="assemble" />
-					<then>
-						<gradle-execute dir="${module.base.dir}" task="assemble" />
-					</then>
-					<else>
-						<gradle-execute dir="${module.base.dir}" task="jar" />
-					</else>
-				</if>
+				<gradle-execute checktask="true" dir="${module.base.dir}" task="assemble" />
 			</try>
 			<catch>
 				<fail message="${failure.property}" />
@@ -2470,7 +2538,7 @@ information. Make sure to commit in all build services results.
 			<try>
 				<move file="${module.base.dir}/settings.gradle" tofile="${module.base.dir}/settings.gradle.temp" />
 
-				<gradle-execute dir="${module.base.dir}" task="pmdMain">
+				<gradle-execute checktask="true" dir="${module.base.dir}" task="pmdMain">
 					<arg value="pmdTest" />
 					<arg value="pmdTestIntegration" />
 				</gradle-execute>
@@ -2501,11 +2569,12 @@ information. Make sure to commit in all build services results.
 		<echo file="build.${user.name}.properties">baseline.jar.report.level=persist</echo>
 
 		<echo>Executing baseline on ${module.base.dir}.</echo>
+
 		<trycatch property="failure.property">
 			<try>
 				<move file="${module.base.dir}/settings.gradle" tofile="${module.base.dir}/settings.gradle.temp" />
 
-				<gradle-execute dir="${module.base.dir}" forcedcacheenabled="false" task="baseline" />
+				<gradle-execute checktask="true" dir="${module.base.dir}" forcedcacheenabled="false" task="baseline" />
 			</try>
 			<catch>
 				<fail message="${failure.property}" />
@@ -2575,7 +2644,7 @@ information. Make sure to commit in all build services results.
 			<try>
 				<move file="${module.base.dir}/settings.gradle" tofile="${module.base.dir}/settings.gradle.temp" />
 
-				<gradle-execute dir="${module.base.dir}" task="test" />
+				<gradle-execute checktask="true" dir="${module.base.dir}" forcedcacheenabled="false" task="test" />
 			</try>
 			<catch>
 				<fail message="${failure.property}" />
@@ -2765,10 +2834,6 @@ ${output.content}</echo>
 				</if>
 			</test-set-up>
 		</run-batch-test>
-	</target>
-
-	<target name="upstream-functional-tomcat80-mysql56-jdk8">
-		<run-functional-test app.server.type="tomcat" database.type="mysql" />
 	</target>
 
 	<target name="wsdd-builder-jdk8">

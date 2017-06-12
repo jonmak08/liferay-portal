@@ -29,7 +29,7 @@ import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelModifiedDateComparator;
 import com.liferay.friendly.url.model.FriendlyURLEntry;
 import com.liferay.friendly.url.service.FriendlyURLEntryLocalService;
-import com.liferay.portal.kernel.comment.CommentManagerUtil;
+import com.liferay.portal.kernel.comment.CommentManager;
 import com.liferay.portal.kernel.comment.DiscussionStagingHandler;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -368,7 +368,7 @@ public class BlogsEntryStagedModelDataHandler
 
 		newPrimaryKeysMap.put(entry.getEntryId(), importedEntry.getEntryId());
 
-		_importFriendlyURLEntries(portletDataContext, entry);
+		_importFriendlyURLEntries(portletDataContext, entry, importedEntry);
 
 		portletDataContext.importClassedModel(entry, importedEntry);
 	}
@@ -446,7 +446,7 @@ public class BlogsEntryStagedModelDataHandler
 		}
 
 		DiscussionStagingHandler discussionStagingHandler =
-			CommentManagerUtil.getDiscussionStagingHandler();
+			_commentManager.getDiscussionStagingHandler();
 
 		String stagedModelClassName = null;
 
@@ -587,7 +587,8 @@ public class BlogsEntryStagedModelDataHandler
 	}
 
 	private void _importFriendlyURLEntries(
-			PortletDataContext portletDataContext, BlogsEntry blogsEntry)
+			PortletDataContext portletDataContext, BlogsEntry blogsEntry,
+			BlogsEntry importedBlogsEntry)
 		throws PortletDataException {
 
 		List<Element> friendlyURLEntryElements =
@@ -600,6 +601,10 @@ public class BlogsEntryStagedModelDataHandler
 			FriendlyURLEntry friendlyURLEntry =
 				(FriendlyURLEntry)portletDataContext.getZipEntryAsObject(path);
 
+			friendlyURLEntry.setClassNameId(
+				_portal.getClassNameId(BlogsEntry.class));
+			friendlyURLEntry.setClassPK(importedBlogsEntry.getPrimaryKey());
+
 			StagedModelDataHandlerUtil.importStagedModel(
 				portletDataContext, friendlyURLEntry);
 		}
@@ -609,6 +614,10 @@ public class BlogsEntryStagedModelDataHandler
 		BlogsEntryStagedModelDataHandler.class);
 
 	private BlogsEntryLocalService _blogsEntryLocalService;
+
+	@Reference
+	private CommentManager _commentManager;
+
 	private ExportImportContentProcessor<String> _exportImportContentProcessor;
 	private FriendlyURLEntryLocalService _friendlyURLEntryLocalService;
 	private ImageLocalService _imageLocalService;

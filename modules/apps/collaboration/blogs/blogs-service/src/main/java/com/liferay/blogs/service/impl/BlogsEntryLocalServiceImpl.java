@@ -14,8 +14,6 @@
 
 package com.liferay.blogs.service.impl;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.asset.kernel.model.AssetEntry;
 import com.liferay.asset.kernel.model.AssetLinkConstants;
 import com.liferay.blogs.constants.BlogsConstants;
@@ -139,7 +137,6 @@ import net.htmlparser.jericho.StartTag;
  * @author Juan Fernández
  * @author Zsolt Berentey
  */
-@ProviderType
 public class BlogsEntryLocalServiceImpl extends BlogsEntryLocalServiceBaseImpl {
 
 	@Override
@@ -1657,7 +1654,7 @@ public class BlogsEntryLocalServiceImpl extends BlogsEntryLocalServiceBaseImpl {
 				imageBytes);
 		}
 		catch (IOException ioe) {
-			throw new EntryCoverImageCropException();
+			throw new EntryCoverImageCropException(ioe);
 		}
 	}
 
@@ -1730,7 +1727,7 @@ public class BlogsEntryLocalServiceImpl extends BlogsEntryLocalServiceBaseImpl {
 				imageBytes);
 		}
 		catch (IOException ioe) {
-			throw new EntrySmallImageScaleException();
+			throw new EntrySmallImageScaleException(ioe);
 		}
 	}
 

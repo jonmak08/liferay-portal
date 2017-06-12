@@ -40,9 +40,16 @@ import com.liferay.registry.collections.ServiceTrackerMap;
 import com.liferay.registry.collections.StringServiceRegistrationMap;
 import com.liferay.registry.collections.StringServiceRegistrationMapImpl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Mika Koivisto
+ * @deprecated As of 7.0.0, replaced by {@link
+ *             com.liferay.document.library.internal.util.
+ *             DLProcessorRegistryImpl}
  */
+@Deprecated
 @DoPrivileged
 public class DLProcessorRegistryImpl implements DLProcessorRegistry {
 
@@ -56,6 +63,8 @@ public class DLProcessorRegistryImpl implements DLProcessorRegistry {
 			dlProcessor.afterPropertiesSet();
 
 			register(dlProcessor);
+
+			_dlProcessors.add(dlProcessor);
 		}
 	}
 
@@ -94,6 +103,28 @@ public class DLProcessorRegistryImpl implements DLProcessorRegistry {
 			if (dlProcessor.isSupported(fileVersion)) {
 				dlProcessor.cleanUp(fileVersion);
 			}
+		}
+	}
+
+	public void destroy() throws Exception {
+		Exception exception = null;
+
+		for (DLProcessor dlProcessor : _dlProcessors) {
+			try {
+				dlProcessor.destroy();
+			}
+			catch (Exception e) {
+				if (exception == null) {
+					exception = e;
+				}
+				else {
+					exception.addSuppressed(e);
+				}
+			}
+		}
+
+		if (exception != null) {
+			throw exception;
 		}
 	}
 
@@ -269,6 +300,8 @@ public class DLProcessorRegistryImpl implements DLProcessorRegistry {
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		DLProcessorRegistryImpl.class);
+
+	private final List<DLProcessor> _dlProcessors = new ArrayList<>();
 
 	private final ServiceTrackerMap<String, DLProcessor>
 		_dlProcessorServiceTrackerMap =

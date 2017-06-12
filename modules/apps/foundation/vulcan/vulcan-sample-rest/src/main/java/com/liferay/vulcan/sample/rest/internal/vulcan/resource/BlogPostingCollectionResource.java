@@ -42,7 +42,7 @@ import org.osgi.service.component.annotations.Reference;
  */
 @Component(immediate = true, service = BlogPostingCollectionResource.class)
 public class BlogPostingCollectionResource
-	implements CollectionResource<BlogsEntry>, GroupScoped {
+	implements CollectionResource<BlogsEntry>, GroupScoped<BlogsEntry> {
 
 	@Override
 	public SingleResource<BlogsEntry> getCollectionItemSingleResource(
@@ -60,11 +60,16 @@ public class BlogPostingCollectionResource
 			return new BlogPostingSingleResource(blogsEntry);
 		}
 		catch (NoSuchEntryException | PrincipalException e) {
-			throw new NotFoundException();
+			throw new NotFoundException(e);
 		}
 		catch (PortalException pe) {
 			throw new ServerErrorException(500, pe);
 		}
+	}
+
+	@Override
+	public long getGroupId(BlogsEntry blogsEntry) {
+		return blogsEntry.getGroupId();
 	}
 
 	@Override

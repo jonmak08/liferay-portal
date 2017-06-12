@@ -20,11 +20,31 @@ package com.liferay.vulcan.error;
  */
 public class VulcanDeveloperError extends Error {
 
+	public static class MustHaveMessageMapper extends VulcanDeveloperError {
+
+		public MustHaveMessageMapper(String mediaType, Class<?> modelClass) {
+			super(
+				"Media type " + mediaType + " and model class " +
+					modelClass.getName() + " does not have a message mapper");
+		}
+
+	}
+
 	public static class MustHaveValidGenericType extends VulcanDeveloperError {
 
 		public MustHaveValidGenericType(Class clazz) {
 			super(
 				"Class " + clazz.getName() + " must have a valid generic type");
+		}
+
+	}
+
+	public static class UnresolvableURI extends VulcanDeveloperError {
+
+		public UnresolvableURI(Class<?> modelClass) {
+			super(
+				"Unable to resolve URI for model class " +
+					modelClass.getName());
 		}
 
 	}

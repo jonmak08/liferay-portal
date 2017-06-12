@@ -39,11 +39,13 @@ import com.liferay.calendar.util.JCalendarUtil;
 import com.liferay.calendar.util.RecurrenceUtil;
 import com.liferay.calendar.workflow.CalendarBookingWorkflowConstants;
 import com.liferay.exportimport.kernel.lar.ExportImportThreadLocal;
+import com.liferay.portal.kernel.dao.orm.Criterion;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
@@ -205,15 +207,19 @@ public class CalendarBookingLocalServiceImpl
 		calendarBooking.setSecondReminderType(secondReminderType);
 		calendarBooking.setExpandoBridgeAttributes(serviceContext);
 
+		int status = 0;
+
 		if (calendarBooking.isMasterBooking()) {
-			calendarBooking.setStatus(
-				CalendarBookingWorkflowConstants.STATUS_DRAFT);
+			status = CalendarBookingWorkflowConstants.STATUS_DRAFT;
+		}
+		else if (hasExclusiveCalendarBooking(calendar, startTime, endTime)) {
+			status = CalendarBookingWorkflowConstants.STATUS_DENIED;
 		}
 		else {
-			calendarBooking.setStatus(
-				CalendarBookingWorkflowConstants.STATUS_MASTER_PENDING);
+			status = CalendarBookingWorkflowConstants.STATUS_MASTER_PENDING;
 		}
 
+		calendarBooking.setStatus(status);
 		calendarBooking.setStatusDate(serviceContext.getModifiedDate(now));
 
 		calendarBookingPersistence.update(calendarBooking);
@@ -728,6 +734,16 @@ public class CalendarBookingLocalServiceImpl
 	}
 
 	@Override
+	public CalendarBooking getLastInstanceCalendarBooking(
+		CalendarBooking calendarBooking) {
+
+		List<CalendarBooking> calendarBookings = getRecurringCalendarBookings(
+			calendarBooking);
+
+		return RecurrenceUtil.getLastInstanceCalendarBooking(calendarBookings);
+	}
+
+	@Override
 	public List<CalendarBooking> getRecurringCalendarBookings(
 		CalendarBooking calendarBooking) {
 
@@ -758,6 +774,31 @@ public class CalendarBookingLocalServiceImpl
 		}
 
 		return followingRecurringCalendarBookings;
+	}
+
+	public boolean hasExclusiveCalendarBooking(
+			Calendar calendar, long startTime, long endTime)
+		throws PortalException {
+
+		CalendarResource calendarResource = calendar.getCalendarResource();
+
+		if (calendarResource.isGroup() && calendarResource.isUser()) {
+			return false;
+		}
+
+		int[] statuses = {
+			CalendarBookingWorkflowConstants.STATUS_APPROVED,
+			CalendarBookingWorkflowConstants.STATUS_PENDING
+		};
+
+		List<CalendarBooking> calendarBookings = getOverlappingCalendarBookings(
+			calendar.getCalendarId(), startTime, endTime, statuses);
+
+		if (!calendarBookings.isEmpty()) {
+			return true;
+		}
+
+		return false;
 	}
 
 	@Override
@@ -1235,6 +1276,28 @@ public class CalendarBookingLocalServiceImpl
 			long calendarId, long[] childCalendarIds,
 			Map<Locale, String> titleMap, Map<Locale, String> descriptionMap,
 			String location, long startTime, long endTime, boolean allDay,
+			boolean allFollowing, long firstReminder, String firstReminderType,
+			long secondReminder, String secondReminderType,
+			ServiceContext serviceContext)
+		throws PortalException {
+
+		CalendarBooking calendarBooking =
+			calendarBookingPersistence.fetchByPrimaryKey(calendarBookingId);
+
+		return updateCalendarBookingInstance(
+			userId, calendarBookingId, instanceIndex, calendarId,
+			childCalendarIds, titleMap, descriptionMap, location, startTime,
+			endTime, allDay, calendarBooking.getRecurrence(), allFollowing,
+			firstReminder, firstReminderType, secondReminder,
+			secondReminderType, serviceContext);
+	}
+
+	@Override
+	public CalendarBooking updateCalendarBookingInstance(
+			long userId, long calendarBookingId, int instanceIndex,
+			long calendarId, long[] childCalendarIds,
+			Map<Locale, String> titleMap, Map<Locale, String> descriptionMap,
+			String location, long startTime, long endTime, boolean allDay,
 			String recurrence, boolean allFollowing, long firstReminder,
 			String firstReminderType, long secondReminder,
 			String secondReminderType, ServiceContext serviceContext)
@@ -1272,7 +1335,7 @@ public class CalendarBookingLocalServiceImpl
 			Recurrence recurrenceObj = RecurrenceSerializer.deserialize(
 				recurrence, calendar.getTimeZone());
 
-			if (oldRecurrence.equals(recurrence) &&
+			if ((recurrenceObj != null) && oldRecurrence.equals(recurrence) &&
 				(recurrenceObj.getCount() > 0)) {
 
 				recurrenceObj.setCount(
@@ -1321,6 +1384,38 @@ public class CalendarBookingLocalServiceImpl
 			endTime, allDay, recurrence, allFollowing, firstReminder,
 			firstReminderType, secondReminder, secondReminderType,
 			serviceContext);
+	}
+
+	@Override
+	public void updateLastInstanceCalendarBookingRecurrence(
+		CalendarBooking calendarBooking, String recurrence) {
+
+		CalendarBooking lastInstanceCalendarBooking =
+			getLastInstanceCalendarBooking(calendarBooking);
+
+		if (recurrence == null) {
+			recurrence = StringPool.BLANK;
+		}
+		else {
+			Recurrence oldRecurrenceObj =
+				lastInstanceCalendarBooking.getRecurrenceObj();
+
+			Recurrence recurrenceObj = RecurrenceSerializer.deserialize(
+				recurrence, calendarBooking.getTimeZone());
+
+			if ((oldRecurrenceObj != null) && (recurrenceObj != null)) {
+				recurrenceObj.setExceptionJCalendars(
+					oldRecurrenceObj.getExceptionJCalendars());
+
+				recurrence = RecurrenceSerializer.serialize(recurrenceObj);
+			}
+		}
+
+		if (!recurrence.equals(lastInstanceCalendarBooking.getRecurrence())) {
+			lastInstanceCalendarBooking.setRecurrence(recurrence);
+
+			calendarBookingPersistence.update(lastInstanceCalendarBooking);
+		}
 	}
 
 	@Override
@@ -1618,8 +1713,11 @@ public class CalendarBookingLocalServiceImpl
 			NotificationTemplateType notificationTemplateType =
 				NotificationTemplateType.INVITE;
 
-			if (childCalendarBookingMap.containsKey(
-					childCalendarBooking.getCalendarId())) {
+			if (childCalendarBooking.isDenied()) {
+				notificationTemplateType = NotificationTemplateType.DECLINE;
+			}
+			else if (childCalendarBookingMap.containsKey(
+						childCalendarBooking.getCalendarId())) {
 
 				notificationTemplateType = NotificationTemplateType.UPDATE;
 			}
@@ -1635,6 +1733,32 @@ public class CalendarBookingLocalServiceImpl
 		jsonObject.put("title", calendarBooking.getTitle());
 
 		return jsonObject.toString();
+	}
+
+	protected List<CalendarBooking> getOverlappingCalendarBookings(
+		long calendarId, long startTime, long endTime, int[] statuses) {
+
+		DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(
+			CalendarBooking.class, getClassLoader());
+
+		Property property = PropertyFactoryUtil.forName("calendarId");
+
+		dynamicQuery.add(property.eq(calendarId));
+
+		Property endTimeProperty = PropertyFactoryUtil.forName("endTime");
+
+		Property startTimeProperty = PropertyFactoryUtil.forName("startTime");
+
+		Criterion intervalCriterion = RestrictionsFactoryUtil.and(
+			startTimeProperty.lt(endTime), endTimeProperty.gt(startTime));
+
+		dynamicQuery.add(intervalCriterion);
+
+		Property statusProperty = PropertyFactoryUtil.forName("status");
+
+		dynamicQuery.add(statusProperty.in(statuses));
+
+		return dynamicQuery(dynamicQuery);
 	}
 
 	protected TimeZone getTimeZone(Calendar calendar, boolean allDay) {
