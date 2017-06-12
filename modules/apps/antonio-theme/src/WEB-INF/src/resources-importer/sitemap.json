@@ -6,7 +6,7 @@
         [
           {
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-						"portletPreferences" : {
+						"portletPreferences": {
 							"articleId": "Caoursel Banner.xml",
 							"groupId": "${groupId}",
 							"portletSetupPortletDecoratorId": "barebone"
@@ -16,7 +16,7 @@
         [
           {
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-						"portletPreferences" : {
+						"portletPreferences": {
 							"articleId": "Blog Post Preview 1.xml",
 							"groupId": "${groupId}",
 							"portletSetupPortletDecoratorId": "barebone"
@@ -24,7 +24,7 @@
 					},
           {
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-						"portletPreferences" : {
+						"portletPreferences": {
 							"articleId": "Blog Post Preview 2.xml",
 							"groupId": "${groupId}",
 							"portletSetupPortletDecoratorId": "barebone"
@@ -34,7 +34,7 @@
         [
           {
             "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-            "portletPreferences" : {
+            "portletPreferences": {
               "articleId": "Menu Appetizers Section.xml",
               "groupId": "${groupId}",
               "portletSetupPortletDecoratorId": "barebone"
@@ -42,7 +42,7 @@
           },
           {
             "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-            "portletPreferences" : {
+            "portletPreferences": {
               "articleId": "Menu Drinks Section.xml",
               "groupId": "${groupId}",
               "portletSetupPortletDecoratorId": "barebone"
@@ -61,15 +61,15 @@
         [
           {
             "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-            "portletPreferences" : {
+            "portletPreferences": {
               "articleId": "Features Banner.xml",
               "groupId": "${groupId}",
               "portletSetupPortletDecoratorId": "barebone"
             }
-          }
+          },
           {
             "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-            "portletPreferences" : {
+            "portletPreferences": {
               "articleId": "Full Blog Post.xml",
               "groupId": "${groupId}",
               "portletSetupPortletDecoratorId": "barebone"
@@ -84,15 +84,15 @@
             [
               {
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-                "portletPreferences" : {
+                "portletPreferences": {
                   "articleId": "Blog Post Banner.xml",
                   "groupId": "${groupId}",
                   "portletSetupPortletDecoratorId": "barebone"
                 }
-              }
+              },
               {
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-                "portletPreferences" : {
+                "portletPreferences": {
                   "articleId": "Full Blog Post.xml",
                   "groupId": "${groupId}",
                   "portletSetupPortletDecoratorId": "barebone"
@@ -109,7 +109,7 @@
             [
               {
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-                "portletPreferences" : {
+                "portletPreferences": {
                   "articleId": "Menu Banner.xml",
                   "groupId": "${groupId}",
                   "portletSetupPortletDecoratorId": "barebone"
@@ -119,7 +119,7 @@
             [
               {
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-                "portletPreferences" : {
+                "portletPreferences": {
                   "articleId": "Menu Appetizers Section.xml",
                   "groupId": "${groupId}",
                   "portletSetupPortletDecoratorId": "barebone"
@@ -127,7 +127,7 @@
               },
               {
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-                "portletPreferences" : {
+                "portletPreferences": {
                   "articleId": "Menu Drinks Section.xml",
                   "groupId": "${groupId}",
                   "portletSetupPortletDecoratorId": "barebone"
@@ -135,7 +135,7 @@
               },
               {
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-                "portletPreferences" : {
+                "portletPreferences": {
                   "articleId": "Menu Entrees Section.xml",
                   "groupId": "${groupId}",
                   "portletSetupPortletDecoratorId": "barebone"
@@ -145,7 +145,7 @@
             [
               {
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-                "portletPreferences" : {
+                "portletPreferences": {
                   "articleId": "Blog Post Preview 3.xml",
                   "groupId": "${groupId}",
                   "portletSetupPortletDecoratorId": "barebone"
@@ -163,7 +163,7 @@
             [
               {
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-                "portletPreferences" : {
+                "portletPreferences": {
                   "articleId": "Contact Banner.xml",
                   "groupId": "${groupId}",
                   "portletSetupPortletDecoratorId": "barebone"
@@ -171,7 +171,7 @@
               },
               {
                 "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-                "portletPreferences" : {
+                "portletPreferences": {
                   "articleId": "Contact Us.xml",
                   "groupId": "${groupId}",
                   "portletSetupPortletDecoratorId": "barebone"
@@ -181,7 +181,7 @@
           ],
           "friendlyUrl": "/contact-us",
           "name": "Contact Us",
-          "title": "Contact Us",
+          "title": "Contact Us"
         }
       ],
       "name": "Features",
