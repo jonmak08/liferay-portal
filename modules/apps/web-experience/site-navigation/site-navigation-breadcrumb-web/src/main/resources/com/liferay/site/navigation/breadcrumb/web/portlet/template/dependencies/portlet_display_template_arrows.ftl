@@ -1,11 +1,12 @@
 <#if entries?has_content>
 	<@liferay_util["html-top"]>
 		<style>
-			.breadcrumb-arrows a {
+			.breadcrumb-arrows li > a {
 				background: #efefef;
+				border-right: 4px solid #fff;
 				display: inline-block;
-				margin-right: 5px;
-				padding: 10px 30px 10px;
+				overflow: visible;
+				padding: 12px 30px;
 				position: relative;
 			}
 
@@ -13,20 +14,20 @@
 				border-bottom: 20px inset transparent;
 				border-left: 20px solid #efefef;
 				border-top: 20px inset transparent;
-				content: "";
+				content: " ";
 				height: 0;
 				position: absolute;
 				right: -20px;
 				top: 0;
 				width: 0;
-				z-index: 2;
+				z-index: 1;
 			}
 
-			.breadcrumb-arrows a:before {
+			.breadcrumb-arrows li:nth-child(n+2):before > a {
 				border-bottom: 20px inset transparent;
 				border-left: 20px solid #fff;
 				border-top: 20px inset transparent;
-				content: "";
+				content: " ";
 				height: 0;
 				left: 0;
 				position: absolute;
@@ -34,21 +35,29 @@
 				width: 0;
 			}
 
-			.breadcrumb-arrows a:first-child {
+			.breadcrumb-arrows li:first-child > a {
 				-moz-border-radius: 4px 0 0 4px;
 				-webkit-border-radius: 4px 0 0 4px;
 				border-radius: 4px 0 0 4px;
 			}
 
-			.breadcrumb-arrows a:last-child {
+			.breadcrumb-arrows li:last-child {
 				-moz-border-radius: 0 4px 4px 0;
 				-webkit-border-radius: 0 4px 4px 0;
 				background: #007ACC;
 				border-radius: 0 4px 4px 0;
+				border-right: none;
 				color: #fff;
+				display: inline-block;
+				padding: 12px 30px;
+				position: relative;
 			}
 
-			.breadcrumb-arrows a:first-child:before, a:last-child:after {
+			.breadcrumb-arrows li:first-child:before > a {
+				border: none;
+			}
+
+			.breadcrumb-arrows li:last-child:after > a {
 				border: none;
 			}
 		</style>
