@@ -16,11 +16,13 @@
 
 <%@ include file="/init.jsp" %>
 
-<%
-PortletURL portletURL = renderResponse.createRenderURL();
-%>
 <div class="card">
 	<div class="card-row card-row-padded">
+
+		<%
+		PortletURL portletURL = renderResponse.createRenderURL();
+		%>
+
 		<liferay-ui:search-container
 			emptyResultsMessage="there-are-no-gadgets"
 			headerNames="name"
