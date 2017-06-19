@@ -27,7 +27,7 @@
 			<liferay-ui:error-principal />
 
 			<portlet:actionURL name="/social_activity/edit_activity_settings" var="editURL" />
-			
+
 			<aui:form action="<%= editURL %>" cssClass="update-socialactivity-form" method="post" name="fm">
 				<aui:input name="<%= Constants.CMD %>" type="hidden" value="<%= Constants.UPDATE %>" />
 				<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
