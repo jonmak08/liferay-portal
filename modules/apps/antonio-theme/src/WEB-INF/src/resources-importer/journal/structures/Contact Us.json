@@ -1,0 +1,101 @@
+{
+    "availableLanguageIds": [
+        "en_US"
+    ],
+    "defaultLanguageId": "en_US",
+    "fields": [
+        {
+            "label": {
+                "en_US": "Geolocation"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "geolocation",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": false,
+            "name": "Geolocation42mw",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-geolocation"
+        },
+        {
+            "label": {
+                "en_US": "Contact Header"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "ContactHeader",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "en_US": "Text Box"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "text",
+            "localizable": true,
+            "name": "TextBoxheqz",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "textarea"
+        },
+        {
+            "label": {
+                "en_US": "Contact Info"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "ContactInfo",
+            "readOnly": false,
+            "repeatable": true,
+            "required": false,
+            "showLabel": true,
+            "type": "text"
+        }
+    ]
+}

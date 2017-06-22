@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="BlogSubtitle" type="text" index-type="keyword" instance-id="nnrb">
+		<dynamic-content language-id="en_US"><![CDATA[Blog Subtitle]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="BlogAuthor" type="text" index-type="keyword" instance-id="jldp">
+		<dynamic-content language-id="en_US"><![CDATA[John Doe]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="BlogEntry" type="text_area" index-type="text" instance-id="cnnu">
+		<dynamic-content language-id="en_US"><![CDATA[<p>Content is the reason web sites exist. Liferay Portal has made it easier than ever to get content published to your site. Because Liferay Portal is so flexible, you can use basic authoring tools right away or take advantage of the more advanced features. It&rsquo;s adaptable to your needs.</p>
+
+<p>You&rsquo;ll begin by creating some simple content using Liferay&rsquo;s WYSIWYG editor. Then you&rsquo;ll publish it to the home page of the Lunar Resort&rsquo;s web site. This is a fast and straightforward process that demonstrates how easy it is to create and publish content on your Liferay instance. You&rsquo;ll learn about the Web Content section in Site Administration so you can create and publish your first pieces of content.</p>
+
+<hr />
+<p>Once you&rsquo;ve clicked&nbsp;<em>Add</em>&nbsp;&rarr;&nbsp;<em>Basic Web Content</em>, you&rsquo;ll find a highly customizable form that, by default, has three fields: title, summary, and a powerful WYSIWYG editor. You&rsquo;re also provided a boolean&nbsp;<em>Searchable</em>&nbsp;switch. You could customize this form to contain whatever fields your content needs but you&rsquo;ll keep things simple for now. If web content structures have already been created in your currently selected scope, you can select one for your new web content article by clicking the&nbsp;<em>Structure and Template</em>&nbsp;dropdown. You&rsquo;ll discuss web content structures and templates in detail in the next chapter.</p>
+
+<p>Getting a new web site up and running is an exciting step for anyone, whether it is a large corporation or a small non-profit charity. To celebrate this momentous achievement at the Lunar Resort, you&rsquo;ll give our announcement some of the pomp and circumstance it deserves!</p>
+
+<p>Type the words&nbsp;<em>Welcome to the Lunar Resort</em>&nbsp;in the&nbsp;<em>Title</em>&nbsp;field. In the&nbsp;<em>Summary</em>&nbsp;field, give a short description of the Lunar Resort&rsquo;s facilities. In the&nbsp;<em>Content</em>&nbsp;field, you&rsquo;ll add the body of your web content article, which you&rsquo;ll dive into next. Lastly, leave the&nbsp;<em>Searchable</em>&nbsp;switch enabled. Note that if you disable the searchability of your article, it only prevents end users from finding the article via search. Administrators still have the ability to search for the article from the Web Content section in the Menu.</p>
+
+<p>&nbsp;</p>]]></dynamic-content>
+	</dynamic-element>
+</root>

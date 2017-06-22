@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="BlogImageUrl" type="text" index-type="keyword" instance-id="qjor">
+		<dynamic-content language-id="en_US"><![CDATA[https://appetitedemo.files.wordpress.com/2015/07/smachno_10.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="LinkToBlog" type="link_to_layout" index-type="keyword" instance-id="gmug">
+		<dynamic-content language-id="en_US"><![CDATA[34@public@20140]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Title" type="text" index-type="keyword" instance-id="myte">
+		<dynamic-content language-id="en_US"><![CDATA[Example title]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Subittle" type="text" index-type="keyword" instance-id="gvqh">
+		<dynamic-content language-id="en_US"><![CDATA[enter subtitle here]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="BlogEntry" type="text_box" index-type="text" instance-id="ugvx">
+		<dynamic-content language-id="en_US"><![CDATA[Dummy text is text that is used in the publishing industry or by web designers to occupy the space which will later be filled with ‘real’ content.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Author" type="text" index-type="keyword" instance-id="tsim">
+		<dynamic-content language-id="en_US"><![CDATA[James Smith]]></dynamic-content>
+	</dynamic-element>
+</root>

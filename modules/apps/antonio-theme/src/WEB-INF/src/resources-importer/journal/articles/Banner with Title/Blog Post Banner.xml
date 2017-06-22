@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="BannerImageUrl" type="text" index-type="keyword" instance-id="hupn">
+		<dynamic-content language-id="en_US"><![CDATA[https://appetitedemo.files.wordpress.com/2015/07/smachno_09.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Textd1xu" type="text" index-type="keyword" instance-id="tate">
+		<dynamic-content language-id="en_US"><![CDATA[PUBLISHING BASIC WEB CONTENT]]></dynamic-content>
+	</dynamic-element>
+</root>

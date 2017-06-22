@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Geolocation42mw" type="ddm-geolocation" index-type="keyword" instance-id="mnve">
+		<dynamic-content language-id="en_US"><![CDATA[{"latitude":"33.9983212","longitude":"-117.814246"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ContactHeader" type="text" index-type="keyword" instance-id="rsmx">
+		<dynamic-content language-id="en_US"><![CDATA[Let's keep in touch.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TextBoxheqz" type="text_box" index-type="text" instance-id="hyoo">
+		<dynamic-content language-id="en_US"><![CDATA[A theme without content is like an empty house. If you’re trying to sell an empty house, it may be difficult for prospective buyers to see its full beauty. However, staging the house with some furniture and decorations helps prospective buyers imagine what the house might look like with their belongings. Liferay’s resources importer module is a tool that allows a theme developer to have files and web content automatically imported into Liferay Portal when a theme is deployed.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ContactInfo" type="text" index-type="keyword" instance-id="gooj">
+		<dynamic-content language-id="en_US"><![CDATA[Phone: (877) 543-3729]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ContactInfo" type="text" index-type="keyword" instance-id="azcw">
+		<dynamic-content language-id="en_US"><![CDATA[Address: 1400 Montefino Ave, Diamond Bar, CA 91765]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ContactInfo" type="text" index-type="keyword" instance-id="sgqe">
+		<dynamic-content language-id="en_US"><![CDATA[Website: www.liferay.com]]></dynamic-content>
+	</dynamic-element>
+</root>
