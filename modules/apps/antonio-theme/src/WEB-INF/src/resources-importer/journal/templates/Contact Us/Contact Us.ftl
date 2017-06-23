@@ -1,39 +1,43 @@
 <div class="col-md-10 col-md-offset-1 contact-container">
-    <div class="col-md-6 geolocation">
+	<div class="col-md-6 mapLocation">
 
-        <#assign latitude = 0>
-        	<#assign longitude = 0>
+		<#assign latitude = 0>
+		<#assign longitude = 0>
 
-        	<#if (Geolocation42mw.getData() != "")>
-        		<#assign geolocationJSONObject = jsonFactoryUtil.createJSONObject(Geolocation42mw.getData())>
+		<#if (geolocation.getData() != "")>
+			<#assign
+				latitude = geolocationJSONObject.getDouble("latitude")
+				longitude = geolocationJSONObject.getDouble("longitude")
+				geolocationJSONObject = jsonFactoryUtil.createJSONObject(geolocation.getData())
+			/>
 
-        		<#assign latitude = geolocationJSONObject.getDouble("latitude")>
-        		<#assign longitude = geolocationJSONObject.getDouble("longitude")>
-
-        		<@liferay_map["map-display"]
-        			geolocation=true
-        			latitude=latitude
-        			longitude=longitude
-        			name="Geolocation42mw"
-        		/>
-        	</#if>
+			<@liferay_map["map-display"]
+				latitude=latitude
+				longitude=longitude
+				geolocation=true
+				name="mapLocation"
+			/>
+		</#if>
 
 	</div>
+
 	<div class="col-md-6 contact-us">
-	    <header class="col-md-12">
-	        <h2 class="contact-header">${ContactHeader.getData()}</h2>
-	    </header>
-	    <p class="col-md-12">${TextBoxheqz.getData()}</p>
-	    <ul class="col-md-12 text-center">
+		<header class="col-md-12">
+			<h2 class="contact-header">${contact-header.getData()}</h2>
+		</header>
 
-	        <#if ContactInfo.getSiblings()?has_content>
-            	<#list ContactInfo.getSiblings() as cur_ContactInfo>
-            		<li class="contact-information">
-            		    ${cur_ContactInfo.getData()}
-            		</li>
-            	</#list>
-            </#if>
+		<div class="col-md-12">${contact-paragraph.getData()}</div>
 
-	    </ul>
+		<ul class="col-md-12 text-center">
+
+			<#if contact-info.getSiblings()?has_content>
+				<#list contact-info.getSiblings() as cur_contact-info>
+					<li class="contact-information">
+						${cur_contact-info.getData()}
+					</li>
+				</#list>
+			</#if>
+
+		</ul>
 	</div>
 </div>
