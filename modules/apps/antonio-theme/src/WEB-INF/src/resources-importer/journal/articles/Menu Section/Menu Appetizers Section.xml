@@ -1,44 +1,44 @@
 <?xml version="1.0"?>
 
 <root available-locales="en_US" default-locale="en_US">
-	<dynamic-element name="menu-section-title" type="text" index-type="keyword" instance-id="ldfj">
-		<dynamic-element name="menu-section-subtitle" instance-id="nndf" type="text" index-type="keyword">
+	<dynamic-element name="menuSectionTitle" type="text" index-type="keyword" instance-id="ldfj">
+		<dynamic-element name="menuSectionSubtitle" instance-id="nndf" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[Appetizers come before the entree]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-content language-id="en_US"><![CDATA[Appetizers]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="menu-item" type="text" index-type="keyword" instance-id="lrxh">
-		<dynamic-element name="menu-item-price" instance-id="mxnx" type="text" index-type="keyword">
+	<dynamic-element name="menuItem" type="text" index-type="keyword" instance-id="lrxh">
+		<dynamic-element name="menuItemPrice" instance-id="mxnx" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[$7.00]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="menu-item-description" instance-id="pepu" type="text" index-type="keyword">
+		<dynamic-element name="menuItemDescription" instance-id="pepu" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[chicken wings glazed in homemade bbq sauce]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="menu-item-image" instance-id="mbrc" type="text" index-type="keyword">
+		<dynamic-element name="menuItemImage" instance-id="mbrc" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[https://appetitedemo.files.wordpress.com/2015/07/smachno_15.jpg?w=300&h=300&crop=1]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-content language-id="en_US"><![CDATA[BBQ Wings]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="menu-item" type="text" index-type="keyword" instance-id="mzbq">
-		<dynamic-element name="menu-item-price" instance-id="lovy" type="text" index-type="keyword">
+	<dynamic-element name="menuItem" type="text" index-type="keyword" instance-id="mzbq">
+		<dynamic-element name="menuItemPrice" instance-id="lovy" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[$5.00]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="menu-item-description" instance-id="kevb" type="text" index-type="keyword">
+		<dynamic-element name="menuItemDescription" instance-id="kevb" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[crispy french fries with a touch of cheese sauce]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="menu-item-image" instance-id="tygz" type="text" index-type="keyword">
+		<dynamic-element name="menuItemImage" instance-id="tygz" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[https://appetitedemo.files.wordpress.com/2015/07/smachno_17.jpg?w=300&h=300&crop=1]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-content language-id="en_US"><![CDATA[Cheese Fries]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="menu-item" type="text" index-type="keyword" instance-id="yiva">
-		<dynamic-element name="menu-item-price" instance-id="iuzp" type="text" index-type="keyword">
+	<dynamic-element name="menuItem" type="text" index-type="keyword" instance-id="yiva">
+		<dynamic-element name="menuItemPrice" instance-id="iuzp" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[$6.00]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="menu-item-description" instance-id="cfgn" type="text" index-type="keyword">
+		<dynamic-element name="menuItemDescription" instance-id="cfgn" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[smoked salmon, cream cheese, cucumber]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="menu-item-image" instance-id="gscy" type="text" index-type="keyword">
+		<dynamic-element name="menuItemImage" instance-id="gscy" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[https://appetitedemo.files.wordpress.com/2015/07/smachno_10.jpg?w=300&h=300&crop=1]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-content language-id="en_US"><![CDATA[Philadelphia Roll]]></dynamic-content>

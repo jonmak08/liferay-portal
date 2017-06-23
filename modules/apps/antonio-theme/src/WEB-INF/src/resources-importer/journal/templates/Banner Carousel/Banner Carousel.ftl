@@ -8,20 +8,20 @@
 }
 
 .slide-one {
-	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${iamge-url-one.getData()});
+	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${imageUrlOne.getData()});
 }
 
 .slide-two {
-	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${iamge-url-two.getData()});
+	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${imageUrlTwo.getData()});
 }
 
 .slide-three {
-	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${image-url-three.getData()});
+	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${imageUrlThree.getData()});
 }
 </style>
 
 <div class="slide-one text-center">
-	<h1 class="carousel-image-title">${iamge-title-one.getData()}</h1>
+	<h1 class="carousel-image-title">${imageTitleOne.getData()}</h1>
 
 	<div class="col-md-6 col-md-offset-3 pager-container text-center">
 		<div class="pager-one pager-selected">
@@ -39,7 +39,7 @@
 </div>
 
 <div class="slide-two text-center">
-	<h1 class="carousel-image-title">${iamge-title-one.getData()}</h1>
+	<h1 class="carousel-image-title">${imageTitleOne.getData()}</h1>
 
 	<div class="col-md-6 col-md-offset-3 pager-container text-center">
 		<div class="pager-one">
@@ -57,7 +57,7 @@
 </div>
 
 <div class="slide-three text-center">
-	<h1 class="carousel-image-title">${iamge-title-one.getData()}</h1>
+	<h1 class="carousel-image-title">${imageTitleOne.getData()}</h1>
 
 	<div class="col-md-6 col-md-offset-3 pager-container text-center">
 		<div class="pager-one pager-selected">

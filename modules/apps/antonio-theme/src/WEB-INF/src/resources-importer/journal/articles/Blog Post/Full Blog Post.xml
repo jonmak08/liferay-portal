@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 
 <root available-locales="en_US" default-locale="en_US">
-	<dynamic-element name="blog-subtitle" type="text" index-type="keyword" instance-id="nnrb">
+	<dynamic-element name="blogSubtitle" type="text" index-type="keyword" instance-id="nnrb">
 		<dynamic-content language-id="en_US"><![CDATA[Blog Subtitle]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="blog-author" type="text" index-type="keyword" instance-id="jldp">
+	<dynamic-element name="blogAuthor" type="text" index-type="keyword" instance-id="jldp">
 		<dynamic-content language-id="en_US"><![CDATA[John Doe]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="blog-entry" type="text_area" index-type="text" instance-id="cnnu">
+	<dynamic-element name="blogEntry" type="text_area" index-type="text" instance-id="cnnu">
 		<dynamic-content language-id="en_US"><![CDATA[<p>Content is the reason web sites exist. Liferay Portal has made it easier than ever to get content published to your site. Because Liferay Portal is so flexible, you can use basic authoring tools right away or take advantage of the more advanced features. It&rsquo;s adaptable to your needs.</p>
 
 <p>You&rsquo;ll begin by creating some simple content using Liferay&rsquo;s WYSIWYG editor. Then you&rsquo;ll publish it to the home page of the Lunar Resort&rsquo;s web site. This is a fast and straightforward process that demonstrates how easy it is to create and publish content on your Liferay instance. You&rsquo;ll learn about the Web Content section in Site Administration so you can create and publish your first pieces of content.</p>

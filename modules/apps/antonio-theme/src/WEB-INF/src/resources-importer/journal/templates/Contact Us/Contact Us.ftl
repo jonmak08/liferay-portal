@@ -23,17 +23,17 @@
 
 	<div class="col-md-6 contact-us">
 		<header class="col-md-12">
-			<h2 class="contact-header">${contact-header.getData()}</h2>
+			<h2 class="contactHeader">${contactHeader.getData()}</h2>
 		</header>
 
-		<div class="col-md-12">${contact-paragraph.getData()}</div>
+		<div class="col-md-12">${contactParagraph.getData()}</div>
 
 		<ul class="col-md-12 text-center">
 
-			<#if contact-info.getSiblings()?has_content>
-				<#list contact-info.getSiblings() as cur_contact-info>
-					<li class="contact-information">
-						${cur_contact-info.getData()}
+			<#if contactInfo.getSiblings()?has_content>
+				<#list contactInfo.getSiblings() as cur_contactInfo>
+					<li class="contactInformation">
+						${cur_contactInfo.getData()}
 					</li>
 				</#list>
 			</#if>
