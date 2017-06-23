@@ -50,7 +50,7 @@
 		</div>
 
 		<div class="col-md-12 text-center">
-			<span class="contact-info">
+			<span class="contactInfo">
 				<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external" target="_blank">Liferay</a>
 			</span>
 		</div>

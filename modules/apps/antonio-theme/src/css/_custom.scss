@@ -301,31 +301,31 @@ ul {
 		font-weight: bold;
 	}
 
-	.blog-subtitle {
+	.blogSubtitle {
 		color: rgba(150, 150, 150, 0.9);
 		font-style: italic;
 		font-weight: bold;
 	}
 
-	.blog-author {
+	.blogAuthor {
 		border-bottom: 1px solid rgba(150, 150, 150, 0.9);
 		font-weight: bold;
 		margin: 20px;
 		padding-bottom: 30px;
 	}
 
-	.blog-entry {
+	.blogEntry {
 		font-size: 17px;
 		padding-top: 20px;
 	}
 }
 
 @media(max-width: $screen-md-max) {
-	.menu-item-name, .menu-item-price {
+	.menuItemName, .menuItemPrice {
 		font-size: 15px;
 	}
 
-	.menu-item-name, .menu-item-description {
+	.menuItemName, .menuItemDescription {
 		text-align: right;
 	}
 }
@@ -334,13 +334,13 @@ ul {
 	padding-bottom: 20px;
 	padding-left: 15px;
 
-	.menu-section-title {
+	.menuSectionTitle {
 		color: #c7a84e;
 		font-weight: bolder;
 		text-transform: uppercase;
 	}
 
-	.menu-section-subtitle {
+	.menuSectionSubtitle {
 		color: rgba(150, 150, 150, 0.9);
 		font-size: 16px;
 		margin-bottom: 10px;
@@ -355,23 +355,23 @@ ul {
 	padding-bottom: 20px;
 }
 
-.menu-item-image {
+.menuItemImage {
 	float: left;
 	height: 70px;
 	padding: 20px;
 	width: 70px;
 }
 
-.menu-item-name {
+.menuItemName {
 	text-transform: uppercase;
 }
 
-.menu-item-price {
+.menuItemPrice {
 	font-weight: bold;
 	text-align: right;
 }
 
-.menu-item-description {
+.menuItemDescription {
 	font-size: 12px;
 	text-transform: lowercase;
 }
@@ -380,13 +380,13 @@ ul {
 	padding: 40px;
 }
 
-.contact-header {
+.contactHeader {
 	color: #c7a84e;
 	font-weight: bolder;
 	text-transform: uppercase;
 }
 
-.contact-information {
+.contactInformation {
 	color: #383a3b;
 	font-weight: bold;
 	padding: 10px;
@@ -446,7 +446,7 @@ ul {
 	}
 }
 
-.contact-info {
+.contactInfo {
 	color: #969696;
 	margin-bottom: 20px;
 

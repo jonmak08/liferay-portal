@@ -1,11 +1,11 @@
 <div class="blog col-md-10 col-md-offset-1">
-	<h2 class="blog-subtitle col-md-6 col-md-offset-3 text-center">${blog-subtitle.getData()}</h2>
+	<h2 class="blogSubtitle col-md-6 col-md-offset-3 text-center">${blogSubtitle.getData()}</h2>
 
 	<div class="col-md-6 col-md-offset-3 text-center">
-		<h3 class="blog-author"><@liferay.language key="by" /> ${blog-author.getData()}</h3>
+		<h3 class="blogAuthor"><@liferay.language key="by" /> ${blogAuthor.getData()}</h3>
 	</div>
 
-	<div class="blog-entry col-md-12">
-		${blog-entry.getData()}
+	<div class="blogEntry col-md-12">
+		${blogEntry.getData()}
 	</div>
 </div>
