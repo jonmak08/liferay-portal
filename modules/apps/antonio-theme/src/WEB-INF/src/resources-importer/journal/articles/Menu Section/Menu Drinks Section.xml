@@ -1,44 +1,44 @@
 <?xml version="1.0"?>
 
 <root available-locales="en_US" default-locale="en_US">
-	<dynamic-element name="MenuSectionTitle" type="text" index-type="keyword" instance-id="evag">
-		<dynamic-element name="MenuSectionSubtitle" instance-id="khys" type="text" index-type="keyword">
+	<dynamic-element name="menu-section-title" type="text" index-type="keyword" instance-id="evag">
+		<dynamic-element name="menu-section-subtitle" instance-id="khys" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[List of our drinks]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-content language-id="en_US"><![CDATA[Drinks]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="MenuItem" type="text" index-type="keyword" instance-id="lfsj">
-		<dynamic-element name="MenuItemPrice" instance-id="hyxv" type="text" index-type="keyword">
+	<dynamic-element name="menu-item" type="text" index-type="keyword" instance-id="lfsj">
+		<dynamic-element name="menu-item-price" instance-id="hyxv" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[$2.00]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="MenuItemDescription" instance-id="mznl" type="text" index-type="keyword">
+		<dynamic-element name="menu-item-description" instance-id="mznl" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[Soda is a carbonated beverage]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="MenuItemImage" instance-id="afws" type="text" index-type="keyword">
+		<dynamic-element name="menu-item-image" instance-id="afws" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[http://cdn-img.health.com/sites/default/files/migration/img/web/2015/02/cut-soda-opener-400x400.jpg]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-content language-id="en_US"><![CDATA[Soda]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="MenuItem" type="text" index-type="keyword" instance-id="qiwr">
-		<dynamic-element name="MenuItemPrice" instance-id="oimf" type="text" index-type="keyword">
+	<dynamic-element name="menu-item" type="text" index-type="keyword" instance-id="qiwr">
+		<dynamic-element name="menu-item-price" instance-id="oimf" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[$8.00]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="MenuItemDescription" instance-id="bnmj" type="text" index-type="keyword">
+		<dynamic-element name="menu-item-description" instance-id="bnmj" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[Beer is an alcoholic beverage]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="MenuItemImage" instance-id="gahu" type="text" index-type="keyword">
+		<dynamic-element name="menu-item-image" instance-id="gahu" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[https://appetitedemo.files.wordpress.com/2015/07/smachno_07.jpg]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-content language-id="en_US"><![CDATA[Beer]]></dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="MenuItem" type="text" index-type="keyword" instance-id="zsrh">
-		<dynamic-element name="MenuItemPrice" instance-id="xquo" type="text" index-type="keyword">
+	<dynamic-element name="menu-item" type="text" index-type="keyword" instance-id="zsrh">
+		<dynamic-element name="menu-item-price" instance-id="xquo" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[$3.00]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="MenuItemDescription" instance-id="rjor" type="text" index-type="keyword">
+		<dynamic-element name="menu-item-description" instance-id="rjor" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[Juice is made from fruit]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-element name="MenuItemImage" instance-id="zbnb" type="text" index-type="keyword">
+		<dynamic-element name="menu-item-image" instance-id="zbnb" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[http://broodcompany.com/wp-content/uploads/2015/01/Assortiment-Zuivel.jpg]]></dynamic-content>
 		</dynamic-element>
 		<dynamic-content language-id="en_US"><![CDATA[Juice]]></dynamic-content>

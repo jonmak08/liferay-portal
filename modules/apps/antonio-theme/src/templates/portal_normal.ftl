@@ -6,7 +6,6 @@
 
 <head>
 	<title>${the_title} - ${company_name}</title>
-	<link href="../css/_custom.css" rel="stylesheet">
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 
 	<@liferay_util["include"] page=top_head_include />
@@ -30,14 +29,12 @@
 	</header>
 
 	<section class="portlets-section">
-
-		<div class="whitespace"></div>
-
+		<div class="spacer"></div>
 			<h1 class="hide-accessible">${the_title}</h1>
 
 			<#if selectable>
 				<@liferay_util["include"] page=content_include />
-				<#else>
+			<#else>
 				${portletDisplay.recycle()}
 
 				${portletDisplay.setTitle(the_title)}
@@ -52,7 +49,6 @@
 	<#include "${full_templates_path}/footer.ftl" />
 
 </div>
-<!-- .page-content -->
 
 <@liferay_util["include"] page=body_bottom_include />
 
@@ -62,5 +58,4 @@
 <!-- endinject -->
 
 </body>
-<script charset="utf-8" src="../js/main.js"></script>
 </html>
