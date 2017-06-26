@@ -21,6 +21,7 @@
     "tag": "7_0_x"
   },
   "dependencies": {
+    "bourbon": "^4.3.4",
     "gulp-ruby-sass": "^2.1.1"
   }
 }

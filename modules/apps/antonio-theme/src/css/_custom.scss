@@ -1,3 +1,5 @@
+@import "bourbon/bourbon";
+
 html body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin: 0;
@@ -46,7 +48,7 @@ ul {
 .navbar-color-one {
 	border-width: 0;
 	padding: 15px;
-	transition: 0.2s ease-in;
+	@include transition: 0.2s ease-in;
 
 	.navbar-collapse {
 		border-width: 0;
@@ -75,12 +77,12 @@ ul {
 				padding: 5px 14px;
 				text-decoration: none;
 				text-transform: uppercase;
-				transition: 0.2s ease-out;
+				@include transition: 0.2s ease-out;
 
 				&:hover {
 					border: 1px solid #FFF;
 					border-radius: 20px;
-					transition: 0.2s ease-in;
+					@include transition: 0.2s ease-in;
 				}
 			}
 		}
@@ -110,7 +112,7 @@ ul {
 	box-shadow: 0 1px 15px 0 rgba(0, 0, 0, 0.2);
 	padding-bottom : 3px;
 	padding-top : 3px;
-	transition : 0.2s ease-in;
+	@include transition : 0.2s ease-in;
 
 	.brand-name {
 		color: #000;
@@ -139,7 +141,7 @@ ul {
 				padding: 5px 14px;
 				text-decoration: none;
 				text-transform: uppercase;
-				transition: 0.2s ease-out;
+				@include transition: 0.2s ease-out;
 
 				&:focus {
 					color: #000;
@@ -149,7 +151,7 @@ ul {
 					border: 1px solid #000;
 					border-radius: 20px;
 					color: #000;
-					transition: 0.2s ease-in;
+					@include transition: 0.2s ease-in;
 				}
 			}
 		}
@@ -235,13 +237,13 @@ ul {
 	display: inline-block;
 	height: 15px;
 	margin: 5px;
-	transition: 0.4s ease-out;
+	@include transition: 0.4s ease-out;
 	width: 15px;
 }
 
 .pager-selected {
 	background-color: #FFF;
-	transition: 0.4s ease-in;
+	@include transition: 0.4s ease-in;
 }
 
 .banner {
@@ -271,11 +273,11 @@ ul {
 			font-weight: bolder;
 			text-decoration: none;
 			text-transform: uppercase;
-			transition: 0.2s ease-out;
+			@include transition: 0.2s ease-out;
 
 			&:hover {
 				color: #C7A84E;
-				transition: 0.2s ease-in;
+				@include transition: 0.2s ease-in;
 			}
 		}
 	}
