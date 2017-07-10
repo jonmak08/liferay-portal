@@ -20,12 +20,12 @@
 
 		.company-name {
 			display: block;
+			max-width: 250px;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			word-break: normal;
 			word-wrap: normal;
-			max-width: 250px;
 		}
 
 		.sidenav-close {
