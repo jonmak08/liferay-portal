@@ -14,6 +14,20 @@
 			padding-top: 16px;
 		}
 
+		.company-details {
+			display: flex;
+		}
+
+		.company-name {
+			display: block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			word-break: normal;
+			word-wrap: normal;
+			width: 250px;
+		}
+
 		.sidenav-close {
 			float: right;
 			margin-right: -2px;
