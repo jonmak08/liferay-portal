@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="bannerImageUrl" type="text" index-type="keyword" instance-id="vjym">
+		<dynamic-content language-id="en_US"><![CDATA[https://s-media-cache-ak0.pinimg.com/originals/22/f3/2b/22f32bcbb52bae8dcc53b239a0bcfba3.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="bannerText" type="text" index-type="keyword" instance-id="jgxe">
+		<dynamic-content language-id="en_US"><![CDATA[contact us]]></dynamic-content>
+	</dynamic-element>
+</root>
