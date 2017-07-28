@@ -449,7 +449,7 @@ if (portletTitleBasedNavigation) {
 	);
 
 	var clearSaveDraftHandle = function(event) {
-		if (event.portletId === '<%= portletDisplay.getRootPortletId() %>') {
+		if (event.portletId === '<%= portletDisplay.getId() %>') {
 			blogs.destroy();
 
 			Liferay.detach('destroyPortlet', clearSaveDraftHandle);
