@@ -1,0 +1,78 @@
+footer {
+	padding: 50px 0;
+
+	#contact {
+		margin-top: 20px;
+	}
+
+	.bottom-container > a {
+		text-decoration: none;
+	}
+
+	.icon-container {
+		position: relative;
+
+		.tooltip {
+			left: 0;
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			transform: translateX(0);
+			transition: opacity 0.3s ease-in 0.3s;
+			visibility: hidden;
+		}
+	}
+
+	.icon-container:hover .tooltip {
+		display: inline;
+		left: 50%;
+		opacity: 1;
+		top: -75px;
+		transform: translateX(-49%);
+		transition: opacity 0.5s;
+		visibility: visible;
+	}
+
+	.link-container {
+		cursor: default;
+	}
+
+	.list-inline {
+		li {
+			display: block;
+		}
+	}
+
+	.social-media-icon {
+		border: 1px solid transparent;
+		border-radius: 50%;
+		display: inline-block;
+		font-size: 20px !important;
+		height: $icon-height;
+		margin: 25px 10px;
+		padding: 10px;
+		transition: border 0.5s, background 0.5s;
+		width: $icon-height;
+
+		&:hover {
+			background: transparent;
+			transition: border 0.5s, background 0.5s, color 0.5s;
+		}
+
+		$icons: (
+			twitter: #55ACEE,
+			youtube: #C4302B,
+			facebook: #3B5998,
+			instagram: #C32AA3,
+			github: #231F20,
+			linkedin: #0977B5,
+			dribbble: #EA4C89,
+		);
+
+		@each $theme, $color in $icons {
+			&--#{$theme} {
+				background-color: $color;
+			}
+		}
+	}
+}

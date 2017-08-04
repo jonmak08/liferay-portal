@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.0.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_0_0.dtd">
+<look-and-feel>
+	<compatibility>
+		<version>7.0.0+</version>
+	</compatibility>
+	<theme id="photography" name="photography">
+		<template-extension>ftl</template-extension>
+		<settings>
+			<setting configurable="true" key="background-color-1" type="text" value="#F2FCFE">
+				<![CDATA[
+					AUI().ready('node',function(A) {
+						A.one("#[@NAMESPACE@]background-color-1").setAttribute("type", "color");
+							A.one("#[@NAMESPACE@]background-color-1").setAttribute("style", "height: 100px; width: 100px;");
+						});
+				]]>
+			</setting>
+			<setting configurable="true" key="background-color-2" type="text" value="#1C92D21">
+				<![CDATA[
+					AUI().ready('node',function(A) {
+						A.one("#[@NAMESPACE@]background-color-2").setAttribute("type", "color");
+							A.one("#[@NAMESPACE@]background-color-2").setAttribute("style", "height: 100px; width: 100px;");
+						});
+				]]>
+			</setting>
+			<setting configurable="true" key="background-gradient-direction" options="top,bottom,right,left" type="select" value="bottom" />
+			<setting configurable="true" key="dribbble" type="checkbox" value="true" />
+			<setting configurable="true" key="dribbble-url" type="text" value="https://dribbble.com/liferay" />
+			<setting configurable="true" key="email" type="text" value="pr@liferay.com" />
+			<setting configurable="true" key="facebook" type="checkbox" value="true" />
+			<setting configurable="true" key="facebook-url" type="text" value="https://www.facebook.com/liferay/" />
+			<setting configurable="true" key="github" type="checkbox" value="true" />
+			<setting configurable="true" key="github-url" type="text" value="https://github.com/liferay" />
+			<setting configurable="true" key="instagram" type="checkbox" value="true" />
+			<setting configurable="true" key="instagram-url" type="text" value="https://www.instagram.com/liferayinc/" />
+			<setting configurable="true" key="logo-size" options="small,medium,large" type="select" value="medium" />
+			<setting configurable="true" key="linkedin" type="checkbox" value="true" />
+			<setting configurable="true" key="linkedin-url" type="text" value="https://www.linkedin.com/company/83609?trk=NUS_CMPY_TWIT" />
+			<setting configurable="true" key="phone" type="text" value="1-877-LIFERAY" />
+			<setting configurable="true" key="portlet-setup-show-borders-default" type="checkbox" value="false" />
+			<setting configurable="true" key="show-attribution-info" type="checkbox" value="true" />
+			<setting configurable="true" key="show-contact-info" type="checkbox" value="true" />
+			<setting configurable="true" key="show-copyright-info" type="checkbox" value="true" />
+			<setting configurable="true" key="show-language-picker" type="checkbox" value="true" />
+			<setting configurable="true" key="show-logo-image" type="checkbox" value="true" />
+			<setting configurable="true" key="twitter" type="checkbox" value="true" />
+			<setting configurable="true" key="twitter-url" type="text" value="https://twitter.com/liferay" />
+			<setting configurable="true" key="youtube" type="checkbox" value="true" />
+			<setting configurable="true" key="youtube-url" type="text" value="https://www.youtube.com/user/liferayinc" />
+		</settings>
+		<color-scheme id="01" name="Day">
+			<css-class>day</css-class>
+			<color-scheme-images-path>
+				${images-path}/color_schemes/${css-class}
+			</color-scheme-images-path>
+		</color-scheme>
+		<color-scheme id="02" name="Night">
+			<css-class>night</css-class>
+		</color-scheme>
+		<portlet-decorator id="barebone" name="Barebone">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="borderless" name="Borderless">
+			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="decorate" name="Decorate">
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
+	</theme>
+</look-and-feel>

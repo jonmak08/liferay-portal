@@ -46,7 +46,7 @@
 				</div>
 			</header>
 
-			<main id="content" role="main">
+			<main class="container-fluid-1280" id="content">
 				<h1 class="hide-accessible">${the_title}</h1>
 
 				<#if selectable>
@@ -61,6 +61,7 @@
 					</@>
 				</#if>
 			</main>
+
 
 			<footer id="footer" role="contentinfo">
 				<div class="container-fluid-1280" id="company-info">

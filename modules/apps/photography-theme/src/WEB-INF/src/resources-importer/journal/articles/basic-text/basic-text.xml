@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="WYSIWYG_editor" type="text_area" index-type="text" instance-id="rqsv">
+		<dynamic-content language-id="en_US"><![CDATA[<div class="basic-text"><h1>Blessed is the man...</h1>
+<p>...who <strong>doesn&#39;t walk in the counsel of the wicked</strong>, nor stand in the way of sinners, nor sit in the seat of scoffers; <u><em><strong>but his delight is in Yahweh&#39;s law</strong></em></u>. On his law he meditates day and night.</p>
+<div class="portlet-msg-info">He will be like a tree planted by the streams of water, that brings forth its fruit in its season, whose leaf also does not wither. Whatever he does shall prosper. The wicked are not so, but are like the chaff which the wind drives away.</div>
+<p>For Yahweh knows the way of the righteous...</p></div>]]></dynamic-content>
+	</dynamic-element>
+</root>

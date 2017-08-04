@@ -1,0 +1,388 @@
+{
+	"availableLanguageIds": [
+		"en_US"
+	],
+	"defaultLanguageId": "en_US",
+	"fields": [
+		{
+			"label": {
+				"en_US": "Heading"
+			},
+			"predefinedValue": {
+				"en_US": "Pure Beauty"
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "text",
+			"localizable": true,
+			"name": "heading_1",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "textarea",
+			"nestedFields": [
+				{
+					"label": {
+						"en_US": "Caption"
+					},
+					"predefinedValue": {
+						"en_US": "Livin' The Dream"
+					},
+					"style": {
+						"en_US": ""
+					},
+					"tip": {
+						"en_US": ""
+					},
+					"dataType": "string",
+					"indexType": "text",
+					"localizable": true,
+					"name": "caption_1",
+					"readOnly": false,
+					"repeatable": false,
+					"required": false,
+					"showLabel": true,
+					"type": "textarea"
+				},
+				{
+					"label": {
+						"en_US": "Image Url"
+					},
+					"predefinedValue": {
+						"en_US": "https://s20.postimg.org/fjjm2pbb1/embracing.jpg"
+					},
+					"style": {
+						"en_US": ""
+					},
+					"tip": {
+						"en_US": ""
+					},
+					"dataType": "string",
+					"indexType": "keyword",
+					"localizable": true,
+					"name": "image_1",
+					"readOnly": false,
+					"repeatable": false,
+					"required": true,
+					"showLabel": true,
+					"type": "text"
+				},
+				{
+					"label": {
+						"en_US": "Color"
+					},
+					"predefinedValue": {
+						"en_US": ""
+					},
+					"style": {
+						"en_US": ""
+					},
+					"tip": {
+						"en_US": ""
+					},
+					"dataType": "color",
+					"fieldNamespace": "ddm",
+					"indexType": "keyword",
+					"localizable": true,
+					"name": "text_color_1",
+					"readOnly": false,
+					"repeatable": false,
+					"required": false,
+					"showLabel": true,
+					"type": "ddm-color"
+				}
+			]
+		},
+		{
+			"label": {
+				"en_US": "Heading"
+			},
+			"predefinedValue": {
+				"en_US": "One"
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "text",
+			"localizable": true,
+			"name": "heading_2",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "textarea",
+			"nestedFields": [
+				{
+					"label": {
+						"en_US": "Caption"
+					},
+					"predefinedValue": {
+						"en_US": "Unity"
+					},
+					"style": {
+						"en_US": ""
+					},
+					"tip": {
+						"en_US": ""
+					},
+					"dataType": "string",
+					"indexType": "text",
+					"localizable": true,
+					"name": "caption_2",
+					"readOnly": false,
+					"repeatable": false,
+					"required": false,
+					"showLabel": true,
+					"type": "textarea"
+				},
+				{
+					"label": {
+						"en_US": "Image Url"
+					},
+					"predefinedValue": {
+						"en_US": "https://s20.postimg.org/v6avg2p31/couple.jpg"
+					},
+					"style": {
+						"en_US": ""
+					},
+					"tip": {
+						"en_US": ""
+					},
+					"dataType": "string",
+					"indexType": "keyword",
+					"localizable": true,
+					"name": "image_2",
+					"readOnly": false,
+					"repeatable": false,
+					"required": true,
+					"showLabel": true,
+					"type": "text"
+				},
+				{
+					"label": {
+						"en_US": "Color"
+					},
+					"predefinedValue": {
+						"en_US": ""
+					},
+					"style": {
+						"en_US": ""
+					},
+					"tip": {
+						"en_US": ""
+					},
+					"dataType": "color",
+					"fieldNamespace": "ddm",
+					"indexType": "keyword",
+					"localizable": true,
+					"name": "text_color_2",
+					"readOnly": false,
+					"repeatable": false,
+					"required": false,
+					"showLabel": true,
+					"type": "ddm-color"
+				}
+			]
+		},
+		{
+			"label": {
+				"en_US": "Heading"
+			},
+			"predefinedValue": {
+				"en_US": "Higher"
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "text",
+			"localizable": true,
+			"name": "heading_3",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "textarea",
+			"nestedFields": [
+				{
+					"label": {
+						"en_US": "Caption"
+					},
+					"predefinedValue": {
+						"en_US": "Lookin' Up"
+					},
+					"style": {
+						"en_US": ""
+					},
+					"tip": {
+						"en_US": ""
+					},
+					"dataType": "string",
+					"indexType": "text",
+					"localizable": true,
+					"name": "caption_3",
+					"readOnly": false,
+					"repeatable": false,
+					"required": false,
+					"showLabel": true,
+					"type": "textarea"
+				},
+				{
+					"label": {
+						"en_US": "Image Url"
+					},
+					"predefinedValue": {
+						"en_US": "https://s20.postimg.org/laedu68ot/building.jpg"
+					},
+					"style": {
+						"en_US": ""
+					},
+					"tip": {
+						"en_US": ""
+					},
+					"dataType": "string",
+					"indexType": "keyword",
+					"localizable": true,
+					"name": "image_3",
+					"readOnly": false,
+					"repeatable": false,
+					"required": true,
+					"showLabel": true,
+					"type": "text"
+				},
+				{
+					"label": {
+						"en_US": "Color"
+					},
+					"predefinedValue": {
+						"en_US": ""
+					},
+					"style": {
+						"en_US": ""
+					},
+					"tip": {
+						"en_US": ""
+					},
+					"dataType": "color",
+					"fieldNamespace": "ddm",
+					"indexType": "keyword",
+					"localizable": true,
+					"name": "text_color_3",
+					"readOnly": false,
+					"repeatable": false,
+					"required": false,
+					"showLabel": true,
+					"type": "ddm-color"
+				}
+			]
+		},
+		{
+			"label": {
+				"en_US": "Heading"
+			},
+			"predefinedValue": {
+				"en_US": "Road"
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "text",
+			"localizable": true,
+			"name": "heading_4",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "textarea",
+			"nestedFields": [
+				{
+					"label": {
+						"en_US": "Caption"
+					},
+					"predefinedValue": {
+						"en_US": "To Paradise"
+					},
+					"style": {
+						"en_US": ""
+					},
+					"tip": {
+						"en_US": ""
+					},
+					"dataType": "string",
+					"indexType": "text",
+					"localizable": true,
+					"name": "caption_4",
+					"readOnly": false,
+					"repeatable": false,
+					"required": false,
+					"showLabel": true,
+					"type": "textarea"
+				},
+				{
+					"label": {
+						"en_US": "Image Url"
+					},
+					"predefinedValue": {
+						"en_US": "https://s20.postimg.org/rpdequfel/car.jpg"
+					},
+					"style": {
+						"en_US": ""
+					},
+					"tip": {
+						"en_US": ""
+					},
+					"dataType": "string",
+					"indexType": "keyword",
+					"localizable": true,
+					"name": "image_4",
+					"readOnly": false,
+					"repeatable": false,
+					"required": true,
+					"showLabel": true,
+					"type": "text"
+				},
+				{
+					"label": {
+						"en_US": "Color"
+					},
+					"predefinedValue": {
+						"en_US": ""
+					},
+					"style": {
+						"en_US": ""
+					},
+					"tip": {
+						"en_US": ""
+					},
+					"dataType": "color",
+					"fieldNamespace": "ddm",
+					"indexType": "keyword",
+					"localizable": true,
+					"name": "text_color_4",
+					"readOnly": false,
+					"repeatable": false,
+					"required": false,
+					"showLabel": true,
+					"type": "ddm-color"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="height" type="ddm-number" index-type="keyword" instance-id="magy">
+		<dynamic-content language-id="en_US"><![CDATA[95]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="height_units" type="list" index-type="keyword" instance-id="krdd">
+		<dynamic-content language-id="en_US"><![CDATA[vh]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="text" index-type="keyword" instance-id="hnks">
+		<dynamic-element name="text_colors" instance-id="fmsp" type="ddm-color" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="heading_1" instance-id="ijgl" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Header]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="heading_2" instance-id="ohsf" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Subheader]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[https://s20.postimg.org/ruh60impp/lights.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="text" index-type="keyword" instance-id="vtml">
+		<dynamic-element name="text_colors" instance-id="qvyh" type="ddm-color" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="heading_1" instance-id="qlag" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Header]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="heading_2" instance-id="hhby" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Subheader]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[https://s20.postimg.org/6v1290l19/alps.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="text" index-type="keyword" instance-id="dois">
+		<dynamic-element name="text_colors" instance-id="vyxb" type="ddm-color" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="heading_1" instance-id="jlge" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Header]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="heading_2" instance-id="ctom" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Subheader]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[https://s20.postimg.org/z96hsw8l9/kiss.jpg]]></dynamic-content>
+	</dynamic-element>
+</root>

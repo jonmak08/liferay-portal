@@ -1,0 +1,57 @@
+body.night {
+	.calendar-list-item-hover, .calendar-portlet-list-header:hover {
+		color: $day-color;
+	}
+
+	footer {
+		.social-media-icon {
+			&:hover {
+				border: 1px solid $night-color;
+			}
+		}
+	}
+
+	.heading-container {
+		bottom: 0;
+		padding: 20px;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+
+		h2 {
+			margin-left: -10px;
+		}
+	}
+
+	.portlet-content {
+		border-radius: 0;
+	}
+
+	footer, #navigation .dropdown-menu {
+		background: $night-background;
+	}
+
+	.heading-container, #navigation {
+		background-color: $night-transparent-background;
+	}
+
+	.control-label, .calendar-list-item-label, .fieldset .legend, footer,  footer .link, footer .tooltip, #navigation .dropdown-menu > li > a, #navigation .heading-container, #navigation .navbar-nav span, #navigation #sign-in, #navigation .site-name, .portlet-content, .portlet-content h1, .portlet-content h2, .portlet-content h3, .portlet-content h4, .portlet-content h5, .portlet-content li, .portlet-content p, .calendar-portlet-list-header, .toggle-switch-handle, .toggle-switch-label {
+		color: $night-color;
+	}
+
+		.table-striped > tbody > tr:nth-of-type(odd) {
+		color: $day-color;
+
+		&:hover {
+			color: $night-color;
+		}
+	}
+
+	fieldset .panel-body, .portlet-content, .table-hover > tbody > tr:hover {
+		background-color: $night-body-background;
+	}
+
+	#sign-in {
+		border: 1px solid $night-background;
+	}
+}

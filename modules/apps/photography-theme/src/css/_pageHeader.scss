@@ -1,0 +1,24 @@
+.page-header {
+	height: 50vh;
+	margin: 0;
+	max-height: 435px;
+	padding: 0;
+	position: relative;
+	width: 100%;
+
+	.heading-container {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: flex-end;
+	}
+
+	.image {
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 100%;
+		width: 100%;
+	}
+}

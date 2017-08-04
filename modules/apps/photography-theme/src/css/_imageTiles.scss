@@ -1,0 +1,76 @@
+.media-tiles {
+	height: 0;
+	padding-bottom: 100%;
+	position: relative;
+	width: 100%;
+
+	@media screen and (max-width: $break-point) {
+		padding-bottom: 400%;
+	}
+
+	figure {
+		position: relative;
+		width: 100%;
+
+		figcaption {
+			color: $white;
+			left: 6%;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			transition: color 1s;
+
+			h3 {
+				margin-bottom: 10px;
+			}
+		}
+	}
+
+	.tile-container {
+		display: flex;
+		flex-direction: row;
+		height: 0;
+		padding-bottom: 50%;
+		width: 100%;
+
+		@media screen and (max-width: $break-point) {
+			flex-direction: column;
+			padding-bottom: 100%;
+		}
+	}
+
+	.tile {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		box-shadow: inset 0 0 0 1000px $transparent;
+		height: 0;
+		padding-bottom: 100%;
+		transition: box-shadow 1s;
+		width: 100%;
+
+		&:hover {
+			box-shadow: inset 0 0 0 1000px $transparent-overlay;
+			cursor: pointer;
+			transition: box-shadow 1s;
+
+			figcaption {
+				h3, h5 {
+					color: $black;
+					transition: color 1s;
+				}
+			}
+		}
+
+		figcaption {
+			h3, h5 {
+				color: $white;
+				transition: color 1s;
+			}
+		}
+
+		@media screen and (max-width: $break-point) {
+			width: 100%;
+		}
+	}
+}

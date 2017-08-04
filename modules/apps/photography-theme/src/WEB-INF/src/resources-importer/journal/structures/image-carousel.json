@@ -1,0 +1,173 @@
+{
+	"availableLanguageIds": [
+		"en_US"
+	],
+	"defaultLanguageId": "en_US",
+	"fields": [
+		{
+			"label": {
+				"en_US": "Height"
+			},
+			"predefinedValue": {
+				"en_US": "90"
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": "Height of carousel"
+			},
+			"dataType": "number",
+			"fieldNamespace": "ddm",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "height",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "ddm-number"
+		},
+		{
+			"label": {
+				"en_US": "Height Units"
+			},
+			"options": [
+				{
+					"value": "vh",
+					"label": {
+						"en_US": "vh"
+					}
+				},
+				{
+					"value": "px",
+					"label": {
+						"en_US": "px"
+					}
+				},
+				{
+					"value": "%",
+					"label": {
+						"en_US": "%"
+					}
+				}
+			],
+			"predefinedValue": {
+				"en_US": [
+					"vh"
+				]
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": "Choose the unit type of the carousel height"
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"multiple": false,
+			"name": "height_units",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "select"
+		},
+		{
+			"label": {
+				"en_US": "Image Url"
+			},
+			"predefinedValue": {
+				"en_US": "https://s20.postimg.org/j8dwfxapp/light.jpg"
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "image",
+			"readOnly": false,
+			"repeatable": true,
+			"required": true,
+			"showLabel": true,
+			"type": "text",
+			"nestedFields": [
+				{
+					"label": {
+						"en_US": "Color"
+					},
+					"predefinedValue": {
+						"en_US": ""
+					},
+					"style": {
+						"en_US": ""
+					},
+					"tip": {
+						"en_US": ""
+					},
+					"dataType": "color",
+					"fieldNamespace": "ddm",
+					"indexType": "keyword",
+					"localizable": true,
+					"name": "text_colors",
+					"readOnly": false,
+					"repeatable": false,
+					"required": false,
+					"showLabel": true,
+					"type": "ddm-color"
+				},
+				{
+					"label": {
+						"en_US": "Heading"
+					},
+					"predefinedValue": {
+						"en_US": "Life"
+					},
+					"style": {
+						"en_US": ""
+					},
+					"tip": {
+						"en_US": ""
+					},
+					"dataType": "string",
+					"indexType": "keyword",
+					"localizable": true,
+					"name": "heading_1",
+					"readOnly": false,
+					"repeatable": false,
+					"required": false,
+					"showLabel": true,
+					"type": "text"
+				},
+				{
+					"label": {
+						"en_US": "Sub Heading"
+					},
+					"predefinedValue": {
+						"en_US": "In Full"
+					},
+					"style": {
+						"en_US": ""
+					},
+					"tip": {
+						"en_US": ""
+					},
+					"dataType": "string",
+					"indexType": "keyword",
+					"localizable": true,
+					"name": "heading_2",
+					"readOnly": false,
+					"repeatable": false,
+					"required": false,
+					"showLabel": true,
+					"type": "text"
+				}
+			]
+		}
+	]
+}

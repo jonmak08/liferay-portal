@@ -1,0 +1,147 @@
+{
+	"availableLanguageIds": [
+		"en_US"
+	],
+	"defaultLanguageId": "en_US",
+	"fields": [
+		{
+			"label": {
+				"en_US": "Image Url"
+			},
+			"predefinedValue": {
+				"en_US": "https://s20.postimg.org/9tq1wjhx9/student.jpg"
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "header_url",
+			"readOnly": false,
+			"repeatable": false,
+			"required": true,
+			"showLabel": true,
+			"type": "text"
+		},
+		{
+			"label": {
+				"en_US": "Header Text"
+			},
+			"predefinedValue": {
+				"en_US": "Portfolio Montage"
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "header_text",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "text"
+		},
+		{
+			"label": {
+				"en_US": "Text Color"
+			},
+			"predefinedValue": {
+				"en_US": ""
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "color",
+			"fieldNamespace": "ddm",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "text_color",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "ddm-color"
+		},
+		{
+			"label": {
+				"en_US": "Image Height"
+			},
+			"predefinedValue": {
+				"en_US": "50"
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "image_height",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "text"
+		},
+		{
+			"label": {
+				"en_US": "Height Type"
+			},
+			"options": [
+				{
+					"value": "vh",
+					"label": {
+						"en_US": "vh"
+					}
+				},
+				{
+					"value": "px",
+					"label": {
+						"en_US": "px"
+					}
+				},
+				{
+					"value": "%",
+					"label": {
+						"en_US": "%"
+					}
+				}
+			],
+			"predefinedValue": {
+				"en_US": [
+					"vh"
+				]
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"multiple": false,
+			"name": "height_type",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "select"
+		}
+	]
+}

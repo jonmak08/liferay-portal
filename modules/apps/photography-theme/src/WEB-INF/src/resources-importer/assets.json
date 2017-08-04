@@ -1,0 +1,22 @@
+{
+	"assets": [
+		{
+			"name": "mobile.jpg"
+		},
+		{
+			"name": "ladybug.jpg"
+		},
+		{
+			"name": "lily.jpg"
+		},
+		{
+			"name": "rose.jpg"
+		},
+		{
+			"name": "light.jpg"
+		},
+		{
+			"name": "com_liferay_document_library_web_portlet_IGDisplayPortlet"
+		}
+	]
+}

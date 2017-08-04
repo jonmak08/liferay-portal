@@ -1,0 +1,99 @@
+{
+	"layoutTemplateId": "1_column",
+	"publicPages": [
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "image-carousel.xml",
+							"groupId": "${groupId}"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "image-tiles.xml",
+							"groupId": "${groupId}"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "basic-text.xml",
+							"groupId": "${groupId}"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/welcome",
+			"name": "Welcome",
+			"title": "Welcome"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "header.xml",
+							"groupId": "${groupId}"
+						}
+					},
+					{
+						"portletId": "com_liferay_document_library_web_portlet_IGDisplayPortlet"
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "image-carousel.xml",
+							"groupId": "${groupId}"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "image-tiles.xml",
+							"groupId": "${groupId}"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "image-tiles.xml",
+							"groupId": "${groupId}"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/portfolio",
+			"name": "Portfolio",
+			"title": "Portfolio",
+			"layoutTemplateId": "1_2_1_columns"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "header.xml",
+							"groupId": "${groupId}"
+						}
+					},
+					{
+						"portletId": "com_liferay_web_form_web_portlet_WebFormPortlet"
+					}
+				]
+			],
+			"friendlyURL": "/contact",
+			"name": "Contact",
+			"title": "Contact"
+		}
+	]
+}

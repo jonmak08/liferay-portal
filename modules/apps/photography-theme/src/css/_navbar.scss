@@ -1,0 +1,68 @@
+#navigation {
+	border-radius: 0;
+	border-width: 0;
+	padding: 20px 42px;
+	position: fixed;
+	transition: padding 0.5s, background 0.5s;
+	width: 100%;
+	z-index: 3;
+
+	.dropdown-toggle {
+		background: transparent;
+	}
+
+	.logo {
+		align-items: center;
+		display: flex;
+		margin-top: 8px;
+		padding: 0;
+
+		.logo-link {
+			height: 100%;
+		}
+
+		.site-name {
+			background: transparent;
+			margin-left: 15px;
+			padding: 0;
+			transition: color 0.5s;
+		}
+	}
+
+	.navbar-nav {
+		span {
+			line-height: 37px;
+			transition: color 0.5s;
+		}
+	}
+
+	.navbar-right {
+		position: absolute;
+		right: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+
+		@media(max-width: $break-point) {
+			position: static;
+			right: auto;
+			top: auto;
+			transform: none;
+		}
+	}
+
+	.navbar-toggle {
+		margin: 15px 0;
+	}
+
+	#sign-in {
+		line-height: 64px;
+		margin-left: 15px;
+		padding: 10px;
+		text-decoration: none;
+		transition: color 0.5s, border 0.5s;
+
+		@media(max-width: $break-point) {
+			top: 80%;
+		}
+	}
+}

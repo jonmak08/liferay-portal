@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="header_url" type="text" index-type="keyword" instance-id="oegh">
+		<dynamic-content language-id="en_US"><![CDATA[https://s20.postimg.org/tq8ekunel/alps.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="header_text" type="text" index-type="keyword" instance-id="laeu">
+		<dynamic-content language-id="en_US"><![CDATA[Header Text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="text_color" type="ddm-color" index-type="keyword" instance-id="wydf">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image_height" type="text" index-type="keyword" instance-id="dqag">
+		<dynamic-content language-id="en_US"><![CDATA[45]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="height_type" type="list" index-type="keyword" instance-id="ulzw">
+		<dynamic-content language-id="en_US"><![CDATA[vh]]></dynamic-content>
+	</dynamic-element>
+</root>

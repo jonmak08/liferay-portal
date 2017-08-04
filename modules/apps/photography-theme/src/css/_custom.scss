@@ -1,0 +1,134 @@
+@import 'utils/fonts';
+@import 'utils/mixins';
+@import 'utils/variables';
+@import 'color_schemes/day';
+@import 'color_schemes/night';
+@import 'carousel';
+@import 'footer';
+@import 'imageTiles';
+@import 'languagePicker';
+@import 'navbar';
+@import 'pageHeader';
+@import 'textBlock';
+
+html {
+	font-size: 1.15vw !important;
+	height: 100% !important;
+	width: 100% !important;
+
+	body {
+		padding-bottom: 0;
+	}
+
+	#content {
+		min-height: 50vh;
+	}
+
+	#wrapper {
+		padding: 0;
+	}
+
+	.lfr-asset-item {
+		margin-top: 20px;
+	}
+
+	.portlet-column {
+		padding-right: 0 !important;
+	}
+
+	.portlet-content {
+		border-radius: 0;
+	}
+
+	.row {
+		margin-right: 0 !important;
+	}
+
+	.basic-text, #_com_liferay_web_form_web_portlet_WebFormPortlet_fm {
+		padding: 50px;
+	}
+
+	@media screen and (max-width: $break-point) {
+		font-size: 100% !important;
+	}
+}
+
+#main-content {
+	> div:nth-child(1) {
+		.portlet-dropzone {
+			> div:nth-child(1) {
+				#p_p_id_1_WAR_stocksportlet_.portlet-static {
+					margin-top: 120px;
+				}
+
+				.portlet-topper {
+					top: 150px;
+					z-index: 2;
+				}
+			}
+		}
+	}
+}
+
+.portlet-dropzone, .photography-theme-container {
+	h1 {
+		@include font-generator('h1');
+	}
+
+	h2 {
+		@include font-generator('h2');
+	}
+
+	h3 {
+		@include font-generator('h3');
+	}
+
+	h4 {
+		@include font-generator('h4');
+	}
+
+	h5 {
+		@include font-generator('h5');
+
+		font-style: italic;
+	}
+
+	li,	a {
+		@include font-generator('link');
+
+		text-decoration: none;
+	}
+
+	.logo {
+		@include font-generator('logo');
+
+		cursor: pointer;
+	}
+
+	p {
+		@include font-generator('p');
+	}
+}
+
+.photography-theme-container {
+	a {
+		cursor: pointer;
+		list-style: none;
+		padding: 10px;
+		text-decoration: none;
+	}
+
+	li {
+		list-style: none;
+		text-decoration: none;
+	}
+
+	.logo {
+		cursor: pointer;
+		display: inline-block;
+	}
+}
+
+.sidebar .lexicon-icon {
+	color: $white;
+}

@@ -1,0 +1,23 @@
+@mixin break-point-hide {
+	@media screen and (max-width: $break-point) {
+		display: none;
+	}
+}
+
+@mixin font-family-generator($type) {
+	font-family: map-get($families, $type);
+}
+
+@mixin font-generator($type) {
+	font-family: map-get($families, $type);
+	font-size: map-get($sizes, $type);
+	font-weight: map-get($weights, $type);
+	letter-spacing: map-get($spacing, $type);
+	line-height: map-get($line-height, $type);
+	text-transform: map-get($capitalization, $type);
+}
+
+@mixin image-generator($url) {
+	background: url($url) no-repeat center center;
+	background-size: cover;
+}

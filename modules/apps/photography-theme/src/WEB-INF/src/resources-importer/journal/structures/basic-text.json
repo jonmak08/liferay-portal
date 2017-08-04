@@ -1,0 +1,32 @@
+{
+	"availableLanguageIds": [
+		"en_US"
+	],
+	"defaultLanguageId": "en_US",
+	"fields": [
+		{
+			"label": {
+				"en_US": "HTML Editor"
+			},
+			"predefinedValue": {
+				"en_US": ""
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "html",
+			"fieldNamespace": "ddm",
+			"indexType": "text",
+			"localizable": true,
+			"name": "WYSIWYG_editor",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "ddm-text-html"
+		}
+	]
+}

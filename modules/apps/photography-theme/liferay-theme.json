@@ -1,0 +1,10 @@
+{
+  "LiferayTheme": {
+    "appServerPath": "C:\\Users\\liferay\\Documents\\dev\\bundles\\tomcat-8.0.32",
+    "deployPath": "C:\\Users\\liferay\\Documents\\dev\\bundles\\deploy",
+    "url": "http://localhost:8080",
+    "appServerPathPlugin": "C:\\Users\\liferay\\Documents\\dev\\liferay-portal\\modules\\apps\\photography-theme\\.web_bundle_build",
+    "deployed": true,
+    "pluginName": "photography-theme"
+  }
+}

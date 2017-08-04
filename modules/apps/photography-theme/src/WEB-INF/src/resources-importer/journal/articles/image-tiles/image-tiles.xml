@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="heading_1" type="text_box" index-type="text" instance-id="qzyv">
+		<dynamic-element name="caption_1" instance-id="iawh" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[Subheading]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="image_1" instance-id="ubuj" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[https://s20.postimg.org/fjjm2pbb1/embracing.jpg]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text_color_1" instance-id="vbcy" type="ddm-color" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Heading]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="heading_2" type="text_box" index-type="text" instance-id="lmpd">
+		<dynamic-element name="caption_2" instance-id="ntlo" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[Subheading]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="image_2" instance-id="esli" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[https://s20.postimg.org/v6avg2p31/couple.jpg]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text_color_2" instance-id="ffvw" type="ddm-color" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Heading]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="heading_3" type="text_box" index-type="text" instance-id="nanq">
+		<dynamic-element name="caption_3" instance-id="urbq" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[Subheading]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="image_3" instance-id="dyva" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[https://s20.postimg.org/laedu68ot/building.jpg]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text_color_3" instance-id="guch" type="ddm-color" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Heading]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="heading_4" type="text_box" index-type="text" instance-id="udaa">
+		<dynamic-element name="caption_4" instance-id="gslf" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[Subheading]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="image_4" instance-id="cizf" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[https://s20.postimg.org/rpdequfel/car.jpg]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="text_color_4" instance-id="xepy" type="ddm-color" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Heading]]></dynamic-content>
+	</dynamic-element>
+</root>
