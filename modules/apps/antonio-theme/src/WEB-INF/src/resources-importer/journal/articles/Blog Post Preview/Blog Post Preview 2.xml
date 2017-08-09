@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="blogImageUrl" type="text" index-type="keyword" instance-id="cnds">
+		<dynamic-content language-id="en_US"><![CDATA[https://appetitedemo.files.wordpress.com/2015/07/smachno_09.jpg]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="linkToBlog" type="link_to_layout" index-type="keyword" instance-id="ehqb">
+		<dynamic-content language-id="en_US"><![CDATA[34@public@20140]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Title" type="text" index-type="keyword" instance-id="jlua">
+		<dynamic-content language-id="en_US"><![CDATA[PUBLISHING BASIC WEB CONTENT]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Subittle" type="text" index-type="keyword" instance-id="abus">
+		<dynamic-content language-id="en_US"><![CDATA[Content is the reason web sites exist.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="blogEntry" type="text_box" index-type="text" instance-id="itcm">
+		<dynamic-content language-id="en_US"><![CDATA[You’ll begin by creating some simple content using Liferay’s WYSIWYG editor. Then you’ll publish it to the home page of the Lunar Resort’s web site. This is a fast and straightforward process that demonstrates how easy it is to create and publish content on your Liferay instance. You’ll learn about the Web Content section in Site Administration so you can create and publish your first pieces of content.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Author" type="text" index-type="keyword" instance-id="nxlg">
+		<dynamic-content language-id="en_US"><![CDATA[John Doe]]></dynamic-content>
+	</dynamic-element>
+</root>

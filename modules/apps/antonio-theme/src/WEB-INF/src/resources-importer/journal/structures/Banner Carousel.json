@@ -1,0 +1,146 @@
+{
+	"availableLanguageIds": [
+		"en_US"
+	],
+	"defaultLanguageId": "en_US",
+	"fields": [
+		{
+			"label": {
+				"en_US": "Image 1 Url"
+			},
+			"predefinedValue": {
+				"en_US": ""
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "imageUrlOne",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "text"
+		},
+		{
+			"label": {
+				"en_US": "Image 1 Title"
+			},
+			"predefinedValue": {
+				"en_US": ""
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "imageTitleOne",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "text"
+		},
+		{
+			"label": {
+				"en_US": "Image 2 Url"
+			},
+			"predefinedValue": {
+				"en_US": ""
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "imageUrlTwo",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "text"
+		},
+		{
+			"label": {
+				"en_US": "Image 2 Title"
+			},
+			"predefinedValue": {
+				"en_US": ""
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "imageTitleTwo",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "text"
+		},
+		{
+			"label": {
+				"en_US": "Image 3 Url"
+			},
+			"predefinedValue": {
+				"en_US": ""
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "imageUrlThree",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "text"
+		},
+		{
+			"label": {
+				"en_US": "Image 3 Title"
+			},
+			"predefinedValue": {
+				"en_US": ""
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "imageTitleThree",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "text"
+		}
+	]
+}

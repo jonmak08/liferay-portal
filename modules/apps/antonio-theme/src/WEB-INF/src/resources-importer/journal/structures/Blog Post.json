@@ -1,0 +1,78 @@
+{
+	"availableLanguageIds": [
+		"en_US"
+	],
+	"defaultLanguageId": "en_US",
+	"fields": [
+		{
+			"label": {
+				"en_US": "Blog Subtitle"
+			},
+			"predefinedValue": {
+				"en_US": ""
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "blogSubtitle",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "text"
+		},
+		{
+			"label": {
+				"en_US": "Blog Author"
+			},
+			"predefinedValue": {
+				"en_US": ""
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "string",
+			"indexType": "keyword",
+			"localizable": true,
+			"name": "blogAuthor",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "text"
+		},
+		{
+			"label": {
+				"en_US": "Blog Entry"
+			},
+			"predefinedValue": {
+				"en_US": ""
+			},
+			"style": {
+				"en_US": ""
+			},
+			"tip": {
+				"en_US": ""
+			},
+			"dataType": "html",
+			"fieldNamespace": "ddm",
+			"indexType": "text",
+			"localizable": true,
+			"name": "blogEntry",
+			"readOnly": false,
+			"repeatable": false,
+			"required": false,
+			"showLabel": true,
+			"type": "ddm-text-html"
+		}
+	]
+}
