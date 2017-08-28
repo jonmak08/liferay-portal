@@ -51,7 +51,7 @@ AssetTagsSearchFacetDisplayContext assetTagsSearchFacetDisplayContext = (AssetTa
 					<aui:input cssClass="facet-parameter-name" name="facet-parameter-name" type="hidden" value="<%= assetTagsSearchFacetDisplayContext.getParameterName() %>" />
 
 					<aui:fieldset>
-						<ul class="<%= assetTagsSearchFacetDisplayContext.isCloudWithCount() ? "tag-cloud" : "tag-list" %> list-unstyled">
+						<ul class="<%= assetTagsSearchFacetDisplayContext.isCloudWithCount() ? "tag-cloud tag-items" : "tag-list list-unstyled" %>">
 
 							<%
 							int i = 0;
@@ -61,27 +61,48 @@ AssetTagsSearchFacetDisplayContext assetTagsSearchFacetDisplayContext = (AssetTa
 							%>
 
 								<li class="facet-value tag-popularity-<%= assetTagsSearchFacetTermDisplayContext.getPopularity() %>">
-									<label class="facet-checkbox-label" for="<portlet:namespace />term_<%= i %>">
-										<input
-											class="facet-term"
-											data-term-id="<%= assetTagsSearchFacetTermDisplayContext.getValue() %>"
-											id="<portlet:namespace />term_<%= i %>"
-											name="<portlet:namespace />term_<%= i %>"
-											onChange='Liferay.Search.FacetUtil.changeSelection(event);'
-											type="checkbox"
-											<%= assetTagsSearchFacetTermDisplayContext.isSelected() ? "checked" : StringPool.BLANK %>
-										/>
+									<c:choose>
+										<c:when test="<%= assetTagsSearchFacetDisplayContext.isCloudWithCount() %>">
+											<input
+												class="facet-term"
+												data-term-id="<%= assetTagsSearchFacetTermDisplayContext.getValue() %>"
+												id="<portlet:namespace />term_<%= i %>"
+												name="<portlet:namespace />term_<%= i %>"
+												onChange='Liferay.Search.FacetUtil.changeSelection(event);'
+												type="checkbox"
+												<%= assetTagsSearchFacetTermDisplayContext.isSelected() ? "checked" : StringPool.BLANK %>
+											/>
+											<span>
+												<span>
+													<%= HtmlUtil.escape(assetTagsSearchFacetTermDisplayContext.getDisplayName()) %>
+													<span class="tag-asset-count">(<%= assetTagsSearchFacetTermDisplayContext.getFrequency() %>)</span>
+												</span>
+											</span>
+										</c:when>
+										<c:otherwise>
+											<label class="facet-checkbox-label" for="<portlet:namespace />term_<%= i %>">
+												<input
+													class="facet-term"
+													data-term-id="<%= assetTagsSearchFacetTermDisplayContext.getValue() %>"
+													id="<portlet:namespace />term_<%= i %>"
+													name="<portlet:namespace />term_<%= i %>"
+													onChange='Liferay.Search.FacetUtil.changeSelection(event);'
+													type="checkbox"
+													<%= assetTagsSearchFacetTermDisplayContext.isSelected() ? "checked" : StringPool.BLANK %>
+												/>
 
-										<span class="term-name">
-											<%= HtmlUtil.escape(assetTagsSearchFacetTermDisplayContext.getDisplayName()) %>
-										</span>
+												<span class="term-name">
+													<%= HtmlUtil.escape(assetTagsSearchFacetTermDisplayContext.getDisplayName()) %>
+												</span>
 
-										<c:if test="<%= assetTagsSearchFacetTermDisplayContext.isFrequencyVisible() %>">
-											<small class="term-count">
-												(<%= assetTagsSearchFacetTermDisplayContext.getFrequency() %>)
-											</small>
-										</c:if>
-									</label>
+												<c:if test="<%= assetTagsSearchFacetTermDisplayContext.isFrequencyVisible() %>">
+													<small class="term-count">
+														(<%= assetTagsSearchFacetTermDisplayContext.getFrequency() %>)
+													</small>
+												</c:if>
+											</label>
+										</c:otherwise>
+									</c:choose>
 								</li>
 
 							<%
