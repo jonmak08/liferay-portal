@@ -58,6 +58,25 @@
 
 
 <!-- END WEDDING THEME HTML -->
+	<section id="content">
+		<h1 class="hide-accessible">${the_title}</h1>
+
+		<nav id="breadcrumbs">
+			<@liferay.breadcrumbs />
+		</nav>
+
+		<#if selectable>
+			<@liferay_util["include"] page=content_include />
+		<#else>
+			${portletDisplay.recycle()}
+
+			${portletDisplay.setTitle(the_title)}
+
+			<@liferay_theme["wrap-portlet"] page="portlet.ftl">
+				<@liferay_util["include"] page=content_include />
+			</@>
+		</#if>
+	</section>
 
 	<footer id="footer" role="contentinfo">
 		<p class="powered-by">
@@ -74,5 +93,6 @@
 <!-- endinject -->
 
 </body>
+
 
 </html>
