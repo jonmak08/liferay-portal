@@ -45,25 +45,19 @@
 		</#if>
 	</header>
 
-	<section id="content">
-		<h1 class="hide-accessible">${the_title}</h1>
+<!-- ADD HTML FOR WEDDING THEME HERE -->
 
-		<nav id="breadcrumbs">
-			<@liferay.breadcrumbs />
-		</nav>
 
-		<#if selectable>
-			<@liferay_util["include"] page=content_include />
-		<#else>
-			${portletDisplay.recycle()}
 
-			${portletDisplay.setTitle(the_title)}
 
-			<@liferay_theme["wrap-portlet"] page="portlet.ftl">
-				<@liferay_util["include"] page=content_include />
-			</@>
-		</#if>
-	</section>
+
+
+
+
+
+
+
+<!-- END WEDDING THEME HTML -->
 
 	<footer id="footer" role="contentinfo">
 		<p class="powered-by">
