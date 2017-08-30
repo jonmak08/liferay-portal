@@ -154,16 +154,15 @@ int i = 0;
 								data-term-id=""
 								id="<portlet:namespace /><%= "customRange" %>"
 								name="<portlet:namespace /><%= "customRange" %>"
-								onChange='Liferay.Search.FacetUtil.changeSelection(event);'
+								onChange="Liferay.Search.FacetUtil.changeSelection(event);"
 								type="hidden"
 								<%= modifiedFacetCalendarDisplayContext.isSelected() ? "checked" : StringPool.BLANK %>
 							/>
+							<%
+							String searchCustomRange = "Liferay.Search.ModifiedFacet.searchCustomRange(event, \'" + renderResponse.getNamespace() + "\');"; 
+							%>
 
-						<%
-						String taglibSearchCustomRange = "window['" + renderResponse.getNamespace() + HtmlUtil.escapeJS(modifiedFacetDisplayContext.getParameterName()) + "searchCustomRange'](event);";
-						%>
-
-						<aui:button disabled="<%= (!modifiedFacetCalendarDisplayContext.isFromBeforeTo()) %>" name="searchCustomRangeButton" onClick="<%= taglibSearchCustomRange %>" value="search" />
+						<aui:button disabled="<%= (!modifiedFacetCalendarDisplayContext.isFromBeforeTo()) %>" name="searchCustomRangeButton" onClick="<%= searchCustomRange %>" value="search" />
 					</div>
 				</ul>
 			</aui:field-wrapper>
@@ -181,36 +180,6 @@ int i = 0;
 	</liferay-ui:panel>
 </liferay-ui:panel-container>
 
-<aui:script use="liferay-search-facet-util">
-	function <portlet:namespace /><%= HtmlUtil.escapeJS(modifiedFacetDisplayContext.getParameterName()) %>searchCustomRange(event) {
-		var A = AUI();
-		var Lang = A.Lang;
-		var LString = Lang.String;
-
-		var form = $(event.currentTarget).closest('form')[0];
-
-		var dayFrom = form.fm('fromDay').val();
-		var monthFrom = Lang.toInt(form.fm('fromMonth').val()) + 1;
-		var yearFrom = form.fm('fromYear').val();
-
-		var dayTo = form.fm('toDay').val();
-		var monthTo = Lang.toInt(form.fm('toMonth').val()) + 1;
-		var yearTo = form.fm('toYear').val();
-
-		var range = '[' + yearFrom + LString.padNumber(monthFrom, 2) + LString.padNumber(dayFrom, 2) + '000000 TO ' + yearTo + LString.padNumber(monthTo, 2) + LString.padNumber(dayTo, 2) + '235959]';
-
-		form.fm('customRange').val(range);
-		form.fm('customRange').attr("checked", true);
-		form.fm('customRange').attr("data-term-id", range);
-		form.fm('<%= HtmlUtil.escapeAttribute(modifiedFacetDisplayContext.getParameterName()) + "selection" %>').val('<%= i + 1 %>');
-		form.fm('<%= HtmlUtil.escapeAttribute(modifiedFacetDisplayContext.getParameterName()) %>').val(range);
-
-		var selections = [range];
-
-		FacetUtil.setURLParameters(form, selections);
-	}
-</aui:script>
-
 <aui:script use="aui-form-validator">
 	var Util = Liferay.Util;
 
@@ -224,8 +193,8 @@ int i = 0;
 		}
 	};
 
-	A.one('#<portlet:namespace /><%= HtmlUtil.escapeJS(modifiedFacetDisplayContext.getParameterName()) %>from').on('keydown', preventKeyboardDateChange);
-	A.one('#<portlet:namespace /><%= HtmlUtil.escapeJS(modifiedFacetDisplayContext.getParameterName()) %>to').on('keydown', preventKeyboardDateChange);
+	//A.one('#<portlet:namespace /><%= HtmlUtil.escapeJS(modifiedFacetDisplayContext.getParameterName()) %>from').on('keydown', preventKeyboardDateChange);
+	//A.one('#<portlet:namespace /><%= HtmlUtil.escapeJS(modifiedFacetDisplayContext.getParameterName()) %>to').on('keydown', preventKeyboardDateChange);
 
 	var DEFAULTS_FORM_VALIDATOR = A.config.FormValidator;
 
@@ -285,4 +254,6 @@ int i = 0;
 			A.one('#<%= renderResponse.getNamespace() + "customRange" %>').toggle();
 		}
 	);
-</aui:script>
+</aui:script> 
+
+<aui:script use="liferay-search-modified-facet"></aui:script>
