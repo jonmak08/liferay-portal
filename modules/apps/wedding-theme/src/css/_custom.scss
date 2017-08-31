@@ -42,53 +42,55 @@ p {
 .btn {
   border-width: 1px;
   display: inline-block;
-  font-weight: normal;
+  font-weight: 600;
   text-align: center;
   text-transform: uppercase;
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
   background-image: none;
-  border: 1px solid #50E3C2;
+  border: 1px solid #4CD7B8;
   white-space: nowrap;
   padding: 13px 28px;
   font-size: 13px;
   line-height: 20px;
   border-radius: 100px;
-  user-select: none; }
+  user-select: none; 
+  letter-spacing: 2px;
+  }
 
 .btn-default {
-  color: #50E3C2;
+  color: #4CD7B8;
   background-color: transparent;
-  border-color: #50E3C2;
+  border-color: #4CD7B8;
   text-transform: uppercase; }
 
 .btn-primary {
-  color: #50E3C2;
+  color: #4CD7B8;
   background-color: #transparent;
-  border-color: #50E3C2; }
+  border-color: #4CD7B8; }
   .btn-primary:focus, .btn-primary.focus {
     color: #fff;
-    background-color: #4ACDB0;
-    border-color: #4ACDB0;
+    background-color: #45BFA4;
+    border-color: #45BFA4;
     }
   .btn-primary:hover {
     color: #fff;
-    background-color: #50E3C2;
-    border-color: #50E3C2; }
+    background-color: #4CD7B8;
+    border-color: #4CD7B8; }
   .btn-primary:active, .btn-primary.active,
   .open > .btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #4ACDB0;
-    border-color: #4ACDB0;
+    background-color: #45BFA4;
+    border-color: #45BFA4;
     }
     .btn-primary:active:hover, .btn-primary:active:focus, .btn-primary:active.focus, .btn-primary.active:hover, .btn-primary.active:focus, .btn-primary.active.focus,
     .open > .btn-primary.dropdown-toggle:hover,
     .open > .btn-primary.dropdown-toggle:focus,
     .open > .btn-primary.dropdown-toggle.focus {
       color: #fff;
-      background-color: #4ACDB0;
-      border-color: #4ACDB0;
+      background-color: #45BFA4;
+      border-color: #45BFA4;
       }
   .btn-primary:active, .btn-primary.active,
   .open > .btn-primary.dropdown-toggle {
@@ -100,10 +102,10 @@ p {
   fieldset[disabled] .btn-primary.focus,
   fieldset[disabled] .btn-primary:active,
   fieldset[disabled] .btn-primary.active {
-    background-color: #50E3C2;
-    border-color: #4ACDB0; }
+    background-color: #4CD7B8;
+    border-color: #45BFA4; }
   .btn-primary .badge {
-    color: #50E3C2;
+    color: #4CD7B8;
     background-color: #fff;
 }
 
@@ -123,7 +125,7 @@ p {
     padding: 6px 12px;
     font-size: 16px;
     line-height: 1.42857;
-    color: rgba(0, 0, 0, 0.34);
+    color: rgba(0, 0, 0, 0.70);
     background-color: #F2F2F2;
     background-image: none;
     border: 0px solid;
@@ -135,3 +137,27 @@ p {
     -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
+
+.portlet-decorate .portlet-content {
+  border-color: none;
+  border-style: none;
+  }
+
+
+.fieldset-legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 5px;
+    font-size: 21px;
+    line-height: inherit;
+    color: #333333;
+    border: 0;
+    border-bottom: none;
+}
+
