@@ -102,8 +102,7 @@ public class SearchBarRedirectMVCActionCommand extends BaseMVCActionCommand {
 
 		if (selectedFacetSites != null) {
 			for (Object item : selectedFacetSites) {
-				redirectURL = redirectURL + "&" + "site" + "=" + item; // Hope to substitute "site" for facetName to get facet param name
-				System.out.println("20138 ITEM! =" + item);
+				redirectURL = redirectURL + "&" + "site" + "=" + item;
 			}
 		}
 
