@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="28px" viewBox="0 0 42 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>envelope</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Mockups" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons" transform="translate(-320.000000, -148.000000)" fill-rule="nonzero" fill="#50E3C2">
+            <path d="M360.55,148 L361.6,148 L361.710345,148.275862 L360.95,149 L359.5,149 L360.55,148 Z M321.05,149 L320.289655,148.275862 L320.4,148 L321.45,148 L322.5,149 L321.05,149 Z M341,166.619048 L359.5,149 L322.5,149 L341,166.619048 Z M361.5,176 L320,176 L320,175.5 L320,148 L320.5,148 L361.5,148 L362,148 L362,176 L361.5,176 Z M359.722953,175 L343.840951,165.294332 L341,168 L338.018605,165.160576 L321.917729,175 L359.722953,175 Z M321,148.952381 L321,174.388889 L337.269036,164.446701 L321,148.952381 Z M361,148.952381 L344.590521,164.580456 L361,174.608472 L361,148.952381 Z" id="envelope"></path>
+        </g>
+    </g>
+</svg>

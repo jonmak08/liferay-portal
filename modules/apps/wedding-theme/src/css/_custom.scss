@@ -13,6 +13,16 @@ h2 {
 	text-align: center;
 }
 
+h3 {
+  font-family: Poppins;
+  font-size: 22px;
+  opacity: 0.87;
+  color: #000000;
+  line-height: 31px;
+  text-align: center;
+  text-shadow: 0 1px 4px 0 rgba(0,0,0,0.3);
+}
+
 p {
 	color: rgba(0,0,0,0.54);
 	font-family: Poppins;
@@ -138,6 +148,17 @@ p {
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
+.portlet-title-text {
+  display: block;
+  margin-top: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  white-space: nowrap;
+  text-align: center;
+}
+
 .portlet-decorate .portlet-content {
   border-color: none;
   border-style: none;
@@ -160,4 +181,5 @@ legend {
     border: 0;
     border-bottom: none;
 }
+
 

@@ -10,6 +10,7 @@
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 
 	<@liferay_util["include"] page=top_head_include />
+
 </head>
 
 <body class="${css_class}">
@@ -45,19 +46,6 @@
 		</#if>
 	</header>
 
-<!-- ADD HTML FOR WEDDING THEME HERE -->
-
-
-
-
-
-
-
-
-
-
-
-<!-- END WEDDING THEME HTML -->
 	<section id="content">
 		<h1 class="hide-accessible">${the_title}</h1>
 
