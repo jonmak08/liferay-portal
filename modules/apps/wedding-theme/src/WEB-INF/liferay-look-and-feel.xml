@@ -8,6 +8,7 @@
 	<theme id="wedding-theme" name="wedding-theme">
 		<template-extension>ftl</template-extension>
 		<portlet-decorator id="barebone" name="Barebone">
+			<default-portlet-decorator>true</default-portlet-decorator>
 			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
 		</portlet-decorator>
 		<portlet-decorator id="borderless" name="Borderless">

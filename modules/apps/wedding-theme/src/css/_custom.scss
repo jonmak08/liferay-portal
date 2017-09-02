@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
-h2 {
+h1 {
 	font-family: 'Raleway', sans-serif;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -13,7 +13,11 @@ h2 {
 	text-align: center;
 }
 
-h3 {
+.inverse {
+  color: white;
+}
+
+h2 {
   font-family: Poppins;
   font-size: 22px;
   opacity: 0.87;
@@ -28,6 +32,7 @@ p {
 	font-family: Poppins;
 	font-size: 16px;
 	line-height: 25px;
+  text-align: center;
 }
 
 .btn {
@@ -159,12 +164,6 @@ p {
   text-align: center;
 }
 
-.portlet-decorate .portlet-content {
-  border-color: none;
-  border-style: none;
-  }
-
-
 .fieldset-legend {
     font-size: 1.2em;
     font-weight: bold;
@@ -181,5 +180,3 @@ legend {
     border: 0;
     border-bottom: none;
 }
-
-
