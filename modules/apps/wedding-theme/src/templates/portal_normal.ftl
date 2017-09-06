@@ -49,9 +49,9 @@
 	<section id="content">
 		<h1 class="hide-accessible">${the_title}</h1>
 
-		<nav id="breadcrumbs">
+<!-- 		<nav id="breadcrumbs">
 			<@liferay.breadcrumbs />
-		</nav>
+		</nav> -->
 
 		<#if selectable>
 			<@liferay_util["include"] page=content_include />
