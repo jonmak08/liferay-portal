@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
-@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500');
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 
 
@@ -196,10 +196,58 @@ p {
     -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
-// .portlet {
-//     margin-bottom: 90px;
-//     position: relative;
-// }
+
+
+/* Navbar */
+.navbar-bg {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+li {
+    float: right;
+}
+
+.names-of-couple {
+  display: block;
+  height: 48px;
+  width: 133px;
+  color: #000000;
+  font-family: Raleway;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 24px;
+  text-transform: uppercase;
+  text-align: left;
+  text-decoration: none;
+}
+
+.navbar-content {
+    display: block;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 18px;
+    padding: 14px 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+a {
+  color: rgba(0,0,0,0.54);
+}
+
+a:hover {
+    color: #50E3C2;
+    text-decoration: none;
+}
+
+/* Navbar */
+
 
 .portlet-title-text {
   display: block;
@@ -249,6 +297,7 @@ legend {
 .site-name {
   display: none;
 }
+
 
 html, body {
   max-width: 100%;
