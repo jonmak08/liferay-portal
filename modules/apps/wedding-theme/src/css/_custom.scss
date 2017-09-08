@@ -66,16 +66,16 @@ h6 {
   width: 160px;
   color: #FFFFFF;
   font-family: Raleway;
-  font-size: 16px;
-  line-height: 25px;
+  font-size: 18px;
+  line-height: 30px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 p {
 	color: rgba(0,0,0,0.54);
 	font-family: Poppins;
-	font-size: 16px;
-	line-height: 25px;
+	font-size: 18px;
+	line-height: 34px;
   text-align: center;
 }
 
@@ -196,10 +196,10 @@ p {
     -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
-.portlet {
-    margin-bottom: 90px;
-    position: relative;
-}
+// .portlet {
+//     margin-bottom: 90px;
+//     position: relative;
+// }
 
 .portlet-title-text {
   display: block;
@@ -211,6 +211,7 @@ p {
   white-space: nowrap;
   text-align: center;
 }
+
 
 .fieldset-legend {
     font-size: 1.2em;
@@ -245,3 +246,39 @@ legend {
   display: none;
 }
 
+.site-name {
+  display: none;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#portlet_com_liferay_journal_content_web_portlet_JournalContentPortlet_INSTANCE_v25Tmb77p0q4 {
+  padding-bottom: 90px;
+}
+
+#portlet_com_liferay_journal_content_web_portlet_JournalContentPortlet_INSTANCE_QKMAfrIk2T5X {
+  padding-bottom: 90px;
+}
+
+#portlet_com_liferay_journal_content_web_portlet_JournalContentPortlet_INSTANCE_banATPYlayAH {
+  padding-bottom: 90px;
+}
+
+#portlet_com_liferay_document_library_web_portlet_IGDisplayPortlet_INSTANCE_QRazY3M4VAhd {
+  padding-bottom: 90px;
+}
+
+#portlet_com_liferay_journal_content_web_portlet_JournalContentPortlet_INSTANCE_Vnieuc0OiM7k {
+  padding-bottom: 90px;
+}
+
+#portlet_com_liferay_journal_content_web_portlet_JournalContentPortlet_INSTANCE_XKqP04wyfijy {
+  padding-bottom: 25px;
+}
+
+#portlet_com_liferay_web_form_web_portlet_WebFormPortlet {
+  padding-bottom: 90px;
+}

@@ -41,10 +41,13 @@
 			<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
 		</#if>
 
-		<#if has_navigation && is_setup_complete>
+<!-- 		<#if has_navigation && is_setup_complete>
+			<a href="#footer" id="footerlink">FOOTERLINK</a>
 			<#include "${full_templates_path}/navigation.ftl" />
-		</#if>
+		</#if> -->
 	</header>
+
+
 
 	<section id="content">
 		<h1 class="hide-accessible">${the_title}</h1>
@@ -81,5 +84,6 @@
 <!-- endinject -->
 
 </body>
+<!-- <script src="js/main.js"></script> -->
 
 </html>
