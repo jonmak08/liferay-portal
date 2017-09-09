@@ -47,7 +47,6 @@
 	</header>
 
 
-
 	<section id="content">
 		<h1 class="hide-accessible">${the_title}</h1>
 
@@ -66,14 +65,6 @@
 				<@liferay_util["include"] page=content_include />
 			</@>
 		</#if>
-	</section>
-
-	<footer id="footer" role="contentinfo">
-		<p class="powered-by">
-			<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
-		</p>
-	</footer>
-</div>
 
 <@liferay_util["include"] page=body_bottom_include />
 
