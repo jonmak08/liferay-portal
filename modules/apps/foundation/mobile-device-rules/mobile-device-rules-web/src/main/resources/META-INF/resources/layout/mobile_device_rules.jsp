@@ -55,7 +55,7 @@ int mdrRuleGroupInstancesCount = MDRRuleGroupInstanceServiceUtil.getRuleGroupIns
 	</p>
 </div>
 
-<div class="<%= (mdrRuleGroupInstancesCount > 0) ? StringPool.BLANK : "hide" %>" id="<portlet:namespace />uniqueRuleGroupInstancesContainer">
+<div class="<%= (mdrRuleGroupInstancesCount > 0) ? "unique-rule-group-instances-container" : "hide" %>" id="<portlet:namespace />uniqueRuleGroupInstancesContainer">
 	<p class="text-muted">
 		<liferay-ui:message key="device-family" />
 	</p>

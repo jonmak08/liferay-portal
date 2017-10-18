@@ -46,7 +46,7 @@
 			'<%= viewRuleGroupInstancesURL.toString() %>',
 			{
 				success: function(responseData) {
-					$('#<portlet:namespace />uniqueRuleGroupInstancesContainer').html(responseData);
+					$('.unique-rule-group-instances-container').html(responseData);
 				}
 			}
 		);

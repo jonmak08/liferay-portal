@@ -35,7 +35,7 @@ long classPK = selLayoutSet.getLayoutSetId();
 
 <%@ include file="/layout/mobile_device_rules_header.jspf" %>
 
-<div id="<portlet:namespace />uniqueRuleGroupInstancesContainer">
+<div class="unique-rule-group-instances-container" id="<portlet:namespace />uniqueRuleGroupInstancesContainer">
 	<liferay-util:include page="/layout/mobile_device_rules_rule_group_instances.jsp" servletContext="<%= application %>">
 		<liferay-util:param name="groupId" value="<%= String.valueOf(groupId) %>" />
 		<liferay-util:param name="className" value="<%= className %>" />

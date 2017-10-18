@@ -60,7 +60,7 @@ PortletURL portletURL = (PortletURL)request.getAttribute("mobile_device_rules_he
 
 <c:if test="<%= themeDisplay.isStateExclusive() %>">
 	<aui:script sandbox="<%= true %>">
-		$('#<portlet:namespace />uniqueRuleGroupInstancesContainer').on(
+		$('.unique-rule-group-instances-container').on(
 			'click',
 			'.mobile-device-rule a',
 			function(event) {
