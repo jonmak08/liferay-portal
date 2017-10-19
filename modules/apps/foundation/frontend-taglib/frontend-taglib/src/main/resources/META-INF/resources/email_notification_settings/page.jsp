@@ -36,42 +36,26 @@ boolean showSubject = GetterUtil.getBoolean(request.getAttribute("liferay-fronte
 	</c:if>
 
 	<c:if test="<%= showSubject %>">
-		<c:choose>
-			<c:when test="<%= Validator.isNotNull(emailSubject) && Validator.isXml(emailSubject) %>">
-				<aui:field-wrapper label="subject">
-					<liferay-ui:input-localized
-						fieldPrefix="<%= fieldPrefix %>"
-						fieldPrefixSeparator="<%= fieldPrefixSeparator %>"
-						name='<%= emailParam + "Subject" %>'
-						xml="<%= emailSubject %>"
-					/>
-				</aui:field-wrapper>
-			</c:when>
-			<c:otherwise>
-				<aui:input cssClass="lfr-input-text-container" label="subject" name='<%= fieldPrefix + fieldPrefixSeparator + emailParam + "Subject" + fieldPrefixSeparator %>' value="<%= emailSubject %>" />
-			</c:otherwise>
-		</c:choose>
+		<aui:field-wrapper label="subject">
+			<liferay-ui:input-localized
+				fieldPrefix="<%= fieldPrefix %>"
+				fieldPrefixSeparator="<%= fieldPrefixSeparator %>"
+				name='<%= emailParam + "Subject" %>'
+				xml="<%= emailSubject %>"
+			/>
+		</aui:field-wrapper>
 	</c:if>
 
 	<aui:field-wrapper helpMessage="<%= helpMessage %>" label="<%= bodyLabel %>">
-		<c:choose>
-			<c:when test="<%= Validator.isNotNull(emailBody) && Validator.isXml(emailBody) %>">
-				<liferay-ui:input-localized
-					editorName='<%= PropsUtil.get("editor.wysiwyg.portal-web.docroot.html.taglib.ui.email_notification_settings.jsp") %>'
-					fieldPrefix="<%= fieldPrefix %>"
-					fieldPrefixSeparator="<%= fieldPrefixSeparator %>"
-					name='<%= emailParam + "Body" %>'
-					toolbarSet="email"
-					type="editor"
-					xml="<%= emailBody %>"
-				/>
-			</c:when>
-			<c:otherwise>
-				<liferay-ui:input-editor contents="<%= emailBody %>" editorName='<%= PropsUtil.get("editor.wysiwyg.portal-web.docroot.html.taglib.ui.email_notification_settings.jsp") %>' name="<%= emailParam %>" />
-
-				<aui:input name='<%= fieldPrefix + fieldPrefixSeparator + emailParam + "Body" + fieldPrefixSeparator %>' type="hidden" />
-			</c:otherwise>
-		</c:choose>
+		<liferay-ui:input-localized
+			editorName='<%= PropsUtil.get("editor.wysiwyg.portal-web.docroot.html.taglib.ui.email_notification_settings.jsp") %>'
+			fieldPrefix="<%= fieldPrefix %>"
+			fieldPrefixSeparator="<%= fieldPrefixSeparator %>"
+			name='<%= emailParam + "Body" %>'
+			toolbarSet="email"
+			type="editor"
+			xml="<%= emailBody %>"
+		/>
 	</aui:field-wrapper>
 </aui:fieldset>
 
