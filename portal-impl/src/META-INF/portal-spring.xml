@@ -51,9 +51,6 @@
 	<bean class="com.liferay.portlet.documentlibrary.service.impl.DLFileEntryTypeServiceImpl" id="com.liferay.document.library.kernel.service.DLFileEntryTypeService" />
 	<bean class="com.liferay.portlet.documentlibrary.service.persistence.impl.DLFileEntryTypePersistenceImpl" id="com.liferay.document.library.kernel.service.persistence.DLFileEntryTypePersistence" parent="basePersistence" />
 	<bean class="com.liferay.portlet.documentlibrary.service.persistence.impl.DLFileEntryTypeFinderImpl" id="com.liferay.document.library.kernel.service.persistence.DLFileEntryTypeFinder" parent="basePersistence" />
-	<bean class="com.liferay.portlet.documentlibrary.service.impl.DLFileRankLocalServiceImpl" id="com.liferay.document.library.kernel.service.DLFileRankLocalService" />
-	<bean class="com.liferay.portlet.documentlibrary.service.persistence.impl.DLFileRankPersistenceImpl" id="com.liferay.document.library.kernel.service.persistence.DLFileRankPersistence" parent="basePersistence" />
-	<bean class="com.liferay.portlet.documentlibrary.service.persistence.impl.DLFileRankFinderImpl" id="com.liferay.document.library.kernel.service.persistence.DLFileRankFinder" parent="basePersistence" />
 	<bean class="com.liferay.portlet.documentlibrary.service.impl.DLFileShortcutLocalServiceImpl" id="com.liferay.document.library.kernel.service.DLFileShortcutLocalService" />
 	<bean class="com.liferay.portlet.documentlibrary.service.impl.DLFileShortcutServiceImpl" id="com.liferay.document.library.kernel.service.DLFileShortcutService" />
 	<bean class="com.liferay.portlet.documentlibrary.service.persistence.impl.DLFileShortcutPersistenceImpl" id="com.liferay.document.library.kernel.service.persistence.DLFileShortcutPersistence" parent="basePersistence" />
@@ -64,8 +61,6 @@
 	<bean class="com.liferay.portlet.documentlibrary.service.impl.DLFolderServiceImpl" id="com.liferay.document.library.kernel.service.DLFolderService" />
 	<bean class="com.liferay.portlet.documentlibrary.service.persistence.impl.DLFolderPersistenceImpl" id="com.liferay.document.library.kernel.service.persistence.DLFolderPersistence" parent="basePersistence" />
 	<bean class="com.liferay.portlet.documentlibrary.service.persistence.impl.DLFolderFinderImpl" id="com.liferay.document.library.kernel.service.persistence.DLFolderFinder" parent="basePersistence" />
-	<bean class="com.liferay.portlet.documentlibrary.service.impl.DLSyncEventLocalServiceImpl" id="com.liferay.document.library.kernel.service.DLSyncEventLocalService" />
-	<bean class="com.liferay.portlet.documentlibrary.service.persistence.impl.DLSyncEventPersistenceImpl" id="com.liferay.document.library.kernel.service.persistence.DLSyncEventPersistence" parent="basePersistence" />
 	<bean class="com.liferay.portlet.documentlibrary.service.impl.DLTrashLocalServiceImpl" id="com.liferay.document.library.kernel.service.DLTrashLocalService" />
 	<bean class="com.liferay.portlet.documentlibrary.service.impl.DLTrashServiceImpl" id="com.liferay.document.library.kernel.service.DLTrashService" />
 	<bean class="com.liferay.portlet.expando.service.impl.ExpandoColumnLocalServiceImpl" id="com.liferay.expando.kernel.service.ExpandoColumnLocalService" />

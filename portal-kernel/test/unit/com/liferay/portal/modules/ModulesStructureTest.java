@@ -47,6 +47,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -96,7 +97,9 @@ public class ModulesStructureTest {
 
 					String dirName = String.valueOf(dirPath.getFileName());
 
-					if (dirName.charAt(0) == '.') {
+					if ((dirName.charAt(0) == '.') ||
+						dirName.equals("node_modules")) {
+
 						return FileVisitResult.SKIP_SUBTREE;
 					}
 
@@ -334,8 +337,12 @@ public class ModulesStructureTest {
 
 							if (Files.exists(path)) {
 								Assert.fail(
-									"Please rename " + path + " to " +
-										path.resolveSibling(entry.getValue()));
+									StringBundler.concat(
+										"Please rename ", String.valueOf(path),
+										" to ",
+										String.valueOf(
+											path.resolveSibling(
+												entry.getValue()))));
 							}
 						}
 					}
@@ -380,8 +387,9 @@ public class ModulesStructureTest {
 
 		for (String fileName : fileNames) {
 			Assert.assertTrue(
-				"Please document the \"" + fileName + "\" marker file in " +
-					readmePath,
+				StringBundler.concat(
+					"Please document the \"", fileName, "\" marker file in ",
+					String.valueOf(readmePath)),
 				readme.contains("`" + fileName + "`"));
 		}
 	}
@@ -402,9 +410,9 @@ public class ModulesStructureTest {
 				line = StringUtil.trim(line);
 
 				for (String pluginIdSuffix : pluginIdSuffixes) {
-					String pluginLine =
-						"apply plugin: \"" + pluginIdPrefix + pluginIdSuffix +
-							"\"";
+					String pluginLine = StringBundler.concat(
+						"apply plugin: \"", pluginIdPrefix, pluginIdSuffix,
+						"\"");
 
 					if (line.equals(pluginLine)) {
 						pluginNames.add(pluginNamePrefix + pluginIdSuffix);
@@ -671,10 +679,6 @@ public class ModulesStructureTest {
 	}
 
 	private void _testAntPluginIgnoreFiles(Path dirPath) throws IOException {
-		if (_isInPrivateModulesDir(dirPath)) {
-			return;
-		}
-
 		if (_getGitRepoPath(dirPath) == null) {
 			Path parentDirPath = dirPath.getParent();
 
@@ -742,7 +746,8 @@ public class ModulesStructureTest {
 				String name = line.substring(2, end);
 
 				Assert.assertTrue(
-					"Incorrect \"" + line + "\" in " + path,
+					StringBundler.concat(
+						"Incorrect \"", line, "\" in ", String.valueOf(path)),
 					Files.exists(dirPath.resolve(name)));
 			}
 		}
@@ -763,14 +768,11 @@ public class ModulesStructureTest {
 		Path gradlePropertiesPath = dirPath.resolve("gradle.properties");
 		Path settingsGradlePath = dirPath.resolve("settings.gradle");
 
-		if (!_isInGitRepoReadOnly(dirPath)) {
-			String buildGradle = ModulesStructureTestUtil.read(buildGradlePath);
+		String buildGradle = ModulesStructureTestUtil.read(buildGradlePath);
 
-			Assert.assertEquals(
-				"Incorrect " + buildGradlePath,
-				_getGitRepoBuildGradle(dirPath, buildGradleTemplate),
-				buildGradle);
-		}
+		Assert.assertEquals(
+			"Incorrect " + buildGradlePath,
+			_getGitRepoBuildGradle(dirPath, buildGradleTemplate), buildGradle);
 
 		String gradleProperties = ModulesStructureTestUtil.read(
 			gradlePropertiesPath);
@@ -803,8 +805,10 @@ public class ModulesStructureTest {
 			String line = lines[i];
 
 			Assert.assertEquals(
-				"Forbidden leading or trailing whitespaces in line " + (i + 1) +
-					" of " + gradlePropertiesPath,
+				StringBundler.concat(
+					"Forbidden leading or trailing whitespaces in line ",
+					String.valueOf(i + 1), " of ",
+					String.valueOf(gradlePropertiesPath)),
 				line.trim(), line);
 
 			Assert.assertFalse(
@@ -814,8 +818,9 @@ public class ModulesStructureTest {
 			int pos = line.indexOf(CharPool.EQUAL);
 
 			Assert.assertTrue(
-				"Incorrect line \"" + line + "\" in " +
-					gradlePropertiesPath,
+				StringBundler.concat(
+					"Incorrect line \"", line, "\" in ",
+					String.valueOf(gradlePropertiesPath)),
 				pos != -1);
 
 			String key = line.substring(0, pos);
@@ -897,14 +902,15 @@ public class ModulesStructureTest {
 		}
 
 		_testGitRepoProjectGroup(
-			"Property \"" + _GIT_REPO_GRADLE_PROJECT_GROUP_KEY + "\" in " +
-				gradlePropertiesPath,
+			StringBundler.concat(
+				"Property \"", _GIT_REPO_GRADLE_PROJECT_GROUP_KEY, "\" in ",
+				String.valueOf(gradlePropertiesPath)),
 			projectGroup);
 
 		Assert.assertEquals(
-			"Incorrect \"" + _GIT_REPO_GRADLE_PROJECT_PATH_PREFIX_KEY +
-				"\" in " +
-					gradlePropertiesPath,
+			StringBundler.concat(
+				"Incorrect \"", _GIT_REPO_GRADLE_PROJECT_PATH_PREFIX_KEY,
+				"\" in ", String.valueOf(gradlePropertiesPath)),
 			_getProjectPathPrefix(dirPath), projectPathPrefix);
 
 		if (privateRepo) {
@@ -943,7 +949,7 @@ public class ModulesStructureTest {
 			return;
 		}
 
-		if (_isInGitRepoReadOnly(dirPath) || _isInPrivateModulesDir(dirPath)) {
+		if (_isInGitRepoReadOnly(dirPath)) {
 			return;
 		}
 
@@ -965,8 +971,9 @@ public class ModulesStructureTest {
 
 		for (String prefix : _GIT_REPO_GRADLE_PROJECT_GROUP_RESERVED_PREFIXES) {
 			Assert.assertFalse(
-				messagePrefix + " cannot start with the reserved prefix \"" +
-					prefix + "\"",
+				StringBundler.concat(
+					messagePrefix, " cannot start with the reserved prefix \"",
+					prefix, "\""),
 				StringUtil.startsWith(projectGroup, prefix));
 		}
 
@@ -974,8 +981,9 @@ public class ModulesStructureTest {
 			projectGroup);
 
 		Assert.assertTrue(
-			messagePrefix + " must match pattern \"" +
-				_gitRepoGradleProjectGroupPattern.pattern() + "\"",
+			StringBundler.concat(
+				messagePrefix, " must match pattern \"",
+				_gitRepoGradleProjectGroupPattern.pattern(), "\""),
 			matcher.matches());
 	}
 
@@ -987,7 +995,9 @@ public class ModulesStructureTest {
 
 		if (Validator.isNotNull(expectedValue) && Validator.isNotNull(value)) {
 			Assert.assertEquals(
-				"Incorrect \"" + key + "\" in " + gradlePropertiesPath,
+				StringBundler.concat(
+					"Incorrect \"", key, "\" in ",
+					String.valueOf(gradlePropertiesPath)),
 				expectedValue, value);
 		}
 	}
@@ -996,8 +1006,9 @@ public class ModulesStructureTest {
 		String content = ModulesStructureTestUtil.read(path);
 
 		Assert.assertFalse(
-			"Incorrect repository URL in " + path + ", please use " +
-				_REPOSITORY_URL + " instead",
+			StringBundler.concat(
+				"Incorrect repository URL in ", String.valueOf(path),
+				", please use ", _REPOSITORY_URL, " instead"),
 			content.contains("plugins.gradle.org/m2"));
 
 		Assert.assertFalse(
@@ -1009,7 +1020,73 @@ public class ModulesStructureTest {
 			ModulesStructureTestUtil.getGradleDependencies(
 				content, path, _modulesDirPath);
 
+		Path dirPath = path.getParent();
+
+		Map<String, Boolean> allowedConfigurationsMap = new TreeMap<>();
+
+		boolean hasSrcMainDir = Files.exists(dirPath.resolve("src/main"));
+		boolean hasSrcTestDir = Files.exists(dirPath.resolve("src/test"));
+		boolean hasSrcTestIntegrationDir = Files.exists(
+			dirPath.resolve("src/testIntegration"));
+
+		boolean mainConfigurationsAllowed = false;
+
+		if (hasSrcMainDir ||
+			(!hasSrcMainDir && !hasSrcTestDir && !hasSrcTestIntegrationDir) ||
+			content.contains("copyLibs {\n\tenabled = true")) {
+
+			mainConfigurationsAllowed = true;
+		}
+
+		allowedConfigurationsMap.put("compile", mainConfigurationsAllowed);
+		allowedConfigurationsMap.put("compileOnly", mainConfigurationsAllowed);
+		allowedConfigurationsMap.put("provided", mainConfigurationsAllowed);
+
+		allowedConfigurationsMap.put("testCompile", hasSrcTestDir);
+		allowedConfigurationsMap.put("testRuntime", hasSrcTestDir);
+
+		allowedConfigurationsMap.put(
+			"testIntegrationCompile", hasSrcTestIntegrationDir);
+		allowedConfigurationsMap.put(
+			"testIntegrationRuntime", hasSrcTestIntegrationDir);
+
 		for (GradleDependency gradleDependency : gradleDependencies) {
+			Boolean allowed = allowedConfigurationsMap.get(
+				gradleDependency.getConfiguration());
+
+			if ((allowed != null) && !allowed.booleanValue()) {
+				StringBundler sb = new StringBundler(
+					allowedConfigurationsMap.size() * 4 + 4);
+
+				sb.append("Incorrect configuration of dependency {");
+				sb.append(gradleDependency);
+				sb.append("} in ");
+				sb.append(path);
+				sb.append(", use one of these instead: ");
+
+				boolean first = true;
+
+				for (Map.Entry<String, Boolean> entry :
+						allowedConfigurationsMap.entrySet()) {
+
+					if (!entry.getValue()) {
+						continue;
+					}
+
+					if (!first) {
+						sb.append(StringPool.COMMA_AND_SPACE);
+					}
+
+					first = false;
+
+					sb.append(CharPool.QUOTE);
+					sb.append(entry.getKey());
+					sb.append(CharPool.QUOTE);
+				}
+
+				Assert.fail(sb.toString());
+			}
+
 			GradleDependency activeGradleDependency =
 				_getActiveGradleDependency(
 					gradleDependencies, gradleDependency);

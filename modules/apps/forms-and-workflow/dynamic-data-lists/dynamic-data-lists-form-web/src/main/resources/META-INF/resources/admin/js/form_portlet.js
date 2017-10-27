@@ -1,7 +1,7 @@
 AUI.add(
 	'liferay-ddl-portlet',
 	function(A) {
-		var LayoutSerializer = Liferay.DDL.LayoutSerializer;
+		var LayoutSerializer = Liferay.DDM.LayoutSerializer;
 
 		var Settings = Liferay.DDL.Settings;
 
@@ -21,9 +21,6 @@ AUI.add(
 					alert: {
 					},
 
-					context: {
-					},
-
 					defaultLanguageId: {
 						value: themeDisplay.getDefaultLanguageId()
 					},
@@ -36,7 +33,6 @@ AUI.add(
 					},
 
 					formBuilder: {
-						valueFn: '_valueFormBuilder'
 					},
 
 					localizedDescription: {
@@ -59,7 +55,6 @@ AUI.add(
 					},
 
 					ruleBuilder: {
-						valueFn: '_valueRuleBuilder'
 					},
 
 					rules: {
@@ -91,7 +86,7 @@ AUI.add(
 							instance._eventHandlers = [];
 						}
 
-						if (window.DDLRuleBuilder) {
+						if (window.DDMRuleBuilder) {
 							instance._onRuleBuilderLoaded();
 						}
 						else {
@@ -430,33 +425,30 @@ AUI.add(
 									{
 										after: {
 											success: function(event, id, xhr) {
-												var requestURL = this.get('uri');
-												var responseURL = xhr.responseURL;
+												var responseData = this.get('responseData');
 
-												if (requestURL !== responseURL) {
-													window.location.reload();
-												}
-												else {
-													var responseData = this.get('responseData');
+												instance._defineIds(responseData);
 
-													instance._defineIds(responseData);
+												instance.savedState = state;
 
-													instance.savedState = state;
+												instance.fire(
+													'autosave',
+													{
+														modifiedDate: responseData.modifiedDate
+													}
+												);
 
-													instance.fire(
-															'autosave',
-															{
-																modifiedDate: responseData.modifiedDate
-															}
-													);
-
-													callback.call();
-												}
+												callback.call();
 											}
 										},
 										data: formData,
 										dataType: 'JSON',
-										method: 'POST'
+										method: 'POST',
+										on: {
+											failure: function(event, id, xhr) {
+												window.location.reload();
+											}
+										}
 									}
 								);
 							}
@@ -703,31 +695,26 @@ AUI.add(
 									{
 										after: {
 											success: function(event, id, xhr) {
-												var requestURL = this.get('uri');
-												var responseURL = xhr.responseURL;
+												instance.set('published', newPublishedValue);
 
-												if (requestURL !== responseURL) {
-													window.location.reload();
+												instance.syncInputValues();
+
+												if (newPublishedValue) {
+													instance._handlePublishAction();
 												}
 												else {
-													var responseData = this.get('responseData');
-
-													instance.set('published', newPublishedValue);
-
-													instance.syncInputValues();
-
-													if (newPublishedValue) {
-														instance._handlePublishAction();
-													}
-													else {
-														instance._handleUnpublishAction();
-													}
+													instance._handleUnpublishAction();
 												}
 											}
 										},
 										data: payload,
 										dataType: 'JSON',
-										method: 'POST'
+										method: 'POST',
+										on: {
+											failure: function(event, id, xhr) {
+												window.location.reload();
+											}
+										}
 									}
 								);
 							}
@@ -857,8 +844,8 @@ AUI.add(
 					_syncDescription: function() {
 						var instance = this;
 
-						var editingLanguageId = instance.get('editingLanguageId');
 						var defaultLanguageId = instance.get('defaultLanguageId');
+						var editingLanguageId = instance.get('editingLanguageId');
 
 						var localizedDescription = instance.get('localizedDescription');
 
@@ -872,8 +859,8 @@ AUI.add(
 					_syncName: function() {
 						var instance = this;
 
-						var editingLanguageId = instance.get('editingLanguageId');
 						var defaultLanguageId = instance.get('defaultLanguageId');
+						var editingLanguageId = instance.get('editingLanguageId');
 
 						var localizedName = instance.get('localizedName');
 
@@ -882,30 +869,6 @@ AUI.add(
 						localizedName[editingLanguageId] = name;
 
 						instance._setName(name);
-					},
-
-					_valueFormBuilder: function() {
-						var instance = this;
-
-						return new Liferay.DDL.FormBuilder(
-							{
-								context: instance.get('context'),
-								defaultLanguageId: instance.get('defaultLanguageId'),
-								editingLanguageId: instance.get('editingLanguageId')
-							}
-						);
-					},
-
-					_valueRuleBuilder: function() {
-						var instance = this;
-
-						return new Liferay.DDL.FormBuilderRuleBuilder(
-							{
-								formBuilder: instance.get('formBuilder'),
-								rules: instance.get('rules'),
-								visible: false
-							}
-						);
 					}
 				}
 			}
@@ -915,6 +878,6 @@ AUI.add(
 	},
 	'',
 	{
-		requires: ['aui-tooltip', 'io-base', 'liferay-alert', 'liferay-ddl-form-builder', 'liferay-ddl-form-builder-copy-publish-form-url-popover', 'liferay-ddl-form-builder-definition-serializer', 'liferay-ddl-form-builder-layout-serializer', 'liferay-ddl-form-builder-rule-builder', 'liferay-portlet-base', 'liferay-util-window', 'querystring-parse']
+		requires: ['aui-tooltip', 'io-base', 'liferay-alert', 'liferay-ddl-form-builder-copy-publish-form-url-popover', 'liferay-ddm-form-builder', 'liferay-ddm-form-builder-definition-serializer', 'liferay-ddm-form-builder-layout-serializer', 'liferay-ddm-form-builder-rule-builder', 'liferay-portlet-base', 'liferay-util-window', 'querystring-parse']
 	}
 );

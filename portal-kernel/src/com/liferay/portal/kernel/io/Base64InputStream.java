@@ -20,8 +20,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * @author Tina Tian
+ * @author     Tina Tian
+ * @deprecated As of 7.0.0, with no direct replacement
  */
+@Deprecated
 public class Base64InputStream extends InputStream {
 
 	public Base64InputStream(InputStream inputStream) {

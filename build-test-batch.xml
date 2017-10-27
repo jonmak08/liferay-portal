@@ -2133,7 +2133,7 @@ app.server.type=@{app.server.type}]]></echo>
 	</target>
 
 	<target name="functional-smoke-tomcat80-oracle121-jdk8">
-		<run-functional-test app.server.type="tomcat" database.type="oracle" test.portal.log.assert="false" />
+		<run-functional-test app.server.type="tomcat" database.type="oracle" test.portal.log.assert="true" />
 	</target>
 
 	<target name="functional-smoke-tomcat80-postgresql94-jdk8">
@@ -2145,7 +2145,7 @@ app.server.type=@{app.server.type}]]></echo>
 	</target>
 
 	<target name="functional-smoke-weblogic121-mysql56-jdk8">
-		<run-functional-test app.server.type="weblogic" database.type="mysql" test.portal.log.assert="false" />
+		<run-functional-test app.server.type="weblogic" database.type="mysql" test.portal.log.assert="true" />
 	</target>
 
 	<target name="functional-smoke-websphere85-mysql56-jdk8">
@@ -2502,6 +2502,31 @@ ${output.content}</echo>
 		</exec>
 	</target>
 
+	<target name="patching-tool-custom-scripts-jdk8">
+		<fail message="Please set the property liferay.jenkins.dir" >
+			<condition>
+				<not>
+					<isset property="liferay.jenkins.dir" />
+				</not>
+			</condition>
+		</fail>
+
+		<run-batch-test>
+			<test-action>
+				<sequential>
+					<trycatch property="failure.message">
+						<try>
+							<ant antfile="${liferay.jenkins.dir}/commands/custom-scripts/build-test.xml" inheritAll="false" target="run-patching-tool-custom-scripts" />
+						</try>
+						<catch>
+							<fail message="${failure.message}" />
+						</catch>
+					</trycatch>
+				</sequential>
+			</test-action>
+		</run-batch-test>
+	</target>
+
 	<target name="plugins-compile-jdk8">
 		<run-batch-test>
 			<test-action>
@@ -2641,13 +2666,6 @@ ${output.content}</echo>
 					<available file="${release.tool.dir}/git.diff" />
 					<then>
 						<delete file="${release.tool.dir}/git.diff" />
-					</then>
-				</if>
-
-				<if>
-					<available file="../bundles" type="dir" />
-					<then>
-						<delete dir="../bundles" />
 					</then>
 				</if>
 			</test-tear-down>

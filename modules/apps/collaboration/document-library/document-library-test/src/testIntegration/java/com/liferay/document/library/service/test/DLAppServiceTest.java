@@ -24,10 +24,10 @@ import com.liferay.document.library.kernel.exception.FileSizeException;
 import com.liferay.document.library.kernel.model.DLFileEntry;
 import com.liferay.document.library.kernel.model.DLFileEntryConstants;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
-import com.liferay.document.library.kernel.model.DLSyncConstants;
 import com.liferay.document.library.kernel.service.DLAppServiceUtil;
 import com.liferay.document.library.kernel.service.DLTrashServiceUtil;
 import com.liferay.document.library.kernel.util.DLValidator;
+import com.liferay.document.library.sync.constants.DLSyncConstants;
 import com.liferay.document.library.workflow.WorkflowHandlerInvocationCounter;
 import com.liferay.portal.configuration.test.util.ConfigurationTemporarySwapper;
 import com.liferay.portal.kernel.comment.CommentManagerUtil;
@@ -195,6 +195,7 @@ public class DLAppServiceTest extends BaseDLAppTestCase {
 			addFileEntry(group.getGroupId(), parentFolder.getFolderId());
 		}
 
+		@Ignore
 		@Test(expected = FileSizeException.class)
 		public void shouldFailIfSizeLimitExceeded() throws Exception {
 			try (ConfigurationTemporarySwapper configurationTemporarySwapper =
@@ -242,6 +243,7 @@ public class DLAppServiceTest extends BaseDLAppTestCase {
 				group.getGroupId(), parentFolder.getFolderId(), sourceFileName);
 		}
 
+		@Ignore
 		@Test(expected = FileExtensionException.class)
 		public void shouldFailIfSourceFileNameExtensionNotSupported()
 			throws Exception {
@@ -1399,6 +1401,7 @@ public class DLAppServiceTest extends BaseDLAppTestCase {
 			}
 		}
 
+		@Ignore
 		@Test(expected = FileSizeException.class)
 		public void shouldFailIfSizeLimitExceeded() throws Exception {
 			String fileName = RandomTestUtil.randomString();
