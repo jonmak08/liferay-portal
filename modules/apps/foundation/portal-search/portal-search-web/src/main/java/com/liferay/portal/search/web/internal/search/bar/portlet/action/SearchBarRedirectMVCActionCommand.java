@@ -28,7 +28,12 @@ import com.liferay.portal.search.web.internal.search.bar.portlet.SearchBarPortle
 import com.liferay.portal.search.web.internal.search.bar.portlet.SearchBarPortletPreferencesImpl;
 import com.liferay.portal.search.web.internal.util.SearchStringUtil;
 
+import com.liferay.portal.search.web.internal.site.facet.portlet.ScopeFacetBuilder;
+
 import java.util.Optional;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -77,6 +82,8 @@ public class SearchBarRedirectMVCActionCommand extends BaseMVCActionCommand {
 			ActionRequest actionRequest, ActionResponse actionResponse)
 		throws Exception {
 
+		List selectedFacetSites = new ArrayList();
+
 		hideDefaultSuccessMessage(actionRequest);
 
 		SearchBarPortletPreferences searchBarPortletPreferences =
@@ -90,6 +97,14 @@ public class SearchBarRedirectMVCActionCommand extends BaseMVCActionCommand {
 			redirectURL, actionRequest,
 			searchBarPortletPreferences.getKeywordsParameterName(),
 			searchBarPortletPreferences.getScopeParameterName());
+
+		selectedFacetSites = Arrays.asList(ScopeFacetBuilder.getSelectedSites());
+
+		if (selectedFacetSites != null) {
+			for (Object item : selectedFacetSites) {
+				redirectURL = redirectURL + "&" + "site" + "=" + item;
+			}
+		}
 
 		actionResponse.sendRedirect(portal.escapeRedirect(redirectURL));
 	}

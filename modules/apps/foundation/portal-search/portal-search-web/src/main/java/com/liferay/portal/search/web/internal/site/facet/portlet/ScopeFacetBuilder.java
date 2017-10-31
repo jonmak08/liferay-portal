@@ -49,6 +49,10 @@ public class ScopeFacetBuilder {
 		return facet;
 	}
 
+	public static String[] getSelectedSites() {
+		return _selectedSites;
+	}
+
 	public void setFrequencyThreshold(int frequencyThreshold) {
 		_frequencyThreshold = frequencyThreshold;
 	}
@@ -87,6 +91,6 @@ public class ScopeFacetBuilder {
 	private int _maxTerms;
 	private final ScopeFacetFactory _scopeFacetFactory;
 	private SearchContext _searchContext;
-	private String[] _selectedSites;
+	private static String[] _selectedSites;
 
 }
