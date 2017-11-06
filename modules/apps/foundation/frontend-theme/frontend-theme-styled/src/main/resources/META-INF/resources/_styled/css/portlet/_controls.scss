@@ -49,6 +49,11 @@ body.portlet {
 	padding: 12px 10px 10px;
 }
 
+.portlet-content {
+	overflow: auto;
+	position: relative;
+}
+
 .portlet-minimized .portlet-content {
 	padding: 0;
 }
