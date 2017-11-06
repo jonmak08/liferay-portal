@@ -244,8 +244,14 @@ public class LayoutTypePortletImpl
 			}
 		}
 
-		if (!endPortlets.isEmpty()) {
-			list.addAll(endPortlets);
+		for (int j = 0; j < endPortlets.size(); j++) {
+			Portlet currentPortlet = endPortlets.get(j);
+
+			// Add the portlet if and only if it is not also a static portlet
+
+			if (!startPortlets.contains(currentPortlet)) {
+				list.add(currentPortlet);
+			}
 		}
 
 		return list;
