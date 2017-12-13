@@ -536,8 +536,8 @@ AUI.add(
 						var namespaceData;
 
 						var index = {
-								index: guid
-							};
+							index: guid
+						};
 
 						if (instance.urlNamespace && instance.namespace != instance.urlNamespace) {
 							namespaceData = Liferay.Util.ns(instance.urlNamespace, index);
