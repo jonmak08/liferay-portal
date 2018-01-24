@@ -472,13 +472,15 @@ AUI.add(
 
 									if (tempRandomSuffix) {
 										var posTempRandomSuffix = title.indexOf(tempRandomSuffix);
-										var posDot = title.lastIndexOf('.');
+										var lastIndexOfPeriod = title.lastIndexOf('.');
 
-										if (posTempRandomSuffix != -1 && posDot != -1) {
-											title = title.substr(0, posTempRandomSuffix) + title.substr(posDot);
-										}
-										else if (posTempRandomSuffix != -1 && posDot == -1) {
-											title = title.substr(0, posTempRandomSuffix);
+										if (posTempRandomSuffix != -1) {
+											if (lastIndexOfPeriod > 0) {
+												title = title.substr(0, posTempRandomSuffix) + title.substr(lastIndexOfPeriod);
+											}
+											else {
+												title = title.substr(0, posTempRandomSuffix);
+											}
 										}
 									}
 
